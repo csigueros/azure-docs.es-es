@@ -5,13 +5,13 @@ metadata:
   ms.reviewer: vijayts
   ms.topic: article
   ms.service: backup
-  ms.date: 05/07/2021
-  ms.openlocfilehash: b9d0efe909cd82cec1b3ade53882b3a3935b0353
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 08/20/2021
+  ms.openlocfilehash: d8c04eead12e3c0e96cf72e7492c52ccdb49686e
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253195"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123108920"
 title: Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 summary: >
   Este artículo responde preguntas comunes sobre las copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con el servicio [Azure Backup](backup-overview.md).
@@ -75,18 +75,6 @@ sections:
       > [!NOTE]
 
       > En la experiencia de usuario puede seguir avanzando y programando tantas copias de seguridad como quiera en un momento dado. Sin embargo, se procesarán en una ventana deslizante (por ejemplo, de cinco, de acuerdo con el ejemplo anterior).
-  - question: >
-      ¿Puedo ejecutar una copia de seguridad completa desde una réplica secundaria?
-    answer: >
-      Según las limitaciones de SQL, puede ejecutar copias de seguridad completas de solo copia en la réplica secundaria. Sin embargo, no se permite la copia de seguridad completa.
-  - question: >
-      ¿Puedo proteger los grupos de disponibilidad locales?
-    answer: >
-      No. Azure Backup protege las bases de datos de SQL Server que se ejecutan en Azure. Si se distribuye un grupo de disponibilidad entre máquinas locales y de Azure, se podrá proteger este solo si la réplica principal se ejecuta en Azure. Además, Azure Backup protege solo los nodos que se ejecutan en la misma región de Azure que el almacén de Recovery Services.
-  - question: >
-      ¿Puedo proteger los grupos de disponibilidad entre regiones?
-    answer: >
-      El almacén de Azure Backup Recovery Services puede detectar y proteger todos los nodos que se encuentran en la misma región que el almacén. Si su grupo de disponibilidad Always On de SQL Server abarca varias regiones de Azure, configure la copia de seguridad de la región que tenga el nodo principal. Azure Backup puede detectar todas las bases de datos del grupo de disponibilidad en función de sus preferencias con respecto a la copia de seguridad y protegerlas. Cuando no se cumple la preferencia de copia de seguridad, se produce un error en las copias de seguridad y se emite la alerta de error.
   - question: >
       ¿Generan alertas los trabajos de copia de seguridad que se han realizado correctamente?
     answer: >

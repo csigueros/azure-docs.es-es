@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c52cd013d1a5d2cbde0ab88eac24d2fd3ef77d46
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 1e2751c7df1cd3b43ce6c700bc51b51faf95963f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613533"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468711"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Configuración de una instancia de Azure Digital Twins y autenticación (PowerShell)
 
@@ -23,8 +23,8 @@ En este artículo se describen los pasos para **configurar una nueva instancia d
 
 En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante [Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [Procedimiento: Configuración de una instancia y autenticación (Azure Portal)](how-to-set-up-instance-portal.md) .
-* Para ejecutar una configuración automatizada mediante un script de implementación de ejemplo, consulte la versión con scripts de este artículo: [Procedimiento: Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md) .
+* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [Configuración de una instancia y autenticación (Azure Portal)](how-to-set-up-instance-portal.md).
+* A fin de ejecutar una configuración automatizada con un ejemplo de script de implementación, consulte la versión con scripts de este artículo en [Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -145,4 +145,4 @@ Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
-* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)
+* [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

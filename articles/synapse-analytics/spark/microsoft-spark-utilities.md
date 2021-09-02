@@ -11,12 +11,12 @@ ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 9923a2bd2e36975fe1af77fddb4bb484a4eb87c6
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 5e0590dd524c516b2c6b909184de1f2d65f0074c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217780"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257033"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introducción a las utilidades de Spark para Microsoft
 
@@ -51,7 +51,7 @@ Siga los pasos a continuación para asegurarse de que Azure AD y la MSI del ár
 
 Puede acceder a los datos en ADLS Gen2 con Synapse Spark mediante la siguiente dirección URL:
 
-<code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
+`abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path>`
 
 ### <a name="configure-access-to-azure-blob-storage"></a>Configuración del acceso a Azure Blob Storage  
 
@@ -69,7 +69,7 @@ Siga los pasos a continuación para agregar un nuevo servicio vinculado para una
 
 Puede acceder a los datos en Azure Blob Storage con Synapse Spark a través de la siguiente dirección URL:
 
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+`wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path>`
 
 Este es un ejemplo de código:
 

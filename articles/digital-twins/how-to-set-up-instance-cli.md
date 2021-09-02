@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d44e73b7d4c2988fb26c947100faac2ebcbe8f8f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6f64791df0c564183900fd75c718ac4e5f9d0976
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474618"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468850"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
@@ -21,8 +21,8 @@ ms.locfileid: "110474618"
 En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante la CLI.
-* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [Procedimiento: Configuración de una instancia y autenticación (Azure Portal)](how-to-set-up-instance-portal.md) .
-* Para ejecutar una configuración automatizada mediante un script de implementación de ejemplo, consulte la versión con scripts de este artículo: [Procedimiento: Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md) .
+* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [Configuración de una instancia y autenticación (Azure Portal)](how-to-set-up-instance-portal.md).
+* A fin de ejecutar una configuración automatizada con un ejemplo de script de implementación, consulte la versión con scripts de este artículo en [Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -41,7 +41,7 @@ En esta sección, **creará una nueva instancia de Azure Digital Twins** mediant
 * Una región para la implementación. Para ver qué regiones admiten Azure Digital Twins, visite [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * Un nombre para la instancia. Si su suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre especificado, se le pedirá que elija un nombre diferente.
 
-Use estos valores en el comando siguiente para crear la instancia:
+Use estos valores en el comando [az dt command](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) siguiente para crear la instancia:
 
 ```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
@@ -101,7 +101,7 @@ Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados 
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
 * [Referencia de az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [Conceptos: Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
+* [Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
 
 O bien consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
-* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)
+* [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

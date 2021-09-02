@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 544f871f62481243cda2409db24b0d067df28c32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/26/2021
+ms.openlocfilehash: cb88998009ab05eb91b8945a138ef935660dac35
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580578"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710759"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Supervisar y ajustar Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -20,9 +20,17 @@ La supervisión de los datos sobre los servidores le permite solucionar problema
 
 ## <a name="metrics"></a>Métricas
 
-Hiperescala (Citus) proporciona métricas para cada nodo de un grupo de servidores. Las métricas proporcionan información detallada sobre el comportamiento de los recursos complementarios. Cada métrica se emite con una frecuencia de un minuto y tiene un historial de hasta 30 días.
+Hiperescala (Citus) proporciona métricas para los nodos de un grupo de servidores y agrega métricas para el grupo en su conjunto. Las métricas proporcionan información detallada sobre el comportamiento de los recursos complementarios. Cada métrica se emite con una frecuencia de un minuto y tiene un historial de hasta 30 días.
 
-Además de ver los gráficos de las métricas, puede configurar alertas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-hyperscale-alert-on-metric.md) (Configuración de alertas).  Otras tareas incluyen la configuración de acciones automatizadas, la ejecución de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/data-platform.md).
+Además de ver los gráficos de las métricas, puede configurar alertas. Para obtener instrucciones paso a paso, vea [Configuración de alertas](howto-hyperscale-alert-on-metric.md).  Otras tareas incluyen la configuración de acciones automatizadas, la ejecución de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/data-platform.md).
+
+### <a name="per-node-vs-aggregate"></a>Por nodo frente a agregado
+
+De forma predeterminada, Azure Portal agrega métricas de Hiperescala (Citus) en los nodos de un grupo de servidores. Sin embargo, algunas métricas, como el porcentaje de uso del disco, son más informativas por nodo. Para ver las métricas de los nodos que se muestran individualmente, use la [división de métricas](../azure-monitor/essentials/metrics-charts.md#metric-splitting) de Azure Monitor por nombre de servidor.
+
+> [!NOTE]
+>
+> Algunos grupos de servidores de Hiperescala (Citus) no admiten la división de métricas. En estos grupos de servidores, puede ver las métricas de los nodos individuales al hacer clic en el nombre del nodo en la página de **información general** del grupo de servidores. A continuación, abra la página de **métricas** del nodo.
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 
@@ -44,3 +52,4 @@ Azure no proporciona métricas agregadas para el clúster en conjunto, pero las 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Configuración de alertas](howto-hyperscale-alert-on-metric.md) para obtener instrucciones sobre cómo crear una alerta en una métrica.
+- Obtenga información sobre cómo realizar la [división de métricas](../azure-monitor/essentials/metrics-charts.md#metric-splitting) para inspeccionar las métricas por nodo de un grupo de servidores.

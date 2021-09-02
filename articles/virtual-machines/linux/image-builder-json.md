@@ -3,19 +3,18 @@ title: Creación de una plantilla de Azure Image Builder
 description: Obtenga información sobre cómo crear una plantilla para usarla con Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07dfd9eb2dab9ae8c7e7a024bbf09c641e0910e4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d9ac06d7863ae08e380532f0b737dafc57ab666e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967251"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469161"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Creación de una plantilla de Azure Image Builder 
 
@@ -98,18 +97,8 @@ De manera predeterminada, Image Builder usará una máquina virtual de compilaci
 2. Al ejecutar compilaciones de Windows, debe usar "Standard_D2_v2" o un tamaño de máquina virtual equivalente.
 3. Requerir [aislamiento de máquina virtual](../isolation.md).
 4. Personalizar una imagen que requiera hardware específico, por ejemplo, para una máquina virtual con GPU, necesita un tamaño de máquina virtual de GPU. 
-5. Requerir cifrado de un extremo a otro en el resto de la máquina virtual de compilación; debe especificar el [tamaño de máquina virtual](../azure-vms-no-temp-disk.md) de compilación compatible que no usa discos temporales locales.
+5. Requerir cifrado de un extremo a otro en el resto de la máquina virtual de compilación; debe especificar el [tamaño de máquina virtual](../azure-vms-no-temp-disk.yml) de compilación compatible que no usa discos temporales locales.
  
-Esto es opcional.
-
-
-## <a name="proxy-vm-size"></a>Tamaño de máquina virtual de proxy
-La máquina virtual de proxy se usa para enviar comandos entre Azure Image Builder Service y la máquina virtual de compilación; esto solo se implementa al especificar una red virtual existente. Para obtener más información, consulte la [documentación](image-builder-networking.md#why-deploy-a-proxy-vm) de las opciones de red.
-```json
- {
-    "proxyVmSize": "Standard A1_v2"
- },
-```
 Esto es opcional.
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
@@ -181,7 +170,7 @@ La API requiere un "SourceType" que define el origen de la compilación de image
 > Al usar imágenes personalizadas de Windows existentes, puede ejecutar el comando Sysprep hasta tres veces en una sola imagen de Windows 7 o Windows Server 2008 R2, o 1001 veces en una sola imagen de Windows para versiones posteriores. Para obtener más información, consulte la documentación de [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
 
 ### <a name="platformimage-source"></a>Origen de PlatformImage 
-El generador de imágenes de Azure admite Windows Server y el cliente, así como las imágenes de Azure Marketplace de Linux. Consulte [aquí](../image-builder-overview.md#os-support) para ver la lista completa. 
+El generador de imágenes de Azure admite Windows Server y el cliente, así como las imágenes de Azure Marketplace de Linux. Consulte [Información sobre Azure Image Builder](../image-builder-overview.md#os-support) para ver la lista completa. 
 
 ```json
         "source": {
@@ -725,3 +714,4 @@ az resource invoke-action \
 ## <a name="next-steps"></a>Pasos siguientes
 
 Encontrará archivos .json de ejemplo para diferentes escenarios en el [GitHub de Azure Image Builder](https://github.com/azure/azvmimagebuilder).
+

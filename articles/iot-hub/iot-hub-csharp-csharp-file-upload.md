@@ -2,20 +2,19 @@
 title: Carga de archivos desde dispositivos a Azure IoT Hub con .NET | Microsoft Docs
 description: Cómo cargar archivos de un dispositivo a la nube mediante el SDK de dispositivo IoT de Azure para. NET. Los archivos cargados se almacenan en un contenedor de blobs de Azure Storage.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 07/04/2017
+ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: df460ba4163b414ad954dce73125a6376f4cad6f
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 41cf392fb4b50c06e6af1f20e0c53570589b4090
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004590"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780469"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (.NET)
 
@@ -23,7 +22,7 @@ ms.locfileid: "112004590"
 
 Este tutorial le muestra el uso de las funcionalidades de carga de archivos de IoT Hub mediante el ejemplo de carga de archivos de .NET. 
 
-En el inicio rápido [Envío de telemetría de un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md) y el tutorial de [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) se muestra cómo usar la funcionalidad básica de mensajería del dispositivo a la nube y de la nube al dispositivo de IoT Hub. En el tutorial [Configuración del enrutamiento de mensajes con IoT Hub](tutorial-routing.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Microsoft Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta IoT Hub. Por ejemplo:
+En el inicio rápido [Envío de telemetría de un dispositivo a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) y el tutorial de [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) se muestra cómo usar la funcionalidad básica de mensajería del dispositivo a la nube y de la nube al dispositivo de IoT Hub. En el tutorial [Configuración del enrutamiento de mensajes con IoT Hub](tutorial-routing.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Microsoft Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta IoT Hub. Por ejemplo:
 
 * Archivos grandes con imágenes
 
@@ -46,9 +45,17 @@ Dichos archivos se suelen procesar por lotes en la nube mediante herramientas co
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
-* Descargue los ejemplos en C# de Azure IoT de [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP.
+* Las aplicaciones de ejemplo que se ejecutan en este artículo se escriben con C#. En los ejemplos de C# de Azure IoT, se recomienda tener la SDK de .NET Core 3.1 o superior en la máquina de desarrollo.
 
-* Abra la carpeta *FileUploadSample* en Visual Studio Code y abra el archivo *FileUploadSample.cs*.
+    Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://dotnet.microsoft.com/download).
+
+    Puede verificar la versión actual de SDK de .NET Core en el equipo de desarrollo con el comando siguiente:
+
+    ```cmd/sh
+    dotnet --version
+    ```
+
+* Descargue los ejemplos en C# de Azure IoT de [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP.
 
 * Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -56,15 +63,15 @@ Dichos archivos se suelen procesar por lotes en la nube mediante herramientas co
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registro de un nuevo dispositivo en el centro de IoT
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtención de la cadena de conexión de IoT Hub
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## <a name="examine-the-application"></a>Examen de la aplicación
 
-Vaya a la carpeta *FileUploadSample* en la descarga de ejemplos de .NET. Abra la carpeta en Visual Studio Code. La carpeta contiene un archivo denominado *parameters.cs*. Si abre ese archivo, verá que el parámetro *p* es necesario y contiene la cadena de conexión. El parámetro *t* se puede especificar si desea cambiar el protocolo de transporte. El protocolo predeterminado es mqtt. El archivo *program.cs* contiene la función *main*. El archivo *FileUploadSample.cs* contiene la lógica de ejemplo principal. *TestPayload.txt* es el archivo que se va a cargar en el contenedor de blobs.
+En Visual Studio Code, abra la carpeta *azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample* en la descarga de ejemplos de .NET. La carpeta contiene un archivo denominado *parameters.cs*. Si abre ese archivo, verá que el parámetro *p* es necesario y contiene la cadena de conexión del dispositivo. Ha copiado y guardado esta cadena de conexión al registrar el dispositivo. El parámetro *t* se puede especificar si desea cambiar el protocolo de transporte. El protocolo predeterminado es mqtt. El archivo *program.cs* contiene la función *main*. El archivo *FileUploadSample.cs* contiene la lógica de ejemplo principal. *TestPayload.txt* es el archivo que se va a cargar en el contenedor de blobs.
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -74,7 +81,7 @@ Ahora está preparado para ejecutar la aplicación.
 1. Escriba los comandos siguientes:
     ```cmd/sh
     dotnet restore
-    dotnet run --p "{Your connection string}"
+    dotnet run --p "{Your device connection string}"
     ```
 
 La salida debe ser similar a la siguiente:

@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Cache for Redis
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Cache for Redis. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-reference
-ms.openlocfilehash: abe952e31dc718b6e17de9c32163698045a80c35
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 86fa07c39f3c0a1c00b5ebb3ef9cb947590968f9
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609427"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105932"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Definiciones integradas de Azure Policy para Azure Cache for Redis
 

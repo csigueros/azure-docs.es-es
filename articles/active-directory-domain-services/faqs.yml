@@ -10,14 +10,14 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: how-to
-  ms.date: 02/09/2021
+  ms.date: 06/18/2021
   ms.author: justinha
-  ms.openlocfilehash: a431fff476cd79d25c4db0e60ad0bcff361a4a2a
-  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+  ms.openlocfilehash: 287613213a565f475515e3034fd3897d29c1fff0
+  ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/30/2021
-  ms.locfileid: "111907482"
+  ms.lasthandoff: 07/27/2021
+  ms.locfileid: "114707899"
 title: Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services
 summary: Esta página responde a las preguntas más frecuentes acerca de Azure Active Directory Domain Services.
 sections:
@@ -73,6 +73,9 @@ sections:
       ¿Pueden los usuarios invitados a mi directorio usar Azure AD Domain Services?
     answer: >
       No. Los usuarios invitados a su directorio de Azure AD mediante el proceso de invitación [B2B de Azure AD](../active-directory/external-identities/what-is-b2b.md) se sincronizan en el dominio administrado de Azure AD Domain Services. Sin embargo, las contraseñas para estos usuarios no se almacenan en el directorio de Azure AD. Por lo tanto, Azure AD Domain Services no tiene ninguna manera de sincronizar los códigos hash de Kerberos y NTLM para estos usuarios en el dominio administrado. Estos usuario no pueden iniciar sesión o unir equipos al dominio administrado.
+  - question: >
+      ¿Se puede crear una confianza de bosque de dos vías entre un bosque de recursos y un bosque local?
+    answer: "No. Un bosque de recursos de dominio administrado admite hasta cinco bosques de salida unidireccionales en los bosques locales. \n"
   - question: >
       ¿Puedo trasladar un dominio administrado existente de Azure AD Domain Services a otra suscripción, grupo de recursos, región o red virtual?
     answer: >
@@ -158,6 +161,10 @@ sections:
       ¿Puedo obtener Servicios de dominio de Azure AD como parte de Enterprise Mobility Suite (EMS)? ¿Necesito Azure AD Premium para usar Azure AD Domain Services?
     answer: >
       No. No, Azure AD Domain Services es un servicio de pago por uso de Azure y no forma parte de EMS. Azure AD Domain Services puede utilizarse con todas las ediciones de Azure AD (Gratis y Premium). Se le facturará por cada hora en función del uso.
+  - question: >
+      ¿Puedo crear un dominio secundario en un dominio administrado?
+    answer: >
+      No. Azure AD Domain Services tiene un solo dominio, un diseño de bosque único y no se pueden crear dominios secundarios.
   - question: >
       ¿En qué regiones de Azure está disponible el servicio?
     answer: >

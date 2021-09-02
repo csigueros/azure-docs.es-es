@@ -1,8 +1,8 @@
 ---
 title: 'Image Builder: creación de una imagen de Windows Virtual Desktop'
 description: Cree una imagen de máquina virtual de Azure de Windows Virtual Desktop con el servicio Image Builder de Azure en PowerShell.
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
 ms.reviewer: cynthn
 ms.date: 05/12/2021
 ms.topic: article
@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20f50ccfcbfce7a4e70722feaef4d245e11336f8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 45748ac5c21993e6df69950e03de9e90180c4ab0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031122"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472083"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Creación de una imagen de Windows Virtual Desktop mediante Azure VM Image Builder y PowerShell
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo crear una imagen de Windows Virtual Desktop c
 
 * Instalación de [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Ejecución de un [script de optimización de Windows Virtual Desktop](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) desde el repositorio de la comunidad.
-* Instalación de [Microsoft Teams](../../virtual-desktop/teams-on-wvd.md).
+* Instalación de [Microsoft Teams](../../virtual-desktop/teams-on-avd.md).
 * [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer) (Reiniciar)
 * Ejecución de [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
@@ -74,7 +74,7 @@ Este artículo pretende ser un ejercicio de copiar y pegar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener instalados los cmdlets de Azure PowerShell más recientes. consulte [aquí](/powershell/azure/overview) para obtener información detallada sobre la instalación.
+Debe tener instalados los cmdlets de Azure PowerShell más recientes, consulte [Introducción a Azure PowerShell](/powershell/azure/overview) para obtener información detallada sobre la instalación.
 
 ```PowerShell
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
@@ -162,8 +162,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 ```
 
 > [!NOTE] 
-> Si ve este error: "New-AzRoleDefinition: se ha superado el límite de definición de roles. No se pueden crear más definiciones de rol", consulte este artículo para resolverlo: https://docs.microsoft.com/azure/role-based-access-control/troubleshooting.
-
+> Si ve este error: "New-AzRoleDefinition: se ha superado el límite de definición de roles. No se pueden crear más definiciones de rol", Consulte [Solución de problemas de Azure RBA](../../role-based-access-control/troubleshooting.md).
 
 
 ## <a name="create-the-shared-image-gallery"></a>Creación de la instancia de Shared Image Gallery 
@@ -273,7 +272,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## <a name="create-a-vm"></a>Crear una VM
-Ahora que la compilación ha finalizado, puede crear una VM a partir de la imagen. Use para ello [estos](/powershell/module/az.compute/new-azvm#examples) ejemplos.
+Ahora que la compilación ha finalizado, puede crear una VM a partir de la imagen. Use para ello los ejemplos de [New-AzVM (Az.Compute)](/powershell/module/az.compute/new-azvm#examples).
 
 ## <a name="clean-up"></a>Limpieza
 
@@ -306,3 +305,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 ## <a name="next-steps"></a>Pasos siguientes
 
 Puede probar más ejemplos [en GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts).
+

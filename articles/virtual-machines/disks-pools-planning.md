@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 74d50826811198811e6cea671641cae378d1235c
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: e3ffadcdc77d09d04518cdf577208250c2906407
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419589"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469893"
 ---
 # <a name="azure-disk-pools-preview-planning-guide"></a>Guía de planeamiento de grupos de discos de Azure (versión preliminar)
 
@@ -65,6 +65,8 @@ Si el grupo de discos deja de ser accesible para la nube de Azure VMware Solutio
 - Ya no se podrá acceder a todos los almacenes de datos asociados al grupo de discos.
 - Todas las máquinas virtuales de VMware hospedadas en esta nube de Azure VMware Solution que está utilizando los almacenes de datos afectados estarán en un estado incorrecto.
 - El estado de los clústeres de esta nube de Azure VMware Solution no se ve afectado, excepto en una operación: no podrá poner un host en modo de mantenimiento. Azure VMware Solution controlará este error e intentará la recuperación mediante la desconexión de los almacenes de datos afectados.
+
+Si experimenta este estado, realice estos [pasos](disks-pools-troubleshoot.md#recover-a-disk-pool-or-an-iscsi-target) para recuperar el grupo de discos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

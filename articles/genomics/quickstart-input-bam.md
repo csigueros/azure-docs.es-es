@@ -3,18 +3,18 @@ title: Envío de un flujo de trabajo con una entrada de archivo BAM
 titleSuffix: Microsoft Genomics
 description: Este artículo muestra cómo enviar un flujo de trabajo al servicio de Microsoft Genomics, si el archivo de entrada es un archivo simple BAM.
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: d9d8a10d4adcad2072282f59641b157364fecad2
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 09e06e528f2e47338871d7a564b763534a363766
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551909"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255757"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Envío de un flujo de trabajo con una entrada de archivo BAM
 

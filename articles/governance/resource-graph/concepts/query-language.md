@@ -1,14 +1,14 @@
 ---
 title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
-ms.date: 08/11/2021
+ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7d23a8958ebfa90658ec5769b077f07091eff89d
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 1f1eef5a70187ed883da9f535cc2f2915e3bf6d6
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861049"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104658"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -32,6 +32,7 @@ Resource Graph proporciona varias tablas para los datos que almacena sobre los t
 |ResourceContainers |Sí |Incluye el grupo de administración (`Microsoft.Management/managementGroups`), la suscripción (`Microsoft.Resources/subscriptions`) y los tipos de datos del grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`) del grupo de recursos y los datos. |
 |AdvisorResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
 |AlertsManagementResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
+|DesktopVirtualizationResources |Sí |Incluye recursos _relacionados_ con `Microsoft.DesktopVirtualization`. |
 |ExtendedLocationResources |No |Incluye recursos _relacionados_ con `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Incluye recursos _relacionados_ con `Microsoft.GuestConfiguration`. |
 |HealthResources|Sí |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth/availabilitystatuses`. |

@@ -1,29 +1,29 @@
 ---
 title: Eventos de auditoría de Azure SQL Database con tablas habilitadas para libro de contabilidad
 description: Introducción a las funcionalidades de auditoría del libro de contabilidad de Azure SQL Database
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: eafca78dc22a01784eee79293fb7a2ec798818ad
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d032b311809449d35a017fdd053fb97447b8479c
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388782"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666749"
 ---
 # <a name="azure-sql-database-audit-events-with-ledger-enabled-tables"></a>Eventos de auditoría de Azure SQL Database con tablas habilitadas para libro de contabilidad
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> El libro de contabilidad de Azure SQL Database se encuentra actualmente en **versión preliminar pública**.
+> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
 
-Al realizar actividades forenses con tablas habilitadas para el libro de contabilidad, además de los datos capturados en la vista de libro de contabilidad y el libro de contabilidad de base de datos, se agregan identificadores de acción adicionales a los registros de auditoría de SQL.  En la tabla siguiente se describen estos nuevos eventos de registro de auditoría junto con las condiciones que los desencadenan.
+Al realizar actividades forenses con tablas habilitadas para libro de contabilidad, los datos se capturan en la vista de libro de contabilidad y en libro de contabilidad de base de datos. También se agregan otros id. de acción a los registros de auditoría SQL. En las tablas siguientes se describen estos nuevos eventos de registro de auditoría. Las condiciones que desencadenan los eventos van a continuación de cada tabla.
 
 ## <a name="enable-ledger"></a>Habilitar libro de contabilidad
 
@@ -39,7 +39,7 @@ Al realizar actividades forenses con tablas habilitadas para el libro de contabi
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Condición que desencadena el evento**: crear una tabla de libro de contabilidad o conversión de una tabla normal en una tabla de libro de contabilidad.
+**Condiciones que desencadenan el evento**: cuando se crea una nueva tabla de libro de contabilidad o se convierte una tabla normal en una tabla de libro de contabilidad.
 
 ## <a name="alter-ledger"></a>Modificar libro de contabilidad
 
@@ -55,7 +55,7 @@ Al realizar actividades forenses con tablas habilitadas para el libro de contabi
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Condición que desencadena el evento**: quitar o cambiar el nombre de una tabla de libro de contabilidad, convertir una tabla de libro de contabilidad en una tabla normal, agregar, quitar o cambiar el nombre de una columna de una tabla de libro de contabilidad.
+**Condiciones que desencadenan el evento**: al quitar o cambiar el nombre de una tabla de libro de contabilidad, convertir una tabla de libro de contabilidad en una tabla normal y agregar, quitar o cambiar el nombre de una columna de una tabla de libro de contabilidad.
 
 
 ## <a name="generate-ledger-digest"></a>Generar resumen de libro de contabilidad
@@ -72,7 +72,7 @@ Al realizar actividades forenses con tablas habilitadas para el libro de contabi
 | **configuration_group_name** | LEDGER_OPERATION_GROUP  |
 | **action_in_log** | 1 |
 
-**Condición que desencadena el evento**: generar un resumen del libro de contabilidad.
+**Condición que desencadena el evento**: cuando se genera un resumen del libro de contabilidad.
 
 ## <a name="verify-ledger"></a>Comprobar libro de contabilidad
 
@@ -88,9 +88,9 @@ Al realizar actividades forenses con tablas habilitadas para el libro de contabi
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Condición que desencadena el evento**: comprobar un resumen del libro de contabilidad.
+**Condición que desencadena el evento**: al comprobar un resumen del libro de contabilidad.
 
-## <a name="ledger-operation-group"></a>Grupo de operaciones del libro de contabilidad
+## <a name="ledger-operation-group"></a>Grupo de operaciones de libro de contabilidad
 
 | Columna | Valor |
 |--|--|
@@ -104,7 +104,7 @@ Al realizar actividades forenses con tablas habilitadas para el libro de contabi
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
 
-**Condición que desencadena el evento**: N/D.
+**Condición que desencadena el evento**: N/D
 
 | Columna | Valor |
 |--|--|
@@ -118,10 +118,10 @@ Al realizar actividades forenses con tablas habilitadas para el libro de contabi
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
 
-**Condición que desencadena el evento**: N/D. 
+**Condición que desencadena el evento**: N/D 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Auditoría para Azure SQL Database y Azure Synapse Analytics](auditing-overview.md)
 - [Introducción al libro de contabilidad de Azure SQL Database](ledger-overview.md)
-- [Inicio rápido: Creación de una instancia de Azure SQL Database con el libro de contabilidad habilitado](ledger-create-a-single-database-with-ledger-enabled.md)
+- [Inicio rápido: Creación de una base de datos de Azure SQL Database con el libro de contabilidad habilitado](ledger-create-a-single-database-with-ledger-enabled.md)

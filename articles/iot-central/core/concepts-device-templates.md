@@ -1,6 +1,6 @@
 ---
 title: ¿Qué son las plantillas de dispositivos en Azure IoT Central | Microsoft Docs
-description: Las plantillas de dispositivos de Azure IoT Central permiten especificar el comportamiento de los dispositivos conectados a la aplicación. Una plantilla de dispositivo especifica la telemetría, las propiedades y los comandos que el dispositivo debe implementar. Una plantilla de dispositivo también define la interfaz de usuario del dispositivo en IoT Central como los formularios y paneles que utiliza un operador.
+description: Las plantillas de dispositivos de Azure IoT Central permiten especificar el comportamiento de los dispositivos conectados a la aplicación. Una plantilla de dispositivo especifica la telemetría, las propiedades y los comandos que el dispositivo debe implementar. Una plantilla de dispositivo también define la interfaz de usuario del dispositivo en IoT Central, como los formularios y las vistas que utiliza un operador.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/19/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: ab209cd3fb598c0c9ad4df359578d956aca7077b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b2122dc50b265c31c1c21c2758e343ec88384a8b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088739"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474062"
 ---
 # <a name="what-are-device-templates"></a>¿Qué son las plantillas de dispositivo?
 
@@ -24,9 +24,9 @@ Un generador de soluciones agrega plantillas de dispositivos a una aplicación d
 En una plantilla de dispositivo se incluyen las secciones siguientes:
 
 - _Un modelo de dispositivo_. Esta parte de la plantilla de dispositivo define cómo interactúa el dispositivo con la aplicación. Un desarrollador de dispositivos implementa los comportamientos definidos en el modelo.
-    - _Componente predeterminado_. Cada modelo de dispositivo tiene un componente predeterminado. La interfaz del componente predeterminado describe las funcionalidades que son específicas del modelo de dispositivo.
-    - _Componentes_. Un modelo de dispositivo puede incluir componentes además del componente predeterminado para describir las funcionalidades del dispositivo. Cada componente tiene una interfaz que describe las funcionalidades del componente. Las interfaces de los componentes se pueden reutilizar en otros modelos de dispositivo. Por ejemplo, varios modelos de dispositivos de teléfono pueden usar la misma interfaz de cámara.
-    - _Interfaces heredadas_. Un modelo de dispositivo contiene una o más interfaces que amplían las funcionalidades del componente predeterminado.
+    - _Componente raíz_. Cada modelo de dispositivo tiene un componente raíz. La interfaz del componente raíz describe las funcionalidades que son específicas del modelo de dispositivo.
+    - _Componentes_. Un modelo de dispositivo puede incluir componentes además del componente raíz para describir las funcionalidades del dispositivo. Cada componente tiene una interfaz que describe las funcionalidades del componente. Las interfaces de los componentes se pueden reutilizar en otros modelos de dispositivo. Por ejemplo, varios modelos de dispositivos de teléfono pueden usar la misma interfaz de cámara.
+    - _Interfaces heredadas_. Un modelo de dispositivo contiene una o más interfaces que amplían las funcionalidades del componente raíz.
 - _Propiedades de la nube_. Esta parte de la plantilla de dispositivo permite al desarrollador de soluciones especificar los metadatos del dispositivo que se van a almacenar. Las propiedades de la nube nunca se sincronizan con los dispositivos y solo existen en la aplicación. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
 - _Personalizaciones_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones reemplace algunas de las definiciones del modelo de dispositivo. Las personalizaciones son útiles si el desarrollador de soluciones desea restringir el modo en que la aplicación controla un valor, como cambiar el nombre para mostrar de una propiedad o el color usado para mostrar un valor de telemetría. Las personalizaciones no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
 - _Vistas_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones defina visualizaciones para ver los datos del dispositivo y los formularios para administrar y controlar un dispositivo. Las vistas usan el modelo de dispositivo, las propiedades de la nube y las personalizaciones. Las vistas no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
@@ -39,7 +39,7 @@ Para más información sobre cómo editar un modelo de dispositivo, consulte [Ed
 
 Un desarrollador de soluciones también puede exportar un archivo JSON que contenga el modelo de dispositivo. Un desarrollador de dispositivos puede usar este documento JSON para comprender cómo debe comunicarse el dispositivo con la aplicación de IoT Central.
 
-El archivo JSON que define el modelo de dispositivo usa el [Lenguaje de definición de gemelos digitales (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central espera que el archivo JSON contenga el modelo de dispositivo con las interfaces definidas insertadas, en lugar de en archivos independientes. Para más información, consulte la [Guía de modelado de IoT Plug and Play](../../iot-pnp/concepts-modeling-guide.md).
+El archivo JSON que define el modelo de dispositivo usa el [Lenguaje de definición de gemelos digitales (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central espera que el archivo JSON contenga el modelo de dispositivo con las interfaces definidas insertadas, en lugar de en archivos independientes. Para más información, consulte la [Guía de modelado de IoT Plug and Play](../../iot-develop/concepts-modeling-guide.md).
 
 Habitualmente, los dispositivos IoT constan de:
 
@@ -48,7 +48,7 @@ Habitualmente, los dispositivos IoT constan de:
 
 Estos elementos se denominan _interfaces_  en un modelo de dispositivo. Las interfaces definen los detalles de cada uno de los elementos que implementa el dispositivo. Las interfaces se pueden reutilizar entre los modelos de dispositivo. En DTDL, un componente hace referencia a otra interfaz, que se puede definir en un archivo DTDL independiente o en otra sección del archivo.
 
-En el ejemplo siguiente se muestra el esquema de modelo de dispositivo para un [dispositivo de control de temperatura](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). El componente predeterminado incluye definiciones para `workingSet`, `serialNumber` y `reboot`. El modelo del dispositivo también incluye dos componentes `thermostat` y un componente `deviceInformation`. El contenido de los tres componentes se ha quitado por motivos de brevedad:
+En el ejemplo siguiente se muestra el esquema de modelo de dispositivo para un [dispositivo de control de temperatura](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). El componente raíz incluye definiciones para `workingSet`, `serialNumber` y `reboot`. El modelo del dispositivo también incluye dos componentes `thermostat` y un componente `deviceInformation`. El contenido de los tres componentes se ha quitado por motivos de brevedad:
 
 ```json
 [
@@ -295,7 +295,7 @@ En el caso de las propiedades de escritura, la aplicación de dispositivo devuel
 
 ## <a name="telemetry"></a>Telemetría
 
-IoT Central le permite ver la telemetría en paneles y gráficos, y usar reglas para desencadenar acciones cuando se alcanzan los umbrales. IoT Central usa la información del modelo de dispositivo, como los tipos de datos, las unidades y los nombres para mostrar, para determinar cómo se muestran los valores de telemetría.
+IoT Central le permite ver los datos de telemetría en vistas y gráficos de dispositivos, y usar reglas para desencadenar acciones cuando se alcanzan los umbrales. IoT Central usa la información del modelo de dispositivo, como los tipos de datos, las unidades y los nombres para mostrar, para determinar cómo se muestran los valores de telemetría. También puede mostrar los valores de telemetría en los paneles personales y de la aplicación.
 
 Puede usar la característica de exportación de datos de IoT Central para transmitir la telemetría a otros destinos, como Storage o Event Hubs.
 
@@ -318,7 +318,7 @@ Los comandos sin conexión son notificaciones unidireccionales al dispositivo de
 
 Las propiedades de la nube forman parte de la plantilla de dispositivo, pero no forman parte del modelo de dispositivo. Las propiedades de la nube permiten al desarrollador de soluciones especificar los metadatos de los dispositivos que se van a almacenar en la aplicación de IoT Central. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
 
-Un desarrollador de soluciones puede agregar propiedades de la nube a los paneles y las vistas, junto a las propiedades del dispositivo, para permitir que un operador administre los dispositivos conectados a la aplicación. Un desarrollador de soluciones también puede usar las propiedades de la nube como parte de una definición de regla para que un operador pueda editar un valor de umbral.
+Un desarrollador de soluciones puede agregar propiedades de la nube a las vistas y los formularios del dispositivo, junto a las propiedades del dispositivo, para permitir que un operador administre los dispositivos conectados a la aplicación. Un desarrollador de soluciones también puede usar las propiedades de la nube como parte de una definición de regla para que un operador pueda editar un valor de umbral.
 
 ## <a name="customizations"></a>Personalizaciones
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d534794737f93cd71ee9820f72e6c5ead08ca2b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96451595"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861000"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conexión a SQL de Synapse con Visual Studio y SSDT
 
@@ -36,9 +36,10 @@ Use Visual Studio para consultar el grupo de SQL dedicado mediante Azure Synaps
 
 Para usar este tutorial, debe contar con los siguientes componentes:
 
-* Un grupo de SQL dedicado existente. Si no tiene uno, consulte [Creación de un grupo de SQL dedicado](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para completar este requisito previo.
-* SSDT para Visual Studio. Si tiene Visual Studio, probablemente ya tenga este componente. Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* El nombre del servidor SQL completo. Para encontrar este nombre de servidor, consulte [Conexión a un grupo de SQL dedicado](connect-overview.md).
+- Un área de trabajo de Synapse existente. Si necesita crear una, consulte [Creación de un área de trabajo de Synapse](../get-started-create-workspace.md).
+- Un grupo de SQL dedicado. Para crearlo, consulte [Creación de un grupo de SQL dedicado](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
+- SSDT para Visual Studio. Si tiene Visual Studio, probablemente ya tenga este componente. Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?context=/azure/synapse-analytics/context/context).
+- El nombre del servidor SQL completo. Para encontrar este nombre de servidor, consulte [Conexión a un grupo de SQL dedicado](connect-overview.md).
 
 ## <a name="1-connect-to-a-dedicated-sql-pool"></a>1. Conexión a un grupo de SQL dedicado
 1. Abra Visual Studio 2019.
@@ -81,5 +82,5 @@ Ahora que se ha establecido una conexión a la base de datos, podrá escribir un
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que puede conectarse y realizar consultas, intente realizar la [Visualización de datos con Power BI](get-started-power-bi-professional.md).
-Para configurar un entorno para la autenticación de Azure Active Directory, vea [Autenticación en el grupo de SQL dedicado](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para configurar un entorno para la autenticación de Azure Active Directory, vea [Autenticación en el grupo de SQL dedicado](sql-authentication.md?tabs=provisioned).
  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aa866706a181014e104f7f9e7f8cded520f4ac9
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92152265"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711832"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
 Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
@@ -60,6 +60,8 @@ Por motivos de seguridad, cada usuario debe aprovisionar su propia cuenta de alm
 Cloud Shell usa un recurso compartido de archivos de Azure en una cuenta de almacenamiento, dentro de una suscripción especificada. Debido a los permisos heredados, los usuarios con derechos de acceso suficientes en la suscripción podrán acceder a todas las cuentas de almacenamiento y a los recursos compartidos de archivos contenidos en la suscripción.
 
 Los usuarios deben bloquear el acceso a sus archivos estableciendo los permisos en el nivel de cuenta de almacenamiento o de suscripción.
+
+La cuenta de almacenamiento de Cloud Shell contendrá archivos creados por el usuario de Cloud Shell en su directorio principal, el cual puede incluir información confidencial junto con tokens de acceso o credenciales.
 
 ## <a name="supported-storage-regions"></a>Regiones de almacenamiento admitidas
 Para encontrar la región actual puede ejecutar `env` en Bash y buscar la variable `ACC_LOCATION`, o bien ejecutar `$env:ACC_LOCATION` desde PowerShell. Los recursos compartidos de archivos existentes reciben una imagen de 5 GB para que el usuario conserve el directorio `$Home`.

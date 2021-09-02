@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas para Azure Container Instances
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Container Instances. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 96468f37fe734a44ee0f06fe39bbade949d52ce9
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 09d174e7844d05b93d398eecc04ad7ec28b9eb2e
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607782"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108371"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-instances"></a>Definiciones integradas de Azure Policy para Azure Container Instances
 

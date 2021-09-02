@@ -2,82 +2,56 @@
 title: Programación de los trabajos
 description: Utilice la programación de trabajos para administrar las tareas.
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 07/16/2021
 ms.custom: seodec18
-ms.openlocfilehash: 4661c9fc22868870af147998467c9f355f30580e
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a247be1826cd68ef2ac1302c1910eae74b2d65b6
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219707"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114405768"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Programación de trabajos para mejorar la eficacia
 
-La programación de trabajos de Batch le permite priorizar los trabajos que desea ejecutar en primer lugar y tener en cuenta las tareas que tienen dependencias en otras tareas. Mediante la programación de los trabajos, puede asegurarse de que se usa la menor cantidad de recursos. Los nodos se pueden retirar cuando no son necesarios, las tareas que dependen de otras tareas se inician Just-in-time para optimizar los flujos de trabajo. Solo se ejecuta un trabajo cada vez. No se iniciará uno nuevo hasta que se complete el anterior. Puede establecer el trabajo en modo Autocompletar. 
+La programación de trabajos de Batch le permite priorizar los trabajos que desea ejecutar en primer lugar y tener en cuenta las [tareas que tienen dependencias en otras tareas](batch-task-dependencies.md). Mediante la programación de los trabajos, puede asegurarse de que se usa la menor cantidad de recursos. Los nodos se pueden retirar cuando no son necesarios y las tareas que dependen de otras tareas se inician Just-in-time para optimizar los flujos de trabajo. También puede establecer los trabajos en autocompletar, ya que solo se ejecuta un trabajo a la vez y no se iniciará un nuevo trabajo hasta que se complete el anterior.
 
-## <a name="benefit-of-job-scheduling"></a>Ventajas de la programación de trabajos
+Las tareas que programe mediante la tarea del administrador de trabajos se asociarán con un trabajo. La tarea del administrador de trabajos creará las tareas para el trabajo. Para ello, la tarea del administrador de trabajos debe autenticarse con la cuenta de Batch. Use el token de acceso AZ_BATCH_AUTHENTICATION_TOKEN. El token le permitirá el acceso al resto del trabajo.
 
-La ventaja de la programación de trabajos es que se puede especificar una programación para la creación de trabajos. Las tareas que se programan mediante la tarea del administrador de trabajos están asociadas a un trabajo. La tarea del administrador de trabajos creará las tareas para el trabajo. Para ello, la tarea del administrador de trabajos debe autenticarse con la cuenta de Batch. Use el token de acceso AZ_BATCH_AUTHENTICATION_TOKEN. El token le permitirá el acceso al resto del trabajo. 
+Para administrar un trabajo mediante la CLI de Azure, consulte [az batch job-schedule](/cli/azure/batch/job-schedule). También puede crear programaciones de trabajo en Azure Portal.
 
-## <a name="use-the-portal-to-schedule-a-job"></a>Uso del portal para programar un trabajo
+## <a name="schedule-a-job-in-the-azure-portal"></a>Programación de un trabajo en Azure Portal
 
-   1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Seleccione la cuenta de Batch en la que desea programar los trabajos.
+1. En el panel de navegación izquierdo, seleccione **Programas de trabajos**.
+1. Seleccione **Agregar** para crear una programación de trabajo.
+1. En **Formulario básico**, especifique la siguiente información:
+   - **Id. del programa de trabajos**: un identificador único de esta programación de trabajos.
+   - **Nombre para mostrar**: este nombre es opcional y no tiene que ser único. El nombre tiene una longitud máxima de 1024 caracteres.
+   - **No ejecutar hasta**: especifica la hora más temprana a la que se ejecutará el trabajo. Si no establece esta configuración, la programación está lista para ejecutar trabajos inmediatamente.
+   - **No ejecutar después de**: no se ejecutará ningún trabajo después de la hora que especifique aquí. Si no se especifica una hora, se crea una programación de trabajo periódica que permanece activa hasta que se finalice explícitamente.
+   - **Intervalo de periodicidad**: seleccione **Habilitado** si desea especificar la cantidad de tiempo entre trabajos. Solo puede tener un trabajo programado a la vez, por lo que si es el momento de crear un nuevo trabajo en una programación de trabajo, pero el trabajo anterior todavía está en ejecución, el servicio Batch no creará el nuevo trabajo hasta que finalice el trabajo anterior.
+   - **Ventana de inicio**: seleccione **Personalizado** si desea especificar el intervalo de tiempo en el que se debe crear un trabajo. Si no se crea un trabajo en esta ventana, no se creará ningún nuevo trabajo hasta la siguiente repetición de la programación.
 
-   2. Seleccione la cuenta de Batch en la que desea programar los trabajos.
+     :::image type="content" source="media/batch-job-schedule/add-job-schedule-02.png" alt-text="Captura de pantalla de las opciones de Agregar programa de trabajos en Azure Portal.":::  
 
-   3. Seleccione **Agregar** para crear una nueva programación de trabajo y rellene el **formulario básico**.
+1. En la parte inferior del formulario básico, especifique el grupo en el que desea que se ejecute el trabajo. Para elegir entre una lista de grupos de la cuenta de Batch, seleccione **Actualizar**.
+1. Junto con el **Id. del grupo**, escriba la siguiente información:
+   - **Tarea de configuración del trabajo**: seleccione **Actualizar** para asignar un nombre y configurar la tarea del administrador de trabajos, así como a las tareas de preparación y publicación de trabajos, si las va a usar.
+   - **Nombre para mostrar**: este nombre es opcional y no tiene que ser único. El nombre tiene una longitud máxima de 1024 caracteres.
+   - **Prioridad**: use el control deslizante para establecer una prioridad para el trabajo o escriba un valor en el cuadro.
+   - **Tiempo de reloj máximo**: seleccione **Personalizado** si desea establecer un límite máximo de tiempo para que el trabajo se ejecute. Si lo hace, Batch finalizará el trabajo si no se completa dentro de ese período de tiempo.
+   - **Número máximo de reintentos de tareas**: seleccione **Personalizado** si desea especificar el número de veces que se puede reintentar una tarea o **Ilimitado** si desea que la tarea se pruebe tantas veces como sea necesario. Esto no es lo mismo que el número de reintentos que puede tener una llamada de API.
+   - **Cuando se completan todas las tareas**: el valor predeterminado es NoAction, pero puede seleccionar **TerminateJob** si prefiere finalizar el trabajo cuando se hayan completado todas las tareas (o si no hay ninguna tarea en el trabajo).
+   - **Cuando se produce un error en una tarea**: se produce un error en una tarea si se agota el número de reintentos o se produce un error al iniciar la tarea. El valor predeterminado es NoAction, pero puede seleccionar **PerformExitOptionsJobAction** si prefiere realizar la acción asociada a la condición de salida de la tarea si se produce un error.
 
+     :::image type="content" source="media/batch-job-schedule/add-job-schedule-03.png" alt-text="Captura de pantalla de las opciones de especificación de trabajos para una nueva programación de trabajo en Azure Portal.":::
 
+1. Seleccione **Guardar** para crear la programación del trabajo.
 
-![Programación de un trabajo][1]
-
-**Id. del programa de trabajos**: identificador único de esta programación de trabajos.
-
-**Nombre para mostrar**: no es necesario que el nombre para mostrar del trabajo sea único, pero debe tener una longitud máxima de 1024 caracteres.
-
-**No ejecutar hasta**: especifica la hora más temprana a la que se ejecutará el trabajo. Si no establece esta configuración, la programación está lista para ejecutar trabajos inmediatamente.
-
-**No ejecutar después de**: después de la hora aquí establecida, no se ejecuta ningún trabajo. Si no se especifica una hora, se crea una programación de trabajo periódica que permanece activa hasta que se finalice explícitamente.
-
-**Intervalo de periodicidad**: puede especificar la cantidad de tiempo entre trabajos. Solo puede tener un trabajo programado a la vez, por lo que si es el momento de crear un nuevo trabajo en una programación de trabajo, pero el trabajo anterior todavía está en ejecución, el servicio Batch no creará el nuevo trabajo hasta que finalice el trabajo anterior.  
-
-**Ventana de inicio**: aquí se especifica el intervalo de tiempo, desde la hora en que la programación indica que se debe crear un trabajo, hasta que se debe completar. Si el trabajo actual no se completa durante su ventana, no se iniciará el siguiente trabajo.
-
-En la parte inferior del formulario básico, debe especificar el grupo en el que desea que se ejecute el trabajo. Para buscar la información del identificador de grupo, seleccione **Actualizar**. 
-
-![Especificar grupo][2]
-
-
-**Identificador del grupo**: especifique el grupo en el que se va a ejecutar el trabajo.
-
-**Job configuration task** (Tarea de configuración del trabajo): seleccione **Actualizar** para asignar un nombre a la tarea del Administrador de trabajos, así como a las tareas de preparación y liberación de trabajos, si las va a usar.
-
-**Prioridad**: proporcione al trabajo una prioridad.
-
-**Tiempo de reloj máximo**: establezca la cantidad máxima de tiempo que se puede ejecutar el trabajo. Si no se completa dentro del período de tiempo, Batch finaliza el trabajo. Si no establece esta configuración, no hay límite de tiempo para el trabajo.
-
-**Número máximo de reintentos de tareas**: especifique el número de veces que se puede volver a intentar una tarea, hasta un máximo de cuatro veces. Esto no es lo mismo que el número de reintentos que puede tener una llamada de API.
-
-**Cuando se completan todas las tareas**: el valor predeterminado es no hacer nada.
-
-**Cuando se produce un error en una tarea**: el valor predeterminado es no hacer nada. Se produce un error en una tarea si se agota el número de reintentos o se produce un error al iniciar la tarea. 
-
-Después de seleccionar **Guardar**, si va a **Programaciones de trabajos** en el panel de navegación izquierdo, puede realizar un seguimiento de la ejecución del trabajo; para ello, seleccione **Información de ejecución**.
-
-
-## <a name="for-more-information"></a>Para obtener más información
-
-Para administrar un trabajo mediante la CLI de Azure, consulte [az batch job-schedule](/cli/azure/batch/job-schedule).
+Para realizar un seguimiento de la ejecución del trabajo, vuelva a **Programas de trabajos** y seleccione la programación del trabajo. Expanda **Información de ejecución** para ver los detalles. También puede finalizar, eliminar o deshabilitar la programación de trabajos desde esta pantalla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de dependencias de tareas para ejecutar las tareas que dependan de otras tareas](batch-task-dependencies.md).
-
-
-
-
-
-[1]: ./media/batch-job-schedule/add-job-schedule-02.png
-[2]: ./media/batch-job-schedule/add-job-schedule-03.png
-
-
+- Obtenga más información sobre [trabajos y tareas](jobs-and-tasks.md).
+- [Creación de dependencias de tareas](batch-task-dependencies.md) para ejecutar las tareas que dependan de otras tareas.

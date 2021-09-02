@@ -4,12 +4,12 @@ description: Aprenda sobre las directivas de soporte técnico de Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 3e4f5e4411eb81ab14d844adf03433e9de0d73b2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1e85effa5a8efca59bfc88aada050ee5ddcc7fcf
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368116"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666447"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -127,7 +127,7 @@ Aunque puede iniciar sesión en los nodos de agente y cambiarlos, esto no es rec
 
 ## <a name="network-ports-access-and-nsgs"></a>Puertos de red, acceso y grupos de seguridad de red
 
-Solo puede personalizar NSG en subredes personalizadas. No puede personalizar NSG en subredes administradas o en el nivel de NIC de los nodos del agente. AKS tiene requisitos de salida para puntos de conexión específicos, para controlar la salida y garantizar la conectividad necesaria; consulte [Limitación del tráfico de salida](limit-egress-traffic.md).
+Solo puede personalizar NSG en subredes personalizadas. No puede personalizar NSG en subredes administradas o en el nivel de NIC de los nodos del agente. AKS tiene requisitos de salida para puntos de conexión específicos, para controlar la salida y garantizar la conectividad necesaria; consulte [Limitación del tráfico de salida](limit-egress-traffic.md). Para la entrada, los requisitos se basan en las aplicaciones que ha implementado en el clúster.
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Clústeres detenidos o con asignación anuladas
 

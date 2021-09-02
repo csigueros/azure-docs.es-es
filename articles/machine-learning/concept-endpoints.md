@@ -9,13 +9,14 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.date: 05/25/2021
-ms.openlocfilehash: bc1983a16ba2ec85dc943e10d7b2220b0de1dc88
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.custom: devplatv2
+ms.date: 06/17/2021
+ms.openlocfilehash: 8ce9241e11bd9aa259c8b7a1bf3114be677a01bd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408540"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447658"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)? 
 
@@ -28,7 +29,7 @@ En este artículo, aprenderá lo siguiente:
 > * Puntos de conexión
 > * Implementaciones
 > * Puntos de conexión en línea administrados
-> * Puntos de conexión en línea de AKS
+> * Puntos de conexión en línea de Azure Kubernetes Service (AKS)
 > * Puntos de conexión de inferencias por lotes
 
 ## <a name="what-are-endpoints-and-deployments-preview"></a>¿Qué son los puntos de conexión y las implementaciones (versión preliminar)?
@@ -56,11 +57,11 @@ Azure Machine Learning usa el concepto de puntos de conexión y de implementacio
 ### <a name="multiple-developer-interfaces"></a>Varias interfaces de desarrollador
 
 Cree y administre puntos de conexión por lotes y en línea con varias herramientas de desarrollo:
-- CLI
+- La CLI de Azure
 - Azure Resource Manager y API REST
 - Portal web de Azure Machine Learning Studio
 - Azure Portal (TI o administrador)
-- Compatibilidad con canalizaciones de MLOps de CI/CD mediante la interfaz de la CLI y las interfaces de REST y Azure Resource Manager
+- Compatibilidad con canalizaciones de MLOps de CI/CD mediante la interfaz de la CLI de Azure y las interfaces de REST y Azure Resource Manager
 
 ## <a name="what-are-online-endpoints-preview"></a>¿Qué son los puntos de conexión en línea (versión preliminar)?
 
@@ -109,7 +110,7 @@ Hay dos tipos de puntos de conexión en línea: **puntos de conexión en línea 
 
 |  | Puntos de conexión en línea administrados | Puntos de conexión en línea de AKS |
 |-|-|-|
-| **Usuarios recomendados** | Usuarios que desean una implementación de modelo administrada y una experiencia de MLOps mejorada | Usuarios que prefieren Azure Kubernetes Service (AKS) y pueden administrar los requisitos de infraestructura |
+| **Usuarios recomendados** | Usuarios que desean una implementación de modelo administrada y una experiencia de MLOps mejorada | Usuarios que prefieren Azure Kubernetes Service (AKS) y pueden autoadministrar los requisitos de infraestructura |
 | **Administración de la infraestructura** | Aprovisionamiento de proceso administrado, escalado, actualizaciones de imágenes del sistema operativo del host y reforzamiento de la seguridad | Responsabilidad del usuario |
 | **Compute type (Tipo de proceso)** | Administrado (AmlCompute) | AKS |
 | **Supervisión inmediata** | [Supervisión de Azure](how-to-monitor-online-endpoints.md) <br> (incluye métricas clave como la latencia y el rendimiento) | No compatible |
@@ -189,5 +190,7 @@ Especifique la ubicación de salida del almacenamiento en cualquier almacén de 
 - [Implementación de puntos de conexión en línea administrados con la CLI de Azure](how-to-deploy-managed-online-endpoints.md)
 - [Implementación de puntos de conexión por lotes con la CLI de Azure](how-to-use-batch-endpoint.md)
 - [Uso de puntos de conexión en línea administrados con Studio](how-to-use-managed-online-endpoint-studio.md)
+- [Implementación de modelos con REST (versión preliminar)](how-to-deploy-with-rest.md)
 - [Supervisión de los puntos de conexión en línea administrados](how-to-monitor-online-endpoints.md)
 - [Visualización de los costos de los puntos de conexión en línea](how-to-view-online-endpoints-costs.md)
+- [Administración y aumento de las cuotas de los recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

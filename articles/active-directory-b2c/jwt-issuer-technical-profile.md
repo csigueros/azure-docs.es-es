@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4faa7e68b50b83368837b75cd04be566d816f6d3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0854150e4299e7f2bf02750d66bdd7ba459ce584
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102119814"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "122651845"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico para un emisor de tokens JWT en una directiva personalizada de Azure Active Directory B2C
 
@@ -73,8 +73,8 @@ El elemento CryptographicKeys contiene los siguientes atributos:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| issuer_secret | Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para firmar el token JWT. Esta es la clave `B2C_1A_TokenSigningKeyContainer` configurada en [Introducción a las directivas personalizadas](custom-policy-get-started.md). |
-| issuer_refresh_token_key | Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para cifrar el token de actualización. Ha configurado la clave `B2C_1A_TokenEncryptionKeyContainer` en [Introducción a las directivas personalizadas](custom-policy-get-started.md). |
+| issuer_secret | Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para firmar el token JWT. Esta es la clave `B2C_1A_TokenSigningKeyContainer` configurada en [Introducción a las directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy). |
+| issuer_refresh_token_key | Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para cifrar el token de actualización. Ha configurado la clave `B2C_1A_TokenEncryptionKeyContainer` en [Introducción a las directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy). |
 
 ## <a name="session-management"></a>Administración de sesiones
 

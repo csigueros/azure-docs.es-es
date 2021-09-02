@@ -10,12 +10,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5f48a60ee139cf4a89c0873633feea93cdde0940
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: cbda31a3aaaf741424db174aa6a676858b27a23c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963793"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471218"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Administración de cuentas v3 de Azure Media Services
 
@@ -25,12 +25,17 @@ Para iniciar la administración, el cifrado, la codificación, el análisis y el
 
 [!INCLUDE [account creation note](./includes/note-2020-05-01-account-creation.md)]
 
-## <a name="moving-a-media-services-account-between-subscriptions"></a>Traslado de una cuenta de Media Services entre suscripciones 
+## <a name="media-services-account-names"></a>Nombres de cuenta de Media Services
+
+Los nombres de cuenta de Media Services deben estar compuestos totalmente de minúsculas o de números, sin espacios, y con una longitud de entre 3 y 24 caracteres. Los nombres de cuenta de Media Services deben ser únicos dentro de una ubicación de Azure.
+
+Cuando se elimina cuenta de Media Services, el nombre de la cuenta se reserva durante un año. Durante un año después de eliminar la cuenta, solo la suscripción que contenía la cuenta original puede reutilizar el nombre de la cuenta en la misma ubicación de Azure.
+
+Los nombres de cuenta de Media Services se usan en nombres DNS, incluidos los nombres de entrega de claves, eventos en directo y puntos de conexión de streaming. Si ha configurado firewalls o servidores proxy para permitir los nombres DNS de Media Services, asegúrese de que estas configuraciones se quitan en el plazo de un año después de eliminar una cuenta de Media Services.
+
+## <a name="moving-a-media-services-account-between-subscriptions"></a>Traslado de una cuenta de Media Services entre suscripciones
 
 Si necesita trasladar una cuenta de Media Services a una nueva suscripción, primero debe trasladar todo el grupo de recursos que contiene la cuenta de Media Services a la nueva suscripción. Debe trasladar todos los recursos asociados: Cuentas de Azure Storage, perfiles de Azure CDN, etc. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Al igual que con los recursos de Azure, los traslados del grupo de recursos pueden tardar algún tiempo en completarse.
-
-> [!NOTE]
-> Media Services v3 admite el modelo de varios inquilinos.
 
 ### <a name="considerations"></a>Consideraciones
 

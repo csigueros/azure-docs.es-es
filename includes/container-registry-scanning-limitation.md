@@ -1,21 +1,22 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 12/16/2020
+ms.date: 05/19/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 198f1594722aa2e0853fa19de59bea6507d481d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83a42f7a68dc34770106e258b4ed5949feb48c8d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99532320"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471497"
 ---
 > [!IMPORTANT]
-> * Actualmente, Azure Security Center no puede realizar el [análisis de vulnerabilidades de imagen](../articles/security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) en un registro que restringe el acceso a los puntos de conexión privados, las subredes seleccionadas o las direcciones IP. 
-> * Las instancias de servicios de Azure, como Azure DevOps Services, Web Apps y Azure Container Instances, tampoco pueden tener acceso a un registro de contenedor con restricciones de red. 
-> * Algunas otras instancias de servicios de Azure pueden acceder de forma segura a un registro de contenedor con restricciones de red. Para obtener más información, vea [Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricciones de red](../articles/container-registry/allow-access-trusted-services.md).
+> Algunas funcionalidades pueden no estar disponibles o requerir más configuración en un registro de contenedor que restringe el acceso a puntos de conexión privados, subredes seleccionadas o direcciones IP. 
+> * Cuando se deshabilita el acceso de red público a un registro, el acceso al registro por parte de determinados [servicios de confianza](../articles/container-registry/allow-access-trusted-services.md), incluido Azure Security Center, requiere habilitar una configuración de red para omitir las reglas de red.
+> * Las instancias de determinados servicios de Azure, como Azure DevOps Services y Azure Container Instances, no tienen acceso actualmente al registro de contenedor.
+> * Si el registro tiene un punto de conexión privado aprobado y el acceso de la red pública está deshabilitado, los repositorios y las etiquetas no se pueden enumerar fuera de la red virtual mediante Azure Portal, la CLI de Azure u otras herramientas.

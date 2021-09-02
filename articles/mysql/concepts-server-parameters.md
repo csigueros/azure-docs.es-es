@@ -6,14 +6,16 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 756337ce20c827d0c6549181c20fd843fa60c020
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8220afc8020e5a6a4ba77c46a98ee3c220c3f37e
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720960"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675322"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este artículo se incluyen consideraciones e instrucciones para configurar parámetros del servidor en Azure Database for MySQL.
 
@@ -65,7 +67,7 @@ El formato de registro binario siempre es **ROW** y todas las conexiones al serv
 
 Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) para más información acerca de este parámetro.
 
-#### <a name="servers-supporting-up-to-4-tb-storage"></a>Servidores que admiten un almacenamiento de hasta 4 TB
+#### <a name="servers-on-general-purpose-storage-v1-supporting-up-to-4-tb"></a>Servidores con [almacenamiento de uso general v1 (admite hasta 4 TB)](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb)
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
@@ -83,7 +85,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/in
 |Memoria optimizada|16|65498251264|134217728|65498251264|
 |Memoria optimizada|32|132070244352|134217728|132070244352|
 
-#### <a name="servers-support-up-to-16-tb-storage"></a>Servidores que admiten un almacenamiento de hasta 16 TB
+#### <a name="servers-on-general-purpose-storage-v1-supporting-up-to-16-tb"></a>Servidores con [almacenamiento de uso general v1 (admite hasta 16 TB)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
@@ -104,11 +106,11 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/in
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table` solo se puede actualizar en los planes de tarifa de uso general y optimizada para memoria.
+> `innodb_file_per_table` solo se puede actualizar en los planes de tarifa de uso general y optimizada para memoria en [almacenamiento de uso general v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage).
 
 MySQL almacena la tabla InnoDB en distintos espacios de tabla en función de la configuración proporcionada durante la creación de la tabla. El [espacio de tablas del sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) es el área de almacenamiento del diccionario de datos de InnoDB. Un [espacio de tabla de archivo por tabla](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contiene datos e índices para una sola tabla de InnoDB y se almacena en el sistema de archivos, en su propio archivo de datos. Este comportamiento se controla mediante el parámetro de servidor `innodb_file_per_table`. Si `innodb_file_per_table` se establece en `OFF`, InnoDB crea tablas en el espacio de tablas del sistema. De lo contrario, InnoDB crea tablas en espacios de tabla de archivo por tabla.
 
-Azure Database for MySQL admite **4 TB** como máximo en un solo archivo de datos. Si el tamaño de la base de datos es superior a 4 TB, debería crear la tabla en el espacio de tabla [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si tiene una sola tabla de tamaño superior a 4 TB, debería usar la tabla de particiones.
+Azure Database for MySQL admite **4 TB** como máximo en un solo archivo de datos en el [almacenamiento de uso general v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage). Si el tamaño de la base de datos es superior a 4 TB, debería crear la tabla en el espacio de tabla [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si tiene una sola tabla de tamaño superior a 4 TB, debería usar la tabla de particiones.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -117,7 +119,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|262 144|128|268435455|
 |De uso general|4|262 144|128|536870912|
 |De uso general|8|262 144|128|1073741824|
@@ -134,8 +136,8 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básico|1|50|10|50|
-|Básico|2|100|10|100|
+|Básica|1|50|10|50|
+|Básica|2|100|10|100|
 |De uso general|2|300|10|600|
 |De uso general|4|625|10|1250|
 |De uso general|8|1250|10|2.500|
@@ -166,7 +168,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|16384|268435455|
 |De uso general|4|16777216|16384|536870912|
 |De uso general|8|16777216|16384|1073741824|
@@ -191,7 +193,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|0|0|16777216|
 |De uso general|4|0|0|33554432|
 |De uso general|8|0|0|67108864|
@@ -229,7 +231,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|524 288|32 768|4 194 304|
 |De uso general|4|524 288|32 768|8388608|
 |De uso general|8|524 288|32 768|16777216|
@@ -249,7 +251,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|1024|67108864|
 |De uso general|4|16777216|1024|134217728|
 |De uso general|8|16777216|1024|268435456|

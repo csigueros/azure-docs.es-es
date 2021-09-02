@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/20/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d029c3392ad5b5472173d17db17a113526d4f3a
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 22ad40dadf36b711bde4b7af7e8b24b09610ab89
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111811513"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459510"
 ---
 # <a name="use-azure-digital-twins-explorer-preview"></a>Uso de Azure Digital Twins Explorer (versión preliminar)
 
@@ -485,7 +485,7 @@ Este es un ejemplo de una dirección URL con los valores de marcador de posició
 
 `https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
 
-Para que el destinatario vea la instancia en la ventana de Azure Digital Twins Explorer resultante, debe iniciar sesión en su cuenta de Azure y tener acceso con el rol **Azure Digital Twins Data Reader** (Lector de datos de Azure Digital Twins) a la instancia (puede obtener más información sobre los roles de Azure Digital Twins en [Conceptos: seguridad](concepts-security.md)). Para que el destinatario realice cambios en el grafo y los datos, debe tener el rol **Azure Digital Twins Data Owner** (Propietario de datos de Azure Digital Twins) en la instancia.
+Para que el destinatario vea la instancia en la ventana de Azure Digital Twins Explorer resultante, debe iniciar sesión en su cuenta de Azure y tener acceso con el rol **Azure Digital Twins Data Reader** (Lector de datos de Azure Digital Twins) a la instancia (puede obtener más información sobre los roles de Azure Digital Twins en [Seguridad](concepts-security.md)). Para que el destinatario realice cambios en el grafo y los datos, debe tener el rol **Azure Digital Twins Data Owner** (Propietario de datos de Azure Digital Twins) en la instancia.
 
 ### <a name="link-with-a-query"></a>Vínculo con una consulta
 
@@ -524,5 +524,5 @@ Al hacer clic en el engranaje de configuración de la esquina superior derecha, 
 ## <a name="next-steps"></a>Pasos siguientes 
 
 Obtenga información sobre cómo escribir consultas para el grafo de gemelos de Azure Digital Twins: 
-* [Conceptos: Lenguaje de consulta](concepts-query-language.md)
-* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)
+* [Lenguaje de consulta](concepts-query-language.md)
+* [Consulta del grafo de gemelos](how-to-query-graph.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 6abe0ed88adbdf8263aa27d340fb2fff156d98e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edb3b0bdcd5d8e9f80493267cad3ccbfa07a576f
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90089350"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665216"
 ---
 # <a name="drawing-tool-events"></a>Eventos de la herramienta de dibujo
 
@@ -24,6 +24,7 @@ Cuando se usan herramientas de dibujo en un mapa, suele ser útil reaccionar ant
 | `drawingchanged` | Se activa cuando se ha agregado o cambiado alguna coordenada de una forma. | 
 | `drawingchanging` | Se activa cuando se muestra alguna coordenada de vista previa de una forma. Por ejemplo, este evento se activará varias veces mientras se arrastra una coordenada. | 
 | `drawingcomplete` | Se activa cuando una forma ha terminado de dibujarse o se saca del modo de edición. |
+| `drawingerased` | Se activa cuando se borra una forma del administrador de dibujos cuando está en modo `erase-geometry`. |
 | `drawingmodechanged` | Se activa cuando ha cambiado el modo de dibujo. El nuevo modo de dibujo se pasa al controlador de eventos. |
 | `drawingstarted` | Se activa cuando el usuario comienza a dibujar una forma o coloca una forma en modo de edición.  |
 
