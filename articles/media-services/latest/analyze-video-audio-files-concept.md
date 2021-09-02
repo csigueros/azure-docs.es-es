@@ -6,14 +6,14 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 07/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 83e739eb643896de710b5179b78a6305adf84465
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a9a101afad5bfcdd8ca7ec20bc39b3080790a09b
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949271"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720771"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Análisis de archivos de audio y vídeo con Azure Media Services
 
@@ -21,7 +21,7 @@ ms.locfileid: "111949271"
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services v3 le permite extraer información detallada de los archivos de audio y vídeo con Video Indexer. En este artículo se describen los valores preestablecidos del analizador de Media Services v3 que se usan para extraer dicha información. Si desea información más detallada, use Video Indexer directamente. Para saber cuándo usar los valores preestablecidos de Video Indexer, en lugar de los del de Media Services, consulte el [documento en que se realiza una comparación de ambos](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
+Azure Media Services v3 le permite extraer información detallada de los archivos de audio y vídeo con Azure Video Analyzer for Media (anteriormente Video Indexer). En este artículo se describen los valores preestablecidos del analizador de Media Services v3 que se usan para extraer dicha información. Si quiere obtener información más detallada, use Video Analyzer for Media directamente. Para saber cuándo usar los valores preestablecidos de Azure Video Analyzer for Media, en lugar de los de Media Services, consulte el [documento comparativo](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
 
 Existen dos modos para el valor preestablecido del analizador de audio, básico y estándar. Vea la descripción de las diferencias en la tabla siguiente.
 
@@ -29,7 +29,7 @@ Para analizar el contenido mediante los valores preestablecidos de Media Service
 
 ## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
 
-Como recordatorio importante, debe cumplir todas las leyes aplicables al uso de Video Indexer y no puede utilizar este servicio de Azure ni ningún otro de forma que infrinja los derechos de otras personas o que pueda ser perjudicial para ellas. Antes de cargar los vídeos, incluidos los datos biométricos, en el servicio Video Indexer para procesarlos y almacenarlos, debe tener todos los derechos correctos (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Video Indexer, consulte [Términos de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). Mediante el uso de Video Indexer, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
+Como recordatorio importante, debe cumplir todas las leyes aplicables al uso de Video Analyzer for Media y no puede utilizar este servicio de Azure ni ningún otro de forma que infrinja los derechos de otras personas o que pueda ser perjudicial para ellas. Antes de cargar vídeos que incluyan datos biométricos en el servicio Video Analyzer for Media para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para obtener información sobre el cumplimiento, la privacidad y la seguridad de Video Analyzer for Media, consulte [Términos de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) de Azure. En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). Con el uso de Video Analyzer for Media, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
 
 ## <a name="built-in-presets"></a>Valores preestablecidos integrados
 
@@ -414,7 +414,7 @@ Las opiniones se agregan según su campo sentimentType (Positive/Neutral/Negativ
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-El bloque visualContentModeration contiene intervalos de tiempo en los que Video Indexer ha detectado que podría haber contenido para adultos. Si visualContentModeration está vacío, no se ha identificado ningún contenido para adultos.
+El bloque visualContentModeration contiene intervalos de tiempo en los que Video Analyzer for Media ha detectado que podría haber contenido para adultos. Si visualContentModeration está vacío, no se ha identificado ningún contenido para adultos.
 
 Los vídeos en los que se encuentre contenido para adultos o subido de tono podrían estar disponibles solo para visualización privada. Los usuarios pueden enviar una solicitud de revisión humana del contenido, en cuyo caso el atributo `IsAdult` contendrá el resultado de la revisión humana.
 

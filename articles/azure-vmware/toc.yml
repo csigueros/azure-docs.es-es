@@ -48,46 +48,12 @@
       href: concepts-networking.md
     - name: Nubes privadas y clústeres
       href: concepts-private-clouds-clusters.md
+    - name: Comando Ejecutar
+      href: concepts-run-command.md
     - name: Storage
       href: concepts-storage.md
 - name: Guías paso a paso
   items:
-    - name: Creación de una evaluación de Azure VMware Solution
-      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - name: Solicitud de la cuota del host para Azure VMware Solution
-      href: request-host-quota-azure-vmware-solution.md
-    - name: Ahorro de costos con una instancia reservada
-      href: reserved-instance.md
-    - name: Creación de una directiva de colocación
-      href: create-placement-policy.md
-    - name: Configuración de las redes
-      items:
-        - name: Configuración de un servidor o la retransmisión de DHCP
-          href: configure-dhcp-azure-vmware-solution.md
-        - name: "Configuración de DHCP en redes de extendidas\_L2"
-          href: configure-l2-stretched-vmware-hcx-networks.md
-        - name: Configuración de reenviador de DNS
-          href: configure-dns-azure-vmware-solution.md
-        - name: Configurar la creación de reflejo del puerto
-          href: configure-port-mirroring-azure-vmware-solution.md
-        - name: Habilitación del acceso a través de una red de Internet pública
-          href: enable-public-internet-access.md
-        - name: Configuración de una VPN de sitio a sitio en vWAN
-          href: configure-site-to-site-vpn-gateway.md
-    - name: Conexión de varias nubes privadas en la misma región
-      href: connect-multiple-private-clouds-same-region.md
-    - name: Configuración del servidor de GitHub Enterprise
-      href: configure-github-enterprise-server.md
-    - name: Configurar los clústeres de conmutación por error de Windows Server
-      href: configure-windows-server-failover-cluster.md
-    - name: Rotación de credenciales de cloudadmin
-      href: rotate-cloudadmin-credentials.md
-    - name: Traslado de recursos
-      items:
-        - name: Traslado de las suscripciones de Azure VMware Solution
-          href: move-ea-csp-subscriptions.md
-        - name: Traslado de recursos de Azure VMware Solution entre regiones
-          href: move-azure-vmware-solution-across-regions.md
     - name: Integración nativa de Azure
       items:
         - name: 'Protección, supervisión y administración de máquinas virtuales'
@@ -126,6 +92,60 @@
               href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Conmutación por recuperación desde Azure
               href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Creación de una evaluación de Azure VMware Solution
+      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Creación de una directiva de colocación
+      href: create-placement-policy.md
+    - name: Configuración del origen de identidad externo de vCenter
+      href: configure-identity-source-vcenter.md
+    - name: Configuración del servidor de GitHub Enterprise
+      href: configure-github-enterprise-server.md
+    - name: Configuración de las redes
+      items:
+        - name: Configuración de un servidor o la retransmisión de DHCP
+          href: configure-dhcp-azure-vmware-solution.md
+        - name: "Configuración de DHCP en redes de extendidas\_L2"
+          href: configure-l2-stretched-vmware-hcx-networks.md
+        - name: Configuración de reenviador de DNS
+          href: configure-dns-azure-vmware-solution.md
+        - name: Configurar la creación de reflejo del puerto
+          href: configure-port-mirroring-azure-vmware-solution.md
+        - name: Habilitación del acceso a través de una red de Internet pública
+          href: enable-public-internet-access.md
+        - name: Configuración de una VPN de sitio a sitio en vWAN
+          href: configure-site-to-site-vpn-gateway.md
+    - name: Configuración de directivas de almacenamiento
+      href: configure-storage-policy.md
+    - name: Configurar los clústeres de conmutación por error de Windows Server
+      href: configure-windows-server-failover-cluster.md
+    - name: Conexión de varias nubes privadas en la misma región
+      href: connect-multiple-private-clouds-same-region.md
+    - name: Implementación de la recuperación ante desastres
+      items:
+        - name: Implementación de la recuperación ante desastres de JetStream
+          href: deploy-disaster-recovery-using-jetstream.md
+        - name: Implementación de VMware HCX para la recuperación ante desastres
+          href: deploy-disaster-recovery-using-vmware-hcx.md
+        - name: Implementación de VMware SRM para la recuperación ante desastres
+          href: disaster-recovery-using-vmware-site-recovery-manager.md
+    - name: Traslado de recursos
+      items:
+        - name: Traslado de las suscripciones de Azure VMware Solution
+          href: move-ea-csp-subscriptions.md
+        - name: Traslado de recursos de Azure VMware Solution entre regiones
+          href: move-azure-vmware-solution-across-regions.md
+    - name: Solicitud de la cuota del host para Azure VMware Solution
+      href: request-host-quota-azure-vmware-solution.md
+    - name: Rotación de credenciales de cloudadmin
+      href: rotate-cloudadmin-credentials.md
+    - name: Ahorro de costos con una instancia reservada
+      href: reserved-instance.md
+    - name: Ecosistema de VMware
+      items:
+        - name: Soluciones de copia de seguridad para máquinas virtuales
+          href: ecosystem-back-up-vms.md
+        - name: Soluciones de migración para máquinas virtuales
+          href: ecosystem-migration-vms.md
     - name: Soluciones de VMware
       items:
         - name: Configuración de operaciones de vRealize
@@ -142,12 +162,6 @@
               href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Actualización del dispositivo VMware HCX
           href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'
-    - name: Ecosistema de VMware
-      items:
-        - name: Soluciones de copia de seguridad para máquinas virtuales
-          href: ecosystem-back-up-vms.md
-        - name: Soluciones de migración para máquinas virtuales
-          href: ecosystem-migration-vms.md
 - name: Recursos
   items:
     - name: Ruta de aprendizaje
@@ -164,6 +178,8 @@
       items:
         - name: General
           href: ./faq.yml
+        - name: Facturación
+          href: /azure/azure-vmware/faq#billing
         - name: Comunicación al cliente
           href: /azure/azure-vmware/faq#customer-communication
         - name: Instalación y configuración
@@ -184,8 +200,6 @@
           href: /azure/azure-vmware/faq#identity-management
         - name: CSP y multiinquilino
           href: /azure/azure-vmware/faq#csp-and-multi-tenancy
-        - name: Facturación y soporte técnico
-          href: /azure/azure-vmware/faq#billing-and-support
     - name: Vídeos
       items:
         - name: Lista de reproducción
@@ -196,8 +210,6 @@
           href: 'https://youtu.be/BoQYvqzb6Y8'
         - name: Migración y planeamiento de capacidad
           href: 'https://youtu.be/NoNG-hkksrA'
-        - name: Rotación de contraseñas de vCenter y NSX-T mediante Azure Logic App
-          href: 'https://youtu.be/cK1qY3knj88'
 - name: Referencia
   items:
     - name: API DE REST

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 655314720975738ebdbddb009d6d31ad7a322e72
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 06f3ee8b820d732c0f605adc3201cff57fa70b42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552286"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739078"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registro y examen de una Instancia administrada de Azure SQL Database
 
@@ -105,7 +105,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 
 1. Vaya a la cuenta de Purview.
 
-1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+1. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 
 1. Seleccione **Registrar**.
 

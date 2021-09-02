@@ -1,19 +1,19 @@
 ---
-title: Recomendaciones de seguridad y configuración del firewall de Azure Percept
+title: Recomendaciones de seguridad de Azure Percept
 description: Obtenga más información sobre las recomendaciones de seguridad y configuración del firewall de Azure Percept
 author: mimcco
-ms.author: mimcco
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 9564160698b1f1bf17fc89ec13b1e292aa3b6098
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 146b39db7aaae2ee043d14d61a7be4f00363c548
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137552"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222343"
 ---
-# <a name="azure-percept-firewall-configuration-and-security-recommendations"></a>Recomendaciones de seguridad y configuración del firewall de Azure Percept
+# <a name="azure-percept-security-recommendations"></a>Recomendaciones de seguridad de Azure Percept
 
 Revise las directrices siguientes para obtener información sobre la configuración de firewalls y los procedimientos recomendados de seguridad generales con Azure Percept.
 

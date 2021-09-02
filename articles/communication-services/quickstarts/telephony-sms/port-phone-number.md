@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Portabilidad de un número de teléfono a Azure Communication Services'
 description: Obtenga información acerca de cómo portar un número de teléfono a un recurso de Communication Services.
-author: mikben
+author: probableprime
 manager: mikben
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: f138e0ee79e0d8adf03ba51c1197813402920a19
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 4bc923d2d6c9c0fc88f40ed6dd3d6290723a7a1e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112048"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969532"
 ---
 # <a name="quickstart-port-a-phone-number"></a>Inicio rápido: Portabilidad de un número de teléfono
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 62015554f7e8e17e1443cc85812b3f37ee64f0a4
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: f9cd8601ef3e59de3c11073d7ac73176367f4fc9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551711"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724262"
 ---
 # <a name="register-and-scan-sap-ecc-source"></a>Registro y examen de un origen de SAP ECC
 
@@ -55,7 +55,7 @@ La única autenticación admitida en un origen de SAP ECC es la **autenticació
 Para registrar un nuevo origen de SAP ECC en el catálogo de datos, haga lo siguiente:
 
 1.  Vaya a la cuenta de Purview.
-2.  Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+2.  Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 3.  Seleccione **Registrar**.
 4.  En Register sources (Registrar orígenes), seleccione **SAP ECC**. Seleccione **Continue** (Continuar).
 

@@ -239,19 +239,19 @@ items:
         items:
           - name: Puntos de conexión privados
             items:
-              - name: Introducción a los puntos de conexión privados de Azure Purview
+              - name: Introducción a los puntos de conexión privados
                 href: catalog-private-link.md
-              - name: Conexión de forma privada y segura a la cuenta de Purview
+              - name: Aislamiento de la red para la cuenta y el portal de Purview
                 href: catalog-private-link-account-portal.md
-              - name: Examen de los orígenes de datos de forma privada y segura
+              - name: Aislamiento de la red para exámenes
                 href: catalog-private-link-ingestion.md
-              - name: Conexión a Azure Purview y examen de los orígenes de datos de forma privada y segura
+              - name: Aislamiento de la red de un extremo a otro
                 href: catalog-private-link-end-to-end.md
-              - name: Configuración de DNS de puntos de conexión privados de Azure Purview
+              - name: Configuración de DNS para un punto de conexión privado
                 href: catalog-private-link-name-resolution.md
-              - name: Guía de solución de problemas de puntos de conexión privados de Azure Purview
+              - name: Solución de problemas de puntos de conexión privados
                 href: catalog-private-link-troubleshoot.md
-              - name: Preguntas frecuentes sobre los puntos de conexión privados de Azure Purview
+              - name: Preguntas frecuentes sobre los puntos de conexión privado
                 href: catalog-private-link-faqs.md
           - name: Excepciones de la directiva de Azure
             href: create-purview-portal-faq.md

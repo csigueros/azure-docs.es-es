@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migración, aro, openshift, red hat
-ms.openlocfilehash: 371672de83a6d745d7b367f8327a64e11059923e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f166b393350971a48b23420daa9917b6ba7bbe1
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653285"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038046"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Migración de Red Hat OpenShift en Azure 3.11 a Red Hat OpenShift en Azure 4
 
@@ -94,7 +94,7 @@ Red Hat OpenShift en Azure 4 admite los siguientes complementos de PersistentVol
 - NFS
 - Red Hat OpenShift Container Storage
 
-Para obtener información sobre la configuración de estos tipos de almacenamiento, consulte [Configuración de almacenamiento persistente](https://access.redhat.com/documentation/azure_red_hat_openshift/4/html/storage/configuring-persistent-storage).
+Para obtener información sobre la configuración de estos tipos de almacenamiento, consulte [Configuración de almacenamiento persistente](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/html/storage/configuring-persistent-storage).
 
 ### <a name="registry"></a>Registro
 

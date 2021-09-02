@@ -1,15 +1,15 @@
 ---
 title: Consultas de ejemplo de Azure Resource Graph para Azure Policy
 description: Consultas de ejemplo de Azure Resource Graph para Azure Policy en las que se muestra el uso de tipos de recursos y tablas para acceder a recursos y propiedades relacionados con Azure Policy.
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: c1757d475fde691bf3938298d70535cce491be52
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 4c0b8d598bca86a2a60e56662070d306dee3138a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860642"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318670"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-policy"></a>Consultas de ejemplo de Azure Resource Graph para Azure Policy
 

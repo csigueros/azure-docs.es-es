@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 736979bf85d75c7ca9e141e7ff04da4c9fe1c9c4
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 4bdfdcc83a920b5b2e7317c4706c470e302cc49f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486056"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731097"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
@@ -38,7 +38,7 @@ Para evitar un exceso de alertas, Security Center limita el volumen de correos s
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|**Administrador de seguridad**<br>**Propietario de la suscripción** |
-|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (US Gov, Azure China)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 

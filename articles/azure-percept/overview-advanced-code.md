@@ -1,18 +1,18 @@
 ---
-title: Desarrollo avanzado de Azure Percept
+title: Desarrollo avanzado con Azure Percept
 description: Más información acerca de las herramientas de desarrollo avanzado en Azure Percept
-author: mimcco
-ms.author: mimcco
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4abe8e07a8311bab9b6e98746d0fc05bd2e89395
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: bfa0cc1a853d843ef5c41c4e1d9337accd6f2805
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956118"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221983"
 ---
 # <a name="advanced-development-with-azure-percept"></a>Desarrollo avanzado con Azure Percept
 

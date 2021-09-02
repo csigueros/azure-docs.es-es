@@ -6,12 +6,12 @@ ms.date: 12/17/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7608f40ec1e605e74969a8c7a3d215bad6006ce6
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 83a043084af78d382e06b3f860addb986423e9cb
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703020"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187134"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Creación e implementación de su primera plantilla de Resource Manager
 
@@ -157,7 +157,7 @@ New-AzResourceGroupDeployment `
 Para ejecutar este comando de implementación, debe tener la [última versión](/cli/azure/install-azure-cli) de la CLI de Azure.
 
 ```azurecli
-templateFile="{provide-the-path-to-the-template-file}"
+$templateFile="{provide-the-path-to-the-template-file}"
 az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8a1205647f4895407bff9301415249a055990f6e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c1ab7e4f30fbd297bc5aad79a8d250ec55684ddb
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737446"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215336"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Conexión a su área de trabajo de Azure Synapse mediante vínculos privados (versión preliminar)
 
@@ -44,6 +44,9 @@ Los puntos de conexión privados se crean en una subred. La suscripción, el gru
 Seleccione **Conectarse a un recurso de Azure en mi directorio** en la pestaña **Recurso**. Seleccione la **Suscripción** que contiene el área de trabajo de Azure Synapse. El **Tipo de recurso** para crear puntos de conexión privados en un área de trabajo de Azure Synapse es *Microsoft.Synapse/workspaces*.
 
 Seleccione el área de trabajo de Azure Synapse como **Recurso**. Cada área de trabajo de Azure Synapse tiene tres opciones de **Subrecurso de destino** donde puede crear un punto de conexión privado: Sql, SqlOnDemand y Dev.
+- Sql es para la ejecución de consultas SQL en el grupo de SQL.
+- SqlOnDemand es para la ejecución de consultas integrada de SQL.
+- Dev es para acceder a todo lo demás dentro de las áreas de trabajo de Azure Synapse Analytics Studio.
 
 Seleccione **Siguiente: Configuración >** para avanzar a la siguiente parte de la configuración.
 ![Selección de los detalles de suscripción y región 2](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
