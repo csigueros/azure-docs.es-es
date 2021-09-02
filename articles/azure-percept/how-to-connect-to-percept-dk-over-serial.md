@@ -1,20 +1,20 @@
 ---
-title: Conexión serie a Azure Percept DK
+title: Conexión a Azure Percept DK a través de cable serie
 description: Obtenga información acerca de cómo configurar una conexión serie a Azure Percept DK con un cable serie de USB a TTL.
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a9b864f5d8341253c70fbde6d111b04a4d924f1d
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: fa28fc845e8f15f06170a31d1d22892eca061bb7
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371483"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220418"
 ---
-# <a name="connect-to-your-azure-percept-dk-over-serial"></a>Conexión serie a Azure Percept DK
+# <a name="connect-to-azure-percept-dk-over-serial"></a>Conexión a Azure Percept DK a través de cable serie
 
 Siga los pasos que se indican a continuación para configurar una conexión serie a Azure Percept DK mediante [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 

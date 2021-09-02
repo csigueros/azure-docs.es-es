@@ -3,15 +3,15 @@ title: 'Información general: automatización de la implementación para Azure L
 description: Obtenga información sobre las plantillas de Azure Resource Manager para automatizar la implementación de Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: ac2746c963c00ffd12a272b0c41322b0f9b9b24e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 538ee3d5dec64e2558297005a600cfd1662a322a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961635"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223893"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -534,9 +534,15 @@ En esta plantilla de ejemplo, se muestra cómo puede completar estas tareas medi
             // End workflow definition
             // Start workflow definition parameter values
             "parameters": {
-               "authenticationType": "[parameters('TemplateAuthenticationType')]", // Template parameter reference
-               "fabrikamPassword": "[parameters('TemplateFabrikamPassword')]", // Template parameter reference
-               "fabrikamUserName": "[parameters('TemplateFabrikamUserName')]" // Template parameter reference
+               "authenticationType": {
+                  "value": "[parameters('TemplateAuthenticationType')]" // Template parameter reference
+               },
+               "fabrikamPassword": {                  
+                  "value": "[parameters('TemplateFabrikamPassword')]" // Template parameter reference
+               },
+               "fabrikamUserName": {
+                  "value": "[parameters('TemplateFabrikamUserName')]" // Template parameter reference
+               }
             },
             "accessControl": {}
          },

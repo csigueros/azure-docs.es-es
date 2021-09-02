@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: aca3e1231e2883bb077cb9fb8c2c353b607aa37e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a4bfa5687c4b552a99b8d4e5a7e5c8f79807d766
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473583"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014921"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>Procedimiento para iniciar la aplicación Spring Cloud desde el código fuente
 
@@ -32,6 +32,7 @@ En este inicio rápido se explica cómo:
 > * Asignar un punto de conexión público para la aplicación
 
 ## <a name="prerequisites"></a>Prerrequisitos
+
 Antes de empezar, asegúrese de que su suscripción de Azure tiene las dependencias necesarias:
 
 1. [Instalación de Git](https://git-scm.com/)
@@ -53,7 +54,7 @@ az extension add --name spring-cloud
 
 ## <a name="provision-a-service-instance-using-the-azure-cli"></a>Aprovisionamiento de una instancia de servicio con la CLI de Azure
 
-Inicie sesión en la CLI de Azure y elija una suscripción activa. 
+Inicie sesión en la CLI de Azure y elija una suscripción activa.
 
 ```azurecli
 az login
@@ -101,13 +102,13 @@ Para realizar la implementación desde un archivo JAR compilado en la máquina l
 Para implementar el archivo fat-JAR en una implementación activa
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
+az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR, for example "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 Para implementar el archivo fat-JAR en una implementación específica
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR, for example "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 ### <a name="deploy-from-source-code"></a>Implementación desde el código fuente
@@ -146,7 +147,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 
 1. Abra la página **Panel de la aplicación**.
 2. Seleccione la aplicación `gateway` y se mostrará la página **Detalles de la aplicación**.
-3. Seleccione **Assign endpoint** (Asignar punto de conexión) para asignar un punto de conexión público a la puerta de enlace. Esta operación puede tardar unos minutos. 
+3. Seleccione **Assign endpoint** (Asignar punto de conexión) para asignar un punto de conexión público a la puerta de enlace. Esta operación puede tardar unos minutos.
 4. Escriba la dirección IP pública asignada en el explorador para ver la aplicación en ejecución.
 
 > [!div class="nextstepaction"]

@@ -4,18 +4,18 @@ titleSuffix: Microsoft Genomics
 description: En este artículo se describe cómo abrir una solicitud de soporte técnico para ponerse en contacto con Microsoft Genomics si no puede resolver su problema con la guía de solución de problemas o preguntas frecuentes.
 keywords: solución de problemas, error, depuración, soporte técnico
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ab85dbc95a8f7432afba3eaa082f6490d1ba8dba
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 4fd18dd1f8f15a99a7de32038798a925d369ed1a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552467"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259446"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Cómo ponerse en contacto con Microsoft Genomics para obtener soporte técnico
 Esta introducción describe cómo enviar una solicitud de soporte técnico para ponerse en contacto con Microsoft Genomics. Esto puede resultar útil si no puede solucionar el problema mediante la [Guía de solución de problemas](troubleshooting-guide-genomics.md) o las [Preguntas frecuentes](frequently-asked-questions-genomics.yml). 

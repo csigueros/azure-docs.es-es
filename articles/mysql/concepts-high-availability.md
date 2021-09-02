@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 74d6981c0465a1960e920313c1f960f0d781692b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 921e4cd8885dcbad5cd477e7f2283c9b11c445fc
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092962"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122651962"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Alta disponibilidad en Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 El servicio Azure Database for MySQL proporciona un alto nivel de disponibilidad garantizada gracias al Acuerdo de Nivel de Servicio (SLA) respaldado económicamente con un tiempo de actividad del [99,99 %](https://azure.microsoft.com/support/legal/sla/mysql). Azure Database for MySQL proporciona alta disponibilidad durante los eventos planeados, como la operación de proceso de escalado iniciada por el usuario, y también cuando se producen eventos no planeados, como los errores subyacentes de hardware, software o red. Azure Database for MySQL puede recuperarse rápidamente de las circunstancias más críticas, lo que garantiza que las aplicaciones prácticamente no tengan tiempo de inactividad al usar este servicio.
 
 Azure Database for MySQL resulta adecuado para ejecutar bases de datos esenciales que requieren un tiempo de actividad elevado. Basado en la arquitectura de Azure, el servicio tiene funcionalidades intrínsecas de alta disponibilidad, redundancia y resistencia para mitigar el tiempo de inactividad de la base de datos frente a interrupciones planeadas y no planeadas, sin necesidad de configurar ningún componente adicional. 

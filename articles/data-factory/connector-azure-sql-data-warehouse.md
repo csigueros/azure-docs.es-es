@@ -1,19 +1,22 @@
 ---
 title: Copia y transformación de datos en Azure Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Descubra cómo copiar datos en Azure Synapse Analytics y cómo transformarlos en Azure Synapse Analytics mediante Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/10/2021
-ms.openlocfilehash: b4c90f8fa7efb002e9bcc243a55ba903002855c8
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 08/15/2021
+ms.openlocfilehash: 6029e571cc1f2d9fe50b2d163a711a89827f2bfd
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736977"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201942"
 ---
-# <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Synapse Analytics mediante Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory-or-synapse-pipelines"></a>Copia y transformación de datos en Azure Synapse Analytics mediante canalizaciones de Azure Data Factory o Synapse
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
 >
@@ -22,7 +25,7 @@ ms.locfileid: "109736977"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo, se explica cómo usar la actividad de copia en Azure Data Factory para copiar datos desde y hacia Azure Synapse Analytics, y usar Data Flow para transformar datos en Azure Data Lake Storage Gen2. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo, se explica cómo usar la actividad de copia en canalizaciones de Azure Data Factory o Synapse para copiar datos desde y hacia Azure Synapse Analytics, y cómo usar Data Flow para transformar datos en Azure Data Lake Storage Gen2. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -37,10 +40,10 @@ Para la actividad de copia, este conector de Azure Synapse Analytics admite esta
 
 - Copiar datos mediante la autenticación con SQL y la autenticación de tokens de aplicaciones de Azure Active Directory (Azure AD) con una entidad de servicio o identidades administradas para recursos de Azure.
 - Como origen, la recuperación de datos mediante una consulta SQL o un procedimiento almacenado. También puede optar por la copia en paralelo desde un origen de Azure Synapse Analytics; vea la sección [Copia en paralelo desde Azure Synapse Analytics](#parallel-copy-from-azure-synapse-analytics) para obtener detalles.
-- Como receptor, cargar de datos mediante [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics), la [instrucción COPY](#use-copy-statement) o Inserción masiva. Se recomienda PolyBase o la instrucción COPY para mejorar el rendimiento de la copia. El conector también admite la creación automática de la tabla de destino, si no existe, en función del esquema de origen.
+- Como receptor, la carga de datos mediante la [instrucción COPY](#use-copy-statement), [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) o la inserción masiva. Se recomienda usar la instrucción COPY o PolyBase para conseguir un mejor rendimiento de la copia. El conector también admite la creación automática de la tabla de destino con DISTRIBUTION = ROUND_ROBIN, si no existe, en función del esquema de origen.
 
 > [!IMPORTANT]
-> Si copia los datos mediante Azure Data Factory Integration Runtime, configure una [regla de firewall de nivel de servidor](../azure-sql/database/firewall-configure.md) para que los servicios de Azure puedan acceder al [servidor lógico de SQL](../azure-sql/database/logical-servers.md).
+> Si copia los datos mediante Azure Integration Runtime, configure una [regla de firewall de nivel de servidor](../azure-sql/database/firewall-configure.md) para que los servicios de Azure puedan acceder al [servidor lógico de SQL](../azure-sql/database/logical-servers.md).
 > Si copia los datos mediante un entorno de ejecución de integración autohospedado, configure el firewall para permitir el intervalo IP apropiado. Dicho intervalo incluye la dirección IP del equipo que se usa para conectarse a Azure Synapse Analytics.
 
 ## <a name="get-started"></a>Introducción
@@ -50,7 +53,7 @@ Para la actividad de copia, este conector de Azure Synapse Analytics admite esta
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que definen las entidades de Data Factory específicas de un conector de Azure Synapse Analytics.
+En las secciones siguientes se proporcionan detalles sobre las propiedades que definen las entidades de las canalizaciones de Data Factory y Synapse específicas de un conector de Azure Synapse Analytics.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -59,11 +62,11 @@ Las siguientes propiedades son compatibles con un servicio vinculado de Azure Sy
 | Propiedad            | Descripción                                                  | Obligatorio                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | La propiedad type debe establecerse en **AzureSqlDW**.             | Sí                                                          |
-| connectionString    | Especifique la información necesaria para conectarse a la instancia de Azure Synapse Analytics para la propiedad **connectionString**. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña o clave de la entidad de servicio en Azure Key Vault y, en el caso de la autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí                                                          |
+| connectionString    | Especifique la información necesaria para conectarse a la instancia de Azure Synapse Analytics para la propiedad **connectionString**. <br/>Marque este campo como SecureString para almacenarlo de forma segura. También puede colocar la contraseña o clave de la entidad de servicio en Azure Key Vault y, en el caso de la autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí                                                          |
 | servicePrincipalId  | Especifique el id. de cliente de la aplicación.                         | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | tenant              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
-| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de Azure AD. <br/> Los valores permitidos son `AzurePublic`, `AzureChina`, `AzureUsGovernment` y `AzureGermany`. De forma predeterminada, se usa el entorno de nube de la factoría de datos. | No |
+| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de Azure AD. <br/> Los valores permitidos son `AzurePublic`, `AzureChina`, `AzureUsGovernment` y `AzureGermany`. De forma predeterminada, se usa el entorno en la nube de la canalización de Data Factory o Synapse. | No |
 | connectVia          | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un IR autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usará Azure Integration Runtime. | No                                                           |
 
 Para ver los distintos tipos de autenticación, consulte las secciones siguientes acerca de requisitos previos y ejemplos de JSON, respectivamente:
@@ -139,7 +142,7 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
 3. **[Cree usuarios de bases de datos independientes](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** para la entidad de servicio. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el T-SQL siguiente:
   
     ```sql
-    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your_application_name] FROM EXTERNAL PROVIDER;
     ```
 
 4. **Conceda a la entidad de servicio los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL, u otros usuarios. Ejecute el siguiente código, o consulte más opciones [aquí](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Si desea usar PolyBase para cargar los datos, infórmese sobre el [permiso de base de datos necesario](#required-database-permission).
@@ -148,7 +151,7 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
     EXEC sp_addrolemember db_owner, [your application name];
     ```
 
-5. En Azure Data Factory, **configure un servicio vinculado de Azure Synapse Analytics**.
+5. En un área de trabajo de Azure Data Factory o de Synapse, **configure un servicio vinculado de Azure Synapse Analytics**.
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Ejemplo de servicio vinculado que usa la autenticación de entidad de servicio
 
@@ -176,25 +179,25 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
 
 ### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa la factoría concreta. Esta identidad administrada se puede usar para la autenticación de Azure Synapse Analytics. Con esta identidad, la fábrica designada puede obtener acceso y copiar datos de la base de datos o en ella.
+Un área de trabajo de Data Factory o de Synapse se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que represente el recurso. Esta identidad administrada se puede usar para la autenticación de Azure Synapse Analytics. Con esta identidad, el recurso designado puede acceder a la base de datos y copiar datos de o en ella.
 
 Para usar la autenticación de identidad administrada, siga estos pasos:
 
 1. **[Aprovisione un administrador de Azure Active Directory](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** para el servidor en Azure Portal, si aún no lo ha hecho. El administrador de Azure AD puede ser un usuario o un grupo de Azure AD. Si concede al grupo con identidad administrada un rol de administrador, omita los pasos 3 y 4. El administrador tendrá acceso completo a la base de datos.
 
-2. **[Cree usuarios de bases de datos independientes](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** para la identidad administrada de Data Factory. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL.
+2. **[Cree usuarios de bases de datos independientes](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** para la identidad administrada. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL.
   
     ```sql
-    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Conceda a la identidad administrada de Data Factory los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Ejecute el siguiente código, o consulte más opciones [aquí](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Si desea usar PolyBase para cargar los datos, infórmese sobre el [permiso de base de datos necesario](#required-database-permission).
+3. **Conceda a la identidad administrada los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Ejecute el siguiente código, o consulte más opciones [aquí](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Si desea usar PolyBase para cargar los datos, infórmese sobre el [permiso de base de datos necesario](#required-database-permission).
 
     ```sql
-    EXEC sp_addrolemember db_owner, [your Data Factory name];
+    EXEC sp_addrolemember db_owner, [your_resource_name];
     ```
 
-4. En Azure Data Factory, **configure un servicio vinculado de Azure Synapse Analytics**.
+4. **Configure un servicio vinculado de Azure Synapse Analytics**.
 
 **Ejemplo**:
 
@@ -366,15 +369,13 @@ GO
 
 ### <a name="azure-synapse-analytics-as-sink"></a><a name="azure-sql-data-warehouse-as-sink"></a> Azure Synapse Analytics como vínculo
 
-Azure Data Factory admite tres maneras de cargar datos en Azure Synapse Analytics.
+Las canalizaciones de Azure Data Factory y Synapse admiten tres maneras de cargar datos en Azure Synapse Analytics.
 
-![Opciones de copia en el receptor Azure Synapse Analytics](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
-
-- [Usar PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)
 - [Uso de la instrucción COPY](#use-copy-statement)
+- [Usar PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)
 - Usar Inserción masiva
 
-La forma más rápida y escalable de cargar datos es a través de [PolyBase](/sql/relational-databases/polybase/polybase-guide) o la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql).
+La forma más rápida y escalable de cargar datos es hacerlo mediante la [instrucción CPOY](/sql/t-sql/statements/copy-into-transact-sql) o [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 Para copiar datos en Azure Synapse Analytics, establezca el tipo de receptor de la actividad de copia en **SqlDWSink**. La sección **sink** de la actividad de copia admite las siguientes propiedades:
 
@@ -385,11 +386,11 @@ Para copiar datos en Azure Synapse Analytics, establezca el tipo de receptor de 
 | polyBaseSettings  | Un grupo de propiedades que se pueden especificar cuando el valor de la propiedad `allowPolybase` está establecido en **true**. | No.<br/>Se aplica al usar PolyBase. |
 | allowCopyCommand | Indica si se va a usar la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql) para cargar datos en Azure Synapse Analytics. `allowCopyCommand` y `allowPolyBase` no pueden ser true. <br/><br/>Consulte [Uso de la instrucción COPY para cargar datos en Azure Synapse Analytics](#use-copy-statement) para restricciones y más información.<br/><br/>Los valores válidos son **True** y **False** (valor predeterminado). | No.<br>Se aplica cuando se usa COPY. |
 | copyCommandSettings | Un grupo de propiedades que se pueden especificar cuando el valor de la propiedad `allowCopyCommand` está establecido en TRUE. | No.<br/>Se aplica cuando se usa COPY. |
-| writeBatchSize    | Número de filas que se va a insertar en la tabla SQL **por lote**.<br/><br/>El valor que se permite es un **entero** (número de filas). De manera predeterminada, Data Factory determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila. | No.<br/>Se aplica cuando se usa inserción masiva.     |
+| writeBatchSize    | Número de filas que se va a insertar en la tabla SQL **por lote**.<br/><br/>El valor que se permite es un **entero** (número de filas). De manera predeterminada, el servicio determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila. | No.<br/>Se aplica cuando se usa inserción masiva.     |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera.<br/><br/>El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | No.<br/>Se aplica cuando se usa inserción masiva.        |
 | preCopyScript     | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure Synapse Analytics en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | No                                            |
 | tableOption | Especifica si [se crea automáticamente la tabla de receptores](copy-activity-overview.md#auto-create-sink-tables) según el esquema de origen, si no existe. Los valores permitidos son: `none` (valor predeterminado), `autoCreate`. |No |
-| disableMetricsCollection | Data Factory recopila métricas, como las DWU de Azure Synapse Analytics, para la optimización del rendimiento de copia y la obtención de recomendaciones, que proporcionan acceso adicional a la base de datos maestra. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
+| disableMetricsCollection | El servicio recopila métricas, como las DWU de Azure Synapse Analytics, para la optimización del rendimiento de copia y la obtención de recomendaciones, que proporcionan acceso adicional a la base de datos maestra. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
 | maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Ejemplo de receptor Azure Synapse Analytics
@@ -414,15 +415,15 @@ En la actividad de copia, el conector de Azure Synapse Analytics proporciona c
 
 ![Captura de pantalla de las opciones de partición](./media/connector-sql-server/connector-sql-partition-options.png)
 
-Al habilitar la copia con particiones, la actividad de copia ejecuta consultas en paralelo en el origen de Azure Synapse Analytics para cargar los datos por particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, Data Factory genera y ejecuta cuatro consultas de forma simultánea de acuerdo con la configuración y la opción de partición que se ha especificado, y cada consulta recupera una porción de datos de Azure Synapse Analytics.
+Al habilitar la copia con particiones, la actividad de copia ejecuta consultas en paralelo en el origen de Azure Synapse Analytics para cargar los datos por particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, el servicio genera y ejecuta cuatro consultas de forma simultánea de acuerdo con la configuración y la opción de partición que se ha especificado, y cada consulta recupera una porción de datos de Azure Synapse Analytics.
 
 Es recomendable habilitar la copia en paralelo con creación de particiones de datos, especialmente si se cargan grandes cantidades de datos de Azure Synapse Analytics. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribirlos en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribirlos en un único archivo.
 
 | Escenario                                                     | Configuración sugerida                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga completa de una tabla grande con particiones físicas.        | **Opción de partición**: particiones físicas de la tabla. <br><br/>Durante la ejecución, Data Factory detecta automáticamente las particiones físicas y copia los datos mediante particiones. <br><br/>Para comprobar si la tabla tiene una partición física o no, puede hacer referencia a [esta consulta](#sample-query-to-check-physical-partition). |
-| Carga completa de una tabla grande, sin particiones físicas, aunque con una columna de tipo entero o datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Columna de partición** (opcional): especifique la columna usada para crear la partición de datos. Si no se especifica, se usa la columna de índice o clave principal.<br/>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas de la tabla y se copian. Si no se especifica, la actividad de copia detecta automáticamente los valores.<br><br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, Data Factory recupera los datos por 4 particiones: los id. del rango <=20, [21, 50], [51, 80] y >=81, respectivamente. |
-| Carga de grandes cantidades de datos mediante una consulta personalizada, sin particiones físicas, aunque con una columna de tipo entero o date/datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos.<br>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas del resultado de la consulta y se copian. Si no se especifica, la actividad de copia detecta automáticamente el valor.<br><br>Durante la ejecución, Data Factory reemplaza `?AdfRangePartitionColumnName` por el nombre real de la columna y los rangos de valor de cada partición y se los envía a Azure Synapse Analytics. <br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, Data Factory recupera los datos por 4 particiones: los id. del rango <=20, [21, 50], [51, 80] y >=81, respectivamente. <br><br>A continuación se muestran más consultas de ejemplo para distintos escenarios:<br> 1. Consulta de la tabla completa: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Consulta de una tabla con selección de columnas y filtros adicionales de la cláusula where: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Consulta con subconsultas: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Consulta con partición en subconsulta: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Carga completa de una tabla grande con particiones físicas.        | **Opción de partición**: particiones físicas de la tabla. <br><br/>Durante la ejecución, el servicio detecta automáticamente las particiones físicas y copia los datos por particiones. <br><br/>Para comprobar si la tabla tiene una partición física o no, puede hacer referencia a [esta consulta](#sample-query-to-check-physical-partition). |
+| Carga completa de una tabla grande, sin particiones físicas, aunque con una columna de tipo entero o datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Columna de partición** (opcional): especifique la columna usada para crear la partición de datos. Si no se especifica, se usa la columna de índice o clave principal.<br/>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas de la tabla y se copian. Si no se especifica, la actividad de copia detecta automáticamente los valores.<br><br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, el servicio recupera los datos en 4 particiones: identificadores del rango <=20, del rango [21, 50], del rango [51, 80] y del rango >=81, respectivamente. |
+| Carga de grandes cantidades de datos mediante una consulta personalizada, sin particiones físicas, aunque con una columna de tipo entero o date/datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos.<br>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas del resultado de la consulta y se copian. Si no se especifica, la actividad de copia detecta automáticamente el valor.<br><br>Durante la ejecución, el servicio reemplaza `?AdfRangePartitionColumnName` por el nombre real de la columna y los rangos de valor para cada partición y los envía a Azure Synapse Analytics. <br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, el servicio recupera los datos en 4 particiones: identificadores del rango <=20, del rango [21, 50], del rango [51, 80] y del rango >=81, respectivamente. <br><br>A continuación se muestran más consultas de ejemplo para distintos escenarios:<br> 1. Consulta de la tabla completa: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Consulta de una tabla con selección de columnas y filtros adicionales de la cláusula where: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Consulta con subconsultas: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Consulta con partición en subconsulta: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Procedimientos recomendados para cargar datos con la opción de partición:
@@ -430,8 +431,8 @@ Procedimientos recomendados para cargar datos con la opción de partición:
 1. Seleccione una columna distintiva como columna de partición (como clave principal o clave única) para evitar la asimetría de datos. 
 2. Si la tabla tiene una partición integrada, use la opción de partición "Particiones físicas de tabla" para obtener un mejor rendimiento.
 3. Si usa Azure Integration Runtime para copiar datos, puede establecer "[unidades de integración de datos (DIU)](copy-activity-performance-features.md#data-integration-units)" mayores (> 4) para usar más recursos de cálculo. Compruebe los escenarios aplicables allí.
-4. "[Grado de paralelismo de copia](copy-activity-performance-features.md#parallel-copy)" controla los números de partición. Si se establece en un número demasiado grande, el rendimiento puede resentirse, de modo que se recomienda establecerlo como (DIU o número de nodos de IR autohospedados) * (2 a 4).
-5. Tenga en cuenta que Azure Synapse Analytics puede ejecutar un máximo de 32 consultas en un momento dado; si "Grado de paralelismo de copia" se establece en un número demasiado grande, puede producirse un problema de límite de Synapse.
+4. "[Grado de paralelismo de copia](copy-activity-performance-features.md#parallel-copy)" controla los números de partición. Si se establece en un número demasiado grande, puede resentirse el rendimiento, así que se recomienda establecerlo como (DIU o número de nodos de IR autohospedados) * (2 a 4).
+5. Tenga en cuenta que Azure Synapse Analytics puede ejecutar un máximo de 32 consultas en un momento dado; si "Grado de paralelismo de copia" se establece en un número demasiado grande, puede producirse un problema de límite de Synapse.
 
 **Ejemplo: carga completa de una tabla grande con particiones físicas**
 
@@ -473,6 +474,153 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 Si la tabla tiene una partición física, verá "HasPartition" como "yes".
 
+## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics"></a><a name="use-copy-statement"></a> Uso de la instrucción COPY para cargar datos en Azure Synapse Analytics
+
+El uso de la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql) constituye un método sencillo y flexible para cargar datos en Azure Synapse Analytics con un alto rendimiento. Para más información, consulte [Inicio rápido: carga masiva de datos mediante la instrucción COPY](../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md).
+
+
+- Si los datos de origen están en **Azure Blob o Azure Data Lake Storage Gen2** y el **formato es compatible con la instrucción COPY**, puede usar la actividad de copia para invocar directamente esta instrucción y permitir que Azure Synapse Analytics extraiga los datos del origen. Consulte **[Copia directa mediante la instrucción COPY](#direct-copy-by-using-copy-statement)** para obtener detalles.
+- Si el formato y el almacén de datos de origen no es compatible originalmente con la instrucción COPY, use en su lugar la característica **[Copia almacenada provisionalmente mediante la instrucción COPY](#staged-copy-by-using-copy-statement)** . La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Convierte automáticamente los datos en formato compatible con la instrucción COPY, almacena los datos en Azure Blob Storage y llama a la instrucción COPY para cargar los datos en Azure Synapse Analytics.
+
+>[!TIP]
+>Cuando se usa la instrucción COPY con Azure Integration Runtime, las [unidades de integración de datos (DIU)](copy-activity-performance-features.md#data-integration-units) eficaces siempre son dos. La optimización de la unidad de integración de datos no afecta al rendimiento, ya que la carga de datos desde el almacenamiento se basa en el motor de Azure Synapse.
+
+### <a name="direct-copy-by-using-copy-statement"></a>Copia directa mediante la instrucción COPY
+
+La instrucción COPY de Azure Synapse Analytics admite directamente Azure Blob, Azure Data Lake Storage Gen1 y Azure Data Lake Storage Gen2. Si los datos de origen cumplen los criterios descritos en esta sección, use la instrucción COPY para copiar directamente desde el almacén de datos de origen a Azure Synapse Analytics. De lo contrario, use [Copia almacenada provisionalmente mediante la instrucción COPY](#staged-copy-by-using-copy-statement). El servicio comprueba la configuración y produce un error en la ejecución de la actividad de copia si no se cumplen los criterios.
+
+1. El **formato y el servicio vinculado de origen** tienen los siguientes tipos y métodos de autenticación:
+
+    | Tipo de almacén de datos de origen admitido                             | Formato admitido           | Tipo de autenticación de origen admitido                         |
+    | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
+    | [Azure Blob](connector-azure-blob-storage.md)                | [Texto delimitado](format-delimited-text.md)             | Autenticación de clave de cuenta, autenticación de firma de acceso compartido, autenticación de entidad de servicio, autenticación de identidad administrada |
+    | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Autenticación de clave de cuenta, autenticación de firma de acceso compartido |
+    | &nbsp;                                                       | [ORC](format-orc.md)                        | Autenticación de clave de cuenta, autenticación de firma de acceso compartido |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Texto delimitado](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autenticación de clave de cuenta, autenticación de entidad de servicio, autenticación de identidad administrada |
+
+    >[!IMPORTANT]
+    >- Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
+    >- Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+
+2. Esta es la configuración de formato:
+
+   1. Para **Parquet**: `compression` puede ser **no compression**, **Snappy** o **``GZip``** .
+   2. Para **ORC**: `compression` puede ser **sin compresión**, **```zlib```** o **Snappy**.
+   3. Para **Texto delimitado**:
+      1. `rowDelimiter` se establece explícitamente como **carácter único** o " **\r\n**"; no se admite el valor predeterminado.
+      2. `nullValue` se deja con el valor predeterminado o se establece en **cadena vacía** ("").
+      3. `encodingName` se deja con el valor predeterminado o se establece en **utf-8 o utf-16**.
+      4. `escapeChar` debe ser igual que `quoteChar` y no está vacío.
+      5. `skipLineCount` se deja como valor predeterminado o se establece en 0.
+      6. `compression` puede ser **no compression** o **``GZip``** .
+
+3. Si el origen es una carpeta, `recursive` de la actividad de copia se debe establecer en True y `wildcardFilename` tiene que ser `*` o `*.*`. 
+
+4. `wildcardFolderPath`, `wildcardFilename` (distinto de `*` o `*.*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` y `additionalColumns` no se especifican.
+
+Esta configuración de la instrucción COPY es compatible con `allowCopyCommand` en la actividad de copia:
+
+| Propiedad          | Descripción                                                  | Obligatorio                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| defaultValues | Especifica los valores predeterminados para cada columna de destino en Azure Synapse Analytics.  Los valores predeterminados de la propiedad sobrescriben el conjunto de restricciones predeterminado en el almacenamiento de datos, y la columna de identidad no puede tener un valor predeterminado. | No |
+| additionalOptions | Opciones adicionales que se pasarán directamente a la instrucción COPY de Azure Synapse Analytics en la cláusula "With" de la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql). Incluye el valor entre comillas si es necesario para ajustarlo a los requisitos de la instrucción COPY. | No |
+
+```json
+"activities":[
+    {
+        "name": "CopyFromAzureBlobToSQLDataWarehouseViaCOPY",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "ParquetDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "AzureSQLDWDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSettings",
+                    "recursive": true
+                }
+            },
+            "sink": {
+                "type": "SqlDWSink",
+                "allowCopyCommand": true,
+                "copyCommandSettings": {
+                    "defaultValues": [
+                        {
+                            "columnName": "col_string",
+                            "defaultValue": "DefaultStringValue"
+                        }
+                    ],
+                    "additionalOptions": {
+                        "MAXERRORS": "10000",
+                        "DATEFORMAT": "'ymd'"
+                    }
+                }
+            },
+            "enableSkipIncompatibleRow": true
+        }
+    }
+]
+```
+
+### <a name="staged-copy-by-using-copy-statement"></a>Copia almacenada provisionalmente mediante la instrucción COPY
+
+Si los datos de origen no son compatibles de forma nativa con la instrucción COPY, habilite la copia de datos a través de una instancia provisional de Azure Blob o Azure Data Lake Storage Gen2 (no puede ser Azure Premium Storage). En este caso, el servicio convierte automáticamente los datos para satisfacer los requisitos del formato de datos de la instrucción COPY. Después, llama a la instrucción COPY para cargar datos en Azure Synapse Analytics. Por último, limpia los datos temporales del almacenamiento. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos mediante el almacenamiento provisional.
+
+Para usar esta característica, cree un [servicio vinculado de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) con **clave de cuenta o autenticación de identidad administrada por el sistema** que haga referencia a la cuenta de almacenamiento de Azure como almacenamiento provisional.
+
+>[!IMPORTANT]
+>- Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento provisional, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
+>- Si el almacenamiento provisional de Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
+
+>[!IMPORTANT]
+>Si el almacenamiento provisional de Azure Storage está configurado con un punto de conexión privado administrado y tiene el firewall de almacenamiento habilitado, debe usar la autenticación de identidad administrada y conceder permisos de lector de datos de Storage Blob a la instancia de Synapse SQL Server para asegurarse de que puede acceder a los archivos almacenados provisionalmente durante la carga de la instrucción COPY.
+
+```json
+"activities":[
+    {
+        "name": "CopyFromSQLServerToSQLDataWarehouseViaCOPYstatement",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "SQLServerDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "AzureSQLDWDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "SqlSource",
+            },
+            "sink": {
+                "type": "SqlDWSink",
+                "allowCopyCommand": true
+            },
+            "stagingSettings": {
+                "linkedServiceName": {
+                    "referenceName": "MyStagingStorage",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        }
+    }
+]
+```
+
 ## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>Uso de PolyBase para cargar datos en Azure Synapse Analytics
 
 Usar [PolyBase](/sql/relational-databases/polybase/polybase-guide) es una manera eficaz de cargar grandes cantidades de datos en Azure Synapse Analytics con un alto rendimiento. Verá una gran mejora en el rendimiento mediante el uso de PolyBase en lugar del mecanismo BULKINSERT predeterminado. Para un tutorial con un caso de uso, vea [Carga de datos en Azure SQL Data Warehouse mediante Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
@@ -499,7 +647,7 @@ PolyBase con Azure Synapse Analytics admite directamente Azure Blob, Azure Data 
 > [!TIP]
 > Para copiar datos de forma eficaz en Azure Synapse Analytics, obtenga más información en [Azure Data Factory hace incluso más fácil y cómodo el descubrimiento de información de datos cuando se usa Data Lake Store con Azure Synapse Analytics](/archive/blogs/azuredatalake/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse).
 
-Si no se cumplen los requisitos, Azure Data Factory comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
+Si no se cumplen los requisitos, el servicio comprueba la configuración y vuelve automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
 1. El **servicio vinculado de origen** tiene los siguientes tipos y métodos de autenticación:
 
@@ -520,7 +668,7 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
    3. `rowDelimiter` es **valor predeterminado**, **\n**, **\r\n** o **\r**.
    4. `nullValue` se deja con el valor predeterminado o se establece en **empty string** ("") y `treatEmptyAsNull` se deja con el valor predeterminado o se establece en True.
    5. `encodingName` se deja con el valor predeterminado o se establece en **utf-8**.
-   6. `quoteChar`, `escapeChar` y `skipLineCount` no están especificados. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader` en ADF.
+   6. `quoteChar`, `escapeChar` y `skipLineCount` no están especificados. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader`.
    7. `compression` puede ser **no compression**, **``GZip``** o **Deflate**.
 
 3. Si el origen es una carpeta, `recursive` de la actividad de copia se debe establecer en True.
@@ -566,7 +714,7 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
 
 ### <a name="staged-copy-by-using-polybase"></a>Copia almacenada provisionalmente con PolyBase
 
-Si los datos de origen no son compatibles de forma nativa con PolyBase, habilite la copia de datos a través de una instancia provisional de Azure Blob o Azure Data Lake Storage Gen2 (no puede ser Azure Premium Storage). En este caso, Azure Data Factory convierte automáticamente los datos para satisfacer los requisitos del formato de datos de PolyBase. Después, invoca a PolyBase para cargar los datos en Azure Synapse Analytics. Por último, limpia los datos temporales del almacenamiento. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos mediante el almacenamiento provisional.
+Si los datos de origen no son compatibles de forma nativa con PolyBase, habilite la copia de datos a través de una instancia provisional de Azure Blob o Azure Data Lake Storage Gen2 (no puede ser Azure Premium Storage). En este caso, el servicio convierte automáticamente los datos para satisfacer los requisitos del formato de datos de PolyBase. Después, invoca a PolyBase para cargar los datos en Azure Synapse Analytics. Por último, limpia los datos temporales del almacenamiento. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos mediante el almacenamiento provisional.
 
 Para usar esta característica, cree un [servicio vinculado de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) con **autenticación de identidad administrada o clave de cuenta** que haga referencia a la cuenta de almacenamiento de Azure como almacenamiento provisional.
 
@@ -628,7 +776,7 @@ Las cargas de PolyBase están limitadas a filas más pequeñas que 1 MB. No se p
 
 Cuando los datos de origen tienen filas mayores de 1 MB, es aconsejable dividir verticalmente las tablas de origen en otras más pequeñas. Asegúrese de que el tamaño mayor de cada fila no excede el límite. Las tablas más pequeñas se pueden cargar con PolyBase y combinar en Azure Synapse Analytics.
 
-Como alternativa, para los datos con estas columnas anchas, puede usar no PolyBase para cargar los datos de uso de ADF, para ello desactive el valor "Permitir PolyBase".
+Como alternativa, para los datos con estas columnas anchas, puede usar una opción distinta de PolyBase para cargar los datos de uso, para ello desactive el valor para permitir PolyBase.
 
 #### <a name="azure-synapse-analytics-resource-class"></a>Clase de recurso de Azure Synapse Analytics
 
@@ -665,7 +813,7 @@ Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account
 
 #### <a name="columns-with-default-values"></a>Columnas con valores predeterminados
 
-Actualmente, la característica PolyBase en Data Factory solo acepta el mismo número de columnas que la tabla de destino. Un ejemplo sería una tabla con cuatro columnas y que una de ellas esté definida con un valor predeterminado. Los datos de entrada siguen necesitando cuatro columnas. Un conjunto de datos de entrada de tres columnas producirá un error parecido al siguiente mensaje:
+Actualmente, la característica PolyBase solo acepta el mismo número de columnas que la tabla de destino. Un ejemplo sería una tabla con cuatro columnas y que una de ellas esté definida con un valor predeterminado. Los datos de entrada siguen necesitando cuatro columnas. Un conjunto de datos de entrada de tres columnas producirá un error parecido al siguiente mensaje:
 
 ```output
 All columns of the table must be specified in the INSERT BULK statement.
@@ -683,101 +831,6 @@ Job failed due to reason: at Sink '[SinkName]': shaded.msdataflow.com.microsoft.
 
 Para más información, consulte [Concesión de permisos a una identidad administrada después de la creación del área de trabajo](../synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions.md#grant-permissions-to-managed-identity-after-workspace-creation).
 
-## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics"></a><a name="use-copy-statement"></a> Uso de la instrucción COPY para cargar datos en Azure Synapse Analytics
-
-La [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql) de Azure Synapse Analytics admite directamente la carga de datos desde **Azure Blob y Azure Data Lake Storage Gen2**. Si los datos de origen cumplen los criterios descritos en esta sección, puede optar por usar la instrucción COPY en ADF para cargar datos en Azure Synapse Analytics. Azure Data Factory comprueba la configuración y produce un error en la ejecución de la actividad de copia si no se cumplen los criterios.
-
->[!NOTE]
->Actualmente, Data Factory solo admite la copia de los orígenes compatibles con la instrucción COPY que se mencionan a continuación.
-
->[!TIP]
->Cuando se usa la instrucción COPY con Azure Integration Runtime, las [unidades de integración de datos (DIU)](copy-activity-performance-features.md#data-integration-units) eficaces siempre son dos. La optimización de la unidad de integración de datos no afecta al rendimiento, ya que la carga de datos desde el almacenamiento se basa en el motor de Synapse.
-
-La instrucción COPY es compatible con esta configuración:
-
-1. El **formato y el servicio vinculado de origen** tienen los siguientes tipos y métodos de autenticación:
-
-    | Tipo de almacén de datos de origen admitido                             | Formato admitido           | Tipo de autenticación de origen admitido                         |
-    | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
-    | [Azure Blob](connector-azure-blob-storage.md)                | [Texto delimitado](format-delimited-text.md)             | Autenticación de clave de cuenta, autenticación de firma de acceso compartido, autenticación de entidad de servicio, autenticación de identidad administrada |
-    | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Autenticación de clave de cuenta, autenticación de firma de acceso compartido |
-    | &nbsp;                                                       | [ORC](format-orc.md)                        | Autenticación de clave de cuenta, autenticación de firma de acceso compartido |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Texto delimitado](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autenticación de clave de cuenta, autenticación de entidad de servicio, autenticación de identidad administrada |
-
-    >[!IMPORTANT]
-    >- Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
-    >- Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
-
-2. Esta es la configuración de formato:
-
-   1. Para **Parquet**: `compression` puede ser **no compression**, **Snappy** o **``GZip``** .
-   2. Para **ORC**: `compression` puede ser **sin compresión**, **```zlib```** o **Snappy**.
-   3. Para **Texto delimitado**:
-      1. `rowDelimiter` se establece explícitamente como **carácter único** o " **\r\n**"; no se admite el valor predeterminado.
-      2. `nullValue` se deja con el valor predeterminado o se establece en **cadena vacía** ("").
-      3. `encodingName` se deja con el valor predeterminado o se establece en **utf-8 o utf-16**.
-      4. `escapeChar` debe ser igual que `quoteChar` y no está vacío.
-      5. `skipLineCount` se deja como valor predeterminado o se establece en 0.
-      6. `compression` puede ser **no compression** o **``GZip``** .
-
-3. Si el origen es una carpeta, `recursive` de la actividad de copia se debe establecer en True y `wildcardFilename` tiene que ser `*`. 
-
-4. `wildcardFolderPath` , `wildcardFilename` (distintos de `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` y `additionalColumns` no se especifican.
-
-Esta configuración de la instrucción COPY es compatible con `allowCopyCommand` en la actividad de copia:
-
-| Propiedad          | Descripción                                                  | Obligatorio                                      |
-| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | Especifica los valores predeterminados para cada columna de destino en Azure Synapse Analytics.  Los valores predeterminados de la propiedad sobrescriben el conjunto de restricciones predeterminado en el almacenamiento de datos, y la columna de identidad no puede tener un valor predeterminado. | No |
-| additionalOptions | Opciones adicionales que se pasarán directamente a la instrucción COPY de Azure Synapse Analytics en la cláusula "With" de la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql). Incluye el valor entre comillas si es necesario para ajustarlo a los requisitos de la instrucción COPY. | No |
-
-```json
-"activities":[
-    {
-        "name": "CopyFromAzureBlobToSQLDataWarehouseViaCOPY",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "ParquetDataset",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "AzureSQLDWDataset",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "ParquetSource",
-                "storeSettings":{
-                    "type": "AzureBlobStorageReadSettings",
-                    "recursive": true
-                }
-            },
-            "sink": {
-                "type": "SqlDWSink",
-                "allowCopyCommand": true,
-                "copyCommandSettings": {
-                    "defaultValues": [
-                        {
-                            "columnName": "col_string",
-                            "defaultValue": "DefaultStringValue"
-                        }
-                    ],
-                    "additionalOptions": {
-                        "MAXERRORS": "10000",
-                        "DATEFORMAT": "'ymd'"
-                    }
-                }
-            },
-            "enableSkipIncompatibleRow": true
-        }
-    }
-]
-```
-
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
 Al transformar datos en Asignación de Data Flow, puede leer y escribir en las tablas de Azure Synapse Analytics. Para más información, vea la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en Asignación de Data Flow.
@@ -788,7 +841,7 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 
 **Entrada** Seleccione si desea señalar el origen en una tabla (equivale a ```Select * from <table-name>```) o escribir una consulta SQL personalizada.
 
-**Enable Staging** (Permitir almacenamiento provisional): se recomienda encarecidamente usar esta opción en cargas de trabajo de producción con orígenes de Azure Synapse Analytics. Al ejecutar una [actividad de flujo de datos](control-flow-execute-data-flow-activity.md) con orígenes de Azure Synapse Analytics desde una canalización, ADF le solicitará una cuenta de almacenamiento de ubicación de almacenamiento provisional y la usará para la carga de datos almacenados provisionalmente. Es el mecanismo más rápido para cargar datos desde Azure Synapse Analytics.
+**Enable Staging** (Permitir almacenamiento provisional): se recomienda encarecidamente usar esta opción en cargas de trabajo de producción con orígenes de Azure Synapse Analytics. Al ejecutar una [actividad de flujo de datos](control-flow-execute-data-flow-activity.md) con orígenes de Azure Synapse Analytics desde una canalización, se le solicitará una cuenta de almacenamiento de ubicación provisional que se usará para la carga de los datos almacenados provisionalmente. Es el mecanismo más rápido para cargar datos desde Azure Synapse Analytics.
 
 - Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
 - Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
@@ -798,7 +851,7 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 
 Ejemplo de SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Tamaño del lote**: escriba un tamaño de lote para fragmentar datos grandes en lecturas. En los flujos de datos, ADF usará esta configuración para establecer el almacenamiento en caché de columnas de Spark. Se trata de un campo de opción que usará los valores predeterminados de Spark si se deja en blanco.
+**Tamaño del lote**: escriba un tamaño de lote para fragmentar datos grandes en lecturas. En los flujos de datos, se usará esta configuración para establecer el almacenamiento en caché de columnas de Spark. Se trata de un campo de opción que usará los valores predeterminados de Spark si se deja en blanco.
 
 **Nivel de aislamiento**: El valor predeterminado de los orígenes de SQL en Mapping Data Flow es de lectura no confirmada. Puede cambiar el nivel de aislamiento aquí a uno de estos valores:
 
@@ -841,7 +894,7 @@ Al escribir en la base de datos de Azure Synapse Analytics, es posible que se pr
 *    No se puede insertar el valor NULL en la columna.
 *    Error de conversión al convertir el valor al tipo de datos.
 
-De forma predeterminada, la ejecución de un flujo de datos no funcionará al recibir el primer error. Puede optar por **Continuar en caso de error**, que permite que el flujo de datos se complete, aunque haya filas individuales con errores. Azure Data Factory proporciona diferentes opciones para controlar estas filas de error.
+De forma predeterminada, la ejecución de un flujo de datos no funcionará al recibir el primer error. Puede optar por **Continuar en caso de error**, que permite que el flujo de datos se complete, aunque haya filas individuales con errores. El servicio proporciona diferentes opciones para controlar estas filas de error.
 
 **Transaction Commit** (Confirmación de transacción): elija si los datos se escriben en una única transacción o en lotes. Una sola transacción proporcionará mejor rendimiento y ningún dato escrito será visible para otros usuarios hasta que finalice la transacción. Las transacciones por lotes tienen un rendimiento peor, pero pueden funcionar con grandes conjuntos de datos.
 
@@ -861,7 +914,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de obtenc
 
 ## <a name="data-type-mapping-for-azure-synapse-analytics"></a>Asignación de tipos de datos para Azure Synapse Analytics
 
-Al copiar datos con Azure Synapse Analytics como origen o destino, se usan las siguientes asignaciones de tipos de datos de Azure Synapse Analytics en los tipos de datos provisionales de Azure Data Factory. Para obtener información acerca de la forma en que la actividad de copia asigna el esquema de origen y el tipo de datos al receptor, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
+Al copiar datos con Azure Synapse Analytics como origen o destino, se usan las siguientes asignaciones de tipos de datos de Azure Synapse Analytics en los tipos de datos provisionales de Azure Data Factory. Estas asignaciones también se usan al copiar datos desde o hacia Azure Synapse Analytics mediante canalizaciones de Synapse, ya que las canalizaciones también implementan Azure Data Factory dentro de Azure Synapse. Para obtener información acerca de la forma en que la actividad de copia asigna el esquema de origen y el tipo de datos al receptor, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
 
 >[!TIP]
 >Consulte el artículo [Tipos de datos de tabla en Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) sobre los tipos de datos admitidos en Azure Synapse Analytics y las soluciones alternativas para los que no se admiten.
@@ -898,4 +951,4 @@ Al copiar datos con Azure Synapse Analytics como origen o destino, se usan las s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de los almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte los [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores.

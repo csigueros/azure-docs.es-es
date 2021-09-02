@@ -4,15 +4,15 @@ description: Aprenda a habilitar Synapse Link para las cuentas de Azure Cosmos 
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: bba594a6b0482457acad8bead382099a1e8e3a5b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 86f27f08bd7495e558cd81b122f1daa243dbe313
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968040"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727909"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -29,7 +29,15 @@ Azure Synapse Link está disponible para contenedores de API de SQL de Azure Cos
 * [Consulta del almacén analítico mediante un grupo de SQL sin servidor](#query-analytical-store-sql-on-demand)
 * [Uso de un grupo de SQL sin servidor para analizar datos en Power BI y visualizarlos](#analyze-with-powerbi)
 
+También puede consultar el módulo de información sobre cómo [configurar Azure Synapse Link para Azure Cosmos DB](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/).
+
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-db-accounts"></a><a id="enable-synapse-link"></a>Habilitación de Azure Synapse Link para cuentas de Azure Cosmos DB
+
+> [!NOTE]
+> Si quiere usar claves administradas por el cliente con Azure Synapse Link, debe configurar la identidad administrada de la cuenta en la directiva de acceso de Azure Key Vault antes de habilitar Synapse Link en la cuenta. Para más información, consulte el artículo sobre cómo [configurar claves administradas por el cliente mediante identidades administradas de las cuentas de Azure Cosmos DB](how-to-setup-cmk.md#using-managed-identity).
+
+> [!NOTE]
+> Si desea usar el esquema de fidelidad total para las cuentas de API de SQL (CORE), no puede usar Azure Portal para habilitar Synapse Link. Esta opción no se puede cambiar después de habilitar Synapse Link en su cuenta y, para establecerla, debe usar la CLI de Azure o PowerShell. Para obtener más información, consulte la [documentación de representación del esquema del almacén analítico](analytical-store-introduction.md#schema-representation). 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -200,15 +208,13 @@ Después de habilitar el almacén analítico con un valor de TTL determinado, ta
 Si creó un contenedor habilitado para el almacén analítico mediante Azure Portal, dicho contenedor contiene un TTL analítico predeterminado de -1. Siga estos pasos para actualizar dicho valor:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/).
-
 1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos**.
-
 1. Seleccione un contenedor existente que tenga habilitado el almacén analítico. Expanda el contenedor y modifique los valores siguientes:
+   1. Abra la ventana **Escala y configuración**.
+   1. En **Configuración**, busque **Período de vida de almacenamiento analítico**.
+   1. Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida.
+   1. Haga clic en **Guardar** para guardar los cambios.
 
-  * Abra la ventana **Escala y configuración**.
-  * En **Configuración**, busque **Período de vida de almacenamiento analítico**.
-  * Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida
-  * Haga clic en **Guardar** para guardar los cambios.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -285,7 +291,7 @@ Puede encontrar ejemplos para empezar a trabajar con Azure Synapse Link en [GitH
 
 Para obtener más información, consulte la siguiente documentación:
 
-* [Azure Synapse Link para Azure Cosmos DB.](synapse-link.md)
+* También puede consultar el módulo de información sobre cómo [configurar Azure Synapse Link para Azure Cosmos DB](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/).
 
 * [Introducción al almacén analítico de Azure Cosmos DB.](analytical-store-introduction.md)
 

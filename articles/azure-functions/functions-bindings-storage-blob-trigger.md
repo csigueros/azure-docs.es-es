@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4624a33b12afc5eff033fe2d57bf25f812c9e667
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b1be9681246711cfd722bdc4d4806d75875f3429
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891309"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179293"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
@@ -43,6 +43,8 @@ El [desencadenador de Event Grid](functions-bindings-event-grid.md) también tie
 - **Cuentas de almacenamiento solo para blobs**: [Las cuentas de almacenamiento solo para blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts) se admiten para enlaces de entrada y salida de blobs pero no para desencadenadores de blobs.
 
 - **Gran escala**: Gran escala se aplica generalmente a contenedores que tienen más de 100 000 blobs en ellos o a cuentas de almacenamiento que tienen más de 100 actualizaciones de blob por segundo.
+
+- **Blobs existentes**: el desencadenador de blobs procesará todos los blobs existentes en el contenedor al configurar el desencadenador. Si tiene un contenedor con muchos blobs existentes y solo desea que se desencadene para los nuevos blobs, use el desencadenador de Event Grid.
 
 - **Minimización de latencia**: Si la aplicación de función está en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Para evitar esta latencia, puede cambiar a un plan de App Service con Always On habilitado. También puede usar un [desencadenador de Event Grid](functions-bindings-event-grid.md) con su cuenta de almacenamiento de blobs. Para ver un ejemplo, consulte el [tutorial de Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 

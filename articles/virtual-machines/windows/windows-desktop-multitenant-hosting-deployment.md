@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 9a2b93a951b9aa2056ee547d8d74c90eb7d96f71
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 04c67fc0f3692e6b30e564593b6245f4a8d297a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983841"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740068"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Los derechos de hospedaje multiinquilino solo están disponibles para Windows 10 (versión 1703 o posterior).
@@ -30,7 +30,7 @@ Para más información, consulte [Hospedaje multiinquilino para Windows 10](htt
 Con el [centro de administración de Microsoft](/microsoft-365/admin/admin-overview/about-the-admin-center) puede confirmar si un usuario tiene asignada una licencia admitida de Windows 10.
 
 > [!IMPORTANT]
-> Para poder usar imágenes de Windows 10 en Azure, los usuarios deben tener una de las siguientes licencias de suscripción. Si no la tienen, se pueden adquirir a través de su [asociado de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) o directamente a través de [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
+> Para poder usar imágenes de Windows 10 en Azure para cualquier carga de trabajo de producción, los usuarios **deben** tener una de las siguientes licencias de suscripción. Si no la tienen, se pueden adquirir a través de su [asociado de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) o directamente a través de [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
 
 **Licencias de suscripción aptas:**
 

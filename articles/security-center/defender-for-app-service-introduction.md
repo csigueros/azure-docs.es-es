@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4ab8f3eb36e254a9b98444ecf85904fc574bcc65
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 788cce5f8f380c2bcf2fa7c66b06f22bcda167f2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487388"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732585"
 ---
 # <a name="protect-your-web-apps-and-apis"></a>Protección de las API y las aplicaciones web
 
@@ -36,7 +36,7 @@ Para proteger el plan de Azure App Service con Azure Defender para App Service, 
 | Estado de la versión:               | Disponibilidad general (GA)                                                                                                                                                                      |
 | Precios:                     | [Azure Defender para App Service](azure-defender.md) se factura como se indica en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).<br>La facturación se realiza en función de las instancias de proceso totales en todos los planes.       |
 | Planes de App Service admitidos: | Se admiten [todos los planes de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) excepto [Azure Functions en el plan de consumo](../azure-functions/functions-scale.md). |
-| Nubes:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (US Gov, Azure China)                                                     |
+| Nubes:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)                                                     |
 |                              |                                                                                                                                                                                                |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>¿Cuáles son las ventajas de Azure Defender para App Service?
@@ -93,10 +93,11 @@ Para obtener una lista completa de las alertas de Azure App Service, consulte la
 
 En este artículo, ha obtenido información sobre Azure Defender para App Service. 
 
+> [!div class="nextstepaction"]
+> [Habilitación de Azure Defender](enable-azure-defender.md)
+
 Para obtener material relacionado, consulte los siguientes artículos: 
 
 - Para exportar las alertas a Azure Sentinel, la SIEM de terceros, o cualquier otra herramienta externa, siguen las instrucciones de [Transmisión de alertas a una solución de administración de servicios de TI, SIEM o SOAR](export-to-siem.md).
 - Para obtener una lista de las alertas de Azure Defender para App Service, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-azureappserv).
 - Para más información sobre los planes de App Service, consulte [Planes de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
-> [!div class="nextstepaction"]
-> [Habilitación de Azure Defender](enable-azure-defender.md)

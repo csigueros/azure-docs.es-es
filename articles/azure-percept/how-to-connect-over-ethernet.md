@@ -1,20 +1,20 @@
 ---
-title: Inicio de la experiencia de instalación de Azure Percept DK a través de Ethernet
+title: Conexión a Azure Percept DK a través de Ethernet
 description: En esta guía se muestra a los usuarios cómo conectarse a la experiencia de instalación de Azure Percept DK cuando se conectan a través de una conexión Ethernet.
-author: mimcco
-ms.author: mimcco
+author: WendyAnn0079
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 01a1c2fcb5981681c504e3e61fc68a10922e15d5
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 6ffc2a2d55bdad670c8323dfc57efad17dec1930
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111442112"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227094"
 ---
-# <a name="how-to-launch-the-azure-percept-dk-setup-experience-over-ethernet"></a>Inicio de la experiencia de instalación de Azure Percept DK a través de Ethernet
+# <a name="connect-to-azure-percept-dk-over-ethernet"></a>Conexión a Azure Percept DK a través de Ethernet
 
 En esta guía paso a paso aprenderá a iniciar la experiencia de instalación de Azure Percept DK a través de una conexión Ethernet. Es un complemento de guía [Inicio rápido: Instalación de Azure Percept DK e implementación del primer modelo de inteligencia artificial](./quickstart-percept-dk-set-up.md). Consulte cada opción que se describe a continuación y elija cuál es la más adecuada para su entorno.
 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6710273438b291c1547688b2213b0c57ac766b99
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b018dead90b593276a9cb92696dd964473057407
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796382"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732316"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Inicio rápido: Concesión de permisos para crear registros de aplicaciones ilimitados
 
@@ -33,14 +33,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 - Módulo de AzureADPreview al usar PowerShell
 - Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
 
-Para obtener más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
+Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 
 ## <a name="azure-portal"></a>Azure portal
 
 ### <a name="create-a-custom-role"></a>Crear un rol personalizado
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
-1. Seleccione **Azure Active Directory**, elija **Roles y administradores** y, luego, seleccione **Nuevo rol personalizado**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+
+1. Seleccione **Azure Active Directory** > **Roles y administradores** y, luego, seleccione **Nuevo rol personalizado**.
 
     ![Creación o edición de roles en la página Roles y administradores](./media/quickstart-app-registration-limits/new-custom-role.png)
 
@@ -56,9 +57,12 @@ Para obtener más información, consulte [Requisitos previos para usar PowerShel
 
 ### <a name="assign-the-role"></a>Asignación del rol
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
-1. Seleccione **Azure Active Directory** y elija **Roles y administradores**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+
+1. Seleccione **Azure Active Directory** > **Roles y administradores**.
+
 1. Seleccione el rol Creador del registro de aplicaciones y elija **Agregar asignación**.
+
 1. Seleccione el usuario que desee y haga clic en **Seleccionar** para agregar el usuario al rol.
 
 ¡Listo! En este inicio rápido, ha creado un rol personalizado con permiso correctamente para crear un número ilimitado de registros de aplicaciones y luego asignar ese rol a un usuario.

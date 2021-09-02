@@ -5,12 +5,12 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.openlocfilehash: c2456fcfffd9645f94856998142f262298b5eef9
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 250396771733d13732d1ac02ef1e57a15d6ca3b8
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581459"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228836"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 
@@ -257,7 +257,7 @@ La actualización 4 de Scout es una actualización acumulativa. Incluye todas la
     * Red Hat Enterprise Linux (RHEL) 6.x
     * Oracle Linux (OL) 6.x
 * Para Linux, todos los permisos de acceso a carpetas del directorio de instalación del agente unificado ahora están restringidos exclusivamente al usuario local.
-* En Windows, una corrección para un problema de agotamiento del tiempo de espera al emitir marcadores comunes de coherencia distribuida en aplicaciones distribuidas de alta carga, como los clústeres de SQL Server y SharePoint.
+* En Windows, una corrección para un problema de agotamiento del tiempo de espera al emitir marcadores comunes de coherencia distribuida en aplicaciones distribuidas de carga elevada, como los clústeres de SQL Server y SharePoint.
 * Una corrección relacionada con el registro en el instalador de la base del servidor de configuración.
 * Se agregó un vínculo de descarga a VMware vCLI 6.0 al instalador de la base de destino maestro de Windows.
 * Se agregaron registros y comprobaciones adicionales para los cambios en la configuración de red durante maniobras de conmutación por error y recuperación ante desastres.

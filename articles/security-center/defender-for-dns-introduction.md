@@ -3,16 +3,16 @@ title: 'Azure Defender para DNS: ventajas y características'
 description: Obtenga información sobre las ventajas y características de Azure Defender para DNS.
 author: memildin
 ms.author: memildin
-ms.date: 07/25/2021
+ms.date: 08/18/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 48306c8ec46274bc123ada4f7c8f748a230edf30
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: cffe4947e321cbd1f2cbb8a4d22141039129c1e1
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690824"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419600"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Introducción a Azure Defender para DNS
 
@@ -29,7 +29,7 @@ Azure Defender para DNS proporciona una capa adicional de protección a los recu
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|**Azure Defender para DNS** se factura como se indica en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
-|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-dns"></a>Ventajas de Azure Defender para DNS
@@ -52,9 +52,11 @@ Para proteger la capa de DNS, habilite Azure Defender para DNS en todas las susc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha obtenido información sobre Azure Defender para DNS. Para obtener material relacionado, vea el siguiente artículo: 
+En este artículo, ha obtenido información sobre Azure Defender para DNS. 
+
+> [!div class="nextstepaction"]
+> [Habilitación de Azure Defender](enable-azure-defender.md)
+
+Para obtener material relacionado, vea el siguiente artículo: 
 
 - Las alertas de seguridad las puede haber generado Security Center, o bien las puede haber recibido Security Center de distintos productos de seguridad. Para exportar todas estas alertas a Azure Sentinel, a cualquier SIEM de terceros o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md).
-
-- > [!div class="nextstepaction"]
-    > [Habilitación de Azure Defender](enable-azure-defender.md)

@@ -8,29 +8,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 08/12/2021
 ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 652551635b84c18020bf928194923d0e6ca86149
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 9db30170103f76eb4bc611107faeeedd45da9acc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565293"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724896"
 ---
-# <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript y versiones de diseño de página en Azure Active Directory B2C
+# <a name="enable-javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Habilite tanto JavaScript como las versiones de diseño de página en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
+Con las [plantillas HTML](customize-ui-with-html.md) de Azure Active Directory B2C (Azure AD B2C), puede crear experiencias de identidad de los usuarios. Las plantillas HTML solo pueden contener determinados atributos y etiquetas HTML. Se permiten las etiquetas HTML básicas, como &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;h1&gt; y &lt;hr&gt;, etc. Las etiquetas más avanzadas, como &lt;script&gt; e &lt;iframe&gt;, se quitan por motivos de seguridad.
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-::: zone-end
-
-Azure AD B2C proporciona un conjunto de contenido empaquetado que contiene HTML, CSS y JavaScript para los elementos de la interfaz de usuario de los flujos de usuarios y las directivas personalizadas. Para habilitar JavaScript para las aplicaciones:
+Para habilitar etiquetas y atributos de JavaScript y de HTML avanzado:
 
 ::: zone pivot="b2c-user-flow"
 
@@ -53,7 +49,7 @@ Azure AD B2C proporciona un conjunto de contenido empaquetado que contiene HTML
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
-## <a name="select-a-page-layout-version"></a>Selección de una versión de diseño de página
+## <a name="begin-setting-up-a-page-layout-version"></a>Empezar a configurar una versión del diseño de página
 
 Si tiene pensado habilitar el código cliente de JavaScript, los elementos en los que se basa el código JavaScript deben ser inmutables. Si no son inmutables, cualquier cambio podría provocar un comportamiento inesperado en las páginas de usuario. Para evitar estos problemas, exija el uso de un diseño de página y especifique una versión de este para garantizar que las definiciones de contenido en las que ha basado JavaScript sean inmutables. Incluso si no piensa habilitar JavaScript, puede especificar una versión del diseño de página para las páginas.
 
@@ -73,9 +69,10 @@ Para información sobre los distintos diseños de página, consulte el [registro
 
 ::: zone pivot="b2c-custom-policy"
 
-Seleccione un [diseño de página](contentdefinitions.md#select-a-page-layout) para los elementos de la interfaz de usuario de su aplicación.
+Para especificar una versión del diseño de página para las páginas de la directiva personalizada:
 
-Defina una [versión de diseño de página](contentdefinitions.md#migrating-to-page-layout) con la versión `contract` de página para *todas* las definiciones de contenido de la directiva personalizada. El formato del valor debe contener la palabra `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Aprenda a [migrar al diseño de página](contentdefinitions.md#migrating-to-page-layout) con la versión de la página.
+1. Seleccione un [diseño de página](contentdefinitions.md#select-a-page-layout) para los elementos de la interfaz de usuario de su aplicación.
+1. Defina una [versión de diseño de página](contentdefinitions.md#migrating-to-page-layout) con la versión `contract` de página para *todas* las definiciones de contenido de la directiva personalizada. El formato del valor debe contener la palabra `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. 
 
 En el ejemplo siguiente se muestran los identificadores de definición de contenido y el elemento **DataUri** correspondiente con el contrato de página: 
 
@@ -146,16 +143,17 @@ Habilite la ejecución del script agregando el elemento **ScriptExecution** al e
 
 Siga estas directrices cuando personalice la interfaz de la aplicación con JavaScript:
 
-- No enlace un evento de clic con elementos HTML `<a>`.
-- No tome una dependencia del código Azure AD B2C ni de los comentarios.
-- No cambie el orden ni la jerarquía de los elementos HTML de Azure AD B2C. Use una directiva de Azure AD B2C para controlar el orden de los elementos de la interfaz de usuario.
+- Cosas que evitar 
+    - Enlazar un evento de clic con elementos HTML `<a>`.
+    - Tomar una dependencia del código Azure AD B2C o de los comentarios.
+    - Cambie el orden o la jerarquía de los elementos HTML de Azure AD B2C. Use una directiva de Azure AD B2C para controlar el orden de los elementos de la interfaz de usuario.
 - Puede llamar a cualquier servicio RESTful con estas consideraciones:
     - Deberá establecer el servicio RESTful CORS para que permita llamadas HTTP del lado cliente.
     - Asegúrese de que el servicio RESTful es seguro y solo usa el protocolo HTTPS.
     - No use JavaScript directamente para llamar a puntos de conexión de Azure AD B2C.
 - Puede incrustar el archivo JavaScript o puede vincular archivos JavaScript externos. Cuando use un archivo JavaScript externo, asegúrese de usar la dirección URL absoluta y no una relativa.
 - Marcos de JavaScript:
-    - Azure AD B2C usa una [versión específica de jQuery](page-layout.md#jquery-version). No incluya otra versión de jQuery. Usar más de una versión en la misma página provoca problemas.
+    - Azure AD B2C usa una [versión específica de jQuery](page-layout.md#jquery-and-handlebars-versions). No incluya otra versión de jQuery. Usar más de una versión en la misma página provoca problemas.
     - No se admite el uso de RequireJS.
     - Azure AD B2C no admite la mayoría de los marcos de JavaScript.
 - La configuración de Azure AD B2C puede leerse mediante una llamada a los objetos `window.SETTINGS` y `window.CONTENT`, como el idioma actual de la interfaz de usuario. No cambie el valor de estos objetos.
@@ -241,4 +239,4 @@ En el código, reemplace `termsOfUseUrl` con el vínculo al contrato de los tér
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Encuentre más información sobre cómo personalizar la interfaz de usuario de las aplicaciones en [Personalización de la interfaz de usuario de la aplicación en Azure Active Directory B2C](customize-ui-with-html.md).
+Busque más información acerca de cómo [personalizar la interfaz de usuario de la aplicación en Azure Active Directory B2C](customize-ui-with-html.md).

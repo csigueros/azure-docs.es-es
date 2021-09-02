@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: f673c506411898788b35886dea741604e885e7a3
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: a9234a2bcce6a754a96d1f323af9f08a9697ff03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461682"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725231"
 ---
 # <a name="register-and-scan-oracle-source"></a>Registro y examen de un origen de Oracle
 
@@ -74,7 +74,7 @@ La única autenticación admitida en un origen de Oracle es la **autenticación 
 Para registrar un nuevo origen de Oracle en el catálogo de datos, haga lo siguiente:
 
 1.  Vaya a la cuenta de Purview.
-2.  Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+2.  Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 3.  Seleccione **Registrar**.
 4.  En Register sources (Registrar orígenes), seleccione **Oracle**. Seleccione **Continuar**.
 

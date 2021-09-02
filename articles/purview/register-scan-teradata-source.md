@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 7dae716944426ce21cb81bdbb36992238e4bb227
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3d6f30e3d50fa79ac394460f9b13e1127cf16168
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298446"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740274"
 ---
 # <a name="register-and-scan-teradata-source"></a>Registro y examen de un origen de Teradata
 
@@ -48,7 +48,7 @@ La única autenticación admitida en un origen de Teradata es la **autenticació
 Para registrar un nuevo origen de Teradata en el catálogo de datos, siga estos pasos:
 
 1.  Vaya a la cuenta de Purview.
-2.  Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+2.  Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 3.  Seleccione **Registrar**.
 4.  En Register sources (Registrar orígenes), seleccione **Teradata**. Seleccione **Continuar**
 

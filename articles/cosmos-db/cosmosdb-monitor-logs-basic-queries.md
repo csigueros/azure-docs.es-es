@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: 769db1b447c6f5ce31a1ed23ddf5d7ef973bcad5
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 9f863760130b0748405cb30d4257864482b679f0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112553151"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106245"
 ---
 # <a name="troubleshoot-issues-with-diagnostics-queries"></a> Solución de problemas con las consultas de diagnóstico
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En este artículo, explicaremos cómo escribir consultas sencillas para ayudar a solucionar problemas relacionados con su cuenta de Azure Cosmos DB mediante registros de diagnóstico enviados a tablas de **AzureDiagnostics (heredadas)** y **específicas del recurso (versión preliminar)** .
 

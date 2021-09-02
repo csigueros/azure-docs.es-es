@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: a0e6a02aed59cbe968abb0df5c3fb612c8f2d3b0
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 811078d18d6659e600cb5b0931dcf2a217a8856e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551693"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751897"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>Registro y examen de un origen de SAP S/4HANA
 
@@ -54,7 +54,7 @@ La única autenticación admitida en un origen de SAP S/4HANA es la **autenticac
 Para registrar un nuevo origen de SAP S/4HANA en el catálogo de datos, haga lo siguiente:
 
 1.  Vaya a la cuenta de Purview.
-2.  Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+2.  Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 3.  Seleccione **Registrar**.
 4.  En Register sources (Registrar orígenes), seleccione **SAP S/4HANA**. Seleccione **Continuar**
 

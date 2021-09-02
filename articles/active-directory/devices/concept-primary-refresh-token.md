@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c2a687dc1165b2eca52213811721b35e998a6d9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 87fd2189222828eef2ff03a82125e0b6dcf7111e
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033291"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179868"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
@@ -29,7 +29,7 @@ Se da por hecho que ya conoce los distintos estados de dispositivo disponibles e
 Los siguientes componentes de Windows desempeñan un papel fundamental a la hora de solicitar y usar un PRT:
 
 * **Proveedor de autenticación en la nube** (CloudAP): CloudAP es el proveedor de autenticación moderno para el inicio de sesión de Windows, que comprueba los usuarios conectados a un dispositivo Windows 10. CloudAP proporciona un marco de complementos en el que pueden basarse los proveedores de identidades para habilitar la autenticación en Windows mediante las credenciales del proveedor de identidades en cuestión.
-* **Administrador de cuentas web** (WAM): WAM es el agente de token predeterminado en dispositivos Windows 10. WAM también proporciona un marco de complementos en el que pueden basarse los proveedores de identidades para habilitar el inicio de sesión único en sus aplicaciones que dependen del proveedor de identidades en cuestión.
+* **Administrador de cuentas web** (WAM): WAM es el agente de token predeterminado en dispositivos Windows 10. WAM también proporciona un marco de complementos en el que pueden basarse los proveedores de identidades para habilitar el inicio de sesión único en sus aplicaciones que dependen del proveedor de identidades en cuestión. (No se incluye en las compilaciones LTSC de Windows Server 2016)
 * **Complemento CloudAP de Azure AD**: un complemento específico de Azure AD basado en el marco CloudAP, que comprueba las credenciales de usuario con Azure AD durante el inicio de sesión de Windows.
 * **Complemento WAM de Azure AD**: un complemento específico de Azure AD basado en el marco WAM, que permite el inicio de sesión único en las aplicaciones que dependen de Azure AD para la autenticación.
 * **Dsreg**: un componente específico de Azure AD en Windows 10, que controla el proceso de registro de dispositivos con todos los estados.
@@ -59,7 +59,7 @@ El PRT se emite durante la autenticación del usuario en un dispositivo Windows�
 
 * **Unido a Azure AD** o **Unido a Azure AD híbrido**: cuando un usuario inicia sesión con sus credenciales de la organización, se emite un PRT durante el inicio de sesión de Windows. El PRT se emite con todas las credenciales admitidas por Windows 10, por ejemplo, contraseña y Windows Hello para empresas. En este escenario, el complemento CloudAP de Azure AD es la autoridad principal del PRT.
 * **Dispositivos registrados de Azure AD**: un PRT se emite cuando un usuario agrega una cuenta profesional secundaria a su dispositivo Windows 10. Los usuarios pueden agregar una cuenta a Windows 10 de dos maneras diferentes:  
-   * Mediante el aviso **Usar esta cuenta en cualquier lugar en el dispositivo** después de iniciar sesión en una aplicación (por ejemplo, Outlook)
+   * Adición de una cuenta mediante el mensaje **Permitir que la organización administre mi dispositivo** después de iniciar sesión en una aplicación (por ejemplo, Outlook)
    * Desde **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela** > **Conectar**.
 
 En escenarios de dispositivos registrados de Azure AD, el complemento WAM de Azure AD es la autoridad principal del PRT puesto que no va a tener lugar un inicio de sesión de Windows con esta cuenta de Azure AD.
@@ -122,8 +122,6 @@ Un PRT puede recibir una notificación de autenticación multifactor (MFA) en es
 * **MFA durante el inicio de sesión interactivo de WAM**: durante una solicitud de token a través de WAM, si a un usuario se le exige MFA para acceder a la aplicación, el PRT que se renueva durante esta interacción se graba con una notificación de MFA.
    * En este caso, la notificación de MFA no se actualiza continuamente, por lo que la duración de MFA se basa en la duración establecida en el directorio.
    * Cuando se usan un PRT y un RT anteriores existentes para acceder a una aplicación, estos se consideran como la primera prueba de autenticación. Se requiere un nuevo AT con una segunda prueba y una notificación de MFA impresa. Este además emite un nuevo PRT y RT.
-* **MFA durante el registro del dispositivo**: si un administrador ha configurado su dispositivo en Azure AD para [exigir MFA para registrar los dispositivos](device-management-azure-portal.md#configure-device-settings), el usuario necesita realizar MFA para completar el registro. Durante este proceso, el PRT emitido para el usuario tiene la notificación de MFA obtenida durante el registro. Esta funcionalidad solo se aplica al propietario registrado del dispositivo, no a otros usuarios que inicien sesión en ese dispositivo.
-   * Al igual que el inicio de sesión interactivo de WAM, la notificación de MFA no se actualiza continuamente, por lo que la duración de MFA se basa en la duración establecida en el directorio.
 
 Windows 10 mantiene una lista separada de los PRT de cada credencial. Por lo tanto, hay un PRT para cada una de las credenciales de Windows Hello para empresas, contraseñas o tarjetas inteligentes. Esta separación garantiza que las notificaciones de MFA están aisladas en función de la credencial usada, y no se mezclan durante las solicitudes de token.
 

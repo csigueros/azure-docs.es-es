@@ -2,13 +2,13 @@
 title: Servicios y categorías admitidos de los registros de recursos de Azure Monitor
 description: Referencia de Azure Monitor para conocer el esquema de los eventos y servicios admitidos para los registros de recursos de Azure.
 ms.topic: reference
-ms.date: 05/26/2021
-ms.openlocfilehash: b45e478b11290002cb2445b1a57662bacba407dd
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 08/04/2021
+ms.openlocfilehash: 2cbe701f3fbedacf29124c823743966be1f7ba32
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534433"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183895"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
 
@@ -23,9 +23,9 @@ Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y
 
 ## <a name="costs"></a>Costos
 
-Hay costos asociados al envío y al almacenamiento de datos en Log Analytics, Azure Storage o el centro de eventos. Puede que deba pagar el costo de obtener los datos en estas ubicaciones y de conservarlos ahí.  Los registros de recursos son un tipo de datos que se pueden enviar a estas ubicaciones. 
+[Log Analytics de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), el [centro de eventos](https://azure.microsoft.com/pricing/details/event-hubs/) y los asociados que se integran directamente con Azure Monitor ([por ejemplo, Datadog](../../partner-solutions/datadog/overview.md)) tienen costos asociados con la ingesta y el almacenamiento de datos. Compruebe los vínculos anteriores a las páginas de precios de estos servicios para comprender esos costos. Los registros de recursos son solo un tipo de datos que se pueden enviar a estas ubicaciones. 
 
-Hay un costo adicional para exportar algunas categorías de registros de recursos a estas ubicaciones. Dichos registros con costos de exportación se muestran en la tabla siguiente. Para más información sobre precios, consulte la sección Registros de la plataforma de la [página Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Además, puede haber costos asociados a la exportación de algunas categorías de registros de recursos a esas ubicaciones. En la tabla siguiente se muestran estos registros con los posibles costos de exportación. Para más información sobre los precios de exportación, consulte la sección *Registros de la plataforma* de la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
 
@@ -34,6 +34,7 @@ A continuación, se muestra una lista de los tipos de registros disponibles para
 Es posible que algunas categorías solo se admitan para tipos específicos de recursos. Consulte la documentación específica de recurso si cree que falta un recurso. Por ejemplo, las categorías Microsoft.Sql/servers/databases no están disponibles para todos los tipos de bases de datos. Para más información, consulte la [información sobre el registro de diagnóstico de SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 Si le parece que falta algo, puede escribir un comentario de GitHub en la parte inferior de este artículo.
+
 
 ## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/DomainServices
 
@@ -113,6 +114,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |---|---|---|
 |Auditoría|Auditoría|Sí|
 |Operativos|Operativos|Sí|
+|Solicitud|Solicitud|Sí|
 
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
@@ -120,15 +122,6 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |ServiceLog|Registros de servicios|No|
-
-
-## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
-
-|Category|Nombre para mostrar de categoría|Costos de exportación|
-|---|---|---|
-|BaiClusterEvent|BaiClusterEvent|No|
-|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
-|BaiJobEvent|BaiJobEvent|No|
 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
@@ -200,6 +193,8 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |AuthOperational|Registros de autenticación operativos|Sí|
+|CallDiagnosticsPRIVATEPREVIEW|Registros de diagnóstico de llamada: VERSIÓN PRELIMINAR PRIVADA|Sí|
+|CallSummaryPRIVATEPREVIEW|Registros de resumen de llamadas: VERSIÓN PRELIMINAR PRIVADA|Sí|
 |ChatOperational|Registros de chat operativos|No|
 |SMSOperational|Registros de SMS operativos|No|
 |Uso|Registros de uso|No|
@@ -255,10 +250,18 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |accounts|Cuentas de Databricks|No|
 |clusters|Clústeres de Databricks|No|
 |dbfs|Sistema de archivos de Databricks|No|
+|featureStore|Almacén de características de Databricks|Sí|
+|genie|Databricks Genie|Sí|
+|globalInitScripts|Scripts de inicialización globales de Databricks|Sí|
+|iamRole|Rol de IAM de Databricks|Sí|
 |instancePools|Grupos de instancias|No|
 |jobs|Trabajos de Databricks|No|
+|mlflowAcledArtifact|Artefacto Acled de MLFlow de Databricks|Sí|
+|mlflowExperiment|Experimento de MLFlow de Databricks|Sí|
 |notebook|Cuaderno de Databricks|No|
+|RemoteHistoryService|Servicio de historial remoto de Databricks|Sí|
 |secrets|Secretos de Databricks|No|
+|sqlanalytics|SQL Analytics de Databricks|Sí|
 |sqlPermissions|Permisos SQL de Databricks|No|
 |ssh|SSH de Databricks|No|
 |área de trabajo|Área de trabajo de Databricks|No|
@@ -462,7 +465,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |ResourceProviderOperation|ResourceProviderOperation|Sí|
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/DatabaseAccounts
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -535,11 +538,18 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Solicitud|Solicitud|No|
 
 
-## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
+## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|AuditLogs|Registros de auditoría|No|
+|AuditLogs|Registros de auditoría|Sí|
+
+
+## <a name="microsofthealthcareapisworkspacesfhirservices"></a>Microsoft.HealthcareApis/workspaces/fhirservices
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|AuditLogs|Registros de auditoría de FHIR|Sí|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>microsoft.insights/autoscalesettings
@@ -594,14 +604,14 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |TableUsageStatistics|Estadísticas de uso de tablas|No|
 
 
-## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/integrationAccounts
+## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/IntegrationAccounts
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |IntegrationAccountTrackingEvents|Eventos de seguimiento de la cuenta de integración|No|
 
 
-## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
+## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/Workflows
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -617,6 +627,27 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|No|
 |AmlComputeJobEvent|AmlComputeJobEvent|No|
 |AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|No|
+|ComputeInstanceEvent|ComputeInstanceEvent|Sí|
+|DataLabelChangeEvent|DataLabelChangeEvent|Sí|
+|DataLabelReadEvent|DataLabelReadEvent|Sí|
+|DataSetChangeEvent|DataSetChangeEvent|Sí|
+|DataSetReadEvent|DataSetReadEvent|Sí|
+|DataStoreChangeEvent|DataStoreChangeEvent|Sí|
+|DataStoreReadEvent|DataStoreReadEvent|Sí|
+|DeploymentEventACI|DeploymentEventACI|Sí|
+|DeploymentEventAKS|DeploymentEventAKS|Sí|
+|DeploymentReadEvent|DeploymentReadEvent|Sí|
+|EnvironmentChangeEvent|EnvironmentChangeEvent|Sí|
+|EnvironmentReadEvent|EnvironmentReadEvent|Sí|
+|InferencingOperationACI|InferencingOperationACI|Sí|
+|InferencingOperationAKS|InferencingOperationAKS|Sí|
+|ModelsActionEvent|ModelsActionEvent|Sí|
+|ModelsChangeEvent|ModelsChangeEvent|Sí|
+|ModelsReadEvent|ModelsReadEvent|Sí|
+|PipelineChangeEvent|PipelineChangeEvent|Sí|
+|PipelineReadEvent|PipelineReadEvent|Sí|
+|RunEvent|RunEvent|Sí|
+|RunReadEvent|RunReadEvent|Sí|
 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
@@ -624,6 +655,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |KeyDeliveryRequests|Solicitudes de entrega de clave|No|
+|MediaAccount|Estado de mantenimiento de la cuenta multimedia|Sí|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
@@ -644,7 +676,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |AzureFirewallNetworkRule|Regla de red de Azure Firewall|No|
 
 
-## <a name="microsoftnetworkbastionhosts"></a>Microsoft.Network/bastionHosts
+## <a name="microsoftnetworkbastionhosts"></a>microsoft.network/bastionHosts
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -683,7 +715,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |NetworkSecurityGroupRuleCounter|Contador de reglas de grupo de seguridad de red|No|
 
 
-## <a name="microsoftnetworkp2svpngateways"></a>Microsoft.Network/p2sVpnGateways
+## <a name="microsoftnetworkp2svpngateways"></a>microsoft.network/p2svpngateways
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -708,7 +740,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |ProbeHealthStatusEvents|Evento de resultados de estado de sondeo de Traffic Manager|No|
 
 
-## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
+## <a name="microsoftnetworkvirtualnetworkgateways"></a>microsoft.network/virtualnetworkgateways
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -726,7 +758,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |VMProtectionAlerts|Alertas de protección de máquina virtual|No|
 
 
-## <a name="microsoftnetworkvpngateways"></a>Microsoft.Network/vpnGateways
+## <a name="microsoftnetworkvpngateways"></a>microsoft.network/vpngateways
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -747,7 +779,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|Auditoría|Registros de auditoría|No|
+|Auditoría|Auditoría|Sí|
 
 
 ## <a name="microsoftpowerbitenants"></a>Microsoft.PowerBI/tenants
@@ -755,7 +787,6 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |Motor|Motor|No|
-
 
 ## <a name="microsoftpowerbitenantsworkspaces"></a>Microsoft.PowerBI/tenants/workspaces
 
@@ -775,6 +806,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
+|DataSensitivityLogEvent|DataSensitivity|Sí|
 |ScanStatusLogEvent|ScanStatus|No|
 
 
@@ -939,19 +971,6 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |BigDataPoolAppsEnded|Aplicaciones finalizadas del grupo de macrodatos|No|
 
 
-## <a name="microsoftsynapseworkspaceskustopools"></a>Microsoft.Synapse/workspaces/kustoPools
-
-|Category|Nombre para mostrar de categoría|Costos de exportación|
-|---|---|---|
-|Comando|Comando|Sí|
-|FailedIngestion|Operaciones de ingesta con error|Sí|
-|IngestionBatching|Procesamiento por lotes de ingesta|Sí|
-|Consultar|Consultar|Sí|
-|SucceededIngestion|Operaciones de ingesta correctas|Sí|
-|TableDetails|Detalles de tabla|Sí|
-|TableUsageStatistics|Estadísticas de uso de tablas|Sí|
-
-
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -980,7 +999,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Administración|Administración|No|
 
 
-## <a name="microsoftwebhostingenvironments"></a>microsoft.web/hostingenvironments
+## <a name="microsoftwebhostingenvironments"></a>Microsoft.Web/hostingEnvironments
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -1010,6 +1029,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |AppServiceAppLogs|Registros de aplicaciones de App Service|No|
 |AppServiceAuditLogs|Acceso a registros de auditoría|No|
 |AppServiceConsoleLogs|Registros de consola de App Service|No|
+|AppServiceDiagnosticToolsLogs|Registros de Herramientas de diagnóstico de informes|Sí|
 |AppServiceFileAuditLogs|Registros de auditoría de cambios de contenido de sitio|No|
 |AppServiceHTTPLogs|Registros de HTTP|No|
 |AppServiceIPSecAuditLogs|Registros de auditoría de IPSecurity|No|
@@ -1023,4 +1043,3 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 * [Transmisión de registros de recursos a **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Cambio de la configuración de diagnóstico del registro de recursos con la API REST de Azure Monitor](/rest/api/monitor/diagnosticsettings)
 * [Análisis de registros desde Azure Storage con Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
-

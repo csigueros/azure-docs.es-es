@@ -4,12 +4,12 @@ description: En este tutorial, se conectará a un clúster administrado de Servi
 ms.topic: tutorial
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f9ee801bdddd43563794aee7420ee8ba54f4d1d7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2b1228deaf5627c8a367a9b0927320f93d98a50e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672416"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867447"
 ---
 # <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster"></a>Tutorial: Implementación de una aplicación en un clúster administrado de Service Fabric
 
@@ -96,9 +96,10 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 En este paso, hemos implementado una aplicación en un clúster administrado de Service Fabric. Para más información sobre las opciones de implementación de aplicaciones, consulte:
 
-* [Implementación de secretos de aplicación de un clúster administrado](how-to-managed-cluster-application-secrets.md)
-* [Implementación de aplicaciones de clúster administrado mediante plantillas de Resource Manager](how-to-managed-cluster-app-deployment-template.md)
-* [Implementación de aplicaciones de clúster administrado con una identidad administrada](how-to-managed-cluster-application-managed-identity.md)
+* [Implementación de los secretos de una aplicación en un clúster administrado](how-to-managed-cluster-application-secrets.md)
+* [Implementación de una aplicación en un clúster administrado mediante Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md)
+* [Implementación de una aplicación con identidad administrada en un clúster administrado](how-to-managed-cluster-application-managed-identity.md)
+
 
 Para más información sobre las opciones de configuración del clúster administrado, consulte:
 

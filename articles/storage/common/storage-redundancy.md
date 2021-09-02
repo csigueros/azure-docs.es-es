@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3f185f24c824008a6488ab2e9401dd05439daafb
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: ff085c32c7aeb63fea04f04558c1bccd5814b29b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984975"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418549"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -25,6 +25,9 @@ A la hora de decidir qué opción de redundancia es la más adecuada para su esc
 - Cómo se replican los datos en la región primaria.
 - Si los datos se replicarán en una segunda ubicación que está alejada geográficamente de la región primaria, para protegerse frente a desastres regionales.
 - Si la aplicación necesita acceso de lectura a los datos replicados en la región secundaria en caso de que la región primaria deje de estar disponible por cualquier motivo.
+
+> [!NOTE]
+> Las características y la disponibilidad regional que se describen en este artículo también están disponibles para las cuentas que tienen un espacio de nombres jerárquico.
 
 ## <a name="redundancy-in-the-primary-region"></a>Redundancia en la región primaria
 
@@ -127,24 +130,24 @@ Solo las cuentas de almacenamiento de uso general v2 son compatibles con GZRS y
 
 GZRS y RA-GZRS se admiten en las siguientes regiones:
 
-- (África) Norte de Sudáfrica
+- (Asia Pacífico) Este de Asia
 - (Asia Pacífico) Sudeste de Asia
 - (Asia Pacífico) Este de Australia
-- (Asia Pacífico) Centro de la India
 - (Asia Pacífico) Este de Japón
-- (Asia Pacífico) Centro de Corea del Sur
 - (Canadá) Centro de Canadá
 - (Europa) Norte de Europa
 - (Europa) Oeste de Europa
 - (Europa) Centro de Francia
-- (Europa) Centro-oeste de Alemania
+- (Europa) Este de Noruega
 - (Europa) Sur de Reino Unido
 - (Sudamérica) Sur de Brasil
-- (EE. UU.) Centro de EE. UU.
+- (EE. UU) Centro de EE. UU.
 - (EE. UU.) Este de EE. UU.
 - (EE. UU.) Este de EE. UU. 2
-- (EE. UU.) Centro y Sur de EE. UU.
-- (EE. UU.) Oeste de EE. UU. 2
+- (EE. UU.) Este de US Government
+- (EE. UU) Centro y Sur de EE. UU.
+- (EE. UU) Oeste de EE. UU 2
+- (EE. UU) Oeste de EE. UU 3
 
 Para más información sobre los precios, consulte los detalles de precios de [blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [archivos](https://azure.microsoft.com/pricing/details/storage/files/), [colas](https://azure.microsoft.com/pricing/details/storage/queues/)y [tablas](https://azure.microsoft.com/pricing/details/storage/tables/).
 
@@ -203,9 +206,12 @@ En la tabla siguiente se indica si los datos son duraderos y están disponibles 
 
 En la tabla siguiente se muestran las opciones de redundancia que admite cada servicio de Azure Storage.
 
-| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
-|:-|:-|:-|:-|
-| Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br />Azure Managed Disks | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br /> | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br /> |
+| LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
+|---|---|---|---|---|---|
+| Blob Storage <br />Queue Storage <br />Almacenamiento de tablas <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure Managed Disks | Blob Storage <br />Queue Storage <br />Almacenamiento de tablas <br />Azure Files<sup>1,</sup><sup>2</sup> | Blob Storage <br />Queue Storage <br />Almacenamiento de tablas <br />Azure Files<sup>1</sup> | Blob Storage <br />Queue Storage <br />Almacenamiento de tablas <br /> | Blob Storage <br />Queue Storage <br />Almacenamiento de tablas <br />Azure Files<sup>1</sup> | Blob Storage <br />Queue Storage <br />Almacenamiento de tablas <br /> |
+
+<sup>1</sup> Los recursos compartidos de archivos estándar se admiten en LRS y ZRS. Los recursos compartidos de archivos estándar se admiten en GRS y GZRS, siempre que tengan un tamaño de 5 TiB o menos.<br />
+<sup>2</sup> Los recursos compartidos de archivos Prémium se admiten en LRS y ZRS.<br />
 
 ### <a name="supported-storage-account-types"></a>Tipos de cuenta de almacenamiento admitidos
 

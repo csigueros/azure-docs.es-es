@@ -4,15 +4,15 @@ description: Artículo de inicio rápido que describe cómo crear un recurso de 
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 07/28/2021
+ms.date: 08/17/2021
 ms.author: tomfitz
 ms.custom: references_regions
-ms.openlocfilehash: 323508356678da00f75918fcd59244fd5c860bcc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 55b5057542af2812a6d5c21acf3d4a9e1f64c293
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780264"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429348"
 ---
 # <a name="quickstart-create-a-logzio-resource-in-azure-portal"></a>Inicio rápido: Creación de un recurso de Logz.io en Azure Portal
 
@@ -21,7 +21,7 @@ En este artículo se describe cómo habilitar la integración en Azure del softw
 ## <a name="prerequisites"></a>Requisitos previos
 
 - **Propietario de la suscripción**: para configurar Logz.io, es preciso tener asignado el [rol de Propietario](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) en la suscripción de Azure. Antes de comenzar esta integración, [compruebe el acceso](../../role-based-access-control/check-access.md).
-- **Registrar el proveedor de recursos**: si `Microsoft.Insights` no se ha registrado en la suscripción, regístrelo. Para más información, consulte [Registro del proveedor de recursos](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- **Registrar el proveedor de recursos**: si `Microsoft.Insights` no se ha registrado en la suscripción, regístrelo. Para obtener más información, consulte [Registro del proveedor de recursos](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## <a name="find-offer"></a>Búsqueda de la oferta
 
@@ -108,7 +108,7 @@ Una vez que se configura AAD, en la pestaña **Inicio de sesión único**, selec
 
 Seleccione el botón **Siguiente: Revisar y crear** para ir al paso final para la creación del recurso.
 
-## <a name="create-resource"></a>Creación del recurso
+## <a name="create-resource"></a>Crear el recurso
 
 En la página **Revisar y crear** se ejecutan todas las validaciones. Puede revisar todas las selecciones realizadas en las pestañas **Basics** (Aspectos básicos), **Logs and metrics** (Registros y métricas), **Tags** (Etiquetas) e **Single sign-on** (Inicio de sesión único). También puede revisar los términos y condiciones de Logz.io y Azure Marketplace.
 

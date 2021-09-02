@@ -7,12 +7,12 @@ ms.date: 07/14/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1acf785021f83605db2f8bfe3188e0e2ac874d4e
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 38eeaa02bf34f27580b29662f75455358c83ccb7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113761888"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732558"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introducción a Azure Defender para Resource Manager
 
@@ -28,7 +28,7 @@ Azure Defender para Resource Manager supervisa automáticamente las operaciones 
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|**Azure Defender para Resource Manager** se factura como se muestra en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
-|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-resource-manager"></a>¿Cuáles son las ventajas de Azure Defender para Resource Manager?
@@ -70,9 +70,11 @@ Para investigar las alertas de Azure Defender para Resource Manager:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha obtenido información sobre Azure Defender para Resource Manager. Para obtener material relacionado, vea el siguiente artículo: 
+En este artículo, ha obtenido información sobre Azure Defender para Resource Manager. 
+
+> [!div class="nextstepaction"]
+> [Habilitación de Azure Defender](enable-azure-defender.md)
+
+Para obtener material relacionado, vea el siguiente artículo: 
 
 - Las alertas de seguridad las puede haber generado Security Center, o bien las puede haber recibido Security Center de distintos productos de seguridad. Para exportar todas estas alertas a Azure Sentinel, a cualquier SIEM de terceros o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md).
-
-- > [!div class="nextstepaction"]
-    > [Habilitación de Azure Defender](enable-azure-defender.md)

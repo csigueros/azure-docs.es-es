@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/16/2021
-ms.openlocfilehash: 903435ff45249d0c066b386d84ce060057bac666
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: ed524382bf1fcc0c93fc61dd1c0450d69a16b74c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666585"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749413"
 ---
 # <a name="register-and-scan-lookerpreview"></a>Registro y análisis de Looker (versión preliminar)
 
@@ -32,7 +32,7 @@ El origen de Looker admite el análisis completo para extraer metadatos de un se
 
 2.  Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado en la máquina virtual donde también lo está el entorno de ejecución de integración autohospedado.
 
-3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina virtual del entorno de ejecución de integración autohospedado. Si no está instalado, descárguelo [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
+3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" esté instalado en la máquina virtual del entorno de ejecución de integración autohospedado. Si no está instalado, descárguelo [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
 
 4.  La versión compatible del servidor de Looker es la versión 7.2
 
@@ -45,7 +45,7 @@ Se necesita una clave API3 para conectarse al servidor de Looker. La clave API3 
 Para registrar un nuevo servidor de Looker en el catálogo de datos, haga lo siguiente:
 
 1. Vaya a la cuenta de Purview.
-2. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+2. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 3. Seleccione **Registrar.**
 4. En Register sources (Registrar orígenes), seleccione **Looker**. Seleccione **Continue** (Continuar).
     :::image type="content" source="media/register-scan-looker-source/register-sources.png" alt-text="registro de origen de Looker" border="true":::
@@ -97,9 +97,9 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
     e.  **Filtro del proyecto**: el ámbito del análisis que se proporciona mediante una lista de proyectos de Looker separados por puntos y comas. Esta opción se usa para seleccionar los aspectos y los paneles por su proyecto principal.
 
-    f.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de erwin Mart que se va a analizar.
+    f.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño de la instancia de Erwin Mart que se va a examinar.
 
-    :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="desencadenar análisis" border="true":::
+    :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="Desencadenar examen" border="true":::
 
 6. Haga clic en **Probar la conexión**.
 

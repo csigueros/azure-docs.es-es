@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/05/2021
 ms.author: memildin
-ms.openlocfilehash: f1fe1f15d2a2a2a3da7a7978b2d7645db65beae1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 523375ff69d6139a1e910b9253a6816235bfecc4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146696"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741970"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
@@ -65,7 +65,7 @@ En los pasos siguientes se explica cómo agregar un paquete para supervisar el c
     > [!TIP]
     > Se recomienda seleccionar el ámbito más alto para el que se aplica el estándar y así poder agregar y realizar un seguimiento de los datos de cumplimiento para todos los recursos anidados. 
 
-1. Para agregar los estándares pertinentes para su organización, haga clic en **Agregar más estándares**. 
+1. Para agregar los estándares relevantes para su organización, expanda la sección **Estándares regulatorios y de la industria** y seleccione **Agregar más estándares**.
 
 1. En la página **Adición de estándares de cumplimiento normativo**, puede buscar cualquiera de los estándares disponibles, incluidos:
 
@@ -79,7 +79,7 @@ En los pasos siguientes se explica cómo agregar un paquete para supervisar el c
     - **CMMC nivel 3**
     - **ISM restringido en Nueva Zelanda**
     
-    ![Adición de estándares normativos al panel de cumplimiento normativo de Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Adición de estándares normativos al panel de cumplimiento normativo de Azure Security Center.](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. Seleccione **Agregar** y escriba todos los detalles necesarios para la iniciativa específica, como el ámbito, los parámetros y la corrección.
 
@@ -90,7 +90,7 @@ En los pasos siguientes se explica cómo agregar un paquete para supervisar el c
     > [!NOTE]
     > Asimismo, un estándar recién agregado en el panel de cumplimiento puede tardar unas horas en aparecer en el mismo.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Panel de cumplimiento normativo" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Panel de cumplimiento normativo." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 ## <a name="remove-a-standard-from-your-dashboard"></a>Eliminación de un estándar del panel
 
@@ -107,7 +107,7 @@ Para quitar un estándar:
 
     Se abrirá la página de directivas de seguridad. En la suscripción seleccionada, se muestra la directiva predeterminada, el sector y los estándares normativos, así como las iniciativas personalizadas que haya creado.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Eliminación de un estándar normativo del panel de cumplimiento normativo en Azure Security Center":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Eliminación de un estándar normativo del panel de cumplimiento normativo en Azure Security Center":::.
 
 1. Para el estándar que desea quitar, seleccione **Deshabilitar**. Se abrirá una ventana de confirmación.
 

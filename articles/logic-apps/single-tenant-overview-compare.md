@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, ladolan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 0c09d013e3e9e3934702eb512334a33a60044b9d
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.date: 07/13/2021
+ms.openlocfilehash: bf8140c67e9f572ed9da6672e67966772267f822
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441247"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767030"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps
 
@@ -95,7 +95,7 @@ Para crear una aplicación lógica basada en el entorno que desee, tiene varias 
 | Azure Portal | Tipo de recurso **Logic Apps (consumo)** | [Inicio rápido. Creación de flujos de trabajo de integración en Azure Logic Apps multiinquilino: Azure Portal](quickstart-create-first-logic-app-workflow.md) |
 | Visual Studio Code | [Extensión **Azure Logic Apps (consumo)**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) | [Inicio rápido. Creación de flujos de trabajo de integración en Azure Logic Apps multiinquilino: Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 | Azure CLI | [Extensión **Logic Apps de la CLI de Azure**](https://github.com/Azure/azure-cli-extensions/tree/master/src/logic) | - [Inicio rápido. Creación y administración de flujos de trabajo de integración en Azure Logic Apps multiinquilino: CLI de Azure](quickstart-logic-apps-azure-cli.md) <p><p>- [az logic](/cli/azure/logic) |
-| Azure Resource Manager | [**Creación de una plantilla de Azure Resource Manager (ARM) de aplicación lógica**](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Inicio rápido. Creación e implementación de flujos de trabajo de integración en Azure Logic Apps multiinquilino: plantilla de ARM](quickstart-create-deploy-azure-resource-manager-template.md) |
+| Azure Resource Manager | [**Creación de una aplicación lógica** mediante una plantilla de ARM](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Inicio rápido. Creación e implementación de flujos de trabajo de integración en Azure Logic Apps multiinquilino: plantilla de ARM](quickstart-create-deploy-azure-resource-manager-template.md) |
 | Azure PowerShell | [Módulo Az.LogicApp](/powershell/module/az.logicapp) | [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps) |
 | API REST de Azure | [API de REST de Azure Logic Apps](/rest/api/logic) | [Introducción a la referencia de la API de REST de Azure](/rest/api/azure) |
 ||||
@@ -119,11 +119,14 @@ Con el tipo de recurso **Logic Apps (estándar)** , puede crear estos tipos de f
 
 * *Con estado*
 
-  Cree flujos de trabajo con estado cuando necesite mantener o revisar datos de eventos anteriores, o hacer referencia a ellos. Estos flujos de trabajo guardan las entradas y las salidas de cada acción y sus estados en el almacenamiento externo, lo que facilita la revisión y ejecución de los detalles y el historial al término de cada ejecución. Los flujos de trabajo con estado proporcionan una alta resistencia en caso de interrupciones. Una vez restaurados los servicios y sistemas, puede reconstruir las ejecuciones interrumpidas a partir del estado guardado y volver a ejecutar los flujos de trabajo hasta su finalización. Los flujos de trabajo con estado pueden seguir ejecutándose durante mucho más tiempo que los flujos de trabajo sin estado.
+  Cree un flujo de trabajo con estado cuando necesite mantener o revisar datos de eventos anteriores, o hacer referencia a ellos. Estos flujos de trabajo guardan y transfieren todas las entradas y las salidas de cada acción y sus estados en el almacenamiento externo, lo que facilita la revisión y ejecución de los detalles y el historial al término de cada ejecución. Los flujos de trabajo con estado proporcionan una alta resistencia en caso de interrupciones. Una vez restaurados los servicios y sistemas, puede reconstruir las ejecuciones interrumpidas a partir del estado guardado y volver a ejecutar los flujos de trabajo hasta su finalización. Los flujos de trabajo con estado pueden seguir ejecutándose durante mucho más tiempo que los flujos de trabajo sin estado.
 
 * *Sin estado*
 
-  Cree flujos de trabajo sin estado cuando no necesite guardar ni revisar datos de eventos anteriores, ni hacer referencia a ellos, en un almacenamiento externo para su revisión posterior. Estos flujos de trabajo guardan las entradas y las salidas de cada acción y sus estados *solo en la memoria*, en lugar de transferir estos datos al almacenamiento externo. Como consecuencia, los flujos de trabajo sin estado tienen ejecuciones más cortas que normalmente no duran más de 5 minutos, un rendimiento más rápido con menores tiempos de respuesta, mayor rendimiento y costos de ejecución menores, ya que los detalles y el historial de ejecución no se conservan en el almacenamiento externo. Pero si se producen interrupciones, las ejecuciones interrumpidas no se restauran automáticamente, por lo que el autor de la llamada tiene que volver a enviarlas manualmente. Estos flujos de trabajo solo se pueden ejecutar de manera sincrónica.
+  Cree un flujo de trabajo sin estado cuando no necesite conservar ni revisar datos de eventos anteriores, ni hacer referencia a ellos, en un almacenamiento externo después de que finaliza cada ejecución para su posterior revisión. Estos flujos de trabajo guardan todas las entradas y las salidas de cada acción y sus estados *solo en la memoria*, no en un almacenamiento externo. Como consecuencia, los flujos de trabajo sin estado tienen ejecuciones más cortas que normalmente duran menos de 5 minutos, un rendimiento más rápido con menores tiempos de respuesta, mayor rendimiento y costos de ejecución menores, ya que los detalles y el historial de ejecución no se guardan en el almacenamiento externo. Pero si se producen interrupciones, las ejecuciones interrumpidas no se restauran automáticamente, por lo que el autor de la llamada tiene que volver a enviarlas manualmente. Estos flujos de trabajo solo se pueden ejecutar de manera sincrónica.
+
+  > [!IMPORTANT]
+  > Un flujo de trabajo sin estado proporciona el mejor rendimiento al administrar datos o contenido, como un archivo, que no supera los 64 KB de tamaño *total*. Los tamaños de contenido más grande, como varios datos adjuntos grandes, pueden ralentizar significativamente el rendimiento del flujo de trabajo o incluso provocar que el flujo de trabajo se bloquee debido a excepciones de memoria insuficiente. Si existe la posibilidad de que el flujo de trabajo tenga que controlar tamaños de contenido más grandes, use un flujo de trabajo con estado.
 
   Para facilitar la depuración, puede habilitar el historial de ejecución de un flujo de trabajo sin estado, lo que tiene algún impacto en el rendimiento, y luego deshabilitar el historial de ejecución cuando haya terminado. Para obtener más información, vea [Creación de flujos de trabajo basados en un solo inquilino en Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) o [Creación de flujos de trabajo basados en un solo inquilino en Azure Portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 

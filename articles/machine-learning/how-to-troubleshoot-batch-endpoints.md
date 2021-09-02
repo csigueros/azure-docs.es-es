@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting
+ms.custom: troubleshooting, devplatv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
 ms.date: 05/05/2021
-ms.openlocfilehash: dfdf13d36a3d60c0f544cfda7b74cdba1dcc16ec
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9fbbc2af3681b6f91ec3c1e0f6adfd46a8598c17
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383030"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448324"
 ---
 # <a name="troubleshooting-batch-endpoints-preview"></a>Solución de problemas de puntos de conexión por lotes (versión preliminar)
 
@@ -50,7 +50,7 @@ Si usa un modelo que no es de MLflow, deberá proporcionar un script de puntuaci
 
 ### <a name="get-logs"></a>Obtención de registros
 
-Después de invocar un punto de conexión por lotes mediante la CLI o REST, el trabajo de puntuación por lotes se ejecutará de forma asincrónica. Existen dos opciones para obtener los registros para un trabajo de puntuación por lotes.
+Después de invocar un punto de conexión por lotes mediante la CLI de Azure o REST, el trabajo de puntuación por lotes se ejecutará de forma asincrónica. Existen dos opciones para obtener los registros para un trabajo de puntuación por lotes.
 
 Opción 1: Transmisión de registros a la consola local
 

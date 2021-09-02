@@ -2,13 +2,13 @@
 title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 23cc7c98b4d45adf9507ef857bda1c605eb6d558
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/28/2021
+ms.openlocfilehash: a9e0d9c462c494fdc1d0c50bc4faf3694f3b4cd7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026784"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721848"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -22,6 +22,7 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 **Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Rollup 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
 [Paquete acumulativo 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
 [Paquete acumulativo 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [Paquete acumulativo 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
@@ -33,6 +34,21 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
 
+## <a name="updates-july-2021"></a>Actualizaciones (julio 2021)
+
+### <a name="update-rollup-56"></a>Paquete acumulativo de actualizaciones 56
+
+El [paquete acumulativo de actualizaciones 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6) proporciona las siguientes actualizaciones:
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el artículo de KB del paquete acumulativo de actualizaciones.
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el artículo de KB del paquete acumulativo).
+
+**Azure Site Recovery Service** | Se han realizado mejoras para que la habilitación de la replicación y la re-protección de las operaciones sean más rápidas en un 46 %.
+**Azure Site Recovery portal** | La replicación ahora se puede habilitar entre dos regiones de Azure de todo el mundo. Ya no está limitado a habilitar la replicación dentro del continente.
+
+
 ## <a name="updates-april-2021"></a>Actualizaciones (abril de 2021)
 
 ### <a name="update-rollup-55"></a>Paquete acumulativo de actualizaciones 55
@@ -42,7 +58,7 @@ El [paquete acumulativo de actualizaciones 55](https://support.microsoft.com/to
 **Actualizar** | **Detalles**
 --- | ---
 **Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
-**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo). 
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 **Recuperación ante desastres en VM de Azure** | Se ha agregado compatibilidad con la recuperación ante desastres intercontinental de máquinas virtuales de Azure.<br/><br/> Compatibilidad con la API REST para la protección de VMSS Flex.<br/><br/> Ahora se admite para las máquinas virtuales que ejecutan Oracle Linux 8.2 y 8.3.
 **Recuperación ante desastres de un servidor físico o de una máquina virtual de VMware en Azure** | Se ha agregado compatibilidad con el uso de Ubuntu-20.04 al configurar el servidor de destino maestro.<br/><br/> Ahora se admite para las máquinas virtuales que ejecutan Oracle Linux 8.2 y 8.3.
 
@@ -56,7 +72,7 @@ El [paquete acumulativo de actualizaciones 54](https://support.microsoft.com/to
 **Actualizar** | **Detalles**
 --- | ---
 **Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
-**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo). 
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 **Recuperación ante desastres en VM de Azure** | La recuperación ante desastres de zona a zona mediante Azure Site Recovery está ahora disponible con carácter general en 4 regiones más: Europa del Norte, Este de EE. UU., Centro de EE. UU. y Oeste de EE. UU. 2.<br/>
 **Recuperación ante desastres de un servidor físico o de una máquina virtual de VMware en Azure** | La actualización incluye la posibilidad de seleccionar en el portal grupos con ubicación por proximidad para máquinas de VMware o físicas después de habilitar la replicación.<br/><br/> Ahora se admite la protección de máquinas de VMware con un tamaño de disco de datos de hasta 32 TB.
 **Recuperación ante desastres de Hyper-V en Azure** | La actualización incluye la posibilidad de seleccionar en el portal grupos con ubicación por proximidad para máquinas de Hyper-V después de habilitar la replicación.
@@ -71,7 +87,7 @@ El [paquete acumulativo de actualizaciones 53](https://support.microsoft.com/to
 **Actualizar** | **Detalles**
 --- | ---
 **Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
-**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo). 
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 **Recuperación ante desastres en VM de Azure** | Ahora se admite la replicación de etiquetas. Cualquier etiqueta agregada a las máquinas virtuales de Azure, los discos y las NIC de la región de origen se replican en las máquinas de la región de destino.<br/><br/> Ahora las máquinas virtuales de Azure que ejecutan Debian 10 se admiten para la replicación.
 **Recuperación ante desastres de un servidor físico o de una máquina virtual de VMware en Azure** | La actualización incluye mejoras del registro para la replicación de máquinas virtuales de VMware en Azure y una mensajería de errores mejorada.<br/><br/> Ahora las máquinas virtuales de VMware y las máquinas físicas que ejecutan Debian 10 se admiten para la replicación.
 
