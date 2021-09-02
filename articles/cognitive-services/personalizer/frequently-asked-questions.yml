@@ -6,97 +6,97 @@ metadata:
   ms.subservice: personalizer
   ms.topic: troubleshooting
   ms.date: 02/26/2020
-  ms.author: erhopf
-  author: erhopf
+  ms.author: jeffme
+  author: jeffmend
   ms.manager: nitinme
-  ms.openlocfilehash: c7c95f69a794a2266c16cb2cb15a1e300d9ac54d
-  ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+  ms.openlocfilehash: 13e935fabd4b80148ef27f19bf4173ff722a6db6
+  ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/14/2021
-  ms.locfileid: "122206833"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122831427"
 title: Otras preguntas frecuentes de Personalizer
 summary: En este artículo se incluyen respuestas a preguntas para solucionar problemas sobre el servicio Personalizer.
 sections:
 - name: Problemas de configuración
   questions:
   - question: >
-      I changed a configuration setting and now my loop isn't performing at the same learning level. What happened?
+      He cambiado un valor de configuración y ahora mi bucle no funciona en el mismo nivel de aprendizaje. ¿Qué ha ocurrido?
     answer: >
-      Some configuration settings [reset your model](how-to-settings.md#settings-that-include-resetting-the-model). Configuration changes should be carefully planned.
+      Algunos valores de configuración [restablecen el modelo](how-to-settings.md#settings-that-include-resetting-the-model). Los cambios de configuración deben planearse con cuidado.
   - question: >
-      When configuring Personalizer with the API, I received an error. What happened?
+      Al configurar Personalizer con la API, se ha recibido un error. ¿Qué ha ocurrido?
     answer: >
-      If you use a single API request to configure your service and change your learning behavior, you will get an error. You need to make two separate API calls: first, to configure your service, then to switch learning behavior.
+      Si usa una única solicitud de API para configurar el servicio y cambiar el comportamiento de aprendizaje, recibirá un error. Debe realizar dos llamadas API independientes: en primer lugar, para configurar el servicio y, a continuación, para cambiar el comportamiento de aprendizaje.
 - name: Errores de transacción
   questions:
   - question: >
-      I get an HTTP 429 (Too many requests) response from the service. What can I do?
+      Obtengo una respuesta HTTP 429 (demasiadas solicitudes) del servicio. ¿Qué puedo hacer?
     answer: >
-      If you picked a free price tier when you created the Personalizer instance, there is a quota limit on the number of Rank requests that are allowed. Review your API call rate for the Rank API (in the Metrics pane in the Azure portal for your Personalizer resource) and adjust the pricing tier (in the Pricing Tier pane) if your call volume is expected to increase beyond the threshold for chosen pricing tier.
+      Si seleccionó un plan de tarifa gratis al crear la instancia de Personalizer, existe un límite de cuota para el número permitido de solicitudes de Rank. Revise la tasa de llamadas API para Rank API (en el panel Métricas de Azure Portal del recurso de Personalizer) y ajuste el plan de tarifa (en el panel Plan de tarifa) si tiene previsto que el volumen de llamadas aumente hasta superar el umbral del plan de tarifa seleccionado.
   - question: >
-      I'm getting a 5xx error on Rank or Reward APIs. What should I do?
+      Obtengo un error 5xx en las API Rank o Reward. ¿Cuál debo hacer?
     answer: >
-      These issues should be transparent. If they continue, contact support by selecting **New support request** in the **Support + troubleshooting** section, in the Azure portal for your Personalizer resource.
+      Estos problemas deben ser fáciles de solucionar. Si persisten, póngase en contacto con el servicio de soporte técnico al seleccionar **Nueva solicitud de soporte técnico** en la sección **Soporte técnico y solución de problemas** en Azure Portal del recurso de Personalizer.
 - name: Bucle de aprendizaje
   questions:
   - question: >
-      The learning loop doesn't attain a 100% match to the system without Personalizer. How do I fix this?
+      El bucle de aprendizaje no logra una coincidencia del 100 % con el sistema sin Personalizer. ¿Cómo puedo corregirlo?
     answer: >
-      The reasons you don't attain your goal with the learning loop:
+      Motivos por los que no alcanza su objetivo con el bucle de aprendizaje:
 
-      * Not enough features sent with Rank API call
+      * No hay suficientes características enviadas con la llamada API Rank.
 
-      * Bugs in the features sent - such as sending non-aggregated feature data such as timestamps to Rank API
+      * Errores en las características enviadas, como, por ejemplo, el envío de datos de características no agregados, como marcas de tiempo a la API Rank.
 
-      * Bugs with loop processing - such as not sending reward data to Reward API for events
+      * Errores con el procesamiento de bucles, como no enviar datos de recompensa a la API Reward para eventos.
 
 
-      To fix, you need to change the processing by either changing the features sent to the loop, or make sure the reward is a correct evaluation of the quality of the Rank's response.
+      Para corregir este problema, debe cambiar el procesamiento mediante la modificación de las características enviadas al bucle o asegurarse de que la recompensa es una evaluación correcta de la calidad de la respuesta de Rank.
   - question: >
-      The learning loop doesn't seem to learn. How do I fix this?
+      El bucle de aprendizaje parece que no aprende. ¿Cómo puedo corregirlo?
     answer: >
-      The learning loop needs a few thousand Reward calls before Rank calls prioritize effectively.
+      El bucle de aprendizaje necesita unas pocas miles de llamadas a Reward antes de que las llamadas a Rank se prioricen eficazmente.
 
 
-      If you are unsure about how your learning loop is currently behaving, run an [offline evaluation](concepts-offline-evaluation.md), and apply the corrected learning policy.
+      Si no está seguro de cómo se está comportando el bucle de aprendizaje actualmente, ejecute una [evaluación sin conexión](concepts-offline-evaluation.md) y aplique la directiva de aprendizaje corregido.
   - question: >
-      I keep getting rank results with all the same probabilities for all items. How do I know Personalizer is learning?
+      Sigo obteniendo resultados de clasificación con las mismas probabilidades para todos los elementos. ¿Cómo puedo saber si Personalizer está aprendiendo?
     answer: >
-      Personalizer returns the same probabilities in a Rank API result when it has just started and has an _empty_ model, or when you reset the Personalizer Loop, and your model is still within your **Model update frequency** period.
+      Personalizer devuelve las mismas probabilidades en un resultado de la Rank API cuando acaba de iniciar y tiene un modelo _vacío_, o cuando se restablece el bucle de Personalizer y el modelo todavía está dentro del período establecido en **Frecuencia de actualización del modelo**.
 
 
-      When the new update period begins, the updated model is used, and you'll see the probabilities change.
+      Cuando comience el nuevo período de actualización, se usará el modelo actualizado y verá el cambio de probabilidades.
   - question: >
-      The learning loop was learning but seems to not learn anymore, and the quality of the Rank results isn't that good. What should I do?
+      El bucle de aprendizaje estaba aprendiendo, pero parece que ya no es así, y la calidad de los resultados de Rank no es tan buena. ¿Cuál debo hacer?
     answer: >
-      * Make sure you've completed and applied one evaluation in the Azure portal for that Personalizer resource (learning loop).
+      * Asegúrese de haber completado y aplicado una evaluación en Azure Portal para ese recurso de Personalizer (bucle de aprendizaje).
 
-      * Make sure all rewards are sent, via the Reward API, and processed.
+      * Asegúrese de que se hayan enviado (a través de Reward API) y procesado todas las recompensas.
   - question: >
-      How do I know that the learning loop is getting updated regularly and is used to score my data?
+      ¿Cómo puedo saber si el bucle de aprendizaje se está actualizando periódicamente y usándose para puntuar los datos?
     answer: >
-      You can find the time when the model was last updated in the **Model and Learning Settings** page of the Azure portal. If you see an old timestamp, it is likely because you are not sending the Rank and Reward calls. If the service has no incoming data, it does not update the learning. If you see the learning loop is not updating frequently enough, you can edit the loop's **Model Update frequency**.
+      Puede encontrar la hora de la última actualización del modelo en la página **Configuración de modelo y aprendizaje** de Azure Portal. Si ve una marca de tiempo antigua, es probable que no esté enviando las llamadas de Rank y Reward. Si el servicio no tiene datos entrantes, no se actualiza el aprendizaje. Si nota que el bucle de aprendizaje no se actualiza con suficiente frecuencia, puede modificar la **Frecuencia de actualización del modelo** del bucle.
 - name: Evaluaciones sin conexión
   questions:
   - question: >
-      An offline evaluation's feature importance returns a long list with hundreds or thousands of items. What happened?
+      La importancia de las características de una evaluación sin conexión devuelve una lista larga con cientos o miles de elementos. ¿Qué ha ocurrido?
     answer: >
-      This is typically due to timestamps, user IDs or some other fine grained features sent in.
+      Esto suele deberse a que se enviaron marcas de tiempo, Id. de usuario u otras características específicas.
   - question: >
-      I created an offline evaluation and it succeeded almost instantly. Why is that? I don't see any results?
+      He creado una evaluación sin conexión y se realizó con éxito casi al instante. ¿Por qué ocurre esto? ¿No se ve ningún resultado?
     answer: >
-      The offline evaluation uses the trained model data from the events in that time period. If you did not send any data in the time period between start and end time of the evaluation, it will complete without any results. Submit a new offline evaluation by selecting a time range with events you know were sent to Personalizer.
+      La evaluación sin conexión utiliza los datos de modelo entrenado de los eventos en ese período de tiempo. Si no ha enviado ningún dato en el período entre las horas inicial y final de la evaluación, esta se completará sin ningún resultado. Envíe una nueva evaluación sin conexión seleccionando un intervalo de tiempo con los eventos que sabe que se enviaron a Personalizer.
 - name: Directiva de aprendizaje
   questions:
   - question: >
-      How do I import a learning policy?
+      ¿Cómo puedo importar una directiva de aprendizaje?
     answer: >
-      Learn more about [learning policy concepts](concept-active-learning.md#understand-learning-policy-settings) and [how to apply](how-to-manage-model.md) a new learning policy. If you do not want to select a learning policy, you can use the [offline evaluation](how-to-offline-evaluation.md) to suggest a learning policy, based on your current events.
+      Obtenga más información sobre los [conceptos de la directiva de aprendizaje](concept-active-learning.md#understand-learning-policy-settings) y [cómo aplicar](how-to-manage-model.md) una nueva directiva de aprendizaje. Si no quiere seleccionar una directiva de aprendizaje, puede usar [la evaluación sin conexión](how-to-offline-evaluation.md) para sugerir una directiva de aprendizaje en función de los eventos actuales.
 - name: Seguridad
   questions:
   - question: >
-      The API key for my loop has been compromised. What can I do?
+      La clave de API para mi bucle está en peligro. ¿Qué puedo hacer?
     answer: >
-      You can regenerate one key after swapping your clients to use the other key. Having two keys allows you to propagate the key in a lazy manner without having to have any downtime. We recommend doing this on a regular cycle as a security measure.
-additionalContent: "\n## Next steps\n\n[Configure the model update frequency](how-to-settings.md#model-update-frequency)"
+      Puede regenerar una clave después de intercambiarla con los clientes para que usen otra clave. Tener dos claves le permite propagar la clave de manera diferida sin producir tiempo de inactividad. Se recomienda hacerlo de forma periódica como medida de seguridad.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n[Configuración de la frecuencia de actualización del modelo](how-to-settings.md#model-update-frequency)"

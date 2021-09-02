@@ -4,20 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0c60b111483d896ad2beb008d165b9fb84160b35
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073644"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835570"
 ---
 >[!NOTE]
 >En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.
 
 | Resource | Límite | 
 | --- | --- | 
-| Cuentas de Azure Media Services en una suscripción única | 25 (fijo) |
-| Unidades reservadas de multimedia por cuenta de Media Services |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Cuentas de Azure Media Services en una suscripción única | 25 (fijo) | 
 | Trabajos por cuenta de Media Services | 50 000<sup>2</sup> |
 | Tareas encadenadas por trabajo | 30 (fijo) |
 | Recursos por cuenta de Media Services | 1 000 000|

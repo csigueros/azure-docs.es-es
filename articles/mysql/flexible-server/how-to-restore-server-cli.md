@@ -6,15 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/01/2021
-ms.openlocfilehash: be7eaa7ce5f32aa441f6b44cc430de9a74be17d4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: eff4268991924ee089a9bba67842fcaf30cf2510
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738690"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122653330"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-with-azure-cli"></a>Recuperación a un momento dado de una instancia de Azure Database for MySQL: servidor flexible con la CLI de Azure
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
@@ -22,6 +23,7 @@ ms.locfileid: "108738690"
 En este artículo se proporciona un procedimiento detallado para llevar a cabo recuperaciones a un momento dado en servidores flexibles mediante copias de seguridad.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - Instale la CLI de Azure más reciente o actualice la que ya tiene a la versión más reciente. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 -  Inicie sesión en la cuenta de Azure mediante el comando [az login](/cli/azure/reference-index#az_login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: b04cacb1d2767e152e62bc3fd5902798204f3f60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e43944b803f798c3bd741903f1ee0732bcb93d4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734281"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864538"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 En este artículo se describen las distintas aplicaciones y servicios que se supervisan mediante Azure Monitor. 
@@ -126,7 +126,7 @@ En la tabla siguiente se enumeran los servicios de Azure y los datos que estos r
 |Mapas  | No | No | No |  |
 |Media Services | Sí | Sí | No |  |
 |Escritorio administrado de Microsoft | No | No | No |  |
-|Microsoft PowerApps | No | No | No |  |
+|Microsoft Power Apps | No | No | No |  |
 |Microsoft Social Engagement | No | No | No |  |
 |Microsoft Stream | Sí | Sí | No |  |
 |Migrar | No | No | No |  |
@@ -229,7 +229,7 @@ Hay otras soluciones disponibles para supervisar diferentes aplicaciones y servi
 ## <a name="resources-outside-of-azure"></a>Recursos fuera de Azure
 Azure Monitor puede recopilar datos de recursos fuera de Azure mediante los métodos que se enumeran en la tabla siguiente.
 
-| Resource | Método |
+| Recurso | Método |
 |:---|:---|
 | APLICACIONES | Supervise las aplicaciones web fuera de Azure mediante Application Insights. Vea [¿Qué es Application Insights?](./app/app-insights-overview.md). |
 | Máquinas virtuales | Use los agentes para recopilar datos del sistema operativo invitado de máquinas virtuales en otros entornos en la nube o locales. Consulte [Información general sobre los agentes de Azure Monitor](agents/agents-overview.md). |

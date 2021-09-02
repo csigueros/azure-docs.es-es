@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de315722641248a2a577c97403da400a6de67e6c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127845"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867080"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Mejoras en la administración de usuarios (versión preliminar) en Azure Active Directory
 
@@ -70,7 +70,6 @@ A continuación se muestran las propiedades de usuario mostradas en la página *
 - Nombre de la empresa: el nombre de la empresa al que está asociado el usuario.
 - Estado de invitación: el estado de la invitación de un usuario invitado.
 - Correo: el correo electrónico del usuario.
-- Último inicio de sesión: la fecha en que el usuario ha iniciado sesión por última vez. Esta propiedad solo es visible para los usuarios con permiso para leer registros de auditoría (Reporting_ApplicationAuditLogs_Read)
 
 ![nuevas propiedades de usuario que se muestran en las páginas Todos los usuarios y Usuarios eliminados](./media/users-search-enhanced/user-properties.png)
 

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: b71b6867221a2cae6bf5b8751a848413b6f8d20a
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 58e4fb69f5c2567c6d4b4ddc5329d83dd37ee878
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963787"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225811"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configuración de una aplicación de Ruby en Linux para Azure App Service
 
@@ -63,7 +63,7 @@ ENV['WEBSITE_SITE_NAME']
 
 ## <a name="customize-deployment"></a>Personalización de la implementación
 
-Al implementar un [repositorio de Git](deploy-local-git.md) o un [paquete comprimido](deploy-zip.md) [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation), el motor de implementación (Kudu) ejecuta de manera automática y predeterminada los siguientes pasos posteriores a la implementación:
+Al implementar un [repositorio de Git](deploy-local-git.md) o un [paquete comprimido](deploy-zip.md) [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation-for-zip-deploy), el motor de implementación (Kudu) ejecuta de manera automática y predeterminada los siguientes pasos posteriores a la implementación:
 
 1. Compruebe si un existe *Gemfile*.
 1. Ejecute `bundle clean`. 
@@ -149,10 +149,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="more-resources"></a>Más recursos
 
-> [!div class="nextstepaction"]
-> [Tutorial: Aplicación de Rails con PostgreSQL](tutorial-ruby-postgres-app.md)
-
-> [!div class="nextstepaction"]
-> [P+F sobre App Service en Linux](faq-app-service-linux.yml)
+- [Tutorial: Aplicación de Rails con PostgreSQL](tutorial-ruby-postgres-app.md)
+- [P+F sobre App Service en Linux](faq-app-service-linux.yml)
+- [Variables de entorno y configuración de la aplicación en Azure App Service](reference-app-settings.md)

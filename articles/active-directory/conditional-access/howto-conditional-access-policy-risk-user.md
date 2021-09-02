@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6509c7b47a0f8c3f36df72e1d3aa16c834594f
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: f2de6916a3845e0e51e810d12199d41b3cfd9319
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110612824"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225604"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Acceso condicional: Acceso condicional basado en el riesgo del usuario
 
-Microsoft trabaja con investigadores, cuerpos legales, varios equipos de seguridad de Microsoft y otros orígenes de confianza para buscar pares de nombre de usuario y contraseña filtrados. Las organizaciones con licencias de Azure AD Premium P2 pueden crear directivas de acceso condicional que incorporen [las detecciones de riesgos de los usuarios de Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md#user-risk). 
+Microsoft trabaja con investigadores, cuerpos legales, varios equipos de seguridad de Microsoft y otros orígenes de confianza para buscar pares de nombre de usuario y contraseña filtrados. Las organizaciones con licencias de Azure AD Premium P2 pueden crear directivas de acceso condicional que incorporen [las detecciones de riesgos de los usuarios de Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md#user-linked-detections). 
 
 Hay dos ubicaciones donde se puede configurar esta directiva: Acceso condicional e Identity Protection. La configuración mediante una directiva de acceso condicional es el método preferido que proporciona más contexto, incluidos datos de diagnóstico mejorados, integración con el modo de solo informe, compatibilidad con Graph API y la posibilidad de utilizar otros atributos de acceso condicional en la directiva.
 

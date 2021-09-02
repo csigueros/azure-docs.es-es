@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 08/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff085c32c7aeb63fea04f04558c1bccd5814b29b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 186219af41630cf66f6addc65edfe31aef1dbb03
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418549"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122270959"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -133,11 +133,14 @@ GZRS y RA-GZRS se admiten en las siguientes regiones:
 - (Asia Pacífico) Este de Asia
 - (Asia Pacífico) Sudeste de Asia
 - (Asia Pacífico) Este de Australia
+- (Asia Pacífico) Centro de la India
 - (Asia Pacífico) Este de Japón
+- (Asia Pacífico) Centro de Corea del Sur
 - (Canadá) Centro de Canadá
 - (Europa) Norte de Europa
 - (Europa) Oeste de Europa
 - (Europa) Centro de Francia
+- (Europa) Centro-oeste de Alemania
 - (Europa) Este de Noruega
 - (Europa) Sur de Reino Unido
 - (Sudamérica) Sur de Brasil

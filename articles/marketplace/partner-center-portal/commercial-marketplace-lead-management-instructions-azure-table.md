@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: c136f0f2a946eca0d89c04734c9f351d4e6c79d6
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
+ms.openlocfilehash: 8a66e42466f6b7ed85a330bb3bf3f1dda422e0d5
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113601144"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867548"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Table Storage para administrar clientes potenciales de marketplace comercial
 
@@ -59,7 +59,7 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Opcional) Uso de Power Automate para recibir notificaciones de clientes potenciales
 
-Puede usar [Power Automate](/flow/) para automatizar las notificaciones cada vez que un cliente potencial se agregue a la tabla de Azure Storage. Si aún no tiene una cuenta, puede [registrarse para obtener una gratuita](https://flow.microsoft.com/).
+Puede usar [Power Automate](/power-automate/) para automatizar las notificaciones cada vez que un cliente potencial se agregue a la tabla de Azure Storage. Si aún no tiene una cuenta, puede [registrarse para obtener una gratuita](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Ejemplo de notificación de cliente potencial
 

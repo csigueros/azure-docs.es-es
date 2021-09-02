@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 07/29/2021
 ms.author: jianleishen
-ms.openlocfilehash: cd015ad73755ceaeb89b27b85df253f76440b927
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f8ba37528213d4abca398ae3d5fddc24f1ab17aa
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638434"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123355297"
 ---
 | Category              | Almacén de datos                                                   | [Actividad de copia](../copy-activity-overview.md) (origen/receptor) | [Flujo de datos de asignación](../concepts-data-flow-overview.md) (origen/receptor) | [Actividad Lookup](../control-flow-lookup-activity.md) | [Actividad de obtención de metadatos](../control-flow-get-metadata-activity.md)/[Actividad de validación](../control-flow-validation-activity.md) | [Eliminar actividad](../delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -24,7 +24,7 @@ ms.locfileid: "122638434"
 | &nbsp;                | [Azure Database for MySQL](../connector-azure-database-for-mysql.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure Database para PostgreSQL](../connector-azure-database-for-postgresql.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) | ✓/✓                                                          | ✓/✓ <small>Usar [formato Delta](../format-delta.md)</small> | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [Azure File Storage](../connector-azure-file-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
+| &nbsp;                | [Archivos de Azure](../connector-azure-file-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure SQL Database](../connector-azure-sql-database.md) | ✓/✓                                                          | ✓/✓ <br>                                                     | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Instancia administrada de Azure SQL](../connector-azure-sql-managed-instance.md) | ✓/✓                                                          | ✓/✓ <br>                                                     |                                                              | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |

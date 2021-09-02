@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c1f9d565cd6e3bafd5caa36d8da9266a3f1edb6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 26b2bc1d2ba1d31aaa7269b3fdb861b69ce70eac
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076337"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122651814"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL mediante el portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este artículo, obtendrá información sobre cómo usar Azure Portal para crear una VM en una instancia de Azure Virtual Network y un servidor de Azure Database for MySQL con un punto de conexión privado de Azure.
 
@@ -35,7 +37,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 2. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |

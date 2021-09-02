@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Service Fabric
 description: En este artículo se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Service Fabric. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 author: erikadoyle
 ms.author: edoyle
 ms.service: service-fabric
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3e18441699a53e8c37d62d961097a9f136165e0d
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 9c477e21f81972d5a3726179dbf62228c125b2f1
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603919"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098016"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-fabric"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Service Fabric
 

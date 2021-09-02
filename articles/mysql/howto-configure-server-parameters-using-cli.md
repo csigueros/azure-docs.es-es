@@ -8,14 +8,16 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 94dd7f72f6411934587c76850a05d6885e9f6862
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 08a8a26cd0420f5c856eebf2063b0ae4f14beb7d
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763224"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122651648"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-cli"></a>Configuración de parámetros del servidor en Azure Database for MySQL mediante la CLI de Azure
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for MySQL con la CLI de Azure, la utilidad de línea de comandos de Azure. En el nivel del servidor, se expone y se puede modificar un subconjunto de las opciones de configuración del motor. 
 
 >[!Note]

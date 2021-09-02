@@ -231,12 +231,12 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: logs/quick-create-workspace.md
+                - name: CLI de Azure
+                  href: logs/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
-                - name: Plantilla de Resource Manager
-                  href: logs/resource-manager-workspace.md
             - name: Diseño de una implementación de área de trabajo
               href: logs/design-logs-deployment.md
             - name: Supervisión de un área de trabajo

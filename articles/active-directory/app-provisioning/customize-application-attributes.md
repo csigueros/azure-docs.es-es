@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 79f001ef1483ccdc8b9a4f2e2bfde9ca87db705f
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: a7839ec1b131377cd9a6614c570dacd829c6c46a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113507079"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310959"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -233,16 +233,16 @@ Use los pasos siguientes para aprovisionar roles para un usuario para la aplicac
   
   - **Salida de ejemplo (PATCH)** 
     
-   ```
+   ```json
    "Operations": [
-   {
-   "op": "Add",
-   "path": "roles",
-   "value": [
-   {
-   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
-   }
-   ]
+     {
+       "op": "Add",
+       "path": "roles",
+       "value": [
+         {
+           "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+         }
+       ]
    ```  
 El formato de la solicitud es diferente entre PATCH y POST. Para asegurarse de que los mensajes POST y PATCH se envían en el mismo formato, puede usar la marca de características descrita [aquí](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 

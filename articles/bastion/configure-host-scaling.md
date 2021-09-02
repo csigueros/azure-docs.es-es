@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 9b9315705896dcec4e7a3baa2ad962ca04036a48
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: d5087994a72b52ce091dac98987b8e0bc60e287e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732097"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224731"
 ---
 # <a name="configure-host-scaling-preview"></a>Configuración del escalado de host (versión preliminar)
 
@@ -21,8 +21,7 @@ Este artículo le ayuda a agregar unidades de escalado (instancias) adicionales 
 
 ## <a name="configuration-steps"></a>Pasos de configuración
 
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
+1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com).
 1. En Azure Portal, vaya al host bastión.
 1. El recuento de instancias del escalado de host requiere el nivel Estándar. En la página **Configuración**, en **Nivel**, compruebe que el nivel es **Estándar**. Si es Básico, seleccione **Estándar** en la lista desplegable. 
 

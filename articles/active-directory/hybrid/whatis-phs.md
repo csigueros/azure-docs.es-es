@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23f88a783ca257090fc607cc9a16ec457c7e9c8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d4fb6c1dbeca8c2073a0a493e67b05d46d36738
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90016595"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223230"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>¿Qué es la sincronización de hash de contraseñas con Azure AD?
 La sincronización de hash de contraseñas es uno de los métodos de inicio de sesión utilizados para realizar la identidad híbrida. Azure AD Connect sincroniza un hash, del hash, de la contraseña de un usuario desde una instancia de Active Directory local con una instancia de Azure AD basada en la nube.
@@ -30,7 +30,7 @@ La sincronización de hash de contraseñas le ayuda al reducir a una sola el nú
 * Mejorar la productividad de los usuarios.
 * Reducir los costos de soporte técnico.  
 
-La sincronización de hash de contraseña también habilita la [detección de credenciales filtradas](../identity-protection/concept-identity-protection-risks.md#user-risk) para las cuentas híbridas. Microsoft trabaja con investigadores de la Web oscura y organismos de aplicación de la ley para encontrar pares de nombre de usuario y contraseña disponibles públicamente. Si alguno de estos pares coincide con el de nuestros usuarios, la cuenta asociada pasa a ser de alto riesgo. 
+La sincronización de hash de contraseña también habilita la [detección de credenciales filtradas](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) para las cuentas híbridas. Microsoft trabaja con investigadores de la Web oscura y organismos de aplicación de la ley para encontrar pares de nombre de usuario y contraseña disponibles públicamente. Si alguno de estos pares coincide con el de nuestros usuarios, la cuenta asociada pasa a ser de alto riesgo. 
 
 >[!NOTE]
 > Solo se procesarán en el inquilino las credenciales filtradas que se encuentren después de habilitar PHS. No se comprueban los pares de credenciales detectados anteriormente.

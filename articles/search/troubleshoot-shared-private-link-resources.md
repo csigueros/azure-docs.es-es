@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/30/2021
-ms.openlocfilehash: 82a5135f23293d0fe9bbaaf0eeb0543b4fdb598f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 81bae18cdc4a977ef03ddf807f9277037d939bd0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744780"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195857"
 ---
 # <a name="troubleshooting-common-issues-with-shared-private-link-resources"></a>Solución de problemas comunes con recursos de vínculo privado compartidos
 
@@ -23,7 +23,7 @@ Los recursos de vínculo privado compartidos permiten a Azure Cognitive Search r
 
 Hay cuatro pasos distintos implicados en la creación de un recurso de vínculo privado compartido:
 
-1. El cliente invoca la [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) del plano de administración en el proveedor de recursos (RP) de Azure Cognitive Search con detalles del recurso de vínculo privado compartido que se va a crear.
+1. El cliente invoca la [API CreateOrUpdate](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) del plano de administración en el proveedor de recursos (RP) de Azure Cognitive Search con detalles del recurso de vínculo privado compartido que se va a crear.
 
 2. El RP de Azure Cognitive Search valida la solicitud y, si se valida correctamente, inicia una operación asincrónica de Azure Resource Manager (cuyo progreso puede consultar el cliente).
 
@@ -70,15 +70,15 @@ Los recursos marcados con "(versión preliminar)" solo están disponibles en las
 | Azure Key Vault | `Microsoft.KeyVault/vaults` | `2020-08-01` |
 | Azure Functions (versión preliminar) | `Microsoft.Web/sites` | `2020-08-01-Preview` |
 
-Además, el elemento `groupId` especificado debe ser válido para el tipo de recurso especificado. Por ejemplo, un elemento `groupId` con el valor "blob" es válido para el tipo "Microsoft.Storage/storageAccounts", pero no se puede usar con ningún otro tipo de recurso. Para una versión determinada de la API de administración de Azure Cognitive Search, los clientes pueden averiguar los detalles del tipo de recurso y de los elementos `groupId` admitidos mediante la [API List supported](/rest/api/searchmanagement/privatelinkresources/listsupported).
+Además, el elemento `groupId` especificado debe ser válido para el tipo de recurso especificado. Por ejemplo, un elemento `groupId` con el valor "blob" es válido para el tipo "Microsoft.Storage/storageAccounts", pero no se puede usar con ningún otro tipo de recurso. Para una versión determinada de la API de administración de Azure Cognitive Search, los clientes pueden averiguar los detalles del tipo de recurso y de los elementos `groupId` admitidos mediante la [API List supported](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 + Cumplimiento del límite de cuota: los servicios de Azure Cognitive Search tienen cuotas impuestas en el número de recursos de vínculo privado compartidos que se pueden crear y en el número de diversos tipos de recursos de destino que se usan (en función de `groupId`). Estos se documentan en la sección [Límites de los recursos de vínculo privado compartidos](search-limits-quotas-capacity.md#shared-private-link-resource-limits) de la página de límites del servicio Azure Cognitive Search.
 
 ### <a name="azure-resource-manager-deployment-failures"></a>Errores de implementación de Azure Resource Manager
 
-Una vez que Azure Cognitive Search ha aceptado la solicitud para crear un recurso de vínculo privado compartido, la implementación de Azure Resource Manager que inicia también puede producir un error por varios motivos. En todos los casos, cuando los clientes consulten el estado de la operación asincrónica (que se describe [aquí](search-indexer-howto-access-private.md#step-1-create-a-shared-private-link-resource-to-the-storage-account)), se mostrará un mensaje de error adecuado y los detalles disponibles.
+Un servicio de búsqueda inicia la solicitud para crear un vínculo privado compartido, pero Azure Resource Manager realiza el trabajo real. Puede [comprobar el estado de la implementación](search-indexer-howto-access-private.md#step-3-check-the-status-of-the-private-endpoint-creation) en el portal o mediante consulta, y solucionar los errores que puedan producirse.
 
-Los recursos de vínculo privado compartidos que hayan tenido errores en la implementación de Azure Resource Manager se mostrarán en las llamadas de API [List](/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) y [Get](/rest/api/searchmanagement/sharedprivatelinkresources/get), pero tendrán el "estado de aprovisionamiento" `Failed` (Con errores). Una vez que se haya determinado el motivo del error de implementación de Azure Resource Manager, elimine el recurso en estado `Failed` y vuelva a crearlo después de aplicar la resolución adecuada a partir de la tabla siguiente.
+Los recursos de vínculo privado compartidos que hayan tenido errores en la implementación de Azure Resource Manager se mostrarán en las llamadas de API [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) y [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get), pero tendrán el "estado de aprovisionamiento" `Failed` (Con errores). Una vez que se haya determinado el motivo del error de implementación de Azure Resource Manager, elimine el recurso `Failed` y vuelva a crearlo después de aplicar la resolución adecuada a partir de la tabla siguiente.
 
 | Motivo del error de implementación | Descripción | Solución |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Si observa que el recurso de vínculo privado compartido no ha pasado a un estad
 
 ## <a name="updating-a-shared-private-link-resource"></a>Actualización de un recurso de vínculo privado compartido
 
-Un recurso de vínculo privado compartido existente se puede actualizar mediante la [API Create or Update](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). El RP de Azure Cognitive Search solo permite actualizaciones restringidas en el recurso de vínculo privado compartido: solo se puede modificar el mensaje de solicitud mediante esta API.
+Un recurso de vínculo privado compartido existente se puede actualizar mediante la [API Create or Update](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update). El RP de Azure Cognitive Search solo permite actualizaciones restringidas en el recurso de vínculo privado compartido: solo se puede modificar el mensaje de solicitud mediante esta API.
 
 + No es posible actualizar ninguna de las propiedades "principales" de un recurso de vínculo privado compartido existente (como `privateLinkResourceId` o `groupId`) y esto siempre será incompatible. Si es necesario cambiar cualquier otra propiedad que no sea el mensaje de solicitud, recomendamos a los clientes que eliminen y vuelvan a crear el recurso de vínculo privado compartido.
 
@@ -105,7 +105,7 @@ Un recurso de vínculo privado compartido existente se puede actualizar mediante
 
 ## <a name="deleting-a-shared-private-link-resource"></a>Eliminación de un recurso de vínculo privado compartido
 
-Los clientes pueden eliminar un recurso de vínculo privado compartido existente mediante la [API Delete](/rest/api/searchmanagement/sharedprivatelinkresources/delete). De forma similar al proceso de creación (o de actualización), también se trata de una operación asincrónica con cuatro pasos:
+Los clientes pueden eliminar un recurso de vínculo privado compartido existente mediante la [API Delete](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/delete). De forma similar al proceso de creación (o de actualización), también se trata de una operación asincrónica con cuatro pasos:
 
 1. El cliente solicita al RP de Azure Cognitive Search la eliminación del recurso de vínculo privado compartido.
 
@@ -113,7 +113,7 @@ Los clientes pueden eliminar un recurso de vínculo privado compartido existente
 
 3. Azure Cognitive Search consulta la finalización de la operación (que normalmente tarda unos minutos). En este momento, el recurso de vínculo privado compartido tendría un estado de aprovisionamiento de "Eliminación en curso".
 
-4. Una vez que la operación se completa correctamente, se quitan el punto de conexión privado de respaldo y las asignaciones de DNS asociadas. El recurso no se mostrará como parte de la operación [List](/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) y si se intenta una operación [Get](/rest/api/searchmanagement/sharedprivatelinkresources/get) en este recurso, se mostrará un error 404 No encontrado.
+4. Una vez que la operación se completa correctamente, se quitan el punto de conexión privado de respaldo y las asignaciones de DNS asociadas. El recurso no se mostrará como parte de la operación [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) y si se intenta una operación [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) en este recurso, se mostrará un error 404 No encontrado.
 
 ![Pasos necesarios para eliminar recursos de vínculo privado compartidos ](media\troubleshoot-shared-private-link-resources\shared-private-link-delete-states.png)
 
@@ -122,7 +122,7 @@ A continuación se enumeran algunos errores comunes que se producen durante la f
 | Tipo de error | Descripción | Solución |
 | --- | --- | --- |
 | El recurso está en estado no terminal | No se puede eliminar un recurso de vínculo privado compartido que no esté en un estado terminal (`Succeeded` o `Failed`). Es posible (poco frecuente) que un recurso de vínculo privado compartido se bloquee en un estado no terminal durante un máximo de 8 horas. | Espere hasta que el recurso haya alcanzado un estado terminal y vuelva a intentar la solicitud de eliminación. |
-| Error en la operación de eliminación con el error "Conflicto&quot; | La operación de Azure Resource Manager para eliminar un recurso de vínculo privado compartido llega al proveedor de recursos del recurso de destino especificado en `privateLinkResourceId` (&quot;RP de destino") antes de poder quitar el punto de conexión privado y las asignaciones de DNS. Los clientes pueden usar [bloqueos de recursos de Azure](../azure-resource-manager/management/lock-resources.md) para evitar cambios en sus recursos. Cuando Azure Resource Manager accede al RP de destino, requiere que el RP de destino modifique el estado del recurso de destino (para quitar los detalles sobre el punto de conexión privado de sus metadatos). Cuando el recurso de destino tiene un bloqueo configurado (o su grupo de recursos o suscripción), se produce un error en la operación de Azure Resource Manager con el error "Conflicto" (y los detalles adecuados). El recurso de vínculo privado compartido no se eliminará. | Los clientes deben quitar el bloqueo en el recurso de destino antes de reintentar la operación de eliminación. **Nota:** Este problema también se puede producir cuando los clientes intentan eliminar un servicio de Azure Cognitive Search con recursos de vínculo privado compartidos que apuntan a recursos de destino "bloqueados". |
+| Error en la operación de eliminación con el error "Conflicto" | La operación de Azure Resource Manager para eliminar un recurso de vínculo privado compartido llega al proveedor de recursos del recurso de destino especificado en `privateLinkResourceId` ("RP de destino") antes de poder quitar el punto de conexión privado y las asignaciones de DNS. Los clientes pueden usar [bloqueos de recursos de Azure](../azure-resource-manager/management/lock-resources.md) para evitar cambios en sus recursos. Cuando Azure Resource Manager accede al RP de destino, requiere que el RP de destino modifique el estado del recurso de destino (para quitar los detalles sobre el punto de conexión privado de sus metadatos). Cuando el recurso de destino tiene un bloqueo configurado (o su grupo de recursos o suscripción), se produce un error en la operación de Azure Resource Manager con el error "Conflicto" (y los detalles adecuados). El recurso de vínculo privado compartido no se eliminará. | Los clientes deben quitar el bloqueo en el recurso de destino antes de reintentar la operación de eliminación. **Nota:** Este problema también se puede producir cuando los clientes intentan eliminar un servicio de Azure Cognitive Search con recursos de vínculo privado compartidos que apuntan a recursos de destino "bloqueados". |
 | Error de la operación de eliminación | La operación de eliminación asincrónica de Azure Resource Manager puede producir un error en raras ocasiones. Cuando se produce un error en esta operación, al consultar el estado de la operación asincrónica se mostrará a los clientes un mensaje de error y los detalles adecuados. | Vuelva a intentar la operación más adelante o póngase en contacto con el equipo de soporte técnico de Azure si el problema persiste.
 | Recurso bloqueado en el estado "Eliminación en curso" | En raras ocasiones, un recurso de vínculo privado compartido podría estar bloqueado en el estado "Eliminación en curso" durante un máximo de 8 horas, probablemente debido a algún error catastrófico en el RP de Azure Cognitive Search. | Espere 8 horas, después de las cuales el recurso pasaría al estado `Failed` y, a continuación, vuelva a emitir la solicitud.|
 
@@ -131,4 +131,4 @@ A continuación se enumeran algunos errores comunes que se producen durante la f
 Más información sobre los recursos de vínculo privado compartidos y cómo usarlos para proteger el acceso al contenido protegido.
 
 + [Establecimiento de conexiones del indexador a través de un punto de conexión privado](search-indexer-howto-access-private.md)
-+ [Referencia de API de REST](/rest/api/searchmanagement/sharedprivatelinkresources)
++ [Referencia de API de REST](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources)

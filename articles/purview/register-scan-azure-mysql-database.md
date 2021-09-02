@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.openlocfilehash: a5edf1b85d97798e5ed159433961c4c0d76cfcca
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: ed3a0abc6bdd99e5c86e67a410d7c9ecadf7a718
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114208295"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737642"
 ---
 # <a name="register-and-scan-an-azure-mysql-database"></a>Registro y análisis de una base de datos de Azure Database for MySQL
 
@@ -53,7 +53,7 @@ Para registrar una nueva base de datos de Azure Database for MySQL en el catálo
 
 1. Vaya a la cuenta de Purview.
 
-1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+1. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 
 1. Seleccione **Registrar**.
 

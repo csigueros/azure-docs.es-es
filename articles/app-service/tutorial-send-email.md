@@ -4,12 +4,12 @@ description: Aprenda a invocar procesos empresariales desde una aplicación de A
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 04bdab82c9d1efed6da3f533617f19b82cf0781e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 567bf62d2f78074cef331aeedcfd29bc382e79c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290711"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752427"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Envío de correo electrónico e invocación de otros procesos empresariales desde App Service
 
@@ -319,3 +319,4 @@ Si está probando este código en la aplicación de ejemplo de [Compilación de 
 [Tutorial: Hospedaje de una API RESTful con CORS en Azure App Service](app-service-web-tutorial-rest-api.md)  
 [Referencia de solicitudes HTTP y sus respuestas en Logic Apps](../connectors/connectors-native-reqres.md)  
 [Inicio rápido: Creación del primer flujo de trabajo mediante Azure Logic Apps: Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+- [Environment variables and app settings reference](reference-app-settings.md)

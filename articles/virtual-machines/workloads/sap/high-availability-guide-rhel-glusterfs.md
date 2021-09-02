@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: 2f312b98af8fdec65f8b1994e744d59bec558ba3
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: bb4552d068183907b24ff2a0c5b7a9dcce593a25
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112281600"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967819"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS en máquinas virtuales de Azure de Red Hat Enterprise Linux para SAP NetWeaver
 
@@ -64,7 +64,7 @@ Lea primero las notas y los documentos de SAP siguientes:
 * [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP en Linux (este artículo)][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide]
-* [Documentación de producto para Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
+* [Documentación de producto para Red Hat Gluster Storage](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5)
 * Documentación general de RHEL
   * [Introducción al complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administración del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)

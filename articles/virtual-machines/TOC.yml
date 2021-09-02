@@ -407,6 +407,32 @@
         - name: Flexibilidad de tamaño de instancia de máquina virtual
           displayName: 'Reserved Instances, RI, prepay'
           href: reserved-vm-instance-size-flexibility.md
+    - name: Reserva de capacidad (versión preliminar)
+      items:
+        - name: Introducción (versión preliminar)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-overview.md
+        - name: Creación de una reserva de capacidad (versión preliminar)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-create.md
+        - name: Asignación excesiva de reserva de capacidad (versión preliminar)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-overallocate.md
+        - name: Modificación de una reserva de capacidad (versión preliminar)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-modify.md
+        - name: Asociación de una máquina virtual (versión preliminar)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-associate-vm.md
+        - name: Eliminación de una máquina virtual (versión preliminar)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-remove-vm.md
+        - name: Asociación de un conjunto de escalado de máquinas virtuales (versión preliminar)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-associate-virtual-machine-scale-set.md
+        - name: Eliminación de un conjunto de escalado de máquinas virtuales (versión preliminar)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-remove-virtual-machine-scale-set.md
     - name: Creación de máquinas virtuales
       items:
         - name: Linux
@@ -1439,7 +1465,7 @@
           href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: varias IP'
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context

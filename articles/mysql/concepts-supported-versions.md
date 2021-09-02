@@ -5,19 +5,20 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
+ms.custom: ''
 ms.date: 6/3/2020
-ms.openlocfilehash: 1804cef5baf70fad303c2813286e2bad500e63d7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2c212922ebf550b75ee140637717a48beec9de02
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073385"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122651664"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL se ha desarrollado a partir de [MySQL Community Edition](https://www.mysql.com/products/community/), con el motor de almacenamiento InnoDB. El servicio es compatible con todas las versiones principales actuales admitidas por la comunidad: MySQL 5.6, 5.7 y 8.0. MySQL usa el esquema de nomenclatura X.Y.Z, donde X es la versión principal, Y es la secundaria y Z es la versión de corrección de errores. Para más información sobre el esquema, consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
-
-
 
 ## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>Conexión a un nodo de puerta de enlace que ejecuta una versión específica de MySQL
 
@@ -34,7 +35,6 @@ En el servicio Azure Database for MySQL, los nodos de puerta de enlace escuchan 
 
 ## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>Actualmente, Azure Database for MySQL admite las siguientes versiones principales y secundarias de MySQL:
 
-
 | Versión | [Servidor único](overview.md) <br/> Versión secundaria actual |[Servidor flexible (versión preliminar)](./flexible-server/overview.md) <br/> Versión secundaria actual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL versión 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (retirada) | No compatible|
@@ -44,6 +44,7 @@ En el servicio Azure Database for MySQL, los nodos de puerta de enlace escuchan 
 Lea la directiva de compatibilidad de versiones para las versiones retiradas en la [documentación de la directiva de compatibilidad de versiones.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
 ## <a name="managing-updates-and-upgrades"></a>Administración de actualizaciones
+
 El servicio administra automáticamente la aplicación de partes para las actualizaciones de las versiones de corrección de errores. Por ejemplo, 5.7.20 a 5.7.21.  
 
 El servicio admite actualmente la actualización de la versión principal para las actualizaciones de MySQL versión 5.6 a 5.7. Para obtener más información, consulte [cómo realizar actualizaciones de versión principal](how-to-major-version-upgrade.md). Si quiere actualizar de la versión 5.7 a la 8.0, se recomienda que realice un [volcado y restauración de memoria](./concepts-migrate-dump-restore.md) en un servidor que se haya creado con la nueva versión del motor.

@@ -1,20 +1,21 @@
 ---
 title: Consultas de ejemplo de Azure Resource Graph para Azure Cosmos DB
 description: Consultas de ejemplo de Azure Resource Graph para Azure Cosmos DB en las que se muestra el uso de tipos de recursos y tablas para acceder a recursos y propiedades relacionados con Azure Cosmos DB.
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.topic: sample
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: d455f9f6ad7ee63710a110471d6e65e4f5d3200a
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 23e03bdbde7b21d2167e49a51f774466ca73d2ca
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861805"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318357"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-cosmos-db"></a>Consultas de ejemplo de Azure Resource Graph para Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Esta página es una colección de consultas de ejemplo de [Azure Resource Graph](../governance/resource-graph/overview.md) para Azure Cosmos DB. Para obtener una lista completa de ejemplos de Azure Resource Graph, vea [Ejemplos de Resource Graph por categoría](../governance/resource-graph/samples/samples-by-category.md) y [Ejemplos de Resource Graph por tabla](../governance/resource-graph/samples/samples-by-table.md).
 

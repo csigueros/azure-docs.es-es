@@ -1,20 +1,20 @@
 ---
-title: Desempaquetado y ensamblaje de los componentes de Azure Percept DK
+title: Desempaquetado y ensamblaje del dispositivo de Azure Percept DK
 description: Aprenda a desempaquetar, conectar y encender Azure Percept DK
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: deaa0a3904eef33ebab8e73687d6864d389e2963
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ce47b2463441fdd44c9db72c2dcbf2f8935b15d6
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748050"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222993"
 ---
-# <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>Inicio rápido: Desempaquetado y ensamblaje de los componentes de Azure Percept DK
+# <a name="unbox-and-assemble-the-azure-percept-dk-device"></a>Desempaquetado y ensamblaje del dispositivo de Azure Percept DK
 
 Una vez que haya recibido su kit de desarrollo Azure Percept DK, consulte esta guía para obtener información sobre la conexión de los componentes y el encendido.
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: multiple
 ms.date: 02/22/2021
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: b27af53d615fa9c0c46699a52a004098dc46b7b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9bc9830566b8814719faa416240a31a9b7184342
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688542"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123030441"
 ---
-# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedimientos: Uso de Azure PowerShell para crear una entidad de servicio con un certificado
+# <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Uso de Azure PowerShell para crear una entidad de servicio con un certificado
 
 Cuando haya una aplicación o un script que necesite acceder a recursos, puede configurar una identidad para la aplicación y autenticarla con sus propias credenciales. Esta identidad se conoce como una entidad de servicio. Este enfoque le permite:
 

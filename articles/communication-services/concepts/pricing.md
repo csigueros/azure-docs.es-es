@@ -7,14 +7,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: nmurav
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: ba47fd528882e1d7de45470f00316c57b966ddb5
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: d8938a437db42a2d1cb5dd88f6102ce7f5facb3a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762873"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259079"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
 
@@ -77,10 +77,6 @@ Alice realiza una llamada saliente desde una aplicación de Azure Communication 
 - Un participante en el tramo saliente del enrutamiento directo de Communication Services (Bob) desde los servidores de Communication Services a un SBC x 10 minutos x 0,004 USD por tramo de participante por minuto = 0,04 USD.
 
 **Costo total de la llamada**: 0,04 USD + 0,04 USD = 0,08 USD
-
-> [!Note]
-> El tramo de enrutamiento directo de Azure Communication Services es gratis hasta el 01/08/2021.
-
 
 ### <a name="pricing-example-group-audio-call-using-js-sdk-and-one-pstn-leg"></a>Ejemplo de precios: llamada de audio de grupo mediante el SDK para JS y un tramo de PSTN
 

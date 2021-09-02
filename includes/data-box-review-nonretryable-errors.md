@@ -5,12 +5,12 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 05/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 6ccf37d96da5b52111fd08a51de4949185891193
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: c8a749a1b0e14859b0eb2c81b4bfeafd1dba0913
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736199"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867970"
 ---
 Para revisar los errores que no se pueden reintentar y continuar con la orden, haga lo siguiente:
 
@@ -21,6 +21,9 @@ Para revisar los errores que no se pueden reintentar y continuar con la orden, h
    ![Notificación de errores de copia durante una carga en Azure Portal](media/data-box-review-nonretryable-errors/copy-errors-in-upload-01.png)
 
    Anote el valor de **COPY LOG PATH** en **DATA COPY DETAILS**. Revisará los errores en el registro de copia de datos.
+
+   > [!NOTE]
+   > [!INCLUDE [data-box-copy-logs-behind-firewall](data-box-copy-logs-behind-firewall.md)]
 
 2. Seleccione **Confirm device erasure** (Confirmar borrado del dispositivo) para abrir un panel de revisión.
 

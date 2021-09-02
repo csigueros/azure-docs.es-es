@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Data Box
 description: En este artículo se enumeran las definiciones de directivas integradas de Azure Policy para Azure Data Box. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: c32ba3a617f4e6c9d78b7d894ee8306bd7ee88ee
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 93ddbd52a011d5cebba1a0a362a20ac0d9b370d3
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606609"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110949"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-box"></a>Definiciones integradas de Azure Policy para Azure Data Box
 
