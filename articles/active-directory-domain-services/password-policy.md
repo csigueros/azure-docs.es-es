@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 08/11/2021
 ms.author: justinha
-ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c28711e937290df75687376f3ee6e067a69ad91d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619239"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742916"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Directivas de bloqueo de cuentas y contraseñas en dominios administrados de Azure Active Directory Domain Services
 
@@ -63,7 +63,7 @@ Todos los usuarios, independientemente de cómo se crean, tienen aplicadas las s
 
 * **Duración del bloqueo de cuenta:** 30
 * **Número de intentos de inicio de sesión con error permitidos:** 5
-* **Restablecer el número de intentos de inicio de sesión con error después de:** 30 minutos
+* **Restablecer el número de intentos de inicio de sesión con error después de:** 2 minutos
 * **Antigüedad máxima de contraseña (duración):** 90 días
 
 Con esta configuración predeterminada, las cuentas de usuario se bloquean durante 30 minutos si se usan cinco contraseñas no válidas en dos minutos. Las cuentas se desbloquean automáticamente pasados 30 minutos.
@@ -105,10 +105,7 @@ Para crear una directiva de contraseñas personalizada, use las herramientas adm
 
     Establezca la precedencia para que su directiva de contraseñas personalizada reemplace la predeterminada, como *1*.
 
-1. Edite otras opciones de configuración de directiva de contraseña como desee. Recuerde los siguientes puntos clave:
-
-    * Opciones de configuración como la fecha de expiración, la antigüedad o la complejidad de la contraseña solo para usuarios creados manualmente en un dominio administrado.
-    * La configuración de bloqueo de cuenta se aplica a todos los usuarios, pero solo surte efecto en el dominio administrado y no en el mismo Azure AD.
+1. Edite otras opciones de configuración de directiva de contraseña como desee. La configuración de bloqueo de cuenta se aplica a todos los usuarios, pero solo surte efecto en el dominio administrado y no en el mismo Azure AD.
 
     ![Creación de una directiva de contraseñas específica personalizada](./media/password-policy/custom-fgpp.png)
 

@@ -3,16 +3,16 @@ title: Configuración de una instancia de Config Server en Azure Spring Cloud
 description: Aprenda a configurar una instancia de Config Server para Azure Spring Cloud en Azure Portal
 ms.service: spring-cloud
 ms.topic: how-to
-ms.author: brendm
-author: bmitchell287
+ms.author: karler
+author: karlerickson
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: e4e4701b535e5363d0eb64f377fe4dccc3a3dd7d
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 123cc401d03a802c0a390f88cfc727893f165364
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653602"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015453"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
@@ -23,12 +23,13 @@ En este tutorial se muestra cómo conectar una instancia de Config Server en Spr
 Spring Cloud Config ofrece soporte técnico para servidor y cliente para las configuraciones externalizadas de un sistema distribuido. La instancia de Config Server es un lugar centralizado donde puede administrar las propiedades externas de las aplicaciones de todos los entornos. Para más información al respecto, consulte la [Guía de referencia de Config Server en Spring Cloud](https://spring.io/projects/spring-cloud-config).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
+
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Un servicio de Azure Spring Cloud aprovisionado y en ejecución. Para configurar e iniciar el servicio Azure Spring Cloud, consulte [Inicio rápido: Inicio de una aplicación Java Spring mediante la CLI de Azure](./quickstart.md).
 
 ## <a name="restriction"></a>Restricción
 
-Cuando se usa Config Server con un back-end de Git, hay algunas restricciones. Algunas propiedades se insertan automáticamente en el entorno de una aplicación para acceder a Config Server y a Service Discovery. Si también configura esas propiedades desde los archivos de Config Server, pueden aparecer conflictos y un comportamiento inesperado. Estas propiedades incluyen: 
+Cuando se usa Config Server con un back-end de Git, hay algunas restricciones. Algunas propiedades se insertan automáticamente en el entorno de una aplicación para acceder a Config Server y a Service Discovery. Si también configura esas propiedades desde los archivos de Config Server, pueden aparecer conflictos y un comportamiento inesperado. Estas propiedades incluyen:
 
 ```yaml
 eureka.client.service-url.defaultZone
@@ -139,17 +140,17 @@ Una vez que los archivos de configuración se han guardado en un repositorio, es
 
 4. En la sección **Default repository** (Repositorio predeterminado), en **URI** seleccione "https://github.com/Azure-Samples/piggymetrics-config".
 
-5. Haga clic en **Validar**.
+5. Seleccione **Validar**.
 
     ![Ir al servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-6. Cuando finalice la validación, haga clic en **Aplicar** para guardar los cambios.
+6. Cuando finalice la validación, seleccione **Aplicar** para guardar los cambios.
 
     ![Validación del servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
 7. La actualización de la configuración puede tardar unos minutos.
- 
-    ![Actualización del servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+    ![Actualización del servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
 
 8. Cuando se haya completado la configuración, debería recibir una notificación.
 
@@ -157,14 +158,14 @@ Una vez que los archivos de configuración se han guardado en un repositorio, es
 
 #### <a name="default-repository"></a>Repositorio predeterminado
 
-* **Repositorio público**: en la sección **Repositorio predeterminado**, en el cuadro **URI**, pegue el identificador URI del repositorio.  En el campo **Etiqueta**, seleccione **config**. Asegúrese de que el valor de **Autenticación** es **Pública** y, después, seleccione **Aplicar** para finalizar. 
+* **Repositorio público**: en la sección **Repositorio predeterminado**, en el cuadro **URI**, pegue el identificador URI del repositorio.  En el campo **Etiqueta**, seleccione **config**. Asegúrese de que el valor de **Autenticación** es **Pública** y, después, seleccione **Aplicar** para finalizar.
 
 * **Repositorio privado**: Azure Spring Cloud admite la autenticación básica basada en contraseñas o en tokens, y SSH.
 
     * **Autenticación básica**: en la sección **Default repository** (Repositorio predeterminado), en el cuadro **URI**, pegue el identificador URI del repositorio y, después, seleccione el botón de **autenticación** (icono de "lápiz"). En el panel **Edit Authentication** (Editar autenticación), en la lista desplegable **Authentication type** (Tipo de autenticación), seleccione **HTTP Basic** (HTTP básica) y, después, escriba el nombre de usuario y la contraseña o el token para conceder acceso a Azure Spring Cloud. Seleccione **OK** (Aceptar) y **Apply** (Aplicar) para terminar de configurar la instancia de Config Server.
 
     ![Autenticación básica en el panel Editar autenticación](media/spring-cloud-tutorial-config-server/basic-auth.png)
-    
+
     > [!CAUTION]
     > Algunos servidores de repositorio de Git, como GitHub, usan un *token personal* o un *token de acceso* a modo de contraseña para la **autenticación básica**. Esos tipos de token se pueden usar como contraseña en Azure Spring Cloud, ya que nunca expiran. Pero en el caso de otros servidores de repositorio de Git, como Bitbucket y Azure DevOps, el *token de acceso* expira en una o dos horas. Esto significa que la opción no es viable cuando se usan estos servidores de repositorio con Azure Spring Cloud.
 
@@ -174,7 +175,7 @@ Una vez que los archivos de configuración se han guardado en un repositorio, es
 
 #### <a name="pattern-repository"></a>Repositorio de patrones
 
-Si quiere usar un **Repositorio de patrones** opcional para configurar el servicio, especifique el **URI** y la **Autenticación** de la misma manera que el **Repositorio predeterminado**. En **Name** (Nombre), asigne un nombre al patrón y, después, seleccione **Apply** (Aplicar) para asociarlo a la instancia. 
+Si quiere usar un **Repositorio de patrones** opcional para configurar el servicio, especifique el **URI** y la **Autenticación** de la misma manera que el **Repositorio predeterminado**. En **Name** (Nombre), asigne un nombre al patrón y, después, seleccione **Apply** (Aplicar) para asociarlo a la instancia.
 
 ### <a name="enter-repository-information-into-a-yaml-file"></a>Introducción de la información del repositorio en un archivo YAML
 
@@ -196,34 +197,33 @@ Seleccione el botón **Import settings** (Importar configuración) y, después, 
 
 ![Panel Notifications (Notificaciones) de Config Server](media/spring-cloud-tutorial-config-server/local-yml-success.png)
 
-
-La información del archivo YAML debería mostrarse en Azure Portal. Seleccione **Apply** (Aplicar) para finalizar. 
+La información del archivo YAML debería mostrarse en Azure Portal. Seleccione **Apply** (Aplicar) para finalizar.
 
 ## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Uso de Azure Repos para la configuración de Azure Spring Cloud
 
 Azure Spring Cloud puede acceder a los repositorios de Git públicos, protegidos mediante SSH o protegidos mediante la autenticación HTTP básica. Usaremos esa última opción, ya que es más fácil de crear y administrar con Azure Repos.
 
 ### <a name="get-repo-url-and-credentials"></a>Obtención de URL y credenciales del repositorio
-1. En el portal de Azure Repos del proyecto, haga clic en el botón "Clonar":
+
+1. En el portal de Azure Repos de su proyecto, seleccione el botón **Clonar**:
 
     ![Botón Clonar](media/spring-cloud-tutorial-config-server/clone-button.png)
 
 1. Copie la dirección URL de clonación del cuadro de texto. Esta dirección URL normalmente tendrá el siguiente formato:
 
-    ```Text
+    ```text
     https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
     Quite todo lo que hay después de `https://` y antes de `dev.azure.com`, incluido `@`. La dirección URL resultante debe tener este formato:
 
-    ```Text
+    ```text
     https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
     Guarde esta dirección URL para usarla en la siguiente sección.
 
-1. Haga clic en "Generar credenciales de GIT". Aparecerá un nombre de usuario y una contraseña. Guárdelos para su uso en la sección siguiente.
-
+1. Seleccione **Generar credenciales de GIT**. Aparecerá un nombre de usuario y una contraseña. Guárdelos para su uso en la sección siguiente.
 
 ### <a name="configure-azure-spring-cloud-to-access-the-git-repository"></a>Configuración de Azure Spring Cloud para acceder al repositorio de GIT
 
@@ -234,11 +234,12 @@ Azure Spring Cloud puede acceder a los repositorios de Git públicos, protegidos
 1. Seleccione el servicio que desea configurar.
 
 1. En el panel izquierdo de la página del servicio, en **Settings** (Configuración), seleccione la pestaña **Config Server** (Servidor de configuraciones). Configure el repositorio que hemos creado anteriormente:
-   - Agregue la dirección URL del repositorio que ha guardado en la sección anterior
-   - Haga clic en `Authentication` y seleccione `HTTP Basic`.
-   - __username__ es el nombre de usuario que se guardó en la sección anterior
-   - __password__ es la contraseña que se guardó en la sección anterior
-   - Haga clic en "Aplicar" y espere a que la operación se complete correctamente.
+
+   - Agregue la dirección URL del repositorio que ha guardado en la sección anterior.
+   - Seleccione **Autenticación** y, a continuación, **Básica HTTP**.
+   - __username__ es el nombre de usuario que se ha guardado en la sección anterior.
+   - __password__ es la contraseña que se ha guardado en la sección anterior.
+   - Seleccione **Aplicar** y espere a que la operación se realice correctamente.
 
    ![Servidor de Spring Cloud Config](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
@@ -247,6 +248,7 @@ Azure Spring Cloud puede acceder a los repositorios de Git públicos, protegidos
 Puede seleccionar el botón **Restablecer** que aparece en la pestaña **Config Server** para borrar completamente la configuración existente. Elimine la configuración de Config Server si desea conectar la instancia de Config Server a otro origen, por ejemplo, para pasarla de GitHub a Azure DevOps.
 
 ## <a name="config-server-refresh"></a>Actualización de Config Server
+
 Cuando se cambian las propiedades, es necesario notificarlo a los servicios que las consumen antes de que se puedan realizar cambios. La solución predeterminada para Spring Cloud Config es desencadenar manualmente el [evento de actualización](https://spring.io/guides/gs/centralized-configuration/), lo que puede no ser factible si hay muchas instancias de aplicación. Como alternativa, en Azure Spring Cloud puede actualizar automáticamente los valores del servidor de configuración al dejar que el cliente de configuración sondee los cambios en función de una actualización interna.
 
 - En primer lugar, incluya spring-cloud-starter-azure-spring-cloud-client en la sección de dependencias del archivo pom.xml.
@@ -262,7 +264,7 @@ Cuando se cambian las propiedades, es necesario notificarlo a los servicios que 
 - En segundo lugar, habilite la actualización automática y establezca el intervalo de actualización adecuado en application.yml. En este ejemplo, el cliente sondeará los cambios de configuración cada 5 segundos, que es el valor mínimo que puede establecer para el intervalo de actualización.
 De forma predeterminada, la actualización automática se establece en false y el intervalo de actualización se establece en 60 segundos.
 
-  ``` yml
+  ```yml
   spring:
     cloud:
       config:
@@ -272,15 +274,14 @@ De forma predeterminada, la actualización automática se establece en false y e
 
 - Por último, agregue @refreshScope en el código. En este ejemplo, la variable connectTimeout se actualizará automáticamente cada 5 segundos.
 
-  ``` java
+  ```java
   @RestController
   @RefreshScope
   public class HelloController {
       @Value("${timeout:4000}")
-      private String connectTimeout;    
+      private String connectTimeout;
   }
   ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

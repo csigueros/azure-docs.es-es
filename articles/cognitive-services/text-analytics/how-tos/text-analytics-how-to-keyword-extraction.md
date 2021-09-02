@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 08/04/2021
 ms.author: aahi
-ms.openlocfilehash: e25851bc9d3cba6e71056a6fb6a24ff9a0cee6ce
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6a7dca4fd7fe74515f7532b457ce9e1aaad65b57
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968058"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745524"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Ejemplo: Extracción de frases clave con Text Analytics
 
-[Key Phrase Extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) evalúa el texto no estructurado y, en cada documento JSON, devuelve una lista de frases clave.
+[Key Phrase Extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases) evalúa el texto no estructurado y, en cada documento JSON, devuelve una lista de frases clave.
 
 Esta capacidad es útil si necesita identificar rápidamente los principales puntos en una colección de documentos. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", el servicio devuelve los principales puntos de conversación: "comida" y "personal maravilloso".
 
@@ -35,7 +35,7 @@ La extracción de frases clave funciona mejor cuando se proporcionan cantidades 
 
 Debe tener documentos JSON en este formato: identificador, texto, idioma
 
-El tamaño del documento debe ser de 5120 caracteres o menos por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar a la extracción de frases clave. 
+El documento debe tener un máximo de 5120 caracteres, y se pueden tener hasta diez elementos (Ids.) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar a la extracción de frases clave. 
 
 Para obtener más información sobre los objetos de solicitud y respuesta, consulte [Cómo llamar a la API de Text Analytics](text-analytics-how-to-call-api.md).  
 
@@ -76,7 +76,7 @@ Para obtener más información sobre los objetos de solicitud y respuesta, consu
 
 ### <a name="example-asynchronous-request-object"></a>Ejemplo de objeto de solicitud asincrónica
 
-A partir de `v3.1-preview.3`, puede enviar solicitudes de NER de forma asincrónica mediante el punto de conexión `/analyze`.
+A partir de `v3.1`, puede enviar solicitudes de NER de forma asincrónica mediante el punto de conexión `/analyze`.
 
 
 ```json
@@ -108,16 +108,16 @@ A partir de `v3.1-preview.3`, puede enviar solicitudes de NER de forma asincrón
 
 Para más información sobre la definición de la solicitud, consulte [Cómo llamar a la API REST de Text Analytics](text-analytics-how-to-call-api.md). Recapitulamos los siguientes puntos para su comodidad:
 
-+ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Key Phrases API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
++ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Key Phrases API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases).
 
-+ Establezca el punto de conexión de HTTP para la extracción de frases clave mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Si utiliza la API sincrónicamente, debe incluir `/text/analytics/v3.0/keyPhrases` en la dirección URL. Por ejemplo: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Establezca el punto de conexión de HTTP para la extracción de frases clave mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Si utiliza la API sincrónicamente, debe incluir `/text/analytics/v3.1/keyPhrases` en la dirección URL. Por ejemplo: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.1/keyPhrases`.
 
 + Establezca un encabezado de solicitud para incluir la [clave de acceso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para las operaciones de Text Analytics.
 
 + En el cuerpo de la solicitud, proporcione la colección de documentos JSON que preparó para este análisis.
 
 > [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) para estructurar y enviar una solicitud POST al servicio.
+> Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases) para estructurar y enviar una solicitud POST al servicio.
 
 ## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
@@ -131,67 +131,64 @@ Todas las solicitudes POST devolverán una respuesta con formato JSON con los id
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local y, a continuación, importarlo en una aplicación que permita ordenar, buscar y manipular los datos.
 
-Aquí se muestra un ejemplo de la salida de la extracción de frases clave del punto de conexión de v3.1-preview:
+A continuación se muestra un ejemplo de la salida de la extracción de frases clave del punto de conexión de v3.1:
 
 ### <a name="synchronous-result"></a>Resultado sincrónico
 
 ```json
-    {
-       "documents":[
-          {
-             "id":"1",
-             "keyPhrases":[
-                "year",
+{
+    "documents": [
+        {
+            "id": "1",
+            "keyPhrases": [
                 "trail",
                 "trip",
                 "views",
                 "hike"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"2",
-             "keyPhrases":[
-                "marked trails",
+            ],
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "keyPhrases": [
                 "Worst hike",
-                "goners"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"3",
-             "keyPhrases":[
-                "trail",
+                "trails"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "3",
+            "keyPhrases": [
+                "less athletic",
                 "small children",
-                "family"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"4",
-             "keyPhrases":[
+                "Everyone",
+                "family",
+                "trail"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "4",
+            "keyPhrases": [
                 "spectacular views",
                 "trail",
-                "Worth",
                 "area"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"5",
-             "keyPhrases":[
-                "places",
-                "beautiful views",
+            ],
+            "warnings": []
+        },
+        {
+            "id": "5",
+            "keyPhrases": [
                 "favorite trail",
-                "rest"
-             ],
-             "warnings":[]
-          }
-       ],
-       "errors":[],
-       "modelVersion":"2020-07-01"
-    }
-
+                "beautiful views",
+                "many places"
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
+}
 ```
 Como se indicó, el analizador busca y descarta las palabras que no son esenciales y conserva solo los términos o frases que parecen ser el asunto o el objeto de una frase.
 
@@ -201,51 +198,46 @@ Si usa el punto de conexión `/analyze` en la operación asincrónica, recibirá
 
 ```json
 {
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
+    "jobId": "fa813c9a-0d96-4a34-8e4f-a2a6824f9190",
+    "lastUpdateDateTime": "2021-07-07T18:16:45Z",
+    "createdDateTime": "2021-07-07T18:16:15Z",
+    "expirationDateTime": "2021-07-08T18:16:15Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "My Job",
+    "tasks": {
+        "completed": 1,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 1,
+        "keyPhraseExtractionTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-07T18:16:45.0623454Z",
+                "taskName": "KeyPhraseExtraction_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "doc1",
+                            "keyPhrases": [],
+                            "warnings": []
+                        },
+                        {
+                            "id": "doc2",
+                            "keyPhrases": [
+                                "Pike place market",
+                                "Seattle attraction",
+                                "favorite"
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-06-01"
+                }
+            }
+        ]
+    }
 }
 ```
 
@@ -254,14 +246,14 @@ Si usa el punto de conexión `/analyze` en la operación asincrónica, recibirá
 
 En este artículo, ha aprendido los conceptos y el flujo de trabajo de la extracción de frases clave mediante Text Analytics de Cognitive Services. En resumen:
 
-+ [Key phrase extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) está disponible para los idiomas seleccionados.
++ [Key phrase extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases) está disponible para los idiomas seleccionados.
 + Los documentos JSON del cuerpo de la solicitud incluyen un identificador, un texto y el código de idioma.
 + La solicitud POST se realiza a un punto de conexión `/keyphrases` o `/analyze`, con una [clave de acceso y un punto de conexión](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizados, que son válidos para la suscripción.
 + La salida de la respuesta, que consta de palabras clave y frases para cada id. de documento, se puede transmitir a cualquier aplicación que acepte JSON, incluidas Microsoft Office Excel y Power BI, por nombrar algunas.
 
 ## <a name="see-also"></a>Consulte también
 
- [Introducción a Text Analytics](../overview.md)[Preguntas más frecuentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Introducción a Text Analytics](../overview.md)[Preguntas más frecuentes (FAQ)](../text-analytics-resource-faq.yml)</br>
  [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Pasos siguientes
