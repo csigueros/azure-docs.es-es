@@ -2,18 +2,19 @@
 title: 'Características: Acción y contexto (Personalizer)'
 titleSuffix: Azure Cognitive Services
 description: Personalizer usa características, información acerca de las acciones y del contexto, para realizar sugerencias para mejorar la clasificación. Las características pueden ser genéricas o específicas de un elemento.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: f49abd4ca1cc1ccdcb7ba2b0fab3bad953dede5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ef7d0146d1636a863941f4deb317149aeb48faf
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100380549"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830941"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 

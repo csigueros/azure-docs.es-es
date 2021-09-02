@@ -1,15 +1,15 @@
 ---
 title: Lista de iniciativas de directiva integradas
 description: Se enumeran las iniciativas de directiva integradas para Azure Policy. Las categorías incluyen Cumplimiento de normativas, Configuración de invitados, etc.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 36fe2923155e92d08224ef10a17366296236082d
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 33ad32f430170c7bfc22f4a438a15b58413a434f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605174"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109707"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definiciones de iniciativa integradas de Azure Policy
 

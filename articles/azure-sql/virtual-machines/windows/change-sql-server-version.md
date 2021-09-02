@@ -15,12 +15,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb8d0150bafe795f2b23fa18581adc60d091aaf2
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8428f9ce69bc58a206eb5c60b3602ffbb17f7c19
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078840"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225672"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Cambio en contexto de la versión de SQL Server en la máquina virtual de Azure
 
@@ -108,7 +108,7 @@ Una vez que cambie la versión de SQL Server, registre nuevamente la VM con SQL
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Comprobación de versión":::
 
 > [!NOTE]
-> Si ya se registró con la extensión Agente de IaaS de SQL, [anule el registro](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) y vuelva a [registrar el recurso de VM con SQL](sql-agent-extension-manually-register-single-vm.md#register-with-extension) para que detecte la versión y edición correctas de SQL Server instaladas en la VM. De esta forma se actualizan los metadatos y la información de facturación asociados a esta máquina virtual.
+> Si ya se registró con la extensión Agente de IaaS de SQL, [anule el registro](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) y vuelva a [registrar el recurso de VM con SQL](sql-agent-extension-manually-register-single-vm.md#full-mode) para que detecte la versión y edición correctas de SQL Server instaladas en la VM. De esta forma se actualizan los metadatos y la información de facturación asociados a esta máquina virtual.
 
 ## <a name="remarks"></a>Observaciones
 

@@ -2,19 +2,19 @@
 title: Cifrado de datos en reposo del servicio Personalizer
 titleSuffix: Azure Cognitive Services
 description: Microsoft ofrece claves de cifrado administradas por Microsoft y también le permite administrar las suscripciones de Cognitive Services con sus propias claves, llamadas claves administradas por el cliente (CMK). En este artículo se trata el cifrado de datos en reposo de Personalizer y cómo habilitar y administrar las CMK.
-author: erindormier
+author: jeffmend
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: egeaney
-ms.openlocfilehash: 1a27199930587c1a096dd99462ebd0c9d65054ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jeffme
+ms.openlocfilehash: d6d4aaa9b6a04614fdae4f794da9153a03031727
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100524066"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829762"
 ---
 # <a name="personalizer-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio Personalizer
 

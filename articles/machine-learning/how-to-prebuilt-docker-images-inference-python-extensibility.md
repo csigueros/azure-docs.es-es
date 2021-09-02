@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 8af27f876f1c325cf99214e36f680e012e86c98d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 08139501886f580033aae46bdabd55ed300c5059
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536332"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710023"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>Extensibilidad de paquetes de Python para imágenes de Docker precompiladas (versión preliminar)
 
@@ -173,6 +173,13 @@ Estos son algunos de los aspectos que pueden provocar este problema:
 
 
 * Para más información sobre cómo cargar un modelo registrado o local, consulte [Dónde y cómo implementar](how-to-deploy-and-where.md?tabs=azcli#define-a-dummy-entry-script).
+
+## <a name="bug-fixes"></a>Correcciones de errores
+
+### <a name="2021-07-26"></a>26 de julio de 2021
+
+* `AZUREML_EXTRA_REQUIREMENTS_TXT` y `AZUREML_EXTRA_PYTHON_LIB_PATH` ahora son siempre relativos al directorio del script de puntuación.
+Por ejemplo, si tanto requirements.txt como el script de puntuación están en **my_folder**, `AZUREML_EXTRA_REQUIREMENTS_TXT`deberá establecerse en requirements.txt. `AZUREML_EXTRA_REQUIREMENTS_TXT` no se establecerá en **my_folder/requirements.txt**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

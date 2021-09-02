@@ -1,18 +1,18 @@
 ---
 title: Introducción a Azure Percept Studio
 description: Más información acerca de Azure Percept Studio.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: e6f9641179a9c2490dcb65316a80b4ba7fd4b639
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c57edfff026e58c292394a0b790af4dedc42d61d
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567702"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221955"
 ---
 # <a name="azure-percept-studio-overview"></a>Introducción a Azure Percept Studio
 

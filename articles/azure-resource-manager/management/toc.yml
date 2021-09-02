@@ -123,12 +123,20 @@
           href: tag-support.md
         - name: Consultas de Azure Resource Graph
           href: ./resource-graph-samples.md
+    - name: Acceso a Private Link
+      items:
+        - name: 'Crear: portal'
+          href: create-private-link-access-portal.md
+        - name: 'Creación: REST'
+          href: create-private-link-access-rest.md
+        - name: 'Administración: REST'
+          href: manage-private-link-access-rest.md
     - name: Administración de grupos de recursos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-cli.md
         - name: Azure PowerShell
@@ -136,10 +144,10 @@
           href: manage-resource-groups-powershell.md
     - name: Administrar recursos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           displayName: 'open,delete,deploy,move,lock,tag'
           href: manage-resources-cli.md
         - name: Azure PowerShell
@@ -167,7 +175,7 @@
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/resource
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.resourcemanager

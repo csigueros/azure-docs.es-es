@@ -1,16 +1,19 @@
 ---
 title: Configuración de Personalizer
 description: La configuración del servicio incluye la forma en que el servicio trata las recompensas, la frecuencia con el servicio realiza las exploraciones, la frecuencia con que se vuelve a entrenar al modelo y la cantidad de datos que se almacenan.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 9b7347cb98bcbf2e1d92f115d404197083acef4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c868004bcf8ec23eb6607d791f4e9762ad20eca0
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91292616"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829942"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configuración del bucle de aprendizaje de Personalizer
 

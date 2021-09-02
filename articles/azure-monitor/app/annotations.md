@@ -3,12 +3,12 @@ title: Anotaciones de la versión de Application Insights | Microsoft Docs
 description: Aprenda a crear anotaciones para realizar un seguimiento de la implementación u otros eventos importantes con Application Insights.
 ms.topic: conceptual
 ms.date: 07/20/2021
-ms.openlocfilehash: 230d02c26b29bb38ec4c8260109f75f1a8eca468
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a92e659353f6500a6e40e9704af73cae08e95fbf
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741339"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830158"
 ---
 # <a name="release-annotations-for-application-insights"></a>Anotaciones de versión para Application Insights
 
@@ -102,8 +102,10 @@ Puede usar el script de PowerShell CreateReleaseAnnotation para crear anotacione
     }
     
     $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
-
     az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
+
+    # Use the following command for Linux Azure DevOps Hosts or other PowerShell scenarios
+    # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
     ```
 
 3. Llame al script de PowerShell con el código siguiente, reemplazando los marcadores de posición entre corchetes angulares por sus valores. Los valores de -releaseProperties son opcionales.

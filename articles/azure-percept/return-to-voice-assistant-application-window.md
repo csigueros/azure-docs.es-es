@@ -1,27 +1,27 @@
 ---
-title: Vuelva a la ventana de la aplicación del asistente para voz de Azure Percept Audio
+title: Búsqueda de la aplicación del asistente de voz en Azure Percept Studio
 description: En este artículo se muestra cómo volver a la ventana de aplicación del asistente para voz creada anteriormente.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c106c7f892ab003380288eb8c2d5e0a62ac8da93
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9c639c7d6f50b4d0396423c2e49274436d6e0308
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781311"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222889"
 ---
-# <a name="return-to-your-voice-assistant-application-window-in-azure-percept-studio"></a>Vuelva a la ventana de la aplicación del asistente de voz de Azure Percept Studio
+# <a name="find-your-voice-assistant-application-in-azure-percept-studio"></a>Búsqueda de la aplicación del asistente de voz en Azure Percept Studio
 
 En esta guía paso a paso se muestra cómo volver a la aplicación del asistente para voz creada anteriormente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Creación de una aplicación de demostración del asistente para voz](./tutorial-no-code-speech.md)
-- Azure Percept DK está encendido y el accesorio Azure Percept Audio conectado a través de un cable USB.
+- Azure Percept DK encendido y el accesorio Azure Percept Audio conectado a través de un cable USB.
 
 ## <a name="open-your-voice-assistant-application"></a>Abra la aplicación de asistente para voz
 1. Ir a [Azure Percept Studio](https://portal.azure.com/#blade/AzureEdgeDevices/Main/overview)

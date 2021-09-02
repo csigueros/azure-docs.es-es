@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: d733e42d6a415ec6ccbe5ee85f66dd11a87591d4
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9cef8babd11ea6a0ed4ffc965ed52164c9abe43d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770148"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866990"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Cómo migrar aplicaciones Java a JBoss EAP en máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure
 
@@ -110,8 +110,6 @@ En la tabla siguiente se describen las rutas de migración admitidas más comune
 | Aplicación Java | - | - | &#x2714; | &#x2714; | - | - | - |
 
 <sup>1</sup> Aunque MTA no proporciona reglas para esta ruta de migración actualmente, Red Hat Consulting puede ayudar con la migración desde cualquier plataforma de origen a JBoss EAP 7.
-
-:::image type="content" source="./media/jboss-cli-image.png" alt-text="La imagen muestra la salida en la ventana de la CLI.":::
 
 También puede consultar los [requisitos del sistema](https://access.redhat.com/documentation/en/migration_toolkit_for_applications/5.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#system_requirements_getting-started-guide) para el MTA.
 

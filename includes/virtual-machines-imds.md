@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 323e6960a111d8227c14cf38046807ad6c1cada6
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: 29f5e96c18220f0bbdec5f91107c9220fc2fba0b
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122260969"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123355162"
 ---
 Azure Instance Metadata Service (IMDS) le proporciona información sobre las instancias de máquina virtual que se ejecutan actualmente. Puede usarlo para administrar y configurar las máquinas virtuales.
 Esta información incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para ver una lista completa de los datos disponibles, consulte el [resumen de categorías de los puntos de conexión](#endpoint-categories).
@@ -259,7 +259,7 @@ Cuando no especifique la versión, obtendrá un error con una lista de las versi
 
 ### <a name="swagger"></a>Swagger
 
-Hay una definición completa de Swagger para IMDS disponible en https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md.
+Hay una definición completa de Swagger para IMDS disponible en https://github.com/Azure/azure-rest-api-specs/blob/main/specification/imds/data-plane/readme.md.
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 

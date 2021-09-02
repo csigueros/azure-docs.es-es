@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 7598b2908365061ae789ce2ffafb6088dc5c2a68
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: f6319369a03de754b1ce016fb20aa99e5ab466e1
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733365"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223416"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>Inicio rápido: Configuración de Azure Bastion a partir de las opciones de máquina virtual
 
@@ -62,7 +62,7 @@ Puede usar los siguientes valores de ejemplo al crear esta configuración, o pue
 | --- | --- |
 | Nombre | VNet1-bastion |
 | + Nombre de subred | AzureBastionSubnet |
-| Direcciones de AzureBastionSubnet | Una subred dentro del espacio de direcciones de la red virtual con una máscara de subred /27 o superior.<br> Por ejemplo, 10.1.1.0/26.  |
+| Direcciones de AzureBastionSubnet | Una subred dentro del espacio de direcciones de la red virtual con una máscara de subred /27 o superior.<br> Por ejemplo, 10.1.1.0/26.  |
 | Nivel o SKU | Estándar |
 | Dirección IP pública |  Crear nuevo |
 | Nombre de la dirección IP pública | VNet1-ip  |
@@ -73,9 +73,7 @@ Puede usar los siguientes valores de ejemplo al crear esta configuración, o pue
 
 Hay varias maneras de configurar un host bastión. En los pasos siguientes creará un host bastión en Azure Portal directamente desde la máquina virtual. A crear un host desde una máquina virtual, varias opciones de configuración se rellenarán automáticamente con los valores de la máquina virtual o la red virtual.
 
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
-1. Inicie sesión en Azure Portal.
+1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com).
 1. Vaya a la máquina virtual a la que quiere conectarse y seleccione **Conectar**.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="Captura de pantalla de configuración de máquina virtual." lightbox="./media/quickstart-host-portal/vm-connect.png":::
@@ -97,7 +95,7 @@ Hay varias maneras de configurar un host bastión. En los pasos siguientes crear
 1. Después de que se crea la subred, la página avanza automáticamente al **paso 3**. En el paso 3, use los valores siguientes:
 
    * **Nombre**: nombre del host bastión.
-   * **Nivel:** el nivel es el SKU. Para este ejercicio, seleccione **Estándar** en la lista desplegable. La selección de la SKU Estándar permite configurar el recuento de instancias para el escalado de host. La SKU Básica no admite el escalado de host. Para obtener más información, consulte [Opciones de configuración: SKU](configuration-settings.md#skus). La SKU Estándar se encuentra en versión preliminar.
+   * **Nivel:** el nivel es el SKU. Para este ejercicio, seleccione **Estándar** en la lista desplegable. La selección de la SKU Estándar permite configurar el recuento de instancias para el escalado de host. La SKU Básica no admite el escalado de host. Para obtener más información, vea [Opciones de configuración: SKU](configuration-settings.md#skus). La SKU Estándar se encuentra en versión preliminar.
    * **Recuento de instancias:** esta es la configuración para el escalado de host. Use el control deslizante para configurarlo. Si especifica la SKU de nivel Básico, está limitado a 2 instancias y no puede ajustar esta configuración. Para obtener más información, consulte [Opciones de configuración: escalado de host](configuration-settings.md#instance). El recuento de instancias está en versión preliminar y se basa en la SKU Estándar. En este inicio rápido, puede seleccionar el recuento de instancias que prefiera, teniendo en cuenta las consideraciones de [precios](https://azure.microsoft.com/pricing/details/azure-bastion) de las unidades de escalado.
    * **Dirección IP pública**: seleccione **Crear nueva**.
    * **Nombre de dirección IP pública:** nombre del recurso de la dirección IP pública.

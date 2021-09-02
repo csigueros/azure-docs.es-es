@@ -1,20 +1,20 @@
 ---
 title: Eliminación de la aplicación de asistente para voz de Azure Percept Audio
 description: En este artículo se muestra cómo eliminar una aplicación de asistente para voz creada anteriormente.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0b62ba69695606e04e7044109818c18d30ca21c1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e7f9f9dd0bf1caead19151eb8081e967963fae9a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780424"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224960"
 ---
-# <a name="delete-your-voice-assistant-application"></a>Eliminación de la aplicación de asistente para voz
+# <a name="delete-your-azure-percept-audio-voice-assistant-application"></a>Eliminación de la aplicación de asistente para voz de Azure Percept Audio
 
 Estas instrucciones muestran cómo eliminar una aplicación de asistente para voz del dispositivo Azure Percept Audio.
 

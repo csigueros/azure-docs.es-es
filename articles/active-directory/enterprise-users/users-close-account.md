@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aadf4cb638c1b9c16df934a9ee3c0a992a3e8a7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 14a2dea0445a866f7c352eedf64d631d83b1b0f0
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748680"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864412"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Cierre de la cuenta profesional o educativa en una organización no administrada de Azure AD
 
@@ -32,7 +32,7 @@ Los usuarios de una organización no administrada se suelen crear durante el reg
 
 Antes de cerrar la cuenta, debe confirmar los siguientes elementos:
 
-* Asegúrese de que sea un usuario de una organización de Azure AD no administrada. No puede cerrar la cuenta si pertenece a una organización administrada. Si pertenece a una organización administrada y desea cerrar la cuenta, debe ponerse en contacto con el administrador. Para más información sobre cómo determinar si pertenece a una organización no administrada, vea [Eliminar el usuario del inquilino no administrado](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Asegúrese de que sea un usuario de una organización de Azure AD no administrada. No puede cerrar la cuenta si pertenece a una organización administrada. Si pertenece a una organización administrada y desea cerrar la cuenta, debe ponerse en contacto con el administrador. Para más información sobre cómo determinar si pertenece a una organización no administrada, vea [Eliminar el usuario del inquilino no administrado](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
 * Guarde los datos que desea conservar. Para más información acerca de cómo enviar una solicitud de exportación, consulte [Acceso y exportación de registros generados por el sistema para inquilinos no administrados](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)///.
 
@@ -56,5 +56,5 @@ Para cerrar una cuenta profesional o educativa no administrada, siga estos pasos
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [¿Qué es el registro de autoservicio de Azure Active Directory?](directory-self-service-signup.md)
-- [Eliminar el usuario del inquilino no administrado](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
+- [Eliminar el usuario del inquilino no administrado](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
 - [Acceso y exportación de registros generados por el sistema para inquilinos no administrados](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)///

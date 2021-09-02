@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2021
-ms.openlocfilehash: 0a9b1a746a5228ba958b9c1c0cca38b088ca1176
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: bcd0819ce2720597c6e9f2435d37fe9276d595cd
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222246"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222271"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modelado de tipos de datos complejos en Azure Cognitive Search
 
@@ -24,7 +24,7 @@ Los campos complejos representan un único objeto en el documento, o bien una ma
 
 Azure Cognitive Search admite de forma nativa colecciones y tipos complejos. Estos tipos le permiten modelar casi cualquier estructura JSON en un índice de Azure Cognitive Search. En versiones anteriores de las API de Azure Cognitive Search, solo se podían importar conjuntos de filas planas. En la versión más reciente, ahora el índice puede corresponderse de forma más exacta con los datos de origen. En otras palabras, si los datos de origen tienen tipos complejos, el índice también puede tener tipos complejos.
 
-Para empezar, recomendamos el [conjunto de datos Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), que puede cargarse en el asistente **Importar datos** de Azure Portal. El asistente detecta los tipos complejos en el origen y sugiere un esquema de índice basado en las estructuras detectadas.
+Para empezar, recomendamos el [conjunto de datos Hotels](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels), que puede cargarse en el asistente **Importar datos** de Azure Portal. El asistente detecta los tipos complejos en el origen y sugiere un esquema de índice basado en las estructuras detectadas.
 
 > [!Note]
 > La compatibilidad con tipos complejos está disponible con carácter general desde `api-version=2019-05-06`. 
@@ -162,7 +162,7 @@ Al igual que con los campos simples de nivel superior, los campos secundarios si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe el [conjunto de datos de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) en el asistente **Importar datos**. Necesitará la información de conexión de Cosmos DB proporcionada en el archivo Léame para acceder a los datos.
+Pruebe el [conjunto de datos de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels) en el asistente **Importar datos**. Necesitará la información de conexión de Cosmos DB proporcionada en el archivo Léame para acceder a los datos.
 
 Con esa información a mano, el primer paso del asistente es crear un nuevo origen de datos de Azure Cosmos DB. Más adelante en el asistente, cuando llegue a la página de índice de destino, verá un índice con tipos complejos. Cree y cargue este índice y, luego, ejecute las consultas para comprender la nueva estructura.
 

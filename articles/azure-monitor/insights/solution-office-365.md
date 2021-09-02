@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 674e8036463a317d6e578750bc7ed3802ae776e4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 5aca623f9292a1e34eacd209b204436dc7fbdcea
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181649"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220842"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -91,10 +91,10 @@ ms.locfileid: "122181649"
 > ### <a name="q-how-i-can-use-the-azure-sentinel-out-of-the-box-security-oriented-content"></a>P: ¿Cómo puedo usar el contenido de serie orientado a la seguridad de Azure Sentinel?
 > Azure Sentinel proporciona paneles de serie orientados a la seguridad, consultas de alertas personalizadas, consultas de búsqueda, investigación y funcionalidades de respuesta automatizadas basadas en los registros de Office 365 y Azure AD. Explore Azure Sentinel en GitHub y los tutoriales de Azure Sentinel para obtener más información:
 >
-> - [Detección de amenazas integrada](/azure/azure-monitor/insights/articles/sentinel/detect-threats-built-in.md)
-> - [Creación de reglas de análisis personalizadas para detectar amenazas sospechosas](/azure/azure-monitor/insights/articles/sentinel/detect-threats-custom.md)
-> - [Supervisión de los datos](/azure/azure-monitor/insights/articles/sentinel/monitor-your-data.md)
-> - [Investigación de incidentes con Azure Sentinel](/azure/azure-monitor/insights/articles/sentinel/investigate-cases.md)
+> - [Detección de amenazas integrada](/azure/sentinel/detect-threats-built-in)
+> - [Creación de reglas de análisis personalizadas para detectar amenazas sospechosas](/azure/sentinel/detect-threats-custom)
+> - [Supervisión de los datos](/azure/sentinel/monitor-your-data)
+> - [Investigación de incidentes con Azure Sentinel](/azure/sentinel/investigate-cases)
 > - [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Comunidad de Azure Sentinel en GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 

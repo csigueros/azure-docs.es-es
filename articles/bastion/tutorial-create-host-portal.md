@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: bdaad591effc2ef9e5d682dd9a80d994a9e1c34d
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: cd6f2de9d440309662ef47a950f6c1331e30d5fb
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733419"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221104"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>Tutorial: Configuración de Bastion y conexión a una máquina virtual Windows
 
@@ -72,16 +72,11 @@ Puede usar los siguientes valores de ejemplo al crear esta configuración, o pue
 | SKU de la dirección IP pública |  Estándar  |
 | Asignación  | estática |
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
-Inicie sesión en Azure Portal.
-
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Creación de un host de Bastion
 
 Esta sección le ayuda a crear el objeto de bastión en la red virtual. Esto es necesario para crear una conexión segura con una máquina virtual de la red virtual.
 
+1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com).
 1. Escriba **Bastion** en la búsqueda.
 1. En Servicios, haga clic en **Bastiones**.
 1. En la página Bastiones, haga clic en **+ Crear** para abrir la página **Crear una instancia de Bastion**.

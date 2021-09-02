@@ -2,18 +2,19 @@
 title: Realización de la evaluación sin conexión - Personalizer
 titleSuffix: Azure Cognitive Services
 description: En este artículo se muestra cómo usar la evaluación sin conexión para medir la eficacia de la aplicación y analizar el bucle de aprendizaje.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: a473085f9c94ca42a75d01b342d60cc33836b096
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f02bb929e0ae0e7de5feaf8707eae0cf84a5e64
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "88244846"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830599"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Análisis del bucle de aprendizaje con una evaluación sin conexión
 

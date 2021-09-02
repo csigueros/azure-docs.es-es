@@ -1,20 +1,20 @@
 ---
-title: Solución de problemas con Azure Percept DK
+title: Solución de problemas del dispositivo de Azure Percept DK
 description: Obtenga sugerencias para la solución de algunos de los problemas más comunes que pueden surgir con Azure Percept DK e IoT Edge.
-author: mimcco
-ms.author: mimcco
+author: juniem
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.custom: template-how-to
-ms.openlocfilehash: caea6bbd8ebcf3dbe2d6f8b45174326a5ba4f169
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: e644732a90652b1672dc77bfc6db86d7a6b7295a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122066740"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221078"
 ---
-# <a name="azure-percept-dk-troubleshooting"></a>Solución de problemas de Azure Percept DK
+# <a name="troubleshoot-the-azure-percept-dk-device"></a>Solución de problemas del dispositivo de Azure Percept DK
 
 El propósito de este artículo de solución de problemas es ayudar a los usuarios de Azure Percept DK a resolver rápidamente problemas comunes con sus kits de desarrollo. También se proporcionan instrucciones sobre la recopilación de registros para cuando se necesita soporte técnico adicional.
 
@@ -41,13 +41,12 @@ En esta sección, se proporcionan instrucciones sobre qué registros se recopila
 
 ### <a name="log-types-and-commands"></a>Tipos de registros y comandos
 
-|Finalidad del registro      |Cuándo recopilarlo         |Get-Help                     |
+|Finalidad del registro      |Cuándo recopilarlo         |Comando                     |
 |-----------------|---------------------------|----------------------------|
 |*Conjunto de soporte técnico*: proporciona un conjunto de registros necesarios para la mayoría de las solicitudes de soporte técnico del cliente.|Recopílelo cada vez que solicite soporte técnico.|```sudo iotedge support-bundle --since 1h``` <br><br>*"--since 1h" se puede cambiar a cualquier intervalo de tiempo; por ejemplo, "6h" (6 horas), "6d" (6 días) o "6 m" (6 minutos).*|
 |*Registros de OOBE*: registra los detalles sobre la experiencia de configuración.|Recopílelos cuando tenga problemas durante la experiencia de configuración.|```sudo journalctl -u oobe -b```|
 |*Registros de edgeAgent*: registra los números de versión de todos los módulos que se ejecutan en el dispositivo.|Recopílelos cuando no funcionen uno o varios módulos.|```sudo iotedge logs edgeAgent```|
 |*Registros de contenedor de módulos*: registra los detalles sobre contenedores de módulos IoT Edge específicos.|Recopílelos cuando tenga problemas con un módulo.|```sudo iotedge logs [container name]```|
-|*Registros de punto de acceso Wi-Fi*: registra los detalles sobre la conexión al punto de acceso Wi-Fi del kit de desarrollo.|Recopílelos cuando tenga problemas al conectarse al punto de acceso Wi-Fi del kit de desarrollo.|```sudo journalctl -u hostapd.service```|
 |*Registros de red*: un conjunto de registros que abarcan los servicios Wi-Fi y la pila de red.|Recopílelos cuando tenga problemas de Wi-Fi o de red.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>Ejecute ambos comandos. Cada comando recopila varios registros y los coloca en una única salida.|
 
 ## <a name="troubleshooting-commands"></a>Solución de problemas de comandos
@@ -55,9 +54,9 @@ Este es un conjunto de comandos que se pueden usar para solucionar problemas que
 
 Para más información sobre los comandos de Azure IoT Edge, consulte la [documentación de solución de problemas de dispositivos de Azure IoT Edge](../iot-edge/troubleshoot.md). 
 
-|Función         |Cuándo se usa                    |Get-Help                 |
+|Función         |Cuándo se usa                    |Comando                 |
 |------------------|----------------------------|---------------------------|
-|Comprueba la versión de software en el kit de desarrollo.|Úsela cada vez que necesite confirmar qué versión de software está en el kit de desarrollo.|```cat /etc/adu-version```|
+|Comprueba la versión de software en el kit de desarrollo.|Úsela cada vez que necesite confirmar qué versión de software está en el kit de desarrollo.|```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version```|
 |Comprueba la temperatura del kit de desarrollo.|Úsela en casos en los que piense que el kit de desarrollo podría estar sobrecalentándose.|```cat /sys/class/thermal/thermal_zone0/temp```|
 |Comprueba el identificador de telemetría del kit de desarrollo.|Úsela en casos en los que necesite conocer el identificador de telemetría único del kit de desarrollo.|```sudo azure-device-health-id```|
 |Comprueba el estado de IoT Edge.|Úsela siempre que haya problemas con los módulos de IoT Edge que se conectan a la nube.|```sudo iotedge check```|

@@ -10,12 +10,12 @@ ms.date: 05/19/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d103e52ec4a2ba105c6eb5c756ac450a15d7538e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9c021b8b0aec025458179ffb4859c351572762ee
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745030"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186990"
 ---
 # <a name="transform-data-by-running-a-synapse-notebook"></a>Transformación de datos mediante la ejecución de un cuaderno de Synapse
 
@@ -57,7 +57,7 @@ Para parametrizar el cuaderno, seleccione los puntos suspensivos (...) para obte
 
 ---
 
-Azure Data Factory busca la celda de parámetros y utiliza los valores como valores predeterminados para los parámetros que se pasan en tiempo de ejecución. El motor de ejecución agregará una nueva celda debajo de la celda de parámetros con los parámetros de entrada que van a sobrescribir los valores predeterminados. Cuando no se designa ninguna celda de parámetros, la celda insertada se insertará en la parte superior del cuaderno.
+Azure Data Factory busca la celda de parámetros y utiliza los valores como valores predeterminados para los parámetros que se pasan en tiempo de ejecución. El motor de ejecución agregará una nueva celda debajo de la celda de parámetros con los parámetros de entrada que van a sobrescribir los valores predeterminados. 
 
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Asignación de valores de parámetros de una canalización

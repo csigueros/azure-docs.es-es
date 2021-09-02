@@ -1,19 +1,19 @@
 ---
 title: Consultas de ejemplo de Azure Resource Graph para Azure SQL Database
 description: Consultas de ejemplo de Azure Resource Graph para Azure SQL Database que muestran el uso de tipos de recursos y tablas para acceder a recursos y propiedades relacionados con Azure SQL Database.
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: e98a7b8c6b50a45b8b715c88035ffa09384a3b11
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 9e346873c7a593eddd2725033dd17bd43b98e22e
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862724"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318303"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-sql-database"></a>Consultas de ejemplo de Azure Resource Graph para Azure SQL Database
 
