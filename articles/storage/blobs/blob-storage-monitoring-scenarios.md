@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
 ms.custom: monitoring
-ms.openlocfilehash: 8a4d6ab98bd126d2b8ec98650821d191dec4ed6d
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 37a916ca07a1767855b32b79ccb35722cc389f65
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771414"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830995"
 ---
 # <a name="best-practices-for-monitoring-azure-blob-storage"></a>Procedimientos recomendados para supervisar Azure Blob Storage
 
@@ -185,9 +185,10 @@ Con Azure Synapse, puede crear un grupo de SQL sin servidores para consultar los
 
    ```
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 - [Supervisión de Azure Blob Storage](monitor-blob-storage.md).
+- [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md)
 - [Tutorial: Uso de consultas de Kusto en Azure Data Explorer y Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Introducción a consultas de registros en Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 

@@ -1,27 +1,34 @@
 ---
-title: Conexión e indexación de contenido de Azure MySQL con un indexador de Azure Cognitive Search (versión preliminar)
+title: Indexación de datos de Azure MySQL (versión preliminar)
 titleSuffix: Azure Cognitive Search
-description: Importe datos de Azure MySQL a un índice que permita búsquedas en Azure Cognitive Search. Los indexadores automatizan la ingesta de datos para orígenes de datos seleccionados, como MySQL.
+description: Configure un indexador de búsqueda para indexar los datos almacenados en Azure MySQL para la búsqueda de texto completo en Azure Cognitive Search.
 author: markheff
-manager: luisca
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: 4dee2250d49d437d47148b873cfe8c7ce1e8f5ea
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: c4ac7266f61596490805c00af079dfe7bdee76aa
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754446"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181912"
 ---
-# <a name="connect-to-and-index-azure-mysql-content-using-an-azure-cognitive-search-indexer-preview"></a>Conexión e indexación de contenido de Azure MySQL con un indexador de Azure Cognitive Search (versión preliminar)
+# <a name="index-data-from-azure-mysql"></a>Indexación de datos de Azure MySQL
 
 > [!IMPORTANT] 
-> La compatibilidad con MySQL se encuentra actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para solicitar acceso a las versiones preliminares, rellene [este formulario](https://aka.ms/azure-cognitive-search/indexer-preview). En la [API de REST, versión 2020-06-30-Preview](search-api-preview.md) se proporciona esta característica. Actualmente no hay compatibilidad con el SDK ni con el portal.
+> La compatibilidad con MySQL se encuentra actualmente en versión preliminar pública según los [Términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Solicite el acceso](https://aka.ms/azure-cognitive-search/indexer-preview) a esta característica y, después de habilitarlo, use una [API REST de versión preliminar (2020-06-30-preview o posterior)](search-api-preview.md) para indexar el contenido. Actualmente no hay compatibilidad con el SDK ni con el portal.
 
-El indexador de Azure Cognitive Search para MySQL rastreará la base de datos MySQL en Azure, extraerá los datos en los que se pueden realizar búsquedas y los indexará en Azure Cognitive Search. El indexador realizará todos los cambios, cargas y eliminaciones de la base de datos MySQL y reflejará estos cambios en Azure Cognitive Search.
+El indexador de Azure Cognitive Search para MySQL rastreará la base de datos MySQL en Azure, extraerá los datos en los que se pueden realizar búsquedas y los indexará en Azure Cognitive Search. El indexador realizará todos los cambios, cargas y eliminaciones de la base de datos MySQL y reflejará estos cambios en el índice de búsqueda.
+
+Puede configurar un indexador de Azure MySQL mediante cualquiera de estos clientes:
+
+* [Azure Portal](https://ms.portal.azure.com)
+* [API REST](/rest/api/searchservice/Indexer-operations) de Azure Cognitive Search
+* [SDK para .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) de Azure Cognitive Search
+
+En este artículo, se usan las API REST. 
 
 ## <a name="create-an-azure-mysql-indexer"></a>Creación de un indexador de Azure MySQL
 

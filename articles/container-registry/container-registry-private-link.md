@@ -2,69 +2,144 @@
 title: Configuración de un punto de conexión privado con Private Link
 description: Configure un punto de conexión privado en un registro de contenedor y habilite un vínculo privado en una red virtual local. El acceso de vínculo privado es una característica del nivel de servicio Premium.
 ms.topic: article
-ms.date: 03/31/2021
-ms.openlocfilehash: d3c7c573b0ffc08a85f5cbe5cc62d3f7c052f0af
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/14/2021
+ms.openlocfilehash: 25a45f0e1f4115fce623deef919368ecdf479ead
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781440"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471501"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conexión privada a un registro de contenedor de Azure mediante Azure Private Link
-
 
 Limite el acceso a un registro mediante la asignación de direcciones IP privadas de red virtual a los puntos de conexión del registro y el uso de [Azure Private Link](../private-link/private-link-overview.md). El tráfico de red entre los clientes de la red virtual y los puntos de conexión privados del registro atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Azure Private Link también permite acceder al registro privado desde el entorno local utilizando el emparejamiento privado de [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) o una [puerta de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 Puede [establecer la configuración DNS](../private-link/private-endpoint-overview.md#dns-configuration) de los puntos de conexión privados del registro, de modo que la configuración se resuelva en la dirección IP privada asignada del registro. Con la configuración DNS, los clientes y servicios de la red pueden seguir accediendo al registro en el nombre de dominio completo de este, como *myregistry.azurecr.io*. 
 
-Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Actualmente, se puede configurar un máximo de 10 puntos de conexión privados para un registro. Para obtener información sobre los límites y niveles de servicio de registro, consulte [Niveles de Azure Container Registry](container-registry-skus.md).
+En este artículo se muestra cómo configurar un punto de conexión privado para el registro mediante Azure Portal (recomendado) o la CLI de Azure. Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Para obtener información sobre los límites y niveles de servicio de registro, consulte [Niveles de Azure Container Registry](container-registry-skus.md).
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
+> [!NOTE]
+> Actualmente, se puede configurar un máximo de 10 puntos de conexión privados para un registro. 
+
 ## <a name="prerequisites"></a>Requisitos previos
 
+* Una red virtual y una subred en la que configurar el punto de conexión privado. Si es necesario, [cree una nueva red virtual y una subred](../virtual-network/quick-create-portal.md).
+* Con fines de prueba, se recomienda configurar una máquina virtual en la red virtual. Para ver los pasos para crear una máquina virtual de prueba para acceder al registro, consulte [Creación de una máquina virtual con funcionalidad Docker](container-registry-vnet.md#create-a-docker-enabled-virtual-machine). 
 * Para usar los pasos de la CLI de Azure de este artículo, se recomienda la versión 2.6.0 o posterior de la CLI de Azure. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli]. O bien ejecute en [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * Si aún no tiene un registro de contenedor, créelo (se requiere el nivel Premium) e [importe](container-registry-import-images.md) una imagen pública de ejemplo, como `mcr.microsoft.com/hello-world` desde el Registro de contenedor de Microsoft. Por ejemplo, use [Azure Portal][quickstart-portal] o la [CLI de Azure][quickstart-cli] para crear un registro.
-* Si quiere configurar el acceso al Registro mediante un vínculo privado en otra suscripción de Azure, tiene que registrar el proveedor de recursos para Azure Container Registry en esa suscripción. Por ejemplo:
 
-  ```azurecli
-  az account set --subscription <Name or ID of subscription of private link>
+### <a name="register-container-registry-resource-provider"></a>Registro del proveedor de recursos del registro de contenedor
 
-  az provider register --namespace Microsoft.ContainerRegistry
-  ``` 
+Si quiere configurar el acceso al Registro mediante un vínculo privado en otra suscripción o inquilino de Azure, tiene que [registrar el proveedor de recursos](../azure-resource-manager/management/resource-providers-and-types.md) para Azure Container Registry en esa suscripción. Use Azure Portal, la CLI de Azure u otras herramientas.
 
-En los ejemplos de la CLI de Azure de este artículo se usan las siguientes variables de entorno. Sustituya los valores adecuados para el entorno. Todos los ejemplos tienen el formato del shell de Bash:
+Ejemplo:
+
+```azurecli
+az account set --subscription <Name or ID of subscription of private link>
+
+az provider register --namespace Microsoft.ContainerRegistry
+``` 
+
+## <a name="set-up-private-endpoint---portal-recommended"></a>Configuración de un punto de conexión privado: portal (recomendado)
+
+Configure un punto de conexión privado al crear un registro o agregue un punto de conexión privado a un registro existente. 
+
+### <a name="create-a-private-endpoint---new-registry"></a>Creación de un punto de conexión privado: nuevo registro
+
+1. Al crear un registro en el portal, en la pestaña de **Basics**, en **SKU**, seleccione **Premium**.
+1. Seleccione la pestaña **Redes**.
+1. En **Conectividad de red**, seleccione **Punto de conexión privado** >  **+ Agregar**.
+1. Escriba o seleccione la siguiente información:
+
+    | Configuración | Valor |
+    | ------- | ----- |
+    | Suscripción | Seleccione su suscripción. |
+    | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
+    | Nombre | Escriba un nombre único. |
+    | Subrecurso del registro |Seleccione **registro**.|
+    | **Redes** | |
+    | Virtual network| Seleccione la red virtual para el punto de conexión privado. Por ejemplo: *myDockerVMVNET*. |
+    | Subred | Seleccione la subred para el punto de conexión privado. Por ejemplo: *myDockerVMSubnet*. |
+    |**Integración de DNS privado**||
+    |Integración con una zona DNS privada |Seleccione **Sí**. |
+    |Zona DNS privada |Seleccione *(Nuevo) privatelink.azurecr.io*. |
+    |||
+1. Acepte los valores predeterminados en los demás valores y seleccione **Revisar y crear**.
+  
+:::image type="content" source="media/container-registry-private-link/private-link-create-portal.png" alt-text="Crear registro con punto de conexión privado":::
+
+
+
+El vínculo privado ya está configurado y listo para su uso.
+
+### <a name="create-a-private-endpoint---existing-registry"></a>Creación de un punto de conexión privado: registro existente
+
+1. En el portal, vaya al registro de contenedor.
+1. En **Configuración**, seleccione **Redes**.
+1. En la pestaña **Puntos de conexión privados**, seleccione **+ Punto de conexión privado**.
+    :::image type="content" source="media/container-registry-private-link/private-endpoint-existing-registry.png" alt-text="Adición de un punto de conexión privado al registro":::
+
+1. En la pestaña **Datos básicos**, escriba o seleccione la siguiente información:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    | **Detalles del proyecto** | |
+    | Suscripción | Seleccione su suscripción. |
+    | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
+    | **Detalles de instancia** |  |
+    | Nombre | Escriba un nombre. |
+    |Region|Seleccione una región.|
+    |||
+1. Seleccione **Siguiente: Resource** (Siguiente: Recurso).
+1. Escriba o seleccione la siguiente información:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    |Método de conexión  | En este ejemplo, seleccione **Conectarse a un recurso de Azure en mi directorio**.|
+    | Suscripción| Seleccione su suscripción. |
+    | Tipo de recurso | Seleccione **Microsoft.ContainerRegistry/registries**. |
+    | Resource |Seleccione el nombre del registro.|
+    |Subrecurso de destino |Seleccione **registro**.|
+    |||
+1. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
+1. Escriba o seleccione la información:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    |**Redes**| |
+    | Virtual network| Seleccione la red virtual para el punto de conexión privado. |
+    | Subred | Seleccione la subred para el punto de conexión privado. |
+    |**Integración de DNS privado**||
+    |Integración con una zona DNS privada |Seleccione **Sí**. |
+    |Zona DNS privada |Seleccione *(Nuevo) privatelink.azurecr.io*. |
+    |||
+
+1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
+1. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
+
+### <a name="confirm-endpoint-configuration"></a>Confirmación de la configuración del punto de conexión
+
+Una vez creado el punto de conexión privado, la configuración DNS de la zona privada aparece en la opción **Puntos de conexión privados** del portal:
+
+1. En el portal, vaya al registro de contenedor y seleccione **Configuración > Redes**.
+1. En la pestaña **Puntos de conexión privados**, seleccione el punto de conexión privado que creó. 
+1. Seleccione **Configuración DNS**.
+1. Revise la configuración del vínculo y la configuración DNS personalizada.
+
+:::image type="content" source="media/container-registry-private-link/private-endpoint-overview.png" alt-text="Configuración DNS del punto de conexión en el portal":::
+## <a name="set-up-private-endpoint---cli"></a>Configuración de puntos de conexión privados: CLI
+
+En los ejemplos de la CLI de Azure de este artículo se usan las siguientes variables de entorno. Necesitará los nombres de un registro de contenedor, una red virtual y una subred existentes para configurar un punto de conexión privado. Sustituya los valores adecuados para el entorno. Todos los ejemplos tienen el formato del shell de Bash:
 
 ```bash
 REGISTRY_NAME=<container-registry-name>
 REGISTRY_LOCATION=<container-registry-location> # Azure region such as westeurope where registry created
-RESOURCE_GROUP=<resource-group-name>
-VM_NAME=<virtual-machine-name>
+RESOURCE_GROUP=<resource-group-name> # Resource group for your existing virtual network and subnet
+NETWORK_NAME=<virtual-network-name>
+SUBNET_NAME=<subnet-name>
 ```
-
-[!INCLUDE [Set up Docker-enabled VM](../../includes/container-registry-docker-vm-setup.md)]
-
-## <a name="set-up-private-link---cli"></a>Configuración de vínculo privado: CLI
-
-### <a name="get-network-and-subnet-names"></a>Obtención de nombres de red y subred
-
-Si aún no los tiene, necesita los nombres de una red virtual y una subred para configurar un vínculo privado. En este ejemplo se usa la misma subred para la máquina virtual y el punto de conexión privado del registro. Pero en muchos escenarios se configuraría el punto de conexión en una subred independiente. 
-
-Al crear una máquina virtual, Azure crea de manera predeterminada crea una red virtual en el mismo grupo de recursos. El nombre de dicha red virtual se basa en el nombre de la máquina virtual. Por ejemplo, si asigna a la máquina virtual el nombre *myDockerVM*, el nombre predeterminado de la red virtual es *myDockerVMVNET*, con una subred llamada *myDockerVMSubnet*. Establezca estos valores en variables de entorno al ejecutar el comando [az network vnet list][az-network-vnet-list]:
-
-```azurecli
-NETWORK_NAME=$(az network vnet list \
-  --resource-group $RESOURCE_GROUP \
-  --query '[].{Name: name}' --output tsv)
-
-SUBNET_NAME=$(az network vnet list \
-  --resource-group $RESOURCE_GROUP \
-  --query '[].{Subnet: subnets[0].name}' --output tsv)
-
-echo NETWORK_NAME=$NETWORK_NAME
-echo SUBNET_NAME=$SUBNET_NAME
-```
-
 ### <a name="disable-network-policies-in-subnet"></a>Deshabilitación de directivas de red en subred
 
 [Deshabilite las directivas de red](../private-link/disable-private-endpoint-network-policy.md), como los grupos de seguridad de red de la subred, para el punto de conexión privado. Actualice la configuración de subred con [az network vnet subnet update][az-network-vnet-subnet-update]:
@@ -128,7 +203,7 @@ az network private-endpoint create \
 
 ### <a name="get-endpoint-ip-configuration"></a>Obtención de la configuración de IP del punto de conexión
 
-Para configurar los registros DNS, obtenga la configuración de IP del punto de conexión privado. En este ejemplo, hay dos direcciones IP privadas del registro de contenedor asociadas a la interfaz de red del punto de conexión privado: una del propio registro y otra del punto de conexión de datos del registro. 
+Para configurar los registros DNS, obtenga la configuración de IP del punto de conexión privado. En este ejemplo, hay dos direcciones IP privadas del registro de contenedor asociadas a la interfaz de red del punto de conexión privado: una del propio registro y otra del punto de conexión de datos del registro. Si el registro se replica geográficamente, se asocia una dirección IP adicional a cada réplica.
 
 En primer lugar, ejecute [az network private-endpoint show][az-network-private-endpoint-show] para consultar el identificador de la interfaz de red al punto de conexión privado:
 
@@ -140,7 +215,7 @@ NETWORK_INTERFACE_ID=$(az network private-endpoint show \
   --output tsv)
 ```
 
-Los siguientes comandos [az network nic show][az-network-nic-show] obtienen las direcciones IP privadas del registro de contenedor y el punto de conexión de datos del registro:
+Los siguientes comandos [az network nic show][az-network-nic-show] obtienen las direcciones IP privadas y los nombres de dominio completo del registro de contenedor y el punto de conexión de datos del registro:
 
 ```azurecli
 REGISTRY_PRIVATE_IP=$(az network nic show \
@@ -166,15 +241,25 @@ DATA_ENDPOINT_FQDN=$(az network nic show \
   --output tsv)
 ```
 
-> [!NOTE]
-> Si el registro es [con replicación geográfica](container-registry-geo-replication.md), consulte el punto de conexión de datos adicional para cada réplica del registro.
+#### <a name="additional-endpoints-for-geo-replicas"></a>Puntos de conexión adicionales para réplicas geográficas
 
+Si el registro es [con replicación geográfica](container-registry-geo-replication.md), consulte el punto de conexión de datos adicional para cada réplica del registro. Por ejemplo, en la región *eastus*: 
+
+```azurecli
+REPLICA_LOCATION=eastus
+GEO_REPLICA_DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
+  --ids $NETWORK_INTERFACE_ID \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateIpAddress" \
+  --output tsv) 
+
+GEO_REPLICA_DATA_ENDPOINT_FQDN=$(az network nic show \
+  --ids $NETWORK_INTERFACE_ID \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateLinkConnectionProperties.fqdns" \
+  --output tsv)
+```
 ### <a name="create-dns-records-in-the-private-zone"></a>Creación de registros DNS en la zona privada
 
 Los siguientes comandos crean registros DNS en la zona privada para el punto de conexión del registro y su punto de conexión de datos. Por ejemplo, si tiene un registro denominado *myregistry* en la región *westeurope*, los nombres de punto de conexión son `myregistry.azurecr.io` y `myregistry.westeurope.data.azurecr.io`. 
-
-> [!NOTE]
-> Si el registro es [con replicación geográfica](container-registry-geo-replication.md), cree registros DNS adicionales para la dirección IP del punto de conexión de datos de la réplica.
 
 En primer lugar, ejecute [az network private-dns record-set a create][az-network-private-dns-record-set-a-create] para crear conjuntos de registros A vacíos para el punto de conexión del registro y el punto de conexión de datos:
 
@@ -208,86 +293,22 @@ az network private-dns record-set a add-record \
   --ipv4-address $DATA_ENDPOINT_PRIVATE_IP
 ```
 
-El vínculo privado ya está configurado y listo para su uso.
+#### <a name="additional-records-for-geo-replicas"></a>Registros adicionales para réplicas geográficas
 
-## <a name="set-up-private-link---portal"></a>Configuración de vínculo privado: portal
+Si el registro tiene una réplica geográfica, cree una configuración DNS adicional para cada réplica. Continuación del ejemplo de la región *eastus*:
 
-Configure un vínculo privado al crear un registro o agregue un vínculo privado a un registro existente. En los pasos siguientes se da por hecho que ya tiene una red virtual y una subred configuradas con una máquina virtual para pruebas. También puede [crear una nueva red virtual y una subred](../virtual-network/quick-create-portal.md).
+```azurecli
+az network private-dns record-set a create \
+  --name ${REGISTRY_NAME}.${REPLICA_LOCATION}.data \
+  --zone-name privatelink.azurecr.io \
+  --resource-group $RESOURCE_GROUP
 
-### <a name="create-a-private-endpoint---new-registry"></a>Creación de un punto de conexión privado: nuevo registro
-
-1. Al crear un registro en el portal, en la pestaña de **Basics**, en **SKU**, seleccione **Premium**.
-1. Seleccione la pestaña **Redes**.
-1. En **Conectividad de red**, seleccione **Punto de conexión privado** >  **+ Agregar**.
-1. Escriba o seleccione la siguiente información:
-
-    | Configuración | Value |
-    | ------- | ----- |
-    | Suscripción | Seleccione su suscripción. |
-    | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
-    | Nombre | Escriba un nombre único. |
-    | Subrecurso |Seleccione **registro**.|
-    | **Redes** | |
-    | Virtual network| Seleccione la red virtual en la que está implementada la máquina virtual, como *myDockerVMVNET*. |
-    | Subnet | Seleccione una subred, como *myDockerVMSubnet*, en la que está implementada la máquina virtual. |
-    |**Integración de DNS privado**||
-    |Integración con una zona DNS privada |Seleccione **Sí**. |
-    |Zona DNS privada |Seleccione *(Nuevo) privatelink.azurecr.io*. |
-    |||
-1. Acepte los valores predeterminados en los demás valores y seleccione **Revisar y crear**.
-
-  ![Crear registro con punto de conexión privado](./media/container-registry-private-link/private-link-create-portal.png)
-
-### <a name="create-a-private-endpoint---existing-registry"></a>Creación de un punto de conexión privado: registro existente
-
-1. En el portal, vaya al registro de contenedor.
-1. En **Configuración**, seleccione **Redes**.
-1. En la pestaña **Puntos de conexión privados**, seleccione **+ Punto de conexión privado**.
-1. En la pestaña **Datos básicos**, escriba o seleccione la siguiente información:
-
-    | Configuración | Value |
-    | ------- | ----- |
-    | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
-    | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
-    | **Detalles de instancia** |  |
-    | Nombre | Escriba un nombre. |
-    |Region|Seleccione una región.|
-    |||
-5. Seleccione **Siguiente: Resource** (Siguiente: Recurso).
-6. Escriba o seleccione la siguiente información:
-
-    | Configuración | Value |
-    | ------- | ----- |
-    |Método de conexión  | Seleccione **Conectarse a un recurso de Azure en mi directorio**.|
-    | Suscripción| Seleccione su suscripción. |
-    | Tipo de recurso | Seleccione **Microsoft.ContainerRegistry/registries**. |
-    | Resource |Seleccione el nombre del registro.|
-    |Subrecurso de destino |Seleccione **registro**.|
-    |||
-7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
-8. Escriba o seleccione la información:
-
-    | Configuración | Value |
-    | ------- | ----- |
-    |**Redes**| |
-    | Virtual network| Seleccione la red virtual en la que está implementada la máquina virtual, como *myDockerVMVNET*. |
-    | Subnet | Seleccione una subred, como *myDockerVMSubnet*, en la que está implementada la máquina virtual. |
-    |**Integración de DNS privado**||
-    |Integración con una zona DNS privada |Seleccione **Sí**. |
-    |Zona DNS privada |Seleccione *(Nuevo) privatelink.azurecr.io*. |
-    |||
-
-1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
-2. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
-
-Una vez creado el punto de conexión privado, la configuración DNS de la zona privada aparece en la página **Información general** del punto de conexión:
-
-1. En el portal, vaya al registro de contenedor y seleccione **Configuración > Redes**.
-1. En la pestaña **Puntos de conexión privados**, seleccione el punto de conexión privado que creó.
-1. En la página **información general**, revise la configuración del vínculo y la configuración de DNS personalizada.
-
-  ![Configuración DNS del punto de conexión](./media/container-registry-private-link/private-endpoint-overview.png)
+az network private-dns record-set a add-record \
+  --record-set-name ${REGISTRY_NAME}.${REPLICA_LOCATION}.data \
+  --zone-name privatelink.azurecr.io \
+  --resource-group $RESOURCE_GROUP \
+  --ipv4-address $GEO_REPLICA_DATA_ENDPOINT_PRIVATE_IP
+```
 
 El vínculo privado ya está configurado y listo para su uso.
 
@@ -295,28 +316,24 @@ El vínculo privado ya está configurado y listo para su uso.
 
 Para muchos escenarios, deshabilite el acceso al registro desde redes públicas. Esta configuración impide que los clientes que están fuera de la red virtual alcancen los puntos de conexión del registro. 
 
-### <a name="disable-public-access---cli"></a>Deshabilitación del acceso público: CLI
-
-Para deshabilitar el acceso público mediante la CLI de Azure, ejecute [az acr update][az-acr-update] y establezca `--public-network-enabled` en `false`. 
-
-> [!NOTE]
-> El argumento `public-network-enabled` requiere una versión 2.6.0 o posterior de la CLI de Azure. 
-
-```azurecli
-az acr update --name $REGISTRY_NAME --public-network-enabled false
-```
-
-
 ### <a name="disable-public-access---portal"></a>Deshabilitación del acceso público: portal
 
 1. En el portal, vaya al registro de contenedor y seleccione **Configuración > Redes**.
 1. En la pestaña **Acceso público**, en **Permitir el acceso de red público**, seleccione **Deshabilitado**. Después, seleccione **Guardar**.
 
+### <a name="disable-public-access---cli"></a>Deshabilitación del acceso público: CLI
+
+Para deshabilitar el acceso público mediante la CLI de Azure, ejecute [az acr update][az-acr-update] y establezca `--public-network-enabled` en `false`. 
+
+```azurecli
+az acr update --name $REGISTRY_NAME --public-network-enabled false
+```
+
 ## <a name="validate-private-link-connection"></a>Validación de una conexión de vínculo privado
 
 Debe validar que los recursos de la subred del punto de conexión privado se conectan al registro mediante una dirección IP privada y que tienen la integración correcta de la zona DNS privada.
 
-Para validar la conexión de vínculo privado, use SSH en la máquina virtual configurada en la red virtual.
+Para validar la conexión de vínculo privado, conéctese a la máquina virtual configurada en la red virtual.
 
 Ejecute una utilidad, como `nslookup` o `dig`, para buscar la dirección IP del registro a través del vínculo privado. Por ejemplo:
 
@@ -362,7 +379,7 @@ xxxx.westeurope.cloudapp.azure.com. 10  IN A 20.45.122.144
 
 ### <a name="registry-operations-over-private-link"></a>Operaciones del registro a través de un vínculo privado
 
-Además, compruebe que puede realizar operaciones del registro desde la máquina virtual de la subred. Cree una conexión SSH con la máquina virtual y ejecute [az acr login][az-acr-login] para iniciar sesión en el registro. En función de la configuración de la máquina virtual, es posible que tenga que agregar el prefijo `sudo` a los siguientes comandos.
+Además, compruebe que puede realizar operaciones del registro desde la máquina virtual de la red. Cree una conexión SSH con la máquina virtual y ejecute [az acr login][az-acr-login] para iniciar sesión en el registro. En función de la configuración de la máquina virtual, es posible que tenga que agregar el prefijo `sudo` a los siguientes comandos.
 
 ```bash
 az acr login --name $REGISTRY_NAME
@@ -410,15 +427,16 @@ En algunos escenarios, es posible que deba configurar manualmente los registros 
 > [!IMPORTANT]
 > Si posteriormente agrega una nueva réplica, debe agregar manualmente un nuevo registro DNS para el punto de conexión de datos de esa región. Por ejemplo, si crea una réplica de *myregistry* en la ubicación northeurope, agregue un registro para `myregistry.northeurope.data.azurecr.io`.
 
-Los FQDN y las direcciones IP privadas que necesita para crear registros DNS están asociados a la interfaz de red del punto de conexión privado. Puede obtener esta información mediante la CLI de Azure o desde el portal:
+Los FQDN y las direcciones IP privadas que necesita para crear registros DNS están asociados a la interfaz de red del punto de conexión privado. Puede obtener esta información mediante Azure Portal o la CLI de Azure:
 
+* En el portal, vaya al punto de conexión privado y seleccione **Configuración de DNS**. 
 * En la CLI de Azure, ejecute el comando [az network nic show][az-network-nic-show]. Para ver comandos de ejemplo, consulte [Obtención de la configuración de IP del punto de conexión](#get-endpoint-ip-configuration), anteriormente en este artículo.
-
-* En el portal, vaya al punto de conexión privado y seleccione **Configuración de DNS**.
 
 Después de crear registros DNS, asegúrese de que los FQDN del registro se resuelven correctamente en sus respectivas direcciones IP privadas.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para limpiar los recursos en el portal, vaya al grupo de recursos. Una vez que se ha cargado el grupo de recursos, haga clic en **Eliminar grupo de recursos** para quitar el grupo de recursos y los recursos almacenados en él.
 
 Si ha creado todos los recursos de Azure en el mismo grupo de recursos y ya no los necesita, puede eliminarlos con el comando [az group delete](/cli/azure/group):
 
@@ -426,11 +444,11 @@ Si ha creado todos los recursos de Azure en el mismo grupo de recursos y ya no l
 az group delete --name $RESOURCE_GROUP
 ```
 
-Para limpiar los recursos en el portal, vaya al grupo de recursos. Una vez que se ha cargado el grupo de recursos, haga clic en **Eliminar grupo de recursos** para quitar el grupo de recursos y los recursos almacenados en él.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre Private Link, consulte la documentación de [Azure Private Link](../private-link/private-link-overview.md).
+
+* Para comprobar la configuración DNS en la red virtual que se enruta a un punto de conexión privado, ejecute el comando [az acr check-health](/cli/azure/acr#az_acr_check_health) con el parámetro `--vnet`. Para más información, consulte [Comprobación del mantenimiento de un registro de contenedor de Azure](container-registry-check-health.md). 
 
 * Si necesita configurar reglas de acceso a un registro desde detrás de un firewall cliente, consulte [Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall](container-registry-firewall-access-rules.md).
 

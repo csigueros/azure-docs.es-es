@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e00bfd3e5597683c99df69a3fb8140d00847e4f6
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 85708face2696ebacb199c37725ce8fd9a166dc4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572431"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652107"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Conexión con identidad administrada a Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este artículo se muestra cómo usar una identidad asignada por el usuario en una máquina virtual (VM) de Azure para acceder a un servidor de Azure Database for MySQL. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. 
 
@@ -48,9 +50,12 @@ Para configurar la identidad en los pasos siguientes, use el comando [az identit
 
 ```azurecli
 # Get resource ID of the user-assigned identity
+
 resourceID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
 
 # Get client ID of the user-assigned identity
+
+
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
@@ -83,9 +88,9 @@ La aplicación ahora puede recuperar un token de acceso desde Azure Instance Met
 
 Esta recuperación de token se realiza mediante una solicitud HTTP a `http://169.254.169.254/metadata/identity/oauth2/token` y el pase de los siguientes parámetros:
 
-* `api-version` = `2018-02-01`
-* `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID` (que recuperó anteriormente)
+- `api-version` = `2018-02-01`
+- `resource` = `https://ossrdbms-aad.database.windows.net`
+- `client_id` = `CLIENT_ID` (que recuperó anteriormente)
 
 Recibirá un resultado JSON que contiene un campo `access_token`: este valor de texto largo es el token de acceso de identidad administrada, que debe usar como contraseña al conectarse a la base de datos.
 
@@ -93,9 +98,13 @@ Con fines de prueba, puede ejecutar los siguientes comandos en el shell. Tenga e
 
 ```bash
 # Retrieve the access token
+
+
 accessToken=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
 
 # Connect to the database
+
+
 mysql -h SERVER --user USER@SERVER --enable-cleartext-plugin --password=$accessToken
 ```
 
@@ -207,4 +216,4 @@ MySQL version: 5.7.27
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Revisión de los conceptos generales para la [Autenticación de Azure Active Directory con Azure Database for MySQL](concepts-azure-ad-authentication.md)
+- Revisión de los conceptos generales para la [Autenticación de Azure Active Directory con Azure Database for MySQL](concepts-azure-ad-authentication.md)

@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/26/2021
 ms.author: banders
-ms.openlocfilehash: 1e9e5582c95183a5e832950c5ac0b154cdef8362
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6654098b7fe2b212ac87d4ae52feaed128579dc5
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088127"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711346"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Transferencia de la propiedad de facturación de la suscripción de Azure en un Contrato de cliente de Microsoft
 
@@ -77,11 +77,11 @@ La persona a la que solicite la propiedad de facturación debe tener uno de los 
    |Fecha de solicitud|La fecha en la que se envió la solicitud de transferencia.|
    |Recipient|La dirección de correo electrónico del usuario que envió la solicitud para transferir la propiedad de la facturación|
    |Fecha de expiración|La fecha en que expira la solicitud|
-   |Estado|El estado de la solicitud de transferencia|
+   |Status|El estado de la solicitud de transferencia|
 
     La solicitud de transferencia puede tener uno de los siguientes estados:
 
-   |Estado|Definición|
+   |Status|Definición|
    |---------|---------|
    |En curso|El usuario no ha aceptado la solicitud de transferencia.|
    |Processing|El usuario aprueba la solicitud de transferencia. La facturación de las suscripciones seleccionadas por el usuario está en proceso de transferencia a la sección de factura|
@@ -181,7 +181,7 @@ Los productos de Azure Marketplace se transfieren junto con sus suscripciones co
 
 ### <a name="azure-reservations-transfer"></a>Transferencia de reservas de Azure
 
-Si se transfieren suscripciones a Contrato Enterprise (EA) o contratos de cliente de Microsoft, Azure Reservations no se mueve automáticamente con ellas. [Póngase en contacto con soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para mover las reservas.
+Si se transfieren suscripciones de Contrato Enterprise (EA) o contratos de cliente de Microsoft, Azure Reservations se mueve automáticamente con ellas.
 
 ### <a name="access-to-azure-services"></a>Acceso a servicios de Azure
 

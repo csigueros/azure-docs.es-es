@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/19/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c92095449132b790c80cf6396a3608f802d7e9a7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689035"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458510"
 ---
 # <a name="two-way-sms-unsupported"></a>Incompatibilidad del SMS bidireccional
 
-El SMS bidireccional para el servidor de Multi-Factor Authentication (MFA) de Azure AD quedó en desuso en 2018, y ya no se admite después del 24 de febrero de 2021. Los administradores deben habilitar otro método para los usuarios que siguen usando el SMS bidireccional.
+El SMS bidireccional para el servidor de autenticación multifactor de Azure AD (MFA) se quedó en desuso originalmente en 2018 y dejó de tener soporte técnico el 24 de febrero de 2021, excepto para aquellas organizaciones que recibieron una ampliación del soporte técnico hasta el 2 de agosto de 2021. Los administradores deben habilitar otro método para los usuarios que siguen usando el SMS bidireccional.
 
 Se enviaron notificaciones por correo electrónico y por Service Health en Azure Portal (notificaciones del portal) a los administradores afectados el 8 de diciembre de 2020 y el 28 de enero de 2021. Las alertas se dirigieron a los roles RBAC de propietario, copropietario, administrador y administrador de servicios vinculados a las suscripciones. Si ya ha completado los pasos siguientes, no es necesario realizar ninguna acción.
 

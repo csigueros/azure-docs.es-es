@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 08/12/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 51194dbcdfd967a40da96842cf58d373fd28f96f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 04dde4560a9b03208d4c0f234d475ddce7265343
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468294"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860872"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configuración de dominios personalizados con Azure AD Application Proxy
 
@@ -40,11 +40,13 @@ Si no puede hacer coincidir las direcciones URL internas y externas, no es tan i
 
 Hay varias opciones para definir la configuración de DNS, en función de sus requisitos:
 
+
 ### <a name="same-internal-and-external-url-different-internal-and-external-behavior"></a>Misma dirección URL interna y externa, diferente comportamiento interno y externo 
 
 Si no quiere que los usuarios internos se dirijan a través de Application Proxy, puede configurar un *DNS de cerebro dividido*. Una infraestructura de DNS dividido dirige los hosts internos a un servidor de nombres de dominio interno, y los hosts externos a un servidor de nombres de dominio externo, para la resolución de nombres. 
 
 ![DNS de cerebro dividido](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+
 
 ### <a name="different-internal-and-external-urls"></a>Direcciones URL internas y externas diferentes 
 
@@ -107,6 +109,9 @@ Para publicar la aplicación a través de Application Proxy con un dominio perso
    ![Incorporación de la entrada CNAME para DNS](./media/application-proxy-configure-custom-domain/dns-info.png)
    
 10. Siga las instrucciones que se indican en [Administración de registros y conjuntos de registros DNS mediante Azure Portal](../../dns/dns-operations-recordsets-portal.md) para agregar un registro DNS que redirija la nueva dirección URL externa al dominio *msappproxy.net*.
+
+   > [!IMPORTANT] 
+   > Asegúrese de que utiliza correctamente un registro CNAME que apunta al dominio *msappproxy.net*. No apunte registros a direcciones IP o nombres DNS de servidor, ya que no son estáticos y pueden afectar a la resistencia del servicio.
    
 11. Para comprobar que el registro DNS está configurado correctamente, use el comando [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) para confirmar que la dirección URL externa es accesible y que el dominio *msapproxy.net* aparece como un alias.
 

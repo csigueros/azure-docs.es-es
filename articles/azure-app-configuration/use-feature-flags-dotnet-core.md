@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 4d54e1ff07b250b5595d2f8aee5f022bd2359721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5f15d016c890ec214fe6b6a3d8af3138d202408b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729514"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122970345"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -191,18 +191,19 @@ Cuando una marca de características tiene varios filtros, la lista de filtros s
 El administrador de la característica admite *appsettings.json* como origen de configuración para las marcas de características. El ejemplo siguiente muestra cómo establecer las marcas de características en un archivo JSON:
 
 ```JSON
-"FeatureManagement": {
-    "FeatureA": true, // Feature flag set to on
-    "FeatureB": false, // Feature flag set to off
-    "FeatureC": {
-        "EnabledFor": [
-            {
-                "Name": "Percentage",
-                "Parameters": {
-                    "Value": 50
+{"FeatureManagement": {
+        "FeatureA": true, // Feature flag set to on
+        "FeatureB": false, // Feature flag set to off
+        "FeatureC": {
+            "EnabledFor": [
+                {
+                    "Name": "Percentage",
+                    "Parameters": {
+                        "Value": 50
+                    }
                 }
-            }
-        ]
+            ]
+        }
     }
 }
 ```

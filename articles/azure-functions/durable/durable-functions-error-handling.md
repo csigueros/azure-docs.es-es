@@ -4,12 +4,12 @@ description: Aprenda a controlar errores en la extensión Durable Functions para
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 7a2a95a25bc42de9f4c93200d4fdd1e5d558549a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8ffa633479189ad8391d4c03c59113dc957d77e6
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377439"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667141"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Control de errores con Durable Functions (Azure Functions)
 
@@ -218,7 +218,7 @@ Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
 
 La llamada a la función de actividad en el ejemplo anterior toma un parámetro para configurar una directiva de reintento automático. Existen varias opciones para personalizar la directiva de reintentos automáticos:
 
-* **Número máximo de intentos**: Número máximo de reintentos.
+* **Max number of attempts** (Número máximo de intentos): número máximo de intentos. Si se establece en 1, no habrá ningún reintento.
 * **Intervalo para el primer reintento**: cantidad de tiempo de espera antes del primer reintento.
 * **Backoff coefficient** (Coeficiente de retroceso): coeficiente que se usa para determinar la tasa de incremento del retroceso. De manera predeterminada, su valor es 1.
 * **Max retry interval** (Intervalo de reintento máximo): cantidad máxima de tiempo de espera entre reintentos.

@@ -7,23 +7,31 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.openlocfilehash: b1f742c1de259f6c1c06d9b31a8788699f0b8426
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 06/18/2021
+ms.openlocfilehash: c7c5ce32801efe68d653dc3abd97c1e5ff3a7f9b
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580027"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113000417"
 ---
-# <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimación y administración de la capacidad de un servicio de Azure Cognitive Search
+# <a name="estimate-and-manage-capacity-of-a-search-service"></a>Estimación y administración de la capacidad de un servicio de búsqueda
 
-Antes de [aprovisionar un servicio de búsqueda](search-create-service-portal.md) y de adquirir un plan de tarifa específico, dedique unos minutos a comprender cómo funciona la capacidad y cómo se pueden ajustar las réplicas y las particiones para acomodar la fluctuación de cargas de trabajo.
+Antes de [crear un servicio de búsqueda](search-create-service-portal.md) y de elegir un [plan de tarifa](search-sku-tier.md) específico, dedique unos minutos a comprender cómo funciona la capacidad y cómo se pueden ajustar las réplicas y las particiones para acomodar la fluctuación de las cargas de trabajo.
 
-La capacidad es una función del [nivel de servicio](search-sku-tier.md) que establece el almacenamiento máximo por servicio, por partición y los límites máximos en el número de objetos que se pueden crear. El nivel Básico está diseñado para aplicaciones que tienen unos requisitos de almacenamiento modestos (solo una partición), pero con la capacidad de ejecutarse en una configuración de alta disponibilidad (3 réplicas). Otros niveles están diseñados para cargas de trabajo o patrones específicos, como la arquitectura multiinquilino. Internamente, los servicios creados en esos niveles se benefician del hardware que ayuda a esos escenarios.
+En Azure Cognitive Search, la capacidad se basa en *réplicas* y *particiones*. Las réplicas son copias del motor de búsqueda.
+Las particiones son unidades de almacenamiento. Cada nuevo servicio de búsqueda comienza con una de cada, pero puede escalar verticalmente cada recurso de forma independiente para dar cabida a cargas de trabajo fluctuantes. La adición de cualquiera de los recursos es [facturable](search-sku-manage-costs.md#billable-events).
 
-La arquitectura de escalabilidad de Azure Cognitive Search se basa en combinaciones flexibles de réplicas y particiones para que pueda variar la capacidad en función de si necesita una mayor potencia de indexación o consulta. Una vez creado un servicio, puede aumentar o reducir el número de réplicas o particiones de forma independiente. Los costos aumentarán con cada recurso físico adicional, pero una vez finalizadas las cargas de trabajo de gran tamaño, puede reducir la escala para reducir la factura. Según el plan y el tamaño del ajuste, el aumento o reducción de la capacidad puede tardar desde 15 minutos a varias horas.
+Las características físicas de las réplicas y las particiones, como la velocidad de procesamiento y la E/S de disco, varían según el [nivel de servicio](search-sku-tier.md). Si ha realizado el aprovisionamiento en el nivel Estándar, las réplicas y particiones serán más rápidas y mayores que las del nivel Básico.
 
-Al modificar la asignación de réplicas y particiones, se recomienda usar Azure Portal. El portal aplica límites a las combinaciones permitidas que se mantengan por debajo de los límites máximos de un plan. No obstante, si necesita un enfoque de aprovisionamiento basado en script o en código, [Azure PowerShell](search-manage-powershell.md) o la [API REST de administración](/rest/api/searchmanagement/services) son soluciones alternativas.
+El cambio de capacidad no es instantáneo. Las particiones pueden tardar hasta una hora en aprovisionarse o retirarse, especialmente en servicios con grandes cantidades de datos.
+
+Al escalar un servicio de búsqueda, puede elegir entre las siguientes herramientas y enfoques:
+
++ [Azure Portal](#adjust-capacity)
++ [Azure PowerShell](search-manage-powershell.md)
++ [CLI de Azure](/cli/azure/search)
++ [API de REST de administración](/rest/api/searchmanagement/2020-08-01/services)
 
 ## <a name="concepts-search-units-replicas-partitions-shards"></a>Conceptos: unidades de búsqueda, réplicas, particiones y particiones de base de datos
 
@@ -123,7 +131,7 @@ El nivel Gratis y las características en versión preliminar no están cubierto
 
 ## <a name="when-to-add-capacity"></a>Cuándo ampliar la capacidad
 
-Inicialmente, se asigna un servicio a un nivel mínimo de recursos que consta de una partición y una réplica. El [plan que elija](search-sku-tier.md) determina el tamaño y la velocidad de la partición y cada plan se optimiza alrededor de un conjunto de características que se adapta a varios escenarios. Si elige un plan de gama superior, puede que necesite menos particiones que si elige S1. Una de las preguntas que tendrá que responder mediante pruebas autodirigidas es si una partición más grande y más cara aumentará más el rendimiento que dos particiones más baratas en un servicio aprovisionado con un plan inferior.
+Inicialmente, se asigna un servicio a un nivel mínimo de recursos que consta de una partición y una réplica. El [plan que elija](search-sku-tier.md) determina el tamaño y la velocidad de la partición y cada plan se optimiza alrededor de un conjunto de características que se adapta a varios escenarios. Si elige un plan de gama superior, puede que [necesite menos particiones](search-performance-tips.md#service-capacity) que si elige S1. Una de las preguntas que tendrá que responder mediante pruebas autodirigidas es si una partición más grande y más cara aumentará más el rendimiento que dos particiones más baratas en un servicio aprovisionado con un plan inferior.
 
 Un único servicio debe tener recursos suficientes para controlar todas las cargas de trabajo (indexación y consultas). Ninguna carga de trabajo se ejecuta en segundo plano. Puede programar la indexación en horas en las que las solicitudes de consulta son menos frecuentes por naturaleza, pero el servicio no dará prioridad a una tarea sobre otra. Además, una determinada cantidad de redundancia suaviza el rendimiento de la consulta cuando los servicios o nodos se están actualizando internamente.
 
@@ -154,7 +162,7 @@ Por último, las consultas en índices de mayor tamaño tardan más tiempo en re
 
    :::image type="content" source="media/search-capacity-planning/1-initial-values.png" alt-text="Página de escala que muestra los valores actuales" border="true":::
 
-1. Use el control deslizante para aumentar o reducir el número de particiones. La fórmula de la parte inferior indica cuántas unidades de búsqueda se usan. Seleccione **Guardar**.
+1. Use el control deslizante para aumentar o reducir el número de particiones. Seleccione **Guardar**.
 
    En este ejemplo se agrega una segunda réplica y también otra partición. Observe el recuento de unidades de búsqueda; ahora es cuatro porque la fórmula de facturación son las réplicas multiplicadas por las particiones (2 x 2). Cuanto más se duplica la capacidad, más se duplica el costo de ejecución del servicio. Si el costo de la unidad de búsqueda era de 100 USD, la nueva factura mensual sería ahora de 400 USD.
 
@@ -172,9 +180,31 @@ Por último, las consultas en índices de mayor tamaño tardan más tiempo en re
 
 > [!NOTE]
 > Una vez que se aprovisiona un servicio, no se puede actualizar a un plan superior. Debe crear un servicio de búsqueda en el nivel nuevo y volver a cargar los índices. Consulte [Creación de un servicio Azure Cognitive Search mediante Azure Portal](search-create-service-portal.md) para obtener ayuda con el proceso de aprovisionamiento de servicios.
->
-> Además, las particiones y las réplicas las administra el servicio de manera exclusiva e interna. No hay concepto de afinidad de procesador ni de asignación de una carga de trabajo a un nodo específico.
->
+
+## <a name="how-scale-requests-are-handled"></a>Control de las solicitudes de escalado
+
+Tras la recepción de una solicitud de escalado, el servicio de búsqueda:
+
+1. Comprueba si la solicitud es válida.
+1. Inicia la copia de seguridad de los datos y la información del sistema.
+1. Comprueba si el servicio ya está en estado de aprovisionamiento (agregando o eliminando actualmente réplicas o particiones).
+1. Inicia el aprovisionamiento.
+
+El escalado de un servicio puede tardar tan solo 15 minutos o más de una hora, según el tamaño del servicio y el ámbito de la solicitud. La copia de seguridad puede tardar varios minutos, en función de la cantidad de datos y el número de particiones y réplicas.
+
+Los pasos anteriores no son completamente consecutivos. Por ejemplo, el sistema inicia el aprovisionamiento cuando puede hacerlo de forma segura, que podría ser mientras se está completando la copia de seguridad.
+
+## <a name="errors-during-scaling"></a>Errores durante el escalado
+
+El mensaje de error "No se permiten operaciones de actualización del servicio en este momento porque estamos procesando una solicitud anterior" se debe a la repetición de una solicitud para escalar o reducir verticalmente cuando el servicio ya está procesando una solicitud anterior.
+
+Para resolver este error, compruebe el estado del servicio para comprobar el estado de aprovisionamiento:
+
+1. Use la [API REST de administración](/rest/api/searchmanagement/2020-08-01/services), [Azure PowerShell](search-manage-powershell.md) o la [CLI de Azure](/cli/azure/search) para obtener el estado del servicio.
+1. Llame al [servicio Get](/rest/api/searchmanagement/2020-08-01/services/get).
+1. Compruebe en la respuesta que el valor de ["provisioningState" sea "provisioning"](/rest/api/searchmanagement/2020-08-01/services/get#provisioningstate) (Aprovisionamiento).
+
+Si el estado es "Provisioning" (Aprovisionamiento), espere a que se complete la solicitud. El estado debe ser "Succeeded" (Correcto) o "Failed" (Con errores) antes de intentar otra solicitud. No hay estado para la copia de seguridad. La copia de seguridad es una operación interna y es poco probable que sea un factor en cualquier interrupción de un ejercicio de escalado.
 
 <a id="chart"></a>
 
@@ -197,7 +227,7 @@ Todos los servicios de búsqueda de los niveles Estándar y Almacenamiento optim
 En el sitio web de Azure se explican con detalle la capacidad, los precios y las unidades de búsqueda. Para obtener más información, consulte [Detalles de precios](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> El número de réplicas y particiones se dividirse equitativamente en 12 (en concreto, 1, 2, 3, 4, 6, 12). Esto se debe a que Azure Cognitive Search divide previamente cada índice en 12 particiones para que se pueda repartir en porciones iguales entre todas las particiones. Por ejemplo, si su servicio tiene tres particiones y crea un nuevo índice, cada partición contendrá 4 particiones del índice. La manera en que Azure Cognitive Search particiona un índice es un detalle de implementación, sujeto a cambios en la futura versión. Aunque el número es 12 hoy, no debe esperar que ese número se siempre 12 en el futuro.
+> El número de réplicas y particiones se dividirse equitativamente en 12 (en concreto, 1, 2, 3, 4, 6, 12). Azure Cognitive Search divide previamente cada índice en 12 particiones para que se pueda repartir en porciones iguales entre todas las particiones. Por ejemplo, si su servicio tiene tres particiones y crea un nuevo índice, cada partición contendrá 4 particiones del índice. La manera en que Azure Cognitive Search particiona un índice es un detalle de implementación, sujeto a cambios en la futura versión. Aunque el número es 12 hoy, no debe esperar que ese número se siempre 12 en el futuro.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

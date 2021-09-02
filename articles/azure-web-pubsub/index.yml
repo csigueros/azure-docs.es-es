@@ -9,12 +9,12 @@ metadata:
   author: yjin81
   ms.author: yajin1
   ms.date: 01/27/2021
-  ms.openlocfilehash: e983c957135f247276d87de749dc13a6a05ed9a7
-  ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+  ms.openlocfilehash: b04fedf6e0eb1840ea6b86956fe979e675c6b927
+  ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/02/2021
-  ms.locfileid: "113217024"
+  ms.lasthandoff: 08/30/2021
+  ms.locfileid: "123185532"
 landingContent:
 - title: Acerca del servicio Azure Web PubSub
   linkLists:
@@ -22,21 +22,33 @@ landingContent:
     links:
     - text: ¿Qué es el servicio Azure Web PubSub?
       url: overview.md
+    - text: Conceptos clave del servicio Azure Web PubSub.
+      url: key-concepts.md
 - title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Primeros pasos con una demostración en directo de una sala de chat
-      url: quickstart-live-demo.md
+    - text: Conexión a la instancia
+      url: quickstart-cli-try.md
     - text: Inicio con una sencilla aplicación sin servidor de sala de chat
       url: quickstart-serverless.md
+    - text: Desarrollo sin servidor con Azure Functions
+      url: tutorial-serverless-notification.md
   - linkListType: how-to-guide
     links:
-    - text: Procedimiento para crear la instancia de Azure Web PubSub
-      url: howto-develop-create-instance.md
-    - text: Publicación de mensajes y suscripción a ellos
-      url: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
-    - text: Uso de subprotocolos
-      url: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+    - text: Creación de una aplicación de chat
+      url: tutorial-build-chat.md
+    - text: Streaming de cliente mediante un subprotocolo compatible con el servicio
+      url: tutorial-subprotocol.md
     - text: Autenticación y permisos
-      url: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions
+      url: tutorial-permission.md
+- title: Demostraciones en vivo
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Pizarra
+      url: https://azure.github.io/azure-webpubsub/demos/whiteboard
+    - text: Chat sencillo
+      url: https://azure.github.io/azure-webpubsub/demos/chat
+    - text: Streaming de código
+      url: https://azure.github.io/azure-webpubsub/demos/code-streaming

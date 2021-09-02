@@ -2,19 +2,19 @@
 title: 'Inicio rápido: Ejecución de un flujo de trabajo: Microsoft Genomics'
 description: La guía de inicio rápido muestra cómo cargar datos de entrada en Azure Blob Storage y cómo ejecutar un flujo de trabajo mediante el servicio Microsoft Genomics.
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: c02ed16208338edce7e29f5a516ec5af13ab07aa
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c242d2e685fc3e9702a666c1eb52f1d3b61fa43a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477870"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259424"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Inicio rápido: Ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics
 
@@ -94,7 +94,7 @@ Configure la cuenta de almacenamiento con la siguiente información, como se mue
 
  |**Configuración**          |  **Valor sugerido**  | **Descripción del campo** |
  |:-------------------------       |:-------------         |:----------            |
- |Suscripción         | Su suscripción de Azure |Para más información acerca la suscripción, consulte [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |      
+ |Subscription         | Su suscripción de Azure |Para más información acerca la suscripción, consulte [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |      
  |Resource group       | MyResourceGroup       |  Puede seleccionar el mismo grupo de recursos que la cuenta de Genomics. Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Reglas de nomenclatura](/azure/architecture/best-practices/resource-naming) |
  |Nombre de la cuenta de almacenamiento         | MyStorageAccount     |Elija un identificador de cuenta único. Para saber cuáles son los nombres válidos, consulte [Reglas de nomenclatura](/azure/architecture/best-practices/resource-naming) |
  |Location                  | Oeste de EE. UU. 2                  | Para reducir tanto los cargos de salida como la latencia, utilice la misma ubicación que la de su cuenta de Genomics.  | 

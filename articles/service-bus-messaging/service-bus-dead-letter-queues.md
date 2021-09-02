@@ -2,14 +2,14 @@
 title: Colas de mensajes fallidos de Service Bus | Microsoft Docs
 description: Aquí se describen las colas de mensajes fallidos de Azure Service Bus. Las colas de Service Bus y las suscripciones a temas proporcionan una subcola secundaria que se denomina cola de mensajes fallidos.
 ms.topic: article
-ms.date: 04/08/2021
+ms.date: 08/30/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 9a7eaf3cee7af4ba0f0049ee8b7a8dd0b271a94a
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: b64500b6fefd8da7fe2b6dda4719e7ed6ae81b94
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804473"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258335"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 

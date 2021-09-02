@@ -4,14 +4,14 @@ description: Aprenda a auditar las operaciones del plano de control, como agrega
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 08/13/2021
 ms.author: sngun
-ms.openlocfilehash: 6f3e408343fc75d6587d1a67a0179edf13d56e36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ce2d934c335099d07bbe5621a8aa363bf97583c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101658255"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182448"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Auditoría de operaciones de plano de control de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -68,17 +68,17 @@ Después de activar el registro, siga estos pasos para realizar un seguimiento d
    | where TimeGenerated >= ago(1h)
    ```
 
-Las capturas de pantalla siguientes capturan registros cuando se cambia un nivel de coherencia para una cuenta de Azure Cosmos:
+   Las capturas de pantalla siguientes capturan registros cuando se cambia un nivel de coherencia para una cuenta de Azure Cosmos. El valor `activityId_g` de los resultados es diferente del identificador de actividad de una operación:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Registros del plano de control cuando se agrega una red virtual":::
+   :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Registros del plano de control cuando se agrega una red virtual":::
 
-Las capturas de pantalla siguientes capturan los registros cuando se crea el espacio de claves o una tabla de una cuenta de Cassandra, y cuando se actualiza el rendimiento. Los registros del plano de control para las operaciones de creación y actualización en la base de datos y en el contenedor se registran por separado, tal como se muestra en la siguiente captura de pantalla:
+   Las capturas de pantalla siguientes capturan los registros cuando se crea el espacio de claves o una tabla de una cuenta de Cassandra, y cuando se actualiza el rendimiento. Los registros del plano de control para las operaciones de creación y actualización en la base de datos y en el contenedor se registran por separado, tal como se muestra en la siguiente captura de pantalla:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Registros de plano de control cuando se actualiza el rendimiento":::
+   :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Registros de plano de control cuando se actualiza el rendimiento":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar la identidad asociada con una operación específica
 
-Si quiere depurar más, puedes identificar una operación específica en el **Registro de actividad** mediante el identificador de actividad o la marca de tiempo de la operación. La marca de tiempo se usa para algunos clientes de Resource Manager cuando el identificador de actividad no se pasa explícitamente. El registro de actividad proporciona detalles sobre la identidad con la que se inició la operación. En la captura de pantalla siguiente se muestra cómo usar el identificador de la actividad y buscar las operaciones asociadas con él en el registro de actividad:
+Si quiere depurar más, puede identificar una operación específica en el **Registro de actividad** mediante el `activityId_g` o la marca de tiempo de la operación. La marca de tiempo se usa para algunos clientes de Resource Manager cuando el identificador de actividad no se pasa explícitamente. El registro de actividad proporciona detalles sobre la identidad con la que se inició la operación. En la captura de pantalla siguiente se muestra cómo usar el `activityId_g` para buscar las operaciones asociadas con él en el registro de actividad:
 
 :::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Uso del identificador de actividad y búsqueda de las operaciones":::
 

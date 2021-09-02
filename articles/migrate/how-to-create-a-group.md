@@ -6,18 +6,18 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/17/2019
-ms.openlocfilehash: 0570ed73b86223025b250e269d7e2f358473f004
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 9ffa031a9058eb6864298c5c9387402955a84968
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780861"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747250"
 ---
 # <a name="create-a-group-for-assessment"></a>Creación de un grupo para su valoración
 
 En este artículo se describe cómo crear grupos de servidores para su valoración mediante Azure Migrate: Detección y evaluación.
 
-[Azure Migrate](migrate-services-overview.md) le ayuda a migrar a Azure. Azure Migrate proporciona un centro principal para realizar el seguimiento de la detección, valoración y migración de infraestructuras, aplicaciones y datos locales a Azure. El centro proporciona herramientas de Azure para la valoración y migración, así como ofertas de proveedores de software independientes (ISV) externos. 
+[Azure Migrate](migrate-services-overview.md) le ayuda a migrar a Azure. Azure Migrate proporciona un centro principal para realizar el seguimiento de la detección, valoración y migración de infraestructuras, aplicaciones y datos locales a Azure. El centro proporciona herramientas de Azure para la valoración y migración, así como ofertas de proveedores de software independientes (ISV) externos.
 
 ## <a name="grouping-servers"></a>Agrupación de servidores
 
@@ -47,12 +47,13 @@ Si quiere crear un grupo manualmente fuera de la creación de una valoración, h
 
     ![Crear grupo](./media/how-to-create-a-group/create-group.png)
 
-Ahora puede usar este grupo cuando [cree una evaluación de máquina virtual de Azure](how-to-create-assessment.md) o [una evaluación de Azure VMware Solution (AVS)](how-to-create-azure-vmware-solution-assessment.md) o [una evaluación Azure SQL](how-to-create-azure-sql-assessment.md).
+Este grupo ya se puede usar al [crear la valoración de una máquina virtual de Azure](how-to-create-assessment.md), [una valoración de Azure VMware Solution (AVS)](how-to-create-azure-vmware-solution-assessment.md), [una valoración de Azure SQL](how-to-create-azure-sql-assessment.md) o [una valoración de Azure App Service](how-to-create-azure-app-service-assessment.md).
 
 ## <a name="refine-a-group-with-dependency-mapping"></a>Restricción de un grupo con la asignación de dependencias
 
 La asignación de dependencias ayuda a visualizar las dependencias entre los servidores. La asignación de dependencias suele usarse cuando quiere evaluar grupos de servidores con niveles de confianza más altos.
-- Le ayuda a comprobar las dependencias de los servidores antes de llevar a cabo una valoración. 
+
+- Le ayuda a comprobar las dependencias de los servidores antes de llevar a cabo una valoración.
 - También le ayuda a planear eficazmente la migración a Azure, ya que le permite asegurarse de que no omite nada, con lo que evitará interrupciones inesperadas durante la migración.
 - Puede detectar los sistemas interdependientes que tienen que migrarse juntos e identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada, en lugar de la migración.
 
@@ -70,9 +71,9 @@ Si ya [ha configurado la asignación de dependencias](how-to-create-group-machin
 
     - Las conexiones TCP de entrada (clientes) y de salida (servidores) hacia y desde todos los servidores del grupo que tienen instalados agentes de dependencias.
     - Los servidores dependientes que no tienen instalados agentes de dependencias se agrupan en función de los números de puerto.
-    - Los servidores dependientes con agentes de dependencias instalados se muestran como cuadros independientes.
+    - Los servidores dependientes con los agentes de dependencias instalados se muestran como cuadros independientes.
     - Los procesos que se ejecutan en el servidor. Expanda el cuadro de cada servidor para ver los procesos.
-    - Las propiedades del servidor (incluido el FQDN, el sistema operativo y la dirección MAC). Haga clic en el cuadro de cada servidor para ver los detalles.
+    - Propiedades del servidor (incluido el FQDN, el sistema operativo y la dirección MAC). Haga clic en el cuadro de cada servidor para ver los detalles.
 
 4. Para ver las dependencias de un intervalo de tiempo de su elección, modifique el intervalo de tiempo (de forma predeterminada, una hora). Para ello, especifique las fechas de inicio y de finalización, o bien la duración.
 
@@ -84,7 +85,6 @@ Si ya [ha configurado la asignación de dependencias](how-to-create-group-machin
     - Solo puede agregar servidores que se han detectado.
     - Al agregar y quitar servidores, se invalidan las valoraciones anteriores del grupo.
     - Si lo desea, puede crear una evaluación cuando se modifica el grupo.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

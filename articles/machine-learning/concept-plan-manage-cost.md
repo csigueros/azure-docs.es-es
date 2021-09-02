@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 01c985b0554fe5955010c1c8c286f81f8de6d3ee
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e48cdb3792a314166a29ced4d3828ba77de46621
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006012"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742062"
 ---
 # <a name="plan-to-manage-costs-for-azure-machine-learning"></a>Planificación para administrar costos de Azure Machine Learning
 
@@ -51,10 +51,6 @@ Para más información, consulte [Precios de Azure Machine Learning](https://azu
 Azure Machine Learning se ejecuta en una infraestructura de Azure que genera otros costos, además de los de Azure Machine Learning, cuando se implementa el nuevo recurso. Es importante que comprenda que hay otras infraestructuras que pueden generar costos. Estos costos deben administrarse cuando se realizan cambios en los recursos implementados. 
 
 
-
-
-
-
 ### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>Costos que suelen generarse con Azure Machine Learning
 
 Cuando se crean recursos para un área de trabajo Azure Machine Learning, también se crean recursos para otros servicios de Azure. Son las siguientes:
@@ -62,8 +58,21 @@ Cuando se crean recursos para un área de trabajo Azure Machine Learning, tambi�
 * Cuenta básica de [Azure Container Registry](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Cuenta de almacenamiento de blobs en bloques de Azure](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (uso general v1)
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+
+Cuando se crea una [instancia de proceso](concept-compute-instance.md), la máquina virtual permanece encendida para estar disponible para el trabajo.  [Configure una programación](how-to-create-manage-compute-instance.md#schedule) para iniciar y detener automáticamente la instancia de proceso (versión preliminar) para ahorrar costos cuando no planee usarla.
  
+### <a name="costs-might-accrue-before-resource-deletion"></a>Costos que pueden generarse antes de eliminar un recurso
+
+Antes de eliminar un área de trabajo de Azure Machine Learning en Azure Portal o con la CLI de Azure, los siguientes recursos secundarios son costos comunes que se acumulan incluso cuando no está trabajando activamente en el área de trabajo. Si planea volver al área de trabajo de Azure Machine Learning más adelante, estos recursos pueden seguir acumulando costos.
+
+* Máquinas virtuales
+* Load Balancer
+* Virtual Network
+* Ancho de banda
+
+Cada máquina virtual se factura por cada hora que está en ejecución. El costo depende de las especificaciones de la máquina virtual. Las máquinas virtuales que están en ejecución pero que no trabajan activamente en un conjunto de datos, se seguirán cobrando a través del equilibrador de carga. Para cada instancia de proceso, se facturará un equilibrador de carga al día. Cada 50 nodos de un clúster de proceso tendrá la facturación de un equilibrador de carga estándar. Cada equilibrador de carga se factura aproximadamente a 0,33 USD al día. Para evitar los costos del equilibrador de carga en instancias de proceso y clústeres de proceso detenidos, elimine el recurso de proceso. Se facturará una red virtual por suscripción y por región. Las redes virtuales no pueden abarcar distintas regiones o suscripciones. La configuración de puntos de conexión privados en las configuraciones de red virtual también puede incurrir en cargos. El ancho de banda se cobra por uso; cuantos más datos se transfieren, más se cobra.
+
 ### <a name="costs-might-accrue-after-resource-deletion"></a>Costos que pueden generarse tras eliminar un recurso
 
 Después de eliminar un área de trabajo de Azure Machine Learning en Azure Portal o con la CLI de Azure, se mantienen los recursos que se indican a continuación. Estos recursos siguen generando costos hasta que se eliminan.
@@ -153,11 +162,13 @@ Use las sugerencias siguientes para ayudarle a administrar y optimizar los costo
 - Establecer cuotas en las áreas de trabajo y la suscripción
 - Establecer directivas de finalización en la ejecución del entrenamiento
 - Usar máquinas virtuales de prioridad baja
+- Programar las instancias de proceso para que se apaguen e inicien automáticamente
 - Usar una instancia de Azure Reserved Virtual Machine Instances
 - Entrenamiento local
 - Paralelización del entrenamiento
 - Establecimiento de directivas de retención y eliminación de datos
 - Implementación de recursos en la misma región
+- Elimine las instancias y los clústeres si no planea usarlos en un futuro próximo.
 
 Para obtener más información, consulte [Administración y optimización de los costos en Azure Machine Learning](how-to-manage-optimize-cost.md).
 

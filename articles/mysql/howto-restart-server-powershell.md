@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 94b3586f13ad1f5bf5f042ef1dc824bd0a5da0d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05f3931bae917a09db721fc3d7d3ebe271e4c006
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542208"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122651901"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>Reinicio de un servidor de Azure Database for MySQL mediante PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este tema se describe cómo reiniciar un servidor de Azure Database for MySQL. Es posible que deba reiniciar el servidor por motivos de mantenimiento, lo que causa una breve interrupción del servicio durante la operación.
 

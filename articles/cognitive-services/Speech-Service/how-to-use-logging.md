@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 73e42ac1f076b67d31cbad0823ea63db40045c1e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 584e200beac484ea742d51341a9cb93f0cfc4a41
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746040"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745646"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar el registro en el SDK de voz
 
@@ -47,6 +47,12 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 
 ```objc
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
+```
+
+```go
+import ("github.com/Microsoft/cognitive-services-speech-sdk-go/common")
+
+config.SetProperty(common.SpeechLogFilename, "LogfilePathAndName")
 ```
 
 Puede crear un reconocedor a partir del objeto de configuración. Esto habilitará el registro de todos los reconocedores.
@@ -141,6 +147,31 @@ self.speechConfig!.setPropertyTo(logFilePath!.absoluteString, by: SPXPropertyId.
 ```
 
 [Aquí](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) hay más información disponible sobre el sistema de archivos de iOS.
+
+## <a name="logging-with-multiple-recognizers"></a>Registro con varios reconocedores
+
+Aunque se especifica una ruta de acceso de salida del archivo de registro como una propiedad de configuración en `SpeechRecognizer` u otro objeto SDK, el registro del SDK es una instalación singleton *para todo el proceso* sin concepto de instancias individuales. Puede considerar que el constructor `SpeechRecognizer` (o uno similar) llama implícitamente a una rutina "Configurar registro global" estática e interna con los datos de propiedad disponibles en el `SpeechConfig` correspondiente.
+
+Esto significa que, por ejemplo, no se pueden configurar seis reconocedores paralelos para generar simultáneamente seis archivos independientes. En su lugar, el reconocedor más reciente creado configurará la instancia de registro global para que se emita en el archivo especificado en sus propiedades de configuración y todo el registro del SDK se emitirá en ese archivo.
+
+Esto también significa que la duración del objeto que configuró el registro no está asociada a la duración del registro. El registro no se detendrá en respuesta al lanzamiento de un objeto SDK y continuará siempre que no se proporcione ninguna configuración de registro nueva. Una vez que el registro de todo el proceso se haya iniciado, para detenerlo es preciso establecer la ruta de acceso del archivo de registro en una cadena vacía al crear un objeto.
+
+Para reducir la posibilidad de que se produzca una confusión al configurar el registro de varias instancias, es posible que sea útil abstraer el control del registro de objetos que realizan trabajo real. Un par de rutinas auxiliares de ejemplo:
+
+```cpp
+void EnableSpeechSdkLogging(const char* relativePath)
+{
+    auto configForLogging = SpeechConfig::FromSubscription("unused_key", "unused_region");
+    configForLogging->SetProperty(PropertyId::Speech_LogFilename, relativePath);
+    auto emptyAudioConfig = AudioConfig::FromStreamInput(AudioInputStream::CreatePushStream());
+    auto temporaryRecognizer = SpeechRecognizer::FromConfig(configForLogging, emptyAudioConfig);
+}
+
+void DisableSpeechSdkLogging()
+{
+    EnableSpeechSdkLogging("");
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

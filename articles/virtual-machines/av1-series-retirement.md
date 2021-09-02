@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: mimckitt
-ms.openlocfilehash: c382954cf54779350e78fdadef7d0f4738dca48f
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 6c870673f05c71d2605838001dea347321d320a6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634669"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178910"
 ---
 # <a name="av1-series-retirement"></a>Retirada de la serie Av1
 
@@ -24,12 +24,12 @@ El 31 de agosto de 2024, retiraremos las máquinas virtuales de las series Basic
 
 ## <a name="migrate-workloads-from-basic-and-standard-a-series-vms-to-av2-series-vms"></a>Migración de cargas de trabajo de máquinas virtuales de las series Basic y Standard A a máquinas virtuales de la serie Av2 
 
-Puede cambiar el tamaño de las máquinas virtuales a la serie Av2 mediante [Azure Portal](https://portal.azure.com), [PowerShell](windows/resize-vm.md) y la [CLI](linux/change-vm-size.md). A continuación se muestran ejemplos sobre cómo cambiar el tamaño de la máquina virtual mediante Azure Portal y PowerShell. 
+Puede cambiar el tamaño de las máquinas virtuales a la serie Av2 mediante [Azure Portal](https://portal.azure.com), [PowerShell](windows/resize-vm.md) y la [CLI](/linux/change-vm-size.md). A continuación se muestran ejemplos sobre cómo cambiar el tamaño de la máquina virtual mediante Azure Portal y PowerShell. 
 
 > [!IMPORTANT]
 > El nuevo tamaño de la máquina virtual dará lugar a un reinicio. Se recomienda realizar acciones que darán lugar a un reinicio en las horas de menos actividad del horario comercial. 
 
-### <a name="azure-portal"></a>Azure Portal 
+### <a name="azure-portal"></a>Azure portal 
 1. Abra [Azure Portal](https://portal.azure.com).
 1. Escriba **máquinas virtuales** en la búsqueda.
 1. En **Servicios**, seleccione **Máquinas virtuales**.

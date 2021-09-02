@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 74b7c16904c86751076d40056027999fe44cb868
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 30bcdce70ce15e7f960d8d04b3796a04f59b1ec2
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727874"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039279"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Inicio rápido: Cree una instancia de Front Door para una aplicación web global de alta disponibilidad.
 
@@ -135,7 +135,7 @@ Por último, agregue una regla de enrutamiento. Una regla de enrutamiento asigna
     :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Agregar una regla a Front Door":::
 
    >[!WARNING]
-   > **Debe** asegurarse de que todos los hosts de front-end de Front Door tienen una regla de enrutamiento con una ruta de acceso predeterminada (`\*`) asociada. Es decir, entre todas las reglas de enrutamiento debe haber al menos una para cada uno de los hosts de front-end que se definen en la ruta de acceso predeterminada (`\*`). Si no la hay, puede darse el caso de que el tráfico del usuario final no se enrute correctamente.
+   > **Debe** asegurarse de que todos los hosts de front-end de Front Door tienen una regla de enrutamiento con una ruta de acceso predeterminada (`/*`) asociada. Es decir, entre todas las reglas de enrutamiento debe haber al menos una para cada uno de los hosts de front-end que se definen en la ruta de acceso predeterminada (`/*`). Si no la hay, puede darse el caso de que el tráfico del usuario final no se enrute correctamente.
 
 1. Seleccione **Revisar y crear** y, a continuación, **Crear**.
 

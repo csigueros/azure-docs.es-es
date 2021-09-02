@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 08/21/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 8c1b7ea859bb3f8819fbffc9568da4c9289979f5
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 40d82ea916a647dc927e4420058d208c3fd18973
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669464"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111018"
 ---
 # <a name="quickstart-add-an-application-to-your-tenant"></a>Inicio rápido: Agregar una aplicación a su inquilino
 
@@ -47,10 +47,9 @@ Para agregar una aplicación a un inquilino de Azure AD:
 1. En [Azure Portal](https://portal.azure.com), en el panel **Servicios de Azure**, seleccione **Aplicaciones empresariales**. Se abre el panel **Todas las aplicaciones**, en el que se ve una muestra aleatoria de las aplicaciones que hay en su inquilino de Azure AD.
 2. En el panel **Aplicaciones empresariales**, seleccione **Nueva aplicación**.
 3. Se abre el panel **Examinar la Galería de Azure AD**, que muestra iconos para plataformas en la nube, aplicaciones locales y aplicaciones destacadas. Las aplicaciones que aparecen en la sección **Aplicaciones destacadas** incluyen iconos que indican si admiten el inicio de sesión único federado (SSO) y el aprovisionamiento.
-4. Vuelva a la experiencia de aplicación heredada: en el banner de la parte superior de la página **Agregar una aplicación**, seleccione el vínculo que indica **You're in the new and improved app gallery experience (Está en la nueva y mejorada experiencia de la galería de aplicaciones). Haga clic aquí para volver a la experiencia heredada de la galería de aplicaciones**.
     ![Búsqueda de una aplicación por nombre o categoría](media/add-application-portal/browse-gallery.png)
-5. Puede buscar en la galería la aplicación que quiere agregar o escribir su nombre en el cuadro de búsqueda para localizarla. Después, seleccione la aplicación en los resultados.
-6. El paso siguiente depende de la forma en que el desarrollador de la aplicación haya implementado el inicio de sesión único (SSO). Los desarrolladores de aplicaciones pueden implementar el inicio de sesión único de cuatro maneras: SAML, OpenID Connect, Contraseña y Vinculado. Al agregar una aplicación, puede elegir filtrar y ver solo las aplicaciones que usan una implementación de inicio de sesión único determinada, como se muestra en la captura de pantalla. Por ejemplo, un estándar conocido para implementar el inicio de sesión único es Lenguaje de marcado de aserción de seguridad (SAML). Otro estándar conocido es OpenId Connect (OIDC). La forma de configurar el inicio de sesión único con estos estándares es diferente, por lo que debe tener en cuenta el tipo de inicio de sesión único implementado por la aplicación que va a agregar.
+4. Puede buscar en la galería la aplicación que quiere agregar o escribir su nombre en el cuadro de búsqueda para localizarla. Después, seleccione la aplicación en los resultados.
+5. El paso siguiente depende de la forma en que el desarrollador de la aplicación haya implementado el inicio de sesión único (SSO). Los desarrolladores de aplicaciones pueden implementar el inicio de sesión único de cuatro maneras: SAML, OpenID Connect, Contraseña y Vinculado. Al agregar una aplicación, puede elegir filtrar y ver solo las aplicaciones que usan una implementación de inicio de sesión único determinada, como se muestra en la captura de pantalla. Por ejemplo, un estándar conocido para implementar el inicio de sesión único es Lenguaje de marcado de aserción de seguridad (SAML). Otro estándar conocido es OpenId Connect (OIDC). La forma de configurar el inicio de sesión único con estos estándares es diferente, por lo que debe tener en cuenta el tipo de inicio de sesión único implementado por la aplicación que va a agregar.
 
     - Si el desarrollador de la aplicación usó el **estándar OIDC** para el inicio de sesión único, seleccione **Registrarse**. Aparece una página de instalación. A continuación, vaya al inicio rápido sobre cómo configurar el inicio de sesión único basado en OIDC.
     :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Captura de pantalla que muestra cómo agregar una aplicación de inicio de sesión único basado en OIDC.":::
