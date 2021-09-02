@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5e71522d53bd4e528b2a5a106a4dcc344df3ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a85f2d5d928d93bf9e85899e53439a2cc4710448
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732863"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455611"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -51,13 +51,13 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
-1. Identifique un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect. [Habilite TLS 1.2 en el servidor](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect) si todavía no está habilitado. Agregue el servidor al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar. Es preciso señalar que no se admite la instalación del agente de autenticación de paso a través en las versiones principales de Windows Server. 
+1. Identifique un servidor con Windows Server 2016, o cualquier versión posterior, en el que se ejecute Azure AD Connect. [Habilite TLS 1.2 en el servidor](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect) si todavía no está habilitado. Agregue el servidor al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar. Es preciso señalar que no se admite la instalación del agente de autenticación de paso a través en las versiones principales de Windows Server. 
 2. Instale la [última versión de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) en el servidor identificado en el paso anterior. Si ya tiene Azure AD Connect en ejecución, asegúrese de que la versión es 1.1.750.0 o posterior.
 
     >[!NOTE]
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ pretende utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](./reference-connect-version-history.md).
 
-3. Identifique uno o más servidores adicionales (que ejecute Windows Server 2012 R2 o versiones posteriores, con TLS 1.2 habilitado) en el que poder ejecutar los agentes de autenticación independientes. Estos servidores adicionales son necesarios para garantizar la alta disponibilidad de las solicitudes de inicio de sesión. Agregue los servidores al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
+3. Identifique uno o varios servidores adicionales (que ejecute Windows Server 2016, o cualquier versión posterior, con TLS 1.2 habilitado) en el que poder ejecutar los agentes de autenticación independientes. Estos servidores adicionales son necesarios para garantizar la alta disponibilidad de las solicitudes de inicio de sesión. Agregue los servidores al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
 
     >[!IMPORTANT]
     >En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 40 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -179,7 +179,7 @@ Bloqueo inteligente ayuda a bloquear a los actores malintencionados que intentan
 - [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): Obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Limitaciones actuales](how-to-connect-pta-current-limitations.md): Conozca qué escenarios son compatibles con la autenticación de paso a través y cuáles no.
 - [Profundización técnica](how-to-connect-pta-how-it-works.md): Conozca cómo funciona la característica de autenticación de paso a través.
-- [Preguntas más frecuentes](how-to-connect-pta-faq.md): Obtenga respuestas a las preguntas más frecuentes.
+- [Preguntas más frecuentes](how-to-connect-pta-faq.yml): Obtenga respuestas a las preguntas más frecuentes.
 - [Solución de problemas](tshoot-connect-pass-through-authentication.md): Obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
 - [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): Obtenga información técnica sobre la característica de autenticación de paso a través.
 - [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.

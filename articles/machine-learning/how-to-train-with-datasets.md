@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 573868d8dc637afcab1970d0e41ed2ed0830808d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 191c76c6ec67112df71d8d5525b2c5938627b3d6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538839"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458544"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Entrenamiento de modelos con conjuntos de datos de Azure Machine Learning 
 
@@ -31,7 +31,7 @@ Si no está preparado para poner los datos a disposición del entrenamiento del 
 
 Para crear conjuntos de datos y entrenar con ellos, necesita:
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -126,7 +126,7 @@ En el ejemplo siguiente:
 * Se monta el conjunto de datos de entrada en el destino de proceso.
 
 > [!Note]
-> Si usa una imagen base de Docker personalizada, tendrá que instalar Fuse a través de `apt-get install -y fuse` como una dependencia para que el montaje del conjunto de datos funcione. Obtenga información sobre cómo [compilar una imagen de compilación personalizada](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
+> Si usa una imagen base de Docker personalizada, tendrá que instalar Fuse a través de `apt-get install -y fuse` como una dependencia para que el montaje del conjunto de datos funcione. Obtenga información sobre cómo [compilar una imagen de compilación personalizada](./how-to-deploy-custom-container.md).
 
 Para obtener el ejemplo de cuaderno, consulte [Configuración de una ejecución de entrenamiento con entrada y salida de datos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
@@ -228,17 +228,14 @@ with open(mounted_input_path, 'r') as f:
 
 Tanto el montaje como la descarga de archivos de cualquier formato se admiten en los conjuntos de datos creados desde Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database y Azure Database for PostgreSQL. 
 
-Al **montar** un conjunto de datos, se asocian a un directorio (punto de montaje) los archivos a los que hace referencia en el conjunto de datos, y este se vuelve disponible en el destino de proceso. El montaje se admite en procesos basados en Linux, como Proceso de Azure Machine Learning, máquinas virtuales y HDInsight. 
+Al **montar** un conjunto de datos, se asocian a un directorio (punto de montaje) los archivos a los que hace referencia en el conjunto de datos, y este se vuelve disponible en el destino de proceso. El montaje se admite en procesos basados en Linux, como Proceso de Azure Machine Learning, máquinas virtuales y HDInsight. Si el tamaño de los datos supera el tamaño del disco de proceso, no es posible realizar la descarga. En este escenario, se recomienda el montaje, ya que en el momento del procesamiento solo se cargan los archivos de datos usados por el script.
 
-Al **descargar** un conjunto de datos, todos los archivos a los que se hace referencia en él se descargarán en el destino de proceso. La descarga se admite con todos los tipos de proceso. 
+Al **descargar** un conjunto de datos, todos los archivos a los que se hace referencia en él se descargarán en el destino de proceso. La descarga se admite con todos los tipos de proceso. Si el script procesa todos los archivos a los que se hace referencia en el conjunto de datos y el disco de proceso puede caber en el conjunto de datos completo, se recomienda la descarga para evitar la sobrecarga de la transmisión de datos desde los servicios de almacenamiento. Para descargas de varios nodos, consulte [cómo evitar la limitación](#troubleshooting). 
 
 > [!NOTE]
 > El nombre de la ruta de acceso de descarga no debe tener más de 255 caracteres alfanuméricos para el sistema operativo Windows. En el caso de Linux, el nombre de la ruta de acceso de descarga no debe tener más de 4096 caracteres alfanuméricos. Además, para el sistema operativo Linux, el nombre de archivo (que es el último segmento de la ruta de acceso de descarga `/path/to/file/{filename}`) no debe tener más de 255 caracteres alfanuméricos.
 
-Si el script procesa todos los archivos a los que se hace referencia en el conjunto de datos y el disco de proceso puede caber en el conjunto de datos completo, se recomienda la descarga para evitar la sobrecarga de la transmisión de datos desde los servicios de almacenamiento. Si el tamaño de los datos supera el tamaño del disco de proceso, no es posible realizar la descarga. En este escenario, se recomienda el montaje, ya que en el momento del procesamiento solo se cargan los archivos de datos usados por el script.
-
 El siguiente código monta el elemento `dataset` en el directorio temporal de `mounted_path`.
-
 
 ```python
 import tempfile
@@ -297,6 +294,18 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
   * Si no tiene ninguna [regla de grupos de seguridad de red](../virtual-network/network-security-groups-overview.md) y usa `azureml-sdk>=1.12.0`, actualice `azureml-dataset-runtime` y sus dependencias a las más recientes para la versión secundaria específica, o bien, si la usa en una ejecución, vuelva a crear el entorno para que pueda tener la revisión más reciente con la corrección. 
   * Si usa `azureml-sdk<1.12.0`, actualice a la versión más reciente.
   * Si tiene reglas de grupos de seguridad de red de salida, asegúrese de que haya una regla de salida que permita todo el tráfico de la etiqueta de servicio `AzureResourceMonitor`.
+
+**Error de inicialización del conjunto de datos: StreamAccessException fue causado por ThrottlingException**
+
+En el caso de las descargas de archivos de varios nodos, todos los nodos pueden intentar descargar todos los archivos del conjunto de datos de archivos desde el servicio Azure Storage, lo que produce un error de limitación. Para evitar la limitación, establezca inicialmente la variable de entorno `AZUREML_DOWNLOAD_CONCURRENCY` en un valor de 8 veces el número de núcleos de CPU dividido por el número de nodos. La configuración de un valor para esta variable de entorno puede requerir cierta experimentación, por lo que la guía mencionada anteriormente es un punto de partida.
+
+En el ejemplo siguiente, se supone que hay 32 núcleos y 4 nodos.
+
+```python
+from azureml.core.environment import Environment 
+myenv = Environment(name="myenv")
+myenv.environment_variables = {"AZUREML_DOWNLOAD_CONCURRENCY":64}
+```
 
 ### <a name="azurefile-storage"></a>Almacenamiento en AzureFile
 

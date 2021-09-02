@@ -8,16 +8,16 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 03/07/2021
 ms.custom: ''
-ms.openlocfilehash: a4f206d68df3cd8dd4dd5b1b411d316e7aacde92
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 6654d1e167eefea1544262dab279b15b87b6b2ba
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077126"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460301"
 ---
 # <a name="generate-arm-template-for-cloud-services-extended-support-using-the-azure-portal"></a>Habilitación de plantilla de ARM para Cloud Services (soporte extendido) mediante Azure Portal
 
-En este artículo se explica cómo descargar la plantilla de ARM y el archivo de parámetros desde [Azure Portal](https://portal.azure.com) para el servicio en la nube. La plantilla de ARM y el archivo de parámetros se pueden usar en implementaciones a través de PowerShell para crear o actualizar un servicio en la nube.
+En este artículo se explica cómo descargar la plantilla de ARM y el archivo de parámetros desde [Azure Portal](https://portal.azure.com) para el servicio en la nube. La plantilla de ARM y el archivo de parámetros se pueden usar en implementaciones a través de PowerShell para crear o actualizar un servicio en la nube
 
 ## <a name="get-arm-template-via-portal"></a>Obtención de una plantilla de ARM mediante el portal
 
@@ -34,6 +34,6 @@ En este artículo se explica cómo descargar la plantilla de ARM y el archivo de
     :::image type="content" source="media/download-template-portal-2.png" alt-text="La imagen muestra los parámetros del URI de SAS del paquete y del URI de SAS de configuración en Azure Portal.":::
   
 ## <a name="next-steps"></a>Pasos siguientes 
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Implementación de un servicio en la nube (soporte extendido) mediante [Azure Portal](deploy-portal.md)
   

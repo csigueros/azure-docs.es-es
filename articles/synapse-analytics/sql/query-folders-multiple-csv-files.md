@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c4d88e1a87f6b546e26dd55da338a36f16ebe4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a91ca96e69ae5408a3232513eea3ba1443c97064
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462626"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253604"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consulta de carpetas y varios archivos  
 
@@ -26,7 +26,7 @@ El grupo de SQL sin servidor admite la lectura de varios archivos o carpetas med
 
 El primer paso es **crear una base de datos** en la que se ejecutarán las consultas. Luego, se inicializan los objetos, para lo que hay que ejecutar un [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) en esa base de datos. Este script de instalación creará los orígenes de datos, las credenciales con ámbito de base de datos y los formatos de archivo externos que se usan en estos ejemplos.
 
-Usará la carpeta *csv/taxi* para seguir las consultas de ejemplo. Contiene los datos de NYC Taxi - Yellow Taxi Trip Records de julio de 2016 a junio de 2018. Los archivos de *csv/taxi* se denominan según el año y el mes con el siguiente patrón: yellow_tripdata_<year>-<month>.csv
+Usará la carpeta *csv/taxi* para seguir las consultas de ejemplo. Contiene los datos de NYC Taxi - Yellow Taxi Trip Records de julio de 2016 a junio de 2018. Los archivos de *csv/taxi* se denominan según el año y el mes con el siguiente patrón: yellow_tripdata_\<year>-\<month>.csv
 
 ## <a name="read-all-files-in-folder"></a>Lectura de todos los archivos de una carpeta
 

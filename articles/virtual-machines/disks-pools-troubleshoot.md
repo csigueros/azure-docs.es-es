@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f14ae211e13c299807c6f1c43e8be11752fce008
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 6dc1b5ae3e885231a0d80ade2b8477a66e85d62d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418338"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456246"
 ---
 # <a name="troubleshoot-azure-disk-pools-preview"></a>Solución de problemas de los grupos de discos de Azure (versión preliminar)
 
@@ -29,6 +29,12 @@ Los grupos de discos y los destinos iSCSI tienen cuatro estados: **Desconocido**
 **Actualizando** significa que el recurso está pasando por una actualización. Esto suele ocurrir durante la implementación o al aplicar una actualización como agregar discos o LUN.
 
 **Detenido (desasignado)** significa que el recurso está detenido y sus recursos subyacentes se han desasignado. Puede reiniciar el recurso para recuperar el grupo de discos o el destino iSCSI.
+
+## <a name="recover-a-disk-pool-or-an-iscsi-target"></a>Recuperación de un grupo de discos o un destino iSCSI
+
+En primer lugar, detenga el grupo de discos y reinícielo. A continuación, compruebe el estado del grupo de discos y el destino iSCSI. Si se han recuperado, los clústeres de Azure VMware conectados al grupo de discos se recuperarán automáticamente a menos que el grupo de discos haya estado inaccesible durante más de 24 horas. Si han pasado más de 24 horas, debe ponerse en contacto con el Soporte técnico de Azure para forzar la desconexión de los almacenes de datos inaccesibles asociados al grupo de discos. Después, puede volver a conectar los clústeres de VS al grupo de discos y configurar los almacenes de datos.
+
+Si el grupo de discos no se recupera después de este proceso, póngase en contacto con el Soporte técnico de Azure y proporcione el identificador de seguimiento de cualquier mensaje de error que haya recibido.
 
 ## <a name="common-failure-codes-when-deploying-a-disk-pool"></a>Códigos de error comunes al implementar un grupo de discos
  

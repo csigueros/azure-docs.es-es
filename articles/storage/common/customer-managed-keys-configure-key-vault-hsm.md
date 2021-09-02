@@ -1,7 +1,7 @@
 ---
-title: Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)
+title: Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault.
 titleSuffix: Azure Storage
-description: Obtenga información sobre cómo configurar el cifrado de Azure Storage con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar) mediante la CLI de Azure.
+description: Obtenga información sobre cómo configurar el cifrado de Azure Storage con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault mediante la CLI de Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,23 +11,20 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f340ac18cb74523d64f4dbf8d6ae1d6f4559582a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 09f62865c80c05fd0860fa39b18d99c583cf3e56
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411888"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461629"
 ---
-# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)
+# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm"></a>Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault.
 
-Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede administrar sus propias claves. Las claves administradas por el cliente deben estar almacenadas en Azure Key Vault o en el modelo de seguridad de hardware (HSM) administrado de Azure Key Vault (versión preliminar). Un HSM administrado de Azure Key Vault es un HSM validado de FIPS 140-2 de nivel 3.
+Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede administrar sus propias claves. Las claves administradas por el cliente deben estar almacenadas en Azure Key Vault o en el modelo de seguridad de hardware (HSM) administrado de Azure Key Vault. Un HSM administrado de Azure Key Vault es un HSM validado de FIPS 140-2 de nivel 3.
 
 En este artículo se muestra cómo configurar el cifrado con claves administradas por el cliente almacenadas en un HSM administrado mediante la CLI de Azure. Para obtener información sobre cómo configurar el cifrado con las claves administradas por el cliente almacenadas en un almacén de claves, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](customer-managed-keys-configure-key-vault.md).
 
-> [!IMPORTANT]
->
-> El cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault actualmente se encuentra en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
->
+> [!NOTE]
 > Azure Key Vault y HSM administrado de Azure Key Vault admiten las mismas API e interfaces de administración para la configuración.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Asignación de una identidad a la cuenta de almacenamiento

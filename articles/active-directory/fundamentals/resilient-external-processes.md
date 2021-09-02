@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58ef522f5b048db0ef120625d9e894c8e14c070e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d3c159c615d928a8d56d3913c8e1cab846c7580
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724414"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462099"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>Interfaces resistentes con procesos externos
 
@@ -38,7 +38,7 @@ Las directivas del marco de experiencia de identidad (IEF) le permiten llamar a 
 
 - Quite las llamadas de API de la ruta de acceso autenticada previamente siempre que sea posible. Si no puede hacerlo, debe establecer protecciones estrictas para los ataques de tipo Denegación de servicio (DoS) y Denegación de servicio distribuido (DDoS) en las API. Tenga que cuenta que los atacantes pueden cargar la página de inicio de sesión e intentar inundar la API con ataques DoS para saturar su aplicación. Por ejemplo, si usa la opción CAPTCHA en el inicio de sesión, el flujo de registro puede serle de ayuda.
 
-- Use [conectores de API del flujo de usuario de inicio de sesión integrado](../../active-directory-b2c/api-connectors-overview.md) siempre que sea posible, para realizar la integración con las API web después de iniciar sesión con un proveedor de identidades o antes de crear el usuario. Dado que los flujos de usuario ya se han probado exhaustivamente, es probable que no tenga que realizar pruebas funcionales, de rendimiento o de escala a nivel de flujo de usuario. Recuerde que todavía tiene que probar la funcionalidad, el rendimiento y la escala de las aplicaciones.
+- Use los [conectores de API del flujo de usuario de inicio de sesión integrado](../../active-directory-b2c/api-connectors-overview.md) siempre que sea posible para realizar la integración con las API web después de la federación con un proveedor de identidades durante el registro o antes de crear el usuario. Dado que los flujos de usuario ya se han probado exhaustivamente, es probable que no tenga que realizar pruebas funcionales, de rendimiento o de escala a nivel de flujo de usuario. Recuerde que todavía tiene que probar la funcionalidad, el rendimiento y la escala de las aplicaciones.
 
 - Los [perfiles técnicos](../../active-directory-b2c/restful-technical-profile.md) de la API de RESTFul de Azure AD no proporcionan ningún comportamiento de almacenamiento en caché. En su lugar, el perfil de la API de RESTFul implementa una lógica de reintento y un tiempo de espera integrado en la directiva.
 

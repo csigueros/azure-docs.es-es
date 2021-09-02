@@ -2,19 +2,19 @@
 title: 'Inicio rápido: Control de eventos SMS para informes de entrega y mensajes entrantes'
 titleSuffix: An Azure Communication Services quickstart
 description: Obtenga información acerca de cómo controlar eventos SMS mediante Azure Communication Services.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 3d40705b5dc2b1fb3649c9acea33fc500add1c91
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: ea86ec191cd56f123a0caf7af4e7822a91101a23
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768815"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251145"
 ---
 # <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Inicio rápido: Control de eventos SMS para informes de entrega y mensajes entrantes
 

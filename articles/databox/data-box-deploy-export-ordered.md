@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 1151981eb96862493eb6a1740e46845c98f7e2ea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d9506ce3f01f5500bab81e8e90c57761bef75805
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752007"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254582"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box
 
@@ -80,7 +80,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
 6. En **Pedido**, especifique los detalles del pedido **Básico**. Escriba o seleccione la siguiente información.
 
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
     |Suscripción     | La suscripción se rellena automáticamente según la selección anterior.|
     |Resource group | Grupo de recursos especificado anteriormente. |
@@ -96,7 +96,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
 8. En **Seleccionar opción de exportación**, especifique los detalles de la opción de exportación. Escriba o seleccione la siguiente información y, luego, elija **Agregar**.
 
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
     |Cuenta de almacenamiento     | Cuenta de Azure Storage desde la que desea exportar los datos. |
     |Tipo de exportación     | Especifica el tipo de datos que se va a exportar de **Todos los objetos** y **Usar archivo XML**.<ul><li> **Todos los objetos**: especifica que el trabajo exporta todos los datos en función de la selección de **Opciones de transferencia**.</li><li> **Usar archivo XML**: especifica un archivo XML que contiene un conjunto de rutas de acceso y prefijos para los blobs o archivos que se van a exportar desde la cuenta de almacenamiento. El archivo XML debe estar en el contenedor seleccionado de la cuenta de almacenamiento; actualmente no se admite la selección desde recursos compartidos de archivos. Debe ser un archivo .xml que no esté vacío.</li></ul>        |
@@ -316,7 +316,7 @@ En el archivo XML siguiente se muestra un ejemplo de nombres de blob, prefijos d
       <BlobPathPrefix>/8mbfiles/</BlobPathPrefix>
       <BlobPathPrefix>/64mbfiles/</BlobPathPrefix>
    </BlobList>
-   <!-- FileList/prefix/Share list for Azure File storage for export  -->
+   <!-- FileList/prefix/Share list for Azure Files for export  -->
    <AzureFileList>
       <FilePathPrefix>/64mbfiles/</FilePathPrefix>
       <FilePathPrefix>/4mbfiles/prefix2/subprefix</FilePathPrefix>

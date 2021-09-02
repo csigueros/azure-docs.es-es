@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fc565a886698466fce8eaa6ac5ff47ae44be4c9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100581813"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458836"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 
 Logic Apps le ayuda a crear y ejecutar tareas y procesos periódicos y automatizados según una programación. Al crear un flujo de trabajo de aplicación lógica que comienza con un desencadenador de periodicidad o un integrador de ventana deslizante integrado, que son desencadenadores del tipo programación, puede ejecutar tareas inmediatamente, en un momento posterior o en un intervalo periódico. Puede llamar a servicios dentro y fuera de Azure, como los puntos de conexión HTTP o HTTPS, publicar mensajes en servicios de Azure, como Azure Storage y Azure Service Bus, u obtener archivos cargados en un recurso compartido de archivos. Con el desencadenador de periodicidad, también puede configurar programaciones complejas y periodicidades avanzadas para ejecutar tareas. Para más información acerca de los desencadenadores y las acciones de programación integrados, consulte [Desencadenadores de programación](#schedule-triggers) y [Acciones de programación](#schedule-actions). 
 
 > [!TIP]
-> Puede programar y ejecutar cargas de trabajo periódicas sin necesidad de crear una aplicación lógica independiente para cada trabajo programado y ejecutarla en el [límite de flujos de trabajo por región y suscripción](../logic-apps/logic-apps-limits-and-config.md#definition-limits). En su lugar, puede usar el patrón de la aplicación lógica que se crea mediante [la plantilla de inicio rápido de Azure: programador de trabajos de Logic Apps](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
+> Puede programar y ejecutar cargas de trabajo periódicas sin necesidad de crear una aplicación lógica independiente para cada trabajo programado y ejecutarla en el [límite de flujos de trabajo por región y suscripción](../logic-apps/logic-apps-limits-and-config.md#definition-limits). En su lugar, puede usar el patrón de la aplicación lógica que se crea mediante [la plantilla de inicio rápido de Azure: programador de trabajos de Logic Apps](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/).
 >
 > La plantilla del programador de trabajos de Logic Apps crea una aplicación lógica CreateTimerJob que llama a una aplicación lógica TimerJob. Luego, puede llamar a la aplicación lógica CreateTimerJob como una API, para lo que debe realizar una solicitud HTTP y usar una programación como entrada de dicha solicitud. En cada llamada a la aplicación lógica CreateTimerJob se llama también a la aplicación lógica TimerJob, que crea una instancia de TimerJob que se ejecuta continuamente según la programación especificada, o hasta que se alcance un límite especificado. De ese modo, puede ejecutar tantas instancias de TimerJob como desee sin preocuparse por los límites del flujo de trabajo, ya que las instancias no son definiciones o recursos individuales del flujo de trabajo de la aplicación lógica.
 
@@ -199,6 +199,27 @@ Si quiere ejecutar su aplicación lógica solo una vez en el futuro, puede usar 
 ![Seleccione la plantilla "Scheduler: Run once jobs" (Programador:ejecutar trabajos una vez)](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
 O bien, si puede iniciar la aplicación lógica con el desencadenador **Cuando se recibe una solicitud HTTP - Solicitar**, pase la hora de inicio como parámetro para el desencadenador. Para la primera acción, agregue la acción **Retraso hasta: Programación** y especifique la hora en que empezará a ejecutarse la acción siguiente.
+
+<a name="run-once-last-day-of-the-month"></a>
+
+## <a name="run-once-at-last-day-of-the-month"></a>Ejecutar el último día del mes
+
+Para ejecutar el desencadenador de periodicidad solo una vez el último día del mes, debe editar el desencadenador en la definición JSON subyacente del flujo de trabajo mediante la vista de código, no mediante el diseñador. No obstante, puede usar el siguiente ejemplo:
+
+```json
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
+        },
+        "type": "Recurrence"
+    }
+}
+```
 
 <a name="example-recurrences"></a>
 

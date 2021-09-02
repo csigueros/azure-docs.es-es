@@ -6,16 +6,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: da7d617ab92ed0e9c7564813006e3a0c044a48b6
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 14ac7953654941de176bf74bd38787b33b9c864c
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195761"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225760"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configuración de una aplicación de Node.js para Azure App Service
 
-Las aplicaciones de Node.js deben implementarse con todas las dependencias de NPM. El motor de implementación de App Service ejecuta `npm install --production` automáticamente al implementar un [repositorio de Git](deploy-local-git.md) o un [paquete Zip](deploy-zip.md) [con la automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation). Sin embargo, si implementa los archivos con [FTP/S](deploy-ftp.md), deberá cargar manualmente los paquetes necesarios.
+Las aplicaciones de Node.js deben implementarse con todas las dependencias de NPM. El motor de implementación de App Service ejecuta `npm install --production` automáticamente al implementar un [repositorio de Git](deploy-local-git.md) o un [paquete Zip](deploy-zip.md) [con la automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation-for-zip-deploy). Sin embargo, si implementa los archivos con [FTP/S](deploy-ftp.md), deberá cargar manualmente los paquetes necesarios.
 
 Esta guía incluye conceptos clave e instrucciones para los desarrolladores de Node.js que realizan implementaciones en App Service. Si nunca ha usado Azure App Service, siga primero la [guía de inicio rápido de Node.js](quickstart-nodejs.md) y el [tutorial de Node.js con MongoDB](tutorial-nodejs-mongodb-app.md).
 
@@ -119,7 +119,7 @@ app.listen(port, () => {
 
 ## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-Si implementa la aplicación mediante paquetes Git o zip [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation), la automatización de compilaciones de App Service se ejecutará en este orden:
+Si implementa la aplicación mediante paquetes Git o zip [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation-for-zip-deploy), la automatización de compilaciones de App Service se ejecutará en este orden:
 
 1. Ejecute el script personalizado si lo especifica `PRE_BUILD_SCRIPT_PATH`.
 1. Ejecute `npm install` sin marcas, lo que incluye los scripts de npm `preinstall` y `postinstall` y también instala `devDependencies`.
@@ -241,7 +241,7 @@ process.env.NODE_ENV
 
 ## <a name="run-gruntbowergulp"></a>Ejecutar Grunt, Bower o Gulp
 
-De manera predeterminada, la automatización de compilaciones de App Service ejecuta `npm install --production` cuando reconoce que una aplicación de Node.js se implementa a través de Git o a través de implementación zip [con la automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation). Si la aplicación requiere alguna de las herramientas de automatización más populares, como Grunt, Bower o Gulp, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) para ejecutarla.
+De manera predeterminada, la automatización de compilaciones de App Service ejecuta `npm install --production` cuando reconoce que una aplicación de Node.js se implementa a través de Git o a través de implementación zip [con la automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation-for-zip-deploy). Si la aplicación requiere alguna de las herramientas de automatización más populares, como Grunt, Bower o Gulp, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) para ejecutarla.
 
 Para habilitar que el repositorio ejecute estas herramientas, deberá agregarlas a las dependencias en el archivo *package.json.* Por ejemplo:
 
@@ -387,3 +387,7 @@ Cuando una aplicación de Node.js en funcionamiento se comporta de manera difere
 > [P+F sobre App Service en Linux](faq-app-service-linux.yml)
 
 ::: zone-end
+
+O consulte estos recursos adicionales:
+
+[Variables de entorno y configuración de la aplicación en Azure App Service](reference-app-settings.md)

@@ -2,19 +2,19 @@
 title: Procedimientos recomendados para usar Azure Key Vault Managed HSM
 description: En este documento se explican algunos de los procedimientos recomendados para utilizar Key Vault.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.author: ambapat
-ms.openlocfilehash: a7cccecc47973d372453ce86d0d5d12c8d773b3a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/21/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 99a313f64e9f5bafd13dbbf45a6881e1c6e2f275
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413976"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459702"
 ---
 # <a name="best-practices-when-using-managed-hsm"></a>Procedimientos recomendados al usar Managed HSM
 
@@ -44,6 +44,13 @@ Managed HSM es un servicio en la nube que protege las claves de cifrado. Como es
 
 - La [eliminación temporal](soft-delete-overview.md) está habilitada de manera predeterminada. Puede elegir un período de retención de entre 7 y 90 días.
 - Active la protección de purga para evitar la eliminación permanente inmediata de HSM o las claves. Cuando la protección de purga esté activada, HSM o las claves permanecerán en estado eliminado hasta que transcurra el tiempo de retención.
+
+## <a name="generate-and-import-keys-from-on-premise-hsm"></a>Generación e importación de claves desde el HSM local
+
+> [!NOTE]
+> Las claves creadas o importadas en HSM administrado no se pueden exportar.
+
+- Para garantizar la portabilidad a largo plazo y la durabilidad de las claves, genere claves en el HSM local e [impórtelas en HSM administrado](hsm-protected-keys-byok.md). Tendrá una copia de la clave almacenada de forma segura en el HSM local para su uso futuro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
