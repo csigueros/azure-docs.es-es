@@ -2,19 +2,19 @@
 title: Conceptos de SMS en Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Obtenga información sobre los conceptos de SMS de Communication Services.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: ab9a0b5c50bfbcf0cca3ab91072850420fcca2d0
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 036a3de91d39337353eebf7c3d46b1c659fe7cd5
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108034"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255317"
 ---
 # <a name="sms-concepts"></a>Conceptos de SMS
 

@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 08/16/2021
-ms.openlocfilehash: 78267781c552f46952babea9704eca8d62b3b5ea
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 74bfdabbbd145e7409d070e9bb432ad4f62759d5
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253954"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866585"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
-En las definiciones de flujo de trabajo en [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y [Power Automate](/flow/getting-started), algunas [expresiones](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtienen sus valores de las acciones del entorno de ejecución que puede que no existan aún cuando comienza a ejecutarse el flujo de trabajo. Para hacer referencia a estos valores o procesarlos en estas expresiones, puede usar las *funciones* que proporciona el [Lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
+En las definiciones de flujo de trabajo en [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y [Power Automate](/power-automate/getting-started), algunas [expresiones](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtienen sus valores de las acciones del entorno de ejecución que puede que no existan aún cuando comienza a ejecutarse el flujo de trabajo. Para hacer referencia a estos valores o procesarlos en estas expresiones, puede usar las *funciones* que proporciona el [Lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Esta página de referencia se aplica a Azure Logic Apps y Power Automate, pero aparece en la documentación de Azure Logic Apps. Aunque esta página se refiere específicamente a los flujos de trabajo de aplicaciones lógicas, estas funciones son válidas tanto para flujos como para flujos de trabajo de aplicaciones lógicas. Para más información acerca de las funciones y las expresiones en Power Automate, consulte [Uso de expresiones en condiciones](/flow/use-expressions-in-conditions).
+> Esta página de referencia se aplica a Azure Logic Apps y Power Automate, pero aparece en la documentación de Azure Logic Apps. Aunque esta página se refiere específicamente a los flujos de trabajo de aplicaciones lógicas, estas funciones son válidas tanto para flujos como para flujos de trabajo de aplicaciones lógicas. Para más información acerca de las funciones y las expresiones en Power Automate, consulte [Uso de expresiones en condiciones](/power-automate/use-expressions-in-conditions).
 
 Por ejemplo, puede calcular valores con funciones matemáticas, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), cuando quiera obtener la suma de números enteros y float. A continuación se muestran otras tareas de ejemplo que puede realizar con funciones:
 
