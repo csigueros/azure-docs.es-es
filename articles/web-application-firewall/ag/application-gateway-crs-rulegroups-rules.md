@@ -5,15 +5,15 @@ description: Esta página proporciona información sobre las reglas y grupos de 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2021
+ms.date: 07/06/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 4a5f1dba6e0e1411a4268b07f6d66788f3aa8c0f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9aa4277c3d13419a4083193c07d807decea21c59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772722"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729429"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Reglas y grupos de reglas de CRS de Firewall de aplicaciones Web
 
@@ -427,6 +427,12 @@ Los siguientes grupos de reglas y reglas están disponibles cuando se usa el Fir
 |920340|La solicitud tiene contenido, pero falta el encabezado Content-Type.|
 |920341|La solicitud que tiene contenido requiere encabezado Content-Type|
 |920350|El encabezado host es una dirección IP numérica.|
+|920360|Nombre de argumento demasiado largo|
+|920370|Valor de argumento demasiado largo|
+|920380|Hay demasiados argumentos en la solicitud.|
+|920390|Se ha superado el tamaño total de argumentos.|
+|920400|El tamaño del archivo cargado es demasiado grande.|
+|920410|El tamaño total de los archivos cargados es demasiado grande.|
 |920420|Tipo de contenido de solicitud no permitido por una directiva|
 |920430|Versión del protocolo HTTP no permitida por una directiva|
 |920440|Extensión de archivo URL restringida por una directiva|

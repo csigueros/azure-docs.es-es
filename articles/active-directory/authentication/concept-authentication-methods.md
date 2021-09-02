@@ -5,26 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 07/01/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b6071370d510881d06c5b81f8660781169596a72
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5adc3bd8ef03b2613198518fc22284686c2bfee9
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764428"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730757"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>¿Qué métodos de autenticación y verificación hay disponibles en Azure Active Directory?
 
-Como parte de la experiencia de inicio de sesión de las cuentas en Azure Active Directory (Azure AD), hay distintas maneras en las que un usuario puede autenticarse. Un nombre de usuario y una contraseña son la manera más común en que los usuarios han presentado sus credenciales a lo largo de la historia. Con las características de autenticación y seguridad modernas de Azure AD, esa contraseña básica se debe complementar o reemplazar con métodos de autenticación más seguros.
+Microsoft recomienda los métodos de autenticación sin contraseña, como Windows Hello, las claves de seguridad FIDO2 y la aplicación Microsoft Authenticator, ya que son los proporcionan un inicio de sesión más seguro. Aunque los usuarios pueden iniciar sesión con otros métodos comunes, como un nombre de usuario y una contraseña, las contraseñas deben reemplazarse por métodos de autenticación más seguros.
 
 ![Tabla de puntos fuertes y métodos de autenticación preferidos en Azure AD](media/concept-authentication-methods/authentication-methods.png)
-
-Los métodos de autenticación sin contraseña, como Windows Hello, las claves de seguridad FIDO2 y la aplicación Microsoft Authenticator, proporcionan los eventos de inicio de sesión más seguros.
 
 Multi-Factor Authentication (MFA) de Azure AD aporta seguridad adicional al mero uso de una contraseña cuando un usuario inicia sesión. Se pueden solicitar al usuario formas adicionales de autenticación, como responder a una notificación push, especificar un código de un token de software o hardware, o responder a un SMS o a una llamada de teléfono.
 
@@ -68,8 +66,8 @@ En la tabla siguiente se describe cuándo se puede usar un método de autenticac
 | Windows Hello para empresas     | Sí                    | MFA                       |
 | Aplicación Microsoft Authenticator    | Sí                    | MFA y SSPR              |
 | Clave de seguridad FIDO2             | Sí                    | MFA                       |
-| Tokens de hardware OATH (versión preliminar) | No                     | MFA                       |
-| Tokens de software OATH           | No                     | MFA                       |
+| Tokens de hardware OATH (versión preliminar) | No                     | MFA y SSPR              |
+| Tokens de software OATH           | No                     | MFA y SSPR              |
 | SMS                            | Sí                    | MFA y SSPR              |
 | Llamada de voz                     | No                     | MFA y SSPR              |
 | Contraseña                       | Sí                    |                           |
@@ -89,9 +87,6 @@ Para obtener más información sobre cómo funciona cada método de autenticaci�
 
 > [!NOTE]
 > En Azure AD, la contraseña suele ser uno de los métodos de autenticación principales. El método de autenticación de contraseña no se puede deshabilitar. Si usa una contraseña como factor de autenticación principal, aumente la seguridad de los eventos de inicio de sesión con Multi-Factor Authentication de Azure AD.
-
-> [!IMPORTANT]
-> Aunque FIDO2 cumple los requisitos necesarios para actuar como forma de MFA, FIDO2 solo se puede usar como una forma de autenticación sin contraseña.
 
 En algunos escenarios se pueden usar los siguientes métodos de verificación adicional:
 

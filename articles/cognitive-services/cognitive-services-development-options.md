@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: c6c09389628e1a9648d827eb5562a06c4f746db2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8c40af42248e41346d10ec0028c1f13ff7ef22d6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370949"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457953"
 ---
 # <a name="cognitive-services-development-options"></a>Opciones de desarrollo de Cognitive Services
 
@@ -61,7 +61,7 @@ Si desea más información acerca de las bibliotecas cliente y las API REST disp
 Con Cognitive Services para macrodatos, puede integrar los modelos inteligentes de mejora continua directamente en cálculos de Apache Spark y SQL. Estas herramientas liberan a los desarrolladores de las tareas de red de bajo nivel, de modo que puedan centrarse en la creación de aplicaciones distribuidas inteligentes. Cognitive Services para macrodatos admite las siguientes plataformas y conectores: Azure Databricks, Azure Synapse, Azure Kubernetes Service y conectores de datos.
 
 * **Usuarios de destino**: científicos de datos e ingenieros de datos
-* **Ventajas** Azure Cognitive Services para macrodatos permite a los usuarios canalizar terabytes de datos mediante Cognitive Services con Apache Spark&trade;. Es sencillo crear aplicaciones inteligentes a gran escala con cualquier almacén de datos.
+* **Ventajas**: Azure Cognitive Services para macrodatos permite a los usuarios canalizar terabytes de datos mediante Cognitive Services con Apache Spark&trade;. Es sencillo crear aplicaciones inteligentes a gran escala con cualquier almacén de datos.
 * **Interfaz de usuario**: N/A: solo código
 * **Suscripciones**: cuenta de Azure + recursos de Cognitive Services
 
@@ -105,7 +105,7 @@ Power Automate es un servicio de [Power Platform](/power-platform/) que le ayuda
 
 ### <a name="continuous-integration-and-deployment"></a>Integración e implementación continuas
 
-Puede usar Azure DevOps y Acciones de GitHub para administrar las implementaciones. En la [sección siguiente](#continuous-integration-and-delivery-with-devops-and-github-actions), en la que se describe esto, tenemos dos ejemplos de integraciones de CI/CD para entrenar e implementar modelos personalizados para Voz y el servicio Language Understanding (LUIS). 
+Puede usar Azure DevOps y Acciones de GitHub para administrar las implementaciones. En la [sección siguiente](#continuous-integration-and-delivery-with-devops-and-github-actions), tenemos dos ejemplos de integraciones de CI/CD para entrenar e implementar modelos personalizados para Voz y el servicio Language Understanding (LUIS). 
 
 * **Usuarios de destino**: desarrolladores, científicos de datos e ingenieros de datos
 * **Ventajas** permite ajustar, actualizar e implementar continuamente aplicaciones y modelos mediante programación. El uso periódico de los datos para mejorar y actualizar los modelos de voz, visión, idioma y decisión es una ventaja significativa. 
@@ -127,7 +127,6 @@ Las herramientas que usará para entrenar y configurar modelos son diferentes de
 | Visión | Custom Vision | https://www.customvision.ai/ | [Guía de inicio rápido](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
 | Visión | Form Recognizer | [Herramienta de etiquetado de ejemplo](https://aka.ms/fott-2.1-ga) | [Artículo de procedimientos](./form-recognizer/label-tool.md?tabs=v2-0) |
 | Decisión | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Guía de inicio rápido](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
-| Decisión | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Guía de inicio rápido](./metrics-advisor/quickstarts/web-portal.md) |
 | Decisión | Personalizer | La interfaz de usuario está disponible en Azure Portal en el recurso de Personalizer. | [Guía de inicio rápido](./personalizer/quickstart-personalizer-sdk.md) |
 | Idioma | Language Understanding (LUIS) | https://www.luis.ai/ | |
 | Idioma | QnA Maker | https://www.qnamaker.ai/ | [Guía de inicio rápido](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
@@ -143,7 +142,7 @@ Language Understanding y el servicio de Voz ofrecen soluciones de integración c
 * [CI/CD para Habla personalizada](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
 * [CI/CD para LUIS](./luis/luis-concept-devops-automation.md)
 
-## <a name="on-prem-containers"></a>Contenedores locales 
+## <a name="on-premises-containers"></a>Contenedores locales 
 
 Muchos de los servicios de Cognitive Services se pueden implementar en contenedores para el acceso y uso local. El uso de estos contenedores le brinda la flexibilidad de acercar Cognitive Services a sus datos por razones de cumplimiento, seguridad u otras razones operativas. Para obtener una lista completa de contenedores de Cognitive Services, consulte [Contenedores locales para Cognitive Services](./cognitive-services-container-support.md).
 

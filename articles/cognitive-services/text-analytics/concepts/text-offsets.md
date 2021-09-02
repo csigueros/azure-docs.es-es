@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 348805670187f2362eb17dae40aa94e70f1daa24
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 89091f8914acea62370290e25a2f98f5bcb220a7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084689"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745545"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Desplazamientos de texto en la salida de Text Analytics API
 
@@ -24,9 +24,9 @@ La compatibilidad con varios idiomas y con Emojis ha dado lugar a codificaciones
 
 Debido a las distintas longitudes de posibles codificaciones de varios idiomas y Emojis, Text Analytics API puede devolver desplazamientos en la respuesta.
 
-## <a name="offsets-in-the-api-response"></a>Desplazamientos en la respuesta de API. 
+## <a name="offsets-in-the-api-response"></a>Desplazamientos en la respuesta de la API 
 
-Siempre que se devuelvan desplazamientos en la respuesta de API, como [Reconocimiento de entidades con nombre](../how-tos/text-analytics-how-to-entity-linking.md) o [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md), recuerde lo siguiente:
+Siempre que se devuelvan desplazamientos en la respuesta de la API, como [Reconocimiento de entidades con nombre](../how-tos/text-analytics-how-to-entity-linking.md) o [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md), recuerde lo siguiente:
 
 * Los elementos de la respuesta pueden ser específicos del punto de conexión al que se llamó. 
 * Las cargas de HTTP POST/GET están codificadas en [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), que puede ser o no la codificación de caracteres predeterminada del compilador del lado cliente o sistema operativo.
@@ -40,7 +40,7 @@ En .NET, tenga en cuenta el uso de la clase [StringInfo](/dotnet/api/system.glob
 
 Text Analytics API devuelve estos elementos textuales también, por motivos de comodidad.
 
-## <a name="offsets-in-api-version-31-preview"></a>Desplazamientos en la API versión 3.1-preview
+## <a name="offsets-in-api-version-31"></a>Desplazamientos de la API versión 3.1
 
 En la versión 3.1 de la API, todos los puntos de conexión de Text Analytics API que devuelven un desplazamiento serán compatibles con el parámetro `stringIndexType`. Este parámetro ajusta los atributos `offset` y `length` en la salida de la API para que coincidan con el esquema solicitado de iteración de cadena. Actualmente, se admiten tres tipos:
 

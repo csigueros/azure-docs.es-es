@@ -4,12 +4,12 @@ description: Información general sobre el modelo de comunicación de Reliable S
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d6f9d3ca44161674a829c4839e0a889c227b6f2
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97912621"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113597854"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Uso de las API de comunicación de Reliable Services
 Azure Service Fabric como una plataforma es completamente independiente de la comunicación entre los servicios. Todos los protocolos y las pilas son aceptables, desde UDP hasta HTTP. El desarrollador del servicio es quien debe elegir cómo deberían comunicarse los servicios. El marco de trabajo de aplicaciones de Reliable Services ofrece pilas de comunicación integradas, además de varias API que puede usar para compilar los componentes de comunicación personalizados.
@@ -86,7 +86,7 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-En ambos casos, devuelve una colección de agentes de escucha. Esto permite que el servicio escuche en varios puntos de conexión, que posiblemente usen distintos protocolos, mediante el uso de varios agentes de escucha. Por ejemplo, puede tener un agente de escucha HTTP y un agente de escucha de WebSocket independiente. Cada agente de escucha recibe un nombre y la colección resultante de los pares *nombre : dirección* se representan como un objeto JSON cuando un cliente solicita las direcciones de escucha para una partición o instancia de servicio.
+En ambos casos, devuelve una colección de agentes de escucha. El uso de varios clientes de escucha permite que el servicio escuche en varios puntos de conexión, que posiblemente usen distintos protocolos. Por ejemplo, puede tener un agente de escucha HTTP y un agente de escucha de WebSocket independiente. Puede migrar de comunicación remota no segura a segura habilitando primero ambos escenarios si tiene un cliente de escucha no seguro y un cliente de escucha seguro. Cada agente de escucha recibe un nombre y la colección resultante de los pares *nombre : dirección* se representan como un objeto JSON cuando un cliente solicita las direcciones de escucha para una partición o instancia de servicio.
 
 En un servicio sin estado, la invalidación devuelve una colección de ServiceInstanceListeners. Un elemento `ServiceInstanceListener` contiene una función para crear un `ICommunicationListener(C#) / CommunicationListener(Java)` y le asigna un nombre. Para servicios con estado, la invalidación devuelve una colección de ServiceReplicaListeners. Difiere ligeramente de su homólogo sin estado, porque elemento `ServiceReplicaListener` tiene una opción de abrir un elemento `ICommunicationListener` en las réplicas secundarias. No solo puede usar varios agentes de escucha de comunicación en un servicio, sino también especificar cuáles aceptan solicitudes en réplicas secundarias y cuáles escuchan solo en las réplicas principales.
 

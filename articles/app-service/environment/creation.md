@@ -4,73 +4,54 @@ description: Aprenda a crear una instancia de App Service Environment.
 author: ccompy
 ms.assetid: 7690d846-8da3-4692-8647-0bf5adfd862a
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 07/06/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 021c85037ea105ff7d8ff642e3a9f28ed3ebe991
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45d2c817f579cd183337a42e252dd3e606eafefa
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594107"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433231"
 ---
 # <a name="create-an-app-service-environment"></a>Creación de una instancia de App Service Environment
-
 > [!NOTE]
-> Este artículo trata sobre App Service Environment v3 (versión preliminar).
+> En este artículo se trata App Service Environment v3, que se usa con planes de App Service v2 aislados
 > 
 
-[App Service Environment (ASE)][Intro] es una implementación de inquilino único de Azure App Service que se ejecuta en una instancia de Azure Virtual Network (VNet).  ASEv3 solo admite la exposición de aplicaciones en una dirección privada de la red virtual. Cuando se crea una instancia de ASEv3 durante la versión preliminar, se agregan estos recursos a la suscripción.
 
-- Entorno de App Service
-- Punto de conexión privado
-
-Para implementar un ASE, será necesario el uso de dos subredes.  Una subred contendrá el punto de conexión privado.  Esta subred se puede usar para otras cosas, como las máquinas virtuales.  La otra subred se utiliza para las llamadas salientes realizadas desde el ASE.  Esta subred no se puede usar para ninguna otra cosa que no sea el ASE. 
+[App Service Environment (ASE)][Intro] es una implementación de inquilino único de Azure App Service que se ejecuta en una instancia de Azure Virtual Network (VNet). Para implementar Azure App Service Environment, será preciso usar una subred. Esta subred no se puede usar para ninguna otra cosa que no sea el ASE. 
 
 ## <a name="before-you-create-your-ase"></a>Antes de crear su ASE
 
 Después de crear el ASE, no se puede cambiar:
 
 - Location
-- Subscription
+- Suscripción
 - Resource group
 - Instancia de Azure Virtual Network (red virtual) usada
 - Subredes usadas
 - Tamaño de la subred
 - Nombre del ASE
 
-La subred de salida debe ser lo suficientemente grande como para contener el tamaño máximo al que se escalará el ASE. Elija una subred lo suficientemente grande como para satisfacer sus necesidades de escalado máximo, ya que no se podrá cambiar una vez creada. El tamaño recomendado es /24 con 256 direcciones.
-
-Después de crear el ASE, puede agregarle aplicaciones. Cuando su instancia de ASEv3 no contiene planes de App Service, se le cobra como si tuviera una instancia de un plan de App Service I1v2 en su ASE.  
-
-ASEv3 solo se ofrece en determinadas regiones. A medida que la versión preliminar se mueva a disponibilidad general, se agregarán más regiones. 
+La subred debe ser lo suficientemente grande como para contener el tamaño máximo al que se escalará Azure App Service Environment. Elija una subred lo suficientemente grande como para satisfacer sus necesidades de escalado máximo, ya que no se podrá cambiar una vez creada. El tamaño recomendado es /24 con 256 direcciones.
 
 ## <a name="creating-an-ase-in-the-portal"></a>Creación de un ASE en el portal
 
-1. Para crear una instancia de ASEv3, busque **App Service Environment (versión preliminar)** en el marketplace.  
-2. Aspectos básicos:  Seleccione la suscripción, seleccione o cree el grupo de recursos y escriba el nombre del ASE.  El nombre del ASE también se usará como sufijo de dominio del ASE.  Si el nombre del ASE es *contoso*, el sufijo de dominio será *contoso.appserviceenvironment.net*.  Este nombre se establecerá automáticamente en la zona privada de Azure DNS usada por la red virtual en la que se implementa el ASE. 
+1. Para crear una instancia de Azure App Service Environment, busque **App Service Environment v3** en Marketplace.  
+2. Aspectos básicos:  Seleccione la suscripción, seleccione o cree el grupo de recursos y escriba el nombre del ASE.  Seleccione el tipo de IP virtual. Si selecciona Interno, la dirección de App Service Environment entrante será una dirección en la subred de App Service Environment. Si selecciona Externo, la dirección de ASE entrante será una dirección de Internet pública. El nombre del ASE también se usará como sufijo de dominio del ASE. Si el nombre de la instancia de App Service Environment es *contoso* y tiene una instancia de App Service Environment con IP virtual interna, el sufijo de dominio será *contoso.appserviceenvironment.net*. Si el nombre de la instancia de App Service Environment es *contoso* y tiene una IP virtual externa, el sufijo de dominio será *contoso.p.azurewebsites.net*. 
+![Pestaña Aspectos básicos de creación de una instancia de App Service Environment](./media/creation/creation-basics.png)
+3. Hospedaje: en la opción de implementación del grupo host, seleccione *Habilitado* o *Deshabilitado*. La implementación del grupo host se usa para seleccionar el hardware dedicado. Si selecciona Habilitado, App Service Environment se implementará en un hardware dedicado. Si la implementación se realiza en este tipo de hardware, se le cobra por todo el host dedicado durante la creación de App Service Environment y, luego, un precio reducido por las instancias del plan de App Service. 
+![Selecciones de hospedaje de App Service Environment](./media/creation/creation-hosting.png)
+4. Redes: seleccione o cree la red virtual y seleccione o cree la subred. Si va a crear una instancia de App Service Environment con IP virtual interna, tendrá la opción de configurar que las zonas privadas de Azure DNS apunten el sufijo de dominio a App Service Environment. Los detalles sobre cómo configurar DNS manualmente se encuentran en la sección DNS de [Uso de App Service Environment][UsingASE].
+![Selecciones de red de App Service Environment](./media/creation/creation-networking.png)
+5. Revisión y creación; compruebe que la configuración sea correcta y seleccione Crear. App Service Environment puede tardar casi dos horas en crearse. 
 
-    ![Pestaña Aspectos básicos de creación de una instancia de App Service Environment](./media/creation/creation-basics.png)
-
-3. Hospedaje: seleccione OS Preference (Preferencia de SO), Host Group deployment (Implementación del grupo host). La preferencia de SO indica el sistema operativo que se usará inicialmente con las aplicaciones de este ASE. Puede agregar aplicaciones de otro sistema operativo después de la creación del ASE. La implementación del grupo host se usa para seleccionar el hardware dedicado. Con ASEv3, puede seleccionar Habilitado y, luego, colocarlo en hardware dedicado. Se le cobra por todo el host dedicado con la creación del ASE y, luego, un precio reducido por las instancias del plan de App Service. 
-
-    ![Selecciones de hospedaje de App Service Environment](./media/creation/creation-hosting.png)
-
-4. Redes:  seleccione o cree la red virtual, seleccione o cree la subred de entrada y seleccione o cree la subred de salida. Cualquier subred usada para la salida debe estar vacía y delegarse en Microsoft.Web/hostingEnvironments. Si crea la subred mediante el portal, esta se delegará automáticamente.
-
-    ![Selecciones de red de App Service Environment](./media/creation/creation-networking.png)
-
-5. Revisión y creación; compruebe que la configuración sea correcta y seleccione Crear. El ASE tardará aproximadamente una hora en crearse. 
-
-    ![Revisión y creación de App Service Environment](./media/creation/creation-review.png)
-
-Una vez completada la creación del ASE, puede seleccionarlo como ubicación al crear las aplicaciones. Para más información sobre la creación de aplicaciones en el nuevo ASE, lea [Uso de App Service Environment][UsingASE].
-
-## <a name="os-preference"></a>Preferencia de sistema operativo
-En un ASE, puede tener aplicaciones de Windows, Linux o ambas. En ASEv2, la preferencia inicial seleccionada durante la creación agrega la infraestructura de alta disponibilidad para ese sistema operativo durante la creación del ASE. Para agregar aplicaciones de otro sistema operativo, solo tiene que crear las aplicaciones como de costumbre y seleccionar el sistema operativo que prefiera. En ASEv3, esto no afectará apenas al comportamiento del back-end.  
+Una vez completada la creación del ASE, puede seleccionarlo como ubicación al crear las aplicaciones. Para más información sobre la creación de aplicaciones en la nueva instancia de App Service Environment o sobre la administración de App Service Environment, consulte [Uso de App Service Environment][UsingASE].
 
 ## <a name="dedicated-hosts"></a>Hosts dedicados
-El ASE se implementa normalmente en máquinas virtuales que se aprovisionan en un hipervisor multiinquilino. Si necesita implementarlo en sistemas dedicados, incluido el hardware, puede aprovisionar su ASE en hosts dedicados. En la versión preliminar inicial de ASEv3, los hosts dedicados vienen en pares. Cada host dedicado está en una zona de disponibilidad independiente, si la región lo permite. Las implementaciones del ASE basadas en hosts dedicados tienen un precio distinto del normal. Hay un cargo por el host dedicado y, luego, otro cargo por cada instancia del plan de App Service.  
+
+El ASE se implementa normalmente en máquinas virtuales que se aprovisionan en un hipervisor multiinquilino. Si necesita implementarlo en sistemas dedicados, incluido el hardware, puede aprovisionar su ASE en hosts dedicados. Los hosts dedicados vienen en parejas para garantizar la redundancia. Las implementaciones del ASE basadas en hosts dedicados tienen un precio distinto del normal. Hay un cargo por el host dedicado y, luego, otro cargo por cada instancia del plan de App Service. Las implementaciones en grupos host no tienen redundancia de zona. Para realizar la implementación en hosts dedicados, seleccione **Habilitar** para la implementación de grupos host en la pestaña Hospedaje.
 
 <!--Links-->
 [Intro]: ./overview.md

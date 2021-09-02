@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a605046c8cf76a425f7df5b1cdf637f7dc4bfc90
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a0dd00dffaa5112ce04723a12e8b8634f6149690
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747258"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588046"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Uso de las propiedades en una solución de Azure IoT Central
 
@@ -34,7 +34,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 
 | Campo           | Descripción                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nombre para mostrar    | El nombre para mostrar del valor de propiedad que se usa en los paneles y formularios.                                                                                                                                                              |
+| Nombre para mostrar    | Nombre para mostrar del valor de la propiedad que se usa en los iconos de paneles y formularios de dispositivos.                                                                                                                                                              |
 | Nombre            | El nombre de la propiedad. Azure IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico.  El código del dispositivo usa este valor de **Nombre**.           |
 | Tipo de funcionalidad | Propiedad.                                                                                                                                                                                                                          |
 | Tipo semántico   | El tipo semántico de la propiedad, como la temperatura, el estado o el evento. La elección del tipo semántico determina cuál de los campos siguientes está disponible.                                                                       |
@@ -43,7 +43,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 | severity        | Solo está disponible para el tipo semántico de evento. Los niveles de gravedad son **Error**, **Información** o **Advertencia**.                                                                                                                         |
 | Valores de estado    | Solo está disponible para el tipo semántico de estado. Defina los valores de estado posibles, cada uno de los cuales tiene el nombre para mostrar, el nombre, el tipo de enumeración y el valor.                                                                                   |
 | Unidad            | Una unidad para el valor de propiedad, como **mph**, **%** o **&deg;C**.                                                                                                                                                              |
-| Unidad de visualización    | Una unidad de visualización para su uso en paneles y formularios.                                                                                                                                                                                    |
+| Unidad de visualización    | Una unidad de visualización para su uso en iconos de paneles y formularios de dispositivos.                                                                                                                                                                                    |
 | Comentario         | Cualquier comentario sobre la funcionalidad de propiedad.                                                                                                                                                                                        |
 | Descripción     | Una descripción de la funcionalidad de propiedad.                                                                                                                                                                                          |
 

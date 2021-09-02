@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 86ffc0b0b8369fb82177912cccfdf582cfe1e536
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2ce108b7f36b7f7d4caf5133aafe99eb837df1ce
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696071"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742598"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implementación de Cloud Shell en una instancia de Azure Virtual Network
 
@@ -63,7 +63,7 @@ Como en la instancia estándar de Cloud Shell, se requiere una cuenta de almacen
 ## <a name="virtual-network-deployment-limitations"></a>Limitaciones de la implementación de redes virtuales
 * Debido a los recursos de red adicionales que intervienen, iniciar Cloud Shell en una red virtual suele ser más lento que en una sesión estándar de Cloud Shell.
 
-* Actualmente se admiten todas las regiones de Cloud Shell excepto Centro de la India. 
+* Actualmente se admiten todas las regiones primarias de Cloud Shell, excepto Centro de la India. 
 
 * [Azure Relay](../azure-relay/relay-what-is-it.md) no es un servicio gratuito, consulte los [precios](https://azure.microsoft.com/pricing/details/service-bus/) correspondientes. En el escenario de Cloud Shell, se usa una conexión híbrida para cada administrador mientras usan Cloud Shell. La conexión se apagará automáticamente una vez completada la sesión de Cloud Shell.
 
@@ -90,7 +90,7 @@ Si ya tiene una red virtual a la que le gustaría conectarse, omita esta secció
 En Azure Portal, o mediante la CLI de Azure, Azure PowerShell u otros, cree un grupo de recursos y una red virtual en el nuevo grupo de recursos, **ambos deben estar en la misma región**.
 
 ### <a name="arm-templates"></a>Plantillas de ARM
-Use la [plantilla de inicio rápido de Azure](https://aka.ms/cloudshell/docs/vnet/template) para crear los recursos de Cloud Shell en una red virtual y la otra [plantilla de inicio rápido de Azure](https://aka.ms/cloudshell/docs/vnet/template/storage) para crear el almacenamiento necesario. Tome nota de los nombres de los recursos, en especial del nombre de recurso compartido de archivos.
+Use la [plantilla de inicio rápido de Azure](https://aka.ms/cloudshell/docs/vnet/template) para crear los recursos de Cloud Shell en una red virtual y la otra [plantilla de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/) para crear el almacenamiento necesario. Tome nota de los nombres de los recursos, en especial del nombre de recurso compartido de archivos.
 
 ### <a name="open-relay-firewall"></a>Apertura del firewall de retransmisión
 Desplácese a la retransmisión que se creó con la plantilla anterior, seleccione "Redes" en la configuración y habilite el acceso de la red del explorador a la retransmisión. De forma predeterminada, solo puede acceder a la retransmisión desde la red virtual en la que se creó. 

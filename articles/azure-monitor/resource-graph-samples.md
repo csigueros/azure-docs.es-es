@@ -1,17 +1,17 @@
 ---
 title: Consultas de ejemplo de Azure Resource Graph para Azure Monitor
 description: Consultas de ejemplo de Azure Resource Graph para Azure Monitor que muestran el uso de tipos de recursos y tablas para acceder a recursos y propiedades relacionados con Azure Monitor.
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: f7b7de70a84028c0f26b547cd1dd18889a21aa6b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 12ba6d7f891acc3f025ab4e5b9c3306bcb49704c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861249"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318321"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-monitor"></a>Consultas de ejemplo de Azure Resource Graph para Azure Monitor
 

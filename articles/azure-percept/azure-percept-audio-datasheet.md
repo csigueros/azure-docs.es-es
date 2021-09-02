@@ -1,17 +1,17 @@
 ---
 title: Ficha técnica de Azure Percept Audio
 description: Consulte la ficha técnica de Azure Percept Audio para conocer las especificaciones detalladas del dispositivo
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 0785542841754a861d3c29fe02109d321fb434b1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 87c8fe13137b35df3efaadaa6ee735b6706c0a96
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097253"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224619"
 ---
 # <a name="azure-percept-audio-datasheet"></a>Ficha técnica de Azure Percept Audio
 

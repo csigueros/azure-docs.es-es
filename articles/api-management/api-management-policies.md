@@ -4,20 +4,16 @@ description: Aprenda sobre las directivas de transformación disponibles para su
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 07/19/2021
 ms.author: apimpm
-ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6856226c1eda0e8d5fde7df6d2b251007a47fa2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562355"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468524"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).
@@ -36,11 +32,13 @@ En esta sección se proporciona una referencia para las siguientes directivas de
     -   [Establecer cuota de uso por suscripción](api-management-access-restriction-policies.md#SetUsageQuota) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por suscripción.
     -   [Establecer cuota de uso por clave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por clave.
     -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) : aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
+    -   [Validar el certificado de cliente](api-management-access-restriction-policies.md#validate-client-certificate) : exige que un certificado presentado por un cliente a una instancia de API Management coincida con notificaciones y reglas de validación especificadas.
 -   [Directivas avanzadas](api-management-advanced-policies.md#AdvancedPolicies)
     -   [Flujo de control](api-management-advanced-policies.md#choose): aplica condicionalmente instrucciones de directiva basadas en la evaluación de expresiones booleanas.
     -   [Reenviar solicitud](api-management-advanced-policies.md#ForwardRequest) : reenvía la solicitud al servicio back-end.
     -   [Limitar la simultaneidad](api-management-advanced-policies.md#LimitConcurrency): evita que las directivas delimitadas las ejecute simultáneamente un número de solicitudes mayor que el especificado.
     -   [Registro en el centro de eventos](api-management-advanced-policies.md#log-to-eventhub): envía mensajes en el formato especificado a un destino de mensaje definido por una entidad del registrador.
+    -   [Emisión de métricas](api-management-advanced-policies.md#emit-metrics): envía métricas personalizadas a Application Insights en ejecución.
     -   [Mock response](api-management-advanced-policies.md#mock-response) (Simular respuesta): anula la ejecución de la canalización y devuelve la respuesta ficticia directamente al llamador.
     -   [Reintentar](api-management-advanced-policies.md#Retry) : reintenta ejecutar las instrucciones de directiva adjuntas, si y hasta que se cumple la condición. La ejecución se repite en los intervalos de tiempo especificados y hasta el número de reintentos indicado.
     -   [Devolver respuesta](api-management-advanced-policies.md#ReturnResponse) : anula la ejecución de la canalización y devuelve la respuesta especificada directamente al llamador.

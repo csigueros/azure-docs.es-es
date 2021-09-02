@@ -1,15 +1,15 @@
 ---
 title: Detalles de cumplimiento normativo para UK OFFICIAL y UK NHS
 description: Detalles de la iniciativa integrada del cumplimiento normativo de UK OFFICIAL y UK NHS Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b6243060badeef790c2711154ecc02f62f8add7e
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: e239c2f373ca850c09908b9c3a1df446c4321add
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607114"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105282"
 ---
 # <a name="details-of-the-uk-official-and-uk-nhs-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada del cumplimiento normativo de UK OFFICIAL y UK NHS
 

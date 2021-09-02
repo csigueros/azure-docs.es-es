@@ -1,18 +1,18 @@
 ---
 title: Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real
 description: Uso del streaming de registros para ver los registros de aplicaciones al instante
-author: MikeDodaro
-ms.author: barbkess
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b87f3221e62db6999dd67f475055f699a74c4c2a
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: cc34e87823e11b2c80d669edb0afe50703e38527
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495166"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015510"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real
 
@@ -31,18 +31,24 @@ Azure Spring Cloud permite el streaming de registros en la CLI de Azure para obt
 ## <a name="use-cli-to-tail-logs"></a>Uso de la CLI para el final de los registros
 
 Para evitar especificar repetidamente el nombre del grupo de recursos y el nombre de la instancia de servicio, establezca el nombre del grupo de recursos y el nombre del clúster predeterminados.
+
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 ```
+
 En los siguientes ejemplos, el grupo de recursos y el nombre del servicio se omitirán en los comandos.
 
 ### <a name="tail-log-for-app-with-single-instance"></a>Final del registro de la aplicación con una sola instancia
+
 Si una aplicación denominada auth-service solo tiene una instancia, puede ver el registro de la instancia de la aplicación con el siguiente comando:
+
 ```azurecli
 az spring-cloud app logs -n auth-service
 ```
+
 Esto devolverá registros:
+
 ```output
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
@@ -54,13 +60,15 @@ Esto devolverá registros:
 ```
 
 ### <a name="tail-log-for-app-with-multiple-instances"></a>Final del registro de una aplicación con varias instancias
-Si existen varias instancias de la aplicación denominada `auth-service`, puede ver el registro de la instancia mediante la opción `-i/--instance`. 
+
+Si existen varias instancias de la aplicación denominada `auth-service`, puede ver el registro de la instancia mediante la opción `-i/--instance`.
 
 En primer lugar, puede obtener los nombres de instancia de la aplicación con el siguiente comando.
 
 ```azurecli
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
 ```
+
 Con resultados:
 
 ```output
@@ -69,7 +77,8 @@ Name                                         Status    DiscoveryStatus
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
 auth-service-default-12-75cc4577fc-8nt4m  Running   UP
 auth-service-default-12-75cc4577fc-n25mh  Running   UP
-``` 
+```
+
 Después, puede transmitir los registros de una instancia de la aplicación con la opción `-i/--instance`:
 
 ```azurecli
@@ -79,14 +88,17 @@ az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-p
 También puede obtener los detalles de las instancias de la aplicación en Azure Portal.  Después de seleccionar **Aplicaciones** en el panel de navegación izquierdo del servicio Azure Spring Cloud, seleccione **App Instances**.
 
 ### <a name="continuously-stream-new-logs"></a>Streaming continuo de nuevos registros
-De forma predeterminada, `az spring-cloud app logs` imprime solo los registros existentes transmitidos a la consola de la aplicación y, a continuación, se cierra. Si desea hacer streaming de los nuevos registros, agregue-f (--follow):  
+
+De forma predeterminada, `az spring-cloud app logs` imprime solo los registros existentes transmitidos a la consola de la aplicación y, a continuación, se cierra. Si desea hacer streaming de los nuevos registros, agregue-f (--follow):
 
 ```azurecli
 az spring-cloud app logs -n auth-service -f
-``` 
+```
+
 Para comprobar todas las opciones de registro admitidas:
+
 ```azurecli
-az spring-cloud app logs -h 
+az spring-cloud app logs -h
 ```
 
 ### <a name="format-json-structured-logs"></a>Aplicación de formato a los registros estructurados de JSON
@@ -117,11 +129,13 @@ Disable delta property : false
 Single vip registry refresh property : null
 ```
 
-> El formato predeterminado que se usa es
-> ```
+> El formato predeterminado que se usa es el siguiente:
+>
+> ```format
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Inicio rápido: Supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento](./quickstart-logs-metrics-tracing.md)
 * [Análisis de registros y métricas con la configuración de diagnóstico](./diagnostic-services.md)

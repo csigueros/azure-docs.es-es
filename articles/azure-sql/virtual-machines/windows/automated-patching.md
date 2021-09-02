@@ -16,12 +16,12 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1d81362534f4de7357ebbbc6877aa7c3f72f2e
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 44dae9d8c8bc5ee3896bfc65340dfeee7679d54e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434757"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223190"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Aplicación de revisión automatizada para SQL Server en Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -110,9 +110,6 @@ $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -Mainte
 s
 Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
-
-> [!IMPORTANT]
-> Si la extensión no está ya instalada, al hacerlo se reinicia SQL Server.
 
 Según este ejemplo, la siguiente tabla describe el efecto práctico en la máquina virtual de Azure de destino:
 
