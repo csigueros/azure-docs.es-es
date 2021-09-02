@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f3fb07eaf7f63d15232f4c94eeee45f43c81616
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: fcde9659f71dc1fb834b21feefdf02bea2739a74
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075143"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "122653658"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Administración de sesión de inicio de sesión único en Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Las notificaciones que tienen que devolverse a la aplicación o ser usadas por c
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-Como el nombre indica, este proveedor no hace nada. Este proveedor se puede utilizar para suprimir el comportamiento de SSO de un perfil técnico específico. El siguiente perfil técnico `SM-Noop` se incluye en el [paquete de inicio de directivas personalizadas](custom-policy-get-started.md#custom-policy-starter-pack).
+Como el nombre indica, este proveedor no hace nada. Este proveedor se puede utilizar para suprimir el comportamiento de SSO de un perfil técnico específico. El siguiente perfil técnico `SM-Noop` se incluye en el [paquete de inicio de directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
 ```xml
 <TechnicalProfile Id="SM-Noop">
@@ -66,7 +66,7 @@ Como el nombre indica, este proveedor no hace nada. Este proveedor se puede util
 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-Este proveedor se puede utilizar para almacenar notificaciones en una sesión. Se suele hacer referencia a dicho proveedor en un perfil técnico que se usa para administrar cuentas locales y federadas. El siguiente perfil técnico `SM-AAD` se incluye en el [paquete de inicio de directivas personalizadas](custom-policy-get-started.md#custom-policy-starter-pack).
+Este proveedor se puede utilizar para almacenar notificaciones en una sesión. Se suele hacer referencia a dicho proveedor en un perfil técnico que se usa para administrar cuentas locales y federadas. El siguiente perfil técnico `SM-AAD` se incluye en el [paquete de inicio de directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
 ```xml
 <TechnicalProfile Id="SM-AAD">
@@ -87,7 +87,7 @@ Este proveedor se puede utilizar para almacenar notificaciones en una sesión. S
 ```
 
 
-El siguiente perfil técnico `SM-MFA` se incluye en el [paquete de inicio de directivas personalizadas](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. Este perfil técnico administra la sesión de autenticación multifactor.
+El siguiente perfil técnico `SM-MFA` se incluye en el [paquete de inicio de directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. Este perfil técnico administra la sesión de autenticación multifactor.
 
 ```xml
 <TechnicalProfile Id="SM-MFA">
@@ -104,7 +104,7 @@ El siguiente perfil técnico `SM-MFA` se incluye en el [paquete de inicio de dir
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-Este proveedor se usa para eliminar la pantalla "Elegir proveedor de identidades" y cerrar la sesión de un proveedor de identidades federado. Normalmente se hace referencia al mismo en un perfil técnico configurado para un proveedor de identidades federado, como Facebook o Azure Active Directory. El siguiente perfil técnico `SM-SocialLogin` se incluye en el [paquete de inicio de directivas personalizadas](custom-policy-get-started.md#custom-policy-starter-pack).
+Este proveedor se usa para eliminar la pantalla "Elegir proveedor de identidades" y cerrar la sesión de un proveedor de identidades federado. Normalmente se hace referencia al mismo en un perfil técnico configurado para un proveedor de identidades federado, como Facebook o Azure Active Directory. El siguiente perfil técnico `SM-SocialLogin` se incluye en el [paquete de inicio de directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
 ```xml
 <TechnicalProfile Id="SM-SocialLogin">

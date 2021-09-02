@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44275c7e6469c63f037a7b24d5435aa5ce3941d6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98201440"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652353"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conexión a Azure Database for MySQL con redireccionamiento
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este tema se explica cómo conectar una aplicación del servidor de Azure Database for MySQL con modo de redireccionamiento. El redireccionamiento pretende reducir la latencia de red entre las aplicaciones cliente y los servidores MySQL al permitir que las aplicaciones se conecten directamente a los nodos del servidor back-end.
 
@@ -57,7 +59,7 @@ En las secciones siguientes del documento se describe cómo instalar la extensi�
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
-#### <a name="prerequisites"></a>Prerrequisitos 
+#### <a name="prerequisites"></a>Requisitos previos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - PHP PEAR 
 - php-mysql
@@ -96,7 +98,7 @@ En las secciones siguientes del documento se describe cómo instalar la extensi�
 
 ### <a name="windows"></a>Windows
 
-#### <a name="prerequisites"></a>Prerrequisitos 
+#### <a name="prerequisites"></a>Requisitos previos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - php-mysql
 - Servidor de Azure Database for MySQL

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 5fd8dad44aa085530426168961280c4a84162ecb
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 9f78e3021df56ea750f2c902555aca796691476a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617679"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448956"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Actualización de la GPU de Azure Stack Edge Pro 
 
@@ -24,8 +24,8 @@ En este artículo, se describen los pasos necesarios para instalar actualizacion
 El procedimiento descrito en este artículo se realizó con una versión de software diferente, pero el proceso sigue siendo el mismo para la versión de software actual.
 
 > [!IMPORTANT]
-> - La actualización **2105** es la actualización actual y corresponde a:
->   - Versión de software del dispositivo: **2.2.1606.3320**
+> - La actualización **2106** es la actualización actual y corresponde a:
+>   - Versión de software del dispositivo: **2.2.1636.3457**
 >   - Versión del servidor de Kubernetes: **v1.20.2**
 >   - Versión de IoT Edge: **0.1.0-beta14**
 >   - Versión del controlador de GPU: **460.32.03**

@@ -5,21 +5,23 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: azfuncdf
-ms.openlocfilehash: bf50f0bdc3c8e654a3d2f780bb7f0c32533948eb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bbeb730b0e22bd555f06514870448a229fccfbc6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465806"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438107"
 ---
 # <a name="durable-functions-storage-providers"></a>Proveedores de almacenamiento de Durable Functions
 
 Durable Functions conserva automáticamente los parámetros de una función, los valores devueltos y otros estados en un almacenamiento duradero para garantizar una ejecución de confianza. La configuración predeterminada de Durable Functions almacena este estado del entorno de ejecución en una cuenta (clásica) de Azure Storage. Sin embargo, es posible configurar Durable Functions v2.0 y versiones posteriores para usar un proveedor de almacenamiento duradero alternativo.
 
-Durable Functions es un conjunto de desencadenadores y enlaces de Azure Functions con tecnología interna de [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx admite varios proveedores de almacenamiento de back-end, incluido el proveedor de Azure Storage que usa Durable Functions. A partir de la **versión 2.4.3** de Durable Functions, los usuarios pueden configurar sus aplicaciones de funciones para que usen proveedores de almacenamiento de DTFx distintos del proveedor de Azure Storage.
+Durable Functions es un conjunto de desencadenadores y enlaces de Azure Functions con tecnología interna de [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx admite varios proveedores de almacenamiento de back-end, incluido el proveedor de Azure Storage que usa Durable Functions. A partir de la **versión 2.5.0** de Durable Functions, los usuarios pueden configurar sus aplicaciones de funciones para que usen proveedores de almacenamiento de DTFx distintos del proveedor de Azure Storage.
 
 > [!NOTE]
 > La opción de usar proveedores de almacenamiento diferentes de Azure Storage se debe realizar con cuidado. La mayoría de las aplicaciones de funciones que se ejecutan en Azure deben usar el proveedor predeterminado de Azure Storage para Durable Functions. Sin embargo, hay importantes contrapartidas relacionadas con los costos, la escalabilidad y la administración de datos que se deben tener en cuenta al decidir si se debe usar un proveedor de almacenamiento alternativo. En este artículo se describen muchas de estas contrapartidas en detalle.
+>
+> Tenga en cuenta también que actualmente no es posible migrar datos de un proveedor de almacenamiento a otro. Si desea usar un nuevo proveedor de almacenamiento, debe crear una aplicación configurada con el nuevo proveedor de almacenamiento.
 
 Se desarrollaron dos proveedores de almacenamiento de DTFx alternativos para su uso con Durable Functions: el proveedor de almacenamiento de _Netherite_ y el proveedor de almacenamiento de _Microsoft SQL Server (MSSQL)._ En este artículo se describen los tres proveedores admitidos, se comparan entre sí y se proporciona información básica sobre cómo empezar a usarlos.
 

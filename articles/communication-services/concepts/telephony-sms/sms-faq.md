@@ -7,14 +7,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: reference
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: c92a62c32c3c1a89efd3fecfeff8e72e0cbfe490
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fcbff4d8f6122681e9947f83b02dff1ae6d60835
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467386"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251167"
 ---
 # <a name="sms-faq"></a>Preguntas más frecuentes sobre SMS
 

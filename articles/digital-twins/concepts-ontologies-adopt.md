@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 73b115ad6f49d943c423c7490df347afce7c5869
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e31ee4ed9b7baa074f59bc615b9044cbf314a47d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668428"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438520"
 ---
 # <a name="adopting-an-industry-ontology"></a>Adopción de una ontología del sector
 
-Como es más fácil comenzar con una ontología de DTDL de código abierto que empezar de cero, Microsoft se está asociando con expertos de dominio para publicar ontologías que representan convenciones del sector ampliamente aceptadas y admiten diversos casos de uso de clientes. 
+Como es posible que sea más fácil comenzar con una ontología de DTDL de código abierto que desde cero, Microsoft se está asociando con expertos de dominio para publicar ontologías que representan convenciones del sector ampliamente aceptadas y admiten diversos casos de uso de clientes. 
 
-El resultado es un conjunto de ontologías de código abierto basadas en DTDL que aprenden de las normas estándar del sector, están basadas en ellas o las utilizan directamente. Las ontologías están diseñadas para satisfacer las necesidades de los desarrolladores que se encuentran en un nivel inferior, con la posibilidad de que el sector las adopte o extienda posteriormente según sus necesidades.
+El resultado es un conjunto de ontologías de código abierto basadas en DTDL que aprenden de los estándares del sector, se basan en ellos o los utilizan directamente. Las ontologías están diseñadas para satisfacer las necesidades de los desarrolladores que se encuentran en un nivel inferior, con la posibilidad de que el sector las adopte o extienda posteriormente ampliamente.
 
 En este momento, Microsoft ha trabajado con asociados para desarrollar ontologías para [edificios inteligentes](#realestatecore-smart-building-ontology), [ciudades inteligentes](#smart-cities-ontology) y [cuadrículas de energía](#energy-grid-ontology) que proporcionan una base común para la creación de modelos que se basa en los estándares de estos sectores para evitar la reinvención. 
 
@@ -50,7 +50,7 @@ Para más información sobre las asociaciones y el enfoque para ciudades intelig
 
 *Obtenga la ontología en el repositorio siguiente:* [Ontología del lenguaje de definición de Digital Twins (DTDL) para la cuadrícula de energía](https://github.com/Azure/opendigitaltwins-energygrid/).
 
-Esta ontología se creó para ayudar a los proveedores de soluciones a acelerar el desarrollo de soluciones de gemelos digitales para casos de uso de energía (supervisión de los recursos de la red, análisis de interrupciones e impacto, simulación y mantenimiento predictivo) y facilitar la transformación digital y la modernización de la cuadrícula de energía. Es una adaptación del [Modelo de información común (CIM)](https://cimug.ucaiug.org/), un estándar global para la cuadrícula de energía, modelado de operaciones del sistema de alimentación y mercado de productos energéticos físicos.
+Esta ontología se creó para ayudar a los proveedores de soluciones a acelerar el desarrollo de soluciones de gemelos digitales para casos de uso de energía (supervisión de los recursos de la red, análisis de interrupciones e impacto, simulación y mantenimiento predictivo) y habilitar tanto la transformación digital como la modernización de la cuadrícula de energía. Es una adaptación del [Modelo de información común (CIM)](https://cimug.ucaiug.org/), un estándar global para la administración de recursos de la cuadrícula de energía, el modelado de las operaciones del sistema de alimentación y el mercado de productos energéticos físicos.
 
 Para más información sobre la ontología, sobre cómo usarla y colaborar, visite el repositorio de la ontología en GitHub: [Azure/opendigitaltwins-energygrid](https://github.com/Azure/opendigitaltwins-energygrid/). 
 
@@ -58,6 +58,6 @@ También puede obtener más información sobre las asociaciones y el enfoque de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo extender las ontologías estándar del sector para que satisfagan sus especificaciones: [Conceptos: Extensión de las ontologías del sector](concepts-ontologies-extend.md).
+* Obtenga más información sobre cómo extender las ontologías estándar del sector para que satisfagan las especificaciones en [Extensión de las ontologías del sector](concepts-ontologies-extend.md).
 
 * O bien, continúe el proceso de aprendizaje para desarrollar modelos basados en ontologías: [Uso de estrategias de ontología en un procedimiento de desarrollo de modelos](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

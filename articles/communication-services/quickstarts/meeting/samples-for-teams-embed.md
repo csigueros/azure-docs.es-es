@@ -4,15 +4,15 @@ description: Obtenga información sobre las funcionalidades de la biblioteca ins
 author: palatter
 ms.author: palatter
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: d5ddb8589343bca55554ad71327b6adfd0202976
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: fef3c256cbebb14582499aac66e0f66c500af522
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113215114"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251105"
 ---
 # <a name="use-the-communication-services-teams-embed-library"></a>Uso de la biblioteca insertada de Teams de Communication Services
 

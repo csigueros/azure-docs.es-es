@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2f4bd040d7e5858fd561444f56dbce7b3f940d9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83f3264ca3dd8460f44695acbef281c99286f2f8
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92742390"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252315"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio Azure API Management pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de API Management brinda muchas más oportunidades.
@@ -69,7 +69,7 @@ Existen ciertos compromisos cuando se usa un estilo de fire and forget de solici
 La directiva `send-request` permite usar un servicio externo para realizar funciones complejas de procesamiento y devolver datos al servicio de Administración de API que pueden usarse para un posterior procesamiento de directivas.
 
 ### <a name="authorizing-reference-tokens"></a>Autorización de tokens de referencia
-Una de las funciones principales de API Management es proteger los recursos de back-end. Si el servidor de autorización que usa su API crea [tokens de JWT](https://jwt.io/) como parte de su flujo de OAuth2, igual que hace [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), puede usar la directiva `validate-jwt` para comprobar la validez del token. Algunos servidores de autorización crean lo que se denomina [tokens de referencia](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/), que no se pueden verificar sin realizar una devolución de llamada al servidor de autorización.
+Una de las funciones principales de API Management es proteger los recursos de back-end. Si el servidor de autorización que usa su API crea [tokens de JWT](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) como parte de su flujo de OAuth2, igual que hace [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), puede usar la directiva `validate-jwt` para comprobar la validez del token. Algunos servidores de autorización crean lo que se denomina [tokens de referencia](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/), que no se pueden verificar sin realizar una devolución de llamada al servidor de autorización.
 
 ### <a name="standardized-introspection"></a>Introspección estandarizada
 En el pasado, no existía ninguna forma estandarizada de verificar un token de referencia con un servidor de autorización. Pero IETF publicó un estándar propuesto recientemente, [RFC 7662](https://tools.ietf.org/html/rfc7662) , que define cómo un servidor de recursos puede comprobar la validez de un token.
@@ -105,7 +105,10 @@ En el objeto de respuesta, puede recuperar el cuerpo, y RFC 7622 indica a API Ma
 
 Como alternativa, si el servidor de autorización no incluye el campo "activo" para indicar si el token es válido, use una herramienta como Postman para determinar qué propiedades se establecen en un token válido. Por ejemplo, si una respuesta de token válido contiene una propiedad denominada "expires_in", compruebe si este nombre de propiedad existe en la respuesta del servidor de autorización de esta manera:
 
+```xml
 <when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
+```
+
 
 ### <a name="reporting-failure"></a>Notificación de error
 Puede usar una directiva `<choose>` para detectar si el token no es válido y, en caso de no serlo, devolver una respuesta 401.

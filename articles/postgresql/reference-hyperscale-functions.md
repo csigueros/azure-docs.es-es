@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 04/07/2021
-ms.openlocfilehash: b0aa9d5dec25d8d600ecbcde59a57e67917c6411
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 65288730cafaa39507eeab4ed2e3d29267080262
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011158"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310470"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funciones de la API de SQL de Hiperescala (Citus)
 
@@ -657,61 +657,6 @@ SELECT * from citus_remote_connection_stats();
  citus_worker_1 | 5432 | postgres      |                        3
 (1 row)
 ```
-
-### <a name="master_drain_node"></a>master\_drain\_node
-
-La función master\_drain\_node() mueve las particiones fuera del nodo designado y a otros nodos que tienen `shouldhaveshards` establecido en true en [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table). Llame a la función antes de quitar un nodo del grupo de servidores y desactivar el servidor físico del nodo.
-
-#### <a name="arguments"></a>Argumentos
-
-**nodename**: nombre de host del nodo que se va a purgar.
-
-**nodeport**: número de puerto del nodo que se va a purgar.
-
-**shard\_transfer\_mode**: (opcional) especifica el método de replicación, si va a usar la replicación lógica de PostgreSQL o un comando COPY entre nodos de trabajo. Los valores posibles son:
-
-> -   `auto`: requerir la identidad de réplica si es posible la replicación lógica; de lo contrario, use el comportamiento heredado (por ejemplo, para la reparación de particiones, PostgreSQL 9.6). Este es el valor predeterminado.
-> -   `force_logical`: utilizar la replicación lógica incluso si la tabla no tiene una identidad de réplica. Se producirá un error en las instrucciones update/delete simultáneas de la tabla durante la replicación.
-> -   `block_writes`: usar COPY (escrituras de bloqueo) para las tablas que carecen de identidad de réplica o clave principal.
-
-**rebalance\_strategy**: (opcional) nombre de una estrategia en [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
-Si se omite este argumento, la función elige la estrategia predeterminada, como se indica en la tabla.
-
-#### <a name="return-value"></a>Valor devuelto
-
-N/D
-
-#### <a name="example"></a>Ejemplo
-
-Estos son los pasos típicos para quitar un solo nodo (por ejemplo, "10.0.0.1" en un puerto estándar de PostgreSQL):
-
-1.  Purgue el nodo.
-
-    ```postgresql
-    SELECT * from master_drain_node('10.0.0.1', 5432);
-    ```
-
-2.  Espere a que finalice el comando.
-
-3.  Quite el nodo.
-
-Al purgar varios nodos, se recomienda usar [rebalance_table_shards](#rebalance_table_shards) en su lugar. Esto permite a Hiperescala (Citus) planear de antemano y mover particiones el número mínimo de veces.
-
-1.  Ejecute este comando para cada nodo que desee quitar:
-
-    ```postgresql
-    SELECT * FROM master_set_node_property(node_hostname, node_port, 'shouldhaveshards', false);
-    ```
-
-2.  Purgue todos los nodos a la vez con [rebalance_table_shards](#rebalance_table_shards).
-
-    ```postgresql
-    SELECT * FROM rebalance_table_shards(drain_only := true);
-    ```
-
-3.  Espere hasta que finalice el reequilibrio de la purga.
-
-4.  Quite los nodos.
 
 ### <a name="replicate_table_shards"></a>replicate\_table\_shards
 

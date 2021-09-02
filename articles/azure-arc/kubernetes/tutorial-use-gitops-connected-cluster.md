@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial , devx-track-azurecli
-ms.openlocfilehash: 1c639c323fcd0dd0ed9f417070d679defeb4cf1e
-ms.sourcegitcommit: 20abee54e48f9b40b83d39c5b970bd0193812cb6
+ms.openlocfilehash: c98a912394bf660f7a2f09c25c10629fd9810434
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113632437"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098310"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutorial: Implementación de configuraciones mediante GitOps en un clúster de Kubernetes habilitado para Azure Arc 
 
@@ -95,7 +95,8 @@ Use la extensión de la CLI de Azure para `k8s-configuration`, a fin de vincular
         "lastModifiedByType": null
       },
       "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
-      ```
+    }
+    ```
 
 ### <a name="use-a-public-git-repository"></a>Uso de un repositorio de Git público
 
@@ -151,7 +152,7 @@ Al igual que con las claves privadas, puede proporcionar el contenido de known_h
 >[!NOTE]
 >* La versión 1.2.0+ del gráfico del operador Helm es compatible con la autenticación privada de la versión de Helm de HTTPS.
 >* La versión de Helm de HTTPS no está admitida en los clústeres administrados por AKS.
->* Si necesita Flux para acceder al repositorio de Git mediante el proxy, tendrá que actualizar los agentes de Azure Arc con la configuración de proxy. Para obtener más información, consulte [Conexión mediante un servidor proxy de salida](./quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server).
+>* Si necesita Flux para acceder al repositorio de Git mediante el proxy, tendrá que actualizar los agentes de Azure Arc con la configuración de proxy. Para obtener más información, consulte [Conexión mediante un servidor proxy de salida](./quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server).
 
 
 ## <a name="additional-parameters"></a>Parámetros adicionales

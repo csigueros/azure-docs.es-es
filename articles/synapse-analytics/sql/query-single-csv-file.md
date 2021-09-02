@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8400713ea04c3f26d18fc032b5b0d0f3b8c65068
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 6744970ec7aadfc4a9cb967c479307b441f4fb1b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061927"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453057"
 ---
 # <a name="query-csv-files"></a>Consulta de archivo CSV
 
@@ -175,25 +175,15 @@ Vista previa del archivo:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'csv/population-unix-hdr/population.csv',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV', PARSER_VERSION = '2.0',
-        FIELDTERMINATOR =',',
-        FIRSTROW = 2,
-        HEADER_ROW = TRUE
-    )
-    WITH (
-        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-        [year] smallint,
-        [population] bigint
+    BULK 'csv/population-unix-hdr/population.csv',
+    DATA_SOURCE = 'SqlOnDemandDemo',
+    FORMAT = 'CSV', PARSER_VERSION = '2.0',
+    FIELDTERMINATOR =',',
+    HEADER_ROW = TRUE
     ) AS [r]
-WHERE
-    country_name = 'Luxembourg'
-    AND year = 2017;
 ```
 
-La opción `HEADER_ROW = { TRUE | FALSE }` lee la primera fila del archivo CSV como HEADER ROW y muestra los valores como nombres de columna en lugar de nombres predeterminados (C1, C2, etc.).
+La opción `HEADER_ROW = TRUE` provocará que se lean los nombres de columna de la fila de encabezado del archivo. Es excelente para fines de exploración cuando no está familiarizado con el contenido del archivo. Para obtener el máximo rendimiento, [consulte la ](best-practices-serverless-sql-pool.md#use-appropriate-data-types)sección de uso de los tipos de datos apropiados en los procedimientos recomendados. Además, puede leer más sobre la [sintaxis de OPENROWSET aquí](develop-openrowset.md#syntax).
 
 ## <a name="custom-quote-character"></a>Carácter de comillas personalizado
 

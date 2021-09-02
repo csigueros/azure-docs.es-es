@@ -1,20 +1,20 @@
 ---
 title: Introducción al dispositivo Azure Percept Audio
 description: Más información acerca de Azure Percept Audio.
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 23fae249cfceec75af0b7c49a3875ab447ecbafd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6afe4da59b837d4901bfb7243d5e0734b4c8df28
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564269"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226889"
 ---
-# <a name="introduction-to-azure-percept-audio"></a>Introducción a Azure Percept Audio
+# <a name="azure-percept-audio-device-overview"></a>Introducción al dispositivo Azure Percept Audio
 
 Azure Percept Audio es un dispositivo accesorio que agrega funcionalidades de voz con inteligencia artificial a [Azure Percept DK](./overview-azure-percept-dk.md). Contiene un procesador de audio preconfigurado y una matriz lineal de cuatro micrófonos, lo que permite usar comandos de voz, detección de palabras clave y reconocimiento de voz a gran distancia mediante Azure Cognitive Services. Se integra de forma perfecta con Azure Percept DK, [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) y otros servicios de administración perimetral de Azure. Azure Percept Audio se puede adquirir en la [tienda en línea de Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 

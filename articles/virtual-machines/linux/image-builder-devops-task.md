@@ -1,20 +1,20 @@
 ---
 title: 'Versión preliminar: tarea de DevOps del servicio Azure Image Builder'
 description: Tarea de Azure DevOps para insertar artefactos de compilación en una imagen de máquina virtual, para que pueda instalar y configurar la aplicación y el sistema operativo
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7055aa967058e1592f757c2dabf7890b1da76632
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 2c3785f20c47656304f7d40b67c9d90c54cb3072
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441805"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447086"
 ---
 # <a name="azure-image-builder-service-devops-task-preview"></a>Tarea de DevOps del servicio Azure Image Builder (versión preliminar)
 
@@ -79,7 +79,7 @@ Use el grupo de recursos donde se almacenará el artefacto de plantilla de image
 La ubicación es la región donde se ejecutará Image Builder. Solo se admite un número establecido de [regiones](../image-builder-overview.md#regions). Las imágenes de origen deben estar presentes en esta ubicación. Por ejemplo, si usa Shared Image Gallery, debe existir una réplica en esa región.
 
 ### <a name="managed-identity-required"></a>Identidad administrada (requerida)
-Image Builder requiere una identidad administrada, que se usa para leer imágenes personalizadas de origen, conectarse a Azure Storage y crear imágenes personalizadas. Obtenga más información [aquí](../image-builder-overview.md#permissions).
+Image Builder requiere una identidad administrada, que se usa para leer imágenes personalizadas de origen, conectarse a Azure Storage y crear imágenes personalizadas. Consulte [Información sobre Azure Image Builder](../image-builder-overview.md#permissions) para más información.
 
 ### <a name="vnet-support"></a>Compatibilidad de redes virtuales
 
@@ -347,3 +347,4 @@ El artefacto de recurso de la plantilla de imagen está en el grupo de recursos 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, vea [Introducción a Azure Image Builder](../image-builder-overview.md).
+

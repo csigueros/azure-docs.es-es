@@ -1,15 +1,15 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Event Grid
 description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para Azure Event Grid. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 1c458756a76bce719265c178bbf9913e278e3d35
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: d6e8af5da0d5cb808bd34ed24e841592c3940b0d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609321"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099344"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-grid"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Event Grid
 
