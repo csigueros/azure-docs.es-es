@@ -132,6 +132,8 @@
           href: how-to-circuit-breaker-metrics.md
         - name: Registro de aplicaciones estructurado
           href: structured-app-log.md
+        - name: Uso de Dynatrace Java OneAgent
+          href: how-to-dynatrace-one-agent-monitor.md
         - name: Agente In-Process Java de New Relic
           href: how-to-new-relic-monitor.md
         - name: Supervisión de eventos del ciclo de vida de la aplicación

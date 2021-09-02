@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: b9a3880c88224906e68054475233e8d8ce02476a
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 0e4bcc24aa64cfa875057d8503d0d6b629b36896
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964975"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748817"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
 
@@ -530,8 +530,8 @@ Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a
 
 O bien, eche un vistazo a otros recursos:
 
-> [!div class="nextstepaction"]
-> [Configuración de un contenedor personalizado](configure-custom-container.md)
+- [Configuración de un contenedor personalizado](configure-custom-container.md)
+- [Environment variables and app settings reference](reference-app-settings.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5a6c3251b95bad9ba8f0f03fe97ba833d5390fb1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dd9fe79249fe5e02ad8a4adaf8dda02e72c954c6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741230"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039195"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -127,6 +127,10 @@ Siga los pasos para usar [SSMS para conectarse a SQL Database](connect-query-ssm
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="limitations"></a>Limitaciones 
+Las conexiones a un punto de conexión privado solo admiten **Proxy** como [directiva de conexión](connectivity-architecture.md#connection-policy)
+
 
 ## <a name="on-premises-connectivity-over-private-peering"></a>Conectividad local a través del emparejamiento privado
 

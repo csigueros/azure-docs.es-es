@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/08/2021
-ms.openlocfilehash: f4fa21c99a17111b1045b66713490b86592e04bf
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 83fd36ca1f352371e4d0717968512d791443d590
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467123"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515540"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registro y análisis de una instancia de Azure SQL Database
 
@@ -140,9 +140,9 @@ La habilitación de las conexiones de Azure permitirá que Azure Purview llegue 
 
 Se puede instalar un entorno de ejecución de integración autohospedado (SHIR) en una máquina para conectarse con un recurso de una red privada.
 
-1. [Cree e instale un entorno de ejecución de integración autohospedado](/azure/purview/manage-integration-runtimes) en una máquina personal o en una máquina dentro de la misma red virtual que el servidor de bases de datos.
+1. [Cree e instale un entorno de ejecución de integración autohospedado](./manage-integration-runtimes.md) en una máquina personal o en una máquina dentro de la misma red virtual que el servidor de bases de datos.
 1. Compruebe el firewall del servidor de bases de datos para confirmar que la máquina con el SHIR tiene acceso a través del firewall. Agregue la dirección IP de la máquina si aún no tiene acceso.
-1. Si la instancia de Azure SQL Server está detrás de un punto de conexión privado o en una red virtual, puede usar un [punto de conexión privado de ingesta](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources) para garantizar el aislamiento de red de un extremo a otro.
+1. Si la instancia de Azure SQL Server está detrás de un punto de conexión privado o en una red virtual, puede usar un [punto de conexión privado de ingesta](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) para garantizar el aislamiento de red de un extremo a otro.
 
 ## <a name="register-an-azure-sql-database-data-source"></a>Registro de un origen de datos de Azure SQL Database
 
@@ -150,7 +150,7 @@ Para registrar una nueva instancia de Azure SQL Database en el catálogo de dato
 
 1. Vaya a la cuenta de Purview.
 
-1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+1. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 
 1. Seleccione **Registrar**.
 

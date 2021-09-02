@@ -1,16 +1,16 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
+ms.author: rifox
 ms.custom: public_preview
-ms.openlocfilehash: 9a3c8c14b5cf95c715162895f0218e101d17b98a
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: b335b95553c02d94512f1a52a1a49f2656f6a93c
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113215113"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078122"
 ---
 > [!IMPORTANT]
 > Esta característica de Azure Communication Services se encuentra actualmente en versión preliminar pública.

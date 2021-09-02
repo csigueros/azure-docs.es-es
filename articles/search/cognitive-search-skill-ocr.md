@@ -2,18 +2,17 @@
 title: Aptitud cognitiva de OCR
 titleSuffix: Azure Cognitive Search
 description: Extraiga texto de archivos de imágenes mediante el reconocimiento óptico de caracteres (OCR) en una canalización de enriquecimiento de Azure Cognitive Search.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 12b6c8e71052d8d821d4b253d5f921bbff82e02d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/12/2021
+ms.openlocfilehash: b0ed1860abe3d8a85e87e2bf2746812e1ca67d2e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473884"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860303"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
@@ -32,10 +31,10 @@ La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos
 + .TIFF
 
 > [!NOTE]
-> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
+> Esta aptitud está enlazada a Cognitive Services y necesita [un recurso facturable](cognitive-search-attach-cognitive-services.md) para las transacciones que superan los 20 documentos por indizador al día. La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes.
+> 
+> Además, la extracción de imágenes [se puede facturar mediante Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
-
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
 
@@ -209,6 +208,8 @@ En el ejemplo del conjunto de aptitudes anterior, se asume que existe un campo d
 ```
 
 ## <a name="see-also"></a>Consulte también
+
++ [¿Qué es el reconocimiento óptico de caracteres?](../cognitive-services/computer-vision/overview-ocr.md)
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Aptitud TextMerger](cognitive-search-skill-textmerger.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
