@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: fce2c2d007f92c43e763826f9345f773324e885e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ffbda69d91a709ff5a9af66f7abe2b7734efe177
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100192"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666395"
 ---
 # <a name="add-a-heat-map-layer-android-sdk"></a>Adición de una capa de mapa térmico (Android SDK)
 
-Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un tipo de visualización de datos. Se usan para representar la densidad de datos con un rango de colores y muestran las "zonas activas" de los datos en un mapa. Los mapas térmicos son una excelente manera de representar conjuntos de datos con una gran cantidad de puntos. 
+Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un tipo de visualización de datos. Se usan para representar la densidad de datos con un rango de colores y muestran las "zonas activas" de los datos en un mapa. Los mapas térmicos son una excelente manera de representar conjuntos de datos con una gran cantidad de puntos.
 
 La representación de decenas de miles de puntos como símbolos puede abarcar la mayor parte del área del mapa. Este caso podría generar la superposición de muchos símbolos. Esto dificulta entender mejor los datos. Sin embargo, la visualización de este mismo conjunto de datos como mapa térmico facilita la visualización de la densidad y la densidad relativa de cada punto de datos.
 
@@ -50,6 +50,11 @@ En el siguiente ejemplo de código se carga una fuente GeoJSON de terremotos de 
 ```java
 //Create a data source and add it to the map.
 DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson");
+
+//Add data source to the map.
 map.sources.add(source);
 
 //Create a heat map layer.
@@ -60,27 +65,6 @@ HeatMapLayer layer = new HeatMapLayer(source,
 
 //Add the layer to the map, below the labels.
 map.layers.add(layer, "labels");
-
-//Import the geojson data and add it to the data source.
-Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
-    this,
-    (String result) -> {
-        //Parse the data as a GeoJSON Feature Collection.
-        FeatureCollection fc = FeatureCollection.fromJson(result);
-
-        //Add the feature collection to the data source.
-        source.add(fc);
-
-        //Optionally, update the maps camera to focus in on the data.
-
-        //Calculate the bounding box of all the data in the Feature Collection.
-        BoundingBox bbox = MapMath.fromData(fc);
-
-        //Update the maps camera so it is focused on the data.
-        map.setCamera(
-            bounds(bbox),
-            padding(20));
-    });
 ```
 
 ::: zone-end
@@ -90,6 +74,11 @@ Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_
 ```kotlin
 //Create a data source and add it to the map.
 val source = DataSource()
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson")
+
+//Add data source to the map.
 map.sources.add(source)
 
 //Create a heat map layer.
@@ -101,27 +90,6 @@ val layer = HeatMapLayer(
 
 //Add the layer to the map, below the labels.
 map.layers.add(layer, "labels")
-
-//Import the geojson data and add it to the data source.
-Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
-    this
-) { result: String? ->
-    //Parse the data as a GeoJSON Feature Collection.
-    val fc = FeatureCollection.fromJson(result!!)
-
-    //Add the feature collection to the data source.
-    source.add(fc)
-
-    //Optionally, update the maps camera to focus in on the data.
-    //Calculate the bounding box of all the data in the Feature Collection.
-    val bbox = MapMath.fromData(fc)
-
-    //Update the maps camera so it is focused on the data.
-    map.setCamera(
-        bounds(bbox),
-        padding(20)
-    )
-}
 ```
 
 ::: zone-end
@@ -137,7 +105,7 @@ En el ejemplo anterior se personalizó el mapa térmico con la configuración de
 - `heatmapRadius`: define un radio de píxel en el que representar cada punto de datos. Puede definir el radio como un número fijo o como una expresión. Si utiliza una expresión, es posible escalar el radio en función del nivel de zoom, que parece representar un área espacial coherente del mapa (por ejemplo, un radio de 5 millas).
 - `heatmapColor`: especifica cómo se colorea el mapa térmico. Un degradado de color es una característica común de los mapas térmicos. Puede lograr el efecto con una expresión `interpolate`. También se pude usar una expresión `step` para colorear el mapa térmico y separar gráficamente la densidad en intervalos para que se asemeje más a un mapa de radar o con contornos. Las paletas de colores definen los colores desde valores de intensidad mínimos hasta máximos.
 
-  En los mapas térmicos, los valores de los colores se especifican como una expresión del valor `heatmapDensity`. El color del área donde no hay ningún dato se define en el índice 0 de la expresión "Interpolación" o el color predeterminado de una expresión "Escalonada". Puede utilizar este valor para definir un color de fondo. Normalmente, este valor se establece como transparente o en un color negro semitransparente. 
+  En los mapas térmicos, los valores de los colores se especifican como una expresión del valor `heatmapDensity`. El color del área donde no hay ningún dato se define en el índice 0 de la expresión "Interpolación" o el color predeterminado de una expresión "Escalonada". Puede utilizar este valor para definir un color de fondo. Normalmente, este valor se establece como transparente o en un color negro semitransparente.
 
   Estos son algunos ejemplos de expresiones de color:
 
@@ -290,6 +258,56 @@ val layer = HeatMapLayer(source,
 En el siguiente vídeo se muestra un mapa que ejecuta el código anterior, que escala el radio mientras se amplía el mapa para crear una representación de mapa térmico coherente entre los niveles de zoom.
 
 ![Animación que muestra el zoom de un mapa con una capa de mapa térmico que presenta un tamaño geoespacial coherente](media/map-add-heat-map-layer-android/android-consistent-zoomable-heat-map-layer.gif)
+
+La expresión `zoom` solo se puede usar con expresiones `step` y `interpolate`. La expresión siguiente se puede usar para aproximar un radio en metros. Esta expresión usa el marcador de posición `radiusMeters`, que se debe reemplazar por el radio deseado. Esta expresión calcula el radio aproximado de píxeles de un nivel de zoom en el ecuador para los niveles de zoom 0 y 24, y usa una expresión `exponential interpolation` para escalar entre estos valores de la misma manera que funciona el sistema de mosaicos en el mapa.
+
+::: zone pivot="programming-language-java-android"
+
+```java
+interpolate(
+    exponential(2),
+    zoom(),
+    stop(1, product(radiusMeters, 0.000012776039596366526)),
+    stop(24, product(radiusMeters, 214.34637593279402))
+)
+```
+
+> [!TIP]
+> Si habilita la agrupación en clústeres en el origen de datos, los puntos que estén cerca unos de otros aparecerán como un punto agrupado. Puede usar el recuento de puntos de cada clúster como la expresión de peso para el mapa térmico. Esto puede reducir considerablemente el número de puntos que se van a representar. El número de puntos de un clúster se almacena en la propiedad `point_count` de la característica de puntos:
+>
+> ```java
+> HeatMapLayer layer = new HeatMapLayer(dataSource,
+>    heatmapWeight(get("point_count"))
+> );
+> ```
+>
+> Si el radio de agrupación en clústeres es solo de unos pocos píxeles, habría una pequeña diferencia visual en la representación. Cuanto mayores sean los grupos de radios, mayor será el número de puntos de cada clúster, lo que mejorará el rendimiento del mapa térmico.
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+interpolate(
+    exponential(2),
+    zoom(),
+    stop(1, product(radiusMeters, 0.000012776039596366526)),
+    stop(24, product(radiusMeters, 214.34637593279402))
+)
+```
+
+> [!TIP]
+> Si habilita la agrupación en clústeres en el origen de datos, los puntos que estén cerca unos de otros aparecerán como un punto agrupado. Puede usar el recuento de puntos de cada clúster como la expresión de peso para el mapa térmico. Esto puede reducir considerablemente el número de puntos que se van a representar. El número de puntos de un clúster se almacena en la propiedad `point_count` de la característica de puntos:
+>
+> ```kotlin
+> var layer = new HeatMapLayer(dataSource,
+>    heatmapWeight(get("point_count"))
+> )
+> ```
+>
+> Si el radio de agrupación en clústeres es solo de unos pocos píxeles, habría una pequeña diferencia visual en la representación. Cuanto mayores sean los grupos de radios, mayor será el número de puntos de cada clúster, lo que mejorará el rendimiento del mapa térmico.
+
+::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 

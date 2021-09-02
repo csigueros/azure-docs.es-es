@@ -3,12 +3,12 @@ title: Implementación de Traffic Manager para equilibrar las cargas de trabajo 
 description: Aprenda a integrar Traffic Manager con Azure VMware Solution para equilibrar las cargas de trabajo de aplicaciones en varios puntos de conexión de distintas regiones.
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: d00f699c094995dad15d4ab5558fcd838ed33128
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ac8f402eadcced4e8592a68f13abd6d2693b8b0c
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087011"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602001"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Implementación de Traffic Manager para equilibrar las cargas de trabajo de Azure VMware Solution
 
@@ -18,7 +18,7 @@ Las puertas de enlace tienen máquinas virtuales (VM) de Azure VMware Solution c
 
 En el diagrama se muestra cómo Traffic Manager proporciona equilibrio de carga para las aplicaciones en el nivel de DNS entre los puntos de conexión regionales. Las puertas de enlace tienen miembros del grupo de back-end configurados como servidores IIS y se hace referencia a ellos como puntos de conexión externos de Azure VMware Solution. La conexión a través de la red virtual entre las dos regiones de la nube privada usa una puerta de enlace ExpressRoute.   
 
-:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagrama de la arquitectura de la integración de Traffic Manager con Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagrama de la integración de Traffic Manager con Azure VMware Solution." lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
 Antes de empezar, revise primero los [requisitos previos](#prerequisites) y, a continuación, analizaremos los procedimientos para lograr lo siguiente:
 
@@ -56,7 +56,7 @@ En los pasos siguientes se comprueba la configuración de las puertas de enlace 
 
    Se abre una ventana que muestra diversa información sobre la puerta de enlace de aplicación. 
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Captura de pantalla de la página de Application Gateway que muestra los detalles de la puerta de enlace de aplicaciones seleccionada." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-configuration.png" alt-text="Captura de pantalla de la página de Application Gateway que muestra los detalles de la puerta de enlace de aplicaciones seleccionada." lightbox="media/traffic-manager/backend-pool-configuration.png":::
 
 1. Seleccione **Grupos de back-end** para comprobar la configuración de uno de los grupos de back-end. Verá un miembro de un grupo de back-end de VM configurado como servidor web con una dirección IP de 172.29.1.10.
  
@@ -70,7 +70,7 @@ En los pasos siguientes se comprueba la configuración del segmento NSX-T en el 
 
 1. Seleccione **Segmentos** para ver los segmentos configurados.  Verá que Contoso-segment1 está conectado a la puerta de enlace Contoso-T01, un enrutador flexible de nivel 1.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Captura de pantalla que muestra perfiles de segmento en NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png" alt-text="Captura de pantalla que muestra perfiles de segmento en NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png":::    
 
 1. Seleccione **Tier-1 Gateways** (Puertas de enlace de nivel 1) para ver una lista de las puertas de enlace de nivel 1 con el número de segmentos vinculados. 
 
