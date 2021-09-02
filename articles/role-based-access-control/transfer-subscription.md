@@ -8,20 +8,22 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/06/2021
+ms.date: 07/14/2021
 ms.author: rolyon
-ms.openlocfilehash: a12f3ca25df2d4473361e0a1ef596384813dc6a8
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 64f164c7d5e60e92e30986f8a39b34e92b1fdce4
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854745"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202485"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
 Las organizaciones pueden tener varias suscripciones de Azure. Cada suscripción está asociada con un directorio concreto de Azure Active Directory (Azure AD). Para facilitar la administración, puede transferir una suscripción a otro directorio de Azure AD. Al transferir una suscripción a otro directorio de Azure AD, algunos recursos no se transfieren al directorio de destino. Por ejemplo, todas las asignaciones de roles y los roles personalizados en el control de acceso basado en roles de Azure (RBAC de Azure) se eliminan **permanentemente** del directorio de origen y no se transfieren al de destino.
 
 En este artículo se describen los pasos básicos que puede seguir para transferir una suscripción a otro directorio de Azure AD diferente y volver a crear algunos recursos después de la transferencia.
+
+Si en su lugar desea **bloquear** la transferencia de suscripciones a distintos directorios de la organización, puede configurar una directiva de suscripción. Para más información, consulte [Administración de las directivas de una suscripción de Azure](../cost-management-billing/manage/manage-azure-subscription-policy.md).
 
 > [!NOTE]
 > En el caso de las suscripciones de Proveedor de soluciones en la nube (CSP) de Azure, no se admite el cambio del directorio de Azure AD de la suscripción.
@@ -249,18 +251,19 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 
 ### <a name="list-other-known-resources"></a>Lista de otros recursos conocidos
 
-1. Use [az account show](/cli/azure/account#az_account_show) para obtener el identificador de la suscripción.
+1. Use [az account show](/cli/azure/account#az_account_show) para obtener el identificador de la suscripción (en `bash`).
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//' -e 's/\r$//')
     ```
-
-1. Use la extensión [az graph](/cli/azure/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas.
+    
+1. Use la extensión [az graph](/cli/azure/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas (en `bash`).
 
     ```azurecli
-    az graph query -q \
-    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
-    --subscriptions $subscriptionId --output table
+    az graph query -q 'resources 
+        | where type != "microsoft.azureactivedirectory/b2cdirectories" 
+        | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true 
+        | project name, type, kind, identity, tenantId, properties.tenantId' --subscriptions $subscriptionId --output yaml
     ```
 
 ## <a name="step-2-transfer-the-subscription"></a>Paso 2: Transferencia de la suscripción

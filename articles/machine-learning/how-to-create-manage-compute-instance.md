@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 10/02/2020
-ms.openlocfilehash: c678c36ff653d8975f7a0fe1a82395c3093758f6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/06/2021
+ms.openlocfilehash: 0f4ed167fc1fd77e4b16b1f06a5beaa3ba9aef14
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458558"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122202070"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -26,11 +26,10 @@ Use una instancia de proceso como entorno de desarrollo completamente configurad
 
 En este artículo aprenderá a:
 
-* Crear una instancia de proceso
-* Administrar (iniciar, detener, reiniciar y eliminar) una instancia de proceso
-* Acceder a la ventana de terminal
-* Instalar paquetes de R o Python
-* Crear entornos o kernels de Jupyter
+* [Crear](#create) una instancia de proceso
+* [Administrar](#manage) (iniciar, detener, reiniciar y eliminar) una instancia de proceso
+* [Crear una programación](#schedule) para iniciar y detener automáticamente la instancia de proceso (versión preliminar)
+* [Usar un script de instalación](#setup-script) para personalizar y configurar la instancia de proceso
 
 Las instancias de proceso pueden ejecutar trabajos de manera segura en un [entorno de red virtual](how-to-secure-training-vnet.md), sin necesidad de que las empresas abran puertos SSH. El trabajo se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un contenedor de Docker.
 
@@ -49,11 +48,11 @@ Las instancias de proceso pueden ejecutar trabajos de manera segura en un [entor
 
 **Tiempo estimado**: Aproximadamente 5 minutos.
 
-La creación de una instancia de proceso es un proceso único en el área de trabajo. Puede volver a usar el proceso como una estación de trabajo de desarrollo o como un destino de proceso para el entrenamiento. Puede tener varias instancias de proceso asociadas al área de trabajo.
+La creación de una instancia de proceso es un proceso único en el área de trabajo. Puede volver a usar el proceso como una estación de trabajo de desarrollo o como un destino de proceso para el entrenamiento. Puede tener varias instancias de proceso asociadas al área de trabajo. 
 
-Los núcleos dedicados por región por cuota de familia de máquinas virtuales y cuota regional total, que se aplica a la creación de instancias de proceso, se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso. Tenga en cuenta que no es posible cambiar el tamaño de la máquina virtual de la instancia de proceso una vez creada.
+Los núcleos dedicados por región por cuota de familia de máquinas virtuales y cuota regional total, que se aplica a la creación de instancias de proceso, se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso. No es posible cambiar el tamaño de la máquina virtual de la instancia de proceso una vez creada.
 
-En el siguiente ejemplo se muestra cómo crear una instancia de proceso:
+<a name="create-instance"></a> En el siguiente ejemplo se muestra cómo crear una instancia de proceso:
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -98,39 +97,171 @@ Para más información acerca de las clases, los métodos y los parámetros que 
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Para más información, vea la referencia de [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance).
+Para más información, vea la referencia de [az ml computetarget create computeinstance](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_computeinstance).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
-En el área de trabajo de Azure Machine Learning Studio, cree una nueva instancia de proceso desde la sección **Proceso** o en la sección **Notebooks** cuando esté listo para ejecutar uno de sus cuadernos.
+1. Vaya a [Azure Machine Learning Studio](https://ml.azure.com).
+1. En __Administrar__, seleccione __Proceso__.
+1. Seleccione **Instancia de proceso** en la parte superior.
+1. Si no tiene ninguna instancia de proceso, seleccione **Crear** en el área central de la página.
+  
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Crear el destino de proceso":::
 
-Para obtener información sobre cómo crear una instancia de proceso en Estudio, vea [Creación de destinos de proceso en Estudio de Azure Machine Learning](how-to-create-attach-compute-studio.md#compute-instance).
+1. Si ve una lista de recursos de proceso, seleccione **+ Nuevo** encima de la lista.
+
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Seleccionar Nuevo":::
+1. Rellene el formulario:
+
+    |Campo  |Descripción  |
+    |---------|---------|
+    |Nombre del proceso     |  <ul><li>El nombre es obligatorio y debe tener una longitud de entre 3 y 24 caracteres.</li><li>Los caracteres válidos son mayúsculas y minúsculas, dígitos y el carácter **-** .</li><li>El nombre debe empezar con una letra</li><li>El nombre debe ser único en todos los procesos existentes dentro de una región de Azure. Verá una alerta si el nombre elegido no es único</li><li>Si se usa el carácter **-** , debe ir seguido de al menos una letra más adelante en el nombre</li></ul>     |
+    |Tipo de máquina virtual |  Elija CPU o GPU. Este tipo no se puede cambiar después de la creación     |
+    |Tamaño de la máquina virtual     |  Los tamaños de máquina virtual admitidos podrían estar restringidos en su región. Comprobación de la [lista de disponibilidad](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
+
+1. Seleccione **Crear** a menos que desee configurar la configuración avanzada de la instancia de proceso.
+1. <a name="advanced-settings"></a> Seleccione **Siguiente: Configuración avanzada** si desea:
+
+    * Habilitar el acceso de SSH.  Siga las [instrucciones de acceso SSH detalladas](#enable-ssh) que se indican a continuación.
+    * Habilite la red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](./how-to-secure-training-vnet.md) para la red virtual. 
+    * Asigne el equipo a otro usuario. Para más información sobre la asignación a otros usuarios, consulte [Creación en nombre de alguien](#on-behalf).
+    * Aprovisionamiento con un script de instalación (versión preliminar): para más información sobre cómo crear y usar un script de instalación, consulte [Personalización de la instancia de proceso con un script](#setup-script).
+    * Agregue una programación (versión preliminar). Programe horas para que la instancia de proceso se inicie o apague automáticamente. Consulte [Detalles de la programación](#schedule) a continuación.
 
 ---
 
 También puede crear una instancia de proceso con una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
+## <a name="enable-ssh-access"></a><a name="enable-ssh"></a> Habilitación del acceso SSH
 
+El acceso SSH está deshabilitado de forma predeterminada.  El acceso SSH no se puede cambiar después de la creación. Asegúrese de habilitar el acceso si tiene previsto depurar de forma interactiva con [VS Code Remote](how-to-set-up-vs-code-remote.md)  
+
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+
+Una vez creada y en ejecución la instancia de proceso, consulte [Conexión con acceso SSH](how-to-create-attach-compute-studio.md#ssh-access).
 
 ## <a name="create-on-behalf-of-preview"></a><a name="on-behalf"></a> Creación en nombre de alguien (versión preliminar)
 
 Como administrador, puede crear una instancia de proceso en nombre de un científico de datos y asignarle la instancia con:
 
-* [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance)  Para más información sobre cómo buscar los valores de TenantID y ObjectID necesarios en esta plantilla, consulte [Encontrar identificadores de objeto de identidad para la configuración de autenticación](../healthcare-apis/fhir/find-identity-object-ids.md).  También puede encontrar estos valores en el portal de Azure Active Directory.
+* Studio, mediante las [opciones avanzadas](?tabs=azure-studio#advanced-settings).
+
+* [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance)  Para más información sobre cómo buscar los valores de TenantID y ObjectID necesarios en esta plantilla, consulte [Encontrar identificadores de objeto de identidad para la configuración de autenticación](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  También puede encontrar estos valores en el portal de Azure Active Directory.
 
 * API DE REST
 
 El científico de datos para el que se crea la instancia de proceso necesita los siguientes permisos de [control de acceso basado en roles de Azure (Azure RBAC)](../role-based-access-control/overview.md):
+
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
 
 El científico de datos puede iniciar, detener y reiniciar la instancia de proceso. Puede utilizar la instancia de proceso para:
 * Jupyter
 * JupyterLab
 * RStudio
 * Cuadernos integrados
+
+## <a name="schedule-automatic-start-and-stop-preview"></a><a name="schedule"></a> Programación del inicio y detención automáticos (versión preliminar)
+
+Defina varias programaciones para el apagado automático y el inicio automático. Por ejemplo, cree una programación para comenzar a las 9 a. m. y detenerse a las 6 p. m. de lunes a jueves, y una segunda programación para comenzar a las 9 a. m. y detenerse a las 4 p. m. del viernes.  Puede crear un total de cuatro programaciones por instancia de proceso.
+
+Las programaciones también se pueden definir para instancias de proceso de [creación en nombre de alguien](#on-behalf). Puede crear una programación para crear una instancia de proceso en un estado detenido. Esto es especialmente útil cuando un usuario crea una instancia de proceso en nombre de otro usuario.
+
+### <a name="create-a-schedule-in-studio"></a>Creación de una programación en Studio
+
+1. [Rellene el formulario](?tabs=azure-studio#create-instance).
+1. En la segunda página del formulario, abra **Mostrar configuración avanzada**.
+1. Seleccione **Agregar programación** para agregar una.
+
+    :::image type="content" source="media/how-to-create-attach-studio/create-schedule.png" alt-text="Captura de pantalla: Agregar programación en la configuración avanzada.":::
+
+1. Seleccione **Iniciar instancia de proceso** o **Detener instancia de proceso**.
+1. Seleccione la **zona horaria**.
+1. Seleccione la **hora de inicio** o la **hora de apagado**.
+1. Seleccione los días en los que esta programación está activa.
+
+    :::image type="content" source="media/how-to-create-attach-studio/stop-compute-schedule.png" alt-text="Captura de pantalla: Programación de una instancia de proceso para apagarla.":::
+
+1. Seleccione de nuevo **Agregar programación** si desea crear otra programación.
+
+Una vez creada la instancia de proceso, puede ver, editar o agregar nuevas programaciones en la sección de detalles de la instancia de proceso.
+
+### <a name="create-a-schedule-with-a-resource-manager-template"></a>Creación de una programación con una plantilla de Resource Manager
+
+Puede programar el inicio y la detención automáticos de una instancia de proceso mediante una plantilla de Resource Manager.  En una plantilla de Resource Manager, use expresiones de Cron o LogicApps para definir una programación para iniciar o detener la instancia.  
+
+```json
+"schedules": {
+  "computeStartStop": [
+      {
+      "triggerType": "Cron",
+      "cron": {
+          "startTime": "2021-03-10T21:21:07",
+          "timeZone": "Pacific Standard Time",
+          "expression": "0 18 * * *"
+      },
+      "action": "Stop",
+      "status": "Enabled"
+      },
+      {
+      "triggerType": "Cron",
+      "cron": {
+          "startTime": "2021-03-10T21:21:07",
+          "timeZone": "Pacific Standard Time",
+          "expression": "0 8 * * *"
+      },
+      "action": "Start",
+      "status": "Enabled"
+      },
+      { 
+      "triggerType": "Recurrence", 
+      "recurrence": { 
+          "frequency": "Day", 
+          "interval": 1,
+          "timeZone": "Pacific Standard Time", 
+        "schedule": { 
+          "hours": [18], 
+          "minutes": [0], 
+          "weekDays": [ 
+              "Saturday", 
+              "Sunday"
+          ] 
+          } 
+      }, 
+      "action": "Stop", 
+      "status": "Enabled" 
+      } 
+  ]
+}
+```
+
+* La acción puede tener el valor "Iniciar" o "Detener".
+* En el caso del tipo de desencadenador `Recurrence`, use la misma sintaxis que para la aplicación lógica, con este [esquema de periodicidad](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
+* En el caso del tipo `cron`, use la sintaxis estándar de Cron:  
+
+    ```cron
+    // Crontab expression format: 
+    // 
+    // * * * * * 
+    // - - - - - 
+    // | | | | | 
+    // | | | | +----- day of week (0 - 6) (Sunday=0) 
+    // | | | +------- month (1 - 12) 
+    // | | +--------- day of month (1 - 31) 
+    // | +----------- hour (0 - 23) 
+    // +------------- min (0 - 59) 
+    // 
+    // Star (*) in the value field above means all legal values as in 
+    // braces for that column. The value column can have a * or a list 
+    // of elements separated by commas. An element is either a number in 
+    // the ranges shown above or two numbers in the range separated by a 
+    // hyphen (meaning an inclusive range). 
+    ```
+
+Use una directiva de Azure para que se aplique una programación de apagado para cada instancia de proceso de una suscripción o una programación predeterminada si no existe nada.
 
 ## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> Personalización de la instancia de proceso con un script (versión preliminar)
 
@@ -178,7 +309,7 @@ pip install "$PACKAGE"
 conda deactivate
 EOF
 ```
-Tenga en cuenta que *sudo -u azureuser* sí cambia el directorio de trabajo actual a */home/azureuser*. Tampoco puede acceder a los argumentos del script de este bloque.
+El comando *sudo -u azureuser* cambia el directorio de trabajo actual a */home/azureuser*. Tampoco puede acceder a los argumentos del script de este bloque.
 
 También puede usar las siguientes variables de entorno en el script:
 
@@ -187,6 +318,8 @@ También puede usar las siguientes variables de entorno en el script:
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. Esta apunta a azureuser.
 
+Puede usar el script de instalación junto con la directiva de Azure para aplicar o establecer de forma predeterminada un script de instalación para cada creación de instancia de proceso.
+
 ### <a name="use-the-script-in-the-studio"></a>Uso del script en Studio
 
 Una vez que almacene el script, especifíquelo durante la creación de la instancia de proceso:
@@ -194,7 +327,7 @@ Una vez que almacene el script, especifíquelo durante la creación de la instan
 1. Inicie sesión en [Studio](https://ml.azure.com/) y seleccione el área de trabajo.
 1. Seleccione **Proceso** a la izquierda.
 1. Seleccione **+Nuevo** para crear una nueva instancia de proceso.
-1. [Rellene el formulario](how-to-create-attach-compute-studio.md#compute-instance).
+1. [Rellene el formulario](?tabs=azure-studio#create-instance).
 1. En la segunda página del formulario, abra **Mostrar configuración avanzada**.
 1. Active la opción **Aprovisionar con un script de configuración**.
 1. Vaya al script de shell que guardó.  O bien, cargue un script desde el equipo.
@@ -202,7 +335,7 @@ Una vez que almacene el script, especifíquelo durante la creación de la instan
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Aprovisionamiento de una instancia de proceso con un script de configuración en Studio.":::
 
-Tenga en cuenta que si el almacenamiento del área de trabajo está conectado a una red virtual, es posible que no pueda acceder al archivo de script de instalación a menos que acceda a Studio desde la red virtual.
+Si el almacenamiento del área de trabajo está conectado a una red virtual, es posible que no pueda acceder al archivo de script de instalación a menos que acceda a Studio desde la red virtual.
 
 ### <a name="use-script-in-a-resource-manager-template"></a>Uso de una plantilla de Resource Manager
 
@@ -241,12 +374,15 @@ Por ejemplo, especifique una cadena de comando codificada en Base64 para `script
 
 Los registros de la ejecución del script de configuración aparecen en la carpeta de registros de la página de detalles de la instancia de proceso. Los registros se almacenan de nuevo en el recurso compartido de archivos de Notebooks en la carpeta Registros\<compute instance name>. Los argumentos de archivo de script y comando para una instancia de proceso determinada se muestran en la página de detalles.
 
+
 ## <a name="manage"></a>Administrar
 
-Inicie, detenga, reinicie y elimine una instancia de proceso. Una instancia de proceso no se reduce verticalmente de forma automática, por lo que debe asegurarse de detener el recurso para evitar cargos continuos. Al detener una instancia de proceso, se cancela su asignación. A continuación, inícielo de nuevo cuando lo necesite. Si bien detener la instancia de proceso detiene la facturación de las horas de proceso, se le seguirá facturando por el disco, la dirección IP pública y el equilibrador de carga estándar.
+Inicie, detenga, reinicie y elimine una instancia de proceso. Una instancia de proceso no se reduce verticalmente de forma automática, por lo que debe asegurarse de detener el recurso para evitar cargos continuos. Al detener una instancia de proceso, se cancela su asignación. A continuación, inícielo de nuevo cuando lo necesite. Si bien detener la instancia de proceso detiene la facturación de las horas de proceso, se le seguirá facturando por el disco, la dirección IP pública y el equilibrador de carga estándar. 
+
+Puede [crear una programación](#schedule) para que la instancia de proceso se inicie y detenga automáticamente a una hora y un día de la semana.
 
 > [!TIP]
-> La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en disco, [use el terminal](how-to-access-terminal.md) para borrar al menos entre 1 y 2 GB antes de detener o reiniciar la instancia de proceso.
+> La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en disco, [use el terminal](how-to-access-terminal.md) para borrar al menos entre 1 y 2 GB antes de detener o reiniciar la instancia de proceso. No detenga la instancia de proceso mediante la emisión del comando sudo shutdown desde el terminal.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -299,7 +435,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
+    Para más información, consulte [az ml computetarget stop computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 * Start
 
@@ -307,7 +443,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
+    Para más información, consulte [az ml computetarget start computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 * Reinicio
 
@@ -315,7 +451,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Para más información, consulte[az ml computetarget restart computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
+    Para más información, consulte[az ml computetarget restart computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
 
 * Eliminar
 
@@ -323,9 +459,10 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget delete -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
+    Para más información, consulte [az ml computetarget delete computeinstance](/cli/azure/ml(v1)/computetarget#az_ml_computetarget_delete).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
+<a name="schedule"></a>
 
 En el área de trabajo de Azure Machine Learning Studio, seleccione **Compute** (Proceso) y, luego, **Compute Instance** (Instancia de proceso) en la parte superior.
 
@@ -335,15 +472,17 @@ Puede realizar las siguientes acciones:
 
 * Crear una nueva instancia de proceso
 * Actualizar la pestaña instancias de proceso.
-* Iniciar, detener y reiniciar una instancia de proceso.  Se paga por la instancia cada vez que se ejecuta. Detenga la instancia de proceso cuando no la use para reducir el costo. Al detener una instancia de proceso, se cancela su asignación. A continuación, inícielo de nuevo cuando lo necesite.
+* Iniciar, detener y reiniciar una instancia de proceso.  Se paga por la instancia cada vez que se ejecuta. Detenga la instancia de proceso cuando no la use para reducir el costo. Al detener una instancia de proceso, se cancela su asignación. A continuación, inícielo de nuevo cuando lo necesite. También puede programar una hora para que la instancia de proceso se inicie y se detenga.
 * Elimine una instancia de proceso.
 * Filtre la lista de instancias de proceso para mostrar solo las que haya creado.
 
 Para cada instancia de proceso del área de trabajo que creó, o que se creó automáticamente, puede:
 
 * Acceder a Jupyter, JupyterLab y RStudio en la instancia de proceso.
-* SSH en la instancia de proceso. El acceso SSH está deshabilitado de forma predeterminada, pero se puede habilitar en el momento de la creación de la instancia de proceso. El acceso SSH se realiza a través del mecanismo de claves pública y privada. La pestaña le proporcionará detalles sobre la conexión SSH, como la dirección IP, el nombre de usuario y el número de puerto.
-* Más detalles sobre una instancia de proceso específica, como la dirección IP y la región.
+* SSH en la instancia de proceso. El acceso SSH está deshabilitado de forma predeterminada, pero se puede habilitar en el momento de la creación de la instancia de proceso. El acceso SSH se realiza a través del mecanismo de claves pública y privada. La pestaña le proporcionará detalles sobre la conexión SSH, como la dirección IP, el nombre de usuario y el número de puerto. En una implementación de red virtual, al deshabilitar SSH se impide el acceso SSH desde la red pública de Internet, pero puede seguir usando SSH desde dentro de la red virtual mediante la dirección IP privada del nodo de la instancia de proceso y el puerto 22.
+* Seleccione el nombre del proceso para:
+    * Ver los detalles sobre una instancia de proceso específica, como la dirección IP y la región.
+    * Crear o modificar la programación para iniciar y detener la instancia de proceso (versión preliminar).  Desplazarse hacia abajo hasta la parte inferior de la página para editar la programación.
 
 ---
 
@@ -356,6 +495,7 @@ RBAC de Azure puede controlar estas acciones:
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
 
 Para crear una instancia de proceso, debe tener permisos para realizar las siguientes acciones:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*

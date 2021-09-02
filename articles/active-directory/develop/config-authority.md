@@ -13,14 +13,14 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af729767467d2dc950fb7a559fec4d0a81d07cab
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96169450"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029189"
 ---
-# <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Procedimientos: Configuración de MSAL para iOS y macOS para el uso de diferentes proveedores de identidades
+# <a name="configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Configuración de MSAL para iOS y macOS para el uso de diferentes proveedores de identidades
 
 En este artículo se muestra cómo configurar la aplicación de biblioteca de autenticación de Microsoft para iOS y macOS (MSAL) para diferentes entidades, como Azure Active Directory (Azure AD), de negocio a consumidor (B2C), nubes independientes y usuarios invitados.  En este artículo, por lo general, puede pensar en una autoridad como proveedor de identidades.
 

@@ -1,18 +1,18 @@
 ---
 title: Exposición de las aplicaciones a Internet mediante Application Gateway y Azure Firewall
 description: Cómo exponer las aplicaciones a Internet mediante Application Gateway y Azure Firewall
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5183fe6560e0276efb3f9db85628a814abfe9e45
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: e87ccabeb2d0e0cd837a835c5ac637bebc68b8b4
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791730"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861957"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Exposición de las aplicaciones a Internet mediante Application Gateway y Azure Firewall
 
@@ -24,9 +24,9 @@ En este documento se explica cómo exponer las aplicaciones a Internet mediante 
 
 ## <a name="define-variables"></a>Definición de variables
 
-Defina las variables para el grupo de recursos y la red virtual que creó como se indicó en [Implementación de Azure Spring Cloud en una red virtual de Azure (inserción de red virtual)](./how-to-deploy-in-azure-virtual-network.md). Personalice los valores en función de su entorno real.
+Defina las variables para el grupo de recursos y la red virtual que creó como se indicó en [Implementación de Azure Spring Cloud en una red virtual de Azure (inserción de red virtual)](./how-to-deploy-in-azure-virtual-network.md). Personalice los valores en función de su entorno real.  Al definir SPRING_APP_PRIVATE_FQDN, quite "https" del URI.
 
-```
+```bash
 SUBSCRIPTION='subscription-id'
 RESOURCE_GROUP='my-resource-group'
 LOCATION='eastus'
@@ -36,11 +36,11 @@ APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
 APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
 ```
 
-## <a name="login-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en la CLI de Azure y elija una suscripción activa.
 
-```
+```azurecli
 az login
 az account set --subscription ${SUBSCRIPTION}
 ```
@@ -49,7 +49,7 @@ az account set --subscription ${SUBSCRIPTION}
 
 La instancia de **Azure Application Gateway** que se va a crear unirá la misma red virtual que la instancia de servicio de Azure Spring Cloud —o a la red virtual emparejada a ella—. En primer lugar, cree una nueva subred para Application Gateway en la red virtual con `az network vnet subnet create`, y cree también una dirección IP pública como front-end de Application Gateway con `az network public-ip create`.
 
-```
+```azurecli
 APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
 az network vnet subnet create \
     --name ${APPLICATION_GATEWAY_SUBNET_NAME} \
@@ -68,7 +68,7 @@ az network public-ip create \
 
 Cree una puerta de enlace de aplicación mediante `az network application-gateway create` y especifique el nombre de dominio completo (FQDN) privado de la aplicación como servidores en el grupo de back-end. A continuación, actualice la configuración de HTTP mediante `az network application-gateway http-settings update` para usar el nombre de host del grupo de back-end.
 
-```
+```azurecli
 APPLICATION_GATEWAY_NAME='my-app-gw'
 APPLICATION_GATEWAY_PROBE_NAME='my-probe'
 APPLICATION_GATEWAY_REWRITE_SET_NAME='my-rewrite-set'
@@ -119,7 +119,7 @@ az network application-gateway rule update \
 
 La puerta de enlace de aplicaciones puede tardar hasta 30 minutos en crearse. Una vez creado, compruebe el estado del back-end mediante `az network application-gateway show-backend-health`.  Esto examina si la puerta de enlace de aplicación llega a la aplicación a través de su FQDN privado.
 
-```
+```azurecli
 az network application-gateway show-backend-health \
     --name ${APPLICATION_GATEWAY_NAME} \
     --resource-group ${RESOURCE_GROUP}
@@ -127,7 +127,7 @@ az network application-gateway show-backend-health \
 
 La salida indica el estado correcto del grupo de back-end.
 
-```
+```output
 {
   "backendAddressPools": [
     {
@@ -152,7 +152,7 @@ La salida indica el estado correcto del grupo de back-end.
 
 Obtenga la dirección IP pública de la puerta de enlace de aplicación mediante `az network public-ip show`.
 
-```
+```azurecli
 az network public-ip show \
     --resource-group ${RESOURCE_GROUP} \
     --name ${APPLICATION_GATEWAY_PUBLIC_IP_NAME} \
@@ -162,7 +162,7 @@ az network public-ip show \
 
 Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
-  ![Aplicación en dirección IP pública](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
+![Aplicación en dirección IP pública](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
 
 ## <a name="see-also"></a>Consulte también
 

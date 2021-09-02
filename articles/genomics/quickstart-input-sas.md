@@ -3,18 +3,18 @@ title: Flujo de trabajo que usa firmas de acceso compartido
 titleSuffix: Microsoft Genomics
 description: Este artículo muestra cómo enviar un flujo de trabajo al servicio Microsoft Genomics mediante firmas de acceso compartido (SAS) en lugar de claves de cuenta de almacenamiento.
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: b85fae82a6faf08fa45a659a216818d77fc747e9
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 660f6ffe286e13e46f367c761c596ed0ee51da24
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551927"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259850"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
 

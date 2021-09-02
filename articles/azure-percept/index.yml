@@ -8,14 +8,14 @@ metadata:
   ms.service: azure-percept
   ms.topic: landing-page
   author: mimcco
-  ms.author: mimcco
+  ms.author: amiyouss
   ms.date: 03/25/2021
-  ms.openlocfilehash: fab1c38f1912b191a50476db350b5b1f5243ff68
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: 62ddbb2c5d64e634a534956714b6d2703a61f828
+  ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121725531"
+  ms.lasthandoff: 08/30/2021
+  ms.locfileid: "123223305"
 landingContent:
 - title: ¿Qué es Azure Percept?
   linkLists:
@@ -23,107 +23,115 @@ landingContent:
     links:
     - text: Introducción a Azure Percept
       url: overview-azure-percept.md
-    - text: Introducción a Azure Percept DK
+    - text: Introducción a los dispositivos de Azure Percept DK y Vision
       url: overview-azure-percept-dk.md
-    - text: Introducción a Azure Percept Audio
+    - text: Introducción al dispositivo Azure Percept Audio
       url: overview-azure-percept-audio.md
     - text: Introducción a Azure Percept Studio
       url: overview-azure-percept-studio.md
-    - text: Introducción a la seguridad de Azure Percept
+  - linkListType: concept
+    links:
+    - text: Seguridad de Azure Percept
       url: overview-percept-security.md
-    - text: Integración con 80/20
+    - text: Integración 80/20 de Azure Percept DK
       url: overview-8020-integration.md
-    - text: Modelos de inteligencia artificial de Azure Percept
+    - text: Modelos de inteligencia artificial de ejemplo de Azure Percept
       url: overview-ai-models.md
-- title: Introducción al dispositivo Azure Percept DK
+- title: Configuración de Azure Percept DK
   linkLists:
-  - linkListType: quickstart
+  - linkListType: get-started
     links:
-    - text: Desempaquetado y ensamblaje de Azure Percept DK
+    - text: Desempaquetado y ensamblaje del dispositivo de Azure Percept DK
       url: quickstart-percept-dk-unboxing.md
-    - text: Conexión de Azure Percept DK a Azure
+    - text: Configuración del dispositivo de Azure Percept DK
       url: quickstart-percept-dk-set-up.md
-  - linkListType: reference
-    links:
-    - text: Ficha técnica de Azure Percept DK
-      url: azure-percept-dk-datasheet.md
-    - text: Ficha técnica de Azure Percept Vision
-      url: azure-percept-vision-datasheet.md
-    - text: Solución de problemas generales de Azure Percept DK
-      url: troubleshoot-dev-kit.md
-    - text: Solución de problemas de instalación
-      url: how-to-troubleshoot-setup.md
-- title: Primeros pasos con Azure Percept Audio
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Configuración de Azure Percept Audio
+    - text: Configuración del dispositivo de Azure Percept Audio
       url: quickstart-percept-audio-setup.md
-  - linkListType: reference
+  - linkListType: how-to-guide
     links:
-    - text: Ficha técnica de Azure Percept Audio
-      url: azure-percept-audio-datasheet.md
-    - text: Solución de problemas de Azure Percept Audio
-      url: troubleshoot-audio-accessory-speech-module.md
-    - text: Comportamiento del indicador LED y el botón de Azure Percept Audio
+    - text: Conexión a Azure Percept DK a través de Ethernet
+      url: how-to-connect-over-ethernet.md
+    - text: Conexión de Azure Percept a través de redes 5G o LTE
+      url: connect-over-cellular.md
+    - text: Conexión a Azure Percept DK a través de SSH
+      url: how-to-ssh-into-percept-dk.md
+    - text: Solución de problemas del dispositivo de Azure Percept DK
+      url: troubleshoot-dev-kit.md
+    - text: Solución de los problemas en la instalación de Azure Percept DK
+      url: how-to-troubleshoot-setup.md
+    - text: Estados de los botones e indicadores LED de Azure Percept Audio
       url: audio-button-led-behavior.md
-- title: Creación de una solución de visión sin código
+    - text: Obtención de soporte técnico de hardware de Azure Percept desde ASUS
+      url: how-to-get-hardware-support.md
+- title: Administración de Azure Percept DK
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Determinación de la estrategia de actualización de Azure Percept DK
+      url: how-to-determine-your-update-strategy.md
+    - text: Configuración de Azure IoT Hub para la implementación de actualizaciones de forma inalámbrica
+      url: how-to-set-up-over-the-air-updates.md
+    - text: Actualización de Azure Percept DK de forma inalámbrica
+      url: how-to-update-over-the-air.md
+    - text: Actualización de Azure Percept DK a través de una conexión USB-C
+      url: how-to-update-via-usb.md
+  - linkListType: download
+    links:
+    - text: Selección del paquete de actualización más adecuado para Azure Percept DK
+      url: how-to-select-update-package.md
+    - text: Versiones de software para actualizaciones de OTA
+      url: software-releases-over-the-air-updates.md
+    - text: Versiones del software de Azure Percept DK para realizar actualizaciones a través de un cable USB
+      url: software-releases-usb-cable-updates.md
+    - text: Notas de la versión del software Azure Percept DK
+      url: azure-percept-devkit-software-release-notes.md
+    - text: Problemas conocidos de Azure Percept
+      url: known-issues.md
+- title: Creación de soluciones de inteligencia artificial de visión sin código con Azure Percept Studio
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Creación de una solución de visión sin código
+    - text: Creación de una solución de visión sin código en Azure Percept Studio
       url: tutorial-nocode-vision.md
   - linkListType: how-to-guide
     links:
-    - text: Visualización de la secuencia de vídeo del dispositivo DevKit
+    - text: Visualización de la secuencia de vídeo RTSP de Azure Percept DK
       url: how-to-view-video-stream.md
-    - text: Implementación de un modelo de IA en el dispositivo DevKit
+    - text: Implementación de un modelo de inteligencia artificial de visión en Azure Percept DK
       url: how-to-deploy-model.md
-    - text: Captura de imágenes para un proyecto de visión
+    - text: Captura de imágenes en Azure Percept Studio
       url: how-to-capture-images.md
-    - text: Consulta de los datos de telemetría del dispositivo DevKit
+    - text: Visualización de los datos de telemetría de inferencia del modelo de Azure Percept DK
       url: how-to-view-telemetry.md
-  - linkListType: reference
-    links:
-    - text: Solución de problemas de las soluciones de visión
+    - text: Solución de problemas de Azure Percept Vision y de los módulos de visión
       url: vision-solution-troubleshooting.md
-- title: Creación de una solución de voz sin código
+- title: Creación de un asistente para voz sin código
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Creación de un asistente para voz sin código
+    - text: Creación de un asistente para voz sin código en Azure Percept Studio
       url: tutorial-no-code-speech.md
   - linkListType: how-to-guide
     links:
-    - text: Configuración del asistente para voz en Azure Percept Studio
+    - text: Administración de la aplicación de asistente para voz de Azure Percept
       url: how-to-manage-voice-assistant.md
-    - text: Configuración del asistente para voz en IoT Hub
+    - text: Configuración de la aplicación de asistente para voz de Azure Percept
       url: how-to-configure-voice-assistant.md
+    - text: Búsqueda de la aplicación del asistente de voz en Azure Percept Studio
+      url: return-to-voice-assistant-application-window.md
+    - text: Eliminación de la aplicación de asistente para voz de Azure Percept Audio
+      url: delete-voice-assistant-application.md
+    - text: Solución de problemas de Azure Percept Audio y el módulo de voz
+      url: troubleshoot-audio-accessory-speech-module.md
 - title: Desarrollo avanzado con Azure Percept
   linkLists:
   - linkListType: overview
     links:
-    - text: Desarrollo avanzado en Azure Percept
+    - text: Desarrollo avanzado con Azure Percept
       url: overview-advanced-code.md
-    - text: Módulo y carga de trabajo de inteligencia artificial de visión
+    - text: Módulo de inteligencia artificial de Azure Percept Vision
       url: azureeyemodule-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Instalador del paquete de herramientas de desarrollo
+    - text: Instalación de las herramientas de desarrollo de Azure Percept
       url: dev-tools-installer.md
-- title: Actualización de Azure Percept DK
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Experiencia de actualización de Azure Percept DK
-      url: overview-update-experience.md
-  - linkListType: how-to-guide
-    links:
-    - text: Selección del paquete de actualización
-      url: how-to-select-update-package.md
-    - text: Configuración de actualizaciones por vía inalámbrica
-      url: how-to-set-up-over-the-air-updates.md
-    - text: Actualización del dispositivo por vía inalámbrica
-      url: how-to-update-over-the-air.md
-    - text: Actualización de un dispositivo mediante una conexión por cable USB-C
-      url: how-to-update-via-usb.md

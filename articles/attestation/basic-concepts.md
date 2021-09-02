@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 47231ecab14ab9d1705d1015c0de4a035a10a02e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 5ac431f489f279ea09407e1a34c234911d71f12f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112417314"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259730"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -21,7 +21,7 @@ A continuación se muestran algunos conceptos básicos relacionados con Microsof
 
 ## <a name="json-web-token-jwt"></a>JSON Web Token (JWT)
 
-[JSON Web Token](https://jwt.io/) (JWT) es un método de [RFC7519](https://tools.ietf.org/html/rfc7519) estándar abierto para transmitir información de forma segura entre entidades como un objeto de notación de objetos JavaScript (JSON). Esta información se puede comprobar y es de confianza porque está firmada digitalmente. Los JWT se pueden firmar mediante un secreto o un par de claves pública y privada.
+[JSON Web Token](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) (JWT) es un método de [RFC7519](https://tools.ietf.org/html/rfc7519) estándar abierto para transmitir información de forma segura entre entidades como un objeto de notación de objetos JavaScript (JSON). Esta información se puede comprobar y es de confianza porque está firmada digitalmente. Los JWT se pueden firmar mediante un secreto o un par de claves pública y privada.
 
 ## <a name="json-web-key-jwk"></a>Clave de web JSON (JWK)
 

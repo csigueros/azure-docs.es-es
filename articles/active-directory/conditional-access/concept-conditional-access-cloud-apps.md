@@ -5,26 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 06/15/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99da9afc9afb3c6eb19caf696c6b9802aed6a2dd
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6208066f324fed289e59b63d88f2302c60fb2db1
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953659"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459614"
 ---
-# <a name="conditional-access-cloud-apps-actions-and-authentication--context"></a>Acceso condicional: aplicaciones, acciones y contexto de autenticación en la nube
+# <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>Acceso condicional: aplicaciones, acciones y contexto de autenticación en la nube
 
 Las aplicaciones, acciones y el contexto de autenticación en la nube son señales clave en una directiva de acceso condicional. Las directivas de acceso condicional permiten que los administradores asignen controles a determinadas aplicaciones, acciones o contextos de autenticación.
 
 - Los administradores pueden elegir en la lista de aplicaciones entre aplicaciones integradas de Microsoft y cualquier [aplicación integrada de Azure AD](../manage-apps/what-is-application-management.md), incluidas aplicaciones de la galería, aplicaciones que no son de la galería y aplicaciones publicadas a través de [Application Proxy](../app-proxy/what-is-application-proxy.md).
-- Los administradores pueden optar por definir una directiva no basada en una aplicación en la nube, sino en una [acción del usuario](#user-actions) como **Registro de la información de seguridad** o **Registrar o unir dispositivos (versión preliminar)** , lo que permite que el acceso condicional aplique controles en torno a esas acciones.
-- Los administradores pueden usar el [contexto de autenticación](#authentication-context-preview) para proporcionar una capa adicional de seguridad dentro de las aplicaciones. 
+- Los administradores pueden optar por definir una directiva no basada en una aplicación en la nube, sino en una [acción del usuario](#user-actions) como **Registrar la información de seguridad** o **Registrar o unir dispositivos**, lo que permite que el acceso condicional aplique controles en torno a esas acciones.
+- Los administradores pueden usar el [contexto de autenticación](#authentication-context-preview) para proporcionar una capa adicional de seguridad en las aplicaciones. 
 
 ![Definición de una directiva de acceso condicional y especificación de aplicaciones en la nube](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -70,17 +70,20 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 - Red privada virtual (VPN)
 - ATP de Windows Defender
 
-Las aplicaciones que están disponibles para el acceso condicional han pasado por un proceso de incorporación y validación. Esta lista no incluye todas las aplicaciones de Microsoft, ya que muchas son servicios back-end y no están diseñadas para que se les aplique la directiva directamente. Si está buscando una aplicación que falta, puede ponerse en contacto con el equipo de la aplicación específica o hacer una solicitud en [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
+> [!IMPORTANT]
+> Las aplicaciones que están disponibles para el acceso condicional han pasado por un proceso de incorporación y validación. Esta lista no incluye todas las aplicaciones de Microsoft, ya que muchas son servicios de back-end y no están diseñadas para que se les aplique la directiva directamente. Si está buscando una aplicación que falta, puede ponerse en contacto con el equipo de la aplicación específica o hacer una solicitud en [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### <a name="office-365"></a>Office 365
 
 Microsoft 365 proporciona servicios de colaboración y productividad basados en la nube, como Exchange, SharePoint y Microsoft Teams. Los servicios en la nube de Microsoft 365 están profundamente integrados para garantizar experiencias de colaboración fluidas. Esta integración puede producir confusión a la hora de crear directivas, ya que algunas aplicaciones, como Microsoft Teams, dependen de otras, como SharePoint o Exchange.
 
-La aplicación Office 365 permite la segmentación de todos estos servicios a la vez. Se recomienda usar la nueva aplicación Office 365 en lugar de aplicaciones en la nube individuales para evitar problemas con las [dependencias de servicio](service-dependencies.md). Trabajar con este grupo de aplicaciones ayuda a evitar problemas que pueden surgir debido a directivas y dependencias incoherentes.
+El conjunto de Office 365 hace posible dirigirse a todos estos servicios a la vez. Se recomienda usar al nuevo conjunto de Office 365 en lugar de las aplicaciones en la nube individuales para evitar problemas con las [dependencias de servicio](service-dependencies.md). 
 
-Los administradores pueden optar por excluir aplicaciones específicas de la directiva si lo desean, incluyendo la aplicación Office 365 y excluyendo las aplicaciones específicas que decidan.
+Dirigirse a este grupo de aplicaciones ayuda a evitar problemas que pueden surgir debido a directivas y dependencias incoherentes. Por ejemplo: la aplicación Exchange Online está asociada a datos de Exchange Online tradicionales, como el correo electrónico, el calendario y la información de contacto. Los metadatos relacionados se pueden exponer mediante distintos recursos, como la búsqueda. Para asegurarse de que todos los metadatos están protegidos según lo previsto, los administradores deben asignar directivas a la aplicación Office 365.
 
-Aplicaciones clave que se incluyen en la aplicación cliente Office 365:
+Los administradores pueden excluir aplicaciones específicas de la directiva si lo desean, incluyendo el conjunto Office 365 y excluyendo las aplicaciones específicas de la directiva.
+
+Las siguientes aplicaciones principales se incluyen en la aplicación cliente Office 365:
 
    - Microsoft Flow
    - Microsoft Forms
@@ -101,7 +104,7 @@ Aplicaciones clave que se incluyen en la aplicación cliente Office 365:
 
 ### <a name="microsoft-azure-management"></a>Microsoft Azure Management (Administración de Microsoft Azure)
 
-La aplicación de administración de Microsoft Azure incluye varios servicios subyacentes. 
+La aplicación de administración de Microsoft Azure incluye varios servicios. 
 
    - Azure portal
    - Proveedor de Azure Resource Manager
@@ -117,7 +120,7 @@ La aplicación de administración de Microsoft Azure incluye varios servicios su
 
 ### <a name="other-applications"></a>Otras aplicaciones
 
-Además de las aplicaciones de Microsoft, los administradores pueden agregar cualquier aplicación registrada de Azure AD a las directivas de acceso condicional. Estas aplicaciones pueden incluir: 
+Los administradores pueden agregar cualquier aplicación registrada de Azure AD a las directivas de acceso condicional. Estas aplicaciones pueden incluir: 
 
 - Aplicaciones web que se publican a través de[Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md)
 - [Aplicaciones agregadas desde la galería](../manage-apps/add-application-portal.md)
@@ -134,9 +137,9 @@ Las acciones del usuario son tareas que un usuario puede realizar. Actualmente, 
 
 - **Registro de la información de seguridad**: esta acción del usuario permite que la directiva de Acceso condicional se aplique cuando los usuarios que están habilitados para el registro combinado intentan registrar su información de seguridad. Para más información, consulte el artículo [Registro de información de seguridad combinado](../authentication/concept-registration-mfa-sspr-combined.md).
 
-- **Registro o unión de dispositivos (versión preliminar)** : esta acción del usuario permite a los administradores aplicar la directiva de Acceso condicional cuando los usuarios [registran](../devices/concept-azure-ad-register.md) o [unen](../devices/concept-azure-ad-join.md) dispositivos a Azure AD. Proporciona granularidad en la configuración de la autenticación multifactor para registrar o unir dispositivos en lugar de la directiva para todo el inquilino que existe actualmente. Existen tres consideraciones principales con esta acción de usuario: 
+- **Registrar o unir dispositivos**: esta acción del usuario permite a los administradores aplicar la directiva de acceso condicional cuando los usuarios [registran](../devices/concept-azure-ad-register.md) o [unen](../devices/concept-azure-ad-join.md) dispositivos a Azure AD. Proporciona granularidad en la configuración de la autenticación multifactor para registrar o unir dispositivos en lugar de la directiva para todo el inquilino que existe actualmente. Existen tres consideraciones principales con esta acción de usuario: 
    - `Require multi-factor authentication` es el único control de acceso disponible con esta acción del usuario y todos los demás están deshabilitados. Esta restricción evita conflictos con controles de acceso que dependen del registro de dispositivos de Azure AD o que no se pueden aplicar al registro de dispositivos de Azure AD. 
-   - Las condiciones `Client apps` y `Device state` no están disponibles con esta acción de usuario, ya que dependen del registro de dispositivos de Azure AD para aplicar directivas de acceso condicional.
+   - Las condiciones `Client apps`, `Filters for devices` y `Device state` no están disponibles con esta acción de usuario, ya que dependen del registro de dispositivos de Azure AD para aplicar las directivas de acceso condicional.
    - Cuando se habilita una directiva de Acceso condicional con esta acción del usuario, debe establecer **Azure Active Directory** > **Dispositivos** > **Configuración del dispositivo** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` en **No**. De lo contrario, no se aplica correctamente la directiva de acceso condicional con esta acción de usuario. Puede encontrar más información sobre esta configuración de dispositivo en [Configuración de las opciones de dispositivo](../devices/device-management-azure-portal.md#configure-device-settings). 
 
 ## <a name="authentication-context-preview"></a>Contexto de autenticación (versión preliminar)
@@ -162,15 +165,19 @@ Para crear nuevas definiciones de contextos de autenticación, seleccione **Nuev
 - Cuando está activada la casilla **Publicar en aplicaciones**, anuncia el contexto de autenticación a las aplicaciones y hace que estén disponibles para asignarlas. Si no está activada, el contexto de autenticación no estará disponible para los recursos de nivel inferior. 
 - **Identificador** es de solo lectura y se usa en tokens y aplicaciones para definiciones de contexto de autenticación de solicitudes específicas. Se muestra aquí para casos de uso de solución de problemas y desarrollo. 
 
-A continuación, los administradores pueden seleccionar contextos de autenticación publicados en sus directivas de acceso condicional en **Asignaciones** > **Aplicaciones en la nube o acciones** > **Contexto de autenticación**.
+#### <a name="add-to-conditional-access-policy"></a>Adición a la directiva de acceso condicional
+
+Los administradores pueden seleccionar contextos de autenticación publicados en sus directivas de acceso condicional en **Asignaciones** > **Aplicaciones en la nube o acciones** y seleccionando **Contexto de autenticación** desde el menú **Seleccionar a qué se aplica esta directiva**.
+
+:::image type="content" source="media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-in-policy.png" alt-text="Adición de un contexto de autenticación de acceso condicional a una directiva":::
 
 ### <a name="tag-resources-with-authentication-contexts"></a>Etiquetado de recursos con contextos de autenticación 
 
 Para más información sobre el uso del contexto de autenticación en las aplicaciones, consulte los artículos siguientes.
 
-- [SharePoint Online](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Etiquetas de confidencialidad de Microsoft Information Protection para proteger sitios de SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
-- Aplicaciones personalizadas
+- [Aplicaciones personalizadas](../develop/developer-guide-conditional-access-authentication-context.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

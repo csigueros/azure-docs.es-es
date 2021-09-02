@@ -1,18 +1,18 @@
 ---
 title: Administración y supervisión de aplicaciones con el accionador de Spring Boot de Azure
 description: Aprenda a administrar y supervisar aplicaciones con el accionador de Spring Boot.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: bfe5dc7c4f6fc40154a6fc9bc3a087873ba9eaef
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d9c24868fa847ef3b8be13ca0d7775e24b3116cc
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129250"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015551"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Administración y supervisión de aplicaciones con el accionador de Spring Boot de Azure
 
@@ -21,10 +21,12 @@ ms.locfileid: "108129250"
 Después de implementar el nuevo archivo binario en la aplicación, recomendamos comprobar la característica y ver información sobre la aplicación en ejecución. En este artículo se explica cómo acceder a la API desde un punto de conexión de prueba proporcionado por Azure Spring Cloud y exponer las características listas para producción de la aplicación.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 En este artículo se presupone que tiene una aplicación Spring Boot 2.x que se puede implementar y arrancar correctamente en el servicio Azure Spring Cloud.  Consulte [Quickstart: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](./quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Comprobación de la aplicación a través del punto de conexión de prueba
-1. Vaya al **Panel de la aplicación** y haga clic en la aplicación para acceder a la página de información general de la aplicación.
+
+1. Vaya al **Panel de la aplicación** y seleccione la aplicación para acceder a la página de información general de la aplicación.
 
 1. En el panel **Información general**, debería ver un **Punto de conexión de prueba**.  Acceda a este punto de conexión desde la línea de comandos o el explorador y observe la respuesta de la API.
 
@@ -50,24 +52,27 @@ Para agregar el actuador a un proyecto basado en Maven, agregue la dependencia '
 Compile el nuevo archivo binario e impleméntelo en la aplicación.
 
 ## <a name="enable-production-ready-features"></a>Habilitación de características listas para producción
+
 Los puntos de conexión del actuador permiten supervisar e interactuar con la aplicación. De forma predeterminada, la aplicación Spring Boot expone los puntos de conexión `health` y `info` para mostrar información de la aplicación arbitraria e información de estado.
 
 Para observar la configuración y el entorno configurable, necesitamos habilitar también los puntos de conexión `env` y `configgrops`.
 
-1. Vaya al panel **Información general** de la aplicación, haga clic en **Configuración** en el menú de configuración y vaya a la página de configuración **Variables de entorno**.
+1. Vaya al panel **Información general** de la aplicación, seleccione **Configuración** en el menú de configuración y vaya a la página de configuración **Variables de entorno**.
 1. Agregue las siguientes propiedades como en el formulario "clave: valor". Este entorno abrirá los puntos de conexión "env", "Health" e "info" del accionador de Spring Boot.
 
-   ```
+   ```properties
    management.endpoints.web.exposure.include: env,health,info
    ```
-1. Haga clic en el botón **Guardar**; la aplicación se reiniciará automáticamente y cargará las nuevas variables de entorno.
+
+1. Seleccione el botón **Guardar**; la aplicación se reiniciará automáticamente y cargará las nuevas variables de entorno.
 
 Ahora puede volver al panel de información general de la aplicación y esperar a que el estado del aprovisionamiento cambie a "Correcto".  Habrá más de una instancia en ejecución.
 
-> [!Note] 
+> [!Note]
 > Después de exponer la aplicación al público, estos puntos de conexión del accionador también se exponen al público. Puede ocultar todos los puntos de conexión eliminando las variables de entorno `management.endpoints.web.exposure.include` y estableciendo `management.endpoints.web.exposure.exclude=*`.
 
 ## <a name="view-the-actuator-endpoint-to-view-application-information"></a>Consulta del punto de conexión del accionador para ver información de la aplicación
+
 1. Ahora puede acceder a la URL `"<test-endpoint>/actuator/"` para ver todos los puntos de conexión expuestos por el accionador de Spring Boot.
 1. Vaya a la URL `"<test-endpoint>/actuator/env"` y verá los perfiles activos usados por la aplicación y todas las variables de entorno cargadas.
 1. Si quiere buscar en un entorno específico, puede acceder a la URL `"<test-endpoint>/actuator/env/{toMatch}"` para verlo.

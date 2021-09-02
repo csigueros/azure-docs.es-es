@@ -1,15 +1,15 @@
 ---
 title: Cifrado del registro con una clave administrada por el cliente
 description: Obtenga información sobre el cifrado en reposo de una instancia de Azure Container Registry y sobre cómo cifrar el registro Premium con una clave administrada por el cliente almacenada en Azure Key Vault
-ms.topic: article
-ms.date: 05/27/2021
-ms.custom: ''
-ms.openlocfilehash: 84a949e26bbf5677888185741e06139ed2d35db2
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.topic: how-to
+ms.date: 06/25/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 4258aa4e14802ba500987da419c4314e6610a210
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412752"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735508"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 
@@ -117,7 +117,9 @@ keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key
 
 ### <a name="enable-key-vault-access"></a>Habilitación del acceso al almacén de claves
 
-Configure una directiva para el almacén de claves de modo que la identidad pueda acceder a él. En el siguiente comando [az keyvault set-policy][az-keyvault-set-policy], se pasa el identificador de la entidad de seguridad de la identidad administrada creada, almacenada previamente en una variable de entorno. Establezca los permisos de la clave en **get**, **unwrapKey** y **wrapKey**.  
+#### <a name="enable-key-vault-access-policy"></a>Habilitación de la directiva de acceso al almacén de claves
+
+Una opción es configurar una directiva para el almacén de claves de modo que la identidad pueda acceder a él. En el siguiente comando [az keyvault set-policy][az-keyvault-set-policy], se pasa el identificador de la entidad de seguridad de la identidad administrada creada, almacenada previamente en una variable de entorno. Establezca los permisos de la clave en **get**, **unwrapKey** y **wrapKey**.  
 
 ```azurecli
 az keyvault set-policy \
@@ -125,7 +127,9 @@ az keyvault set-policy \
   --name <key-vault-name> \
   --object-id $identityPrincipalID \
   --key-permissions get unwrapKey wrapKey
+
 ```
+#### <a name="assign-rbac-role"></a>Asignación del rol RBAC
 
 También puede usar [Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) para asignar permisos a la identidad para acceder al almacén de claves. Por ejemplo, asigne el rol de cifrado de servicio criptográfico de Key Vault a la identidad mediante el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create):
 
@@ -257,7 +261,9 @@ Al crear un almacén de claves para una clave administrada por el cliente, en la
 
 ### <a name="enable-key-vault-access"></a>Habilitación del acceso al almacén de claves
 
-Configure una directiva para el almacén de claves de modo que la identidad pueda acceder a él.
+#### <a name="enable-key-vault-access-policy"></a>Habilitación de la directiva de acceso al almacén de claves
+
+Una opción es configurar una directiva para el almacén de claves de modo que la identidad pueda acceder a él.
 
 1. Vaya al almacén de claves.
 1. Seleccione **Configuración** > **Directivas de acceso > +Agregar directiva de acceso**.
@@ -267,14 +273,11 @@ Configure una directiva para el almacén de claves de modo que la identidad pued
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Creación de directiva de acceso del almacén de claves":::
 
-También puede usar [Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) para asignar permisos a la identidad para acceder al almacén de claves. Por ejemplo, asigne el rol de cifrado de servicio criptográfico de Key Vault a la identidad.
+#### <a name="assign-rbac-role"></a>Asignación del rol RBAC
 
-1. Vaya al almacén de claves.
-1. Seleccione **Control de acceso (IAM)**  >  **+Agregar** > **Agregar asignación de roles**.
-1. En la ventana **Agregar asignación de roles**:
-    1. Seleccione el rol **Usuario del cifrado del servicio de cifrado de Key Vault**. 
-    1. Asigne acceso a la **identidad administrada asignada por el usuario**.
-    1. Seleccione el nombre de recurso de la identidad administrada asignada por el usuario y luego **Guardar**.
+También puede asignar el rol de usuario de cifrado del servicio criptográfico de Key Vault a la identidad administrada asignada por el usuario en el ámbito del almacén de claves.
+
+Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="create-key-optional"></a>Creación de la clave (opcional)
 
@@ -588,10 +591,11 @@ Tampoco podrá cambiar (girar) la clave de cifrado. Los pasos de resolución dep
 
 **Identidad asignada por el usuario**
 
-Si se produce este problema con una identidad asignada por el usuario, reasigne primero la identidad con el GUID que se muestra en el mensaje de error. Por ejemplo:
+Si aparece este problema con una identidad asignada por el usuario, reasigne primero la identidad mediante el comando [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign). Pase el identificador de recurso de la identidad o use el nombre de la identidad cuando esté en el mismo grupo de recursos que el registro. Por ejemplo:
 
 ```azurecli
-az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+az acr identity assign -n myRegistry \
+    --identities "/subscriptions/mysubscription/resourcegroups/myresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myidentity"
 ```
         
 Después, tras cambiar la clave y asignar otra identidad, puede quitar la identidad asignada por el usuario original.

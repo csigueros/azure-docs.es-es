@@ -7,13 +7,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 6/4/2021
-ms.openlocfilehash: 13d0c630c38e71b243a32404b26e3a141a20a6b2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/03/2021
+ms.openlocfilehash: 48ea5fbeacf1769f73b9d505e6cc8fb55e8c3a44
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111561805"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741994"
 ---
 # <a name="troubleshoot-read-only-access-to-azure-database-for-postgresql---hyperscale-citus"></a>Solución de problemas de acceso de solo lectura en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -28,13 +28,13 @@ En concreto, un nodo de Hiperescala (Citus) se vuelve de solo lectura cuando que
 ### <a name="on-the-coordinator-node"></a>En el nodo de coordinación
 
 * [Aumente el tamaño de almacenamiento](howto-hyperscale-scale-grow.md#increase-storage-on-nodes) en el nodo de coordinación.
-* Distribuya las tablas locales entre nodos de trabajo o quite datos. Para cualquiera de las dos opciones, tendrá que ejecutar `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE` una vez que se haya conectado a la base de datos y antes de ejecutar otros comandos.
+* Distribuya las tablas locales entre nodos de trabajo o quite datos. Tendrá que ejecutar `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE` una vez que se haya conectado a la base de datos y antes de ejecutar otros comandos.
 
 ### <a name="on-a-worker-node"></a>En un nodo de trabajo
 
 * [Aumente el tamaño de almacenamiento](howto-hyperscale-scale-grow.md#increase-storage-on-nodes) en el nodo de trabajo.
 * [Reequilibre los datos](howto-hyperscale-scale-rebalance.md) en otros nodos o quite algunos datos.
-    * Para cualquiera de las dos opciones, tendrá que establecer temporalmente el nodo de trabajo como de lectura y escritura. Para esto, envíe una solicitud de soporte técnico. Como alternativa, si ejecuta un grupo de servidores de Hiperescala (Citus) en versión preliminar, puede conectarse directamente a los nodos de trabajo y usar `SET SESSION CHARACTERISTICS` como se describió anteriormente para el nodo de coordinación.
+    * Tendrá que establecer temporalmente el nodo de trabajo como de lectura y escritura. Puede conectarse directamente a los nodos de trabajo y usar `SET SESSION CHARACTERISTICS` como se describió anteriormente para el nodo de coordinación.
 
 ## <a name="prevention"></a>Prevención
 

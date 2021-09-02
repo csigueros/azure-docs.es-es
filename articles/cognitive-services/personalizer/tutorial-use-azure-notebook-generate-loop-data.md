@@ -2,19 +2,20 @@
 title: 'Tutorial: Personalizer en Azure Notebook'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial se simula un bucle de Personalizer en un proyecto de Azure Notebook que sugiere qué tipo de café debe solicitar un cliente. Los usuarios y sus preferencias están almacenados en un conjunto de datos de usuario. La información sobre el café también está disponible y almacenada en un conjunto de datos de café.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66d32a61a3c8f3b88562bdff0c541ec5d88e65d8
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509916"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830984"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Uso de Personalizer en Azure Notebook
 

@@ -7,12 +7,12 @@ ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: f6bec32fa928e840569ed95c35a056db91ea9737
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 46ccfd04722cb9333a8f6e546505ed1e10f657af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077999"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752447"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Google
 
@@ -44,8 +44,9 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
     
     Estas opciones determinan el modo en que la aplicación responde a las solicitudes no autenticadas y las selecciones predeterminadas redirigirán todas las solicitudes para iniciar sesión con este nuevo proveedor. Puede cambiar este comportamiento ahora o ajustar esta configuración más adelante desde la pantalla principal **Autenticación**; para ello, elija **Editar** junto a **Configuración de la autenticación**. Para obtener más información acerca de estas opciones, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
 
-1. (Opcional) Haga clic en **Siguiente: Ámbitos** y agregue los ámbitos que necesite la aplicación. Estos se solicitarán en el momento del inicio de sesión para los flujos basados en explorador.
 1. Haga clic en **Agregar**.
+
+> [Nota] Para agregar ámbito: puede definir qué permisos tiene la aplicación en el portal de registro del proveedor. La aplicación puede solicitar ámbitos en el momento del inicio de sesión que aprovechan estos permisos.
 
 De este modo ya estará listo para usar Google para realizar la autenticación en la aplicación. El proveedor se mostrará en la pantalla **Autenticación**. Desde allí, puede editar o eliminar esta configuración de proveedor.
 

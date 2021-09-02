@@ -1,20 +1,20 @@
 ---
-title: Creación de un asistente para voz con Azure Percept DK y Azure Percept Audio
+title: Creación de un asistente para voz sin código en Azure Percept Studio
 description: Aprenda a crear e implementar una solución de voz sin código en Azure Percept DK.
-author: philmea
-ms.author: philmea
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 441d0b4b76e0c543bd82c5546e0ca89250e418e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0ceb71b5caaf17c485d4f4bd649e6b68d7c72a5d
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748176"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224046"
 ---
-# <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Creación de un asistente para voz con Azure Percept DK y Azure Percept Audio
+# <a name="create-a-no-code-voice-assistant-in-azure-percept-studio"></a>Creación de un asistente para voz sin código en Azure Percept Studio
 
 En este tutorial, creará un asistente para voz a partir de una plantilla para usarlo con Azure Percept DK y Azure Percept Audio. La demostración del asistente para voz se ejecuta en [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) y contiene una selección de objetos virtuales controlados por voz. Para controlar un objeto, diga la palabra clave, que es una palabra o frase corta que reactiva el dispositivo, seguido de un comando. Cada plantilla responde a un conjunto de comandos específicos.
 

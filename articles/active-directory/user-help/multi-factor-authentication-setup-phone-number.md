@@ -1,6 +1,6 @@
 ---
-title: 'Configuración de un dispositivo móvil como método de verificación en dos fases: Azure Active Directory | Microsoft Docs'
-description: Aprenda a configurar un dispositivo móvil como método de verificación en dos fases.
+title: 'Configuración de un dispositivo móvil como método de verificación en dos pasos: Azure Active Directory | Microsoft Docs'
+description: Aprenda a configurar un dispositivo móvil como método de verificación en dos pasos.
 services: active-directory
 author: curtand
 manager: daveba
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6cf133c08d7f554ffe991941740326a2e1e4292
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91530262"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728180"
 ---
-# <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configuración de un dispositivo móvil como método de verificación en dos fases
+# <a name="set-up-a-mobile-device-as-your-two-step-verification-method"></a>Configuración de un dispositivo móvil como método de verificación en dos pasos
 
-Es posible configurar el dispositivo móvil para que actúe como método de verificación en dos fases. En el teléfono móvil se puede recibir un mensaje de texto con un código de verificación o bien una llamada telefónica.
+Es posible configurar el dispositivo móvil para que actúe como método de verificación en dos pasos. En el teléfono móvil se puede recibir un mensaje de texto con un código de verificación o bien una llamada telefónica.
 
 >[!Note]
 > Si la opción de teléfono de autenticación está atenuada, es posible que su organización no le permita usar un número de teléfono o un mensaje de texto para la verificación. En este caso, tendrá que seleccionar otro método o ponerse en contacto con su administrador para obtener más ayuda.
@@ -41,7 +41,7 @@ Es posible configurar el dispositivo móvil para que actúe como método de veri
     ![Área de contraseñas de aplicación de la página Comprobación de seguridad adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >Para obtener información sobre el uso de la contraseña de aplicación con las aplicaciones antiguas, consulte [Administración de las contraseñas de aplicaciones](multi-factor-authentication-end-user-app-passwords.md). Solo tiene que usar contraseñas de aplicación si va a seguir usando aplicaciones antiguas que no admiten la verificación en dos fases.
+    >Para obtener información sobre el uso de la contraseña de aplicación con las aplicaciones antiguas, consulte [Administración de las contraseñas de aplicaciones](multi-factor-authentication-end-user-app-passwords.md). Si va a seguir usando aplicaciones antiguas que no admiten la verificación en dos pasos, solo tiene que usar las contraseñas de las aplicaciones.
 
 5. Seleccione **Listo**.
 
@@ -62,18 +62,18 @@ Es posible configurar el dispositivo móvil para que actúe como método de veri
     ![Área de contraseñas de aplicación de la página Comprobación de seguridad adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >Para obtener información sobre el uso de la contraseña de aplicación con las aplicaciones antiguas, consulte [Administración de las contraseñas de aplicaciones](multi-factor-authentication-end-user-app-passwords.md). Solo tiene que usar contraseñas de aplicación si va a seguir usando aplicaciones antiguas que no admiten la verificación en dos fases.
+    >Para obtener información sobre el uso de la contraseña de aplicación con las aplicaciones antiguas, consulte [Administración de las contraseñas de aplicaciones](multi-factor-authentication-end-user-app-passwords.md). Si va a seguir usando aplicaciones antiguas que no admiten la verificación en dos pasos, solo tiene que usar las contraseñas de las aplicaciones.
 
 5. Seleccione **Listo**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de configurar el método de verificación en dos fases, puede agregar otros métodos, administrar la configuración y las contraseñas de aplicación, iniciar sesión u obtener ayuda con algunos problemas comunes relacionados con la verificación en dos fases.
+Después de configurar el método de verificación en dos pasos, puede agregar otros métodos, administrar la configuración y las contraseñas de aplicación, iniciar sesión u obtener ayuda con algunos problemas comunes relacionados con la verificación en dos fases.
 
-- [Administración de la configuración del método de verificación en dos fases](multi-factor-authentication-end-user-manage-settings.md)
+- [Administración de la configuración del método de verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 
 - [Administración de las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Inicio de sesión con la verificación en dos pasos](multi-factor-authentication-end-user-signin.md)
+- [Inicio de sesión mediante la verificación en dos pasos](multi-factor-authentication-end-user-signin.md)
 
-- [Obtención de ayuda con la verificación en dos fases](multi-factor-authentication-end-user-troubleshoot.md)
+- [Obtención de ayuda con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)

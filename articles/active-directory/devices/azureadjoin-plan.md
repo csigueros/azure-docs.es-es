@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eb74dccb01bb599a40bbf9c606661d4661a37f3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: bdaef1c746ca23f2badf657e6e72e6e3988bcfa4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953629"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724855"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -24,7 +24,7 @@ Unión a Azure AD permite unir dispositivos directamente a Azure AD sin necesida
 
 Este artículo proporciona la información que necesita para planear su implementación de Unión a Azure AD.
  
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](./overview.md).
 
@@ -164,6 +164,9 @@ Si usa AD FS, consulte [Comprobar y administrar el inicio de sesión único con 
 
 Los usuarios obtienen inicio de sesión único desde dispositivos unidos a Azure AD si el dispositivo tiene acceso a un controlador de dominio. 
 
+> [!NOTE]
+> Los dispositivos unidos a Azure AD pueden proporcionar acceso perfectamente a aplicaciones tanto locales como en la nube. Para obtener más información, consulte [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md) (Funcionamiento del inicio de sesión único a recursos locales en dispositivos unidos a Azure AD).
+
 **Recomendación:** Implemente el [proxy de aplicación de Azure AD](../app-proxy/application-proxy.md) para permitir el acceso seguro para estas aplicaciones.
 
 ### <a name="on-premises-network-shares"></a>Recursos compartidos de red local
@@ -240,7 +243,7 @@ Elija **Seleccionados** y elija los usuarios que quiere agregar al grupo de admi
 
 ### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>Exigencia de autenticación multifactor (MFA) para unir dispositivos
 
-Seleccione **Sí** si necesita que los usuarios ejecuten MFA al unir dispositivos a Azure AD. Para los usuarios que unen dispositivos a Azure AD con MFA, el propio dispositivo se convierte en un segundo factor.
+Seleccione **Sí** si necesita que los usuarios ejecuten MFA al unir dispositivos a Azure AD.
 
 ![Requerir Multi-factor Authentication para unir dispositivos](./media/azureadjoin-plan/03.png)
 

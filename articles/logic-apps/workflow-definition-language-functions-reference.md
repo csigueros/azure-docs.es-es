@@ -3,22 +3,22 @@ title: Guía de referencia de las funciones en las expresiones
 description: Guía de referencia de las funciones en las expresiones para Azure Logic Apps y Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 03/30/2021
-ms.openlocfilehash: 71a8dc9c72672ae0bee18be159631daba3d88a39
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/16/2021
+ms.openlocfilehash: 78267781c552f46952babea9704eca8d62b3b5ea
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062009"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253954"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
 En las definiciones de flujo de trabajo en [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y [Power Automate](/flow/getting-started), algunas [expresiones](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtienen sus valores de las acciones del entorno de ejecución que puede que no existan aún cuando comienza a ejecutarse el flujo de trabajo. Para hacer referencia a estos valores o procesarlos en estas expresiones, puede usar las *funciones* que proporciona el [Lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Esta página de referencia se aplica a Azure Logic Apps y Power Automate, pero aparece en la documentación de Azure Logic Apps. Aunque esta página se refiere específicamente a las aplicaciones lógicas, estas funciones son válidas tanto para flujos como para aplicaciones lógicas. Para más información acerca de las funciones y las expresiones en Power Automate, consulte [Uso de expresiones en condiciones](/flow/use-expressions-in-conditions).
+> Esta página de referencia se aplica a Azure Logic Apps y Power Automate, pero aparece en la documentación de Azure Logic Apps. Aunque esta página se refiere específicamente a los flujos de trabajo de aplicaciones lógicas, estas funciones son válidas tanto para flujos como para flujos de trabajo de aplicaciones lógicas. Para más información acerca de las funciones y las expresiones en Power Automate, consulte [Uso de expresiones en condiciones](/flow/use-expressions-in-conditions).
 
 Por ejemplo, puede calcular valores con funciones matemáticas, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), cuando quiera obtener la suma de números enteros y float. A continuación se muestran otras tareas de ejemplo que puede realizar con funciones:
 
@@ -62,9 +62,11 @@ O bien, puede obtener valores de cadena de los parámetros. En este ejemplo se u
 
 En cualquier de los casos, ambos ejemplos asignan el resultado a la propiedad `customerName`.
 
-A continuación, se indican algunas notas sobre las funciones de las expresiones:
+## <a name="considerations-for-using-functions"></a>Consideraciones a la hora de usar funciones
 
 * Los parámetros de función se evalúan de izquierda a derecha.
+
+* El diseñador no evalúa las expresiones en tiempo de ejecución que se usan como parámetros de función durante el tiempo de diseño. El diseñador requiere que todas las expresiones se puedan evaluar completamente durante el tiempo de diseño.
 
 * En la sintaxis de las definiciones de parámetros, el signo de interrogación (?) que aparece después de un parámetro significa que el parámetro es opcional. Por ejemplo, consulte [getFutureTime()](#getFutureTime).
 
@@ -202,7 +204,7 @@ Logic Apps realiza de forma automática o implícita la codificación o descodif
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> Si agrega manualmente cualquiera de estas funciones al flujo de trabajo a través del diseñador de aplicación lógica, por ejemplo, mediante el editor de expresiones, sale del diseñador y vuelve al diseñador, la función desaparece del diseñador y deja solo los valores de los parámetros. Este comportamiento también se produce si selecciona un desencadenador o una acción que usa esta función sin modificar los valores de los parámetros de la función. Este resultado afecta solo a la visibilidad de la función y no al efecto. En la vista de código, la función no se ve afectada. Sin embargo, si edita los valores de los parámetros de la función, la función y su efecto se quitan de la vista de código, lo que deja detrás solo los valores de parámetro de la función.
+> Si agrega manualmente cualquiera de estas funciones mientras usa el diseñador del flujo de trabajo, ya sea directamente mediante un desencadenador o una acción o mediante el editor de expresiones, sale del diseñador y, a continuación, vuelve a entrar en él, la función desaparece del diseñador y deja solo los valores de los parámetros. Este comportamiento también se produce si selecciona un desencadenador o una acción que usa esta función sin modificar los valores de los parámetros de la función. Este resultado afecta solo a la visibilidad de la función y no al efecto. En la vista de código, la función no se ve afectada. Sin embargo, si edita los valores de los parámetros de la función, la función y su efecto se quitan de la vista de código, lo que deja detrás solo los valores de parámetro de la función.
 
 <a name="math-functions"></a>
 
@@ -1044,7 +1046,7 @@ Y devuelve este resultado: `"hello"`
 
 ### <a name="binary"></a>binary
 
-Devuelve la versión binaria de una cadena.
+Devuelve la versión binaria codificada en Base64 de una cadena.
 
 ```
 binary('<value>')
@@ -1057,20 +1059,12 @@ binary('<value>')
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*binario-del-valor-de-entrada*> | String | Versión binaria de la cadena especificada |
+| <*binario-del-valor-de-entrada*> | String | La versión binaria codificada en Base64 de la cadena especificada |
 ||||
 
 *Ejemplo*
 
-Este ejemplo convierte la cadena "hello" en una cadena en binario:
-
-```
-binary('hello')
-```
-
-Y devuelve este resultado:
-
-`"0110100001100101011011000110110001101111"`
+Por ejemplo, usa una acción HTTP que devuelve una imagen o un archivo de vídeo. Puede usar `binary()` para convertir el valor en un modelo de sobre de contenido codificado en Base 64. A continuación, puede reutilizar el sobre de contenido en otras acciones, como `Compose`.
 
 <a name="body"></a>
 
@@ -1226,6 +1220,9 @@ concat('Hello', 'World')
 ```
 
 Y devuelve este resultado: `"HelloWorld"`
+  
+> [!NOTE]
+> La longitud del resultado no debe superar 104 857 600 caracteres.
 
 <a name="contains"></a>
 
@@ -2703,6 +2700,9 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 Y devuelve este resultado: `"a.b.c"`
+  
+> [!NOTE]
+> La longitud del resultado no debe superar 104 857 600 caracteres.
 
 <a name="last"></a>
 
@@ -3324,6 +3324,9 @@ range(1, 4)
 ```
 
 Y devuelve este resultado: `[1, 2, 3, 4]`
+  
+> [!NOTE]
+> El valor del parámetro `count` debe ser un entero positivo que no supere los 100 000. La suma de los valores `startIndex` y `count` no debe superar 2 147 483 647.
 
 <a name="replace"></a>
 

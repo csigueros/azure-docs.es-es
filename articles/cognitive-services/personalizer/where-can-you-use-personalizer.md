@@ -1,16 +1,19 @@
 ---
 title: Dónde y cómo utiliza Personalizer
 description: Personalizer se puede aplicar en cualquier situación en la que su aplicación pueda seleccionar el artículo, acción o producto correcto que se quiere mostrar, con el fin de mejorar la experiencia, lograr mejores resultados comerciales o mejorar la productividad.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 87179950c33a6facb59ce499aa0ae393e53fb37f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc8b0a09212c54ae1e0328e5d1dbfd6d8f213981
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91777231"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830194"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Dónde y cómo utiliza Personalizer
 

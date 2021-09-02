@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 10caff631d59085aa2bbfcd573c3e3114b0306f7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 3b64b77d4e9061e122c627154c4623fcebfce631
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560877"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178953"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -23,8 +23,6 @@ Puede proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imag
 Las [aplicaciones web estáticas de App Service](https://azure.microsoft.com/services/app-service/static/) es una excelente alternativa al hospedaje de sitios web estáticos de Azure Storage y también es adecuado en los casos en los que no es necesario que un servidor web represente contenido. Las aplicaciones web estáticas de App Service proporcionan un flujo de trabajo de integración continua y entrega continua (CI/CD) totalmente administrado desde el origen de GitHub a la implementación global.
 
 Si necesita un servidor web para representar contenido, puede usar [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up-a-static-website"></a>Configuración de un sitio web estático
 
@@ -121,6 +119,36 @@ Puede habilitar el hospedaje de sitios web estáticos de forma gratuita. Se le f
 Puede habilitar métricas en páginas de sitios web estáticos. Después de habilitar las métricas, las estadísticas de tráfico de los archivos en el contenedor **$web** aparecen en el panel de métricas.
 
 Para habilitar métricas en las páginas de su sitio web estático, consulte [Enable metrics on static website pages](storage-blob-static-website-how-to.md#metrics) (Habilitación de métricas en páginas de sitios web estáticos).
+
+## <a name="faq"></a>Preguntas más frecuentes
+
+##### <a name="does-the-azure-storage-firewall-work-with-a-static-website"></a>¿Funciona el firewall de Azure Storage con un sitio web estático?
+
+La cuenta de almacenamiento tiene una [característica de firewall](../common/storage-network-security.md) integrada, pero esta no afecta al punto de conexión del sitio web estático. Solo se puede usar para proteger otros puntos de conexión de almacenamiento, como el blob, el archivo, la tabla y los puntos de conexión de Queue service. 
+
+##### <a name="do-static-websites-support-azure-active-directory-azure-ad"></a>¿Los sitios web estáticos admiten Azure Active Directory (Azure AD)?
+
+Sí. Sin embargo, no existe la opción de usar proveedores de identidades sociales, como la autenticación con Google o Facebook, mediante OpenID.
+
+##### <a name="how-do-i-use-a-custom-domain-with-a-static-website"></a>¿Cómo uso un dominio personalizado con un sitio web estático?
+
+Puede configurar un [dominio personalizado](./static-website-content-delivery-network.md) con un sitio web estático mediante [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN proporciona latencias bajas coherentes al sitio web desde cualquier lugar del mundo. 
+
+##### <a name="how-do-i-use-a-custom-ssl-certificate-with-a-static-website"></a>¿Cómo se usa el certificado SSL personalizado con un sitio web estático?
+
+Puede configurar un certificado [SSL personalizado](./static-website-content-delivery-network.md) con un sitio web estático mediante [Azure CDN](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN proporciona latencias bajas coherentes al sitio web desde cualquier lugar del mundo.
+
+##### <a name="how-do-i-add-custom-headers-and-rules-with-a-static-website"></a>¿Cómo se agregan encabezados y reglas personalizados con un sitio web estático?
+
+Puede configurar el encabezado host para un sitio web estático mediante [Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md). Nos interesa conocer sus comentarios [aquí](https://feedback.azure.com/forums/217298-storage/suggestions/34959124-allow-adding-headers-to-static-website-hosting-in).
+
+##### <a name="why-am-i-getting-an-http-404-error-from-a-static-website"></a>¿Por qué obtengo un error HTTP 404 de un sitio web estático?
+
+Esto puede ocurrir si hace referencia a un nombre de archivo con mayúsculas y minúsculas incorrectas. Por ejemplo, `Index.html` en lugar de `index.html`. Los nombres de archivo y las extensiones en la URL de un sitio web estático distinguen mayúsculas de minúsculas, aunque entreguen a través de HTTP. Esto también puede ocurrir si el punto de conexión de Azure CDN aún no está aprovisionado. Espere hasta 90 minutos después de aprovisionar una nueva red de Azure CDN para que se complete la propagación.
+
+##### <a name="why-isnt-the-root-directory-of-the-website-not-redirecting-to-the-default-index-page"></a>¿Por qué el directorio raíz del sitio web no redirige a la página de índice predeterminada?
+
+En Azure Portal, abra la página de configuración del sitio web estático de su cuenta y busque el nombre y la extensión que se establecieron en el campo **Nombre del documento de índice**. Asegúrese de que este nombre sea exactamente el mismo que el nombre del archivo ubicado en el contenedor **$web** de la cuenta de almacenamiento. Los nombres de archivo y las extensiones en la URL de un sitio web estático distinguen mayúsculas de minúsculas, aunque entreguen a través de HTTP. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

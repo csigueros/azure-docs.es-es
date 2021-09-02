@@ -4,12 +4,12 @@ description: Transferir colecciones de imágenes u otros artefactos de un regist
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: c966600b0ca9d65cf533c3c2f0aca211c84917bd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a82bee4c0750004db11753c56f06b2ef19badf1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780782"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722484"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -434,11 +434,12 @@ az resource delete \
   * Es posible que no se haya completado la ejecución de canalización. Una ejecución de exportación o importación puede tardar algún tiempo. 
   * Para otros problemas de canalización, proporcione el [id. de correlación](../azure-resource-manager/templates/deployment-history.md) de implementación de la ejecución de la exportación o la ejecución de la importación al equipo de Azure Container Registry.
 * **Problemas al extraer la imagen en un entorno físicamente aislado**
-  * Si ve errores relacionados con las capas externas o intenta resolver mcr.microsoft.com al intentar extraer una imagen en un entorno físicamente aislado, es probable que el manifiesto de imagen tenga capas no redistribuibles. Debido a la naturaleza de un entorno físicamente aislado, estas imágenes no se pueden extraer a menudo. Puede confirmar que este es el caso comprobando el manifiesto de la imagen para las referencias a registros externos. En este caso, tendrá que enviar las capas no redistribuibles al ACR de la nube pública antes de implementar una canalización de exportación: ejecute la imagen. Para obtener instrucciones sobre cómo hacerlo, consulte [¿Cómo enviar capas no redistribuibles a un registro?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
+  * Si ve errores relacionados con las capas externas o intenta resolver mcr.microsoft.com al intentar extraer una imagen en un entorno físicamente aislado, es probable que el manifiesto de imagen tenga capas no redistribuibles. Debido a la naturaleza de un entorno físicamente aislado, estas imágenes no se pueden extraer a menudo. Puede confirmar que este es el caso comprobando el manifiesto de la imagen para las referencias a registros externos. En este caso, tendrá que enviar las capas no redistribuibles al ACR de la nube pública antes de implementar una canalización de exportación: ejecute la imagen. Para obtener instrucciones sobre cómo hacerlo, consulte [¿Cómo enviar capas no redistribuibles a un registro?](./container-registry-faq.yml#how-do-i-push-non-distributable-layers-to-a-registry-)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para importar imágenes de contenedor único a un registro de contenedor de Azure desde un registro público u otro registro privado, consulte la referencia del comando [az acr import][az-acr-import].
+* Para importar imágenes de contenedor único a un registro de contenedor de Azure desde un registro público u otro registro privado, consulte la referencia del comando [az acr import][az-acr-import].
+* Obtenga información sobre cómo [bloquear la creación de canalizaciones de exportación](data-loss-prevention.md) desde un registro de contenedor restringido por red.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

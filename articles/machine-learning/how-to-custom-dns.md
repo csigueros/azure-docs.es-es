@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 08/03/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: 6395f88f4841ef5447b8dfef5310fba6e0440e32
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 3ed8a3623163ef5f596508cd7073a68eec3fe297
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771459"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736531"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
@@ -31,7 +31,7 @@ Al usar un área de trabajo de Azure Machine Learning con un punto de conexión 
 > * [Información general sobre redes virtuales](how-to-network-security-overview.md)
 > * [Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)
 > * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-> * [Protección de un entorno de inferencia](how-to-secure-inferencing-vnet.md)
+> * [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
 > * [Habilitación de la funcionalidad de Studio](how-to-enable-studio-virtual-network.md)
 > * [Uso de un firewall](how-to-access-azureml-behind-firewall.md)
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -285,17 +285,14 @@ En los pasos siguientes se explica cómo funciona esta topología:
     **Regiones de Azure público**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.ml.azure.us```
     
     **Regiones de Azure China**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
-    - ```instances.ml.azure.cn```
     
     **Regiones de Azure US Government**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
-    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Los pasos de configuración del servidor DNS no se incluyen aquí, ya que hay muchas soluciones DNS disponibles que se pueden usar como servidor DNS personalizado. Vea la documentación de la solución DNS para obtener información sobre cómo configurar correctamente el reenvío condicional.
@@ -418,17 +415,14 @@ En los pasos siguientes se explica cómo funciona esta topología:
     **Regiones de Azure público**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.ml.azure.us```     
     
     **Regiones de Azure China**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
-    - ```instances.ml.azure.cn```
-
+    
     **Regiones de Azure US Government**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
-    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Los pasos de configuración del servidor DNS no se incluyen aquí, ya que hay muchas soluciones DNS disponibles que se pueden usar como servidor DNS personalizado. Vea la documentación de la solución DNS para obtener información sobre cómo configurar correctamente el reenvío condicional.
@@ -442,17 +436,14 @@ En los pasos siguientes se explica cómo funciona esta topología:
     **Regiones de Azure público**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.ml.azure.us```
     
     **Regiones de Azure China**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
-    - ```instances.ml.azure.cn```
     
     **Regiones de Azure US Government**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
-    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Los pasos de configuración del servidor DNS no se incluyen aquí, ya que hay muchas soluciones DNS disponibles que se pueden usar como servidor DNS personalizado. Vea la documentación de la solución DNS para obtener información sobre cómo configurar correctamente el reenvío condicional.
@@ -570,7 +561,7 @@ Este artículo forma parte de una serie sobre la protección de un flujo de trab
 * [Información general sobre redes virtuales](how-to-network-security-overview.md)
 * [Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)
 * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-* [Protección de un entorno de inferencia](how-to-secure-inferencing-vnet.md)
+* [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
 * [Habilitación de la funcionalidad de Studio](how-to-enable-studio-virtual-network.md)
 * [Uso de un firewall](how-to-access-azureml-behind-firewall.md)
 

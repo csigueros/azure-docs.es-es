@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 07/07/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2fdbdcfd847c33bc6d948d12b14f468233b4cf19
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 383757cf20c7ac508aa396b947640c3a1221052d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901500"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749315"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -97,7 +97,9 @@ El acceso de escritura se restaura para las cuentas con redundancia geográfica 
 
 Como los datos se escriben de manera asincrónica desde la región primaria a la secundaria, siempre se produce un retraso antes de que una escritura en la región primaria se copie en la secundaria. Si la región primaria deja de estar disponible, puede que las escrituras más recientes todavía no se hayan copiado en la región secundaria.
 
-Cuando se fuerza una conmutación por error, todos los datos de la región primaria se pierden cuando la región secundaria se convierte en la nueva región primaria y la cuenta de almacenamiento está configurada para usar la redundancia local. Todos los datos ya copiados en la región secundaria se conservan cuando se produce la conmutación por error. Sin embargo, los datos escritos en la región primaria que no se hayan copiado en la región secundaria se pierden de forma permanente.
+Al forzar una conmutación por error, todos los datos de la región primaria se pierden a medida que la región secundaria se convierte en la nueva región primaria. La nueva región primaria está configurada para tener redundancia local después de la conmutación por error.
+
+Todos los datos ya copiados en la región secundaria se conservan cuando se produce la conmutación por error. Sin embargo, los datos escritos en la región primaria que no se hayan copiado en la región secundaria se pierden de forma permanente.
 
 La propiedad **Last Sync Time** indica la hora más reciente en que se garantiza que los datos de la región primaria se escribieron en la secundaria. Todos los datos escritos antes de la hora de la última sincronización están disponibles en la región secundaria, mientras que es posible que los datos escritos después de la hora de la última sincronización no se hayan escrito en la secundaria y pueden haberse perdido. Use esta propiedad si se produce una interrupción para calcular la cantidad de datos perdidos que puede haber al iniciar la conmutación por error de una cuenta.
 
@@ -107,11 +109,13 @@ Para obtener más información sobre cómo comprobar la propiedad **Hora de la �
 
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Precaución al conmutar por recuperación en la región primaria original
 
-Después de conmutar por error desde la región primaria a la secundaria, la cuenta de almacenamiento se configura con redundancia local en la nueva región primaria. Después, puede volver a configurar la cuenta para la redundancia geográfica. Cuando la cuenta se vuelve a configurar para usar la redundancia geográfica después de una conmutación por error, la nueva región primaria empieza de inmediato a copiar los datos en la nueva región secundaria, que antes de la conmutación por error original era la primaria. Sin embargo, puede pasar un tiempo antes de que los datos existentes en la región primaria se copien totalmente en la nueva región secundaria.
+Después de conmutar por error desde la región primaria a la secundaria, la cuenta de almacenamiento se configura con redundancia local en la nueva región primaria. A continuación, puede configurar la cuenta en la nueva región primaria para la redundancia geográfica. Cuando la cuenta se configura para usar la redundancia geográfica después de una conmutación por error, la nueva región primaria empieza de inmediato a copiar los datos en la nueva región secundaria, que antes de la conmutación por error original era la primaria. Sin embargo, puede pasar un tiempo antes de que los datos existentes en la nueva región primaria se copien totalmente en la nueva región secundaria.
 
-Una vez que la cuenta de almacenamiento se vuelve a configurar para la redundancia geográfica, es posible iniciar otra conmutación por error desde la nueva región primaria de vuelta a la nueva secundaria. En este caso, la región primaria original antes de la conmutación por error vuelve a serlo y se configura para usar la redundancia local. Todos los datos de la región primaria posterior a la conmutación por error (la región secundaria original) se pierden. Si la mayoría de los datos de la cuenta de almacenamiento nunca se ha copiado en la nueva región secundaria antes de la conmutación por recuperación, podría ocurrir una pérdida de datos importante.
+Una vez que la cuenta de almacenamiento se vuelve a configurar para la redundancia geográfica, es posible iniciar una conmutación por recuperación de la nueva región primaria a la nueva región secundaria. En este caso, la región primaria original de antes de la conmutación por error se convierte de nuevo en la región primaria y se configura para redundancia local o redundancia de zona, en función de si la configuración primaria original era GRS/RA-GRS o GZRS/RA-GZRS. Todos los datos de la región primaria posterior a la conmutación por error (la región secundaria original) se pierden durante la conmutación por recuperación. Si la mayoría de los datos de la cuenta de almacenamiento nunca se ha copiado en la nueva región secundaria antes de la conmutación por recuperación, podría ocurrir una pérdida de datos importante.
 
-Para evitar que suceda esto, compruebe el valor de la propiedad **Hora de última sincronización** antes de la conmutación por recuperación. Compare la hora de última sincronización con las últimas horas en que los datos se escribieron en la nueva región primaria para evaluar la pérdida de datos esperada. 
+Para evitar que suceda esto, compruebe el valor de la propiedad **Hora de última sincronización** antes de la conmutación por recuperación. Compare la hora de última sincronización con las últimas horas en que los datos se escribieron en la nueva región primaria para evaluar la pérdida de datos esperada.
+
+Después de una operación de conmutación por recuperación, puede configurar la nueva región primaria para redundancia geográfica de nuevo. Si la región primaria original se configuró para LRS, puede configurarla para que tenga GRS o RA-GRS. Si la región primaria original se configuró para LRS, puede configurarla para que tenga GZRS o RA-GZRS. Para otras opciones, consulte [Cambio de la forma en que se replica una cuenta de almacenamiento](redundancy-migration.md).
 
 ## <a name="initiate-an-account-failover"></a>Iniciación de una conmutación por error de la cuenta
 
@@ -159,7 +163,7 @@ Las siguientes características y servicios no son compatibles con la conmutaci�
 - Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.
 - Actualmente, no se admiten cuentas de almacenamiento que tienen habilitado el espacio de nombres jerárquico (como Data Lake Storage Gen2).
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
-- No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/storage-blob-immutable-storage.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
+- No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/immutable-storage-overview.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia de datos como alternativa a la conmutación por error
 

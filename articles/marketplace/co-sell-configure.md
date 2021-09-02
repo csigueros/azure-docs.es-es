@@ -7,17 +7,17 @@ ms.topic: how-to
 author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: d38123aef6ac51423b90fa06d720574bb595bb14
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 07/13/2021
+ms.openlocfilehash: 74bc41fb84f63f4705da95f80d6f27dea009ea43
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133464"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866740"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configuración de la venta conjunta para una oferta del marketplace comercial
 
-En este artículo se describe cómo configurar la pestaña **Venta conjunta con Microsoft** para una oferta del marketplace comercial. Proporcionar información en esta pestaña es totalmente opcional, pero es necesario para lograr los estados [Co-sell Ready e IP Co-sell Incentivized](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status) (Preparado para la venta conjunta y Venta conjunta con incentivos de IP). Los equipos de ventas de Microsoft usan la información que se proporciona para obtener más información sobre la oferta al evaluar su idoneidad para las necesidades de los clientes. Esta información no está disponible directamente para los clientes. Para obtener más información sobre la venta conjunta, consulte [Participación de asociados de venta conjunta](./co-sell-overview.md) y [Venta conjunta con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+En este artículo se describe cómo configurar la pestaña **Venta conjunta con Microsoft** para una oferta del marketplace comercial. Proporcionar información en esta pestaña es totalmente opcional, pero es necesario para lograr los estados [Preparado para la venta conjunta e Incentivos de venta conjunta de IP](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Los equipos de ventas de Microsoft usan la información que se proporciona para obtener más información sobre la oferta al evaluar su idoneidad para las necesidades de los clientes. Esta información no está disponible directamente para los clientes. Para obtener más información sobre la venta conjunta, consulte [Participación de asociados de venta conjunta](./co-sell-overview.md) y [Venta conjunta con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 La opción de venta conjunta está disponible para los siguientes tipos de ofertas:
 
@@ -25,7 +25,7 @@ La opción de venta conjunta está disponible para los siguientes tipos de ofert
 - Contenedor de Azure
 - Máquina virtual de Azure
 - Servicios de consultoría
-- Dynamics 365 for Customer Engagement y Power Apps
+- Dynamics 365 for Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 - Dynamics 365 Business Central
 - Módulo IoT Edge
@@ -93,7 +93,7 @@ Debe aportar documentos auxiliares que proporcionen detalles sobre su oferta. Lo
 Los tipos de archivo admitidos son .pdf, .ppt, .pptx, .doc, .docx, .xls, .xlsx, .jpg, .png y .mp4. Más adelante en la tabla 2 se proporcionan plantillas para algunos documentos.
 
 > [!NOTE]
-> Es necesario proporcionar una **página de descripción de la solución u oferta** y la **presentación de la solución u oferta** para lograr un estado Co-sell Ready. También es un requisito previo para que algunas ofertas logren el estado Azure IP Co-sell incentivized. El diagrama de arquitectura de referencia también es necesario para alcanzar el estado Azure IP Co-sell incentivized. Los demás documentos descritos en esta tabla son opcionales, pero se recomienda proporcionarlos.
+> Es necesario proporcionar una **página de descripción de la solución u oferta** y la **presentación de la solución u oferta** para lograr un estado Co-sell Ready. También son requisitos previos para que algunas ofertas logren el estado de incentivo de venta conjunta de Azure IP. El diagrama de la arquitectura de referencia también es necesario para alcanzar el estado de incentivos de venta conjunta de Azure IP. Los demás documentos descritos en esta tabla son opcionales, pero se recomienda proporcionarlos.
 
 ***Tabla 2: Documentos complementarios para la venta conjunta***
 
@@ -104,7 +104,7 @@ Los tipos de archivo admitidos son .pdf, .ppt, .pptx, .doc, .docx, .xls, .xlsx, 
 | *Caso práctico del cliente* (opcional)| Use la [plantilla de caso práctico](https://aka.ms/GTM_Case_Study_Template) para crear su caso práctico de cliente. En esta información se muestra a un posible cliente cómo han implementado Microsoft y usted la oferta en casos anteriores. |
 | *Clientes ganados verificables* (opcional) | Proporcione ejemplos específicos de éxitos de clientes tras la implementación de su oferta. |
 | *Presentación del canal* (opcional) | Una presentación de diapositivas con información que ayuda a los revendedores del canal a obtener más información sobre la oferta y a preparar a sus equipos de ventas para comercializarla. Suele incluir un discurso de ventas, información sobre los clientes de destino, preguntas que formular a los clientes, temas de conversación y vínculos a vídeos, documentación e información de soporte técnico. |
-| *Diagrama de arquitectura de referencia* (obligatorio para lograr el estado Azure IP Co-sell incentivized) | Un diagrama que representa la oferta y su relación con los servicios en la nube de Microsoft. También puede demostrar cómo cumple su oferta los requisitos técnicos del estado Azure IP Co-sell incentivized. [Más información sobre el diagrama de arquitectura de referencia](reference-architecture-diagram.md). |
+| *Diagrama de la arquitectura de referencia* (obligatorio para lograr el estado de incentivo de venta conjunta de Azure IP) | Un diagrama que representa la oferta y su relación con los servicios en la nube de Microsoft. También puede demostrar cómo cumple su oferta los requisitos técnicos del estado de incentivos de venta conjunta de Azure IP. [Más información sobre el diagrama de arquitectura de referencia](reference-architecture-diagram.md). |
 | *Otros documentos* (opcional) | Puede cargar hasta cinco documentos o vídeos adicionales para ayudar a los equipos de ventas de Microsoft y a los revendedores del canal a obtener más información sobre su organización, su oferta y qué la diferencia de otras ofertas. |
 |||
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1fe78687b8cd200bce6eb0ce75f54fb603aa13ae
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d4eef7e7470e9dbdd37613165f0ea5cb3b295762
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671863"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729476"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 
@@ -22,7 +22,7 @@ Este artículo le ayuda a configurar el tránsito de la puerta de enlace para el
 
 ![Diagrama del tránsito de puerta de enlace](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
-En el diagrama, el tránsito de la puerta de enlace permite que las redes virtuales emparejadas usen Azure VPN Gateway en Hub-RM. La conectividad disponible en la puerta de enlace de VPN, que incluye las conexiones S2S, P2S y entre redes virtuales, se aplica a las tres redes virtuales. La opción de tránsito está disponible para el emparejamiento entre modelos de implementación iguales o diferentes. Si está configurando el tránsito entre distintos modelos de implementación, la red virtual del centro y la puerta de enlace de red virtual deben estar en el modelo de implementación de Resource Manager, no en el modelo de implementación clásica.
+En el diagrama, el tránsito de la puerta de enlace permite que las redes virtuales emparejadas usen Azure VPN Gateway en Hub-RM. La conectividad disponible en la puerta de enlace de VPN, que incluye las conexiones S2S, P2S y entre redes virtuales, se aplica a las tres redes virtuales. La opción de tránsito está disponible para el emparejamiento entre modelos de implementación iguales o diferentes. Si está configurando el tránsito entre distintos modelos de implementación, la red virtual del centro y la puerta de enlace de red virtual deben estar en el [Modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md), no en el modelo de implementación clásica.
 >
 
 En la arquitectura de red del tipo hub-and-spoke, el tránsito de la puerta de enlace permite que las redes virtuales de radio compartan la puerta de enlace de VPN en el concentrador, en lugar de implementar puertas de enlace de VPN en todas las redes virtuales de radio. Las rutas a las redes virtuales conectadas a la puerta de enlace o a las redes locales se propagarán a las tablas de enrutamiento de las redes virtuales emparejadas mediante el tránsito de la puerta de enlace. Puede deshabilitar la propagación automática de rutas de la puerta de enlace de VPN. Cree una tabla de enrutamiento con la opción "**Deshabilitar la propagación de rutas BGP**" y asóciela con las subredes para evitar la distribución de rutas en dichas subredes. Para más información, consulte [Tabla de enrutamiento de redes virtuales](../virtual-network/manage-route-table.md).
