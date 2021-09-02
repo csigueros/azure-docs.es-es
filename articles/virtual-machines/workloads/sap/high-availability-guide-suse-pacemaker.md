@@ -12,14 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/13/2021
+ms.custom: subject-rbac-steps
+ms.date: 07/26/2021
 ms.author: radeltch
-ms.openlocfilehash: c762f0e04a7079fff72962cafe44b06acfcf0eaf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: be174bf6d71ed243e0e7997250df55edffc27739
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100043"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722502"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -619,18 +620,8 @@ Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el conte
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Asignación del rol personalizado a la entidad de servicio
 
-Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en el último capítulo a la entidad de servicio. Deje de utilizar el rol Propietario.
-
-1. Vaya a [https://portal.azure.com](https://portal.azure.com)
-1. Abra la hoja Todos los recursos
-1. Seleccione la máquina virtual del primer nodo de clúster.
-1. Haga clic en Control de acceso (IAM)
-1. Haga clic en Agregar asignación de roles.
-1. Seleccione el rol "Rol de agente de barrera de Linux".
-1. Escriba el nombre de la aplicación que creó anteriormente
-1. Haga clic en Guardar
-
-Repita los pasos anteriores para el segundo nodo de clúster.
+Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en el último capítulo a la entidad de servicio. Deje de utilizar el rol de propietario. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../../role-based-access-control/role-assignments-portal.md).   
+Asegúrese de asignar el rol para ambos nodos de clúster.    
 
 ### <a name="1-create-the-stonith-devices"></a>**[1]** Cree los dispositivos STONITH
 

@@ -4,16 +4,20 @@ description: Aprenda a administrar los miembros de un consorcio de Azure Blockc
 ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: zeyadr
-ms.openlocfilehash: d40e55f177bda9edb40383b6e2c61c32633cd005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72f8e1fc5de0b48b23627f8590a08e06865cac12
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85211347"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122653579"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell
 
-Puede usar PowerShell para administrar los miembros del consorcio de una cadena de bloques para Azure Blockchain Service. Los miembros que tienen privilegios de administrador pueden invitar, agregar, quitar y cambiar los roles para todos los participantes en el consorcio de la cadena de bloques. Los miembros que tienen privilegios de usuario pueden ver a todos los participantes en el consorcio de la cadena de bloques y cambiar su nombre para mostrar miembros.
+Puede usar PowerShell para administrar los miembros del consorcio de una cadena de bloques para Azure Blockchain Service.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Los miembros que tienen privilegios de administrador pueden invitar, agregar, quitar y cambiar los roles para todos los participantes en el consorcio de la cadena de bloques. Los miembros que tienen privilegios de usuario pueden ver a todos los participantes en el consorcio de la cadena de bloques y cambiar su nombre para mostrar miembros.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

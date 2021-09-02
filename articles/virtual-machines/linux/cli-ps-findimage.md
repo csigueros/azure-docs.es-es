@@ -9,12 +9,12 @@ ms.date: 03/22/2021
 ms.author: cynthn
 ms.collection: linux
 ms.custom: contperf-fy21q3-portal, devx-track-azurecli
-ms.openlocfilehash: db21cf9e4dc28a83b98f58e73db9a5d76f80aef2
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f440518e0d7b4fc347da6455e7f6c06e18633598
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886683"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740072"
 ---
 # <a name="find-azure-marketplace-image-information-using-the-azure-cli"></a>Busque información de la imagen de Azure Marketplace mediante el CLI de Azure
 
@@ -195,7 +195,7 @@ Para implementar esta imagen, debe aceptar los términos y proporcionar los par�
 
 ## <a name="accept-the-terms"></a>Aceptación de los términos
 
-Para ver y aceptar los términos de licencia, use el comando [az vm image accept-terms](/cli/azure/vm/image/terms). Cuando acepta los términos, habilita la implementación mediante programación en la suscripción. Solo debe aceptar los términos una vez por suscripción para la imagen. Por ejemplo:
+Para ver y aceptar los términos de licencia, use el comando [az vm image terms](/cli/azure/vm/image/terms). Cuando acepta los términos, habilita la implementación mediante programación en la suscripción. Solo debe aceptar los términos una vez por suscripción para la imagen. Por ejemplo:
 
 ```azurecli
 az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest

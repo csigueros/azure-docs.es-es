@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8e9fbd5fd8fc90681432ee8403b6dd139d02a5a5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: cb1f793e9abad7c28b91da5c3028483637c53740
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796466"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722028"
 ---
 # <a name="monitor-azure-file-sync"></a>Supervisión de Azure File Sync
 
@@ -45,12 +45,14 @@ Las siguientes métricas para Azure File Sync están disponibles en Azure Monito
 | Nombre de métrica | Descripción |
 |-|-|
 | Bytes sincronizados | Tamaño de los datos transferidos (carga y descarga).<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
-| Recuperación de niveles de la nube | Tamaño de los datos que se recuperan.<br><br>**Nota**: esta métrica se eliminará en el futuro. Use la métrica del tamaño de recuperación de nube por niveles para supervisar el tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: Nombre del servidor |
+| Tasa de aciertos de caché de nube por niveles | Porcentaje de bytes, no archivos enteros, que se han servido desde la memoria caché frente a los que se recuperan de la nube.<br><br>Unidad: porcentaje<br>Tipo de agregación: Average<br>Dimensiones aplicables: nombre del punto de conexión del servidor, nombre del servidor y nombre del grupo de sincronización |
 | Tamaño de recuperación de nube por niveles | Tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: nombre del servidor, nombre del grupo de sincronización |
 | Tamaño de recuperación de nube por niveles por aplicación | Tamaño de los datos recuperados por aplicación<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: nombre de la aplicación, nombre del servidor, nombre del grupo de sincronización |
+| Tasa de éxito de recuperación de nube por niveles | Porcentaje de solicitudes de recuperación que se han realizado correctamente.<br><br>Unidad: porcentaje<br>Tipo de agregación: Average<br>Dimensiones aplicables: nombre del punto de conexión del servidor, nombre del servidor y nombre del grupo de sincronización |
 | Rendimiento de recuperación de nube por niveles | Tamaño del rendimiento de recuperación de datos.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: nombre del servidor, nombre del grupo de sincronización |
 | Archivos que no se están sincronizando | Recuento de archivos que no se pueden sincronizar.<br><br>Unidad: Count<br>Tipos de agregación: Average, Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 | Archivos sincronizados | Recuento de los ficheros transferidos (carga y descarga).<br><br>Unidad: Count<br>Tipo de agregación: Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
+| Tamaño de caché del servidor | Tamaño de los datos almacenados en caché en el servidor.<br><br>Unidad: Bytes<br>Tipo de agregación: Average<br>Dimensiones aplicables: nombre del punto de conexión del servidor, nombre del servidor y nombre del grupo de sincronización |
 | Estado en línea del servidor | Recuento de latidos recibido del servidor.<br><br>Unidad: Count<br>Tipo de agregación: Máxima<br>Dimensión aplicable: Nombre del servidor |
 | Sync session result (Resultado de la sesión de sincronización) | Resultado de la sesión de sincronización (1 = sesión de sincronización correcta; 0 = sesión de sincronización con errores)<br><br>Unidad: Count<br>Tipos de agregación: Máxima<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 

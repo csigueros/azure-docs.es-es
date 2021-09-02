@@ -12,14 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2021
+ms.custom: subject-rbac-steps
+ms.date: 07/26/2021
 ms.author: radeltch
-ms.openlocfilehash: af8523486b42af8c0722a56bdd813d6449692c14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf9aa35951ef770cda56a68e2d6200b3ea64611d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676887"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721082"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuración de Pacemaker en Red Hat Enterprise Linux en Azure
 
@@ -90,7 +91,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Tenga en cuenta que si adjunta un grupo a una imagen de RHEL de pago por uso de Azure Marketplace, se le facturará el doble por el uso de RHEL, una vez por la imagen de pago por uso y otra, por el derecho de RHEL en el grupo que adjunta. Para mitigar esto, Azure ahora proporciona imágenes de RHEL de BYOS. Puede encontrar más información disponible [aquí](../redhat/byos.md).  
+   Tenga en cuenta que si adjunta un grupo a una imagen de RHEL de pago por uso de Azure Marketplace, se le facturará el doble por el uso de RHEL, una vez por la imagen de pago por uso y otra, por el derecho de RHEL en el grupo que adjunta. Para mitigar esto, Azure ahora proporciona imágenes de RHEL de BYOS. Para más información, consulte [Imágenes Gold de tipo "Bring-your-own-subscription" (BYOS) de Red Hat Enterprise Linux en Azure](../redhat/byos.md).
 
 1. **[A]** Habilitación de RHEL para los repositorios SAP. Este paso no es necesario si se usan imágenes habilitadas para alta disponibilidad de RHEL SAP.  
 
@@ -271,19 +272,9 @@ Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el conte
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Asignación del rol personalizado a la entidad de servicio
 
-Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en el último capítulo a la entidad de servicio. Deje de utilizar el rol de propietario.
-
-1. Vaya a https://portal.azure.com.
-1. Abra la hoja Todos los recursos
-1. Seleccione la máquina virtual del primer nodo de clúster.
-1. Haga clic en Control de acceso (IAM)
-1. Haga clic en Agregar asignación de roles.
-1. Seleccione el rol "Rol de agente de barrera de Linux".
-1. Escriba el nombre de la aplicación que creó anteriormente
-1. Haga clic en Guardar
-
-Repita los pasos anteriores para el segundo nodo de clúster.
-
+Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en el último capítulo a la entidad de servicio. Deje de utilizar el rol de propietario. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../../role-based-access-control/role-assignments-portal.md).   
+Asegúrese de asignar el rol para ambos nodos del clúster.    
+      
 ### <a name="1-create-the-stonith-devices"></a>**[1]** Cree los dispositivos STONITH
 
 Después de editar los permisos para las máquinas virtuales, puede configurar los dispositivos STONITH en el clúster.
@@ -298,15 +289,19 @@ sudo pcs property set stonith-timeout=900
 
 Para configurar al agente de delimitación en RHEL **7.X**, use el comando siguiente:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
 Para configurar al agente de delimitación en RHEL **8.X**, use el comando siguiente:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
+
+> [!TIP]
+> Configure el atributo `pcmk_delay_max` solo en clústeres de Pacemaker de dos nodos. Para más información sobre cómo evitar carreras de barrera en un clúster de Pacemaker de dos nodos, consulte [Retraso de barreras en un clúster de dos nodos para evitar escenarios de carreras de barrera de "muerte por barrera"](https://access.redhat.com/solutions/54829). 
+ 
 
 > [!IMPORTANT]
 > Las operaciones de supervisión y barrera se deserializan. Como resultado, si hay una operación de supervisión más larga y un evento de barrera simultánea, no habrá ningún retraso en la conmutación por error del clúster debido a la operación de supervisión que ya se está ejecutando.  
@@ -319,6 +314,101 @@ op monitor interval=3600
 > [!TIP]
 >El agente de barrera de Azure requiere conectividad saliente a los punto de conexión públicos como se documenta, junto con las posibles soluciones, en [Conectividad del punto de conexión público para las máquinas virtuales que usan el ILB estándar](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
+
+## <a name="optional-stonith-configuration"></a>Configuración opcional de STONITH  
+
+> [!TIP]
+> Esta sección solo es aplicable si se desea configurar un dispositivo de barrera especial para `fence_kdump`.  
+
+Si es necesario recopilar información de diagnóstico dentro de la máquina virtual, puede ser útil configurar un dispositivo STONITH adicional basado en el agente de barrera `fence_kdump`. El agente `fence_kdump` puede detectar que un nodo ha entrado en la recuperación de bloqueos de kdump y puede permitir que se complete el servicio de recuperación de bloqueos antes de que se invoque a otros métodos de barrera. Tenga en cuenta que `fence_kdump` no sustituye a los mecanismos de barrera tradicionales, como el agente de barrera de Azure, cuando se usan máquinas virtuales de Azure.   
+
+> [!IMPORTANT]
+> Tenga en cuenta que cuando `fence_kdump` se configura como un stonith de primer nivel, introducirá retrasos en las operaciones de barrera y, respectivamente, retrasos en la conmutación por error de los recursos de la aplicación.  
+> 
+> Si se detecta correctamente un volcado de memoria, la creación de barreras se retrasará hasta que se complete el servicio de recuperación de bloqueos. Si no se puede acceder al nodo con errores o este no responde, la creación de barreras se retrasará según el tiempo determinado por el número configurado de iteraciones y el tiempo de espera de `fence_kdump`. Para más información, consulte [Configuración de fence_kdump en un clúster de Pacemaker de Red Hat](https://access.redhat.com/solutions/2876971).  
+> Es posible que el tiempo de espera propuesto de fence_kdump deba adaptarse al entorno específico.
+>     
+> Se recomienda configurar un stonith de `fence_kdump` solo cuando sea necesario para recopilar diagnósticos dentro de la máquina virtual y siempre en combinación con el método de barrera tradicional, como el agente de barrera de Azure.   
+
+Las siguientes KB de Red Hat contienen información importante sobre la configuración de un stonith de `fence_kdump`:
+
+* [Configuración de fence_kdump en un clúster de Pacemaker de Red Hat](https://access.redhat.com/solutions/2876971)
+* [Configuración y administración de niveles de STONITH en un clúster de RHEL con Pacemaker](https://access.redhat.com/solutions/891323)
+* [Error de fence_kdump con el mensaje "tiempo de espera después de X segundos" en un clúster de alta disponibilidad de RHEL 6 o 7 con una versión de kexec-tools anterior a la versión 2.0.14](https://access.redhat.com/solutions/2388711)
+* Para obtener información sobre cómo cambiar el tiempo de espera predeterminado, consulte [Configuración de kdump para su uso con el complemento de alta disponibilidad de RHEL 6, 7 y 8](https://access.redhat.com/articles/67570).
+* Para obtener información sobre cómo reducir el retraso de la conmutación por error al usar `fence_kdump`, consulte [¿Puedo reducir el retraso esperado de la conmutación por error al agregar la configuración de fence_kdump?](https://access.redhat.com/solutions/5512331)
+   
+Ejecute los siguientes pasos opcionales para agregar `fence_kdump` como una configuración de STONITH de primer nivel, además de la configuración del agente de barrera de Azure. 
+
+
+1. **[A]** Compruebe que kdump esté activo y configurado.  
+    ```
+    systemctl is-active kdump
+    # Expected result
+    # active
+    ```
+2. **[A]** Instale el agente de barrera `fence_kdump`.  
+    ```
+    yum install fence-agents-kdump
+    ```
+3. **[1]** Cree un dispositivo stonith de `fence_kdump` en el clúster.   
+    <pre><code>
+    pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>" timeout=30
+    </code></pre>
+
+4. **[1]** Configure los niveles de stonith de modo que el mecanismo de barrera `fence_kdump` se establezca primero.  
+    <pre><code>
+    pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>"
+    pcs stonith level add 1 <b>prod-cl1-0</b> rsc_st_kdump
+    pcs stonith level add 1 <b>prod-cl1-1</b> rsc_st_kdump
+    pcs stonith level add 2 <b>prod-cl1-0</b> rsc_st_azure
+    pcs stonith level add 2 <b>prod-cl1-1</b> rsc_st_azure
+    # Check the stonith level configuration 
+    pcs stonith level
+    # Example output
+    # Target: <b>prod-cl1-0</b>
+    # Level 1 - rsc_st_kdump
+    # Level 2 - rsc_st_azure
+    # Target: <b>prod-cl1-1</b>
+    # Level 1 - rsc_st_kdump
+    # Level 2 - rsc_st_azure
+    </code></pre>
+
+5. **[A]** Permita los puertos necesarios para `fence_kdump` en el firewall.
+    ```
+    firewall-cmd --add-port=7410/udp
+    firewall-cmd --add-port=7410/udp --permanent
+    ```
+
+6. **[A]** Asegúrese de que el archivo de imagen `initramfs` contenga los archivos `fence_kdump` y `hosts`. Para más información, consulte [Configuración de fence_kdump en un clúster de Pacemaker de Red Hat](https://access.redhat.com/solutions/2876971).   
+    ```
+    lsinitrd /boot/initramfs-$(uname -r)kdump.img | egrep "fence|hosts"
+    # Example output 
+    # -rw-r--r--   1 root     root          208 Jun  7 21:42 etc/hosts
+    # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
+    ```
+
+7. **[A]** Realice la configuración de `fence_kdump_nodes` en el archivo `/etc/kdump.conf` para evitar que `fence_kdump` genere errores de tiempo de espera para algunas versiones de `kexec-tools`. Para más información, consulte [Error de tiempo de espera de fence_kdump cuando no se especifica fence_kdump_nodes con la versión 2.0.15 o posterior de kexec-tools](https://access.redhat.com/solutions/4498151) y [Error de fence_kdump con el mensaje "tiempo de espera después de X segundos" en un clúster de alta disponibilidad de RHEL 6 o 7 con una versión de kexec-tools anterior a la versión 2.0.14](https://access.redhat.com/solutions/2388711). A continuación, se muestra la configuración de ejemplo para un clúster de dos nodos. Después de realizar un cambio en el archivo `/etc/kdump.conf`, se debe volver a generar la imagen de kdump. Esto se puede lograr mediante un reinicio del servicio `kdump`.  
+
+    <pre><code>
+    vi /etc/kdump.conf
+    # On node <b>prod-cl1-0</b> make sure the following line is added
+    fence_kdump_nodes  <b>prod-cl1-1</b>
+    # On node <b>prod-cl1-1</b> make sure the following line is added
+    fence_kdump_nodes  <b>prod-cl1-0</b>
+
+    # Restart the service on each node
+    systemctl restart kdump
+    </code></pre>
+
+8. Pruebe la configuración bloqueando un nodo. Para más información, consulte [Configuración de fence_kdump en un clúster de Pacemaker de Red Hat](https://access.redhat.com/solutions/2876971).  
+
+    > [!IMPORTANT]
+    > Si el clúster ya está en uso productivo, planee la prueba en consecuencia, ya que bloquear un nodo tendrá un impacto en la aplicación.   
+
+    ```
+    echo c > /proc/sysrq-trigger
+    ```
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]

@@ -2,17 +2,17 @@
 title: Métricas de disco
 description: Ejemplos de métricas de expansión de disco
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 60486c41ad843cf193ee0648dfcfef66f7668e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d0330996629ec087022e592cc862a428bc02807
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674983"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454585"
 ---
 # <a name="disk-performance-metrics"></a>Métricas de rendimiento de discos
 Azure dispone de métricas en Azure Portal que proporcionan información sobre el funcionamiento de las máquinas virtuales (VM) y los discos. Estas métricas también se pueden recuperar con una llamada API. Este artículo está estructurado en tres secciones:
@@ -58,7 +58,9 @@ Las siguientes métricas mejoran la observabilidad de la característica de [exp
 - **Porcentaje de créditos de entrada y salida de expansión utilizados en el disco del sistema operativo**: porcentaje acumulado de expansión de IOPS utilizado en el disco del sistema operativo. Se emite en intervalos de 5 minutos.
 
 ## <a name="storage-io-utilization-metrics"></a>Métricas de uso de E/S de almacenamiento
-Las siguientes métricas ayudan a diagnosticar cuellos de botella en la combinación de discos y máquinas virtuales. Estas métricas solo están disponibles cuando se usa una máquina virtual habilitada para servicios prémium. Estas métricas están disponibles para todos los tipos de disco, excepto los Ultra. 
+Las siguientes métricas ayudan a diagnosticar cuellos de botella en la combinación de discos y máquinas virtuales. Estas métricas solo están disponibles con la configuración siguiente:
+- Solo está disponible en las series de máquinas virtuales que admiten Premium Storage.
+- No disponible para discos Ultra, todos los demás tipos de disco de estas series de máquinas virtuales pueden usar estas métricas.
 
 Métricas que ayudan a diagnosticar el límite de E/S de disco:
 

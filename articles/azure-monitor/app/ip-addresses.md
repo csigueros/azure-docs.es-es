@@ -3,12 +3,12 @@ title: Direcciones IP usadas por Azure Monitor
 description: Excepciones para el firewall del servidor requeridas por Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 56ff33cc0a34cb254ca88f96d69a07bc131bebf4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16d8a2f1d6061acb97fa3c421f13fe35449e131b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714041"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442232"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Direcciones IP usadas por Azure Monitor
 
@@ -29,7 +29,7 @@ Debe abrir algunos puertos de salida en el firewall del servidor para permitir q
 
 | Propósito | URL | IP | Puertos |
 | --- | --- | --- | --- |
-| Telemetría |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0<br/>13.69.106.208<br/>40.78.253.199<br/>40.78.253.198<br/>40.78.243.19 | 443 |
+| Telemetría |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0<br/>13.69.106.208<br/>40.78.253.199<br/>40.78.253.198<br/>40.78.243.19 | 443 |
 | Secuencia de métricas en directo | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
 
 ## <a name="status-monitor"></a>Monitor de estado
@@ -67,10 +67,25 @@ Si usa grupos de seguridad de red de Azure, basta con agregar una **regla de pue
 
 Abra los puertos 80 (http) y 443 (https) para asumir el tráfico entrante de estas direcciones (las IP se agrupan por ubicación):
 
-### <a name="addresses-grouped-by-location"></a>Direcciones agrupadas por ubicación
+### <a name="ip-addresses"></a>Direcciones IP
+
+Si busca las direcciones IP reales para poder agregarlas a la lista de direcciones IP permitidas en el firewall, descargue el archivo JSON que describe los intervalos IP de Azure. Estos archivos contienen la información más actualizada. En el caso de la nube pública de Azure, también puede buscar los intervalos de direcciones IP por ubicación mediante la tabla siguiente.
+
+Después de descargar el archivo adecuado, ábralo con su editor de texto favorito y busque "ApplicationInsightsAvailability" para ir directamente a la sección del archivo que describe la etiqueta de servicio para las pruebas de disponibilidad.
 
 > [!NOTE]
 > Estas direcciones IP se indican mediante la notación de Enrutamiento de interdominios sin clases (CIDR). Esto significa que una entrada como `51.144.56.112/28` es equivalente a 16 direcciones IP que comienzan en `51.144.56.112` y terminan en `51.144.56.127`.
+
+#### <a name="azure-public-cloud"></a>Nube pública de Azure
+Descargue las [direcciones IP de nube pública](https://www.microsoft.com/download/details.aspx?id=56519).
+
+#### <a name="azure-us-government-cloud"></a>Nube de Azure US Government
+Descargue las [direcciones IP de la nube del gobierno](https://www.microsoft.com/download/details.aspx?id=57063).
+
+#### <a name="azure-china-cloud"></a>Nube de Azure China
+Descargue las [direcciones IP de la nube de China](https://www.microsoft.com/download/details.aspx?id=57062).
+
+#### <a name="addresses-grouped-by-location-azure-public-cloud"></a>Direcciones agrupadas por ubicación (nube pública de Azure)
 
 ```
 Australia East
@@ -178,33 +193,10 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
-```  
-
-#### <a name="azure-government"></a>Azure Government
-
-No es necesario si es un cliente de la nube pública de Azure.
-
 ```
-USGov Virginia
-52.227.229.80/31
 
-
-USGov Arizona
-52.244.35.112/31
-
-
-USGov Texas
-52.243.157.80/31
-
-
-USDoD Central
-52.182.23.96/31
-
-
-USDoD East
-52.181.33.96/31
-
-```
+### <a name="discovery-api"></a>API de detección
+Puede que también le interese [recuperar mediante programación](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) la lista actual de etiquetas de servicio, junto con los detalles del intervalo de direcciones IP.
 
 ## <a name="application-insights--log-analytics-apis"></a>API de Application Insights y Log Analytics
 

@@ -2,18 +2,19 @@
 title: Personalización de varias ranuras
 description: Obtenga información sobre dónde y cuándo usar la personalización de una sola ranura y de varias ranuras con las API Rank y Reward de Personalizer.
 services: cognitive-services
-ms.author: edjez
+author: jeffmend
+ms.author: jeffme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 05/24/2021
-ms.openlocfilehash: 042bce09afeabb10b20d8dfcb575040ccf5e1c03
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 38e94b4e7527fa32b24773e5120d60d6d039f169
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382384"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829436"
 ---
 # <a name="multi-slot-personalization-preview"></a>Personalización de varias ranuras (versión preliminar)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/01/2021
 ms.custom: template-concept
 recommendations: false
-ms.openlocfilehash: 5f8d78f7080c1505db4a82d9393801ad8418beed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b427d0b4d94497039f5949115246b7920b0e0116
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751476"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829402"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guía para la ejecución de funciones en .NET 5.0 en Azure
 
@@ -19,7 +19,7 @@ Este artículo es una introducción al uso de C# para desarrollar funciones de p
 
 | Introducción | Conceptos| Ejemplos |
 |--|--|--| 
-| <ul><li>[Uso de Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Uso de herramientas de línea de comandos](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Uso de Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Supervisión](functions-monitoring.md)</li> | <ul><li>[Ejemplos de referencia](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
+| <ul><li>[Uso de Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Uso de herramientas de línea de comandos](create-first-function-cli-csharp.md?tabs=isolated-process)</li><li>[Uso de Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Supervisión](functions-monitoring.md)</li> | <ul><li>[Ejemplos de referencia](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 Si no necesita admitir .NET 5.0 o ejecutar las funciones fuera de proceso, es posible que en su lugar quiera [desarrollar funciones de la biblioteca de clases C#](functions-dotnet-class-library.md).
 

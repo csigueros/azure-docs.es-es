@@ -7,12 +7,12 @@ ms.author: tilee
 ms.date: 01/17/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: af29de06c4b0f82d6c951d54935a93e77e723177
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 2b4a7ac88f92c830daecf943d6937946c4a89f82
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191348"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297451"
 ---
 # <a name="connection-strings"></a>Cadenas de conexión
 
@@ -34,7 +34,7 @@ Escenarios de cliente en los que se visualiza dónde tiene esto el mayor efecto:
 
 - Excepciones de firewall o redirecciones de proxy 
 
-    En los casos en los que es necesario supervisar el servidor web de la intranet, nuestra solución anterior solicitaba a los clientes que agregaran puntos de conexión de servicio individuales a la configuración. Para más información, consulte [esta página](../faq.md#can-i-monitor-an-intranet-web-server). 
+    En los casos en los que es necesario supervisar el servidor web de la intranet, nuestra solución anterior solicitaba a los clientes que agregaran puntos de conexión de servicio individuales a la configuración. Para más información, consulte [esta página](../faq.yml#can-i-monitor-an-intranet-web-server-). 
     Las cadenas de conexión ofrecen una mejor alternativa, ya que reducen esta labor a una única configuración. Una corrección de sufijos y prefijos simple permite el rellenado y la redirección automáticos de todos los puntos de conexión a los servicios adecuados. 
 
 - Entornos de nube soberana o híbrida
@@ -209,17 +209,22 @@ NetCore config.json:
 
 # <a name="java"></a>[Java](#tab/java)
 
+Puede establecer la cadena de conexión en el archivo de configuración `applicationinsights.json`:
 
-Java (v2.5.x) establecido explícitamente:
-```java
-TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+}
 ```
 
-ApplicationInsights.xml
+Consulte [Configuración de la cadena de conexión](./java-standalone-config.md#connection-string) para más información.
+
+Para Application Insights de Java 2.x, puede establecer la cadena de conexión en el archivo de configuración `ApplicationInsights.xml`:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000;</ConnectionString>
+    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
 </ApplicationInsights>
 ```
 
@@ -290,7 +295,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 Comience en el tiempo de ejecución con:
 
 * [Aplicaciones hospedadas en IIS en máquina virtual de Azure y conjunto de escalado de máquinas virtuales de Azure](./azure-vm-vmss-apps.md)
-* [Servidor IIS](./monitor-performance-live-website-now.md)
+* [Servidor IIS](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 Comience en el tiempo de desarrollo con:
@@ -300,4 +305,3 @@ Comience en el tiempo de desarrollo con:
 * [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
-

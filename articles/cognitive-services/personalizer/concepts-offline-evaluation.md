@@ -2,18 +2,19 @@
 title: Uso del método de evaluación sin conexión - Personalizer
 titleSuffix: Azure Cognitive Services
 description: En este artículo se explica cómo usar la evaluación sin conexión para medir la eficacia de la aplicación y analizar el bucle de aprendizaje.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95217acd5c423c71eb75a43ee1e756d6b95b696d
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87132762"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829780"
 ---
 # <a name="offline-evaluation"></a>Evaluación sin conexión
 

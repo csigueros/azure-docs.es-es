@@ -5,12 +5,12 @@ description: Aprenda a crear y usar un equilibrador de carga interno para expone
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: cbb898d05ecc1f0796f3609adb1368c3d77de2c5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0e55ec0b6066b2b2582adf20acd646117c47f8e4
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779748"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666464"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga interno con Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>Especificación de una dirección IP
 
-Si quiere usar una dirección IP específica con el equilibrador de carga interno, agregue la propiedad *loadBalancerIP* al manifiesto YAML del equilibrador de carga. En este escenario, la dirección IP especificada debe encontrarse en la misma subred que el clúster de AKS y no se debe haber asignado ya a un recurso. Por ejemplo, no debe usar una dirección IP en el intervalo designado para la subred de Kubernetes.
+Si quiere usar una dirección IP específica con el equilibrador de carga interno, agregue la propiedad *loadBalancerIP* al manifiesto YAML del equilibrador de carga. En este escenario, la dirección IP especificada debe encontrarse en la misma subred que el clúster de AKS y no se puede haber asignado ya a un recurso. Por ejemplo, no se debe usar una dirección IP en el intervalo designado para la subred de Kubernetes dentro del clúster de AKS.
 
 ```yaml
 apiVersion: v1

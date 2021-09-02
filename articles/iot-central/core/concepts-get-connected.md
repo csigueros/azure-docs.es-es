@@ -7,17 +7,16 @@ ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
 ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: fb9c9f460b46f8dec741f4c22460cbe9d44c6a0e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: aebee9b2511e3616a9170d5ed84be3acf391b6ad
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791117"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071964"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -30,7 +29,7 @@ En este artículo se describe cómo se conectan los dispositivos a una aplicaci�
 IoT Central admite los siguientes dos escenarios de registro de dispositivos:
 
 - *Registro automático*. El dispositivo se registra automáticamente cuando se conecta por primera vez. Este escenario permite a los OEM fabricar dispositivos de forma masiva que puedan conectarse sin registrarse primero. Un OEM genera las credenciales de dispositivo adecuadas y configura los dispositivos en la fábrica. Opcionalmente, puede requerir que un operador apruebe el dispositivo antes de empezar a enviar datos. Este escenario requiere que configure una _inscripción de grupo_ X.509 o SAS en la aplicación.
-- *Registro manual*. Los operadores registran dispositivos individuales en la página **Dispositivos**, o bien [importan un archivo .csv](howto-manage-devices.md#import-devices) a los dispositivos registrados de forma masiva. En este escenario, puede usar la _inscripción de grupo_ X.509 o SAS, o bien la _inscripción individual_ X.509 o SAS.
+- *Registro manual*. Los operadores registran dispositivos individuales en la página **Dispositivos**, o bien [importan un archivo .csv](howto-manage-devices-in-bulk.md#import-devices) a los dispositivos registrados de forma masiva. En este escenario, puede usar la _inscripción de grupo_ X.509 o SAS, o bien la _inscripción individual_ X.509 o SAS.
 
 Los dispositivos que se conectan a IoT Central deben seguir las *convenciones de IoT Plug and Play*. Una de estas convenciones es que un dispositivo debe enviar el _identificador de modelo_ del modelo de dispositivo que implementa cuando se conecta. El identificador de modelo permite a la aplicación de IoT Central asociar el dispositivo a la plantilla de dispositivo correcta.
 
@@ -157,9 +156,9 @@ La aplicación de IoT Central usa el identificador de modelo enviado por el disp
 
 ### <a name="bulk-register-devices-in-advance"></a>Registro anticipado de dispositivos de forma masiva
 
-Para registrar un gran número de dispositivos con la aplicación de IoT Central, use un archivo CSV para [importar identificadores y nombres de dispositivo](howto-manage-devices.md#import-devices).
+Para registrar un gran número de dispositivos con la aplicación de IoT Central, use un archivo CSV para [importar identificadores y nombres de dispositivo](howto-manage-devices-in-bulk.md#import-devices).
 
-Si los dispositivos usan tokens de SAS para realizar la autenticación, [exporte un archivo .csv desde la aplicación de IoT Central](howto-manage-devices.md#export-devices). El archivo CSV exportado incluye los identificadores de dispositivo y las claves SAS.
+Si los dispositivos usan tokens de SAS para realizar la autenticación, [exporte un archivo .csv desde la aplicación de IoT Central](howto-manage-devices-in-bulk.md#export-devices). El archivo CSV exportado incluye los identificadores de dispositivo y las claves SAS.
 
 Si los dispositivos usan certificados X.509 para realizar la autenticación, genere certificados X.509 de hoja para los dispositivos con el certificado raíz o intermedio que cargó en el grupo de inscripción X.509. Use el identificador de dispositivo que importó como el valor `CNAME` en los certificados de hoja.
 
@@ -180,7 +179,7 @@ IoT Central asocia automáticamente un dispositivo a una plantilla de dispositiv
 
 1. Si la plantilla de dispositivo ya está publicada en la aplicación IoT Central, el dispositivo se le asocia.
 1. Si la plantilla de dispositivo todavía no está publicada en la aplicación IoT Central, esta busca el modelo del dispositivo en el [repositorio de modelos público](https://github.com/Azure/iot-plugandplay-models). Si IoT Central encuentra el modelo, lo utiliza para generar una plantilla de dispositivo básica.
-1. Si IoT Central no encuentra el modelo en el repositorio de modelos público, el dispositivo se marca como **Sin asociar**. Un operador puede crear una plantilla de dispositivo para el dispositivo y, a continuación, migrar el dispositivo sin asociar a la nueva plantilla de dispositivo.
+1. Si IoT Central no encuentra el modelo en el repositorio de modelos público, el dispositivo se marca como **Sin asociar**. Un operador puede crear una plantilla de dispositivo para el dispositivo y, a continuación, migrar el dispositivo no asociado a la nueva plantilla de dispositivo, o [generar automáticamente una plantilla de dispositivo](howto-set-up-template.md#autogenerate-a-device-template) en función de los datos que envía el dispositivo.
 
 En la captura de pantalla siguiente se muestra cómo ver el identificador de modelo de una plantilla de dispositivo en IoT Central. En una plantilla de dispositivo, seleccione un componente y luego **Editar identidad**:
 
@@ -214,11 +213,14 @@ Cuando un dispositivo real se conecta a la aplicación de IoT Central, su estado
     Un operador puede asociar un dispositivo a una plantilla de dispositivo desde la página **Dispositivos** mediante el botón **Migrar**.
 
 ## <a name="device-connection-status"></a>Estado de conexión del dispositivo
-Cuando un dispositivo o dispositivo perimetral se conecta mediante el protocolo MQTT, se muestran eventos _conectados_ y _desconectados_ para el dispositivo. Estos eventos no se envían mediante los envíos del dispositivo; IoT Central los genera internamente.
+
+Cuando un dispositivo o dispositivo perimetral se conecta mediante el protocolo MQTT, se generan eventos _conectados_ y _desconectados_ para el dispositivo. Estos eventos no los envía el dispositivo; IoT Central los genera internamente.
 
 En el diagrama siguiente se muestra cómo, cuando se conecta un dispositivo, la conexión se registra al final de una ventana de tiempo. Si se producen varios eventos de conexión y desconexión, IoT Central registra el más cercano al final de la ventana de tiempo. Por ejemplo, si un dispositivo se desconecta y se vuelve a conectar dentro de la ventana de tiempo, IoT Central registra el evento de conexión. Actualmente, la ventana de tiempo es de aproximadamente un minuto.
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagrama que muestra la ventana de eventos para eventos conectados y desconectados" border="false":::.
+
+Puede ver los eventos conectados y desconectados en la vista **Datos sin procesar** de un dispositivo: :::image type="content" source="media/concepts-get-connected/device-connectivity-events.png" alt-text="Captura de pantalla con datos sin procesar filtrados para mostrar eventos conectados del dispositivo.":::
 
 Puede incluir eventos de conexión y desconexión en las [exportaciones desde IoT Central](howto-export-data.md#set-up-data-export). Para más información, vea [Reacción a eventos de IoT Hub > Limitaciones de los eventos de dispositivo conectado y dispositivo desconectado](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 

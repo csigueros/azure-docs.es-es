@@ -1,16 +1,19 @@
 ---
 title: Optimización automática - Personalizer
 description: En este artículo se proporciona información general conceptual de la característica de optimización automática del Personalizer de Azure.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: d2e8e73e47ebef566bed098e911b372aad6ee1e5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 603dc55b96d12610bc023487e731c7599841c985
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382933"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829420"
 ---
 # <a name="personalizer-auto-optimize-preview"></a>Optimización automática de Personalizer (versión preliminar)
 

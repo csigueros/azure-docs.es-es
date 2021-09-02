@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f92bfe98a45117264c957481a75493de652abc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62a1894fe63bcf24e19671a146cd16bb6fe59b0b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97508108"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "122651880"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con la a
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Siguiendo el [paquete de inicio de directivas personalizadas](custom-policy-get-started.md#custom-policy-starter-pack), los perfiles técnicos de Azure AD incluyen el perfil técnico **AAD-Common**. Los perfiles técnicos de Azure AD no especifican el protocolo porque este está configurado en el perfil técnico **AAD-Common**:
+Siguiendo el [paquete de inicio de directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), los perfiles técnicos de Azure AD incluyen el perfil técnico **AAD-Common**. Los perfiles técnicos de Azure AD no especifican el protocolo porque este está configurado en el perfil técnico **AAD-Common**:
  
 - **AAD-UserReadUsingAlternativeSecurityId** y **AAD-UserReadUsingAlternativeSecurityId-NoError**: buscar una cuenta de redes sociales en el directorio.
 - **AAD-UserWriteUsingAlternativeSecurityId**: crear una cuenta de redes sociales.

@@ -7,40 +7,48 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 07/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 48aa91d4ba68b1a69e46019ced7c5bbb69d9029f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: c3e6112c1bee8e42f411eaa8d12d873db2657142
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786797"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114726466"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Información general de seguridad para Azure Cognitive Search
 
-En este artículo se describen las características de seguridad de Azure Cognitive Search que protegen el contenido y las operaciones.
+En este artículo se describen las características de seguridad de Azure Cognitive Search que protegen los datos y las operaciones.
 
-En el caso de las solicitudes de entrada realizadas a un servicio de búsqueda, existe una progresión de las medidas de seguridad que protegen el punto de conexión del servicio de búsqueda: desde las claves de API de la solicitud hasta las reglas de entrada del firewall o los puntos de conexión privados que protegen totalmente el servicio de la red pública de Internet.
+## <a name="network-traffic-patterns"></a>Patrones de tráfico
 
-En el caso de las solicitudes salientes realizadas a otros servicios, la solicitud predominante la realizan los indizadores que leen el contenido de orígenes externos. Puede proporcionar credenciales en la cadena de conexión. O bien, puede configurar una identidad administrada para que busque en un servicio de confianza al acceder a los datos de Azure Storage, Azure SQL, Cosmos DB u otros orígenes de datos de Azure. Una identidad administrada es un sustituto de las credenciales o las claves de acceso en la conexión. Para obtener más información acerca de esta capacidad, vea [Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada](search-howto-managed-identities-data-sources.md).
+Un servicio de búsqueda se hospeda en Azure y normalmente se accede a él a través de conexiones de red pública. Comprender los patrones de acceso del servicio puede ayudarle a diseñar una estrategia de seguridad que impida de forma eficaz el acceso no autorizado al contenido en el que se pueden realizar búsquedas.
 
-Las operaciones de escritura en servicios externos son pocas: un servicio de búsqueda escribe en los archivos de registro y escribirá en Azure Storage al crear almacenes de conocimiento, conservar los enriquecimientos almacenados en caché y conservar las sesiones de depuración. Otras llamadas entre servicios, como Cognitive Services, se realizan en la red interna.
+Cognitive Search tiene tres patrones de tráfico básicos:
 
-Vea este vídeo de resumen para obtener información general sobre la arquitectura de seguridad y cada categoría de características.
++ Solicitudes entrantes realizadas por un cliente al servicio de búsqueda (el patrón predominante)
++ Solicitudes salientes emitidas por el servicio de búsqueda a otros servicios en Azure y en otros lugares
++ Solicitudes internas de servicio a servicio a través de la red troncal segura de Microsoft
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
+Las solicitudes entrantes incluyen la creación de objetos, la carga de datos y la consulta. Para el acceso entrante a datos y operaciones, puede implementar una progresión de medidas de seguridad, empezando por las claves de API en la solicitud. A continuación, puede complementar con reglas de entrada en un firewall de IP o crear puntos de conexión privados que protejan completamente el servicio de la red pública de Internet.
+
+Las solicitudes salientes pueden incluir operaciones de lectura y escritura. El agente principal de una llamada saliente es un indexador y los conjuntos de aptitudes constituyentes. En el caso de los indexadores, las operaciones de lectura incluyen el [descifrado de documentos](search-indexer-overview.md#document-cracking) y la ingesta de datos. Un indexador también puede escribir en Azure Storage al crear almacenes de conocimiento, conservar enriquecimientos almacenados en caché y conservar sesiones de depuración. Por último, un conjunto de aptitudes también puede incluir aptitudes personalizadas que ejecutan código externo, por ejemplo, en Azure Functions o en una aplicación web.
+
+Las solicitudes internas incluyen llamadas de servicio a servicio para tareas como el registro de diagnóstico, cifrado, autenticación y autorización a través de Azure Active Directory, conexiones de punto de conexión privado y solicitudes realizadas a Cognitive Services para aptitudes integradas.
 
 ## <a name="network-security"></a>Seguridad de red
 
 <a name="service-access-and-authentication"></a>
 
-Las características de seguridad de entrada protegen el punto de conexión del servicio de búsqueda a través de niveles crecientes de seguridad y complejidad. En primer lugar, todas las solicitudes requieren una clave de API para el acceso autenticado. En segundo lugar, puede establecer opcionalmente las reglas de firewall que limitan el acceso a direcciones IP específicas. Para la protección avanzada, una tercera opción consiste en habilitar Azure Private Link para proteger el punto de conexión de servicio de todo el tráfico de Internet.
+Las características de seguridad de entrada protegen el punto de conexión del servicio de búsqueda a través de niveles crecientes de seguridad y complejidad. Cognitive Search utiliza la [autenticación basada en claves](search-security-api-keys.md), en la que todas las solicitudes requieren una clave de API para el acceso autenticado.
 
-### <a name="public-access-using-api-keys"></a>Acceso público mediante claves de API
+Opcionalmente, puede implementar capas de control adicionales estableciendo reglas de firewall que limiten el acceso a direcciones IP específicas. Para la protección avanzada, puede habilitar Azure Private Link para proteger el punto de conexión de servicio de todo el tráfico de Internet.
 
-De forma predeterminada, se tiene acceso a un servicio de búsqueda a través de la nube pública mediante la autenticación basada en claves para el acceso de administrador o de consulta al punto de conexión del servicio de búsqueda. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. La autenticación basada en claves se explica en la sección siguiente.
+### <a name="connect-over-the-public-internet"></a>Conexión a través de la red pública de Internet
 
-### <a name="configure-ip-firewalls"></a>Configuración de firewalls de IP
+De forma predeterminada, se tiene acceso a un punto de conexión de un servicio de búsqueda a través de la nube pública mediante la autenticación basada en claves para el acceso de administrador o de consulta al punto de conexión del servicio de búsqueda. Las claves son obligatorias. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. La autenticación basada en claves se explica en la sección siguiente. Sin las claves de API, se obtienen respuestas 401 y 404 a la solicitud.
+
+### <a name="connect-through-ip-firewalls"></a>Conexión a través de firewalls de IP
 
 Para controlar aún más el acceso al servicio de búsqueda, puede crear reglas de firewall de entrada que permitan el acceso a una dirección IP específica o a un intervalo de direcciones IP. Todas las conexiones de cliente deben realizarse a través de una dirección IP permitida, o la conexión se denegará.
 
@@ -48,9 +56,9 @@ Para controlar aún más el acceso al servicio de búsqueda, puede crear reglas 
 
 Puede usar el portal para [configurar el acceso de entrada](service-configure-firewall.md).
 
-Como alternativa, puede usar las API REST de administración. Desde la versión de API 2020-03-13, con el parámetro [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule), puede restringir el acceso a su servicio mediante la identificación (de forma individual o en un intervalo) de las direcciones IP a las que quiera otorgar acceso a su servicio de búsqueda.
+Como alternativa, puede usar las API REST de administración. Desde la versión de API 2020-03-13, con el parámetro [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule), puede restringir el acceso a su servicio mediante la identificación (de forma individual o en un intervalo) de las direcciones IP a las que quiera otorgar acceso a su servicio de búsqueda.
 
-### <a name="network-isolation-through-a-private-endpoint-no-internet-traffic"></a>Aislamiento de red a través de un punto de conexión privado (sin tráfico de Internet)
+### <a name="connect-to-a-private-endpoint-network-isolation-no-internet-traffic"></a>Conexión a un punto de conexión privado (aislamiento de red, sin tráfico de Internet)
 
 Puede establecer un [punto de conexión privado](../private-link/private-endpoint-overview.md) para Azure Cognitive Search, lo que permite a un cliente de una [red virtual](../virtual-network/virtual-networks-overview.md) obtener acceso de forma segura a los datos de un índice de búsqueda a través de una instancia de [Private Link](../private-link/private-link-overview.md).
 
@@ -60,9 +68,19 @@ El punto de conexión privado usa una dirección IP del espacio de direcciones d
 
 Aunque esta solución es la más segura, el uso de servicios adicionales supone un costo adicional, por lo que debe comprender claramente las ventajas antes de profundizar en ella. Para más información sobre los costos, consulte la [página de precios](https://azure.microsoft.com/pricing/details/private-link/). Para obtener más información sobre cómo funcionan conjuntamente estos componentes, vea el vídeo que se encuentra en la parte superior de este artículo. La opción de punto de conexión privado se trata a partir del minuto 5:48 del vídeo. Para obtener instrucciones sobre cómo configurar el punto de conexión, consulte [Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search](service-create-private-endpoint.md).
 
+### <a name="outbound-connections-to-external-services"></a>Conexiones salientes a servicios externos
+
+Los indexadores y los conjuntos de aptitudes son objetos que pueden establecer conexiones externas. Proporcionará información de conexión como parte de la definición de objetos mediante uno de estos mecanismos.
+
++ Credenciales en la cadena de conexión
+
++ Identidad administrada en la cadena de conexión
+
+  Puede configurar una identidad administrada para que busque en un servicio de confianza al acceder a los datos de Azure Storage, Azure SQL, Cosmos DB u otros orígenes de datos de Azure. Una identidad administrada es un sustituto de las credenciales o las claves de acceso en la conexión. Para obtener más información acerca de esta capacidad, vea [Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada](search-howto-managed-identities-data-sources.md).
+
 ## <a name="authentication"></a>Authentication
 
-En el caso de las solicitudes de entrada al servicio de búsqueda, la autenticación se realiza a través de un [clave de API obligatoria](search-security-api-keys.md) (una cadena formada por números y letras generados aleatoriamente) que demuestra que la solicitud proviene de un origen de confianza. Cognitive Search no admite actualmente la autenticación de Azure Active Directory para las solicitudes de entrada.
+En el caso de las solicitudes de entrada al servicio de búsqueda, la autenticación se realiza a través de un [clave de API](search-security-api-keys.md) (una cadena formada por números y letras generados aleatoriamente) que demuestra que la solicitud proviene de un origen de confianza. Como alternativa, hay nueva compatibilidad con la autenticación de Azure Active Directory y la autorización basada en roles, [actualmente en versión preliminar](search-security-rbac.md).
 
 Las solicitudes de salida realizadas por un indizador están sujetas a la autenticación por parte del servicio externo. El subservicio del indizador de Cognitive Search se puede convertir en un servicio de confianza en Azure y conectarse a otros servicios mediante una identidad administrada. Para obtener más información, consulte [Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada](search-howto-managed-identities-data-sources.md).
 
@@ -80,13 +98,16 @@ La autorización para el contenido y las operaciones relacionadas con el conteni
 
 En el código de la aplicación, especifique el punto de conexión y una clave de API para permitir el acceso al contenido y las opciones. Un punto de conexión puede ser el propio servicio, la colección de índices, un índice específico, una colección de documentos o un documento específico. Cuando se encadenan juntos, el punto de conexión, la operación (por ejemplo, una solicitud de creación o actualización) y el nivel de permiso (derechos completos o de solo lectura basados en la clave) constituyen la fórmula de seguridad que protege el contenido y las operaciones.
 
+> [!NOTE]
+> La autorización para las operaciones del plano de datos mediante el control de acceso basado en roles de Azure está ahora en versión preliminar. Puede usar esta funcionalidad en versión preliminar si desea [usar asignaciones de roles en lugar de claves de API](search-security-rbac.md).
+
 ### <a name="controlling-access-to-indexes"></a>Control del acceso a los índices
 
 En Azure Cognitive Search, un índice individual no es un objeto protegible. En su lugar, el acceso a un índice se determina en la capa de servicio (acceso de lectura o escritura según la clave de API que proporcione), junto con el contexto de una operación.
 
-Para el acceso de solo lectura, puede estructurar las solicitudes de consulta para conectarse con una [clave de consulta](search-security-rbac.md) e incluir el índice específico utilizado por la aplicación. En una solicitud de consulta, no existe el concepto de combinación de índices ni de acceso simultáneo a varios índices para que todas las solicitudes tengan un único índice de destino por definición. Por lo tanto, la construcción de la solicitud de consulta misma (una clave y un índice único de destino) define el límite de seguridad.
+Para el acceso de solo lectura, puede estructurar las solicitudes de consulta para conectarse con una [clave de consulta](search-security-api-keys.md) e incluir el índice específico utilizado por la aplicación. En una solicitud de consulta, no existe el concepto de combinación de índices ni de acceso simultáneo a varios índices para que todas las solicitudes tengan un único índice de destino por definición. Por lo tanto, la construcción de la solicitud de consulta misma (una clave y un índice único de destino) define el límite de seguridad.
 
-Los accesos de administrador y de desarrollador a los índices no se diferencian: ambos necesitan tener acceso de escritura para crear, eliminar y actualizar objetos administrados por el servicio. Cualquier persona con una [clave de administración](search-security-rbac.md) del servicio puede leer, modificar o eliminar cualquier índice en el mismo servicio. Para la protección contra la eliminación accidental o malintencionada de índices, su control de código fuente interno para los recursos de código es la solución para revertir una eliminación o modificación de índices no deseada. Azure Cognitive Search incluye conmutación por error dentro del clúster para garantizar la disponibilidad, pero no almacena ni ejecuta el código propietario utilizado para crear o cargar los índices.
+Los accesos de administrador y de desarrollador a los índices no se diferencian: ambos necesitan tener acceso de escritura para crear, eliminar y actualizar objetos administrados por el servicio. Cualquier persona con una [clave de administración](search-security-api-keys.md) del servicio puede leer, modificar o eliminar cualquier índice en el mismo servicio. Para la protección contra la eliminación accidental o malintencionada de índices, su control de código fuente interno para los recursos de código es la solución para revertir una eliminación o modificación de índices no deseada. Azure Cognitive Search incluye conmutación por error dentro del clúster para garantizar la disponibilidad, pero no almacena ni ejecuta el código propietario utilizado para crear o cargar los índices.
 
 Para soluciones multiinquilino que requieren límites de seguridad en el nivel de índice, estas soluciones suelen incluir un nivel intermedio que los clientes utilizan para controlar el aislamiento de índices. Para más información sobre los casos de uso de varios inquilinos, consulte [Modelos de diseño de aplicaciones SaaS para varios inquilinos y Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
@@ -107,7 +128,7 @@ Las alternativas para las soluciones que requieren "seguridad de nivel de fila" 
 
 Las operaciones de administración de servicios se autorizan mediante el [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/overview.md). RBAC de Azure es un sistema de autorización basado en [Azure Resource Manager](../azure-resource-manager/management/overview.md) para el aprovisionamiento de recursos de Azure. 
 
-En Azure Cognitive Search, Resource Manager se usa para crear o eliminar el servicio, administrar las claves de API y escalar el servicio. Como tal, las asignaciones de roles de Azure determinan quién puede realizar esas tareas, independientemente de si se usa el [portal](search-manage.md), [PowerShell](search-manage-powershell.md) o las [API de REST de administración](/rest/api/searchmanagement/search-howto-management-rest-api).
+En Azure Cognitive Search, Resource Manager se usa para crear o eliminar el servicio, administrar las claves de API y escalar el servicio. Como tal, las asignaciones de roles de Azure determinan quién puede realizar esas tareas, independientemente de si se usa el [portal](search-manage.md), [PowerShell](search-manage-powershell.md) o las [API de REST de administración](/rest/api/searchmanagement).
 
 Se han definido [tres roles básicos](search-security-rbac.md) para la administración de servicios de búsqueda. Las asignaciones de roles se pueden realizar con cualquier metodología compatible (portal, PowerShell, etc.) y se respetan en todo el servicio. Los roles Propietario y Colaborador pueden realizar diversas funciones de administración. Puede asignar el rol Lector a los usuarios que solo ven información esencial.
 
@@ -169,6 +190,12 @@ En el caso del cumplimiento, puede usar [Azure Policy](../governance/policy/ove
 Azure Policy es una capacidad integrada en Azure que ayuda a administrar el cumplimiento de varios estándares, incluidos los de Azure Security Benchmark. En el caso de los bancos de pruebas conocidos, Azure Policy proporciona definiciones integradas que ofrecen tanto criterios como una respuesta accionable que aborda el no cumplimiento.
 
 En Azure Cognitive Search, actualmente hay una definición integrada. Es para el registro de diagnóstico. Con ella integrada, puede asignar una directiva que identifique cualquier servicio de búsqueda que no tenga registro de diagnóstico y lo active. Para obtener más información, vea [Controles de Cumplimiento normativo de Azure Policy para Azure Cognitive Search](security-controls-policy.md).
+
+## <a name="watch-this-video"></a>Vea este vídeo
+
+Vea este vídeo de resumen para obtener información general sobre la arquitectura de seguridad y cada categoría de características.
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
 ## <a name="see-also"></a>Consulte también
 

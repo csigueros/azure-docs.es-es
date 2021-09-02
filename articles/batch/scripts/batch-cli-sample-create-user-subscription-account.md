@@ -2,18 +2,18 @@
 title: 'Ejemplo de script de la CLI de Azure: creación de una cuenta en Batch - suscripción de usuario'
 description: Este script crea una cuenta en Azure Batch en modo de suscripción de usuario. Esta cuenta asigna nodos de proceso a la suscripción.
 ms.topic: sample
-ms.date: 01/29/2018
+ms.date: 08/31/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9bd7b7ac3dbb52ebafa00499e64ec3cff0969a13
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7758707d8825e297e6bb90e51ab402d815d9e8cb
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768366"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256042"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Ejemplo de la CLI: creación de una cuenta en Batch en modo de suscripción de usuario
 
-Este script crea una cuenta en Azure Batch en modo de suscripción de usuario. Una cuenta que asigna nodos de proceso a su suscripción debe estar autenticada mediante un token de Azure Active Directory. Los nodos de proceso asignaban un recuento con respecto a la cuota de vCPU (núcleos) de su suscripción. 
+Este script crea una cuenta en Azure Batch en modo de suscripción de usuario. Una cuenta que asigna nodos de proceso a su suscripción debe estar autenticada mediante un token de Azure Active Directory. Los nodos de proceso asignaban un recuento con respecto a la cuota de vCPU (núcleos) de su suscripción.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 

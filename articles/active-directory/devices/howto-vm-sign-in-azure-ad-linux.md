@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 07/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a43212e8883e1ae727d18c53d5c28f873d9e94
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 972929f93737342942ed22f103598bc55dbb57fc
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458110"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688614"
 ---
 # <a name="preview-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-ssh-certificate-based-authentication"></a>Versión preliminar: Inicio de sesión en una máquina virtual con Linux en Azure con Azure Active Directory mediante la autenticación basada en certificados SSH
 
@@ -102,9 +102,10 @@ Asegúrese de que la máquina virtual está configurada con la siguiente funcion
 
 Asegúrese de que el cliente cumple los requisitos siguientes:
 
-- El cliente SSH debe ser compatible con los certificados basados en OpenSSH para la autenticación. Puede usar la CLI de Az (2.21.1 o posterior) o Azure Cloud Shell para cumplir este requisito. 
-- Extensión SSH para la CLI de Az. Puede instalarla con az. No es necesario instalar esta extensión cuando se usa Azure Cloud Shell ya que viene preinstalada.
-- Si usa cualquier otro cliente SSH que no sea la CLI de Az o Azure Cloud Shell compatible con OpenSSH, deberá usar la CLI de Az con la extensión SSH para recuperar el certificado SSH efímero de un archivo de configuración y, a continuación, usar el archivo de configuración con el cliente SSH.
+- El cliente SSH debe ser compatible con los certificados basados en OpenSSH para la autenticación. Para cumplir este requisito puede usar la Az CLI (2.21.1 o posterior) con OpenSSH (que se incluye en la versión 1803 de Windows 10, o en cualquier versión superior) o Azure Cloud Shell. 
+- Extensión SSH para la CLI de Az. Puede instalarla mediante `az extension add --name ssh`. No es necesario instalar esta extensión cuando se usa Azure Cloud Shell ya que viene preinstalada.
+- Si usa cualquier otro cliente SSH, que no sea Az CLI o Azure Cloud Shell, que admita certificados OpenSSH, deberá usar Az CLI con la extensión SSH para recuperar el certificado SSH efímero y, si lo desea, un archivo de configuración y, después, usar el archivo de configuración con un cliente SSH.
+- La conectividad TCP desde el cliente a la IP pública o privada de la máquina virtual ( también funcionan ProxyCommand o el reenvío SSH a una máquina con conectividad).
 
 ## <a name="enabling-azure-ad-login-in-for-linux-vm-in-azure"></a>Habilitación del inicio de sesión de Azure AD para VM Linux en Azure
 
@@ -189,12 +190,18 @@ Hay varias maneras de configurar las asignaciones de roles para la VM, por ejemp
 
 Para configurar las asignaciones de roles para las VM Linux habilitadas para Azure AD:
 
-1. Navegue hasta la máquina virtual que se va a configurar.
-1. Seleccione **Control de acceso (IAM)** en las opciones de menú.
-1. Seleccione **Agregar**, **Agregar asignación de rol** para abrir el panel Agregar asignación de rol.
-1. En la lista desplegable **Rol**, seleccione el rol **Inicio de sesión de administrador de máquina virtual** o **Inicio de sesión de usuario de máquina virtual**.
-1. En la lista **Seleccionar**, seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para buscar en el directorio nombres para mostrar, direcciones de correo electrónico e identificadores de objeto.
-1. Seleccione **Guardar** para asignar el rol.
+1. Seleccione **Access Control (IAM)** .
+
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | **Inicio de sesión de administrador de máquina virtual** o **Inicio de sesión de usuario de máquina virtual** |
+    | Asignar acceso a | Usuario, grupo, entidad de servicio o identidad administrada |
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 Transcurridos unos instantes, se asigna el rol a la entidad de seguridad en el ámbito seleccionado.
  
@@ -317,7 +324,7 @@ El inicio de sesión en las VM Linux de Azure con Azure AD admite la exportaci�
 az ssh config --file ~/.ssh/config -n myVM -g AzureADLinuxVMPreview
 ```
 
-Como alternativa, puede exportar la configuración especificando solo la dirección IP. Reemplace la dirección IP del ejemplo por la dirección IP pública o privada de la máquina virtual. Escriba `az ssh config -h` para obtener ayuda sobre este comando.
+Como alternativa, puede exportar la configuración especificando solo la dirección IP. Reemplace la dirección IP del ejemplo por la dirección IP pública o privada (en el caso de las IP privadas debe traer su propia conectividad) de la máquina virtual. Escriba `az ssh config -h` para obtener ayuda sobre este comando.
 
 ```azurecli
 az ssh config --file ~/.ssh/config --ip 10.11.123.456
@@ -345,7 +352,7 @@ Instale la extensión de Azure AD en el conjunto de escalado de máquinas virtu
 az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name Azure ADSSHLoginForLinux --resource-group AzureADLinuxVMPreview --vmss-name myVMSS
 ```
 
-Normalmente, el conjunto de escalado de máquinas virtuales no tiene direcciones IP públicas, por lo que debe tener conectividad con ellas desde otra máquina que pueda acceder a su instancia de Azure Virtual Network. En este ejemplo se muestra cómo usar la dirección IP privada de una máquina virtual del conjunto de escalado de máquinas virtuales para conectarse. 
+Normalmente, el conjunto de escalado de máquinas virtuales no tiene direcciones IP públicas, por lo que debe tener conectividad con ellas desde otra máquina que pueda acceder a su instancia de Azure Virtual Network. En este ejemplo se muestra cómo usar la dirección IP privada de una máquina virtual del conjunto de escalado de máquinas virtuales para conectarse desde una máquina de la misma red virtual. 
 
 ```azurecli
 az ssh vm --ip 10.11.123.456

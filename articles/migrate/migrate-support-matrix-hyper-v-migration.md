@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 14660ca026dc51bc6e722559a28ef4a77361100b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1e203fb70bd13d1ab6681d0b579ffff8458d400d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094571"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721165"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -31,8 +31,7 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 con las últimas actualizaciones. Tenga en cuenta que también se admite la instalación de Server Core de estos sistemas operativos. |
 | **Otros requisitos de software** | .NET Framework 4.7 o posterior |
 | **Acceso a puertos** |  Conexiones salientes en el puerto HTTPS 443 para enviar datos de replicación de VM.
-| **Espacio libre en disco (caché)** |  600 GB |
-| **Espacio libre en el disco (disco de retención)** |  600 GB |
+
 
 
 ## <a name="hyper-v-vms"></a>Máquinas virtuales de Hyper-V
@@ -41,7 +40,7 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](../virtual-machines/linux/endorsed-distros.md). |
 **Windows Server 2003** | En el caso de las máquinas virtuales que ejecutan Windows Server 2003, debe [instalar Integration Services de Hyper-V](prepare-windows-server-2003-migration.md) antes de la migración. | 
-**Máquinas virtuales de Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0 y 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4 y 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
+**Máquinas virtuales de Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0 y 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4 y 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 20.04, 19.04, 19.04LTS, 10.04LTS,  14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 | **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Haga los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
 | **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
 | **Arranque UEFI**                  | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de segunda generación de Azure.  |

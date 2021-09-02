@@ -1,95 +1,86 @@
 ---
-title: Solución de problemas generales de Azure Percept DK e IoT Edge
-description: Obtención de sugerencias para la solución de algunos de los problemas más comunes con Azure Percept DK
+title: Solución de problemas con Azure Percept DK
+description: Obtenga sugerencias para la solución de algunos de los problemas más comunes que pueden surgir con Azure Percept DK e IoT Edge.
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 08/10/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c9c62ec07873272b956877ec51d8765ae0bbd100
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: caea6bbd8ebcf3dbe2d6f8b45174326a5ba4f169
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605644"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122066740"
 ---
 # <a name="azure-percept-dk-troubleshooting"></a>Solución de problemas de Azure Percept DK
 
-Consulte las instrucciones siguientes para obtener sugerencias de solución de problemas generales de Azure Percept DK.
+El propósito de este artículo de solución de problemas es ayudar a los usuarios de Azure Percept DK a resolver rápidamente problemas comunes con sus kits de desarrollo. También se proporcionan instrucciones sobre la recopilación de registros para cuando se necesita soporte técnico adicional.
 
-## <a name="general-troubleshooting-commands"></a>Comandos de solución de problemas generales
+## <a name="log-collection"></a>Recopilación de registros
+En esta sección, se proporcionan instrucciones sobre qué registros se recopilan y cómo recopilarlos.
 
-Para ejecutar estos comandos, [use SSH en el kit de desarrollo](./how-to-ssh-into-percept-dk.md) y escriba los comandos en el símbolo del sistema del cliente de SSH.
+### <a name="how-to-collect-logs"></a>Cómo recopilar registros
+1. Conéctese al kit de desarrollo [a través de SSH](./how-to-ssh-into-percept-dk.md).
+1. Ejecute los comandos necesarios en la ventana del terminal SSH. Consulte la sección siguiente para obtener la lista de comandos de recopilación de registros.
+1. Para redirigir la salida a un archivo .txt para su posterior análisis, use la sintaxis siguiente:
+    ```console
+    sudo [command] > [file name].txt
+    ```
+1. Cambie los permisos del archivo .txt para que se pueda copiar:
+    ```console
+    sudo chmod 666 [file name].txt
+    ```
+1. Copie el archivo en el equipo host a través de SCP:
+    ```console
+    scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
+    ```
 
-Para redirigir cualquier salida a un archivo .txt para su posterior análisis, use la sintaxis siguiente:
+    ```[local host file path]``` hace referencia a la ubicación del equipo host en el que desea copiar el archivo .txt. ```[remote username]``` es el nombre de usuario de SSH elegido durante la [experiencia de instalación](./quickstart-percept-dk-set-up.md).
 
-```console
-sudo [command] > [file name].txt
-```
+### <a name="log-types-and-commands"></a>Tipos de registros y comandos
 
-Cambie los permisos del archivo .txt para que se pueda copiar:
+|Finalidad del registro      |Cuándo recopilarlo         |Get-Help                     |
+|-----------------|---------------------------|----------------------------|
+|*Conjunto de soporte técnico*: proporciona un conjunto de registros necesarios para la mayoría de las solicitudes de soporte técnico del cliente.|Recopílelo cada vez que solicite soporte técnico.|```sudo iotedge support-bundle --since 1h``` <br><br>*"--since 1h" se puede cambiar a cualquier intervalo de tiempo; por ejemplo, "6h" (6 horas), "6d" (6 días) o "6 m" (6 minutos).*|
+|*Registros de OOBE*: registra los detalles sobre la experiencia de configuración.|Recopílelos cuando tenga problemas durante la experiencia de configuración.|```sudo journalctl -u oobe -b```|
+|*Registros de edgeAgent*: registra los números de versión de todos los módulos que se ejecutan en el dispositivo.|Recopílelos cuando no funcionen uno o varios módulos.|```sudo iotedge logs edgeAgent```|
+|*Registros de contenedor de módulos*: registra los detalles sobre contenedores de módulos IoT Edge específicos.|Recopílelos cuando tenga problemas con un módulo.|```sudo iotedge logs [container name]```|
+|*Registros de punto de acceso Wi-Fi*: registra los detalles sobre la conexión al punto de acceso Wi-Fi del kit de desarrollo.|Recopílelos cuando tenga problemas al conectarse al punto de acceso Wi-Fi del kit de desarrollo.|```sudo journalctl -u hostapd.service```|
+|*Registros de red*: un conjunto de registros que abarcan los servicios Wi-Fi y la pila de red.|Recopílelos cuando tenga problemas de Wi-Fi o de red.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>Ejecute ambos comandos. Cada comando recopila varios registros y los coloca en una única salida.|
 
-```console
-sudo chmod 666 [file name].txt
-```
+## <a name="troubleshooting-commands"></a>Solución de problemas de comandos
+Este es un conjunto de comandos que se pueden usar para solucionar problemas que puede encontrar con el kit de desarrollo. Para ejecutar estos comandos, primero debe conectarse al kit de desarrollo [a través de SSH](./how-to-ssh-into-percept-dk.md). 
 
-Después de redirigir la salida a un archivo .txt, copie el archivo en el equipo host a través de SCP:
+Para más información sobre los comandos de Azure IoT Edge, consulte la [documentación de solución de problemas de dispositivos de Azure IoT Edge](../iot-edge/troubleshoot.md). 
 
-```console
-scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
-```
-
-```[local host file path]``` hace referencia a la ubicación del equipo host en el que desea copiar el archivo .txt. ```[remote username]``` es el nombre de usuario de SSH elegido durante la [experiencia de instalación](./quickstart-percept-dk-set-up.md).
-
-Para más información sobre los comandos de Azure IoT Edge, consulte la [documentación de solución de problemas de dispositivos de Azure IoT Edge](../iot-edge/troubleshoot.md).
-
-|Categoría:         |Comando:                    |Función:                  |
+|Función         |Cuándo se usa                    |Get-Help                 |
 |------------------|----------------------------|---------------------------|
-|SO                |```cat /etc/os-release```         |comprobar la versión de la imagen de Mariner |
-|SO                |```cat /etc/os-subrelease```      |comprobar la versión de la imagen derivada |
-|SO                |```cat /etc/adu-version```        |comprobar la versión de ADU |
-|Temperatura       |```cat /sys/class/thermal/thermal_zone0/temp``` |comprobar la temperatura del kit de desarrollo |
-|Wi-Fi             |```sudo journalctl -u hostapd.service``` |comprobar los registros de SoftAP|
-|Wi-Fi             |```sudo journalctl -u wpa_supplicant.service``` |comprobar los registros de los servicios de Wi-Fi |
-|Wi-Fi             |```sudo journalctl -u ztpd.service```  |comprobar los registros del servicio de aprovisionamiento de Wi-Fi Zero Touch |
-|Wi-Fi             |```sudo journalctl -u systemd-networkd``` |comprobar los registros de la pila de red de Mariner |
-|Wi-Fi             |```sudo cat /etc/hostapd/hostapd-wlan1.conf``` |comprobar los detalles de configuración del punto de acceso Wi-fi |
-|OOBE              |```sudo journalctl -u oobe -b```       |comprobar los registros de la configuración rápida |
-|Telemetría         |```sudo azure-device-health-id```      |buscar identificador HW_ID de telemetría única |
-|Azure IoT Edge          |```sudo iotedge check```          |ejecutar comprobaciones de configuración y conectividad para problemas comunes |
-|Azure IoT Edge          |```sudo iotedge logs [container name]``` |comprobar los registros de contenedor, como los módulos de voz y visión |
-|Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |recopilar registros del módulo, registros del administrador de seguridad de Azure IoT Edge, registros del motor de contenedor, salida JSON de ```iotedge check``` y otra información de depuración útil de la última hora |
-|Azure IoT Edge          |```sudo journalctl -u iotedge -f``` |ver los registros del administrador de seguridad de Azure IoT Edge |
-|Azure IoT Edge          |```sudo systemctl restart iotedge``` |reiniciar el demonio de seguridad de Azure IoT Edge |
-|Azure IoT Edge          |```sudo iotedge list```           |enumerar los módulos de Azure IoT Edge implementados |
-|Otros             |```df [option] [file]```          |mostrar información sobre el espacio total o disponible en los sistemas de archivos especificados |
-|Otros             |`ip route get 1.1.1.1`        |mostrar la información de la interfaz y la dirección IP del dispositivo |
-|Otros             |<code>ip route get 1.1.1.1 &#124; awk '{print $7}'</code> <br> `ifconfig [interface]` |mostrar solo la dirección IP del dispositivo |
+|Comprueba la versión de software en el kit de desarrollo.|Úsela cada vez que necesite confirmar qué versión de software está en el kit de desarrollo.|```cat /etc/adu-version```|
+|Comprueba la temperatura del kit de desarrollo.|Úsela en casos en los que piense que el kit de desarrollo podría estar sobrecalentándose.|```cat /sys/class/thermal/thermal_zone0/temp```|
+|Comprueba el identificador de telemetría del kit de desarrollo.|Úsela en casos en los que necesite conocer el identificador de telemetría único del kit de desarrollo.|```sudo azure-device-health-id```|
+|Comprueba el estado de IoT Edge.|Úsela siempre que haya problemas con los módulos de IoT Edge que se conectan a la nube.|```sudo iotedge check```|
+|Reinicia el demonio de seguridad de Azure IoT Edge.|Úsela cuando IoT Edge no responda o no funcione correctamente.|```sudo systemctl restart iotedge``` |
+|Enumera los módulos de Azure IoT Edge implementados.|Úsela cuando necesite ver todos los módulos implementados en el kit de desarrollo.|```sudo iotedge list``` |
+|Muestra el espacio disponible o total en los sistemas de archivos especificados.|Úsela si necesita conocer el almacenamiento disponible en el kit de desarrollo.|```df [option] [file]```|
+|Muestra la información de IP e interfaz del kit de desarrollo.|Úsela cuando necesite conocer la dirección IP del kit de desarrollo.|`ip route get 1.1.1.1`        | 
+|Muestra solo la dirección IP del kit de desarrollo.|Úsela cuando solo desee obtener la dirección IP del kit de desarrollo y ninguna otra información de la interfaz.|<code>ip route get 1.1.1.1 &#124; awk '{print $7}'</code> <br> `ifconfig [interface]` |
 
-
-Los comandos de Wi-Fi ```journalctl``` se pueden combinar en el siguiente comando único:
-
-```console
-sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd -b
-```
-
-## <a name="docker-troubleshooting-commands"></a>Comandos de solución de problemas de Docker
-
-|Comando:                        |Función:                  |
-|--------------------------------|---------------------------|
-|```sudo docker ps``` |[muestra qué contenedores se están ejecutando](https://docs.docker.com/engine/reference/commandline/ps/) |
-|```sudo docker images``` |[muestra qué imágenes hay en el dispositivo](https://docs.docker.com/engine/reference/commandline/images/)|
-|```sudo docker rmi [image id] -f``` |[elimina una imagen del dispositivo](https://docs.docker.com/engine/reference/commandline/rmi/) |
-|```sudo docker logs -f edgeAgent``` <br> ```sudo docker logs -f [module_name]``` |[toma los registros de contenedor del módulo especificado](https://docs.docker.com/engine/reference/commandline/logs/) |
-|```sudo docker image prune``` |[quita todas las imágenes pendientes](https://docs.docker.com/engine/reference/commandline/image_prune/) |
-|```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |comprueba el estado de descarga del contenedor de Docker |
-
-## <a name="usb-updates"></a>Actualizaciones de USB
+## <a name="usb-update-errors"></a>Errores de actualización de USB
 
 |Error:                                    |Solución:                                               |
 |------------------------------------------|--------------------------------------------------------|
-|LIBUSB_ERROR_XXX en la unidad flash a través de UUU |Este error es el resultado de un error de conexión USB durante la actualización de UUU. Si el cable USB no está conectado correctamente a los puertos USB del equipo o a la placa base de Percept DK, se producirá un error con este formato. Intente desconectar y reconectar ambos extremos del cable USB y mueva el cable para garantizar una conexión segura. Esto casi siempre soluciona el problema. |
+|LIBUSB_ERROR_XXX en la unidad flash a través de UUU |Este error es el resultado de un error de conexión USB durante la actualización de UUU. Si el cable USB no está conectado correctamente a los puertos USB del equipo o a la placa base de Percept DK, se producirá un error con este formato. Intente desconectar y reconectar ambos extremos del cable USB y mueva el cable para garantizar una conexión segura.|
+
+## <a name="clearing-hard-drive-space-on-the-azure-percept-dk"></a>Borrado del espacio de la unidad de disco duro en Azure Percept DK
+Hay dos componentes que ocupan el espacio de la unidad de disco duro en Azure Percept DK: los registros de contenedor de Docker y los propios contenedores de Docker. Para asegurarse de que los registros de contenedor no ocuparán todo el espacio de la unidad de disco duro, Azure Percept DK tiene integrada la rotación de registros, que va eliminando los registros antiguos a medida que se generan nuevos registros.
+
+Para situaciones en las que el número de contenedores de Docker provoca problemas de espacio en la unidad de disco duro, puede eliminar los contenedores no usados siguiendo estos pasos:
+1. [Conéctese mediante SSH al kit de desarrollo](./how-to-ssh-into-percept-dk.md)
+1. Ejecute este comando: `docker system prune`.
+
+Esto quitará todos los contenedores, redes, imágenes y, opcionalmente, volúmenes que no se usan. [Consulte esta página](https://docs.docker.com/engine/reference/commandline/system_prune/) para obtener más información.
 
 ## <a name="azure-percept-dk-carrier-board-led-states"></a>Estados de los indicadores LED de la placa base de Azure Percept DK
 

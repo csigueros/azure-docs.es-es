@@ -12,18 +12,21 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 535e80b9a916e3d60d42bb58def77258c7117ab9
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 4d8d60c1c90173f2821890801d679328880b5dd8
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498931"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122651854"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Cómo codificar con una transformación personalizada: REST
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Al codificar con Azure Media Services, puede empezar a trabajar rápidamente con uno de los valores preestablecidos integrados recomendados según los procedimientos recomendados del sector, tal como se muestra en el tutorial [Streaming de archivos](stream-files-tutorial-with-rest.md#create-a-transform). También puede compilar un valor preestablecido personalizado para sus requisitos específicos de escenario o dispositivo.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
 
 ## <a name="considerations"></a>Consideraciones
 
@@ -32,7 +35,7 @@ Al crear valores preestablecidos personalizados, se aplican las consideraciones 
 * Todos los valores de alto y ancho del contenido de AVC deben ser un múltiplo de 4.
 * En Azure Media Services v3, todas las velocidades de bits de codificación se expresan en bits por segundo. Esto difiere de los valores preestablecidos en las API v2, en donde se usaban kilobits por segundo como unidad. Por ejemplo, si la velocidad de bits de v2 se especificaba como 128 (kilobits/segundo), en v3 se establecería en 128 000 (bits/segundo).
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 - [Cree una cuenta de Media Services](./account-create-how-to.md). <br/>Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
 - [Configuración de Postman para llamadas API REST de Azure Media Services](setup-postman-rest-how-to.md).<br/>Asegúrese de seguir el último paso en el tema [Obtención del token de Azure AD](setup-postman-rest-how-to.md#get-azure-ad-token). 

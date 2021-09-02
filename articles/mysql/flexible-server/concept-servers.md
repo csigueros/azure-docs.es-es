@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a7978410dbe28a5da5dae81cb380d118fe13a159
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: a0ce6658168bd86188875d9d89f218ee26ef7941
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869385"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652201"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos del servidor: Servidor flexible de Azure Database for MySQL (versión preliminar)
+
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT] 
 > Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
@@ -61,7 +63,7 @@ Puede administrar la creación, la eliminación, la configuración de parámetro
 |-----|-----|-----|-----|
 |*mysql.az_kill*|processlist_id|N/D|Equivalente al comando [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html). Finalizará la conexión asociada con el processlist_id proporcionado después de finalizar cualquier instrucción que la conexión esté ejecutando.|
 |*mysql.az_kill_query*|processlist_id|N/D|Equivalente al comando [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html). Finalizará la instrucción que la conexión está ejecutando actualmente. Deja la propia conexión activa.|
-|*mysql.az_load_timezone*|N/D|N/D|Carga las [tablas de zona horaria](../howto-server-parameters.md#working-with-the-time-zone-parameter) para permitir que el parámetro `time_zone` se establezca en valores con nombre (por ejemplo, "US/Pacific").|
+|*mysql.az_load_timezone*|N/D|N/D|Carga las [tablas de zonas horarias](../howto-server-parameters.md#working-with-the-time-zone-parameter) para que en el parámetro `time_zone` se puedan establecer valores con nombre (por ejemplo, "US/Pacific").|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cde810bb9f612b0dc84fb4dd7593761b057e722
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: efcbaab63bf6372761e7cd164428a30f68243e2e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142862"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751657"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure
 
@@ -145,7 +145,7 @@ Para usar un recurso compartido de archivos de escalabilidad horizontal, el sist
 * Debe usar discos Premium de Azure.
 * Se recomienda utilizar Azure Managed Disks.
 * Se recomienda dar formato a los volúmenes con el sistema de archivos resistente (ReFS).
-    * Para más información, consulte la [Nota de SAP 1869038: compatibilidad de SAP para el sistema de archivos ReFs][1869038] y el capítulo [Elección del sistema de archivos][planning-volumes-s2d-choosing-filesystem] de artículo Planificación de volúmenes en espacios de almacenamiento directo.
+    * Para más información, consulte la [Nota de SAP 1869038: compatibilidad de SAP para el sistema de archivos ReFs][1869038] y el capítulo [Elección del sistema de archivos][planning-volumes-s2d-choosing-filesystem] del artículo "Planificación de volúmenes en espacios de almacenamiento directo".
     * Asegúrese de que ha instalado la [actualización acumulativa de Microsoft KB4025334][kb4025334].
 * Puede usar los tamaños de máquina virtual de Azure de la serie DS o la serie DSv2.
 * Para un buen rendimiento de red entre las máquinas virtuales, lo cual es necesario para la sincronización de disco de los espacios de almacenamiento directo, utilice un tipo de máquina virtual con un ancho de banda de red "alto" como mínimo.
@@ -153,11 +153,10 @@ Para usar un recurso compartido de archivos de escalabilidad horizontal, el sist
 * Se recomienda reservar cierta capacidad sin asignar en el grupo de almacenamiento. Dejar cierta capacidad sin asignar en el grupo de almacenamiento da espacio a los volúmenes para una reparación "in situ" si se produce un error en una unidad. Esto mejora el rendimiento y seguridad de los datos.  Para obtener más información, vea [Elección del tamaño del volumen][choosing-the-size-of-volumes-s2d].
 * No es necesario configurar el equilibrador de carga interno de Azure para el nombre de red del recurso compartido de archivos de escalabilidad horizontal, como para el \<SAP global host\>. Esto se hace para el \<ASCS/SCS virtual host name\> de la instancia de ASCS/SCS de SAP o para el DBMS. Un recurso compartido de archivos de escalabilidad horizontal escala horizontalmente la carga entre todos los nodos del clúster. El \<SAP global host\> usa la dirección IP local para todos los nodos del clúster.
 
-
 > [!IMPORTANT]
 > No se puede cambiar el nombre del recurso compartido de archivos SAPMNT, que apunta al \<SAP global host\>. SAP admite únicamente el nombre de recurso compartido "sapmnt."
 >
-> Para obtener más información, vea [Nota de SAP 2492395: ¿Se puede cambiar el nombre de recurso compartido sapmnt?][2492395]
+Para obtener más información, vea [Nota de SAP 2492395: ¿Se puede cambiar el nombre de recurso compartido sapmnt?][2492395]
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configuración de instancias de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal en dos clústeres
 
@@ -174,6 +173,35 @@ Debe implementar instancias de ASCS/SCS de SAP en un clúster independiente, con
 ![Ilustración 5: Instancia de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal implementados en dos clústeres][sap-ha-guide-figure-8007]
 
 _**Ilustración 5:** Instancia de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal implementados en dos clústeres_
+
+## <a name="optional-configurations"></a>Configuraciones opcionales
+
+En los diagramas siguientes se muestran varias instancias de SAP en máquinas virtuales de Azure que ejecutan el clúster de conmutación por error de Microsoft Windows para reducir el número total de máquinas virtuales.
+
+Se puede tratar de servidores de aplicaciones SAP locales en un clúster de ASCS/SCS de SAP o un rol de clúster de ASCS/SCS de SAP en nodos Always On de Microsoft SQL Server.
+
+> [!IMPORTANT]
+> No se admite la instalación de un servidor de aplicaciones de SAP local en un nodo Always On de SQL Server.
+>
+
+Tanto ASCS/SCS de SAP como la base de datos de Microsoft SQL Server, son puntos de error únicos (SPOF). Para proteger estos SPOF en un entorno Windows se usa WSFC.
+
+Aunque el consumo de recursos de ASCS/SCS de SAP es bastante pequeño, se recomienda una reducción de la configuración de memoria de 2 GB para SQL Server o para el servidor de aplicaciones SAP.
+
+### <a name="sap-application-servers-on-wsfc-nodes-using-windows-sofs"></a><a name="86cb3ee0-2091-4b74-be77-64c2e6424f50"></a>Servidores de aplicaciones SAP en nodos WSFC mediante Windows SOFS
+
+![Figura 6: configuración de clústeres de conmutación por error de Windows Server en Azure con Windows SOFS y el servidor de aplicaciones SAP instalado localmente][sap-ha-guide-figure-8007A]
+
+> [!NOTE]
+> En la imagen se muestra el uso de discos locales adicionales. Esto es opcional para los clientes que no instalarán software de aplicación en la unidad del sistema operativo (C:\)
+>
+### <a name="sap-ascsscs-on-sql-server-always-on-nodes-using-windows-sofs"></a><a name="db335e0d-09b4-416b-b240-afa18505f503"></a>ASCS/SCS de SAP en nodos Always On de SQL Server con Windows SOFS
+
+![Figura 7: ASCS/SCS de SAP en nodos Always On de SQL Server con Windows SOFS][sap-ha-guide-figure-8007B]
+
+> [!NOTE]
+> En la imagen se muestra el uso de discos locales adicionales. Esto es opcional para los clientes que no instalarán software de aplicación en la unidad del sistema operativo (C:\)
+>
 
 > [!IMPORTANT]
 > En la nube de Azure, los clústeres que se usan para SAP y los recursos compartidos de archivos de escalabilidad horizontal deben implementarse en su propio conjunto de disponibilidad de Azure o entre instancias de Azure Availability Zones. Esto garantiza la selección de ubicación distribuida de las máquinas virtuales del clúster a través de la infraestructura subyacente de Azure. Las implementaciones de zonas de disponibilidad son compatibles con esta tecnología.
@@ -204,7 +232,7 @@ En este caso, puede usar una solución SIOS de terceros como un disco compartido
 [kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
 
 [dv2-series]:../../dv2-dsv2-series.md
-[ds-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
+[ds-series]:/azure/virtual-machines/windows/sizes-general
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -230,10 +258,10 @@ En este caso, puede usar una solución SIOS de terceros como un disco compartido
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-[planning-volumes-s2d-choosing-filesystem]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
-[choosing-the-size-of-volumes-s2d]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
-[deploy-sofs-s2d-in-azure]:https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
-[s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[planning-volumes-s2d-choosing-filesystem]:/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
+[choosing-the-size-of-volumes-s2d]:/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
+[deploy-sofs-s2d-in-azure]:/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
+[s2d-in-win-2016]:/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [deep-dive-volumes-in-s2d]:https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/
 
 [planning-guide]:planning-guide.md
@@ -340,7 +368,9 @@ En este caso, puede usar una solución SIOS de terceros como un disco compartido
 [sap-ha-guide-figure-8004]:./media/virtual-machines-shared-sap-high-availability-guide/8004.png
 [sap-ha-guide-figure-8005]:./media/virtual-machines-shared-sap-high-availability-guide/8005.png
 [sap-ha-guide-figure-8006]:./media/virtual-machines-shared-sap-high-availability-guide/8006.png
-[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/8007.png
+[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sofs.png
+[sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sofs-as.png
+[sap-ha-guide-figure-8007B]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-sofs.png
 [sap-ha-guide-figure-8008]:./media/virtual-machines-shared-sap-high-availability-guide/8008.png
 [sap-ha-guide-figure-8009]:./media/virtual-machines-shared-sap-high-availability-guide/8009.png
 [sap-ha-guide-figure-8010]:./media/virtual-machines-shared-sap-high-availability-guide/8010.png
@@ -362,11 +392,11 @@ En este caso, puede usar una solución SIOS de terceros como un disco compartido
 
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 

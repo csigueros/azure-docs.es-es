@@ -16,12 +16,12 @@ ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb8a9ce7d0591824e3b9e77b7411e397c5d3161b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 02ec45e159cc5f10b0685d1e41ef2103c421aaa7
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075562"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829582"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Uso de identidades administradas para recursos de Azure en una máquina virtual de Azure para el inicio de sesión 
 
@@ -59,7 +59,7 @@ El script siguiente muestra cómo:
    ```azurecli
    az login --identity
    
-   spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
+   $spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The managed identity for Azure resources service principal ID is $spID
    ```
 

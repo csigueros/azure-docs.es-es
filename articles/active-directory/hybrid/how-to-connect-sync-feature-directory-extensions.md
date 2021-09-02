@@ -12,22 +12,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 08/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2415ad3109863a9cd80df413723b317e880a7063
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97976884"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751617"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
 Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones](/graph/extensibility-overview
 ). Puede ver los atributos disponibles mediante el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). También puede usar esta característica para crear grupos dinámicos en Azure AD.
 
 En la actualidad, ninguna carga de trabajo de Microsoft 365 consume estos atributos.
+
+>[!IMPORTANT]
+>Si ha exportado una configuración que contiene una regla personalizada que se usa para sincronizar los atributos de extensión de directorio e intenta importar esta regla en una instalación nueva o existente de Azure AD Connect, la regla se creará durante la importación, pero los atributos de extensión de directorio no se asignarán.  Tendrá que volver a seleccionar los atributos de extensión de directorio y volver a asociarlos a la regla o volver a crear la regla por completo para corregirlo.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Personalización de los atributos que se van a sincronizar con Azure AD
 

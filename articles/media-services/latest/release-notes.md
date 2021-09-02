@@ -8,15 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
+ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7eff89301fa54312ffef323023100660237185a4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3258baa30d689513ae09ea727ac1db603f8bf5fe
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955350"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720288"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -29,11 +30,60 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Corrección de errores
 * Funciones obsoletas
 
+
+## <a name="june-2021"></a>Junio de 2021
+
+### <a name="additional-live-event-ingest-heartbeat-properties-for-improved-diagnostics"></a>Propiedades adicionales de latido de ingesta de eventos en directo para un diagnóstico mejorado
+
+Se han agregado propiedades adicionales de latido de ingesta de eventos en directo al mensaje de Event Grid. Esto incluye los siguientes nuevos campos para ayudar con el diagnóstico de problemas durante la ingesta en directo.  **ingestDriftValue** es útil en escenarios en los que es necesario supervisar la latencia de red desde el codificador de ingesta de origen que se inserta en el evento en directo. Si este valor presenta un desfase demasiado grande, esto puede indicar que la latencia de red es demasiado alta para un evento de streaming en vivo correcto.
+
+Consulte el [esquema de LiveEventIngestHeartbeat](./monitoring/media-services-event-schemas.md#liveeventingestheartbeat) para más información.
+
+### <a name="private-links-support-is-now-ga"></a>La compatibilidad con vínculos privados ahora está disponible de forma general.
+
+La compatibilidad del uso de Media Services con [vínculos privados](../../private-link/index.yml) ahora tiene disponibilidad general y está disponible en todas las regiones de Azure, incluidas las nubes de Azure Government.
+Azure Private Link le permite acceder a los servicios PaaS de Azure y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un punto de conexión privado de la red virtual.
+El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet.
+
+Para más información sobre cómo usar Media Services con vínculos privados, consulte [Creación de una cuenta de Media Services y una cuenta de almacenamiento con un vínculo privado](./security-private-link-how-to.md).
+
+### <a name="new-us-west-3-region-is-ga"></a>La nueva región Oeste de EE. UU. 3 tiene disponibilidad general.
+
+La región Oeste de EE. UU. 3 ahora tiene disponibilidad general y está disponible para que los clientes la usen al crear nuevas cuentas de Media Services.
+
+### <a name="key-delivery-supports-ip-allowlist-restrictions"></a>La entrega de claves admite restricciones de lista de direcciones IP permitidas.
+
+Las cuentas de Media Services se pueden configurar ahora con restricciones de lista de direcciones IP permitidas en la entrega de claves. La nueva configuración de la lista de permitidos está disponible en el recurso de la cuenta de Media Services mediante el SDK, así como en el portal y la CLI.
+Esto permite a los operadores restringir la entrega de licencias DRM y claves de contenido AES-128 a intervalos IPv4 específicos.
+
+Esta característica también se puede usar para interrumpir toda entrega de licencias DRM o claves AES-128 desde la red pública de Internet y restringir la entrega a un punto de conexión de red privado.
+
+Consulte el articulo [Restricción del acceso a la entrega de licencias de DRM y claves AES mediante listas de direcciones IP permitidas](./drm-content-protection-key-delivery-ip-allow.md) para más información.
+
+### <a name="new-samples-for-python-and-nodejs-with-typescript"></a>Nuevos ejemplos para Python y Node.js (con Typescript)
+Ejemplos actualizados de **Node.js** que emplean la compatibilidad más reciente de Typescript en el SDK de Azure.
+
+|Muestra|Descripción|
+|---|---|
+|[Streaming en directo](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| Ejemplo básico de streaming en vivo. **ADVERTENCIA**: asegúrese de comprobar que todos los recursos se han limpiado y ya no se facturan en el portal al usar en producción.|
+|[Carga y transmitir con HLS y DASH](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| Ejemplo básico para cargar un archivo local o codificación de una dirección URL de origen. En el ejemplo se muestra cómo usar el SDK de Storage para descargar contenido y se muestra cómo transmitir a un reproductor. |
+|[Carga y transmisión mediante HLS y DASH con DRM de Playready y Widevine](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Muestra cómo codificar y transmitir mediante DRM de Widevine y PlayReady. |
+|[Carga y uso de IA para indexar vídeos y audio](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| Ejemplo de uso de los valores preestablecidos del analizador de vídeo y audio para generar metadatos e información a partir de un archivo de vídeo o audio. |
+
+
+Nuevo ejemplo de **Python** que muestra cómo usar Azure Functions y Event Grid para desencadenar los valores preestablecidos del difuminado de caras.
+
+|Muestra|Descripción|
+|---|---|
+|[Difuminado de caras mediante eventos y funciones](https://github.com/Azure-Samples/media-services-v3-python/tree/main/VideoAnalytics/FaceRedactorEventBased) | Este es un ejemplo de un enfoque basado en eventos que desencadena un trabajo del difuminador de caras de Azure Media Services en un vídeo en cuanto llega a una cuenta de Azure Storage. Aprovecha las ventajas de Azure Media Services, Azure Functions, Event Grid y Azure Storage para la solución. Para obtener la descripción completa de la solución, consulte el archivo [README.md](https://github.com/Azure-Samples/media-services-v3-python/blob/main/VideoAnalytics/FaceRedactorEventBased/README.md). |
+
+
 ## <a name="may-2021"></a>Mayo de 2021
 
 ### <a name="availability-zones-default-support-in-media-services"></a>Compatibilidad predeterminada con Availability Zones en Media Services
 
 Media Services ahora es compatible con [Availability Zones](concept-availability-zones.md), que proporciona ubicaciones con aislamiento de errores dentro de la misma región de Azure.  Las cuentas de Media Services ahora tienen redundancia de zona de forma predeterminada y no se requiere ninguna configuración adicional. Esto solo se aplica a las regiones que tienen [compatibilidad con Availability Zones](../../availability-zones/az-region.md#azure-regions-with-availability-zones).
+
 
 ## <a name="march-2021"></a>Marzo de 2021
 
@@ -274,7 +324,7 @@ Se ha agregado compatibilidad con los siguientes nuevos asociados de codificador
 - La codificación estándar ahora mantiene una cadencia normal del GOP para el contenido de velocidad de fotogramas variable (VFR) durante la codificación VOD cuando se usa el valor GOP basado en el tiempo.  Esto significa que, por ejemplo, el cliente que envía contenido de velocidad de fotogramas mixta que varía entre 15 y 30 fps observará ahora distancias de GOP normales calculadas en la salida a archivos MP4 de streaming con velocidad de bits adaptable. Este hecho mejorará la posibilidad de cambiar sin problemas entre pistas al realizar las entregas a través de HLS o DASH. 
 -  Sincronización de AV mejorada en el contenido de origen de velocidad de fotogramas variable (VFR)
 
-### <a name="video-indexer-video-analytics"></a>Video Indexer, análisis de vídeo
+### <a name="azure-video-analyzer-for-media-video-analytics"></a>Azure Video Analyzer for Media: análisis de vídeo
 
 - Los fotogramas clave extraídos mediante el valor preestablecido de VideoAnalyzer ahora se encuentran en la resolución original del vídeo en lugar de cambiarse de tamaño. La extracción de fotogramas clave de alta resolución proporciona imágenes de calidad original y permite usar los modelos de inteligencia artificial basados en imágenes proporcionados por los servicios Microsoft Computer Vision y Custom Vision para obtener aún más información del vídeo.
 
@@ -290,9 +340,9 @@ Media Services V3 anuncia la versión preliminar de la codificación lineal de e
 
 #### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
 
-Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. Para ver las fechas de retirada, consulte el artículo sobre [componentes heredados](../previous/legacy-components.md). Video Indexer de Azure Media Services  reemplaza a estos procesadores multimedia heredados.
+Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. Para ver las fechas de retirada, consulte el artículo sobre [componentes heredados](../previous/legacy-components.md). Azure Video Analyzer for Media reemplaza a estos procesadores de multimedia heredados.
 
-Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](../previous/migrate-indexer-v1-v2.md).
+Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a **Video Indexer de Azure Media Services**](../previous/migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>Agosto de 2019
 

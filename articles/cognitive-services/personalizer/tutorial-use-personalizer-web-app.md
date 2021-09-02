@@ -1,17 +1,20 @@
 ---
 title: 'Uso de una aplicación web: Personalizer'
 description: Personalice una aplicación web de .NET en C# con un bucle de Personalizer que proporcione el contenido correcto a un usuario en función de las acciones (con características) y de las características del contexto.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8e9ffe2851daaa60a990a03cbc29a47deb28ff8f
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363925"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829229"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Incorporación de Personalizer a una aplicación web de .NET
 
@@ -158,7 +161,7 @@ La aplicación web usa Personalizer para seleccionar la mejor acción de la list
 * **acciones** con sus características como `taste` y `spiceLevel`
 * características de **contexto** como `time` del día, preferencias de `taste` del usuario y la información del agente de usuario del explorador.
 * **acciones a excluir** como, por ejemplo, zumo
-* **eventId** , que es diferente para cada llamada a la API Rank.
+* **eventId**, que es diferente para cada llamada a la API Rank.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Características del modelo de Personalizer en una aplicación web
 
