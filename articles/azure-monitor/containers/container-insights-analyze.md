@@ -3,12 +3,12 @@ title: Supervisión de Kubernetes con Container Insights | Microsoft Docs
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Container Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2751d96a0527328a78030cba618d2026059f04fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124319"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741367"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Supervisión del rendimiento del clúster de Kubernetes con Container Insights
 
@@ -141,7 +141,7 @@ Puede [dividir](../essentials/metrics-charts.md#apply-splitting) una métrica pa
 
 Cuando cambie a las pestañas **Nodos**, **Controladores** y **Contenedores**, se muestra automáticamente un panel de propiedades en el lado derecho de la página. Este muestra las propiedades del elemento seleccionado, incluidas las etiquetas que haya definido para organizar los objetos de Kubernetes. Cuando se selecciona un nodo de Linux, la sección **Local Disk Capacity** (Capacidad de disco local) también muestra el espacio en disco disponible y el porcentaje usado en todos los discos presentes en el nodo. Seleccione el vínculo **>>** en el panel para verlo u ocultarlo.
 
-A medida que expande los objetos en la jerarquía, el panel de propiedades se actualiza según el objeto seleccionado. En el panel, también puede ver registros de contenedor de Kubernetes (stdout/stderror), eventos y métricas de pod seleccionando el vínculo **Ver datos en directo (versión preliminar)** en la parte superior del panel. Para obtener más información sobre la configuración necesaria para conceder y controlar el acceso para ver estos datos, consulte [Configuración de los datos en directo (versión preliminar)](container-insights-livedata-setup.md). Mientras examina los recursos del clúster, puede ver estos datos del contenedor en tiempo real. Para obtener más información sobre esta característica, consulte [Visualización de registros de Kubernetes, eventos y métricas de pod en tiempo real](container-insights-livedata-overview.md). Para ver los datos de registro de Kubernetes almacenados en el área de trabajo basándose en búsquedas de registros predefinidas, seleccione **Ver registros del contenedor** en la lista desplegable **Ver en Analytics**. Para más información acerca de este tema, consulte [Búsquedas de registros para analizar datos](container-insights-log-search.md#search-logs-to-analyze-data).
+A medida que expande los objetos en la jerarquía, el panel de propiedades se actualiza según el objeto seleccionado. En el panel, también puede ver registros de contenedor de Kubernetes (stdout/stderror), eventos y métricas de pod seleccionando el vínculo **Ver datos en directo (versión preliminar)** en la parte superior del panel. Para obtener más información sobre la configuración necesaria para conceder y controlar el acceso para ver estos datos, consulte [Configuración de los datos en directo (versión preliminar)](container-insights-livedata-setup.md). Mientras examina los recursos del clúster, puede ver estos datos del contenedor en tiempo real. Para obtener más información sobre esta característica, consulte [Visualización de registros de Kubernetes, eventos y métricas de pod en tiempo real](container-insights-livedata-overview.md). Para ver los datos de registro de Kubernetes almacenados en el área de trabajo basándose en búsquedas de registros predefinidas, seleccione **Ver registros del contenedor** en la lista desplegable **Ver en Analytics**. Para obtener más información sobre este tema, vea [Procedimiento para consultar registros desde Container Insights](container-insights-log-query.md).
 
 Use la opción **+ Agregar filtro** en la parte superior de la página para filtrar los resultados de la vista por **Servicio**, **Nodo**, **Espacio de nombres** o **Grupo de nodos**. Después de seleccionar el ámbito de filtro, seleccione uno de los valores que se muestran en el campo **Seleccionar valores**. Una vez se configura el filtro, se aplica globalmente mientras se visualiza cualquier perspectiva del clúster de AKS. La fórmula solo admite el signo igual. Puede agregar filtros adicionales que complementen el primero para restringir aún más los resultados. Por ejemplo, si especifica un filtro por **Nodo**, solo puede seleccionar **Servicio** o **Espacio de nombres** como segundo filtro.
 
@@ -297,13 +297,13 @@ El administrador de directivas de red de Azure incluye métricas informativas de
 
 ## <a name="workbooks"></a>Workbooks
 
-Los libros combinan texto, consultas de registros, métricas y parámetros en informes interactivos enriquecidos que permiten analizar el rendimiento del clúster. Vea [Libros en Container Insights](../insights/container-insights-reports.md) a fin de obtener una descripción de los libros disponibles para Container Insights.
+Los libros combinan texto, consultas de registros, métricas y parámetros en informes interactivos enriquecidos que permiten analizar el rendimiento del clúster. Vea [Libros en Container Insights](container-insights-reports.md) a fin de obtener una descripción de los libros disponibles para Container Insights.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Revise [Creación de alertas de rendimiento con Container Insights](./container-insights-log-alerts.md) para obtener información sobre cómo crear alertas en caso de uso elevado de CPU y memoria a fin de permitir las operaciones de desarrollo o los procesos y procedimientos operativos.
 
-- En los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) encontrará consultas predefinidas y ejemplos que puede evaluar o personalizar para las alertas, visualización o análisis de los clústeres.
+- En los [ejemplos de consultas de registro](container-insights-log-query.md) encontrará consultas predefinidas y ejemplos que puede evaluar o personalizar para las alertas, visualización o análisis de los clústeres.
 
 - Vea [Supervisión del estado del clúster](./container-insights-overview.md) para obtener información sobre cómo ver el estado de mantenimiento del clúster de Kubernetes.

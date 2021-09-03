@@ -3,16 +3,16 @@ title: Recepción y respuesta de llamadas mediante HTTPS
 description: Uso de Azure Logic Apps para controlar solicitudes HTTPS entrantes de servicios externos
 services: logic-apps
 ms.suite: integration
-ms.reviewers: jonfan, logicappspm
+ms.reviewers: estfan, azla
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 08/04/2021
 tags: connectors
-ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8efcbac4b2cdd93c2646ad75a024df79cf5f2623
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99063019"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722588"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -152,6 +152,23 @@ La aplicación lógica solo mantiene abierta una solicitud entrante durante un [
       ```
 
 1. Para comprobar que la llamada entrante tiene un cuerpo de solicitud que coincide con el esquema especificado, siga estos pasos:
+
+   1. Para exigir que el mensaje entrante tenga exactamente los mismos campos que el esquema describe, en el esquema, agregue la propiedad `required` y especifique los campos obligatorios. Agregue el elemento `addtionalProperties` y establezca el valor en `false`. 
+   
+      Por ejemplo, el esquema siguiente especifica que el mensaje entrante debe tener el campo `msg` y ningún otro:
+
+      ```json
+      {
+         "properties": {
+           "msg": {
+              "type": "string"
+           }
+         },
+         "type": "object",
+         "required": ["msg"],
+         "additionalProperties": false
+      }
+      ```
 
    1. En la barra de título del desencadenador de solicitud, seleccione el botón de puntos suspensivos ( **...** ).
 

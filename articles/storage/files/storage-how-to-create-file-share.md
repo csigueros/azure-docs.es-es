@@ -5,16 +5,16 @@ description: Creación de un recurso compartido de archivos de Azure mediante Az
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 0100bd0e0eb0ee6dbd802ad1cf5df002a706c12c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 442eef44f727ce7ef6059fa0bdfbf440c0345a09
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676169"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727158"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -32,7 +32,14 @@ Para crear un recurso compartido de archivos de Azure, debe responder a tres pre
 
 Para más información sobre estas tres opciones, consulte [Planeamiento de una implementación de Azure Files](storage-files-planning.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
+## <a name="prerequisites"></a>Requisitos previos
 - En este artículo se supone que ya ha creado una suscripción a Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Si planea usar Azure PowerShell, [instale la versión más reciente](/powershell/azure/install-az-ps).
 - Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli).
@@ -163,6 +170,37 @@ az storage account create \
 
 ---
 
+### <a name="enable-large-files-shares-on-an-existing-account"></a>Habilitación de recursos compartidos de archivos grandes en una cuenta existente
+Antes de crear un recurso compartido de archivos de Azure en una cuenta existente, puede habilitarlo para recursos compartidos de archivos grandes si todavía no lo ha hecho. Las cuentas de almacenamiento estándar con LRS y ZRS, o ZRS se pueden actualizar para admitir recursos compartidos de archivos grandes. Si tiene una cuenta GRS, GZRS, RA-GRS o RA-GZRS, deberá convertirla en una cuenta LRS antes de continuar.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+1. Abra [Azure Portal](https://portal.azure.com) y navegue hasta la cuenta de almacenamiento donde quiere habilitar los recursos compartidos de archivos grandes.
+1. Abra la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos**.
+1. Seleccione **Habilitado** en **Large file shares** (Recursos compartidos de archivos grandes) y, a continuación, seleccione **Guardar**.
+1. Seleccione **Información general** y elija **Actualizar**.
+1. Seleccione **Capacidad del recurso compartido** y, a continuación, seleccione **100 TiB** y **Guardar**.
+
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Captura de pantalla de la hoja Recursos compartidos de archivos de la cuenta de almacenamiento de Azure, con recursos compartidos de 100 TiB resaltados.":::
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Para habilitar recursos compartidos de archivos grandes en una cuenta existente, use el siguiente comando. Reemplace `<yourStorageAccountName>` y `<yourResourceGroup>` por su propia información.
+
+```powershell
+Set-AzStorageAccount `
+    -ResourceGroupName <yourResourceGroup> `
+    -Name <yourStorageAccountName> `
+    -EnableLargeFileShare
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+Para habilitar recursos compartidos de archivos grandes en una cuenta existente, use el siguiente comando. Reemplace `<yourStorageAccountName>` y `<yourResourceGroup>` por su propia información.
+
+```azurecli-interactive
+az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
+```
+
+---
+
 ## <a name="create-a-file-share"></a>Creación de un recurso compartido de archivos
 Una vez que haya creado su cuenta de almacenamiento, todo lo que queda es crear el recurso compartido de archivos. Este proceso es prácticamente el mismo, independientemente de si usa un recurso compartido de archivos prémium o un recurso compartido de archivos estándar. Debe tener en cuenta las siguientes diferencias.
 
@@ -173,7 +211,7 @@ Los recursos compartidos de archivos estándar pueden implementarse en uno de lo
 
 La propiedad **quota** significa algo ligeramente distinto en los recursos compartidos de archivos premium y en los estándar:
 
-- En el caso de los recursos compartidos de archivos estándar, es un límite superior del recurso compartido de archivos de Azure, que los usuarios finales no pueden superar. Si no se especifica una cuota, el recurso compartido de archivos estándar puede abarcar hasta 100 TiB (o 5 TiB si no se establece la propiedad de recursos compartidos de archivos grandes para una cuenta de almacenamiento).
+- En el caso de los recursos compartidos de archivos estándar, es un límite superior del recurso compartido de archivos de Azure, que los usuarios finales no pueden superar. Si no se especifica una cuota, el recurso compartido de archivos estándar puede abarcar hasta 100 TiB, o 5 TiB si no se establece la propiedad de recursos compartidos de archivos grandes para una cuenta de almacenamiento. Si no ha creado la cuenta de almacenamiento con recursos compartidos de archivos grandes habilitados, vea [Habilitación de recursos compartidos de archivos grandes en una cuenta existente](#enable-large-files-shares-on-an-existing-account) para obtener información sobre cómo habilitar recursos compartidos de archivos de 100 TiB. El rendimiento (IOPS o Mbps) que reciba depende de la cuota establecida.
 
 - En el caso de recursos compartidos de archivos prémium, la cuota indica **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](understanding-billing.md#provisioned-model).
 
@@ -185,7 +223,7 @@ En la lista de recursos compartidos de archivos, debería ver los recursos compa
 La hoja Nuevo recurso compartido de archivos debería aparecer en la pantalla. Complete los campos de la hoja Nuevo recurso compartido de archivos para crear un recurso compartido de archivos:
 
 - **Nombre**: nombre del recurso compartido de archivos que se va a crear.
-- **Cuota**: cuota del recurso compartido de archivos para los recursos compartidos de archivos estándar; tamaño aprovisionado del recurso compartido de archivos para los recursos compartidos de archivos premium.
+- **Cuota**: cuota del recurso compartido de archivos para los recursos compartidos de archivos estándar; tamaño aprovisionado del recurso compartido de archivos para los recursos compartidos de archivos premium. En el caso de los recursos compartidos de archivos estándar, la cuota también determinará qué rendimiento recibe.
 - **Niveles**: el nivel seleccionado para un recurso compartido de archivos. Este campo solo está disponible en una **cuenta de almacenamiento de uso general (GPv2)** . Puede elegir los niveles optimizado para transacciones, acceso frecuente o acceso esporádico. El nivel del recurso compartido de archivos se puede cambiar en cualquier momento. Se recomienda elegir el nivel de acceso más frecuente posible durante una migración para minimizar los gastos de transacciones y, a continuación, cambiar a un nivel inferior si lo desea una vez completada la migración.
 
 Seleccione **Crear** para terminar de crear el nuevo recurso compartido de archivos.
@@ -272,6 +310,45 @@ az storage share-rm update \
     --storage-account $storageAccountName \
     --name $shareName \
     --access-tier "Cool"
+```
+
+---
+
+### <a name="expand-existing-file-shares"></a>Expansión de recursos compartidos de archivos existentes
+Si habilita recursos compartidos de archivos grandes en una cuenta de almacenamiento existente, tendrá que expandir los recursos compartidos de archivos existentes de esa cuenta de almacenamiento para aprovechar el aumento de la capacidad y la escala. 
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+1. En la cuenta de almacenamiento, seleccione **Recurso compartido de archivos**.
+1. Haga clic con el botón derecho en el recurso compartido de archivos y seleccione **Cuota**.
+1. Escriba el nuevo tamaño que quiera y, luego, seleccione **Aceptar**.
+
+![La interfaz de usuario de Azure Portal con la cuota de los recursos compartidos de archivos existentes](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Para establecer la cuota en el tamaño máximo, use el siguiente comando. Reemplace `<YourResourceGroupName>`, `<YourStorageAccountName>` y `<YourStorageAccountFileShareName>` por su información.
+
+```powershell
+$resourceGroupName = "<YourResourceGroupName>"
+$storageAccountName = "<YourStorageAccountName>"
+$shareName="<YourStorageAccountFileShareName>"
+
+# update quota
+Set-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -QuotaGiB 102400
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+Para establecer la cuota en el tamaño máximo, use el siguiente comando. Reemplace `<yourResourceGroupName>`, `<yourStorageAccountName>` y `<yourFileShareName>` por su información.
+
+```azurecli-interactive
+az storage share-rm update \
+    --resource-group <yourResourceGroupName> \
+    --storage-account <yourStorageAccountName> \
+    --name <yourFileShareName> \
+    --quota 102400
 ```
 
 ---

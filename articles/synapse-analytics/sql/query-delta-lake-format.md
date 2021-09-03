@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/27/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3f6557397985f4d329fc496e5f81046eeed195b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 096cee4aca9830acf9e74d3d60d08e6a79590cb4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745045"
 ---
 # <a name="query-delta-lake-files-preview-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos de Delta Lake (versión preliminar) mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -36,10 +36,10 @@ La función [OPENROWSET](develop-openrowset.md) permite leer el contenido de los
 La forma más fácil de ver el contenido del archivo `DELTA` es proporcionar la dirección URL del archivo a la función [OPENROWSET](develop-openrowset.md) y especificar el formato `DELTA`. Si el archivo está disponible públicamente o si la identidad de Azure AD puede tener acceso a este archivo, debería poder ver su contenido mediante una consulta como la que se muestra en el ejemplo siguiente:
 
 ```sql
-select top 10 *
-from openrowset(
-    bulk 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
-    format = 'delta') as rows
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
+    FORMAT = 'delta') as rows;
 ```
 
 Los nombres de columna y los tipos de datos se leen automáticamente de los archivos de Delta Lake. La función `OPENROWSET` usa los mejores tipos de suposición, como VARCHAR(1000) para las columnas de cadena.
@@ -84,16 +84,16 @@ Para usar los ejemplos siguientes, deberá completar este paso:
 Si creó la base de datos y usó esta como contexto (mediante la instrucción `USE database_name` o la selección de la base de datos en la lista desplegable en algún editor de consultas), puede crear el origen de datos externo que contiene el URI raíz del conjunto de datos y usarlo para consultar archivos de Delta Lake:
 
 ```sql
-create external data source DeltaLakeStorage
-with ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
-go
+CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
+WITH ( LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
+GO
 
-select top 10 *
-from openrowset(
-        bulk 'covid',
-        data_source = 'DeltaLakeStorage',
-        format = 'delta'
-    ) as rows
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
+    ) as rows;
 ```
 
 Si un origen de datos está protegido con una clave SAS o una identidad personalizada, puede configurar el [origen de datos con una credencial de ámbito de base de datos](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
@@ -103,16 +103,16 @@ Si un origen de datos está protegido con una clave SAS o una identidad personal
 `OPENROWSET` permite especificar explícitamente qué columnas desea leer del archivo con la cláusula `WITH`:
 
 ```sql
-select top 10 *
-from openrowset(
-        bulk 'covid',
-        data_source = 'DeltaLakeStorage',
-        format = 'delta'
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
     )
-    with ( date_rep date,
+    WITH ( date_rep date,
            cases int,
            geo_id varchar(6)
-           ) as rows
+           ) as rows;
 ```
 
 Con la especificación explícita del esquema del conjunto de resultados, puede minimizar los tamaños de los tipos y usar los tipos más precisos VARCHAR(6) en las columnas de cadena en lugar de VARCHAR(1000) pesimista. La minimización de tipos podría mejorar considerablemente el rendimiento de las consultas.
@@ -167,15 +167,14 @@ Si no tiene esta subcarpeta, no usa el formato Delta Lake. Puede convertir los a
 ```python
 %%pyspark
 from delta.tables import *
-deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`&quot;, &quot;year INT, month INT")
+deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`", "year INT, month INT")
 ```
 
 El segundo argumento de la función `DeltaTable.convertToDeltaLake` representa las columnas de partición (año y mes) que forman parte del patrón de carpeta (`year=*/month=*` en este ejemplo) y sus tipos.
 
 ## <a name="limitations"></a>Limitaciones
 
-- La inferencia de esquemas no funciona si tiene tipos de datos complejos. En este caso, use el esquema `WITH` explícito y especifique el tipo `VARCHAR(MAX)`. 
-- La función `OPENROWSET` no admite la actualización de archivos ni viajes en el tiempo de Delta Lake. Para realizar estas acciones, use el motor de Apache Spark.
+Esta característica está en versión preliminar pública y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la [página de autoayuda del grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -188,3 +187,4 @@ Si quiere seguir creando la solución Delta Lake, aprenda a crear [vistas](creat
 - [Aprenda a usar Delta Lake en grupos de Apache Spark para Azure Synapse Analytics](../spark/apache-spark-delta-lake-overview.md)
 - [Procedimientos recomendados de Delta Lake para Azure Databricks](/azure/databricks/best-practices-index)
 - [Página de documentación de Delta Lake](https://docs.delta.io/latest/delta-intro.html)
+- [Problemas conocidos y limitaciones](resources-self-help-sql-on-demand.md#delta-lake)

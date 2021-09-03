@@ -1,27 +1,23 @@
 ---
-title: Consideraciones de rendimiento de NFS 3.0 en Azure Blob Storage (versión preliminar) | Microsoft Docs
+title: Consideraciones de rendimiento de NFS 3.0 en Azure Blob Storage | Microsoft Docs
 description: Optimice el rendimiento de las solicitudes de almacenamiento de Network File System (NFS) 3.0 con las recomendaciones de este artículo.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
-ms.openlocfilehash: 6a5ebed9f6b8bf5ed40829e13bbbcc43b7ebbc8a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e8d024832bf74873fb56a9d41d6d27544aa701f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069551"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725053"
 ---
-# <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Consideraciones de rendimiento de Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
+# <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage"></a>Consideraciones de rendimiento de Network File System (NFS) 3.0 en Azure Blob Storage
 
-Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. En este artículo se incluyen recomendaciones que le ayudarán a optimizar el rendimiento de las solicitudes de almacenamiento. Para más información sobre la compatibilidad con NFS 3.0 en Azure Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública. Admite cuentas de almacenamiento GPV2 con rendimiento de nivel Estándar y cuentas de almacenamiento de blobs en bloques con nivel de rendimiento Premium en todas las regiones públicas.
+Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. En este artículo se incluyen recomendaciones que le ayudarán a optimizar el rendimiento de las solicitudes de almacenamiento. Para más información sobre la compatibilidad con NFS 3.0 en Azure Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage](network-file-system-protocol-support.md).
 
 ## <a name="add-clients-to-increase-throughput"></a>Adición de clientes para aumentar el rendimiento 
 
@@ -46,11 +42,20 @@ Cada barra del gráfico siguiente muestra la diferencia en el ancho de banda log
 > [!div class="mx-imgBorder"]
 > ![Rendimiento relativo](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
+## <a name="improve-read-ahead-size-to-increase-large-file-read-throughput"></a>Mejora del tamaño de lectura anticipada para aumentar el rendimiento de lectura de archivos grandes 
+El parámetro de kernel read_ahead_kb representa la cantidad de datos adicionales que se deben leer después de completar una solicitud de lectura determinada. Puede aumentar este parámetro a 16 MB para mejorar el rendimiento de lectura de archivos grandes. 
+
+```
+export AZMNT=/your/container/mountpoint
+
+echo 15728640 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
+```
+
 ## <a name="avoid-frequent-overwrites-on-data"></a>Evitación de sobrescrituras frecuentes en los datos
 
 Se tarda más tiempo en completar una operación de sobrescritura que una nueva operación de escritura. Esto se debe a que una operación de sobrescritura de NFS, especialmente una edición parcial de archivos en contexto, es una combinación de varias operaciones de blobs subyacentes: una operación de lectura, una modificación y una operación de escritura. Por lo tanto, una aplicación que requiere ediciones en contexto frecuentes no es adecuada para las cuentas de almacenamiento de blobs habilitadas para NFS. 
 
-## <a name="deploy-azure-hpc-cache-for-latency-senstive-applications"></a>Implementación Azure HPC Cache para aplicaciones sensibles a la latencia
+## <a name="deploy-azure-hpc-cache-for-latency-sensitive-applications"></a>Implementación de Azure HPC Cache para aplicaciones sensibles a la latencia
 
 Algunas aplicaciones pueden requerir baja latencia, además de alto rendimiento. Puede implementar [Azure HPC Cache](../../hpc-cache/nfs-blob-considerations.md) para mejorar significativamente la latencia. Obtenga más información sobre la [Latencia en Blob Storage](storage-blobs-latency.md). 
 
@@ -68,6 +73,6 @@ Algunas aplicaciones pueden requerir baja latencia, además de alto rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre la compatibilidad con NFS 3.0 en Azure Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md).
+- Para más información sobre la compatibilidad con NFS 3.0 en Azure Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage](network-file-system-protocol-support.md).
 
-- Para comenzar, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)](network-file-system-protocol-support-how-to.md).
+- Para comenzar, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0](network-file-system-protocol-support-how-to.md).

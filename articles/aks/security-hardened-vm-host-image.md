@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b0866905d0228d2304ebf5c8ef930a629979d2da
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: fbdfec42038f48eefb707c85e54c1788841dd42d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012099"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730743"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Protección de seguridad para el sistema operativo host del nodo del agente de AKS
 
@@ -21,7 +21,7 @@ Como servicio seguro, Azure Kubernetes Service (AKS) es compatible con los está
 > [!Note]
 > Este documento se limita a los agentes de Linux en AKS.
 
-Los clústeres de AKS se implementan en máquinas virtuales de host, que ejecutan un sistema operativo optimizado para la seguridad que se utiliza para los contenedores que se ejecutan en AKS. El sistema operativo de este host se basa en una imagen de **Ubuntu 16.04.LTS** a la que se aplican optimizaciones y [protecciones de seguridad](#security-hardening-features) adicionales.
+Los clústeres de AKS se implementan en máquinas virtuales de host, que ejecutan un sistema operativo optimizado para la seguridad que se utiliza para los contenedores que se ejecutan en AKS. El sistema operativo de este host se basa en una imagen de **Ubuntu 18.04.5 LTS** a la que se aplican más optimizaciones y [protecciones de seguridad](#security-hardening-features).
 
 El objetivo del sistema operativo del host con protección de la seguridad es reducir el área expuesta de ataque y optimizar la implementación de contenedores de forma segura.
 

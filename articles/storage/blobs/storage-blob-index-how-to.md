@@ -3,42 +3,37 @@ title: Uso de etiquetas de índice de blobs para administrar y buscar datos en A
 description: Vea ejemplos de cómo usar etiquetas de índice de blobs para clasificar, administrar y consultar objetos de blobs.
 author: normesta
 ms.author: normesta
-ms.date: 03/05/2021
+ms.date: 06/14/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 423cc6f1adffc305b5a79ecb84f4e736926ce343
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 0814f2896ec429650668a08590ffe7165fb120a3
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653994"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282032"
 ---
-# <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs (versión preliminar) para administrar y buscar datos en Azure Blob Storage
+# <a name="use-blob-index-tags-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs para administrar y buscar datos en Azure Blob Storage
 
 Las etiquetas de índice de blobs clasifican los datos de la cuenta de almacenamiento mediante atributos de etiqueta clave-valor. Estas etiquetas se indexan y se exponen automáticamente como un índice multidimensional que se puede buscar para encontrar fácilmente los datos. En este artículo se muestra cómo establecer, obtener y buscar datos mediante etiquetas de índice de blobs.
 
-> [!IMPORTANT]
-> Las etiquetas de índice de blob se encuentran actualmente en **versión preliminar** y están disponibles en todas las regiones públicas. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+Para obtener más información sobre esta característica junto con las limitaciones y los problemas conocidos, vea [Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs](storage-manage-find-blobs.md).
 
-Para obtener más información sobre esta característica junto con las limitaciones y los problemas conocidos, vea [Administración y búsqueda de datos en Azure Blob con etiquetas de índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-- Una suscripción a Azure registrada y aprobada para el acceso a la versión preliminar del índice de blobs
+- Una suscripción a Azure registrada y aprobada para el acceso
 - Acceso a [Azure Portal](https://portal.azure.com/)
 
 # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/net)
 
-Como el índice de blobs está en versión preliminar, el paquete de almacenamiento de .NET se publica en la fuente NuGet de la versión preliminar. Esta biblioteca está sujeta a cambios durante el período de versión preliminar.
-
 1. Configure el proyecto de Visual Studio para empezar a usar la biblioteca cliente de Azure Blob Storage v12 para .NET. Para más información, vea esta [Inicio rápido de .NET](storage-quickstart-blobs-dotnet.md).
 
-2. En el administrador de paquetes de NuGet, busque el paquete **Azure.Storage.Blobs** e instale la versión **12.7.0-preview.1** o posterior en el proyecto. También puede ejecutar el comando de PowerShell: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
+2. En el Administrador de paquetes NuGet, busque el paquete **Azure.Storage.Blobs** e instale la versión **12.7.0** o posterior en el proyecto. También puede ejecutar el comando de PowerShell: `Install-Package Azure.Storage.Blobs -Version 12.7.0`
 
    Para saber cómo hacerlo, consulte [Búsqueda e instalación de un paquete](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
@@ -64,15 +59,15 @@ Esta tarea puede realizarla un [propietario de datos de Storage Blob](../../role
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento. 
 
-2. Vaya a la opción **Contenedores** de **Blob service** y seleccione el contenedor.
+2. Vaya a la opción **Contenedores** de **Almacenamiento de datos** y seleccione el contenedor.
 
 3. Seleccione el botón **Cargar** y examine el sistema de archivos local para buscar un archivo para cargarlo como un blob en bloques.
 
-4. Expanda la lista desplegable **Avanzado** y vaya a la sección **Blob Index Tags** (Etiquetas de índice de blobs).
+4. Expanda la lista desplegable **Opciones avanzadas** y vaya a la sección **Blob Index Tags** (Etiquetas de índice de blobs).
 
-5. Escriba las etiquetas de índice de blobs de clave-valor que quiere aplicar a los datos.
+5. Escriba las etiquetas de índice de blobs de clave-valor que quiera aplicar a los datos.
 
-6. Seleccione el botón **Cargar** para cargar el blob.
+6. Seleccione botón **Upload** para cargar el blob.
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo cargar un blob con etiquetas de índice.":::
 
@@ -122,13 +117,13 @@ El establecimiento y actualización de las etiquetas de índice de blob puede re
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento. 
+1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento.
 
-2. Vaya a la opción **Contenedores** de **Blob service** y seleccione el contenedor.
+2. Vaya a la opción **Contenedores** de **Almacenamiento de datos** y seleccione el contenedor.
 
 3. Seleccione el blob en la lista de blobs dentro del contenedor seleccionado.
 
-4. En la pestaña Información general del blob se muestran las propiedades del blob, incluida cualquier **etiqueta de índice de blobs**.
+4. En la pestaña Información general del blob se mostrarán las propiedades del blob, incluida cualquier **etiqueta de índice de blobs**.
 
 5. Puede obtener, establecer, modificar o eliminar cualquiera de las etiquetas de índice de clave-valor del blob.
 
@@ -203,11 +198,11 @@ En Azure Portal, el filtro de las etiquetas de índice de blobs aplica automáti
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento. 
 
-2. Vaya a la opción **Contenedores** de **Blob service** y seleccione el contenedor.
+2. Vaya a la opción **Contenedores** de **Almacenamiento de datos** y seleccione el contenedor.
 
 3. Seleccione el botón **Blob Index tags filter** (Filtro de etiquetas de índice de blobs) para filtrar en el contenedor seleccionado.
 
-4. Entrada de un valor de clave y etiqueta de índice de blobs
+4. Escriba un valor y una clave de etiqueta de índice de blobs.
 
 5. Seleccione el botón **Blob Index tags filter** (Filtro de etiquetas de índice de blobs) para agregar filtros de etiquetas adicionales (hasta diez).
 
@@ -321,5 +316,5 @@ Las directivas de [administración del ciclo de vida](storage-lifecycle-manageme
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- - Para obtener más información sobre las etiquetas de índice de blobs, vea [Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs (versión preliminar)](storage-manage-find-blobs.md ).
+ - Para obtener más información sobre las etiquetas de índice de blobs, vea [Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs](storage-manage-find-blobs.md ).
  - Para obtener más información sobre la administración del ciclo de vida, vea [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)

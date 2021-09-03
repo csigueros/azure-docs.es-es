@@ -4,17 +4,17 @@ description: Se describe cómo implementar un recurso de forma condicional en Bi
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 9636444af81b000443dc72cf6e3fc1d8d6da5093
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/30/2021
+ms.openlocfilehash: f3c845757d6cd251905e39999c9858224ee67269
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537084"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724573"
 ---
 # <a name="conditional-deployment-in-bicep"></a>Implementación condicional en Bicep
 
-En algunas ocasiones, es necesario implementar opcionalmente un recurso en Bicep. Use la palabra clave `if` para especificar si el recurso está implementado. El valor de la condición se resuelve como true o false. Cuando el valor es true, el recurso se crea. Cuando el valor es false, el recurso no se crea. El valor solo se puede aplicar a todo el recurso.
+En algunas ocasiones, debe implementar un recurso o módulo en Bicep de manera condicional. Use la palabra clave `if` para especificar si el recurso está implementado. El valor de la condición se resuelve como true o false. Cuando el valor es true, el recurso se crea. Cuando el valor es false, el recurso no se crea. El valor solo se puede aplicar a todo el recurso o módulo.
 
 > [!NOTE]
 > La implementación condicional no se aplica en cascada a los [recursos secundarios](child-resource-name-type.md). Si desea implementar condicionalmente un recurso y sus recursos secundarios, debe aplicar la misma condición a cada tipo de recurso.
@@ -32,7 +32,17 @@ resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
 }
 ```
 
-Las condiciones se pueden usar con declaraciones de dependencia. Si el identificador del recurso condicional se especifica en el elemento `dependsOn` de otro recurso (dependencia explícita), la dependencia se omite si la condición se evalúa como falsa en el momento de implementación de la plantilla. Si la condición se evalúa como verdadera, se respeta la dependencia. Se permite hacer referencia a una propiedad de un recurso condicional (dependencia implícita), pero, en algunos casos, se puede producir un error en tiempo de ejecución.
+En el ejemplo siguiente se implementa un módulo de forma condicional.
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
+}
+```
+
+Las condiciones se pueden usar con declaraciones de dependencia. En el caso de las [dependencias explícitas](resource-declaration.md#set-resource-dependencies), Azure Resource Manager lo quita automáticamente de las dependencias necesarias cuando el recurso no se implementa. En el caso de las dependencias implícitas, se permite hacer referencia a una propiedad de un recurso condicional, pero puede producirse un error de implementación.
 
 ## <a name="new-or-existing-resource"></a>Recurso nuevo o existente
 
@@ -64,8 +74,6 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 
 Cuando el parámetro `newOrExisting` está establecido en **new**, la condición se evalúa como true. Se implementa la cuenta de almacenamiento. Sin embargo, cuando `newOrExisting` está establecido **existing**, la condición se evalúa como false y no se implementa la cuenta de almacenamiento.
 
-Para una plantilla de ejemplo completo que usa el elemento `condition`, consulte [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-new-or-existing-conditions) (Máquina virtual con una red virtual nueva o existente, almacenamiento y dirección IP pública).
-
 ## <a name="runtime-functions"></a>Funciones en tiempo de ejecución
 
 Si usa una función [reference](./bicep-functions-resource.md#reference) o [list](./bicep-functions-resource.md#list) con un recurso que se implementa de forma condicional, se puede evaluar la función incluso si el recurso no está implementado. Se genera un error si la función hace referencia a un recurso que no existe.
@@ -96,8 +104,6 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
 
 output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
 ```
-
-Puede establecer un [recurso como dependiente](./resource-declaration.md#set-resource-dependencies) en un recurso condicional exactamente como lo haría con cualquier otro recurso. Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

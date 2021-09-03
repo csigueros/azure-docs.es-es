@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: d18d674c47d3e337ce5c789d1dc038acbf6792ba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2e0b503cd305697a808c08a2fe903d0f27972448
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886089"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745300"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administración del acceso a un área de trabajo de Azure Machine Learning
 
@@ -27,7 +27,7 @@ En este artículo, obtendrá información sobre cómo administrar el acceso (aut
 >
 > * [Control del acceso a los recursos de clúster de Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Uso de Azure RBAC para la autorización de Kubernetes](../aks/manage-azure-rbac.md)
-> * [Uso de Azure RBAC para acceder a los datos de blob](../storage/common/storage-auth-aad-rbac-portal.md)
+> * [Uso de Azure RBAC para acceder a los datos de blob](../storage/blobs/assign-azure-role-data-access.md)
 
 > [!WARNING]
 > La aplicación de algunos roles puede limitar la funcionalidad de la interfaz de usuario en el Estudio de Azure Machine Learning para otros usuarios. Por ejemplo, si el rol de un usuario no tiene la capacidad de crear una instancia de proceso, la opción para crear una instancia de proceso no estará disponible en Estudio. Este comportamiento es el esperado y evita que el usuario intente realizar operaciones que devolverán un error de acceso denegado.
@@ -121,7 +121,7 @@ az role definition create --role-definition data_scientist_role.json
 Después de la implementación, este rol está disponible en el área de trabajo especificada. Ahora puede agregar y asignar este rol en Azure Portal. O bien, puede asignar este rol a un usuario mediante el comando de la CLI `az ml workspace share`:
 
 ```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
 ```
 
 Para más información sobre los roles personalizados, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md). 
@@ -163,7 +163,7 @@ Debe tener permisos en todo el ámbito de la nueva definición de roles. Por eje
 
 ## <a name="use-azure-resource-manager-templates-for-repeatability"></a>Uso de plantillas de Azure Resource Manager para repetibilidad
 
-Si prevé que tendrá que volver a crear asignaciones de roles complejas, una plantilla Azure Resource Manager puede ser una gran ayuda. La plantilla [201-machine-learning-dependencies-role-assignment](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) muestra cómo se pueden especificar las asignaciones de roles en el código fuente para su reutilización. 
+Si prevé que tendrá que volver a crear asignaciones de roles complejas, una plantilla Azure Resource Manager puede ser una gran ayuda. En la plantilla [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment), se muestra cómo se pueden especificar las asignaciones de roles en el código fuente para su reutilización. 
 
 ## <a name="common-scenarios"></a>Escenarios frecuentes
 
@@ -182,7 +182,7 @@ En la tabla siguiente se proporciona un resumen de las actividades de Azure Mach
 | Publicación de canalizaciones y puntos de conexión | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Implementación de un modelo registrado en un recurso AKS/ACI | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Puntuación con un punto de conexión de AKS implementado | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permite: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (cuando no se usa la autenticación de Azure Active Directory) o `"/workspaces/read"` (cuando se usa la autenticación por tokens) |
-| Acceso al almacenamiento mediante cuadernos interactivos | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| Acceso al almacenamiento mediante cuadernos interactivos | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action"` |
 | Creación de un nuevo rol personalizado | Propietario, colaborador o rol personalizado que permita `Microsoft.Authorization/roleDefinitions/write`. | No se requiere | Propietario, colaborador o rol personalizado que permita: `/workspaces/computes/write` |
 
 > [!TIP]
@@ -203,8 +203,8 @@ Para realizar operaciones de MLflow con el área de trabajo Azure Machine Learni
 | Eliminar un experimento | `Microsoft.MachineLearningServices/workspaces/experiments/delete` |
 | Obtener una ejecución y datos y metadatos relacionados, obtener una lista de todos los valores de la métrica especificada para una ejecución determinada, enumerar los artefactos de una ejecución | `Microsoft.MachineLearningServices/workspaces/experiments/runs/read` |
 | Crear una nueva ejecución dentro de un experimento, eliminar ejecuciones, restaurar ejecuciones eliminadas, registrar métricas en la ejecución actual, establecer etiquetas en una ejecución, eliminar etiquetas en una ejecución, registrar los parámetros (par clave-valor) que se usan para una ejecución, registrar un lote de métricas, parámetros y etiquetas para una ejecución, actualizar el estado de ejecución | `Microsoft.MachineLearningServices/workspaces/experiments/runs/write` |
-| Obtener el modelo registrado por nombre, obtener una lista de todos los modelos registrados en el registro, buscar modelos registrados, modelos de versión más recientes para cada fase de solicitudes, obtener la versión del modelo registrado, buscar versiones del modelo, obtener el URI donde se almacenan los artefactos de una versión del modelo, buscar ejecuciones por identificadores de experimento | `Microsoft.MachineLearningServices/workspaces/models/read` |
-| Crear un nuevo modelo registrado, actualizar el nombre o la descripción de un modelo registrado, cambiar el nombre del modelo registrado existente, crear una nueva versión del modelo, actualizar la descripción de una versión del modelo, pasar un modelo registrado a una de las fases | `Microsoft.MachineLearningServices/workspaces/models/write` |
+| Obtener el modelo registrado por nombre, obtener una lista de todos los modelos registrados en el registro, buscar modelos registrados, modelos de versión más recientes para cada fase de solicitudes, obtener la versión de un modelo registrado, buscar versiones del modelo, obtener el URI donde se almacenan los artefactos de una versión del modelo, buscar ejecuciones por identificadores de experimento | `Microsoft.MachineLearningServices/workspaces/models/read` |
+| Crear un nuevo modelo registrado, actualizar el nombre o la descripción de un modelo registrado, cambiar el nombre del modelo registrado existente, crear una versión del modelo, actualizar la descripción de una versión del modelo, pasar un modelo registrado a una de las fases | `Microsoft.MachineLearningServices/workspaces/models/write` |
 | Eliminar un modelo registrado junto con todas sus versiones, eliminar versiones específicas de un modelo registrado | `Microsoft.MachineLearningServices/workspaces/models/delete` |
 
 <a id="customroles"></a>
@@ -453,6 +453,42 @@ Permite definir un rol con ámbito únicamente para etiquetar los datos:
 }
 ```
 
+### <a name="labeling-team-lead"></a>Etiquetado del responsable del equipo
+
+Le permite revisar y rechazar el conjunto de datos etiquetado y ver la información de etiquetado. Además de esto, este rol también permite realizar el rol de un etiquetador.
+
+`labeling_team_lead_custom_role.json` :
+```json
+{
+    "properties": {
+        "roleName": "Labeling Team Lead",
+        "description": "Team lead for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+                ],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Estos son algunos de los aspectos que debe tener en cuenta al usar el control de acceso basado en rol de Azure (RBAC de Azure):
@@ -465,7 +501,7 @@ Estos son algunos de los aspectos que debe tener en cuenta al usar el control de
 
 - Para implementar los recursos de proceso dentro de una red virtual, debe tener explícitamente permiso para las siguientes acciones:
     - `Microsoft.Network/virtualNetworks/*/read` en los recursos de red virtual.
-    - `Microsoft.Network/virtualNetworks/subnet/join/action` en el recurso de subred.
+    - `Microsoft.Network/virtualNetworks/subnets/join/action` en el recurso de subred.
     
     Para obtener más información sobre Azure RBAC con redes, consulte los [Roles integrados de redes](../role-based-access-control/built-in-roles.md#networking).
 

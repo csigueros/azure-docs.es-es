@@ -2,17 +2,18 @@
 title: Introducción a las plantillas
 description: Aprenda a usar una plantilla predefinida para empezar a trabajar rápidamente con Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.author: susabat
 author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 01/04/2019
-ms.openlocfilehash: a95ef6e04f7a49f33f2bb0551110d7aa0f9bd581
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/04/2021
+ms.openlocfilehash: bfd63e048d2783d84dbc37710851492134b6d0e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905619"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736987"
 ---
 # <a name="templates"></a>Plantillas
 
@@ -24,9 +25,9 @@ Las plantillas son canalizaciones de Azure Data Factory predefinidas que le perm
 
 Puede empezar a crear una canalización de Data Factory a partir de una plantilla de las siguientes dos maneras:
 
-1.  Seleccione **Create pipeline from template** (Creación de una canalización a partir de una plantilla) en la página de información general para abrir la galería de plantillas.
+1.  Seleccione **Plantillas de canalización** en la sección **Discover more** (Más información) de la página principal de Data Factory para abrir la galería de plantillas.
 
-    ![Abrir la galería de plantillas desde la página de información general](media/solution-templates-introduction/templates-intro-image1.png)
+    ![Abrir la galería de plantillas desde la página de información general](media/doc-common-process/home-page-pipeline-templates-tile.png)
 
 1.  En la pestaña de autor en el Explorador de recursos, seleccione **+** , a continuación, **Pipeline from template** (Canalización a partir de la plantilla) para abrir la galería de plantillas.
 
