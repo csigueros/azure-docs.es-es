@@ -2,17 +2,18 @@
 title: Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 description: Obtenga información sobre cómo crear un entorno de ejecución de integración de Azure SSIS en Azure Data Factory para que pueda implementar y ejecutar paquetes SSIS en Azure.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 07/19/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c5727dafc9110ef35945f1d2bfc28db99ae1e23b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 012c5a2e32b0da48e5a1e2ad71050ca4c2e08ef8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681163"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739482"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 
@@ -29,7 +30,7 @@ En el tutorial [Aprovisionamiento de Azure-SSIS IR ](./tutorial-deploy-ssis-pack
 
 - Usar un servidor de Azure SQL Database con reglas de firewall de IP/puntos de conexión de servicio de red virtual o una instancia administrada con un punto de conexión privado para hospedar SSISDB. Como requisito previo, debe configurar los permisos y valores de la red virtual para que la instancia de Azure-SSIS IR se una a una red virtual.
 
-- Usar la autenticación de Azure Active Directory (AAD) con la identidad administrada de la factoría de datos para conectarse a un servidor o a una instancia administrada de Azure SQL Database. Como requisito previo, debe agregar la identidad administrada de la factoría de datos como un usuario de base de datos capaz de crear instancias de SSISDB.
+- Use la autenticación de Azure Active Directory (Azure AD) con la identidad administrada asignada por el usuario o por el sistema especificada para la factoría de datos para conectarse a un servidor o a una instancia administrada de Azure SQL Database. Como requisito previo, debe agregar la identidad administrada asignada por el usuario o por el sistema especificada para la factoría de datos como un usuario de base de datos capaz de crear instancias de SSISDB.
 
 - Unir la instancia de Azure-SSIS IR a una red virtual o configurar IR autohospedado como proxy para que Azure-SSIS IR tenga acceso a los datos locales.
 
@@ -55,7 +56,7 @@ En este artículo se muestra cómo aprovisionar una instancia de Azure-SSIS IR m
 
   - Agregue la dirección IP de la máquina cliente, o un intervalo de direcciones IP que la incluya, a la lista de direcciones IP de cliente de la configuración del firewall del servidor de bases de datos. Para más información, consulte [Reglas de firewall de nivel de base de datos y de nivel de servidor de Azure SQL Database](../azure-sql/database/firewall-configure.md).
 
-  - Puede conectarse al servidor de bases de datos mediante la autenticación de SQL con sus credenciales de administrador del servidor o por medio de la autenticación de Azure AD con la identidad administrada de la factoría de datos. En el último de los casos, debe agregar la identidad administrada de la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Para más información, consulte [Habilitar la autenticación de Azure AD para una instancia de Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
+  - Puede conectarse al servidor de bases de datos mediante la autenticación de SQL con sus credenciales de administrador del servidor o por medio de la autenticación de Azure Active Directory con la identidad administrada asignada por el usuario o por el sistema especificada para la factoría de datos. En el último de los casos, debe agregar la identidad administrada asignada por el usuario o por el sistema especificada para la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Para más información, consulte [Habilitar la autenticación de Azure AD para una instancia de Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
 
   - Confirme que el servidor de bases de datos no tiene aún una instancia de SSISDB. El aprovisionamiento de Azure-SSIS IR no admite el uso de una instancia de SSISDB existente.
 
@@ -78,7 +79,7 @@ En la tabla siguiente se comparan determinadas características de un servidor d
 | Característica | SQL Database| SQL Managed Instance |
 |---------|--------------|------------------|
 | **Programación** | El agente SQL Server no está disponible.<br/><br/>Consulte [Programar una ejecución de paquetes en una canalización de Data Factory](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity).| El agente de Instancia administrada está disponible. |
-| **Autenticación** | Puede crear una instancia de SSISDB con un usuario de base de datos independiente que represente cualquier grupo de Azure AD con la identidad administrada de la factoría de datos como miembro del rol **db_owner**.<br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear una instancia de SSISDB en el servidor de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Puede crear una instancia de SSISDB con un usuario de base de datos independiente que represente la identidad administrada de la factoría de datos. <br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear una instancia de SSISDB en Instancia administrada de Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
+| **Autenticación** | Puede crear una instancia de SSISDB con un usuario de base de datos independiente que represente cualquier grupo de Azure AD con la identidad administrada de la factoría de datos como miembro del rol **db_owner**.<br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear una instancia de SSISDB en el servidor de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-authentication-on-azure-sql-database). | Puede crear una instancia de SSISDB con un usuario de base de datos independiente que represente la identidad administrada de la factoría de datos. <br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear una instancia de SSISDB en Instancia administrada de Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-authentication-on-azure-sql-managed-instance). |
 | **Nivel de servicio** | Al crear una instancia de Azure-SSIS IR con el servidor de Azure SQL Database, puede seleccionar el nivel de servicio de SSISDB. Hay varios niveles de servicio. | Cuando crea una instancia de Azure-SSIS IR con la instancia administrada, no puede seleccionar el nivel de servicio de SSISDB. Todas las bases de datos de la instancia administrada comparten el mismo recurso asignado a esa instancia. |
 | **Red virtual** | Su instancia de Azure-SSIS IR puede unirse a una red virtual de Azure Resource Manager si usa un servidor de Azure SQL Database con reglas de firewall de IP/puntos de conexión de servicio de red virtual. | Su instancia de Azure-SSIS IR puede unirse a una red virtual Azure Resource Manager si usa una instancia administrada con un punto de conexión privado. La red virtual es necesaria cuando no se habilita un punto de conexión público para la instancia administrada.<br/><br/>Si une la instancia de Azure-SSIS IR a la misma red virtual que la instancia administrada, asegúrese de que ambas instancias se encuentran en subredes diferentes. Si une la instancia de Azure-SSIS IR a una red virtual diferente de aquella de la instancia administrada, se recomienda realizar un emparejamiento de red virtual o una conexión de red virtual a red virtual. Consulte [Conexión de la aplicación a una instancia administrada de Azure SQL Database](../azure-sql/managed-instance/connect-application-instance.md). |
 | **Transacciones distribuidas** | Esta característica se admite mediante transacciones elásticas. No se admiten las transacciones del Coordinador de transacciones distribuidas de Microsoft (MSDTC). Si los paquetes SSIS usan MSDTC para coordinar las transacciones distribuidas, considere la posibilidad de migrar a transacciones elásticas de Azure SQL Database. Para más información, consulte [Transacciones distribuidas en bases de datos en la nube](../azure-sql/database/elastic-transactions-overview.md). | No compatible. |
@@ -96,9 +97,9 @@ Después de crear la factoría de datos, abra su página de información general
 
 ### <a name="provision-an-azure-ssis-integration-runtime"></a>Aprovisionamiento de una instancia de Integration Runtime para la integración de SSIS en Azure
 
-En la página **Let's get started** (Comencemos), seleccione el icono **Configure SSIS Integration Runtime** (Configuración de SSIS Integration Runtime) para abrir el panel **Integration runtime setup** (Configuración de Integration Runtime).
+En la página principal, seleccione el icono **Configurar SSIS** para abrir el panel **Configuración de Integration Runtime**.
 
-   ![Icono Configure SSIS Integration Runtime (Configuración de Integration Runtime de SSIS)](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 
    El panel **Integration runtime setup** (Configuración de Integration Runtime) tiene tres páginas en las que pueden configurar opciones generales, de implementación y avanzadas respectivamente.
 
@@ -106,25 +107,26 @@ En la página **Let's get started** (Comencemos), seleccione el icono **Configur
 
 En la página **General settings** (Configuración general) del panel **Integration runtime setup** (Configuración de Integration Runtime), realice los pasos siguientes.
 
-   ![Configuración general](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
+![Configuración general](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
-   1. En **Name** (Nombre), escriba el nombre del entorno de ejecución de integración.
+1. En **Name** (Nombre), escriba el nombre del entorno de ejecución de integración.
 
-   2. En **Description** (Descripción), escriba la descripción del entorno de ejecución de integración.
+2. En **Description** (Descripción), escriba la descripción del entorno de ejecución de integración.
 
-   3. En **Location** (Ubicación), seleccione la ubicación del entorno de ejecución de integración. Se muestran solo las ubicaciones admitidas. Le recomendamos que seleccione la misma ubicación del servidor de bases de datos que va a hospedar SSISDB.
+3. En **Location** (Ubicación), seleccione la ubicación del entorno de ejecución de integración. Se muestran solo las ubicaciones admitidas. Le recomendamos que seleccione la misma ubicación del servidor de bases de datos que va a hospedar SSISDB.
 
-   4. En **Node Size** (Tamaño de nodo), seleccione el tamaño de nodo del clúster del entorno de ejecución de integración. Se muestran solo los tamaños de nodo admitidos. Seleccione un tamaño de nodo grande (escalado vertical) si quiere ejecutar muchos paquetes de uso intensivo de proceso o memoria.
+4. En **Node Size** (Tamaño de nodo), seleccione el tamaño de nodo del clúster del entorno de ejecución de integración. Se muestran solo los tamaños de nodo admitidos. Seleccione un tamaño de nodo grande (escalado vertical) si quiere ejecutar muchos paquetes de uso intensivo de proceso o memoria.
+
    > [!NOTE]
    > Si necesita [aislamiento de proceso](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), seleccione el tamaño de nodo **Standard_E64i_v3**. Este tamaño de nodo representa las máquinas virtuales aisladas que consumen su host físico completo y proporcionan el nivel necesario de aislamiento que requieren determinadas cargas de trabajo, como las de Impacto de nivel 5 (IL5) del Departamento de Defensa de EE. UU.
    
-   5. En **Node Number** (Número de nodos), seleccione el número de nodos del clúster del entorno de ejecución de integración. Se muestran solo los números de nodos admitidos. Seleccione un clúster de grande con muchos nodos (escalado horizontal), si quiere ejecutar muchos paquetes en paralelo.
+5. En **Node Number** (Número de nodos), seleccione el número de nodos del clúster del entorno de ejecución de integración. Se muestran solo los números de nodos admitidos. Seleccione un clúster de grande con muchos nodos (escalado horizontal), si quiere ejecutar muchos paquetes en paralelo.
 
-   6. En **Edition/License** (Edición o licencia), seleccione la edición de SQL Server para el entorno de ejecución de integración: Standard o Enterprise. Seleccione Enterprise si quiere usar características avanzadas en el entorno de ejecución de integración.
+6. En **Edition/License** (Edición o licencia), seleccione la edición de SQL Server para el entorno de ejecución de integración: Standard o Enterprise. Seleccione Enterprise si quiere usar características avanzadas en el entorno de ejecución de integración.
 
-   7. En **Save Money** (Ahorrar dinero), seleccione la opción Azure Hybrid Benefit (Ventaja híbrida de Azure) para el entorno de ejecución de integración: **Yes** (Sí) o **No**. Seleccione **Yes** (Sí) si quiere que su propia licencia de SQL Server con Software Assurance se beneficie de los ahorros con el uso híbrido.
+7. En **Save Money** (Ahorrar dinero), seleccione la opción Azure Hybrid Benefit (Ventaja híbrida de Azure) para el entorno de ejecución de integración: **Yes** (Sí) o **No**. Seleccione **Yes** (Sí) si quiere que su propia licencia de SQL Server con Software Assurance se beneficie de los ahorros con el uso híbrido.
 
-   8. Seleccione **Continuar**.
+8. Seleccione **Continuar**.
 
 #### <a name="deployment-settings-page"></a>Página Deployment settings (Configuración de implementación)
 
@@ -138,38 +140,38 @@ Con independencia del modelo de implementación, active esta casilla de todos mo
    
 Si activa la casilla, realice los pasos siguientes para traer su propio servidor de bases de datos y hospedar la instancia de SSISDB que se creará y administrará en su nombre.
 
-   ![Configuración de implementación de SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
+![Configuración de implementación de SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
    
-   1. En **Subscription** (Suscripción), seleccione la suscripción de Azure que tiene el servidor de bases de datos que va a hospedar SSISDB. 
+1. En **Subscription** (Suscripción), seleccione la suscripción de Azure que tiene el servidor de bases de datos que va a hospedar SSISDB. 
 
-   1. En **Location** (Ubicación), seleccione la ubicación del servidor de bases de datos que va a hospedar SSISDB. Es recomendable seleccionar la misma ubicación del entorno de ejecución de integración.
+1. En **Location** (Ubicación), seleccione la ubicación del servidor de bases de datos que va a hospedar SSISDB. Es recomendable seleccionar la misma ubicación del entorno de ejecución de integración.
 
-   1. En **Catalog Database Server Endpoint** (Punto de conexión del servidor de bases de datos de catálogo), seleccione el punto de conexión de su servidor de bases de datos que va a hospedar SSISDB. 
+1. En **Catalog Database Server Endpoint** (Punto de conexión del servidor de bases de datos de catálogo), seleccione el punto de conexión de su servidor de bases de datos que va a hospedar SSISDB. 
    
-      En función del servidor de bases de datos seleccionado, la instancia de SSISDB puede crearse en su nombre como una base de datos única, como parte de un grupo elástico o en una instancia administrada. Se puede acceder a ella en una red pública o mediante la unión a una red virtual. Para obtener asesoramiento acerca de cómo elegir el tipo de servidor de bases de datos que va a hospedar SSISDB, consulte [Comparación entre SQL Database e Instancia administrada de SQL](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
+   En función del servidor de bases de datos seleccionado, la instancia de SSISDB puede crearse en su nombre como una base de datos única, como parte de un grupo elástico o en una instancia administrada. Se puede acceder a ella en una red pública o mediante la unión a una red virtual. Para obtener asesoramiento acerca de cómo elegir el tipo de servidor de bases de datos que va a hospedar SSISDB, consulte [Comparación entre SQL Database e Instancia administrada de SQL](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
-      Si selecciona un servidor de Azure SQL Database con reglas de firewall de IP/puntos de conexión de servicio de red virtual o una instancia administrada con un punto de conexión privado para hospedar SSISDB, o si necesita acceder a los datos locales sin configurar IR autohospedado, debe unir la instancia de Azure-SSIS IR a una red virtual. Para más información, consulte [Unión de una instancia de Azure-SSIS IR a una red virtual](./join-azure-ssis-integration-runtime-virtual-network.md).
+   Si selecciona un servidor de Azure SQL Database con reglas de firewall de IP/puntos de conexión de servicio de red virtual o una instancia administrada con un punto de conexión privado para hospedar SSISDB, o si necesita acceder a los datos locales sin configurar IR autohospedado, debe unir la instancia de Azure-SSIS IR a una red virtual. Para más información, consulte [Unión de una instancia de Azure-SSIS IR a una red virtual](./join-azure-ssis-integration-runtime-virtual-network.md).
+      
+1. Active la casilla **Use AAD authentication with the system managed identity for Data Factory** (Usar la autenticación de AAD con la identidad administrada por el sistema para Data Factory) o **Use AAD authentication with a user-assigned managed identity for Data Factory** (Usar la autenticación de AAD con una identidad administrada asignada por el usuario para Data Factory) para elegir el método de autenticación de Azure AD para que Azure-SSIS IR acceda al servidor de bases de datos que hospeda SSISDB. No seleccione ninguna de las casillas para elegir el método de autenticación de SQL en su lugar.
 
-   1. Active la casilla **Use Azure AD authentication with the managed identity for your ADF** (Usar la autenticación de AAD con la identidad administrada en su ADF) para seleccionar el método de autenticación del servidor de bases de datos donde hospedar SSISDB. Elegirá la autenticación de SQL o la autenticación de Azure AD con la identidad administrada para su factoría de datos.
+   Si activa cualquiera de las casillas, deberá agregar la identidad administrada asignada por el usuario o por el sistema especificada para la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Si activa la casilla **Use AAD authentication with a user-assigned managed identity for Data Factory** (Usar la autenticación de AAD con una identidad administrada asignada por el usuario para Data Factory), puede seleccionar las credenciales existentes creadas con las identidades administradas asignadas por el usuario especificadas o crear otras. Para más información, consulte [Habilitar la autenticación de Azure AD para una instancia de Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
 
-      Si activa la casilla, deberá agregar la identidad administrada de la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Para más información, consulte [Habilitar la autenticación de Azure AD para una instancia de Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
+1. En **Admin Username** (Nombre de usuario de administrador), escriba el nombre de usuario de autenticación de SQL del servidor de bases de datos que hospeda SSISDB. 
+
+1. En **Admin Password** (Contraseña de administrador), escriba la contraseña de la autenticación de SQL del servidor de bases de datos para hospedar SSISDB. 
+
+1. Active la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar par de Azure-SSIS Integration Runtime en espera dual) para configurar un par de Azure-SSIS IR en espera dual que funcione en sincronización con el grupo de conmutación por error de Azure SQL Database/Managed Instance para lograr continuidad empresarial y recuperación ante desastres.
    
-   1. En **Admin Username** (Nombre de usuario del administrador), escriba el nombre de usuario de autenticación de SQL del servidor de bases de datos para hospedar SSISDB. 
+   Si activa la casilla, escriba un nombre para identificar el par de Azure-SSIS IR principal y secundario en el cuadro de texto **Dual standby pair name** (Nombre de par en espera dual). Debe escribir el mismo nombre de par al crear sus instancias de Azure-SSIS IR principal y secundaria.
 
-   1. En **Admin Password** (Contraseña del administrador), escriba la contraseña de la autenticación de SQL del servidor de bases de datos para hospedar SSISDB. 
+   Para más información, consulte [Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres (BCDR)](./configure-bcdr-azure-ssis-integration-runtime.md).
 
-   1. Active la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar par de Azure-SSIS Integration Runtime en espera dual) para configurar un par de Azure-SSIS IR en espera dual que funcione en sincronización con el grupo de conmutación por error de Azure SQL Database/Managed Instance para lograr continuidad empresarial y recuperación ante desastres.
-   
-      Si activa la casilla, escriba un nombre para identificar el par de Azure-SSIS IR principal y secundario en el cuadro de texto **Dual standby pair name** (Nombre de par en espera dual). Debe escribir el mismo nombre de par al crear sus instancias de Azure-SSIS IR principal y secundaria.
+1. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB. Seleccione el nivel de servicio Basic, Standard o Premium, o seleccione un nombre de grupo elástico.
 
-      Para más información, consulte [Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres (BCDR)](./configure-bcdr-azure-ssis-integration-runtime.md).
-
-   1. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB. Seleccione el nivel de servicio Basic, Standard o Premium, o seleccione un nombre de grupo elástico.
-
-Seleccione **Test connection** (Probar conexión) cuando corresponda y, si es correcta, seleccione **Continue** (Continuar).
+Seleccione **Probar conexión** (Probar conexión) cuando corresponda y, si es correcta, seleccione **Continue** (Continuar).
 
 > [!NOTE]
-   > Si usa el servidor de Azure SQL Database para hospedar SSISDB, los datos se almacenarán de manera predeterminada en un almacenamiento con redundancia geográfica para las copias de seguridad. Si no quiere que los datos se repliquen en otras regiones, siga las instrucciones para la [Configuración de la redundancia del almacenamiento de copia de seguridad mediante PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+> Si usa el servidor de Azure SQL Database para hospedar SSISDB, los datos se almacenarán de manera predeterminada en un almacenamiento con redundancia geográfica para las copias de seguridad. Si no quiere que los datos se repliquen en otras regiones, siga las instrucciones para la [Configuración de la redundancia del almacenamiento de copia de seguridad mediante PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>Creación de almacenes de paquetes de Azure-SSIS IR
 
@@ -218,13 +220,15 @@ En el panel **Add package store** (Adición de un almacén de paquetes), siga es
 
                 1. En **Database name** (Nombre de la base de datos), escriba `msdb`.
 
-            1. En **Authentication type** (Tipo de autenticación), seleccione **SQL Authentication** (Autenticación de SQL), **Managed Identity** (Identidad administrada) o **Service Principal** (Entidad de servicio).
+            1. En **Authentication type** (Tipo de autenticación), seleccione **SQL Authentication** (Autenticación de SQL), **Managed Identity** (Identidad administrada), **Service Principal** (Entidad de servicio) o **User-Assigned Managed Identity** (Identidad administrada asignada por el usuario).
 
                 - Si selecciona **SQL Authentication** (Autenticación de SQL), escriba el **nombre de usuario** y la **contraseña** correspondientes, o bien seleccione la instancia de **Azure Key Vault** donde se almacena la contraseña como secreto.
 
-                -  Si selecciona **Managed Identity** (Identidad administrada), conceda a la identidad administrada de ADF acceso a su Instancia administrada de Azure SQL.
+                -  Si selecciona **Managed Identity** (Identidad administrada), conceda a la identidad administrada por el sistema para ADF acceso a la instancia de Azure SQL Managed Instance.
 
                 - Si selecciona **Service Principal** (Entidad de servicio), escriba el **identificador de entidad de servicio** y la **clave de entidad de servicio** correspondientes, o bien seleccione la instancia de **Azure Key Vault** donde se almacena la clave como secreto.
+
+                -  Si selecciona **User-Assigned Managed Identity** (Identidad administrada asignada por el usuario), conceda a la identidad administrada asignada por el usuario especificada para ADF acceso a la instancia de Azure SQL Managed Instance. A continuación puede seleccionar cualesquiera credenciales existentes creadas con las identidades administradas asignadas por el usuario especificadas o crear otras.
 
       1. Si selecciona **File system** (Sistema de archivos), escriba en **Host** la ruta de acceso UNC de la carpeta en la que se implementan los paquetes y especifique el **nombre de usuario** y la **contraseña** correspondientes, o bien seleccione la instancia de **Azure Key Vault** donde se almacena la contraseña como secreto.
 
@@ -298,12 +302,12 @@ En la página **Advanced settings** (Configuración avanzada) del panel **Integr
 
 En la sección **Resumen**, revise todos los valores de aprovisionamiento, marque los vínculos a la documentación recomendada y seleccione **Finalizar** para empezar la creación del entorno de ejecución de integración.
 
-   > [!NOTE]
-   > Aparte del tiempo de configuración personalizada, este proceso debería realizarse en 5 minutos. Sin embargo, Azure-SSIS IR puede tardar entre 20 y 30 minutos en unirse a una red virtual.
-   >
-   > Si usa SSISDB, el servicio Data Factory se conectará al servidor de bases de datos para prepararlo. También configura los permisos o los valores de la red virtual, si se especifica, y une la instancia de Azure-SSIS IR a la red virtual.
-   > 
-   > Al aprovisionar Azure-SSIS IR, también se instalan el acceso redistribuible y el paquete de característica de Azure para SSIS. Estos componentes proporcionan conectividad a archivos de Excel y Access, y a diversos orígenes de datos de Azure, además de a aquellos que ya admiten los componentes integrados. Para obtener más información sobre los componentes integrados o preinstalados, vea el artículo [Componentes integrados y preinstalados en Azure-SSIS Integration Runtime](./built-in-preinstalled-components-ssis-integration-runtime.md). Para obtener más información sobre los componentes adicionales que puede instalar, consulte [Personalización de la instalación en una instancia de Azure-SSIS Integration Runtime](./how-to-configure-azure-ssis-ir-custom-setup.md).
+> [!NOTE]
+> Aparte del tiempo de configuración personalizada, este proceso debería realizarse en 5 minutos. Sin embargo, Azure-SSIS IR puede tardar entre 20 y 30 minutos en unirse a una red virtual.
+>
+> Si usa SSISDB, el servicio Data Factory se conectará al servidor de bases de datos para prepararlo. También configura los permisos o los valores de la red virtual, si se especifica, y une la instancia de Azure-SSIS IR a la red virtual.
+>
+> Al aprovisionar Azure-SSIS IR, también se instalan el acceso redistribuible y el paquete de característica de Azure para SSIS. Estos componentes proporcionan conectividad a archivos de Excel y Access, y a diversos orígenes de datos de Azure, además de a aquellos que ya admiten los componentes integrados. Para obtener más información sobre los componentes integrados o preinstalados, vea el artículo [Componentes integrados y preinstalados en Azure-SSIS Integration Runtime](./built-in-preinstalled-components-ssis-integration-runtime.md). Para obtener más información sobre los componentes adicionales que puede instalar, consulte [Personalización de la instalación en una instancia de Azure-SSIS Integration Runtime](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 #### <a name="connections-pane"></a>Panel Connections (Conexiones)
 
@@ -482,7 +486,7 @@ Si no usa un servidor de Azure SQL Database con reglas de firewall de IP/puntos 
 
 Si usa una instancia administrada para hospedar SSISDB, puede omitir el parámetro `CatalogPricingTier` o pasarle un valor vacío. De lo contrario, no puede omitirlo y debe pasar un valor válido de la lista de planes de tarifa admitidos para Azure SQL Database. Para más información, consulte [Límites de recursos de SQL Database](../azure-sql/database/resource-limits-logical-server.md).
 
-Si usa la autenticación de Azure AD con la identidad administrada de su factoría de datos para conectarse al servidor de bases de datos, puede omitir el parámetro `CatalogAdminCredential`. Sin embargo, debe agregar la identidad administrada de la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Para más información, consulte [Habilitar la autenticación de Azure AD para una instancia de Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md). En caso contrario, no puede omitirlo y debe pasar un objeto válido formado por su nombre de usuario y contraseña de administrador del servidor para la autenticación de SQL.
+Si usa la autenticación de Azure AD con la identidad administrada asignada por el usuario o por el sistema especificada para su factoría de datos para conectarse al servidor de bases de datos, puede omitir el parámetro `CatalogAdminCredential`. Sin embargo, debe agregar la identidad administrada asignada por el usuario o por el sistema especificada para la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Para más información, consulte [Habilitar la autenticación de Azure AD para una instancia de Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md). En caso contrario, no puede omitirlo y debe pasar un objeto válido formado por su nombre de usuario y contraseña de administrador del servidor para la autenticación de SQL.
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -605,7 +609,7 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
         -ExpressCustomSetup $setups
 }
 
-# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data access
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

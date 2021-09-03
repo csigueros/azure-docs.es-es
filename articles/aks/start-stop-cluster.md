@@ -3,22 +3,24 @@ title: Inicio y detención de Azure Kubernetes Service (AKS)
 description: Aprenda a iniciar y detener un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 08/09/2021
 author: palma21
-ms.openlocfilehash: 734986d2c9b372214a54c1308e4ca445940c5f65
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fefdb4619c017d7c43e4dfa84c8099450310ca2f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111808932"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743942"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Inicio y detención de un clúster de Azure Kubernetes Service (AKS)
 
-Es posible que las cargas de trabajo de AKS no tengan que ejecutarse continuamente, por ejemplo, en el caso de un clúster de desarrollo que se use solo durante el horario comercial. Esto se traduce en momentos en que el clúster de Azure Kubernetes Service (AKS) podría estar inactivo, sin ejecutar más que los componentes del sistema. Para reducir la superficie del clúster, [escale todos los grupos de nodos `User` a 0](scale-cluster.md#scale-user-node-pools-to-0), aunque sigue siendo necesario que el [grupo `System`](use-system-pools.md) ejecute los componentes del sistema mientras el clúster está en ejecución. Para optimizar aún más los costos durante estos períodos, puede desactivar por completo (detener) el clúster. Esta acción detiene el plano de control y los nodos del agente, lo que permite ahorrar en todos los costos de proceso, a la vez que se mantienen todos los objetos y el estado del clúster almacenados para cuando se inicie de nuevo. Puede continuar justo donde se ha dejado después de un fin de semana o hacer que el clúster se ejecute solo mientras se ejecutan los trabajos por lotes.
+Es posible que las cargas de trabajo de AKS no tengan que ejecutarse continuamente, por ejemplo, en el caso de un clúster de desarrollo que se use solo durante el horario comercial. Esto se traduce en momentos en que el clúster de Azure Kubernetes Service (AKS) podría estar inactivo, sin ejecutar más que los componentes del sistema. Para reducir la superficie del clúster, [escale todos los grupos de nodos `User` a 0](scale-cluster.md#scale-user-node-pools-to-0), aunque sigue siendo necesario que el [grupo `System`](use-system-pools.md) ejecute los componentes del sistema mientras el clúster está en ejecución.
+Para optimizar aún más los costos durante estos períodos, puede desactivar por completo (detener) el clúster. Esta acción detiene el plano de control y los nodos del agente, lo que permite ahorrar en todos los costos de proceso, a la vez que se mantienen todos los objetos y el estado del clúster almacenados para cuando se inicie de nuevo. Puede continuar justo donde se ha dejado después de un fin de semana o hacer que el clúster se ejecute solo mientras se ejecutan los trabajos por lotes.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli], [Azure PowerShell][kubernetes-walkthrough-powershell] o [Azure Portal][aks-quickstart-portal].
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -30,6 +32,8 @@ Cuando se usa la característica de inicio o detención del clúster, se aplican
 - Los puntos de conexión privados aprovisionados por el cliente y vinculados al clúster privado deben eliminarse y volver a crearse al iniciar un clúster de AKS detenido.
 
 ## <a name="stop-an-aks-cluster"></a>Detención de un clúster de AKS
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Puede usar el comando `az aks stop` para detener los nodos y el plano de control de un clúster de AKS en ejecución. En el siguiente ejemplo se detiene un clúster denominado *myAKSCluster*:
 
@@ -55,12 +59,35 @@ Para comprobar que el clúster se ha detenido, use el comando [az aks show][az-a
 
 Si `provisioningState` muestra `Stopping`, significa que el clúster aún no se ha detenido por completo.
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Puede usar el cmdlet [Stop-AzAksCluster][stop-azakscluster] para detener el plano de control y los nodos del clúster de AKS en ejecución. En el siguiente ejemplo se detiene un clúster denominado *myAKSCluster*:
+
+```azurepowershell-interactive
+Stop-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+```
+
+Puede comprobar que el clúster se ha detenido con el cmdlet [Get-AzAksCluster][get-azakscluster] y confirmar que `ProvisioningState` aparece como `Stopped`, como se muestra en la salida siguiente:
+
+```Output
+ProvisioningState       : Stopped
+MaxAgentPools           : 100
+KubernetesVersion       : 1.20.7
+...
+```
+
+Si `ProvisioningState` muestra `Stopping`, significa que el clúster aún no se ha detenido por completo.
+
+---
+
 > [!IMPORTANT]
 > Si usa [presupuestos de interrupciones de pods](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/), la operación de detención puede tardar más tiempo, ya que el proceso de purga tarda más en finalizar.
 
 ## <a name="start-an-aks-cluster"></a>Inicio de un clúster de AKS
 
-Puede usar el comando `az aks start` para iniciar los nodos y el plano de control de un clúster de AKS detenido. El clúster se reinicia con el estado del plano de control y el número de nodos de agente anteriores.  
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Puede usar el comando `az aks start` para iniciar los nodos y el plano de control de un clúster de AKS detenido. El clúster se reinicia con el estado del plano de control y el número de nodos de agente anteriores.
 En el siguiente ejemplo se inicia un clúster denominado *myAKSCluster*:
 
 ```azurecli-interactive
@@ -85,8 +112,33 @@ Para comprobar que el clúster se ha iniciado, use el comando [az aks show][az-a
 
 Si `provisioningState` muestra `Starting`, significa que el clúster aún no se ha iniciado por completo.
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Puede usar el cmdlet [Start-AzAksCluster][start-azakscluster] para iniciar el plano de control y los nodos del clúster de AKS detenido. El clúster se reinicia con el estado del plano de control y el número de nodos de agente anteriores.
+En el siguiente ejemplo se inicia un clúster denominado *myAKSCluster*:
+
+```azurepowershell-interactive
+Start-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+```
+
+Puede comprobar si el clúster se ha iniciado con el cmdlet [Get-AzAksCluster][get-azakscluster] y confirmar que `ProvisioningState` aparece como `Succeeded`, como se muestra en la salida siguiente:
+
+```Output
+ProvisioningState       : Succeeded
+MaxAgentPools           : 100
+KubernetesVersion       : 1.20.7
+...
+```
+
+Si `ProvisioningState` muestra `Starting`, significa que el clúster aún no se ha iniciado por completo.
+
+---
+
 > [!NOTE]
-> Si usa el escalador automático de clústeres, al iniciar la copia de seguridad del clúster, es posible que el número de nodos actual no esté entre los valores de intervalo mínimo y máximo establecidos. Este comportamiento es normal. El clúster comienza con el número de nodos que necesita para ejecutar sus cargas de trabajo, que no se verá afectados por la configuración del escalador automático. Cuando el clúster realiza operaciones de escalado, los valores mínimo y máximo afectarán al número de nodos actual y el clúster finalmente entrará y permanecerá en ese intervalo deseado hasta que detenga el clúster.
+> Al iniciar la copia de seguridad del clúster, se espera el siguiente comportamiento:
+>
+> * La dirección IP del servidor de API puede cambiar.
+> * Si usa el escalador automático de clústeres, al iniciar la copia de seguridad del clúster, es posible que el número de nodos actual no esté entre los valores de intervalo mínimo y máximo establecidos. El clúster comienza con el número de nodos que necesita para ejecutar sus cargas de trabajo, que no se verá afectados por la configuración del escalador automático. Cuando el clúster realiza operaciones de escalado, los valores mínimo y máximo afectarán al número de nodos actual y el clúster finalmente entrará y permanecerá en ese intervalo deseado hasta que detenga el clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -106,3 +158,7 @@ Si `provisioningState` muestra `Starting`, significa que el clúster aún no se 
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-show]: /cli/azure/aks#az_aks_show
+[kubernetes-walkthrough-powershell]: kubernetes-walkthrough-powershell.md
+[stop-azakscluster]: /powershell/module/az.aks/stop-azakscluster
+[get-azakscluster]: /powershell/module/az.aks/get-azakscluster
+[start-azakscluster]: /powershell/module/az.aks/start-azakscluster

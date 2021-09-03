@@ -3,13 +3,13 @@ title: Creación de un contenedor de Windows Server en un clúster de AKS media
 description: Aprenda a crear rápidamente un clúster de Kubernetes y a implementar una aplicación en un contenedor de Windows Server en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 services: container-service
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: 50b5d0a46c97cfd816b80c3fb7c8f8667e3e89d7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/06/2021
+ms.openlocfilehash: 29f010bd9067236e1e07ab79f7a8fbec436ffd85
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379377"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733578"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -93,7 +93,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
-    --kubernetes-version 1.20.2 \
+    --kubernetes-version 1.20.7 \
     --network-plugin azure
 ```
 
@@ -121,13 +121,13 @@ az aks nodepool add \
 
 El comando anterior crea un nuevo grupo de nodos denominado *npwin* y lo agrega a *myAKSCluster*. El comando anterior también usa la subred predeterminada en la red virtual predeterminada que se crea al ejecutar `az aks create`.
 
-### <a name="add-a-windows-server-node-pool-with-containerd-preview"></a>Adición de un grupo de nodos de Windows Server con `containerd` (versión preliminar)
+## <a name="optional-using-containerd-with-windows-server-node-pools-preview"></a>Opcional: Uso de `containerd` con grupos de nodos de Windows Server (versión preliminar)
 
 A partir de la versión 1.20 de Kubernetes y versiones posteriores, puede especificar `containerd` como el entorno de ejecución del contenedor para los grupos de nodos de Windows Server 2019.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Necesitará la extensión de la CLI de Azure *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add]. También puede instalar las actualizaciones disponibles mediante el comando [az extension update][az-extension-update].
+Necesitará la versión 0.5.24 o posterior de la extensión de la CLI de Azure *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add]. También puede instalar las actualizaciones disponibles mediante el comando [az extension update][az-extension-update].
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -136,6 +136,12 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
+> [!IMPORTANT]
+> Cuando se utiliza `containerd` con grupos de nodos de Windows Server 2019:
+> - Tanto el plano de control como los grupos de nodos de Windows Server 2019 deben usar la versión 1.20 o posterior de Kubernetes.
+> - Al crear o actualizar un grupo de nodos para ejecutar contenedores de Windows Server, el valor predeterminado de *node-vm-size* es *Standard_D2s_v3*, que era el tamaño mínimo recomendado para los grupos de nodos de Windows Server 2019 en las versiones anteriores a Kubernetes 1.20. El tamaño mínimo recomendado para grupos de nodos de Windows Server 2019 cuando se usa `containerd` es *Standard_D4s_v3*. Si establece el parámetro *node-vm-size*, compruebe la lista de [tamaños de máquina virtual restringidos][restricted-vm-sizes].
+> - Se recomienda encarecidamente usar valores [taints o etiquetas][aks-taints] con los grupos de nodos de Windows Server 2019 en ejecución `containerd` y tolerations o selectores de nodos con las implementaciones, para garantizar que las cargas de trabajo se programan correctamente.
 
 Registro de `UseCustomizedWindowsContainerRuntime` la marca de característica con el comando de [característica de registro az][az-feature-register], tal como se muestra en el siguiente ejemplo:
 
@@ -155,7 +161,9 @@ Cuando todo esté listo, actualice el registro del proveedor de recursos Microso
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Use el comando `az aks nodepool add` para agregar un grupo de nodos adicionales que pueda ejecutar contenedores de Windows Server con el entorno de ejecución `containerd`.
+### <a name="add-a-windows-server-node-pool-with-containerd-preview"></a>Adición de un grupo de nodos de Windows Server con `containerd` (versión preliminar)
+
+Use el comando `az aks nodepool add` para agregar un grupo de nodos adicionales que pueda ejecutar contenedores de Windows Server con el entorno de ejecución `containerd`.
 
 > [!NOTE]
 > Si no especifica el encabezado personalizado *WindowsContainerRuntime=containerd*, el grupo de nodos usará Docker como entorno de ejecución de contenedor.
@@ -167,19 +175,42 @@ az aks nodepool add \
     --os-type Windows \
     --name npwcd \
     --node-vm-size Standard_D4s_v3 \
-    --kubernetes-version 1.20.2 \
+    --kubernetes-version 1.20.5 \
     --aks-custom-headers WindowsContainerRuntime=containerd \
     --node-count 1
 ```
 
 El comando anterior crea un nuevo grupo de nodos de Windows Server que usa `containerd` como entorno de ejecución, llamado *npwcd*, y lo agrega a *myAKSCluster*. El comando anterior también usa la subred predeterminada en la red virtual predeterminada que se crea al ejecutar `az aks create`.
 
-> [!IMPORTANT]
-> Cuando se utiliza `containerd` con grupos de nodos de Windows Server 2019:
-> - Tanto el plano de control como los grupos de nodos de Windows Server 2019 deben usar la versión 1.20 o posterior de Kubernetes.
-> - Los grupos de nodos existentes de Windows Server 2019 que utilizan Docker como entorno de ejecución de contenedor no se pueden actualizar para usar `containerd`. Debe crear un nuevo grupo de nodos.
-> - Al crear un grupo de nodos para ejecutar contenedores de Windows Server, el valor predeterminado de *node-vm-size* es *Standard_D2s_v3* que era el tamaño mínimo recomendado para los grupos de nodos de Windows Server 2019 en las versiones anteriores a Kubernetes 1.20. El tamaño mínimo recomendado para grupos de nodos de Windows Server 2019 cuando se usa `containerd` es *Standard_D4s_v3*. Si establece el parámetro *node-vm-size*, compruebe la lista de [tamaños de máquina virtual restringidos][restricted-vm-sizes].
-> - Se recomienda encarecidamente usar valores [taints o etiquetas][aks-taints] con los grupos de nodos de Windows Server 2019 en ejecución `containerd` y tolerations o selectores de nodos con las implementaciones, para garantizar que las cargas de trabajo se programan correctamente.
+### <a name="upgrade-an-existing-windows-server-node-pool-to-containerd-preview"></a>Actualización de un grupo de nodos de Windows Server existente a `containerd` (versión preliminar)
+
+Use el comando `az aks nodepool upgrade` para actualizar un grupo de nodos específico de Docker a `containerd`.
+
+```azurecli
+az aks nodepool upgrade \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name npwd \
+    --kubernetes-version 1.20.7 \
+    --aks-custom-headers WindowsContainerRuntime=containerd
+```
+
+El comando anterior actualiza un grupo de nodos denominado *npwd* al entorno de ejecución `containerd`.
+
+Para actualizar todos los grupos de nodos existentes de un clúster para usar el entorno de ejecución `containerd` para todos los grupos de nodos de Windows Server:
+
+```azurecli
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version 1.20.7 \
+    --aks-custom-headers WindowsContainerRuntime=containerd
+```
+
+El comando anterior actualiza todos los grupos de nodos de Windows Server en *myAKSCluster* para usar el entorno de ejecución `containerd`.
+
+> [!NOTE]
+> Después de actualizar todos los grupos de nodos de Windows Server existentes para usar el entorno de ejecución `containerd`, Docker seguirá siendo el entorno de ejecución predeterminado al agregar nuevos grupos de nodos de Windows Server. 
 
 ## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
@@ -205,10 +236,10 @@ La siguiente salida de ejemplo muestra todos los nodos del clúster. Asegúrese 
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
-aks-nodepool1-12345678-vmss000000   Ready    agent   34m    v1.20.2   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
-aks-nodepool1-12345678-vmss000001   Ready    agent   34m    v1.20.2   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
-aksnpwcd123456                      Ready    agent   9m6s   v1.20.2   10.240.0.97   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    containerd://1.4.4+unknown
-aksnpwin987654                      Ready    agent   25m    v1.20.2   10.240.0.66   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    docker://19.3.14
+aks-nodepool1-12345678-vmss000000   Ready    agent   34m    v1.20.7   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aks-nodepool1-12345678-vmss000001   Ready    agent   34m    v1.20.7   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aksnpwcd123456                      Ready    agent   9m6s   v1.20.7   10.240.0.97   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    containerd://1.4.4+unknown
+aksnpwin987654                      Ready    agent   25m    v1.20.7   10.240.0.66   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    docker://19.3.14
 ```
 
 > [!NOTE]
@@ -238,7 +269,7 @@ spec:
         app: sample
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": windows
+        "kubernetes.io/os": windows
       containers:
       - name: sample
         image: mcr.microsoft.com/dotnet/framework/samples:aspnetapp

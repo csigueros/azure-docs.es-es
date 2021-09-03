@@ -2,17 +2,18 @@
 title: Programación de Azure-SSIS Integration Runtime
 description: En este artículo se describe cómo programar el inicio y la detención de una instancia de Azure-SSIS Integration Runtime mediante Azure Data Factory.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 06/04/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 40c3b8ab228c93fd4c681281d89d16f88ddf30f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dec61a586c744fd8a5f537bf5a593b7409a1636e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384374"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735341"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención de Azure-SSIS Integration Runtime mediante una programación
 
@@ -79,9 +80,9 @@ Si crea un tercer desencadenador que se programe para ejecutarse diariamente a m
 
 ### <a name="create-your-pipelines"></a>Creación de las canalizaciones
 
-1. En la página de **introducción**, seleccione **Crear canalización**. 
+1. En la página principal, seleccione **Organizar**. 
 
-   ![Página de introducción](./media/how-to-schedule-azure-ssis-integration-runtime/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
    
 2. En el cuadro de herramientas **Actividades**, expanda el menú **General**, arrastre una actividad **web** y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana de propiedades, cambie el nombre de la actividad a **startMyIR**. Cambie a la pestaña **Configuración** y realice los pasos siguientes.
 

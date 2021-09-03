@@ -7,21 +7,21 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 06/25/2019
-ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 818a783a85fd9117738f8199e612d97a0fb95b99
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035649"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730359"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database e Instancia administrada de SQL le permite agregar dinámicamente más recursos a su base de datos con un mínimo [tiempo de inactividad](https://azure.microsoft.com/support/legal/sla/sql-database); sin embargo, hay un breve período de cambio donde se pierde la conectividad a la base de datos, lo que se puede mitigar con la lógica de reintento.
+Azure SQL Database e Instancia administrada de SQL le permite agregar dinámicamente más recursos a su base de datos con un mínimo [tiempo de inactividad](https://azure.microsoft.com/support/legal/sla/azure-sql-database); sin embargo, hay un breve período de cambio donde se pierde la conectividad a la base de datos, lo que se puede mitigar con la lógica de reintento.
 
 ## <a name="overview"></a>Información general
 

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 08/04/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c4c5c4e632943ebbe68003f663aebbeaab9ebaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fd16df2d8f1dfff4f5a7bd1075a63cf9b0ec78b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743452"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732389"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure AD MFA mediante la extensión Servidor de directivas de redes para Azure
 
@@ -218,6 +218,7 @@ En esta sección se detalla la configuración creada con el asistente.
 
 En esta sección, configurará el servidor VPN para utilizar la autenticación RADIUS. En estas instrucciones se da por supuesto que tiene una configuración de servidor VPN en funcionamiento, pero no se ha configurado para utilizar la autenticación RADIUS. Después de configurar el servidor VPN, confirme que la configuración funciona según lo previsto.
 
+
 > [!NOTE]
 > Si ya tiene una configuración de servidor VPN en funcionamiento que usa autenticación RADIUS, puede omitir esta sección.
 >
@@ -244,10 +245,8 @@ En esta sección, configurará el servidor VPN para utilizar la autenticación R
 
     b. En **Secreto compartido**, seleccione **Cambiar** y agregue la contraseña secreta compartida que creó y anotó anteriormente.
 
-    c. En el cuadro **Tiempo de espera (segundos)** , escriba el valor **30**.  
-    El valor de tiempo es necesario para dar tiempo suficiente para completar el segundo factor de autenticación. Algunas VPN o regiones requieren una configuración de tiempo de espera superior a 30 segundos para impedir que los usuarios reciban varias llamadas telefónicas. Si los usuarios experimentan este problema, aumente el valor de **Tiempo de espera (segundos)** en incrementos de 30 segundos hasta que no se reproduzca el problema.
-
-    ![Ventana Agregar servidor de RADIUS que configura el tiempo de espera](./media/howto-mfa-nps-extension-vpn/image16.png) 
+    c. En el cuadro **Tiempo de espera (segundos)** , escriba el valor **60**.  
+    Para minimizar las solicitudes descartadas, se recomienda que los servidores VPN estén configurados con un tiempo de espera de al menos 60 segundos. Si es necesario, o para reducir las solicitudes descartadas en los registros de eventos, puede aumentar el valor de tiempo de espera del servidor VPN a 90 o 120 segundos.
 
 8. Seleccione **Aceptar**.
 
@@ -302,7 +301,7 @@ Para solucionar estos problemas, un lugar ideal para comenzar es examinar los re
 
 ## <a name="configure-multi-factor-authentication"></a>Configuración de Multi-Factor Authentication
 
-Para obtener ayuda a fin de configurar los usuarios para Multi-Factor Authentication, consulte los artículos sobre [planeación de una implementación del servicio en la nube Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md#create-conditional-access-policy) y [configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md).
+Para obtener ayuda a fin de configurar los usuarios para Multi-Factor Authentication, consulte los artículos sobre [planeación de una implementación del servicio en la nube Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md#plan-conditional-access-policies) y [configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="install-and-configure-the-nps-extension"></a>Instalación y configuración de la extensión NPS
 

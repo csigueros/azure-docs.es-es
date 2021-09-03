@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: e7c1c8532a3f77054755eb040fceff1bf8cf273e
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: b998f2876e323ad224d4ecb8afddd4c4f7d5f118
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440239"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741414"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -89,13 +89,13 @@ Para más información, consulte [Puntos de conexión de servicio de red virtual
 
 Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. Puede reemplazar esta cuenta de almacenamiento por una que esté protegida con puntos de conexión de servicio o punto de conexión privado. 
 
-Esta característica funciona actualmente para todas las SKU compatibles con la red virtual de Windows en el plan dedicado (App Service) y para el plan Premium. No se admite el plan de consumo. Para obtener información sobre cómo configurar una función con una cuenta de almacenamiento restringida a una red privada, consulte [Restricción de la cuenta de almacenamiento a una red virtual](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+Esta característica se admite para todas las SKU compatibles con la red virtual de Windows en el plan dedicado (App Service) y para el plan Premium. También se admite con DNS privado para SKU compatibles con la red virtual Linux. El plan de consumo y el DNS personalizado en los planes Linux no son compatibles. Para obtener información sobre cómo configurar una función con una cuenta de almacenamiento restringida a una red privada, consulte [Restricción de la cuenta de almacenamiento a una red virtual](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## <a name="use-key-vault-references"></a>Uso de referencias de Key Vault
 
 Puede usar las referencias de Azure Key Vault para utilizar secretos de esta solución en la aplicación Azure Functions sin necesidad de realizar cambios en el código. Azure Key Vault es un servicio que proporciona administración centralizada de los secretos, con control total sobre las directivas de acceso y el historial de auditoría.
 
-Actualmente las [referencias de Key Vault](../app-service/app-service-key-vault-references.md) no funcionan si el almacén de claves está protegido con puntos de conexión de servicio. Para conectarse a un almacén de claves mediante la integración de la red virtual, deberá llamar a Key Vault en el código de la aplicación.
+Si la integración de la red virtual está configurada para la aplicación, se pueden usar [referencias de Key Vault](../app-service/app-service-key-vault-references.md) para recuperar secretos de un almacén restringido de red.
 
 ## <a name="virtual-network-triggers-non-http"></a>Desencadenadores de red virtual (no HTTP)
 
@@ -172,7 +172,7 @@ Las siguientes API permiten administrar mediante programación las integraciones
 Para obtener más información sobre las redes y Azure Functions:
 
 * [Siga el tutorial sobre cómo empezar con la integración de red virtual](./functions-create-vnet.md)
-* [Lea las preguntas más frecuentes de las redes de Functions](./functions-networking-faq.md)
+* [Lea las preguntas más frecuentes de las redes de Functions](./functions-networking-faq.yml)
 * [Obtenga más información sobre la integración de red virtual con App Service o Functions](../app-service/web-sites-integrate-with-vnet.md)
 * [Obtenga más información sobre las redes virtuales en Azure](../virtual-network/virtual-networks-overview.md)
 * [Habilite más características de redes y control con App Service Environment](../app-service/environment/intro.md)

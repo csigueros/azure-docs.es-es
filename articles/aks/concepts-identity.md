@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 77b35d776b8fcd71f26278a6fda8a102113bd570
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 13fe269431a84a00a8af073849cbd17d188c5175
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109844977"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724757"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
 
@@ -78,6 +78,16 @@ Al crear un clúster con atributos específicos, necesitará los siguientes perm
 | `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` | Se requiere cuando se usa una subred asociada a una tabla de rutas en otro grupo de recursos (por ejemplo, una red virtual personalizada con una tabla de rutas personalizada). Se requiere para comprobar si ya existe una subred para la subred en el otro grupo de recursos. |
 | `Microsoft.Network/virtualNetworks/subnets/read` | Se requiere cuando se usa un equilibrador de carga interno en otro grupo de recursos. Se requiere para comprobar si ya existe una subred para el equilibrador de carga interno en el grupo de recursos. |
 | `Microsoft.Network/privatednszones/*` | Se requiere cuando se usa una subred en otro grupo de recursos (por ejemplo, una red privateDNSZone personalizada). |
+
+## <a name="aks-node-access"></a>Acceso al nodo de AKS
+
+De forma predeterminada, no se requiere acceso a los nodos para AKS.  El siguiente acceso es necesario para el nodo si se utiliza un componente específico.
+
+| Acceso | Motivo |
+|---|---|
+| `kubelet` | Necesario para que el cliente conceda acceso de MSI a ACR. |
+| `http app routing` | Necesario para el permiso de escritura en "nombre aleatorio".aksapp.io. |
+| `container insights` | Necesario para que el cliente conceda permiso al área de trabajo de Log Analytics. |
 
 ## <a name="kubernetes-rbac"></a>RBAC de Kubernetes
 

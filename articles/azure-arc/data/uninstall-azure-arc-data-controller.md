@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: a040200c5746defcaee84a951521d5919c0c4d28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26784222d49e6f48ed324ce345dcb1f2ba7d4cf1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91660683"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741445"
 ---
 # <a name="delete-azure-arc-data-controller"></a>Eliminación del controlador de datos de Azure Arc
 
@@ -22,48 +22,41 @@ En el siguiente artículo se describe cómo eliminar un controlador de datos de 
 
 Antes de continuar, asegúrese de que todos los servicios de datos que se han creado en el controlador de datos se quitan de la siguiente manera:
 
-## <a name="log-in-to-the-data-controller"></a>Inicio de sesión en el controlador de datos
-
-Inicie sesión en el controlador de datos que quiere eliminar:
-
-```
-azdata login
-```
-
 ## <a name="list--delete-existing-data-services"></a>Enumeración y eliminación de los servicios de datos existentes
 
 Ejecute el comando siguiente para comprobar si hay alguna instancia administrada de SQL creada:
 
-```
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 Para cada instancia administrada de SQL de la lista anterior, ejecute el comando delete de la siguiente manera:
 
-```
-azdata arc sql mi delete -n <name>
-# for example: azdata arc sql mi delete -n sqlinstance1
+```azurecli
+az sql mi-arc delete -n <name> --k8s-namespace <namespace> --use-k8s
+# for example: az sql mi-arc delete -n sqlinstance1 --k8s-namespace <namespace> --use-k8s
 ```
 
 Del mismo modo, para comprobar las instancias de Hiperescala de PostgreSQL, ejecute lo siguiente:
 
-```
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 Y para cada instancia de Hiperescala de PostgreSQL, ejecute el comando delete de la siguiente manera:
-```
-azdata arc postgres server delete -n <name>
-# for example: azdata arc postgres server delete -n pg1
+
+```azurecli
+az postgres arc-server delete -n <name> --k8s-namespace <namespace> --use-k8s
+# for example: az postgres arc-server delete -n pg1 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="delete-controller"></a>Eliminación del controlador
 
 Una vez eliminadas todas las instancias administradas de SQL y las de Hiperescala de PostgreSQL, el controlador de datos se puede eliminar de la siguiente manera:
 
-```
-azdata arc dc delete -n <name> -ns <namespace>
-# for example: azdata arc dc delete -ns arc -n arcdc
+```azurecli
+az arcdata dc delete -n <name> -ns <namespace>
+# for example: az arcdata dc delete -ns arc -n arcdc
 ```
 
 ### <a name="remove-sccs-red-hat-openshift-only"></a>Quite los SCC (solo Red Hat OpenShift).
@@ -102,4 +95,4 @@ kubectl delete ns <nameSpecifiedDuringCreation>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[¿Qué son los servicios de datos habilitados para Azure Arc?](overview.md)
+[¿Qué son los servicios de datos habilitados para Azure Arc?](overview.md)

@@ -13,22 +13,23 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 06/30/2021
 ms.author: radeltch
-ms.openlocfilehash: a4c4631a0a1263e5a5398c44a8570f92571102e8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 97564fef2278861f2e22e85752cd803ad289c766
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045843"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737368"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en Windows con Azure NetApp Files (SMB) para aplicaciones SAP
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
+[high-availability-guide]:high-availability-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
@@ -50,9 +51,9 @@ ms.locfileid: "102045843"
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 [suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
@@ -117,6 +118,9 @@ Siga los pasos que se indican a continuación para preparar el uso de Azure NetA
 
    > [!IMPORTANT]
    > Debe crear las conexiones de Active Directory antes de crear un volumen SMB. Revise los [requisitos para las conexiones de Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
+   >   
+   > Al crear la conexión de Active Directory, asegúrese de escribir un prefijo del servidor de SMB (cuenta de equipo) de no más de ocho caracteres para evitar la limitación de nombre de host de trece caracteres para las aplicaciones SAP (se agrega automáticamente un sufijo al nombre de la cuenta de equipo de SMB).     
+   > Las limitaciones de nombre de host para las aplicaciones SAP se describen en [2718300: Limitaciones de longitud del nombre de host físico y virtual](https://launchpad.support.sap.com/#/notes/2718300) y [611361: Nombres de host para servidores de la plataforma ABAP de SAP](https://launchpad.support.sap.com/#/notes/611361).  
 
 5. Cree una conexión Active Directory, como se describe en [Crear una conexión de Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
 6. Cree el volumen SMB Azure NetApp Files SMB al seguir las instrucciones en [Agregar un volumen SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
@@ -163,6 +167,20 @@ Necesita el siguiente software de SAP:
 
 1. Instale una instancia de ASCS/SCS de SAP en el segundo nodo de clúster. Inicie la herramienta de instalación de SAP SWPM y, luego, vaya a **Producto** > **DBMS** > Instalación > Servidor de aplicaciones ABAP (o Java) > Sistema de alta disponibilidad > instancia de ASCS/SCS > Nodo de clúster adicional.  
 
+### <a name="update-the-sap-ascsscs-instance-profile"></a>Actualización del perfil de instancia de SAP ASCS/SCS
+
+Actualice los parámetros del perfil de la instancia de ASCS/SCS de SAP \<SID>_ASCS/SCS\<Nr>_ \<Host>.
+
+
+| Nombre de parámetro | Valor del parámetro |
+| --- | --- |
+| gw/netstat_once | **0** |
+| enque/encni/set_so_keepalive  | **true** |
+| service/ha_check_node | **1** |
+
+El parámetro `enque/encni/set_so_keepalive` solo es necesario si usa ENSA1.  
+Reinicie la instancia de ASCS/SCS de SAP. Establezca los parámetros `KeepAlive` en ambos nodos del clúster de ASCS/SCS de SAP para que sigan las instrucciones de [Establecimiento de entradas de registro en los nodos del clúster de la instancia de ASCS/SCS de SAP][high-availability-guide]. 
+
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalación de instancias de DBMS y servidores de aplicaciones SAP
 
 Complete la instalación de SAP mediante la instalación de:
@@ -192,6 +210,40 @@ En este escenario de prueba, haremos referencia al nodo de clúster sapascs1 com
 ![Ilustración 3: La entrada de bloqueo se conserva después de la prueba de conmutación por error](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-3.png)  
 
 Para más información, consulte [Solución de problemas de la conmutación por error de puesta en cola en ASCS con ERS](https://wiki.scn.sap.com/wiki/display/SI/Troubleshooting+for+Enqueue+Failover+in+ASCS+with+ERS)
+
+## <a name="optional-configurations"></a>Configuraciones opcionales
+
+En los diagramas siguientes se muestran varias instancias de SAP en máquinas virtuales de Azure que ejecutan el clúster de conmutación por error de Microsoft Windows para reducir el número total de máquinas virtuales.
+
+Se puede tratar de servidores de aplicaciones SAP locales en un clúster de ASCS/SCS de SAP o un rol de clúster de ASCS/SCS de SAP en nodos Always On de Microsoft SQL Server.
+
+> [!IMPORTANT]
+> No se admite la instalación de un servidor de aplicaciones de SAP local en un nodo Always On de SQL Server.
+>
+
+Tanto ASCS/SCS de SAP como la base de datos de Microsoft SQL Server, son puntos de error únicos (SPOF). Para proteger estos SPOF en un entorno Windows, se usa el SMB de Azure NetApp Files.
+
+Aunque el consumo de recursos de ASCS/SCS de SAP es bastante pequeño, se recomienda una reducción de la configuración de memoria de 2 GB para SQL Server o para el servidor de aplicaciones SAP.
+
+### <a name="sap-application-servers-on-wsfc-nodes-using-netapp-files-smb"></a><a name="5121771a-7618-4f36-ae14-ccf9ee5f2031"></a>Servidores de aplicaciones SAP en nodos WSFC mediante el SMB de NetApp Files
+
+![Figura 4: configuración de clústeres de conmutación por error de Windows Server en Azure con el SMB de NetApp Files y el servidor de aplicaciones SAP instalado localmente][sap-ha-guide-figure-8007A]
+
+> [!NOTE]
+> En la imagen se muestra el uso de discos locales adicionales. Esto es opcional para los clientes que no instalarán software de aplicación en la unidad del sistema operativo (C:\).
+>
+### <a name="sap-ascsscs-on-sql-server-always-on-nodes-using-azure-netapp-files-smb"></a><a name="01541cf2-0a03-48e3-971e-e03575fa7b4f"></a> ASCS/SCS de SAP en nodos Always On de SQL Server con el SMB de Azure NetApp Files
+
+> [!IMPORTANT]
+> No se admite el uso de SMB de Azure NetApp Files para ningún volumen de SQL Server.
+> 
+
+![Figura: ASCS/SCS de SAP en nodos Always On de SQL Server con el SMB de Azure NetApp Files][sap-ha-guide-figure-8007B]
+
+> [!NOTE]
+> En la imagen se muestra el uso de discos locales adicionales. Esto es opcional para los clientes que no instalarán software de aplicación en la unidad del sistema operativo (C:\).
+>
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
@@ -200,3 +252,6 @@ Para más información, consulte [Solución de problemas de la conmutación por 
 * Para saber cómo establecer una estrategia de alta disponibilidad y recuperación ante desastres de SAP 
 * HANA en Azure (instancias grandes), consulte [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md).
 * Para más información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure Virtual Machines, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales de Azure][sap-hana-ha].
+
+[sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/ha-smb-as.png
+[sap-ha-guide-figure-8007B]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-smb.png

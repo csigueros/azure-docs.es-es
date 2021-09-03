@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 6afe193cb29b313f45335e46aa9fcaec2e8bf240
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b033b37532bffa92bcc8f427abe4508c5b93aefc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889059"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739195"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Uso del paquete de interpretación para explicar los modelos de Machine Learning y las predicciones en Python (versión preliminar)
 
@@ -29,7 +29,9 @@ En este artículo, aprenderá a usar el paquete de interpretación del SDK de Az
 
 * Explicar el comportamiento completo del modelo y predicciones individuales en Azure.
 
-* Usar un panel de visualización para interactuar con las explicaciones del modelo.
+* Cargar las explicaciones en el historial de ejecución de Azure Machine Learning.
+
+* Usar un panel de visualización para interactuar con las explicaciones del modelo, tanto en un cuaderno de Jupyter Notebook como en Estudio de Azure Machine Learning.
 
 * Implementar un explicador de puntuaciones junto con el modelo para observar las explicaciones durante la inferencia.
 
@@ -298,14 +300,14 @@ En el ejemplo siguiente se muestra cómo usar la clase `ExplanationClient` para 
 Después de descargar las explicaciones en la instancia local de Jupyter Notebook, podrá usar las visualizaciones del panel de explicaciones para entender e interpretar el modelo. Para cargar el widget de panel de explicaciones en el cuaderno de Jupyter Notebook, use el siguiente código:
 
 ```python
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 Las visualizaciones admiten explicaciones tanto en características diseñadas como en características sin procesar. Las explicaciones sin procesar se basan en las características del conjunto de datos original y las explicaciones diseñadas se basan en las características del conjunto de datos una vez aplicada la ingeniería de características.
 
-Al intentar interpretar un modelo con relación al conjunto de datos original, se recomienda usar explicaciones sin procesar, ya que la importancia de cada característica se corresponderá con una columna del conjunto de datos original. Un escenario en el que las explicaciones diseñadas pueden ser útiles es al examinar el impacto de cada categoría de una característica categórica. Si se aplica la codificación de tipo "uno activo" a una característica categórica, las explicaciones resultantes que se diseñen incluirán un valor de importancia diferente para cada categoría, uno por cada característica diseñada con codificación de "uno activo". Esto puede ser útil para identificar qué parte del conjunto de datos es más informativa para el modelo.
+Al intentar interpretar un modelo con relación al conjunto de datos original, se recomienda usar explicaciones sin procesar, ya que la importancia de cada característica se corresponderá con una columna del conjunto de datos original. Un escenario en el que las explicaciones diseñadas pueden ser útiles es al examinar el impacto de cada categoría de una característica categórica. Si se aplica la codificación de tipo "uno activo" a una característica categórica, las explicaciones resultantes que se diseñen incluirán un valor de importancia diferente para cada categoría, uno por cada característica diseñada con codificación de "uno activo". Esta codificación puede ser útil para identificar qué parte del conjunto de datos es más informativa para el modelo.
 
 > [!NOTE]
 > Las explicaciones diseñadas y las explicaciones sin procesar se procesan de forma secuencial. En primer lugar, se crea una explicación diseñada basada en el modelo y en la canalización de ingeniería de características. A continuación, se crea la explicación sin procesar basada en esa explicación diseñada, agregando la importancia de las características diseñadas que procedían de la misma característica sin procesar.
@@ -564,7 +566,7 @@ Puede implementar el explicador junto con el modelo original y usarlo en el mome
 
 * **No se admiten datos dispersos**: el panel de explicación del modelo se bloquea o ralentiza mucho si hay un gran número de características, por lo que actualmente no se admite el formato de datos dispersos. Además, se producirán problemas de memoria generales cuando haya grandes conjuntos de datos y un gran número de características. 
 
-* **No se admiten los modelos de previsión con las explicaciones del modelo**: la interpretabilidad, la mejor explicación del modelo, no está disponible para los experimentos de previsión de AutoML, que recomiendan los algoritmos siguientes como el mejor modelo: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average y Seasonal Naive. La previsión de AutoML tiene modelos de regresión que admiten explicaciones. Sin embargo, en el panel de la explicación, no se admite la pestaña de "importancia de la característica individual" para la previsión debido a la complejidad de sus canalizaciones de datos.
+* **No se admiten los modelos de previsión con las explicaciones del modelo**: la interpretabilidad, la mejor explicación del modelo, no está disponible para los experimentos de previsión de AutoML, que recomiendan los algoritmos siguientes como el mejor modelo: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average y Seasonal Naive. Los modelos de regresión de previsión de AutoML admiten explicaciones. Sin embargo, en el panel de la explicación, no se admite la pestaña de "importancia de la característica individual" para la previsión debido a la complejidad de sus canalizaciones de datos.
 
 * **Explicación local del índice de datos**: el panel de explicación no permite relacionar los valores de importancia locales con un identificador de fila del conjunto de datos de validación original si ese conjunto de datos supera los 5000 puntos de datos, ya que el panel reduce aleatoriamente los datos. Sin embargo, en el panel se muestran los valores de las características de los conjuntos de datos sin procesar de cada punto de datos que se pasa al panel, en la pestaña de importancia de la característica individual. Para asignar las importancias locales de nuevo al conjunto de datos original, los usuarios pueden establecer la correspondencia con los valores de las características del conjunto de datos sin procesar. Si el tamaño del conjunto de datos de validación tiene menos de 5000 muestras, la característica `index` de Azure Machine Learning Studio se corresponderá con el índice del conjunto de datos de validación.
 

@@ -5,13 +5,13 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.openlocfilehash: c8d625095fc979151ed904fb355b5953e41309b4
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.date: 07/28/2021
+ms.openlocfilehash: 852bbd93fe7ac1524201db1f96a6a43c7ff60bdb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078713"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736474"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Introducción a la evaluación (migración a máquinas virtuales de Azure)
 
@@ -29,9 +29,10 @@ Una evaluación con la herramienta de Detección y evaluación mide el grado de 
 Existen tres tipos de evaluaciones que puede crear con Azure Migrate: Detección y evaluación.
 
 ***Tipo de evaluación** | **Detalles**
---- | --- 
+--- | ---
 **MV de Azure** | Evaluaciones para la migración de los servidores locales a máquinas virtuales de Azure. Con este tipo de evaluación, puede evaluar los servidores locales en los entornos de [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) y los [servidores físicos](how-to-set-up-appliance-physical.md) para la migración a máquinas virtuales de Azure.
 **SQL de Azure** | Evaluaciones para migrar las instancias locales de SQL Server desde su entorno de VMware a Azure SQL Database o a Azure SQL Managed Instance.
+**Azure App Service** | Evaluaciones para migrar aplicaciones web locales desde el entorno de VMware a Azure App Service.
 **Azure VMware Solution (AVS)** | Evaluaciones para la migración de los servidores locales a [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Puede evaluar las [máquinas virtuales de VMware](how-to-set-up-appliance-vmware.md) locales para la migración a Azure VMware Solution (AVS) con este tipo de evaluación. [Más información](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
@@ -41,7 +42,7 @@ Las evaluaciones que crea con Azure Migrate son una instantánea de los datos de
 
 **Tipo de evaluación** | **Detalles** | **Data**
 --- | --- | ---
-**Basada en el rendimiento** | Evaluaciones que realizan recomendaciones basadas en datos de rendimiento recopilados | La recomendación del tamaño de máquina virtual se basa en los datos de uso de CPU y memoria RAM.<br/><br/> La recomendación del tipo de disco se basa en las operaciones de entrada/salida por segundo (IOPS) y en el rendimiento de los discos locales. Los tipos de disco son Azure HDD estándar, Azure SSD estándar y Azure Premium.
+**Basada en el rendimiento** | Evaluaciones que realizan recomendaciones basadas en datos de rendimiento recopilados | La recomendación del tamaño de máquina virtual se basa en los datos de uso de CPU y memoria RAM.<br/><br/> La recomendación del tipo de disco se basa en las operaciones de entrada/salida por segundo (IOPS) y en el rendimiento de los discos locales. Los tipos de disco son HDD estándar de Azure, SSD estándar de Azure y discos Premium de Azure y discos Ultra de Azure.
 **Tal cual en el entorno local** | Evaluaciones que no usan los datos de rendimiento para hacer recomendaciones | La recomendación de tamaño de máquina virtual se basa en el tamaño del servidor local.<br/><br> El tipo de disco recomendado se basa en el tipo de almacenamiento para la evaluación.
 
 ## <a name="how-do-i-run-an-assessment"></a>¿Cómo se ejecuta una evaluación?
@@ -122,8 +123,8 @@ Esto es lo que se incluye en una evaluación de máquinas virtuales de Azure:
 **Propiedad** | **Detalles**
 --- | ---
 **Ubicación de destino** | La ubicación de Azure a la que quiere realizar la migración. La evaluación admite actualmente estas regiones de Azure de destino:<br/><br/> Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de la India, Centro de EE. UU., Este de China, Norte de China, Este de Asia, Este de EE. UU., Este de EE. UU. 2, Сentro de Alemania, Nordeste de Alemania, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro-oeste de EE. UU., Oeste de Europa, Oeste de la India, Oeste de EE. UU. y Oeste de EE. UU. 2.
-**Disco de almacenamiento de destino (tamaño tal cual)** | Tipo de disco que se va a usar para el almacenamiento en Azure. <br/><br/> Especifica el disco de almacenamiento de destino como administrado Premium, administrado SSD estándar o administrado HDD estándar.
-**Disco de almacenamiento de destino (tamaño basado en el rendimiento)** | Especifica el tipo de disco de almacenamiento de destino como automático, administrado Premium, administrado HDD estándar o administrado SSD estándar.<br/><br/> **Automático**: la recomendación de disco se basa en los datos de rendimiento de los discos, es decir, el número de IOPS y el rendimiento.<br/><br/>**Premium o Standard**:  La evaluación recomienda una SKU de disco dentro del tipo de almacenamiento seleccionado.<br/><br/> Si quiere un contrato de nivel de servicio (SLA) de máquina virtual de una sola instancia del 99,9 %, considere el uso de discos administrados Premium. Este uso garantiza que todos los discos de la evaluación se recomienden como discos administrados Premium.<br/><br/> Azure Migrate solo admite discos administrados para la evaluación de la migración.
+**Disco de almacenamiento de destino (tamaño tal cual)** | Tipo de disco que se va a usar para el almacenamiento en Azure. <br/><br/> Especifica el disco de almacenamiento de destino como administrado Premium, administrado SSD estándar, administrado HDD estándar o disco Ultra.
+**Disco de almacenamiento de destino (tamaño basado en el rendimiento)** | Especifica el tipo de disco de almacenamiento de destino como automático, administrado Premium, administrado HDD estándar, administrado SSD estándar o disco Ultra.<br/><br/> **Automático**: la recomendación de disco se basa en los datos de rendimiento de los discos, es decir, el número de IOPS y el rendimiento.<br/><br/>**Disco Premium, estándar o Ultra**: la evaluación recomienda una SKU de disco dentro del tipo de almacenamiento seleccionado.<br/><br/> Si quiere un contrato de nivel de servicio (SLA) de máquina virtual de una sola instancia del 99,9 %, considere el uso de discos administrados Premium. Este uso garantiza que todos los discos de la evaluación se recomienden como discos administrados Premium.<br/><br/> Si desea ejecutar cargas de trabajo con un uso intensivo de datos que necesitan un alto rendimiento, un consumo elevado de IOPS y un almacenamiento en disco coherente de baja latencia, considere la posibilidad de usar discos Ultra.<br/><br/> Azure Migrate solo admite discos administrados para la evaluación de la migración.
 **Azure Reserved VM Instances** | Especifica las [instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) para que se tengan en cuenta en los cálculos de los costos de la evaluación.<br/><br/> Al seleccionar ' instancias reservadas ', el ' descuento (%) ' y las propiedades de "tiempo de actividad de la máquina virtual" no son aplicables.<br/><br/> Azure Migrate admite actualmente Azure Reserved VM Instances solo en ofertas de pago por uso.
 **Criterio de tamaño** | Se usa para elegir el tamaño adecuado de la máquina virtual de Azure.<br/><br/> Use el tamaño tal cual o basado en el rendimiento.
 **Historial de rendimiento** | Se usa el ajuste de tamaño basado en el rendimiento. El historial de rendimiento especifica la duración que se usa cuando se evalúan los datos de rendimiento.
@@ -160,7 +161,7 @@ Propiedad | Detalles | Estado de la preparación para Azure
 **Tipo de arranque** | Azure admite máquinas virtuales con un tipo de arranque de BIOS, no UEFI. | Condicionalmente preparada si el tipo de arranque es UEFI.
 **Núcleos** | Cada servidor no debe tener más de 128 núcleos, que es el número máximo compatible que admite una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos usados se multiplica por este.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados para aplicar el factor de confort. | Preparada si el número de núcleos está dentro del límite.
 **RAM** | Cada servidor no debe tener más de 3892 GB de RAM, que es el tamaño máximo que admite una máquina virtual Standard_M128m de la serie M de Azure&nbsp;<sup>2</sup>. [Más información](../virtual-machines/sizes.md).<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta la RAM utilizada para la comparación. Si se especifica un factor de confort, la RAM utilizada se multiplica por este.<br/><br/> Si no hay ningún historial, la RAM asignada se utiliza para aplicar un factor de confort.<br/><br/> | Preparada si la cantidad de RAM está dentro del límite.
-**Disco de almacenamiento** | El tamaño asignado de un disco no debe ser superior a 32 TB. Aunque Azure admite discos de 64 TB con discos Azure SSD Ultra, la evaluación utiliza actualmente 32 TB como límite de tamaño del disco, ya que todavía no admite SSD Ultra. <br/><br/> El número de discos conectados al servidor debe ser 65 o menos, incluido el disco del sistema operativo. | Preparada si el tamaño y el número de los discos están dentro de los límites.
+**Disco de almacenamiento** | El tamaño asignado de un disco no debe ser superior a 64 TB.<br/><br/> El número de discos conectados al servidor debe ser 65 o menos, incluido el disco del sistema operativo. | Preparada si el tamaño y el número de los discos están dentro de los límites.
 **Redes** | Un servidor no debe tener más de 32 interfaces de red (NIC) conectadas. | Preparada si el número de NIC está dentro del límite.
 
 ### <a name="guest-operating-system"></a>Sistema operativo invitado
@@ -199,7 +200,7 @@ Una vez que el servidor se marca como preparada para Azure, la evaluación reali
  Si usa el ajuste de tamaño local tal cual, la evaluación no tiene en cuenta el historial de rendimiento de las máquinas virtuales ni los discos en la valoración de máquinas virtuales de Azure.
 
 - **Ajuste de tamaño de proceso**: la evaluación asigna una SKU de máquina virtual de Azure en función del tamaño asignado en el entorno local.
-- **Tamaño de almacenamiento y disco**: la evaluación examina el tipo de almacenamiento especificado en las propiedades de evaluación y recomienda el tipo de disco adecuado. Los posibles tipos de almacenamiento son HDD estándar, SSD estándar y Premium. El tipo de almacenamiento predeterminado es Premium.
+- **Tamaño de almacenamiento y disco**: la evaluación examina el tipo de almacenamiento especificado en las propiedades de evaluación y recomienda el tipo de disco adecuado. Los posibles tipos de almacenamiento son HDD estándar, SSD estándar, Premium y disco Ultra. El tipo de almacenamiento predeterminado es Premium.
 - **Ajuste de tamaño de red**: la evaluación considera el adaptador de red en el servidor local.
 
 ### <a name="calculate-sizing-performance-based"></a>Cálculo del ajuste de tamaño (basado en el rendimiento)
@@ -216,12 +217,27 @@ Para determinar el dimensionamiento del almacenamiento en una valoración de má
 
 1. La evaluación suma los valores de IOPS de lectura y escritura de un disco para obtener el valor total de IOPS necesario. Del mismo modo, suma los valores de rendimiento de lectura y escritura para obtener el rendimiento total de cada disco. En el caso de las evaluaciones basadas en la importación, tiene la opción de proporcionar el número total de IOPS, el rendimiento total y el número total. de discos en el archivo importado sin especificar la configuración de disco individual. Si lo hace, se omite el tamaño de cada disco y los datos proporcionados se usan directamente para calcular el tamaño y seleccionar una SKU de máquina virtual adecuada.
 
-1. Si ha especificado el tipo de almacenamiento como automático, el tipo seleccionado se basa en los valores efectivos de IOPS y rendimiento. La evaluación determina si se debe asignar el disco a un disco HDD estándar, SSD estándar o Premium de Azure. Si el tipo de almacenamiento se establece en uno de esos tipos de disco, la evaluación intenta encontrar una SKU de disco en el tipo de almacenamiento seleccionado.
+1. Si ha especificado el tipo de almacenamiento como automático, el tipo seleccionado se basa en los valores efectivos de IOPS y rendimiento. La evaluación determina si se debe asignar el disco a un disco HDD estándar, SSD estándar, Premium o Ultra de Azure. Si el tipo de almacenamiento se establece en uno de esos tipos de disco, la evaluación intenta encontrar una SKU de disco en el tipo de almacenamiento seleccionado.
 1. Los discos se seleccionan de la siguiente manera:
     - Si la evaluación no puede encontrar un disco con los valores de rendimiento e IOPS necesarios, marca el servidor como no adecuado para Azure.
     - Si la evaluación encuentra un conjunto de discos adecuados, selecciona aquellos que admiten la ubicación especificada en la configuración de evaluación.
     - Si hay varios discos coincidentes, la evaluación selecciona el disco con el costo más bajo.
     - Si no están disponibles los datos de rendimiento de ningún disco, se usa el tamaño de disco de la configuración para buscar un disco SSD estándar en Azure.
+
+##### <a name="ultra-disk-sizing"></a>Dimensionamiento de discos Ultra
+
+En el caso de los discos Ultra, hay un intervalo de IOPS y rendimiento que se permite para un tamaño de disco determinado y, por tanto, la lógica usada en el dimensionamiento es diferente a la de los discos estándar y Premium:
+1. Se calculan tres tamaños de disco Ultra: 
+    - Se encuentra un disco (disco 1) que puede satisfacer el requisito de tamaño de disco.
+    - Se encuentra un disco (disco 2) que puede satisfacer el requisito de IOPS total.
+        - IOPS que se aprovisionarán = (rendimiento del disco de origen) *1024/256
+    - Se encuentra un disco (disco 3) que puede satisfacer el requisito de rendimiento total.
+1. De los tres discos, se encuentra uno con el tamaño de disco máximo y se redondea a la siguiente [oferta de disco Ultra](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-size) disponible. Este es el tamaño de disco Ultra aprovisionado.
+1. Las IOPS aprovisionadas se calculan con la siguiente lógica:
+    - Si el rendimiento de origen detectado está en el intervalo permitido para el tamaño de disco Ultra, las IOPS aprovisionadas son iguales a las IOPS del disco de origen.
+    - De lo contrario, las IOPS aprovisionadas se calculan con las IOPS que se aprovisionarán = (rendimiento del disco de origen) *1024/256
+1. El intervalo de rendimiento aprovisionado depende de las IOPS aprovisionadas.
+
 
 #### <a name="calculate-network-sizing"></a>Cálculo del ajuste de tamaño de red
 
@@ -288,21 +304,36 @@ Estos son algunos de los motivos por los que una evaluación puede obtener una c
 
 Una vez completadas las recomendaciones de dimensionamiento, una valoración de máquinas virtuales de Azure en Azure Migrate calcula los costos de almacenamiento y proceso para después de la migración.
 
-- **Costo de proceso**: Azure Migrate usa el tamaño recomendado de máquina virtual de Azure y Azure Billing API para calcular el costo mensual del servidor.
+### <a name="compute-cost"></a>Costo del proceso
+Azure Migrate usa el tamaño recomendado de máquina virtual de Azure y Azure Billing API para calcular el costo mensual del servidor.
 
-    En el cálculo se tiene en cuenta lo siguiente:
-    - Sistema operativo
-    - Software Assurance
-    - Instancias reservadas
-    - Tiempo de actividad de VM
-    - Location
-    - Configuración de moneda
+En el cálculo se tiene en cuenta lo siguiente:
+- Sistema operativo
+- Software Assurance
+- Instancias reservadas
+- Tiempo de actividad de VM
+- Location
+- Configuración de moneda
 
-    Para calcular el costo de proceso mensual total, la evaluación suma el costo de todos los servidores.
+Para calcular el costo de proceso mensual total, la evaluación suma el costo de todos los servidores.
 
-- **Costo de almacenamiento**: el costo de almacenamiento mensual de un servidor se calcula sumando el costo mensual de todos los discos conectados al servidor.
+### <a name="storage-cost"></a>Coste del almacenamiento
+El costo de almacenamiento mensual de un servidor se calcula sumando el costo mensual de todos los discos conectados al servidor.
 
-    La evaluación calcula los costos de almacenamiento mensuales totales sumando los costos de almacenamiento de todos los servidores. Actualmente, el cálculo no tiene en cuenta las ofertas especificadas en la configuración de evaluación.
+#### <a name="standard-and-premium-disk"></a>Discos Estándar y Premium
+El costo de los discos Estándar o Premium se calcula en función del tamaño de disco seleccionado o recomendado. 
+
+#### <a name="ultra-disk"></a>Disco Ultra 
+
+El costo del disco Ultra se calcula en función del tamaño aprovisionado, las IOPS aprovisionadas y el rendimiento aprovisionado. [Más información](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+El costo se calcula mediante la lógica siguiente: 
+- El costo del tamaño del disco se calcula multiplicando el tamaño de disco aprovisionado por el precio por hora de la capacidad del disco.
+- El costo de las IOPS aprovisionadas se calcula multiplicando las IOPS aprovisionadas por el precio de IOPS aprovisionadas por hora.
+- El costo del rendimiento aprovisionado se calcula multiplicando el rendimiento aprovisionado por el precio del rendimiento aprovisionado por hora.
+- El precio de reserva de máquinas virtuales de discos Ultra no se agrega al costo total. [Más información](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+La evaluación calcula los costos de almacenamiento mensuales totales sumando los costos de almacenamiento de todos los servidores. Actualmente, el cálculo no tiene en cuenta las ofertas especificadas en la configuración de evaluación.
 
 Los costos se muestran en la moneda especificada en la configuración de evaluación.
 

@@ -1,17 +1,17 @@
 ---
 title: Configuración de un dispositivo de Azure Migrate para servidores físicos
 description: Aprenda a configurar un dispositivo de Azure Migrate para la detección y evaluación del servidor físico.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 2c185fc20c68dab549461f64d9ff8f0540a2b06a
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 7dd11143e3852d17787de5e20ebe53290f5af96f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753104"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731186"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configuración de un dispositivo para servidores físicos
 
@@ -29,11 +29,11 @@ El dispositivo de Azure Migrate es un dispositivo ligero que Azure Migrate: Dete
 
 Para configurar el dispositivo:
 
-- Proporcione un nombre de dispositivo y genere una clave de proyecto en el portal.
-- Descargue un archivo comprimido con el script del instalador de Azure Migrate desde Azure Portal.
-- Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
-- Ejecute el script de PowerShell para iniciar la aplicación web del dispositivo.
-- Configure el dispositivo por primera vez y regístrelo en el proyecto mediante la clave del proyecto.
+1. Proporcione un nombre de dispositivo y genere una clave de proyecto en el portal.
+2. Descargue un archivo comprimido con el script del instalador de Azure Migrate desde Azure Portal.
+3. Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
+4. Ejecute el script de PowerShell para iniciar el administrador de configuración del dispositivo.
+5. Configure el dispositivo por primera vez y regístrelo en el proyecto mediante la clave del proyecto.
 
 ### <a name="generate-the-project-key"></a>Generación de la clave de proyecto
 
@@ -44,57 +44,57 @@ Para configurar el dispositivo:
 1. Después de la creación correcta de los recursos de Azure, se genera una **clave de proyecto**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
+   ![Selecciones para Generar clave](./media/tutorial-assess-physical/generate-key-physical-1.png)
+
 ### <a name="download-the-installer-script"></a>Descarga del script del instalador
 
 En **2: Descargar el dispositivo de Azure Migrate**, haga clic en **Descargar**.
-
-   ![Selecciones para Detectar máquinas](./media/tutorial-assess-physical/servers-discover.png)
-
-
-   ![Selecciones para Generar clave](./media/tutorial-assess-physical/generate-key-physical.png)
 
 ### <a name="verify-security"></a>Comprobación de la seguridad
 
 Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
-1. En los servidores en los que descargó el archivo, abra una ventana de comandos de administrador.
+1. En el servidor en el que descargó el archivo, abra una ventana de comandos de administrador.
 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Ejemplo de uso para la nube pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Ejemplo de uso para la nube gubernamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Compruebe la versión más reciente del dispositivo y la [configuración](tutorial-discover-physical.md#verify-security) de los valores hash.
- 
+    - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+3.  Compruebe la versión más reciente del dispositivo y el valor hash:
 
-## <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
-El script del instalador hace lo siguiente:
+    **Descargar** | **Valor del código hash**
+    --- | ---
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
 
-- Instala los agentes y una aplicación web para la detección y evaluación de los servidores físicos.
-- Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS.
-- Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
-- Crea los siguientes archivos en la ruta de acceso:
-    - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
-    - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
+> [!NOTE]
+> Se puede usar el mismo script para configurar el dispositivo físico para la nube pública de Azure o la nube de Azure Government.
 
-Ejecute el script como se indica a continuación:
+### <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
 
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    - Para la nube pública: 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - Para Azure Government: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    El script iniciará la aplicación web del dispositivo cuando finalice correctamente.
+5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo y evalúa **servidores físicos** _(o servidores que se ejecutan en otras nubes, como AWS, GCP, Xen, etc.)_ en un proyecto de Azure Migrate con la **conectividad predeterminada _(punto de conexión público)_** en la **nube pública de Azure**.
 
-En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlo.
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-1.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo con la configuración deseada":::.
 
+6. El script del instalador hace lo siguiente:
 
+    - Instala agentes y una aplicación web.
+    - Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
+    - Descarga e instala un módulo de reescritura de IIS.
+    - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
+    - Crea los siguientes archivos en la ruta de acceso:
+        - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
+        - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
+
+Una vez que el script se haya ejecutado correctamente, el administrador de configuración del dispositivo se iniciará automáticamente.
+
+> [!NOTE]
+> En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlo.
 
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 8fcda77858b3feb78a04971a7ad1f20c0ea51fa1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18c396d753b1320cdfc3e67e6949d6feb2612074
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019999"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737447"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Patrones de consulta comunes en Azure Stream Analytics
 
@@ -37,27 +37,27 @@ Se pueden usar varias instrucciones **SELECT** para generar datos en distintos r
 
 | Asegúrese | Time |
 | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |
-| Make1 |2015-01-01T00:00:02.0000000Z |
-| Make2 |2015-01-01T00:00:01.0000000Z |
-| Make2 |2015-01-01T00:00:02.0000000Z |
-| Make2 |2015-01-01T00:00:03.0000000Z |
+| Make1 |2015-01-01T00:00:01Z |
+| Make1 |2015-01-01T00:00:02Z |
+| Make2 |2015-01-01T00:00:01Z |
+| Make2 |2015-01-01T00:00:02Z |
+| Make2 |2015-01-01T00:00:03Z |
 
 **Salida ArchiveOutput**:
 
 | Asegúrese | Time |
 | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |
-| Make1 |2015-01-01T00:00:02.0000000Z |
-| Make2 |2015-01-01T00:00:01.0000000Z |
-| Make2 |2015-01-01T00:00:02.0000000Z |
-| Make2 |2015-01-01T00:00:03.0000000Z |
+| Make1 |2015-01-01T00:00:01Z |
+| Make1 |2015-01-01T00:00:02Z |
+| Make2 |2015-01-01T00:00:01Z |
+| Make2 |2015-01-01T00:00:02Z |
+| Make2 |2015-01-01T00:00:03Z |
 
 **Salida AlertOutput**:
 
 | Asegúrese | Time | Count |
 | --- | --- | --- |
-| Make2 |2015-01-01T00:00:10.0000000Z |3 |
+| Make2 |2015-01-01T00:00:10Z |3 |
 
 **Consultar**
 
@@ -122,15 +122,15 @@ Se puede usar una consulta de paso a través simple para copiar los datos del fl
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |"1000" |
-| Make1 |2015-01-01T00:00:02.0000000Z |"2000" |
+| Make1 |2015-01-01T00:00:01Z |"1000" |
+| Make1 |2015-01-01T00:00:02Z |"2000" |
 
 **Salida**:
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |"1000" |
-| Make1 |2015-01-01T00:00:02.0000000Z |"2000" |
+| Make1 |2015-01-01T00:00:01Z |"1000" |
+| Make1 |2015-01-01T00:00:02Z |"2000" |
 
 **Consultar**
 
@@ -147,17 +147,17 @@ Una consulta **SELECT** * proyecta todos los campos de un evento entrante y los 
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |1000 |
-| Make1 |2015-01-01T00:00:02.0000000Z |2000 |
-| Make2 |2015-01-01T00:00:04.0000000Z |1.500 |
+| Make1 |2015-01-01T00:00:01Z |1000 |
+| Make1 |2015-01-01T00:00:02Z |2000 |
+| Make2 |2015-01-01T00:00:04Z |1.500 |
 
 **Salida**:
 
 | Asegúrese | Time |
 | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |
-| Make1 |2015-01-01T00:00:02.0000000Z |
-| Make2 |2015-01-01T00:00:04.0000000Z |
+| Make1 |2015-01-01T00:00:01Z |
+| Make1 |2015-01-01T00:00:02Z |
+| Make2 |2015-01-01T00:00:04Z |
 
 **Consultar**
 
@@ -176,16 +176,16 @@ FROM Input
 
 | Asegúrese | License_plate | Time |
 | --- | --- | --- |
-| Make1 |ABC-123 |2015-01-01T00:00:01.0000000Z |
-| Make2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Make3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
+| Make1 |ABC-123 |2015-01-01T00:00:01Z |
+| Make2 |AAA-999 |2015-01-01T00:00:02Z |
+| Make3 |ABC-369 |2015-01-01T00:00:03Z |
 
 **Salida**:
 
 | Asegúrese | License_plate | Time |
 | --- | --- | --- |
-| Make2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Make3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
+| Make2 |AAA-999 |2015-01-01T00:00:02Z |
+| Make3 |ABC-369 |2015-01-01T00:00:03Z |
 
 **Consultar**
 
@@ -208,14 +208,14 @@ La función **LAG** se puede usar para ver los eventos pasados dentro de una ven
 
 | Asegúrese | Time |
 | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |
-| Make2 |2015-01-01T00:00:02.0000000Z |
+| Make1 |2015-01-01T00:00:01Z |
+| Make2 |2015-01-01T00:00:02Z |
 
 **Salida**:
 
 | Asegúrese | Time |
 | --- | --- |
-| Make2 |2015-01-01T00:00:02.0000000Z |
+| Make2 |2015-01-01T00:00:02Z |
 
 **Consultar**
 
@@ -241,20 +241,20 @@ Dado que el sistema consume los eventos en tiempo real, no hay ninguna función 
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000Z |
-| RMV 8282 |Make1 |2015-07-27T00:05:01.0000000Z |
-| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000Z |
-| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000Z |
-| QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
-| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17Z |
+| RMV 8282 |Make1 |2015-07-27T00:05:01Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00Z |
+| VFE 1616 |Make2 |2015-07-27T00:09:31Z |
+| QYF 9358 |Make1 |2015-07-27T00:12:02Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45Z |
 
 **Salida**:
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
-| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000Z |
-| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
+| VFE 1616 |Make2 |2015-07-27T00:09:31Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45Z |
 
 **Consultar**
 
@@ -294,9 +294,9 @@ Para procesar información en un período de tiempo, los datos se pueden agregar
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |1000 |
-| Make1 |2015-01-01T00:00:02.0000000Z |2000 |
-| Make2 |2015-01-01T00:00:04.0000000Z |1.500 |
+| Make1 |2015-01-01T00:00:01Z |1000 |
+| Make1 |2015-01-01T00:00:02Z |2000 |
+| Make2 |2015-01-01T00:00:04Z |1.500 |
 
 **Salida**:
 
@@ -343,16 +343,16 @@ En caso de eventos irregulares o ausentes, se puede generar una salida de interv
 
 | Window_end | Last_event.Time | Last_event.Value |
 | --- | --- | --- |
-| 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
-| 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
-| 2014-01-01T14:01:10.000Z |2014-01-01T14:01:10.000Z |3 |
-| 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
-| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:00Z |2014-01-01T14:01:00Z |1 |
+| 2014-01-01T14:01:05Z |2014-01-01T14:01:05Z |2 |
+| 2014-01-01T14:01:10Z |2014-01-01T14:01:10Z |3 |
+| 2014-01-01T14:01:15Z |2014-01-01T14:01:15Z |4 |
+| 2014-01-01T14:01:20Z |2014-01-01T14:01:15Z |4 |
+| 2014-01-01T14:01:25Z |2014-01-01T14:01:15Z |4 |
+| 2014-01-01T14:01:30Z |2014-01-01T14:01:30Z |5 |
+| 2014-01-01T14:01:35Z |2014-01-01T14:01:35Z |6 |
+| 2014-01-01T14:01:40Z |2014-01-01T14:01:35Z |6 |
+| 2014-01-01T14:01:45Z |2014-01-01T14:01:35Z |6 |
 
 **Consultar**
 
@@ -378,16 +378,16 @@ La correlación de eventos en el mismo flujo se puede realizar observando los ev
 
 | Asegúrese | License_plate | Time |
 | --- | --- | --- |
-| Make1 |ABC-123 |2015-01-01T00:00:01.0000000Z |
-| Make1 |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Make2 |DEF-987 |2015-01-01T00:00:03.0000000Z |
-| Make1 |GHI-345 |2015-01-01T00:00:04.0000000Z |
+| Make1 |ABC-123 |2015-01-01T00:00:01Z |
+| Make1 |AAA-999 |2015-01-01T00:00:02Z |
+| Make2 |DEF-987 |2015-01-01T00:00:03Z |
+| Make1 |GHI-345 |2015-01-01T00:00:04Z |
 
 **Salida**:
 
 | Asegúrese | Time | Current_car_license_plate | First_car_license_plate | First_car_time |
 | --- | --- | --- | --- | --- |
-| Make1 |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
+| Make1 |2015-01-01T00:00:02Z |AAA-999 |ABC-123 |2015-01-01T00:00:01Z |
 
 **Consultar**
 
@@ -416,8 +416,8 @@ La duración de un evento se puede calcular examinando el último evento Start u
 
 | Usuario | Característica | Evento | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Start |2015-01-01T00:00:01Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08Z |
 
 **Salida**:  
 
@@ -450,18 +450,18 @@ La función **LAST** se puede usar para recuperar el último evento dentro de un
 
 | Asegúrese | Time |
 | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |
-| Make1 |2015-01-01T00:00:02.0000000Z |
-| Make2 |2015-01-01T00:00:01.0000000Z |
-| Make2 |2015-01-01T00:00:02.0000000Z |
-| Make2 |2015-01-01T00:00:03.0000000Z |
+| Make1 |2015-01-01T00:00:01Z |
+| Make1 |2015-01-01T00:00:02Z |
+| Make2 |2015-01-01T00:00:01Z |
+| Make2 |2015-01-01T00:00:02Z |
+| Make2 |2015-01-01T00:00:03Z |
 
 **Salida:**
 
 | Count_make | Time |
 | --- | --- |
-| 2 |2015-01-01T00:00:02.000Z |
-| 1 |2015-01-01T00:00:04.000Z |
+| 2 |2015-01-01T00:00:02Z |
+| 1 |2015-01-01T00:00:04Z |
 
 **Consulta:**
 
@@ -485,20 +485,20 @@ Se puede usar **IsFirst** para recuperar el primer evento en una ventana de tiem
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000Z |
-| RMV 8282 |Make1 |2015-07-27T00:05:01.0000000Z |
-| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000Z |
-| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000Z |
-| QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
-| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17Z |
+| RMV 8282 |Make1 |2015-07-27T00:05:01Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00Z |
+| VFE 1616 |Make2 |2015-07-27T00:09:31Z |
+| QYF 9358 |Make1 |2015-07-27T00:12:02Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45Z |
 
 **Salida**:
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000Z |
-| QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05Z |
+| QYF 9358 |Make1 |2015-07-27T00:12:02Z |
 
 **Consultar**
 
@@ -519,11 +519,11 @@ Además, **IsFirst** puede particionar los datos y calcular el primer evento par
 
 | License_plate | Asegúrese | Time |
 | --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000Z |
-| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000Z |
-| QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
-| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00Z |
+| QYF 9358 |Make1 |2015-07-27T00:12:02Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45Z |
 
 **Consultar**
 
@@ -546,14 +546,14 @@ Al realizar una operación, como calcular promedios de eventos en un período de
 
 **Entrada**:  
 
-| deviceId | Time | Atributo | Value |
+| deviceId | Time | Atributo | Valor |
 | --- | --- | --- | --- |
-| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
-| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
-| 2 |2018-07-27T00:00:01.0000000Z |Temperatura |40 |
-| 1 |2018-07-27T00:00:05.0000000Z |Temperatura |60 |
-| 2 |2018-07-27T00:00:05.0000000Z |Temperatura |50 |
-| 1 |2018-07-27T00:00:10.0000000Z |Temperatura |100 |
+| 1 |2018-07-27T00:00:01Z |Temperatura |50 |
+| 1 |2018-07-27T00:00:01Z |Temperatura |50 |
+| 2 |2018-07-27T00:00:01Z |Temperatura |40 |
+| 1 |2018-07-27T00:00:05Z |Temperatura |60 |
+| 2 |2018-07-27T00:00:05Z |Temperatura |50 |
+| 1 |2018-07-27T00:00:10Z |Temperatura |100 |
 
 **Salida**:  
 
@@ -597,16 +597,16 @@ Las instrucciones **CASE** pueden proporcionar diferentes cálculos para distint
 
 | Asegúrese | Time |
 | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |
-| Make2 |2015-01-01T00:00:02.0000000Z |
-| Make2 |2015-01-01T00:00:03.0000000Z |
+| Make1 |2015-01-01T00:00:01Z |
+| Make2 |2015-01-01T00:00:02Z |
+| Make2 |2015-01-01T00:00:03Z |
 
 **Salida**:
 
 | Asegúrese |Dispatch_to_lane | Time |
 | --- | --- | --- |
-| Make1 |"A" |2015-01-01T00:00:01.0000000Z |
-| Make2 |"B" |2015-01-01T00:00:02.0000000Z |
+| Make1 |"A" |2015-01-01T00:00:01Z |
+| Make2 |"B" |2015-01-01T00:00:02Z |
 
 **Solución**:
 
@@ -634,8 +634,8 @@ Los datos se pueden convertir en tiempo real mediante el método **CAST**. Por e
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |"1000" |
-| Make1 |2015-01-01T00:00:02.0000000Z |"2000" |
+| Make1 |2015-01-01T00:00:01Z |"1000" |
+| Make1 |2015-01-01T00:00:02Z |"2000" |
 
 **Salida**:
 
@@ -668,20 +668,20 @@ En el caso de las condiciones que abarcan varios eventos, se puede usar la funci
 
 | Asegúrese | Time | Peso |
 | --- | --- | --- |
-| Make1 |2015-01-01T00:00:01.0000000Z |2000 |
-| Make2 |2015-01-01T00:00:02.0000000Z |25000 |
-| Make1 |2015-01-01T00:00:03.0000000Z |26000 |
-| Make2 |2015-01-01T00:00:04.0000000Z |25000 |
-| Make1 |2015-01-01T00:00:05.0000000Z |26000 |
-| Make2 |2015-01-01T00:00:06.0000000Z |25000 |
-| Make1 |2015-01-01T00:00:07.0000000Z |26000 |
-| Make2 |2015-01-01T00:00:08.0000000Z |2000 |
+| Make1 |2015-01-01T00:00:01Z |2000 |
+| Make2 |2015-01-01T00:00:02Z |25000 |
+| Make1 |2015-01-01T00:00:03Z |26000 |
+| Make2 |2015-01-01T00:00:04Z |25000 |
+| Make1 |2015-01-01T00:00:05Z |26000 |
+| Make2 |2015-01-01T00:00:06Z |25000 |
+| Make1 |2015-01-01T00:00:07Z |26000 |
+| Make2 |2015-01-01T00:00:08Z |2000 |
 
 **Salida**:
 
 | Start_fault | End_fault |
 | --- | --- |
-| 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
+| 2015-01-01T00:00:02Z |2015-01-01T00:00:07Z |
 
 **Consultar**
 
@@ -716,14 +716,14 @@ Por ejemplo, el reloj del dispositivo para *TollID* 2 va cinco segundos atrasado
 
 | LicensePlate | Asegúrese | Time | TollId |
 | --- | --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:00:01.0000000Z | 1 |
-| YHN 6970 |Make2 |2015-07-27T00:00:05.0000000Z | 1 |
-| QYF 9358 |Make1 |2015-07-27T00:00:01.0000000Z | 2 |
-| GXF 9462 |Make3 |2015-07-27T00:00:04.0000000Z | 2 |
-| VFE 1616 |Make2 |2015-07-27T00:00:10.0000000Z | 1 |
-| RMV 8282 |Make1 |2015-07-27T00:00:03.0000000Z | 3 |
-| MDR 6128 |Make3 |2015-07-27T00:00:11.0000000Z | 2 |
-| YZK 5704 |Make4 |2015-07-27T00:00:07.0000000Z | 3 |
+| DXE 5291 |Make1 |2015-07-27T00:00:01Z | 1 |
+| YHN 6970 |Make2 |2015-07-27T00:00:05Z | 1 |
+| QYF 9358 |Make1 |2015-07-27T00:00:01Z | 2 |
+| GXF 9462 |Make3 |2015-07-27T00:00:04Z | 2 |
+| VFE 1616 |Make2 |2015-07-27T00:00:10Z | 1 |
+| RMV 8282 |Make1 |2015-07-27T00:00:03Z | 3 |
+| MDR 6128 |Make3 |2015-07-27T00:00:11Z | 2 |
+| YZK 5704 |Make4 |2015-07-27T00:00:07Z | 3 |
 
 **Salida**:
 
@@ -761,18 +761,18 @@ Por ejemplo, un usuario interactúa con una página web donde se registra el nú
 
 | User_id | Time | URL |
 | --- | --- | --- |
-| 0 | 2017-01-26T00:00:00.0000000Z | "www.ejemplo.com/a.html" |
-| 0 | 2017-01-26T00:00:20.0000000Z | "www.ejemplo.com/b.html" |
-| 1 | 2017-01-26T00:00:55.0000000Z | "www.ejemplo.com/c.html" |
-| 0 | 2017-01-26T00:01:10.0000000Z | "www.ejemplo.com/d.html" |
-| 1 | 2017-01-26T00:01:15.0000000Z | "www.ejemplo.com/e.html" |
+| 0 | 2017-01-26T00:00:00Z | "www.ejemplo.com/a.html" |
+| 0 | 2017-01-26T00:00:20Z | "www.ejemplo.com/b.html" |
+| 1 | 2017-01-26T00:00:55Z | "www.ejemplo.com/c.html" |
+| 0 | 2017-01-26T00:01:10Z | "www.ejemplo.com/d.html" |
+| 1 | 2017-01-26T00:01:15Z | "www.ejemplo.com/e.html" |
 
 **Salida**:
 
 | User_id | StartTime | EndTime | Duration_in_seconds |
 | --- | --- | --- | --- |
-| 0 | 2017-01-26T00:00:00.0000000Z | 2017-01-26T00:01:10.0000000Z | 70 |
-| 1 | 2017-01-26T00:00:55.0000000Z | 2017-01-26T00:01:15.0000000Z | 20 |
+| 0 | 2017-01-26T00:00:00Z | 2017-01-26T00:01:10Z | 70 |
+| 1 | 2017-01-26T00:00:55Z | 2017-01-26T00:01:15Z | 20 |
 
 **Consultar**
 
@@ -847,18 +847,18 @@ Por ejemplo, se supervisa un cajero automático en tiempo real en busca de error
 
 | ATM_id | Operation_id | Return_Code | Time |
 | --- | --- | --- | --- |
-| 1 | "Introducción de PIN" | "Success" | 2017-01-26T00:10:00.0000000Z |
-| 2 | "Apertura del dispensador de dinero" | "Success" | 2017-01-26T00:10:07.0000000Z |
-| 2 | "Cierre del dispensador de dinero" | "Success" | 2017-01-26T00:10:11.0000000Z |
-| 1 | "Introducción de la cantidad del retiro" | "Success" | 2017-01-26T00:10:08.0000000Z |
-| 1 | "Apertura del dispensador de dinero" | "Warning" | 2017-01-26T00:10:14.0000000Z |
-| 1 | "Impresión del saldo bancario" | "Warning" | 2017-01-26T00:10:19.0000000Z |
+| 1 | "Introducción de PIN" | "Success" | 2017-01-26T00:10:00Z |
+| 2 | "Apertura del dispensador de dinero" | "Success" | 2017-01-26T00:10:07Z |
+| 2 | "Cierre del dispensador de dinero" | "Success" | 2017-01-26T00:10:11Z |
+| 1 | "Introducción de la cantidad del retiro" | "Success" | 2017-01-26T00:10:08Z |
+| 1 | "Apertura del dispensador de dinero" | "Warning" | 2017-01-26T00:10:14Z |
+| 1 | "Impresión del saldo bancario" | "Warning" | 2017-01-26T00:10:19Z |
 
 **Salida**:
 
 | ATM_id | First_Warning_Operation_id | Warning_Time |
 | --- | --- | --- |
-| 1 | "Apertura del dispensador de dinero" | 2017-01-26T00:10:14.0000000Z |
+| 1 | "Apertura del dispensador de dinero" | 2017-01-26T00:10:14Z |
 
 ```SQL
 SELECT *
@@ -871,16 +871,16 @@ MATCH_RECOGNIZE (
         First(Warning.Operation_Id) AS First_Warning_Operation_id,
         First(Warning.Time) AS Warning_Time
     AFTER MATCH SKIP TO NEXT ROW
-    PATTERN (Success* Warning{2,})
+    PATTERN (Success+ Warning{2,})
     DEFINE
         Success AS Succes.Return_Code = 'Success',
-        Failure AS Warning.Return_Code <> 'Success'
+        Warning AS Warning.Return_Code <> 'Success'
 ) AS patternMatch
 ```
 
 Esta consulta coincide al menos con dos eventos de error consecutivos y genera una alarma cuando se cumplen las condiciones.
-**PATTERN** define la expresión regular que se utilizará en la búsqueda de coincidencias, en este caso, cualquier número de operaciones correctas seguidas de al menos dos errores consecutivos.
-Success y Failure se definen mediante el valor Return_Code y, una vez que se cumple la condición, **MEASURES** se proyectan con *ATM_id*, la primera operación de advertencia y la primera hora de advertencia.
+**PATTERN** define la expresión regular que se utilizará en la búsqueda de coincidencias, en este caso, al menos dos advertencias consecutivas después de una operación correcta como mínimo.
+Success y Warning se definen mediante el valor Return_Code y, una vez que se cumple la condición, **MEASURES** se proyectan con *ATM_id*, la primera operación de advertencia y la primera hora de advertencia.
 
 Para obtener más información, consulte [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
@@ -895,10 +895,10 @@ El fabricante quiere realizar un seguimiento de la ubicación de esas máquinas 
 
 | Equipment_id | Equipment_current_location | Time |
 | --- | --- | --- |
-| 1 | "POINT(-122.13288797982818 47.64082002051315)" | 2017-01-26T00:10:00.0000000Z |
-| 1 | "POINT(-122.13307252987875 47.64081350934929)" | 2017-01-26T00:11:00.0000000Z |
-| 1 | "POINT(-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00.0000000Z |
-| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
+| 1 | "POINT(-122.13288797982818 47.64082002051315)" | 2017-01-26T00:10:00Z |
+| 1 | "POINT(-122.13307252987875 47.64081350934929)" | 2017-01-26T00:11:00Z |
+| 1 | "POINT(-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00Z |
+| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00Z |
 
 **Entrada de datos de referencia**:
 
@@ -910,7 +910,7 @@ El fabricante quiere realizar un seguimiento de la ubicación de esas máquinas 
 
 | Equipment_id | Equipment_alert_location | Time |
 | --- | --- | --- |
-| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
+| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00Z |
 
 ```SQL
 SELECT

@@ -9,13 +9,13 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 01/19/2021
-ms.openlocfilehash: 0a95d95842d0b361a1a276566b01b7ea735c4670
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 07/22/2021
+ms.openlocfilehash: 890330700e21c34b1a3d9ae78068f577f5f64c6b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952087"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739167"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -26,9 +26,9 @@ Para obtener información sobre cómo crear y administrar archivos, incluidos lo
 > [!IMPORTANT]
 > Las características marcadas como (versión preliminar) se ofrecen sin Acuerdo de nivel de servicio y no se recomiendan para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="edit-a-notebook"></a>Edición de un cuaderno
@@ -72,6 +72,31 @@ Puede examinar y buscar en la lista de fragmentos de código mediante la barra d
 En el panel fragmentos de código, también puede enviar una solicitud para agregar nuevos fragmentos de código.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="El panel de fragmentos de código permite proponer un nuevo fragmento de código.":::
+
+## <a name="collaborate-with-notebook-comments-preview"></a>Colaboración con comentarios de cuadernos (versión preliminar)
+
+Use un comentario de cuaderno para colaborar con otros usuarios que tengan acceso al cuaderno.
+
+Active y desactive el panel de comentarios con la herramienta **Notebook comments** (Comentarios de cuaderno) en la parte superior del cuaderno.  Si la pantalla no es lo suficientemente ancha, busque esta herramienta seleccionando primero **...** al final del conjunto de herramientas.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/notebook-comments-tool.png" alt-text="Captura de pantalla de la herramienta de comentarios del cuaderno en la barra de herramientas superior.":::  
+
+Tanto si el panel de comentarios está visible como si no, puede agregar un comentario en cualquier celda de código:
+
+1. Seleccione texto en la celda de código.  Solo puede comentar texto en una celda de código.
+1. Use la herramienta **New comment thread** (Nuevo subproceso de comentario) para crear el comentario.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/comment-from-code.png" alt-text="Captura de pantalla de cómo agregar un comentario a una herramienta de celda de código":::.
+1. Si el panel de comentarios se ocultaba anteriormente, ahora se abrirá.  
+1. Escriba el comentario y publíquelo con la herramienta o use **Ctrl+ENTRAR**.
+1. Una vez publicado un comentario, seleccione **...** en la parte superior derecha para:
+    * Editar el comentario
+    * Resolver el subproceso
+    * Eliminar el subproceso
+
+El texto que se ha comentado aparecerá con un resaltado púrpura en el código. Al seleccionar un comentario en el panel de comentarios, el cuaderno se desplazará a la celda que contiene el texto resaltado.
+
+> [!NOTE]
+> Los comentarios se guardan en los metadatos de la celda de código.
 
 ## <a name="clean-your-notebook-preview"></a>Limpieza del cuaderno (versión preliminar)
 
@@ -288,9 +313,11 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 
 * Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la red permite conexiones de websocket a *.instances.azureml.net y *.instances.azureml.ms. 
 
-* Cuando la instancia de proceso se implementa en un área de trabajo de Private Link, solo se puede [acceder a ella desde la red virtual](./how-to-secure-training-vnet.md#compute-instance). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
+* Cuando la instancia de proceso se implementa en un área de trabajo con un punto de conexión privado, solo [se puede acceder a ella desde la red virtual](./how-to-secure-training-vnet.md#compute-instance). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
 
-* Si el kernel se bloquea y se reinicia, puede ejecutar el siguiente comando para ver el registro de Jupyter y obtener más detalles. `sudo journalctl -u jupyter`. Si los problemas del kernel persisten, considere la posibilidad de usar una instancia de proceso con más memoria.
+* Si el kernel se bloquea y se reinicia, puede ejecutar el siguiente comando para ver el registro de Jupyter y obtener más detalles: `sudo journalctl -u jupyter`. Si los problemas del kernel persisten, considere la posibilidad de usar una instancia de proceso con más memoria.
+
+* Si se encuentra con un problema de token expirado, salga de Estudio de Azure ML, vuelva a iniciar sesión y reinicie el kernel del cuaderno.
     
 ## <a name="next-steps"></a>Pasos siguientes
 

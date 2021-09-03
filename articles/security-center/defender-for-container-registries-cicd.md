@@ -7,12 +7,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6cfa74ea6b92597734158cb2de0bad24b0336b16
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: eb7309f067c350eac0d9455767b137377caf588b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890553"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736307"
 ---
 # <a name="identify-vulnerable-container-images-in-your-cicd-workflows"></a>Identificación de imágenes de contenedor vulnerables en los flujos de trabajo de CI/CD
 
@@ -33,7 +33,7 @@ Obtendrá información sobre la rastreabilidad como, por ejemplo, el flujo de tr
 |----|:----|
 |Estado de la versión:| **Esta integración de CI/CD está en versión preliminar.**<br>Se recomienda experimentar con él solo en flujos de trabajo que no sean de producción.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 |Precios:|**Azure Defender para registros de contenedor** se factura como se indica en la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -101,7 +101,7 @@ Para habilitar exámenes de vulnerabilidades de imágenes en los flujos de traba
 
 1. Para ver los resultados, vaya a la página **Recomendaciones**. Si se encontraron problemas, verá la recomendación **Las vulnerabilidades de las imágenes de Azure Container Registry deben corregirse**.
 
-    ![Recomendación para corregir problemas ](media/monitor-container-security/acr-finding.png)
+    ![Recomendación para corregir problemas](media/monitor-container-security/acr-finding.png)
 
 1. Seleccione la recomendación. 
 

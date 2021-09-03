@@ -3,12 +3,12 @@ title: Configuración de la integración de Prometheus de Container Insights | M
 description: En este artículo se describe cómo puede configurar el agente de Container Insights para extraer métricas de Prometheus con el clúster de Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 149cdc8613d5034989c7660608a29309353cdabe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 441b468f71f0d134a503418b3fde64b758a033a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109648"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738495"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Configuración de la extracción de métricas de Prometheus con Container Insights
 
@@ -57,7 +57,7 @@ Cuando se especifica una dirección URL, Container Insights solo extrae el punto
 | | `monitor_kubernetes_pods_namespaces` | String | Matriz separada por comas | Una lista de permitidos de espacios de nombres para extraer las métricas de los pods de Kubernetes.<br> Por ejemplo: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
 | En todo el nodo | `urls` | String | Matriz separada por comas | Punto de conexión HTTP (dirección IP o ruta de acceso de dirección URL válida especificada). Por ejemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP es un parámetro de Container Insights específico y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas). |
 | En todo el nodo o en todo el clúster | `interval` | String | 60 s | El valor predeterminado del intervalo de recopilación es de un minuto (60 segundos). Puede modificar la recopilación de *[prometheus_data_collection_settings. node]* y/o *[prometheus_data_collection_settings. cluster]* a unidades de tiempo como as s, m, h. |
-| En todo el nodo o en todo el clúster | `fieldpass`<br> `fielddrop`| String | Matriz separada por comas | Puede especificar determinadas métricas para que se recopilen o no desde el punto de conexión estableciendo la lista de permitir (`fieldpass`) y no permitir (`fielddrop`). Tiene que establecer primero la lista de permitir. |
+| En todo el nodo o en todo el clúster | `fieldpass`<br> `fielddrop`| String | Matriz separada por comas | Puede especificar determinadas métricas para que se recopilen o no desde el punto de conexión estableciendo la lista de permitir (`fieldpass`) y no permitir (`fielddrop`). Tiene que establecer primero la lista de permitidos. |
 
 ConfigMaps es una lista global y solo puede haber una instancia de ConfigMap aplicada al agente. No puede tener otra instancia de ConfigMaps que anule las colecciones.
 
@@ -326,7 +326,7 @@ Para Red Hat OpenShift en Azure v3.x, edite y guarde la versión actualizada de 
 
 ## <a name="query-prometheus-metrics-data"></a>Consulta de los datos de las métricas de Prometheus
 
-Para ver las métricas de Prometheus que ha extraído Azure Monitor y los errores de configuración o de recopilación que el agente ha comunicado, revise [Consultar datos de métricas de Prometheus](container-insights-log-search.md#query-prometheus-metrics-data) y [Consultar errores de configuración o de recopilación](container-insights-log-search.md#query-config-or-scraping-errors).
+Para ver las métricas de Prometheus que ha extraído Azure Monitor y los errores de configuración o de recopilación que el agente ha comunicado, revise [Consultar datos de métricas de Prometheus](container-insights-log-query.md#query-prometheus-metrics-data) y [Consultar errores de configuración o de recopilación](container-insights-log-query.md#query-config-or-scraping-errors).
 
 ## <a name="view-prometheus-metrics-in-grafana"></a>Ver métricas de Prometheus en Grafana
 

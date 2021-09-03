@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: a6fcb3b3fece367ab950426c29df2d1b39735957
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 0daf5cab1627819093514833667606758707f17a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228730"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728677"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Exploración y administración de los recursos con Asset Inventory
 
@@ -42,14 +42,14 @@ Las posibilidades de administración de recursos de esta herramienta son sustanc
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|Todos los usuarios|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 
 ## <a name="what-are-the-key-features-of-asset-inventory"></a>¿Cuáles son las características clave del inventario de recursos?
 La página de inventario proporciona las siguientes herramientas:
 
-:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Características principales de la página de inventario de activos en Azure Security Center" lightbox="media/asset-inventory/highlights-of-inventory.png":::
+:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Características principales de la página de inventario de recursos en Azure Security Center" lightbox="media/asset-inventory/highlights-of-inventory.png":::.
 
 
 ### <a name="1---summaries"></a>1: Resúmenes
@@ -116,18 +116,18 @@ Con el [lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/),
 
     - **Desactivado**: recursos que no están protegidos por un plan de Azure Defender. Puede hacer clic con el botón derecho en cualquiera de ellos y actualizarlos:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Actualización de un recurso a Azure Defender mediante un clic con el botón derecho" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Actualización de un recurso a Azure Defender mediante un clic con el botón derecho" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::.
 
     - **Activado**: recursos que están protegidos por un plan de Azure Defender.
     - **Parcial**: esto se aplica a **suscripciones** que tienen algunos planes de Azure Defender deshabilitados, pero no todos. Por ejemplo, la siguiente suscripción tiene cinco planes de Azure Defender deshabilitados. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Suscripción parcial en Azure Defender":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Suscripción parcial en Azure Defender":::.
 
 1. Para examinar más detalladamente los resultados de la consulta, seleccione los recursos que le interesen.
 
 1. Para ver las opciones de filtro seleccionadas actualmente en forma de consulta en Resource Graph Explorer, seleccione **Abrir consulta**.
 
-    ![Consulta de inventario en ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+    ![Consulta de inventario en ARG.](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
 1. Si ha definido algunos filtros y ha dejado la página abierta, Security Center no actualizará los resultados de forma automática. Cualquier cambio en los recursos no afectará a los resultados mostrados a menos que se vuelva a cargar manualmente la página o se seleccione **Actualizar**.
 
@@ -140,7 +140,7 @@ En la vista de inventario se muestran los recursos conectados de Security Center
 
 Por ejemplo, en la captura de pantalla siguiente se muestra un usuario con acceso a 38 suscripciones, pero solo 10 tienen recomendaciones actualmente. Por tanto, cuando se filtran por **Tipo de recurso = Suscripciones**, solo las 10 suscripciones con recomendaciones activas aparecen en el inventario:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="No todas las subscripciones se devuelven cuando no hay recomendaciones activas.":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="No todas las subscripciones se devuelven cuando no hay recomendaciones activas":::.
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>¿Por qué algunos de mis recursos muestran valores en blanco en las columnas de supervisión del agente o de Azure Defender?
 
@@ -148,7 +148,7 @@ No todos los recursos supervisados de Security Center tienen agentes. Por ejempl
 
 Cuando el precio o la supervisión del agente no son pertinentes para un recurso, no se mostrará nada en esas columnas de inventario.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Algunos recursos muestran información en blanco en las columnas de Azure Defender o de supervisión del agente":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Algunos recursos muestran información en blanco en las columnas de Azure Defender o de supervisión del agente":::.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

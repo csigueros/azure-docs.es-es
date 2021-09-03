@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c4fdf78096f6f8b46c601440db6604cec6c61c99
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: a6adf67eb10d276fc7484c088e7238ab8b72c1b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074374"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730628"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementación de una aplicación en Azure App Service con un archivo ZIP o WAR
 
@@ -40,7 +40,7 @@ Para completar los pasos en este artículo, [cree una aplicación de App Service
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-El punto de conexión anterior no funciona en este momento con App Services de Linux. Considere la posibilidad de usar en su lugar FTP o la [API de implementación de ZIP](faq-app-service-linux.md#continuous-integration-and-deployment).
+El punto de conexión anterior no funciona en este momento con App Services de Linux. Considere la posibilidad de usar en su lugar FTP o la [API de implementación de ZIP](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment).
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Implementación del archivo ZIP con la CLI de Azure
 
@@ -53,6 +53,8 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 ```
 
 Este comando implementa los archivos y directorios del archivo ZIP en la carpeta predeterminada de la aplicación App Service (`\home\site\wwwroot`) y reinicia la aplicación.
+
+## <a name="enable-build-automation"></a>Habilitación de la automatización de compilaciones
 
 De forma predeterminada, el motor de implementación da por supuesto que un archivo ZIP está listo para ejecutarse tal cual y no ejecuta ninguna automatización de la compilación. Para habilitar la misma automatización de la compilación que en una [implementación de Git](deploy-local-git.md), establezca la configuración de la aplicación `SCM_DO_BUILD_DURING_DEPLOYMENT` ejecutando el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
@@ -98,3 +100,4 @@ Para ver escenarios de implementación más avanzados, pruebe [Implementación e
 
 * [Kudu: realizar una implementación desde un archivo .zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Credenciales de implementación de Azure App Service](deploy-ftp.md)
+* [Referencia de variables de entorno y configuración de la aplicación](reference-app-settings.md)

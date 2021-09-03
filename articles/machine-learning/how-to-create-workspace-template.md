@@ -10,12 +10,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: 9a8272d6b21130f253046ef3ffe05db8b00d4b79
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 7714adf00a40953301cf3f13eb8d6e403cd8c7a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038676"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736559"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -276,6 +276,9 @@ Al establecer el valor del parámetro `vnetOption` en `new` o `existing`, podrá
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Implementación del área de trabajo solo detrás de un punto de conexión privado
 
 Si los recursos asociados no están detrás de una red virtual, puede establecer el parámetro **privateEndpointType** en `AutoAproval` o `ManualApproval` para implementar el área de trabajo detrás de un punto de conexión privado. Esto puede hacerse tanto en áreas de trabajo nuevas como existentes. Al actualizar un área de trabajo existente, rellene los parámetros de la plantilla con la información del área de trabajo existente.
+
+> [!IMPORTANT]
+> El uso de un área de trabajo de Azure Machine Learning con un punto de conexión privado no está disponible en las regiones de Azure Government.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
 

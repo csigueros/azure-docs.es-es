@@ -3,13 +3,13 @@ title: restauración de máquinas virtuales mediante Azure Portal
 description: Restaure una máquina virtual de Azure desde un punto de recuperación mediante Azure Portal, incluida la característica Restauración entre regiones.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 05/01/2021
-ms.openlocfilehash: 26efe6cafc5829cedcb7bb74f8ea796256d45d10
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/06/2021
+ms.openlocfilehash: 75320c54c9496b1c978fdabb8a0a7560087f777c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966801"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738453"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -120,6 +120,9 @@ Una vez restaurado el disco, use la plantilla generada como parte de la operaci�
 1. En **Restaurar**, seleccione **Implementar plantilla** para iniciar la implementación de la plantilla.
 
     ![Exploración en profundidad del trabajo de restauración](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
+   
+   >[!Note]
+   >En el caso de una firma de acceso compartido (SAS) que tenga la opción **Allow storage account key access** (Permitir el acceso a la clave de la cuenta de almacenamiento) establecida en deshabilitada, la plantilla no se implementará al seleccionar **Implementar plantilla**.
 
 1. Para personalizar la configuración de la máquina virtual proporcionada en la plantilla, seleccione **Editar plantilla**. Si quiere agregar más personalizaciones, seleccione **Editar parámetros**.
     - [Obtenga más información](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) sobre cómo implementar recursos desde una plantilla personalizada.
@@ -227,6 +230,51 @@ Hay una serie de escenarios comunes en los que es posible que deba restaurar las
 **Restauración de varios dominios en un solo bosque** | Se recomienda una [recuperación de bosques](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 
 Para más información, consulte [Copia de seguridad y restauración de controladores de dominio de Active Directory](active-directory-backup-restore.md).
+
+## <a name="restore-vms-with-managed-identities"></a>Restauración de máquinas virtuales con identidades administradas
+
+Las identidades administradas eliminan la necesidad de que el usuario mantenga las credenciales. Proporcionan una identidad que usan las aplicaciones al conectarse a recursos que admiten la autenticación de Azure Active Directory (Azure AD).  
+
+Azure Backup ofrece flexibilidad para restaurar la máquina virtual administrada de Azure con [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md). Puede elegir seleccionar [identidades administradas por el sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) o identidades administradas por el usuario como se muestra en la ilustración siguiente. Esto se presenta como uno de los parámetros de entrada en la [hoja **Restaurar configuración**](#create-a-vm) de la máquina virtual de Azure. Las identidades administradas que se usan como uno de los parámetros de entrada solo sirven para acceder a las cuentas de almacenamiento, que se usan como ubicación de almacenamiento provisional durante la restauración y no para ningún otro control de recursos de Azure. Estas identidades administradas deben asociarse al almacén.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Captura de pantalla de la elección para seleccionar identidades administradas por el sistema o identidades administradas por el usuario":::.
+
+Si decide seleccionar identidades administradas asignadas por el sistema o asignadas por el usuario, compruebe las siguientes acciones para la identidad administrada en la cuenta de almacenamiento provisional de destino.
+
+```json
+"permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+                ],
+                "notDataActions": []
+            }
+```
+
+O bien, agregue la asignación de roles en la ubicación de almacenamiento provisional (cuenta de almacenamiento) para tener un [Colaborador de copia de seguridad de cuenta de almacenamiento](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) y un [Colaborador de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) para la operación de restauración correcta.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/add-role-assignment-on-staging-location.png" alt-text="Captura de pantalla para agregar la asignación de roles en la ubicación de almacenamiento provisional":::.
+
+También puede seleccionar la [identidad administrada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) proporcionando la entrada como su identificador de recurso MSI, tal como se muestra en la ilustración siguiente.   
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-user-managed-identity-by-providing-input-as-msi-resource-id.png" alt-text="Captura de pantalla para seleccionar la identidad administrada por el usuario proporcionando la entrada como identificador de recurso MSI":::.
+
+>[!Note]
+>La compatibilidad solo está disponible para las máquinas virtuales administradas y no se admite para las máquinas virtuales clásicas ni las máquinas virtuales no administradas. Para las [cuentas de almacenamiento restringidas con firewalls](../storage/common/storage-network-security.md?tabs=azure-portal), solo se admite un MSI del sistema.
+>
+>La restauración entre regiones no se admite con identidades administradas.
+>
+>Actualmente, está disponible en todas las regiones de nube pública y nacional de Azure.
 
 ## <a name="track-the-restore-operation"></a>Seguimiento de la operación de restauración
 

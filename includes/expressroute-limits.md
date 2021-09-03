@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: expressroute
 author: duongau
@@ -8,19 +8,21 @@ ms.topic: include
 ms.date: 01/12/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 17d08d0ffbb33d1aef35374dd5ead518b27e9ba0
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 4b029686098ece115202e8929902955418113e79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108284973"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733849"
 ---
 | Resource | Límite |
 | --- | --- |
-| Circuitos ExpressRoute por suscripción |10 |
+| Circuitos ExpressRoute por suscripción |50 |
 | Circuitos ExpressRoute por región y suscripción, con Azure Resource Manager |10 |
-| Número máximo de rutas anunciadas para emparejamiento privado de Azure con ExpressRoute estándar |4\.000 |
-| Número máximo de rutas anunciadas para emparejamiento privado de Azure con complemento de ExpressRoute premium |10 000 |
+| Número máximo de rutas IPv4 anunciadas para emparejamiento privado de Azure con ExpressRoute estándar |4\.000 |
+| Número máximo de rutas IPv4 anunciadas para emparejamiento privado de Azure con complemento de ExpressRoute Premium |10 000 |
+| Número máximo de rutas IPv6 anunciadas para emparejamiento privado de Azure con ExpressRoute Estándar |100 |
+| Número máximo de rutas IPv6 anunciadas para emparejamiento privado de Azure con complemento de ExpressRoute Premium |100 |
 | Número máximo de rutas anunciadas desde el emparejamiento privado de Azure a partir del espacio de direcciones de red virtual de una conexión ExpressRoute | 1,000 |
 | Número máximo de rutas anunciadas para emparejamiento de Microsoft con ExpressRoute estándar |200 |
 | Número máximo de rutas anunciadas para emparejamiento de Microsoft con el complemento de ExpressRoute premium |200 |
