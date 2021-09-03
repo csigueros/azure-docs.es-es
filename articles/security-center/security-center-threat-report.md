@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: ec6d227059c3f4fd1285f224e13169a2479bc65f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b2a867c99e79b2ddfe9053589a1ebac9ab569490
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438240"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237028"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Informe de inteligencia frente a amenazas de Azure Security Center
 
@@ -52,11 +52,11 @@ Este tipo de información resulta útil durante los procesos de respuesta a inci
 1. Seleccione una alerta. 
     Se abre la página de detalles de las alertas con más información sobre la alerta. A continuación se muestra la página de detalles de la alerta **Se detectaron indicadores de ransomware**.
 
-    [![Página de detalles de la alerta Se detectaron indicadores de ransomware](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
+    [![Página de detalles de la alerta Se detectaron indicadores de ransomware.](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
 
 1. Seleccione el vínculo al informe y se abrirá un archivo PDF en el explorador predeterminado.
 
-    [![Página de detalles de la alerta Acción potencialmente no segura](media/security-center-threat-report/threat-intelligence-report.png)](media/security-center-threat-report/threat-intelligence-report.png#lightbox)
+    [![Página de detalles de la alerta Acción potencialmente no segura.](media/security-center-threat-report/threat-intelligence-report.png)](media/security-center-threat-report/threat-intelligence-report.png#lightbox)
 
     También puede descargar el informe en formato PDF. 
 

@@ -13,12 +13,12 @@ ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: f6e683977781b7522eb23a10fcdb997c3e65938d
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d3ec7c9786a9b5d3774c05669ae6d51ad443e71d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783327"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744090"
 ---
 # <a name="manage-your-users-with-my-staff"></a>Administración de los usuarios con Mi personal
 
@@ -43,17 +43,19 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 * Necesita privilegios de *Administrador global* en el inquilino de Azure AD para permitir la autenticación basada en SMS.
 * Cada usuario que esté habilitado en la directiva de métodos de autenticación con mensaje de texto debe tener licencia, aunque no la usen. Cada usuario habilitado debe tener una de las siguientes licencias de Azure AD o Microsoft 365:
 
-  * [Azure AD Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory/)
-  * [Microsoft 365 (M365) F1 o F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
-  * [Enterprise Mobility + Security (EMS) E3 o E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) o [Microsoft 365 (M365) E3 o E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
+  * [Azure AD Premium P1 o P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
+  * [Microsoft 365 F1 o F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [Enterprise Mobility + Security (EMS) E3 o E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) o [Microsoft 365 E3 o E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>Cómo habilitar Mi personal
 
 Una vez que haya configurado las unidades administrativas, puede aplicar este ámbito a los usuarios con acceso a Mi personal. Solo los usuarios a los que se ha asignado un rol administrativo pueden tener acceso a Mi personal. Para habilitar Mi personal, siga los pasos siguientes:
 
-1. Inicie sesión en Azure Portal como administrador de usuarios.
-2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Versiones preliminares de características de usuarios** > **Administrar la configuración de la versión preliminar de características del usuario**.
-3. En **Los administradores pueden tener acceso a Mi personal**, puede elegir habilitar para todos los usuarios, para usuarios seleccionados o sin acceso de los usuarios.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com) como administrador de usuarios.
+
+1. Seleccione **Azure Active Directory** > **Configuración de usuario** > **Versiones preliminares de características de usuarios** > **Administrar la configuración de la versión preliminar de características del usuario**.
+
+1. En **Los administradores pueden tener acceso a Mi personal**, puede elegir habilitar para todos los usuarios, para usuarios seleccionados o sin acceso de los usuarios.
 
 > [!Note]
 > Solo los usuarios a los que se ha asignado un rol administrativo pueden tener acceso a Mi personal. Si habilita Mi personal para un usuario que no tiene asignado un rol administrativo, no podrá tener acceso a Mi personal.

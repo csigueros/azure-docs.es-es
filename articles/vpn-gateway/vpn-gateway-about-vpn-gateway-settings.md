@@ -5,27 +5,29 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 07/26/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3829202dab08b2f0a18db7d6092623cccd336e6a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ce7cd023527f18015d460727c54f0c04dae9df31
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662076"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729586"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
 Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado entre la red virtual y la ubicación local a través de una conexión pública. También puede utilizar una puerta de enlace de VPN para enviar tráfico entre redes virtuales a través de la red troncal de Azure.
 
-Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. Las secciones de este artículo tratan los recursos y la configuración relacionados con una puerta de enlace de VPN para una red virtual creada en el modelo de implementación de Resource Manager. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).
+Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. Las secciones de este artículo tratan los recursos y la configuración relacionados con una instancia de VPN Gateway para una red virtual creada en el [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md). Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 Los valores de este artículo se aplican a las puertas de enlace de VPN (puertas de enlace de red virtual que usan -GatewayType Vpn). En este artículo no se cubren todos los tipos de puerta de enlace ni puertas de enlace con redundancia de zona.
 
 * Para los valores que se aplican a -GatewayType "ExpressRoute", consulte [Acerca de las puertas de enlace de red virtual para ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 
 * Para las puertas de enlace con redundancia de zona, consulte [Acerca de VPN Gateway](about-zone-redundant-vnet-gateways.md).
+
+* Para las puertas de enlace activa-activa, consulte [Acerca de la conectividad de alta disponibilidad](vpn-gateway-highlyavailable.md).
 
 * Para Virtual WAN, consulte [Acerca de Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
@@ -76,7 +78,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>Cambio de tamaño o de SKU
 
-Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace distinta, las opciones son o cambiar el tamaño de la SKU de puerta de enlace o cambiar a otra SKU. Al cambiar a otra SKU de puerta de enlace, se elimina completamente la puerta de enlace existente y se crea otra. La creación de una puerta de enlace puede tardar hasta 45 minutos. En cambio, al cambiar el tamaño de la SKU de puerta de enlace, el tiempo de inactividad será corto, ya que no tiene que eliminar y volver crear la puerta de enlace. Si tiene la opción de cambiar el tamaño de la SKU de puerta de enlace, en lugar de cambiarla, aprovéchela. Sin embargo, hay reglas en relación con el cambio de tamaño:
+Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace distinta, las opciones son o cambiar el tamaño de la SKU de puerta de enlace o cambiar a otra SKU. Al cambiar a otra SKU de puerta de enlace, se elimina completamente la puerta de enlace existente y se crea otra. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada. En cambio, al cambiar el tamaño de la SKU de puerta de enlace, el tiempo de inactividad será corto, ya que no tiene que eliminar y volver crear la puerta de enlace. Si tiene la opción de cambiar el tamaño de la SKU de puerta de enlace, en lugar de cambiarla, aprovéchela. Sin embargo, hay reglas en relación con el cambio de tamaño:
 
 1. A excepción de la SKU básica, puede cambiar el tamaño de una SKU de VPN Gateway a otra SKU de VPN Gateway dentro de la misma generación (Generation1 o Generation2). Por ejemplo, se puede cambiar el tamaño de VpnGw1 de Generation1 a VpnGw2 de Generation1, pero no a VpnGw2 de Generation2.
 2. Si trabaja con las SKU de puerta de enlace antiguas, puede cambiar el tamaño entre las SKU Básica, Estándar y HighPerformance.
@@ -98,7 +100,7 @@ Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace disti
 
 ## <a name="connection-types"></a><a name="connectiontype"></a>Tipos de conexión
 
-En el modelo de implementación de Resource Manager, cada configuración requiere un tipo de conexión de puerta de enlace de red virtual específico. Los valores de PowerShell de Resource Manager para `-ConnectionType` son:
+En el [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md), cada configuración requiere un tipo de conexión de puerta de enlace de red virtual específico. Los valores de PowerShell de Resource Manager para `-ConnectionType` son:
 
 * IPsec
 * Vnet2Vnet

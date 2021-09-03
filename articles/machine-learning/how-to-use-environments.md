@@ -8,15 +8,15 @@ ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/23/2020
+ms.date: 08/11/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: d4260b5c981c6b4f199fca88894abafbbb02e4a1
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 1588dedad6778993bc2db6307103e614a8f772ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577863"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739111"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creación y uso de entornos de software en Azure Machine Learning
 
@@ -56,9 +56,9 @@ Environment(name="myenv")
 
 Los entornos seleccionados contienen colecciones de paquetes de Python y están disponibles en el área de trabajo de forma predeterminada. Estos entornos están respaldados por imágenes de Docker en caché, lo que reduce el costo de preparación de la ejecución. Para empezar, puede elegir uno de los entornos seleccionados populares: 
 
-* El entorno _AzureML-minimal_ contiene un conjunto mínimo de paquetes para habilitar el seguimiento de ejecución y la carga de recursos. Puede utilizarlo como punto inicial para su propio entorno.
+* El entorno _AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu_ contiene Scikit-learn, LightGBM, XGBoost, Dask, así como otros SDK de Python de AzureML y paquetes adicionales.
 
-* El entorno de _AzureML-Tutorial_ contiene paquetes de ciencia de datos comunes. Estos paquetes incluyen Scikit-Learn, Pandas, Matplotlib y un conjunto mayor de paquetes de azureml-sdk.
+* El entorno _AzureML-sklearn-0.24-ubuntu18.04-py37-cpu_ contiene paquetes de ciencia de datos comunes. Estos paquetes incluyen Scikit-Learn, Pandas, Matplotlib y un conjunto mayor de paquetes de azureml-sdk.
 
 Para obtener una lista de los entornos seleccionados, consulte el [artículo sobre entornos seleccionados](resource-curated-environments.md).
 
@@ -68,7 +68,7 @@ Use el método `Environment.get` para seleccionar uno de los entornos mantenidos
 from azureml.core import Workspace, Environment
 
 ws = Workspace.from_config()
-env = Environment.get(workspace=ws, name="AzureML-Minimal")
+env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
 ```
 
 Puede enumerar los entornos mantenidos y sus paquetes mediante el código siguiente:
@@ -87,7 +87,7 @@ for env in envs:
 
 Para personalizar un entorno mantenido, clone y cambie el nombre del entorno. 
 ```python 
-env = Environment.get(workspace=ws, name="AzureML-Minimal")
+env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
 curated_clone = env.clone("customize_curated")
 ```
 
@@ -120,7 +120,7 @@ De manera predeterminada, la imagen de Docker recién creada aparece en el regis
 
 #### <a name="use-a-prebuilt-docker-image"></a>Uso de una imagen de Docker precompilada
 
-De forma predeterminada, el servicio usa automáticamente una de las [imágenes base](https://github.com/Azure/AzureML-Containers) basadas en Ubuntu Linux, en particular la definida por `azureml.core.environment.DEFAULT_CPU_IMAGE`. A continuación, instala los paquetes de Python especificados definidos por el entorno de Azure ML proporcionado. Hay otras imágenes base de GPU y CPU de Azure ML disponibles en el [repositorio](https://github.com/Azure/AzureML-Containers) de contenedor. También es posible usar una [imagen base de Docker personalizada](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
+De forma predeterminada, el servicio usa automáticamente una de las [imágenes base](https://github.com/Azure/AzureML-Containers) basadas en Ubuntu Linux, en particular la definida por `azureml.core.environment.DEFAULT_CPU_IMAGE`. A continuación, instala los paquetes de Python especificados definidos por el entorno de Azure ML proporcionado. Hay otras imágenes base de GPU y CPU de Azure ML disponibles en el [repositorio](https://github.com/Azure/AzureML-Containers) de contenedor. También es posible usar una [imagen base de Docker personalizada](./how-to-deploy-custom-container.md).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -130,8 +130,8 @@ myenv.docker.base_image_registry="your_registry_location"
 
 >[!IMPORTANT]
 > Azure Machine Learning solo admite imágenes de Docker que proporcionan el software siguiente:
-> * Ubuntu 16.04 o posterior.
-> * Conda 4.5.# o posterior.
+> * Ubuntu 18.04 o posterior.
+> * Conda 4.7.# o posterior.
 > * Python 3.6+.
 > * Se requiere un shell compatible con POSIX disponible en /bin/sh en cualquier imagen de contenedor usada para el entrenamiento. 
 
@@ -144,7 +144,7 @@ Tenga en cuenta que Python es una dependencia implícita en Azure Machine Learni
 ```python
 # Specify docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
 RUN echo "Hello from custom container!"
 """
 
@@ -171,7 +171,7 @@ También puede especificar una ruta de acceso a un intérprete de Python especí
 
 ```python
 dockerfile = """
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1
 RUN conda install numpy
 """
 
@@ -343,6 +343,10 @@ build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=Tr
 > [!WARNING]
 >  Si se cambia el orden de las dependencias o de los canales de un entorno, se generará un nuevo entorno y, por tanto, será necesario volver a compilar la imagen. Además, al llamar al método `build()` de una imagen existente se actualizarán sus dependencias si hay nuevas versiones. 
 
+### <a name="utilize-adminless-azure-container-registry-acr-with-vnet"></a>Uso de Azure Container Registry (ACR) sin administración con una red virtual
+
+Ya no es necesario que los usuarios tengan habilitado el modo de administración en su área de trabajo asociada a ACR en escenarios de red virtual. Asegúrese de que el tiempo de compilación de la imagen derivada en el proceso sea inferior a 1 hora para habilitar la compilación correcta. Una vez que la imagen se inserta en la instancia de ACR del área de trabajo, ahora solo se puede acceder a esta imagen con una identidad de proceso. Para más información sobre la configuración, vea [Uso de identidades administradas con Azure Machine Learning](./how-to-use-managed-identities.md).
+
 ## <a name="use-environments-for-training"></a>Uso de entornos para el entrenamiento
 
 Para enviar una ejecución de entrenamiento, debe combinar el entorno, el [destino de proceso](concept-compute-target.md) y el script de Python de entrenamiento en una configuración de ejecución. Esta configuración es un objeto contenedor que se usa para enviar ejecuciones.
@@ -360,7 +364,7 @@ exp = Experiment(name="myexp", workspace = ws)
 myenv = Environment(name="myenv")
 
 # Configure the ScriptRunConfig and specify the environment
-src = ScriptRunConfig(source_directory=".", script="train.py", target="local", environment=myenv)
+src = ScriptRunConfig(source_directory=".", script="train.py", compute_target="local", environment=myenv)
 
 # Submit run 
 run = exp.submit(src)
@@ -368,6 +372,9 @@ run = exp.submit(src)
 
 > [!NOTE]
 > Para deshabilitar el historial de ejecución o ejecutar instantáneas, use el valor de `src.run_config.history`.
+
+>[!IMPORTANT]
+> Use las SKU de CPU para cualquier compilación de imagen en el proceso. 
 
 Si no especifica el entorno en la configuración de ejecución, el servicio crea un entorno predeterminado cuando envía la ejecución.
 
@@ -406,15 +413,17 @@ service = Model.deploy(
 
 ## <a name="notebooks"></a>Cuaderno
 
-Los ejemplos de código de este artículo también se incluyen en el [cuaderno de entornos de uso](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb).
+Los ejemplos de código de este artículo también se incluyen en el [cuaderno sobre el uso de los entornos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb).
 
- Para instalar un entorno de Conda como kernel en un cuaderno, consulte [Adición de un nuevo kernel de Jupyter](./how-to-access-terminal.md#add-new-kernels).
+Para instalar un entorno de Conda como kernel en un cuaderno, consulte [Adición de un nuevo kernel de Jupyter](./how-to-access-terminal.md#add-new-kernels).
 
-En [Implementación de un modelo mediante una imagen base personalizada de Docker](how-to-deploy-custom-docker-image.md), se muestra cómo implementar un modelo mediante una imagen base personalizada de Docker.
+En [Implementación de un modelo mediante una imagen base personalizada de Docker](./how-to-deploy-custom-container.md), se muestra cómo implementar un modelo mediante una imagen base personalizada de Docker.
 
 En este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) se muestra cómo implementar un modelo de Spark como servicio web.
 
-## <a name="create-and-manage-environments-with-the-cli"></a>Creación y administración de entornos con la CLI
+## <a name="create-and-manage-environments-with-the-azure-cli"></a>Creación y administración de entornos con la CLI de Azure
+
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 La [CLI de Azure Machine Learning](reference-azure-machine-learning-cli.md) refleja la mayor parte de la funcionalidad del SDK de Python. Puede usarla para crear y administrar entornos. Los comandos que se describen en esta sección muestran la funcionalidad fundamental.
 
@@ -441,6 +450,10 @@ Descargue un entorno registrado con el siguiente comando.
 ```azurecli-interactive
 az ml environment download -n myenv -d downloaddir
 ```
+
+## <a name="create-and-manage-environments-with-visual-studio-code"></a>Creación y administración de entornos con Visual Studio Code
+
+Con la extensión de Azure Machine Learning, puede crear y administrar entornos en Visual Studio Code. Para más información, consulte [Administración de recursos de Azure Machine Learning con la extensión de VS Code (versión preliminar)](how-to-manage-resources-vscode.md#environments).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

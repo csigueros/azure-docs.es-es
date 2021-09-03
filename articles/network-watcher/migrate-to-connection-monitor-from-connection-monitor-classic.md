@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: fc5bcc7f0cd11160b33bb6501526fce9f29d710b
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: c9130b83d0d4491152e05157c9cb52dfb89231a1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366392"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105748"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migración a Connection Monitor desde Connection Monitor (clásico)
 
@@ -67,8 +67,23 @@ Una vez iniciada la migración, tienen lugar los siguientes cambios:
 * Los monitores de conexión migrados ya no se muestran como la solución de monitor de conexión anterior. Ahora están disponibles para su uso únicamente en Connection Monitor.
 * Cualquier integración externa, como los paneles de Power BI y Grafana, y las integraciones con sistemas de Administración de eventos e información de seguridad (SIEM), se debe migrar manualmente. Este es el único paso manual que debe realizar para migrar la instalación.
 
+## <a name="common-errors-encountered"></a>Errores comunes detectados
+
+A continuación se muestran algunos errores comunes que se producen durante la migración: 
+
+| Error  |    Motivo   |
+|---|---|
+|No se pueden importar los siguientes monitores de conexión, ya que una o varias combinaciones de suscripción y región no tienen Network Watcher habilitado. Habilite Network Watcher y haga clic en Actualizar para importarlas. Lista de Monitor de conexión: {0}   |  Este error se produce cuando el usuario realiza la migración de pruebas de CM (clásico) a Connection Monitor y la extensión Network Watcher no está habilitada en una o varias suscripciones y regiones de CM (clásico). El usuario tendrá que habilitar la extensión NW en la suscripción y actualizar para importarla antes de volver a migrar.   |
+|Los monitores de conexión que tienen las siguientes pruebas no se pueden importar, ya que una o varias máquinas virtuales de Azure no tienen instalada la extensión Network Watcher. Instale la extensión Network Watcher y haga clic en Actualizar para importarlas. Lista de pruebas: {0} |    Este error se produce cuando el usuario realiza la migración de pruebas de CM (clásico) a Connection Monitor y la extensión Network Watcher no está instalada en una o varias máquinas virtuales de Azure de CM (clásico). El usuario debe instalar la extensión NW en la máquina virtual de Azure y actualizarla antes de volver a migrar |
+|No hay filas que mostrar   |  Este error se produce cuando el usuario intenta migrar suscripciones de CM (clásico) a CM, pero no se crea ningún CM (clásico) en las suscripciones. |
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Connection Monitor, consulte:
 * [Migración de Network Performance Monitor a Connection Monitor](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Creación de Connection Monitor mediante Azure Portal](./connection-monitor-create-using-portal.md)
+
+
+    
+ 
+    

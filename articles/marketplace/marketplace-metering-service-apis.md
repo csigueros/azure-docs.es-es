@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2a95821b615c934a2bf22f52406f2c257b9be91b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 8a8f6052ba2ce66e22208972fa84b7af1f48dd3e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542610"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739106"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturación según uso de Marketplace
 
@@ -255,6 +255,7 @@ Descripción del código de estado al que se hace referencia en respuesta de la 
 | `Error` | Código de error. |
 | `ResourceNotFound` | El recurso de uso proporcionado no es válido. |
 | `ResourceNotAuthorized` | No está autorizado a proporcionar el uso de este recurso. |
+| `ResourceNotActive` | El recurso está suspendido o nunca se activó. |
 | `InvalidDimension` | La dimensión para la que se ha pasado el uso no es válida para esta oferta o plan. |
 | `InvalidQuantity` | La cantidad pasada es menor o igual que 0. |
 | `BadArgument` | Falta la entrada o tiene un formato incorrecto. |
@@ -277,4 +278,4 @@ Siga las instrucciones de [Soporte técnico para el programa de marketplace come
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre las API del servicio de medición, consulte las [preguntas más frecuentes de las API del servicio de medición de Marketplace](marketplace-metering-service-apis-faq.md).
+Para obtener más información sobre las API del servicio de medición, consulte las [preguntas más frecuentes de las API del servicio de medición de Marketplace](marketplace-metering-service-apis-faq.yml).

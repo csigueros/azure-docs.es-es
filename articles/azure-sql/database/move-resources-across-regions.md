@@ -12,12 +12,12 @@ author: rothja
 ms.author: jroth
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 0d811953b191a661682767262c899b98119cdbc8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 75f30fe7263d14538ad14588a56aafecde96a126
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786227"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739640"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Traslado de recursos a una nueva región: Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,6 +40,9 @@ En este artículo se proporciona un flujo de trabajo general para migrar los rec
 > [!NOTE]
 > Este artículo se aplica a las migraciones dentro de la nube pública de Azure o dentro de la misma nube soberana.
 
+> [!NOTE]
+> Para trasladar grupos elásticos y bases de datos de Azure SQL a una región de Azure diferente, puede usar también Azure Resource Mover (en versión preliminar). Consulte [este tutorial](../../resource-mover/tutorial-move-region-sql.md) para ver los pasos detallados para hacer lo mismo.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="move-a-database"></a>Traslado de una base de datos
@@ -49,7 +52,13 @@ En este artículo se proporciona un flujo de trabajo general para migrar los rec
 1. Cree un servidor de destino para cada servidor de origen.
 1. Configure el firewall con las excepciones correctas mediante [PowerShell](scripts/create-and-configure-database-powershell.md).  
 1. Configure los servidores con los inicios de sesión correctos. Si no es el administrador de la suscripción o el administrador del servidor de SQL, solicite al administrador que le asigne los permisos que necesita. Para obtener más información, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](active-geo-replication-security-configure.md).
-1. Si las bases de datos están cifradas con cifrado de datos transparente y usan su propia clave de cifrado en Azure Key Vault, asegúrese de que se aprovisiona el material de cifrado correcto en las regiones de destino. Para más información, consulte [Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente de Azure Key Vault](transparent-data-encryption-byok-overview.md).
+1. Si las bases de datos están cifradas con cifrado de datos transparente (TDE) y usan su propia clave de cifrado (BYOK o clave administrada por el cliente) en Azure Key Vault, asegúrese de que se aprovisiona el material de cifrado correcto en las regiones de destino. 
+    - La manera más sencilla de hacerlo es agregar la clave de cifrado del almacén de claves existente (que se usa como protector de TDE en el servidor de origen) al servidor de destino y, a continuación, establecer la clave como protector de TDE en el servidor de destino.
+      > [!NOTE]
+      > Ahora, un servidor o una instancia administrada de una región se pueden conectar a un almacén de claves en cualquier otra región.
+    - Como procedimiento recomendado para asegurarse de que el servidor de destino tiene acceso a claves de cifrado anteriores (necesarias para restaurar copias de seguridad de base de datos), ejecute el cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) en el servidor de origen o el cmdlet [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) en la instancia administrada de origen para devolver la lista de claves disponibles y agregar esas claves al servidor de destino.
+    - Para más información y procedimientos recomendados sobre la configuración del TDE administrado por el cliente en el servidor de destino, vea [Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente en Azure Key Vault](transparent-data-encryption-byok-overview.md).
+    - Para mover el almacén de claves a la nueva región, vea [Movimiento de un almacén de claves de Azure entre regiones](../../key-vault/general/move-region.md). 
 1. Si está habilitada la auditoría de nivel de base de datos, deshabilítela y habilite la auditoría de nivel de servidor en su lugar. Después de la conmutación por error, la auditoría de nivel de base de datos requerirá el tráfico entre regiones, que no es lo que se desea ni es posible después del traslado.
 1. En el caso de las auditorías de nivel de servidor, asegúrese de que:
    - El contenedor de almacenamiento, Log Analytics o el centro de eventos con los registros de auditoría existentes migran a la región de destino.

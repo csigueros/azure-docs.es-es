@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 08/06/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc67b0b038abda37c591162caad9b3b94e6c440
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 58884d2905feda1f3827ae72866c1c69384178ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027486"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750549"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365 en Azure Active Directory
 
@@ -28,9 +28,9 @@ Para aplicar convenciones de nomenclatura coherentes a los grupos de Microsoft 3
 > [!IMPORTANT]
 > Para usar la directiva de nomenclatura de Azure AD para los grupos de Microsoft 365, es necesario que posea una licencia P1 de Azure Active Directory Premium o una licencia EDU de Azure AD Basic para cada usuario que sea miembro de uno o varios grupos de Microsoft 365.
 
-La directiva de nomenclatura se aplica a la creación o edición de grupos creados en cargas de trabajo (por ejemplo, Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Se aplica tanto al nombre como al alias del grupo. Si configuró su directiva de nomenclatura en Azure AD y tiene una directiva de nomenclatura de grupos de Exchange existente, se aplica la directiva de nomenclatura de Azure AD.
+La directiva de nomenclatura se aplica a la creación o edición de grupos creados en cargas de trabajo (por ejemplo, Outlook, Microsoft Teams, SharePoint, Exchange o Planner), incluso si no se realizan cambios de edición. Se aplica tanto al nombre como al alias del grupo. Si configuró su directiva de nomenclatura en Azure AD y tiene una directiva de nomenclatura de grupos de Exchange existente, se aplica la directiva de nomenclatura de Azure AD.
 
-Cuando se configure la directiva de nomenclatura de grupos, se aplicará a los nuevos grupos de Microsoft 365 creados por los usuarios finales. La directiva de nomenclatura no se aplica a ciertos roles de directorio, como Administrador global o Administrador de usuarios (consulte a continuación la lista completa de los roles exentos de la directiva de nomenclatura de grupos). En el caso de los grupos existentes de Microsoft 365, la directiva no se aplicará de inmediato en el momento de la configuración. Una vez que el propietario del grupo edite el nombre de estos grupos, se aplicará la directiva de nomenclatura.
+Cuando se configure la directiva de nomenclatura de grupos, se aplicará a los nuevos grupos de Microsoft 365 creados por los usuarios finales. La directiva de nomenclatura no se aplica a ciertos roles de directorio, como Administrador global o Administrador de usuarios (consulte a continuación la lista completa de los roles exentos de la directiva de nomenclatura de grupos). En el caso de los grupos existentes de Microsoft 365, la directiva no se aplicará de inmediato en el momento de la configuración. Una vez que el propietario del grupo edite el nombre de estos grupos, se aplicará la directiva de nomenclatura, incluso si no realizan cambios.
 
 ## <a name="naming-policy-features"></a>Características de la directiva de nomenclatura
 
@@ -42,9 +42,9 @@ Puede aplicar la directiva de nomenclatura a grupos de dos maneras diferentes:
 
 ### <a name="prefix-suffix-naming-policy"></a>Directiva de nomenclatura de prefijo-sufijo
 
-La estructura general de la convención de nomenclatura es "Prefijo[NombreDeGrupo]Sufijo". Aunque puede definir varios prefijos y sufijos, solo puede tener una instancia del [NombreDeGrupo] en la configuración. Los prefijos o sufijos pueden ser cadenas fijas o atributos de usuario como \[Department\], que se sustituyen en función del usuario que crea el grupo. El número total de caracteres permitidos para las cadenas de prefijo y sufijo, incluido el nombre del grupo, es de 53. 
+La estructura general de la convención de nomenclatura es "Prefijo[NombreDeGrupo]Sufijo". Aunque puede definir varios prefijos y sufijos, solo puede tener una instancia del [NombreDeGrupo] en la configuración. Los prefijos o sufijos pueden ser cadenas fijas o atributos de usuario como \[Department\], que se sustituyen en función del usuario que crea el grupo. El número total de caracteres permitidos para las cadenas de prefijo y sufijo, incluido el nombre del grupo, es de 53.
 
-Los prefijos y sufijos pueden contener caracteres especiales que se admiten en el nombre y el alias del grupo. Los caracteres de prefijo o sufijo que no se admiten en el alias de grupo se siguen aplicando al nombre de grupo, pero se quitan del alias de grupo. Debido a esta restricción, los prefijos y sufijos aplicados al nombre de grupo pueden ser diferentes de los que se aplican al alias de grupo. 
+Los prefijos y sufijos pueden contener caracteres especiales que se admiten en el nombre y el alias del grupo. Los caracteres de prefijo o sufijo que no se admiten en el alias de grupo se siguen aplicando al nombre de grupo, pero se quitan del alias de grupo. Debido a esta restricción, los prefijos y sufijos aplicados al nombre de grupo pueden ser diferentes de los que se aplican al alias de grupo.
 
 #### <a name="fixed-strings"></a>Cadenas fijas
 
@@ -100,7 +100,7 @@ Algunos roles de administradores pueden quedar excluidos de estas directivas, en
 
     ![edición y carga de la lista de palabras bloqueadas para la directiva de nomenclatura](./media/groups-naming-policy/blockedwords.png)
 
-1. Vea o edite la lista actual de palabras bloqueadas personalizadas seleccionando **Descargar**.
+1. Vea o edite la lista actual de palabras bloqueadas personalizadas seleccionando **Descargar**. Se deben agregar nuevas entradas a las entradas existentes.
 1. Cargue la nueva lista de palabras bloqueadas personalizadas seleccionando el icono del archivo.
 1. Guarde los cambios para que la nueva directiva entre en vigor; para ello, seleccione **Guardar**.
 
@@ -248,7 +248,7 @@ Planner | Planner es compatible con la directiva de nomenclatura. Planner muestr
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement es compatible con la directiva de nomenclatura. Dynamics 365 muestra el nombre aplicado por la directiva de nomenclatura cuando el usuario escribe el nombre o el alias de correo electrónico de un grupo. Cuando el usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error con la palabra bloqueada para que el usuario pueda quitarla.
 School Data Sync (SDS) | Los grupos creados mediante SDS cumplen la directiva de nomenclatura, pero esta no se aplica automáticamente. Los administradores de SDS tienen que anexar los prefijos y sufijos a los nombres de clase para los que es necesario crear grupos y luego cargarlos en SDS. De lo contrario, la creación o edición de los grupos produciría error.
 Aplicación Aula | Los grupos creados en la aplicación Aula cumplen la directiva de nomenclatura, pero esta no se aplica automáticamente y los usuarios no tienen una vista previa de ella al escribir el nombre de un grupo del aula. Los usuarios deben escribir el nombre de grupo del aula aplicado con prefijos y sufijos. Si no, las operaciones para crear o editar el grupo del aula producirán error.
-Power BI | Las áreas de trabajo de Power BI son compatibles con la directiva de nomenclatura.    
+Power BI | Las áreas de trabajo de Power BI son compatibles con la directiva de nomenclatura.
 Yammer | Cuando un usuario que ha iniciado sesión en Yammer con su cuenta de Azure Active Directory crea un grupo o edita un nombre de grupo, el nombre del grupo cumplirá la directiva de nomenclatura. Esto se aplica tanto a los grupos conectados de Microsoft 365 como a todos los demás grupos de Yammer.<br>Si se ha creado un grupo conectado de Microsoft 365 antes de aplicar la directiva de nomenclatura, el nombre del grupo no seguirá automáticamente las directivas de nomenclatura. Cuando un usuario edita el nombre del grupo, se le pedirá que agregue el prefijo y el sufijo.
 StaffHub  | Los equipos de StaffHub no siguen la directiva de nomenclatura, pero el grupo de Microsoft 365 subyacente sí lo hace. El nombre de equipo de StaffHub no aplica los prefijos y sufijos y no busca palabras bloqueadas personalizadas. Sin embargo, StaffHub aplica los prefijos y sufijos y quita las palabras bloqueadas del grupo de Microsoft 365 subyacente.
 Exchange PowerShell | Los cmdlets de Exchange PowerShell son compatibles con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la directiva de nomenclatura en el nombre o alias del grupo (mailNickname).

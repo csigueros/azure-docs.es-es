@@ -3,12 +3,12 @@ title: Configuración de su propia clave para cifrar datos en reposo de Azure Ev
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 05/04/2021
-ms.openlocfilehash: 89d12079195406e4b3c6da77105dc359cc1dacae
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cddeb2e11dc631e6eb9b43f6606d7ca4b41a6e35
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377249"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032874"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
 Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). El servicio de Event Hubs usa Azure Storage para almacenar los datos. Todos los datos almacenados con Azure Storage se cifran con claves administradas por Microsoft. Si usa su propia clave (también conocida como Bring Your Own Key [BYOK] o clave administrada por el cliente), los datos se cifran mediante la clave administrada por Microsoft, pero además la clave administrada por Microsoft se cifrará mediante la clave administrada por el cliente. Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar claves administradas por Microsoft. La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
@@ -337,7 +337,7 @@ En este paso, actualizará el espacio de nombres de Event Hubs con la informaci�
                 "maximumThroughputUnits":0,
                 "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
                 "encryption":{
-                   "keySource":"Microsoft.KeyVault",
+                   "keySource":"Microsoft.KeyVault",                   
                    "keyVaultProperties":[
                       {
                          "keyName":"[parameters('keyName')]",
@@ -389,6 +389,31 @@ En este paso, actualizará el espacio de nombres de Event Hubs con la informaci�
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
+
+#### <a name="enable-infrastructure-encryption-for-double-encryption-of-data-in-event-hubs-namespace"></a>Habilitación del cifrado de infraestructura para el cifrado doble de datos en el espacio de nombres de Event Hubs
+Si necesita una mayor garantía de que los datos sean seguros, puede habilitar el cifrado en el nivel de infraestructura, también conocido como cifrado doble. 
+
+Cuando se habilita el cifrado de la infraestructura, los datos de las cuentas del espacio de nombres de Event Hubs se cifran dos veces, una en el nivel de servicio y otra en el de infraestructura, con dos algoritmos de cifrado y dos claves diferentes. Por tanto, el cifrado de infraestructura de los datos de Event Hubs sirve de protección en caso de que uno de los algoritmos de cifrado o las claves puedan estar en peligro.
+
+Puede habilitar el cifrado de infraestructura mediante la actualización de la plantilla de ARM con la propiedad `requireInfrastructureEncryption` en el archivo **CreateEventHubClusterAndNamespace.json**, como se muestra a continuación. 
+
+```json
+"properties":{
+   "isAutoInflateEnabled":false,
+   "maximumThroughputUnits":0,
+   "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+   "encryption":{
+      "keySource":"Microsoft.KeyVault",
+      "requireInfrastructureEncryption":true,
+      "keyVaultProperties":[
+         {
+            "keyName":"[parameters('keyName')]",
+            "keyVaultUri":"[parameters('keyVaultUri')]"
+         }
+      ]
+   }
+}
+```
 
 ## <a name="troubleshoot"></a>Solución de problemas
 Como procedimiento recomendado, habilite siempre los registros como se muestra en la sección anterior. Esto ayuda a realizar el seguimiento de las actividades cuando está habilitado el cifrado de BYOK. También ayuda a limitar los problemas.

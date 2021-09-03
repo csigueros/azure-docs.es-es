@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 06/15/2021
 ms.author: memildin
-ms.openlocfilehash: fefbc605702539cb882aba4c7802d284b4291a9c
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 3dbf8b3e15380b1e267be4f1b4af382aa9097a48
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062305"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745088"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -39,7 +39,7 @@ Security Center ofrece más características de seguridad del contenedor si habi
 | Precios:                        | Gratuito                                                                                                                                         |
 | Roles y permisos necesarios: | **Propietario** o **administrador de seguridad** para editar una asignación<br>**Lector** para ver las recomendaciones                                              |
 | Requisitos del entorno:       | Se requiere la versión 1.14 (o posterior) de Kubernetes<br>Ningún recurso PodSecurityPolicy (antiguo modelo de PSP) en los clústeres<br>No se admiten nodos de Windows |
-| Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos) |
+| Nubes:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
 
@@ -80,20 +80,24 @@ Para configurar las recomendaciones, instale el **complemento de Azure Policy pa
 
     | Nombre de la recomendación                                                         | Control de seguridad                         | Configuración requerida |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Debe aplicar los límites de CPU y memoria de los contenedores.                          | Protección de aplicaciones contra ataques DDoS | No                     |
-    | Deben evitarse los contenedores con privilegios.                                     | Administración de acceso y permisos            | No                     |
-    | El sistema de archivos raíz inmutable (de solo lectura) debe aplicarse para los contenedores.     | Administración de acceso y permisos            | No                     |
-    | Debe evitar los contenedores con elevación de privilegios.                       | Administración de acceso y permisos            | No                     |
-    | Debe evitar la ejecución de contenedores como usuario raíz.                           | Administración de acceso y permisos            | No                     |
-    | Deben evitarse los contenedores que comparten espacios de nombres de host confidenciales.              | Administración de acceso y permisos            | No                     |
-    | Deben aplicarse funcionalidades de Linux con privilegios mínimos para los contenedores.       | Administración de acceso y permisos            | **Sí**                |
-    | El uso de montajes de volúmenes HostPath de pod debe estar restringido a una lista conocida.    | Administración de acceso y permisos            | **Sí**                |
     | Los contenedores solo deben escuchar en los puertos permitidos.                              | Restricción de los accesos de red no autorizados     | **Sí**                |
     | Los servicios solo deben escuchar en los puertos permitidos.                                | Restricción de los accesos de red no autorizados     | **Sí**                |
     | El uso de puertos y redes de hosts debe estar restringido.                     | Restricción de los accesos de red no autorizados     | **Sí**                |
     | La opción de reemplazar o deshabilitar el perfil de AppArmor de los contenedores debe estar restringida. | Corrección de configuraciones de seguridad        | **Sí**                |
     | Las imágenes de contenedor solo deben implementarse desde registros de confianza.            | Corrección de vulnerabilidades                | **Sí**                |
-    |||
+    | Deben aplicarse funcionalidades de Linux con privilegios mínimos para los contenedores.       | Administración de acceso y permisos            | **Sí**                |
+    | El uso de montajes de volúmenes HostPath de pod debe estar restringido a una lista conocida.    | Administración de acceso y permisos            | **Sí**                |
+    | Deben evitarse los contenedores con privilegios.                                     | Administración de acceso y permisos            | No                     |
+    | Debe evitar los contenedores con elevación de privilegios.                       | Administración de acceso y permisos            | No                     |
+    | Los clústeres de Kubernetes deben deshabilitar las credenciales de la API de montaje automático             | Administración de acceso y permisos            | No                     |
+    | El sistema de archivos raíz inmutable (de solo lectura) debe aplicarse para los contenedores.     | Administración de acceso y permisos            | No                     |
+    | Debe evitar los contenedores con elevación de privilegios.                       | Administración de acceso y permisos            | No                     |
+    | Debe evitar la ejecución de contenedores como usuario raíz.                           | Administración de acceso y permisos            | No                     |
+    | Deben evitarse los contenedores que comparten espacios de nombres de host confidenciales.              | Administración de acceso y permisos            | No                     |
+    | Debe aplicar los límites de CPU y memoria de los contenedores.                          | Protección de aplicaciones contra ataques DDoS | No                     |
+    | Los clústeres de Kubernetes solo deben ser accesibles mediante HTTPS                    | Cifrado de los datos en tránsito                  | No                     |
+    | Los clústeres de Kubernetes no deben usar el espacio de nombres predeterminado                    | Implementación de procedimientos recomendados de seguridad        | No                     |
+    ||||
 
 
 1. Para las recomendaciones con parámetros que deben personalizarse, establezca los parámetros:
@@ -101,8 +105,11 @@ Para configurar las recomendaciones, instale el **complemento de Azure Policy pa
     1. En el menú de Security Center, seleccione **Directiva de seguridad**.
     1. Seleccione la suscripción correspondiente.
     1. En la sección **Directiva predeterminada de Security Center**, seleccione **Ver directiva efectiva**.
-    1. Seleccione "Valor predeterminado de ASC".
+    1. Seleccione la directiva predeterminada para el ámbito que va a actualizar.
     1. Abra la pestaña **Parámetros** y modifique los valores según sea necesario.
+
+        :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modificar los parámetros de una de las recomendaciones del conjunto de protección de cargas de trabajo de Kubernetes":::.
+
     1. Seleccione **Revisar y guardar**.
     1. Seleccione **Guardar**.
 
@@ -158,7 +165,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: healthyClusterRegistry.azurecr.io/redis:latest
+        image: <customer-registry>.azurecr.io/redis:latest
         ports:
         - containerPort: 80
         resources:
@@ -191,25 +198,25 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-unhealthy-deployment
+  name: redis-unhealthy-deployment
   labels:
-    app: nginx
+    app: redis
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: redis
   template:
     metadata:      
       labels:
-        app: nginx
+        app: redis
     spec:
       hostNetwork: true
       hostPID: true 
       hostIPC: true
       containers:
-      - name: nginx
-        image: nginx:1.15.2
+      - name: redis
+        image: redis:latest
         ports:
         - containerPort: 9001
           hostPort: 9001
@@ -234,11 +241,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-unhealthy-service
+  name: redis-unhealthy-service
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: redis
   ports:
   - port: 6001
     targetPort: 9001

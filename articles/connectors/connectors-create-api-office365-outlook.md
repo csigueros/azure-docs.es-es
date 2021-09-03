@@ -1,20 +1,20 @@
 ---
-title: Integración con Office 365 Outlook
+title: Conexión a Office 365 Outlook
 description: Automatización de tareas y flujos de trabajo que administran el correo electrónico, los contactos y los calendarios en Office 365 Outlook con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 08/11/2021
 tags: connectors
-ms.openlocfilehash: 87a9c8a38ede7008d658068329c8c72e7e3c4117
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b60565cec180242535402daee27ed5018505727a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095461"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744695"
 ---
-# <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Administración del correo electrónico, los contactos y los calendarios en Office 365 Outlook con Azure Logic Apps
+# <a name="connect-to-office-365-outlook-using-azure-logic-apps"></a>Conexión a Office 365 Outlook mediante Azure Logic Apps
 
 Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Office 365 Outlook](/connectors/office365connector/), puede crear tareas y flujos de trabajo automatizados que administren su cuenta profesional o educativa mediante la compilación de aplicaciones lógicas. Por ejemplo, puede automatizar estas tareas:
 
@@ -26,20 +26,31 @@ Puede usar cualquier desencadenador para iniciar el flujo de trabajo (por ejempl
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una cuenta de Outlook donde inicie sesión con una [cuenta profesional o educativa](https://www.office.com/). Si tiene una cuenta @outlook.com o @hotmail.com, use mejor el conector [Outlook.com](../connectors/connectors-create-api-outlook.md). Para conectarse a Outlook con una cuenta de usuario diferente, por ejemplo, una cuenta de servicio, consulte [Conexión con otras cuentas](#connect-using-other-accounts).
+* La cuenta de Microsoft Office 365 para Outlook en la que inicia sesión con una [cuenta profesional o educativa](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
+
+  Necesita estas credenciales para poder autorizar el acceso del flujo de trabajo a la cuenta de Outlook.
+
+  > [!NOTE]
+  > Si tiene una cuenta @outlook.com o @hotmail.com, use el [conector Outlook.com](../connectors/connectors-create-api-outlook.md). Para conectarse a Outlook con una cuenta de usuario diferente, por ejemplo, una cuenta de servicio, consulte [Conexión con otras cuentas](#connect-using-other-accounts).
+  >
+  > Si usa [Microsoft Azure operado por 21Vianet](https://portal.azure.cn), la autenticación de Azure Active Directory (Azure AD) solo funcionará con una cuenta de Microsoft Office 365 operada por 21Vianet (.cn), no con cuentas .com.
 
 * Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* La aplicación lógica donde quiere acceder a su cuenta de Outlook. Para iniciar el flujo de trabajo con un desencadenador de Office 365 Outlook, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para agregar una acción de Office 365 Outlook al flujo de trabajo, la aplicación lógica ya debe tener un desencadenador.
+* La aplicación lógica donde quiere acceder a su cuenta de Outlook. Para iniciar el flujo de trabajo con un desencadenador de Office 365 Outlook, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para agregar una acción de Office 365 Outlook al flujo de trabajo, el flujo de trabajo de la aplicación lógica ya debe tener un desencadenador.
+
+## <a name="connector-reference"></a>Referencia de conectores
+
+Si necesita detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](/connectors/office365/).
 
 ## <a name="add-a-trigger"></a>Incorporación de un desencadenador
 
 Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) es un evento que inicia el flujo de trabajo en la aplicación lógica. Esta aplicación lógica de ejemplo usa un desencadenador de "sondeo" que comprueba cualquier evento de calendario actualizado en la cuenta de correo electrónico, según el intervalo y la frecuencia especificados.
 
-1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en blanco en el Diseñador de aplicación lógica.
+1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en blanco en el diseñador visual.
 
 1. En el cuadro de búsqueda, escriba `office 365 outlook` como filtro. En este ejemplo se selecciona **Cuando un evento próximo va a comenzar pronto**.
-   
+
    ![Seleccionar el desencadenador para iniciar la aplicación lógica](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. Si no tiene una conexión activa a su cuenta de Outlook, se le pedirá que inicie sesión y la cree. Para conectarse a Outlook con una cuenta de usuario diferente, por ejemplo, una cuenta de servicio, consulte [Conexión con otras cuentas](#connect-using-other-accounts). De lo contrario, proporcione la información de las propiedades del desencadenador.
@@ -53,7 +64,7 @@ Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) es 
 
 1. En el desencadenador, establezca los valores de **Frecuencia** e **Intervalo**. Para agregar otras propiedades del desencadenador disponibles, como **Zona horaria**, selecciónelas en la lista **Agregar nuevo parámetro**.
 
-   Por ejemplo, si desea que el desencadenador compruebe el calendario cada 15 minutos, establezca el valor de **Frecuencia** en **Minuto** y el de **Intervalo** en `15`. 
+   Por ejemplo, si desea que el desencadenador compruebe el calendario cada 15 minutos, establezca el valor de **Frecuencia** en **Minuto** y el de **Intervalo** en `15`.
 
    ![Establecer la frecuencia y el intervalo del desencadenador](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -63,11 +74,11 @@ Ahora agregue una acción que se ejecute cuando se active el desencadenador. Por
 
 ## <a name="add-an-action"></a>Agregar una acción
 
-Una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una operación que se ejecuta mediante el flujo de trabajo de la aplicación lógica. Esta aplicación lógica de ejemplo crea un nuevo contacto en Office 365 Outlook. Para crear el contacto puede utilizar la salida de otro desencadenador u otra acción. Por ejemplo, supongamos que la aplicación lógica usa el desencadenador Dynamics 365, **Al crear un registro**. Después, agregue la acción **Crear contacto** de Office 365 Outlook y utilice las salidas del desencadenador de SalesForce para crear el contacto nuevo.
+Una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una operación que se ejecuta mediante el flujo de trabajo de la aplicación lógica. Esta aplicación lógica de ejemplo crea un nuevo contacto en Office 365 Outlook. Para crear el contacto puede utilizar la salida de otro desencadenador u otra acción. Por ejemplo, supongamos que la aplicación lógica usa el desencadenador de Salesforce, **Al crear un registro**. Después, agregue la acción **Crear contacto** de Office 365 Outlook y utilice las salidas del desencadenador para crear el contacto nuevo.
 
-1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
+1. En [Azure Portal](https://portal.azure.com) abra la aplicación lógica en el diseñador visual.
 
-1. Para agregar una acción como último paso del flujo de trabajo, seleccione **Nuevo paso**. 
+1. Para agregar una acción como último paso del flujo de trabajo, seleccione **Nuevo paso**.
 
    Para agregar una acción entre un paso y otro, mueva el puntero por encima de la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
@@ -111,10 +122,6 @@ Si intenta conectarse a Outlook con una cuenta diferente de aquella con la que h
    1. En la acción **Enviar un correo electrónico**, abra la lista **Agregar un parámetro** y seleccione el parámetro **De (enviar como)** .
 
    1. Cuando el parámetro aparezca en la acción, escriba la dirección de correo electrónico de la cuenta de servicio.
-
-## <a name="connector-reference"></a>Referencia de conectores
-
-Si necesita detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](/connectors/office365/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

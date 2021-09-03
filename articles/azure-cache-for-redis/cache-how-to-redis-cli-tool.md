@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 81327bd5fc76d14d60d26bd912da8de054e5308d
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7c46ae96de44b191009a86552799488cb770c7e4
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833969"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112233536"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Uso de la herramienta de línea de comandos de Redis con Azure Cache for Redis
 
@@ -47,9 +47,9 @@ Con Azure Cache for Redis, solo está habilitado de forma predeterminada el puer
 
     Ejecute **stunnel GUI Start** (Inicio de GUI de stunnel) para iniciar el servidor.
 
-    Haga clic con el botón derecho en el icono de la barra de tareas correspondiente al servidor de stunnel y haga clic en **Mostrar la ventana Registro**.
+    Haga clic con el botón derecho en el icono de la barra de tareas correspondiente al servidor de stunnel y seleccione **Mostrar la ventana Registro**.
 
-    En el menú Ventana Registro de stunnel, haga clic en **Configuración** > **Editar configuración** para abrir el archivo de configuración actual.
+    En el menú Ventana Registro de stunnel, seleccione **Configuración** > **Editar configuración** para abrir el archivo de configuración actual.
 
     Agregue la siguiente entrada de *redis-cli.exe* en la sección **Definiciones de servicio**. Inserte el nombre real de la caché en lugar de `yourcachename`. 
 
@@ -62,7 +62,7 @@ Con Azure Cache for Redis, solo está habilitado de forma predeterminada el puer
 
     Guarde y cierre el archivo de configuración. 
   
-    En el menú Ventana Registro de stunnel, haga clic en **Configuración** > **Volver a cargar configuración**.
+    En el menú Ventana Registro de stunnel, seleccione **Configuración** > **Volver a cargar configuración**.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Conecte mediante la herramienta de línea de comandos de Redis.

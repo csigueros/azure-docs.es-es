@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9a3c76cb931a5683cf6fd52a806979c430f3f72
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98745640"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580933"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Ejemplo: Creación e implementación de una aptitud personalizada con Azure Machine Learning 
 
@@ -31,7 +31,7 @@ Se proporcionan dos conjuntos de datos. Si quiere entrenar el modelo por su cuen
 > * Ingesta de la salida del modelo implementado como una aptitud personalizada
 
 > [!IMPORTANT] 
-> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el SDK de .NET.
+> Esta aptitud está en versión preliminar pública en los [términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API REST de versión preliminar](/rest/api/searchservice/index-preview) admite esta aptitud.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

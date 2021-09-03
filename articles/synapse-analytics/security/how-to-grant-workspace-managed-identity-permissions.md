@@ -1,19 +1,20 @@
 ---
 title: Concesión de permisos para la identidad administrada en el área de trabajo de Synapse
 description: En este artículo se explica cómo configurar los permisos de la identidad administrada en el área de trabajo de Azure Synapse.
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 46fe27205a2c30d6cb2319bf620c6fe1ee34c31e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 10244038ca2dee9551def5e0abcd102d42daa235
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96458997"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729722"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity"></a>Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)
 
@@ -72,41 +73,26 @@ La identidad administrada debe tener acceso a los datos del contenedor (sistema 
 Seleccione el mismo contenedor o sistema de archivos para conceder el rol de *Colaborador de datos de Storage Blob* a la identidad administrada.
 ![Captura de pantalla que muestra el contenedor o el sistema de archivos que debe seleccionar.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
-#### <a name="step-3-navigate-to-access-control"></a>Paso 3: Navegación hasta el Control de acceso
+#### <a name="step-3-open-access-control-and-add-role-assignment"></a>Paso 3: Apertura del control de acceso y adición de asignación de roles
 
-Seleccione **Access Control (IAM)** .
+1. Seleccione **Access Control (IAM)** .
 
-![Control de acceso (IAM)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
 
-#### <a name="step-4-add-a-new-role-assignment"></a>Paso 4: Adición de una asignación de roles
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Colaborador de Storage Blob |
+    | Asignar acceso a | MANAGEDIDENTITY |
+    | Miembros | Nombre de la identidad administrada  |
 
-Seleccione **+Agregar**.
+    > [!NOTE]
+    > El nombre de la identidad administrada también es el nombre del área de trabajo.
 
-![Adición de una asignación de roles](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
+    ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-#### <a name="step-5-select-the-azure-role"></a>Paso 5: Seleccione el rol de Azure
-
-Seleccione el rol **Colaborador de datos de Storage Blob**.
-
-![Seleccione el rol de Azure](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
-
-#### <a name="step-6-select-the-azure-ad-security-principal"></a>Paso 6: Selección de la entidad de seguridad de Azure AD
-
-En la lista desplegable **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
-
-![Selección de la entidad de seguridad de AAD](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
-
-#### <a name="step-7-search-for-the-managed-identity"></a>Paso 7: Búsqueda de la identidad administrada
-
-El nombre de la identidad administrada también es el nombre del área de trabajo. Para buscar su identidad administrada, escriba el nombre del área de trabajo de Azure Synapse en **Seleccionar**. Debería aparecer la identidad administrada.
-
-![Búsqueda de la identidad administrada](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
-
-#### <a name="step-8-select-the-managed-identity"></a>Paso 8: Selección de la identidad administrada
-
-Seleccione la identidad administrada para los **Miembros seleccionados**. Seleccione **Guardar** para agregar la asignación de roles.
-
-![Selección de la identidad administrada](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-13.png)
+1. Seleccione **Guardar** para agregar la asignación de roles.
 
 #### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>Paso 9: Comprobación de que el rol de colaborador de datos de Storage Blob está asignado a la identidad administrada
 

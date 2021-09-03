@@ -1,28 +1,23 @@
 ---
-title: Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps (versión preliminar)
-description: Sepa cómo solicitar datos de elevación mediante el servicio Elevation de Azure Maps (versión preliminar).
+title: Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps
+description: Descubra cómo solicitar datos de elevación mediante el servicio Elevation de Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2021
+ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: efdaf8d2d64a3865027f5211e4382458e1323b10
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: d9e7595a6f3d84628df0c1d79f7936bbf09ea5ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325128"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742627"
 ---
-# <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps (versión preliminar)
+# <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps
 
-> [!IMPORTANT]
-> El servicio Elevation de Azure Maps se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-El [servicio Elevation](/rest/api/maps/elevation) de Azure Maps proporciona unas API para consultar datos de elevación en cualquier parte de la superficie terrestre. Puede solicitar datos de elevación muestreados a lo largo de trazados, dentro de un rectángulo delimitador o en coordenadas específicas. También, puede usar [Get Map Tile API de Render V2](/rest/api/maps/renderv2) para recuperar datos de elevación en formato de mosaico. Los mosaicos se entregan en formato de trama GeoTIFF. En este artículo se muestra cómo usar el servicio Elevation de Azure Maps y Get Map Tile API para solicitar datos de elevación. Los datos de elevación se pueden solicitar en los formatos GeoJSON y GeoTiff.
+El [servicio Elevation](/rest/api/maps/elevation) de Azure Maps proporciona unas API para consultar datos de elevación en cualquier parte de la superficie terrestre. Puede solicitar datos de elevación muestreados a lo largo de trazados, dentro de un rectángulo delimitador o en coordenadas específicas. También, puede usar [Get Map Tile API de Render V2](/rest/api/maps/renderv2) para recuperar datos de elevación en formato de mosaico. Los mosaicos se entregan en formato de trama GeoTIFF. En este artículo se describe cómo usar el servicio Elevation de Azure Maps y Get Map Tile API para solicitar datos de elevación. Los datos de elevación se pueden solicitar en los formatos GeoJSON y GeoTiff.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,30 +26,39 @@ El [servicio Elevation](/rest/api/maps/elevation) de Azure Maps proporciona unas
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
-En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede elegir un entorno de desarrollo de API diferente.
+En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede usar un entorno de desarrollo de API diferente.
 
-## <a name="request-elevation-data-in-raster-tiled-format"></a>Solicitud de datos de elevación en formato de mosaico de trama
+## <a name="request-elevation-data-in-raster-tile-format"></a>Solicitud de datos de elevación en formato de mosaico de trama
 
-Para solicitar datos de elevación en formato de mosaico de trama, use [Get Map Tile API de Render V2](/rest/api/maps/renderv2). Si se puede encontrar el mosaico, la API lo devuelve como formato GeoTIFF. De lo contrario, la API devuelve 0. Todos los mosaicos DEM de trama usan el modo geoide (nivel de mar) de la Tierra. En este ejemplo, solicitaremos datos de elevación del Monte Everest.
+Para solicitar datos de elevación en formato de mosaico de trama, use [Get Map Tile API de Render V2](/rest/api/maps/renderv2). Si se puede encontrar el mosaico, la API lo devuelve como formato GeoTIFF. De lo contrario, la API devuelve 0. Todos los mosaicos DEM de trama usan el modo geoide (nivel del mar) de la Tierra. En este ejemplo, solicitaremos datos de elevación del Monte Everest.
 
 >[!TIP]
->Para recuperar un mosaico de un área específica del mapa mundial, deberá encontrar el mosaico correcto con el nivel de zoom adecuado. Tenga en cuenta también que WorldDEM abarca toda la masa continental mundial, pero no incluye los océanos.  Para más información, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
+>Para recuperar un mosaico de un área específica del mapa mundial, deberá encontrar el mosaico correcto con el nivel de zoom adecuado. Tenga en cuenta que WorldDEM abarca toda la masa continental mundial, pero no incluye los océanos.  Para más información, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
 
-1. Abra la aplicación Postman. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
+Para solicitar datos de elevación en formato de mosaico de trama mediante la aplicación Postman:
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
+1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-3. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la siguiente dirección URL para solicitar el mosaico de trama. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
+
+3. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
+
+4. En la pestaña **Generador**, seleccione el método HTTP **GET** y, a continuación, introduzca la URL siguiente para solicitar el mosaico de trama.
 
     ```http
     https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
     ```
 
-4. Haga clic en el botón **Enviar**. Recibirá el mosaico de trama que contiene los datos de elevación en formato GeoTiff. Cada píxel dentro de los datos sin procesar del mosaico de trama es de tipo `float`. El valor de cada píxel representa la altura de elevación en metros.
+    >[!Important]
+    >Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+
+5. Seleccione el botón **Enviar**.
+
+    Debería recibir el mosaico de trama que contiene los datos de elevación en formato GeoTIFF. Cada píxel dentro de los datos sin procesar del mosaico de trama es de tipo `float`. El valor de cada píxel representa la altura de elevación en metros.
 
 ## <a name="request-elevation-data-in-geojson-format"></a>Solicitud de datos de elevación en formato GeoJSON
 
-Use las API del servicio Elevation (versión preliminar) para solicitar datos de elevación en formato GeoJSON. En esta sección, se mostrará cada una de las API:
+Para solicitar datos de elevación en formato GeoJSON, use las API del servicio Elevation. En esta sección se describe cada una de estas API:
 
 * [Get Data for Points](/rest/api/maps/elevation/getdataforpoints)
 * [Post Data for Points](/rest/api/maps/elevation/postdataforpoints)
@@ -63,24 +67,30 @@ Use las API del servicio Elevation (versión preliminar) para solicitar datos de
 * [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox)
 
 >[!IMPORTANT]
-> Cuando no se puede devolver ningún dato, todas las API devuelven `0`.
+> Cuando no se puede devolver ningún dato, todas las API devuelven **0**.
 
 ### <a name="request-elevation-data-for-points"></a>Solicitud de datos de elevación de unos puntos
 
 En este ejemplo, se usará [Get Data for Points API](/rest/api/maps/elevation/getdataforpoints) para solicitar datos de elevación de las montañas Everest y Chamlang. Luego, usaremos [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) para solicitar datos de elevación usando los mismos dos puntos. Se espera que las latitudes y las longitudes de la dirección URL estén en grados decimales de WGS84 (Sistema geodésico mundial).
 
  >[!IMPORTANT]
- >Debido al límite de 2048 en la longitud de caracteres de la dirección URL, no es posible pasar más de 100 coordenadas como una cadena delimitada por canalización en una solicitud GET URL. Si tiene previsto hacerlo, use Post Data For Points API.
+ >Dado que el límite de longitud de la URL es de 2048 caracteres, no es posible pasar más de 100 coordenadas como una cadena delimitada por canalización en una solicitud de URL GET. Si tiene previsto hacerlo, use Post Data for Points API.
 
-1. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
+Para crear la solicitud:
 
-2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+1. En la aplicación Postman, vuelva a seleccionar **Nuevo**.
+
+2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
+
+3. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
+
+4. En la pestaña **Generador**, seleccione el método HTTP **GET** y, a continuación, introduzca la URL siguiente (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672,40.714728|150.644,-34.397
     ```
 
-3. Haga clic en el botón **Enviar**.  Recibirá la siguientes respuesta JSON:
+5. Seleccione el botón **Enviar**.  Recibirá la siguientes respuesta JSON:
 
     ```json
     {
@@ -103,13 +113,15 @@ En este ejemplo, se usará [Get Data for Points API](/rest/api/maps/elevation/ge
     }
     ```
 
-4. Ahora, llamaremos a [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) para obtener datos de elevación de los mismos dos puntos. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+6. Ahora, llamaremos a [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) para obtener datos de elevación de los mismos dos puntos. En la pestaña **Generador**, seleccione el método HTTP **POST** y, a continuación, escriba la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-5. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo**, proporcione la información siguiente de los puntos de coordenadas. Cuando haya terminado, haga clic en **Send** (Enviar).
+7. En el campo **Encabezados** de la solicitud **POST**, establezca `Content-Type` en `application/json`. 
+
+8. En el campo **Cuerpo**, proporcione la información siguiente de los puntos de coordenadas:
 
      ```json
     [
@@ -124,28 +136,36 @@ En este ejemplo, se usará [Get Data for Points API](/rest/api/maps/elevation/ge
     ]
     ```
 
+9. Seleccione **Enviar**.
+
 ### <a name="request-elevation-data-samples-along-a-polyline"></a>Solicitud de muestras de datos de elevación a lo largo de una polilínea
 
-En este ejemplo, se usará [Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline) para solicitar cinco muestras de datos de elevación equidistantes a lo largo de una línea recta entre las coordenadas de las montañas Everest y Chamlang. Ambas coordenadas deben definirse en formato de longitud y latitud. Si no especifica un valor para el parámetro `samples`, el número de muestras predeterminado es 10. El número máximo de muestras es de 2000.
+En este ejemplo, se usará [Get Data for Polyline API](/rest/api/maps/elevation/getdataforpolyline) para solicitar cinco muestras de datos de elevación equidistantes a lo largo de una línea recta entre las coordenadas de las montañas Everest y Chamlang. Ambas coordenadas deben definirse en formato de longitud y latitud. Si no especifica un valor para el parámetro `samples`, el número de muestras predeterminado es 10. El número máximo de muestras es de 2000.
 
-A continuación, usaremos Get Data for Polyline para solicitar tres muestras de datos de elevación equidistantes a lo largo de un trazado. Para definir la ubicación exacta de las muestras, se pasarán tres pares de coordenadas de longitud y latitud.
+A continuación, usaremos Get Data for Polyline API para solicitar tres muestras de datos de elevación equidistantes a lo largo de un trazado. Para definir la ubicación exacta de las muestras, se pasarán tres pares de coordenadas de longitud y latitud.
 
 Por último, se usará [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) para solicitar datos de elevación de las mismas tres muestras equidistantes.
 
 Se espera que las latitudes y las longitudes de la dirección URL estén en grados decimales de WGS84 (Sistema geodésico mundial).
 
  >[!IMPORTANT]
- >Debido al límite de 2048 en la longitud de caracteres de la dirección URL, no es posible pasar más de 100 coordenadas como una cadena delimitada por canalización en una solicitud GET URL. Si tiene previsto hacerlo, use Post Data For Points API.
+ >Dado que el límite de longitud de la URL es de 2048 caracteres, no es posible pasar más de 100 coordenadas como una cadena delimitada por canalización en una solicitud de URL GET. Si tiene previsto hacerlo, use Post Data for Points API.
 
-1. Seleccione **Nuevo**. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Save**(Guardar).
+Para crear la solicitud:
 
-2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
+
+3. Escriba un **Nombre de solicitud**.
+
+4. En la pestaña **Generador**, seleccione el método HTTP **GET** y, a continuación, introduzca la URL siguiente (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
    ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
     ```
 
-3. Haga clic en el botón **Enviar**.  Recibirá la siguientes respuesta JSON:
+5. Seleccione el botón **Enviar**.  Recibirá la siguientes respuesta JSON:
 
     ```JSON
     {
@@ -189,17 +209,17 @@ Se espera que las latitudes y las longitudes de la dirección URL estén en grad
     }
     ```
 
-4. Ahora, solicitaremos tres muestras de datos de elevación a lo largo de un trazado entre las coordenadas de las montañas Everest, Chamlang y Jannu. En la sección **Params** (Parámetros), copie la siguiente matriz de coordenadas en el valor de la clave de consulta `lines`.
+6. Ahora, solicitaremos tres muestras de datos de elevación a lo largo de un trazado entre las coordenadas de las montañas Everest, Chamlang y Jannu. En el campo **Parámetros**, copie la siguiente matriz de coordenadas para el valor de la clave de consulta `lines`.
 
     ```html
         86.9797222, 27.775|86.9252778, 27.9880556 | 88.0444444, 27.6822222
     ```
 
-5. Cambie el valor de la clave de consulta `samples` a `3`.  En la imagen siguiente se muestran los nuevos valores.
+7. Cambie el valor de la clave de consulta `samples` a `3`.  En la imagen siguiente se muestran los nuevos valores.
 
      :::image type="content" source="./media/how-to-request-elevation-data/get-elevation-samples.png" alt-text="Recupere tres muestras de datos de elevación.":::
 
-6. Haga clic en el botón azul **Enviar**. Recibirá la siguientes respuesta JSON:
+8. Seleccione **Enviar**. Recibirá la siguientes respuesta JSON:
 
     ```json
     {
@@ -229,13 +249,15 @@ Se espera que las latitudes y las longitudes de la dirección URL estén en grad
     }
     ```
 
-7. Ahora, llamaremos a [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) para obtener datos de elevación de los mismos tres puntos. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+9. Ahora, llamaremos a [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) para obtener datos de elevación de los mismos tres puntos.  En la pestaña **Generador**, seleccione el método HTTP **POST** y, a continuación, escriba la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
     ```
 
-8. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo**, proporcione la información siguiente de los puntos de coordenadas. Cuando haya terminado, haga clic en **Send** (Enviar).
+10. En el campo **Encabezados** de la solicitud **POST**, establezca `Content-Type` en `application/json`. 
+
+11. En el campo **Cuerpo**, proporcione la información siguiente de los puntos de coordenadas.
 
      ```json
     [
@@ -254,23 +276,31 @@ Se espera que las latitudes y las longitudes de la dirección URL estén en grad
     ]
     ```
 
+12. Seleccione **Enviar**.
+
 ### <a name="request-elevation-data-by-bounding-box"></a>Solicitud de datos de elevación por rectángulo delimitador
 
-Ahora usaremos [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox) para solicitar datos de elevación cerca del Monte Rainier, en Washington. Los datos de elevación se devolverán en ubicaciones equidistantes dentro de un rectángulo delimitador. El área de delimitación definida por (2) conjuntos de coordenadas de latitud y longitud (latitud sur, longitud oeste | latitud norte, longitud este) se divide en filas y columnas. Los bordes del rectángulo delimitador corresponden a dos (2) de las filas y dos (2) de las columnas. Se devuelven elevaciones para los vértices de cuadrícula creados en las intersecciones de filas y columnas. Se pueden devolver hasta 2000 elevaciones en una sola solicitud.
+Ahora usaremos [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox) para solicitar datos de elevación cerca del monte Rainier en el estado de Washington. Los datos de elevación se devolverán en ubicaciones equidistantes dentro de un rectángulo delimitador. El área de delimitación definida por dos conjuntos de coordenadas de latitud y longitud (latitud sur, longitud oeste | latitud norte, longitud este) se divide en filas y columnas. Los bordes del rectángulo delimitador corresponden a dos de las filas y dos de las columnas. Se devuelven elevaciones para los vértices de cuadrícula creados en las intersecciones de filas y columnas. Se pueden devolver hasta 2000 elevaciones en una sola solicitud.
 
-En este ejemplo, se especifican 3 filas y 6 columnas. Se devuelven 18 valores de elevación en la respuesta. En el diagrama siguiente, los valores de elevación se ordenan empezando por la esquina suroeste y continuando de oeste a este y de sur a norte.  Los puntos de elevación se numeran en el orden en que se devuelven.
+En este ejemplo, se especifican 3 filas y 6 columnas. La respuesta devuelve 18 valores de elevación. En el diagrama siguiente, los valores de elevación se ordenan empezando por la esquina suroeste y continuando de oeste a este y de sur a norte.  Los puntos de elevación se numeran en el orden en que se devuelven.
 
 :::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" border="false" alt-text="Coordenadas del rectángulo delimitador en las esquinas NE y SE.":::
 
-1. Seleccione **Nuevo**. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Save**(Guardar).
+Para crear la solicitud:
 
-2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
+
+3. Escriba un **Nombre de solicitud**.
+
+4. En la pestaña **Generador**, seleccione el método HTTP **GET** y, a continuación, introduzca la URL siguiente (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
     https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
-3. Haga clic en el botón azul **Enviar**. Se devuelven 18 muestras de datos de elevación, una por cada vértice de la cuadrícula, en la respuesta.
+5. Seleccione **Enviar**.  La respuesta devuelve 18 muestras de datos de elevación, una por cada vértice de la cuadrícula.
 
     ```json
     {
@@ -447,11 +477,11 @@ En este ejemplo, se especifican 3 filas y 6 columnas. Se devuelven 18 valores de
     }
     ```
 
-## <a name="samples-use-elevation-service-preview-apis-in-azure-maps-control"></a>Ejemplos: Uso de las API del servicio Elevation (versión preliminar) en Control de mapa de Azure
+## <a name="samples-use-elevation-service-apis-in-azure-maps-control"></a>Ejemplos: Uso de las API del servicio Elevation en Control de mapa de Azure
 
 ### <a name="get-elevation-data-by-coordinate-position"></a>Obtención de datos de elevación por la posición de las coordenadas
 
-En la página web de ejemplo siguiente se muestra cómo usar el control de mapa para mostrar los datos de elevación de un punto de coordenada. Cuando el usuario arrastre el marcador, el mapa mostrará los datos de elevación en una ventana emergente.
+En la página web de ejemplo siguiente se describe cómo usar el control de mapa para mostrar los datos de elevación en un punto de coordenada. Cuando el usuario arrastra el marcador, el mapa muestra los datos de elevación en una ventana emergente.
 
 <br/>
 
@@ -461,7 +491,7 @@ Consulte el pen <a href='https://codepen.io/azuremaps/pen/c840b510e113ba7cb32809
 
 ### <a name="get-elevation-data-by-bounding-box"></a>Obtención de datos de elevación por rectángulo delimitador
 
-En la página web de ejemplo siguiente se indica cómo usar el control de mapa para mostrar los datos de elevación contenidos en un rectángulo delimitador. Para definir el rectángulo delimitador, el usuario hace clic en el icono `square` en la esquina superior izquierda y dibuja el cuadrado en cualquier parte del mapa. A continuación, el control de mapa representa los datos de elevación de acuerdo con los colores especificados en la clave que se encuentra en la esquina superior derecha.
+En la página web de ejemplo siguiente se describe cómo usar el control de mapa para mostrar los datos de elevación contenidos en un rectángulo delimitador. Para definir el rectángulo delimitador, el usuario selecciona el icono `square` en la esquina superior izquierda y, a continuación, dibuja el cuadrado en cualquier parte del mapa. A continuación, el control de mapa representa los datos de elevación de acuerdo con los colores especificados en la clave que se encuentra en la esquina superior derecha.
 
 <br/>
 
@@ -471,7 +501,7 @@ Consulte el pen <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e9
 
 ### <a name="get-elevation-data-by-polyline-path"></a>Obtención de datos de elevación por trazado de Polilínea
 
-En la página web de ejemplo siguiente se muestra cómo usar el control de mapa para mostrar los datos de elevación a lo largo de un trazado. Para definir el trazado, el usuario hace clic en el icono `Polyline` en la esquina superior izquierda y dibuja la Polilínea en el mapa. A continuación, el control de mapa representa los datos de elevación de acuerdo con los colores especificados en la clave que se encuentra en la esquina superior derecha.
+En la página web de ejemplo siguiente se describe cómo usar el control de mapa para mostrar los datos de elevación a lo largo de un trazado. Para definir el trazado, el usuario selecciona el icono `Polyline` en la esquina superior izquierda y, a continuación, dibuja la polilínea en el mapa. A continuación, el control de mapa representa los datos de elevación de acuerdo con los colores especificados en la clave que se encuentra en la esquina superior derecha.
 
 <br/>
 
@@ -482,16 +512,16 @@ Consulte el pen <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a116
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para explorar aún más las API de Elevation de Azure Maps (versión preliminar), consulte:
+Para explorar aún más las API Elevation de Azure Maps, consulte:
 
 > [!div class="nextstepaction"]
-> [Elevation (versión preliminar): obtención de datos para las coordenadas de latitud y longitud](/rest/api/maps/elevation/getdataforpoints)
+> [Elevation: obtención de datos para las coordenadas de latitud y longitud](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
-> [Elevation (versión preliminar): obtención de datos para el rectángulo delimitador](/rest/api/maps/elevation/getdataforboundingbox)
+> [Elevation: obtención de datos para el rectángulo delimitador](/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Elevation (versión preliminar): obtención de datos para Polyline](/rest/api/maps/elevation/getdataforpolyline)
+> [Elevation: obtención de datos para la polilínea](/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
 > [Get Map Tile de Render V2](/rest/api/maps/renderv2)

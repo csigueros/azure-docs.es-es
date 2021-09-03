@@ -1,22 +1,22 @@
 ---
-title: Migración de recursos de proceso de Azure desde Azure Alemania a Azure global
+title: Migración de un recurso de proceso de Azure desde Azure Alemania a Azure global
 description: En este artículo se proporciona información sobre cómo migrar los recursos de proceso de Azure desde Azure Alemania a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: c48c757a0c1a4ff0bf0bffbd49c50efbc2c9b93b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3662039dad5d85c87c2598fb59b7719ab9251090
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033750"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "117029144"
 ---
 # <a name="migrate-compute-resources-to-global-azure"></a>Migración de recursos de proceso a Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 En este artículo se proporciona información que puede ayudarle a migrar los recursos de proceso de Azure desde Azure Alemania a Azure global.
 
@@ -73,17 +73,17 @@ Se descarga un archivo .zip que contiene varios archivos. Los scripts de PowerSh
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Site Recovery](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
-- Obtenga información sobre como [exportar plantillas de Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o lea una introducción a [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualice sus conocimientos completando los [tutoriales de Site Recovery](../site-recovery/index.yml).
+- Obtenga información sobre como [exportar plantillas de Resource Manager](../azure-resource-manager/templates/export-template-portal.md) o lea una introducción a [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Obtenga más información sobre la [recuperación ante desastres de un equipo físico a Azure mediante Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
 - Lea la [introducción a las ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Más información acerca de cómo [volver a implementar una plantilla](../azure-resource-manager/resource-group-template-deploy.md).
+- Más información acerca de cómo [volver a implementar una plantilla](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="cloud-services"></a>Cloud Services
 
 Para volver a implementar los recursos de Azure Cloud Services, vuelva a proporcionar las definiciones `.cspkg` y `.cscfg`.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Para volver a implementar los servicio en la nube en Azure Portal:
 
@@ -95,20 +95,20 @@ Para volver a implementar los servicio en la nube en Azure Portal:
 
 Para volver a implementar los servicios en la nube mediante PowerShell:
 
-1. [Cree un nuevo servicio en la nube](/powershell/module/servicemanagement/azure/new-azureservice) mediante las definiciones `.cspkg` y `.cscfg`.
+1. [Cree un nuevo servicio en la nube](/powershell/module/servicemanagement/azure.service/new-azureservice) mediante las definiciones `.cspkg` y `.cscfg`.
 
     ```powershell
     New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
     ```
 
-1. [Cree una nueva implementación](/powershell/module/servicemanagement/azure/new-azuredeployment) mediante las definiciones `.cspkg` y `.cscfg`.
+1. [Cree una nueva implementación](/powershell/module/servicemanagement/azure.service/new-azuredeployment) mediante las definiciones `.cspkg` y `.cscfg`.
 
     ```powershell
     New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
     ```
 
 1. Actualice el [registro CNAME o A](../cloud-services/cloud-services-custom-domain-name-portal.md) para que apunte el tráfico al nuevo servicio en la nube.
-1. Cuando el tráfico apunta al nuevo servicio en la nube, [elimine el servicio en la nube anterior](/powershell/module/servicemanagement/azure/remove-azureservice) de Azure Alemania.
+1. Cuando el tráfico apunta al nuevo servicio en la nube, [elimine el servicio en la nube anterior](/powershell/module/servicemanagement/azure.service/remove-azureservice) de Azure Alemania.
 
     ```powershell
     Remove-AzureService -ServiceName <yourOldServiceName>
@@ -130,7 +130,7 @@ Para volver a implementar servicios en la nube mediante la API REST:
     https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
     ```
 
-1. Cuando el tráfico apunta al nuevo servicio en la nube, [elimine el servicio en la nube anterior](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-delete-cloud-service) de Azure Alemania.
+1. Cuando el tráfico apunta al nuevo servicio en la nube, [elimine el servicio en la nube anterior](/rest/api/compute/cloudservices/rest-delete-cloud-service) de Azure Alemania.
 
     ```http
     https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<old-cloudservice-name>
@@ -148,7 +148,7 @@ Puede obtener información sobre el entorno actual de Service Fabric mediante lo
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Service Fabric](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Service Fabric](../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
 - Obtenga información sobre cómo [crear un nuevo clúster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
 - Revise la [introducción a Service Fabric](../service-fabric/service-fabric-overview.md).
 
@@ -166,7 +166,7 @@ Vuelva a implementar los scripts, las plantillas o el código en la nueva regió
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Batch](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Batch](../batch/tutorial-parallel-dotnet.md).
 - Revise la [Introducción a Azure Batch](../batch/batch-technical-overview.md).
 
 ## <a name="functions"></a>Functions
@@ -178,11 +178,11 @@ En este momento no se admite la migración de los recursos de Azure Functions de
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Functions](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Aprenda a [exportar plantillas de Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o lea una introducción a [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualice sus conocimientos completando los [tutoriales de Functions](../azure-functions/index.yml).
+- Aprenda a [exportar plantillas de Resource Manager](../azure-resource-manager/templates/export-template-portal.md) o lea una introducción a [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Revise la [introducción a Azure Functions](../azure-functions/functions-overview.md).
 - Consulte una [introducción a las ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/resource-group-template-deploy.md).
+- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales
 
@@ -193,12 +193,12 @@ Para migrar los conjuntos de escalado de máquinas virtuales a Azure global, exp
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales del conjunto de escalado de máquina virtual](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
-- Aprenda a [exportar las plantillas de Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Revise la [introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualice sus conocimientos completando los [tutoriales del conjunto de escalado de máquina virtual](../virtual-machine-scale-sets/tutorial-create-and-manage-cli.md).
+- Aprenda a [exportar las plantillas de Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md).
+- Revise la [introducción a Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Obtenga información general de los [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md).
 - Lea una [introducción a las ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/resource-group-template-deploy.md).
+- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="web-apps"></a>Web Apps
 
@@ -209,11 +209,11 @@ En este momento, no se pueden migrar las aplicaciones que ha creado con la carac
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de App Service](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Aprenda a [exportar plantillas de Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o lea una introducción a [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualice sus conocimientos completando los [tutoriales de App Service](../app-service/tutorial-dotnetcore-sqldb-app.md).
+- Aprenda a [exportar plantillas de Resource Manager](../azure-resource-manager/templates/export-template-portal.md) o lea una introducción a [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Revise la [introducción a App Service](../app-service/overview.md).
 - Lea la [introducción a las ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/resource-group-template-deploy.md).
+- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
