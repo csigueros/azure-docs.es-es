@@ -4,15 +4,17 @@ description: Aprenda a automatizar la pausa y reanudación de un grupo de SQL de
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
+ms.reviewer: wiassaf
+ms.subservice: sql
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 08/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 454c25891759d99b3f622d66920f20d2ec0f1a6c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 01fd517be7e60a5ab16e7844d8c149ddac2dcb3e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081647"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862445"
 ---
 # <a name="pause-and-resume-dedicated-sql-pools-with-synapse-pipelines"></a>Pausa y reanudación de grupos de SQL dedicados con canalizaciones de Synapse
 
@@ -22,21 +24,21 @@ Los pasos siguientes le guiarán a través de la configuración de pausas y rean
 
 1. Creación de una canalización
 1. Configure los parámetros en la canalización.
-1. Identifique la lista de grupos de SQL dedicados en el área de trabajo de Synapse.
+1. Identifique la lista de grupos de SQL dedicados en el área de trabajo de Azure Synapse.
 1. Filtre los grupos de SQL dedicados que no quiera pausar o reanudar en la lista. 
 1. Recorra en bucle cada grupo de SQL dedicado y:
     1. Compruebe el estado del grupo de SQL dedicado.
     1. Evalúe el estado del grupo de SQL dedicado.
     1. Pause o reanude el grupo de SQL dedicado.
 
-Estos pasos se establecen en una canalización simple en Synapse:
+Estos pasos se establecen en una canalización simple en Azure Synapse:
 
 ![Canalización de Synapse simple](./media/how-to-pause-resume-pipelines/simple-pipeline.png)
 
 
 En función de la naturaleza del entorno, es posible que no se aplique todo el proceso descrito aquí y que simplemente desee elegir los pasos adecuados. El proceso descrito aquí se puede usar para pausar o reanudar todas las instancias en un entorno de desarrollo, prueba o prueba de concepto. En el caso de un entorno de producción, es más probable que programe la pausa o la reanudación en una instancia por instancia, por lo que solo necesitará los pasos 5a a 5c.
 
-En los pasos anteriores se usan las API REST para Synapse y Azure SQL:
+En los pasos anteriores se usan las API REST para Azure Synapse y Azure SQL:
 
 - [Operaciones de grupos de SQL dedicados](/rest/api/synapse/sqlpools)
  
@@ -65,7 +67,7 @@ La canalización que creará estará controlada por parámetros. Los parámetros
 |Nombre  |Tipo  |Valor predeterminado  |Descripción|
 |---------|---------|---------|-----------|
 |ResourceGroup    |string        |Synapse          |Nombre del grupo de recursos para los grupos de SQL dedicados|
-|SubscriptionID   |string        |<SubscriptionID> |Identificador de suscripción para el grupo de recursos|
+|SubscriptionID   |string        |`<SubscriptionID>` |Identificador de suscripción para el grupo de recursos|
 |WorkspaceName    |string        |Synapse          |Nombre del área de trabajo|
 |SQLPoolName      |string        |SQLPool1         |Nombre del grupo de SQL dedicado|
 |PauseorResume    |string        |Pausar            |Estado deseado al final de la ejecución de canalización|
@@ -225,5 +227,5 @@ Puede encontrar más detalles sobre Identidad administrada para Azure Synapse y 
 
 [Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)](../security/how-to-grant-workspace-managed-identity-permissions.md)
 
-[Control de acceso SQL para las ejecuciones de canalización de Synapse](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-synapse-pipeline-runs)
+[Control de acceso SQL para las ejecuciones de canalización de Synapse](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-azure-synapse-pipeline-runs)
 

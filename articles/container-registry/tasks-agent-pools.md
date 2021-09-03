@@ -4,12 +4,12 @@ description: Configure un grupo de proceso dedicado (grupo de agentes) en el reg
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: c23d2ab866f621db27488860ab62a41765faef40
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a303155b82cc35461cd6080b3cce694ffe7a1fc4
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763710"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122831"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Ejecución de una tarea de ACR en un grupo de agentes dedicado
 
@@ -56,10 +56,10 @@ Los niveles de grupos de agentes proporcionan los siguientes recursos por instan
 
 ### <a name="set-default-registry-optional"></a>Definición del registro predeterminado (opcional)
 
-Para simplificar los comandos de la CLI de Azure que siguen, establezca el registro predeterminado ejecutando el comando [az configure][az-configure]:
+A fin de simplificar los comandos de la CLI de Azure siguientes, ejecute el comando [az config][az-config] para establecer el registro predeterminado:
 
 ```azurecli
-az configure --defaults acr=<registryName>
+az config set defaults.acr=<registryName>
 ```
 
 En los siguientes ejemplos se supone que ha establecido el registro predeterminado. Si no es así, pase un parámetro `--registry <registryName>` en cada comando `az acr`.
@@ -185,7 +185,7 @@ Para obtener más ejemplos de compilaciones y mantenimiento de imágenes de cont
 [azure-cli]:           /cli/azure/install-azure-cli
 [open-support-ticket]: https://aka.ms/acr/support/create-ticket
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[az-configure]: /cli/azure#az_configure
+[az-config]: /cli/azure#az_config
 [az-acr-agentpool-create]: /cli/azure/acr/agentpool#az_acr_agentpool_create
 [az-acr-agentpool-update]: /cli/azure/acr/agentpool#az_acr_agentpool_update
 [az-acr-agentpool-show]: /cli/azure/acr/agentpool#az_acr_agentpool_show

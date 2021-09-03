@@ -3,14 +3,14 @@ title: Replicación geográfica de un registro
 description: Introducción a la creación y administración de un registro de contenedor de Azure con replicación geográfica, que permite que el registro atienda varias regiones con réplicas regionales de varios maestros. La replicación geográfica es una característica del nivel de servicio Premium.
 author: stevelas
 ms.topic: article
-ms.date: 06/09/2021
+ms.date: 06/28/2021
 ms.author: stevelas
-ms.openlocfilehash: b60de8dd9dc4ba5b66594fe6d75caa43ef0017b5
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: c616c3e196547d72825759de94792cc6573a12d9
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029664"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037983"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -64,9 +64,6 @@ Al usar la característica de replicación geográfica de Azure Container Regist
 
 Azure Container Registry también admite [zonas de disponibilidad](zone-redundancy.md) para crear un registro de contenedor de Azure de alta disponibilidad y resistente en una región de Azure. La combinación de zonas de disponibilidad para la redundancia dentro de una región y la replicación geográfica en varias regiones mejora la confiabilidad y el rendimiento de un registro.
 
-> [!IMPORTANT]
-> Un registro con replicación geográfica puede no estar disponible si se producen ciertas interrupciones en la región principal del registro, es decir, la región donde se implementó originalmente el registro.
-
 ## <a name="configure-geo-replication"></a>Configuración de la replicación geográfica
 
 Configurar la replicación geográfica es tan fácil como hacer clic en las regiones de un mapa. También puede administrar la replicación geográfica mediante herramientas como los comandos [az acr replication](/cli/azure/acr/replication) de la CLI de Azure, o implementar un registro habilitado para la replicación geográfica con una [plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/container-registry-geo-replication/).
@@ -105,6 +102,13 @@ ACR comenzará entonces a sincronizar imágenes entre las réplicas configuradas
 * Para administrar flujos de trabajo que dependen de actualizaciones de inserción para un registro con replicación geográfica, se recomienda configurar [webhooks](container-registry-webhook.md) para responder a los eventos de inserción. Puede configurar webhooks regionales dentro de un registro con replicación geográfica para realizar un seguimiento de los eventos de inserción a medida que se completan en las regiones con replicación geográfica.
 * Para prestar servicio a los blobs que representan capas de contenido, Azure Container Registry usa puntos de conexión de datos. Puede habilitar [puntos de conexión de datos dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para el registro en cada una de las regiones con replicación geográfica del registro. Estos puntos de conexión permiten la configuración de reglas de acceso de firewall con ámbito estricto. Para solucionar los problemas, tiene la opción de [deshabilitar el enrutamiento a una replicación](#temporarily-disable-routing-to-replication) mientras mantiene los datos replicados.
 * Si configura un [vínculo privado](container-registry-private-link.md) para el registro mediante puntos de conexión privados de una red virtual, los puntos de conexión de datos dedicados de cada una de las regiones con replicación geográfica se habilitan de forma predeterminada. 
+
+## <a name="considerations-for-high-availability"></a>Consideraciones para la alta disponibilidad
+
+* Para lograr alta disponibilidad y resistencia, se recomienda crear un registro en una región que admita la habilitación de la [redundancia de zona](zone-redundancy.md). También se recomienda habilitar la redundancia de zona en todas las regiones de réplica.
+* Si se produce una interrupción en la región principal del registro (la región donde se ha creado) o en una de sus regiones de réplica, un registro con replicación geográfica sigue estando disponible para las operaciones del plano de datos, como las de inserción o extracción de imágenes de contenedor. 
+* Si la región principal del registro deja de estar disponible, es posible que no pueda realizar operaciones de administración de registros, incluida la configuración de reglas de red, la habilitación de zonas de disponibilidad y la administración de réplicas.
+* Para planificar la alta disponibilidad de un registro con replicación geográfica cifrado con una [clave administrada por el cliente](container-registry-customer-managed-keys.md) almacenada en un almacén de claves de Azure, revise las instrucciones para la [conmutación por error y la redundancia](../key-vault/general/disaster-recovery-guidance.md) del almacén de claves.
 
 ## <a name="delete-a-replica"></a>Eliminación de una réplica
 

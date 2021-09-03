@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 06/18/2021
 ms.author: justinha
-ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d7c3eeb184f7ceb09541ca9533203f4b45194bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96620212"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730829"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Funcionamiento de las relaciones de confianza para los bosques de recursos en Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ El flujo de las comunicaciones seguras a través de confianzas determina la elas
 
 El flujo de la comunicación a través de las confianzas viene determinado por la dirección de la confianza. Las confianzas pueden ser unidireccionales o bidireccionales, y transitivas o no transitivas.
 
-En el diagrama siguiente se muestra que todos los dominios del *Árbol 1* y del *Árbol 2* tienen relaciones de confianza transitivas de forma predeterminada. Como resultado, los usuarios del *Árbol 1* pueden acceder a los recursos de los dominios del *Árbol 2* y los usuarios del *Árbol 1* pueden acceder a los recursos del *Árbol 2*, si se asignan los permisos adecuados en el recurso.
+En el diagrama siguiente se muestra que todos los dominios del *Árbol 1* y del *Árbol 2* tienen relaciones de confianza transitivas de forma predeterminada. Como resultado, los usuarios del *Árbol 1* pueden acceder a los recursos de los dominios del *Árbol 2* y los usuarios del *Árbol 2* pueden acceder a los recursos del *Árbol 1*, si se asignan los permisos adecuados en el recurso.
 
 ![Diagrama de relaciones de confianza entre dos bosques](./media/concepts-forest-trust/trust-relationships.png)
 
@@ -108,7 +108,7 @@ Para poder crear una confianza de bosque, debe comprobar que cuenta con la infra
 
 Para crear una confianza de bosque, debe ser miembro del grupo de administradores de dominio (en el dominio raíz del bosque) o del grupo de administradores de empresa en Active Directory. A cada confianza se le asigna una contraseña que deben conocer los administradores de ambos bosques. Los miembros del grupo de administradores de empresa de ambos bosques pueden crear las confianzas en ambos bosques a la vez; en este escenario, se genera y escribe automáticamente una contraseña criptográficamente aleatoria para ambos bosques.
 
-La confianza de bosque de salida para Azure AD Domain Services se crea en Azure Portal. La relación de confianza con el propio dominio administrado no se crea manualmente. La confianza de bosque de entrada debe ser configurada por un usuario con los privilegios anteriormente indicados en el entorno de Active Directory local.
+Un bosque de recursos de dominio administrado admite hasta cinco bosques de salida unidireccionales en los bosques locales. La confianza de bosque de salida para Azure AD Domain Services se crea en Azure Portal. La relación de confianza con el propio dominio administrado no se crea manualmente. La confianza de bosque de entrada debe ser configurada por un usuario con los privilegios anteriormente indicados en el entorno de Active Directory local. 
 
 ## <a name="trust-processes-and-interactions"></a>Procesos e interacciones de confianza
 

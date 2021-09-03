@@ -15,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: ab57e66ff37fb31a91a1949896a4e7736669d6c6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0f9d98eb2a4fe09728a890af59b4c54afbed3737
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078930"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291662"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,8 +29,8 @@ En este artículo se explica cómo usar las plantillas de inicio rápido de Azur
 
    | Plantilla | Descripción |
    | --- | --- |
-   | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Crea el clúster de conmutación por error de Windows y une a él las máquinas virtuales con SQL Server. |
-   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Crea la escucha de grupo de disponibilidad y configura el equilibrador de carga interno. Esta plantilla solo se puede usar si se creó el clúster de conmutación por error de Windows con la plantilla **101-sql-vm-ag-setup**. |
+   | [sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup) | Crea el clúster de conmutación por error de Windows y une a él las máquinas virtuales con SQL Server. |
+   | [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) | Crea la escucha de grupo de disponibilidad y configura el equilibrador de carga interno. Esta plantilla solo se puede usar si se creó el clúster de conmutación por error de Windows con la plantilla **101-sql-vm-ag-setup**. |
    | &nbsp; | &nbsp; |
 
 Otras partes de la configuración del grupo de disponibilidad deben realizarse manualmente, como la creación del grupo de disponibilidad y del equilibrador de carga interno. En este artículo se proporciona la secuencia de pasos manuales y automatizados.
@@ -60,7 +60,7 @@ Una vez que se han registrado las máquinas virtuales con SQL Server con la ext
 
 La adición de las VM con SQL Server al grupo de recursos *SqlVirtualMachineGroups* arranca el servicio de clúster de conmutación por error de Windows para crear el clúster y luego une las máquinas virtuales con SQL Server al clúster. Este paso se automatiza con la plantilla de inicio rápido **101-sql-vm-ag-setup**. Puede implementarlo siguiendo estos pasos:
 
-1. Vaya a la plantilla de inicio rápido [**101-sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup). Después, seleccione **Implementar en Azure** para abrir la plantilla de inicio rápido en Azure Portal.
+1. Vaya a la plantilla de inicio rápido [**sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup). Después, seleccione **Implementar en Azure** para abrir la plantilla de inicio rápido en Azure Portal.
 1. Rellene los campos obligatorios para configurar los metadatos del clúster de conmutación por error de Windows. Puede dejar los campos opcionales en blanco.
 
    En la tabla siguiente se muestran los valores necesarios para la plantilla: 
@@ -90,7 +90,7 @@ La adición de las VM con SQL Server al grupo de recursos *SqlVirtualMachineGrou
 
 ## <a name="configure-quorum"></a>Configuración de un cuórum
 
-Aunque el testigo de disco es la opción de cuórum más resistente, requiere un disco compartido de Azure que impone algunas limitaciones al grupo de disponibilidad. Por lo tanto, el testigo en la nube es la solución de cuórum recomendada para los clústeres que hospedan grupos de disponibilidad de SQL Server en máquinas virtuales de Azure. 
+Aunque el testigo de disco es la opción de cuórum más resistente, requiere un disco compartido de Azure que impone algunas limitaciones al grupo de disponibilidad. Por lo tanto, el testigo en la nube es la solución de cuórum recomendada para los clústeres que hospedan grupos de disponibilidad de SQL Server en VM de Azure. 
 
 Si tiene un número par de votos en el clúster, configure la [solución de cuórum](hadr-cluster-quorum-configure-how-to.md) que mejor se adapte a sus necesidades empresariales. Para más información, consulte [Cuórum con VM SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
@@ -115,7 +115,7 @@ Cree el grupo de disponibilidad manualmente del modo habitual, ya sea mediante [
 
 [!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
 
-El cliente de escucha de grupo de disponibilidad Always On requiere una instancia interna de Azure Load Balancer. El equilibrador de carga interno proporciona una dirección IP "flotante" para el cliente de escucha de grupo de disponibilidad, que permite conmutar por error y volver a conectarse de manera más rápida. Si las máquinas virtuales con SQL Server de un grupo de disponibilidad forman parte del mismo conjunto de disponibilidad, puede usar un equilibrador de carga básico. De lo contrario, debe usar uno estándar. 
+El cliente de escucha de grupo de disponibilidad Always On requiere una instancia interna de Azure Load Balancer. El equilibrador de carga interno proporciona una dirección IP "flotante" para la escucha de grupo de disponibilidad, que permite conmutar por error y volver a conectarse de manera más rápida. Si las máquinas virtuales con SQL Server de un grupo de disponibilidad forman parte del mismo conjunto de disponibilidad, puede usar un equilibrador de carga básico. De lo contrario, debe usar uno estándar. 
 
 > [!IMPORTANT]
 > El equilibrador de carga interno debe estar en la misma red virtual que las instancias de máquina virtual con SQL Server. 
@@ -161,7 +161,7 @@ Cree la escucha de grupo de disponibilidad y configure el equilibrador de carga 
    
    
 Para configurar el equilibrador de carga interno y crear la escucha de grupo de disponibilidad, haga lo siguiente:
-1. Vaya a la plantilla de inicio rápido [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) y seleccione **Implementar en Azure** para iniciar la plantilla de inicio rápido en Azure Portal.
+1. Vaya a la plantilla de inicio rápido [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) y seleccione **Implementar en Azure** para iniciar la plantilla de inicio rápido en Azure Portal.
 1. Rellene los campos obligatorios para configurar el equilibrador de carga interno y crear la escucha de grupo de disponibilidad. Puede dejar los campos opcionales en blanco. 
 
    En la tabla siguiente se muestran los valores necesarios para la plantilla: 

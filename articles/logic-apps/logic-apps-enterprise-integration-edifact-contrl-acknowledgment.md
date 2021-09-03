@@ -8,12 +8,12 @@ ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
 ms.topic: reference
 ms.date: 07/25/2021
-ms.openlocfilehash: 3d17edf35b8da5a2d8b158fdbf1bd6e5d13e627b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 056538b5a6b52fcae646f5f03c6e39c8fce6429f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780190"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768081"
 ---
 # <a name="contrl-acknowledgments-and-error-codes-for-edifact-messages-in-azure-logic-apps"></a>Confirmaciones CONTRL y códigos de error para los mensajes EDIFACT en Azure Logic Apps
 
@@ -138,7 +138,7 @@ En función de si el intercambio recibido incluye uno o varios grupos, la estruc
 
 De manera predeterminada y debido al uso en el sector, no se espera que haya bucles SG1/SG4 en los conjuntos de transacciones aceptados. Sin embargo, y a fin de cumplir con los estándares, puede forzar la generación de bucles SG1/SG4 si sigue estos pasos:
  
-1. En [Azure Portal](https://portal.azurecom), abra la cuenta de integración.
+1. En [Azure Portal](https://portal.azure.com), abra la cuenta de integración.
 1. En el menú de la cuenta de integración, en **Configuración**, seleccione **Acuerdos**.
 1. Abra el acuerdo EDIFACT y seleccione **Configuración de envío**.
 1. En **Confirmación**, seleccione **Confirmación (CONTRL)** . Ahora puede seleccionar **Generar bucle SG1/SG4 para conjuntos de transacciones aceptadas**.

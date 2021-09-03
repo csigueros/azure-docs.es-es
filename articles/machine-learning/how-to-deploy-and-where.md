@@ -1,7 +1,7 @@
 ---
 title: Implementación de modelos de aprendizaje automático
 titleSuffix: Azure Machine Learning
-description: Aprenda cómo y dónde implementar modelos de aprendizaje automático. Realice implementaciones en Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge y FPGA.
+description: Aprenda cómo y dónde implementar modelos de aprendizaje automático. Realice implementaciones en Azure Container Instances, Azure Kubernetes Service y FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.date: 04/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
-ms.openlocfilehash: 0592577040d411d3ecad395d8697828a5c4bc516
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6fc1fbb6a665d03e250beec85c66178feaa55189
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081378"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862261"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implementación de modelos de aprendizaje automático en Azure 
 
@@ -37,6 +37,8 @@ El flujo de trabajo es siempre parecido independientemente de donde implemente e
 1. Pruebe el servicio web resultante.
 
 Para más información sobre los conceptos implicados en el flujo de trabajo de implementación del aprendizaje automático, consulte [Administración, implementación y supervisión de modelos con Azure Machine Learning](concept-model-management-and-deployment.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -88,7 +90,7 @@ Para más información sobre el uso del SDK para conectarse a un área de trabaj
 En una situación común, un servicio de aprendizaje automático implementado necesita los siguientes componentes:
     
  + Recursos que representan el modelo específico que desea implementar (por ejemplo, un archivo de modelo pytorch).
- + Código que se va a ejecutar en el servicio, que ejecuta el modelo en una entrada determinada.
+ + Código que se va a ejecutar en el servicio, que ejecuta el modelo en una entrada determinada
 
 Azure Machine Learning le permite separar la implementación en dos componentes independientes, de modo que pueda mantener el mismo código y simplemente actualizar el modelo. Definimos el mecanismo por el que se carga un modelo _por separado_ del código como "registrar el modelo".
 
@@ -410,7 +412,7 @@ Para eliminar un servicio web implementado, use `az ml service delete <name of w
 
 Para eliminar un modelo registrado del área de trabajo, use `az ml model delete <model id>`.
 
-Más información sobre la [eliminación de un servicio web](/cli/azure/ml/service#az_ml_service_delete) y la [eliminación de un modelo](/cli/azure/ml/model#az_ml_model_delete).
+Más información sobre la [eliminación de un servicio web](/cli/azure/ml(v1)/computetarget/create#az_ml_service_delete) y la [eliminación de un modelo](/cli/azure/ml/model#az_ml_model_delete).
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -1,41 +1,40 @@
 ---
-title: Conexión a SQL Managed Instance habilitada para Azure Arc
-description: Conexión a SQL Managed Instance habilitada para Azure Arc
+title: Conexión a SQL Managed Instance habilitada para Azure Arc
+description: Conexión a SQL Managed Instance habilitada para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 87d9ca35cbed711f8fad0faf4759e3f6c3833b86
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: c0a64d5756895f18cbb1285586570ac72dd1c12e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110496004"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745853"
 ---
-# <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Conexión a SQL Managed Instance habilitada para Azure Arc
+# <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Conexión a SQL Managed Instance habilitada para Azure Arc
 
-En este artículo se explica cómo puede conectarse a la instancia de SQL Managed Instance habilitada para Azure Arc. 
+En este artículo se explica cómo se puede conectar a SQL Managed Instance habilitada para Azure Arc. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="view-azure-arc-enabled-sql-managed-instances"></a>Visualización de instancias de SQL Managed Instance habilitada para Azure Arc
+## <a name="view-azure-arc-enabled-sql-managed-instances"></a>Visualización de instancias de SQL Managed Instance habilitadas para Azure Arc
 
-Para ver la instancia de SQL Managed Instance habilitada para Azure Arc y los puntos de conexión externos, use el siguiente comando:
+Para ver la instancia de SQL Managed Instance habilitada para Azure Arc y los puntos de conexión externos, use el siguiente comando:
 
-```console
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s -o table
 ```
 
 La salida debe ser similar a la que se muestra a continuación:
 
 ```console
-Name    Replicas    ExternalEndpoint    State
-------  ----------  ----------------  -------
-sqldemo 1/1         10.240.0.4:32023  Ready
+Name       PrimaryEndpoint      Replicas    State
+---------  -------------------  ----------  -------
+sqldemo    10.240.0.107,1433    1/1         Ready
 ```
 
 Si usa AKS, kubeadm, OpenShift, etc., puede copiar el número de puerto y la dirección IP externa desde aquí y conectarse a él mediante su herramienta favorita para conectarse a una instancia de SQL Server o Azure SQL, como Azure Data Studio o SQL Server Management Studio.  Sin embargo, si usa la máquina virtual de inicio rápido, consulte a continuación para obtener información especial sobre cómo conectarse a esa máquina virtual desde fuera de Azure. 
@@ -84,7 +83,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 Una vez que tenga el nombre del NSG, puede agregar una regla de firewall mediante el comando siguiente. En estos valores de ejemplo se crea una regla de NSG para el puerto 30913 y se permite la conexión desde **cualquier** dirección IP de origen.  No es un procedimiento recomendado de seguridad.  Puede conseguir un bloqueo mejor si especifica un valor para -source-address-prefixes específico de la dirección IP del cliente o un intervalo de direcciones IP que abarque las direcciones IP del equipo o la organización.
 
-Reemplace el valor del parámetro `--destination-port-ranges` siguiente por el número de puerto que recibió del comando `azdata sql instance list` anterior.
+Reemplace el valor del parámetro `--destination-port-ranges` siguiente por el número de puerto que ha obtenido del comando `az sql mi-arc list` anterior.
 
 ```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'

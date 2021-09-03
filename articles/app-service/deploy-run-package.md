@@ -3,12 +3,12 @@ title: Ejecución de una aplicación desde un paquete ZIP
 description: Implemente el paquete ZIP de la aplicación con atomicidad. Mejore la previsibilidad y la confiabilidad del comportamiento de su aplicación durante el proceso de implementación de ZIP.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: d3315370342f54091598aa3f77f70f03bda4ad33
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 99de9745b75bd21a0fb3126c51b38b047e9b77f4
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772746"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135300"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Ejecución de una aplicación en Azure App Service directamente desde un paquete ZIP
 
@@ -53,7 +53,7 @@ El comando también reinicia la aplicación. Dado que `WEBSITE_RUN_FROM_PACKAGE`
 
 ## <a name="run-from-external-url-instead"></a>Ejecución desde una dirección URL externa en su lugar
 
-También puede ejecutar un paquete desde una dirección URL externa, como Azure Blob Storage. Puede usar el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar archivos de paquete en la cuenta de Blob Storage. Debe usar un contenedor de almacenamiento privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para permitir que sistema en tiempo de ejecución de App Service acceda al paquete de manera segura. 
+También puede ejecutar un paquete desde una dirección URL externa, como Azure Blob Storage. Puede usar el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar archivos de paquete en la cuenta de Blob Storage. Debe usar un contenedor de almacenamiento privado con una [Firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) o bien [una identidad administrada](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) para permitir que el entorno de ejecución de App Service acceda al paquete de manera segura. 
 
 Una vez que cargue el archivo en Blob Storage y tenga una dirección URL de SAS para el archivo, establezca la configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en la dirección URL. En el ejemplo siguiente se usa la CLI de Azure:
 
@@ -62,6 +62,10 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ```
 
 Si publica un paquete actualizado con el mismo nombre en Blob Storage, debe reiniciar la aplicación para que el paquete actualizado se cargue en App Service.
+
+### <a name="fetch-a-package-from-azure-blob-storage-using-a-managed-identity"></a>Captura de un paquete de Azure Blob Storage mediante una identidad administrada
+
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

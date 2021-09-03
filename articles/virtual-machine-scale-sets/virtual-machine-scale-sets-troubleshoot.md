@@ -9,21 +9,21 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: cc1637524acd484536cb79c68582e961ab3a5f59
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 10bbcae3437f150ff8364abff2a500bdd39936e1
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108732786"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112286532"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales
-**Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales (por ejemplo, mediante la implementación de una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json ), tiene sus reglas de escalado definidas y funciona perfectamente, salvo que sin importar la cantidad de carga que coloque en las máquinas virtuales, no se escala automáticamente.
+**Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales (por ejemplo, mediante la implementación de una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json ), ha definido las reglas de escalado y funciona perfectamente, salvo que, con independencia de la cantidad de carga que coloque en las máquinas virtuales, no se escala de forma automática.
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 Entre los aspectos que debe considerar se incluyen:
 
 * ¿Cuántas vCPU tiene cada máquina virtual? ¿Está cargando cada vCPU?
-  La plantilla de inicio rápido de Azure del ejemplo anterior incluye un script do_work.php, que carga una única vCPU. Si está usando una máquina virtual con un tamaño superior a una única vCPU, como Standard_A1 o D1, debe ejecutar entonces esta carga varias veces. Compruebe el número de vCPU de las máquinas virtuales después de consultar [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  La plantilla de inicio rápido de Azure del ejemplo anterior incluye un script do_work.php, que carga una única vCPU. Si usa una máquina virtual con un tamaño superior a una única vCPU, como Standard_A1 o D1, tendrá que ejecutar esta carga varias veces. Compruebe el número de vCPU de las máquinas virtuales después de consultar [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * ¿Cuántas máquinas virtuales hay en el conjunto de escalado de máquinas virtuales? ¿Está realizando trabajos en cada una de ellas?
   
     Solo se produce un evento de escalabilidad horizontal si el promedio de uso de CPU en **todas** las máquinas virtuales de un conjunto de escalado supera el valor de umbral durante el tiempo interno definido en las reglas de escalado automático.
@@ -34,13 +34,13 @@ Entre los aspectos que debe considerar se incluyen:
     ![Registros de auditoría][audit]
 * ¿Son los umbrales de reducción y escalado horizontal suficientemente diferentes?
   
-    Imagine que establece una regla de escalado horizontal cuando el promedio de uso de la CPU es mayor del 50 % durante más de cinco minutos y de reducción horizontal cuando el promedio de uso de la CPU es inferior al 50 %. Este ajuste puede provocar un problema de "oscilación" cuando el uso de la CPU está cerca del umbral, con acciones de escalado que aumentan y disminuyen constantemente el tamaño del conjunto. Debido a este ajuste, el servicio de escalado automático intenta evitar una "oscilación", que puede resultar en la no realización del escalado. Por tanto, asegúrese de que los umbrales de escalabilidad y reducción horizontal son lo suficiente diferentes como para permitir un cierto espacio entre el escalado.
+    Imagine que establece una regla de escalado horizontal cuando el promedio de uso de la CPU es mayor del 50 % durante más de cinco minutos y de reducción horizontal cuando el promedio de uso de la CPU es inferior al 50 %. Este valor puede provocar un problema de "oscilación" cuando el uso de la CPU está cerca del umbral, con acciones de escalado que aumentan y disminuyen constantemente el tamaño del conjunto. Debido a este valor, el servicio de escalado automático intenta evitar una "oscilación", lo que puede resultar en la no realización del escalado. Por tanto, asegúrese de que los umbrales de escalabilidad y reducción horizontal son lo suficiente diferentes como para permitir un cierto espacio entre el escalado.
 * ¿Escribió su propia plantilla JSON?
   
     Es fácil cometer errores, así que comience con una plantilla como la anterior que ya sabemos que funciona y haga pequeños cambios incrementales. 
 * ¿Puede escalar o reducir horizontalmente de forma manual?
   
-    Intente volver a implementar el recurso del conjunto de escalado de máquinas virtuales con una configuración diferente de "capacidad" para cambiar el número de máquinas virtuales manualmente. Este es un ejemplo de plantilla : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing (es posible que tenga que editar la plantilla para asegurarse de que tiene el mismo tamaño de máquina que usa el conjunto de escalado. Si puede cambiar correctamente el número de máquinas virtuales de forma manual, sabrá que ha aislado el problema al escalado automático.
+    Intente volver a implementar el recurso de conjunto de escalado de máquinas virtuales con otra configuración de "capacidad" para cambiar el número de máquinas virtuales manualmente. Este es un ejemplo de plantilla : https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-scale-existing (es posible que tenga que editar la plantilla para asegurarse de que tiene el mismo tamaño de máquina que usa el conjunto de escalado. Si puede cambiar correctamente el número de máquinas virtuales de forma manual, sabrá que ha aislado el problema al escalado automático.
 * Compruebe los recursos Microsoft.Compute/virtualMachineScaleSet y Microsoft.Insights en el [Explorador de recursos de Azure](https://resources.azure.com/)
   
     Azure Resource Explorer es una herramienta indispensable de solución de problemas que muestra el estado de los recursos de Azure Resource Manager. Haga clic en la suscripción y examine el grupo de recursos que se están diagnosticando. En el proveedor de recursos de Compute, mire el conjunto de escalado de máquinas virtuales que ha creado y compruebe la vista de instancias, en la que se muestra el estado de una implementación. Compruebe también la vista de instancias del conjunto de escalado de máquinas virtuales. Después, entre en el proveedor de recursos de Microsoft.Insights y compruebe que las reglas de escalado automático están bien.
@@ -60,19 +60,19 @@ Entre los aspectos que debe considerar se incluyen:
     
     El escalado automático en Azure Resource Manager puede funcionar (aunque ya no es necesario) por medio de una extensión de máquina virtual llamada extensión de diagnóstico. Emite datos de rendimiento para una cuenta de almacenamiento que se define en la plantilla. A continuación, el servicio Azure Monitor agrega estos datos.
     
-    Si el servicio de Insights no puede leer datos de las máquinas virtuales, este debería enviarle un correo electrónico. Por ejemplo, recibirá un correo electrónico si las máquinas virtuales están fuera de servicio. Asegúrese de comprobar el correo electrónico, en la dirección de correo electrónico especificada al crear la cuenta de Azure.
+    Si el servicio Insights no puede leer datos de las máquinas virtuales, debería enviarle un correo electrónico. Por ejemplo, recibirá un correo electrónico si las máquinas virtuales están fuera de servicio. Asegúrese de comprobar el correo electrónico, en la dirección de correo electrónico especificada al crear la cuenta de Azure.
     
-    También puede comprobar los datos usted mismo. Observe la cuenta de almacenamiento de Azure mediante Cloud Explorer. Por ejemplo, si usa [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), inicie sesión y elija la suscripción de Azure que utiliza. Después, mire el nombre de la cuenta de almacenamiento de Diagnostics al que se hace referencia en la definición de extensión de Diagnostics en la plantilla de la implementación.
+    También puede comprobar los datos usted mismo. Observe la cuenta de almacenamiento de Azure mediante Cloud Explorer. Por ejemplo, si usa [Cloud Explorer de Visual Studio](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), inicie sesión y elija la suscripción de Azure que utilice. Después, mire el nombre de la cuenta de almacenamiento de Diagnostics al que se hace referencia en la definición de extensión de Diagnostics en la plantilla de la implementación.
     
     ![Cloud Explorer][explorer]
     
-    Verá una serie de tablas en las que se almacenan los datos de cada máquina virtual. Tomando como ejemplo Linux y las métricas de CPU, observe las filas más recientes. Visual Studio Cloud Explorer es compatible con un lenguaje de consulta para que pueda ejecutar una consulta. Por ejemplo, puede ejecutar la consulta "Timestamp gt datetime'2016-02-02T21:20:00Z'" para asegurarse de que obtiene los eventos más recientes. La zona horaria se corresponde con la hora UTC. ¿Se corresponden los datos que puede ver allí con las reglas de escalado que ha configurado? En el ejemplo siguiente, el uso de la CPU para la máquina 20 empezó a aumentar al 100 % durante los últimos cinco minutos.
+    Verá una serie de tablas en las que se almacenan los datos de cada máquina virtual. Tomando como ejemplo Linux y las métricas de CPU, observe las filas más recientes. Visual Studio Cloud Explorer es compatible con un lenguaje de consulta para que pueda ejecutar una consulta. Por ejemplo, puede ejecutar la consulta "Timestamp gt datetime"2016-02-02T21:20:00Z"" para asegurarse de que obtiene los eventos más recientes. La zona horaria se corresponde con la hora UTC. ¿Se corresponden los datos que puede ver allí con las reglas de escalado que ha configurado? En el ejemplo siguiente, el uso de la CPU para la máquina 20 empezó a aumentar al 100 % durante los últimos cinco minutos.
     
     ![Tablas de almacenamiento][tables]
     
     Si los datos no están allí, significa que el problema está relacionado con la extensión de diagnóstico que se ejecuta en las máquinas virtuales. Si los datos están allí, significa que hay un problema con las reglas de escalado o con el servicio Insights. Compruebe el [estado de Azure](https://azure.microsoft.com/status/).
     
-    Una vez que haya realizado estos pasos, si sigue teniendo problemas con el escalado automático, puede probar los siguientes recursos: 
+    Una vez que haya realizado estos pasos, si sigue teniendo problemas con el escalado automático, puede probar los recursos siguientes: 
     * Lea los foros en [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-virtual-machines.html) o [Desbordamiento de pila](https://stackoverflow.com/questions/tagged/azure) 
     * Realice una llamada de soporte técnico. Esté preparado para compartir la plantilla y una vista de los datos de rendimiento.
 

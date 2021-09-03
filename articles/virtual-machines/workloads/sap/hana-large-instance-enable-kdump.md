@@ -1,35 +1,31 @@
 ---
-title: Script para habilitar Kdump en SAP HANA (instancias grandes) | Microsoft Docs
-description: Script para habilitar Kdump en SAP HANA (instancias grandes), HLI tipo I, HLI tipo II
+title: Script para habilitar kdump en SAP HANA (instancias grandes) | Microsoft Docs
+description: Aprenda a habilitar el servicio kdump en Azure HANA (instancias grandes), Tipo I y Tipo II.
 services: virtual-machines-linux
 documentationcenter: ''
-author: prtyag
-manager: hrushib
+author: Ajayan1008
+manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/30/2020
-ms.author: prtyag
+ms.date: 06/22/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c33288f80a6375b6a0c5e77d928e4314147efe0a
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 272ac309629c62ee9fc7d12236aac4b2c3106b8a
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577316"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540931"
 ---
-# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump para SAP HANA en Azure (instancias grandes)
+# <a name="kdump-for-sap-hana-on-azure-large-instances"></a>kdump para SAP HANA en Azure (instancias grandes)
 
-La configuración y habilitación de Kdump es un paso necesario para solucionar los problemas de bloqueos del sistema que no tienen una causa evidente.
-Hay ocasiones en las que un sistema se bloquea inesperadamente, pero no se puede explicar con un problema de hardware o infraestructura.
-En estos casos, puede tratarse de un problema del sistema operativo o de la aplicación, y Kdump permitirá a SUSE determinar por qué se bloqueó un sistema.
+En este artículo, se explica cómo habilitar el servicio kdump en Instancias grandes de HANA (HLI) **Tipo I y Tipo II** de Azure.
 
-## <a name="enable-kdump-service"></a>Habilitar el servicio Kdump
-
-En este documento se describen los detalles sobre cómo habilitar el servicio Kdump en una instancia grande de HANA en Azure (**tipo I y tipo II**).
+Es necesario configurar y habilitar kdump para solucionar los problemas de bloqueos del sistema que no tienen una causa evidente. En ocasiones un bloqueo del sistema no se puede explicar con un problema de hardware o infraestructura. En esos casos, un sistema operativo o una aplicación pueden haber causado el problema. kdump permitirá a SUSE determinar el motivo del bloqueo del sistema.
 
 ## <a name="supported-skus"></a>SKU compatibles
 
@@ -64,30 +60,31 @@ En este documento se describen los detalles sobre cómo habilitar el servicio Kd
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- El servicio Kdump usa el directorio `/var/crash` para escribir volcados; asegúrese de que la partición correspondiente a este directorio tenga espacio suficiente para alojar los volcados.
+- El servicio kdump usa el directorio `/var/crash` para escribir volcados. Asegúrese de que la partición correspondiente a este directorio tenga espacio suficiente para alojar los volcados.
 
 ## <a name="setup-details"></a>Detalles de la configuración
 
-- El script para habilitar Kdump se puede encontrar [aquí](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh).
-> [!NOTE]
-> Este script está basado en la configuración del laboratorio y se espera que el cliente se ponga en contacto con el proveedor del sistema operativo para cualquier optimización adicional.
-> Se va a aprovisionar un número de unidad lógica independiente para los servidores nuevos y existentes con el fin de guardar los volcados de memoria, y el script se encargará de configurar el sistema de archivos a partir del número de unidad lógica.
-> Microsoft no será responsable del análisis del volcado de memoria. El cliente tiene que abrir un vale con el proveedor del sistema operativo para que lo analice.
+- El script para habilitar kdump se puede encontrar en [Azure sap-hana-tools en GitHub](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh).
 
-- Ejecute este script en la instancia grande de HAN con el domando siguiente.
+> [!NOTE]
+> Este script se ha creado en función de la configuración del laboratorio. Deberá ponerse en contacto con el proveedor del sistema operativo para cualquier ajuste adicional.
+> Se aprovisionará un número de unidad lógica (LUN) independiente para los servidores nuevos y existentes a fin de guardar los volcados. Un script se encargará de configurar el sistema de archivos fuera del LUN.
+> Microsoft no será responsable del análisis del volcado de memoria. Tendrá que abrir una incidencia de soporte técnico para que el proveedor del sistema operativo la analice.
+
+- Use el comando siguiente para ejecutar este en la instancia grande de HANA:
 
     > [!NOTE]
-    > Se necesita el privilegio sudo para ejecutar este comando.
+    > Se necesitan privilegios sudo para ejecutar este comando.
 
     ```bash
     sudo bash enable-kdump.sh
     ```
 
-- Si el comando que genera Kdump está habilitado correctamente, asegúrese de reiniciar el sistema para aplicar los cambios correctamente.
+- Si la salida del comando muestra que kdump está habilitado correctamente, reinicie el sistema para aplicar los cambios.
 
-- Si el resultado del comando no puede realizar una operación determinada, como Exiting!!!!, el servicio Kdump no está habilitado. Consulte la sección [Problema de soporte técnico](#support-issue).
+- Si la salida del comando muestra un error de una operación, el servicio kdump no está habilitado. Consulte la sección [Problemas de compatibilidad](#support-issues), más adelante.
 
-## <a name="test-kdump"></a>Prueba de Kdump
+## <a name="test-kdump"></a>Prueba de kdump
 
 > [!NOTE]
 >  La operación siguiente desencadenará un bloqueo del kernel y el reinicio del sistema.
@@ -100,11 +97,11 @@ En este documento se describen los detalles sobre cómo habilitar el servicio Kd
 
 - Una vez que el sistema se reinicie correctamente, compruebe el directorio `/var/crash` para buscar los registros de bloqueo del kernel.
 
-- Si `/var/crash` tiene un directorio con la fecha actual, el Kdump se habilita correctamente.
+- Si `/var/crash` tiene un directorio con la fecha actual, kdump se ha habilitado correctamente.
 
-## <a name="support-issue"></a>Problema de soporte técnico
+## <a name="support-issues"></a>Problemas de compatibilidad
 
-Si el script produce un error o el Kdump no está habilitado, envíe una solicitud de servicio al equipo de soporte técnico de Microsoft con los detalles siguientes.
+Si se produce un error en el script o kdump no está habilitado, envíe una solicitud de servicio al equipo de soporte técnico de Microsoft. Incluya los detalles siguientes:
 
 * Identificador de la suscripción de HLI
 
@@ -116,5 +113,11 @@ Si el script produce un error o el Kdump no está habilitado, envíe una solicit
 
 * Versión del kernel
 
-## <a name="related-documents"></a>Documentos relacionados
-- Para obtener más información sobre cómo [configurar Kdump](https://www.suse.com/support/kb/doc/?id=3374462)
+Para obtener más información, vea [Configuración de kdump](https://www.suse.com/support/kb/doc/?id=3374462).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga información sobre las actualizaciones del sistema operativo en HANA (instancias grandes).
+
+> [!div class="nextstepaction"]
+> [Actualizaciones de sistema operativo ](os-upgrade-hana-large-instance.md)

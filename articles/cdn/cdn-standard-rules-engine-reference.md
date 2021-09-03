@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 07/31/2021
 ms.author: allensu
-ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fcb16f44aed90f483be80c64d31781f54203de6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93242215"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733255"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referencia del motor de reglas estándar de Azure CDN
 
@@ -41,10 +41,7 @@ En este límite se incluye una *regla global* predeterminada. La regla global no
 
 ## <a name="limits-and-pricing"></a>Límites y precios 
 
-Cada punto de conexión de Azure CDN puede tener hasta 25 reglas. Cada regla puede tener hasta diez condiciones de coincidencia y cinco acciones. Los precios del motor de reglas siguen las dimensiones a continuación: 
-- Reglas: 1 USD por regla al mes 
-- Solicitudes procesadas: 0,60 USD por millón de solicitudes
-- Las primeras 5 reglas seguirán siendo gratuitas
+Vea [Límites de escala de CDN](../azure-resource-manager/management/azure-subscription-service-limits.md#content-delivery-network-limits) para obtener el límite de las reglas. Para obtener los precios del motor de reglas, vea [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="syntax"></a>Sintaxis
 

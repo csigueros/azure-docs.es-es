@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bf5a3e753f3110fd07b6ab6bcde4b40bd2940153
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e7ac7408405e0e77b29cf48a16d91725332ca3f5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669501"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445853"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copia de una imagen de otra galería mediante PowerShell
 
@@ -61,7 +61,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 ## <a name="create-the-image-definition"></a>Creación de una definición de imagen 
 
-Debe crear una definición de imagen nueva que coincida con la definición de imagen del origen. Puede ver toda la información necesaria para volver a crear la definición de imagen mediante [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
+Tendrá que crear una definición de imagen que coincida con el sistema operativo, el estado del sistema operativo y la generación de Hyper-V de la definición de imagen que contiene la versión de la imagen de origen. Puede ver toda la información necesaria para volver a crear la definición de imagen mediante [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
 
 ```azurepowershell-interactive
 Get-AzGalleryImageDefinition `
@@ -121,10 +121,14 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
    -Sku 'mySKU'
 ```
 
+> [!NOTE]
+> Para las definiciones de imagen que contendrán imágenes descendientes de imágenes de terceros, la información del plan debe coincidir exactamente con la del plan de la imagen de terceros. Para incluir la información del plan en la definición de imagen, agregue `-PurchasePlanName`, `-PurchasePlanProduct`y `-PurchasePlanPublisher` al crearla.
+>
+
 
 ## <a name="create-the-image-version"></a>Creación de la versión de la imagen
 
-Cree una versión de la imagen mediante [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). Tendrá que pasar el id. de la imagen de origen en el parámetro `-Source` para crear la versión de imagen en la galería de destino. 
+Cree una versión de la imagen mediante [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). Tendrá que pasar el id. de la imagen de origen en el parámetro `-SourceImageId` para crear la versión de imagen en la galería de destino. 
 
 Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 
@@ -143,7 +147,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName myDestinationRG `
    -Location WestUS `
    -TargetRegion $targetRegions  `
-   -Source $sourceImgVer.Id.ToString() `
+   -SourceImageId $sourceImgVer.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `
    -asJob 
 ```

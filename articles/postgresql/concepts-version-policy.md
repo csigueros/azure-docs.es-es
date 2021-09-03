@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2020
+ms.date: 08/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f4cf4c0109d524d0a8fe62ae1930165173db170
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6d66d030514f121fabe8de36783d879afe0b5ea9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407064"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725249"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Directiva de versión de Azure Database for PostgreSQL
 
@@ -24,14 +24,12 @@ Azure Database for PostgreSQL admite las siguientes versiones de base de datos.
 
 | Versión | Servidor único | Servidor flexible (versión preliminar) | Hiperescala (Citus) |
 | ----- | :------: | :----: | :----: |
-| PostgreSQL 13 |  | X  | X\* |
-| PostgreSQL 12 |  | X  | X\* |
+| PostgreSQL 13 |  | X  | X |
+| PostgreSQL 12 |  | X  | X |
 | PostgreSQL 11 | X | X | X |
 | PostgreSQL 10 | X |  |  |
 | PostgreSQL 9.6 | X |  |  |
 | *PostgreSQL 9.5 (retirado)* | X |  |  |
-
-(\* PostgreSQL 12 y 13 están disponibles como característica en vista previa [GB] en Hiperescala [Citus]).
 
 ## <a name="major-version-support"></a>Compatibilidad con la versión principal
 Cada versión principal de PostgreSQL será compatible con Azure Database for PostgreSQL a partir de la fecha en la que Azure comience a admitir la versión y hasta que la comunidad de PostgreSQL retire la versión, tal como se proporciona en la [directiva de control de versiones de la comunidad de PostgreSQL](https://www.postgresql.org/support/versioning/).
@@ -55,7 +53,7 @@ En la tabla siguiente se proporcionan los detalles de la retirada de las version
 
 Puede continuar ejecutando la versión retirada en Azure Database for PostgreSQL. Sin embargo, después de la fecha de retirada de cada versión de la base de datos PostgreSQL, deberá tener en cuenta las siguientes restricciones:
 - Dado que la comunidad no va a publicar más correcciones de errores ni correcciones de seguridad, Azure Database for PostgreSQL no revisará el motor de base de datos retirado en busca de errores o problemas de seguridad, ni tomará medidas de seguridad relacionadas con el motor de base de datos retirado. Como resultado, puede encontrarse con vulnerabilidades de seguridad u otros problemas. No obstante, Azure continuará realizando tareas periódicas de mantenimiento y revisión para el host, el sistema operativo, los contenedores y cualquier otro componente relacionado con el servicio.
-- Si experimenta algún problema de compatibilidad con la base de datos de PostgreSQL, quizá no le podamos proporcionar soporte técnico. En tales casos, tendrá que actualizar la base de datos para que se le proporcione soporte técnico.
+- Si algún problema de soporte técnico que pueda experimentar está relacionado con el propio motor de PostgreSQL, como que la comunidad ya no proporciona las revisiones, es posible que no podamos proporcionarle soporte técnico. En ese caso, tendrá que actualizar la base de datos a una de las versiones admitidas.
 - No podrá crear nuevos servidores de bases de datos para la versión retirada. Sin embargo, podrá realizar recuperaciones a un momento dado, así como crear réplicas de lectura para los servidores existentes.
 - Las nuevas capacidades de servicio que ha desarrollado Azure Database for PostgreSQL podrían solo estar disponibles para las versiones de servidor de bases de datos compatibles.
 - Los acuerdos de nivel de servicio de tiempo de actividad solo se aplicarán a los problemas relacionados con los servicios de Azure Database for PostgreSQL, no a los tiempos de inactividad causados por los errores relacionados con el motor.  

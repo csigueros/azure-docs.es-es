@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 01/02/2021
-ms.openlocfilehash: 6003ca9156d8553604d7ebbf94c5c3373d077f0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/15/2021
+ms.openlocfilehash: 668e44b8192ef5dcfde4e932741f81ecbc35b5ca
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102500706"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236182"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
@@ -162,8 +162,8 @@ El módulo Ejecución de script de Python contiene código de Python de ejemplo 
     
     Cualquier archivo incluido en el archivo comprimido cargado puede usarse durante la ejecución de la canalización. Si el archivo incluye una estructura de directorios, se conserva esa estructura.
  
-    > [!WARNING]
-    > **No** use **app** como nombre de la carpeta ni del script, ya que **app** es una palabra reservada para servicios integrados. Pero puede usar otros espacios de nombres, como `app123`.
+    > [!IMPORTANT]
+    > Use un nombre único y descriptivo para los archivos del conjunto de scripts, ya que algunas palabras comunes (como `test`, `app`, etc.) están reservadas para los servicios integrados.
    
     A continuación se muestra un ejemplo de un conjunto de scripts, que contiene un archivo de script de Python y un archivo txt:
       
