@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/04/2021
 ms.author: apimpm
-ms.openlocfilehash: f67da2c2090dd99730324512248854d5e2fee259
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: c3c3647831e871e886f44c74d91f1f2827ac26f4
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182083"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662214"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -42,7 +42,7 @@ Antes de poder usar Application Insights, debe crear una instancia del servicio.
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Captura de pantalla en la que se muestra dónde ver el registrador de Application Insights recién creado con la clave de instrumentación":::
 
 > [!NOTE]
-> En segundo plano, se crea la entidad [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
+> En segundo plano, se crea la entidad [Logger](/rest/api/apimanagement/2020-12-01/logger/create-or-update) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitación del registro Application Insights para la API
 
@@ -61,7 +61,7 @@ Antes de poder usar Application Insights, debe crear una instancia del servicio.
 > Reemplazar el valor predeterminado **0** en el campo **Number of payload bytes to log** (Número de bytes de carga que se van a registrar) puede disminuir considerablemente el rendimiento de las API.
 
 > [!NOTE]
-> En segundo plano, se crea la entidad [Diagnostic](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) en el nivel de API denominada "applicationinsights".
+> En segundo plano, se crea la entidad [Diagnostic](/rest/api/apimanagement/2020-12-01/diagnostic/create-or-update) en el nivel de API denominada "applicationinsights".
 
 | Nombre del valor                        | Tipo de valor                        | Descripción                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
