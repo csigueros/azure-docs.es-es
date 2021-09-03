@@ -7,41 +7,22 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: afcd4eb8327ff806e76b635d8be3715d93b15ed6
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 3e71dc89ccf94462f83ce07e69bc57df86ae0a72
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752374"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Creación de Hiperescala de PostgreSQL habilitada para Azure Arc mediante Azure Data Studio
 
-En este documento se le guía por los pasos para usar Azure Data Studio a fin de aprovisionar grupos de servidores Hiperescala de PostgreSQL habilitados para Azure Arc.
+En este documento se le guía por los pasos para usar Azure Data Studio a fin de aprovisionar grupos de servidores Hiperescala de PostgreSQL habilitada para Azure Arc.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## <a name="connect-to-the-azure-arc-data-controller"></a>Conexión al controlador de datos de Azure Arc
-
-Antes de poder crear una instancia, inicie sesión en el controlador de datos de Azure Arc si todavía no lo ha hecho.
-
-```console
-azdata login
-```
-
-Después, se le solicitará el espacio de nombres en el que se ha creado el controlador de datos, el nombre de usuario y la contraseña para iniciar sesión en el controlador.
-
-> Si tiene que validar el espacio de nombres, puede ejecutar ```kubectl get pods -A``` para obtener una lista de todos los espacios de nombres del clúster.
-
-```console
-Username: arcadmin
-Password:
-Namespace: arc
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
 
 ## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>Paso preliminar y temporal solo para usuarios de OpenShift
 
@@ -56,7 +37,7 @@ _**Server-group-name** es el nombre del grupo de servidores que se va a implemen
 Para obtener más detalles sobre las SCC en OpenShift, consulte la [documentación de OpenShift](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
 Ahora puede implementar el paso siguiente.
 
-## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
+## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
 1. Inicio de Azure Data Studio
 1. En la pestaña Conexiones, haga clic en los tres puntos de la parte superior izquierda y elija "Nueva implementación".
@@ -74,7 +55,7 @@ Ahora puede implementar el paso siguiente.
    - Seleccione el número de nodos de trabajo que quiere aprovisionar
 1. Haga clic en el botón **Implementar**
 
-Esto inicia la creación del grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc en el controlador de datos.
+Esto inicia la creación del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc en el controlador de datos.
 
 Tras unos minutos, la creación se habrá completado de forma correcta.
 
@@ -96,9 +77,9 @@ Aunque indica que 1 trabajo funciona, no se recomienda su uso. Esta implementaci
 - **las clases de almacenamiento** que quiere que use el grupo de servidores. Es importante que establezca la clase de almacenamiento justo en el momento de implementar un grupo de servidores, ya que no se puede cambiar después. Si va a cambiar la clase de almacenamiento después de la implementación, deberá extraer los datos, eliminar el grupo de servidores, crear otro grupo de servidores e importar los datos. Puede especificar las clases de almacenamiento que se usarán para los datos, los registros y las copias de seguridad. De forma predeterminada, si no indica las clases de almacenamiento, se usarán las clases de almacenamiento del controlador de datos.
     - Para establecer la clase de almacenamiento para los datos, indique el parámetro `--storage-class-data` o `-scd` seguido del nombre de la clase de almacenamiento.
     - Para establecer la clase de almacenamiento para los registros, indique el parámetro `--storage-class-logs` o `-scl` seguido del nombre de la clase de almacenamiento.
-    - Para establecer la clase de almacenamiento para las copias de seguridad: en esta versión preliminar de Hiperescala de PostgreSQL habilitada para Azure Arc hay dos maneras de establecer las clases de almacenamiento en función de los tipos de operaciones de copia de seguridad o restauración que quiera realizar. Estamos trabajando para simplificar esta experiencia. Indicará una clase de almacenamiento o un montaje de notificación de volumen. Un montaje de notificación de volumen es un par formado por una notificación de volumen persistente existente (en el mismo espacio de nombres) y el tipo de volumen (y metadatos opcionales según el tipo de volumen) separados por dos puntos. El volumen persistente se montará en cada pod del grupo de servidores de PostgreSQL.
+    - Para establecer la clase de almacenamiento para las copias de seguridad: en esta versión preliminar de Hiperescala de PostgreSQL habilitada para Azure Arc hay dos maneras de establecer las clases de almacenamiento, en función de los tipos de operaciones de copia de seguridad o restauración que quiera realizar. Estamos trabajando para simplificar esta experiencia. Indicará una clase de almacenamiento o un montaje de notificación de volumen. Un montaje de notificación de volumen es un par formado por una notificación de volumen persistente existente (en el mismo espacio de nombres) y el tipo de volumen (y metadatos opcionales según el tipo de volumen) separados por dos puntos. El volumen persistente se montará en cada pod del grupo de servidores de PostgreSQL.
         - Si quiere planear solo restauraciones completas de bases de datos, establezca el parámetro `--storage-class-backups` o `-scb` seguido del nombre de la clase de almacenamiento.
-        - Si planea realizar restauraciones completas de la base de datos y restauraciones a un momento dado, establezca el parámetro `--volume-claim-mounts` o `-vcm` seguido del nombre de una notificación de volumen y un tipo de volumen.
+        - Si planea realizar restauraciones completas de la base de datos y restauraciones a un momento dado, establezca el parámetro `--volume-claim-mounts` o `--volume-claim-mounts` seguido del nombre de una notificación de volumen y un tipo de volumen.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

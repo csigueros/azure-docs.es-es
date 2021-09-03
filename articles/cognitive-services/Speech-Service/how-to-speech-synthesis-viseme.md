@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 7ef3e07eb1585aaa87986fd682b4db00c53e66f3
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 3601cd6f7580a4d87dda7488826e25ca85b233c9
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810685"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110654208"
 ---
 # <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
 
@@ -27,26 +27,36 @@ ms.locfileid: "109810685"
 Un _visema_ es la descripción visual de un fonema en lenguaje hablado.
 Define la posición de la esfera y la boca al hablar de una palabra.
 Cada visema describe las principales supuestos faciales para un conjunto específico de fonemas.
-No hay una correspondencia uno a uno entre visemas y fonemas.
-A menudo, varios fonemas se corresponden con un solo visema, ya que varios fonemas tienen el mismo aspecto en la superficie cuando se producen, como `s` y `z`.
-Vea la [tabla de asignación entre visemas y fonemas](#map-phonemes-to-visemes).
+El visema se puede usar para controlar el movimiento de los modelos de avatar 2D y 3D, y hacer coincidir perfectamente los movimientos de la boca con la voz sintetizada.
 
-Mediante las visemas, puede crear asistentes de difusión de noticias más naturales e inteligentes, juegos interactivos y personajes animados, así como vídeos de aprendizaje de lenguaje más intuitivos. Las personas con deficiencias auditivas también pueden captar los sonidos de forma visual y "leer los labios" del contenido de voz que muestra los visemas en una cara animada.
+Los visemas facilitan el uso y el control de los avatares. Con los visemas, puede hacer lo siguiente:
 
-## <a name="get-viseme-events-with-the-speech-sdk"></a>Obtención de eventos de visema con el SDK de voz
+ * Crear un **asistente para voz virtual animado** para quioscos inteligentes y servicios integrados multi-modo para los clientes.
+ * Crear **informativos inmersivos** y mejorar las experiencias del público con movimientos naturales de la cara y la boca.
+ * Generar **avatares de juegos y personajes animados más interactivos** que puedan hablar con contenido dinámico.
+ * Crear **vídeos de enseñanza de idiomas más eficaces** que ayuden a los aprendices a comprender el comportamiento de la boca de cada palabra y fonema.
+ * Las personas con deficiencias auditivas también pueden captar los sonidos de forma visual y **"leer los labios"** del contenido de voz que muestra los visemas en una cara animada.
 
-Para realizar eventos de visema, el servicio TTS convierte el texto de entrada en un conjunto de secuencias de fonema y sus secuencias visema correspondientes.
-La hora de inicio de cada visema en el audio de voz es aproximada.
-Los eventos de visema contienen una secuencia de identificadores de visema, cada uno con un desplazamiento en el audio donde aparece visema.
-Estos eventos pueden impulsar animaciones de boca que simulan a una persona que habla el texto de entrada.
+Vea [el vídeo de introducción](https://youtu.be/ui9XT47uwxs) del visema.
+> [!VIDEO https://www.youtube.com/embed/ui9XT47uwxs]
+
+## <a name="azure-neural-tts-can-produce-visemes-with-speech"></a>TTS neuronal de Azure puede producir visemas con voz
+
+Una voz neuronal convierte el texto de entrada o SSML (Lenguaje de marcado de síntesis de voz) en voz sintetizada. La salida de audio de voz puede ir acompañada de los ID de visema y sus marcas de tiempo de desplazamiento. Cada id. de visema especifica una posición específica en la voz observada, como la de los labios, la mandíbula y la lengua al generar un fonema concreto. Con un motor de representación 2D o 3D, puede usar estos eventos de visema para animar el avatar.
+
+El flujo de trabajo general de visemas se muestra en el diagrama de flujo siguiente.
+
+![Flujo de trabajo general del visema](media/text-to-speech/viseme-structure.png)
 
 | Parámetro | Descripción |
 |-----------|-------------|
-| Id. de visema | Número entero que especifica un visema. En inglés (Estados Unidos), ofrecemos 22 visemas diferentes para describir las formas de la boca para un conjunto específico de fonemas. Consulte la [tabla de asignación entre visemas y fonemas](#map-phonemes-to-visemes).  |
+| Id. de visema | Número entero que especifica un visema. En inglés (Estados Unidos), ofrecemos 22 visemas diferentes para describir las formas de la boca para un conjunto específico de fonemas. No hay una correspondencia uno a uno entre visemas y fonemas. A menudo, varios fonemas se corresponden con un solo visema, ya que varios fonemas tienen el mismo aspecto en la superficie cuando se producen, como `s` y `z`. Consulte la [tabla de asignación entre visemas y fonemas](#map-phonemes-to-visemes).  |
 | Desplazamiento de audio | La hora de inicio de cada visema, en pasos (100 nanosegundos). |
 
-Para obtener los eventos visema, suscríbase al evento `VisemeReceived` en SDK de voz.
-En los fragmentos de código siguientes se muestra cómo suscribirse al evento de visema.
+## <a name="get-viseme-events-with-the-speech-sdk"></a>Obtención de eventos de visema con el SDK de voz
+
+Para obtener visemas con la voz sintetizada, suscríbase al evento `VisemeReceived` en el SDK de Voz.
+En el fragmento de código siguiente se muestra cómo suscribirse al evento de visema.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -148,6 +158,26 @@ SPXSpeechSynthesizer *synthesizer =
 ```
 
 ::: zone-end
+
+Este es un ejemplo de la salida del visema.
+
+```text
+(Viseme), Viseme ID: 1, Audio offset: 200ms.
+
+(Viseme), Viseme ID: 5, Audio offset: 850ms.
+
+……
+
+(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+```
+
+Después de obtener la salida del visema, puede usar estos eventos para controlar la animación de los personajes. Puede crear personajes propios y animarlos de forma automática.
+
+Para los personajes 2D, puede diseñar uno que se adapte al escenario y usar gráficos vectoriales escalables (SVG) para cada identificador de visema a fin de obtener una posición de la cara basada en el tiempo. Con las etiquetas temporales proporcionadas en el evento de visema, estos gráficos SVG bien diseñados se procesarán con modificaciones de suavizado y proporcionarán una animación sólida a los usuarios. Por ejemplo, en la ilustración siguiente se muestra una animación de unos labios de color rojo diseñada para el aprendizaje de idiomas.
+
+![Ejemplo de representación 2D](media/text-to-speech/viseme-demo-2D.png)
+
+En el caso de los personajes 3D, imagine que son títeres. El maestro titiritero tira de las cuerdas de un estado a otro y las leyes de la física hacen el resto y controlan el movimiento fluido del títere. La salida del visema actúa como un maestro titiritero para proporcionar una escala de tiempo de acción. El motor de animación define las leyes físicas de la acción. Al interpolar fotogramas con algoritmos de aceleración, el motor puede generar animaciones de alta calidad.
 
 ## <a name="map-phonemes-to-visemes"></a>Asignación de fonemas a visemas
 

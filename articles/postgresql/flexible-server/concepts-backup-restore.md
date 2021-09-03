@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: f5c0e8ae52d2af25c41550df1c59680d47360477
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 07/30/2021
+ms.openlocfilehash: 8c6f3ebaa72457d93e4b3e491656f494511bd994
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987855"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745152"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL: servidor flexible
 
@@ -77,6 +77,8 @@ Puede elegir entre el punto de restauración más reciente y uno personalizado.
 
 El tiempo estimado de recuperación depende de varios factores, como el tamaño de la base de datos, el volumen de los registros de transacciones que se van a procesar, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación general tarda entre unos minutos y unas horas.
 
+Si ha configurado el servidor dentro de una red virtual, puede restaurar a la misma red virtual o a otra. Sin embargo, no se puede restaurar a un acceso público. De forma similar, si ha configurado el servidor con acceso público, no podrá restaurar a un acceso privado.
+
 
 > [!IMPORTANT]
 > Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md).
@@ -96,6 +98,109 @@ Después de restaurar la base de datos, puede realizar las siguientes tareas par
 -   Configure las alertas según corresponda.
   
 -  Si ha restaurado la base de datos con alta disponibilidad y quiere configurar el servidor restaurado con alta disponibilidad, siga [estos pasos](./how-to-manage-high-availability-portal.md).
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+### <a name="backup-related-questions"></a>Preguntas relacionadas con la copia de seguridad
+
+* **¿Cómo controla Azure la copia de seguridad de mi servidor?**
+ 
+    De forma predeterminada, Azure Database for PostgreSQL habilita copias de seguridad automatizadas de todo el servidor (abarcando todas las bases de datos creadas) con un período de retención predeterminado de siete días. Se realiza una instantánea incremental diaria de la base de datos. Los archivos de registros (WAL) se archivan continuamente en el blob de Azure.
+
+* **¿Puedo configurar esas copias de seguridad automáticas para que se conserven a largo plazo?**
+  
+    No. Actualmente solo se admite un máximo de 35 días de retención. Puede hacer copias de seguridad manuales y usarlas para los requisitos de retención a largo plazo.
+
+* **¿Cómo hago una copia de seguridad manual de mis servidores de Postgres?**
+  
+    Puede realizar manualmente una copia de seguridad mediante la herramienta pg_dump de PostgreSQL como se documenta [aquí](https://www.postgresql.org/docs/current/app-pgdump.html). Para ver ejemplos, puede consultar [esta documentación de actualización o migración](../howto-migrate-using-dump-and-restore.md) que también puede usar para las copias de seguridad. Si desea hacer una copia de seguridad de Azure Database for PostgreSQL en un almacenamiento de blobs, consulte el blog de nuestra comunidad tecnológica [Copia de seguridad de Azure Database for PostgreSQL en un almacenamiento de blobs](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/backup-azure-database-for-postgresql-to-a-blob-storage/ba-p/803343). 
+
+* **¿Cuáles son las ventanas de copia de seguridad de mi servidor? ¿Puedo personalizarlo?**
+  
+    Azure administra de forma inherente las ventanas de copia de seguridad y no se pueden personalizar. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Las copias de seguridad de instantáneas posteriores son copias de seguridad incrementales que se producen una vez al día.
+
+* **¿Mis copias de seguridad están cifradas?**
+  
+    Sí. Todos los datos, copias de seguridad y archivos temporales de Azure Database for PostgreSQL creados durante la consultas se cifran mediante AES de 256 bits. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar. 
+
+* **¿Puedo restaurar una o varias bases de datos en un servidor?**
+  
+    No se admite directamente la restauración de una o varias bases de datos o tablas. Sin embargo, debe restaurar todo el servidor en un servidor nuevo y, después, extraer las tablas o bases de datos necesarias e importarlas en el servidor.
+
+* **¿Mi servidor está disponible mientras la copia de seguridad está en curso?**
+    Sí. Las copias de seguridad son operaciones en línea que usan instantáneas. La operación de instantánea solo tarda unos segundos y no interfiere con las cargas de trabajo de producción que garantizan la alta disponibilidad del servidor. 
+
+* **Al configurar la ventana de mantenimiento para el servidor, ¿es necesario tener en cuenta la ventana de copia de seguridad?**
+  
+    No. Las copias de seguridad se desencadenan internamente como parte del servicio administrado y no tienen ninguna relación con la ventana de mantenimiento administrado.
+
+* **¿Dónde se almacenan mis copias de seguridad automatizadas y cómo se administra su retención?**
+  
+    Azure Database for PostgreSQL crea automáticamente copias de seguridad del servidor y las almacena automáticamente en almacenamiento con redundancia de zona en regiones donde se admiten varias zonas o en almacenamiento con redundancia local en regiones que aún no admiten varias zonas. Estos archivos de copia de seguridad no se pueden exportar. Puede utilizar copias de seguridad solo para restaurar el servidor a un momento dado. El período de retención predeterminado es siete días. Opcionalmente, puede configurar la retención de copia de seguridad hasta 35 días.
+
+* **¿Cómo se realizan las copias de seguridad en servidores habilitados para alta disponibilidad?**
+  
+    Se hace una copia de seguridad de los volúmenes de datos del servidor flexible mediante instantáneas incrementales de disco administrado desde el servidor principal. La copia de seguridad de WAL se realiza desde el servidor principal o el servidor en espera.
+
+* **¿Cómo puedo validar que las copias de seguridad se realizan en mi servidor?**
+
+    La mejor manera de validar la disponibilidad de las copias de seguridad válidas es realizar restauraciones a un momento dado periódicas y garantizar que las copias de seguridad sean válidas y restaurables. Las operaciones o archivos de copia de seguridad no se exponen a los usuarios finales.
+
+* **¿Dónde puedo ver el uso de la copia de seguridad?**
+  
+    En Azure Portal, en Supervisión, haga clic en Métricas, puede encontrar "Métrica de uso de copia de seguridad" en la que puede supervisar el uso total de la copia de seguridad.
+
+* **¿Qué ocurre con mis copias de seguridad si se elimina el servidor?**
+  
+    Si elimina el servidor, todas las copias de seguridad que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los bloqueos de administración.
+
+* **¿Cómo se conservan las copias de seguridad de los servidores detenidos?**
+
+    No se realizan nuevas copias de seguridad para los servidores detenidos. Todas las copias de seguridad anteriores (dentro de la ventana de retención) en el momento de detener el servidor se conservan hasta que se reinicia el servidor después de que la retención de la copia de seguridad para el servidor activo se rija por su ventana de retención de copia de seguridad.
+
+* **¿Cómo se me cobrará y facturará por las copias de seguridad?**
+  
+    El Servidor flexible proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El cargo de cualquier almacenamiento de copia de seguridad adicional que se use se realizará por GB/mes según el modelo de precios. La facturación del almacenamiento de copia de seguridad también se rige por el período de retención de copia de seguridad seleccionado y la opción de redundancia de copia de seguridad elegida aparte de la actividad transaccional en el servidor, lo que afecta al almacenamiento de copia de seguridad total usado directamente.
+
+* **¿Cómo se me facturará por un servidor detenido?**
+  
+    Mientras se detiene la instancia del servidor, no se realizan nuevas copias de seguridad. Se le cobra por el almacenamiento aprovisionado y el almacenamiento de copia de seguridad (copias de seguridad almacenadas dentro de la ventana de retención especificada). El almacenamiento de copia de seguridad gratuito se limita al tamaño de la base de datos aprovisionada y los datos de copia de seguridad excesivos se cobrarán según el precio de la copia de seguridad.
+
+* **He configurado mi servidor con alta disponibilidad con redundancia de zona. ¿Realizará dos copias de seguridad y se me cobrará dos veces?**
+  
+    No. Independientemente de los servidores de alta disponibilidad o que no sean de alta disponibilidad, solo se mantiene un conjunto de copia de seguridad y solo se le cobrará una vez.
+
+### <a name="restore-related-questions"></a>Preguntas relacionadas con la restauración
+
+* **Cómo restaurar mi servidor?**
+
+    Azure admite la restauración a un momento dado (para todos los servidores), lo que permite a los usuarios restaurar al punto de restauración más reciente o personalizado mediante Azure Portal, la CLI de Azure y la API. 
+
+    Para restaurar el servidor a partir de las copias de seguridad realizadas manualmente mediante herramientas como pg_dump, primero puede crear un servidor flexible y restaurar las bases de datos en el servidor mediante [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html).
+
+* **¿Puedo restaurar a otra zona de disponibilidad dentro de la misma región?**
+  
+    Sí. Si la región admite varias zonas de disponibilidad, la copia de seguridad se almacena en la cuenta ZRS y le permite restaurar a otra zona. 
+
+* **¿Cuánto tiempo se tarda en realizar una restauración a un momento dado? ¿Por qué mi restauración tarda tanto tiempo?**
+  
+    La operación de restauración de datos de la instantánea no depende del tamaño de los datos, pero el tiempo del proceso de recuperación que aplica los registros (actividades de transacción para reproducir) puede variar en función de la copia de seguridad anterior de la fecha y hora solicitada y la cantidad de registros que se procesarán. Esto es aplicable tanto a la restauración dentro de la misma zona como a una zona diferente. 
+ 
+* **Si restauro mi servidor habilitado para alta disponibilidad, ¿el servidor de restauración se configura automáticamente con alta disponibilidad?**
+  
+    No. El servidor se restaura como un servidor flexible de instancia única. Una vez completada la restauración, puede configurar opcionalmente el servidor con alta disponibilidad.
+
+* **He configurado mi servidor dentro de una red virtual. ¿Puedo restaurar a otra red virtual?**
+  
+    Sí. En el momento de la restauración, elija otra red virtual para restaurar.
+
+* **¿Puedo restaurar mi servidor de acceso público en una red virtual o viceversa?**
+
+    No. Actualmente no se admite la restauración de servidores en el acceso público y privado.
+
+* **Cómo realizar un seguimiento de mi operación de restauración?**
+  
+    Actualmente no hay ninguna manera de realizar un seguimiento de la operación de restauración. Puede supervisar el registro de actividad para ver si la operación está en curso o completa.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

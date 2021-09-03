@@ -1,46 +1,46 @@
 ---
 title: Cambio del puerto de PostgreSQL
-description: Cambie el puerto donde escucha el grupo de servidores de Hiperescala de PostgreSQL habilitado para Azure Arc.
+description: Cambie el puerto donde escucha el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 11/02/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 45424408c790e4921be48464818c55fe74313fd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47a64b9e1207536e951f61059d472a88e9f9d8c5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93328660"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752379"
 ---
 # <a name="change-the-port-on-which-the-server-group-is-listening"></a>Cambio del puerto donde escucha el grupo de servidores 
 
 Cambiar el puerto es una operación de edición estándar del grupo de servidores. Para cambiar el puerto, ejecute el comando siguiente:
-```console
- azdata arc postgres server edit -n <server group name> --port <desired port number>
+```azurecli
+ az postgres arc-server edit -n <server group name> --port <desired port number> --k8s-namespace <namespace> --use-k8s
 ```
 
 Por ejemplo, supongamos que el nombre del grupo de servidores es _postgres01_, y quiere que escuche en el puerto _866_. Ejecutaría el comando siguiente:
-```console
- azdata arc postgres server edit -n postgres01 --port 866
+```azurecli
+ az postgres arc-server edit -n postgres01 --port 866 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="verify-that-the-port-was-changed"></a>Comprobación del que el puerto ha cambiado
 
 Para comprobar que el puerto ha cambiado, ejecute el siguiente comando para mostrar la configuración del grupo de servidores:
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 
 En el resultado de ese comando, examine el número de puerto que se muestra para el elemento "port" en la sección "service" de las especificaciones del grupo de servidores.
 Como alternativa, en el elemento externalEndpoint de la sección "status" de las especificaciones del grupo de servidores puede comprobar que la dirección IP esté seguida del número de puerto que ha configurado.
 
 Como ilustración, si continuamos con el ejemplo anterior, ejecutaría el comando:
-```console
-azdata arc postgres server show -n postgres01
+```azurecli
+az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 y vería el puerto 866 al que se hace referencia aquí:

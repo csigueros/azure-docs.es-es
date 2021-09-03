@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: mathoma
 ms.date: 3/23/2021
-ms.openlocfilehash: 7de0db8245908e8342abbbe6a8f7cc4f2359e7f5
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: a697c0a3095963760d6a95159790c02cbab14d71
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017872"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121625"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,6 +40,10 @@ Asegurarse de que la aplicación cliente sea resistente a los eventos de manteni
 ## <a name="retry-logic"></a>Lógica de reintento
 
 Todas las aplicaciones cliente de producción que se conecten a un servicio de base de datos en la nube deben implementar una [lógica de reintento](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) de conexión sólida. Esto permitirá que las conmutaciones por error sean transparentes para los usuarios finales o al menos le ayudará a minimizar los efectos negativos.
+
+### <a name="service-health-alert"></a>Alerta de Service Health
+
+Si quiere recibir alertas de problemas de servicio o actividades de mantenimiento planeado, puede usar alertas de Service Health en Azure Portal con el tipo de evento y los grupos de acciones adecuados. Para obtener más información, vea [Recepción de alertas sobre notificaciones del servicio de Azure](../../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
 
 ## <a name="resource-health"></a>Estado de los recursos
 

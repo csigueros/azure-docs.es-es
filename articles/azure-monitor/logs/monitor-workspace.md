@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 3058488a3c97c5a99fe0c22a7e1e3fec05c873d4
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: 4f127245ea36a7183603f5115739d317282ea686
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421083"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113009531"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Supervisión del estado del área de trabajo de Log Analytics en Azure Monitor
 Para mantener el rendimiento y la disponibilidad del área de trabajo de Log Analytics en Azure Monitor, es necesario detectar con antelación los problemas que surjan. En este artículo se describe cómo supervisar el estado del área de trabajo de Log Analytics con los datos de la tabla [Operation](/azure/azure-monitor/reference/tables/operation) (Operación). Esta tabla se incluye en todas las áreas de trabajo de Log Analytics y contiene los errores y las advertencias que se producen en el área de trabajo. Se recomienda crear alertas para incidencias en los niveles "Advertencia" y "Error".
@@ -53,7 +53,7 @@ Las operaciones de ingesta son problemas que se produjeron durante la ingesta de
 
  
 #### <a name="operation-data-collection-stopped"></a>Operación: recopilación de datos detenida  
-Recopilación de datos detenida porque se alcanzó el límite diario.
+"Recopilación de datos detenida debido a que se ha alcanzado el límite diario de datos gratuitos. Estado de ingesta = OverQuota"
 
 En los últimos 7 días, la recopilación de registros alcanzó el límite diario establecido. El límite se establece como el área de trabajo establecida en "nivel Gratis" o el límite de recopilación diario se configuró para esta área de trabajo.
 Tenga en cuenta que, después de alcanzar el límite establecido, la recopilación de datos se detendrá automáticamente durante el día y se reanudará solo durante el siguiente día de recopilación. 
@@ -61,36 +61,34 @@ Tenga en cuenta que, después de alcanzar el límite establecido, la recopilaci�
 Acciones recomendadas: 
 *   Compruebe la tabla de _LogOperation para información sobre los eventos de recopilación detenida y recopilación reanudada.</br>
 `_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Data collection"`
-*   [Cree una alerta](./manage-cost-storage.md#alert-when-daily-cap-reached) en el evento de operación "Recopilación de datos detenida". Esta alerta le permitirá recibir una notificación cuando se alcance el límite de recopilación.
+*   [Cree una alerta](./manage-cost-storage.md#alert-when-daily-cap-is-reached) en el evento de operación "Recopilación de datos detenida". Esta alerta le permitirá recibir una notificación cuando se alcance el límite de recopilación.
 *   Los datos recopilados después de alcanzar el límite de recopilación diario se perderán. Use la hoja de información del área de trabajo para revisar las tarifas de uso de cada origen. O bien, puede decidir ([Administrar el volumen de datos diario máximo](./manage-cost-storage.md#manage-your-maximum-daily-data-volume) \ [cambiar el plan de tarifa](./manage-cost-storage.md#changing-pricing-tier) a uno que se ajuste al patrón de tarifas de recopilación). 
-* La tarifa de recopilación de datos se calcula por día y se restablecerá al principio del día siguiente. También puede supervisar el evento de reanudación de recopilación mediante [Crear una alerta](./manage-cost-storage.md#alert-when-daily-cap-reached) en el evento de operación "Recopilación de datos reanudada".
+* La tarifa de recopilación de datos se calcula por día y se restablecerá al principio del día siguiente. También puede supervisar el evento de reanudación de recopilación mediante [Crear una alerta](./manage-cost-storage.md#alert-when-daily-cap-is-reached) en el evento de operación "Recopilación de datos reanudada".
 
 #### <a name="operation-ingestion-rate"></a>Operación: tarifa de ingesta
-El límite de tarifa de ingesta se está aproximando al límite o lo ha superado.
-
- La tarifa de ingesta ha superado el 80 %; en este momento no hay ninguna incidencia. Tenga en cuenta que se anularán los datos recopilados que superen el umbral. </br>
+"La tasa de volumen de ingesta de datos ha superado el umbral en el área de trabajo: {0:0,00} MB por minuto y se han eliminado los datos". 
 
 Acciones recomendadas:
 *   Comprobación de la tabla de _LogOperation para información sobre el evento de tarifa de ingesta `_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Ingestion rate"` 
   Nota: La tabla de operaciones se actualiza en el área de trabajo cada 6 horas mientras se sigue superando el umbral. 
-*   [Cree una alerta](./manage-cost-storage.md#alert-when-daily-cap-reached) en el evento de operación "Recopilación de datos detenida". Esta alerta le permitirá recibir una notificación cuando se alcance el límite.
+*   [Cree una alerta](./manage-cost-storage.md#alert-when-daily-cap-is-reached) en el evento de operación "Recopilación de datos detenida". Esta alerta le permitirá recibir una notificación cuando se alcance el límite.
 *   Los datos recopilados mientras la tarifa de ingesta alcanzó el 100 % se descartarán y se perderán. 
 
 Hoja de información del área de trabajo para revisar los patrones de uso e intentar reducirlos.</br>
 Para obtener más información: </br>
 [Límites de servicio de Azure Monitor](../service-limits.md#data-ingestion-volume-rate) </br>
-[Administración del uso y los costos con los registros de Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached)  
+[Administración del uso y los costos con los registros de Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-is-reached)  
 
  
 #### <a name="operation-maximum-table-column-count"></a>Operación: recuento máximo de columnas de tabla
-El recuento de campos personalizados ha alcanzado el límite.
+"Se han eliminado los datos de tipo \<**table name**\> porque el número de campos \<**new fields count**\> está por encima del límite de \<**current field count limit**\> de campos personalizados por tipo de datos". 
 
 Acciones recomendadas: para las tablas personalizadas, puede pasar a [analizar los datos](./parse-text.md) en consultas.
 
 #### <a name="operation-field-content-validation"></a>Operación: validación del contenido de los campos
-Uno de los campos de los datos que se ingieren tenía un tamaño superior a 32 Kb, por lo que se truncaron.
+"Los valores \<**field name**\> de tipo \<**table name**\> de los campos siguientes se han recortado al tamaño máximo permitido, \<**field size limit**\> bytes. Ajuste la entrada en consecuencia". 
 
-Log Analytics limita los tamaños de los campos ingeridos a 32 Kb; los campos de mayor tamaño se recortarán a 32 Kb. No se recomienda enviar campos de más de 32 Kb, ya que el proceso de recorte podría quitar información importante. 
+El campo mayor que el tamaño límite se ha procesado por los registros de Azure, el campo se ha recortado al límite de campos permitido. No se recomienda enviar campos que superen el límite permitido, ya que esto provocará la pérdida de datos. 
 
 Acciones recomendadas: compruebe el origen del tipo de datos afectado:
 *   Si los datos se envían a través de la API del recopilador de datos HTTP, deberá cambiar el código o script para dividir los datos antes de que se ingieran.
@@ -100,6 +98,8 @@ Acciones recomendadas: compruebe el origen del tipo de datos afectado:
 
 ### <a name="data-collection"></a>datos, recopilación
 #### <a name="operation-azure-activity-log-collection"></a>Operación: recopilación de registros de actividad de Azure
+"Se ha perdido el acceso a la suscripción. Asegúrese de que la suscripción \<**subscription id**\> está en el inquilino \<**tenant id**\> de Azure Active Directory. Si la suscripción se transfiere a otro inquilino, no hay ningún impacto en los servicios, pero la información del inquilino podría tardar hasta una hora en propagarse. '"
+
 Descripción: en algunas situaciones, como pasar una suscripción a un inquilino diferente, los registros de actividad de Azure podrían dejar de fluir al área de trabajo. En esas situaciones, es necesario volver a conectar la suscripción siguiendo el proceso descrito en este artículo.
 
 Acciones recomendadas: 
@@ -111,6 +111,8 @@ Acciones recomendadas:
 
 ### <a name="agent"></a>Agente
 #### <a name="operation-linux-agent"></a>Operación: agente de Linux
+"Se ha producido un error en dos aplicaciones de configuración consecutivas de la configuración de OMS"
+
 La configuración del portal ha cambiado.
 
 Acción recomendada: esta incidencia se genera en caso de que haya una incidencia para que el Agente recupere la nueva configuración. Para mitigar esta incidencia, deberá volver a instalar el agente. Compruebe la tabla de _LogOperation para información sobre los eventos del agente.</br>

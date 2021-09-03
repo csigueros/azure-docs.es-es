@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: f401c143f1f5a9352b56b80f9e473bd7fa819245
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: a4b433ed7a2eb0a2a9367f921e63091a823df37d
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968261"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862315"
 ---
 # <a name="azure-monitor-network-insights"></a>Azure Monitor Network Insights
 
@@ -108,9 +108,19 @@ El kit de herramientas de diagnóstico proporciona acceso a todas las caracterí
 
 ![Captura de pantalla que muestra la pestaña Kit de herramientas de diagnóstico.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
-## <a name="onboarded-resources"></a>Recursos incorporados 
+## <a name="availability-of-resources"></a>Disponibilidad de recursos 
 
-Los recursos incorporados tienen libros integrados y vistas de dependencia. Actualmente, los recursos incorporados son Virtual WAN, Application Gateway, Load Balancer y ExpressRoute.
+De forma predeterminada, todos los recursos de red son visibles en Network Insights. Los clientes pueden hacer clic en el tipo de recurso para ver su estado y métricas (si están disponibles), los detalles de la suscripción, la ubicación, etc. Se ha _incorporado_. un subconjunto de recursos de red. En el caso de los recursos incorporados, los clientes tienen acceso a una vista de topología específica del recurso y a un libro de métricas integrado. Estas experiencias integradas facilitan la exploración de las métricas de recursos y la solución de problemas.  
+
+Los recursos que se han incorporado son los siguientes: 
+* Red WAN virtual
+* Application Gateway
+* Load Balancer
+* ExpressRoute
+* Private Link
+* NAT Gateway
+* Dirección IP pública
+* NIC
 
 ## <a name="troubleshooting"></a>Solución de problemas 
 Para instrucciones generales sobre la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.

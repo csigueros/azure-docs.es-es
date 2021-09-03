@@ -4,15 +4,15 @@ description: Cree planes para una oferta de máquina virtual en Azure Marketpla
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 05/20/2021
-ms.openlocfilehash: f0e05f06258cc30253fefdc7113fce045009f500
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 07/26/2021
+ms.openlocfilehash: a974bf12873d46b7835d861b8c4d7007fb7e72ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527629"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747247"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Creación de planes para una oferta de máquina virtual
 
@@ -31,7 +31,7 @@ Después de crear los planes, la pestaña **Plan overview** (Información genera
 Las acciones disponibles en este panel varían en función del estado actual del plan.
 
 - Si el estado del plan es un borrador, seleccione **Eliminar borrador**.
-- Si el estado del plan se publica en directo, seleccione **Stop sell plan** (Detener el plan de venta) o **Sync private audience** (Sincronizar audiencia privada).
+- Si el estado del plan se publica en directo, seleccione **Deprecate plan** (Plan en desuso) o **Sync private audience** (Sincronizar audiencia privada).
 
 ## <a name="create-a-new-plan"></a>Creación de un nuevo plan
 
@@ -149,7 +149,7 @@ Si la máquina virtual está diseñada para utilizarla solo indirectamente cuand
 
 Cualquier cliente de Azure puede implementar la oferta mediante PowerShell o la CLI.  Si quiere que esta oferta esté disponible para un conjunto limitado de clientes, establezca el plan en **Privado**. 
 
-Los planes ocultos no generan vínculos de vista previa. Sin embargo, puede probarlos [siguiendo estos pasos](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image). 
+Los planes ocultos no generan vínculos de vista previa. Sin embargo, puede probarlos [siguiendo estos pasos](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-). 
 
 Seleccione **Guardar borrador** antes de pasar a la pestaña siguiente del menú de navegación de la izquierda Plan, **Configuración técnica**.
 
@@ -179,7 +179,23 @@ Agregue puertos públicos o privados abiertos en una máquina virtual implementa
 
 ### <a name="properties"></a>Propiedades
 
-Seleccione si la máquina virtual **admite redes aceleradas**. Para detalles, consulte [Redes aceleradas](https://go.microsoft.com/fwlink/?linkid=2124513).
+Esta es una lista de las propiedades que se pueden seleccionar para la máquina virtual.
+
+- **Admite copia de seguridad**: habilite esta propiedad si las imágenes admiten la copia de seguridad de máquinas virtuales de Azure. Más información sobre la [copia de seguridad de máquinas virtuales de Azure](../backup/backup-azure-vms-introduction.md).
+
+- **Admite redes aceleradas**: habilite esta propiedad si las imágenes de máquina virtual de este plan admiten la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual, lo que permite una latencia baja y un alto rendimiento en la interfaz de red. Más información sobre las [redes aceleradas](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+- **Admite la configuración de cloud-init**: habilite esta propiedad si las imágenes de este plan admiten scripts posteriores a la implementación de cloud-init. Más información sobre la [configuración de cloud-init](../virtual-machines/linux/using-cloud-init.md).
+
+- **Admite la revisión en caliente**: las ediciones de Windows Server para Azure admiten la revisión en caliente. Más información sobre [la revisión en caliente](../automanage/automanage-hotpatch.md).
+
+- **Admite extensiones**: habilite esta propiedad si las imágenes de este plan admiten extensiones. Las extensiones son aplicaciones pequeñas que proporcionan automatización y configuración posterior a la implementación en VM de Azure. Más información sobre las [extensiones de máquina virtual de Azure](./azure-vm-create-certification-faq.yml#vm-extensions).
+
+- **Es una aplicación virtual de red**: habilite esta propiedad si este producto es una aplicación virtual de red. Una aplicación virtual de red es un producto que realiza una o varias funciones de red, como un equilibrador de carga, una puerta de enlace de VPN, un firewall o una puerta de enlace de aplicación. Más información sobre las [aplicaciones virtuales de red](https://go.microsoft.com/fwlink/?linkid=2155373).
+
+- **Escritorio remoto o SSH deshabilitado**: habilite esta propiedad si las máquinas virtuales implementadas con estas imágenes no permiten a los clientes el acceso mediante Escritorio remoto o SSH. Más información sobre [imágenes de máquina virtual bloqueadas](./azure-vm-create-certification-faq.yml#locked-down-or-ssh-disabled-offer).
+
+- **Requiere una plantilla de ARM personalizada para la implementación**: habilite esta propiedad si las imágenes de este plan solo se pueden implementar mediante una plantilla de ARM personalizada. Para obtener más información, vea la sección [Plantillas personalizadas de Solución de problemas de certificación de máquinas virtuales](./azure-vm-create-certification-faq.yml#custom-templates).
 
 ### <a name="generations"></a>Generaciones
 

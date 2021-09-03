@@ -1,18 +1,18 @@
 ---
 title: Uso de una identidad administrada para conectar Azure SQL a una aplicación de Azure Spring Cloud
 description: Configuración de una identidad administrada para conectar Azure SQL a una aplicación de Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 3350924bbf064009523c9b6892856a9c7d4ff818
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1a87a2f0d52895b97efdbe79ba3a53082efeccb2
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129088"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860307"
 ---
 # <a name="use-a-managed-identity-to-connect-azure-sql-database-to-an-azure-spring-cloud-app"></a>Uso de una identidad administrada para conectar Azure SQL Database a una aplicación de Azure Spring Cloud
 
@@ -23,11 +23,12 @@ En este artículo se describe cómo crear una identidad administrada para una ap
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) es servicio de base de datos relacional inteligente y totalmente administrado creado para la nube. Siempre está actualizado, con características basadas en inteligencia artificial y automatizadas que optimizan el rendimiento y la durabilidad. Las opciones de almacenamiento de proceso e hiperescala sin servidor escalan automáticamente los recursos a petición, por lo que puede centrarse en la creación de nuevas aplicaciones sin preocuparse por el tamaño de almacenamiento o la administración de recursos.
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este ejemplo se utilizan los siguientes recursos.
+
 * Siga el [tutorial de JPA de datos de Spring](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) para aprovisionar un Azure SQL Database y conseguir que funcione con una aplicación de Java de forma local
 * Siga el [tutorial de identidad administrada asignada por el sistema de Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md) para aprovisionar una aplicación de Azure Spring Cloud con una instancia administrada habilitada
 
 ## <a name="grant-permission-to-the-managed-identity"></a>Conceder permiso a la identidad administrada
+
 Conéctese al servidor SQL y ejecute la siguiente consulta SQL:
 
 ```sql
@@ -38,20 +39,22 @@ ALTER ROLE db_ddladmin ADD MEMBER [<MIName>];
 GO
 ```
 
-Este <MIName> sigue la regla: `<service instance name>/apps/<app name>`, por ejemplo, myspringcloud/apps/sqldemo. También puede consultar el MIName con CLI de Azure:
+Este `<MIName>` sigue la regla: `<service instance name>/apps/<app name>`, por ejemplo: `myspringcloud/apps/sqldemo`. También puede consultar el MIName con CLI de Azure:
 
 ```azurecli
 az ad sp show --id <identity object ID> --query displayName
 ```
 
 ## <a name="configure-your-java-app-to-use-managed-identity"></a>Configuración de la aplicación de Java para usar la identidad administrada
-Abra el archivo `src/main/resources/application.properties` y agregue `Authentication=ActiveDirectoryMSI;` en la parte final de la siguiente línea. Asegúrese de usar el valor correcto para la variable $AZ_DATABASE_NAME.
+
+Abra el archivo *src/main/resources/application.properties* y agregue `Authentication=ActiveDirectoryMSI;` al final de la línea siguiente. Asegúrese de usar el valor correcto para la variable $AZ_DATABASE_NAME.
 
 ```properties
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
 
 ## <a name="build-and-deploy-the-app-to-azure-spring-cloud"></a>Compile e implemente la aplicación en Azure Spring Cloud
+
 Vuelva a compilar la aplicación e implementarla en la aplicación Azure Spring Cloud aprovisionada en el segundo punto de viñeta de requisitos previos. Ahora tiene una aplicación de Spring Boot, autenticada por una identidad administrada que usa JPA para almacenar y recuperar datos de un Azure SQL Database en la nube de Azure Spring Cloud.
 
 ## <a name="next-steps"></a>Pasos siguientes

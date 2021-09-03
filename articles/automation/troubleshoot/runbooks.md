@@ -2,15 +2,15 @@
 title: Solución de problemas de runbook de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con runbooks de Azure Automation.
 services: automation
-ms.date: 02/11/2021
+ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: 7964bc62aefc912a0f61744841784600575c98de
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a7711d30a71cc5b637a1fc755609d3f5c48683d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831229"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738620"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solución de incidencias de runbooks
 
@@ -39,7 +39,7 @@ Si se producen errores durante la ejecución del runbook en Azure Automation, pu
 1. Haga lo siguiente si el runbook se suspende o registra un error inesperado:
 
     * [Renueve el certificado](../manage-runas-account.md#cert-renewal) si la cuenta de ejecución ha expirado.
-    * [Renueve el webhook](../automation-webhooks.md#renew-a-webhook) si está intentando usar un webhook expirado para iniciar el runbook.
+    * [Renueve el webhook](../automation-webhooks.md#update-a-webhook) si está intentando usar un webhook expirado para iniciar el runbook.
     * [Compruebe los estados de los trabajos](../automation-runbook-execution.md#job-statuses) para determinar los estados actuales del runbook y algunas posibles causas del problema.
     * [Agregue datos de salida adicionales](../automation-runbook-output-and-messages.md#working-with-message-streams) al runbook para identificar lo que sucede antes de que se suspenda el runbook.
     * [Controle las excepciones](../automation-runbook-execution.md#exceptions) producidas por su trabajo.
@@ -47,6 +47,22 @@ Si se producen errores durante la ejecución del runbook en Azure Automation, pu
 1. Realice este paso si el trabajo del runbook o el entorno de Hybrid Runbook Worker no responden.
 
     Si ejecuta los runbooks en una instancia de Hybrid Runbook Worker en lugar de Azure Automation, puede que necesite [solucionar los propios problemas de Hybrid Worker](hybrid-runbook-worker.md).
+
+## <a name="scenario-access-blocked-to-azure-storage-or-azure-key-vault-or-azure-sql"></a>Escenario: Acceso bloqueado a Azure Storage, Azure Key Vault o Azure SQL
+
+En este escenario se usa [Azure Storage](../../storage/common/storage-network-security.md) como ejemplo; pero la información es igualmente aplicable a [Azure Key Vault](../../key-vault/general/network-security.md) y [Azure SQL](../../azure-sql/database/firewall-configure.md).
+
+### <a name="issue"></a>Problema
+
+Al intentar acceder a Azure Storage desde un runbook, se produce un error similar al mensaje siguiente: `The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation.`
+
+### <a name="cause"></a>Causa
+
+Azure Firewall está habilitado en Azure Storage.
+
+### <a name="resolution"></a>Resolución
+
+La habilitación de Azure Firewall en [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](../../key-vault/general/network-security.md) o [Azure SQL](../../azure-sql/database/firewall-configure.md) bloquea el acceso desde runbooks de Azure Automation para esos servicios. El acceso se bloqueará incluso cuando la excepción de firewall para permitir servicios de Microsoft de confianza esté habilitada, ya que Automation no forma parte de la lista de servicios de confianza. Con un firewall habilitado, el acceso solo se puede realizar mediante una instancia de Hybrid Runbook Worker y un [punto de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>Escenario: Se produce un error en el runbook del tipo Sin permisos o Prohibido (403).
 
@@ -58,7 +74,7 @@ Se produce un error en el runbook del tipo Sin permisos, Prohibido (403) o equiv
 
 Es posible que las cuentas de ejecución no tengan los mismos permisos en los recursos de Azure que su cuenta de Automation actual. 
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Asegúrese de que su cuenta de ejecución tiene [permisos para acceder a todos los recursos](../../role-based-access-control/role-assignments-portal.md) que se usan en el script.
 
@@ -80,7 +96,7 @@ No certificate was found in the certificate store with thumbprint
 
 Estos errores se producen si el nombre de recurso de credencial no es válido. También pueden producirse si el nombre de usuario y la contraseña que usó para configurar el recurso de credencial de Automation no son válidos.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Para determinar cuál es el problema, siga estos pasos:
 
@@ -140,7 +156,7 @@ Este error tiene dos causas principales:
 * Hay versiones diferentes del módulo de AzureRM o Az.
 * Intenta acceder a los recursos de otra suscripción.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Si recibe este error después de actualizar un módulo de AzureRM o Az, actualice todos los módulos a la misma versión.
 
@@ -195,7 +211,7 @@ Este error se puede generar si:
 * El usuario de Azure AD que intenta obtener los detalles de la suscripción no está configurado como administrador de la suscripción.
 * El cmdlet no está disponible.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Siga estos pasos para determinar si se ha autenticado en Azure y tiene acceso a la suscripción que intenta seleccionar:
 
@@ -295,7 +311,7 @@ Exception: A task was canceled.
 
 Este error puede deberse al uso de módulos de Azure obsoletos.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Puede solucionar este error con la actualización de los módulos de Azure a la versión más reciente:
 
@@ -321,7 +337,7 @@ Este error puede deberse a los siguientes motivos:
 * El módulo que contiene el cmdlet no está importado en la cuenta de Automation.
 * El módulo que contiene el cmdlet está importado, pero no está actualizado.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Realice una de las siguientes tareas para solucionar este error:
 
@@ -338,7 +354,7 @@ Cuando un runbook escribe un objeto PnP generado por PowerShell directamente en 
 
 Este problema normalmente se produce cuando Azure Automation procesa runbooks que invocan cmdlets de PowerShell de PnP; por ejemplo, `add-pnplistitem`, sin detectar los objetos devueltos.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Edite los scripts para asignar los valores devueltos a variables de forma que los cmdlets no intenten escribir objetos completos en la salida estándar. Un script puede redirigir el flujo de salida a un cmdlet, como se muestra a continuación.
 
@@ -367,7 +383,7 @@ Se produce un error en el trabajo de runbook con el error:
 
 Este error se produce cuando el motor de PowerShell no puede encontrar el cmdlet que está usando en su runbook. Es posible que el módulo que contiene el cmdlet no esté presente en la cuenta, que haya un conflicto de nombres con un nombre de runbook o que el cmdlet también exista en otro módulo y Automation no pueda resolver el nombre.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Use cualquiera de las siguientes soluciones para solucionar el problema:
 
@@ -404,7 +420,7 @@ Object reference not set to an instance of an object
 
 Si el flujo contiene objetos, significa que `Start-AzAutomationRunbook` no controla el flujo de salida correctamente.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Implemente una lógica de sondeo y use el cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) para recuperar la salida. Aquí se define un ejemplo de esta lógica:
 
@@ -446,7 +462,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 Si el runbook es un flujo de trabajo de PowerShell, almacena objetos complejos en un formato deserializado para conservar el estado del Runbook si se suspende el flujo de trabajo.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Use cualquiera de las siguientes soluciones para corregir este problema:
 
@@ -468,9 +484,9 @@ Cuando intenta invocar un webhook para un runbook de Azure Automation, recibe el
 
 El webhook al que intenta llamar está deshabilitado o ha expirado. 
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
-Si el webhook está deshabilitado, puede volver a habilitarlo mediante Azure Portal. Si el webhook expiró, debe eliminarlo y volver a crearlo. Solo puede [renovar un webhook](../automation-webhooks.md#renew-a-webhook) si aún no ha expirado. 
+Si el webhook está deshabilitado, puede volver a habilitarlo mediante Azure Portal. Si el webhook expiró, debe eliminarlo y volver a crearlo. Solo puede [renovar un webhook](../automation-webhooks.md#update-a-webhook) si aún no ha expirado. 
 
 ## <a name="scenario-429-the-request-rate-is-currently-too-large"></a><a name="429"></a>Escenario: 429: Actualmente la tasa de solicitud es demasiado grande
 
@@ -486,7 +502,7 @@ Recibe el siguiente mensaje de error al ejecutar el cmdlet `Get-AzAutomationJobO
 
 Este error puede producirse al recuperar la salida de trabajo de un runbook que tiene muchos [flujos detallados](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream).
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Realice una de las siguientes acciones para solucionar este error:
 
@@ -507,7 +523,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 Este error se produce cuando la ejecución del trabajo supera la cuota gratuita de 500 minutos para su cuenta. Esta cuota se aplica a todos los tipos de tareas de ejecución de trabajos. Algunas de estas tareas son probar un trabajo, iniciar un trabajo desde el portal, ejecutar un trabajo mediante webhooks o programar un trabajo para que se ejecute mediante Azure Portal o el centro de datos. Para obtener más información sobre precios para, consulte [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Si quiere usar más de 500 minutos de procesamiento por mes cambie la suscripción del nivel Gratis al nivel Básico:
 
@@ -580,7 +596,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 Este error puede indicar que los runbooks que se ejecutan en un espacio aislado de Azure no se pueden ejecutar en el [modo de lenguaje completo](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Hay dos maneras de resolver este error:
 
@@ -605,7 +621,7 @@ Este comportamiento es así por naturaleza en los espacios aislados de Azure deb
 
 El runbook se ejecutó por encima del límite de tres horas permitido por la distribución equilibrada en un espacio aislado de Azure.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 La solución recomendada consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los roles Hybrid Worker no tienen el límite de tres horas de los runbooks de distribución equilibrada que tienen los espacios aislados de Azure. Los runbooks que se ejecutan en instancias de Hybrid Runbook Worker se deben desarrollar para admitir comportamientos de reinicio si existen problemas inesperados con la infraestructura local.
 
@@ -638,7 +654,7 @@ At line:16 char:1
 
 Este error probablemente se deba a una migración incompleta de los módulos AzureRM a los módulos Az en el runbook. Esta situación puede hacer que Azure Automation inicie un trabajo de runbook solo con los módulos de AzureRM y, luego, otro trabajo solo con los módulos Az, lo que lleva a un bloqueo del espacio aislado.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 No se recomienda el uso de los cmdlets Az y AzureRM en el mismo runbook. Para obtener más información sobre el uso correcto de los módulos, consulte [Migración a los módulos Az](../shared-resources/modules.md#migrate-to-az-modules).
 
@@ -652,7 +668,7 @@ Cuando el runbook o la aplicación intentan ejecutarse en un espacio aislado de 
 
 Este problema puede producirse porque los espacios aislados de Azure impiden el acceso a todos los servidores COM fuera de proceso. Por ejemplo, una aplicación en espacio aislado o un runbook no pueden llamar a Instrumental de administración de Windows (WMI) o al servicio Windows Installer (msiserver.exe).
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Para obtener detalles sobre el uso de espacios aislados de Azure, consulte [Entorno de ejecución de un runbook](../automation-runbook-execution.md#runbook-execution-environment).
 
@@ -673,7 +689,7 @@ Las posibles causas de este problema son:
 * No usar una cuenta de ejecución.
 * Permisos insuficientes.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 #### <a name="not-using-a-run-as-account"></a>No usar una cuenta de ejecución.
 

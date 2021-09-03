@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 11/03/2020
+ms.date: 07/06/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: f0fb8ee681bfb3056547eed712d0197100b8ec08
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: a164fb60dde8ba8e652bab3c99b87ffa84ec8596
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785248"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862109"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conexión a los servicios de almacenamiento en Azure
 
@@ -33,7 +33,7 @@ Para tener una experiencia con poco código, consulte cómo usar [Estudio de Azu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Una cuenta de Azure Storage con un [tipo de almacenamiento compatible](#matrix).
 
@@ -98,7 +98,7 @@ Para asegurarse de que se conecta de forma segura a su servicio Azure Storage, A
 
 Azure Machine Learning requiere pasos de configuración adicionales para comunicarse con una cuenta de almacenamiento que esté detrás de un firewall o dentro de una red virtual. Si la cuenta de almacenamiento está detrás de un firewall, puede [permitir enumerar la dirección IP a través de Azure Portal](../storage/common/storage-network-security.md#managing-ip-network-rules).
 
-Azure Machine Learning puede recibir solicitudes de clientes fuera de la red virtual. Para asegurarse de que la entidad que solicita los datos del servicio es segura, [configure Azure Private Link para el área de trabajo](how-to-configure-private-link.md).
+Azure Machine Learning puede recibir solicitudes de clientes fuera de la red virtual. Para asegurarse de que la entidad que solicita los datos del servicio es segura, [use un punto de conexión privado con el área de trabajo](how-to-configure-private-link.md).
 
 **En el caso de los usuarios del SDK para Python**, para acceder a los datos mediante el script de entrenamiento en un destino de proceso, el destino de proceso debe estar dentro de la misma red virtual y subred de almacenamiento. 
 
@@ -230,7 +230,7 @@ Además de crear almacenes de datos con el SDK para Python y el Estudio, tambié
 <a name="arm"></a>
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Existen varias plantillas en [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) que se pueden usar para crear almacenes de datos.
+Existen varias plantillas en [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) que se pueden usar para crear almacenes de datos.
 
 Para información sobre el uso de estas plantillas, consulte [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
 
@@ -282,7 +282,6 @@ Azure Machine Learning dispone de varios métodos para usar los modelos para pun
 | ----- | :-----: | ----- |
 | [Predicción por lotes](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Realice predicciones sobre grandes cantidades de datos asincrónicamente. |
 | [Servicio web](how-to-deploy-and-where.md) | &nbsp; | Implemente modelos como servicios web. |
-| [Módulo de Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implemente modelos en dispositivos IoT Edge. |
 
 En situaciones en las que el SDK no proporciona acceso a los almacenes de datos, es posible que pueda crear código personalizado mediante el SDK de Azure correspondiente para obtener acceso a los datos. Por ejemplo, el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python) es una biblioteca cliente que puede usar para acceder a los datos almacenados en blobs o archivos.
 

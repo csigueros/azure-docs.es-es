@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d637a98a0f250936fa8c9024ae1302d3aaa536
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 50984f7a22caa6e1340b6ed4d927d9450eccdf9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572376"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752187"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configuración de un cliente de escucha de DNN para un grupo de disponibilidad
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -179,7 +179,7 @@ Pruebe la conectividad con el cliente de escucha de DNN con estos pasos:
 
 ## <a name="port-considerations"></a>Consideraciones sobre los puertos
 
-Los clientes de escucha de DNN están diseñados para escuchar en todas las direcciones IP, pero en un puerto único específico. La entrada DNS para el nombre del cliente de escucha debe resolverse en las direcciones de todas las réplicas del grupo de disponibilidad. Esta acción se realiza automáticamente con el script de PowerShell que se proporciona en la sección [Creación de un script](#create-script). Dado que los clientes de escucha de DNN aceptan conexiones en todas las direcciones IP, es fundamental que el puerto de escucha sea único y que no esté en uso por ninguna otra réplica del grupo de disponibilidad. Puesto que SQL Server siempre escucha en el puerto 1433, ya sea directamente o a través del servicio SQL Browser, este puerto no se puede usar con ningún cliente de escucha de DNN.
+Los clientes de escucha de DNN están diseñados para escuchar en todas las direcciones IP, pero en un puerto único específico. La entrada DNS para el nombre del cliente de escucha debe resolverse en las direcciones de todas las réplicas del grupo de disponibilidad. Esta acción se realiza automáticamente con el script de PowerShell que se proporciona en la sección [Creación de un script](#create-script). Dado que los clientes de escucha de DNN aceptan conexiones en todas las direcciones IP, es fundamental que el puerto de escucha sea único y que no esté en uso por ninguna otra réplica del grupo de disponibilidad. Como SQL Server escucha en el puerto 1433 de manera predeterminada, ya sea directamente o por medio del servicio SQL Browser, se recomienda encarecidamente no usar el puerto 1433 para el cliente de escucha de DNN. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -191,4 +191,3 @@ Para obtener más información, consulte:
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
 - [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-

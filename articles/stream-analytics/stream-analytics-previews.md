@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: 55745c022038fa85f5b114f2bc347ed7292665eb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f6b46425954d8befaef396c66b023565310ec36
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589657"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741845"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Características en vista previa (GB) de Azure Stream Analytics
 
@@ -32,6 +32,14 @@ Los desarrolladores pueden aprovechar la eficacia de Azure Stream Analytics para
 
 Los desarrolladores que crean módulos de Stream Analytics en la nube o en IoT Edge pueden escribir o volver a usar funciones personalizadas de C# e invocarlas directamente en la consulta a través de las [funciones definidas por el usuario](stream-analytics-edge-csharp-udf-methods.md).
 
+## <a name="debug-queries-locally-using-job-diagram-in-visual-studio-code"></a>Depuración local de consultas mediante un diagrama de trabajos de Visual Studio Code
+
+Puede usar el diagrama de trabajos mientras prueba la consulta localmente para examinar el conjunto de resultados intermedio y las métricas de cada paso.
+
+## <a name="explore-jobs-in-visual-studio-code"></a>Exploración de trabajos en Visual Studio Code
+
+El Explorador de Stream Analytics en la extensión de Visual Studio Code ofrece a los desarrolladores una experiencia ligera para administrar los trabajos de Stream Analytics. En el Explorador de Stream Analytics, puede administrar fácilmente los trabajos, ver el diagrama de trabajos y realizar la depuración en el Monitor de trabajos.
+
 ## <a name="debug-query-steps-in-visual-studio"></a>Depuración de pasos de consulta en Visual Studio
 
 Puede obtener fácilmente una vista previa del conjunto de filas intermedio en un diagrama de datos al realizar pruebas locales en las herramientas de Azure Stream Analytics para Visual Studio. 
@@ -41,11 +49,4 @@ Puede obtener fácilmente una vista previa del conjunto de filas intermedio en u
 
 Las herramientas de Visual Studio para Azure Stream Analytics mejoran la función de pruebas locales que le permite realizar pruebas en las consultas en comparación con los flujos de datos de eventos activos desde fuentes en la nube como un centro de eventos o un centro de IoT. Aprenda cómo realizar una [Prueba local de datos activos mediante herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md).
 
-## <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code para Azure Stream Analytics
-
-Los trabajos de Azure Stream Analytics se pueden crear en Visual Studio Code. Consulte el [tutorial de introducción de VS Code](./quick-create-visual-studio-code.md).
-
-## <a name="local-testing-with-live-data-in-visual-studio-code"></a>Consultas de prueba con datos activos en Visual Studio Code
-
-Puede probar las consultas con datos activos en el equipo local antes de enviar el trabajo a Azure. Cada iteración de prueba tarda menos de dos a tres segundos en promedio, lo que produce un proceso de desarrollo muy eficaz.
 

@@ -10,12 +10,12 @@ ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e38fb4068b695eebe78c7e9b8709862aca07531
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91996469"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724403"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Uso de módulos gemelos en IoT Hub
 
@@ -225,13 +225,13 @@ Además de estas operaciones, el back-end de la solución puede consultar el mó
 
 La aplicación de módulo opera en el módulo gemelo mediante las siguientes operaciones atómicas:
 
-* **Recuperación del módulo gemelo**. Esta operación devuelve el documento del módulo gemelo (incluidas las etiquetas y las propiedades del sistema, deseadas y notificadas) para el módulo conectado actualmente.
+* **Recuperación del módulo gemelo**. Esta operación devuelve el documento del módulo gemelo (incluidas las propiedades del sistema, deseadas y notificadas) para el módulo conectado actualmente.
 
 * **Actualizar parcialmente propiedades notificadas**. Esta operación permite la actualización parcial de las propiedades notificadas del módulo conectado actualmente. Esta operación usa el mismo formato de actualización JSON que el back-end de la solución usa para una actualización parcial de propiedades deseadas.
 
 * **Observar las propiedades deseadas**. El módulo conectado actualmente puede elegir recibir notificaciones de las actualizaciones de las propiedades deseadas cuando se produzcan. El módulo recibe la misma forma de actualización (sustitución parcial o completa) ejecutada por el back-end de la solución.
 
-Todas las operaciones anteriores requieren el permiso **ModuleConnect**, tal y como se define en el artículo [Controlar el acceso a IoT Hub](iot-hub-devguide-security.md).
+Todas las operaciones anteriores requieren el permiso **DeviceConnect**, tal y como se define en el artículo [Control del acceso a IoT Hub](iot-hub-devguide-security.md).
 
 Los [SDK de dispositivos IoT de Azure](iot-hub-devguide-sdks.md) permiten usar fácilmente las operaciones anteriores desde numerosos lenguajes y plataformas.
 

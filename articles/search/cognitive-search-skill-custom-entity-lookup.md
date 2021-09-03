@@ -1,36 +1,25 @@
 ---
 title: Aptitud de búsqueda de entidades personalizadas de Cognitive Search
 titleSuffix: Azure Cognitive Search
-description: Extraiga diferentes entidades personalizadas del texto de una canalización de búsqueda cognitiva de Azure Cognitive Search. Esta aptitud está actualmente en versión preliminar pública.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+description: Extraiga diferentes entidades personalizadas del texto de una canalización de búsqueda cognitiva de Azure Cognitive Search.
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 68e4949fe0ef0b10018cd3827e259028c37d5b5c
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 08/12/2021
+ms.openlocfilehash: 977ac567f195e0ab8053d7b8bd98543801a3b6a4
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112019096"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860562"
 ---
-#     <a name="custom-entity-lookup-cognitive-skill"></a>Aptitud cognitiva de búsqueda de entidades personalizadas
+# <a name="custom-entity-lookup-cognitive-skill"></a>Aptitud cognitiva de búsqueda de entidades personalizadas
 
 La aptitud de **búsqueda de entidades personalizadas** busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas.  
 
-Esta aptitud no está enlazada a ninguna API de Cognitive Services. No obstante, debe [asociar un recurso de Cognitive Services](./cognitive-search-attach-cognitive-services.md) para invalidar el límite de enriquecimiento diario. El límite diario se aplica al acceso gratuito a Cognitive Services cuando se accede a él mediante Azure Cognitive Search.
-
-## <a name="pricing-details"></a>Detalles de precios
-
-Los registros de texto corresponden al número de unidades de 1000 caracteres dentro de un documento que se proporciona como entrada para la aptitud.
-
-|  Plan de tarifa  |        Precio  |
-|--------------|----------------------|
-| De 0 a 500 000 registros de texto | 1 USD por 1000 registros de texto |
-| De 0,5 a 2,5 millones de registros de texto | 0,75 USD por 1000 registros de texto |
-| De 2,5 a 10 millones de registros de texto | 0,30 USD por 1000 registros de texto |
-| Más de 10 millones de registros de texto | 0,25 USD por 1000 registros de texto |
+> [!NOTE]
+> Esta aptitud no está enlazada a una API de Cognitive Services, pero necesita una clave de Cognitive Services para permitir más de 20 transacciones. [Cognitive Search mide](https://azure.microsoft.com/pricing/details/search/#pricing) esta aptitud.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 
@@ -175,13 +164,12 @@ En las tablas siguientes se describe más detalladamente los distintos parámetr
 | `accentSensitive` | (Opcional) Actúa igual que el parámetro "accentSensitive" de la entidad raíz anterior, pero solo se aplica a este alias. |
 | `fuzzyEditDistance` | (Opcional) Actúa igual que el parámetro "fuzzyEditDistance" de la entidad raíz anterior, pero solo se aplica a este alias. |
 
-
 ### <a name="inline-format"></a>Formato en línea
 
 En algunos casos, puede que resulte más conveniente proporcionar la lista de entidades personalizadas para que coincidan directamente en línea con la definición de la aptitud. En ese caso, puede usar un formato JSON similar al descrito anteriormente, pero inserto en la definición de la aptitud.
 Solo las configuraciones que tienen un tamaño inferior a 10 KB (tamaño serializado) se pueden definir en línea. 
 
-##    <a name="sample-definition"></a>Definición de ejemplo
+## <a name="sample-definition"></a>Definición de ejemplo
 
 A continuación se muestra un ejemplo de definición de aptitud con un formato en línea:
 
@@ -221,6 +209,7 @@ A continuación se muestra un ejemplo de definición de aptitud con un formato e
     ]
   }
 ```
+
 Si decide proporcionar un puntero al archivo de definición de entidades, también puede ver a continuación una definición de aptitud de ejemplo con el formato `entitiesDefinitionUri`:
 
 ```json
@@ -244,7 +233,7 @@ Si decide proporcionar un puntero al archivo de definición de entidades, tambi�
 
 ```
 
-##    <a name="sample-input"></a>Entrada de ejemplo
+## <a name="sample-input"></a>Entrada de ejemplo
 
 ```json
 {
@@ -261,7 +250,7 @@ Si decide proporcionar un puntero al archivo de definición de entidades, tambi�
 }
 ```
 
-##    <a name="sample-output"></a>Salida de ejemplo
+## <a name="sample-output"></a>Salida de ejemplo
 
 ```json
   { 

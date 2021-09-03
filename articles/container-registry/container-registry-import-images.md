@@ -2,13 +2,13 @@
 title: Importación de imágenes de contenedor
 description: Importe imágenes de contenedor en un registro de contenedor de Azure mediante las API de Azure, sin necesidad de ejecutar comandos de Docker.
 ms.topic: article
-ms.date: 01/15/2021
-ms.openlocfilehash: e7becadab7f23acd7b85d6d82fd8abbfa7608add
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/28/2021
+ms.openlocfilehash: 04e9ead09061fad5630b883c6f5749bafc7a4a7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781530"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780621"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importación de imágenes de contenedor en un registro de contenedor
 
@@ -32,9 +32,7 @@ La importación de imágenes en un registro de contenedor de Azure tiene las sig
 
 Para importar imágenes de contenedor, este artículo requiere que ejecute la CLI de Azure en Azure Cloud Shell o localmente (se recomienda la versión 2.0.55 o posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
 
-> [!NOTE]
-> Si tiene que distribuir imágenes de contenedor idénticas en varias regiones de Azure, Azure Container Registry también admite la [replicación geográfica](container-registry-geo-replication.md). Mediante la replicación geográfica de un registro (es necesario el nivel de servicio Premium), puede atender varias regiones con nombres idénticos de imagen y etiqueta desde un único registro.
->
+[!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
 > [!IMPORTANT]
 > Se han producido cambios en la importación de imágenes entre dos registros de contenedor de Azure a partir de enero de 2021:
@@ -158,7 +156,10 @@ az acr import \
 
 ## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importación de un registro de contenedor de Azure de otro inquilino de AD
 
-Para importar desde un registro de contenedor de Azure de otro inquilino de Azure Active Directory, especifique el registro de origen mediante el nombre del servidor de inicio de sesión y proporcione las credenciales de nombre de usuario y contraseña que permiten el acceso de extracción al registro. Por ejemplo, use un [token de ámbito de repositorio](container-registry-repository-scoped-permissions.md) y la contraseña, o el appID y la contraseña de una [entidad de servicio](container-registry-auth-service-principal.md) de Active Directory que tenga acceso ACRPull al registro de origen. 
+Para importar desde un registro de contenedor de Azure de otro inquilino de Azure Active Directory, especifique el registro de origen mediante el nombre del servidor de inicio de sesión y proporcione las credenciales que permiten el acceso de extracción al registro. 
+
+### <a name="cross-tenant-import-with-username-and-password"></a>Importación entre inquilinos con nombre de usuario y contraseña
+Por ejemplo, use un [token de ámbito de repositorio](container-registry-repository-scoped-permissions.md) y la contraseña, o el appID y la contraseña de una [entidad de servicio](container-registry-auth-service-principal.md) de Active Directory que tenga acceso ACRPull al registro de origen. 
 
 ```azurecli
 az acr import \
@@ -167,6 +168,28 @@ az acr import \
   --image targetimage:tag \
   --username <SP_App_ID> \
   --password <SP_Passwd>
+```
+
+### <a name="cross-tenant-import-with-access-token"></a>Importación entre inquilinos con token de acceso
+
+Para acceder al registro de origen mediante una identidad en el inquilino de origen que tiene permisos de registro, puede obtener un token de acceso:
+
+```azurecli
+# Login to Azure CLI with the identity, for example a user-assigned managed identity
+az login --identity --username <identity_ID>
+
+# Get access token returned by `az account get-access-token`
+az account get-access-token 
+```
+
+En el inquilino de destino, pase el token de acceso como contraseña al comando `az acr import`. El registro de origen se especifica con el nombre del servidor de inicio de sesión. Observe que no se necesita ningún nombre de usuario en este comando:
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --password <access-token>
 ```
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importación desde un registro de contenedor privado de Azure
@@ -184,7 +207,13 @@ az acr import \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido sobre la importación de imágenes de contenedor en un registro de contenedor de Azure desde un registro público u otro registro privado. Para obtener opciones de importación de imágenes adicionales, vea la referencia del comando [az acr import][az-acr-import]. 
+En este artículo, ha aprendido sobre la importación de imágenes de contenedor en un registro de contenedor de Azure desde un registro público u otro registro privado. 
+
+* Para obtener opciones de importación de imágenes adicionales, vea la referencia del comando [az acr import][az-acr-import]. 
+
+* La importación de imágenes puede ayudarlo a mover contenido a un registro de contenedor en otro inquilino de Azure AD, otra suscripción u otra región de Azure. Para más información, consulte el artículo sobre cómo [trasladar manualmente un registro de contenedor a otra región](manual-regional-move.md).
+
+* Aprenda a [deshabilitar un artefacto de compilación](data-loss-prevention.md) desde un registro de contenedor restringido por red.
 
 
 <!-- LINKS - Internal -->

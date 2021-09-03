@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 523212e0f63453e78967eb9a4716febb754ea5d6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 76a7fa3cfeafa20dd81f043d67388bdfb281b6d4
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315280"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112232528"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 
@@ -88,6 +88,16 @@ En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Muestra la marca de tiempo del cambio más reciente de la propiedad UserState.|No|No|Persistente, salida|
 
 <sup>1 </sup>No es compatible con Microsoft Graph.<br><sup>2 </sup>Para más información, consulte [Atributo de número de teléfono para MFA](#mfa-phone-number-attribute)<br><sup>3 </sup>No debe utilizarse con Azure AD B2C
+
+## <a name="required-attributes"></a>Atributos necesarios
+
+Para crear una cuenta de usuario en el directorio de Azure AD B2C, proporcione los siguientes atributos obligatorios: 
+
+- [Nombre para mostrar](#display-name-attribute)
+
+- [Identidades](#display-name-attribute): con al menos una entidad (una cuenta local o federada).
+
+- [Perfil de contraseña](#password-policy-attribute): si crea una cuenta local, proporcione el perfil de contraseña.
 
 ## <a name="display-name-attribute"></a>Atributo de nombre para mostrar
 

@@ -4,12 +4,12 @@ description: En este artículo se describe cómo actualizar Container Insights p
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1921a0cc0aa15a5e877d64cbe2c7ad094f9e144f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708278"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745848"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>Procedimiento para actualizar Container Insights para habilitar métricas
 
@@ -33,7 +33,7 @@ Para admitir estas nuevas capacidades, en la versión se incluye un nuevo agente
 Cada proceso asigna el rol **Publicador de métricas de supervisión** al MSI asignado del usuario o entidad de servicio del clúster para el complemento de supervisión de modo que los datos recopilados por el agente se puedan publicar en el recurso de los clústeres. El rol Publicador de métricas de supervisión tiene permiso únicamente para insertar métricas en el recurso; no puede modificar ningún estado, actualizar el recurso ni leer datos. Para más información sobre este rol, vea el [rol del publicador de métricas de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). El requisito de rol Publicador de métricas de supervisión no es aplicable a clústeres de Kubernetes habilitados para Azure Arc.
 
 > [!IMPORTANT]
-> La actualización no es necesaria para clústeres de Kubernetes habilitados para Azure Arc, ya que estos ya tienen la versión mínima necesaria del agente.
+> La actualización no es necesaria para clústeres de Kubernetes habilitados para Azure Arc, ya que estos ya tienen la versión mínima necesaria del agente. La asignación del rol **Publicador de métricas de supervisión** a la entidad de servicio del clúster o a la MSI asignada por el usuario para el complemento de supervisión se realiza automáticamente al usar Azure Portal, Azure PowerShell o CLI de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

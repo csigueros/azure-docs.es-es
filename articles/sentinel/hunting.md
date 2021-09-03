@@ -14,136 +14,153 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2021
+ms.date: 07/14/2021
 ms.author: yelevin
-ms.openlocfilehash: a8bf6ec24a67327d715b4a5d09b1d0d633b980c5
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 78662bf6dbc6d4be4f0ea0890993530f772d2114
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810414"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746235"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Búsqueda de amenazas con Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Las actualizaciones del **panel de búsqueda** están actualmente en **VERSIÓN PRELIMINAR**. Los elementos siguientes relacionados con esta actualización se marcarán como "(versión preliminar)". Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+> La experiencia de consulta entre recursos y las actualizaciones del **panel de búsqueda** (vea los elementos marcados a continuación) se encuentran actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+>
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Tanto los analistas como los investigadores de seguridad, quieren buscar amenazas de seguridad de forma proactiva, pero los distintos sistemas y dispositivos de seguridad generan gran cantidad de datos que pueden ser difíciles de analizar y filtrar para convertirlos en eventos significativos. Azure Sentinel tiene eficaces herramientas de búsqueda y consulta que permiten buscar amenazas de seguridad en los orígenes de datos de cualquier organización. Para ayudar a los analistas de seguridad a buscar proactivamente nuevas anomalías que ni las aplicaciones de seguridad ni las reglas de análisis programadas han sido capaces de identificar, las consultas de búsqueda integradas de Azure Sentinel servirán de guía para formular las preguntas adecuadas para detectar problemas en los datos que ya hay en la red. 
 
-Por ejemplo, una consulta integrada proporciona datos sobre los procesos menos habituales que se ejecutan en la infraestructura. No desea recibir una alerta cada vez que se ejecuten (pueden ser totalmente inofensivos), pero puede echar un vistazo a la consulta de vez en cuando para ver si hay algo inusual. 
+Por ejemplo, una consulta integrada proporciona datos sobre los procesos menos habituales que se ejecutan en la infraestructura. No desea recibir una alerta cada vez que se ejecuten (pueden ser totalmente inofensivos), pero puede echar un vistazo a la consulta de vez en cuando para ver si hay algo inusual.
 
-Con la función de búsqueda de Azure Sentinel, puede aprovechar las siguientes capacidades:
+## <a name="use-built-in-queries"></a>Uso de consultas integradas
 
-- **Consultas integradas**: la página de búsqueda principal, a la que se puede acceder desde el menú de navegación de Azure Sentinel, proporciona ejemplos de consultas listas para usar diseñadas no solo para que pueda empezar a trabajar, sino también para que se familiarice con las tablas y el lenguaje de consulta. Estas consultas de búsqueda integradas las desarrollan los investigadores de seguridad de Microsoft de forma continua mediante la incorporación de nuevas consultas y el ajuste de las consultas existentes para proporcionar un punto de entrada para buscar nuevas detecciones y averiguar dónde empezar a buscar los comienzos de nuevos ataques. 
+En el [panel de búsqueda](#use-the-hunting-dashboard-public-preview) se proporcionan ejemplos predefinidos de consultas diseñadas para que pueda empezar a trabajar y a familiarizarse con las tablas y el lenguaje de consulta. Las consultas se ejecutan en datos almacenados en tablas de registro, como para la creación de procesos, eventos de DNS u otros tipos de eventos.
 
-- **Eficaz lenguaje de consulta con IntelliSense**: las consultas de búsqueda se integran en el [lenguaje de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/), un lenguaje de consulta que proporciona la eficacia y flexibilidad necesarias para llevar la búsqueda a un nuevo nivel. Es el mismo lenguaje que usan las consultas en las reglas de análisis y en otros lugares de Azure Sentinel.
+Las consultas de búsqueda integradas las desarrollan los investigadores de seguridad de Microsoft de forma continua mediante la incorporación de nuevas consultas y el ajuste de las consultas existentes para proporcionar un punto de entrada para buscar nuevas detecciones y averiguar dónde empezar a buscar los comienzos de nuevos ataques.
 
-- **Panel de búsqueda (versión preliminar)** : esta actualización de la página principal permite ejecutar todas las consultas, o un subconjunto seleccionado, con un solo clic. Identifique dónde desea empezar la búsqueda. Para ello, debe examinar el recuento de resultados, los picos o el cambio en el recuento de resultados en un período de 24 horas. También puede ordenar y filtrar por favoritos, origen de datos, táctica o técnica MITRE ATT&CK, resultados o diferencias de resultados. Vea las consultas que aún no tienen los orígenes de datos necesarios conectados y obtenga recomendaciones necesarias para habilitar estas consultas.
+Use consultas antes, durante y después de un ataque para realizar las acciones siguientes:
 
-- **Crear sus propios marcadores**: durante el proceso de búsqueda, puede encontrar resultados de consulta que puedan parecer inusuales o sospechosos. Puede incluir estos elementos en los "marcadores" (guardarlos y quitarlos para que pueda volver a consultarlos en el futuro). Los elementos que se hayan incluido en los marcadores se pueden usar para crear o enriquecer cualquier incidente para su investigación. Para obtener más información sobre los marcadores, vea el tema sobre el [uso de marcadores de búsqueda](bookmarks.md).
+- **Antes de que se produzca un incidente**: no es suficiente esperar a las detecciones. Tome medidas proactivas mediante la ejecución de cualquier consulta de búsqueda de amenazas relacionada con los datos que ingiere en el área de trabajo al menos una vez a la semana.
 
-- **Usar cuadernos para que la investigación sea eficaz**: los cuadernos proporcionan un tipo de entorno de espacio aislado virtual, que se completa con su propio kernel. Puede usar cuadernos para mejorar la búsqueda y las investigaciones con aprendizaje automático, visualización y análisis de datos. Puede realizar una investigación completa en un cuaderno, encapsulando los datos sin procesar, el código que se ejecuta en él, los resultados y sus visualizaciones, y guardar todo el contenido para que se pueda compartir con otros usuarios y estos puedan reutilizarlo. 
+    Los resultados de la búsqueda proactiva proporcionan una visión temprana de los eventos que puede confirmar que hay un ataque en proceso o, al menos, mostrará áreas más débiles en el entorno que están en riesgo y necesitan atención.
 
-- **Consultar los datos almacenados**: los datos se encuentran en tablas y se pueden consultar. Así, por ejemplo, se puede consultar la creación de procesos, los eventos DNS y otros muchos tipos de eventos.
+- **Durante un ataque**: use [Live Stream](livestream.md) para ejecutar una consulta específica de manera constante y presentar los resultados a medida que llegan. Use Live Stream cuando necesite supervisar de forma activa los eventos de usuario, por ejemplo, si necesita comprobar si todavía se produce un ataque específico, para ayudar a determinar la siguiente acción de un actor de amenazas y hacia el final de una investigación para confirmar que el ataque ha terminado realmente.
 
-- **Vínculos a la comunidad**: aproveche la eficacia de disfrutar de una comunidad más amplia para buscar más consultas y orígenes de datos.
- 
-## <a name="get-started-hunting"></a>Empezar a realizar búsquedas
+- **Después de un ataque**: después de que se haya producido un ataque o un incidente, asegúrese de mejorar la cobertura y la información para evitar incidentes similares en el futuro.
 
-En el portal de Azure Sentinel, haga clic en **Hunting** (Búsqueda).
+    - Modifique las consultas existentes o cree otras para ayudar con la detección temprana, en función de las conclusiones que haya obtenido del ataque o incidente.
 
-   :::image type="content" source="media/hunting/hunting-start.png" alt-text="Azure Sentinel empieza a buscar" lightbox="media/hunting/hunting-start.png":::
+    - Si ha detectado o creado una consulta de búsqueda que proporciona conclusiones muy valiosas sobre posibles ataques, cree reglas de detección personalizadas en función de esa consulta y exponga esas conclusiones como alertas para los elementos de respuesta a los incidentes de seguridad.
 
-- Al abrir la página **Hunting** (Búsqueda), todas las consultas de búsqueda se muestran en una misma tabla. En esa tabla se enumeran todas las consultas escritas por el equipo de analistas de seguridad de Microsoft, así como otras consultas adicionales que haya creado o modificado. En cada consulta se proporciona una descripción de lo que se busca y en qué tipo de datos se ejecuta. Estas plantillas se agrupan según diversas tácticas; así, los iconos de la derecha clasifican el tipo de amenaza, como acceso inicial, persistencia y filtración.
+        Vea los resultados de la consulta y seleccione **Nueva regla de alertas** > **Crear una alerta de Azure Sentinel**. Use el **asistente para reglas de análisis** para crear una regla en función de la consulta. Para obtener más información, vea [Creación de reglas de análisis personalizadas para detectar amenazas](detect-threats-custom.md).
 
-- (Versión preliminar) Para ver cómo se aplican las consultas en su entorno, haga clic en el botón **Run all queries (Preview)** [Ejecutar todas las consultas (versión preliminar)], o bien seleccione un subconjunto de consultas mediante las casillas que hay a la izquierda de cada fila y, después seleccione el botón **Run selected queries (Preview)** [Ejecutar las consultas seleccionadas (versión preliminar)]. La ejecución de las consultas puede tardar entre unos segundos y varios minutos, en función del número de consultas seleccionadas, el intervalo de tiempo y la cantidad de datos que se consultan.
 
-- (Versión preliminar) Una vez que las consultas hayan acabado de ejecutarse, puede ver qué consultas han devuelto resultados mediante el filtro **Results** (Resultados). Luego, puede ordenar para ver qué consultas han tenido más el mayor o menor número de resultados. También puede ver qué consultas no están activas en su entorno. Para ello, debe seleccionar *N/A* en el filtro **Results** (Resultados). Mantenga el puntero sobre el icono de información (i) que aparece al lado de *N/A* para ver qué orígenes de datos se necesitan para que esta consulta sea activa.
+> [!TIP]
+> - Ahora en versión preliminar pública, también puede crear consultas de búsqueda y Live Stream sobre los datos almacenados en Azure Data Explorer. Para obtener más información, vea los detalles de la [creación de consultas entre recursos](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md) en la documentación de Azure Monitor.
+>
+> - Use recursos de la comunidad, como el [repositorio de Azure Sentinel en GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) para buscar consultas y orígenes de datos adicionales.
+>
 
-- (Versión preliminar) Para identificar picos en los datos, ordene o filtre por **Results delta** (Diferencia de resultados). De esta forma se comparan los resultados de las últimas 24 horas con los resultados de las 24-48 horas anteriores para que sea fácil ver grandes diferencias en el volumen.
+## <a name="use-the-hunting-dashboard-public-preview"></a>Uso del panel de búsqueda (versión preliminar pública)
 
-- (Versión preliminar) La **barra de tácticas de MITRE ATT&CK**, al principio de la tabla, muestra cuántas consultas se asignan a cada táctica de MITRE ATT&CK. La barra de tácticas se actualiza dinámicamente en función del actual conjunto de filtros aplicado. Se trata de una manera sencilla de ver qué tácticas de MITRE ATT&CK se muestran al filtrar por un recuento de resultados determinado, una diferencia de resultados alta, resultados de *N/A* o cualquier otro conjunto de filtros.
+El panel de búsqueda le permite ejecutar todas las consultas, o un subconjunto concreto, en una sola selección. En el portal de Azure Sentinel, seleccione **Hunting** (Búsqueda).
 
-- (Versión preliminar) Las consultas también se pueden asignar a técnicas de MITRE ATT&CK. Para filtrar u ordenar por técnicas de MITRE ATT&CK, utilice el filtro **Technique** (Técnica). Al abrir una consulta, podrá hacer clic en la técnica para ver la descripción de MITRE ATT&CK de la técnica.
+En la tabla se muestran todas las consultas escritas por el equipo de analistas de seguridad de Microsoft, y otras consultas adicionales que haya creado o modificado. En cada consulta se proporciona una descripción de lo que se busca y en qué tipo de datos se ejecuta. Estas plantillas se agrupan según diversas tácticas; así, los iconos de la derecha clasifican el tipo de amenaza, como acceso inicial, persistencia y filtración.
 
-- Puede guardar cualquier consulta en sus favoritos. Las consultas guardadas en favoritos se ejecutan automáticamente cada vez que se accede a la página **Hunting** (Búsqueda). Puede crear sus propias consultas de búsqueda o clonar y personalizar una plantilla de consulta de búsqueda ya existente.
- 
-- Si hace clic en **Run query** (Ejecutar consulta) en la página de detalles de la consulta de búsqueda, puede ejecutar cualquier consulta sin salir de la página de búsqueda. El número de coincidencias se muestra en la tabla, en la columna **Results** (Resultados). Revise la lista de consultas de búsqueda y las coincidencias encontradas correspondientes.
+:::image type="content" source="media/hunting/hunting-start.png" alt-text="Azure Sentinel empieza a buscar" lightbox="media/hunting/hunting-start.png":::
 
-- Puede realizar una revisión rápida de la consulta subyacente en el panel de detalles de la consulta. Para ver los resultados, haga clic en el vínculo **View query results** (Ver resultados de la consulta) (debajo de la ventana de consulta) o en el botón **View Results** (Ver resultados) (en la parte inferior del panel). La consulta se abrirá en la hoja **Logs** (Registros) (Log Analytics) y, debajo de la consulta, puede revisar las coincidencias de la consulta.
+Use el panel de búsqueda para identificar dónde empezar la búsqueda. Para ello, examine el recuento de resultados, los picos o el cambio en el recuento de resultados en un período de 24 horas. Puede ordenar y filtrar por favoritos, origen de datos, táctica o técnica MITRE ATT&CK, resultados o diferencias de resultados. Vea las consultas que todavía necesitan orígenes de datos conectados** y obtenga recomendaciones sobre cómo habilitarlas.
 
-- Para conservar los resultados sospechosos o interesantes de una consulta en Log Analytics, marque las casillas de las filas que desea conservar y seleccione **Agregar marcador**. De esta forma se crea un registro (un marcador) para cada fila marcada que contiene los resultados de la fila, la consulta que creó los resultados y las asignaciones de entidades para extraer usuarios, hosts y direcciones IP. Puede agregar sus propias etiquetas (consulte a continuación) y notas a cada marcador.
+En la tabla siguiente se describen las acciones detalladas disponibles en el panel de búsqueda:
 
-- Para ver todos los resultados marcados haciendo clic en la pestaña **Bookmarks** (Marcadores) de la página principal de **Hunting** (Búsqueda). Puede agregar etiquetas a los marcadores para clasificarlas para el filtrado. Por ejemplo, si va a investigar una campaña de ataques, puede crear una etiqueta para la campaña, aplicar la etiqueta a todos los marcadores pertinentes y, después, filtrar todos los marcadores por esa campaña.
+|Acción  |Descripción  |
+|---------|---------|
+|**Ver cómo se aplican las consultas al entorno**     |   Seleccione el botón **Run all queries (Preview)** [Ejecutar todas las consultas (versión preliminar)], o bien seleccione un subconjunto de consultas mediante las casillas que hay a la izquierda de cada fila y seleccione el botón **Run selected queries (Preview)** [Ejecutar las consultas seleccionadas (versión preliminar)]. <br><br>La ejecución de las consultas puede tardar entre unos segundos y varios minutos, en función del número de consultas seleccionadas, el intervalo de tiempo y la cantidad de datos que se consultan.      |
+|**Ver las consultas que han devuelto resultados**    |      Una vez que las consultas terminen de ejecutarse, vea cuáles han devuelto resultados mediante el filtro **Results** (Resultados): <br>- Ordene para ver qué consultas han tenido más el mayor o menor número de resultados. <br>- Vea qué consultas no están activas en el entorno; para ello, seleccione *N/A* (N/D) en el filtro **Results** (Resultados). <br>- Mantenga el puntero sobre el icono de información (**i**) que aparece junto a *N/A* (N/D) para ver qué orígenes de datos se necesitan para activar esta consulta.  |
+|**Identificar picos en los datos**     |   Para identificar picos en los datos, ordene o filtre por **Results delta** (Diferencia de resultados). <br><br>De esta forma se comparan los resultados de las últimas 24 horas con los de las 24-48 horas anteriores, para resaltar las diferencias de volumen grandes.     |
+|**Ver consultas asignadas a la táctica MITRE Att&CK**     | En la **barra de tácticas de MITRE ATT&CK**, al principio de la tabla, se muestran cuántas consultas se asignan a cada táctica de MITRE ATT&CK. La barra de tácticas se actualiza dinámicamente en función del actual conjunto de filtros aplicado. <br><br>Esto le permite ver qué tácticas de MITRE ATT&CK se muestran al filtrar por un recuento de resultados determinado, una diferencia de resultados alta, resultados de tipo *N/A* (N/D) o cualquier otro conjunto de filtros.        |
+|**Ver las consultas asignadas a técnicas de MITRE ATT&CK**     | Las consultas también se pueden asignar a técnicas de MITRE ATT&CK. Para filtrar u ordenar por técnicas de MITRE ATT&CK, utilice el filtro **Technique** (Técnica). Al abrir una consulta, podrá seleccionar la técnica para ver la descripción de MITRE ATT&CK de la técnica.        |
+|**Guardar una consulta en los favoritos**     |   Las consultas guardadas en favoritos se ejecutan automáticamente cada vez que se accede a la página **Hunting** (Búsqueda). Puede crear sus propias consultas de búsqueda o clonar y personalizar una plantilla de consulta de búsqueda ya existente.      |
+|**Ejecución de consultas**     |   Seleccione **Run query** (Ejecutar consulta) en la página de detalles de la consulta de búsqueda para ejecutar la consulta directamente desde la página de búsquedas. El número de coincidencias se muestra en la tabla, en la columna **Results** (Resultados). Revise la lista de consultas de búsqueda y las coincidencias encontradas correspondientes.     |
+|**Revisión de una consulta subyacente**     | Realice una revisión rápida de la consulta subyacente en el panel de detalles de la consulta. Para ver los resultados, haga clic en el vínculo **View query results** (Ver resultados de la consulta) (debajo de la ventana de consulta) o en el botón **View Results** (Ver resultados) (en la parte inferior del panel). La consulta se abrirá en la hoja **Logs** (Registros) (Log Analytics) y, debajo de la consulta, puede revisar las coincidencias de la consulta.         |
+|     |         |
 
-- Para investigar un único resultado incluido en los marcadores, seleccione el marcador y, después, haga clic en **Investigate** (Investigar) en el panel de detalles para abrir la experiencia de investigación. También puede crear un incidente a partir de uno o varios marcadores, o bien agregar uno o varios marcadores a un incidente existente. Para ello, marque las casillas situadas a la izquierda de los marcadores deseados y, después, seleccione **Create new incident** (Crear incidente) o **Add to existing incident** (Agregar a incidente existente) en el menú desplegable **Incident actions** (Acciones de incidente) cerca de la parte superior de la pantalla. Luego puede realizar una evaluación de prioridades del incidente e investigarlo como cualquier otro.
 
-- Tras haber detectado o creado una consulta de búsqueda que proporciona información muy valiosas sobre posibles ataques, puede crear reglas de detección personalizadas en función de esa consulta y exponer dicha información como alertas para los respondedores a los incidentes de seguridad. Vea los resultados de la consulta en Log Analytics (más arriba), haga clic en el botón **New alert rule** (Nueva regla de alertas) en la parte superior del panel y seleccione **Create Azure Sentinel alert** (Crear una alerta de Azure Sentinel). Se abrirá el **Asistente para reglas de Analytics**. Complete los pasos necesarios como se explica en [Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas](tutorial-detect-threats-custom.md).
+## <a name="create-your-own-bookmarks"></a>Creación de marcadores propios
 
-## <a name="query-language"></a>Lenguaje de consulta 
+Durante el proceso de búsqueda e investigación, es posible que encuentre resultados de consulta que puedan parecer inusuales o sospechosos. Marque estos elementos para hacerles referencia en el futuro, por ejemplo, al crear o enriquecer un incidente para investigarlo.
 
-Las búsquedas de Azure Sentinel se basan en el lenguaje de consultas de Kusto. Para obtener más información sobre el lenguaje de consulta y los operadores admitidos, consulte la [referencia de idioma de consulta](../azure-monitor/logs/get-started-queries.md).
+- En los resultados, marque las casillas de las filas que quiera conservar y seleccione **Add bookmark** (Agregar marcador). Esto crea un registro para cada fila marcada (un marcador) que contiene los resultados de la fila, la consulta que ha creado los resultados y las asignaciones de entidades para extraer usuarios, hosts y direcciones IP. Puede agregar etiquetas y notas propias a cada marcador.
 
-## <a name="public-hunting-query-github-repository"></a>Repositorio de GitHub de consultas de búsquedas públicas
+- Para ver todos los resultados añadidos como marcadores, haga clic en la pestaña **Bookmarks** (Marcadores) de la página principal de **Hunting** (Búsqueda). Agregue etiquetas a los marcadores a fin de clasificarlos para el filtrado. Por ejemplo, si va a investigar una campaña de ataques, puede crear una etiqueta para la campaña, aplicar la etiqueta a todos los marcadores pertinentes y, después, filtrar todos los marcadores por esa campaña.
 
-Eche un vistazo al [repositorio de consultas de búsqueda](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries). Use las consultas de ejemplo compartidas por nuestros clientes y aporte las suyas propias.
+- Para investigar un único resultado incluido en los marcadores, seleccione el marcador y, después, haga clic en **Investigate** (Investigar) en el panel de detalles para abrir la experiencia de investigación.
 
- ## <a name="sample-query"></a>Consulta de ejemplo
+    También puede crear un incidente a partir de uno o varios marcadores, o bien agregar uno o varios marcadores a un incidente existente. Active una casilla situada a la izquierda de los marcadores que quiera usar y, después, seleccione **Incident actions** > **Create new incident** (Acciones de incidente > Crear incidente), o bien **Add to existing incident** (Agregar a incidente existente). Realice una evaluación de prioridades del incidente e investíguelo como cualquier otro.
 
-Una consulta típica empieza por un nombre de tabla, seguido de una serie de operadores separados por \|.
 
-En el ejemplo anterior, empiece con la tabla SecurityEvent y agregue elementos canalizados según sea necesario.
+> [!TIP]
+> Los marcadores representan eventos clave que son importantes y deben escalarse a incidentes si son lo suficientemente graves como para justificar una investigación. Los eventos como las posibles causas principales, los indicadores de riesgo u otros eventos importantes se deben generar como marcadores.
+>
 
-1. Defina un filtro de tiempo para revisar solo los registros de los últimos siete días.
+Para obtener más información, vea [Uso de marcadores de búsqueda](bookmarks.md).
 
-1. Agregue un filtro a la consulta para mostrar únicamente el evento con el identificador 4688.
+## <a name="use-notebooks-to-power-investigations"></a>Uso de cuadernos como tecnología de las investigaciones
 
-1. Agregue un filtro a la consulta en CommandLine para que contenga solo instancias de cscript.exe.
+Los cuadernos proporcionan una especie de entorno de espacio aislado virtual, con un kernel propio. Puede usar cuadernos para mejorar la búsqueda y las investigaciones con aprendizaje automático, visualización y análisis de datos. Puede realizar una investigación completa en un cuaderno, encapsulando los datos sin procesar, el código que se ejecuta en él, los resultados y sus visualizaciones, y guardar todo el contenido para que se pueda compartir con otros usuarios y estos puedan reutilizarlo.
 
-1. Proyecte solo las columnas que esté interesado en explorar, limite los resultados a 1000 y haga clic en **Run query** (Ejecutar consulta).
+Para obtener más información, vea [Uso de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md).
 
-1. Haga clic en el triángulo verde y ejecute la consulta. Puede comprobar la consulta y ejecutarla para hallar comportamientos anómalos.
 
-## <a name="useful-operators"></a>Operadores útiles
+## <a name="useful-operators-and-functions"></a>Operadores y funciones útiles
 
-El lenguaje de consulta es muy eficaz y cuenta con numerosos operadores disponibles. Estos son algunos de ellos, que son muy útiles:
+Las consultas de búsqueda se crean en el [lenguaje de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/), un lenguaje de consulta eficaz con IntelliSense que proporciona la eficacia y flexibilidad necesarias para llevar la búsqueda a un nuevo nivel.
 
-**where**: filtra una tabla por el subconjunto de filas que cumplen un predicado.
+Es el mismo lenguaje que usan las consultas en las reglas de análisis y en otros lugares de Azure Sentinel. Para obtener más información, vea [Referencia de lenguaje de consulta](../azure-monitor/logs/get-started-queries.md).
 
-**summarize**: crea una tabla que agrega el contenido de la tabla de entrada.
+Los operadores siguientes son especialmente útiles en las consultas de búsqueda de Azure Sentinel:
 
-**join**: combina las filas de dos tablas para formar una nueva tabla, haciendo coincidir los valores de las columnas especificadas de cada tabla.
+- **where**: filtra una tabla por el subconjunto de filas que cumplen un predicado.
 
-**count**: devuelve el número de registros en el conjunto de registros de entrada.
+- **summarize**: crea una tabla que agrega el contenido de la tabla de entrada.
 
-**top**: devuelve los primeros N registros ordenados por las columnas especificadas.
+- **join**: combina las filas de dos tablas para formar una nueva tabla, haciendo coincidir los valores de las columnas especificadas de cada tabla.
 
-**limit**: devuelve hasta el número de filas especificado.
+- **count**: devuelve el número de registros en el conjunto de registros de entrada.
 
-**project**: selecciona las columnas que se incluirán, las cambia de nombre o las quita e inserta nuevas columnas calculadas.
+- **top**: devuelve los primeros N registros ordenados por las columnas especificadas.
 
-**extend**: crea columnas calculadas y las anexa al conjunto de resultados.
+- **limit**: devuelve hasta el número de filas especificado.
 
-**makeset**: devuelve una matriz dinámica (JSON) del conjunto de valores distintos que una expresión toma en el grupo.
+- **project**: selecciona las columnas que se incluirán, las cambia de nombre o las quita e inserta nuevas columnas calculadas.
 
-**find**: busca filas que coinciden con un predicado a través de un conjunto de tablas.
+- **extend**: crea columnas calculadas y las anexa al conjunto de resultados.
+
+- **makeset**: devuelve una matriz dinámica (JSON) del conjunto de valores distintos que una expresión toma en el grupo.
+
+- **find**: busca filas que coinciden con un predicado a través de un conjunto de tablas.
+
+- **adx() (versión preliminar)** : esta función ejecuta consultas entre recursos de orígenes de datos de Azure Data Explorer desde la experiencia de búsqueda de Azure Sentinel y Log Analytics. Para obtener más información, consulte [Consulta entre recursos en Azure Data Explorer mediante Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 
 ## <a name="save-a-query"></a>Almacenamiento de una consulta
 
-Puede crear o modificar una consulta y guardarla como consulta propia o compartirla con los usuarios que están en el mismo inquilino.
+Cree o modifique una consulta, y guárdela como consulta propia o compártala con los usuarios que están en el mismo inquilino.
 
 :::image type="content" source="./media/hunting/save-query.png" alt-text="Guardar consulta" lightbox="./media/hunting/save-query.png":::
 
-### <a name="create-a-new-hunting-query"></a>Creación de una consulta de búsqueda
+**Para crear una consulta**:
 
-1. Haga clic en **New query** (Nueva consulta).
+1. Seleccione **Nueva consulta**.
 
 1. Rellene todos los campos en blanco y seleccione **Create** (Crear).
 
     :::image type="content" source="./media/hunting/new-query.png" alt-text="Nueva consulta" lightbox="./media/hunting/new-query.png":::
 
-### <a name="clone-and-modify-an-existing-hunting-query"></a>Clonación y modificación de una consulta de búsqueda existente
+**Para clonar y modificar una consulta existente**:
 
 1. Seleccione la consulta de búsqueda en la tabla que quiere modificar.
 
@@ -155,9 +172,32 @@ Puede crear o modificar una consulta y guardarla como consulta propia o comparti
 
     :::image type="content" source="./media/hunting/custom-query.png" alt-text="Consulta personalizada" lightbox="./media/hunting/custom-query.png":::
 
+
+
+## <a name="sample-query"></a>Consulta de ejemplo
+
+Una consulta típica empieza por un nombre de tabla, seguido de una serie de operadores separados por \|.
+
+En el ejemplo anterior, empiece con la tabla SecurityEvent y agregue elementos canalizados según sea necesario.
+
+1. Defina un filtro de tiempo para revisar solo los registros de los últimos siete días.
+
+1. Agregue un filtro a la consulta para mostrar únicamente el evento con el identificador 4688.
+
+1. Agregue un filtro a la consulta en CommandLine para que contenga solo instancias de cscript.exe.
+
+1. Proyecte solo las columnas que quiera explorar, limite los resultados a 1000 y seleccione **Run query** (Ejecutar consulta).
+
+1. Seleccione el triángulo de color verde y ejecute la consulta. Puede comprobar la consulta y ejecutarla para hallar comportamientos anómalos.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a realizar una investigación de búsqueda en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este artículo, ha aprendido a realizar una investigación de búsqueda en Azure Sentinel. 
+
+Para más información, consulte:
 
 - [Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md)
 - [Realizar un seguimiento de los datos durante una búsqueda](bookmarks.md)
+
+Obtenga información de un ejemplo del uso de reglas de análisis personalizadas al [supervisar Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) con un [conector personalizado](create-custom-connector.md).
+

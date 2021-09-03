@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: c9ce9b7b0d739301e76abd43b265fe28195ed302
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1042b33dd0e753b8706bed8ab77a57d65c63fb4b
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518290"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583345"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitación del registro para servicios web de Azure Machine Learning Studio (clásico)
+# <a name="enable-logging-for-machine-learning-studio-classic-web-services"></a>Habilitación del registro para servicios web de Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -25,9 +25,9 @@ En este documento se proporciona información sobre la funcionalidad de registro
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Habilitación del registro para un servicio web
 
-El registro se habilita en el portal de [Servicios web de Azure Machine Learning Studio (clásico)](https://services.azureml.net). 
+El registro se habilita en el portal [Servicios web Machine Learning Studio (clásico)](https://services.azureml.net). 
 
-1. Inicie sesión en el portal de servicios web de Azure Machine Learning Studio (clásico) en [https://services.azureml.net](https://services.azureml.net). Para los servicios web clásicos, también puede acceder al portal haciendo clic en **New Web Services Experience** (Nueva experiencia de servicios web) en la página Servicios web de Machine Learning Studio (clásico), en Studio (clásico).
+1. Inicie sesión en el portal de servicios web Machine Learning Studio (clásico) en [https://services.azureml.net](https://services.azureml.net). Para los servicios web clásicos, también puede acceder al portal haciendo clic en **New Web Services Experience** (Nueva experiencia de servicios web) en la página Servicios web de Machine Learning Studio (clásico), en Studio (clásico).
 
    ![Nuevo vínculo a la experiencia de servicios web](./media/web-services-logging/new-web-services-experience-link.png)
 

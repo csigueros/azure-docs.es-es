@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4cfa90e2863583cf920df333fd2e5dbd7d7b46c6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101736192"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084613"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 Con Azure, las cargas de trabajo del servidor MySQL se pueden ejecutar en una infraestructura como servicio (IaaS) de máquina virtual hospedada o como una plataforma como servicio (PaaS) hospedada. PaaS dispone de varias opciones de implementación y, dentro de cada una, hay niveles de servicio. Al decidir entre PaaS o IaaS, debe decidir si quiere administrar la base de datos, aplicar revisiones y realizar copias de seguridad, o si quiere delegar estas operaciones en Azure.
 
@@ -45,9 +47,9 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
 | Compatibilidad con versiones de MySQL | 5.6, 5.7 y 8.0| 5.7 y 8.0 | Cualquier versión|
 | Escalado de proceso | Compatible (no se admite el escalado desde y hasta el nivel Básico)| Compatible | Compatible|
-| Tamaño de almacenamiento | De 5 GiB a 16 TiB| De 5 GiB a 16 TiB | De 32 GiB a 32 767 GiB|
+| Tamaño de almacenamiento | De 5 GiB a 16 TiB| De 20 GiB a 16 TiB | De 32 GiB a 32 767 GiB|
 | Escalado de almacenamiento en línea | Compatible| Compatible| No compatible|
-| Escalado de almacenamiento automático | Compatible| No se admite en la versión preliminar| No compatible|
+| Escalado de almacenamiento automático | Compatible| Compatible| No compatible|
 | Escalado de IOPS adicional | No compatible| Compatible| No compatible|
 | Conectividad de red | - Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con compatibilidad con Private Link.|- Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con integración de Virtual Network.| - Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con compatibilidad con Private Link.|
 | Acuerdo de Nivel de Servicio (SLA) | Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % |No hay Acuerdo de Nivel de Servicio en la versión preliminar| 99.99 % con Availability Zones|
@@ -56,16 +58,16 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Alta disponibilidad | Alta disponibilidad integrada dentro de una sola zona de disponibilidad| Alta disponibilidad integrada dentro y entre zonas de disponibilidad | Administración personalizada mediante agrupación en clústeres, replicación, etc.|
 | Redundancia de zona | No compatible | Compatible | Compatible|
 | Colocación de zona | No compatible | Compatible | Compatible|
-| Escenarios híbridos | Compatible con [Replicación de datos de entrada](./concepts-data-in-replication.md)| No disponible en versión preliminar | Administrado por los usuarios finales |
+| Escenarios híbridos | Compatible con [Replicación de datos de entrada](./concepts-data-in-replication.md)| Compatible con [Replicación de datos de entrada](./flexible-server/concepts-data-in-replication.md) | Administrado por los usuarios finales |
 | Réplicas de lectura | Compatible (hasta 5 réplicas)| Compatible (hasta 10 réplicas)| Administrado por los usuarios finales |
 | Backup | Automatizado con retención de 7-35 días | Automatizado con retención de 1-35 días | Administrado por los usuarios finales |
 | Supervisión de las operaciones de base de datos | Compatible | Compatible | Administrado por los usuarios finales |
-| Recuperación ante desastres | Compatible con el almacenamiento de copia de seguridad con redundancia geográfica y las réplicas de lectura entre regiones | No se admite en la versión preliminar| Administración personalizada con tecnologías de replicación |
+| Recuperación ante desastres | Compatible con el almacenamiento de copia de seguridad con redundancia geográfica y las réplicas de lectura entre regiones | Próximamente| Administración personalizada con tecnologías de replicación |
 | Información del rendimiento de las consultas | Compatible | No disponible en versión preliminar| Administrado por los usuarios finales |
-| Precios de instancias reservadas | Compatible | No disponible en versión preliminar | Compatible |
+| Precios de instancias reservadas | Compatible | Próximamente | Compatible |
 | Autenticación de Azure AD | Compatible | No disponible en versión preliminar | No compatible|
 | Cifrado de datos en reposo | Compatible con claves administradas por el cliente | Compatible con claves administradas por el servicio | No compatible|
-| SSL/TLS | Habilitado de forma predeterminada con compatibilidad con TLS v1.2, 1.1 y 1.0 | Se aplica con TLS v1.2 | Compatible con TLS v1.2, 1.1 y 1.0 |
+| SSL/TLS | Habilitado de forma predeterminada con compatibilidad con TLS v1.2, 1.1 y 1.0 | Habilitado de forma predeterminada con compatibilidad con TLS v1.2, 1.1 y 1.0| Compatible con TLS v1.2, 1.1 y 1.0 |
 | Administración de flota | Compatible con la CLI de Azure, PowerShell, REST y Azure Resource Manager | Compatible con la CLI de Azure, PowerShell, REST y Azure Resource Manager  | Compatible para máquinas virtuales con la CLI de Azure, PowerShell, REST y Azure Resource Manager |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Motivaciones empresariales para elegir PaaS o IaaS

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2021
-ms.openlocfilehash: 4ffbca8e4e70a5201b374d4fac9bdb136c860573
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7c3a2a00c0323bc9e80b1d94d445f873d5b86d34
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144968"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541345"
 ---
 # <a name="how-to-get-featured-in-microsoft-appsource-and-azure-marketplace"></a>Cómo aparecer como destacado en Microsoft AppSource y Azure Marketplace
 
@@ -38,7 +38,7 @@ Para mejorar su puntuación, puede tomar las siguientes medidas:
 Las promociones de aplicaciones destacadas funcionan de forma independiente al algoritmo de búsqueda.
 
 >[!Note]
->Si la solución no aparece correctamente en los resultados de la búsqueda, envíe una incidencia de soporte técnico a través del menú Ayuda en el [Centro de partners](https://partner.microsoft.com/).
+>Si la solución no aparece correctamente en los resultados de la búsqueda, abra una **[incidencia de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2165533)** en el Centro de partners.
 
 El soporte técnico de GTM también incluye una biblioteca completa de plantillas, contenido web, entrenamiento y herramientas de autoayuda que le asistirán a promocionar más su negocio y sus descripciones.
 
@@ -46,6 +46,4 @@ El soporte técnico de GTM también incluye una biblioteca completa de plantilla
 
 Más información acerca de las [ventajas de Marketplace comercial](gtm-your-marketplace-benefits.md).
 
-Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear y configurar la oferta.
-
----
+Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290) para crear y configurar la oferta. Si todavía no se ha inscrito en el Centro de partners, [cree una cuenta](create-account.md).

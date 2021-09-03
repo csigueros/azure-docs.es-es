@@ -1,26 +1,26 @@
 ---
 title: Creación y carga de un VHD de Ubuntu Linux en Azure
 description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Ubuntu Linux.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/06/2020
-ms.author: danis
-ms.openlocfilehash: 92ceecd16a428593764fe5ab6478cc4ea7ab91d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/28/2021
+ms.author: srijangupta
+ms.openlocfilehash: f0417c156de07cd5a6fd45bdd63ed9134078966f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554622"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732480"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparación de una máquina virtual Ubuntu para Azure
 
 
 Ahora Ubuntu publica discos duros virtuales de Azure oficiales que se pueden descargar en [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). Si necesita crear su propia imagen de Ubuntu especializada para Azure, en lugar de usar el siguiente procedimiento manual se recomienda comenzar con estos VHD conocidos y personalizarlos según sea necesario. Las versiones más recientes de las imágenes siempre se encuentran en las siguientes ubicaciones:
 
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.zip)
+* Ubuntu 20.04/Focal: [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.zip)
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
@@ -51,7 +51,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
     # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
     ```
 
-    Ubuntu 16.04 y Ubuntu 18.04:
+    Ubuntu 18.04 y Ubuntu 20.04:
 
     ```console
     # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
@@ -61,7 +61,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 4. Ahora, las imágenes de Ubuntu de Azure usan el [kernel adaptado a Azure](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel). Actualice el sistema operativo al kernel más reciente adaptado a Azure e instale las herramientas de Linux de Azure (incluidas las dependencias de Hyper-V) mediante la ejecución de los siguientes comandos:
 
-    Ubuntu 16.04 y Ubuntu 18.04:
+    Ubuntu 18.04 y Ubuntu 20.04:
 
     ```console
     # sudo apt update
@@ -81,7 +81,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 6. Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Este es normalmente el valor predeterminado.
 
-7. Instale cloud-init (el agente de aprovisionamiento) y el agente de Linux de Azure (el controlador de extensiones de invitado). Cloud-init usa netplan para configurar la red del sistema durante el aprovisionamiento y cada arranque posterior.
+7. Instale cloud-init (el agente de aprovisionamiento) y el agente de Linux de Azure (el controlador de extensiones de invitado). Cloud-init usa `netplan` para configurar la red del sistema durante el aprovisionamiento y cada arranque posterior.
 
     ```console
     # sudo apt update
@@ -91,17 +91,17 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
    > [!Note]
    >  El paquete `walinuxagent` puede eliminar los paquetes `NetworkManager` y `NetworkManager-gnome`, en caso de que estén instalados.
 
-8. Quite las configuraciones predeterminadas de cloud-init y los artefactos de netplan sobrantes que puedan entrar en conflicto con el aprovisionamiento de cloud-init en Azure:
+8. Quite las configuraciones predeterminadas de cloud-init y los artefactos `netplan` sobrantes que puedan entrar en conflicto con el aprovisionamiento de cloud-init en Azure:
 
     ```console
-    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
+    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     # rm -f /etc/cloud/ds-identify.cfg
     # rm -f /etc/netplan/*.yaml
     ```
 
 9. Configure cloud-init para aprovisionar el sistema mediante el origen de datos de Azure:
 
-    ```console
+    ```bash
     # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
     datasource_list: [ Azure ]
     EOF
@@ -163,7 +163,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 12. Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
 
     > [!NOTE]
-    > El comando `sudo waagent -force -deprovision+user` intentará limpiar el sistema y hacer que sea apto para el reaprovisionamiento. La opción `+user` elimina la última cuenta de usuario aprovisionada y los datos asociados.
+    > Para generalizar la imagen, el comando `sudo waagent -force -deprovision+user` intenta limpiar el sistema y hacer que sea adecuado para el nuevo aprovisionamiento. La opción `+user` elimina la última cuenta de usuario aprovisionada y los datos asociados.
 
     > [!WARNING]
     > El desaprovisionamiento mediante el comando superior no garantiza que se haya borrado toda información confidencial de la imagen y que se pueda redistribuir.

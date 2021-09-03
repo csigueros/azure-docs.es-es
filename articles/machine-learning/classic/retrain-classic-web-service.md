@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): reentrenamiento de servicios web clásicos (Azure)'
-description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web clásico para que utilice este modelo en Azure Machine Learning Studio (clásico).
+description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web clásico para que utilice este modelo en Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,16 +9,16 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 90c968ee953e80238775639964cb09a25741b33d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9b249dff4bbb6f5c3aa688986bf470e3d449372
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517576"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579547"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Repetición del entrenamiento e implementación de un servicio web de Studio (clásico)
 
-**SE APLICA A:**  ![Marca de verificación verde.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![La X indica "no".](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:** ![Se aplica a ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico) ![La X indica que no.](../../../includes/media/aml-applies-to-skus/no.png)[No se aplica a ](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Una forma de garantizar que los modelos de Machine Learning siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar un servicio web de Studio clásico. Para más información acerca de cómo volver a entrenar un nuevo servicio web de Studio (clásico), [consulte este artículo de procedimientos](retrain-machine-learning-model.md).

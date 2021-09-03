@@ -8,19 +8,24 @@ ms.date: 03/29/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: a879aff7c3fcaa7ac2c15be295c6c5bdca25ccdf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 023320d29eac767e62e07c58de4f8fa6ac61b61f
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937301"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117839"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar la eliminación accidental de recursos compartidos de archivos de Azure
+Azure Files ofrece eliminación temporal para los recursos compartidos de archivos. La eliminación temporal permite recuperar el recurso compartido de archivos cuando una aplicación u otro usuario de la cuenta de almacenamiento lo ha eliminado por error.
 
-Ahora Azure Storage ofrece eliminación temporal para recursos compartidos de archivos. La eliminación temporal permite recuperar el recurso compartido de archivos cuando una aplicación u otro usuario de la cuenta de almacenamiento lo ha eliminado por error.
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="how-soft-delete-works"></a>Cómo funciona la eliminación temporal
-
 Cuando la eliminación temporal de recursos compartidos de archivos de Azure está habilitada, si se elimina uno de ellos, realiza la transición a un estado de eliminación temporal, en lugar de borrarse de forma permanente. Se puede configurar el tiempo durante el que los datos eliminados de forma temporal se pueden recuperar antes de que se eliminen permanentemente y durante este período de retención el recurso compartido se puede recuperar en cualquier momento. Después de recuperarlo, tanto el recurso compartido como todo su contenido, incluidas las instantáneas, se restaurarán al estado en que se encontraban antes de la eliminación. La eliminación temporal solo funciona a nivel de recurso compartido de archivos (los archivos individuales que se eliminen se borrarán de forma permanente).
 
 La eliminación temporal se puede habilitar en recursos compartidos de archivos nuevos o existentes. La eliminación temporal también es compatible con versiones anteriores por lo que no es necesario realizar ningún cambio en las aplicaciones para aprovechar las ventajas de las protecciones que se obtienen con esta característica. 
