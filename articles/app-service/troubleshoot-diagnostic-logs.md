@@ -3,14 +3,14 @@ title: Habilitación del registro de diagnósticos
 description: Obtenga información acerca de cómo habilitar el registro de diagnóstico y agregar la instrumentación a su aplicación, así como la manera de acceder a la información registrada por Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: b12b3db9266284509e88cef85a33a1a43b500907
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: b7bf1d7353917808fca222a7027dda74f89aff70
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075490"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736098"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -104,7 +104,9 @@ Para guardar la página de error o el seguimiento de las solicitudes con error p
 
 En **Registro de error detallado** o **Error del seguimiento de solicitudes**, seleccione **Activado**, y, luego, elija **Guardar**.
 
-Ambos tipos de registros se almacenan en el sistema de archivos de App Service. Se conservan hasta 50 errores (archivos o carpetas). Cuando el número de archivos HTML supera este límite, se eliminan automáticamente los 26 errores más antiguos.
+Ambos tipos de registros se almacenan en el sistema de archivos de App Service. Se conservan hasta 50 errores (archivos o carpetas). Cuando el número de archivos HTML es superior a 50, los archivos de error más antiguos se eliminan automáticamente.
+
+La característica de seguimiento de solicitudes con error captura de forma predeterminada un registro de solicitudes con errores con códigos de estado HTTP entre 400 y 600. Para especificar reglas personalizadas, puede invalidar la sección `<traceFailedRequests>` del archivo *web.config*.
 
 ## <a name="add-log-messages-in-code"></a>Adición de mensajes de registro en el código
 
@@ -195,9 +197,9 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 | AppServicePlatformLogs  | TBA | Sí | Sí | Sí | Registros de operación de contenedor |
 | AppServiceAntivirusScanAuditLogs | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender; **solo están disponibles para el nivel prémium** | 
 
-<sup>1</sup> Para las aplicaciones Tomcat, agregue "TOMCAT_USE_STARTUP_BAT" a la configuración de la aplicación y establézcala en 0 o en false. Debe estar en la versión *más reciente* de Tomcat y usar *java.util.logging*.
+<sup>1</sup> Para las aplicaciones Tomcat, agregue `TOMCAT_USE_STARTUP_BAT` a la configuración de la aplicación y establézcalo en `false` o en `0`. Debe estar en la versión *más reciente* de Tomcat y usar *java.util.logging*.
 
-<sup>2</sup> Para las aplicaciones Java SE, agregue "$WEBSITE_AZMON_PREVIEW_ENABLED" a la configuración de la aplicación y establézcala en 1 o en true.
+<sup>2</sup> Para las aplicaciones Java SE, agregue `WEBSITE_AZMON_PREVIEW_ENABLED` a la configuración de la aplicación y establézcalo en `true` o en `1`.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
 * [Consulta de registros con Azure Monitor](../azure-monitor/logs/log-query-overview.md)

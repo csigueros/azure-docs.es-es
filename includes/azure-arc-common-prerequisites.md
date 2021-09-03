@@ -2,14 +2,14 @@
 author: MikeRayMSFT
 ms.service: azure-arc
 ms.topic: include
-ms.date: 09/05/2020
+ms.date: 07/30/2021
 ms.author: mikeray
-ms.openlocfilehash: 929a2775ab678d37b20865a6d6edc1cf17230b06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3634717f8715540a13167b62a7469939c9aeb84c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90932374"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733569"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -17,8 +17,10 @@ Para poder continuar con las tareas de este artículo, debe cumplir los siguient
 
 - [Tener instaladas las herramientas de cliente](../articles/azure-arc/data/install-client-tools.md).
 
-   Entre ellas, `azdata`, Azure Data Studio y la CLI de Azure.
+   Las herramientas incluyen Azure Data Studio y la CLI de Azure.
 
-   En Azure Data Studio, instalar las extensiones para la **CLI de datos de Azure**, **Azure Arc** y **PostgreSQL** (según los servicios de datos).
+   Para Azure Data Studio, instale las extensiones para **Azure Arc** y **PostgreSQL** (en función de los servicios de datos).
+   
+   Para la CLI de Azure, instale la extensión `arcdata`.
 
 - [Tener instalado un controlador de datos de Azure Arc](../articles/azure-arc/data/create-data-controller.md).

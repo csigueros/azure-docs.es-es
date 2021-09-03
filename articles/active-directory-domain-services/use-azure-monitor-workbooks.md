@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5aab12a0d3c24ef7bef9eee6c02b244e33c11e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574203"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727756"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Revisión de los eventos de auditoría de seguridad en Azure Active Directory Domain Services mediante libros de Azure Monitor
 
@@ -54,7 +54,7 @@ Para ayudarle a comprender mejor el uso e identificar posibles amenazas de segur
 
 Para acceder a la plantilla de libro del informe general sobre seguridad, complete los pasos siguientes:
 
-1. En Azure Portal, busque y seleccione **Azure Active Directory Domain Services**.
+1. Busque y seleccione **Azure AD Domain Services** en Azure Portal.
 1. Seleccione el dominio administrado como, por ejemplo, *aaddscontoso.com*.
 1. En el menú de la izquierda, elija **Supervisión > Libros**.
 
@@ -83,7 +83,7 @@ Para ayudar a solucionar problemas de una cuenta de usuario específica, en el i
 
 Para acceder a la plantilla de libro del informe de actividades de la cuenta, complete los pasos siguientes:
 
-1. En Azure Portal, busque y seleccione **Azure Active Directory Domain Services**.
+1. Busque y seleccione **Azure AD Domain Services** en Azure Portal.
 1. Seleccione el dominio administrado como, por ejemplo, *aaddscontoso.com*.
 1. En el menú de la izquierda, elija **Supervisión > Libros**.
 1. Seleccione el **Informe de actividades de la cuenta**.

@@ -1,16 +1,16 @@
 ---
 title: Acerca de las mallas de servicio
-description: Obtenga información general sobre las mallas de servicio, su arquitectura y sus funcionalidades, así como los criterios que debe tener en cuenta a la hora de seleccionar una para implementar.
-author: paulbouwer
+description: Obtenga información general sobre las mallas de servicio, los escenarios admitidos, los criterios de selección y los pasos siguientes que se deben explorar.
+author: pgibson
 ms.topic: article
-ms.date: 10/09/2019
-ms.author: pabouwer
-ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.author: pgibson
+ms.openlocfilehash: b77ee6fb25f45b365003850627276c0ecd47c7b5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77594318"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741637"
 ---
 # <a name="about-service-meshes"></a>Acerca de las mallas de servicio
 
@@ -28,48 +28,9 @@ Estos son algunos de los escenarios que se pueden habilitar para las cargas de t
 
 - **Observabilidad**: obtenga información sobre cómo se conectan los servicios al tráfico que fluye entre ellos. Obtenga métricas, registros y seguimientos para todo el tráfico del clúster, así como para la entrada y la salida. Agregue funcionalidades de seguimiento distribuido a las aplicaciones.
 
-## <a name="architecture"></a>Architecture
-
-Una malla de servicio suele estar compuesta por el plano de control y el plano de datos.
-
-El **plano de control** cuenta con una serie de componentes que dan soporte a la administración de la malla de servicio. Por lo general, incluye una interfaz de administración, que puede ser una interfaz de usuario o una API. También suele haber componentes que administran las definiciones de reglas y directivas que establecen cómo la malla de servicio debe implementar funcionalidades específicas. Hay, además, componentes que administran aspectos de seguridad como la identidad sólida y los certificados para mTLS. Las mallas de servicio también suelen contar con un componente de métricas u observabilidad que recopila y agrega métricas y datos de telemetría de las cargas de trabajo.
-
-El **plano de datos** consta normalmente de un proxy que se inserta de forma transparente como sidecar en las cargas de trabajo. Este proxy se configura para controlar todo el tráfico de red de entrada y salida del pod que contiene la carga de trabajo. Esto permite configurar el proxy para proteger el tráfico a través de mTLS, enrutar dinámicamente el tráfico, aplicar directivas al tráfico y recopilar métricas e información de seguimiento. 
-
-![Arquitectura típica de la malla de servicio](media/servicemesh/typical-architecture.png)
-
-## <a name="capabilities"></a>Capacidades
-
-Cada una de las mallas de servicio tiene un ajuste natural y se centra en la compatibilidad con escenarios específicos, pero verá que habitualmente la mayoría implementará varias de las siguientes funcionalidades, si no todas.
-
-### <a name="traffic-management"></a>Administración del tráfico 
-
-- **Protocolo**: nivel 7 (http, grpc)
-- **Enrutamiento dinámico**: condicional, ponderación, creación de reflejo
-- **Resistencia**: tiempos de espera, reintentos, disyuntores
-- **Directiva**: control de acceso, límites de frecuencia, cuotas
-- **Pruebas**: inserción de errores
-
-### <a name="security"></a>Seguridad
-
-- **Cifrado**: mTLS, administración de certificados, entidad de certificación externa
-- **Identidad sólida**: SPIFFE o similar
-- **Autenticación**: autenticación, autorización
-
-### <a name="observability"></a>Observabilidad
-
-- **Métricas**: métricas principales, Prometheus, Grafana
-- **Seguimiento**: seguimientos entre las cargas de trabajo
-- **Tráfico**: clúster, entrada y salida
-
-### <a name="mesh"></a>Malla
-
-- **Proceso compatible**: Kubernetes, máquinas virtuales
-- **Varios clústeres**: puertas de enlace, federación
-
 ## <a name="selection-criteria"></a>Criterios de selección
 
-Antes de seleccionar una malla de servicio, asegúrese de que comprende los requisitos y las razones para instalarla. Intente responder a las siguientes preguntas.
+Antes de seleccionar una malla de servicio, asegúrese de que comprende los requisitos y las razones para instalarla. Plantéese las siguientes preguntas.
 
 - **¿Es un controlador de entrada suficiente para mis necesidades?** A veces, contar con una funcionalidad como las pruebas A/B o la división del tráfico en la entrada es suficiente para el escenario requerido. No agregue complejidad a su entorno si no supone una ventaja.
 
@@ -79,41 +40,38 @@ Antes de seleccionar una malla de servicio, asegúrese de que comprende los requ
 
 - **¿Se puede adoptar con una estrategia incremental?** Algunas de las mallas de servicio que proporcionan una gran cantidad de funciones se pueden adoptar de modo incremental. Instale solo los componentes que necesita para cubrir sus necesidades. Una vez que esté más seguro y se necesiten funcionalidades adicionales, explore dichas opciones. Resista la tentación de instalar *todo* desde el principio.
 
-Si, tras una detenida consideración, decide que necesita una malla de servicio para proporcionar las funcionalidades requeridas, la siguiente pregunta que debe plantearse es: *¿Qué malla de servicio?*
-
-Tenga en cuenta las siguientes áreas y cuáles se adaptan más a sus requisitos. Esto le ayudará a conseguir el mejor ajuste para su entorno y sus cargas de trabajo. La sección [Pasos siguientes](#next-steps) le llevará a información más detallada sobre mallas de servicio específicas y cómo se asignan a estas áreas.
-
-- **Área técnica**: administración del tráfico, directiva, seguridad, observabilidad
-
-- **Área empresarial**: soporte comercial, base (CNCF), licencia de OSS, gobernanza
-
-- **Área operativa**: instalación y actualizaciones, requisitos de recursos, requisitos de rendimiento, integraciones (métricas, telemetría, paneles, herramientas, SMI), cargas de trabajo mixtas (grupos de nodos de Linux y Windows), proceso (Kubernetes, máquinas virtuales), varios clústeres
-
-- **Área de seguridad**: autenticación, identidad, administración y rotación de certificados, entidad de certificación externa acoplable
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-La siguiente documentación proporciona más información sobre las mallas de servicio que puede probar en Azure Kubernetes Service (AKS):
+Como paso siguiente, explore Open Service Mesh (OSM) en Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Más información sobre Istio...][istio-about]
+> [Más información sobre OSM...][osm-about]
 
-> [!div class="nextstepaction"]
-> [Más información sobre Linkerd...][linkerd-about]
+También puede explorar las siguientes mallas de servicio en Azure Kubernetes Service (AKS) en la documentación completa del proyecto disponible para cada una de ellas:
 
-> [!div class="nextstepaction"]
-> [Más información sobre Consul...][consul-about]
+- [Istio][istio]
+- [Linkerd][linkerd]
+- [Consul Connect][consul]
 
-También puede explorar Service Mesh Interface (SMI), una interfaz estándar para las mallas de servicio en Kubernetes:
+Si desea obtener más información sobre el panorama de la malla de servicio, el conjunto más amplio de mallas de servicio disponibles, las herramientas y el cumplimiento, explore:
+
+- [Infraestructura la malla de servicio de Layer 5][service-mesh-landscape]
+
+También puede explorar los distintos esfuerzos de normalización de mallas de servicio:
 
 - [Service Mesh Interface (SMI)][smi]
+- [Federación de Service Mesh][smf]
+- [Rendimiento de Service Mesh (SMP)][smp]
 
 
 <!-- LINKS - external -->
+[istio]: https://istio.io/latest/docs/setup/install/
+[linkerd]: https://linkerd.io/getting-started/
+[consul]: https://learn.hashicorp.com/tutorials/consul/service-mesh-deploy
+[service-mesh-landscape]: https://layer5.io/service-mesh-landscape
 [smi]: https://smi-spec.io/
+[smf]: https://github.com/vmware/hamlet
+[smp]: https://github.com/service-mesh-performance/service-mesh-performance
 
 <!-- LINKS - internal -->
-[istio-about]: ./servicemesh-istio-about.md
-[linkerd-about]: ./servicemesh-linkerd-about.md
-[consul-about]: ./servicemesh-consul-about.md
+[osm-about]: ./servicemesh-osm-about.md

@@ -4,17 +4,17 @@ description: Este artículo le ayuda a empezar a administrar la facturación y l
 author: bandersmsft
 tags: billing
 ms.service: cost-management-billing
-ms.subservice: billing
+ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 06/14/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: 9ef2d08f3cbc557cfa914c13298b1675afbf455c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a4e5d3a46bf283f8c8f3ad7b5ad303b499dcd2ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458695"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724462"
 ---
 # <a name="key-next-steps-after-accepting-your-microsoft-customer-agreement"></a>Pasos clave siguientes después de aceptar el Contrato de cliente de Microsoft
 
@@ -26,26 +26,29 @@ Estas son algunas de las ventajas que incluye el contrato:
 - Herramientas gratuitas que le ayudarán a comprender y optimizar los costos.
 - Un único lugar para administrar las compras de Azure en Azure.com.
 
+## <a name="start-building-your-solutions-in-azure"></a>Inicio de la creación de soluciones en Azure
+
+Al mover las suscripciones existentes al perfil de facturación del Contrato de cliente de Microsoft, el servicio no cambia y no se produce ningún tiempo de inactividad. Si es un nuevo cliente, Azure crea automáticamente una suscripción predeterminada.
+
+- [Traslade las suscripciones de pago por uso existentes](../manage/mca-request-billing-ownership.md). Puede vincular las suscripciones a la nueva cuenta de facturación del Contrato de cliente de Microsoft mediante la transferencia de la propiedad de facturación.
+- [Traslade las suscripciones de EA existentes](../manage/mca-setup-account.md).
+- ¿No hay suscripciones de Azure anteriores? [Cree una suscripción de Azure adicional](../manage/create-subscription.md).
+
+Una vez que se trasladan las suscripciones, el acceso a estas no cambia para los usuarios. Todo el consumo de las suscripciones enruta las facturas al nuevo contrato.
+Cuando empieza a consumir servicios de Azure, la nueva factura del Contrato de cliente de Microsoft se genera el quinto día de cada mes, y el método de pago predeterminado es la transferencia bancaria. [Aprenda a configurar el método de pago para evitar retrasos](../understand/pay-bill.md#wire-bank-details).
+
 ## <a name="how-billing-works-under-the-agreement"></a>Funcionamiento de la facturación en virtud del contrato
 
 Cuando usted o su organización firmaron el Contrato de cliente de Microsoft, se creó automáticamente una cuenta de facturación. Use la cuenta del Contrato de cliente de Microsoft (cuenta de facturación) para realizar un seguimiento de los costos y administrar la facturación. De forma predeterminada, el usuario que aceptó el Contrato de cliente de Microsoft se convierte en el propietario de la cuenta de facturación. Este usuario tiene permiso para administrar la facturación de la cuenta. El usuario puede agregar a otros usuarios que, a su vez, también tienen permiso para ver y administrar la cuenta de facturación.
 
 - [Introducción a la cuenta de facturación de Microsoft Azure](../understand/mca-overview.md).
 - [Organice los costos](https://www.youtube.com/watch?v=7RxTfShGHwU) y [personalice la facturación para satisfacer sus necesidades](../manage/mca-section-invoice.md).
+- Obtenga información sobre quién puede [acceder a la cuenta de facturación](https://www.youtube.com/watch?v=9sqglBlKkho) y conozca [cómo funcionan los roles de administrador en Azure](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-## <a name="start-building-your-solutions-in-azure"></a>Inicio de la creación de soluciones en Azure
+## <a name="update-your-po-and-tax-id-number"></a>Actualización del pedido de compra y del número de identificación fiscal
 
-Al mover las suscripciones existentes al perfil de facturación del Contrato de cliente de Microsoft, el servicio no cambia y no se produce ningún tiempo de inactividad.
+[Actualice el número del pedido de compra](../manage/change-azure-account-profile.md#update-a-po-number) en el perfil de facturación y, después de mover las suscripciones, asegúrese de actualizar el [número de identificación fiscal](../manage/change-azure-account-profile.md#update-your-tax-id). Este número de identificación fiscal se utiliza para los cálculos de exención fiscal y aparece en la factura. [Obtenga más información sobre cómo actualizar la configuración de la cuenta de facturación](/microsoft-store/update-microsoft-store-for-business-account-settings).
 
-Si es un nuevo cliente, Azure crea automáticamente una suscripción predeterminada. Puede usar esta suscripción para crear recursos y soluciones. Si tiene suscripciones de pago por uso existentes, puede vincular las suscripciones a la nueva cuenta de facturación del Contrato de cliente de Microsoft mediante la transferencia de la propiedad de facturación.
-
-- [Traslade las suscripciones de pago por uso existentes](../manage/mca-request-billing-ownership.md).
-- [Traslade las suscripciones de EA existentes](../manage/mca-setup-account.md).
-- ¿No hay suscripciones de Azure anteriores? [Cree una suscripción de Azure adicional](../manage/create-subscription.md).
-
-Una vez que se trasladan las suscripciones, el acceso a estas no cambia para los usuarios. Todo el consumo de las suscripciones enruta las facturas al nuevo contrato.
-
-Cuando empieza a consumir servicios de Azure, la nueva factura del Contrato de cliente de Microsoft se genera el quinto día de cada mes. El método de pago predeterminado es la transferencia bancaria. Para aprender a configurar el método de pago para evitar retrasos, consulte [Pago de la suscripción](../understand/pay-bill.md#wire-bank-details). En el artículo se explica cómo obtener la información de pago bancaria necesaria.
 
 ## <a name="confirm-payment-details"></a>Confirmación de los detalles del pago
 
@@ -67,35 +70,6 @@ Al pasar de un pago por uso o un contrato Enterprise a un Contrato de cliente de
 ## <a name="complete-outstanding-payments"></a>Completar pagos pendientes
 
 Asegúrese de que efectúa el pago de todas las facturas anteriores de [pago por uso](../understand/download-azure-invoice.md) de la suscripción o del [Contrato Enterprise](../manage/ea-portal-enrollment-invoices.md) pendientes. Para más información, consulte [Descripción de una factura para el Contrato de cliente de Microsoft en Azure](../understand/mca-understand-your-invoice.md#billing-period).
-
-## <a name="update-a-po-number"></a>Actualización de un número de pedido
-
-De forma predeterminada, la factura del perfil de facturación no tiene un número de pedido de compra asociado. Después de agregar un número de pedido para un perfil de facturación, este aparece en las facturas de dicho perfil.
-
-Para agregar o cambiar el número de pedido de un perfil de facturación, siga estos pasos.
-
-1.  Inicie sesión en Azure Portal.
-1.  Busque **Cost Management + Billing** y, a continuación, seleccione **Ámbitos de facturación**.
-1.  Seleccione el ámbito de facturación.
-1.  En el menú de la izquierda, en **Facturación**, seleccione **Perfiles de facturación**.
-1.  Seleccione el perfil de facturación adecuado.
-1.  En el menú de la izquierda, en **Configuración**, seleccione **Propiedades**.
-1.  Seleccione **Actualizar el número de pedido de compra**.
-1.  Escriba un número de pedido de compra y, a continuación, seleccione **Actualizar**.
-
-
-## <a name="update-your-tax-id"></a>Actualización del identificador fiscal
-
-Asegúrese de actualizar el identificador fiscal después de mover las suscripciones. Este número de identificación fiscal se utiliza para los cálculos de exención fiscal y aparece en la factura.
-
-**Para actualizar la información de las cuentas de facturación**
-
-1. Inicie sesión en [Microsoft Store para Empresas](https://businessstore.microsoft.com/) o [Microsoft Store para Educación](https://educationstore.microsoft.com/).
-1. Seleccione **Administrar** y, a continuación, seleccione **Cuentas de facturación**.
-1. En **Información general**, seleccione **Edit billing account information** (Editar información de la cuenta de facturación).
-1. Realice las actualizaciones y, después, seleccione **Guardar**.
-
-[Obtenga más información sobre cómo actualizar la configuración de la cuenta de facturación](/microsoft-store/update-microsoft-store-for-business-account-settings).
 
 ## <a name="cancel-support-plan"></a>Cancelación del plan de soporte técnico
 

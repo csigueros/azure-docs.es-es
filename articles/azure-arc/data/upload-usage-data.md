@@ -1,30 +1,29 @@
 ---
-title: Carga de datos de uso en Azure Monitor
-description: Carga de datos de uso de los servicios de datos habilitados para Azure Arc en Azure Monitor
+title: Carga de datos de uso en Azure
+description: Carga de datos de uso de los servicios de datos habilitados para Azure Arc en Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74df592db61e4c9c50f9b199d7803fb8e1481878
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104669515"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732159"
 ---
-# <a name="upload-usage-data-to-azure-monitor"></a>Carga de datos de uso en Azure Monitor
+# <a name="upload-usage-data-to-azure"></a>Carga de datos de uso en Azure
 
 Puede exportar la información de uso de forma periódica. La exportación y la carga de esta información crea y actualiza los recursos del controlador de datos, la instancia administrada de SQL y el grupo de servidores Hiperescala de PostgreSQL en Azure.
 
 > [!NOTE] 
 > Durante el período de versión preliminar, los servicios de datos habilitados para Azure Arc no suponen ningún costo.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 
 > [!NOTE]
@@ -40,24 +39,21 @@ Antes de continuar, asegúrese de que ha creado la entidad de servicio necesaria
 
 La información de uso, como el inventario y el uso de recursos, se puede cargar en Azure con el siguiente método de dos pasos:
 
-1. Inicie sesión en el controlador de datos. Escriba los valores en el símbolo del sistema. 
+1. Exporte los datos de uso mediante comando `az arcdata dc export`, como se indica a continuación:
 
-   ```console
-   azdata login
-   ```
+> [!NOTE]
+> La exportación de información de uso/facturación, métricas y registros mediante el comando `az arcdata dc export` requiere omitir la comprobación de SSL por ahora.  Se le pedirá que omita la comprobación de SSL, pero puede establecer la variable de entorno `AZDATA_VERIFY_SSL=no` para evitar que se le solicite.  Actualmente no hay ninguna manera de configurar un certificado SSL para la API de exportación del controlador de datos.
 
-1. Exporte los datos de uso mediante comando `azdata arc dc export`, como se indica a continuación:
-
-   ```console
-   azdata arc dc export --type usage --path usage.json
+   ```azurecli
+   az arcdata dc export --type usage --path usage.json --k8s-namespace <namespace> --use-k8s
    ```
  
-   Este comando crea un archivo `usage.json` con todos los recursos de datos habilitados para Azure Arc, como las instancias administradas de SQL y las instancias de Hiperescala de PostgreSQL, etc., que se crean en el controlador de datos.
+   Este comando crea un archivo `usage.json` con todos los recursos de datos habilitados para Azure Arc, como las instancias administradas de SQL y las instancias de Hiperescala de PostgreSQL, etc., que se han creado en el controlador de datos.
 
-2. Cargue los datos de uso mediante el comando ```azdata upload```.
+2. Cargue los datos de uso mediante el comando `upload`.
 
-   ```console
-   azdata arc dc upload --path usage.json
+   ```azurecli
+   az arcdata dc upload --path usage.json
    ```
 
 ## <a name="automating-uploads-optional"></a>Automatización de cargas (opcional)
@@ -66,9 +62,9 @@ Si quiere cargar métricas y registros de forma programada, puede crear un scrip
 
 En el editor de código o texto que prefiera, agregue el siguiente script al archivo y guárdelo como un archivo ejecutable de script como `.sh` (Linux o Mac) o bien `.cmd`, `.bat` o `.ps1`.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type usage --path usage.json --force --k8s-namespace <namespace> --use-k8s
+az arcdata dc upload --path usage.json
 ```
 
 Conversión del archivo de script en ejecutable
@@ -77,7 +73,7 @@ Conversión del archivo de script en ejecutable
 chmod +x myuploadscript.sh
 ```
 
-Ejecute el script cada 20 minutos:
+Ejecute el script todos los días para su uso:
 
 ```console
 watch -n 1200 ./myuploadscript.sh

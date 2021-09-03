@@ -8,39 +8,41 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb616bce2f169061a6384148e3cbbe463c83be8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c14580790891190f40dd2866aaac25ad2c286137
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085913"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741660"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Creación de un grupo al que se pueden asignar roles en Azure Active Directory
 
-Solo puede asignar un rol a un grupo que se ha creado con la propiedad "isAssignableToRole" establecida en True o que se ha creado en Azure Portal con la opción **Azure AD roles can be assigned to the group** (Los roles de Azure AD se pueden asignar a un grupo) activada. Este atributo de grupo convierte el grupo en uno de los que se puede asignar a un rol en Azure Active Directory (Azure AD). En este artículo se describe cómo crear este tipo especial de grupo. **Nota:** Un grupo con la propiedad isAssignableToRole establecida en true no puede ser de tipo de pertenencia dinámica. Para más información, consulte [Uso de grupos para administrar asignaciones de roles en Azure AD](groups-concept.md).
+Solo puede asignar un rol a un grupo que se ha creado con la propiedad "isAssignableToRole" establecida en True o que se ha creado en Azure Portal con la opción **Azure AD roles can be assigned to the group** (Los roles de Azure AD se pueden asignar a un grupo) activada. Este atributo de grupo convierte el grupo en uno de los que se puede asignar a un rol en Azure Active Directory (Azure AD). En este artículo se describe cómo crear este tipo especial de grupo. **Nota:** Un grupo con la propiedad isAssignableToRole establecida en true no puede ser de tipo de pertenencia dinámica. Para obtener más información, consulte [Uso de grupos para administrar asignaciones de roles en Azure Active Directory](groups-concept.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una licencia de Azure AD Premium P1 o P2
 - Administrador global o administrador de roles con privilegios
-- Módulo de AzureADPreview al usar PowerShell
+- Módulo AzureAD al usar PowerShell
 - Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
 
 Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure portal
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
-1. Seleccione **Grupos** > **Todos los grupos** > **Nuevo grupo**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+
+1. Seleccione **Azure Active Directory** > **Grupos** > **Todos los grupos** > **Nuevo grupo**.
 
     [![Apertura de Azure Active Directory para crear un nuevo grupo.](./media/groups-create-eligible/new-group.png "Apertura de Azure Active Directory para crear un nuevo grupo.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
 1. En la pestaña **Nuevo grupo**, proporcione el tipo, el nombre y la descripción del grupo.
+
 1. Active **Los roles de Azure AD se pueden asignar a un grupo**. Este modificador solo es visible para los administradores de roles con privilegios y los administradores globales, ya que estos son los dos únicos roles que pueden establecer el modificador.
 
     [![Hacer que el nuevo grupo sea válido para la asignación de roles](./media/groups-create-eligible/eligible-switch.png "Hacer que el nuevo grupo sea válido para la asignación de roles")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
@@ -69,9 +71,9 @@ Para este tipo de grupo, `isPublic` siempre será False e `isSecurityEnabled` si
 
 ```powershell
 #Basic set up
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-Get-Module -Name AzureADPreview
+Install-Module -Name AzureAD
+Import-Module -Name AzureAD
+Get-Module -Name AzureAD
 
 #Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
 Connect-AzureAD
@@ -123,6 +125,6 @@ Para este tipo de grupo, `isPublic` siempre será False e `isSecurityEnabled` si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Asignación de un rol a un grupo en la nube](groups-assign-role.md)
-- [Uso de grupos en la nube para administrar asignaciones de roles](groups-concept.md)
-- [Solución de problemas de roles asignados a grupos en la nube](groups-faq-troubleshooting.md)
+- [Asignación de roles de Azure AD a grupos](groups-assign-role.md)
+- [Uso de grupos de Azure AD para administrar asignaciones de roles](groups-concept.md)
+- [Solución de problemas de roles de Azure AD asignados a grupos](groups-faq-troubleshooting.yml)

@@ -2,19 +2,21 @@
 title: Copia de seguridad de blobs de Azure en una cuenta de almacenamiento mediante Azure PowerShell
 description: Aprenda a hacer una copia de seguridad de todos los blobs de Azure de una cuenta de almacenamiento mediante Azure PowerShell.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: 55d33283360adae4894032bec648cfc973391f38
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/06/2021
+ms.openlocfilehash: 0f3e7d03abbf4a5bfbb5d5cb533df04a17c71edf
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968689"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179783"
 ---
 # <a name="back-up-all-azure-blobs-in-a-storage-account-using-azure-powershell"></a>Copia de seguridad de todos los blobs de Azure de una cuenta de almacenamiento mediante Azure PowerShell
 
 En este artículo se describe cómo hacer una copia de seguridad de todos los [blobs de Azure](./blob-backup-overview.md) de una cuenta de almacenamiento mediante Azure PowerShell.
 
 En este artículo, aprenderá a:
+
+- Antes de comenzar
 
 - Creación de un almacén de Backup
 
@@ -26,6 +28,10 @@ Para obtener información sobre la disponibilidad regional de los blobs de Azure
 
 > [!IMPORTANT]
 > La compatibilidad con blobs de Azure está disponible a partir de la versión Az 5.9.0.
+
+## <a name="before-you-start"></a>Antes de comenzar
+
+Vea los [requisitos previos](./blob-backup-configure-manage.md#before-you-start) y la [matriz de compatibilidad](./blob-backup-support-matrix.md) antes de empezar.
 
 ## <a name="create-a-backup-vault"></a>Creación de un almacén de Backup
 
@@ -57,7 +63,7 @@ Type                : Microsoft.DataProtection/backupVaults
 Después de la creación del almacén, vamos a crear una directiva de copia de seguridad para proteger los blobs de Azure.
 
 > [!IMPORTANT]
-> Aunque verá la redundancia de almacenamiento de Backup del almacén, esta redundancia no se aplica realmente a la copia de seguridad operativa de blobs, ya que la copia de seguridad es local por naturaleza y no se almacena ningún dato en el almacén de Backup. El almacén de Backup. Aquí, el almacén de Backup es la entidad de administración que le ayuda a administrar la protección de los blobs en bloques en las cuentas de almacenamiento.
+> Aunque verá la redundancia de almacenamiento de Backup del almacén, esta redundancia no se aplica realmente a la copia de seguridad operativa de blobs, ya que la copia de seguridad es local por naturaleza y no se almacena ningún dato en el almacén de Backup. Aquí, el almacén de Backup es la entidad de administración que le ayuda a administrar la protección de los blobs en bloques en las cuentas de almacenamiento.
 
 ## <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
 

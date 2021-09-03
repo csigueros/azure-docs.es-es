@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 07/28/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b8f1404e95ed2ccceb8400fdabeff2d60b6706
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f27cee969d666d8605c0c87552eed1f305e1e4c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766122"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744186"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
@@ -58,7 +58,7 @@ Si un usuario con federación o sincronización de hash de contraseñas cambia o
    * Si el servicio de escritura diferida no está activo, se informa al usuario de que la contraseña no se puede restablecer en este momento.
 1. A continuación, el usuario realiza los pasos de autenticación adecuados y llega a la página **Restablecer contraseña**.
 1. El usuario selecciona una nueva contraseña y la confirma.
-1. Cuando el usuario selecciona **Enviar**, se cifra la contraseña de texto no cifrado con una clave simétrica creada durante el proceso de configuración de la escritura diferida.
+1. Cuando el usuario selecciona **Enviar**, se cifra la contraseña de texto no cifrado con una clave pública creada durante el proceso de configuración de la escritura diferida.
 1. La contraseña cifrada se incluye en una carga que se envía a través de un canal HTTPS a la instancia de Service Bus Relay específica del inquilino (que se establece automáticamente durante el proceso de configuración de la escritura diferida). Esta retransmisión está protegida por una contraseña generada aleatoriamente que solo la instalación local conoce.
 1. Una vez que el mensaje llega a Service Bus, el punto de conexión de restablecimiento de contraseña se activa automáticamente y comprueba que tiene una solicitud de restablecimiento pendiente.
 1. A continuación, el servicio busca al usuario mediante el atributo delimitador de la nube. Para que esta búsqueda se realice correctamente, deben cumplirse las siguientes condiciones:

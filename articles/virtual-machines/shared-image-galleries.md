@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 6/8/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: c6c39a7ef0404a0e78e5b8ed0b41bf54156b488a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f00f98ac9e6350aa09d3fa67c1c87677fef2db6f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032670"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738972"
 ---
 # <a name="shared-image-galleries-overview"></a>Información general de Shared Image Galleries
 
@@ -27,7 +27,7 @@ Shared Image Gallery es un servicio que ayuda a crear la estructura y la organiz
 - Uso compartido entre suscripciones e, incluso entre inquilinos de Active Directory (AD), mediante Azure RBAC.
 - Escalado de las implementaciones con réplicas de imagen en cada región.
 
-Uso de una galería de imágenes compartidas para compartir imágenes con diferentes usuarios, entidades de servicio o grupos de AD dentro de su organización. Las imágenes compartidas se pueden replicar en varias regiones, para un escalado más rápido de las implementaciones.
+Con Shared Image Gallery, puede compartir imágenes con diferentes usuarios, entidades de servicio o grupos de AD dentro y fuera de su organización. Las imágenes compartidas se pueden replicar en varias regiones, para un escalado más rápido de las implementaciones.
 
 Una imagen es una copia de una VM completa (incluidos los discos de datos asociados) o, simplemente, el disco del sistema operativo, según cómo se cree. Cuando crea una VM desde la imagen, la copia de los VHD de la imagen se usa para crear los discos para la nueva VM. La imagen permanece en el almacenamiento y puede usarse una y otra vez para crear nuevas VM.
 
@@ -35,7 +35,7 @@ Si tiene un gran número de imágenes que se deben mantener y quiere que estén 
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-| Recurso | Descripción|
+| Resource | Descripción|
 |----------|------------|
 | **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería de imágenes. Un origen de imagen puede ser una máquina virtual de Azure existente, ya sea [generalizada o especializada](#generalized-and-specialized-images); una imagen administrada; una instantánea; un disco duro virtual o una versión de imagen de otra galería de imágenes. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |
@@ -133,7 +133,7 @@ Siempre se recomienda aprovisionar en exceso el número de réplicas debido a fa
 
 [El almacenamiento con redundancia de zona (ZRS) de Azure](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) proporciona resistencia frente a un error de la zona de disponibilidad en la región. Con la disponibilidad general de la galería de imágenes compartidas, puede elegir almacenar sus imágenes en cuentas de ZRS en regiones con zonas de disponibilidad. 
 
-También puede elegir el tipo de cuenta para cada una de las regiones de destino. El tipo de cuenta de almacenamiento predeterminado es Standard_LRS, pero puede elegir Standard_ZRS para regiones con zonas de disponibilidad. Compruebe la disponibilidad regional de ZRS [aquí](../storage/common/storage-redundancy.md).
+También puede elegir el tipo de cuenta para cada una de las regiones de destino. El tipo de cuenta de almacenamiento predeterminado es Standard_LRS, pero puede elegir Standard_ZRS para regiones con zonas de disponibilidad. Para más información sobre la disponibilidad regional de ZRS, consulte [Redundancia de datos](../storage/common/storage-redundancy.md).
 
 ![Gráfico que muestra ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -190,7 +190,7 @@ Los siguientes SDK admiten la creación de galerías de imágenes compartidas:
 
 - [.NET](/dotnet/api/overview/azure/virtualmachines/management)
 - [Java](/java/azure/)
-- [Node.js](/javascript/api/@azure/arm-compute)
+- [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
@@ -201,7 +201,6 @@ Puede crear recursos de galería de imágenes compartidas con plantillas. Hay va
 - [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes 
 

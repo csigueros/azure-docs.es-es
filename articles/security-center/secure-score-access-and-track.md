@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 02/25/2021
-ms.openlocfilehash: 50ab34a73a7709a47efdf6904acf005cd5db9da5
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9373806b87144005407861b2043799f0c62ce982
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753600"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237896"
 ---
 # <a name="access-and-track-your-secure-score"></a>Acceso y seguimiento de la puntuación segura
 
@@ -48,7 +48,7 @@ En resumen, la puntuación de seguridad se muestra en las siguientes ubicaciones
 
 Puede acceder a la puntuación a través de la API de puntuación segura. Los métodos de API proporcionan la flexibilidad necesaria para consultar los datos y crear su propio mecanismo de creación de informes de las puntuaciones seguras a lo largo del tiempo. Por ejemplo, puede usar [Secure Scores](/rest/api/securitycenter/securescores) API para obtener la puntuación de una suscripción específica. Además, puede usar [Secure Score Controls API](/rest/api/securitycenter/securescorecontrols) para mostrar los controles de seguridad y la puntuación actual de las suscripciones.
 
-![Recuperación de una sola puntuación de seguridad a través de la API](media/secure-score-security-controls/single-secure-score-via-api.png)
+![Recuperación de una sola puntuación de seguridad por medio de la API.](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Para ver ejemplos de herramientas basadas en la API de puntuación de seguridad, consulte el [área de puntuación de seguridad de la comunidad de GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
 
@@ -105,7 +105,7 @@ El panel contiene los dos informes siguientes para ayudarle a analizar el estado
 - **Resumen de los recursos**: proporciona datos resumidos sobre el estado de los recursos.
 - **Resumen de la puntuación de seguridad**: proporciona datos resumidos sobre el progreso de la puntuación. Use el gráfico "Secure score over time per subscription" para ver los cambios en la puntuación. Si observa un cambio drástico en la puntuación, consulte la tabla "detected changes that may affect your secure score" para buscar posibles cambios que puedan haber producido la variación. En esta tabla se presentan recursos eliminados, recursos recién implementados o recursos que su estado de seguridad cambió para una de las recomendaciones.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Panel de Power BI de puntuación de seguridad opcional a lo largo del tiempo para realizar un seguimiento de la puntuación de seguridad a lo largo del tiempo e investigar los cambios":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Panel de Power BI de puntuación de seguridad opcional a lo largo del tiempo para realizar el seguimiento de la puntuación de seguridad en el tiempo e investigar los cambios.":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2d913d0312b75542fa52e73e68170e9a3b91cf5d
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 56337e349cf2cfad792cecbec11503a4fd866095
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823350"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253625"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Descripción de los roles necesarios para realizar tareas comunes en Synapse
 
@@ -76,7 +76,7 @@ Administrar (pausar, escalar o eliminar) un grupo de SQL dedicado|Propietario o 
 Crear un script de SQL</br>|Usuario de Synapse o </br>propietario o colaborador de Azure en el área de trabajo </br>*Se requieren permisos SQL adicionales para ejecutar, publicar o confirmar un script de SQL*.|
 Mostrar y abrir cualquier script de SQL publicado| Usuario de artefactos de Synapse, editor de artefactos, colaborador de Synapse|artefactos/lectura
 Ejecutar un script de SQL en un grupo de SQL sin servidor|Permisos SQL en el grupo (concedidos automáticamente a un administrador de Synapse)|ninguno
-Ejecutar un script de SQL en un grupo de SQL dedicado|Permisos SQL en el grupo (concedidos automáticamente a un administrador de Synapse)|ninguno
+Ejecutar un script de SQL en un grupo de SQL dedicado|Permisos de SQL en el grupo|ninguno
 Publicar un script de SQL nuevo, actualizado o eliminado|Editor de artefactos de Synapse, colaborador de Synapse|sqlScripts/escritura, eliminación
 Confirmar cambios en un script de SQL el un repositorio de Git|Requiere permisos de GIT en el repositorio.|
 Asignar un administrador de Active Directory en el área de trabajo (mediante las propiedades del área de trabajo de Azure Portal)|Propietario o colaborador de Azure en el área de trabajo |

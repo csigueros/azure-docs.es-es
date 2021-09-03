@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 06/27/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ee0fbab517a34f6986d20ea3271cb4325bf6aabd
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174672"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981023"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -38,6 +38,7 @@ El elemento **UserJourney** contiene los siguientes atributos:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Identificador | Sí | Un identificador de un recorrido del usuario que se puede usar para hacer referencia a él desde otros elementos de la directiva. El elemento **DefaultUserJourney** de la [directiva del usuario de confianza](relyingparty.md) apunta a este atributo. |
+| DefaultCpimIssuerTechnicalProfileReferenceId| No | Identificador de referencia del perfil técnico del emisor de tokens predeterminado. Por ejemplo, [Emisor de tokens JWT](userjourneys.md), [Emisor de tokens SAML](saml-issuer-technical-profile.md) o [Error personalizado de OAuth2](oauth2-error-technical-profile.md). Si el recorrido del usuario o el subrecorrido ya tiene otro paso de orquestación `SendClaims`, establezca el atributo `DefaultCpimIssuerTechnicalProfileReferenceId` en el perfil técnico del emisor del token del recorrido del usuario. |
 
 El elemento **UserJourney** contiene los siguientes elementos:
 
@@ -110,33 +111,36 @@ El elemento **OrchestrationStep** puede contener los siguientes elementos:
 
 ### <a name="preconditions"></a>Preconditions
 
+Los pasos de orquestación se pueden ejecutar de forma condicional en función de las condiciones previas definidas en el paso de orquestación. El elemento `Preconditions` contiene una lista de condiciones previas que se deben evaluar. Cuando se cumple la evaluación de la condición previa, el paso de orquestación asociado pasa al siguiente paso de orquestación. 
+
+Cada condición previa evalúa una única notificación. Hay dos tipos de condiciones previas:
+ 
+- **Claims exist** (Existen notificaciones): especifica que las acciones deben realizarse si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario.
+- **Claim equals** (La notificación es igual a): especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. La comprobación realiza una comparación ordinal con distinción entre mayúsculas y minúsculas. Al comprobar el tipo de notificación booleano, use `True` o `False`.
+
+Azure AD B2C evalúa las condiciones previas en orden de lista. Las condiciones previas basadas en orden permiten establecer el orden en el que se aplican las condiciones previas. La primera condición previa que se cumple invalida todas las siguientes. El paso de orquestación solo se ejecuta si no se cumplen todas las condiciones previas. 
+
 El elemento **Preconditions** contiene el elemento siguiente:
 
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| Condición previa | 1:n | En función del perfil técnico que se esté utilizando, puede ser que se redireccione al cliente según la selección del proveedor de notificaciones o que se haga una llamada al servidor para intercambiar notificaciones. |
-
+| Condición previa | 1:n | Condición previa que se va a evaluar. |
 
 #### <a name="precondition"></a>Condición previa
-
-Los pasos de orquestación se pueden ejecutar de forma condicional en función de las condiciones previas definidas en el paso de orquestación. Hay dos tipos de condiciones previas:
- 
-- **Claims exist** (Existen notificaciones): especifica que las acciones deben realizarse si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario.
-- **Claim equals** (La notificación es igual a): especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. La comprobación realiza una comparación ordinal con distinción entre mayúsculas y minúsculas. Al comprobar el tipo de notificación booleano, use `True` o `False`.
 
 El elemento **Precondition** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Type` | Sí | El tipo de comprobación o la consulta que hay que llevar a cabo para esta condición previa. El valor puede ser **ClaimsExist**, que especifica que se deben realizar las acciones si existen las notificaciones especificadas en el conjunto de notificaciones actual del usuario, o **ClaimEquals**, que especifica que las acciones deben realizarse si existe la notificación especificada y su valor es igual al valor especificado. |
-| `ExecuteActionsIf` | Sí | Use una prueba `true` o `false` para decidir si se deben realizar las acciones de la condición previa. |
+| `ExecuteActionsIf` | Sí | Decide cómo se considera que se cumple la condición previa. Valores posibles: `true` (opción predeterminada) o `false`. Si el valor se establece en `true`, se considera que se ha cumplido cuando la notificación coincide con la condición previa.  Si el valor se establece en `false`, se considera que se ha cumplido cuando la notificación no coincide con la condición previa.  |
 
 El elemento **Precondition** contiene los siguientes elementos:
 
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | Valor | 1:2 | Identificador de un tipo de notificación. La notificación ya se ha definido en la sección del esquema de notificaciones del archivo de directiva o del archivo de directiva primario. Cuando la condición previa es de tipo `ClaimEquals`, un segundo elemento `Value` contiene el valor que se va a comprobar. |
-| Acción | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. Si el valor de la `Action` está establecido en `SkipThisOrchestrationStep`, el `OrchestrationStep` asociado no debe ejecutarse. |
+| Acción | 1:1 | Acción que se debe realizar si la se cumple la evaluación de la condición previa. Valor posible: `SkipThisOrchestrationStep`. El paso de orquestación asociado pasa al siguiente. |
 
 #### <a name="preconditions-examples"></a>Ejemplos de condiciones previas
 

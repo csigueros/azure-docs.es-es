@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6298c8483c44472fe6f52f3e48b5c529c2d978a5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0a2f1e40b85eea5f02aec93a0cac97acc5dfeaf9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457499"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732412"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies"></a>Solución de problemas de directivas personalizadas de Azure AD B2C
 
@@ -31,7 +31,7 @@ El identificador de correlación de Azure AD B2C es un valor de identificador �
 - Buscar los registros de Azure Application Insights de la solicitud de inicio de sesión.
 - Pasar el identificador de correlación a la API REST y utilizarlo para identificar el flujo de inicio de sesión. 
 
-El identificador de correlación se cambia cada vez que se establece una nueva sesión. Al depurar las directivas, asegúrese de cerrar las pestañas del explorador existentes. O abra un nuevo explorador en modo privado.
+El identificador de correlación se cambia cada vez que se establece una nueva sesión. Al depurar las directivas, asegúrese de cerrar las pestañas del explorador existentes o de abrir un nuevo explorador en modo privado.
 
 ### <a name="get-the-azure-ad-b2c-correlation-id"></a>Obtención del identificador de correlación de Azure AD B2C
 

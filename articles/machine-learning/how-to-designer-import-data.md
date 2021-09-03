@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 11/13/2020
+ms.date: 06/13/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: fca949ae65ea046d6e65ba03da7b9b0107c37fd9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 6e0cdbb7511132d4ecd3399e0ef5be7c2541d34b
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889383"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235912"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importación de datos en el diseñador de Azure Machine Learning
 
@@ -64,9 +64,10 @@ Si registra un conjunto de datos de archivo, el tipo de puerto de salida del con
 ### <a name="limitations"></a>Limitaciones 
 
 - Actualmente solo se puede visualizar el conjunto de datos tabular en el diseñador. Si registra un conjunto de datos de archivo fuera del diseñador, no podrá visualizarlo en el lienzo del diseñador.
-- El conjunto de datos está almacenado en una red virtual (VNet). Si quiere visualizarlo, debe habilitar la identidad administrada del área de trabajo del almacén de datos.
-    1. Vaya al almacén de datos relacionado y haga clic en **Actualizar credenciales**.
-    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Actualizar credenciales":::
+- Actualmente, el diseñador solo admite salidas en vista previa que se almacenan en **Azure Blob Storage**. Puede comprobar y cambiar el almacén de datos de salida en la **configuración de salida** en la pestaña **Parámetros** del panel derecho del módulo.
+- Si los datos se almacenan en una red virtual (VNet) y quiere obtener una vista previa, tendrá que habilitar la identidad administrada del área de trabajo del almacén de datos.
+    1. Vaya al almacén de datos relacionado y haga clic en **Actualizar autenticación**
+    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Actualizar credenciales":::.
     1. Seleccione **Sí** para habilitar la identidad administrada del área de trabajo.
     :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Habilitación de la identidad administrada del área de trabajo":::
 

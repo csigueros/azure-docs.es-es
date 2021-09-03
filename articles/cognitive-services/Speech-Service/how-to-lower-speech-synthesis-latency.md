@@ -12,12 +12,12 @@ ms.date: 04/29/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 8aaa087d1de85b77c9407f8d39e029e3bf2696f2
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 38af8d1ffd422b151bebc2fea42c575f181cc72e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614853"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741097"
 ---
 # <a name="lower-speech-synthesis-latency-using-speech-sdk"></a>Menor latencia de síntesis de voz mediante el SDK de Voz
 
@@ -343,7 +343,8 @@ Por ejemplo, se ha corregido un `TCP_NODELAY`problema de configuración de la ve
 La prueba de carga se puede usar para probar la latencia y capacidad del servicio de síntesis de voz.
 Estas son algunas directrices.
 
- - El servicio de síntesis de voz tiene la capacidad de escalar automáticamente, pero tarda un tiempo en escalar horizontalmente. Si la simultaneidad aumenta en poco tiempo, el cliente puede obtener una latencia larga o un código de error `429` (demasiadas solicitudes). Por consiguiente, se recomienda aumentar la simultaneidad paso a paso en la prueba de carga. Para más información, [consulte este artículo](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling).
+ - El servicio de síntesis de voz tiene la capacidad de escalar automáticamente, pero tarda un tiempo en escalar horizontalmente. Si la simultaneidad aumenta en poco tiempo, el cliente puede obtener una latencia larga o un código de error `429` (demasiadas solicitudes). Por consiguiente, se recomienda aumentar la simultaneidad paso a paso en la prueba de carga. [Consulte este artículo](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) para obtener más información, en particular, [este ejemplo de patrones de carga de trabajo](speech-services-quotas-and-limits.md#example-of-a-workload-pattern-best-practice).
+ - Puede utilizar nuestro ejemplo con el grupo de objetos ([C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) y [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java)) para la prueba de carga y para obtener los números de latencia. Puede modificar los turnos de prueba y la simultaneidad en el ejemplo para satisfacer la simultaneidad de destino.
  - El servicio tiene una limitación de cuota basada en el tráfico real; por lo tanto, si desea realizar una prueba de carga con la simultaneidad mucho mayor que el tráfico real, conéctese antes de la prueba.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 73144611e835ac1bea20ab92212e52941af84eef
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 2c1f967e596b4ba19d121f3c0332259b92f78d06
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463747"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730617"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Creación y administración de un entorno de ejecución de integración autohospedado
 
@@ -52,6 +52,38 @@ En este artículo se describe cómo crear y administrar un entorno de ejecución
 6. Verá la siguiente ventana cuando el entorno de ejecución de integración autohospedado se haya registrado correctamente:
 
    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="Se ha registrado correctamente.":::
+
+## <a name="networking-requirements"></a>Requisitos de red
+
+Para que funcione correctamente, la máquina del entorno de ejecución de integración autohospedado se tendrá que conectar a varios recursos:
+
+* Los orígenes que quiera examinar mediante el entorno de ejecución de integración autohospedado.
+* Cualquier instancia de Azure Key Vault que se use para almacenar las credenciales del recurso de Purview.
+* La cuenta administrada de Storage y los recursos de centro de eventos creados por Purview.
+
+Los recursos administrados de Storage y centro de eventos se pueden encontrar en la suscripción, en un grupo de recursos que contiene el nombre del recurso de Purview. Azure Purview usa estos recursos para ingerir los resultados del examen, entre otras muchas cosas, por lo que el entorno de ejecución de integración autohospedado tendrá que poder conectarse directamente con estos recursos.
+
+Estos son los dominios y puertos que se deben permitir por medio de firewalls corporativos y de máquina.
+
+> [!NOTE]
+> Para los dominios indicados con "\<managed Purview storage account>", agregará el nombre de la cuenta de almacenamiento administrada asociada al recurso de Purview. Puede encontrar este recurso en el portal. Busque en los grupos de recursos un grupo denominado managed-rg-\<your Purview Resource name>. Por ejemplo: managed-rg-contosoPurview. Usará el nombre de la cuenta de almacenamiento en este grupo de recursos.
+> 
+> Para los dominios indicados con "\<managed Event Hub resource>", agregará el nombre de la cuenta de centro de eventos administrada asociada al recurso de Purview. Puede encontrarlo en el mismo grupo de recursos que la cuenta de almacenamiento administrada.
+
+| Nombres de dominio                  | Puertos de salida | Descripción                              |
+| ----------------------------- | -------------- | ---------------------------------------- |
+| `*.servicebus.windows.net` | 443            | Infraestructura global que usa Purview para ejecutar sus exámenes. Se necesita un carácter comodín, ya que no hay ningún recurso dedicado. |
+| `<managed Event Hub resource>.servicebus.windows.net` | 443            | Purview lo usa para conectarse al bus de servicio asociado. Se tendrá en cuenta al permitir el dominio anterior, pero si usa puntos de conexión privados, tendrá que probar el acceso a este dominio único.|
+| `*.frontend.clouddatahub.net` | 443            | Infraestructura global que usa Purview para ejecutar sus exámenes. Se necesita un carácter comodín, ya que no hay ningún recurso dedicado. |
+| `<managed Purview storage account>.core.windows.net`          | 443            | Lo usa el entorno de ejecución de integración autohospedado para conectarse a la cuenta de almacenamiento de Azure administrada.|
+| `<managed Purview storage account>.queue.core.windows.net` | 443            | Colas que usa Purview para ejecutar el proceso de examen. |
+| `<your Key Vault Name>.vault.azure.net` | 443           | Obligatorio si alguna credencial se almacena en Azure Key Vault. |
+| `download.microsoft.com` | 443           | Opcional para las actualizaciones de SHIR. |
+| Varios dominios | Dependiente          | Dominios para cualquier otro origen al que se conectará SHIR. |
+  
+  
+> [!IMPORTANT]
+> En la mayoría de los entornos, también tendrá que confirmar que el DNS está configurado correctamente. Para confirmarlo, puede usar **nslookup** desde la máquina SHIR a fin de comprobar la conectividad a cada uno de los dominios anteriores. Cada operación nslookup debe devolver la dirección IP del recurso. Si usa [puntos de conexión privados](catalog-private-link.md), se debe devolver la dirección IP privada y no la dirección IP pública. Si no se devuelve ninguna dirección IP, o si al usar puntos de conexión privados se devuelve la dirección IP pública, tendrá que solucionar la asociación entre DNS y VNET, o el emparejamiento entre el punto de conexión privado y la red virtual.
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>Administración de un entorno de ejecución de integración autohospedado
 

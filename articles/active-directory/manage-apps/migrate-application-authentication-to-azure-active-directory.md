@@ -2,22 +2,22 @@
 title: Migración de la autenticación de las aplicaciones a Azure Active Directory
 description: En estas notas del producto se proporcionan detalles sobre la planificación y ventajas de migrar la autenticación de la aplicación a Azure AD.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/05/2021
-ms.author: mtillman
-ms.reviewer: baselden
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a70392c6236591d803b4c3823677ba6788072ff
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 365283ebc45c0f85a56d27d4cc90807de9a88fb4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077003"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742877"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migración de la autenticación de las aplicaciones a Azure Active Directory
 
@@ -555,11 +555,9 @@ Una vez que haya migrado las aplicaciones, puede enriquecer la experiencia del u
 
 **Dirija al usuario** a la experiencia del portal [Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). Aquí, podrá acceder a todas las aplicaciones basadas en la nube, a las aplicaciones que pone a su disposición mediante [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) y a las aplicaciones que usan [Application Proxy](../app-proxy/application-proxy.md), siempre que tenga permisos de acceso a esas aplicaciones.
 
-
 Puede guiar a los usuarios en la búsqueda de sus aplicaciones:
 
 - Use la característica de [inicio de sesión único existente](./view-applications-portal.md) para **vincular a los usuarios a cualquier aplicación**.
-
 
 - Habilite el [acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) de una aplicación y **permita que los usuarios agreguen aplicaciones que usted mantiene**.
 
@@ -573,7 +571,7 @@ Los usuarios pueden descargar un **explorador administrado de Intune**:
 
 - **Para dispositivos Android**, desde [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune).
 
-- **Para dispositivos de Apple**, desde [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) o pueden descargar la [aplicación móvil Mis aplicaciones para iOS](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653).
+- **Para dispositivos de Apple**, desde [Apple App Store](https://apps.apple.com/us/app/intune-company-portal/id719171358) o pueden descargar la [aplicación móvil Mis aplicaciones para iOS](https://appadvice.com/app/my-apps-azure-active-directory/824048653).
 
 **Permita que los usuarios abran las aplicaciones desde una extensión del navegador.**
 
@@ -603,7 +601,7 @@ Azure AD proporciona una ubicación de acceso centralizada para administrar las
 
 También puede usar [Azure Portal](https://portal.azure.com/) para auditar todas las aplicaciones desde una ubicación centralizada.
 
-- **Audite su aplicación** mediante la **auditoría de aplicaciones empresariales u obtenga acceso a la misma información de la [API de informes de Azure AD](../reports-monitoring/concept-reporting-api.md) para integrarla en sus herramientas favoritas.
+- **Audite su aplicación** mediante la **auditoría de aplicaciones empresariales** u obtenga acceso a la misma información de la [API de informes de Azure AD](../reports-monitoring/concept-reporting-api.md) para integrarla en sus herramientas favoritas.
 
 - **Vea los permisos de una aplicación** mediante los **permisos de aplicaciones empresariales** para las aplicaciones que usan OAuth u OpenID Connect.
 

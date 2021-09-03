@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/22/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 145302d3569c2fc9c5d5bd58a5f9b7ccefac0b8e
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.custom: aaddev
+ms.openlocfilehash: 06fd2f7fcbe5c43fa22daad7dbdd09105b2d9eca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418525"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741737"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migración de aplicaciones a la Biblioteca de autenticación de Microsoft (MSAL)
 

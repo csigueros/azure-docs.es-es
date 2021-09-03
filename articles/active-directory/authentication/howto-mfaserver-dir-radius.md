@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 07/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e2eafae185551c79d651ec6dcf39ad11eb8534
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a945afeedbd57f33163489a149c8d7da9c3925
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742126"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744182"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integración de la autenticación RADIUS con Servidor Azure Multi-Factor Authentication
 
@@ -83,7 +83,7 @@ Para configurar el cliente RADIUS, siga las siguientes instrucciones:
 
 * Configure el dispositivo/servidor para autenticarse mediante RADIUS en la dirección IP de Servidor Microsoft Azure Multi-Factor Authentication, que funciona como servidor RADIUS.
 * Use el mismo secreto compartido que se configuró anteriormente.
-* Configure el tiempo de espera de RADIUS en un valor entre 30 y 60 segundos para que haya tiempo para validar las credenciales del usuario, realizar la verificación en dos pasos, recibir su respuesta y, a continuación, responder a la solicitud de acceso RADIUS.
+* Configure el tiempo de espera de RADIUS en un valor de 60 segundos para que haya tiempo para validar las credenciales del usuario, realizar la verificación en dos pasos, recibir su respuesta y, a continuación, responder a la solicitud de acceso RADIUS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

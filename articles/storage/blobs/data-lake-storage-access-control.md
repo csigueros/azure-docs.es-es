@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 14a357bf5f7fece43ce72b58142aa0047213bfab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 41afd3cf3720c5fa86acf75acadc07e60fa2f3cc
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737465"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968851"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de control de acceso en Azure Data Lake Storage Gen2
 
@@ -343,7 +343,7 @@ Cuando tenga el OID correcto de la entidad de servicio, vaya a la página **Admi
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>¿Se puede establecer la ACL de un contenedor?
 
-No. Un contenedor no tiene una ACL. Sin embargo, puede establecer la ACL del directorio raíz del contenedor. Cada contenedor tiene un directorio raíz, que comparte el mismo nombre que el contenedor. Por ejemplo, si el contenedor se denomina `my-container`, el directorio raíz se denomina `myContainer/`. 
+No. Un contenedor no tiene una ACL. Sin embargo, puede establecer la ACL del directorio raíz del contenedor. Cada contenedor tiene un directorio raíz, que comparte el mismo nombre que el contenedor. Por ejemplo, si el contenedor se denomina `my-container`, el directorio raíz se denomina `my-container/`. 
 
 La API REST de Azure Storage contiene una operación denominada [Set Container ACL](/rest/api/storageservices/set-container-acl) (Establecer ACL del contenedor), pero esa operación no se puede usar para establecer la ACL de un contenedor ni del directorio raíz de un contenedor; se usa para indicar si los blobs de un contenedor [permiten el acceso público](anonymous-read-access-configure.md). 
 

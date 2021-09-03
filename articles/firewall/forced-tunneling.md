@@ -5,26 +5,26 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/19/2020
+ms.date: 08/13/2021
 ms.author: victorh
-ms.openlocfilehash: da2b206bf24cb33180305e32e270b989eb64dfa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3d52451713c8fc504487aa293d566264f4eadb6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88612609"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183380"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Tunelización forzada de Azure Firewall
 
-Al configurar una nueva instancia de Azure Firewall, puede enrutar todo el tráfico vinculado a Internet a un próximo salto designado, en lugar de ir directamente a Internet. Por ejemplo, puede tener un servidor perimetral local u otra aplicación virtual de red (NVA) para procesar el tráfico de red antes de que pase a Internet. Sin embargo, no se puede configurar un firewall existente para la tunelización forzada.
-
-De forma predeterminada, no se permite la tunelización forzada en Azure Firewall para asegurarse de que se cumplen todas sus dependencias de Azure de salida. Las configuraciones de la ruta definida por el usuario (UDR) en *AzureFirewallSubnet* que tienen una ruta predeterminada que no va directamente a Internet están deshabilitadas.
+Al configurar una nueva instancia de Azure Firewall, puede enrutar todo el tráfico vinculado a Internet a un próximo salto designado, en lugar de ir directamente a Internet. Por ejemplo, es posible que tenga una ruta predeterminada anunciada por medio de BGP o mediante Ruta definida por el usuario (UDR) a fin de forzar el tráfico a un firewall perimetral local u otra aplicación virtual de red (NVA) para procesar el tráfico de red antes de que pase a Internet. Para admitir esta configuración, debe crear una instancia de Azure Firewall con la configuración de túnel forzado habilitada. Se trata de un requisito obligatorio para evitar la interrupción del servicio. Si se trata de un firewall existente previamente, debe volver a crearlo en modo de túnel forzado para admitir esta configuración. Para obtener más información, vea [Preguntas frecuentes sobre Azure Firewall](firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) sobre cómo detener y reiniciar un firewall en modo de túnel forzado.
 
 ## <a name="forced-tunneling-configuration"></a>Configuración de la tunelización forzada
 
-Para admitir la tunelización forzada, el tráfico de administración de servicio se separa del tráfico del cliente. Se requiere una subred dedicada adicional denominada *AzureFirewallManagementSubnet* (tamaño de subred mínimo /26) con su propia dirección IP pública asociada. La única ruta permitida en esta subred es una ruta predeterminada a Internet y la propagación de la ruta BGP debe estar deshabilitada.
+Puede configurar la tunelización forzada durante la creación del firewall si habilita el modo de túnel forzado, como se muestra a continuación. Para admitir la tunelización forzada, el tráfico de administración de servicio se separa del tráfico del cliente. Se requiere una subred dedicada adicional denominada **AzureFirewallManagementSubnet** (tamaño de subred mínimo /26) con su propia dirección IP pública asociada. 
 
-Si tiene una ruta predeterminada anunciada mediante BGP para forzar el tráfico a un entorno local, debe crear *AzureFirewallSubnet* y *AzureFirewallManagementSubnet* antes de implementar el firewall, tener una UDR con una ruta predeterminada a Internet y deshabilitar **Propagate gateway routes** (Propagar rutas de puerta de enlace).
+En el modo de tunelización forzada, el servicio Azure Firewall incorpora la subred de administración (AzureFirewallManagementSubnet) para sus fines *operativos*. De forma predeterminada, el servicio asocia una tabla de rutas proporcionada por el sistema a la subred de administración. La única ruta permitida en esta subred es una ruta predeterminada a Internet y *Propagar las rutas de la puerta de enlace* se debe deshabilitar. Evite asociar tablas de rutas de cliente a la subred de administración al crear el firewall. 
+
+:::image type="content" source="media/forced-tunneling/forced-tunneling-configuration.png" alt-text="Configuración de la tunelización forzada":::
 
 En esta configuración, *AzureFirewallSubnet* puede incluir rutas a cualquier firewall local o NVA para procesar el tráfico antes de pasarlo a Internet. También puede publicar estas rutas mediante BGP en *AzureFirewallSubnet* si está habilitada la opción **Propagate gateway routes** (Propagar rutas de puerta de enlace) en la subred.
 

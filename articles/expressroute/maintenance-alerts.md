@@ -7,16 +7,21 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/10/2021
 ms.author: mialdrid
-ms.openlocfilehash: 43e30ddd601640b61c42c5ba5d6bb2aaf41eb73d
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 93335c6f163e016c619fd4803a595ffcc3418a9d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109739069"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735265"
 ---
 # <a name="how-to-view-and-configure-alerts-for-azure-expressroute-circuit-maintenance"></a>Visualización y configuración de alertas para el mantenimiento del circuito de Azure ExpressRoute
 
 ExpressRoute usa Azure Service Health para notificarle el mantenimiento planeado y próximo del circuito de ExpressRoute. Con Service Health, puede ver el mantenimiento planeado y anterior en Azure Portal junto con la configuración de alertas y notificaciones que mejor se adapte a sus necesidades. Para más información sobre Azure Service Health, consulte [¿Qué es Azure Service Health?](../service-health/overview.md)
+
+> [!NOTE]
+> * Durante una actividad de mantenimiento o en caso de eventos no planeados que afectan a una de las conexiones, Microsoft prefiere usar la anteposición de la ruta de acceso de AS para purgar el tráfico a través de la conexión correcta. Deberá asegurarse de que el tráfico puede enrutarse a través de la ruta de acceso correcta cuando se configura la anteposición de la ruta desde Microsoft y los anuncios de ruta necesarios se configuran correctamente para evitar cualquier interrupción del servicio. 
+> * La terminación de conexiones BGP de ExpressRoute en dispositivos con estado puede provocar problemas con la conmutación por error durante los mantenimientos planeados o no planeados por Microsoft o por el proveedor de ExpressRoute. Debe probar la configuración para asegurarse de que el tráfico conmutará por error correctamente y, cuando sea posible, finalice las sesiones de BGP en los dispositivos sin estado.
+>
 
 ## <a name="view-planned-maintenance"></a>Visualización del mantenimiento planeado
 
@@ -32,7 +37,7 @@ ExpressRoute usa Azure Service Health para notificarle el mantenimiento planead
 
 1. Seleccione **ExpressRoute** en el menú desplegable *Servicios* para ver solo el mantenimiento relacionado con ExpressRoute. Luego, seleccione una incidencia de la lista para ver el resumen del evento. Seleccione la pestaña **Issues updates** (Actualizaciones de incidencias) si desea obtener más detalles sobre un mantenimiento en curso.
 
-    :::image type="content" source="./media/maintenance-alerts/summary.png" alt-text="Captura de pantalla de resumen del mantenimiento de ExpressRoute." lightbox="./media/maintenance-alerts/summary-expanded.png"::: 
+    :::image type="content" source="./media/maintenance-alerts/summary.png" alt-text="Captura de pantalla de resumen del mantenimiento de ExpressRoute." lightbox="./media/maintenance-alerts/summary-expanded.png":::
 
 ## <a name="view-past-maintenance"></a>Visualización del mantenimiento anterior
 

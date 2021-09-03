@@ -2,7 +2,6 @@
 title: Cómo programar trabajos con IoT Hub de Azure | Microsoft Docs
 description: Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. El SDK de IoT de Azure para Node.js se usa para implementar la aplicación de dispositivo simulado y una aplicación de servicio para ejecutar el trabajo.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 7812e06b445bba77d8ebd4ff5bf86662ef81ddc9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 591e7c43b26bbd8668bbe50bc78965f04f194c36
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887457"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729849"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Programación y difusión de trabajos (Node.js)
 
@@ -33,7 +32,7 @@ Más información sobre estas funcionalidades en estos artículos:
 
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md) y [Tutorial: uso de las propiedades de dispositivos gemelos](tutorial-device-twins.md)
 
-* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](quickstart-control-device-node.md)
+* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) e [Inicio rápido: métodos directos](./quickstart-control-device.md?pivots=programming-language-nodejs)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe8024650909ef3f48057c572fba2a70f2d611e2
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 0e45240d9d1a957765dfd362bf612ae2ea93919c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796399"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744014"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -66,13 +66,13 @@ La fase 1 de la hoja de ruta se centra en tareas críticas que se implementan de
 
 ### <a name="general-preparation"></a>Preparación general
 
-#### <a name="turn-on-azure-ad-privileged-identity-management"></a>Activación de Azure AD Privileged Identity Management
+#### <a name="use-azure-ad-privileged-identity-management"></a>Utilice Azure AD Privileged Identity Management
 
-Se recomienda activar Azure AD Privileged Identity Management (PIM) en el entorno de producción de Azure AD. Tras activar PIM, recibirá mensajes de correo electrónico de notificación si se producen cambios en el rol de acceso con privilegios. Estas notificaciones proporcionan una advertencia anticipada cuando se agregan más usuarios a roles con privilegios elevados.
+Se recomienda empezar a usar Azure AD Privileged Identity Management (PIM) en el entorno de producción de Azure AD. Tras empezar a usar PIM, recibirá mensajes de correo electrónico de notificación si se producen cambios en el rol de acceso con privilegios. Estas notificaciones proporcionan una advertencia anticipada cuando se agregan más usuarios a roles con privilegios elevados.
 
 Azure AD Privileged Identity Management se incluye en Azure AD Premium P2 o EMS E5. Para ayudar a proteger el acceso a las aplicaciones y los recursos locales y en la nube, regístrese para obtener la [prueba gratuita de 90 días de Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Azure AD Privileged Identity Management y Azure AD Identity Protection supervisan la actividad de seguridad con los informes, las auditorías y las alertas de Azure AD.
 
-Después de activar Azure AD Privileged Identity Management:
+Después de empezar a usar Azure AD Privileged Identity Management:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta que sea un Administrador global de la organización de producción de Azure AD.
 
@@ -86,7 +86,7 @@ Asegúrese de que a la primera persona que usa PIM en la organización se le asi
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificación y clasificación de las cuentas que están en roles con privilegios elevados
 
-Después de activar Azure AD Privileged Identity Management, puede ver los usuarios con los siguientes roles de Azure AD:
+Después de empezar a utilizar Azure AD Privileged Identity Management, puede ver los usuarios con los siguientes roles de Azure AD:
 
 * Administrador global
 * Administrador de roles con privilegios
@@ -425,7 +425,7 @@ Determine si necesita [transferir la propiedad de una suscripción de Azure a ot
 
 8. Asegúrese de guardar copias de seguridad de los registros relevantes, por si es preciso realizar una investigación legal o forense.
 
-Para más información acerca de la forma en que Microsoft Office 365 controla los incidentes de seguridad, consulte [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM) (Administración de incidentes de seguridad en Microsoft Office 365).
+Para más información acerca de la forma en que Microsoft Office 365 controla los incidentes de seguridad, consulte [Security Incident Management in Microsoft Office 365](/compliance/assurance/assurance-security-incident-management) (Administración de incidentes de seguridad en Microsoft Office 365).
 
 ## <a name="faq-answers-for-securing-privileged-access"></a>PREGUNTAS MÁS FRECUENTES: Respuestas sobre la protección del acceso con privilegios  
 

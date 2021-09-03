@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db4b08b4403345d7926ec07e94f75cc779fce843
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92057627"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737630"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sesiones de depuración en Azure Cognitive Search
 
@@ -33,7 +33,7 @@ Si la canalización de enriquecimiento no tiene errores, se puede usar una sesi�
 
 ## <a name="creating-a-debug-session"></a>Creación de una sesión de depuración
 
-Para iniciar una sesión de depuración, debe tener una canalización de enriquecimiento con IA que incluya un origen de datos, un conjunto de aptitudes, un indizador y un índice. Para configurar una sesión de depuración, debe asignarle un nombre y proporcionar una cuenta de almacenamiento de uso general que se usará para almacenar en caché las ejecuciones de las aptitudes al ejecutar el indizador. También tendrá que seleccionar el indizador que se ejecutará. El indizador tiene referencias almacenadas en el origen de datos, el conjunto de aptitudes y el índice. La sesión de depuración se establecerá de forma predeterminada en el primer documento del origen de datos. También puede especificar un documento para iniciar el proceso.
+Puede crear una sesión de depuración en la página **Información general** del servicio de búsqueda en Azure Portal. Para iniciar una sesión de depuración, debe tener una canalización de enriquecimiento con IA que incluya un origen de datos, un conjunto de aptitudes, un indizador y un índice. Para configurar una sesión de depuración, debe asignarle un nombre y proporcionar una cuenta de almacenamiento de uso general que se usará para almacenar en caché las ejecuciones de las aptitudes al ejecutar el indizador. También tendrá que seleccionar el indizador que se ejecutará. El indizador tiene referencias almacenadas en el origen de datos, el conjunto de aptitudes y el índice. La sesión de depuración se establecerá de forma predeterminada en el primer documento del origen de datos. También puede especificar un documento para iniciar el proceso.
 
 > :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Creación de una sesión de depuración":::
 
@@ -43,7 +43,7 @@ Para empezar la sesión de depuración, se ejecuta el conjunto de aptitudes en e
 
 ## <a name="ai-enrichments"></a>Enriquecimientos con IA
 
-A medida que se ejecutan las aptitudes, se genera un árbol de enriquecimientos que representa el documento. El uso de un árbol para visualizar las salidas de las aptitudes o enriquecimientos proporciona una visión completa de todos los enriquecimientos realizados. Puede buscar en todo el documento e inspeccionar cada nodo del árbol de enriquecimiento. Esta perspectiva facilita la acción de dar forma a los objetos. Este formato también proporciona indicaciones visuales sobre el tipo, la ruta de acceso y el contenido de cada nodo del árbol.
+A medida que se ejecutan las aptitudes, se genera un árbol de mejoras que representa la evolución del documento. El uso de un árbol para visualizar las salidas de las aptitudes o enriquecimientos proporciona una visión completa de todos los enriquecimientos realizados. Puede buscar en todo el documento e inspeccionar cada nodo del árbol de enriquecimiento. Esta perspectiva facilita la acción de dar forma a los objetos. Este formato también proporciona indicaciones visuales sobre el tipo, la ruta de acceso y el contenido de cada nodo del árbol.
 
 ## <a name="skill-graph"></a>Gráfico de aptitudes
 
@@ -85,7 +85,7 @@ Esta ventana muestra todos los errores y advertencias que genera el conjunto de 
 
 ## <a name="limitations"></a>Limitaciones
 
-Las sesiones de depuración funcionan con todos los orígenes de datos disponibles en general, así como con la mayoría de los orígenes de datos de versión preliminar. La API de MongoDB (versión preliminar) y Cassandra API (versión preliminar) de Cosmos DB no se admiten actualmente.
+Las sesiones de depuración funcionan con todos los orígenes de datos disponibles en general y con la mayoría de los orígenes de datos de versión preliminar. La API de MongoDB (versión preliminar) de Cosmos DB no se admiten actualmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

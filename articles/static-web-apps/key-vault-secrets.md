@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/17/2021
 ms.author: cshoe
-ms.openlocfilehash: cc0ced1a6c91bf2e7960e638c295d33a45db135e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3f373122d6d68e6435cfe7083115c91718e05a09
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073349"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737473"
 ---
 # <a name="securing-authentication-secrets-in-azure-key-vault"></a>Protección de secretos de autenticación en Azure Key Vault
 
@@ -24,11 +24,16 @@ Los secretos de seguridad requieren la aplicación de los siguientes elementos.
 - Conceder a un secreto de Key Vault acceso a la identidad.
 - Hacer referencia al secreto de Key Vault desde la configuración de la aplicación de Static Web Apps.
 
-En este artículo se muestra cómo configurar cada uno de estos elementos en la aplicación.
+En este artículo se muestra cómo configurar cada uno de estos elementos en producción para [aportar sus propias aplicaciones de funciones](./functions-bring-your-own.md).
+
+La integración de Key Vault no está disponible para:
+
+- [Versiones de almacenamiento provisional de la aplicación web estática](./review-publish-pull-requests.md). La integración de Key Vault solo se admite en el entorno de producción.
+- [Aplicaciones web estáticas que usan funciones administradas](./apis.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Tener ya un sitio de Azure Static Web Apps.
+- Sitio existente de Azure Static Web Apps mediante la [aportación de sus propias funciones](./functions-bring-your-own.md).
 - Tener ya un recurso de Key Vault con un valor secreto.
 
 ## <a name="create-identity"></a>Creación de la identidad

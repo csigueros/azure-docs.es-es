@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/19/2020
 ms.reviewer: ManojRaheja
 author: midesa
-ms.openlocfilehash: 5b7707354d7bf63671e21d1adbaebc2ef8d71d0e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 82310e14b3eac25be038a7748d1992daef72d83f
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952251"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112516682"
 ---
 # <a name="azure-data-explorer-kusto-connector-for-apache-spark"></a>Conector de Azure Data Explorer (Kusto) para Apache Spark
 El conector de Azure Data Explorer (Kusto) para Apache Spark está diseñado para transferir datos de forma eficaz entre clústeres de Kusto y Spark. Este conector está disponible en Python, Java y .NET. Está integrado en el entorno de ejecución de Apache Spark 2.4 para Azure Synapse.
@@ -29,7 +29,7 @@ Para las canalizaciones de Azure Synapse, la autenticación usará el nombre de 
 
 ## <a name="limitations"></a>Limitaciones
   - El conector de Azure Data Explorer (Kusto) solo se admite actualmente en el entorno de ejecución de Apache Spark 2.4 para Azure Synapse.
-  - El servicio vinculado de Azure Data Explorer solo se puede configurar con el nombre principal de servicio.
+  - El servicio vinculado Azure Data Explorer solo se puede configurar con el nombre de entidad de seguridad de servicio.
   - En los cuadernos de Azure Synapse o las definiciones de trabajos de Apache Spark, el conector de Azure Data Explorer usará el tránsito de AAD para conectarse al clúster de Kusto.
 
 

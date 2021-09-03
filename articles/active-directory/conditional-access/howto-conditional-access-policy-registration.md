@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 07/28/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05aca853e2eba98d224131c98751b4e2f4200024
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aa38195c836c77e9f0fd621776e997d4b7fff7bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765654"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744153"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acceso condicional: Protección del registro de información de seguridad
 
-Proteger cuándo y cómo se registran los usuarios para Azure AD Multi-Factor Authentication y el restablecimiento de contraseñas de autoservicio ya es posible con las acciones del usuario en una directiva de acceso condicional. Esta característica está disponible para organizaciones que han habilitado el [registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidad permite a las organizaciones tratar el proceso de registro como cualquier aplicación de una directiva de acceso condicional y usar toda la eficacia del acceso condicional para proteger la experiencia. 
+Proteger cuándo y cómo se registran los usuarios para Azure AD Multi-Factor Authentication y el restablecimiento de contraseñas de autoservicio ya es posible con las acciones del usuario en una directiva de acceso condicional. Esta característica está disponible para organizaciones que han habilitado el [registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidad permite a las organizaciones tratar el proceso de registro como cualquier aplicación de una directiva de acceso condicional y usar toda la eficacia del acceso condicional para proteger la experiencia. Los usuarios que inicien sesión en la aplicación Microsoft Authenticator o que habiliten el inicio de sesión con teléfono sin contraseña están sujetos a esta directiva.
 
 Es posible que algunas organizaciones del pasado hayan usado una ubicación de red de confianza o el cumplimiento de dispositivos como un medio para proteger la experiencia de registro. Con la adición del [Pase de acceso temporal](../authentication/howto-authentication-temporary-access-pass.md) en Azure AD, los administradores pueden aprovisionar credenciales a sus usuarios por tiempo limitado, que les permitirán registrarse desde cualquier dispositivo o ubicación. Las credenciales de Pase de acceso temporal satisfacen los requisitos de acceso condicional para la autenticación multifactor.
 

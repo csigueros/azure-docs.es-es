@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: jocorte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fc065c0e20e1560bebad1743fb889886cb07213
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6afce8903c5fe821e080983ab50a444f9f508554
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694926"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736674"
 ---
 # <a name="scale-snat-ports-with-azure-nat-gateway"></a>Escalado de puertos SNAT con Azure NAT Gateway
 
@@ -21,11 +21,14 @@ Azure Firewall proporciona 2048 puertos SNAT por cada dirección IP pública con
 
 Otra dificultad con el uso de un gran número de direcciones IP públicas es cuando hay requisitos de filtrado de direcciones IP de nivel inferior. Azure Firewall selecciona aleatoriamente la dirección IP pública de origen que se va a usar para una conexión, por lo que debe permitir todas las direcciones IP públicas asociadas a ella. Incluso si usa [prefijos de dirección IP pública](../virtual-network/public-ip-address-prefix.md) y necesita asociar 250 direcciones IP públicas para cumplir los requisitos de puerto SNAT salientes, debe crear y permitir 16 prefijos de dirección IP pública.
 
-Una mejor opción para escalar los puertos SNAT salientes es usar el [recurso de puerta de enlace NAT](../virtual-network/nat-overview.md). Este recurso proporciona 64 000 puertos SNAT por dirección IP pública y admite hasta 16 direcciones IP públicas, lo que proporciona eficazmente hasta 1 024 000 puertos SNAT de salida.
+Una mejor opción para escalar los puertos SNAT salientes es usar el [recurso de puerta de enlace NAT](../virtual-network/nat-gateway/nat-overview.md). Este recurso proporciona 64 000 puertos SNAT por dirección IP pública y admite hasta 16 direcciones IP públicas, lo que proporciona eficazmente hasta 1 024 000 puertos SNAT de salida.
 
 Cuando un recurso de puerta de enlace NAT está asociado a una subred de Azure Firewall, todo el tráfico saliente de Internet usa automáticamente la dirección IP pública de la puerta de enlace NAT. No es necesario configurar [rutas definidas por el usuario](../virtual-network/tutorial-create-route-table-portal.md). El tráfico de respuesta usa la dirección IP pública de Azure Firewall para mantener la simetría del flujo. Si hay varias direcciones IP asociadas a la puerta de enlace NAT, la dirección IP se selecciona aleatoriamente. No es posible especificar qué dirección se va a usar.
 
 No hay ninguna NAT doble con esta arquitectura. Las instancias de Azure Firewall envían el tráfico a la puerta de enlace NAT mediante su dirección IP privada en lugar de la dirección IP pública de Azure Firewall.
+
+> [!NOTE]
+> El uso de Azure NAT Gateway es actualmente incompatible con Azure Firewall si ha implementado [Azure Firewall en varias zonas de disponibilidad](deploy-availability-zone-powershell.md). Más información sobre [Azure NAT Gateway y las zonas de disponibilidad](../virtual-network/nat-gateway/nat-gateway-resource.md#cross-zone-outbound-scenarios-not-supported)
 
 ## <a name="associate-nat-gateway-with-azure-firewall-subnet---azure-powershell"></a>Asociación de la puerta de enlace NAT con la subred de Azure Firewall: Azure PowerShell
 
@@ -67,4 +70,4 @@ az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Diseño de redes virtuales con recursos de puertas de enlace de NAT](../virtual-network/nat-gateway-resource.md)
+- [Diseño de redes virtuales con recursos de puertas de enlace de NAT](../virtual-network/nat-gateway/nat-gateway-resource.md)
