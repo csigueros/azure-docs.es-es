@@ -4,15 +4,16 @@ description: Obtenga información sobre cómo acceder a una vista consolidada de
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/03/2021
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 66b3254fd8079f555a7ba2b981df6d4c60262ad0
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/06/2021
+ms.openlocfilehash: d1a4f749e883ecc184ac54e16a7eeb5d83686ad6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542722"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732733"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Panel de análisis de Calificaciones y opiniones del Centro de partners
 
@@ -22,7 +23,7 @@ En este artículo se proporciona información sobre el panel Calificaciones y op
 - Las opiniones se publican en la pestaña Opiniones de la página de presentación del producto de la oferta en Azure Marketplace o AppSource. Los clientes pueden incluir su nombre o publicar de forma anónima.  
 
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](analytics-faq.md).
+> Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](analytics-faq.yml).
 
 ## <a name="access-the-dashboard"></a>Acceso al panel
 
@@ -54,7 +55,7 @@ Las revisiones se muestran en orden cronológico y se usará el momento en que s
 
 ### <a name="responding-to-a-review"></a>Respuesta a una revisión
 
-Puede responder a las revisiones de los usuarios y la respuesta será visible en los escaparates de Azure Marketplace o AppSource. Para responder a una revisión, siga estos pasos:
+Puede responder a las revisiones de los usuarios y la respuesta será visible en los escaparates de Azure Marketplace o AppSource. Esta funcionalidad se aplica a los siguientes tipos de oferta: Aplicación de Azure, Azure Container, máquina virtual de Azure, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement & Power Apps, Dynamics 365 Operations, Módulo IoT Edge, Servicio administrado, aplicación Power BI y software como servicio. Para responder a una revisión, siga estos pasos:
 
 1. Seleccione la pestaña **Ratings & reviews** (Clasificaciones y revisiones) y luego seleccione **Azure Marketplace** o **AppSource**. Puede seleccionar **filtros** para restringir la lista de reseñas y mostrar, por ejemplo, solo las revisiones con una clasificación de estrellas específica.
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 740b228855a11623600d8724eeff7ad865538e74
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 6b8ce0014524a407d6d35b85fed3bf5f41b556cf
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004194"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122067941"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Solución de problemas de Azure Bastion
 
@@ -68,6 +68,13 @@ The key's randomart image is:
 **P:** No puedo conectarme a mi máquina virtual de Windows que está unida a un dominio.
 
 **R.:** Azure Bastion admite el inicio de sesión de máquina virtual unida a un dominio solo para el inicio de sesión de dominio basado en nombre de usuario y contraseña. Al especificar las credenciales de dominio en Azure Portal, use el formato UPN (username@domain) en lugar del formato de *dominio/nombre de usuario* para iniciar sesión. Esto es compatible con las máquinas virtuales unidas a un dominio o unidas de forma híbrida (tanto unidas a un dominio como a Azure AD). No es compatible para las máquinas virtuales unidas únicamente a Azure AD.
+
+## <a name="unable-to-connect-to-virtual-machine"></a><a name="connectivity"></a> No se puede establecer la conexión con la máquina virtual
+
+**P:** No puedo conectarme a mi máquina virtual (y no estoy experimentando ninguno de los problemas anteriores).
+
+**R:** Puede solucionar sus problemas de conectividad desde la pestaña **Solución de problemas de conexión**  de la sección **Supervisión** de su recurso de Azure Bastion en Azure Portal. La solución de problemas de conexión Network Watcher proporciona la posibilidad de comprobar una conexión TCP directa de una máquina virtual a otra, a un nombre de dominio completo (FQDN), a un URI o a una dirección IPv4. Para empezar, elija un origen desde el que iniciar la conexión y el destino al que desea conectarse y seleccione "Comprobar". [Más información](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview).
+
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problemas de transferencia de archivos
 

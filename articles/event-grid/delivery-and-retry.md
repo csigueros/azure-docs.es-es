@@ -2,59 +2,21 @@
 title: Entrega y reintento de entrega de Azure Event Grid
 description: Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.date: 07/27/2021
+ms.openlocfilehash: a6055a99e717dd379dc6bd43411c73456bdaede8
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276746"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730337"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
-
-En este artículo se describe cómo Azure Event Grid administra los eventos cuando no se confirma la entrega.
-
-Event Grid ofrece entrega duradera. Entrega cada mensaje **por lo menos una vez** en cada suscripción. Los eventos se envían inmediatamente al punto de conexión registrado de cada suscripción. Si un punto de conexión no acusa recibo de un evento, Event Grid reintenta la entrega del evento.
+Event Grid ofrece entrega duradera. Intenta entregar cada mensaje **al menos una vez** inmediatamente después de encontrar una suscripción coincidente. Si el punto de conexión de un suscriptor no reconoce la recepción de un evento o se produce un error, Event Grid reintenta la entrega según una [programación de reintentos](#retry-schedule) fija y una [directiva de reintentos](#retry-policy). De forma predeterminada, el módulo de Event Grid entrega un evento cada vez al suscriptor. No obstante, la carga es una matriz con un solo evento.
 
 > [!NOTE]
 > Event Grid no garantiza el orden de entrega de los eventos, por lo que los suscriptores pueden recibirlos de forma desordenada. 
 
-## <a name="batched-event-delivery"></a>Entrega de eventos por lotes
-
-De forma predeterminada, Event Grid envía cada evento individualmente a los suscriptores. El suscriptor recibe una matriz con un solo evento. Puede configurar Event Grid para procesar por lotes los eventos para su entrega con el fin de mejorar el rendimiento HTTP en escenarios de alto rendimiento.
-
-La entrega por lotes tiene dos opciones:
-
-* **Número máximo de eventos por lote**: es el número máximo de eventos que Event Grid entregará por lote. No se superará nunca este número; sin embargo, se pueden entregar menos eventos si no hay otros eventos disponibles en el momento de la publicación. Event Grid no retrasa los eventos para crear un lote si hay menos eventos disponibles. Debe estar entre 1 y 5 000.
-* **Tamaño de lote preferido en kilobytes**: es el límite superior de destino para el tamaño de lote en kilobytes. Al igual que el número máximo de eventos, el tamaño del lote puede ser menor si no hay más eventos disponibles en el momento de la publicación. Es posible que un lote sea mayor que el tamaño de lote preferido *si* un solo evento es mayor que el tamaño preferido. Por ejemplo, si el tamaño preferido es 4 KB y se inserta un evento de 10 KB en Event Grid, el evento de 10 KB se seguirá entregando en su propio lote en lugar de ser eliminado.
-
-La entrega por lotes se configura en función de una suscripción por evento mediante el portal, la CLI, PowerShell o los SDK.
-
-### <a name="azure-portal"></a>Azure Portal: 
-![Configuración de la entrega por lotes](./media/delivery-and-retry/batch-settings.png)
-
-### <a name="azure-cli"></a>Azure CLI
-Al crear una suscripción a eventos, use los parámetros siguientes: 
-
-- **max-events-per-batch**: número máximo de eventos en un lote. Debe ser un número entre 1 y 5000.
-- **preferred-batch-size-in-kilobytes**: tamaño de lote preferido en kilobytes. Debe ser un número entre 1 y 1024.
-
-```azurecli
-storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
-endpoint=https://$sitename.azurewebsites.net/api/updates
-
-az eventgrid event-subscription create \
-  --resource-id $storageid \
-  --name <event_subscription_name> \
-  --endpoint $endpoint \
-  --max-events-per-batch 1000 \
-  --preferred-batch-size-in-kilobytes 512
-```
-
-Para más información sobre el uso de la CLI de Azure con Event Grid, consulte [Enrutamiento de eventos de almacenamiento a un punto de conexión web con la CLI de Azure](../storage/blobs/storage-blob-event-quickstart.md).
-
-## <a name="retry-schedule-and-duration"></a>Programación y duración de los reintentos
-
+## <a name="retry-schedule"></a>Programación de reintentos
 Cuando Event Grid recibe un error para un intento de entrega de eventos, Event Grid decide si se debe reintentar la entrega del mensaje con problemas de entrega del evento o anular el evento según el tipo de error. 
 
 Si el error devuelto por el punto de conexión suscrito es un error relacionado con la configuración que no se puede corregir con los reintentos (por ejemplo, si se elimina el punto de conexión), Event Grid ejecutará los mensajes con problemas de entrega del evento o anulará el evento si no se ha configurado un método para los mensajes con problemas de entrega.
@@ -89,12 +51,68 @@ Si el punto de conexión responde en 3 minutos, Event Grid intentará eliminar e
 
 Event Grid agrega una pequeña selección aleatoria en todos los pasos de reintento y puede omitir oportunamente ciertos reintentos si un punto de conexión es incorrecto, está inactivo durante un largo período o parece estar demasiado ocupado.
 
-Para un comportamiento determinista, establezca el tiempo que estará activo el evento y los intentos de entrega máximos en las [directivas de reintentos de suscripción](manage-event-delivery.md).
+## <a name="retry-policy"></a>Directiva de reintentos
+Puede personalizar la directiva de reintentos al crear una suscripción de eventos mediante las dos configuraciones siguientes. Si se alcanza alguno de los límites de la directiva de reintentos, se descartará un evento. 
 
-De forma predeterminada, Event Grid expira todos los eventos que no se entregan en 24 horas. Puede [personalizar la directiva de reintentos](manage-event-delivery.md) al crear una suscripción al evento. Proporcione el número máximo de intentos de entrega (el valor predeterminado es 30) y el periodo de vida de los eventos (el valor predeterminado es 1440 minutos).
+- **Número máximo de intentos**: el valor debe ser un entero entre 1 y 30. El valor predeterminado es 30.
+- **Período de vida del evento (TTL)** : el valor debe ser un entero entre 1 y 1440. El valor predeterminado es 1440 minutos
+
+Para obtener un ejemplo de la CLI y el comando de PowerShell a fin de configurar estas opciones, vea [Establecimiento de la directiva de reintentos](manage-event-delivery.md#set-retry-policy).
+
+## <a name="output-batching"></a>Procesamiento por lotes de salida 
+De forma predeterminada, Event Grid envía cada evento individualmente a los suscriptores. El suscriptor recibe una matriz con un solo evento. Puede configurar Event Grid para procesar por lotes los eventos para su entrega con el fin de mejorar el rendimiento HTTP en escenarios de alto rendimiento. El procesamiento por lotes está desactivado de forma predeterminada y se puede activar por suscripción.
+
+### <a name="batching-policy"></a>Directiva de procesamiento por lotes
+La entrega por lotes tiene dos opciones:
+
+* **Número máximo de eventos por lote**: es el número máximo de eventos que Event Grid entregará por lote. No se superará nunca este número; sin embargo, se pueden entregar menos eventos si no hay otros eventos disponibles en el momento de la publicación. Event Grid no retrasa los eventos para crear un lote si hay menos eventos disponibles. Debe estar entre 1 y 5 000.
+* **Tamaño de lote preferido en kilobytes**: es el límite superior de destino para el tamaño de lote en kilobytes. Al igual que el número máximo de eventos, el tamaño del lote puede ser menor si no hay más eventos disponibles en el momento de la publicación. Es posible que un lote sea mayor que el tamaño de lote preferido *si* un solo evento es mayor que el tamaño preferido. Por ejemplo, si el tamaño preferido es 4 KB y se inserta un evento de 10 KB en Event Grid, el evento de 10 KB se seguirá entregando en su propio lote en lugar de ser eliminado.
+
+La entrega por lotes se configura en función de una suscripción por evento mediante el portal, la CLI, PowerShell o los SDK.
+
+### <a name="batching-behavior"></a>Comportamiento de procesamiento por lotes
+
+* Todos o ninguno
+
+  Event Grid funciona con la semántica de todos o ninguno. No admite el procesamiento parcial de una entrega por lotes. Los suscriptores deben tener cuidado de solicitar solo los eventos por lote que puedan controlar de forma razonable en 60 segundos.
+
+* Procesamiento por lotes optimista
+
+  La configuración de la directiva de procesamiento por lotes no tiene límites estrictos acerca del comportamiento del procesamiento por lotes, y se respeta en función del mejor esfuerzo. En las tasas de eventos bajas, a menudo observará que el tamaño del lote es menor que el número máximo de eventos solicitado por lote.
+
+* De forma predeterminada, este valor está desactivado.
+
+  De forma predeterminada, Event Grid solo agrega un evento a cada solicitud de entrega. La manera de activar el procesamiento por lotes es establecer una de las opciones mencionadas anteriormente en el artículo en el JSON de la suscripción de eventos.
+
+* Valores predeterminados
+
+  No es necesario especificar ambas configuraciones (eventos máximos por lote y tamaño de lote aproximado en kilobytes) al crear una suscripción de eventos. Si solo se establece un valor, Event Grid usa valores predeterminados (configurables). Vea las siguientes secciones para ver los valores predeterminados y aprender a reemplazarlos.
+
+### <a name="azure-portal"></a>Azure Portal: 
+![Configuración de la entrega por lotes](./media/delivery-and-retry/batch-settings.png)
+
+### <a name="azure-cli"></a>Azure CLI
+Al crear una suscripción a eventos, use los parámetros siguientes: 
+
+- **max-events-per-batch**: número máximo de eventos en un lote. Debe ser un número entre 1 y 5000.
+- **preferred-batch-size-in-kilobytes**: tamaño de lote preferido en kilobytes. Debe ser un número entre 1 y 1024.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+Para más información sobre el uso de la CLI de Azure con Event Grid, consulte [Enrutamiento de eventos de almacenamiento a un punto de conexión web con la CLI de Azure](../storage/blobs/storage-blob-event-quickstart.md).
+
 
 ## <a name="delayed-delivery"></a>Entrega retrasada
-
 Cuando un punto de conexión experimenta errores de entrega, Event Grid comienza a retrasar la entrega y a reintentar los eventos a ese punto de conexión. Por ejemplo, si se produce un error en los 10 primeros eventos publicados en un punto de conexión, Event Grid asumirá que el punto de conexión está experimentando problemas y retrasará todos los reintentos posteriores y las *nuevas entregas* durante algún tiempo; en algunos casos, hasta varias horas.
 
 El propósito funcional de la entrega retrasada es proteger los puntos de conexión incorrectos y el sistema Event Grid. Sin los mecanismos de retroceso y el retraso de la entrega a puntos de conexión incorrectos, la directiva de reintentos de Event Grid y las funcionalidades del volumen pueden sobrecargar fácilmente un sistema.

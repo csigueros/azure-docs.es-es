@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 2233e6f40c1023f1b02543f4e234b00422f6f77f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0b1cf7d0dbf7456d01f6530355e6943c8ead54db
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077201"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014924"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central
 
@@ -48,6 +48,9 @@ Un dispositivo IoT Edge puede funcionar como una puerta de enlace que proporcion
 Hay dos patrones de puerta de enlace:
 
 * En el patrón de *puerta de enlace transparente*, el módulo del centro de IoT Edge se comporta como IoT Central y controla las conexiones de los dispositivos registrados en IoT Central. Los mensajes pasan de los dispositivos de nivel inferior a IoT Central como si no hubiera ninguna puerta de enlace entre ellos.
+
+    > [!NOTE]
+    > IoT Central actualmente no admite la conexión de un dispositivo IoT Edge como dispositivo de bajada a una puerta de enlace transparente de IoT Edge. Esto se debe a que todos los dispositivos que se conectan a IoT Central se aprovisionan mediante Device Provisioning Service (DPS) y DPS no admite escenarios de IoT Edge anidados.
 
 * En el patrón de la *puerta de enlace de traducción*, los dispositivos que no se pueden conectar a IoT Central por su cuenta, se conectan a un módulo de IoT Edge personalizado. El módulo del dispositivo IoT Edge procesa los mensajes entrantes del dispositivo de nivel inferior y, a continuación, los reenvía a IoT Central.
 
@@ -281,6 +284,10 @@ También puede instalar el entorno de ejecución de Azure IoT Edge en los siguie
 Si seleccionó un dispositivo de IoT Edge como dispositivo de puerta de enlace, puede agregar relaciones de nivel inferior a los modelos de los dispositivos que desea conectar a él.
 
 Para obtener más información, consulte [Conexión de dispositivos a través de una puerta de enlace transparente IoT Edge](how-to-connect-iot-edge-transparent-gateway.md).
+
+## <a name="monitor-your-iot-edge-devices"></a>Supervisión de los dispositivos IoT Edge
+
+Para obtener información sobre cómo supervisar de forma remota la flota de IoT Edge mediante la integración de métricas integradas de Azure Monitor, vea [Recopilación y transporte de métricas](../../iot-edge/how-to-collect-and-transport-metrics.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

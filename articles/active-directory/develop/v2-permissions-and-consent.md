@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/06/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: fed830833e9f68bcf734be65cba16f1cc84c8f89
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 77737060d8cfc84d9b433d9be2ea5ad9ba11b0a4
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494358"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861227"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
 
@@ -46,6 +46,8 @@ Al fragmentar la funcionalidad de un recurso en conjuntos de permisos pequeños,
 En OAuth 2.0, estos tipos de conjuntos de permisos se denominan *ámbitos*. A menudo se hace referencia a ellos como *permisos*. En la Plataforma de identidad de Microsoft, un permiso se representa como un valor de cadena. Una aplicación solicita los permisos que necesita al especificar el permiso en el parámetro de consulta `scope`. La plataforma de identidad admite varios [ámbitos de OpenID Connect](#openid-connect-scopes) bien definidos, así como permisos basados en recursos (cada permiso se indica al anexar el valor de permiso al identificador del recurso o al URI del identificador de aplicación). Por ejemplo, la cadena de permiso `https://graph.microsoft.com/Calendars.Read` se usa para solicitar permiso para leer los calendarios de los usuarios en Microsoft Graph.
 
 Una aplicación suele solicitar estos permisos, para lo que especifica los ámbitos en las solicitudes al punto de conexión de la autorización de la Plataforma de identidad de Microsoft. Sin embargo, algunos permisos con privilegios elevados solo se pueden conceder con el consentimiento del administrador. Se pueden solicitar o conceder con el [punto de conexión de consentimiento del administrador](#admin-restricted-permissions). Siga leyendo para obtener más información.
+
+En las solicitudes a los puntos de conexión de autorización, token o consentimiento para la Plataforma de identidad de Microsoft, si el identificador de recurso se omite en el parámetro de ámbito, se supone que el recurso es Microsoft Graph. Por ejemplo, `scope=User.Read` es equivalente a `https://graph.microsoft.com/User.Read`.
 
 ## <a name="permission-types"></a>Tipos de permisos
 
@@ -106,12 +108,36 @@ El token de acceso es válido durante un breve período de tiempo. Suele expirar
 
 Para más información sobre cómo obtener y usar tokens de actualización, consulte la [referencia del protocolo de la Plataforma de identidad de Microsoft](active-directory-v2-protocols.md).
 
-## <a name="incremental-and-dynamic-consent"></a>Consentimiento incremental y dinámico
+## <a name="consent-types"></a>Tipos de consentimiento
+
+Las aplicaciones de la Plataforma de identidad de Microsoft dependen del consentimiento para poder acceder a los recursos o las API necesarios. Hay una serie de tipos de consentimiento que la aplicación puede necesitar saber para que se pueda ejecutar correctamente. Si va a definir permisos, también debe saber cómo accederán los usuarios a la aplicación o la API.
+
+### <a name="static-user-consent"></a>Consentimiento estático del usuario 
+
+En el escenario del consentimiento estático del usuario, debe especificar todos los permisos que necesita en la configuración de la aplicación en Azure Portal. Si al usuario o al administrador, según corresponda, no se le concede permiso a esta aplicación, la Plataforma de identidad de Microsoft pedirá al usuario que proporcione su consentimiento en este momento.
+
+Los permisos estáticos también permiten a los administradores dar su [consentimiento en nombre de todos los usuarios](#requesting-consent-for-an-entire-tenant) de la organización.
+
+Aunque los permisos estáticos de la aplicación definidos en Azure Portal mantenían un código ordenado y sencillo, presenta algunos problemas para los desarrolladores:
+
+- Una aplicación tiene que solicitar todos los permisos que podría necesitar alguna vez tras el primer inicio de sesión del usuario. Esto puede originar una lista larga de permisos, lo que desanimaría a los usuarios finales de aprobar el acceso de la aplicación en el inicio de sesión inicial.
+
+- La aplicación tiene que conocer por adelantado todos los recursos a los que va a tener acceso alguna vez. Es difícil crear aplicaciones que puedan acceder a un número arbitrario de recursos.
+
+### <a name="incremental-and-dynamic-user-consent"></a>Consentimiento incremental y dinámico del usuario
+
 Con el punto de conexión de la plataforma de identidad de Microsoft, puede ignorar los permisos estáticos definidos en la información de registro de la aplicación en Azure Portal y, en su lugar, solicitar permisos de forma incremental.  Puede solicitar un conjunto mínimo de permisos por adelantado y solicitar más con el tiempo, a medida que el cliente utilice las funciones adicionales de la aplicación. Para ello, puede especificar los ámbitos que la aplicación necesita en cualquier momento incluyendo los nuevos ámbitos en el parámetro `scope` cuando [solicite un token de acceso](#requesting-individual-user-consent). No es necesario predefinirlos en la información de registro de la aplicación. Si el usuario aún no ha dado su consentimiento a los ámbitos nuevos que se agregan a la solicitud, se le pedirá que dé su consentimiento solo a los nuevos permisos. El consentimiento incremental o dinámico solo se aplica a los permisos delegados y no a los permisos de la aplicación.
 
 Permitir que una aplicación solicite permisos dinámicamente mediante el parámetro `scope` da a los desarrolladores un control total sobre la experiencia del usuario. También puede adelantar la experiencia de consentimiento y pedir todos los permisos en una solicitud de autorización inicial. Si su aplicación requiere un gran número de permisos, puede elegir recopilarlos del usuario de forma incremental, a medida que intentan usar determinadas características de la aplicación con el tiempo.
 
-El [consentimiento del administrador](#using-the-admin-consent-endpoint) que se realiza en nombre de una organización sigue requiriendo los permisos estáticos registrados para la aplicación, por lo que debería establecer esos permisos para las aplicaciones en el portal de registro de aplicaciones si necesita que un administrador dé su consentimiento en nombre de toda la organización. Esto reduce los ciclos que el administrador de la organización necesita para instalar la aplicación.
+> [!IMPORTANT]
+> El consentimiento dinámico puede resultar conveniente, pero presenta un gran desafío para los permisos que requieren el consentimiento del administrador, ya que la experiencia de consentimiento de administrador no conoce los permisos en el momento del consentimiento. Si necesita permisos con privilegios de administrador o si su aplicación usa el consentimiento dinámico, debe registrar todos los permisos en Azure Portal (no solo el subconjunto de permisos que requieren el consentimiento del administrador). Esto permite a los administradores de inquilinos dar su consentimiento en nombre de todos los usuarios.
+
+### <a name="admin-consent"></a>Consentimiento de administrador
+
+Se requiere el [consentimiento del administrador](#using-the-admin-consent-endpoint) si la aplicación necesita acceder a determinados permisos con privilegios elevados. El consentimiento de administrador garantiza que los administradores dispongan de algunos controles adicionales antes de autorizar a las aplicaciones o a los usuarios a acceder a datos con privilegios elevados de la organización.
+
+El [consentimiento del administrador concedido en nombre de una organización](#requesting-consent-for-an-entire-tenant) todavía requiere los permisos estáticos registrados para la aplicación. Establezca esos permisos para las aplicaciones en el portal de registro de aplicaciones si necesita que un administrador dé su consentimiento en nombre de toda la organización. Esto reduce los ciclos que el administrador de la organización necesita para instalar la aplicación.
 
 ## <a name="requesting-individual-user-consent"></a>Solicitud de consentimiento de usuario individual
 
@@ -143,7 +169,9 @@ Cuando el usuario aprueba la solicitud del permiso, el consentimiento se registr
 
 Cuando una organización adquiere una licencia o una suscripción de una aplicación, la organización suele desear configurar de forma proactiva la aplicación para que la usen todos sus miembros. Como parte de este proceso, el administrador puede conceder consentimiento a la aplicación para que actúe en nombre de cualquier usuario del inquilino. Si el administrador concede el consentimiento del inquilino entero, los usuarios de la organización no verán una página de consentimiento para la aplicación.
 
-Para solicitar el consentimiento de los permisos delegados para todos los usuarios de un inquilino, la aplicación puede usar el punto de conexión de consentimiento del administrador.
+El consentimiento del administrador concedido en nombre de una organización requiere los permisos estáticos registrados para la aplicación. Establezca esos permisos para las aplicaciones en el portal de registro de aplicaciones si necesita que un administrador dé su consentimiento en nombre de toda la organización.
+
+Para solicitar el consentimiento de los permisos delegados para todos los usuarios de un inquilino, la aplicación puede usar el [punto de conexión de consentimiento del administrador](#using-the-admin-consent-endpoint).
 
 Además, las aplicaciones deben usar el punto de conexión de consentimiento del administrador para solicitar los permisos de la aplicación.
 

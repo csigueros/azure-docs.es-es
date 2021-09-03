@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4b0daecadd3af5f1322afc97f91706098aade768
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 45c7f5a8d6e2c227e07765f6147e58242ffe3d6c
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080495"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228911"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -87,6 +87,11 @@ En esta sección se describen las opciones de configuración globales disponible
                 "messageWaitTimeout": "00:00:30",
                 "maxAutoRenewDuration": "00:55:00",
                 "maxConcurrentSessions": 16
+            },
+            "batchOptions": {
+                "maxMessageCount": 1000,
+                "operationTimeout": "00:01:00",
+                "autoComplete": true
             }
         }
     }
@@ -98,10 +103,13 @@ Si `isSessionsEnabled` se ha establecido en `true`, se respetará `sessionHandle
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |prefetchCount|0|Obtiene o establece el número de mensajes que el destinatario del mensaje puede solicitar simultáneamente.|
-|maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
-|autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.<br><br>La configuración en `false` solo se admite en C#.<br><br>Si se establece en `true`, el desencadenador completa automáticamente el mensaje si la ejecución de la función se completa correctamente y abandona el mensaje en caso contrario.<br><br>Cuando se establece en `false`, usted es responsable de llamar a los métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) para completar, abandonar o cerrar el mensaje. Si se produce una excepción (y no se llama a ninguno de los métodos `MessageReceiver`), se mantiene el bloqueo. Una vez que el bloqueo expira, el mensaje se vuelve a poner en cola con la `DeliveryCount` incrementada y el bloqueo se renueva automáticamente.<br><br>En las funciones que no son C#, las excepciones en la función dan como resultado las llamadas en tiempo de ejecución `abandonAsync` en segundo plano. Si no se produce ninguna excepción, se llama a `completeAsync` en segundo plano. |
-|maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar por instancia con escala. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes.|
-|maxConcurrentSessions|2000|Número máximo de sesiones que se puede administrar simultáneamente por instancia con escala.|
+|messageHandlerOptions.maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
+|messageHandlerOptions.autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.<br><br>La configuración en `false` solo se admite en C#.<br><br>Si se establece en `true`, el desencadenador completa automáticamente el mensaje si la ejecución de la función se completa correctamente y abandona el mensaje en caso contrario.<br><br>Cuando se establece en `false`, usted es responsable de llamar a los métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) para completar, abandonar o cerrar el mensaje. Si se produce una excepción (y no se llama a ninguno de los métodos `MessageReceiver`), se mantiene el bloqueo. Una vez que el bloqueo expira, el mensaje se vuelve a poner en cola con la `DeliveryCount` incrementada y el bloqueo se renueva automáticamente.<br><br>En las funciones que no son C#, las excepciones en la función dan como resultado las llamadas en tiempo de ejecución `abandonAsync` en segundo plano. Si no se produce ninguna excepción, se llama a `completeAsync` en segundo plano. |
+|messageHandlerOptions.maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar por instancia con escala. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes.|
+|sessionHandlerOptions.maxConcurrentSessions|2000|Número máximo de sesiones que se puede administrar simultáneamente por instancia con escala.|
+|batchOptions.maxMessageCount|1000| Número máximo de mensajes enviados a la función cuando se desencadena. |
+|batchOptions.operationTimeout|00:01:00| Valor de intervalo de tiempo expresado en `hh:mm:ss` |
+|batchOptions.autoComplete|true| Consulte la descripción anterior de `messageHandlerOptions.autoComplete`. |
 
 ### <a name="additional-settings-for-version-5x"></a>Configuración adicional para la versión 5.x+
 
@@ -112,22 +120,20 @@ El archivo host.json de ejemplo a continuación contiene solo la configuración 
     "version": "2.0",
     "extensions": {
         "serviceBus": {
-            "serviceBusOptions": {
-                "retryOptions":{
-                    "mode": "exponential",
-                    "tryTimeout": "00:00:10",
-                    "delay": "00:00:00.80",
-                    "maxDelay": "00:01:00",
-                    "maxRetries": 4
-                },
-                "prefetchCount": 100,
-                "autoCompleteMessages": true,
-                "maxAutoLockRenewalDuration": "00:05:00",
-                "maxConcurrentCalls": 32,
-                "maxConcurrentSessions": 10,
-                "maxMessages": 2000,
-                "sessionIdleTimeout": "00:01:00"
-            }
+            "retryOptions":{
+                "mode": "exponential",
+                "tryTimeout": "00:01:00",
+                "delay": "00:00:00.80",
+                "maxDelay": "00:01:00",
+                "maxRetries": 3
+            },
+            "prefetchCount": 0,
+            "autoCompleteMessages": true,
+            "maxAutoLockRenewalDuration": "00:05:00",
+            "maxConcurrentCalls": 16,
+            "maxConcurrentSessions": 8,
+            "maxMessages": 1000,
+            "sessionIdleTimeout": "00:01:00"
         }
     }
 }
@@ -152,7 +158,7 @@ Además de las propiedades de configuración anteriores al usar la versión 5.x
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |mode|Exponencial|Enfoque que se debe usar para calcular los retrasos de reintento. El modo exponencial predeterminado aplicará un retraso a los reintentos en función de una estrategia de interrupción, en la que cada intento aumentará la duración que espera antes de volver a intentarlo. El modo `Fixed` reintentará a intervalos fijos, donde cada retraso tendrá una duración uniforme.|
-|tryTimeout|00:00:10|Duración máxima que se debe esperar para una operación por intento.|
+|tryTimeout|00:01:00|Duración máxima que se debe esperar para una operación por intento.|
 |delay|00:00:00.80|Factor de retraso o de interrupción que se aplicará entre reintentos.|
 |maxDelay|00:01:00|Retraso máximo para permitir entre los reintentos.|
 |maxRetries|3|Número máximo de reintentos antes de considerar que hay un error en la operación asociada.|

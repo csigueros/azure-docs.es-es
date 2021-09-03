@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 7289d9d814385f31a71cbd598889e564958a0140
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 3e27cbb2284f77abb9bd46bc6dcb7433b50a72e8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441823"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751637"
 ---
 # <a name="azure-image-builder-overview"></a>Introducción a Azure Image Builder
 
@@ -28,7 +28,7 @@ Azure VM Image Builder (Azure Image Builder) le permite empezar con una imagen d
 Azure Image Builder admite las siguientes características:
 
 - Creación de imágenes de base de referencia, que incluyen las configuraciones corporativas y de seguridad mínimas, y permiten que los departamentos puedan personalizarlas aún más.
-- Integración de las aplicaciones principales, de modo que la VM puede asumir cargas de trabajo después de la creación o agregar configuraciones para admitir imágenes de Windows Virtual Desktop.
+- Integración de las aplicaciones principales, de modo que la VM puede asumir cargas de trabajo después de la creación o agregar configuraciones para admitir imágenes de Azure Virtual Desktop.
 - Aplicación de revisiones de imágenes existentes. Image Builder permitirá revisar continuamente las imágenes personalizadas existentes.
 - Conecte el generador de imágenes a las redes virtuales existentes para que pueda conectarse a los servidores de configuración existentes (DSC, Chef, Puppet, etc.), los recursos compartidos de archivos o cualquier otro servidor o servicio enrutable.
 - Integración con Azure Shared Image Gallery, que permite distribuir, crear versiones y escalar imágenes globalmente y ofrece un sistema de administración de imágenes.
@@ -52,6 +52,8 @@ AIB será compatible con imágenes del sistema operativo base de Azure Marketpla
 - Windows 10 RS5 Enterprise/Enterprise multisesión/Professional
 - Windows 2016
 - Windows 2019
+
+Hemos enumerado los sistemas operativos que hemos probado y sabemos que funcionan con Azure Image Builder. Sin embargo, Azure Image Builder debería funcionar con cualquier imagen de Linux Windows en Marketplace.
 
 ## <a name="how-it-works"></a>Funcionamiento
 

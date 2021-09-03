@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c7c3d69bb26773171e9e0afc9f79ff25909a12a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acc47d8744b59a175b37eb571646ae5ef3a42454
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807299"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749337"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Creación automática de incidentes a partir de alertas de seguridad de Microsoft
 
@@ -29,6 +29,7 @@ Las alertas desencadenadas en las soluciones de seguridad de Microsoft que está
 Si sigue las instrucciones de este artículo, puede configurar fácilmente Azure Sentinel para crear automáticamente incidentes cada vez que se desencadene una alerta en una solución de seguridad de Microsoft conectada.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Debe [conectar las soluciones de seguridad de Microsoft](connect-data-sources.md#data-connection-methods) para habilitar la creación de incidentes a partir de alertas del servicio de seguridad.
 
 ## <a name="using-microsoft-security-incident-creation-analytics-rules"></a>Uso de reglas de análisis de creación de incidentes de seguridad de Microsoft
@@ -51,14 +52,15 @@ Use las reglas integradas disponibles en Azure Sentinel para elegir qué solucio
 
     ![Asistente para crear reglas](media/incidents-from-alerts/create-rule-wizard.png)
 
-1. También puede crear una nueva regla de **seguridad de Microsoft** que filtre las alertas de diferentes servicios de seguridad de Microsoft haciendo clic en **+Create** (+Crear) y seleccionando **Microsoft incident creation rule** (Regla de creación de incidentes de Microsoft).
+1. También puede crear una nueva regla de **seguridad de Microsoft** que filtre las alertas de diferentes servicios de seguridad de Microsoft haciendo clic en **+ Crear** y seleccionando **Regla de creación de incidentes de Microsoft**.
 
     ![Regla de creación de incidentes](media/incidents-from-alerts/incident-creation-rule.png)
 
-  Puede crear más de una regla de análisis de la **seguridad de Microsoft** por tipo de **servicio de seguridad de Microsoft**. Así no se crean incidentes duplicados, ya que cada regla se utiliza como filtro. Aunque una alerta coincida con más de una regla de análisis de **seguridad de Microsoft**, creara solo un incidente de Azure Sentinel.
+    Puede crear más de una regla de análisis de la **seguridad de Microsoft** por tipo de **servicio de seguridad de Microsoft**. Así no se crean incidentes duplicados, ya que cada regla se utiliza como filtro. Aunque una alerta coincida con más de una regla de análisis de **seguridad de Microsoft**, creara solo un incidente de Azure Sentinel.
 
 ## <a name="enable-incident-generation-automatically-during-connection"></a>Habilitación de la generación de incidentes automáticamente durante la conexión
- Al conectar una solución de seguridad de Microsoft, puede seleccionar si desea que las alertas de la solución de seguridad generen automáticamente incidentes en Azure Sentinel automáticamente.
+
+Al conectar una solución de seguridad de Microsoft, puede seleccionar si desea que las alertas de la solución de seguridad generen automáticamente incidentes en Azure Sentinel automáticamente.
 
 1. Conecte el origen de datos de una solución de seguridad de Microsoft. 
 
@@ -69,4 +71,4 @@ Use las reglas integradas disponibles en Azure Sentinel para elegir qué solucio
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para empezar a trabajar con Azure Sentinel, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
-- Aprenda a [incorporar los datos en Azure Sentinel](quickstart-onboard.md), [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](quickstart-get-visibility.md).
+- Aprenda a [incorporar los datos a Azure Sentinel](quickstart-onboard.md) y [obtenga visibilidad sobre ellos y las posibles amenazas](get-visibility.md).
