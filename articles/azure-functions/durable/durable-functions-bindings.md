@@ -2,14 +2,14 @@
 title: 'Enlaces para Durable Functions: Azure'
 description: Aprenda a utilizar desencadenadores y enlaces en la extensión Durable Functions para Azure Functions.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 08/03/2021
 ms.author: azfuncdf
-ms.openlocfilehash: a07748f996788825b21b5c23a117954085dadcbf
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 097527dbbf4363365e609a1f5aac1d851eb5dc60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656945"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742662"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces para Durable Functions (Azure Functions)
 
@@ -397,6 +397,21 @@ Los desencadenadores de entidad permiten crear [funciones de entidad](durable-fu
 > Los desencadenadores de entidad están disponibles a partir de Durable Functions 2.x.
 
 Internamente, este enlace de desencadenador sondea el almacén de larga duración configurado para las nuevas operaciones de entidad que deben ejecutarse.
+
+Si va a crear funciones en .NET, el desencadenador de entidad se configura mediante el atributo [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) de .NET.
+
+Si utiliza JavaScript, Python o PowerShell, el desencadenador de entidad se definirá mediante el objeto JSON siguiente en la matriz `bindings` de *function.json*:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "entityName": "<Optional - name of the entity>",
+    "type": "entityTrigger",
+    "direction": "in"
+}
+```
+
+De forma predeterminada, el nombre de una entidad es el nombre de la función.
 
 ### <a name="trigger-behavior"></a>Comportamiento de un desencadenador
 

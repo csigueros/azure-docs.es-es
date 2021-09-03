@@ -10,12 +10,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: afb0d487d43b2a04aa298d9ec4249a6855d06544
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9a8272d6b21130f253046ef3ffe05db8b00d4b79
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967757"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038676"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -26,13 +26,11 @@ En este artículo aprenderá varias formas de crear un área de trabajo de Azure
 
 Para obtener más información, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Para usar una plantilla desde una CLI, necesita [Azure PowerShell](/powershell/azure/) o la [CLI de Azure](/cli/azure/install-azure-cli).
-
-* Algunos escenarios requieren abrir una incidencia de soporte técnico. Por ejemplo, el uso de un área de trabajo habilitada para Private Link con una clave administrada por el cliente. Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -278,9 +276,6 @@ Al establecer el valor del parámetro `vnetOption` en `new` o `existing`, podrá
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Implementación del área de trabajo solo detrás de un punto de conexión privado
 
 Si los recursos asociados no están detrás de una red virtual, puede establecer el parámetro **privateEndpointType** en `AutoAproval` o `ManualApproval` para implementar el área de trabajo detrás de un punto de conexión privado. Esto puede hacerse tanto en áreas de trabajo nuevas como existentes. Al actualizar un área de trabajo existente, rellene los parámetros de la plantilla con la información del área de trabajo existente.
-
-> [!IMPORTANT]
-> El uso de un área de trabajo de Azure Machine Learning con Private Link no está disponible en las regiones de Azure Government.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
 
@@ -541,7 +536,7 @@ New-AzResourceGroupDeployment `
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
 1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__, elija la entrada **quickstarts**. Cuando aparezca, seleccione el vínculo "Haga clic aquí para abrir el repositorio de plantillas". Este vínculo le lleva al directorio `quickstarts` del repositorio de plantillas de inicio rápido de Azure.
-1. En la lista de plantillas de inicio rápido, seleccione `microsoft.machinelearningservices'. Finally, select ` Implementar en Azure.
+1. En la lista de plantillas de inicio rápido, seleccione `microsoft.machinelearningservices`. Por último, seleccione `Deploy to Azure`.
 1. Cuando aparezca la plantilla, proporcione la siguiente información necesaria y cualquier otro parámetro en función del escenario de implementación.
 
    * Suscripción: Seleccione la suscripción de Azure que va a usar para estos recursos.
