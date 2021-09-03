@@ -2,21 +2,21 @@
 title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
-ms.date: 09/22/2018
-ms.openlocfilehash: eb595d666641003c813573a70ab7365732e0a386
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/27/2021
+ms.openlocfilehash: 7275d81401444dffbe0917bdb72ba79100880749
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983157"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862687"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
-La configuración de la aplicación en una aplicación de función contiene opciones de configuración global que afectan a todas las funciones de dicha aplicación. Cuando se ejecuta localmente, se accede a esta configuración como [variables de entorno](functions-run-local.md#local-settings-file) locales. Este artículo incluye una lista de las opciones de configuración disponibles en las aplicaciones de funciones.
+La configuración de la aplicación en una aplicación de función contiene opciones de configuración global que afectan a todas las funciones de dicha aplicación. Cuando se ejecuta localmente, se accede a esta configuración como [variables de entorno](functions-develop-local.md#local-settings-file) locales. Este artículo incluye una lista de las opciones de configuración disponibles en las aplicaciones de funciones.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Hay otras opciones de configuración global en el archivo [host.json](functions-host-json.md) y en [local.settings.json](functions-run-local.md#local-settings-file).
+Hay otras opciones de configuración global en el archivo [host.json](functions-host-json.md) y en [local.settings.json](functions-develop-local.md#local-settings-file).
 
 > [!NOTE]
 > Puede usar la configuración de la aplicación para reemplazar los valores de la configuración de host.json sin tener que cambiar el propio archivo host.json. Esto es algo que resulta útil cuando hace falta configurar o modificar valores de host.json concretos para un entorno específico. También permite cambiar la configuración de host.json sin tener que volver a publicar el proyecto. Para más información, consulte el [artículo de referencia de host.json](functions-host-json.md#override-hostjson-values). Para aplicar los cambios realizados en la configuración de la aplicación de funciones, es necesario reiniciar la aplicación de funciones.
@@ -294,6 +294,16 @@ El valor de esta clave se proporciona en el formato `<DESTINATION>:<VERBOSITY>`,
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
+## <a name="scm_logstream_timeout"></a>SCM\_LOGSTREAM\_TIMEOUT
+
+Controla el tiempo de espera, en segundos, cuando se conecta a los registros de streaming. El valor predeterminado es 7200 (2 horas). 
+
+|Clave|Valor de ejemplo|
+|-|-|
+|SCM_LOGSTREAM_TIMEOUT|1800|
+
+El valor de muestra anterior de `1800` establece un tiempo de espera de 30 minutos. Para más información, consulte [Habilitación de los registros de streaming](functions-run-local.md#enable-streaming-logs).
+
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
 Cadena de conexión para la cuenta de almacenamiento donde se almacenan el código de la aplicación de funciones y la configuración en planes de escalado controlados por eventos que se ejecutan en Windows. Para más información, consulte [Creación de una aplicación de funciones](functions-infrastructure-as-code.md#windows).
@@ -306,11 +316,13 @@ Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
-Solo para planes Premium. Un valor de `1` permite escalar la aplicación de funciones cuando tiene una cuenta de almacenamiento restringida a una red virtual. Debe habilitar esta opción al restringir la cuenta de almacenamiento a una red virtual. Para obtener más información, consulte [Restricción de la cuenta de almacenamiento a una red virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+Un valor de `1` permite escalar la aplicación de funciones cuando tiene una cuenta de almacenamiento restringida a una red virtual. Debe habilitar esta opción al restringir la cuenta de almacenamiento a una red virtual. Para obtener más información, consulte [Restricción de la cuenta de almacenamiento a una red virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Clave|Valor de ejemplo|
 |---|------------|
 |WEBSITE_CONTENTOVERVNET|1|
+
+Se admite en los planes [Premium](functions-premium-plan.md) y [Dedicado (App Service)](dedicated-plan.md) (Estándar y posteriores) que ejecuten Windows. Actualmente no se admite para los planes de consumo y Premium que ejecuten Linux. 
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 

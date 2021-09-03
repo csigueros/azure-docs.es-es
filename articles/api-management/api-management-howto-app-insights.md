@@ -7,14 +7,14 @@ author: mikebudzynski
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 08/04/2021
 ms.author: apimpm
-ms.openlocfilehash: 97f4eb34b88b3454d65b65d236833e1256c98671
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f67da2c2090dd99730324512248854d5e2fee259
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103564263"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182083"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -31,15 +31,18 @@ Antes de poder usar Application Insights, debe crear una instancia del servicio.
 
 1. Vaya a la **instancia del servicio Azure API Management** en **Azure Portal**.
 1. Seleccione **Application Insights** en el menú de la izquierda.
-1. Haga clic en **+ Agregar**.  
+1. Seleccione **+Agregar**.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-1.png" alt-text="Captura de pantalla en la que se muestra dónde agregar una conexión nueva":::.
 1. Seleccione la instancia de **Application Insights** creada anteriormente y escriba una descripción breve.
-1. Haga clic en **Crear**.
+1. Para habilitar la [supervisión de la disponibilidad](../azure-monitor/app/monitor-web-app-availability.md) de su instancia de API Management en Application Insights, seleccione la casilla **Add availability monitor** (Agregar supervisión de la disponibilidad).
+
+    Este parámetro valida periódicamente si el punto de conexión de servicio de API Management está respondiendo. Los resultados aparecerán en el panel **Disponibilidad** de la instancia de Application Insights.
+1. Seleccione **Crear**.
 1. Acaba de crear un registrador de Application Insights con una clave de instrumentación. Ahora debería aparecer en la lista.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Captura de pantalla en la que se muestra dónde ver el registrador de Application Insights recién creado con la clave de instrumentación":::
 
 > [!NOTE]
-> En segundo plano, se crea una entidad [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
+> En segundo plano, se crea la entidad [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitación del registro Application Insights para la API
 
@@ -58,7 +61,7 @@ Antes de poder usar Application Insights, debe crear una instancia del servicio.
 > Reemplazar el valor predeterminado **0** en el campo **Number of payload bytes to log** (Número de bytes de carga que se van a registrar) puede disminuir considerablemente el rendimiento de las API.
 
 > [!NOTE]
-> En segundo plano, se crea una entidad de [diagnóstico](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
+> En segundo plano, se crea la entidad [Diagnostic](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) en el nivel de API denominada "applicationinsights".
 
 | Nombre del valor                        | Tipo de valor                        | Descripción                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -87,13 +90,18 @@ Antes de poder usar Application Insights, debe crear una instancia del servicio.
 
 Application Insights recibe:
 
-+ elemento de telemetría *Solicitud*, para cada solicitud de entrada (*solicitud de front-end*, *respuesta de front-end*);
-+ elemento de telemetría *Dependencia*, para cada solicitud reenviada a un servicio de back-end (*solicitud de back-end*, *respuesta de back-end*);
++ El elemento de telemetría *Solicitud*; para cada solicitud entrante, recibe lo siguiente:
+    + *solicitud de front-end* y *respuesta de front-end*
++ El elemento de telemetría *Dependencia*; para cada solicitud reenviada a un servicio de back-end, recibe lo siguiente:
+    + *solicitud de back-end* y *respuesta de back-end*
 + elemento de telemetría *Excepción*, para cada solicitud con error:
     + no se pudo procesar debido a una conexión cerrada con el cliente
     + desencadenó una sección *on-error* (al producirse un error) de las directivas de la API
-    + tiene un código de estado HTTP de respuesta que coincide con 4xx o 5xx.
-+ elemento de telemetría *Seguimiento*, si configura una directiva de [seguimiento](api-management-advanced-policies.md#Trace). El valor `severity` de la directiva `trace` debe ser igual o mayor que el valor `verbosity` del registro de Application Insights.
+    + tiene un código de estado HTTP de respuesta que coincide con 4xx o 5xx
++ elemento de telemetría *Seguimiento*, si configura una directiva de [seguimiento](api-management-advanced-policies.md#Trace). 
+    + El valor `severity` de la directiva `trace` debe ser igual o mayor que el valor `verbosity` del registro de Application Insights.
+
+También puede emitir métricas personalizadas configurando la directiva [`emit-metric`](api-management-advanced-policies.md#emit-metrics).
 
 > [!NOTE]
 > Consulte los [límites de Application Insights](../azure-monitor/service-limits.md#application-insights) para más información sobre el tamaño máximo y el número de métricas y eventos por instancia de Application Insights.

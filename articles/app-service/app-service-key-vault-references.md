@@ -3,15 +3,15 @@ title: Uso de referencias de Key Vault
 description: Aprenda a configurar Azure App Service y Azure Functions para que usen referencias de Azure Key Vault. Haga que los secretos de Key Vault estén disponibles para el código de aplicación.
 author: mattchenderson
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 3300f5fbb5613672d7979f161ca0c92126f26a83
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 15b5974aff53303ca0245fc6100ea22eebc70c6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578122"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752472"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -23,26 +23,43 @@ Para leer secretos desde Key Vault, debe tener creado un almacén y proporcionar
 
 1. Para crear un almacén de claves, siga la [guía de inicio rápido de Key Vault](../key-vault/secrets/quick-create-cli.md).
 
-1. Cree una [identidad administrada asignada por el sistema](overview-managed-identity.md) para la aplicación.
+1. Cree una [identidad administrada](overview-managed-identity.md) para la aplicación.
 
-   > [!NOTE] 
-   > Las referencias de Key Vault solo admiten actualmente identidades administradas asignadas por el sistema. No se pueden usar identidades asignadas por el usuario.
+    Las referencias de Key Vault usarán la identidad asignada del sistema de la aplicación de forma predeterminada, pero puede [especificar una identidad asignada por el usuario](#access-vaults-with-a-user-assigned-identity).
 
 1. Cree una [directiva de acceso en Key Vault](../key-vault/general/security-features.md#privileged-access) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva. No configure la "aplicación autorizada" o la configuración `applicationId`, ya que no es compatible con una identidad administrada.
 
 ### <a name="access-network-restricted-vaults"></a>Acceso a almacenes restringidos de red
 
-> [!NOTE]
-> Las aplicaciones basadas en Linux no pueden resolver actualmente los secretos de un almacén de claves con restricciones de red a menos que la aplicación esté hospedada en una instancia de [App Service Environment](./environment/intro.md).
-
 Si el almacén está configurado con [restricciones de red](../key-vault/general/overview-vnet-service-endpoints.md), también deberá asegurarse de que la aplicación tenga acceso a la red.
 
 1. Asegúrese de que la aplicación tenga configuradas funcionalidades de red de salida, tal como se describe en [Características de red de App Service](./networking-features.md) y [Opciones de red de Azure Functions](../azure-functions/functions-networking-options.md).
 
+    Las aplicaciones de Linux que intentan usar puntos de conexión privados requieren además que la aplicación se configure explícitamente para que todo el tráfico se enrute a través de la red virtual. Este requisito se quitará en una actualización futura. Para establecer esta opción, use el siguiente comando de la CLI:
+
+    ```azurecli
+    az webapp config set --subscription <sub> -g <rg> -n <appname> --generic-configurations '{"vnetRouteAllEnabled": true}'
+    ```
+
 2. Asegúrese de que la configuración del almacén tenga en cuenta la red o la subred mediante la que cual la aplicación tendrá acceso.
 
-> [!IMPORTANT]
-> El acceso a un almacén mediante la integración de red virtual no es compatible actualmente con las [actualizaciones automáticas de secretos sin una versión especificada](#rotation).
+### <a name="access-vaults-with-a-user-assigned-identity"></a>Acceso a los almacenes con una identidad asignada por el usuario
+
+Algunas aplicaciones necesitan hacer referencia a secretos en el momento de la creación, cuando una identidad asignada por el sistema aún no está disponible. En estos casos, se puede crear una identidad asignada por el usuario y concederle acceso al almacén de antemano.
+
+Una vez que haya concedido permisos a la identidad asignada por el usuario, siga estos pasos:
+
+1. [Asigne la identidad](./overview-managed-identity.md#add-a-user-assigned-identity) a la aplicación si aún no lo ha hecho.
+
+1. Configure la aplicación para que use esta identidad para las operaciones de referencia de Key Vault estableciendo la propiedad `keyVaultReferenceIdentity` en el id. de recurso de la identidad asignada por el usuario.
+
+    ```azurecli-interactive
+    userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
+    appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
+    az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
+    ```
+
+Esta configuración se aplicará a todas las referencias de la aplicación.
 
 ## <a name="reference-syntax"></a>Sintaxis de referencia
 
@@ -67,9 +84,6 @@ O bien:
 ```
 
 ## <a name="rotation"></a>Rotación
-
-> [!IMPORTANT]
-> El [acceso a un almacén mediante la integración de red virtual](#access-network-restricted-vaults) no es compatible actualmente con las actualizaciones automáticas de secretos sin una versión especificada.
 
 Si no se especifica una versión en la referencia, la aplicación usará la versión más reciente que exista en Key Vault. Cuando haya disponibles versiones más recientes, como con un evento de rotación, la aplicación se actualizará automáticamente y comenzará a usar la versión más reciente en el plazo de un día. Los cambios de configuración realizados en la aplicación actualizarán inmediatamente a las versiones más recientes todos los secretos a los que se hace referencia.
 
@@ -201,7 +215,7 @@ Una seudoplantilla de ejemplo para una aplicación de función podría tener est
 ```
 
 > [!NOTE] 
-> En este ejemplo, la implementación del control de código fuente depende de la configuración de la aplicación. Este comportamiento es normalmente poco seguro, ya que la actualización de la configuración de la aplicación se comporta de forma asincrónica. Sin embargo, como hemos incluido la configuración de la aplicación `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, la actualización es sincrónica. Esto significa que la implementación del control de código fuente solo comenzará una vez que la configuración de la aplicación se haya actualizado completamente.
+> En este ejemplo, la implementación del control de código fuente depende de la configuración de la aplicación. Este comportamiento es normalmente poco seguro, ya que la actualización de la configuración de la aplicación se comporta de forma asincrónica. Sin embargo, como hemos incluido la configuración de la aplicación `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, la actualización es sincrónica. Esto significa que la implementación del control de código fuente solo comenzará una vez que la configuración de la aplicación se haya actualizado completamente. Para conocer más opciones de configuración de la aplicación, vea [Variables de entorno y configuración de la aplicación en Azure App Service](reference-app-settings.md).
 
 ## <a name="troubleshooting-key-vault-references"></a>Solución de problemas de las referencias de Key Vault
 
