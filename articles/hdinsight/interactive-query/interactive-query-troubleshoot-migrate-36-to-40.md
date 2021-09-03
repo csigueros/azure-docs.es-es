@@ -3,37 +3,22 @@ title: 'Solución de problemas de migración de Hive de 3.6 a 4.0: Azure HDInsig
 description: Guía de solución de problemas para la migración de cargas de trabajo de Hive desde HDInsight 3.6 a 4.0
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 05/24/2021
-ms.openlocfilehash: 55927e15db913cde5feaa82e2f4dd6b71c800d56
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.date: 07/12/2021
+ms.openlocfilehash: eb19f3bd726efe018b4c593f324eb1cacd2cc2c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110501378"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722291"
 ---
 # <a name="troubleshooting-guide-for-migration-of-hive-workloads-from-hdinsight-36-to-hdinsight-40"></a>Guía de solución de problemas para la migración de cargas de trabajo de Hive desde HDInsight 3.6 a HDInsight 4.0
 
 En este artículo se proporcionan respuestas a algunos de los problemas más comunes a los que se enfrentan los clientes al migrar cargas de trabajo de Hive de HDInsight 3.6 a HDInsight 4.0.
 
-## <a name="change-parquet-files-to-store-timestamp-in-utc-time-zone"></a>Cambio de los archivos de Parquet para almacenar la marca de tiempo en la zona horaria UTC
-
-Solución:
-1. Use ssh en los nodos principales y haga una copia de seguridad de los archivos jar subyacentes por si tuviera que revertir. No mantenga la copia de seguridad en la misma ruta de acceso.
-    `/usr/hdp/4.1.2.5/hive/lib/hive-common-3.1.2.4.1.2.5.jar` y `hive-exec-3.1.2.4.1.2.5.jar`
-
-2. Descargue los dos archivos jar.
-    - [https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar](https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar) 
-    - [https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar](https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar)
-
-3. Mueva los archivos jar descargados a la ubicación `/usr/hdp/4.1.2.5/hive/lib` en ambos nodos principales.
-
-4. Reinicie HS2 en la interfaz de usuario de Ambari.
-
-
 ## <a name="reduce-latency-when-running-describe-table_name"></a>Reduzca la latencia al ejecutar `DESCRIBE TABLE_NAME`.
 
 Solución:
-* Aumente el número máximo de objetos (tablas o particiones) que se pueden recuperar del metastore en un lote. Establézcalo en un número grande (el valor predeterminado es 300) hasta que se alcancen los niveles de latencia satisfactorios. Cuanto mayor sea el número, menos recorridos de ida y vuelta se necesitan en el servidor de metastore de Hive, si bien también puede provocar un mayor requisito de memoria en el lado cliente.
+* Aumente el número máximo de objetos (tablas o particiones) que se pueden recuperar del metastore en un lote. Establézcalo en un número grande (el valor predeterminado es 300) hasta que se alcancen los niveles de latencia satisfactorios. Cuanto mayor sea el número, menos recorridos de ida y vuelta se necesitan en el servidor de metastore de Hive, si bien también puede provocar un mayor requisito de memoria en el lado cliente.
 
     ```hive.metastore.batch.retrieve.max=2000```
 * Reinicio de Hive y todos los servicios obsoletos.
@@ -50,7 +35,7 @@ Solución:
 Solución:
 1. Conéctese a la base de datos del metastore de Hive del clúster.
 
-2. Realice una copia de seguridad de la tabla `TBLS` y `TABLE_PARAMS` con el siguiente comando:
+2. Realice la copia de seguridad de las tablas `TBLS` y `TABLE_PARAMS` con el comando siguiente:
     ```sql
         select * into tbls_bak from tbls;
         select * into table_params_bak from table_params;
@@ -65,7 +50,7 @@ Solución:
 
 ## <a name="create-table-as-select-ctas-creates-a-new-table-with-same-uuid"></a>Create table as select (CTAS) crea una nueva tabla con el mismo UUID.
 
-Hive 3.1 (HDInsight 4.0) ofrece una UDF integrada para generar UUID únicos. El método UUID() de Hive genera identificadores únicos incluso con CTAS. Puede aprovecharlo de la siguiente manera.
+Hive 3.1 (HDInsight 4.0) ofrece una UDF integrada para generar UUID únicos. El método UUID() de Hive genera identificadores únicos incluso con CTAS. Se puede usar como se indica a continuación.
 ```hql
 create table rhive as
 select uuid() as UUID
@@ -101,13 +86,13 @@ Se debe a la diferencia de WebHCat(Templeton) entre HDInsight 3.6 y HDInsight 
 
 ## <a name="change-hive-default-table-location"></a>Cambio de la ubicación predeterminada de la tabla de Hive
 
-Se trata de un cambio de comportamiento por diseño en HDInsight 4.0 (Hive 3.1). Este cambio está motivado por el control de permisos de archivo. 
+Este es un cambio de comportamiento por diseño en HDInsight 4.0 (Hive 3.1). Este cambio está motivado por el control de permisos de archivo. 
 
 Para crear tablas externas en una ubicación personalizada, especifique la ubicación en la instrucción create table.
 
 ## <a name="disable-acid-in-hdinsight-40"></a>Deshabilitación de ACID en HDInsight 4.0
 
-Se recomienda habilitar ACID en HDInsight 4.0, ya que la mayoría de las mejoras recientes (tanto funcionales como de rendimiento) en Hive están disponibles solo para las tablas ACID.
+Se recomienda habilitar ACID en HDInsight 4.0. La mayoría de las mejoras recientes (tanto funcionales como de rendimiento) en Hive están disponibles solo para las tablas ACID.
 
 Pasos para deshabilitar ACID en HDInsight 4.0:
 1. Cambie las siguientes configuraciones de Hive en Ambari:
@@ -128,7 +113,7 @@ Pasos para deshabilitar ACID en HDInsight 4.0:
 > [!IMPORTANT]
 > Microsoft recomienda no compartir los mismos datos o almacenamiento con las tablas administradas por Hive de HDInsight 3.6 y HDInsight 4.0. Es un escenario no admitido.
 
-* Normalmente, las configuraciones anteriores deben establecerse incluso antes de crear tablas de Hive en el clúster de HDInsight 4.0. No debemos deshabilitar ACID una vez creadas las tablas administradas. Podría provocar la pérdida de datos o resultados incoherentes. Por lo tanto, se recomienda establecerlo una vez al crear un nuevo clúster y no cambiarlo más adelante.
+* Normalmente, las configuraciones anteriores deben establecerse incluso antes de crear tablas de Hive en el clúster de HDInsight 4.0. No debemos deshabilitar ACID una vez creadas las tablas administradas. Podría provocar la pérdida de datos o resultados incoherentes. Por lo tanto, se recomienda establecerlo una vez al crear un clúster y no cambiarlo más adelante.
 
 * La deshabilitación de ACID después de crear tablas es arriesgado; sin embargo, en caso de que quiera hacerlo, siga estos pasos para evitar posibles pérdidas de datos o incoherencias:
 
@@ -161,6 +146,19 @@ MetaStoreAuthzAPIAuthorizerEmbedOnly deshabilita eficazmente las comprobaciones 
 
     :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="Establezca la autorización en MetaStoreAuthzAPIAuthorizerEmbedOnly" border="true":::.
 
+## <a name="unable-to-query-table-with-opencsvserde"></a>No se puede consultar la tabla con OpenCSVSerde
+
+La lectura de datos de la tabla de formato `csv` puede producir una excepción como la siguiente:
+```text
+MetaException(message:java.lang.UnsupportedOperationException: Storage schema reading not supported)
+```
+
+Solución:
+
+* Agregar la configuración `metastore.storage.schema.reader.impl`=`org.apache.hadoop.hive.metastore.SerDeStorageSchemaReader` en `Custom hive-site` mediante la interfaz de usuario de Ambari
+
+* Reiniciar todos los servicios de Hive obsoletos
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

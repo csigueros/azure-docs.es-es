@@ -6,14 +6,14 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: e40fc569ad1c8ec5894f06915422bea37cfc40ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a91829ce79c5cd9e32efefc809dd23a19382f49
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102489640"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360278"
 ---
-# <a name="create-sas-tokens-for-document-translation-processing"></a>Creación de tokens de SAS para el proceso de traducción de documentos
+# <a name="create-sas-tokens-for-your-storage-containers"></a>Creación de tokens de SAS para los contenedores de almacenamiento
 
 En este artículo, aprenderá a crear tokens de firma de acceso compartido (SAS) mediante el Explorador de Azure Storage o Azure Portal. Un token de SAS proporciona acceso delegado y seguro a los recursos de la cuenta de almacenamiento de Azure.
 
@@ -74,7 +74,7 @@ Para empezar, necesitará lo siguiente:
 
 * Una [**cuenta de Azure**](https://azure.microsoft.com/free/cognitive-services/) activa.  En caso de no tener ninguna, puede crear una [**cuenta gratuita**](https://azure.microsoft.com/free/).
 * Un recurso del servicio [**Translator**](https://ms.portal.azure.com/#create/Microsoft) (**no** un recurso multiservicio de Cognitive Services).  *Consulte* [Creación de un nuevo recurso de Azure](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
-* Una cuenta de [**Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento.
+* Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento.
 
 ### <a name="create-your-tokens"></a>Creación de los tokens
 

@@ -3,14 +3,14 @@ title: 'Guía del desarrollador de entidades duraderas en .NET: Azure Functions'
 description: Aprenda a trabajar con entidades duraderas en .NET con la extensión Durable Functions para Azure Functions.
 author: sebastianburckhardt
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 06/30/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 88d2a23104b67dae8fd480406eb9171e9f3d5652
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6927c0a276ffa58077ce258dc5fa4ce02eb8f43f
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92740007"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108052"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guía del desarrollador de entidades duraderas en .NET
 
@@ -264,10 +264,11 @@ Si solo se especifica la clave de la entidad y no se puede encontrar una impleme
 Como de costumbre, todos los parámetros y tipos de valor devuelto deben ser serializables con JSON. De lo contrario, se inician excepciones de serialización en tiempo de ejecución.
 
 También se aplican algunas reglas adicionales:
+* Las interfaces de entidad se deben definir en el mismo ensamblado que la clase de entidad.
 * Las interfaces de entidad solo deben definir métodos.
 * Las interfaces de entidad no deben contener parámetros genéricos.
 * Los métodos de la interfaz de entidad no deben tener más de un parámetro.
-* Los métodos de la interfaz de entidad deben devolver `void`, `Task` o `Task<T>`. 
+* Los métodos de la interfaz de entidad deben devolver `void`, `Task` o `Task<T>`.
 
 Si se infringe alguna de estas reglas, se produce una excepción `InvalidOperationException` en tiempo de ejecución cuando la interfaz se usa como un argumento de tipo para `SignalEntity` o `CreateProxy`. En el mensaje de excepción se explica qué regla se infringió.
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b35706c48ff78e81ef339ee838cc4259090e56c
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 8fb21f3173225d36fcdb2290c74a2c7805455342
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746153"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -70,7 +70,7 @@ Considere el ejemplo siguiente. Un usuario tiene una licencia de Office 365 Ente
 
 - Exchange Online (Plan 2) entra en conflicto con Exchange Online (Plan 1).
 
-Para resolver este conflicto, debe deshabilitar dos de los planes. Puede deshabilitar la licencia de E1 que se ha asignado directamente al usuario. O bien, debe modificar toda la asignación de licencias de grupo y deshabilitar los planes de la licencia de E3. Como alternativa, puede quitar la licencia de E1 al usuario si es redundante en el contexto de la licencia de E3.
+Para resolver este conflicto, debe deshabilitar uno de los planes. Puede deshabilitar la licencia de E1 que se ha asignado directamente al usuario. O bien, debe modificar toda la asignación de licencias de grupo y deshabilitar los planes de la licencia de E3. Como alternativa, puede quitar la licencia de E1 al usuario si es redundante en el contexto de la licencia de E3.
 
 El administrador es la única persona competente para decidir cómo resolver el conflicto entre las licencias de productos. Azure AD no resuelve automáticamente los conflictos de licencias.
 

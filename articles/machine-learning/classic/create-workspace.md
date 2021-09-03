@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): creación de un área de trabajo en Azure'
-description: Para usar Azure Machine Learning Studio (clásico), debe tener un área de trabajo de Machine Learning Studio. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.
+description: Para usar Machine Learning Studio (clásico), debe tener un área de trabajo de Machine Learning Studio (clásico). Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,18 +9,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 9caac94c90aa18f8661ab46a0ae72d49500f39cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 307134aa36508600783ce7eb518037fb13dde6f4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520551"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693822"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Creación y uso compartido de un área de trabajo de Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-Para usar Azure Machine Learning Studio (clásico), debe tener un área de trabajo de Machine Learning Studio. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
+Para usar Machine Learning Studio (clásico), debe tener un área de trabajo de Machine Learning Studio (clásico). Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.
 
 ## <a name="create-a-studio-classic-workspace"></a>Creación de un área de trabajo de Studio (clásico)
 
@@ -65,11 +67,11 @@ Una vez implementado el área de trabajo, puede abrirlo en Machine Learning Stud
 
     ![Abrir experimentos](./media/create-workspace/my-experiments.png)
 
-Para más información sobre cómo administrar un área de trabajo de Studio (clásico), consulte [Administración de un área de trabajo de Azure Machine Learning Studio (clásico)](manage-workspace.md).
+Para obtener información sobre cómo administrar un área de trabajo de Studio (clásico), vea [Administración de un área de trabajo de Machine Learning Studio (clásico)](manage-workspace.md).
 Si tiene algún problema al crear el área de trabajo, consulte [Guía de solución de problemas: Creación y conexión a un área de trabajo de Machine Learning Studio (clásico)](index.yml).
 
 
-## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Uso compartido de un área de trabajo de Azure Machine Learning Studio (clásico)
+## <a name="share-a-machine-learning-studio-classic-workspace"></a>Uso compartido de un área de trabajo de Machine Learning Studio (clásico)
 Tras crear un área de trabajo de Machine Learning Studio (clásico), puede invitar a usuarios y compartir el acceso a dicha área y a todos sus experimentos, conjuntos de datos, etc. Puede agregar usuarios en uno de estos roles:
 
 * **Usuario**: los usuarios de un área de trabajo pueden crear, abrir, modificar y eliminar experimentos, conjuntos de datos y otros elementos en el área de trabajo.
@@ -126,9 +128,9 @@ Tras crear la nueva área de trabajo de Machine Learning Studio (clásico), pued
 
    ![Eliminación de cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-Una vez eliminadas las cookies, reinicie el explorador y vaya a la página [Microsoft Azure Machine Learning Studio (clásico)](https://studio.azureml.net). Cuando se le solicite un nombre de usuario y contraseña, especifique la misma cuenta Microsoft que usó para crear el área de trabajo.
+Después de eliminar las cookies, reinicie el explorador y vaya a la página [Machine Learning Studio (clásico)](https://studio.azureml.net). Cuando se le solicite un nombre de usuario y contraseña, especifique la misma cuenta Microsoft que usó para crear el área de trabajo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de cómo administrar un área de trabajo, consulte [Administración de un área de trabajo de Azure Machine Learning Studio (clásico)](manage-workspace.md).
+Para obtener más información sobre cómo administrar un área de trabajo, vea [Administración de un área de trabajo de Machine Learning Studio (clásico)](manage-workspace.md).

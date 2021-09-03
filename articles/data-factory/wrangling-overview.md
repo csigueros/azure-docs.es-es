@@ -4,14 +4,15 @@ description: Información general de la limpieza y transformación de datos en A
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: f922e7a2755a6e26a0d9f93f2668753e2f4dad5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.openlocfilehash: 133496614db862d4c1af31afb015a535ddbfd188
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98738176"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724455"
 ---
 # <a name="what-is-data-wrangling"></a>¿Qué es la limpieza y transformación de datos?
 
@@ -60,9 +61,9 @@ Cuando se crea una actividad de Power Query, todos los conjuntos de datos de ori
 
 Actualmente no se admiten todas las funciones de Power Query M para la limpieza y transformación de datos, a pesar de estar disponibles durante la creación. Al compilar las actividades de Power Query, aparecerá el siguiente mensaje de error si no se admite una función:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Power Query Spark Runtime does not support the function`
 
-Para obtener más información sobre las transformaciones admitidas, consulte [Funciones de limpieza y transformación de datos](wrangling-functions.md).
+Para obtener más información sobre las transformaciones admitidas, vea [Funciones de transformación de datos de Power Query](wrangling-functions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

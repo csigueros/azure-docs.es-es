@@ -5,14 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: c953668d6b2e364e6e703b1769317f1c520317ca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: references_regions
+ms.openlocfilehash: b6483ef0e034f695da1e03475ca2a4b716773684
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654380"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749641"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca de FastPath de ExpressRoute
 
@@ -40,15 +41,23 @@ Para configurar FastPath, la puerta de enlace de red virtual debe ser una de las
 
 ## <a name="limitations"></a>Limitaciones
 
-Aunque FastPath admite la mayoría de las configuraciones, no es compatible con las siguientes características:
+Aunque FastPath admite la mayoría de las configuraciones, no es compatible con las características siguientes:
 
 * UDR en la subred de puerta de enlace: este UDR no tiene ningún impacto en el tráfico de red que FastPath envía directamente desde la red local a las máquinas virtuales de la red virtual de Azure. 
-
-* Emparejamiento de redes virtuales: si tiene otras redes virtuales emparejadas con la que está conectada a ExpressRoute, el tráfico de la red local a las otras redes virtuales (es decir, las llamadas redes virtuales de "radio") se seguirá enviado a la puerta de enlace de red virtual. La solución es conectar todas las redes virtuales directamente al circuito de ExpressRoute.
 
 * Equilibrador de carga básico: si implementa un equilibrador de carga interno básico en la red virtual, o el servicio PaaS de Azure que implementa en la red virtual usa un equilibrador de carga interno básico, el tráfico de la red local a las direcciones IP virtuales hospedadas en el equilibrador de carga básico se enviará a la puerta de enlace de red virtual. La solución es actualizar el equilibrador de carga básico a un [equilibrador de carga estándar](../load-balancer/load-balancer-overview.md).
 
 * Vínculo privado: si se conecta con un [punto de conexión privado](../private-link/private-link-overview.md) de la red virtual desde la red local, la conexión pasará por la puerta de enlace de red virtual.
+
+## <a name="public-preview"></a>Versión preliminar pública
+
+Las características siguientes de FastPath se encuentran en versión preliminar pública:
+
+**Emparejamiento de VNet**: FastPath enviará tráfico directamente a cualquier máquina virtual implementada en una red virtual emparejada con la conectada a ExpressRoute, y omitirá la puerta de enlace de red virtual de ExpressRoute.
+
+Vea [Inscripción en las características de FastPath de ExpressRoute](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
+
+Disponible en todas las regiones.
  
 ## <a name="next-steps"></a>Pasos siguientes
 

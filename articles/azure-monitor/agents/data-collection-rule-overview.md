@@ -6,20 +6,20 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
 ms.custom: references_region
-ms.openlocfilehash: e7da31ec80153fe2d2bd6923850a4342886fa9be
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 83ad2245ec010bd91907ae27e077f86b4d6b1d5e
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495576"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122394"
 ---
-# <a name="data-collection-rules-in-azure-monitor-preview"></a>Reglas de recopilación de datos en Azure Monitor (versión preliminar)
+# <a name="data-collection-rules-in-azure-monitor"></a>Reglas de recopilación de datos en Azure Monitor
 Las reglas de recopilación de datos (DCR) definen los datos que entran en Azure Monitor y especifican dónde se deben enviar los datos o almacenarlos. En este artículo se proporciona información general sobre las reglas de recopilación de datos, incluido su contenido y su estructura, y cómo puede crearlas y trabajar con ellas.
 
 ## <a name="input-sources"></a>Orígenes de entrada
 Las reglas de recopilación de datos admiten actualmente los siguientes orígenes de entrada:
 
-- Máquina virtuales de Azure con el agente de Azure Monitor. Consulte [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](../agents/data-collection-rule-azure-monitor-agent.md).
+- Agente de Azure Monitor en ejecución en máquinas virtuales, conjuntos de escalado de máquinas virtuales y Azure Arc para servidores. Consulte [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](../agents/data-collection-rule-azure-monitor-agent.md).
 
 
 
@@ -30,8 +30,10 @@ Una regla de recopilación de datos incluye los siguientes componentes.
 |:---|:---|
 | Orígenes de datos | Origen único de los datos de supervisión con su propio formato y método para exponer los datos. Entre los ejemplos de origen de datos se incluyen el registro de eventos de Windows, los contadores de rendimiento y syslog. Cada origen de datos coincide con un tipo de origen de datos determinado tal y como se describe a continuación. |
 | Secuencias | Identificador único que describe un conjunto de orígenes de datos que se transformarán y se esquematizarán como un tipo. Cada origen de datos requiere una o varias secuencias; varios orígenes de datos pueden utilizar una secuencia. Todos los orígenes de datos de una secuencia comparten un esquema común. Por ejemplo, puede usar varias secuencias si desea enviar un origen de datos determinado a varias tablas en el mismo área de trabajo de Log Analytics. |
-| Destinations | Conjunto de destinos donde deben enviarse los datos. Algunos ejemplos son el área de trabajo de Log Analytics, Métricas de Azure Monitor y Event Hubs de Azure. | 
+| Destinations | Conjunto de destinos donde deben enviarse los datos. Algunos ejemplos son el área de trabajo de Log Analytics y las métricas de Azure Monitor. | 
 | Flujos de datos | Definición de las secuencias que se deben enviar a los destinos. | 
+
+Las reglas de recopilación de datos se almacenan de forma regional y están disponibles en todas las regiones públicas donde se admite Log Analytics. Las regiones y nubes gubernamentales no se admiten en este momento.
 
 En el diagrama siguiente se muestran los componentes de una regla de recopilación de datos y su relación
 
@@ -73,7 +75,7 @@ Actualmente, puede usar cualquiera de los métodos siguientes para crear una reg
   - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## <a name="sample-data-collection-rule"></a>Eliminación de una regla de recopilación de datos
-La siguiente regla de recopilación de datos de ejemplo es para las máquinas virtuales con el agente de administración de Azure y tiene los detalles siguientes:
+La siguiente regla de recopilación de datos de ejemplo es para máquinas virtuales con el agente de Azure Monitor y tiene los detalles siguientes:
 
 - Datos de rendimiento
   - Recopila los contadores de procesador, memoria, disco lógico y disco físico específicos cada 15 segundos, y se carga cada minuto.

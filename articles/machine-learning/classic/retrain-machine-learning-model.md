@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): reciclaje de servicios web (Azure)'
-description: Aprenda a actualizar un servicio web para usar un modelo de aprendizaje automático recién entrenado en Azure Machine Learning Studio (clásico).
+description: Aprenda a actualizar un servicio web para usar un modelo de Machine Learning recién entrenado en Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp, devx-track-azurepowershell
 ms.date: 02/14/2019
-ms.openlocfilehash: a1bf9582c73eb168c0f32e713f8308096edcf603
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5234611c99a58cefcb98d02c87d257055f603b4c
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704794"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579637"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Nuevo entrenamiento e implementación de un modelo de aprendizaje automático
 
@@ -51,7 +51,7 @@ Utilice los pasos siguientes para implementar un servicio web de nuevo entrenami
     Ahora, implementará el experimento de entrenamiento como un servicio web de nuevo entrenamiento que genera un modelo entrenado y los resultados de evaluación del modelo.
 
 1. En la parte inferior del lienzo del experimento, haga clic en **Set Up Web Service** (Configurar servicio web).
-1. Seleccione **Deploy Web Service [New]** (Implementar servicio web [Nuevo]). El portal de servicios web de Azure Machine Learning se abre en la página **Deploy Web service** (Implementar servicio web).
+1. Seleccione **Deploy Web Service [New]** (Implementar servicio web [Nuevo]). El portal Servicios web de Machine Learning se abre en la página **Deploy Web service** (Implementar servicio web).
 1. Escriba un nombre para el servicio web y elija un plan de pago.
 1. Seleccione **Implementar**.
 
@@ -70,7 +70,7 @@ Use los pasos siguientes para llamar a las API de nuevo entrenamiento:
 
 Agregue el paquete NuGet Microsoft.AspNet.WebApi.Client tal como se especifica en los comentarios. Para agregar la referencia a Microsoft.WindowsAzure.Storage.dll, puede que deba instalar la [biblioteca de cliente para servicios de Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-La siguiente captura de pantalla muestra la página **Consumo** en el portal de servicios de web de Azure Machine Learning.
+En la captura de pantalla siguiente se muestra la página **Consume** (Consumo) del portal de servicios de web Machine Learning.
 
 ![Página Consumo](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
@@ -161,7 +161,7 @@ Type : Microsoft.MachineLearning/webServices
 Tags : {}
 ```
 
-Como alternativa, para determinar el nombre del grupo de recursos de un servicio web existente, inicie sesión en el portal de servicios web de Azure Machine Learning. Seleccione el servicio web. El nombre del grupo de recursos es el quinto elemento de la dirección URL del servicio web, justo después del elemento *resourceGroups* . En el ejemplo siguiente, el nombre del grupo de recursos es Default-MachineLearning-SouthCentralUS.
+Como alternativa, para determinar el nombre del grupo de recursos de un servicio web existente, inicie sesión en el portal de servicios web de Machine Learning. Seleccione el servicio web. El nombre del grupo de recursos es el quinto elemento de la dirección URL del servicio web, justo después del elemento *resourceGroups* . En el ejemplo siguiente, el nombre del grupo de recursos es Default-MachineLearning-SouthCentralUS.
 
 `https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237`
 

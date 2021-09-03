@@ -4,15 +4,15 @@ description: En este artículo se explica cómo usar el control de acceso basado
 keywords: automatización de rbac, control de acceso basado en roles, rbac de azure
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2020
+ms.date: 06/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 943fa65f114e46c80c8c1ef576f784f9117c9f79
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5484f1fb798022e59e71f153d087a880bca5c983
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083807"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032568"
 ---
 # <a name="manage-role-permissions-and-security"></a>Administración de seguridad y permisos de roles
 
@@ -102,7 +102,7 @@ La siguiente tabla muestra los permisos concedidos para el rol:
 
 ### <a name="automation-job-operator"></a>Operador de trabajos de Automation
 
-El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuenta de Automation. Esto permite a los roles con permiso de Operador crear y administrar trabajos para todos los runbooks de la cuenta. Si a la función de operador de trabajo se le conceden permisos de lectura en el grupo de recursos que contiene la cuenta de Automation, los miembros del rol tendrán la capacidad de iniciar runbooks. Sin embargo, no tienen la capacidad de crearlos, modificarlos ni eliminarlos.
+El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuenta de Automation. Esto permite a los roles con permiso de Operador crear y administrar trabajos para todos los runbooks de la cuenta. Si a la función de operador de trabajo se le conceden permisos de lectura en el grupo de recursos que contiene la cuenta de Automation, los miembros del rol tendrán la capacidad de iniciar runbooks. Pero no tienen la capacidad de crearlos, modificarlos ni eliminarlos.
 
 La siguiente tabla muestra los permisos concedidos para el rol:
 
@@ -258,13 +258,93 @@ En las secciones siguientes se describen los permisos mínimos necesarios para h
 |Crear o editar búsqueda guardada     | Microsoft.OperationalInsights/workspaces/write           | Área de trabajo        |
 |Crear o editar la configuración de ámbito  | Microsoft.OperationalInsights/workspaces/write   | Área de trabajo|
 
-## <a name="update-management-permissions"></a>Permisos de administración de actualizaciones
+## <a name="custom-azure-automation-contributor-role"></a>Rol Colaborador de Azure Automation personalizado
 
-La administración de actualizaciones cubre varios servicios para proporcionar su servicio. La siguiente tabla muestra los permisos necesarios para administrar las implementaciones de administración de actualizaciones:
+Microsoft quiere quitar los derechos de la cuenta de Automation del rol Colaborador de Log Analytics. Actualmente, el rol integrado [Colaborador de Log Analytics](#log-analytics-contributor) descrito antes puede escalar los privilegios al rol [Colaborador](./../role-based-access-control/built-in-roles.md#contributor) de la suscripción. Como las cuentas de ejecución de la cuenta de Automation se configuran inicialmente con derechos de Colaborador en la suscripción, un atacante puede usarla para crear runbooks y ejecutar código como Colaborador en la suscripción.
+
+Debido a este riesgo de seguridad, se recomienda no utilizar el rol Colaborador de Log Analytics para ejecutar trabajos de Automation. En su lugar, cree el rol personalizado Colaborador de Azure Automation y utilícelo para las acciones relacionadas con la cuenta de Automation. Siga estos pasos para crear este rol personalizado.
+
+### <a name="create-using-the-azure-portal"></a>Creación mediante Azure Portal
+
+Siga estos pasos para crear un rol personalizado de Azure Automation en Azure Portal. Si quiere obtener más información, vea [Roles personalizados de Azure](./../role-based-access-control/custom-roles.md).
+
+1. Copie y pegue la siguiente sintaxis JSON en un archivo. Guarde el archivo en la máquina local o en una cuenta de almacenamiento de Azure. En el archivo JSON, reemplace el valor de la propiedad **assignableScopes** por el GUID de la suscripción.
+
+   ```json
+   {
+    "properties": {
+        "roleName": "Automation account Contributor (custom)",
+        "description": "Allows access to manage Azure Automation and its resources",
+        "type": "CustomRole",
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Insights/metrics/read",
+                    "Microsoft.Insights/diagnosticSettings/*",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Automation/automationAccounts/*",
+                    "Microsoft.Support/*"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ],
+        "assignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ]
+      }
+   }
+   ```
+
+1. Complete los pasos restantes como se describe en [Creación o actualización de roles personalizados de Azure mediante Azure Portal](../role-based-access-control/custom-roles-portal.md#start-from-json). En [Paso 3: Datos básicos](../role-based-access-control/custom-roles-portal.md#step-3-basics), tenga en cuenta lo siguiente:
+
+    -  En el campo **Nombre del rol personalizado**, escriba **Colaborador de la cuenta de Automation (personalizado)** o un nombre que coincida con los estándares de nomenclatura.
+    - En **Permisos de línea base**, seleccione **Iniciar desde JSON**. Después, seleccione el archivo JSON personalizado que ha guardado antes.
+
+1. Complete los pasos restantes y, después, revise y cree el rol personalizado. El rol personalizado puede tardar unos minutos en aparecer en todas partes.
+
+### <a name="create-using-powershell"></a>Creación mediante PowerShell
+
+Siga estos pasos para crear el rol personalizado de Azure Automation con PowerShell. Si quiere obtener más información, vea [Roles personalizados de Azure](./../role-based-access-control/custom-roles.md).
+
+1. Copie y pegue la siguiente sintaxis JSON en un archivo. Guarde el archivo en la máquina local o en una cuenta de almacenamiento de Azure. En el archivo JSON, reemplace el valor de la propiedad **AssignableScopes** por el GUID de la suscripción.
+
+    ```json
+    { 
+        "Name": "Automation account Contributor (custom)",
+        "Id": "",
+        "IsCustom": true,
+        "Description": "Allows access to manage Azure Automation and its resources",
+        "Actions": [
+            "Microsoft.Authorization/*/read",
+            "Microsoft.Insights/alertRules/*",
+            "Microsoft.Insights/metrics/read",
+            "Microsoft.Insights/diagnosticSettings/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/subscriptions/resourceGroups/read",
+            "Microsoft.Automation/automationAccounts/*",
+            "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "AssignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ] 
+    } 
+    ```
+
+1. Complete los pasos restantes como se describe en [Creación o actualización de roles personalizados de Azure mediante Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). El rol personalizado puede tardar unos minutos en aparecer en todas partes.
+
+## <a name="update-management-permissions"></a>Permisos de Update Management
+
+Update Management se puede usar para evaluar y programar implementaciones de actualizaciones en máquinas de varias suscripciones en el mismo inquilino de Azure Active Directory (Azure AD) o distintos inquilinos mediante Azure Lighthouse. En la tabla siguiente se muestran los permisos necesarios para administrar las implementaciones de actualizaciones.
 
 |**Recurso** |**Rol** |**Ámbito** |
 |---------|---------|---------|
-|Cuenta de Automation |Colaborador de Log Analytics |Cuenta de Automation |
+|Cuenta de Automation |[Rol Colaborador de Azure Automation personalizado](#custom-azure-automation-contributor-role) |Cuenta de Automation |
 |Cuenta de Automation |Colaborador de la máquina virtual  |Grupo de recursos para la cuenta  |
 |Colaborador de Log Analytics en el área de trabajo de Log Analytics|Área de trabajo de Log Analytics |
 |Área de trabajo de Log Analytics |Lector de Log Analytics|Subscription|
@@ -400,7 +480,7 @@ En el ejemplo anterior, reemplace `sign-in ID of a user you wish to remove`, `Su
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>Experiencia del usuario en el rol Operador de Automation: cuenta de Automation
 
-Cuando un usuario asignado al rol Operador de Automation en el ámbito de la cuenta de Automation vea la cuenta de Automation a la que está asignado, solo verá la lista de runbooks, los trabajos de runbook y las programaciones creados en la cuenta de Automation. Este usuario no puede ver las definiciones de estos elementos. El usuario puede iniciar, detener, suspender, reanudar o programar el trabajo de runbook. Sin embargo, el usuario no tiene acceso a otros recursos de Automation como configuraciones, grupos de Hybrid Worker o nodos de DSC.
+Cuando un usuario asignado al rol Operador de Automation en el ámbito de la cuenta de Automation vea la cuenta de Automation a la que está asignado, solo verá la lista de runbooks, los trabajos de runbook y las programaciones creados en la cuenta de Automation. Este usuario no puede ver las definiciones de estos elementos. El usuario puede iniciar, detener, suspender, reanudar o programar el trabajo de runbook. Pero el usuario no tiene acceso a otros recursos de Automation como configuraciones, grupos de Hybrid Runbook Worker o nodos de DSC.
 
 ![Sin acceso a los recursos](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 

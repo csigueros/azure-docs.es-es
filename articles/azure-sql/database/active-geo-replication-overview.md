@@ -11,12 +11,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 04/28/2021
-ms.openlocfilehash: 820c69135acbecde8c2c918e26a7b8cf9dc69428
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1ab4655df0233fdea13f507f8b80b5caa92dc9d6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699885"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284354"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creación y uso de la replicación geográfica activa: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,8 +25,9 @@ La replicación geográfica activa es una característica de Azure SQL Database 
 
 > [!NOTE]
 > La replicación geográfica activa para Hiperescala de Azure SQL [ahora se encuentra en versión preliminar pública](https://aka.ms/hsgeodr). Entre las limitaciones actuales se incluyen: solo se admite una base de datos de replicación geográfica secundaria en la misma región o en otra diferente, actualmente no se admite la conmutación por error forzada ni planeada, no se admite la restauración de la base de datos a partir de una base de datos de replicación geográfica secundaria y tampoco se admite el uso de una base de datos de replicación geográfica secundaria como base de datos de origen para la copia de base de datos ni como base de datos de replicación geográfica principal para otra secundaria.
-> En caso de que necesite que la base de datos secundaria geográfica se pueda escribir, puede hacerlo mediante la separación del vínculo de replicación geográfica con los pasos siguientes:
-> 1. Convierta la base de datos secundaria en una base de datos independiente de lectura y escritura mediante el cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary). Se perderán todos los cambios de datos confirmados en la base de datos principal que no se hayan replicado todavía en la secundaria. Estos cambios se pueden recuperar cuando la base de datos principal anterior está disponible o, en algunos casos, mediante la restauración de la base de datos principal anterior al punto más reciente disponible en el tiempo.
+> 
+> En caso de que necesite convertir la base de datos secundaria geográfica en principal (base de datos grabable), siga estos pasos:
+> 1. Divida el vínculo de replicación geográfica mediante el cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) de PowerShell o [az sql db replica delete-link](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_delete_link) para la CLI de Azure; esto convertirá la base de datos secundaria en una base independiente de lectura y escritura. Se perderán todos los cambios de datos confirmados en la base de datos principal que no se hayan replicado todavía en la secundaria. Estos cambios se pueden recuperar cuando la base de datos principal anterior está disponible o, en algunos casos, mediante la restauración de la base de datos principal anterior al punto más reciente disponible en el tiempo.
 > 2. Si la base de datos principal anterior está disponible, elimínela y, a continuación, configure la replicación geográfica para la nueva base de datos principal (se establecerá una nueva base de datos secundaria). 
 > 3. Actualice las cadenas de conexión de la aplicación en consecuencia.
 
@@ -149,7 +150,9 @@ Para más información sobre los tamaños de proceso de SQL Database, consulte [
 ## <a name="cross-subscription-geo-replication"></a>Replicación geográfica entre suscripciones
 
 > [!NOTE]
-> No se admite la creación de una replicación geográfica en un servidor lógico en un inquilino de Azure diferente cuando la autenticación de [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) está activa (habilitada) en el servidor lógico principal o secundario.
+> No se admite la creación de una replicación geográfica en un servidor lógico en otro inquilino de Azure cuando la autenticación exclusiva de [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) para Azure SQL está activa (habilitada) en el servidor lógico principal o secundario.
+> [!NOTE]
+> Las operaciones de replicación geográfica entre suscripciones, incluida la configuración y la conmutación por error, solo se admiten por medio de comandos de SQL.
 
 Para configurar la replicación geográfica activa entre dos bases de datos que pertenecen a distintas suscripciones (ya sea en el mismo inquilino o en otro), debe seguir el procedimiento especial descrito en esta sección.  El procedimiento se basa en comandos SQL y requiere:
 

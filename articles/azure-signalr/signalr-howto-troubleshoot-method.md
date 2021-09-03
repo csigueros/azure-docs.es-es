@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: ed8775c6544791571746b0f3784a60ce2af0de7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a85e61536e04bd670cd49127f906c69727acc8e9
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726981"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113134986"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Solución de problemas de conectividad y entrega de mensajes
 
@@ -27,9 +27,17 @@ En primer lugar, debe comprobar desde Azure Portal con qué [ServiceMode](./conc
 
 * En el modo `Classic`, consulte la [solución de problemas del modo clásico.](#classic_mode_tsg)
 
-<a name="default_mode_tsg"></a>
+En segundo lugar, debe capturar seguimientos de servicio para solucionar problemas. Para obtener información sobre cómo capturar seguimientos, vea [Procedimiento para capturar seguimientos de servicio](#how-to-capture-service-traces).
 
 [¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
+## <a name="how-to-capture-service-traces"></a>Procedimiento para capturar seguimientos de servicio
+
+Para simplificar el proceso de solución de problemas, el servicio Azure SignalR proporciona una **herramienta de seguimiento activo** para exponer los seguimientos de servicio en las categorías de **conectividad** y **mensajería**. Los seguimientos incluyen, entre otros, eventos de conexión conectada o desconectada, y de mensajes recibidos o enviados. Con la **herramienta de seguimiento activo**, puede capturar, ver, ordenar, filtrar y exportar seguimientos activos. Para obtener más información, vea [Uso de la herramienta de seguimiento activo](./signalr-howto-troubleshoot-live-trace.md).
+
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
+<a name="default_mode_tsg"></a>
 
 ## <a name="default-mode-troubleshooting"></a>Solución de problemas del modo predeterminado
 

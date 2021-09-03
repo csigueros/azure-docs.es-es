@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b45af43c9a5c76169deaef08c91ea7a9e8670c1
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: c44336e41c173cffad28a52bed3c29ec13df497f
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371711"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323167"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Requisito de transferencia segura para garantizar conexiones seguras
 
@@ -29,7 +29,9 @@ Azure Policy proporciona una directiva integrada para garantizar que se requiere
 Se produce un error al establecer conexión con un recurso compartido de archivos de Azure a través de SMB sin cifrado cuando se requiere la transferencia segura para la cuenta de almacenamiento. Entre los ejemplos de conexiones no seguras se incluyen las realizadas a través de SMB 2.1 o SMB 3.x sin cifrado.
 
 > [!NOTE]
-> Dado que Azure Storage no admite HTTPS para los nombres de dominio personalizados, esta opción no se aplica cuando se utiliza un nombre de dominio personalizado. Y las cuentas de almacenamiento clásico no se admiten.
+> Dado que Azure Storage no admite HTTPS para los nombres de dominio personalizados, esta opción no se aplica cuando se utiliza un nombre de dominio personalizado.
+> 
+> Esta configuración de transferencia segura no se aplica a TCP. Las conexiones por medio del protocolo NFS 3.0 que admiten Azure Blob Storage con TCP, que no está protegido, se realizarán correctamente.  
 
 ## <a name="require-secure-transfer-in-the-azure-portal"></a>Requerir una transferencia segura en Azure Storage
 

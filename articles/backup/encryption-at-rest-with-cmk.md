@@ -4,12 +4,12 @@ description: Obtenga información sobre el modo en que Azure Backup le permite c
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48268af7ec4874d0e5c9ad3bb79a95307aba15b7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5a036d7808a365e7f4332d380246bfa17be8e6c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672173"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722657"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -286,11 +286,11 @@ Antes de continuar con la configuración de la protección, recomendamos encarec
 >[!IMPORTANT]
 > Antes de continuar con la configuración de la protección, debe haber completado **correctamente** los siguientes pasos:
 >
->1. Se creó el almacén de Backup.
+>1. Se creó el almacén de Recovery Services.
 >1. Se habilitó la identidad administrada asignada por el sistema del almacén de Recovery Services o se utilizó una identidad administrada asignada por el usuario para el almacén.
->1. Se asignaron permisos al almacén de copia de seguridad (o a la identidad administrada asignada por el usuario) para acceder a las claves de cifrado desde Key Vault.
+>1. Se asignaron permisos al almacén de Recovery Services (o a la identidad administrada asignada por el usuario) para acceder a las claves de cifrado desde Key Vault.
 >1. Se habilitó la eliminación temporal y la protección de purga para el almacén de Key Vault.
->1. Se asignó una clave de cifrado válida para el almacén de Backup.
+>1. Se asignó una clave de cifrado válida para el almacén de Recovery Services.
 >
 >Si se han confirmado todos los pasos anteriores, siga con la configuración de la copia de seguridad.
 

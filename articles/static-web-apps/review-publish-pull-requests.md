@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: d061eed42280fffa1ff7f53e43adb7b85a94ae0d
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 3869b18f580d0a12b2581554acf63258cb08f64a
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813225"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380687"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps"></a>Revisión de las solicitudes de incorporación de cambios en entornos de pre-producción en Azure Static Web Apps
 
@@ -33,7 +33,7 @@ El uso de entornos de preproducción ofrece muchas ventajas. Por ejemplo, puede:
 - Realizar comprobaciones de integridad antes de la implementación en producción.
 
 > [!NOTE]
-> Se permiten [hasta tres entornos de ensayos](quotas.md) a la vez.
+> Actualmente, las solicitudes de incorporación de cambios y los entornos de preproducción solo se admiten en implementaciones de Acciones de GitHub.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -104,12 +104,16 @@ Para verificar los cambios en producción, abra la dirección URL de producción
 
 ## <a name="limitations"></a>Limitaciones
 
-Actualmente, es posible acceder públicamente a las versiones de ensayo de la aplicación por su dirección URL, aunque el repositorio de GitHub sea privado.
+- Actualmente, es posible acceder públicamente a las versiones de ensayo de la aplicación por su dirección URL, aunque el repositorio de GitHub sea privado.
 
-> [!WARNING]
-> Tenga cuidado al publicar contenido confidencial en versiones de ensayo, ya que el acceso a los entornos de preproducción no está restringido.
+    > [!WARNING]
+    > Tenga cuidado al publicar contenido confidencial en versiones de ensayo, ya que el acceso a los entornos de preproducción no está restringido.
 
-El número de entornos de preproducción disponibles para cada aplicación implementada con Static Web Apps depende del nivel de SKU que esté usando. Por ejemplo, con el nivel Gratis, puede tener tres entornos de preproducción además del entorno de producción.
+- El número de entornos de preproducción disponibles para cada aplicación implementada con Static Web Apps depende del [plan de hospedaje](plans.md) que use. Por ejemplo, con el nivel Gratis, puede tener tres entornos de preproducción además del entorno de producción.
+
+- Los entornos de preproducción no están distribuidos geográficamente.
+
+- Actualmente, solo las implementaciones de Acciones de GitHub admiten los entornos de preproducción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

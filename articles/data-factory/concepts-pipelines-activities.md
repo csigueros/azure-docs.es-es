@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/19/2021
-ms.openlocfilehash: b86ae322999441fb4411854e8e11879907ed514f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 08/24/2021
+ms.openlocfilehash: 135d9235a94dd22311a804ee8c20046d2608a95c
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272048"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822225"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory-and-azure-synapse-analytics"></a>Canalizaciones y actividades en Azure Data Factory y Azure Synapse Analytics
 

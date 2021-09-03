@@ -1,31 +1,29 @@
 ---
-title: Descarga de los datos de uso diario y facturación de Azure
-description: En este artículo se describe cómo descargar o ver los datos de uso diario y la factura de facturación de Azure.
-keywords: factura, facturación, descarga de factura, factura de Azure, uso de Azure
+title: Descarga de los datos de factura de Azure
+description: En este artículo se describe cómo descargar o ver los datos de la factura de Azure.
+keywords: billing invoice,invoice download,azure invoice
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 07/28/2021
 ms.author: banders
-ms.openlocfilehash: a2f4bab7f0d2f28cdefcecd82ad9a2285cd9b41a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 14183a46085ca0da60f1abb5f6ba390b9d4c334a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451916"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745416"
 ---
-# <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
+# <a name="download-or-view-your-azure-billing-invoice"></a>Descargar o visualización de los datos de la factura de Azure
 
 En la mayoría de las suscripciones, puede descargar la factura desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o recibirla por correo electrónico. Si es cliente de Azure con un Contrato Enterprise (cliente de EA), no puede descargar las facturas de su organización. Las facturas se envían a la persona que se configuró para recibir las facturas de la inscripción.
 
-Si es usted un cliente de EA o tiene un [contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement), puede descargar el uso en [Azure Portal](https://portal.azure.com/).
+Solo determinados roles tienen permiso para obtener las facturas, como el administrador de la cuenta o el administrador de Enterprise. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](manage-billing-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
 
-Solo determinados roles tienen permiso para obtener la información de facturación y uso, como el administrador de la cuenta o el administrador de Enterprise. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](manage-billing-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
-
-Si tiene un contrato de cliente de Microsoft, debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para ver información de facturación y uso. Para más información acerca de los roles de facturación para los contratos de cliente de Microsoft, consulte [Tareas y roles del perfil de facturación](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Si tiene un contrato de cliente de Microsoft, debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para ver información de facturación. Para más información acerca de los roles de facturación para los contratos de cliente de Microsoft, consulte [Tareas y roles del perfil de facturación](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -115,54 +113,6 @@ Si tiene un contrato de cliente de Microsoft, puede optar por recibir la factura
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>Opción de no recibir las facturas del perfil de facturación por correo electrónico
 
 Puede optar por dejar de recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **Deshabilitar envío**. Todos los propietarios, colaboradores, lectores y administradores de facturación dejarán también de recibir la factura por correo electrónico. Si es lector, no puede cambiar la preferencia de factura por correo electrónico.
-
-## <a name="download-usage-in-azure-portal"></a>Descarga del uso en Azure Portal
-
- En la mayoría de las suscripciones, debe seguir estos pasos para encontrar el uso diario:
-
-1. Seleccione su suscripción en la [página Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal como [un usuario con acceso a las facturas](manage-billing-access.md).
-
-2. Seleccione **Facturas**.
-
-    ![Captura de pantalla que muestra la opción Facturación y uso](./media/download-azure-invoice-daily-usage-date/billingandusage.png)
-
-3. Haga clic en el botón Descargar del período de facturación que desee comprobar.
-
-4. Descargue un desglose diario de las cantidades consumidas y los gastos estimados haciendo clic en **Descargar CSV**.  La preparación del CSV puede tardar varios minutos en finalizar.
-
-### <a name="download-usage-for-ea-customers"></a>Descarga del uso para los clientes de EA
-
-Para ver y descargar los datos de uso como cliente de EA, debe ser administrador de Enterprise, o bien propietario de la cuenta o administrador de departamento con la directiva para ver los cargos habilitada.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Busque *Administración de costos + facturación*.
-1. Si tiene acceso a varias cuentas de facturación, seleccione el ámbito de facturación de su cuenta de Contrato Enterprise.
-1. Seleccione **Uso + cargos**.
-1. Seleccione **Descargar** para el mes que quiere descargar.
-
-### <a name="download-usage-for-your-microsoft-customer-agreement"></a>Descarga del uso para el contrato de cliente de Microsoft
-
-Para ver y descargar datos de uso de un perfil de facturación, debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación.
-
-#### <a name="download-usage-for-billed-charges"></a>Descarga del uso para los cargos facturados
-
-1. Busque **Administración de costos + facturación**.
-2. Seleccione un perfil de facturación.
-3. Seleccione **Facturas**.
-4. En la cuadrícula de la factura, busque la fila de la factura correspondiente a los datos de uso que quiere descargar.
-5. Haga clic en el botón de puntos suspensivos (`...`) al final de la fila.
-6. En el menú contextual de descarga, seleccione **Uso y cargos de Azure**.
-
-#### <a name="download-usage-for-open-charges"></a>Descarga del uso para los cargos abiertos
-
-También puede descargar el uso del mes hasta la fecha para el período de facturación actual; esto es, los cargos que aún no se han facturado.
-
-1. Busque **Administración de costos + facturación**.
-2. Seleccione un perfil de facturación.
-3. En la hoja **Información general**, haga clic en **Uso y cargos de Azure**.
-
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
-[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 08/09/2021
 ms.author: victorh
-ms.openlocfilehash: a23c02a406b7329f7c7cdbecba1e0c92b05d1e19
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 2b6e923bf7645e89434b461da47408be23f65f86
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860655"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634765"
 ---
 # <a name="use-azure-firewall-to-protect-azure-virtual-desktop-deployments"></a>Uso de Azure Firewall para proteger las implementaciones de Azure Virtual Desktop
 
@@ -44,7 +44,7 @@ Tendrá que crear una directiva de Azure Firewall y colecciones de reglas para r
 --- | --- | --- | --- | --- | --- | ---
 | Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | 80 | TCP |  Dirección IP | 169.254.169.254, 168.63.129.16
 | Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | 443 | TCP | Etiqueta de servicio | AzureCloud, WindowsVirtualDesktop
-| Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | 52 | TCP, UDP | Dirección IP | *
+| Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | 53 | TCP, UDP | Dirección IP | *
 
 
 ### <a name="create-application-rules"></a>Creación de reglas de aplicación 

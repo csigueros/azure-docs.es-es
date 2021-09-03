@@ -4,12 +4,12 @@ description: Use las características de implementación continua de Azure App S
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0018f1c74708035206a8a2bb9a540f00f98f43a4
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83123701"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321036"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
 
@@ -62,7 +62,7 @@ Para configurar la implementación continua de una aplicación de funciones exis
 Cuando finalice el proceso, todo el código del origen especificado se implementará en la aplicación. Hecho esto, los cambios en el origen de implementación desencadenarán una implementación de dichos cambios en la aplicación de funciones en Azure.
 
 > [!NOTE]
-> Después de configurar la integración continua, ya no podrá modificar los archivos de origen en el portal de Functions.
+> Después de configurar la integración continua, ya no podrá modificar los archivos de origen en el portal de Functions. Si originalmente ha publicado el código desde el equipo local, es posible que tenga que cambiar la configuración `WEBSITE_RUN_FROM_PACKAGE` de la aplicación de funciones a un valor de `0`. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

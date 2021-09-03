@@ -2,13 +2,13 @@
 title: 'Conceptos: interconectividad de red'
 description: Conozca los aspectos clave y los casos de uso de redes e interconectividad en Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: b3107ff85302e24e3c047ef0ea08f7a4b879b3be
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/28/2021
+ms.openlocfilehash: 91bd1bfc207a2fb08b644e4ecf54be7b254c39fa
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089603"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071967"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceptos de interconectividad y redes de Azure VMware Solution
 
@@ -20,7 +20,7 @@ Hay dos formas de interconectividad en la nube privada de Azure VMware Solution:
 
 - La [**interconectividad completa entre el entorno local y la nube privada**](#on-premises-interconnectivity) amplía la implementación básica solo de Azure para incluir la interconectividad entre el entorno local y las nubes privadas de Azure VMware Solution.
  
-En este artículo se tratan los conceptos clave que establecen las redes y la interconectividad, incluidos los requisitos y las limitaciones. En este artículo se proporciona la información necesaria para configurar correctamente las redes a fin de que funcionen con Azure VMware Solution.
+En este artículo se describen los conceptos clave que establecen las redes y la interconectividad, incluidos los requisitos y las limitaciones. Además, se proporciona la información necesaria para saber cómo trabajar con Azure VMware Solution para configurar la red.
 
 ## <a name="azure-vmware-solution-private-cloud-use-cases"></a>Casos de uso de la nube privada de Azure VMware Solution
 
@@ -45,7 +45,7 @@ En el diagrama siguiente se muestra la interconectividad de red básica establec
 - Acceso de entrada de cargas de trabajo que se ejecutan en una nube privada.
 
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Conectividad de red virtual básica a nube privada" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Diagrama en el que se muestra la interconectividad de red básica establecida en el momento de una implementación de nube privada de Azure VMware Solution." border="false":::
 
 ## <a name="on-premises-interconnectivity"></a>Interconectividad local
 
@@ -56,7 +56,7 @@ En el diagrama siguiente se muestra la interconectividad local a nube privada, q
 - vCenter vMotion frecuente o en frío entre el entorno local y Azure VMware Solution.
 - Acceso de administración desde el entorno local a la nube privada de Azure VMware Solution.
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Red virtual y conectividad de nube privada local completa" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Diagrama en el que se muestra la interconectividad entre la red virtual y el entorno local y la nube privada." border="false":::
 
 Para obtener una interconectividad total a la nube privada, debe habilitar ExpressRoute Global Reach y solicitar una clave de autorización y un identificador de emparejamiento privado de Global Reach en Azure Portal. La clave de autorización y el id. de emparejamiento se usan para establecer Global Reach entre un circuito ExpressRoute de la suscripción y el circuito ExpressRoute de la nube privada. Una vez vinculados, los dos circuitos ExpressRoute enrutan el tráfico de red entre los entornos locales a la nube privada. Para obtener más información sobre los procedimientos necesarios, vea el [tutorial para crear un emparejamiento de ExpressRoute Global Reach con una nube privada](tutorial-expressroute-global-reach-private-cloud.md).
 
@@ -69,7 +69,7 @@ Ahora que ha tratado estos conceptos de red e interconectividad de Azure VMware 
 
 - [Conceptos de almacenamiento de Azure VMware Solution](concepts-storage.md).
 - [Conceptos de identidad en Azure VMware Solution](concepts-identity.md)
-- [Habilitación del recurso de Azure VMware Solution](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [Habilitación del proveedor de recursos de Azure VMware Solution](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

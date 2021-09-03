@@ -2,18 +2,17 @@
 title: Aptitud cognitiva condicional
 titleSuffix: Azure Cognitive Search
 description: La aptitud condicional en Búsqueda cognitiva de Azure habilita el filtrado, la creación de valores predeterminados y la combinación de valores en una definición del conjunto de aptitudes.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: acd3a42051fa42821013424ab0410814968b6131
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666361"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860565"
 ---
 # <a name="conditional-cognitive-skill"></a>Aptitud cognitiva condicional
 
@@ -29,7 +28,7 @@ else
 ```
 
 > [!NOTE]
-> Esta aptitud no está enlazada a una API de Azure Cognitive Services y no se le cobrará por usarla. Sin embargo, debe [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) para invalidar la opción del recurso "Gratis", que tiene un límite de unos pocos enriquecimientos al día.
+> Esta capacidad no está enlazada a Cognitive Services. No es facturable y no tiene ningún requisito de clave de Cognitive Services.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ConditionalSkill

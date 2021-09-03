@@ -2,7 +2,6 @@
 title: Puertos y protocolos de comunicación de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: describe los protocolos de comunicación compatibles para las comunicaciones de dispositivo a nube y de nube a dispositivo, además de los números de puerto que deben estar abiertos.'
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -13,14 +12,14 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: e2578b47d27ef062d83ba8621a49e9a8f439897c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdc463c6af5d3a62897cebefc3bafb6dca3a8ce0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919032"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724401"
 ---
-# <a name="reference---choose-a-communication-protocol"></a>Referencia: elección de un protocolo de comunicación
+# <a name="choose-a-device-communication-protocol"></a>Elección de un protocolo de comunicación de dispositivos
 
 IoT Hub permite que los dispositivos usen los protocolos de comunicaciones de dispositivo siguientes:
 

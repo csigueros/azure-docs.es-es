@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01a8ec38ac6a52a2181834c416431c73285ac191
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519990"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581635"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Ejecución de scripts de Python en Azure Machine Learning Studio (clásico)
+# <a name="execute-python-machine-learning-scripts-in-machine-learning-studio-classic"></a>Ejecución de scripts de aprendizaje automático de Python en Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Python es una valiosa herramienta de la caja de herramientas de muchos científicos de datos. Se utiliza en cada etapa de flujos de trabajo típicos de aprendizaje automático, incluida la exploración de datos, la extracción de características, el entrenamiento y la validación del modelo, y la implementación.
 
-En este artículo se describe cómo puede usar el módulo Ejecutar script de Python para usar código Python en los experimentos de Azure Machine Learning Studio (clásico) y servicios web.
+En este artículo se describe cómo puede usar el módulo Ejecutar script de Python para usar código Python en los experimentos y servicios web de Machine Learning Studio (clásico).
 
 ## <a name="using-the-execute-python-script-module"></a>Uso del módulo Ejecutar script de Python
 
@@ -155,7 +155,7 @@ Aquí se muestra la función de Python usada para calcular las puntuaciones de i
 
 ![Función para clasificar características por puntuaciones](./media/execute-python-scripts/figure8.png)
 
-El siguiente experimento calcula y devuelve las puntuaciones de importancia de características en el conjunto de datos "Pima Indian Diabetes" en Azure Machine Learning Studio (clásico):
+El siguiente experimento calcula y devuelve las puntuaciones de importancia de características en el conjunto de datos "Pima Indian Diabetes" en Machine Learning Studio (clásico):
 
 ![Experimento para clasificar las características del conjunto de datos Diabetes mediante Python](./media/execute-python-scripts/figure9a.png)
 

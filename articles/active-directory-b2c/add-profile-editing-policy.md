@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d84756a2ae4f8897c42e1846e3a91dbb9f7ad7e1
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f019fdc64ca30954017afc34267dcef998cf5fb8
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257048"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112198843"
 ---
 # <a name="set-up-a-profile-editing-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de edición de perfil en Azure Active Directory B2C
 
@@ -48,9 +48,14 @@ Si desea permitir que los usuarios editen sus perfiles en la aplicación, debe u
 1. En la página **Crear un flujo de usuario**, seleccione el flujo de usuario **Edición de perfiles**. 
 1. En **Seleccione una versión**, elija **Recomendada** y, luego, seleccione **Crear**.
 1. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *profileediting1*.
-1. En **Proveedores de identidades**, seleccione **Registro por correo electrónico**.
-1. En **Atributos de usuario**, elija los atributos que desee que el cliente pueda modificar en su perfil. Por ejemplo, seleccione **Mostrar más** y elija los atributos y las notificaciones de **Nombre para mostrar** y **Puesto**. Haga clic en **OK**.
-1. Haga clic en **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
+1. En **Proveedores de identidades**, seleccione al menos un proveedor de identidades:
+
+   * En **Cuentas locales**, seleccione una de las opciones siguientes: **Email signin** (Inicio de sesión de correo electrónico), **User ID signin** (Inicio de sesión de usuario), **Phone signin** (Inicio de sesión de teléfono), **Phone/Email signin** (Inicio de sesión de teléfono o correo electrónico), **User ID/Email signin** (Inicio de sesión de id. de usuario o correo electrónico) o **None** (Ninguno). [Más información](sign-in-options.md).
+   * En **Proveedores de identidades sociales**, seleccione cualquiera de los proveedores de identidades sociales o empresariales externos que haya configurado. [Más información](add-identity-provider.md).
+1. En **Autenticación multifactor**, si quiere exigir a los usuarios que comprueben su identidad con un segundo método de autenticación, elija el tipo de método y cuándo aplicar la autenticación multifactor (MFA). [Más información](multi-factor-authentication.md).
+1. En **Acceso condicional**, si ha configurado directivas de acceso condicional para el inquilino de Azure AD B2C y quiere habilitarlas para este flujo de usuario, active la casilla **Aplicar directivas de acceso condicional**. No es necesario especificar un nombre de directiva. [Más información](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. En **Atributos de usuario**, elija los atributos que quiere que el cliente pueda modificar en su perfil. Para obtener la lista completa de valores, seleccione **Mostrar más**, elija los valores y, después, seleccione **Aceptar**.
+1. Seleccione **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
 
 ### <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 

@@ -3,12 +3,12 @@ title: Tipos de clase de ejemplo en Azure Lab Services | Microsoft Docs
 description: Proporciona algunos tipos de clases para los que puede configurar laboratorios mediante Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 81b3426446894b9dd7bfccc942e04c3d9a7ea492
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 0bdbca13fa699d12b566d9943e9e14efa3f37d51
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278765"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037515"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Información general sobre tipos de clase: Azure Lab Services
 
@@ -25,7 +25,7 @@ Para obtener más información sobre cómo configurar este tipo de laboratorio, 
 Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio de ArcMap\ArcGIS Desktop](class-type-arcgis.md).
 
 ## <a name="autodesk"></a>AutoDesk
-[AutoDesk](https://www.autodesk.com/) ofrece soluciones de software para arquitectura, ingeniería, construcción, diseño, fabricación, etc.  Estas soluciones se usan normalmente en clases de ingeniería y en el plan de estudios [Project Lead the Way](class-type-pltw.md).
+[Autodesk](https://www.autodesk.com/) ofrece soluciones de software para arquitectura, ingeniería, construcción, diseño, fabricación, etc.  Estas soluciones se usan normalmente en clases de ingeniería y en el plan de estudios [Project Lead the Way](class-type-pltw.md).
 
 Para obtener más información sobre cómo configurar este tipo de laboratorio, consulte [AutoDesk](class-type-autodesk.md).
 
@@ -44,12 +44,19 @@ Puede configurar un laboratorio centrado en el aprendizaje profundo en el proces
 
 Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural mediante Azure Lab Services](class-type-deep-learning-natural-language-processing.md).
 
-## <a name="ethical-hacking"></a>Piratería ética
+## <a name="ethical-hacking-with-hyper-v"></a>Piratería ética con Hyper-V
 Puede configurar un laboratorio para una clase que se centre en la parte forense de la piratería ética. Las pruebas de penetración son una práctica que usa la comunidad de piratería ética y que se producen cuando alguien intenta obtener acceso al sistema o a la red para mostrar los puntos vulnerables que un atacante malintencionado podría aprovechar.
 
 En una clase de piratería ética, los alumnos pueden aprender técnicas modernas para protegerse frente a los puntos vulnerables. Cada alumno obtiene una máquina virtual host de Windows Server que tiene dos máquinas virtuales anidadas: una máquina virtual con una imagen de [Metasploitable3](https://github.com/rapid7/metasploitable3) y otra con una imagen de [Kali Linux](https://www.kali.org/). La máquina virtual Metasploitable se usa para la explotación.  La máquina virtual Kali de Linux proporciona acceso a las herramientas necesarias para ejecutar tareas forenses.
 
 Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para impartir una clase de piratería ética](class-type-ethical-hacking.md).
+
+## <a name="ethical-hacking-with-virtualbox"></a>Piratería ética con VirtualBox
+Puede configurar un laboratorio para una clase que se centre en la parte forense de la piratería ética. Las pruebas de penetración son una práctica que usa la comunidad de piratería ética y que se producen cuando alguien intenta obtener acceso al sistema o a la red para mostrar los puntos vulnerables que un atacante malintencionado podría aprovechar.
+
+En una clase de piratería ética, los alumnos pueden aprender técnicas modernas para protegerse frente a los puntos vulnerables. Cada alumno obtiene una máquina virtual host de Windows Server que tiene dos máquinas virtuales anidadas: una con una imagen de [SEED Lab](https://seedsecuritylabs.org/) y otra con una imagen de [Kali Linux](https://www.kali.org/). La máquina virtual SEED se usa con fines de vulnerabilidad de seguridad.  La máquina virtual Kali de Linux proporciona acceso a las herramientas necesarias para ejecutar tareas forenses.
+
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para impartir una clase de piratería ética](class-type-ethical-hacking-virtualbox.md).
 
 ## <a name="matlab"></a>MATLAB
 [MATLAB](https://www.mathworks.com/products/matlab.html), que es la abreviatura de laboratorio de matrices, es una plataforma de programación de [MathWorks](https://www.mathworks.com/).  Combina la potencia del cálculo con una buena visualización, lo que lo convierte en una herramienta popular en los campos de matemáticas, ingeniería, física y química.
@@ -74,7 +81,7 @@ Para más información sobre cómo configurar este tipo de laboratorio, consulte
 ## <a name="shell-scripting-on-linux"></a>Generación de scripts en shell en Linux
 Puede configurar un laboratorio para enseñar el scripting de shell en Linux. El scripting es una parte útil de la administración del sistema que permite a los administradores evitar tareas repetitivas. En este escenario de ejemplo, la clase cubre scripts bash tradicionales y scripts mejorados. Los scripts mejorados son scripts que combinan comandos bash y Ruby. Este enfoque permite a Ruby pasar datos y comandos bash para interactuar con el shell.
 
-Los alumnos que sigan estas clases de scripting obtienen una máquina virtual Linux para conocer los aspectos básicos de Linux y también familiarizarse con el scripting de shell de bash. La máquina virtual Linux incluye el acceso al escritorio remoto habilitado y con los editores de texto [gedit](https://help.gnome.org/users/gedit/stable/) y [Visual Studio Code](https://code.visualstudio.com/) instalados.
+Los alumnos que sigan estas clases de scripting obtienen una máquina virtual Linux para conocer los aspectos básicos de Linux y también familiarizarse con el scripting de shell de bash. La máquina virtual Linux incluye el acceso al escritorio remoto habilitado y los editores de texto [Gedit](https://help.gnome.org/users/gedit/stable/) y [Visual Studio Code](https://code.visualstudio.com/) instalados.
 
 Para más información sobre cómo configurar este tipo de laboratorio, consulte [Scripting de shell en Linux](class-type-shell-scripting-linux.md).
 

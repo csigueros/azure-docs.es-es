@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 5e4351529fb7b6a66f554182a195bc26f79c0e2b
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: ee726074de4e4c8163c741ebd549636afaaef752
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889491"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750383"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET para Azure App Service
 
@@ -74,7 +74,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-Si implementa la aplicación utilizando paquetes Git o zip con la automatización de compilaciones activada, la automatización de compilaciones de App Service se ejecutará en este orden:
+Si implementa la aplicación mediante paquetes Git o zip [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation), la automatización de compilaciones de App Service se ejecutará en este orden:
 
 1. Se ejecuta un script personalizado, si se especifica en `PRE_BUILD_SCRIPT_PATH`.
 1. Se ejecuta `dotnet restore` para restaurar las dependencias de NuGet.
@@ -136,7 +136,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="deploy-multi-project-solutions"></a>Implementar soluciones de varios proyectos
 
-Cuando una solución de Visual Studio incluye varios proyectos, el proceso de publicación de Visual Studio ya incluye la selección del proyecto que se va a implementar. Cuando se implementa en el motor de implementación de App Service, como con Git o con implementación de archivo ZIP, con la automatización de compilación activada, el motor de implementación de App Service elige el primer sitio web o el proyecto de aplicación web que encuentra como aplicación de App Service. Para especificar el proyecto que App Service debe usar, especifique la configuración de la aplicación `PROJECT`. Por ejemplo, ejecute lo siguiente en [Cloud Shell](https://shell.azure.com):
+Cuando una solución de Visual Studio incluye varios proyectos, el proceso de publicación de Visual Studio ya incluye la selección del proyecto que se va a implementar. Al realizar la implementación en el motor de implementación de App Service, como con Git o con implementación de ZIP, [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation), el motor de implementación de App Service elige el primer sitio web o el proyecto de aplicación web que encuentra como aplicación de App Service. Para especificar el proyecto que App Service debe usar, especifique la configuración de la aplicación `PROJECT`. Por ejemplo, ejecute lo siguiente en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Detección de sesión de HTTPS
 
-En App Service, la [terminación de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si necesita que la lógica de aplicación sepa si las solicitudes del usuario están cifradas o no, configure el middleware de encabezados reenviados en *Startup.cs*:
+En App Service, la [terminación de TLS/SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a la aplicación como solicitudes HTTP sin cifrar. Si necesita que la lógica de aplicación sepa si las solicitudes del usuario están cifradas o no, configure el middleware de encabezados reenviados en *Startup.cs*:
 
 - Configure el middleware con [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto` en `Startup.ConfigureServices`.
 - Agregue intervalos de direcciones IP privadas a las redes conocidas, de modo que el middleware pueda confiar en el equilibrador de carga de App Service.
@@ -229,6 +229,10 @@ Para obtener más información, consulte [Configuración de ASP.NET Core para tr
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [P+F sobre App Service en Linux](faq-app-service-linux.md)
+> [P+F sobre App Service en Linux](faq-app-service-linux.yml)
 
 ::: zone-end
+
+O consulte estos recursos adicionales:
+
+[Referencia de variables de entorno y configuración de la aplicación](reference-app-settings.md)

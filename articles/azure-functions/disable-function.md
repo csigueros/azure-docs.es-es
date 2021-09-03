@@ -4,21 +4,18 @@ description: Aprenda a deshabilitar y a habilitar las funciones de Azure Functio
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: c4743603504639cba5c48af57046179a0680b371
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 9563c0843c56d9eff43c826298295ff0aedb9da1
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829886"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487586"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 
 En este artículo se explica cómo deshabilitar una función de Azure Functions. *Deshabilitar* una función implica que el entorno en tiempo de ejecución omita el desencadenador automático que se ha definido para esa función. Esto le permite evitar que una función específica se ejecute sin detener toda la aplicación de funciones.
 
 La forma recomendada de deshabilitar una función es mediante una configuración de aplicación en el formato `AzureWebJobs.<FUNCTION_NAME>.Disabled` que se establece en `true`. Puede crear y modificar esta configuración de aplicación de varias maneras. Por ejemplo, puede usar la [CLI de Azure](/cli/azure/) o la pestaña **Información general** de la función en [Azure Portal](https://portal.azure.com). 
-
-> [!NOTE]  
-> Cuando se deshabilita una función desencadenada mediante HTTP utilizando los métodos que se describen en este artículo, el punto de conexión puede seguir estando accesible si se ejecuta en el equipo local.  
 
 ## <a name="disable-a-function"></a>Deshabilitar una función
 
@@ -174,6 +171,13 @@ En el segundo ejemplo, la función se deshabilita cuando hay una configuración 
 >[!IMPORTANT]  
 >El portal ahora usa la configuración de la aplicación para deshabilitar las funciones de v1.x. Cuando un valor de configuración de la aplicación entra en conflicto con el archivo function.jason, puede producirse un error. Debe quitar la propiedad `disabled` del archivo function.json para evitar errores. 
 
+## <a name="considerations"></a>Consideraciones
+
+Tenga en cuenta las consideraciones siguientes al deshabilitar funciones:
+
++ Cuando se deshabilita una función desencadenada mediante HTTP utilizando los métodos que se describen en este artículo, el punto de conexión puede seguir estando accesible si se ejecuta en el equipo local.  
+
++ En este momento, los nombres de función que contienen un guion (`-`) no se pueden deshabilitar cuando se ejecutan en Linux en un plan dedicado (App Service). Si tiene que deshabilitar las funciones cuando se ejecutan en Linux en un plan dedicado, no use guiones en los nombres de función.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

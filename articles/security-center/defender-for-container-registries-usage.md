@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 286ce9b628eff0975cff1cfa006f914ed43c3c46
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 195e47ce7165a02c5bb7126521432d448e2199a9
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469685"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238812"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Uso de Azure Defender para registros de contenedor para examinar las imágenes en busca de vulnerabilidades
 
@@ -56,7 +56,7 @@ Para habilitar exámenes de vulnerabilidades de las imágenes almacenadas en la 
 
 1. Para ver los resultados, vaya a la página **Recomendaciones**. Si se encontraron problemas, verá la recomendación **Las vulnerabilidades de las imágenes de Azure Container Registry deben corregirse**.
 
-    ![Recomendación para corregir problemas ](media/monitor-container-security/acr-finding.png)
+    ![Recomendación para corregir problemas.](media/monitor-container-security/acr-finding.png)
 
 1. Seleccione la recomendación. 
 
@@ -70,23 +70,23 @@ Para habilitar exámenes de vulnerabilidades de las imágenes almacenadas en la 
 
 1. Seleccione un repositorio específico para ver los repositorios que contienen imágenes vulnerables.
 
-    ![Selección de un repositorio](media/monitor-container-security/acr-finding-select-repository.png)
+    ![Seleccione uno.](media/monitor-container-security/acr-finding-select-repository.png)
 
     Se abre la página Detalles del repositorio. Muestra las imágenes vulnerables junto con una evaluación de la gravedad de las conclusiones.
 
 1. Seleccione una imagen específica para ver las vulnerabilidades.
 
-    ![Selección de imágenes](media/monitor-container-security/acr-finding-select-image.png)
+    ![Seleccione imágenes.](media/monitor-container-security/acr-finding-select-image.png)
 
     Se abre la lista de resultados de la imagen seleccionada.
 
-    ![Lista de resultados](media/monitor-container-security/acr-findings.png)
+    ![Lista de resultados.](media/monitor-container-security/acr-findings.png)
 
 1. Para más información sobre un resultado, selecciónelo. 
 
     Se abre el panel de detalles de los resultados.
 
-    [![Panel de detalles de los resultados](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
+    [![Panel de detalles de los resultados.](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
 
     En este panel se incluye una descripción detallada del problema y vínculos a recursos externos para ayudar a mitigar las amenazas.
 
@@ -138,12 +138,12 @@ Para crear una regla:
 1. Defina los criterios.
 1. Seleccione **Aplicar regla**.
 
-    :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Creación de una regla de deshabilitación para los resultados de VA en el registro":::
+    :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Creación de una regla de deshabilitación para los resultados de VA en el registro.":::
 
 1. Para ver, invalidar o eliminar una regla: 
     1. Seleccione **Deshabilitar regla**.
     1. En la lista de ámbitos, las suscripciones con reglas activas se muestran como **Regla aplicada**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificación o eliminación de una regla existente":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificación o eliminación de una regla existente.":::
     1. Para ver o eliminar la regla, seleccione el menú de puntos suspensivos ("...").
 
 

@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: 3a1de2f0e35a3ef747818d7dea47ecacb2753cea
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 29ab3c33611b0f525b28fe51245edba377bae0b5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747282"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441433"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de la versión de Azure SQL Edge 
 
@@ -23,7 +23,7 @@ En este artículo se describen las novedades y los cambios en cada nueva versió
 
 ## <a name="azure-sql-edge-104"></a>Azure SQL Edge 1.0.4
 
-Número de versión del motor de SQL: 15.0.2000.1558
+Motor de SQL, compilación 15.0.2000.1559
 
 ### <a name="whats-new"></a>Novedades
 
@@ -32,7 +32,7 @@ Número de versión del motor de SQL: 15.0.2000.1558
 
 ## <a name="azure-sql-edge-103"></a>Azure SQL Edge 1.0.3
 
-Número de versión del motor de SQL: 15.0.2000.1554
+Motor de SQL, compilación 15.0.2000.1557
 
 ### <a name="fixes"></a>Correcciones
 
@@ -42,7 +42,7 @@ Número de versión del motor de SQL: 15.0.2000.1554
    
 ## <a name="azure-sql-edge-102"></a>Azure SQL Edge 1.0.2
 
-Número de versión del motor de SQL: 15.0.2000.1554
+Motor de SQL, compilación 15.0.2000.1557
 
 ### <a name="fixes"></a>Correcciones
 

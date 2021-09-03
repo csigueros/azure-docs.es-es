@@ -1,25 +1,31 @@
 ---
 title: Automatización de implementaciones de aplicaciones en Azure Spring Cloud
 description: Describe cómo usar la tarea de Azure Spring Cloud para Azure Pipelines.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/12/2021
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2df1c8f0e091e553e045efb8aea5665d29bbc53f
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 2ac965e54a66eb2489ae7a4bfa9cac363f494b4f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839336"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182511"
 ---
 # <a name="automate-application-deployments-to-azure-spring-cloud"></a>Automatización de implementaciones de aplicaciones en Azure Spring Cloud
 
+En este artículo se muestra cómo usar la [tarea de Azure Spring Cloud para Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) para implementar aplicaciones.
+
 Las herramientas de integración continua y entrega continua permiten implementar rápidamente las actualizaciones en las aplicaciones existentes con el mínimo esfuerzo y riesgo. Azure DevOps ayuda a organizar y controlar estos trabajos clave. 
 
-En este artículo se muestra cómo usar la [tarea de Azure Spring Cloud para Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) para implementar aplicaciones.
+En el vídeo siguiente se describe la automatización de un extremo a otro mediante las herramientas que prefiera, incluida Azure Pipelines.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/D2cfXAbUwDc?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Creación de una conexión de servicio de Azure Resource Manager
 
@@ -28,6 +34,7 @@ Lea [este artículo](/azure/devops/pipelines/library/connect-to-azure) para apre
 ## <a name="build-and-deploy-apps"></a>Compilación e implementación de aplicaciones
 
 ::: zone pivot="programming-language-csharp"
+
 ### <a name="deploy-artifacts"></a>Implementación de artefactos
 
 Puede compilar e implementar los proyectos mediante una serie de tareas. Este fragmento de código define variables, una tarea de .NET Core para compilar la aplicación y una tarea de Azure Spring Cloud para implementar la aplicación.
@@ -82,6 +89,7 @@ steps:
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
+
 ### <a name="deploy-artifacts"></a>Implementación de artefactos
 
 #### <a name="to-production"></a>En producción
@@ -109,7 +117,6 @@ steps:
 La implementación que se muestra en la sección anterior recibe inmediatamente el tráfico de la aplicación tras la implementación. A veces, los desarrolladores quieren probar sus aplicaciones en el entorno de producción, pero antes de que la aplicación reciba cualquier tráfico de cliente.
 
 El fragmento de código siguiente crea la aplicación de la misma manera que la anterior y, a continuación, la implementa en una implementación de almacenamiento provisional. En este ejemplo, la implementación de almacenamiento provisional ya debe existir. Para obtener un enfoque alternativo, consulte [Estrategias de implementación azul-verde](concepts-blue-green-deployment-strategies.md).
-
 
 ```yaml
 steps:
@@ -148,9 +155,9 @@ Se puede implementar directamente en Azure sin un paso de compilación independi
     DeploymentName: 'default'
     Package: $(Build.SourcesDirectory)
 ```
+
 ::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](./quickstart.md)
-

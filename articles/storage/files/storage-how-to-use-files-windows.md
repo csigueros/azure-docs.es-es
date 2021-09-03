@@ -1,5 +1,5 @@
 ---
-title: Uso de un recurso compartido de archivos de Azure con Windows | Microsoft Docs
+title: Montaje de un recurso compartido de archivos de Azure de SMB en Windows | Microsoft Docs
 description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server. Use recursos compartidos de archivos de Azure con SMB 3.x en instalaciones de Windows que se ejecuten de forma local o en máquinas virtuales de Azure.
 author: roygara
 ms.service: storage
@@ -8,42 +8,46 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31df90823591298a13dba725b7215031cad4bf8d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: fecf2ea565343ad2f91471ba1be98df513b55478
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064817"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115703"
 ---
-# <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
+# <a name="mount-smb-azure-file-share-on-windows"></a>Montaje de un recurso compartido de archivos de Azure de SMB en Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
 
-Para usar un recurso compartido de archivos de Azure fuera de la región de Azure en la que se hospeda, bien sea de forma local o en otra región de Azure, el sistema operativo debe admitir SMB 3.x. 
+Para usar un recurso compartido de archivos de Azure por medio del punto de conexión público fuera de la región de Azure en la que se hospeda, bien sea en el entorno local o en otra región de Azure, el sistema operativo debe admitir SMB 3.x. Las versiones anteriores de Windows que solo admiten SMB 2.1 no pueden montar recursos compartidos de archivos de Azure por medio del punto de conexión público.
 
-Puede usar recursos compartidos de archivos de Azure en una instalación de Windows que se ejecute en una máquina virtual de Azure o en el entorno local. En la tabla siguiente se ilustran las versiones del sistema operativo que admiten el acceso a recursos compartidos de archivos en cada entorno:
+| Versión de Windows | Versión de SMB | Cifrado máximo del canal SMB |
+|-|-|-|-|
+| Windows 10, versión 21H1 | SMB 3.1.1 | AES-256-GCM |
+| Canal semianual de Windows Server, versión 21H1 | SMB 3.1.1 | AES-256-GCM |
+| Windows Server 2019 | SMB 3.1.1 | AES-128-GCM |
+| Windows 10<br />Versiones: 1607, 1809, 1909, 2004 y 20H2 | SMB 3.1.1 | AES-128-GCM |
+| Canal semianual de Windows Server<br />Versiones: 2004 y 20H2 | SMB 3.1.1 | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | AES-128-GCM |
+| Windows 10, versión 1507 | SMB 3.0 | AES-128-GCM |
+| Windows 8.1 | SMB 3.0 | AES-128-CCM |
+| Windows Server 2012 R2 | SMB 3.0 | AES-128-CCM |
+| Windows Server 2012 | SMB 3.0 | AES-128-CCM |
+| Windows 7<sup>1</sup> | SMB 2.1 | No compatible |
+| Windows Server 2008 R2<sup>1</sup> | SMB 2.1 | No compatible |
 
-| Versión de Windows        | Versión de SMB | Se puede montar en una máquina virtual de Azure | Se puede montar en el entorno local |
-|------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.1.1 | Sí | Sí |
-| Windows 10<sup>1</sup> | SMB 3.1.1 | Sí | Sí |
-| Canal semestral de Windows Server<sup>2</sup> | SMB 3.1.1 | Sí | Sí |
-| Windows Server 2016 | SMB 3.1.1 | Sí | Sí |
-| Windows 10, versión 1507 | SMB 3.0 | Sí | Sí |
-| Windows 8.1 | SMB 3.0 | Sí | Sí |
-| Windows Server 2012 R2 | SMB 3.0 | Sí | Sí |
-| Windows Server 2012 | SMB 3.0 | Sí | Sí |
-| Windows 7<sup>3</sup> | SMB 2.1 | Sí | No |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sí | No |
-
-<sup>1</sup>Windows 10, versiones 1607, 1809, 1909, 2004 y 20H2  
-<sup>2</sup>Windows Server, versiones 2004 y 20H2.  
-<sup>3</sup>Finalizó el soporte técnico habitual de Microsoft para Windows 7 y Windows Server 2008 R2. Es posible adquirir soporte técnico adicional para las actualizaciones de seguridad solo a través del programa [Actualización de seguridad extendida (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Se recomienda encarecidamente migrar de estos sistemas operativos.
+<sup>1</sup>El soporte técnico habitual de Microsoft para Windows 7 y Windows Server 2008 R2 ha finalizado. Es posible adquirir soporte técnico adicional para las actualizaciones de seguridad solo a través del programa [Actualización de seguridad extendida (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Se recomienda encarecidamente migrar de estos sistemas operativos.
 
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
+## <a name="prerequisites"></a>Requisitos previos 
 Asegúrese de que el puerto 445 esté abierto: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Puede comprobar si el firewall está bloqueando el puerto 445 con el cmdlet `Test-NetConnection`. Para obtener información sobre las formas de solucionar un puerto 445 bloqueado, vea la sección [Causa 1: el puerto 445 está bloqueado](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) de nuestra guía de solución de problemas de Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
@@ -123,82 +127,6 @@ Puede seleccionar **Abrir** para abrir una instantánea concreta.
 Haga clic en **Restaurar** para copiar el contenido de todo un directorio de forma recursiva en el momento de la creación de la instantánea del recurso compartido en la ubicación original.
 
  ![Botón Restaurar en mensaje de advertencia](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
-
-## <a name="securing-windowswindows-server"></a>Protección de Windows y Windows Server
-Para montar un recurso compartido de archivos de Azure en Windows, el puerto 445 debe estar accesible. Muchas organizaciones bloquean este puerto debido a los riesgos de seguridad inherentes a SMB 1. SMB 1, también conocido como CIFS (Sistema de archivos de Internet común), es un protocolo de sistema de archivos heredado que se incluye con Windows y Windows Server. SMB 1 es un protocolo obsoleto, ineficaz y, lo más importante, no seguro. La buena noticia es que Azure Files no admite SMB 1, y todas las versiones admitidas de Windows y Windows Server permiten quitar o deshabilitar SMB 1. Siempre se [recomienda firmemente](https://aka.ms/stopusingsmb1) quitar o deshabilitar el cliente y el servidor de SMB 1 en Windows antes de usar los recursos compartidos de archivos de Azure en producción.
-
-En la tabla siguiente se proporciona información detallada sobre el estado de SMB 1 de cada versión de Windows:
-
-| Versión de Windows                           | Estado predeterminado de SMB 1 | Método "deshabilitar o quitar"       | 
-|-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019                       | Disabled             | Quitar con la característica de Windows |
-| Windows Server, versiones 1709 +            | Disabled             | Quitar con la característica de Windows |
-| Windows 10, versiones 1709 +                | Disabled             | Quitar con la característica de Windows |
-| Windows Server 2016                       | habilitado              | Quitar con la característica de Windows |
-| Windows 10, versiones 1507, 1607 y 1703 | habilitado              | Quitar con la característica de Windows |
-| Windows Server 2012 R2                    | habilitado              | Quitar con la característica de Windows | 
-| Windows 8.1                               | habilitado              | Quitar con la característica de Windows | 
-| Windows Server 2012                       | habilitado              | Deshabilitar con el Registro       | 
-| Windows Server 2008 R2                    | habilitado              | Deshabilitar con el Registro       |
-| Windows 7                                 | habilitado              | Deshabilitar con el Registro       | 
-
-### <a name="auditing-smb-1-usage"></a>Auditoría del uso de SMB 1
-> Se aplica a Windows Server 2019, el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016, Windows 10 (versiones 1507, 1607, 1703, 1709 y 1803), Windows Server 2012 R2 y Windows 8.1.
-
-Antes de quitar SMB 1 de su entorno, quizás quiera auditar su uso para ver si el cambio interrumpirá a los clientes. Si las solicitudes se realizan con respecto a recursos compartidos de SMB con SMB 1, se registrará un evento de auditoría en el registro de eventos en `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
-
-> [!Note]  
-> Para habilitar la compatibilidad con auditoría en Windows Server 2012 R2 y Windows 8.1, instale al menos [KB4022720](https://support.microsoft.com/help/4022720/windows-8-1-windows-server-2012-r2-update-kb4022720).
-
-Para habilitar la auditoría, ejecute el siguiente cmdlet desde una sesión de PowerShell con privilegios elevados:
-
-```powershell
-Set-SmbServerConfiguration –AuditSmb1Access $true
-```
-
-### <a name="removing-smb-1-from-windows-server"></a>Eliminación de SMB 1 de Windows Server
-> Se aplica a Windows Server 2019, el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016 y Windows Server 2012 R2.
-
-Para quitar SMB 1 de una instancia de Windows Server, ejecute el siguiente cmdlet desde una sesión de PowerShell con privilegios elevados:
-
-```powershell
-Remove-WindowsFeature -Name FS-SMB1
-```
-
-Para completar el proceso de eliminación, reinicie el servidor. 
-
-> [!Note]  
-> A partir de Windows 10 y Windows Server versión 1709, SMB 1 no está instalado de forma predeterminada y las características de Windows para el cliente de SMB 1 y el servidor de SMB 1 son diferentes. Se recomienda siempre dejar sin instalar el servidor de SMB 1 (`FS-SMB1-SERVER`) y el cliente de SMB 1 (`FS-SMB1-CLIENT`).
-
-### <a name="removing-smb-1-from-windows-client"></a>Eliminación de SMB 1 del cliente de Windows
-> Se aplica a Windows 10 (versiones 1507, 1607, 1703, 1709 y 1803) y Windows 8.1.
-
-Para quitar SMB 1 del cliente de Windows, ejecute el siguiente cmdlet desde una sesión de PowerShell con privilegios elevados:
-
-```powershell
-Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
-```
-
-Para completar el proceso de eliminación, reinicie el equipo.
-
-### <a name="disabling-smb-1-on-legacy-versions-of-windowswindows-server"></a>Deshabilitación de SMB 1 en versiones heredadas de Windows y Windows Server
-> Se aplica a Windows Server 2012, Windows Server 2008 R2 y Windows 7.
-
-No se puede quitar completamente SMB 1 en versiones heredadas de Windows y Windows Server, pero se puede deshabilitar mediante el Registro. Para deshabilitar SMB 1, cree una nueva clave del Registro `SMB1` de tipo `DWORD` con un valor de `0` en `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters`.
-
-Esto lo puede hacer fácilmente también con el siguiente cmdlet de PowerShell:
-
-```powershell
-Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
-```
-
-Después de crear esta clave del Registro, debe reiniciar el servidor para deshabilitar SMB 1.
-
-### <a name="smb-resources"></a>Recursos de SMB
-- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Dejar de usar SMB1)
-- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/) (Centro de enrutamiento de productos de SMB 1)
-- [Discover SMB 1 in your environment with DSCEA](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea) (Detección de SMB 1 en el entorno con DSCEA)
-- [Disabling SMB 1 through Group Policy](/archive/blogs/secguide/disabling-smbv1-through-group-policy) (Deshabilitación de SMB 1 mediante directiva de grupo)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para más información sobre Azure Files:

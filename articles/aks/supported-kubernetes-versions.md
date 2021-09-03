@@ -3,19 +3,20 @@ title: Versiones de Kubernetes compatibles en Azure Kubernetes Service
 description: Obtener información sobre la directiva de soporte técnico de la versión de Kubernetes y el ciclo de vida de los clústeres en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f2f1c01ec323452997f5e7ab8f20e13e1d572a72
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8e883c92e2ce8d64c30aeb6c8a747c18935d36e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438205"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748907"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
-La Comunidad de Kubernetes libera versiones secundarias aproximadamente cada tres meses. Recientemente, la comunidad de Kubernetes ha [aumentado el período de soporte técnico de todas las versiones de 9 a 12 meses](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), a partir de la versión 1.19. 
+La Comunidad de Kubernetes libera versiones secundarias aproximadamente cada tres meses. Recientemente, la comunidad de Kubernetes ha [aumentado el período de soporte técnico de todas las versiones de 9 a 12 meses](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), a partir de la versión 1.19.
 
 Las versiones secundarias incluyen nuevas características y mejoras. Las versiones de revisión son más frecuentes (a veces semanales) y están previstas para correcciones de errores críticos en una versión secundaria. Las versiones de revisión incluyen correcciones para vulnerabilidades de seguridad o errores importantes.
 
@@ -100,7 +101,15 @@ Puede usar una versión secundaria de `kubectl` que sea inmediatamente anterior 
 
 Por ejemplo, si la versión de *kube-apiserver* es *1.17*, puede usar las versiones de `kubectl` comprendidas entre *1.16* y *1.18* con esa versión de *kube-apiserver*.
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Para instalar o actualizar la versión de `kubectl`, ejecute `az aks install-cli`.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Para instalar o actualizar la versión de `kubectl`, ejecute [Install-AzAksKubectl][install-azakskubectl].
+
+---
 
 ## <a name="release-and-deprecation-process"></a>Proceso de publicación y desuso
 
@@ -113,7 +122,7 @@ En el caso de las nuevas versiones **secundarias** de Kubernetes:
 
     > [!NOTE]
     > Para averiguar quién es el administrador de la suscripción o cambiarlo, consulte [Administración de suscripciones de Azure](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-    
+
   * Los usuarios tienen **30 días** a partir de la eliminación de una versión para actualizar a una versión secundaria compatible para seguir recibiendo soporte técnico.
 
 En el caso de las nuevas versiones de **revisión** de Kubernetes:
@@ -129,7 +138,9 @@ Se pueden omitir versiones de revisión concretas o se puede acelerar su lanzami
 
 ## <a name="azure-portal-and-cli-versions"></a>Versiones de Azure Portal y CLI
 
-Cuando se implementa un clúster de AKS en Azure Portal o con la CLI de Azure, los valores predeterminados del clúster son la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS admite *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* y *1.15.f*, la versión predeterminada seleccionada es la *1.16.c*.
+Cuando se implementa un clúster de AKS en Azure Portal, con la CLI de Azure o con Azure PowerShell, los valores predeterminados del clúster son la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS admite *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* y *1.15.f*, la versión predeterminada seleccionada es la *1.16.c*.
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para averiguar qué versiones están disponibles actualmente para su suscripción y región, utilice el comando [az aks get-versions][az-aks-get-versions]. En el ejemplo siguiente se enumeran las versiones de Kubernetes disponibles para la región *EastUS*:
 
@@ -137,16 +148,27 @@ Para averiguar qué versiones están disponibles actualmente para su suscripció
 az aks get-versions --location eastus --output table
 ```
 
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Para averiguar qué versiones están disponibles actualmente para su suscripción y región, utilice el cmdlet [Get-AzAksVersion][get-azaksversion]. En el ejemplo siguiente se enumeran las versiones de Kubernetes disponibles para la región *EastUS*:
+
+```azurepowershell-interactive
+Get-AzAksVersion -Location eastus
+```
+
+---
+
 ## <a name="aks-kubernetes-release-calendar"></a>Calendario de publicación de AKS Kubernetes
 
 Para ver el historial de versiones anteriores, vea [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  Versión de K8s | Versión anterior  | Versión preliminar de AKS  | Disponibilidad general de AKS  | Final de la vida útil |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | *1.21 disponibilidad general | 
-| 1.19  | 4 de agosto de 2020  | Septiembre de 2020   | Noviembre de 2020  | 1.22 disponibilidad general | 
+| 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | *1.21 disponibilidad general |
+| 1.19  | 4 de agosto de 2020  | Septiembre de 2020   | Noviembre de 2020  | 1.22 disponibilidad general |
 | 1.20  | 8 de diciembre de 2020  | Enero de 2021   | Marzo de 2021  | 1.23 Disponibilidad general |
-| 1.21  | 8 de abril de 2021 | Mayo de 2021   | Junio de 2021  | 1.24 disponibilidad general |
+| 1.21  | 8 de abril de 2021 | Mayo de 2021   | Julio de 2021  | 1.24 disponibilidad general |
 | 1,22  | 4 de agosto de 2021 | Septiembre de 2021   | Octubre de 2021  | 1.25 disponibilidad general |
 | 1.23  | Diciembre de 2021 | Enero de 2022   | Febrero de 2022  | 1.26 disponibilidad general |
 
@@ -160,11 +182,11 @@ Para ver el historial de versiones anteriores, vea [Kubernetes](https://en.wikip
 
 **¿Cómo me notifica Microsoft las nuevas versiones de Kubernetes?**
 
-El equipo de AKS publica anuncios previos con las fechas planeadas de las nuevas versiones de Kubernetes en nuestra documentación, en [GitHub,](https://github.com/Azure/AKS/releases) así como en los correos electrónicos a los administradores de suscripciones que poseen clústeres que van a dejar de recibir soporte técnico.  Además de los anuncios, AKS también usa [Azure Advisor](../advisor/advisor-overview.md) para notificar al cliente de Azure Portal que alerte a los usuarios si no tienen soporte técnico, así como alertarlos de las API en desuso que afectarán a su aplicación o proceso de desarrollo. 
+El equipo de AKS publica anuncios previos con las fechas planeadas de las nuevas versiones de Kubernetes en nuestra documentación, en [GitHub,](https://github.com/Azure/AKS/releases) así como en los correos electrónicos a los administradores de suscripciones que poseen clústeres que van a dejar de recibir soporte técnico.  Además de los anuncios, AKS también usa [Azure Advisor](../advisor/advisor-overview.md) para notificar al cliente de Azure Portal que alerte a los usuarios si no tienen soporte técnico, así como alertarlos de las API en desuso que afectarán a su aplicación o proceso de desarrollo.
 
 **¿Con qué frecuencia debo planear actualizar las versiones de Kubernetes para mantenerme con soporte técnico?**
 
-A partir de Kubernetes 1.19, la [comunidad de código abierto ha ampliado el soporte técnico a 1 año](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS se compromete a habilitar unas revisiones y un soporte técnico que cumplan los compromisos ascendentes. En el caso de los clústeres de AKS de la versión 1.19, y las versiones superiores, podrá actualizar al menos una vez al año para permanecer en una versión con soporte técnico. 
+A partir de Kubernetes 1.19, la [comunidad de código abierto ha ampliado el soporte técnico a 1 año](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS se compromete a habilitar unas revisiones y un soporte técnico que cumplan los compromisos ascendentes. En el caso de los clústeres de AKS de la versión 1.19, y las versiones superiores, podrá actualizar al menos una vez al año para permanecer en una versión con soporte técnico.
 
 En el caso de las versiones 1.18, o anteriores, el período de soporte técnico permanece en 9 meses y será preciso realizar una actualización cada 9 meses para permanecer en una versión con soporte técnico. Pruebe con regularidad las nuevas versiones y esté preparado para actualizarse a versiones más recientes para aprovechar las mejoras estables más recientes dentro de Kubernetes.
 
@@ -181,7 +203,7 @@ No se admite el cambio a una versión anterior.
 
 "Fuera del soporte técnico" significa lo siguiente:
 * La versión que utiliza está fuera de la lista de versiones admitidas.
-* Se le pedirá que actualice el clúster a una versión compatible cuando solicite soporte técnico, a menos que estén en el período de gracia de 30 días después de que la versión haya quedado en desuso. 
+* Se le pedirá que actualice el clúster a una versión compatible cuando solicite soporte técnico, a menos que estén en el período de gracia de 30 días después de que la versión haya quedado en desuso.
 
 Además, AKS no ofrece ningún entorno de ejecución ni otras garantías para los clústeres que estén fuera de la lista de versiones admitidas.
 
@@ -216,7 +238,7 @@ No. Una vez que una versión está en desuso o se ha quitado, no se puede crear 
 
 **Utilizo una versión que acaba de entrar en desuso, ¿puedo seguir agregando nuevos grupos de nodos o tendré que actualizar?**
 
-No. No se le permitirá agregar grupos de nodos de la versión en desuso al clúster. Puede agregar grupos de nodos de una nueva versión. Sin embargo, puede requerir que primero actualice el plano de control. 
+No. No se le permitirá agregar grupos de nodos de la versión en desuso al clúster. Puede agregar grupos de nodos de una nueva versión. Sin embargo, puede requerir que primero actualice el plano de control.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -230,3 +252,5 @@ Para obtener información sobre cómo actualizar el clúster, vea [Actualizació
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[get-azaksversion]: /powershell/module/az.aks/get-azaksversion

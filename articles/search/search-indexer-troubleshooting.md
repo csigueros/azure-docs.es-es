@@ -1,27 +1,23 @@
 ---
-title: Solución de problemas comunes del indizador de búsqueda
+title: Instrucciones de solución de problemas del indizador
 titleSuffix: Azure Cognitive Search
-description: Corrija errores y problemas comunes con los indizadores en Azure Cognitive Search, como la conexión del origen de datos, el firewall y documentos que falten.
+description: En este artículo se proporcionan instrucciones de resolución de problemas del indizador para los casos en los que no se devuelve ningún mensaje de error de la búsqueda del servicio.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: efdd9666c8876ddaf12b9555fa66beb62c56e93e
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 06/27/2021
+ms.openlocfilehash: 49aad9132d57c07022fd5515cbc07c32d94a5132
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107740077"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982900"
 ---
-# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Solución de problemas comunes con el indizador en Azure Cognitive Search
+# <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Solución de problemas comunes con el indizador en Azure Cognitive Search
 
-Los indizadores pueden encontrar una serie de problemas al indexar datos en Azure Cognitive Search. Las categorías principales de error son las siguientes:
-
-* [Conexión a un origen de datos u otros recursos](#connection-errors)
-* [Procesamiento de documentos](#document-processing-errors)
-* [Ingesta de documentos en un índice](#index-errors)
+En ocasiones, los indizadores tienen problemas y no hay ningún error que ayude con el diagnóstico. En este artículo se describen los problemas y las posibles soluciones cuando los resultados del indizador son inesperados y hay información limitada para continuar. Si tiene un error que investigar, vea [Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search](cognitive-search-common-errors-warnings.md) en su lugar.
 
 ## <a name="connection-errors"></a>Errores de conexión
 
@@ -32,13 +28,14 @@ Los indizadores pueden encontrar una serie de problemas al indexar datos en Azur
 >
 > Puede averiguar el intervalo de direcciones IP de la [etiqueta de servicio](../virtual-network/service-tags-overview.md#available-service-tags) `AzureCognitiveSearch` mediante el uso de [archivos JSON descargables](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) o a través de la [API de detección de etiquetas de servicio](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). El intervalo de direcciones IP se actualiza semanalmente.
 
-### <a name="configure-firewall-rules"></a>Configurar reglas de firewall
+### <a name="firewall-rules"></a>Reglas de firewall
 
-Azure Storage, CosmosDB y Azure SQL proporcionan un firewall configurable. No hay ningún mensaje de error específico cuando el firewall está habilitado. Normalmente, los errores de firewall son genéricos y se parecen a `The remote server returned an error: (403) Forbidden` o `Credentials provided in the connection string are invalid or have expired`.
+Azure Storage, Cosmos DB y Azure SQL proporcionan un firewall configurable. No hay ningún mensaje de error específico cuando el firewall está habilitado. Normalmente, los errores de firewall son genéricos y se parecen a `The remote server returned an error: (403) Forbidden` o `Credentials provided in the connection string are invalid or have expired`.
 
-Hay dos opciones para permitir que los indexadores tengan acceso a estos recursos en una instancia de este tipo:
+Hay dos opciones para permitir que los indizadores accedan a estos recursos en estos casos:
 
 * Para deshabilitar el firewall, permita el acceso desde **"Todas las redes"** (si es factible).
+
 * Como alternativa, puede permitir el acceso a la dirección IP del servicio de búsqueda y al intervalo de direcciones IP de la [etiqueta de servicio](../virtual-network/service-tags-overview.md#available-service-tags) `AzureCognitiveSearch` en las reglas de firewall del recurso (restricción del intervalo de direcciones IP).
 
 Los detalles para configurar las restricciones del intervalo de direcciones IP para cada tipo de origen de datos se pueden encontrar en los vínculos siguientes:
@@ -53,7 +50,7 @@ Los detalles para configurar las restricciones del intervalo de direcciones IP p
 
 Azure Functions (que podría usarse como [aptitud de API web personalizada](cognitive-search-custom-skill-web-api.md)) también admite [restricciones de direcciones IP](../azure-functions/ip-addresses.md#ip-address-restrictions). La lista de direcciones IP a configurar sería la dirección IP del servicio de búsqueda y el intervalo de direcciones IP de la etiqueta de servicio `AzureCognitiveSearch`.
 
-Los detalles para acceder a los datos de SQL Server en una máquina virtual de Azure se describen [aquí](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+Para obtener más información sobre cómo conectarse a una máquina virtual, vea [Configuración de una conexión a SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 ### <a name="configure-network-security-group-nsg-rules"></a>Configuración de las reglas del grupo de seguridad de red (NSG)
 
@@ -65,13 +62,9 @@ La etiqueta de servicio `AzureCognitiveSearch` se puede usar directamente en las
 
 Se describen más detalles sobre el acceso a los datos en una instancia administrada de SQL [aquí](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md).
 
-### <a name="cosmosdb-indexing-isnt-enabled"></a>La "indexación" de CosmosDB no está habilitada.
+## <a name="sharepoint-online-conditional-access-policies"></a>Directivas de acceso condicional de SharePoint Online
 
-Azure Cognitive Search tiene una dependencia implícita del indexado de Cosmos DB. Si desactiva el indexado automático en Cosmos DB, Azure Cognitive Search devuelve un estado correcto, pero no puede indexar el contenido del contenedor. Para instrucciones sobre cómo establecer y activar el indexado, consulte [Administración automática en Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
-
-### <a name="sharepoint-online-conditional-access-policies"></a>Directivas de acceso condicional de SharePoint Online
-
-Al crear un indexador de SharePoint Online, tendrá que realizar un paso que requiere que inicie sesión en la aplicación de AAD después de proporcionar un código de dispositivo. Si recibe el mensaje "Your sign-in was successful but your admin requires the device requesting access to be managed" (El inicio de sesión se ha realizado correctamente, pero el administrador requiere que se administre el dispositivo que solicita el acceso), es probable que se bloquee el acceso del indexador a la biblioteca de documentos de SharePoint Online debido a una directiva de [acceso condicional](https://review.docs.microsoft.com/azure/active-directory/conditional-access/overview).
+Al crear un indizador de SharePoint Online, tendrá que realizar un paso en el que es necesario iniciar sesión en la aplicación de Azure AD después de proporcionar un código de dispositivo. Si recibe un mensaje en el que se indica que `"Your sign-in was successful but your admin requires the device requesting access to be managed"` es probable que se bloquee el acceso del indizador a la biblioteca de documentos de SharePoint Online debido a una directiva de [acceso condicional](../active-directory/conditional-access/overview.md).
 
 Para actualizar la directiva para permitir que el indexador acceda a la biblioteca de documentos, siga estos pasos:
 
@@ -131,7 +124,7 @@ Para actualizar la directiva para permitir que el indexador acceda a la bibliote
         }
     ```
 
-1. Vuelva a la página Acceso condicional de Azure Portal, seleccione **Ubicaciones con nombre** en el menú de la izquierda y, después, seleccione **+ Ubicación de los intervalos de direcciones IP**. Asigne un nombre a la nueva ubicación con nombre y agregue los intervalos de direcciones IP del servicio de búsqueda y los entornos de ejecución del indexador que recopiló en los dos últimos pasos.
+1. Vuelva a la página Acceso condicional de Azure Portal, seleccione **Ubicaciones con nombre** en el menú de la izquierda y después **+ Ubicación de los intervalos de direcciones IP**. Asigne un nombre a la nueva ubicación con nombre y agregue los intervalos de direcciones IP del servicio de búsqueda y los entornos de ejecución del indexador que recopiló en los dos últimos pasos.
     * En el caso de la dirección IP del servicio de búsqueda, es posible que tenga que agregar "/32" al final de la dirección IP, ya que solo acepta intervalos IP válidos.
     * Recuerde que en el caso de los intervalos IP del entorno de ejecución del indexador, solo tiene que agregar los intervalos IP de la región en la que se encuentra el servicio de búsqueda.
 
@@ -147,15 +140,15 @@ Para actualizar la directiva para permitir que el indexador acceda a la bibliote
 
 1. Intente volver a crear el indexador.
     1. Envíe una solicitud de actualización del objeto de origen de datos que creó.
-    1. Vuelva a enviar la solicitud de creación del indexador. Use el nuevo código para iniciar sesión y, después, envíe otra solicitud de creación del indexador después del inicio de sesión correcto.
+    1. Vuelva a enviar la solicitud de creación del indexador. Use el nuevo código para iniciar sesión y, después, envíe otra solicitud de creación del indizador.
 
-## <a name="document-processing-errors"></a>Errores en el procesamiento de documentos
+## <a name="indexing-unsupported-document-types"></a>Indexación de tipos de documentos no admitidos
 
-### <a name="unprocessable-or-unsupported-documents"></a>Documentos no procesables o no compatibles
+Si va a indexar contenido de Azure Blob Storage y el contenedor incluye blobs de un [tipo de contenido no admitido](search-howto-indexing-azure-blob-storage.md#SupportedFormats), el indizador omitirá ese documento. En otros casos, es posible que haya problemas con documentos individuales. 
 
-El indizador de blobs [documenta qué formatos de documento se admiten de manera explícita](search-howto-indexing-azure-blob-storage.md#SupportedFormats). A veces, un contenedor de almacenamiento de blobs contiene documentos no compatibles. En otras ocasiones, puede haber documentos problemáticos. Para evitar que el indizador se detenga en estos documentos, [cambie las opciones de configuración](search-howto-indexing-azure-blob-storage.md#DealingWithErrors):
+Puede [establecer opciones de configuración](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) para permitir que el procesamiento del indizador continúe en caso de que haya problemas con documentos individuales.
 
-```
+```http
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
@@ -166,14 +159,27 @@ api-key: [admin key]
 }
 ```
 
-### <a name="missing-document-content"></a>Contenido de documento faltante
+## <a name="missing-documents"></a>Documentos faltantes
+
+Los indizadores extraen documentos o filas de un [origen de datos](/rest/api/searchservice/create-data-source) externo y crean *documentos de búsqueda* que, después, indexa el servicio de búsqueda. En ocasiones, un documento que existe en el origen de datos no aparece en un índice de búsqueda. Este resultado inesperado puede producirse por los motivos siguientes:
+
+* El documento se ha actualizado después de ejecutar el indizador. Si el indizador sigue una [programación](/rest/api/searchservice/create-indexer#indexer-schedule), a la larga se volverá a ejecutar y recogerá el documento.
+* El indizador ha agotado el tiempo de espera antes de que se pudiera ingerir el documento. Hay [límites de tiempo de procesamiento máximos](search-limits-quotas-capacity.md#indexer-limits) después de los cuales no se procesará ningún documento. Puede comprobar el estado del indizador en el portal o si llama a [Obtener estado del indexador (API REST)](/rest/api/searchservice/get-indexer-status).
+* Las [asignaciones de campos](/rest/api/searchservice/create-indexer#fieldmappings) o el [enriquecimiento con IA](./cognitive-search-concept-intro.md) han cambiado el documento y su articulación en el índice de búsqueda es diferente de lo que espera.
+* Los valores de [seguimiento de cambios](/rest/api/searchservice/create-data-source#data-change-detection-policies) son erróneos o faltan requisitos previos. Si el valor de límite máximo es una fecha establecida en un momento futuro, el indexador omitirá cualquier documento que tenga una fecha inferior a esta. Puede conocer el estado del seguimiento de cambios del indexador mediante los campos "initialTrackingState" y "finalTrackingState" del [estado del indexador](/rest/api/searchservice/get-indexer-status#indexer-execution-result). Los indizadores para Azure SQL y MySQL deben tener un índice en la columna de marca de agua superior de la tabla de origen, o bien es posible que las consultas que usa el indizador hayan agotado el tiempo de espera. 
+
+> [!TIP]
+> Si faltan documentos, compruebe la [consulta](/rest/api/searchservice/search-documents) que usa para asegurarse de que no excluye el documento en cuestión. Para consultar un documento específico, use la [API REST de búsqueda de documentos](/rest/api/searchservice/lookup-document).
+
+## <a name="missing-content-from-blob-storage"></a>Falta de contenido de Blob Storage
 
 El indizador de blobs [busca y extrae texto de los blobs de un contenedor](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Algunos problemas con la extracción de texto son los siguientes:
 
 * El documento solo contiene imágenes escaneadas. Los blobs de PDF que tienen contenido no textual, como imágenes escaneadas (JPG), no generan resultados en una canalización de indexación de blobs estándar. Si tiene contenido de imagen con elementos de texto, puede usar [Cognitive Search](cognitive-search-concept-image-scenarios.md) para buscar y extraer el texto.
+
 * El indizador de blobs está configurado para indexar solo metadatos. Para extraer contenido, el indizador de blobs se debe configurar para [extraer tanto contenido como metadatos](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex):
 
-```
+```http
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
@@ -184,15 +190,11 @@ api-key: [admin key]
 }
 ```
 
-## <a name="index-errors"></a>Errores de índice
+## <a name="missing-content-from-cosmos-db"></a>Falta de contenido de Cosmos DB
 
-### <a name="missing-documents"></a>Documentos faltantes
+Azure Cognitive Search tiene una dependencia implícita del indexado de Cosmos DB. Si desactiva el indexado automático en Cosmos DB, Azure Cognitive Search devuelve un estado correcto, pero no puede indexar el contenido del contenedor. Para instrucciones sobre cómo establecer y activar el indexado, consulte [Administración automática en Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
-Los indizadores buscan documentos de un [origen de datos](/rest/api/searchservice/create-data-source). En algunas ocasiones, un documento del origen de datos que se debería haber indexado aparece como faltante en un índice. Hay un par de razones comunes por las que pueden producirse estos errores:
+## <a name="see-also"></a>Vea también
 
-* El documento no se ha indexado. Revise el portal para ver si el indizador se ejecutó correctamente.
-* Compruebe el valor del [seguimiento de cambios](/rest/api/searchservice/create-data-source#data-change-detection-policies). Si el valor de límite máximo es una fecha establecida en un momento futuro, el indexador omitirá cualquier documento que tenga una fecha inferior a esta. Puede conocer el estado del seguimiento de cambios del indexador mediante los campos "initialTrackingState" y "finalTrackingState" del [estado del indexador](/rest/api/searchservice/get-indexer-status#indexer-execution-result).
-* El documento se actualizó después de la ejecución del indizador. Si el indizador sigue una [programación](/rest/api/searchservice/create-indexer#indexer-schedule), a la larga se volverá a ejecutar y recogerá el documento.
-* La [consulta](/rest/api/searchservice/create-data-source) especificada en el origen de datos excluye el documento. Los indizadores no pueden indexar documentos que no forman parte del origen de datos.
-* [Asignaciones de campo](/rest/api/searchservice/create-indexer#fieldmappings) o [enriquecimiento de inteligencia artificial](./cognitive-search-concept-intro.md) han cambiado el documento y tiene un aspecto distinto de lo esperado.
-* Use la [API Buscar documento](/rest/api/searchservice/lookup-document) para buscar el documento.
+* [Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search](cognitive-search-common-errors-warnings.md)
+* [Supervisión de la indexación realizada con indexador](search-howto-monitor-indexers.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e09f3c8f4691eaf978e0b5245626508e4aa2b961
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5c9421397b6e5fbfe8688e5ceeff6056de25674a
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746868"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862332"
 ---
 # <a name="security-best-practices"></a>Recomendaciones de seguridad
 
@@ -195,7 +195,40 @@ Los sistemas operativos siguientes admiten la ejecución de la virtualización a
 - Windows Server 2016
 - Windows Server 2019
 - Windows 10 Enterprise
-- Sesión múltiple de Windows 10 Enterprise.
+- Sesión múltiple de Windows 10 Enterprise
+
+## <a name="windows-defender-application-control"></a>Control de aplicaciones de Windows Defender
+
+Los siguientes sistemas operativos admiten el uso de Microsoft Defender Application Control con Azure Virtual Desktop:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Sesión múltiple de Windows 10 Enterprise
+
+>[!NOTE]
+>Al usar Windows Defender Access Control, se recomienda destinar las directivas solo al nivel de dispositivo. Aunque es posible destinar las directivas a usuarios individuales, una vez que se aplica la directiva, afecta a todos los usuarios del dispositivo por igual.
+
+## <a name="ip-virtualization"></a>Virtualización de IP
+
+Si quiere usar la virtualización de IP en Windows Server 2019, siga estos pasos:
+
+1. En una ventana de administración de Windows PowerShell, cambie el nombre de la clave siguiente: 
+```powershell
+Rename-Item HKLM:\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1 Backup_2C69D9F1
+```
+>[!NOTE]
+>La eliminación de la clave lograría lo mismo, pero el cambio de nombre proporciona una manera de facilitar la reversión si es necesario. Estos son los datos que hay de forma predeterminada:
+>       
+>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1\
+>AppFullPath: C:\Windows\System32\svchost.exe\
+>PermittedLspCategories: 0x40000000
+
+2. Reinicie la VM.
+
+3. Para habilitar la característica Virtualización de IP, abra **gpedit.msc** y vaya a **Configuración del equipo** > **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Host de sesión de Escritorio remoto** > **Compatibilidad de la aplicación**. Habilite la directiva **Activar virtualización de IP de Escritorio remoto** y, después, especifique la dirección IP que quiera usar en la directiva.
+
+4. Reinicie la VM.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f843f5ec593124305d978cd32559a089194ab6d
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 71b54db0df20ea1bfe630639fb5e60bea62712b2
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073348"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200283"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows
 [Azure Diagnostics Extension](diagnostics-extension-overview.md) es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure y de otros recursos de proceso. En este artículo se proporcionan detalles sobre cómo instalar y configurar la extensión de diagnósticos para Windows y una descripción de cómo se almacenan los datos en la cuenta de Azure Storage.
@@ -71,7 +71,7 @@ Puede instalar y configurar la extensión de diagnósticos en una máquina virtu
 10. Para guardar la configuración, haga clic en **Guardar**. 
 
 > [!NOTE]
-> Aunque se puede dar formato a la configuración de la extensión de diagnósticos en JSON o XML, cualquier configuración realizada en Azure Portal se almacenará siempre como JSON. Si usa XML con otro método de configuración y, luego, cambia la configuración con Azure Portal, esta cambiará a JSON.
+> Aunque se puede dar formato a la configuración de la extensión de diagnósticos en JSON o XML, cualquier configuración realizada en Azure Portal se almacenará siempre como JSON. Si usa XML con otro método de configuración y, luego, cambia la configuración con Azure Portal, esta cambiará a JSON. Además, no hay ninguna opción para configurar el período de retención para estos registros.
 
 ## <a name="resource-manager-template"></a>Plantilla de Resource Manager
 Consulte [Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) para información sobre la implementación de la extensión de diagnósticos con plantillas de Azure Resource Manager. 

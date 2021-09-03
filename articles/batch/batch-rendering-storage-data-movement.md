@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 0a18ee6961cb601b0fa9db7213eb6115afa20096
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 60e2044bc837c986701ec7be048fde04cf6a529a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765204"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747568"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opciones de almacenamiento y movimiento de datos para representar archivos de recursos y de salida
 
@@ -85,7 +85,7 @@ Como los archivos son simplemente blobs en Azure Storage, las API de blob están
 
 ## <a name="using-azure-files-with-windows-vms"></a>Uso de Azure Files con máquinas virtuales Windows
 
-[Azure Files](../storage/files/storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB.  Se basa en Azure Blob Storage; es [rentable](https://azure.microsoft.com/pricing/details/storage/files/) y se puede configurar con la replicación de datos en otra región, así que es redundante de forma global.  [Escalar destinos](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) deben examinarse para determinar si se debe usar Azure Files dado el tamaño del grupo de previsión y el número de archivos de recursos.
+[Azure Files](../storage/files/storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB.  Azure Files se basa en Azure Blob Storage; es [rentable](https://azure.microsoft.com/pricing/details/storage/files/) y se puede configurar con la replicación de datos en otra región, así que es redundante de forma global.  [Escalar destinos](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) deben examinarse para determinar si se debe usar Azure Files dado el tamaño del grupo de previsión y el número de archivos de recursos.
 
 Hay [documentación](../storage/files/storage-how-to-use-files-windows.md) que trata sobre cómo montar un recurso compartido de Azure Files.
 

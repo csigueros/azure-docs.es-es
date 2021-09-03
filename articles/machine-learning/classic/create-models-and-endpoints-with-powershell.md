@@ -9,26 +9,26 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 35b5fe4556f1d557d3fc0420e9069f2fb510eec4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b4a5073994da972a4999a82dd9bb0790bad0342
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520517"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582355"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Creación de varios puntos de conexión de servicio web a partir de un experimento con ML Studio (clásico) y PowerShell
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-El siguiente es un problema de aprendizaje automático habitual: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. Este artículo muestra cómo hacer esto a escala en Azure Machine Learning Studio (clásico) simplemente con un solo experimento.
+El siguiente es un problema de aprendizaje automático habitual: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. En este artículo se muestra cómo hacerlo a escala en Machine Learning Studio (clásico) con un solo experimento.
 
 Por ejemplo, digamos que posee una empresa de franquicias de alquiler de bicicletas global. Desea crear un modelo de regresión para predecir la demanda de alquiler basada en datos históricos. Dispone de mil ubicaciones de alquiler en todo el mundo y ha recopilado un conjunto de datos para cada ubicación. Incluyen características importantes como la fecha, la hora e información meteorológica y sobre el tráfico que son específicas de cada ubicación.
 
 Puede entrenar el modelo una vez usando una versión combinada de todos los conjuntos de datos en todas las ubicaciones. Sin embargo, cada una de las ubicaciones tiene un entorno único. Por tanto, un mejor enfoque sería entrenar el modelo de regresión por separado mediante el conjunto de datos de cada ubicación. De este modo, cada modelo entrenado podría tener en cuenta los diferentes tamaños de tienda, el volumen, la geografía, la población, el entorno de tráfico preparado para bicicletas, etc.
 
-Ese puede que sea el mejor enfoque, pero no desea crear 1000 experimentos de entrenamiento en Azure Machine Learning Studio (clásico), y cada uno de ellos representa una ubicación única. Además de ser una tarea abrumadora, también parece ineficaz, ya que cada experimento tendría exactamente los mismos componentes, excepto el conjunto de datos de entrenamiento.
+Es posible que ese sea el mejor enfoque, pero no quiere crear 1000 experimentos de entrenamiento en Machine Learning Studio (clásico), y que cada uno represente una ubicación única. Además de ser una tarea abrumadora, también parece ineficaz, ya que cada experimento tendría exactamente los mismos componentes, excepto el conjunto de datos de entrenamiento.
 
-Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine Learning Studio (clásico)](./retrain-machine-learning-model.md) y automatizando la tarea con [PowerShell de Azure Machine Learning Studio (clásico)](powershell-module.md).
+Por suerte, puede lograrlo con la [API de nuevo entrenamiento de Machine Learning Studio (clásico)](./retrain-machine-learning-model.md) y si automatiza la tarea con [PowerShell de Machine Learning Studio (clásico)](powershell-module.md).
 
 > [!NOTE]
 > Para que nuestro ejemplo se ejecute más rápido, reduzca el número de ubicaciones de mil a diez. Pero se aplican los mismos principios y procedimientos a 1000 ubicaciones. Sin embargo, si desea entrenar mil conjuntos de datos, puede ejecutar los siguientes scripts de PowerShell en paralelo. Cómo hacerlo queda fuera del ámbito de este artículo, pero puede encontrar ejemplos de subprocesamiento múltiple de PowerShell en Internet.  
@@ -36,7 +36,7 @@ Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine L
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configuración del experimento de entrenamiento
-Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) de ejemplo que se encuentra en la [Galería de Cortana Intelligence](https://gallery.azure.ai). Abra este experimento en su área de trabajo [Azure Machine Learning Studio (clásico)](https://studio.azureml.net).
+Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) de ejemplo que se encuentra en la [Galería de Cortana Intelligence](https://gallery.azure.ai). Abra este experimento en el área de trabajo de [Machine Learning Studio (clásico)](https://studio.azureml.net).
 
 > [!NOTE]
 > Para seguir este ejemplo, puede que le interese usar un área de trabajo estándar en lugar de un área de trabajo gratis. Cree un punto de conexión para cada cliente (para un total de diez puntos de conexión) y que requiere un área de trabajo estándar, ya que un área de trabajo gratis se limita a tres puntos de conexión.
@@ -62,7 +62,7 @@ Para implementar el servicio web de entrenamiento, haga clic en el botón **Set 
 
 Ahora debe implementar el servicio web de puntuación.
 Para ello, haga clic en **Set Up Web Service** (Configurar servicio web) bajo el lienzo y seleccione **Predictive Web Service** (Servicio web predictivo). Esto crear un experimento de puntuación.
-Debe realizar algunos ajustes menores para que funcione como un servicio web. Quite la columna de etiqueta "cnt" de los datos de entrada y limite las salida a solo el identificador de instancia y el valor de predicción correspondiente.
+Debe realizar algunos ajustes menores para que funcione como un servicio web. Quite la columna de etiqueta "cnt" de los datos de entrada y limite la salida al identificador de la instancia y el valor de predicción correspondiente.
 
 Para ahorrarse ese trabajo, puede abrir el [experimento predictivo](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) en la galería que ya se ha preparado.
 

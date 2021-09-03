@@ -3,12 +3,12 @@ title: Creación y personalización de planes de recuperación en Azure Site Rec
 description: Aprenda a crear y personalizar planes de recuperación para la recuperación ante desastres mediante el servicio Azure Site Recovery.
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee7386b07c93182bb8703702e2ce63e10626457d
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009728"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666166"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creación y personalización de los planes de recuperación
 
@@ -34,6 +34,7 @@ En este artículo se describe cómo crear y personalizar un plan de recuperació
     - Un plan de recuperación puede contener máquinas que tengan el mismo origen y destino.
     - Puede incluir las VM de VMware y VM de Hyper-V administradas por VMM en el mismo plan.
     - Las VM de VMware y los servidores físicos pueden estar en el mismo plan.
+    - Todas las máquinas virtuales de un plan de recuperación se deben replicar en una sola suscripción. Si quiere replicar otras máquinas virtuales en otras suscripciones, use más de un plan de recuperación (uno o varios para cada suscripción de destino).
 
 4. En **Seleccionar máquinas virtuales**, seleccione las máquinas (o el grupo de replicación) que desea agregar al plan. A continuación, haga clic en **Aceptar**.
     - Las máquinas se agregan al grupo predeterminado (Grupo 1) del plan. Después de la conmutación por error, todas las máquinas de este grupo se inician al mismo tiempo.

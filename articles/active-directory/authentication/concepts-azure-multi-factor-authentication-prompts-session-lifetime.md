@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 08/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47898b1708ebecc43ace9888dfd237fa72079c6b
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 93f5af54992189d553c9e5c5c141a6ca08b7018e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590367"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860524"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimice los avisos de reautenticación y comprenda la duración de la sesión en Multi-Factor Authentication de Azure AD.
 
@@ -35,7 +35,7 @@ Para ofrecer a los usuarios el equilibrio adecuado entre seguridad y facilidad d
 * Si tiene Azure AD Premium:
     * Habilite el inicio de sesión único (SSO) en todas las aplicaciones mediante [dispositivos administrados](../devices/overview.md) o [SSO de conexión directa](../hybrid/how-to-connect-sso.md).
     * Si se requiere la reautenticación, use una [directiva de frecuencia de inicio de sesión](../conditional-access/howto-conditional-access-session-lifetime.md) de acceso condicional.
-    * Para los usuarios que inician sesión desde dispositivos no administrados o escenarios de dispositivos móviles, use el acceso condicional para habilitar sesiones persistentes del explorador y directivas de frecuencia de inicio de sesión.
+    * Para los usuarios que inician sesión desde dispositivos no administrados o escenarios de dispositivos móviles, puede que las sesiones del explorador persistentes no sean una opción preferible, o bien puede usar el acceso condicional para habilitar sesiones persistentes del explorador con directivas de frecuencia de inicio de sesión. Limite la duración a un tiempo adecuado en función del riesgo de inicio de sesión, donde un usuario con menos riesgo tiene duración de la sesión más larga.
 * Si tiene licencias de aplicaciones de Microsoft 365 o el nivel de Azure AD gratuito:
     * Habilite el inicio de sesión único (SSO) en todas las aplicaciones mediante [dispositivos administrados](../devices/overview.md) o [SSO de conexión directa](../hybrid/how-to-connect-sso.md).
     * Mantenga habilitada la opción *Remain signed-in* (Permanecer conectado) y guíe a los usuarios para que la acepten.

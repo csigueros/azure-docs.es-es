@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 9dfafd76751672d391ecfcc1fd2fd811c0912fe9
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.custom: has-adal-ref
+ms.openlocfilehash: 453d42adca16593dfdc567d114b8dc7eb7e34143
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105892"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429697"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implementación de máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU con la CLI de Azure y Python
 

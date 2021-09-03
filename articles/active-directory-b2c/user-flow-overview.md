@@ -12,12 +12,12 @@ ms.date: 04/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2e4dbc5178bec3a5b1f0931267465879f604f36f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: b663904df2d116bdfa92a0dcef4b05c0806fec14
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226015"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199149"
 ---
 # <a name="user-flows-and-custom-policies-overview"></a>Información general sobre los flujos de usuario y las directivas personalizadas
 
@@ -76,7 +76,7 @@ Más información sobre las directivas personalizadas en [Directivas personaliza
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Comparación de las directivas personalizadas y los flujos de usuario
 
-En la siguiente tabla se proporciona una comparación detallada de los escenarios posibles con los flujos de usuario y las directivas personalizadas de Azure AD B2C.
+En la tabla siguiente se proporciona una comparación detallada de los escenarios que puede habilitar con los flujos de usuario y las directivas personalizadas de Azure AD B2C.
 
 | Context | Flujos de usuario | Directivas personalizadas |
 |-|-------------------|-----------------|

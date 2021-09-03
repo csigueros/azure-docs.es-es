@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 35aa53def1a72f98309e7616ce64194dd77c5a4d
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 53940c21a96da9b763a0b2f25400fb13cbba7098
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331293"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119677"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Solución de problemas de SQL Insights (versión preliminar)
 Para solucionar los problemas de recopilación de datos en SQL insights, compruebe el estado de la máquina de supervisión en la pestaña **Administrar perfil**. Contendrá uno de los siguientes estados:
@@ -85,7 +85,7 @@ Para ver los mensajes de error del servicio telegraf, ejecútelo manualmente con
 
 ### <a name="mdsd-service-logs"></a>Registros del servicio mdsd 
 
-Compruebe las [limitaciones actuales](../agents/azure-monitor-agent-overview.md#current-limitations) del agente de Azure Monitor. 
+Consulte [Requisitos previos](../agents/azure-monitor-agent-install.md#prerequisites) para el Agente de Azure Monitor. 
 
 
 Registros del servicio:  

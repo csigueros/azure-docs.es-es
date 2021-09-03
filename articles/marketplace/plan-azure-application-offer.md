@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 8120bcb030f5a1ff6948757d8f65e3a21d31898f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: bd0e89e1967842e8167c3da1fc3d2a716a5f7bd6
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955398"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633782"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial
 
@@ -35,7 +35,7 @@ Mientras prepara su oferta de Aplicación de Azure para el marketplace comercial
 
 - [Nociones sobre las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
 - Guías de inicio rápido:
-    - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/)
+    - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/)
     - [Guía de procedimientos recomendados para plantillas de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     - [Publicación de definición de aplicación](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
     - [Implementación de la aplicación de catálogo de servicios](../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
@@ -74,7 +74,7 @@ Puede revisar las herramientas disponibles en la página [Herramientas de desarr
 
 ## <a name="listing-options"></a>Opciones de publicación
 
-Una vez publicada la oferta, sus opciones de descripción aparecen en forma de un botón en la esquina superior izquierda de la página de descripción de la oferta. Por ejemplo, en la siguiente captura de pantalla se muestra una página de descripción de la oferta en Azure Marketplace con el botón _Obtenerla ahora_. Si ha elegido ofrecer una versión de prueba, también se mostrará el botón _Versión de prueba_.
+Una vez que se publique la oferta, sus opciones de descripción aparecen en forma de un botón en la esquina superior izquierda de la página de descripción de la oferta. Por ejemplo, en la siguiente captura de pantalla se muestra una página de descripción de la oferta en Azure Marketplace con el botón _Obtenerla ahora_. Si ha elegido ofrecer una versión de prueba, también se mostrará el botón _Versión de prueba_.
 
 :::image type="content" source="media/create-new-azure-app-offer/azure-app-listing-page.png" alt-text="Se muestra una página de descripción en Azure Marketplace.":::
 
@@ -95,7 +95,7 @@ Puede agregar o modificar una conexión CRM en cualquier momento durante o despu
 
 ## <a name="categories-and-subcategories"></a>Categorías y subcategorías
 
-Puede elegir una categoría como mínimo y dos como máximo para agrupar la oferta en las áreas de búsqueda apropiadas del marketplace comercial. Puede elegir hasta dos subcategorías por cada categoría principal y secundaria. Para ver la lista completa de categorías y subcategorías, consulte [Procedimientos recomendados para la descripción de ofertas](gtm-offer-listing-best-practices.md#categories).
+Puede elegir una categoría como mínimo y dos como máximo para agrupar la oferta en las áreas de búsqueda apropiadas del marketplace comercial. Puede elegir hasta dos subcategorías por cada categoría principal y secundaria. Para ver la lista completa de categorías y subcategorías, consulte [Procedimientos recomendados para la descripción de ofertas](marketplace-categories-industries.md#categories).
 
 ## <a name="legal-contracts"></a>Contratos legales
 
@@ -148,7 +148,7 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
     Este cuadro de texto tiene controles de editor de texto enriquecido que puede utilizar para que su descripción sea más atractiva. También puede usar etiquetas HTML para dar formato a la descripción. En este cuadro puede escribir hasta 3000 caracteres de texto, lo que incluye el marcado HTML y espacios. Puede encontrar otras sugerencias en [Escribir una excelente descripción de la aplicación](/windows/uwp/publish/write-a-great-app-description) y [Etiquetas HTML admitidas en las descripciones de las ofertas del marketplace comercial](supported-html-tags.md).
 
 - **Palabras clave de búsqueda** (opcional): escriba al menos tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en la tienda en línea. Para obtener mejores resultados, intente usar también estas palabras clave en la descripción. No es necesario incluir el **nombre** y **descripción** de la oferta. Ese texto se incluye automáticamente en la búsqueda.
-- **Vínculo a la directiva de privacidad**: la dirección URL que lleva a la directiva de privacidad de su empresa. Debe proporcionar una directiva de privacidad válida y usted es responsable de garantizar que la aplicación cumple con las leyes y normativas de privacidad.
+- **Vínculo a la directiva de privacidad**: la dirección URL de la directiva de privacidad de la empresa. Debe proporcionar una directiva de privacidad válida y usted es responsable de garantizar que la aplicación cumple con las leyes y normativas de privacidad.
 - **Vínculos útiles** (opcional): puede proporcionar vínculos a varios recursos para los usuarios de su oferta. Por ejemplo, foros, preguntas más frecuentes y notas de la versión.
 - **Información de contacto**: debe designar los siguientes contactos de la organización:
   - **Contacto de soporte técnico**: proporcione el nombre, el teléfono y el correo electrónico de los asociados de Microsoft que se usarán cuando los clientes abran vales. También debe incluir la dirección URL del sitio web de soporte técnico.
@@ -210,7 +210,7 @@ Esta configuración es necesaria si quiere usar [eventos de uso de Batch](market
 Puede optar por participar en los canales de marketing y ventas respaldados por Microsoft. Al crear la oferta en el Centro de partners, verá dos pestañas hacia el final del proceso:
 
 - **Resell through CSPs** (Revender a través de los CSP): use esta opción para permitir que los asociados de los proveedores de soluciones en la nube (CSP) de Microsoft revendan la solución como parte de una oferta agrupada. Para más información, consulte [Programa del Proveedor de soluciones en la nube](./cloud-solution-providers.md).
-- **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Para obtener información detallada sobre cómo preparar la oferta para la evaluación, vea [Opción de venta conjunta en el marketplace comercial](./co-sell-configure.md). Para obtener más información sobre los requisitos de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para más información sobre cómo comercializar su oferta a través de los canales de asociados de CSP de Microsoft, consulte [Proveedores de soluciones en la nube](cloud-solution-providers.md).
+- **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución como apta para la venta conjunta de IP al evaluar las necesidades de los clientes. Para obtener información detallada sobre cómo preparar la oferta para la evaluación, vea [Opción de venta conjunta en el marketplace comercial](./co-sell-configure.md). Para obtener más información sobre los requisitos de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para más información sobre cómo comercializar su oferta a través de los canales de asociados de CSP de Microsoft, consulte [Proveedores de soluciones en la nube](cloud-solution-providers.md).
 
 Para más información, consulte [Desarrollo de un negocio en la nube con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 

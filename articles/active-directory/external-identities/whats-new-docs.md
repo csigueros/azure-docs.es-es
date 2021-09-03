@@ -1,7 +1,7 @@
 ---
 title: Novedades en las identidades externas de Azure Active Directory
 description: Documentación nueva y actualizada sobre las identidades externas de Azure Active Directory.
-ms.date: 06/02/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,60 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: fb492dd8bcc9f1c9ea3866e48ebd13277f8910ea
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 81a25af5dfa73cbeefdf5fc677da80515f20a2f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411204"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746122"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identidades externas de Azure Active Directory: Novedades
 
 Estas son las novedades en la documentación de las identidades externas de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de identidades externas, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="july-2021"></a>Julio de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Protección de la API con un conector de API en los flujos de usuarios de registro de autoservicio de Azure AD External Identities](self-service-sign-up-secure-api-connector.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Proveedores de identidades para External Identities](identity-providers.md)
+- [Proveedor de identidades de cuenta Microsoft (MSA) para External Identities](microsoft-account.md)
+- [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md)
+- [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](self-service-sign-up-user-flow.md)
+- [Propiedades de un usuario de colaboración B2B de Azure Active Directory](user-properties.md)
+- [Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B](google-federation.md)
+- [Canje de invitación de colaboración B2B de Azure Active Directory](redemption-experience.md)
+- [Solución de problemas de colaboración B2B de Azure Active Directory](troubleshoot.md)
+- [Adición de un conector de API a un flujo de usuario](self-service-sign-up-add-api-connector.md)
+- [Adición de un flujo de trabajo de aprobaciones personalizado al registro de autoservicio](self-service-sign-up-add-approvals.md)
+- [¿Qué son External Identities de Azure Active Directory?](compare-with-b2c.md)
+- [Modelo de facturación para Azure AD for External Identities](external-identities-pricing.md)
+- [Grupos dinámicos y colaboración B2B de Azure Active Directory](use-dynamic-groups.md)
+- [¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?](what-is-b2b.md)
+- [Uso de conectores de API para personalizar y extender el registro de autoservicio](api-connectors-overview.md)
+- [Federación con proveedores de identidades SAML o WS-Fed para usuarios invitados (versión preliminar)](direct-federation.md)
+- [Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory](invitation-email-elements.md)
+- [Acceso condicional para usuarios de colaboración B2B](conditional-access.md)
+
+
+## <a name="june-2021"></a>Junio de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Proveedor de identidades de Azure Active Directory (Azure AD) para External Identities](azure-ad-account.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Tutorial: Aplicación de la autenticación multifactor para usuarios invitados de B2B](b2b-tutorial-require-mfa.md)
+- [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](self-service-sign-up-user-flow.md)
+- [Inicio rápido: Incorporación de usuarios invitados a su directorio en Azure Portal](b2b-quickstart-add-guest-users-portal.md)
+- [Federación con proveedores de identidades SAML o WS-Fed para usuarios invitados (versión preliminar)](direct-federation.md)
+- [Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B](google-federation.md)
+- [Salir de una organización como usuario invitado](leave-the-organization.md)
+- [Canje de invitación de colaboración B2B de Azure Active Directory](redemption-experience.md)
 
 ## <a name="may-2021"></a>Mayo de 2021
 
@@ -63,7 +107,7 @@ Estas son las novedades en la documentación de las identidades externas de Azur
 
 ### <a name="new-articles"></a>Artículos nuevos
 
-- [Proveedor de identidades de cuenta Microsoft (MSA) para External Identities (versión preliminar)](microsoft-account.md)
+- [Proveedor de identidades de cuenta Microsoft (MSA) para External Identities](microsoft-account.md)
 
 ### <a name="updated-articles"></a>Artículos actualizados
 

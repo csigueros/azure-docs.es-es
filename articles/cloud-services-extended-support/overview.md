@@ -8,18 +8,21 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d61314dc89d341e376de7d3904568825ad3cfb04
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: ffea4e8edd9cc6c11644017e972db3ce3202c766
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293879"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747586"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Acerca de Azure Cloud Services (soporte extendido)
 
 Cloud Services (soporte extendido) es un nuevo modelo de implementación basado en  [Azure Resource Manager](../azure-resource-manager/management/overview.md) del producto  [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), y ahora está disponible con carácter general. Cloud Services (soporte extendido) tiene la ventaja principal de proporcionar resistencia regional junto con la paridad de características con Azure Cloud Services implementado mediante Azure Service Manager. También ofrece algunas funcionalidades de ARM, como el control de acceso basado en roles (RBAC), etiquetas y directivas, y admite plantillas de implementación.  
 
 Con este cambio, el modelo de implementación basado en Azure Service Manager para Cloud Services pasará a llamarse [Cloud Services (clásico)](../cloud-services/cloud-services-choose-me.md). Conservará la capacidad de compilar e implementar rápidamente sus aplicaciones y servicios web y en la nube. Podrá escalar su infraestructura de servicios en la nube en función de la demanda actual y garantizar que se mantiene el rendimiento de sus aplicaciones al tiempo que se reducen los costes.  
+
+:::image type="content" source="media/inside-azure-for-iot.png" alt-text="Vídeo de YouTube para Cloud Services (soporte extendido)." link="https://youtu.be/H4K9xTUvNdw":::
+
 
 ## <a name="what-does-not-change"></a>Qué no cambia 
 - El usuario crea el código, define las configuraciones y lo implementa en Azure. Azure configura el entorno de proceso, ejecuta su código y lo supervisa y mantiene automáticamente.
@@ -63,4 +66,4 @@ En función de la aplicación, Cloud Services (soporte extendido) puede requerir
 ## <a name="next-steps"></a>Pasos siguientes
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
 - Implemente un servicio de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).

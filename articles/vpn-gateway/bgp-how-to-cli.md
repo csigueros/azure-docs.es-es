@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 1b7d1c1928425dca7e1924bca09f2cd21e0ea06a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 47097be22fc9c75d7c56c8cb4d1f384936f7033a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290279"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746156"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configuración de BGP en Azure VPN Gateway con la CLI
 
-Este artículo le ayudará a habilitar BGP en una conexión de VPN de sitio a sitio (S2S) entre locales y una conexión de red virtual a red virtual (es decir, una conexión entre redes virtuales) mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure.
+Este artículo le ayudará a habilitar BGP en una conexión de VPN de sitio a sitio (S2S) entre locales y una conexión de red virtual a red virtual (es decir, una conexión entre redes virtuales) mediante el [modelo de implementación de Azure Resource Manager](../azure-resource-manager/management/deployment-models.md) y la CLI de Azure.
 
 ## <a name="about-bgp"></a>Información acerca de BGP
 
@@ -92,7 +92,7 @@ az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Cree la puerta de enlace de VPN con el número de AS
 
-Cree la puerta de enlace de red virtual para TestVNet1. BGP requiere una instancia de VPN Gateway basada en rutas. También necesita el parámetro adicional `-Asn` para establecer el número de sistema autónomo (ASN) para TestVNet1. Se tardan unos 45 minutos o algo más en crear una puerta de enlace. 
+Cree la puerta de enlace de red virtual para TestVNet1. BGP requiere una instancia de VPN Gateway basada en rutas. También necesita el parámetro adicional `-Asn` para establecer el número de sistema autónomo (ASN) para TestVNet1. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
 
 Si este comando se ejecuta con el parámetro `--no-wait`, no se verán los comentarios o resultados. Este parámetro `--no-wait` permite que la puerta de enlace se cree en segundo plano. No significa que la puerta de enlace de VPN se cree de inmediato.
 

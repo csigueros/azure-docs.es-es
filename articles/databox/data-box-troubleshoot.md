@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 06f0408587cc7c5533bdb852f7ad4f59094a33da
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92124686"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220265"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Solucionar problemas relacionados con Azure Data Box y Azure Data Box Heavy
 
@@ -31,9 +31,10 @@ Los errores en Data Box y Data Box Heavy se resumen como sigue:
 | Límite de tamaño de contenedor o recurso compartido | El total de datos en contenedores o recursos compartidos supera el límite de Azure.   |Descargue las listas de errores. <br> Reduzca los datos generales en el contenedor o recurso compartido. [Más información](#container-or-share-size-limit-errors).|
 | Límite de tamaño de objeto o archivo | El objeto o los archivos en contenedores o recursos compartidos superan el límite de Azure.|Descargue las listas de errores. <br> Reduzca el tamaño de archivo en el contenedor o recurso compartido. [Más información](#object-or-file-size-limit-errors). |    
 | Tipo de datos o archivo | No se admite el formato de datos o el tipo de archivo. |Descargue las listas de errores. <br> Para los blobs en páginas o discos administrados, asegúrese de que los datos tengan una alineación de 512 bytes y se copien en las carpetas creadas previamente. [Más información](#data-or-file-type-errors). |
+| Errores internos de carpetas o archivos | El archivo o la carpeta tienen un error interno. |Descargue las listas de errores. <br> Quite el archivo y repita la copia. Para una carpeta, puede modificarla mediante el cambio de nombre o la adición o eliminación de un archivo. El error debería desaparecer en 30 minutos.  [Más información](#folder-or-file-internal-errors). |
 | Errores no críticos de blob o archivo  | Los nombres de blob o archivo no siguen las reglas de nomenclatura de Azure o no se admite el tipo de archivo. | No se pueden copiar estos blobs o archivos, o se pueden cambiar los nombres. [Obtenga información sobre cómo corregir estos errores](#non-critical-blob-or-file-errors). |
 
-\* Las primeras cuatro categorías de error corresponden a errores críticos y deben corregirse antes de avanzar a la preparación para el envío.
+\* Las cinco primeras categorías de error se corresponden a errores críticos y se deben corregir antes de avanzar a la preparación para el envío.
 
 
 ## <a name="container-or-share-name-errors"></a>Errores de nombre de contenedor o recurso compartido
@@ -119,8 +120,8 @@ Estos son errores relacionados con datos que superan el tamaño de datos permiti
 - Busque las carpetas que tienen este problema en los registros de error y asegúrese de que los archivos en esa carpeta tengan menos de 5 TiB.
 - El límite de 5 TiB no se aplica a una cuenta de almacenamiento que permita los recursos compartidos de archivos de gran tamaño. Sin embargo, debe tener configurados algunos recursos compartidos de gran tamaño al realizar el pedido. 
   - Póngase en contacto con el [Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md) y solicite una nueva etiqueta de envío.
-  - [Habilite recursos compartidos de archivos de gran tamaño en la cuenta de almacenamiento.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
-  - [Expanda los recursos compartidos de archivos de la cuenta de almacenamiento](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) y establezca la cuota en 100 TiB.
+  - [Habilitación de recursos compartidos de archivos de gran tamaño en la cuenta de almacenamiento](../storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Expanda los recursos compartidos de archivos de la cuenta de almacenamiento](../storage/files/storage-how-to-create-file-share.md#expand-existing-file-shares) y establezca la cuota en 100 TiB.
   
   
 ## <a name="object-or-file-size-limit-errors"></a>Errores de límite de tamaño de objeto o archivo
@@ -176,6 +177,11 @@ Para más información, consulte [Copiar en discos administrados](data-box-deplo
 
 **Resolución sugerida:** Normalmente, los vínculos simbólicos son vínculos, canalizaciones y otros archivos de este tipo. Quite los vínculos, o resuelva los vínculos y copie los datos.
 
+## <a name="folder-or-file-internal-errors"></a>Errores internos de carpetas o archivos
+
+**Descripción del error:** El archivo o la carpeta están en un estado de error interno.
+
+**Resolución sugerida:** Si se trata de un archivo, quítelo y vuelva a copiarlo. Si se trata de una carpeta, modifíquela. Cambie el nombre de la carpeta, o bien agregue o elimine un archivo de la carpeta. El error debería borrarse por sí solo en 30 minutos. Si el error persiste, póngase en contacto con el Soporte técnico de Microsoft.
 
 ## <a name="non-critical-blob-or-file-errors"></a>Errores no críticos de blob o archivo
 

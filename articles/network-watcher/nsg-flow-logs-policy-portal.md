@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e0ab4a22665741abb7ed4ab2569d1b55e090457
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98011108"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113688558"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Inicio rápido: Implementación y administración de registros de flujo de NSG con Azure Policy 
 
@@ -134,5 +134,6 @@ Debería ver algo parecido a la siguiente captura de pantalla de la directiva. E
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
+-   Más información sobre [Directivas integradas de Análisis de tráfico](./traffic-analytics-policy-portal.md)
 -   Use este [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) para profundizar en el uso de plantillas de ARM para implementar registros de flujo y el Análisis de tráfico.
 -   Obtenga más información sobre [Network Watcher](./index.yml).

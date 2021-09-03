@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/11/2021
+ms.date: 08/03/2021
 ms.author: radeltch
-ms.openlocfilehash: ec2121754a24a44288c158e630a4e84219c744e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a12a146f449ecb4669d38014437fae90ab3f5a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676927"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746210"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID
 
@@ -27,9 +27,9 @@ ms.locfileid: "101676927"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
+[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -44,7 +44,7 @@ ms.locfileid: "101676927"
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
@@ -250,8 +250,8 @@ En esta documentación se supone que:
 
    Actualice el objeto `/etc/fstab` del archivo con los sistemas de archivos de los sistemas SAP adicionales que va a implementar en el clúster.  
 
-   * Si usa Azure NetApp Files, siga las instrucciones incluidas [aquí](./high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation).  
-   * Si usa el clúster GlusterFS, siga las instrucciones incluidas [aquí](./high-availability-guide-rhel.md#prepare-for-sap-netweaver-installation).  
+   * Si usa Azure NetApp Files, siga las instrucciones de la página [Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID](./high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation).
+   * Si usa el clúster GlusterFS, siga las instrucciones de la página [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux](./high-availability-guide-rhel.md#prepare-for-sap-netweaver-installation).
 
 ### <a name="install-ascs--ers"></a>Instalación de ASCS/ERS
 
@@ -266,7 +266,7 @@ En esta documentación se supone que:
     sudo pcs resource create vip_NW2_ASCS IPaddr2 \
     ip=10.3.1.52 cidr_netmask=24 \
      --group g-NW2_ASCS
-    
+  
     sudo pcs resource create nc_NW2_ASCS azure-lb port=62010 \
      --group g-NW2_ASCS
 
@@ -418,6 +418,8 @@ En esta documentación se supone que:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW2_ASCS
 
+    sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
+
     sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
     InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
@@ -426,7 +428,7 @@ En esta documentación se supone que:
 
     sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
     sudo pcs constraint location rsc_sap_NW2_ASCS10 rule score=2000 runs_ers_NW2 eq 1
-    sudo pcs constraint order g-NW2_ASCS then g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
 
     sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
     InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
@@ -436,6 +438,8 @@ En esta documentación se supone que:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW3_ASCS
 
+    sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
+
     sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
     InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
@@ -444,7 +448,7 @@ En esta documentación se supone que:
 
     sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
     sudo pcs constraint location rsc_sap_NW3_ASCS20 rule score=2000 runs_ers_NW3 eq 1
-    sudo pcs constraint order g-NW3_ASCS then g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
 
     sudo pcs property set maintenance-mode=false
     ```
@@ -458,10 +462,12 @@ En esta documentación se supone que:
     sudo pcs resource create rsc_sap_NW2_ASCS10 SAPInstance \
     InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW2_ASCS
+
+    sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
     InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
@@ -469,17 +475,21 @@ En esta documentación se supone que:
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW2_AERS
 
+    sudo pcs resource meta rsc_sap_NW2_ERS12  resource-stickiness=3000
+
     sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
-    sudo pcs constraint order g-NW2_ASCS then g-NW2_AERS kind=Optional symmetrical=false
-    sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS symmetrical=false
+    sudo pcs constraint order start g-NW2_ASCS then start g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
 
     sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
     InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW3_ASCS
+
+    sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
     InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
@@ -487,9 +497,11 @@ En esta documentación se supone que:
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW3_AERS
 
+    sudo pcs resource meta rsc_sap_NW3_ERS22  resource-stickiness=3000
+
     sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
-    sudo pcs constraint order g-NW3_ASCS then g-NW3_AERS kind=Optional symmetrical=false
-    sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS symmetrical=false
+    sudo pcs constraint order start g-NW3_ASCS then start g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
 
     sudo pcs property set maintenance-mode=false
     ```

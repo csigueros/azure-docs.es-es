@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef0dc016b2b216d51a4844c469d14a24e11068b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 3d7ece742e211715c27a4bb81b67c51a7910552f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111437773"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746075"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Creación y asignación de un rol personalizado en Azure Active Directory
 
@@ -39,7 +39,8 @@ Para más información, consulte [Requisitos previos para usar PowerShell o Prob
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Creación de un rol personalizado para conceder acceso para administrar los registros de aplicaciones
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+
 1. Seleccione **Azure Active Directory** > **Roles y administradores** > **Nuevo rol personalizado**.
 
    ![Creación o edición de roles en la página Roles y administradores](./media/custom-create/new-custom-role.png)
@@ -165,8 +166,10 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 Al igual que los roles integrados, los roles personalizados se asignan de forma predeterminada en el ámbito predeterminado de toda la organización para conceder permisos de acceso a todos los registros de aplicaciones de la organización. Además, los roles personalizados y algunos roles integrados pertinentes (según el tipo de recurso de Azure AD) también se pueden asignar en el ámbito de un único recurso de Azure AD. Esto le permite entregar al usuario el permiso para actualizar las credenciales y las propiedades básicas de una aplicación única sin la necesidad de crear un segundo rol personalizado.
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con los permisos Desarrollador de aplicaciones.
-1. Seleccione **App registrations** (Registros de aplicaciones).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con los permisos Desarrollador de aplicaciones.
+
+1. Seleccione **Azure Active Directory** > **Registros de aplicaciones**.
+
 1. Seleccione el registro de aplicaciones al que se concede acceso para administrar. Es posible que tenga que seleccionar **Todas las aplicaciones** para ver la lista completa de los registros de aplicaciones de la organización de Azure AD.
 
     ![Selección del registro de aplicaciones como un ámbito de recurso para una asignación de roles](./media/custom-create/appreg-all-apps.png)
@@ -174,6 +177,7 @@ Al igual que los roles integrados, los roles personalizados se asignan de forma 
 1. En el registro de aplicaciones, seleccione **Roles y administradores**. Si todavía no crea uno, puede encontrar instrucciones sobre cómo hacerlo en el [procedimiento anterior](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
 1. Seleccione el rol para abrir la página **Asignaciones**.
+
 1. Seleccione **Agregar asignación** para agregar un usuario. Al usuario se le concederán permisos únicamente sobre el registro de aplicaciones seleccionado.
 
 ## <a name="next-steps"></a>Pasos siguientes

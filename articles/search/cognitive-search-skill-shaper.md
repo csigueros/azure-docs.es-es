@@ -2,18 +2,17 @@
 title: Habilidad cognitiva Conformador
 titleSuffix: Azure Cognitive Search
 description: Extraiga metadatos e información estructurada de datos no estructurados y modélelos como un tipo complejo en una canalización de enriquecimiento de inteligencia artificial de Azure Cognitive Search.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 81eb0e60befc544a6c3bee8f04e901b6a5e472bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: 9395f0446680135bde99193609bde82385f64b0b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85560825"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038787"
 ---
 # <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
 
@@ -24,7 +23,7 @@ Además, la habilidad **Conformador** ilustrada en el [escenario 3](#nested-comp
 El nombre de la salida es siempre "salida". Internamente, la canalización puede asignar otro nombre, como "analyzedText", como se muestra en los ejemplos siguientes, pero la aptitud **Conformador** devuelve "output" en la respuesta. Esto podría ser importante si está depurando documentos enriquecidos y observa la discrepancia de nombre, o si compila una habilidad personalizada y estructura la respuesta por sí mismo.
 
 > [!NOTE]
-> La aptitud **Conformador** no está enlazada a una API de Cognitive Services y no se le cobra por usarla. Sin embargo, debe [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) para invalidar la opción del recurso **Gratis**, que tiene un límite de unos pocos enriquecimientos al día.
+> Esta capacidad no está enlazada a Cognitive Services. No es facturable y no tiene ningún requisito de clave de Cognitive Services.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
@@ -36,7 +35,6 @@ Piense en un escenario en el que quiere crear una estructura denominada *analyze
 Pero otro método para crear tipos complejos es mediante la aptitud **Conformador**. Al incluir esta aptitud en un conjunto de aptitudes, las operaciones en memoria durante el procesamiento del conjunto de aptitudes pueden generar formas de datos con estructuras anidadas, que luego pueden asignarse a un tipo complejo del índice. 
 
 En el ejemplo siguiente, la definición de aptitud proporciona los nombres de miembro como entrada. 
-
 
 ```json
 {
@@ -66,26 +64,26 @@ En el ejemplo siguiente, la definición de aptitud proporciona los nombres de mi
 Un indizador invoca a un conjunto de aptitudes, y un indizador requiere un índice. Una representación de campo complejo del índice podría ser similar al ejemplo siguiente. 
 
 ```json
-
-    "name": "my-index",
-    "fields": [
-        {   "name": "myId", "type": "Edm.String", "key": true, "filterable": true   },
-        {   "name": "analyzedText", "type": "Edm.ComplexType",
-            "fields": [{
-                    "name": "text",
-                    "type": "Edm.String",
-                    "filterable": false,
-                    "sortable": false,
-                    "facetable": false,
-                    "searchable": true  },
-          {
-                    "name": "sentiment",
-                    "type": "Edm.Double",
-                    "searchable": true,
-                    "filterable": true,
-                    "sortable": true,
-                    "facetable": true
-                },
+"name":"my-index",
+"fields":[
+   { "name":"myId", "type":"Edm.String", "key":true, "filterable":true  },
+   { "name":"analyzedText", "type":"Edm.ComplexType",
+      "fields":[
+         {
+            "name":"text",
+            "type":"Edm.String",
+            "facetable":false,
+            "filterable":false,
+            "searchable":true,
+            "sortable":false  },
+         {
+            "name":"sentiment",
+            "type":"Edm.Double",
+            "facetable":true,
+            "filterable":true,
+            "searchable":true,
+            "sortable":true }
+      }
 ```
 
 ### <a name="skill-input"></a>Entrada de aptitud

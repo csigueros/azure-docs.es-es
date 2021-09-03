@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: d39beca60264023c8eb7c1bc78cd1ac15c3b45dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 967d7462ebdbbeab9d0653914dc0640af453b7ee
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586631"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291896"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Conexión a Azure Synapse Studio con centros de Azure Private Link 
 
@@ -22,7 +22,7 @@ En este artículo se explica cómo se usan los vínculos privados de los centros
 ## <a name="azure-private-link-hubs"></a>Centros de Azure Private Link 
 Puede conectarse de forma segura a Azure Synapse Studio desde la red virtual de Azure mediante vínculos privados. Los centros de Private Link de Azure Synapse Analytics son recursos de Azure que funcionan como conectores entre la red protegida y la experiencia web de Synapse Studio. 
 
-Para conectarse a Synapse Studio mediante vínculos privados se necesitan dos pasos. En primer lugar, debe crear un recurso de centros de vínculo privado. En segundo lugar, debe crear un punto de conexión privado entre la red virtual de Azure y este centro de vínculo privado. Después, puede usar puntos de conexión privados para comunicarse de forma segura con Synapse Studio. Los puntos de conexión privados se deben integrar con la solución DNS, ya sea con la solución local o con Azure Private DNS. 
+Para conectarse a Synapse Studio mediante vínculos privados se necesitan dos pasos. En primer lugar, debe crear un recurso de centros de vínculo privado. En segundo lugar, debe crear un punto de conexión privado entre la red virtual de Azure y este centro de vínculo privado. Después, puede usar puntos de conexión privados para comunicarse de forma segura con Synapse Studio. Los puntos de conexión privados se deben integrar con la solución DNS, ya sea con la solución local o con DNS privado de Azure. 
 
 ## <a name="azure-private-links-hubs-and-azure-synapse-studio"></a>Centros de Azure Private Link y Azure Synapse Studio
 Puede usar un único recurso de centro de vínculo privado de Azure Synapse para conectarse de forma privada a todas las áreas de trabajo de Azure Synapse Analytics mediante Azure Synapse Studio. Las áreas de trabajo no tienen que estar en la misma región que el centro de vínculo privado de Azure Synapse. El recurso de centro de vínculo privado de Azure Synapse también se puede usar para las conexiones a las áreas de trabajo de Synapse en distintas suscripciones o inquilinos de Azure AD.

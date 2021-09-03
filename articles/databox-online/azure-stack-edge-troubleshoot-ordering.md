@@ -6,26 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 06/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 99d68cc9a801a73680f32c6f4baa46cebff3b4eb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1d84d6b8bd2978f58f5fb44c0ee1d003db89b7da
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460418"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746524"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Solución de problemas de pedidos de Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 En este artículo se describe cómo solucionar los problemas de pedidos de Azure Stack Edge.
-
-En este tutorial, aprenderá a:
-
-> [!div class="checklist"]
->
-> * Solucionar problemas de pedidos
 
 ## <a name="unsupported-subscription-or-region"></a>Suscripción o región no admitidas
 
@@ -43,7 +37,12 @@ Existe la posibilidad de que Microsoft pueda permitir una actualización del tip
 
 **Error:** Tiene una suscripción de EA, CSP o patrocinada y recibe el siguiente error:
 
-*The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](azure-stack-edge-deploy-prep.md#prerequisites). If using a supported subscription type, make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)* (No se admite el tipo de suscripción seleccionado. Asegúrese de usar una suscripción admitida. Más información. Si usa un tipo de suscripción admitido, asegúrese de que el proveedor Microsoft.DataBox.Edge esté registrado. Para obtener más información sobre cómo registrarlo, consulte Registro del proveedor de recursos).
+*No se admite el tipo de suscripción seleccionado. Make sure that you use a supported subscription. [Más información](azure-stack-edge-deploy-prep.md#prerequisites). Si usa un tipo de suscripción compatible, asegúrese de lo siguiente:
+ 
+- Que el proveedor `Microsoft.DataBoxEdge` está registrado cuando realice pedidos a través del portal clásico.
+- Que el proveedor `Microsoft.EdgeOrder` está registrado cuando realice pedidos a través de Azure Edge Hardware Center (versión preliminar).
+ 
+Para obtener información acerca de cómo registrarse, consulte [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
 **Solución propuesta:** Siga estos pasos para registrar el proveedor de recursos de Azure Stack Edge:
 
@@ -59,11 +58,13 @@ Si no tiene acceso de propietario o colaborador para registrar el proveedor de r
 
 Para obtener más información, consulte [Registro del proveedor de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
-## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Microsoft.DataBoxEdge no registrado para suscripción
+## <a name="resource-provider-not-registered-for-subscription"></a>Proveedor de recursos no registrado para la suscripción
 
-**Error:** En Azure Portal, selecciona una suscripción que se usará para Azure Stack Edge o Data Box Gateway y recibe el siguiente error:
+**Error**: en Azure Portal, selecciona una suscripción que se usará para Azure Stack Edge o Data Box Gateway y recibe uno de los errores siguientes:
 
 *Resource provider(s): Microsoft.DataBoxEdge are not registered for subscription &lt;nombre de la suscripción&gt; and you don't have permissions to register a resource provider for subscription &lt;nombre de la suscripción&gt;* (Proveedores de recursos: Microsoft.DataBoxEdge no está registrado en <nombre de la suscripción>, y usted no tiene permisos para registrar un proveedor de recursos para la suscripción <nombre de la suscripción>).
+
+*Resource provider(s): Microsoft.EdgeOrder are not registered for subscription &lt;nombre de la suscripción&gt; and you don't have permissions to register a resource provider for subscription &lt;nombre de la suscripción&gt;* (Proveedores de recursos: Microsoft.EdgeOrder no está registrado en la suscripción <nombre de la suscripción>, y usted no tiene permisos para registrar un proveedor de recursos para la suscripción <nombre de la suscripción>).
 
 **Solución propuesta:** Eleve el acceso a la suscripción o busque a alguien con acceso de propietario o colaborador para registrar el proveedor de recursos.
 
@@ -77,4 +78,4 @@ Para obtener más información, consulte [Registro del proveedor de recursos](az
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre la [Solución de problemas de Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+* Obtenga más información sobre la [Solución de problemas de Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md).

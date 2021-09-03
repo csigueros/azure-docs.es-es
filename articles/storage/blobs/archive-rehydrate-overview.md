@@ -4,17 +4,17 @@ description: Mientras un blob se encuentra en el nivel de acceso de archivo, se 
 services: storage
 author: tamram
 ms.author: tamram
-ms.date: 08/11/2021
+ms.date: 08/24/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: 916e51a78cdaef96517ac5b17ba11000367756ad
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 33f29c44e32f1deed0c21e3695e61457a31c7f65
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122206625"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829681"
 ---
 # <a name="overview-of-blob-rehydration-from-the-archive-tier"></a>Introducción a la rehidratación de blobs desde el nivel de archivo
 
@@ -113,7 +113,7 @@ Para obtener más información sobre los precios de los blobs en bloques, consul
 
 ## <a name="see-also"></a>Vea también
 
-- [Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo](storage-blob-storage-tiers.md).
+- [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
 - [Rehidratación de un blob archivado en un nivel en línea](archive-rehydrate-to-online-tier.md)
 - [Ejecución de una función de Azure en respuesta a un evento de rehidratación de blobs](archive-rehydrate-handle-event.md)
 - [Reacción a eventos de Blob Storage](storage-blob-event-overview.md)

@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/19/2021
 ms.author: erhopf
-ms.openlocfilehash: 4a78e233a41bf3b6682f52bac912528d6bcab76c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: deb5db6f205c02812330539c403fbe7b80d4784c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816346"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747526"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Habilitación del registro de diagnóstico para Azure Cognitive Services
 
-Esta guía proporciona instrucciones paso a paso para habilitar el registro de diagnóstico para un servicio de Azure Cognitive Services. Estos registros proporcionan datos exhaustivos y frecuentes sobre el funcionamiento de un recurso que se utilizan para la identificación y depuración del problema. Antes de continuar, debe tener una cuenta de Azure con una suscripción a al menos un servicio de Cognitive Services, como [Bing Web Search](./bing-web-search/overview.md), [Servicios de voz](./speech-service/overview.md) o [LUIS](./luis/what-is-luis.md).
+Esta guía proporciona instrucciones paso a paso para habilitar el registro de diagnóstico para un servicio de Azure Cognitive Services. Estos registros proporcionan datos exhaustivos y frecuentes sobre el funcionamiento de un recurso que se utilizan para la identificación y depuración del problema. Antes de continuar, debe tener una cuenta de Azure con una suscripción a al menos un servicio de Cognitive Services, como [Servicios de voz](./speech-service/overview.md) o [LUIS](./luis/what-is-luis.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -28,7 +28,8 @@ Para habilitar el registro de diagnóstico, necesitará un lugar donde almacenar
 * [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace): una herramienta flexible de búsqueda y de análisis de registros que permite el análisis de los registros sin procesar que genera un recurso de Azure.
 
 > [!NOTE]
-> Hay más opciones de configuración disponibles. Para más información, consulte [Recopilación y consumo de los datos de registro provenientes de los recursos de Azure](../azure-monitor/essentials/platform-logs-overview.md).
+> * Hay más opciones de configuración disponibles. Para más información, consulte [Recopilación y consumo de los datos de registro provenientes de los recursos de Azure](../azure-monitor/essentials/platform-logs-overview.md).
+> * "Seguimiento" en el registro de diagnóstico solo está disponible para [Respuesta personalizada a preguntas](./qnamaker/how-to/get-analytics-knowledge-base.md?tabs=v2).
 
 ## <a name="enable-diagnostic-log-collection"></a>Habilitación de la colección de registros de diagnóstico  
 
@@ -37,7 +38,7 @@ Comencemos por habilitar el registro de diagnóstico mediante Azure Portal.
 > [!NOTE]
 > Para habilitar este rol mediante PowerShell o la CLI de Azure, use las instrucciones proporcionadas en [Recopilación y consumo de datos de registro de los recursos de Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
-1. Acceda a Azure Portal. Busque y seleccione un recurso de Cognitive Services. Por ejemplo, la suscripción a Bing Web Search.   
+1. Acceda a Azure Portal. Busque y seleccione un recurso de Cognitive Services. Por ejemplo, la suscripción a Servicios de voz.   
 2. A continuación, en el menú de navegación izquierdo, busque **Monitoring** (Supervisión) y seleccione **Diagnostic settings** (Configuración de diagnóstico). Esta pantalla contiene todas las configuraciones de diagnóstico creadas anteriormente para este recurso.
 3. Si hay un recurso creado previamente que le gustaría utilizar, puede seleccionarlo. En caso contrario, seleccione **+ Add diagnostic setting** (+ Agregar configuración de diagnóstico).
 4. Escriba un nombre para la configuración. Seleccione **Archive to a storage account** (Archivar en una cuenta de almacenamiento) y luego seleccione **Send to log Analytics** (Enviar a Log Analytics).

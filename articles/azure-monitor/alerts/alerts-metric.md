@@ -4,13 +4,13 @@ description: Aprenda a usar Azure Portal o la CLI para crear, ver y administrar 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 01/11/2021
-ms.openlocfilehash: 0b2f70e2727832514f1ce92d1ce0da90f0a6a2e9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 08/02/2021
+ms.openlocfilehash: 49e9dee0b28eb17f2a4241570a2f0752f33b9020
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038040"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747688"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
 
@@ -45,6 +45,9 @@ En el siguiente procedimiento se describe cómo crear una regla de alertas de m�
     - También puede **Seleccionar todos los valores actuales y futuros** para cualquiera de las dimensiones. Esto escala dinámicamente la selección a todos los valores actuales y futuros de una dimensión.
 
     La regla de alertas de métricas evaluará la condición para todas las combinaciones de valores seleccionados. [Obtenga más información sobre cómo funciona la creación de alertas en las métricas multidimensionales](./alerts-metric-overview.md).
+    
+    > [!NOTE]
+    > El uso de "All" como valor de dimensión equivale a seleccionar " Todos los valores actuales y futuros".
 
 9. Seleccione el tipo de **Umbral**, **Operador** y **Tipo de agregación**. Esto determinará la lógica que evaluará la regla de alertas de métricas.
     - Si usa un umbral **Estático**, siga para definir un **Valor de umbral**. El gráfico de métricas puede ayudar a determinar cuál podría ser un umbral razonable.
@@ -62,8 +65,6 @@ En el siguiente procedimiento se describe cómo crear una regla de alertas de m�
 
 15. Haga clic en **Listo** para guardar la regla de alertas de métrica.
 
-> [!NOTE]
-> Las reglas de alertas de métricas creadas mediante el portal se crean en el mismo grupo de recursos que el recurso de destino.
 
 ## <a name="view-and-manage-with-azure-portal"></a>Visualización y administración con Azure Portal
 
@@ -83,7 +84,7 @@ Puede ver y administrar las reglas de alertas de métricas mediante la hoja Admi
 5. En la regla Editar, haga clic en los **criterios de alerta** que quiera editar. Puede cambiar la métrica, la condición de umbral y otros campos según sea necesario
 
     > [!NOTE]
-    > No puede editar el **recurso de destino** y el **nombre de la regla de alertas** después de crear la alerta de métrica.
+    > No puede editar el **nombre de la regla de alertas** después de crear la regla de alertas de métrica.
 
 6. Haga clic en **Listo** para guardar los cambios.
 
@@ -125,7 +126,7 @@ En las secciones anteriores se describía cómo crear, ver y administrar las reg
 6. Puede deshabilitar una regla de alertas de métricas con el comando siguiente.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --disabled false
     ```
 
 7. Puede eliminar una regla de alertas de métricas con el comando siguiente.

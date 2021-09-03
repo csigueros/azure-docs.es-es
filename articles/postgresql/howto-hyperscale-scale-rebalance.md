@@ -6,17 +6,17 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/09/2021
-ms.openlocfilehash: 63322fac4c6ad5b705deedcd8a80466ddd803814
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 07/20/2021
+ms.openlocfilehash: 19b44306185dcfcdd3675898b9066019f686dc75
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305708"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463563"
 ---
 # <a name="rebalance-shards-in-hyperscale-citus-server-group"></a>Reequilibrio de particiones en un grupo de servidores de Hiperescala (Citus)
 
-Para aprovechar los nodos recién agregados, tiene que reequilibrar la tabla distribuida [particiones de base de datos](concepts-hyperscale-distributed-data.md#shards), lo que significa mover algunas particiones de los nodos existentes a las nuevas.
+Para aprovechar los nodos recién agregados, tiene que reequilibrar la tabla distribuida [particiones de base de datos](concepts-hyperscale-distributed-data.md#shards), lo que significa mover algunas particiones de los nodos existentes a las nuevas. Hiperescala (Citus) ofrece un reequilibrio sin tiempo de inactividad, lo que significa que las consultas se pueden ejecutar sin interrupción durante el reequilibrio de particiones.
 
 ## <a name="determine-if-the-server-group-needs-a-rebalance"></a>Determinación de si el grupo de servidores necesita un reequilibrio
 

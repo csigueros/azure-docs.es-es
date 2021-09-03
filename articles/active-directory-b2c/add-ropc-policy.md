@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 06/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3a7c93bb0e0dcc51e35bc27fa0799d8410e66df6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c4d31d7a1d9e67b1c246de50887d65206a12d57
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581888"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284624"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Configuración del flujo de credenciales de contraseña del propietario del recurso en Azure Active Directory B2C
 
@@ -365,6 +365,14 @@ Una respuesta correcta se parece al siguiente ejemplo:
     "refresh_token_expires_in": 1209600
 }
 ```
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="the-provided-application-is-not-configured-to-allow-the-oauth-implicit-flow"></a>La aplicación proporcionada no está configurada para permitir el flujo implícito de "OAuth"
+
+* **Síntoma**: ejecuta el flujo ROPC y recibe el siguiente mensaje: *AADB2C90057: La aplicación proporcionada no está configurada para permitir el flujo implícito de "OAuth"* .
+* **Causas posibles**: no se permite el flujo implícito para la aplicación.
+* **Resolución**: al crear el [registro de aplicación](#register-an-application) en Azure AD B2C, debe editar manualmente el manifiesto de aplicación y establecer el valor de la propiedad `oauth2AllowImplicitFlow` en `true`. Después de configurar la propiedad `oauth2AllowImplicitFlow`, el cambio puede tardar unos minutos en aplicarse (por lo general no más de cinco). 
 
 ## <a name="use-a-native-sdk-or-app-auth"></a>Usar un SDK nativo o autenticación de aplicación
 

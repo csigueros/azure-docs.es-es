@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 06/10/2021
+ms.date: 08/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0e8c63827ba6e2e022e0d7876952b0a159c1e569
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: eef2a1eb5f17864074ac346ac7a89a59d1d59778
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984633"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037296"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Disponibilidad de características de Azure Machine Learning entre regiones de nubes en la nube
 
@@ -57,15 +57,14 @@ La información del resto de este documento proporciona información sobre qué 
 | Jupyter, integración con JupyterLab                                            | Disponibilidad general                   | SÍ                | SÍ         |
 | Compatibilidad con redes virtuales (VNet)                                             | Vista previa pública       | SÍ                | SÍ         |
 | **Compatibilidad con SDK** |  |  | | 
-| [Compatibilidad con el SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/index.html)                                                              | Vista previa pública       | SÍ                | SÍ         |
 | [Compatibilidad con el SDK de Python](/python/api/overview/azure/ml/)                                                         | Disponibilidad general                   | SÍ                | SÍ         |
 | **[Seguridad](concept-enterprise-security.md)** |   | | | 
 | Compatibilidad con Virtual Network (VNet) para aprendizaje                                | Disponibilidad general                   | SÍ                | SÍ         |
 | Compatibilidad con Virtual Network (VNet) para inferencia                               | Disponibilidad general                   | SÍ                | SÍ         |
 | Autenticación de puntos de conexión de puntuación                                            | Vista previa pública       | SÍ                | SÍ         |
-| Punto de conexión privado de área de trabajo                                                 | Vista previa pública       | No                 | No          |
+| Punto de conexión privado de área de trabajo                                                 | GA  |  GA  |  GA |
 | ACI detrás de VNet                                                            | Vista previa pública       | No                 | No          |
-| ACR detrás de VNet                                                            | Vista previa pública       | No                 | No          |
+| ACR detrás de VNet                                                            | Disponibilidad general       | SÍ                 | SÍ          |
 | IP privada de clúster de AKS                                                  | Vista previa pública       | No                 | No          |
 | **Proceso** |   | | |
 | [Administración de cuotas entre áreas de trabajo](how-to-manage-quotas.md)                                         | Disponibilidad general                   | SÍ                | SÍ         |
@@ -101,9 +100,8 @@ La información del resto de este documento proporciona información sobre qué 
 | [Inferencia por lotes](tutorial-pipeline-batch-scoring-classification.md)                                                          | Disponibilidad general                   | SÍ                | SÍ         |
 | [Data Box Edge con FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Vista previa pública       | No                 | No          |
 | **Otros** |   | | |
-| [Open Datasets](/azure/open-datasets/samples)                                                              | Vista previa pública       | SÍ                | SÍ         |
+| [Open Datasets](../open-datasets/samples.md)                                                              | Vista previa pública       | SÍ                | SÍ         |
 | [Cognitive Search personalizado](how-to-deploy-model-cognitive-search.md)                                                    | Vista previa pública       | SÍ                | SÍ         |
-| [Acelerador de soluciones Many Models](https://github.com/microsoft/solution-accelerator-many-models)                                                                | Vista previa pública       | No                 | No          |
 
 
 ### <a name="azure-government-scenarios"></a>Escenarios de Azure Government
@@ -111,15 +109,14 @@ La información del resto de este documento proporciona información sobre qué 
 | Escenario                                                    | EE.UU.: Virginia | EE.UU.: Arizona| Limitaciones  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **Configuración de la seguridad general** |   | | |
-| Comunicación de red privada entre servicios                                     | No | No | No hay Private Link actualmente | 
-| Deshabilitación o control del acceso a Internet (entrante y saliente) y una red virtual específica | PARTIAL| PARTIAL   | ACR detrás de VNet no está disponible en Azure Government (doble comprobación en ACI) | 
+| Deshabilitación o control del acceso a Internet (entrante y saliente) y una red virtual específica | PARTIAL| PARTIAL   |  | 
 | Selección de ubicación de todos los recursos o servicios asociados  | SÍ | SÍ |  |
 | Cifrado en reposo y en tránsito                                                 | SÍ | SÍ |  |
 | Acceso de SSH y raíz a los recursos de proceso                                          | SÍ | SÍ |  |
-| Mantenimiento de la seguridad de los sistemas implementados (instancias, puntos de conexión, etc.), incluida la protección de puntos de conexión, la revisión y el registro |  PARTIAL|  PARTIAL |ACI detrás de VNet y punto de conexión privado no disponibles actualmente |                                  
-| Control (deshabilitación, limitación o restricción) del uso de la integración de ACI/AKS                    | PARTIAL| PARTIAL |ACI detrás de VNet y punto de conexión privado no disponibles actualmente|
+| Mantenimiento de la seguridad de los sistemas implementados (instancias, puntos de conexión, etc.), incluida la protección de puntos de conexión, la revisión y el registro |  PARTIAL|  PARTIAL |ACI detrás de VNet no disponible actualmente |                                  
+| Control (deshabilitación, limitación o restricción) del uso de la integración de ACI/AKS                    | PARTIAL| PARTIAL |ACI detrás de VNet no disponible actualmente|
 | Control de acceso basado en rol de Azure (RBAC de Azure): creaciones de roles personalizados                           | SÍ | SÍ |  |
-| Control de acceso a imágenes de ACR utilizadas por el servicio de ML (proporcionado o mantenido por Azure frente a personalizado)  |PARTIAL|  PARTIAL | ACR detrás del punto de conexión privado y la red virtual no se admiten en Azure Government |
+| Control de acceso a imágenes de ACR utilizadas por el servicio de ML (proporcionado o mantenido por Azure frente a personalizado)  |PARTIAL|  PARTIAL |  |
 | **Uso general de Machine Learning Service** |  | | |
 | Capacidad de tener un entorno de desarrollo para crear un modelo, entrenar ese modelo, hospedarlo como punto de conexión y consumirlo a través de una aplicación web     | SÍ | SÍ |  |
 | Capacidad de extraer datos de ADLS (Data Lake Storage)                                 |SÍ | SÍ |  |
@@ -132,7 +129,7 @@ La información del resto de este documento proporciona información sobre qué 
 * En el caso de instancias de proceso de Azure Machine Learning, la capacidad de actualizar un token que dura más de 24 horas no está disponible en Azure Government.
 * La generación de perfiles de modelos no admite 4 CPU en la región EE.UU.: Arizona.   
 * Es posible que los cuadernos de ejemplo no funcionen en Azure Government si necesitan tener acceso a datos públicos.
-* Direcciones IP: El comando de la CLI que se usa en las instrucciones de [red virtual y tunelización forzada](how-to-secure-training-vnet.md#forced-tunneling) no devuelve intervalos IP. Use los [intervalos IP y las etiquetas de servicio de Azure para Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) en su lugar.
+* Direcciones IP: el comando de la CLI que se utiliza en las instrucciones de [acceso obligatorio a una red de Internet pública](how-to-secure-training-vnet.md#required-public-internet-access) no devuelve ningún intervalo IP. Use los [intervalos IP y las etiquetas de servicio de Azure para Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) en su lugar.
 * En el caso de las canalizaciones programadas, también proporcionamos un mecanismo de desencadenador basado en blobs. Este mecanismo no es compatible con las áreas de trabajo de CMK. Para habilitar un desencadenador basado en blobs para áreas de trabajo de CMK, tiene que realizar una configuración adicional. Para más información, consulte [Desencadenamiento de una ejecución de una canalización de Machine Learning desde una aplicación lógica](how-to-trigger-published-pipeline.md).
 * Firewalls: cuando use una región Azure Government, agregue los siguientes hosts adicionales a la configuración del firewall:
 
@@ -166,19 +163,18 @@ La información del resto de este documento proporciona información sobre qué 
 | Compatibilidad con R y Python                                                       | Disponibilidad general               | SÍ       | N/D        |
 | Compatibilidad con redes virtuales                                                    | Vista previa pública   | No        | N/D        |
 | **Instancia de proceso** |    | | |
-| Instancias de proceso administradas para cuadernos integrados                         | Disponibilidad general               | No        | N/D        |
+| Instancias de proceso administradas para cuadernos integrados                         | Disponibilidad general               | SÍ        | N/D        |
 | Jupyter, integración con JupyterLab                                            | Disponibilidad general               | SÍ       | N/D        |
 | Compatibilidad con redes virtuales (VNet)                                             | Vista previa pública   | SÍ       | N/D        |
 | **Compatibilidad con SDK** |    | | |
-| Compatibilidad con el SDK de R                                                              | Vista previa pública   | SÍ       | N/D        |
 | Compatibilidad con el SDK de Python                                                         | Disponibilidad general               | SÍ       | N/D        |
 | **Seguridad** |   | | |
 | Compatibilidad con Virtual Network (VNet) para aprendizaje                                | Disponibilidad general               | SÍ       | N/D        |
 | Compatibilidad con Virtual Network (VNet) para inferencia                               | Disponibilidad general               | SÍ       | N/D        |
 | Autenticación de puntos de conexión de puntuación                                            | Vista previa pública   | SÍ       | N/D        |
-| Private Link de área de trabajo                                                     | Disponibilidad general               | No        | N/D        |
+| Punto de conexión privado de área de trabajo                                                 | Disponibilidad general               | No        | N/D        |
 | ACI detrás de VNet                                                            | Vista previa pública   | No        | N/D        |
-| ACR detrás de VNet                                                            | Vista previa pública   | No        | N/D        |
+| ACR detrás de VNet                                                            | Disponibilidad general   | SÍ       | N/D        |
 | IP privada de clúster de AKS                                                  | Vista previa pública   | No        | N/D        |
 | **Proceso** |   | | |
 | Administración de cuotas entre áreas de trabajo                                         | Disponibilidad general               | SÍ       | N/D        |
@@ -216,7 +212,6 @@ La información del resto de este documento proporciona información sobre qué 
 | **Otros** |    | | |
 | Open Datasets                                                              | Vista previa pública   | SÍ       | N/D        |
 | Cognitive Search personalizado                                                    | Vista previa pública   | SÍ       | N/D        |
-| Muchos modelos                                                                | Vista previa pública   | No        | N/D        |
 
 
 
@@ -232,8 +227,8 @@ La información del resto de este documento proporciona información sobre qué 
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Es posible que los cuadernos de ejemplo no funcionen, si necesitan tener acceso a datos públicos.
-* Intervalos de direcciones IP: El comando de la CLI que se usa en las instrucciones de [tunelización forzada de red virtual](how-to-secure-training-vnet.md#forced-tunneling) no devuelve intervalos IP. Use los [intervalos IP y las etiquetas de servicio de Azure para Azure China](https://www.microsoft.com//download/details.aspx?id=57062) en su lugar.
-* No se admite la versión preliminar de las instancias de proceso de Azure Machine Learning en un área de trabajo en la que Private Link está habilitado, pero se admitirá CI en la siguiente implementación de la expansión del servicio a todas las regiones AML.
+* Intervalos de direcciones IP: el comando de la CLI que se utiliza en las instrucciones de [acceso obligatorio a una red de Internet pública](how-to-secure-training-vnet.md#required-public-internet-access) no devuelve ningún intervalo IP. Use los [intervalos IP y las etiquetas de servicio de Azure para Azure China](https://www.microsoft.com//download/details.aspx?id=57062) en su lugar.
+* No se admite la versión preliminar de las instancias de proceso de Azure Machine Learning en un área de trabajo en la que el punto de conexión privado está habilitado, pero se admitirá CI en la siguiente implementación de la expansión del servicio a todas las regiones AML.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

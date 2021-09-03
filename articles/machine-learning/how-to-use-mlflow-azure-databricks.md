@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: f541985b7e8210084ae11a9f48e18f735e6e4335
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 62fd9820d1ec743d7424679753828b0cb7837fbc
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479877"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031056"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>Seguimiento de experimentos de aprendizaje automático de Azure Databricks con MLflow y Azure Machine Learning
 
@@ -24,9 +24,9 @@ En este artículo, aprenderá a habilitar el identificador URI de seguimiento y 
 
 [MLflow](https://www.mlflow.org) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que registra las métricas de ejecución de entrenamiento y los artefactos de modelo y realiza un seguimiento de ellos. Más información sobre [Azure Databricks y MLflow](/azure/databricks/applications/mlflow/). 
 
-Consulte [Seguimiento de ejecuciones de experimentos con MLflow y Azure Machine Learning (versión preliminar)](how-to-use-mlflow.md) para conocer otras integraciones de la funcionalidad de MLflow y Azure Machine Learning.
+Vea [MLflow y Azure Machine Learning (versión preliminar)](concept-mlflow.md) para obtener otras integraciones de la funcionalidad de MLflow y Azure Machine Learning.
 
-Si tiene un proyecto de MLflow para entrenar con Azure Machine Learning, consulte [Entrenamiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md).
+Si tiene un proyecto de MLflow para entrenar con Azure Machine Learning, vea [Entrenamiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md).
 
 > [!TIP]
 > La información de este documento va destinada principalmente a aquellos científicos de datos y desarrolladores que deseen supervisar el proceso de entrenamiento del modelo. Los administradores que estén interesados en la supervisión del uso de recursos y eventos desde Azure Machine Learning, como cuotas, ejecuciones de entrenamiento completadas o implementaciones de modelos completadas pueden consultar [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).

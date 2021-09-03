@@ -3,14 +3,14 @@ title: 'Diagnóstico con Durable Functions: Azure'
 description: Aprenda a diagnosticar problemas con la extensión Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/29/2021
 ms.author: azfuncdf
-ms.openlocfilehash: d1125c2de0f548f1a6086819573acf1a2ac9c3c9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bf446b435bc84649d102150b8e0f092c25a85d07
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370898"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113087385"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
 
@@ -72,34 +72,12 @@ El nivel de detalle de los datos de seguimiento que se emiten para Application I
 }
 ```
 
-De forma predeterminada, se emiten todos los eventos de seguimiento de no reproducción. Se puede reducir el volumen de datos; para ello, configure `Host.Triggers.DurableTask` en `"Warning"` o `"Error"`, en cuyo caso los eventos de seguimiento solo se emitirá para las situaciones excepcionales.
-
-Para habilitar la emisión de los eventos de reproducción de orquestación detallada, `LogReplayEvents` se puede establecer en `true` en el archivo `host.json` en `durableTask`, tal como se muestra:
-
-#### <a name="functions-10"></a>Functions 1.0
-
-```json
-{
-    "durableTask": {
-        "logReplayEvents": true
-    }
-}
-```
-
-#### <a name="functions-20"></a>Functions 2.0
-
-```json
-{
-    "extensions": {
-        "durableTask": {
-            "logReplayEvents": true
-        }
-    }
-}
-```
+De forma predeterminada, se emiten todos los eventos de seguimiento de _no reproducción_. Se puede reducir el volumen de datos; para ello, configure `Host.Triggers.DurableTask` en `"Warning"` o `"Error"`, en cuyo caso los eventos de seguimiento solo se emitirá para las situaciones excepcionales. Para habilitar la emisión de los eventos de reproducción de orquestación detallados, establezca `logReplayEvents` en `true` en el archivo de configuración [host.json](durable-functions-bindings.md#host-json).
 
 > [!NOTE]
 > De forma predeterminada, el sistema en tiempo de ejecución de Azure Functions muestrea la telemetría de Application Insights para evitar que se emitan datos con demasiada frecuencia. Esto puede provocar que se pierda información de seguimiento cuando se producen muchos eventos de ciclo de vida en un breve período de tiempo. En el artículo [Supervisión de Azure Functions](../configure-monitoring.md#configure-sampling) se explica cómo configurar este comportamiento.
+
+De forma predeterminada, las entradas y salidas de las funciones de orquestador, actividad y entidad no se registran. Se recomienda este comportamiento predeterminado porque el registro de entradas y salidas podría aumentar los costos de Application Insights. Las cargas de entrada y salida de funciones también pueden contener información confidencial. En su lugar, de forma predeterminada se registra el número de bytes para las entradas y salidas de funciones, en lugar de las cargas reales. Si quiere que la extensión Durable Functions registre las cargas de entrada y salida completas, establezca la propiedad `traceInputsAndOutputs` en `true` en el archivo de configuración [host.json](durable-functions-bindings.md#host-json).
 
 ### <a name="single-instance-query"></a>Consultas en una sola instancia
 

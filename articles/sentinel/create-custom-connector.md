@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: d964dc25fd450f244e34140080e77cdc0e319941
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b2e2e1dad8d8fca6ce809e7e76a7ba8021420561
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749436"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182523"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Recursos para crear conectores personalizados de Azure Sentinel
 
@@ -211,9 +211,11 @@ El análisis en el tiempo de consulta también significa que no es necesario con
 
 Use los datos ingeridos en Azure Sentinel para proteger su entorno con cualquiera de los siguientes procesos:
 
-- [Obtención de visibilidad sobre las alertas](quickstart-get-visibility.md)
-- [Visualizar y supervisar los datos](tutorial-monitor-your-data.md)
-- [Investigación de incidentes](tutorial-investigate-cases.md)
-- [Detectar amenazas](tutorial-detect-threats-built-in.md)
+- [Obtención de visibilidad sobre las alertas](get-visibility.md)
+- [Visualizar y supervisar los datos](monitor-your-data.md)
+- [Investigación de incidentes](investigate-cases.md)
+- [Detectar amenazas](detect-threats-built-in.md)
 - [Prevención automática de amenazas](tutorial-respond-threats-playbook.md)
 - [Búsqueda de amenazas](hunting.md)
+
+Además, obtenga información sobre un ejemplo de creación de un conector personalizado para supervisar Zoom: [Supervisión del zoom con Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516).

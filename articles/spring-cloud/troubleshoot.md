@@ -1,18 +1,18 @@
 ---
 title: Guía para la solución de problemas de Azure Spring Cloud | Microsoft Docs
 description: Guía para la solución de problemas de Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 13f61378b16f41d80b5622a41a55c103247b381b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 98f9a87825a2eb0bbae36255111ba4b019fb4750
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968994"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015390"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solución de problemas comunes de Azure Spring Cloud
 
@@ -28,7 +28,8 @@ Puede aparecer el siguiente mensaje de error en los registros:
 
 > "org.springframework.context.ApplicationContextException: Unable to start web server" (No se puede iniciar el servidor web).
 
-El mensaje indica uno de dos problemas probables: 
+El mensaje indica uno de dos problemas probables:
+
 * Falta uno de los beans o una de sus dependencias.
 * Falta una de las propiedades de bean o no es válida. En este caso, es probable que se muestre "java.lang.IllegalArgumentException".
 
@@ -38,7 +39,6 @@ Es posible que los enlaces de servicios también provoquen errores de inicio de 
 
 Para solucionar este error, vaya a `server parameters` en la instancia de MySQL y cambie el valor `time_zone` de *SYSTEM* a *+0:00*.
 
-
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>La aplicación se bloquea o genera un error inesperado
 
 Al depurar los bloqueos de la aplicación, empiece por comprobar el estado de la ejecución y de detección de la aplicación. Para ello, vaya a _Administración de aplicaciones_ en Azure Portal para asegurarse de que los estados de todas las aplicaciones sean _En ejecución_ y _ACTIVO_.
@@ -47,30 +47,36 @@ Al depurar los bloqueos de la aplicación, empiece por comprobar el estado de la
 
 * Si el estado de detección es _ACTIVO_, vaya a Métricas para comprobar el estado de la aplicación. Compruebe las siguientes métricas:
 
+   - `TomcatErrorCount` (_tomcat.global.error_):
 
-  - `TomcatErrorCount` (_tomcat.global.error_): Aquí se cuentan todas las excepciones de la aplicación Spring. Si el número es grande, vaya a Azure Log Analytics para comprobar los registros de aplicaciones.
+      Aquí se cuentan todas las excepciones de la aplicación Spring. Si el número es grande, vaya a Azure Log Analytics para comprobar los registros de aplicaciones.
 
-  - `AppMemoryMax` (_jvm.memory.max_): La cantidad máxima de memoria disponible para la aplicación. Es posible que la cantidad no esté definida o que cambie con el tiempo si se define. Si se define, la cantidad de memoria usada y confirmada siempre es menor o igual que el máximo. Sin embargo, es posible que se produzca un error en una asignación de memoria con un mensaje `OutOfMemoryError` si la asignación intenta aumentar la memoria usada de forma que *usada > confirmada*, incluso si se sigue cumpliendo *usada <= máx.* . En tal caso, intente aumentar el tamaño máximo del montón mediante el parámetro `-Xmx`.
+   - `AppMemoryMax` (_jvm.memory.max_):
 
-  - `AppMemoryUsed` (_jvm.memory.used_): La cantidad de memoria, en bytes, que usa actualmente la aplicación. En el caso de una aplicación Java de carga normal, esta serie de métricas forma un patrón de *sierra*, donde el uso de memoria aumenta y disminuye continuamente en pequeños incrementos y caídas repentinas y, a continuación, este patrón se repite. Esta serie de métricas se debe a la recolección de elementos no utilizados dentro de la máquina virtual Java, donde las acciones de recolección representan caídas en el patrón de sierra.
-    
+      La cantidad máxima de memoria disponible para la aplicación. Es posible que la cantidad no esté definida o que cambie con el tiempo si se define. Si se define, la cantidad de memoria usada y confirmada siempre es menor o igual que el máximo. Sin embargo, es posible que se produzca un error en una asignación de memoria con un mensaje `OutOfMemoryError` si la asignación intenta aumentar la memoria usada de forma que *usada > confirmada*, incluso si se sigue cumpliendo *usada <= máx.* . En tal caso, intente aumentar el tamaño máximo del montón mediante el parámetro `-Xmx`.
+
+   - `AppMemoryUsed` (_jvm.memory.used_):
+
+      La cantidad de memoria, en bytes, que usa actualmente la aplicación. En el caso de una aplicación Java de carga normal, esta serie de métricas forma un patrón de *sierra*, donde el uso de memoria aumenta y disminuye continuamente en pequeños incrementos y caídas repentinas y, a continuación, este patrón se repite. Esta serie de métricas se debe a la recolección de elementos no utilizados dentro de la máquina virtual Java, donde las acciones de recolección representan caídas en el patrón de sierra.
+
     Esta métrica es importante para ayudar a identificar problemas de memoria, por ejemplo:
+
     * Una explosión de memoria al principio mismo.
     * La asignación de memoria de sobrecarga para una ruta de acceso lógica específica.
     * Fugas de memoria graduales.
-  Para obtener más información, consulte [Métricas](./concept-metrics.md).
-  
+
+   Para obtener más información, consulte [Métricas](./concept-metrics.md).
+
 * Si la aplicación no se inicia, compruebe que la aplicación tiene parámetros de jvm válidos. Si la memoria de jvm está establecida en un valor demasiado alto, puede aparecer el siguiente mensaje de error en los registros:
 
-  >"required memory 2728741K is greater than 2000M available for allocation" (la memoria requerida, 2728741 kB, es mayor que los 2000 MB disponibles para la asignación)
-
-
+   > "required memory 2728741K is greater than 2000M available for allocation" (la memoria requerida, 2728741 kB, es mayor que los 2000 MB disponibles para la asignación)
 
 Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Mi aplicación experimenta un uso elevado de la CPU o la memoria
 
 Si la aplicación experimenta un uso elevado de la CPU o de la memoria, sucede una de estas dos cosas:
+
 * Todas las instancias de la aplicación experimentan un uso elevado de la CPU o de la memoria.
 * Algunas de las instancias de la aplicación experimentan un uso elevado de la CPU o de la memoria.
 
@@ -167,12 +173,13 @@ Para obtener más información sobre Azure Log Analytics, consulte [Introducció
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Deseo inspeccionar las variables de entorno de mi aplicación
 
-Las variables de entorno informan al marco de Azure Spring Cloud, lo que garantiza que Azure sabe dónde y cómo configurar los servicios que componen la aplicación. Asegurarse de que las variables de entorno son correctas es un primer paso necesario para solucionar los posibles problemas.  Puede usar el punto de conexión de Spring Boot Actuator para examinar las variables de entorno.  
+Las variables de entorno informan al marco de Azure Spring Cloud, lo que garantiza que Azure sabe dónde y cómo configurar los servicios que componen la aplicación. Asegurarse de que las variables de entorno son correctas es un primer paso necesario para solucionar los posibles problemas.  Puede usar el punto de conexión de Spring Boot Actuator para examinar las variables de entorno.
 
 > [!WARNING]
 > Este procedimiento expone las variables de entorno mediante un punto de conexión de prueba.  No continúe si se puede acceder de forma pública al punto de conexión de prueba o si ha asignado un nombre de dominio a la aplicación.
 
-1. Ir a `https://<your application test endpoint>/actuator/health`.  
+1. Ir a `https://<your application test endpoint>/actuator/health`.
+
     - Una respuesta similar a `{"status":"UP"}` indica que se ha habilitado el punto de conexión.
     - Si la respuesta es negativa, incluya la siguiente dependencia en el archivo *POM.xml*:
 
@@ -183,7 +190,7 @@ Las variables de entorno informan al marco de Azure Spring Cloud, lo que garanti
             </dependency>
         ```
 
-1. Con el punto de conexión de Spring Boot Actuator habilitado, vaya a Azure Portal y busque la página de configuración de la aplicación.  Agregue una variable de entorno con el nombre `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` y el valor `*` . 
+1. Con el punto de conexión de Spring Boot Actuator habilitado, vaya a Azure Portal y busque la página de configuración de la aplicación.  Agregue una variable de entorno con el nombre `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` y el valor `*`.
 
 1. Reinicie la aplicación.
 
@@ -212,7 +219,7 @@ Busque el nodo secundario denominado `systemEnvironment`.  Este nodo contiene la
 
 Vaya a **Administración de la aplicación** para asegurarse de que los estados de la aplicación sean _En ejecución_ y _ACTIVO_.
 
-Active esta opción para ver si _JMX_ está habilitado en el paquete de aplicación. Esta característica se puede habilitar con la propiedad de configuración `spring.jmx.enabled=true`.  
+Active esta opción para ver si _JMX_ está habilitado en el paquete de aplicación. Esta característica se puede habilitar con la propiedad de configuración `spring.jmx.enabled=true`.
 
 Compruebe si la dependencia de `spring-boot-actuator` está habilitada en el paquete de aplicación y si arranca correctamente.
 

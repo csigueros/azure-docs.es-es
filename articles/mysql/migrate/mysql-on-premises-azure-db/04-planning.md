@@ -1,5 +1,5 @@
 ---
-title: Planeamiento de la guía de migración de una instancia local de MySQL a Azure Database for MySQL
+title: 'Migración de datos de un entorno local de MySQL a Azure Database for MySQL: planeamiento'
 description: Una zona de aterrizaje de Azure es el entorno de destino definido como el lugar de reposo definitivo para un proyecto de migración a la nube.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: af4b64a9621f2327287a88fc9f3d00e485c424d5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 86dca0c57b473ca759c7dd2a685707c09dd11f05
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082967"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748195"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-planning"></a>Planeamiento de la guía de migración de una instancia local de MySQL a Azure Database for MySQL
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-planning"></a>Migración de datos de un entorno local de MySQL a Azure Database for MySQL: planeamiento
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -55,16 +57,16 @@ La ubicación de la herramienta de migración determina los requisitos de conect
 
 | Herramienta de migración | Tipo | Location | Requisitos de red de entrada | Requisitos de red de salida |
 |----------------|------|----------|------------------------------|-------------------------------|
-| **Database Migration Service (DMS)** | Sin conexión | Azure | Permitir 3306 desde IP externa | Ruta de acceso para conectarse a la instancia de la base de datos de MySQL en Azure |
-| **Import/Export (MySQL Workbench, mysqldump)** | Sin conexión | Local | Permitir 3306 desde IP interna | Ruta de acceso para conectarse a la instancia de la base de datos de MySQL en Azure |
-| **Import/Export (MySQL Workbench, mysqldump)** | Sin conexión | Azure VM | Permitir 3306 desde IP externa | Ruta de acceso para conectarse a la instancia de la base de datos de MySQL en Azure |
+| **Database Migration Service (DMS)** | Sin conexión | Azure| Permitir 3306 desde IP externa | Ruta de acceso para conectarse a la instancia de la base de datos de MySQL en Azure |
+| **Import/Export (MySQL Workbench, mysqldump)** | Sin conexión| Local | Permitir 3306 desde IP interna | Ruta de acceso para conectarse a la instancia de la base de datos de MySQL en Azure |
+| **Import/Export (MySQL Workbench, mysqldump)** | Sin conexión| Azure VM | Permitir 3306 desde IP externa | Ruta de acceso para conectarse a la instancia de la base de datos de MySQL en Azure |
 | **mydumper/myloader** | Sin conexión | Local | Permitir 3306 desde IP interna | Ruta de acceso para conectarse a la instancia de la base de datos de MySQL en Azure |
 | **mydumper/myloader** | Sin conexión | Azure VM | Permitir 3306 desde IP externa | Ruta de acceso para conectarse a la instancia de la base de datos de MySQL en Azure |
-| **binlog** | Sin conexión | Local | Permitir 3306 desde IP externa o IP privada a través de puntos de conexión privados | Ruta de acceso para cada servidor de replicación al servidor maestro |
+| **binlog**  | Sin conexión | Local | Permitir 3306 desde IP externa o IP privada a través de puntos de conexión privados | Ruta de acceso para cada servidor de replicación al servidor maestro |
 
 Los siguientes son otros aspectos sobre las redes que deben tenerse en cuenta:
 
-- Al servicio DMS ubicado en una red virtual se le asigna una [IP pública dinámica](../../../dms/faq.md#setup). Cuando crea el servicio, puede colocarlo en una red virtual que tenga conectividad a través de [ExpressRoute](../../../expressroute/expressroute-introduction.md) o de una conexión [VPN de sitio a sitio](../../../vpn-gateway/tutorial-site-to-site-portal.md).
+- Al servicio DMS ubicado en una red virtual se le asigna una [IP pública dinámica](/azure/dms/faq#setup). Cuando crea el servicio, puede colocarlo en una red virtual que tenga conectividad a través de [ExpressRoute](../../../expressroute/expressroute-introduction.md) o de una conexión [VPN de sitio a sitio](../../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 - Cuando use una máquina virtual de Azure para ejecutar las herramientas de migración, asígnele una dirección IP pública y permita que se conecte únicamente a la instancia local de MySQL.
 
@@ -93,8 +95,10 @@ Al principio, WWI quiso probar una migración en línea, pero la configuración 
 
 - Determinar si se va a usar una estrategia de migración de datos en línea o sin conexión.
 
-- Decidir la estrategia de certificado SSL.  
+- Decidir la estrategia de certificado SSL.
 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Métodos de migración](./05-migration-methods.md)

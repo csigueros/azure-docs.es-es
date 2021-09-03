@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a73269a411ff250afd6e9779deb36d00a596ac3d
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920297"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223669"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Patrones de expresiones de enlace de Azure Functions
 
@@ -261,7 +261,9 @@ module.exports = function (context, info) {
 
 ### <a name="dot-notation"></a>Notación de puntos
 
-Si algunas de las propiedades de la carga útil JSON son objetos con propiedades, puede hacer referencia a ellos directamente mediante la notación de puntos. Por ejemplo, suponga que su carga útil JSON tiene el siguiente aspecto:
+Si algunas de las propiedades de la carga útil JSON son objetos con propiedades, puede hacer referencia a ellos directamente mediante la notación de puntos. La notación de puntos no funciona, ni los enlaces de [Cosmos DB](./functions-bindings-cosmosdb-v2.md) o [Almacenamiento de tablas](./functions-bindings-storage-table-output.md). 
+
+Por ejemplo, suponga que su carga útil JSON tiene el siguiente aspecto:
 
 ```json
 {
