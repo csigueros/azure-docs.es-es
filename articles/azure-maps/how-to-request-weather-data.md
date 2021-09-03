@@ -7,14 +7,13 @@ ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 77bc1b435e92861cdabce7b0ce0ac7e9b4212138
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ed0985778f27f17292428dddadaf4d0dedc9cd46
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738512"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Solicitud de datos meteorológicos en tiempo real y previsiones mediante los servicios meteorológicos de Azure Maps
 
@@ -50,17 +49,15 @@ En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero
 
 En este ejemplo, usará [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions) para recuperar las condiciones meteorológicas actuales en las coordenadas ubicadas en Seattle, WA.
 
-1. Abra la aplicación Postman. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear). Usará esta colección para el resto de los ejemplos de este documento.
+1. Abra la aplicación Postman. Seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. 
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
-
-3. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
     https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. Haga clic en el botón azul **Enviar**. El cuerpo de la respuesta contiene información meteorológica actual.
+3. Haga clic en el botón azul **Enviar**. El cuerpo de la respuesta contiene información meteorológica actual.
 
     ```json
     {
@@ -242,7 +239,7 @@ En este ejemplo, usará [Get Severe Weather Alerts API](/rest/api/maps/weather/g
 >[!NOTE]
 >En este ejemplo se recuperan alertas meteorológicas graves en el momento de redactar este documento. Es probable que ya no haya ninguna alerta meteorológica grave en la ubicación solicitada. Para recuperar datos de alertas graves reales al ejecutar este ejemplo, debe recuperar los datos de una ubicación de coordenadas diferente.
 
-1. Abra la aplicación Postman, haga clic en **New** (Nuevo) y seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en la sección anterior o cree una nueva y, a continuación, seleccione **Save** (Guardar).
+1. En la aplicación Postman, seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
@@ -294,7 +291,7 @@ En este ejemplo, usará [Get Severe Weather Alerts API](/rest/api/maps/weather/g
 
 En este ejemplo, usará [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast) para recuperar la previsión meteorológica de cinco días para las coordenadas ubicadas en Seattle, WA.
 
-1. Abra la aplicación Postman, haga clic en **New** (Nuevo) y seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en la sección anterior o cree una nueva y, a continuación, seleccione **Save** (Guardar).
+1. En la aplicación Postman, seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
@@ -542,7 +539,7 @@ En este ejemplo, usará [Get Daily Forecast API](/rest/api/maps/weather/getdaily
 
 En este ejemplo, usará [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast) para recuperar la previsión meteorológica por hora para las próximas 12 horas en las coordenadas ubicadas en Seattle, WA.
 
-1. Abra la aplicación Postman, haga clic en **New** (Nuevo) y seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en la sección anterior o cree una nueva y, a continuación, seleccione **Save** (Guardar).
+1. En la aplicación Postman, seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
@@ -643,13 +640,14 @@ En este ejemplo, usará [Get Hourly Forecast API](/rest/api/maps/weather/gethour
     ]
     }
     ```
+
 ## <a name="request-minute-by-minute-weather-forecast-data"></a>Solicitud de datos de previsión meteorológica minuto a minuto
 
  [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast) devuelve las previsiones minuto a minuto de una ubicación determinada para los próximos 120 minutos. Los usuarios pueden solicitar previsiones meteorológicas en intervalos de 1, 5 y 15 minutos. La respuesta incluye detalles como el tipo de precipitación (como lluvia, nieve o una mezcla de ambos), la hora de inicio y el valor de intensidad de la precipitación (dBZ).
 
 En este ejemplo, usará [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast) para recuperar la previsión meteorológica minuto a minuto en las coordenadas ubicadas en Seattle, WA. La previsión meteorológica se proporciona para los próximos 120 minutos. Nuestra consulta solicita que la previsión se proporcione a intervalos de 15 minutos, pero puede ajustar el parámetro para que sea de 1 o 5 minutos.
 
-1. Abra la aplicación Postman, haga clic en **New** (Nuevo) y seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en la sección anterior o cree una nueva y, a continuación, seleccione **Save** (Guardar).
+1. En la aplicación Postman, seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 

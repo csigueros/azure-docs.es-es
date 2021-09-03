@@ -1,17 +1,16 @@
 ---
-title: Solución de problemas de las herramientas de análisis de usuario - Azure Application Insights
+title: 'Solución de problemas de las herramientas de análisis de usuario: Application Insights'
 description: 'Guía de solución de problemas: análisis de uso del sitio y las aplicaciones con Application Insights'
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 07/11/2018
-ms.reviewer: mbullwin
-ms.openlocfilehash: a1d77016fdf94de4fdd574b0d4cbd22d6b0b8490
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
+ms.openlocfilehash: 8bd40f64a8c0e7bf0cbbdc427b44dd83965c52db
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024751"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741319"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
 ¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](usage-overview.md): [usuarios, sesiones, eventos](usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuario](usage-flows.md), [retención](usage-retention.md) o cohortes? Estas son algunas respuestas.

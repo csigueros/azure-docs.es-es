@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: 8c9206404294557f3f4a50d03ae550e407b92ed3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c231840b6255ef693353d83323710cb3243efaef
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751791"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214304"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Integración de inteligencia sobre amenazas en Azure Sentinel
 
@@ -112,7 +112,7 @@ Para conectarse a fuentes de la plataforma de inteligencia sobre amenazas (TIP),
 
 ### <a name="threatquotient-threat-intelligence-platform"></a>Plataforma de inteligencia sobre amenazas ThreatQ
 
-- Consulte el artículo sobre la [integración de Microsoft Sentinel Connector para ThreatQ ](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=DetailsAndSupport) para obtener información de soporte técnico e instrucciones para conectar [ThreatQuotient TIP](https://www.threatq.com/) a Azure Sentinel.
+- Consulte el artículo sobre la [integración de Microsoft Sentinel Connector para ThreatQ ](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) para obtener información de soporte técnico e instrucciones para conectar [ThreatQuotient TIP](https://www.threatq.com/) a Azure Sentinel.
 
 ## <a name="incident-enrichment-sources"></a>Orígenes de enriquecimiento de incidentes
 

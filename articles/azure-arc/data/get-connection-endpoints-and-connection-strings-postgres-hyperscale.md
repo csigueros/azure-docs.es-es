@@ -1,6 +1,6 @@
 ---
-title: Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de hiperescala de PostgreSQL habilitado para Arc
-titleSuffix: Azure Arc enabled data services
+title: Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
+titleSuffix: Azure Arc-enabled data services
 description: Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de hiperescala de PostgreSQL habilitado para Arc
 services: azure-arc
 ms.service: azure-arc
@@ -8,44 +8,31 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 3477c8f1dbffb9f2c42c72c1b0bfc03c662ed24c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 964b7fcca00afb91a457203d2ed53b885a254d5e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412302"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733558"
 ---
-# <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de hiperescala de PostgreSQL habilitado para Arc
+# <a name="get-connection-endpoints-and-form-the-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
 
-En este artículo se explica cómo se pueden recuperar los puntos de conexión del grupo de servidores y cómo se forman las cadenas de conexión que se utilizarán con las aplicaciones o herramientas.
+En este artículo se explica cómo se pueden recuperar los puntos de conexión del grupo de servidores y cómo se pueden formar las cadenas de conexión que se pueden utilizar con las aplicaciones o herramientas.
 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="get-connection-end-points"></a>Obtención de puntos de conexión:
 
-### <a name="from-cli-with-azdata"></a>Desde la CLI con azdata
-#### <a name="1-connect-to-your-arc-data-controller"></a>1. Conéctese al controlador de datos de Arc:
-- Si ya tiene una sesión abierta en el host del controlador de datos de Arc: Ejecute el siguiente comando:
-```console
-azdata login
-```
-
-- Si no tiene una sesión abierta en el host del controlador de datos de Arc: ejecute el siguiente comando 
-```console
-azdata login --endpoint https://<external IP address of host/data controller>:30080
-```
-
-#### <a name="2-show-the-connection-endpoints"></a>2. Muestre los puntos de conexión
 Ejecute el siguiente comando:
-```console
-azdata arc postgres endpoint list -n <server group name>
+```azurecli
+az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 Por ejemplo:
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 Muestra la lista de puntos de conexión: el punto de conexión de PostgreSQL que se usa para conectar la aplicación y usar la base de datos, los puntos de conexión Kibana y Grafana para análisis de registros y supervisión. Por ejemplo: 
@@ -79,10 +66,10 @@ postgres=#
 > [!NOTE]
 >
 > - La contraseña de usuario _postgres_ indicada en el punto de conexión denominado "_instancia de PostgreSQL_" es la contraseña que eligió al implementar el grupo de servidores.
-> - Acerca de azdata: la concesión asociada a la conexión dura unas 10 horas. Después, debe volver a conectarse. Si la concesión ha expirado, recibirá el siguiente mensaje de error al intentar ejecutar un comando con azdata (distinto del inicio de sesión de azdata): _ERROR: (401)_ 
-> _Motivo: Encabezados de respuesta_
-> _HTTP no autorizados: HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
-> _Basic realm="Se requieren_ las credenciales para el inicio de sesión", Bearer error="invalid_token", error_description="El token ha caducado"'})_ Cuando ocurre esto, debe volver a conectarse con azdata, tal como se ha explicado anteriormente.
+> _ERROR: (401)_ 
+> _Motivo: No autorizado_
+> _Encabezados de respuesta HTTP: HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
+> _Dominio básico="Credenciales_ de inicio de sesión requeridas", Error de portador="invalid_token", error_description="El token ha expirado"'})_ Cuando esto ocurre, necesita volver a conectarse a azdata como se ha explicado anteriormente.
 
 ## <a name="from-cli-with-kubectl"></a>Desde la CLI con kubectl
 ```console
@@ -94,7 +81,6 @@ Estos comandos producirán una salida como la siguiente. Puede usar esa informac
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 ``` 
-
 
 ## <a name="form-connection-strings"></a>Cadenas de conexión de formulario:
 Use la siguiente tabla de plantillas de cadenas de conexiones para el grupo de servidores. Después, puede copiarlas, pegarlas y personalizarlas según sea necesario:

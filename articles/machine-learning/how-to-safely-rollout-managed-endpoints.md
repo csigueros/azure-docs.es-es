@@ -8,19 +8,19 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.topic: how-to
-ms.custom: how-to
-ms.openlocfilehash: 93365304e958bfabaf3067ab58312a9b78745edb
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.custom: how-to, devplatv2
+ms.openlocfilehash: 11fa5a3057f50a354058141ed688d8c55b4345d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739137"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>Implementación segura para puntos de conexión en línea (versión preliminar)
 
-Tiene un modelo existente implementado en producción y desea implementar una nueva versión del modelo. ¿Cómo puede implementar el nuevo modelo de Machine Learning sin provocar interrupciones? Una buena respuesta es la implementación azul-verde, un método en el que se introduce una nueva versión de un servicio web en producción mediante la implementación del cambio en un pequeño subconjunto de usuarios o solicitudes antes de implementarlo por completo. 
+Tiene un modelo existente implementado en producción y desea implementar una nueva versión del modelo. ¿Cómo puede implementar el nuevo modelo de Machine Learning sin provocar interrupciones? Una buena respuesta es la implementación azul-verde, un método en el que se introduce una nueva versión de un servicio web en producción mediante la implementación del cambio en un pequeño subconjunto de usuarios o solicitudes antes de implementarlo por completo. En este artículo se da por supuesto que usa puntos de conexión en línea; para más información, vea [¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)?](concept-endpoints.md)
 
 En este artículo aprenderá lo siguiente:
 
@@ -37,7 +37,7 @@ En este artículo aprenderá lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Para usar Azure Machine Learning, debe tener una suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Para usar Azure Machine Learning, debe tener una suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Debe instalar y configurar la CLI de Azure y la extensión de Machine Learning. Para más información, consulte [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md). 
 
@@ -145,3 +145,15 @@ Actualice la implementación:
 Si no va a usar la implementación, debe eliminarla con:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+
+
+## <a name="next-steps"></a>Pasos siguientes
+- [Implementación de modelos con REST (versión preliminar)](how-to-deploy-with-rest.md)
+- [Creación y uso de puntos de conexión en línea administrados (versión preliminar) en Estudio](how-to-use-managed-online-endpoint-studio.md)
+- [Tutorial: Acceso a recursos de Azure con un punto de conexión en línea administrado e identidad administrada por el sistema (versión preliminar)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
+- [Supervisión de puntos de conexión en línea administrados (versión preliminar)](how-to-monitor-online-endpoints.md)
+- [Administración y aumento de las cuotas de los recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
+- [Visualización de los costos de un punto de conexión en línea administrado de Azure Machine Learning (versión preliminar)](how-to-view-online-endpoints-costs.md)
+- [Lista de SKU de puntos de conexión en línea administrados (versión preliminar)](reference-managed-online-endpoints-vm-sku-list.md)
+- [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Referencia de YAML sobre puntos de conexión en línea administrados (versión preliminar)](reference-yaml-endpoint-managed-online.md)

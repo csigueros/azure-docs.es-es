@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932fc71617846f2839767546a8fac00a3d16008c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2b34eafac248bc0fd06076550e784a061573a712
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792261"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734498"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Asignación de roles con ámbito a una unidad administrativa
 
@@ -30,7 +30,7 @@ Para un control administrativo más pormenorizado en Azure Active Directory (A
 - Una licencia de Azure AD Premium P1 o P2 para cada administrador de la unidad administrativa
 - Licencias de Azure AD Free para los miembros de la unidad administrativa
 - Administrador global o administrador de roles con privilegios
-- Módulo Azure AD al usar PowerShell
+- Módulo AzureAD al usar PowerShell
 - Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
 
 Para obtener más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
@@ -52,7 +52,7 @@ Administrador de usuarios  |  Puede administrar todos los aspectos de usuarios y
 Las siguientes entidades de seguridad pueden asignarse a un rol con un ámbito de unidad administrativa:
 
 * Usuarios
-* Grupos de nube asignables a roles (versión preliminar)
+* Grupos de Azure AD a los que se pueden asignar roles
 * Nombre de entidad de seguridad de servicio (SPN)
 
 ## <a name="assign-a-scoped-role"></a>Asignación de un rol con ámbito
@@ -61,9 +61,9 @@ Puede asignar un rol con ámbito mediante Azure Portal, PowerShell o Microsoft 
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. En Azure Portal, vaya a **Azure AD**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 
-1. Seleccione **Unidades administrativas** y luego aquella a la que quiere asignar un ámbito de rol de usuario. 
+1. Seleccione **Azure Active Directory** > **Unidades administrativas** y luego aquella a la que quiere asignar un ámbito de rol de usuario. 
 
 1. En el panel izquierdo, seleccione **Roles y administradores** para ver todos los roles disponibles.
 
@@ -118,9 +118,9 @@ Puede ver una lista de administradores con ámbito mediante Azure Portal, PowerS
 
 Todas las asignaciones de roles creadas con un ámbito de unidad administrativa se pueden ver en la sección [Unidades administrativas de Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. En Azure Portal, vaya a **Azure AD**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 
-1. En el panel izquierdo, seleccione **Unidades administrativas** y luego la unidad administrativa de la lista de asignaciones de roles que quiere ver. 
+1. Seleccione **Azure Active Directory** > **Unidades administrativas** y luego seleccione la unidad administrativa para la lista de asignaciones de roles que desea ver. 
 
 1. Seleccione **Roles y administradores** y abra un rol para ver las asignaciones de la unidad administrativa.
 
@@ -149,5 +149,5 @@ Body
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de grupos en la nube para administrar asignaciones de roles](groups-concept.md)
-- [Solución de problemas de roles asignados a grupos en la nube](groups-faq-troubleshooting.md)
+- [Uso de grupos de Azure AD para administrar asignaciones de roles](groups-concept.md)
+- [Solución de problemas de roles de Azure AD asignados a grupos](groups-faq-troubleshooting.yml)

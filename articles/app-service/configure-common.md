@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 55f34ec9416bdca81d025efb0910b10a7fa48736
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 1f8f8d81af6fb06bba9c48f5ae7d1fbb7f5d2e59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110585877"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730640"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -19,7 +19,7 @@ En este artículo se explica cómo configurar los parámetros comunes de aplicac
 
 ## <a name="configure-app-settings"></a>Configuración de aplicaciones
 
-En App Service, las configuraciones de aplicaciones son variables que se pasan como variables de entorno al código de la aplicación. En el caso de las aplicaciones Linux y de los contenedores personalizados, App Service pasa la configuración de la aplicación al contenedor mediante la marca `--env` para establecer la variable de entorno en el contenedor.
+En App Service, las configuraciones de aplicaciones son variables que se pasan como variables de entorno al código de la aplicación. En el caso de las aplicaciones Linux y de los contenedores personalizados, App Service pasa la configuración de la aplicación al contenedor mediante la marca `--env` para establecer la variable de entorno en el contenedor. En cualquier caso, se insertan en el entorno de la aplicación al iniciar la aplicación. Al agregar, quitar o editar la configuración de la aplicación, App Service desencadena un reinicio de la aplicación.
 
 En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. 
 
@@ -202,9 +202,9 @@ En este caso, puede configurar algunas opciones comunes para la aplicación. Alg
 - **Configuración de plataforma**: Le permite configurar opciones para la plataforma de alojamiento, incluidas:
     - **Valor de bits**: 32 bits o 64 bits. (El valor predeterminado es 32 bits para las instancias de App Service creadas en el portal).
     - **Protocolo Websocket**: para [ASP.NET SignalR] o [socket.io](https://socket.io/), por ejemplo.
-    - **Always On**: mantiene la aplicación cargada, incluso cuando no hay tráfico. Esto es necesario en los WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
-      > [!NOTE]
-      > Con la característica Always On, el equilibrador de carga de front-end envía una solicitud a la raíz de la aplicación. No se puede configurar el punto de conexión de la aplicación de App Service.
+    - **Always On**: mantiene la aplicación cargada, incluso cuando no hay tráfico. Cuando **Always On** no está activado (configuración predeterminada), la aplicación se descarga después de 20 minutos sin ninguna solicitud entrante. La aplicación descargada puede provocar una latencia alta para las nuevas solicitudes debido a su tiempo de preparación. Cuando **Always On** está activado, el equilibrador de carga front-end envía una solicitud GET a la raíz de la aplicación cada cinco minutos. El ping continuo impide que la aplicación se descargue.
+    
+        Always On es necesario en los WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
     - **Versión de canalización administrada**: el [modo de canalización] IIS. Establézcalo en **Clásico** si tiene una aplicación heredada que requiere una versión anterior de IIS.
     - **Versión de HTTP**: Establézcala en **2.0** para habilitar la compatibilidad con el protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
     > [!NOTE]
@@ -285,6 +285,7 @@ Consulte [Configuración de un contenedor de Linux personalizado para Azure App 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Referencia de variables de entorno y configuración de la aplicación](reference-app-settings.md)
 - [Configuración de un nombre de dominio personalizado en Azure App Service]
 - [Configuración de entornos de ensayo en Azure App Service]
 - [Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service](configure-ssl-bindings.md)

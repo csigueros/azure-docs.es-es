@@ -1,61 +1,61 @@
 ---
-title: Cómo obtener acceso a los resúmenes almacenados en Azure Confidential Ledger (ACL)
-description: Cómo obtener acceso a los resúmenes almacenados en Azure Confidential Ledger (ACL) con el libro de contabilidad de Azure SQL Database
-ms.custom: ''
-ms.date: 05/25/2021
+title: Acceso a los resúmenes almacenados en Azure Confidential Ledger
+description: Acceda a los resúmenes almacenados en Azure Confidential Ledger con el libro de contabilidad de Azure SQL Database.
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 3f8b5ae7c80c712c441648808f0303528bad8018
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 7a5253879daf3aaa9551b91a91c38135d29be10e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966727"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730362"
 ---
-# <a name="how-to-access-the-digests-stored-in-acl"></a>Cómo obtener acceso a los resúmenes almacenados en ACL
+# <a name="access-the-digests-stored-in-confidential-ledger"></a>Acceso a los resúmenes almacenados en Confidential Ledger
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> El libro de contabilidad de Azure SQL Database se encuentra actualmente en **versión preliminar pública**.
+> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
 
-En este artículo se muestra cómo acceder a un resumen de [libro de contabilidad de Azure SQL Database](ledger-overview.md) almacenado en [Azure Confidential Ledger (ACL)](../../confidential-ledger/index.yml) para obtener garantías de integridad y seguridad de un extremo a otro. En este artículo se explica cómo obtener acceso a la información almacenada y comprobar su integridad.
+En este artículo se muestra cómo acceder a un resumen de [libro de contabilidad de Azure SQL Database](ledger-overview.md) almacenado en [Azure Confidential Ledger](../../confidential-ledger/index.yml) para obtener garantías de integridad y seguridad de un extremo a otro. En este artículo se explica cómo obtener acceso a la información almacenada y comprobar su integridad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Python 2.7, 3.5.3 o versiones posteriores
-- Tener una instancia de Azure SQL Database con el libro de contabilidad habilitado. Consulte [Inicio rápido: Creación de una instancia de Azure SQL Database con el libro de contabilidad habilitado](ledger-create-a-single-database-with-ledger-enabled.md) si aún no ha creado una.
-- [Biblioteca cliente de Azure Confidential Ledger para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger)
-- Una instancia en ejecución de [Azure Confidential Ledger](../../confidential-ledger/index.yml).
+- Python 2.7, 3.5.3 o versiones posteriores.
+- Azure SQL Database con el libro de contabilidad habilitado. Si aún no ha creado una base de datos en SQL Database, consulte [Inicio rápido: Creación de una base de datos en Azure SQL Database con el libro de contabilidad habilitado](ledger-create-a-single-database-with-ledger-enabled.md).
+- [Biblioteca cliente de Azure Confidential Ledger para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger).
+- Una instancia en ejecución de [Confidential Ledger](../../confidential-ledger/index.yml).
 
 ## <a name="how-does-the-integration-work"></a>¿Cómo funciona la integración?
 
-El servidor de Azure SQL calcula periódicamente los resúmenes de las [bases de datos del libro de contabilidad](ledger-overview.md#ledger-database) y los almacena en Azure Confidential Ledger. Un usuario puede validar en cualquier momento la integridad de los datos descargando los resúmenes de Azure Confidential Ledger y comparándolos con los resúmenes almacenados en el libro de contabilidad de Azure SQL Database. En los pasos siguientes se explica el proceso.
+El servidor de Azure SQL calcula periódicamente los resúmenes de las [bases de datos del libro de contabilidad](ledger-overview.md#ledger-database) y los almacena en Confidential Ledger. En cualquier momento, puede validar la integridad de los datos. Descargue los resúmenes de Confidential Ledger y compárelos con los resúmenes almacenados en el libro de contabilidad de SQL Database. En los pasos siguientes se explica el proceso.
 
 ## <a name="1-find-the-digest-location"></a>1. Buscar la ubicación del resumen
 
 > [!NOTE]
-> La consulta devolverá más de una fila si se usaron varias instancias de Azure Confidential Ledger para almacenar el resumen. Para cada fila, repita los pasos del 2 al 6 para descargar los resúmenes de todas las instancias de Azure Confidential Ledger.
+> La consulta devuelve más de una fila si se usaron varias instancias de Confidential Ledger para almacenar el resumen. Para cada fila, repita los pasos del 2 al 6 para descargar los resúmenes de todas las instancias de Confidential Ledger.
 
-Ejecute la siguiente consulta mediante [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). El resultado muestra el punto de conexión de la instancia de Azure Confidential Ledger donde se almacenan los resúmenes.
+Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) para ejecutar la siguiente consulta. El resultado muestra el punto de conexión de la instancia de Confidential Ledger donde se almacenan los resúmenes.
 
 ```sql
-SELECT * FROM sys.database_ledger_digest_locations WHERE path like '%.confidential-ledger.azure.com%
+SELECT * FROM sys.database_ledger_digest_locations WHERE path like '%.confidential-ledger.azure.com%'
 ```
 
-## <a name="2-determine-the-subledgerid"></a>2. Determinar el valor Subledgerid
+## <a name="2-determine-the-subledgerid"></a>2. Determinar el valor subledgerid
 
 Nos interesa el valor de la columna de ruta de acceso de la salida de la consulta. Consta de dos partes, es decir, `host name` y `subledgerid`. Por ejemplo, en la dirección URL `https://contoso-ledger.confidential-ledger.azure.com/sqldbledgerdigests/ledgersvr2/ledgerdb/2021-04-13T21:20:51.0000000`, `host name` es `https://contoso-ledger.confidential-ledger.azure.com` y `subledgerid` es `sqldbledgerdigests/ledgersvr2/ledgerdb/2021-04-13T21:20:51.0000000`. Usaremos esto en el paso 4 para descargar los resúmenes.
 
 ## <a name="3-obtain-an-azure-ad-token"></a>3. Obtener un token de Azure AD
 
-La API de Azure Confidential Ledger acepta un token de portador de Azure Active Directory (Azure AD) como identidad del autor de la llamada. Esta identidad necesita obtener acceso a ACL a través de Azure Resource Manager durante el aprovisionamiento. El usuario que había habilitado el libro de contabilidad en SQL Database recibe automáticamente acceso de administrador a Azure Confidential Ledger. Para obtener un token, el usuario debe autenticarse mediante la [CLI de Azure](/cli/azure/install-azure-cli) con la misma cuenta que se usó con Azure Portal. Una vez que el usuario se ha autenticado, puede usar [AzureCliCredential](/python/api/azure-identity/azure.identity.azureclicredential) para recuperar un token de portador y llamar a la API de Azure Confidential Ledger.
+La API de Confidential Ledger acepta un token de portador de Azure Active Directory (Azure AD) como identidad del autor de la llamada. Esta identidad necesita obtener acceso a Confidential Ledger a través de Azure Resource Manager durante el aprovisionamiento. Al habilitar el libro de contabilidad en SQL Database, se le asigna automáticamente acceso de administrador a Confidential Ledger. Para obtener un token, el usuario debe autenticarse mediante la [CLI de Azure](/cli/azure/install-azure-cli) con la misma cuenta que se usó con Azure Portal. Una vez que el usuario se ha autenticado, puede usar [AzureCliCredential](/python/api/azure-identity/azure.identity.azureclicredential) para recuperar un token de portador y llamar a la API de Confidential Ledger.
 
-Inicie sesión en Azure AD mediante la identidad con acceso a ACL.
+Inicie sesión en Azure AD mediante la identidad con acceso a Confidential Ledger.
 
 ```azure-cli
 az login
@@ -68,9 +68,9 @@ from azure.identity import AzureCliCredential
 credential = AzureCliCredential()
 ```
 
-## <a name="4-download-the-digests-from-azure-confidential-ledger"></a>4. Descargar los resúmenes de Azure Confidential Ledger
+## <a name="4-download-the-digests-from-confidential-ledger"></a>4. Descargar los resúmenes de Confidential Ledger
 
-El siguiente script de Python descarga los resúmenes de Azure Confidential Ledger. El script usa la [biblioteca cliente de Azure Confidential Ledger para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger).
+El siguiente script de Python descarga los resúmenes de Confidential Ledger. El script usa la [biblioteca cliente de Confidential Ledger para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger).
 
 ```python
 from azure.identity import AzureCliCredential
@@ -115,12 +115,12 @@ else:
     print("\n***No more digests were found for the supplied SubledgerID.")
 ```
 
-## <a name="5-download-the-digests-from-the-sql-server"></a>5. Descargar los resúmenes de SQL Server
+## <a name="5-download-the-digests-from-the-sql-server"></a>5. Descargar los resúmenes de SQL Server
 
 > [!NOTE]
-> Esta es una manera de confirmar que los hash almacenados en el libro de contabilidad de Azure SQL Database no han cambiado con el tiempo. Para obtener una auditoría completa de la integridad del libro de contabilidad de Azure SQL Database, consulte [Comprobación de una tabla de libro de contabilidad para detectar alteraciones](ledger-verify-database.md).
+> Este paso es una manera de confirmar que los hash almacenados en el libro de contabilidad de SQL Database no han cambiado con el tiempo. Para obtener una auditoría completa de la integridad del libro de contabilidad de SQL Database, vea [Comprobación de una tabla de libro de contabilidad para detectar alteraciones](ledger-verify-database.md).
 
-Con [SSMS](/sql/ssms/download-sql-server-management-studio-ssms), ejecute la siguiente consulta. La consulta devuelve los resúmenes de los bloques de Genesis.
+Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) para ejecutar la siguiente consulta. La consulta devuelve los resúmenes de los bloques de Genesis.
 
 ```sql
 SELECT * FROM sys.database_ledger_blocks
@@ -128,15 +128,15 @@ SELECT * FROM sys.database_ledger_blocks
 
 ## <a name="6-comparison"></a>6. Comparación
 
-Compare el resumen recuperado de Azure Confidential Ledger con el resumen devuelto de la base de datos SQL con `block_id` como clave. Por ejemplo, el resumen de `block_id` = `1` es el valor de la columna `previous_block_hash` de la fila `block_id`= `2`. De forma similar, `block_id` = `3` es el valor de la columna `previous_block_id` de la fila `block_id` = `4`. Una discrepancia en el valor de hash es un indicador de una posible alteración de los datos.
+Compare el resumen recuperado de Confidential Ledger con el resumen devuelto de la base de datos de SQL Database con `block_id` como clave. Por ejemplo, el resumen de `block_id` = `1` es el valor de la columna `previous_block_hash` de la fila `block_id`= `2`. De forma similar, `block_id` = `3` es el valor de la columna `previous_block_id` de la fila `block_id` = `4`. Una discrepancia en el valor de hash es un indicador de una posible alteración de los datos.
 
-Si sospecha que se han alterado los datos, consulte [Cómo comprobar una tabla de libro de contabilidad para detectar una alteración](ledger-verify-database.md) para realizar una auditoría completa del libro de contabilidad de Azure SQL Database.
+Si sospecha que se han alterado los datos, consulte [Comprobación de una tabla de libro de contabilidad para detectar alteraciones](ledger-verify-database.md) para realizar una auditoría completa del libro de contabilidad de SQL Database.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción al libro de contabilidad de Azure SQL Database](ledger-overview.md)
 - [Libro de contabilidad de base de datos](ledger-database-ledger.md)
 - [Administración de resúmenes y comprobación de la base de datos](ledger-digest-management-and-database-verification.md)
-- [Tablas de libro de contabilidad de solo anexión](ledger-append-only-ledger-tables.md)
+- [Tablas de solo adición del libro de contabilidad](ledger-append-only-ledger-tables.md)
 - [Tablas actualizables del libro de contabilidad](ledger-updatable-ledger-tables.md)
 - [Comprobación de una tabla de libro de contabilidad para detectar alteraciones](ledger-verify-database.md)

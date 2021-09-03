@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2bf603d29b5e949ef83c872017bae49e71b2fcb0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 3e8c2846b58499e5aabdec80f8fcd75cab3e6eb5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204880"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729497"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
@@ -21,7 +21,7 @@ Este artículo le ayuda a conectarse a redes virtuales mediante el tipo de conex
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="Diagrama de red virtual a red virtual":::
 
-Los pasos descritos en este artículo se aplican al modelo de implementación de Azure Resource Manager y utilizan Azure Portal. Puede crear esta configuración con un modelo o una herramienta de implementación diferente a través de las opciones que se describen en estos artículos:
+Los pasos descritos en este artículo se aplican al [modelo de implementación de Azure Resource Manager](../azure-resource-manager/management/deployment-models.md) y utilizan Azure Portal. Puede crear esta configuración con un modelo o una herramienta de implementación diferente a través de las opciones que se describen en estos artículos:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -87,10 +87,10 @@ En este artículo se muestra cómo conectar redes virtuales mediante el tipo de 
 * **Configuración de puerta de enlace de red virtual**
   * **Name**: VNet1GW
   * **Grupo de recursos**: Este de EE. UU.
-  * **Generación**: Generación 1
+  * **Generación**: Generación 2
   * **Tipo de puerta de enlace**: Seleccione **VPN**.
-  * **Tipo de VPN**: Seleccione **Basada en rutas*** .
-  * **SKU**: VpnGw1
+  * **Tipo de VPN**: seleccione **Basada en rutas**.
+  * **SKU**: VpnGw2
   * **Red virtual**: VNet1
   * **Intervalo de direcciones de subred de puerta de enlace**: 10.1.255.0/27
   * **Dirección IP pública**: Crear nuevo
@@ -115,10 +115,10 @@ En este artículo se muestra cómo conectar redes virtuales mediante el tipo de 
 * **Configuración de puerta de enlace de red virtual**
   * **Name**: VNet4GW
   * **Grupo de recursos**: Oeste de EE. UU.
-  * **Generación**: Generación 1
+  * **Generación**: Generación 2
   * **Tipo de puerta de enlace**: Seleccione **VPN**.
   * **Tipo de VPN**: seleccione **Basada en rutas**.
-  * **SKU**: VpnGw1
+  * **SKU**: VpnGw2
   * **Red virtual**: VNet4
   * **Intervalo de direcciones de subred de puerta de enlace**: 10.41.255.0/27
   * **Dirección IP pública**: Crear nuevo
@@ -146,7 +146,10 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Creación de una puerta de enlace de red virtual
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+Puede ver el estado de implementación en la página Información general de la puerta de enlace. Una puerta de enlace puede tardar 45 minutos aproximadamente en crearse e implementarse completamente. Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -161,10 +164,10 @@ Cuando se hayan completado las puertas de enlace de red virtual de VNet1 y VNet4
 1. En Azure Portal, seleccione **Todos los recursos**, escriba *puerta de enlace de red virtual* en el cuadro de búsqueda y vaya a la puerta de enlace de su red virtual. Por ejemplo, **VNet1GW**. Seleccione la puerta de enlace para abrir la página **Puerta de enlace de red virtual**.
 1. En la página de la puerta de enlace, vaya a **Configuración-> Conexiones**. A continuación, seleccione **+ Agregar**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Página Conexiones":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Captura de pantalla que muestra la página Conexiones" border="false":::.
 1. Se abrirá la página **Agregar conexión**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="Agregar conexión":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="Captura de pantalla que muestra la página Agregar conexión":::.
 
    En la página **Agregar conexión**, rellene los valores de la conexión:
 
@@ -176,7 +179,7 @@ Cuando se hayan completado las puertas de enlace de red virtual de VNet1 y VNet4
 
    * **Segunda puerta de enlace de red virtual**: Este campo es la puerta de enlace de la red virtual con la que quiere crear una conexión. Seleccione **Elegir otra puerta de enlace de red virtual** para abrir la página **Elegir puerta de enlace de red virtual**.
 
-      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Elegir una puerta de enlace":::
+      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Captura de pantalla que muestra la página Elegir una puerta de enlace de red virtual con otra puerta de enlace seleccionada":::.
 
      * Fíjese en las puertas de enlace de red virtual que se enumeran en esta página. Observe que solo se muestran las que se encuentran en su suscripción. Si quiere conectarse a una puerta de enlace de red virtual que no está en su suscripción, use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
@@ -194,10 +197,10 @@ A continuación, cree una conexión de VNet4 a VNet1. En el portal, busque la pu
 1. Busque la puerta de enlace de red virtual en Azure Portal. 
 1. En la página **Puerta de enlace de red virtual**, seleccione **Conexiones** para ver la página **Conexiones** de la puerta de enlace de red virtual. Una vez que se establece la conexión, verá que los valores de **Estado** cambian a **Conectado**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Comprobación de conexiones":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Captura de pantalla que muestra la página Conexiones para comprobar las conexiones" border="false":::.
 1. En la columna **Nombre**, seleccione una de las conexiones para ver más información. Cuando se inicia el flujo de datos, aparecerán los valores para **Datos de entrada** y **Datos de salida**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Captura de pantalla que muestra un grupo de recursos que tiene valores para Datos de entrada y Datos de salida.":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Captura de pantalla que muestra un grupo de recursos que tiene valores para Datos de entrada y Datos de salida." border="false":::
 
 ## <a name="add-additional-connections"></a>Incorporación de conexiones adicionales
 

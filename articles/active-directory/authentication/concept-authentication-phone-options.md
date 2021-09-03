@@ -5,23 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb1504e406e5edb25cea01fa2add5751257802e8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b1bb9c2ad21469ad6b658795f29361760d4bcf13
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744456"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737350"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticación en Azure Active Directory: opciones de teléfono
 
 En el caso de la autenticación directa mediante mensajes de texto, puede consultar [Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory](howto-authentication-sms-signin.md). El inicio de sesión basado en SMS es ideal para los trabajadores de primera línea. Con el inicio de sesión basado en SMS, los usuarios no necesitan conocer un nombre de usuario y una contraseña para acceder a las aplicaciones y servicios. En su lugar, el usuario escribe su número de teléfono móvil registrado, recibe un mensaje de texto con un código de verificación, y escribe el código en la interfaz de inicio de sesión.
 
-Los usuarios también pueden verificarse mediante su teléfono móvil o teléfono de la oficina como forma secundaria de autenticación con Multi-Factor Authentication de Azure AD o el autoservicio de restablecimiento de contraseña (SSPR).
+Los usuarios también pueden verificarse mediante su teléfono móvil o teléfono de la oficina como forma secundaria de autenticación con Multi-Factor Authentication de Azure AD o el autoservicio de restablecimiento de contraseña (SSPR). 
+
+> [!NOTE]
+> La comprobación por llamada telefónica no está disponible para los inquilinos de Azure AD con las suscripciones de prueba.  Por ejemplo, registrarse para obtener licencias de EMS de prueba no proporcionará la funcionalidad para la comprobación por llamada telefónica.
 
 Para funcionar correctamente, los números de teléfono deben tener el formato *+códigoPaís númeroTeléfono*, *por ejemplo: +1 4251234567*.
 
@@ -50,7 +53,7 @@ Con la verificación por llamada telefónica durante el autoservicio de restable
 
 ## <a name="office-phone-verification"></a>Verificación por teléfono de la oficina
 
-Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña (SSPR) o Multi-Factor Authentication de Azure AD, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se le pide al usuario que presione # en el teclado.
+Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña (SSPR) o Multi-Factor Authentication de Azure AD, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se le pide al usuario que presione # en el teclado. 
 
 ## <a name="troubleshooting-phone-options"></a>Solución de problemas de las opciones de teléfono
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 142c8b1439447da4d535dd97e191a0ada503fe94
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 14a357bf5f7fece43ce72b58142aa0047213bfab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632608"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737465"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de control de acceso en Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 implementa un modelo de control de acceso compa
 
 ## <a name="about-acls"></a>Acerca de las listas de control de acceso
 
-Puede asociar una [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) a un nivel de acceso de archivos y directorios. Estas asociaciones se capturan en una *lista de control de acceso (ACL)* . Cada archivo y directorio de la cuenta de almacenamiento tiene una lista de control de acceso. Cuando una entidad de seguridad intenta realizar una operación en un archivo o directorio, una comprobación de ACL determina si esa entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) tiene el nivel de permiso adecuado para llevarla a cabo.
+Puede asociar una [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) a un nivel de acceso de archivos y directorios. Cada asociación se captura como una entrada en una *lista de control de acceso (ACL)* . Cada archivo y directorio de la cuenta de almacenamiento tiene una lista de control de acceso. Cuando una entidad de seguridad intenta realizar una operación en un archivo o directorio, una comprobación de ACL determina si esa entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) tiene el nivel de permiso adecuado para llevarla a cabo.
 
 > [!NOTE]
 > Las ACL solo se aplican a las entidades de seguridad del mismo inquilino y no se aplican a los usuarios que usan la autenticación de tokens de clave compartida o de firma de acceso compartido (SAS). Esto se debe a que no hay ninguna identidad asociada al autor de la llamada y, por lo tanto, no se puede realizar la autorización basada en permisos de la entidad de seguridad.  
@@ -94,7 +94,7 @@ En el modelo de estilo de POSIX usado por Data Lake Storage Gen2, los permisos d
 
 En la tabla siguiente se muestran las entradas de ACL necesarias para permitir que una entidad de seguridad realice las operaciones indicadas en la columna **Operación**. 
 
-La tabla incluye columnas que representan cada nivel de una jerarquía de directorios ficticia. Hay columnas para el directorio raíz del contenedor (`\`), un subdirectorio denominado **Oregón**, un subdirectorio del directorio Oregón denominado **Portland** y un archivo de texto en el directorio Portland denominado **Data.txt**. 
+La tabla incluye columnas que representan cada nivel de una jerarquía de directorios ficticia. Hay columnas para el directorio raíz del contenedor (`/`), un subdirectorio denominado **Oregón**, un subdirectorio del directorio Oregón denominado **Portland** y un archivo de texto en el directorio Portland denominado **Data.txt**. 
 
 > [!IMPORTANT]
 > En esta tabla se supone que **solo** se usan listas de control de acceso sin asignaciones de roles de Azure. Para consultar una tabla similar que combina RBAC de Azure junto con las ACL, consulte [Tabla de permisos: combinación de RBAC de Azure y ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
@@ -154,11 +154,21 @@ El grupo propietario se puede cambiar por:
 > [!NOTE]
 > El grupo propietario no puede cambiar las ACL de un archivo o directorio.  Aunque el grupo propietario se establece en el usuario que creó la cuenta en el caso del directorio raíz, **Caso 1** anterior, una única cuenta de usuario no es válida para proporcionar los permisos mediante el grupo propietario. Puede asignar este permiso a un grupo de usuarios válidos si es aplicable.
 
-## <a name="access-check-algorithm"></a>Algoritmo de comprobación de acceso
+## <a name="how-permissions-are-evaluated"></a>Evaluación de los permisos
 
-El siguiente seudocódigo representa el algoritmo de comprobación de acceso de las cuentas de almacenamiento.
+Las identidades se evalúan en el orden siguiente: 
 
-```console
+1. Superusuario
+2. usuario propietario
+3. Usuario con nombre, entidad de servicio o identidad administrada
+4. Grupo propietario o grupo con nombre
+5. Los restantes usuarios
+
+Si más de una de estas identidades se aplica a una entidad de seguridad, se concede el nivel de permiso asociado a la primera identidad. Por ejemplo, si una entidad de seguridad es el usuario propietario y un usuario con nombre, se aplica el nivel de permiso asociado al usuario propietario.
+
+El siguiente seudocódigo representa el algoritmo de comprobación de acceso de las cuentas de almacenamiento. Este algoritmo muestra el orden en el que se evalúan las identidades.
+
+```python
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -206,7 +216,7 @@ En un nuevo contenedor de Data Lake Storage Gen2, el valor predeterminado de la 
 
 |Entidad|Directorios|Archivos|
 |--|--|--|
-|usuario propietario|`rwx`|`r-w`|
+|usuario propietario|`rwx`|`rw-`|
 |grupo propietario|`r-x`|`r--`|
 |Otros|`---`|`---`|
 

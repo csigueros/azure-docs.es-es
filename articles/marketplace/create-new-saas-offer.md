@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/19/2021
-ms.openlocfilehash: 05512c247f26dc8e6d41876bc3a09acdd278caac
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/30/2021
+ms.openlocfilehash: 4a0ebea8d0fb8d5b9ae5fa78004c071a348615e4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559275"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731205"
 ---
 # <a name="create-a-saas-offer"></a>Creación de una oferta SaaS
 
@@ -54,6 +54,9 @@ En la pestaña **Configuración de la oferta**, en **Detalles de configuración*
    + Para proporcionar una suscripción gratuita para su oferta, seleccione **Obtener ahora (gratis)** . Luego, en el cuadro **Dirección URL de la oferta** que aparece, escriba la dirección URL (comenzando con *http* o *https*) donde los clientes pueden obtener una evaluación gratuita mediante la [autenticación con un clic con Azure Active Directory (Azure AD)](azure-ad-saas.md). Por ejemplo, `https://contoso.com/saas-app`.
    + Para proporcionar una evaluación gratuita de 30 días, seleccione **Evaluación gratuita** y, luego, en el cuadro **Dirección URL de la prueba** que aparece, escriba la dirección URL (comenzando con *http* o *https*) donde los clientes pueden acceder a la evaluación gratuita mediante la [autenticación con un clic con Azure Active Directory (Azure AD)](azure-ad-saas.md). Por ejemplo, `https://contoso.com/trial/saas-app`.
    + Para que los clientes potenciales se pongan en contacto con usted para adquirir su oferta, seleccione **Ponerse en contacto conmigo**.
+
+    > [!NOTE]
+    > Puede convertir una oferta publicada de solo publicación en una venta a través de la oferta del marketplace comercial si cambian las circunstancias, pero no puede convertir una oferta procesable publicada en una oferta de solo publicación. En su lugar, debe crear una oferta de solo publicación y detener la distribución de la oferta procesable publicada.
 
 ## <a name="enable-a-test-drive-optional"></a>Habilitación de una versión de prueba (opcional)
 

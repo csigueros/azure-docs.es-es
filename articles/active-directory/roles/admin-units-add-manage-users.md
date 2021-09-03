@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba7c3459d5df540304b0595ac6aacf039c558d6c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6f40b395bffabd089831a7a827a4ab81e216727c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094661"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734509"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adición y administración de usuarios en las unidades administrativas en Azure Active Directory
 
@@ -43,9 +43,9 @@ Puede asignar usuarios a unidades administrativas de forma individual o en masa.
 
 - Asignar usuarios individuales a partir de un perfil de usuario:
 
-   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com).
+   1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 
-   1. Seleccione **Usuarios** y, luego, elija el usuario que se va a asignar a una unidad administrativa para abrir el perfil de usuario.
+   1. Seleccione **Azure Active Directory** > **Usuarios** y, luego, elija el usuario que se va a asignar a una unidad administrativa para abrir el perfil de usuario.
    
    1. Seleccione **Unidades administrativas**. 
    
@@ -55,17 +55,19 @@ Puede asignar usuarios a unidades administrativas de forma individual o en masa.
 
 - Asignar usuarios individuales a partir de una unidad administrativa:
 
-   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com).
-   1. Seleccione **Unidades administrativas** y, luego, elija la unidad administrativa a la que se va a asignar el usuario.
+   1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+
+   1. Seleccione **Azure Active Directory** > **Unidades administrativas** y, luego, elija la unidad administrativa a la que se va a asignar el usuario.
+
    1. Seleccione **Todos los usuarios**, elija **Agregar miembro** y, luego, en el panel **Agregar miembro**, seleccione uno o más usuarios que quiera asignar a la unidad administrativa.
 
         ![Captura de pantalla del panel "Usuarios" de la unidad administrativa para asignar un usuario a una unidad administrativa.](./media/admin-units-add-manage-users/assign-to-admin-unit.png)
 
 - Asignar usuarios en una operación en masa:
 
-   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com).
+   1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 
-   1. Seleccione **Unidades administrativas**.
+   1. Seleccione **Azure Active Directory** > **Unidades administrativas**.
 
    1. Seleccione la unidad administrativa a la que quiere agregar usuarios.
 

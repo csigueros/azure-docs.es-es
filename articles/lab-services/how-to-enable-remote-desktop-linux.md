@@ -3,12 +3,12 @@ title: Habilitación del escritorio remoto gráfico para Linux en Azure Lab Serv
 description: Obtenga información sobre cómo habilitar Escritorio remoto para máquinas virtuales Linux en un laboratorio en Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 604cde661fb566851d3eacdb42dd41f4effded7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647960"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737683"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Habilitación del escritorio remoto gráfico para máquinas virtuales Linux en Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -25,12 +25,15 @@ Para conectarse a una máquina virtual Linux mediante una **GUI** (interfaz grá
 Para usar RDP, el instructor debe:
   - Habilitar la conexión a escritorio remoto. Esto es específicamente necesario para abrir el puerto de la máquina virtual para RDP.
   - Instalar el servidor de escritorio remoto con RDP.
-  - Instalar un entorno de escritorio gráfico de Linux, como MATE o XFCE, entre otros.
+  - Instalar un entorno de escritorio gráfico de Linux, como XFCE o MATE, entre otros.
+
+> [!WARNING]
+>  Se recomienda usar un entorno de escritorio gráfico diferente al de [GNOME](https://www.gnome.org/).  Debe evitar la instalación de GNOME en máquinas virtuales de laboratorio porque GNOME tiene un conflicto con el Agente Linux de Azure, que es necesario para que las máquinas virtuales funcionen correctamente en Azure Lab Services.  Como se mencionó anteriormente, se recomienda usar un entorno de escritorio gráfico, como XFCE o MATE.
 
 ### <a name="x2go-setup"></a>Configuración de X2Go
 Para usar X2Go, el instructor debe:
 - Instalar el servidor de escritorio remoto X2Go.
-- Instalar un entorno de escritorio gráfico de Linux, como MATE o XFCE, entre otros.
+- Instalar un entorno de escritorio gráfico de Linux, como XFCE o MATE, entre otros.
 
 X2Go usa el mismo puerto que ya está habilitado para SSH.  Como consecuencia, no se requiere ninguna configuración adicional para abrir un puerto en la máquina virtual para X2Go.
 

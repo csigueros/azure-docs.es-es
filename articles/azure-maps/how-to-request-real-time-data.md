@@ -3,24 +3,23 @@ title: Solicitud de datos de transporte público en tiempo real con los servicio
 description: Obtenga información acerca de cómo solicitar datos de tránsito público en tiempo real, como las llegadas en una parada de transporte público. Consulte cómo usar los servicios de Mobility de Azure Maps (versión preliminar) para este fin.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 06/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e7358e76cdcf07f39a9b5a5fcab7ab0151ebc32
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906053"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742622"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Solicitud de datos de transporte público en tiempo real mediante los servicios de Mobility de Azure Maps (versión preliminar) 
 
 > [!IMPORTANT]
-> Los servicios de Mobility de Azure Maps se encuentran actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La versión preliminar del servicio Mobility de Azure Maps se ha retirado y ya no estará disponible ni será compatible después del 5 de octubre de 2021. Todas las demás API y servicios de Azure Maps no se ven afectados por este anuncio de retirada.
+> Para más información, consulte [Retirada de la versión preliminar de Mobility de Azure Maps](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/).
 
 
 En este artículo se muestra cómo usar los [servicios de Mobility](/rest/api/maps/mobility) de Azure Maps para solicitar datos de transporte público en tiempo real.
@@ -39,19 +38,15 @@ Para solicitar datos en tiempo real de las llegadas de una parada de transporte 
 
 Vamos a usar "522" como metroID, que es el identificador de metro del área "Seattle – Tacoma – Bellevue, WA". Use "522---2060603" como stopID, esta parada de autobús está en "Ne 24th St & 162nd Ave Ne, Bellevue WA". Para solicitar los datos de las siguientes cinco llegadas en tiempo real de esta parada, complete los pasos siguientes:
 
-1. Abra la aplicación Postman y cree una colección para almacenar las solicitudes. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
+1. Abra la aplicación Postman. Seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior, como la ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar**.
-
-    ![Creación de una solicitud en Postman](./media/how-to-request-transit-data/postman-new.png)
-
-3. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la siguiente dirección URL para realizar una solicitud GET. Reemplace `{subscription-key}` por la clave principal de Azure Maps.
+2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la siguiente dirección URL para realizar una solicitud GET. Reemplace `{subscription-key}` por la clave principal de Azure Maps.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
-4. Si la solicitud es correcta, recibirá la respuesta siguiente.  Observe que el parámetro "scheduleType" define si la hora de llegada estimada se basa en datos en tiempo real o en datos estáticos.
+3. Si la solicitud es correcta, recibirá la respuesta siguiente.  Observe que el parámetro "scheduleType" define si la hora de llegada estimada se basa en datos en tiempo real o en datos estáticos.
 
     ```JSON
     {

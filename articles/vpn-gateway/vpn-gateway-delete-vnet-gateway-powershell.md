@@ -9,12 +9,12 @@ ms.date: 04/29/2021
 ms.author: cherylmc
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 259d5776e6f9a2ce431743fe8dd3d9160b9f657d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: fcce91b5914318157ca4263504d46c992294d153
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671897"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729540"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Nombre de la red virtual: VNet1<br>
 Nombre del grupo de recursos: RG1<br>
 Nombre de la puerta de enlace de red virtual: GW1<br>
 
-Los siguientes pasos se aplican al modelo de implementación de Resource Manager.
+Los siguientes pasos se aplican al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Obtenga la puerta de enlace de red virtual que quiera eliminar.
 
@@ -148,7 +148,7 @@ Nombre de la red virtual: VNet1<br>
 Nombre del grupo de recursos: RG1<br>
 Nombre de la puerta de enlace de red virtual: GW1<br>
 
-Los siguientes pasos se aplican al modelo de implementación de Resource Manager.
+Los siguientes pasos se aplican al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Obtenga la puerta de enlace de red virtual que quiera eliminar.
 
@@ -236,7 +236,7 @@ Nombre de la red virtual: VNet1<br>
 Nombre del grupo de recursos: RG1<br>
 Nombre de la puerta de enlace de red virtual: GW1<br>
 
-Los siguientes pasos se aplican al modelo de implementación de Resource Manager.
+Los siguientes pasos se aplican al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 
 >[!NOTE]
@@ -289,7 +289,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 
 ## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="delete"></a>Eliminación de una puerta de enlace VPN mediante la eliminación del grupo de recursos
 
-Si no desea mantener ninguno de los recursos del grupo, sino que desea empezar de nuevo, puede eliminar dicho grupo al completo. Se trata de una forma rápida de quitarlos todos. Los siguientes pasos se aplican solo al modelo de implementación de Resource Manager.
+Si no desea mantener ninguno de los recursos del grupo, sino que desea empezar de nuevo, puede eliminar dicho grupo al completo. Se trata de una forma rápida de quitarlos todos. Los siguientes pasos se aplican solo al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. Obtenga una lista de todos los grupos de recursos de la suscripción:
 

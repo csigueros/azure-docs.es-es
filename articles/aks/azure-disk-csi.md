@@ -5,15 +5,14 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 29bac1ea9de7fb81797733bbccce24688b4acc10
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 19606a1b529fcd7e6140d81361c5434324836198
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164352"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724739"
 ---
-# <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Uso de los controladores de interfaz de almacenamiento de contenedores (CSI) para discos de Azure en Azure Kubernetes Service (AKS) (versión preliminar)
-
+# <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>Uso de los controladores de Container Storage Interface (CSI) para discos de Azure en Azure Kubernetes Service (AKS)
 Un controlador de interfaz de almacenamiento de contenedores (CSI) para discos de Azure es un controlador compatible con la [especificación CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) que usa Azure Kubernetes Service (AKS) para administrar el ciclo de vida de los discos de Azure.
 
 CSI es un estándar para exponer sistemas de almacenamiento de archivos y bloques arbitrarios a cargas de trabajo en contenedores en Kubernetes. Gracias a la adopción y al uso de CSI, AKS puede escribir, implementar e iterar complementos para exponer nuevos sistemas de almacenamiento o mejorar los existentes en Kubernetes sin tener que tocar el código principal de Kubernetes ni esperar a sus ciclos de versión.
@@ -26,8 +25,6 @@ Para crear un clúster de AKS con compatibilidad con controladores CSI, vea [Hab
 ## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Uso de volúmenes persistentes de CSI con discos de Azure
 
 Un [volumen persistente](concepts-storage.md#persistent-volumes) (PV) representa un fragmento de almacenamiento aprovisionado para su uso con pods de Kubernetes. Un PV puede usarse en uno o varios pods y puede aprovisionarse de forma dinámica o estática. En este artículo se muestra cómo crear PV de forma dinámica con discos de Azure para usarlos en un solo pod de un clúster de AKS. En el caso del aprovisionamiento estático, vea [Creación manual y uso de un volumen con discos de Azure](azure-disk-volume.md).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de almacenamiento para aplicaciones en AKS][concepts-storage].
 

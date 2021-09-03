@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/04/2021
-ms.openlocfilehash: 4a400417fef8ac89ccf30799f4969ba8f789e260
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/21/2021
+ms.openlocfilehash: d3980a490a5ce61d7c428f76b8503fc49a62fbb3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555315"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738499"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ En este artículo se proporcionan los límites de recursos detallados para bases
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
 
-Cada réplica de solo lectura tiene sus propios recursos, como núcleos virtuales, memoria, IOPS de datos, TempDB, trabajos y sesiones. Cada réplica de solo lectura está sujeta a los límites de recursos que se detallan más adelante en este artículo.
+Cada réplica de solo lectura de una base de datos tiene sus propios recursos, como núcleos virtuales, memoria, IOPS de datos, TempDB, trabajos y sesiones. Cada réplica de solo lectura está sujeta a los límites de recursos que se detallan más adelante en este artículo.
 
 Puede establecer el nivel de servicio, el tamaño de proceso (objetivo del servicio) y la cantidad de almacenamiento para una base de datos única mediante:
 
@@ -59,7 +59,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Compatible con almacén de columnas|Sí <sup>1</sup>|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|512|1024|1024|1024|1536|
-|Tamaño máximo de registro (GB) <sup>2</sup>|154|307|307|307|461|
+|Max log size (GB) <sup>2</sup>|154|307|307|307|461|
 |Tamaño máximo de datos de TempDB (GB)|32|64|128|192|256|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -195,7 +195,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-1"></a>Generación de proceso Gen5 (parte 1)
 
-|Tamaño de proceso (objetivo de servicio)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
+|Tamaño de proceso (objetivo de servicio)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen5_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
@@ -651,7 +651,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Almacenamiento OLTP en memoria (GB)|172|216|304|704|1768|
 |Tamaño máximo de datos (GB)|1280|1536|2048|4096|4096|
 |Tamaño máximo de registro (GB) <sup>1</sup>|427|512|683|1024|1024|
-|Tamaño máximo de datos de TempDB (GB)|4096|2048|1024|768|640|
+|Tamaño máximo de datos de TempDB (GB)|640|768|1024|2048|4096|
 |[Tamaño máximo de almacenamiento local](resource-limits-logical-server.md#storage-space-governance) (GB)|13836|13836|13836|13836|13836|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|

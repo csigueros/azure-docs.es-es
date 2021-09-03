@@ -10,12 +10,12 @@ ms.custom: automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 716ed2920b1e731a8515b7f099e77853955d9943
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 343d6dd27167001ecf98435596837eaab5f50da5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884811"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739187"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidad de interpretación: explicaciones de los modelos en el aprendizaje automático automatizado (versión preliminar)
 
@@ -31,7 +31,7 @@ En este artículo aprenderá a:
 - Habilitar visualizaciones para ayudarle a ver patrones en datos y explicaciones.
 - Implementar la interpretación durante la inferencia o puntuación.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Características de interoperabilidad. Ejecute `pip install azureml-interpret` para obtener el paquete necesario.
 - Conocimiento de la compilación de experimentos de aprendizaje automático automatizado. Para más información sobre cómo usar el SDK de Azure Machine Learning, complete este [tutorial de modelo de regresión](tutorial-auto-train-models.md) o consulte cómo [configurar experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md).
@@ -41,15 +41,7 @@ En este artículo aprenderá a:
 Recupere la explicación de `best_run`, que incluye explicaciones de las características diseñadas y sin formato.
 
 > [!NOTE]
-> La interpretabilidad, la mejor explicación del modelo, no está disponible para los experimentos de previsión de ML automático que recomiendan los algoritmos siguientes como el mejor modelo: 
-> * TCNForecaster
-> * AutoArima
-> * ExponentialSmoothing
-> * Prophet
-> * Media 
-> * Naive
-> * Media estacional 
-> * Naive estacional
+> La interpretabilidad, es decir, la explicación del modelo, no está disponible para el modelo TCNForecaster recomendado por los experimentos de previsión de ML automático.
 
 ### <a name="download-the-engineered-feature-importances-from-the-best-run"></a>Descargue las importancias de las características diseñadas de la mejor ejecución
 
@@ -134,7 +126,7 @@ Puede llamar al método `explain()` de MimicWrapper con los ejemplos de prueba t
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
 ```
-En el caso de los modelos entrenados con el aprendizaje automático automatizado, puede obtener el mejor modelo mediante el método `get_output()` y las explicaciones de proceso de forma local.  Puede visualizar los resultados de la explicación con `ExplanationDashboard` desde el paquete `interpret-community`.
+En el caso de los modelos entrenados con el aprendizaje automático automatizado, puede obtener el mejor modelo mediante el método `get_output()` y las explicaciones de proceso de forma local.  Puede visualizar los resultados de la explicación con `ExplanationDashboard` desde el paquete `raiwidgets`.
 
 ```python
 best_run, fitted_model = remote_run.get_output()
@@ -157,7 +149,7 @@ pip install interpret-community[visualization]
 
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict()),
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_estimator, datasetX=automl_explainer_setup_obj.X_test_transform)
 
  
@@ -166,7 +158,7 @@ raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
                                      raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
                                      eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(raw_explanations.get_feature_importance_dict()),
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, datasetX=automl_explainer_setup_obj.X_test_raw)
 ```
 

@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: core
 author: lobrien
 ms.author: laobri
-ms.date: 04/24/2020
+ms.date: 08/05/2021
 ms.topic: how-to
-ms.openlocfilehash: f3e432573e07146157d76de71e5ef1b328ed5bcf
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 1889798d120946e0afc319ceeeaa43db12f59566
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885081"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736516"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service
 
@@ -32,7 +32,7 @@ En Azure Machine Learning, los datos personales se componen de información de u
 
 ## <a name="delete-high-level-resources-using-the-portal"></a>Eliminación de recursos de alto nivel mediante el portal
 
-Cuando se crea un área de trabajo, Azure crea una serie de recursos en el grupo de recursos:
+Cuando se crea un área de trabajo, Azure crea varios recursos en el grupo de recursos:
 
 - La propia área de trabajo
 - Una cuenta de almacenamiento
@@ -52,11 +52,14 @@ Los documentos del historial de ejecución, que pueden contener información per
 
 Azure Machine Learning Studio proporciona una vista unificada de los recursos de aprendizaje automático, como cuadernos, conjuntos de información, modelos y experimentos. Azure Machine Learning Studio enfatiza la conservación de un registro de datos y experimentos. Los recursos de cálculo, como las canalizaciones y los recursos de procesos, se pueden eliminar mediante el explorador. Para eliminar esos recursos, vaya al recurso en cuestión y seleccione **Eliminar**. 
 
-Los conjuntos de datos se pueden anular del registro y los experimentos se pueden archivar, pero tenga en cuenta que estas operaciones no eliminan los datos. Para quitar completamente los datos, los conjuntos de datos y los datos de ejecución, estos deben eliminarse en el nivel de almacenamiento. La eliminación en el nivel de almacenamiento se realiza mediante el portal, tal como se ha descrito anteriormente.
+Los conjuntos de datos se pueden anular del registro y los experimentos se pueden archivar, pero tenga en cuenta que estas operaciones no eliminan los datos. Para quitar completamente los datos, los conjuntos de datos y los datos del experimento deben eliminarse en el nivel de almacenamiento. La eliminación en el nivel de almacenamiento se realiza mediante el portal, tal como se ha descrito anteriormente. Una ejecución individual se puede eliminar directamente en Studio. Al eliminar una ejecución, se eliminan los datos de la ejecución. 
 
-Puede descargar los artefactos de aprendizaje de las ejecuciones experimentales mediante Studio. Elija el **experimento** y **ejecútelo**. Seleccione **Salida y registros** y elija los artefactos específicos que quiera descargar. Seleccione **...** y **Descargar**.
+> [!NOTE]
+> Antes de anular el registro de un conjunto de datos, use su vínculo **Origen de datos** para buscar la dirección URL de datos específica que desea eliminar. 
 
-Puede descargar un modelo registrado seleccionando el **modelo** que quiera y haciendo clic en **Descargar**. 
+Puede descargar los artefactos de aprendizaje de las ejecuciones experimentales mediante Studio. Elija el **Experimento** y **Ejecútelo** donde le interese. Seleccione **Salida y registros** y elija los artefactos específicos que quiera descargar. Seleccione **...** y **Descargar**.
+
+Puede descargar un modelo registrado; para ello, vaya al **Modelo** y haga clic en **Descargar**. 
 
 :::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Captura de pantalla de la página del modelo de Studio con la opción de descarga resaltada":::
 

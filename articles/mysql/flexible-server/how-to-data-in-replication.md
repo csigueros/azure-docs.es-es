@@ -6,20 +6,21 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 041e6e2b3a79fa639a00506c81fc3e7ab0a98cec
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ee0bafdfe7d7caae2d4ba65e9967d9c46e6b3e3c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746778"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736434"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-flexible-server-data-in-replication"></a>Configuración de la replicación de datos de entrada del servidor flexible de Azure Database for MySQL
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 En este artículo se describe cómo configurar la [replicación de datos de entrada](concepts-data-in-replication.md) en el servidor flexible de Azure Database for MySQL mediante la configuración de los servidores de origen y de réplica. En este artículo se asume que tiene alguna experiencia previa con servidores y bases de datos MySQL.
 
 > [!NOTE]
 > Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
->
 
 Para crear una réplica en el servicio flexible de Azure Database for MySQL, la [replicación de datos de entrada](concepts-data-in-replication.md) sincroniza los datos que proceden de un servidor MySQL de origen local en máquinas virtuales (VM) o en servicios de base de datos en la nube. La replicación de datos de entrada se basa en la posición del archivo de registro binario (binlog). Para obtener más información acerca de la replicación de binlog, consulte la [Introducción a la replicación de binlog de MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -44,7 +45,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL hospedado en el
 
     * Si el acceso privado está en uso, asegúrese de que hay conectividad entre el servidor de origen y la red virtual en la que se hospeda el servidor de réplica. 
     * Asegúrese de que proporcionamos conectividad sitio a sitio a sus servidores de origen locales mediante [ExpressRoute](../../expressroute/expressroute-introduction.md) o [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](../../virtual-network/index.yml)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
-    * Si el acceso privado se usa en el servidor de réplica y el origen es la máquina virtual de Azure, asegúrese de que se establece la conectividad de red virtual a red virtual. Se admite el emparejamiento de red virtual a red virtual dentro de las regiones.**Actualmente no se admite el emparejamiento global.** Tendría que usar otros métodos de conectividad para comunicarse entre redes virtuales de regiones distintas, como la conexión de red virtual a red virtual. Para más información, consulte [Puerta de enlace de VPN de red virtual a red virtual](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+    * Si el acceso privado se usa en el servidor de réplica y el origen es la máquina virtual de Azure, asegúrese de que se establece la conectividad de red virtual a red virtual. Se admite el emparejamiento entre redes virtuales. También puede usar otros métodos de conectividad para comunicarse entre redes virtuales de regiones distintas, como la conexión de red virtual a red virtual. Para más información, consulte [Puerta de enlace de VPN de red virtual a red virtual](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
     * Asegúrese de que las reglas del grupo de seguridad de red de la red virtual no bloquean el puerto de salida 3306 (que también es de entrada si MySQL se ejecuta en la máquina virtual de Azure). Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
     * Configure las reglas de firewall del servidor de origen para permitir la dirección IP del servidor de réplica.
 
@@ -215,16 +216,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL hospedado en el
       ```sql
       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
       ```
-
-2. Configure el filtrado.
-
-   Si desea omitir la replicación de algunas tablas del maestro, actualice el parámetro de servidor `replicate_wild_ignore_table` en el servidor de réplica. Puede proporcionar más de un patrón de tabla mediante una lista separada por comas.
-
-   Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) para más información acerca de este parámetro.
-
-   Para actualizar el parámetro, use [Azure Portal](how-to-configure-server-parameters-portal.md) o la [CLI de Azure](how-to-configure-server-parameters-cli.md).
-
-3. Inicie la replicación.
+2. Inicie la replicación.
 
    Llame al procedimiento almacenado `mysql.az_replication_start` para iniciar la replicación.
 
@@ -232,7 +224,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL hospedado en el
    CALL mysql.az_replication_start;
    ```
 
-4. Compruebe el estado de replicación.
+3. Compruebe el estado de replicación.
 
    Llame al comando [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) en el servidor de réplica para ver el estado de replicación.
 

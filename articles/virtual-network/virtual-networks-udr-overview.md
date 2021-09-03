@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: 3f17e24bb63a60fc542806da848f85e7d0279bba
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: f7a7ab456fd28e8ba244a29238590da22885c318
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984957"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729634"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -34,7 +34,7 @@ Cada ruta contiene un prefijo de dirección y el tipo de próximo salto. Cuando 
 
 |Source |Prefijos de dirección                                        |Tipo de próximo salto  |
 |-------|---------                                               |---------      |
-|Valor predeterminado|Único para la red virtual                           |Virtual network|
+|Valor predeterminado|Único para la red virtual                           |Red virtual|
 |Valor predeterminado|0.0.0.0/0                                               |Internet       |
 |Valor predeterminado|10.0.0.0/8                                              |Ninguno           |
 |Valor predeterminado|192.168.0.0/16                                          |Ninguno           |
@@ -82,14 +82,16 @@ Puede especificar los siguientes tipos de próximo salto al crear una ruta defin
 
     * La [dirección IP privada](./private-ip-addresses.md) de una interfaz de red conectada a una máquina virtual. Cualquier interfaz de red conectada a una máquina virtual que reenvíe el tráfico de red a una dirección que no sea la suya propia debe tener la opción *Habilitar reenvío de IP* habilitada. El valor deshabilita la comprobación que realiza Azure del origen y destino en una interfaz de red. Obtenga más información acerca de cómo [habilitar el reenvío IP en una interfaz de red](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Aunque *Habilitar reenvío de IP* es un valor de Azure, es posible que también necesite habilitar el reenvío IP en el sistema operativo de la máquina virtual para que el dispositivo desvíe el tráfico entre las direcciones IP privadas asignadas a interfaces de red de Azure. Si el dispositivo debe enrutar el tráfico a una dirección IP pública, debe hacer de proxy ante el tráfico o traducir la dirección IP privada del origen a su propia dirección IP privada y Azure la traducirá a una dirección IP pública antes de enviar el tráfico a Internet. Para determinar la configuración necesaria en la máquina virtual, consulte la documentación del sistema operativo o la aplicación de red. Para obtener información acerca de las conexiones salientes en Azure, consulte [Información acerca de las conexiones salientes](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 
-        > [!NOTE]
-        > Implemente una aplicación virtual en una subred diferente la que se encuentran los recursos que enrutan a través de la aplicación virtual. La implementación de la aplicación virtual en la misma subred y la posterior aplicación de una tabla de rutas en la subred que enruta el tráfico a través de la aplicación virtual pueden provocar bucles de enrutamiento, en los que el tráfico nunca sale de la subred.
+      > [!NOTE]
+      > Implemente una aplicación virtual en una subred diferente la que se encuentran los recursos que enrutan a través de la aplicación virtual. La implementación de la aplicación virtual en la misma subred y la posterior aplicación de una tabla de rutas en la subred que enruta el tráfico a través de la aplicación virtual pueden provocar bucles de enrutamiento, en los que el tráfico nunca sale de la subred.
+      > 
+      > Una dirección IP privada del próximo salto debe tener conexión directa sin tener que enrutar a través de la puerta de enlace de ExpressRoute o Virtual WAN. Al establecer el próximo salto en una dirección IP sin conexión directa, resulta en una configuración de enrutamiento definida por el usuario no válida. 
 
     * La dirección IP privada de un [equilibrador de carga interno](../load-balancer/quickstart-load-balancer-standard-internal-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure. A menudo se usa un equilibrador de carga como parte de una [estrategia de alta disponibilidad para aplicaciones virtuales de red](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     Puede definir una ruta con 0.0.0.0/0 como prefijo de dirección y un tipo de próximo salto de la aplicación virtual, lo que permite a la aplicación inspeccionar el tráfico y determinar si el tráfico se debe reenviar o eliminar. Si tiene intención de crear una definida por el usuario que contenga el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0).
 
-* **Puerta de enlace de red virtual**: se especifica cuando se desea que el tráfico destinado a prefijos de dirección específicos se enrute a una puerta de enlace de red virtual. La puerta de enlace de red virtual debe crearse con el tipo **VPN**. No se puede especificar una puerta de enlace de red virtual creada como el tipo **ExpressRoute** en una ruta definida por el usuario, ya que con ExpressRoute es preciso usar BGP para las rutas personalizadas. Puede definir una ruta que dirige el tráfico destinado al prefijo de dirección 0.0.0.0/0 a una puerta de enlace de red virtual [basada en ruta](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). En un entorno local, puede tener un dispositivo que compruebe el tráfico y determine si se reenvía o se elimina. Si tiene intención de crear una definida por el usuario para el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0). En lugar de configurar una ruta definida por el usuario para el prefijo de dirección 0.0.0.0/0, es posible anunciar una ruta con el prefijo 0.0.0.0/0 a través de BGP, si ha [habilitado BGP para una puerta de enlace de red virtual de VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
+* **Puerta de enlace de red virtual**: se especifica cuando se desea que el tráfico destinado a prefijos de dirección específicos se enrute a una puerta de enlace de red virtual. La puerta de enlace de red virtual debe crearse con el tipo **VPN**. No se puede especificar una puerta de enlace de red virtual creada como el tipo **ExpressRoute** en una ruta definida por el usuario, ya que con ExpressRoute es preciso usar BGP para las rutas personalizadas. No puede especificar puertas de enlace de red virtual si tiene conexiones coexistentes de VPN y ExpressRoute. Puede definir una ruta que dirige el tráfico destinado al prefijo de dirección 0.0.0.0/0 a una puerta de enlace de red virtual [basada en ruta](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). En un entorno local, puede tener un dispositivo que compruebe el tráfico y determine si se reenvía o se elimina. Si tiene intención de crear una definida por el usuario para el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0). En lugar de configurar una ruta definida por el usuario para el prefijo de dirección 0.0.0.0/0, es posible anunciar una ruta con el prefijo 0.0.0.0/0 a través de BGP, si ha [habilitado BGP para una puerta de enlace de red virtual de VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 * **Ninguna**: se especifica cuando se desea colocar tráfico en un prefijo de dirección, en lugar de reenviar el tráfico a un destino. Si no ha configurado completamente una funcionalidad, Azure puede enumerar *No* para algunas de las rutas de opcional del sistema. Por ejemplo, si ve *No* en **Dirección IP del próximo salto** con un **Tipo de próximo salto** de *Puerta de enlace de red virtual* o *Aplicación virtual*, puede deberse a que el dispositivo no funciona o no está completamente configurado. Azure crea [rutas predeterminadas](#default) del sistema para los prefijos de direcciones reservados con **No** como tipo de próximo salto.<br>
 * **Red virtual**: se especifica cuando se desea reemplazar el enrutamiento predeterminado en una red virtual. Consulte [Ejemplo de enrutamiento](#routing-example), para ver un ejemplo de por qué puede crear una ruta con el tipo de salto **Red virtual**.<br>
 * **Internet**: se especifica cuando se desea enrutar explícitamente a Internet el tráfico destinado a un prefijo de dirección, o si se desea que el tráfico destinado a los servicios de Azure con direcciones IP públicas se conserve dentro de la red troncal de Azure.
@@ -157,7 +159,7 @@ Una puerta de enlace de red local puede intercambiar rutas con una puerta de enl
 
 Al intercambiar rutas con Azure mediante BGP, se agrega una ruta independiente a la tabla de rutas de todas las subredes de una red virtual para cada prefijo anunciado. La ruta se agrega con *Puerta de enlace de red virtual* como origen y tipo de próximo salto. 
 
-La propagación del enrutamiento de ER y VPN Gateway se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de la ruta de la puerta de enlace de red virtual deshabilitada. La conectividad con las conexiones VPN se logra mediante [rutas personalizadas](#custom-routes) con un próximo salto de tipo *Puerta de enlace de red virtual*. **La propagación de rutas no debe deshabilitarse en GatewaySubnet. La puerta de enlace no funcionará con esta opción deshabilitada.** Para más información, consulte [How to disable Virtual network gateway route propagation](manage-route-table.md#create-a-route-table) (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual).
+La propagación del enrutamiento de ER y VPN Gateway se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Al hacerlo, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de rutas de puertas de enlace de red virtual deshabilitada (rutas estáticas y rutas BGP). La conectividad con las conexiones VPN se logra mediante [rutas personalizadas](#custom-routes) con un próximo salto de tipo *Puerta de enlace de red virtual*. **La propagación de rutas no debe deshabilitarse en GatewaySubnet. La puerta de enlace no funcionará con esta opción deshabilitada.** Para más información, consulte [How to disable Virtual network gateway route propagation](manage-route-table.md#create-a-route-table) (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual).
 
 ## <a name="how-azure-selects-a-route"></a>Selección de rutas por parte de Azure
 
@@ -286,9 +288,9 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 |Valor predeterminado |Active |10.2.0.0/16         |Emparejamiento de VNET              |                   |
 |Valor predeterminado |Active |10.10.0.0/16        |Puerta de enlace de red virtual   |[X.X.X.X]          |
 |Valor predeterminado |Active |0.0.0.0/0           |Internet                  |                   |
-|Predeterminado |Active |10.0.0.0/8          |Ninguno                      |                   |
-|Predeterminado |Active |100.64.0.0/10       |Ninguno                      |                   |
-|Predeterminado |Active |192.168.0.0/16      |None                      |                   |
+|Valor predeterminado |Activo |10.0.0.0/8          |Ninguno                      |                   |
+|Valor predeterminado |Active |100.64.0.0/10       |Ninguno                      |                   |
+|Valor predeterminado |Activo |192.168.0.0/16      |None                      |                   |
 
 La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas por Azure y el emparejamiento de VNet opcional y las rutas opcionales de la puerta de enlace de red virtual. Azure ha agregado las rutas opcionales a todas las subredes de la red virtual cuando tanto la puerta de enlace como el emparejamiento se han agregado a la red virtual. Azure ha quitado las rutas de los prefijos de dirección 10.0.0.0/8, 192.168.0.0/16 y 100.64.0.0/10 de la tabla de rutas de *Subnet1* cuando la ruta definida por el usuario del prefijo de dirección 0.0.0.0/0 se ha agregado a *Subnet1*.  
 

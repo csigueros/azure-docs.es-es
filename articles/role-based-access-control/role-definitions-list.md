@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 66efe0015e0ca85ac793100ee6d8d0944e3614c1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 49ca89112f011f8f1c6d411ab187697b29523eeb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690872"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728689"
 ---
 # <a name="list-azure-role-definitions"></a>Enumeración de las definiciones de roles de Azure
 
@@ -29,10 +29,6 @@ Para ver la lista de los roles de administrador de Azure Active Directory, consu
 
 Siga estos pasos para enumerar todos los roles de Azure Portal.
 
-La pestaña **Roles** se actualizó recientemente con algunas características adicionales. Si quiere ver la experiencia anterior, consulte la pestaña **Roles (Classic)** (Roles [clásico]). Puede usar cualquiera de las pestañas de roles para trabajar con los roles; sin embargo, si crea o elimina roles personalizados, es posible que tenga que actualizar manualmente la página para ver los últimos cambios.
-
-#### <a name="roles"></a>[Roles](#tab/roles/)
-
 1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione cualquier ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
 1. Haga clic en el recurso específico.
@@ -43,6 +39,9 @@ La pestaña **Roles** se actualizó recientemente con algunas características a
 
    ![Captura de pantalla que muestra la lista de roles con la nueva experiencia.](./media/shared/roles-list.png)
 
+    > [!TIP]
+    > Para ver la experiencia de lista de roles anterior, haga clic en **Use classic experience** (Usar experiencia clásica).
+  
 1. Para ver los permisos de un rol determinado, en la columna **Detalles**, haga clic en el vínculo **Ver**.
 
     Aparece un panel de permisos.
@@ -50,22 +49,6 @@ La pestaña **Roles** se actualizó recientemente con algunas características a
 1. Haga clic en la pestaña **Permisos** para ver y buscar los permisos del rol seleccionado.
 
    ![Captura de pantalla que muestra los permisos de rol con la nueva experiencia.](./media/role-definitions-list/role-permissions.png)
-
-#### <a name="roles-classic"></a>[Roles (Classic)](#tab/roles-classic/) (Roles [clásico])
-
-1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione cualquier ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
-
-1. Haga clic en el recurso específico.
-
-1. Haga clic en **Control de acceso (IAM).**
-
-1. Haga clic en la pestaña **Roles (Classic)** (Roles [clásico]) para ver una lista de todos los roles integrados y personalizados.
-
-   Puede ver el número de usuarios y grupos asignados a cada rol en el ámbito actual.
-
-   ![Lista Roles](./media/role-definitions-list/roles-list-classic.png)
-
----
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

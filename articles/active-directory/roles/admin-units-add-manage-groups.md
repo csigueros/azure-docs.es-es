@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9a7b08f792c36ecf0f65e37f2f9e9c551bca8c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c824ee3a8365261fa6409bf79904cde1b409fc26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088145"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734504"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Adición y administración de grupos en una unidad administrativa en Azure Active Directory
 
@@ -45,21 +45,29 @@ Solo puede asignar grupos individuales a una unidad administrativa. No hay ningu
 
 * En el panel **Grupos**:
 
-  1. En Azure Portal, vaya a **Azure AD**.
-  1. Seleccione **Grupos** y, a continuación, seleccione el grupo que desea asignar a la unidad administrativa. 
+  1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+
+  1. Seleccione **Azure Active Directory** > **Grupos**.
+
+  1. Seleccione el grupo que desea asignar a una unidad administrativa.
+
   1. En el panel de la izquierda, seleccione **Unidades administrativas** para ver una lista de las unidades administrativas a las que está asignado el grupo. 
 
      ![Captura de pantalla del vínculo "Asignar a la unidad administrativa" en el panel "Unidades administrativas".](./media/admin-units-add-manage-groups/assign-to-group-1.png)
 
   1. Seleccione **Asignar a la unidad administrativa**.
+
   1. En el panel derecho, seleccione la unidad administrativa.
 
-* En el panel **Unidades administrativas** > **Todos los grupos**:
+* En el panel **Unidades administrativas** > **Grupos**:
 
-  1. En Azure Portal, vaya a **Azure AD**.
+  1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+
+  1. Seleccione **Azure Active Directory** > **Unidades administrativas**.
   
-  1. En el panel izquierdo, seleccione **Unidades administrativas** y, después, **Todos los grupos**. 
-     Todos los grupos que ya están asignados a la unidad administrativa se muestran en el panel derecho. 
+  1. Seleccione una unidad administrativa a la que desea agregar un grupo.
+  
+  1. Seleccione **Grupos**. Todos los grupos que ya están asignados a la unidad administrativa se muestran en el panel derecho. 
 
   1. En el panel **Grupos**, seleccione **Agregar**.
     En el panel derecho se enumeran todos los grupos disponibles en la organización de Azure AD. 

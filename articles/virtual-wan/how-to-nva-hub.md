@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 07/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0119d9b1938698ed27d9c1539c1366859d0fc7f9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 0252305167f0f77d310810af0a147106fae9e0c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411960"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730882"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub"></a>Creación de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN
 
@@ -93,6 +93,8 @@ En este paso, creará una aplicación virtual de red en el centro de conectivida
 1. En esta página se le pedirá que acepte los términos del contrato de acceso de coadministrador. Esto es algo estándar en las aplicaciones administradas en las que el editor va a tener acceso a algunos recursos de esta implementación. Seleccione el cuadro **Acepto los términos y condiciones anteriores** y, después, seleccione **Crear**.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Conexión de la red virtual al centro de conectividad
+
+En esta sección, creará la conexión entre el centro de conectividad y una red virtual.
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

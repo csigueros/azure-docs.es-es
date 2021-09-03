@@ -1,19 +1,19 @@
 ---
 title: Descripción de los roles necesarios para realizar tareas comunes en Synapse
 description: En este artículo se describen los roles RBAC de Synapse integrados que se necesitan para realizar tareas específicas.
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87156914769c2cb76b7509b74ebfeb13b15af95e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2d913d0312b75542fa52e73e68170e9a3b91cf5d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784201"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823350"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Descripción de los roles necesarios para realizar tareas comunes en Synapse
 
@@ -76,7 +76,7 @@ Administrar (pausar, escalar o eliminar) un grupo de SQL dedicado|Propietario o 
 Crear un script de SQL</br>|Usuario de Synapse o </br>propietario o colaborador de Azure en el área de trabajo </br>*Se requieren permisos SQL adicionales para ejecutar, publicar o confirmar un script de SQL*.|
 Mostrar y abrir cualquier script de SQL publicado| Usuario de artefactos de Synapse, editor de artefactos, colaborador de Synapse|artefactos/lectura
 Ejecutar un script de SQL en un grupo de SQL sin servidor|Permisos SQL en el grupo (concedidos automáticamente a un administrador de Synapse)|ninguno
-Ejecutar un script de SQL en un grupo de SQL dedicado|Permisos de SQL en el grupo|ninguno
+Ejecutar un script de SQL en un grupo de SQL dedicado|Permisos SQL en el grupo (concedidos automáticamente a un administrador de Synapse)|ninguno
 Publicar un script de SQL nuevo, actualizado o eliminado|Editor de artefactos de Synapse, colaborador de Synapse|sqlScripts/escritura, eliminación
 Confirmar cambios en un script de SQL el un repositorio de Git|Requiere permisos de GIT en el repositorio.|
 Asignar un administrador de Active Directory en el área de trabajo (mediante las propiedades del área de trabajo de Azure Portal)|Propietario o colaborador de Azure en el área de trabajo |
@@ -92,7 +92,7 @@ Publicar o eliminar una definición de trabajo o un cuaderno (incluida la salida
 Confirmar cambios en una definición de trabajo o un cuaderno en el repositorio de Git|Permisos de Git|ninguno
 CANALIZACIONES, ENTORNOS DE EJECUCIÓN, FLUJOS DE DATOS, CONJUNTOS DE DATOS Y DESENCADENADORES|
 Crear, actualizar o eliminar un entorno de ejecución de integración|Propietario o colaborador de Azure en el área de trabajo|
-Supervisar el estado del entorno de ejecución de integración|Usuario de Synapse|lectura, canalizaciones/viewOutputs
+Supervisar el estado del entorno de ejecución de integración|Operador de proceso de Synapse|read, integrationRuntimes/viewLogs
 Revisar las ejecuciones de canalización|Editor de artefactos de Synapse/colaborador de Synapse|lectura, canalizaciones/viewOutputs 
 Crear una canalización |Usuario de Synapse</br>*Se requieren permisos adicionales de Synapse para depurar, agregar desencadenadores, publicar o confirmar cambios*|leer
 Crear un flujo de datos o un conjunto de datos |Usuario de Synapse</br>*Se requieren permisos adicionales de Synapse para publicar o confirmar cambios*|leer

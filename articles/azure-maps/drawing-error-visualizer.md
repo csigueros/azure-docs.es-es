@@ -3,21 +3,21 @@ title: Uso del visualizador de errores de dibujo de Azure Maps
 description: En este artículo, aprenderá a visualizar las advertencias y los errores devueltos por la API de conversión de Creator.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/21/2021
+ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: dcd9ccbcbc2372b5648bf6d5367b2c364a34eb0f
-ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
+ms.openlocfilehash: c541a35bf2ef79fd058a58713afd927413ec8fcf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111352441"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738527"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer-with-creator"></a>Uso del visualizador de errores de dibujo de Azure Maps con Creator
 
-El visualizador de errores de dibujo es una aplicación web independiente que muestra los [errores y advertencias de paquetes de dibujos](drawing-conversion-error-codes.md) detectados durante el proceso de conversión. La aplicación web del visualizador de errores consiste en una página estática que puede usar sin conectarse a Internet.  Puede usar el visualizador de errores para corregir errores y advertencias de acuerdo con los [requisitos del paquete de dibujos](drawing-requirements.md). La [API de conversión de Azure Maps](/rest/api/maps/v2/conversion) solo devuelve una respuesta con un vínculo al visualizador de errores cuando se detecta un error.
+
+El visualizador de errores de dibujo es una aplicación web independiente que muestra los [errores y advertencias de paquetes de dibujos](drawing-conversion-error-codes.md) detectados durante el proceso de conversión. La aplicación web del visualizador de errores consiste en una página estática que puede usar sin conectarse a Internet.  Puede usar el visualizador de errores para corregir errores y advertencias de acuerdo con los [requisitos del paquete de dibujos](drawing-requirements.md). La [API de conversión de Azure Maps](/rest/api/maps/v2/conversion) devuelve una respuesta con un vínculo al visualizador de errores cuando se detecta un error.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,9 +45,8 @@ En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero
         "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Failed",
-        "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
         "properties": {
-            "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
+            "diagnosticPackageLocation": "https://us.atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=2.0"
         }
     }
     ```

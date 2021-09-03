@@ -3,8 +3,7 @@ title: Preguntas frecuentes sobre los informes de Azure Active Directory | Micro
 description: Preguntas frecuentes sobre los informes de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: cawrites
-manager: MarkusVi
+author: MarkusVi
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
@@ -12,22 +11,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 05/12/2020
+ms.date: 07/28/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4da0083a236900037b388798d825515e94613c20
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b64c33619eae16cb08b9ccdc1b4fd5265813d9ed
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533689"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739948"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
 Este artículo incluye respuestas a preguntas más frecuentes sobre los informes de Azure Active Directory (Azure AD). Para más información, consulte [Informes de Azure Active Directory](overview-reports.md). 
 
 ## <a name="getting-started"></a>Introducción 
+
+**P: ¿Cómo funcionan las licencias para informes?**
+
+**R**: Todas las licencias de Azure AD le permiten ver los registros de actividad en Azure Portal. 
+
+Si el inquilino tiene:
+
+- Una licencia gratuita de Azure AD, puede ver hasta siete días de datos de registros de actividad en el portal. 
+- Una licencia de Azure AD Premium, puede ver hasta treinta días de datos en Azure Portal. 
+
+También puede exportar los datos de registro a Azure Monitor, Azure Event Hubs y Azure Storage, o consultar los datos de actividad a través de Microsoft Graph API. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. Los datos tardarán un par de días en aparecer en los registros después de actualizar a una licencia Premium sin actividades de datos antes de la actualización.
+
 
 **P: Actualmente uso las API de punto de conexión `https://graph.windows.net/<tenant-name>/reports/` para extraer informes de uso de aplicaciones integradas y de auditoría de Azure AD en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
 

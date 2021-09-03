@@ -12,12 +12,12 @@ ms.date: 08/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c88954434c38a04d0d1263e96639e6cca03c3a1b
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: b64806b3683db8f6cd3ec665b462f4f6f26397eb
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122201638"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770157"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Habilitación de dominios personalizados para Azure Active Directory B2C
 
@@ -104,7 +104,7 @@ Siga estos pasos para crear una instancia de Front Door para el inquilino de Azu
 1. En la página principal o en el menú de Azure Portal, seleccione **Crear un recurso**. Seleccione **Redes** > **Ver todas** > **Front Door**.
 1. En la pestaña **Conceptos básicos** de la página **Crear una instancia de Front Door**, escriba o seleccione la siguiente información y, a continuación, seleccione **Siguiente: Configuration** (Siguiente: Configuración).
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | --- | --- |
     | **Suscripción** | Seleccione la suscripción a Azure. |    
     | **Grupo de recursos** | Seleccione un grupo de recursos existente o seleccione **Crear** para crear uno.|
@@ -114,7 +114,7 @@ Siga estos pasos para crear una instancia de Front Door para el inquilino de Azu
 
 El host de front-end es el nombre de dominio que usa la aplicación. Cuando se crea una instancia de Front Door, el host de front-end predeterminado es un subdominio de `azurefd.net`.
 
-Azure Front Door permite asociar un dominio personalizado al host de front-end. Con esta opción, asociará la interfaz de usuario de Azure AD B2C a un dominio personalizado en la dirección URL en lugar de un nombre de dominio propiedad de Front Door. Por ejemplo, https://login.contoso.com.
+Azure Front Door permite asociar un dominio personalizado al host de front-end. Con esta opción, asociará la interfaz de usuario de Azure AD B2C a un dominio personalizado en la dirección URL en lugar de un nombre de dominio propiedad de Front Door. Por ejemplo, `https://login.contoso.com`.
 
 Para agregar un host de front-end, siga estos pasos:
 
@@ -137,7 +137,7 @@ Un back-end hace referencia a su [nombre de inquilino de Azure AD B2C](tenant-
 
 1. En la hoja **Agregar un back-end**, seleccione la información siguiente y, después, **Agregar**.
 
-    | Configuración | Value |
+    | Parámetro | Value |
     | --- | --- |
     | **Tipo de host de back-end**| Seleccione **Host personalizado**.| 
     | **Nombre de host de back-end**| Seleccione el nombre de su [Azure AD B2C](tenant-management.md#get-your-tenant-name), `<tenant-name>.b2clogin.com`. Por ejemplo, contoso.b2clogin.com.|

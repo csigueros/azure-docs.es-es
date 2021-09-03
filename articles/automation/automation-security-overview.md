@@ -4,15 +4,15 @@ description: En este artículo se ofrece información general sobre la autentica
 keywords: seguridad de automatización, automatización segura; autenticación de automatización
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2021
+ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 33402eb41ed9c22cf38890229d833cd2ab00d65d
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 78b188b270ec08aa546311b449f908d47313a9a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279521"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730585"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Introducción a la autenticación de cuentas de Azure Automation
 
@@ -34,11 +34,11 @@ Todas las tareas que se crean en los recursos con Azure Resource Manager y los c
 
 ## <a name="managed-identities-preview"></a>Identidades administradas (versión preliminar)
 
-Una identidad administrada de Azure Active Directory (Azure AD) permite al runbook acceder fácilmente a otros recursos protegidos por Azure AD. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información acerca de las identidades administradas en Azure AD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Una identidad administrada de Azure Active Directory (Azure AD) permite al runbook acceder fácilmente a otros recursos protegidos por Azure AD. La plataforma Azure administra la identidad y no es necesario que lleve a cabo el aprovisionamiento ni la rotación de los secretos. Para más información acerca de las identidades administradas en Azure AD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Estas son algunas de las ventajas de usar las identidades administradas:
 
-- Puede usar las identidades administradas para autenticarse en cualquier servicio de Azure que admita la autenticación de Azure AD. Se pueden usar para la nube, así como para trabajos híbridos. Los trabajos híbridos pueden usar identidades administradas cuando se ejecutan en una instancia de Hybrid Runbook Worker que se ejecuta en una máquina virtual, que puede ser o no de Azure.
+- El uso de una identidad administrada en lugar de la cuenta de ejecución de Automation simplifica la administración. No es necesario renovar el certificado que usa la cuenta de ejecución.
 
 - Las identidades administradas se pueden usar sin ningún costo adicional.
 
@@ -52,8 +52,8 @@ A una cuenta de Automation se le pueden conceder dos tipos de identidades:
 
 - Una identidad asignada por el usuario es un recurso de Azure independiente que puede asignarse a la aplicación. Una aplicación puede tener varias identidades asignadas por el usuario.
 
->[!NOTE]
-> Las identidades asignadas por el usuario aún no se admiten.
+> [!NOTE]
+> Las identidades asignadas por el usuario solo se admiten para trabajos en la nube. Para más información sobre las distintas identidades administradas, vea [Administración de tipos de identidad](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 Para más información acerca del uso de identidades administradas, consulte [Habilitación de la identidad administrada para Azure Automation (versión preliminar)](enable-managed-identity-for-automation.md).
 
@@ -61,8 +61,37 @@ Para más información acerca del uso de identidades administradas, consulte [Ha
 
 Las cuentas de ejecución de Azure Automation proporcionan autenticación para administrar recursos de Azure Resource Manager o recursos implementados en el modelo de implementación clásica. Hay dos tipos de cuentas de ejecución en Azure Automation:
 
-* Cuenta de ejecución de Azure: Le permite administrar los recursos de Azure en función del servicio de administración e implementación de Azure Resource Manager en Azure.
-* Cuenta de ejecución de Azure clásico: Le permite administrar recursos clásicos de Azure según el modelo de implementación clásica.
+Para crear o renovar una cuenta de ejecución, se necesitan permisos en tres niveles:
+
+- Suscripción,
+- Azure Active Directory (Azure AD), y
+- Cuenta de Automation
+
+### <a name="subscription-permissions"></a>Permisos de suscripción
+
+Debe tener el permiso `Microsoft.Authorization/*/Write`. Este permiso se obtiene mediante la pertenencia a uno de los siguientes roles integrados de Azure:
+
+- [Propietario](../role-based-access-control/built-in-roles.md#owner)
+- [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator)
+
+Para configurar o renovar las cuentas de ejecución clásicas, debe tener el rol Coadministrador en el nivel de suscripción. Para más información sobre los permisos de suscripción clásicos, consulte [Administradores de la suscripción clásica de Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+
+### <a name="azure-ad-permissions"></a>Permisos de Azure AD
+
+Para poder crear o renovar la entidad de servicio, debe ser miembro de uno de los siguientes roles integrados de Azure AD:
+
+- [Administrador de aplicaciones](../active-directory/roles/permissions-reference.md#application-administrator)
+- [Desarrollador de aplicaciones](../active-directory/roles/permissions-reference.md#application-developer)
+
+La pertenencia se puede asignar a **TODOS** los usuarios del inquilino en el nivel de directorio, que es el comportamiento predeterminado. Puede conceder pertenencia a cualquiera de los roles en el nivel de directorio. Para más información, vea [¿Quién tiene permiso para agregar aplicaciones a la instancia de Azure AD?](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)
+
+### <a name="automation-account-permissions"></a>Permisos de la cuenta de Automation
+
+Para poder crear o actualizar la cuenta de Automation, debe ser miembro de uno de los siguientes roles de la cuenta de Automation:
+
+- [Propietario](./automation-role-based-access-control.md#owner)
+- [Colaborador](./automation-role-based-access-control.md#contributor)
+- [Colaborador de Azure Automation personalizado](./automation-role-based-access-control.md#custom-azure-automation-contributor-role)
 
 Para obtener más información sobre los modelos de implementación clásico y de Azure Resource Manager, consulte [Implementación de Resource Manager e implementación clásica](../azure-resource-manager/management/deployment-models.md).
 
@@ -101,7 +130,7 @@ Al crear una cuenta de ejecución de Azure clásico, realiza las siguientes tare
 
 ## <a name="service-principal-for-run-as-account"></a>Entidad de servicio para la cuenta de ejecución
 
-La entidad de servicio para una cuenta de ejecución no tiene los permisos para leer Azure AD de manera predeterminada. Si quiere agregar permisos para leer o administrar Azure AD, tiene que conceder los permisos a la entidad de servicio en **Permisos de API**. Para más información, consulte [Adición de permisos para acceder a la API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
+La entidad de servicio para una cuenta de ejecución no tiene los permisos para leer Azure AD de manera predeterminada. Si quiere agregar permisos para leer o administrar Azure AD, tiene que conceder los permisos a la entidad de servicio en **Permisos de API**. Para más información, consulte [Adición de permisos para acceder a la API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
 ## <a name="run-as-account-permissions"></a><a name="permissions"></a>Permisos de las cuentas de ejecución
 
@@ -130,7 +159,7 @@ Para comprobar que se ha corregido la situación causante del mensaje de error:
 1. En el panel de Azure Active Directory de Azure Portal, seleccione **Usuarios y grupos**.
 2. Seleccione **Todos los usuarios**.
 3. Elija su nombre y, a continuación, seleccione **Perfil**.
-4. Asegúrese de que el valor del atributo **Tipo de usuario**  en el perfil de usuario no esté establecido en **Invitado**.
+4. Asegúrese de que el valor del atributo **Tipo de usuario** en el perfil de usuario no esté establecido en **Invitado**.
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
@@ -138,9 +167,12 @@ El control de acceso basado en rol está disponible en Azure Resource Manager pa
 
 Si tiene controles de seguridad estrictos para la asignación de permisos en los grupos de recursos, debe asignar la pertenencia a la cuenta de ejecución al rol **Colaborador** en el grupo de recursos.
 
+> [!NOTE]
+> Se recomienda no utilizar el rol **Colaborador de Log Analytics** para ejecutar trabajos de Automation. En su lugar, cree el rol personalizado Colaborador de Azure Automation y utilícelo para las acciones relacionadas con la cuenta de Automation. Para más información, vea [Rol Colaborador de Azure Automation personalizado](./automation-role-based-access-control.md#custom-azure-automation-contributor-role).
+
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Autenticación de Runbook con Hybrid Runbook Worker
 
-Los runbooks que se ejecutan en una instancia de Hybrid Runbook Worker en su centro de datos o en los servicios de computación de otros entornos de nube como AWS no pueden usar el mismo método que se usa normalmente para los runbooks que se autentican en recursos de Azure. Esto se debe a que esos recursos se ejecutan fuera de Azure y, por lo tanto, requieren sus propias credenciales de seguridad definidas en Automatización para la autenticación en los recursos a los que tienen acceso localmente. Para más información sobre la autenticación de runbooks con trabajos de runbook, consulte [Ejecución de runbooks en Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+Los runbooks que se ejecutan en una instancia de Hybrid Runbook Worker en su centro de datos o en los servicios de computación de otros entornos de nube, como AWS, no pueden usar el mismo método que se usa normalmente para los runbooks que se autentican en recursos de Azure. Esto se debe a que esos recursos se ejecutan fuera de Azure y, por lo tanto, requieren sus propias credenciales de seguridad definidas en Automatización para la autenticación en los recursos a los que tienen acceso localmente. Para más información sobre la autenticación de runbooks con trabajos de runbook, consulte [Ejecución de runbooks en Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 
 Con los runbooks que utilizan instancias de Hybrid Runbook Worker en máquinas virtuales de Azure, puede utilizar la [autenticación de runbook con identidades administradas](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) en lugar de cuentas de ejecución para autenticarse en sus recursos de Azure.
 

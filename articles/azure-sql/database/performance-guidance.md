@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 40657ad2f3b69d62e0e0d9c7d9e0f0be7343547b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mathoma
+ms.date: 07/26/2021
+ms.openlocfilehash: 6446470baf321fa46eab4a68a13cc6e09fdd2e59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96490608"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739643"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ajuste del rendimiento de aplicaciones y bases de datos en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -264,6 +264,12 @@ Algunas aplicaciones requieren operaciones de escritura intensivas. En ocasiones
 ### <a name="application-tier-caching"></a>Almacenamiento en caché de la capa de aplicación
 
 Algunas aplicaciones de base de datos tienen cargas de trabajo con operaciones de lectura intensivas. El almacenamiento en caché de las capas podría reducir la carga en la base de datos y también, posiblemente, el tamaño de proceso necesario para admitir una base de datos con Azure SQL Database e Instancia administrada de Azure SQL. Con [Azure Cache for Redis](https://azure.microsoft.com/services/cache/), si tiene una carga de trabajo con muchas operaciones de lectura, puede leer los datos una vez (o quizás una vez por máquina de nivel de aplicación, según cómo esté configurada) y luego almacenar esos datos fuera de la base de datos. Se trata de una forma de reducir la carga de la base de datos (CPU y E/S de lectura), pero tiene efectos sobre la coherencia transaccional porque los datos que se leen de la caché podrían estar desincronizados con respectos a los datos de la base de datos. Aunque en muchas aplicaciones algún nivel de incoherencia es aceptable, esto no se aplica a todas las cargas de trabajo. Debería comprender totalmente los requisitos de una aplicación antes de emplear una estrategia de almacenamiento en caché de la capa de aplicación.
+
+## <a name="get-configuration-and-design-tips"></a>Obtener sugerencias de configuración y diseño
+
+Si usa Azure SQL Database, puede ejecutar un [script](https://aka.ms/sqldbtips) T-SQL de código abierto para analizar la base de datos a petición y proporcionar sugerencias para mejorar el rendimiento y el estado de la base de datos. Algunas sugerencias recomiendan cambios operativos y de configuración basados en procedimientos recomendados, mientras que otras recomiendan cambios de diseño adecuados para la carga de trabajo, como la habilitación de características avanzadas del motor de base de datos.
+
+Para más información sobre el script y para obtener una introducción, visite la página de la [wiki](https://aka.ms/sqldbtipswiki).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

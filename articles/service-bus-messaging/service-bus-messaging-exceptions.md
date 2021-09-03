@@ -2,13 +2,13 @@
 title: Excepciones de mensajería de Azure Service Bus | Microsoft Docs
 description: En este artículo se proporciona una lista de las excepciones de mensajería de Azure Service Bus y las acciones sugeridas para cuando se produce la excepción.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 6c980b81d18dbbcb5764b3d8c4ed040f930bce4f
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 08/04/2021
+ms.openlocfilehash: 1535ae6e125ee11d30fab1aeaa12afe57a66b0e5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108160986"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736197"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Excepciones de mensajería de Service Bus
 
@@ -48,7 +48,7 @@ En la tabla siguiente se describen los tipos de excepción de mensajería, sus c
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |Solicitud para realizar una operación en tiempo de ejecución en una entidad deshabilitada. |Active la entidad. |El reintento podría ser útil si la entidad se activa mientras este se lleva a cabo. |
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |Service Bus devuelve esta excepción si envía un mensaje a un tema que tiene el filtrado previo habilitado y dicho mensaje no coincide con ninguno de los filtros. |Asegúrese de que coincida con al menos un filtro. |Los reintentos no funcionan. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Una carga de mensaje supera el límite de 256 KB. El límite de 256 KB es el tamaño total del mensaje, que puede incluir las propiedades del sistema y cualquier sobrecarga .NET. |Reduzca el tamaño de la carga del mensaje y vuelva a intentar la operación. |Los reintentos no funcionan. |
-| [TransactionException](/dotnet/api/system.transactions.transactionexception) |La transacción de ambiente (*Transaction.Current*) no es válida. Puede se haya completado o anulado. La excepción interna puede proporcionar información adicional. | |Los reintentos no funcionan. |
+| [TransactionException](/dotnet/api/system.transactions.transactionexception) |La transacción de ambiente (`Transaction.Current`) no es válida. Puede se haya completado o anulado. La excepción interna puede proporcionar información adicional. | |Los reintentos no funcionan. |
 | [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception) |Se intenta realizar una operación en una transacción dudosa o se intenta confirmar una transacción y esta se convierte en dudosa. |La aplicación debe controlar esta excepción (como caso especial), porque puede que ya se haya confirmado la transacción. |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
@@ -189,6 +189,17 @@ Los pasos de resolución dependen de lo que haya provocado el error **MessagingE
 
    * Por **problemas transitorios** (donde **_isTransient_ *_ está establecido en _* _true_ *_) o para _* problemas de limitación**, volver a intentar la operación puede ser una solución. Para esto, puede aprovecharse la directiva de reintentos predeterminada en el SDK.
    * Por otros problemas, los detalles de la excepción indican el problema, y los pasos de resolución se pueden deducir desde allí.
+
+## <a name="storagequotaexceededexception"></a>StorageQuotaExceededException
+
+### <a name="cause"></a>Causa
+
+La excepción **StorageQuotaExceededException** se genera cuando el tamaño total de las entidades de un espacio de nombres prémium supera el límite de 1 TB por [unidad de mensajería](service-bus-premium-messaging.md).
+
+### <a name="resolution"></a>Resolución
+
+- Aumentar el número de unidades de mensajería asignadas al espacio de nombres prémium.
+- Si ya usa el número máximo de unidades de mensajería permitidas para un espacio de nombres, cree un espacio de nombres independiente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

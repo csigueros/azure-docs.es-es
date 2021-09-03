@@ -3,12 +3,12 @@ title: Asociación o desasociación de una galería de imágenes compartidas en 
 description: En este artículo se describe cómo asociar una galería de imágenes compartidas a un aula laboratorio en Azure Lab Services.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: 2a460e25d59d2c5fcde341212e7912882f5fe111
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 62020f30b000292bf3e6af4cab61364e99ce4b5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190696"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737686"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services
 En este artículo se muestra cómo asociar o desasociar una galería de imágenes compartidas en una cuenta de laboratorio. 
@@ -89,6 +89,6 @@ Solo se puede asociar una galería de imágenes compartidas a un laboratorio. Si
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre cómo guardar una imagen de laboratorio en la galería de imágenes compartidas o cómo usar una imagen de la galería para crear una máquina virtual, vea [Procedimientos para usar la galería de imágenes compartidas](how-to-use-shared-image-gallery.md).
 
-Para llevar una imagen personalizada de Windows a la galería de imágenes compartidas fuera del contexto de un laboratorio, consulte [Transporte de una imagen personalizada de Windows a la galería de imágenes compartidas](upload-custom-image-shared-image-gallery.md).
+Para explorar otras opciones para llevar imágenes personalizadas a la galería de imágenes compartidas fuera del contexto de un laboratorio, consulte [Enfoques recomendados para crear imágenes personalizadas](approaches-for-custom-image-creation.md).
 
 Para obtener más información sobre las galerías de imágenes compartidas en general, vea [Galería de imágenes compartidas](../virtual-machines/shared-image-galleries.md).

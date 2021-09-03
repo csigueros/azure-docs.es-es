@@ -1,30 +1,25 @@
 ---
-title: Carga de datos de uso, métricas y registros en Azure Monitor
-description: Carga del inventario de recursos, los datos de uso, las métricas y los registros en Azure Monitor
+title: Carga de datos de uso, métricas y registros en Azure
+description: Carga del inventario de recursos, los datos de uso, las métricas y los registros en Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: a522a650413be056ff64d26e90b6c15cf88d9a7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f314b8918b415c0449722d1229c6de47af1cac5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643497"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741441"
 ---
-# <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Carga de datos de uso, métricas y registros en Azure Monitor
+# <a name="upload-usage-data-metrics-and-logs-to-azure"></a>Carga de datos de uso, métricas y registros en Azure
 
 Puede exportar periódicamente la información de uso con fines de facturación, supervisión de métricas y registros, y después cargarla en Azure. La exportación y la carga de cualquiera de estos tres tipos de datos también creará y actualizará los recursos del controlador de datos, la instancia administrada de SQL y el grupo de servidores de Hiperescala de SQL en Azure.
-
-> [!NOTE] 
-> Durante el período de versión preliminar, los servicios de datos habilitados para Azure Arc no suponen ningún costo.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Antes de poder cargar datos, métricas o registros de uso, debe completar lo siguiente:
 
@@ -36,7 +31,7 @@ Antes de poder cargar datos, métricas o registros de uso, debe completar lo sig
 
 Las herramientas necesarias incluyen: 
 * CLI de Azure (az) 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 
+* Extensión `arcdata` 
 
 Consulte [Instalación de herramientas](./install-client-tools.md).
 
@@ -68,7 +63,7 @@ Use estos comandos para crear la entidad de servicio de carga de métricas:
 Para crear una entidad de servicio, actualice el siguiente ejemplo. Remplace `<ServicePrincipalName>`, `SubscriptionId` y `resourcegroup` por sus valores y ejecute el comando:
 
 ```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/{SubscriptionId}/resourceGroups/{resourcegroup}
+az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/<SubscriptionId>/resourceGroups/<resourcegroup>
 ```
 
 Si ha creado la entidad de servicio anteriormente y solo necesita obtener las credenciales actuales, ejecute el siguiente comando para restablecer las credenciales.
@@ -137,7 +132,7 @@ Ejecute este comando para asignar la entidad de servicio al rol `Monitoring Metr
 > Debe usar comillas dobles para los nombres de rol cuando se ejecuta desde un entorno de Windows.
 
 ```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 
 ```
 ::: zone-end
@@ -145,7 +140,7 @@ az role assignment create --assignee <appId> --role "Monitoring Metrics Publishe
 ::: zone pivot="client-operating-system-macos-and-linux"
 
 ```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
 ::: zone-end
@@ -153,7 +148,7 @@ az role assignment create --assignee <appId> --role 'Monitoring Metrics Publishe
 ::: zone pivot="client-operating-system-powershell"
 
 ```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
 ::: zone-end
@@ -173,23 +168,31 @@ Salida de ejemplo:
 }
 ```
 
+## <a name="verify-service-principal-role"></a>Comprobación del rol de la entidad de servicio
+
+```azurecli
+az role assignment list -o table
+```
+
 Con la entidad de servicio asignada al rol adecuado, puede continuar con la carga de métricas o datos de usuario. 
 
-## <a name="upload-logs-metrics-or-user-data"></a>Carga de registros, métricas o datos de usuario
 
-Los pasos específicos para cargar registros, métricas o datos de usuario varían en función del tipo de información que esté cargando. 
+
+## <a name="upload-logs-metrics-or-usage-data"></a>Carga de registros, métricas o datos de uso
+
+Los pasos específicos para cargar registros, métricas o datos de uso varían en función del tipo de información que cargue. 
 
 [Carga de registros a Azure Monitor](upload-logs.md)
 
 [Carga de métricas a Azure Monitor](upload-metrics.md)
 
-[Carga de datos a uso en Azure Monitor](upload-usage-data.md)
+[Carga de datos de uso en Azure](upload-usage-data.md)
 
-## <a name="general-guidance-on-exporting-and-uploading-usage-metrics"></a>Instrucciones generales sobre cómo exportar y cargar el uso, métricas
+## <a name="general-guidance-on-exporting-and-uploading-usage-and-metrics"></a>Instrucciones generales sobre cómo exportar y cargar los datos de uso y las métricas
 
-Las operaciones de creación, lectura, actualización y eliminación (CRUD) en los servicios de datos habilitados para Azure Arc se registran con fines de facturación y supervisión. Hay servicios en segundo plano que supervisan para estas operaciones CRUD y calculan el consumo adecuadamente. El cálculo real del uso o del consumo tiene lugar de forma programada y se realiza en segundo plano. 
+Las operaciones de creación, lectura, actualización y eliminación (CRUD) en los servicios de datos habilitados para Azure Arc se registran con fines de facturación y supervisión. Hay servicios en segundo plano que supervisan para estas operaciones CRUD y calculan el consumo adecuadamente. El cálculo real del uso o del consumo tiene lugar de forma programada y se realiza en segundo plano. 
 
-Durante la versión preliminar, este proceso se produce por la noche. Las instrucciones generales es cargar el uso solo una vez al día. Cuando la información de uso se exporta y se carga varias veces dentro del mismo período de 24 horas, solo se actualiza el inventario de recursos en Azure Portal, pero no en el uso de recursos.
+Cargue el uso solo una vez al día. Cuando la información de uso se exporta y se carga varias veces dentro del mismo período de 24 horas, solo se actualiza el inventario de recursos en Azure Portal, pero no en el uso de recursos.
 
 En el caso de la carga de métricas, Azure Monitor solo acepta los últimos 30 minutos de datos ([Más información](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). Las instrucciones para cargar métricas es cargar las métricas inmediatamente después de crear el archivo de exportación para que pueda ver todo el conjunto de datos en Azure Portal. Por ejemplo, si exportó las métricas a las 14:00 horas y ejecutó el comando de carga a las 14:50. Como Azure Monitor solo acepta datos de los últimos 30 minutos, es posible que no vea ningún dato en el portal. 
 

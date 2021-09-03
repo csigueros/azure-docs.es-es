@@ -7,22 +7,25 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 4ad0fbacdfe8b6205dd32ecd75e5291b504adcac
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: de908a8f29d85aea1954415ba5c9793349837c5f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407784"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733564"
 ---
-# <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Copia de seguridad y restauración de grupos de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
+# <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Copia de seguridad y restauración de grupos de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
+
+> [!IMPORTANT]
+> La copia de seguridad y restauración de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc no se admite en la versión preliminar actual.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-Al realizar una copia de seguridad del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc, o restaurarlo, la copia de seguridad o la restauración abarcan el conjunto completo de bases de datos en todos los nodos de PostgreSQL del grupo de servidores.
+Al realizar una copia de seguridad del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc, o restaurarlo, la copia de seguridad o la restauración abarcan el conjunto completo de bases de datos en todos los nodos de PostgreSQL del grupo de servidores.
 
 ## <a name="take-a-manual-full-backup"></a>Realización de una copia de seguridad completa manual
 
@@ -35,7 +38,7 @@ Donde:
 - __server-name__ indica un grupo de servidores
 - __no-wait__ indica que la línea de comandos no esperará a que se complete la copia de seguridad para que pueda seguir usando esta ventana de línea de comandos.
 
-Este comando coordinará una copia de seguridad completa distribuida en todos los nodos que constituyen el grupo de servidores de hiperescala de PostgreSQL habilitado para Azure Arc. En otras palabras, hará una copia de seguridad de todos los datos de los nodos Coordinador y Trabajador.
+Este comando coordinará una copia de seguridad completa distribuida en todos los nodos que constituyen el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. En otras palabras, hará una copia de seguridad de todos los datos de los nodos Coordinador y Trabajador.
 
 Por ejemplo:
 
@@ -105,7 +108,7 @@ azdata arc postgres backup restore -sn <target server group name> [-ssn <source 
 
 Donde:
 - __backup-id__ es el identificador de la copia de seguridad que se muestra anteriormente en el comando list backup.
-De este modo se coordinará una restauración completa distribuida en todos los nodos que constituyen el grupo de servidores de hiperescala de PostgreSQL habilitado para Azure Arc. En otras palabras, hará una restauración de todos los datos de los nodos Coordinador y Trabajador.
+De este modo se coordinará una restauración completa distribuida en todos los nodos que constituyen el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. En otras palabras, hará una restauración de todos los datos de los nodos Coordinador y Trabajador.
 
 #### <a name="examples"></a>Ejemplos:
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d33dbacc6ea7e0d363c1b2f803f08f4ee1e211a3
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: c611194819255b4d986f4cfa57d15a2e0d73cd42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615956"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739377"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -25,9 +25,9 @@ Para más información sobre las etapas de _aprovisionamiento_ y _retirada_ y pa
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de que pueda configurar el aprovisionamiento, debe configurar lo que se indica a continuación:
-* una **instancia de Azure Digital Twins**. Siga las instrucciones que se indican en [Procedimiento de configuración de una instancia y de autenticación](how-to-set-up-instance-portal.md) para crear una instancia de gemelos digitales de Azure. Recopile el nombre de **_host_** de la instancia en el Azure portal ([instrucciones](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* una **instancia de Azure Digital Twins**. Siga las instrucciones que se indican en [Configuración de una instancia de Azure Digital Twins y autenticación (portal)](how-to-set-up-instance-portal.md) para crear una instancia de gemelos digitales de Azure. Recopile el nombre de **_host_** de la instancia en el Azure portal ([instrucciones](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 * un **centro de IoT**. Para obtener instrucciones, consulte la sección Creación de una instancia de IoT Hub del [inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
-* una [función de Azure](../azure-functions/functions-overview.md) que actualiza la información de doble digital basada en datos de IOT Hub. Siga las instrucciones que [se indican en cómo: ingesta de datos de IOT Hub](how-to-ingest-iot-hub-data.md) para crear esta función de Azure. Recopile el **_nombre_** de la función para usarlo en este artículo.
+* una [función de Azure](../azure-functions/functions-overview.md) que actualiza la información de doble digital basada en datos de IOT Hub. Siga las instrucciones de [Ingesta de datos de IoT Hub](how-to-ingest-iot-hub-data.md) para crear esta función de Azure. Recopile el **_nombre_** de la función para usarlo en este artículo.
 
 En este ejemplo también se usa un **simulador de dispositivos** que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Para obtener el proyecto de ejemplo en la máquina, vaya al vínculo del ejemplo y seleccione el botón **Examinar código** situado debajo del título. Esto le llevará al repositorio de GitHub de los ejemplos, que puede descargar como un archivo .zip al seleccionar el botón **Código** y **Descargar archivo ZIP**. 
 
@@ -72,7 +72,7 @@ En las siguientes secciones se describen los pasos necesarios para configurar es
 
 Cuando se aprovisiona un nuevo dispositivo mediante el servicio de aprovisionamiento de dispositivos, se puede crear un nuevo dispositivo gemelo para ese dispositivo en Azure Digital Twins con el mismo nombre como id. de registro.
 
-Cree una instancia de Device Provisioning Service que se usará para aprovisionar dispositivos IoT. Puede usar las instrucciones de la CLI de Azure que aparecen a continuación o usar Azure Portal: [Guía de inicio rápido: Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](../iot-dps/quick-setup-auto-provision.md)
+Cree una instancia de Device Provisioning Service que se usará para aprovisionar dispositivos IoT. Puede usar las instrucciones de la CLI de Azure que aparecen a continuación o usar Azure Portal siguiendo las instrucciones de [Inicio rápido: Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](../iot-dps/quick-setup-auto-provision.md).
 
 El siguiente comando de la CLI de Azure creará una instancia de Device Provisioning Service. Deberá especificar un nombre de servicio de aprovisionamiento de dispositivos, un grupo de recursos y una región. Para ver qué regiones admiten el Servicio de aprovisionamiento de dispositivos, visite [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 El comando se puede ejecutar en [Cloud Shell](https://shell.azure.com), o bien localmente si tiene la [CLI de Azure está instalada en la máquina](/cli/azure/install-azure-cli).
@@ -87,25 +87,18 @@ En el proyecto de la aplicación de funciones que creó en la [sección de requi
 
 Para empezar, abra el proyecto de aplicación de función en Visual Studio en el equipo y siga estos pasos.
 
-#### <a name="step-1-add-a-new-function"></a>Paso 1: Agregue una nueva función 
+1. Primero, cree una función de tipo *HTTP-trigger* en el proyecto de aplicación de función en Visual Studio. Para obtener instrucciones sobre cómo hacerlo, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
 
-Agregue una nueva función de tipo *HTTP-trigger* al proyecto de aplicación de función en Visual Studio.
+2. Agregue un nuevo paquete de NuGet al proyecto: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). Es posible que también tenga que agregar más paquetes al proyecto si los paquetes usados en el código ya no forman parte del proyecto.
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png" alt-text="Captura de pantalla de la vista de Visual Studio para agregar una función de Azure del tipo desencadenador HTTP a un proyecto de aplicación de funciones." lightbox="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png":::
+3. En el archivo de código de la función recién creada, pegue el código siguiente, cambie el nombre de la función a *DpsAdtAllocationFunc.cs* y guarde el archivo.
 
-#### <a name="step-2-fill-in-function-code"></a>Paso 2: Relleno del código de función
+    :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
-Agregue un nuevo paquete de NuGet al proyecto: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). Es posible que también tenga que agregar más paquetes al proyecto si los paquetes usados en el código ya no forman parte del proyecto.
+4. Publique el proyecto con la función *DpsAdtAllocationFunc.cs* en la aplicación de funciones en Azure. Para obtener instrucciones sobre cómo hacerlo, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-En el archivo de código de la función recién creada, pegue el código siguiente, cambie el nombre de la función a *DpsAdtAllocationFunc.cs* y guarde el archivo.
-
-:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
-
-#### <a name="step-3-publish-the-function-app-to-azure"></a>Paso 3: Publicación de la aplicación de funciones en Azure
-
-Publique el proyecto con la función *DpsAdtAllocationFunc.cs* en la aplicación de función en Azure.
-
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+> [!IMPORTANT]
+> La primera vez que se crea la aplicación de funciones en la [sección de requisitos previos](#prerequisites), es posible que ya se haya asignado un rol de acceso para la función y se haya configurado la aplicación para que acceda a la instancia de Azure Digital Twins. Estos deben realizarse una vez para toda la aplicación de función, por lo que debe comprobar que se han completado en la aplicación antes de continuar. Puede encontrar instrucciones en la sección [Configuración de la aplicación publicada](how-to-authenticate-client.md#configure-published-app) del artículo *Escritura de código de autenticación de aplicaciones*.
 
 ### <a name="create-device-provisioning-enrollment"></a>Creación de una inscripción de Device Provisioning Service
 
@@ -138,7 +131,7 @@ El simulador de dispositivos es un dispositivo de tipo termostato que usa el mod
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-Para obtener más información sobre los modelos, consulte [Cómo: administrar modelos](how-to-manage-model.md#upload-models).
+Para obtener más información sobre los modelos, consulte [Administración de modelos](how-to-manage-model.md#upload-models).
 
 #### <a name="configure-and-run-the-simulator"></a>Configuración y ejecución del simulador
 
@@ -237,7 +230,7 @@ Después, configure la aplicación de funciones de Azure que configuró en la [s
 2. Agregue la cadena de conexión como una variable en la configuración de la aplicación de función con el siguiente comando de CLI de Azure. El comando se puede ejecutar en [Cloud Shell](https://shell.azure.com), o bien localmente si tiene la [CLI de Azure está instalada en la máquina](/cli/azure/install-azure-cli).
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-App-Service-function-app-name>
+    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-function-app-name>
     ```
 
 ### <a name="add-a-function-to-retire-with-iot-hub-lifecycle-events"></a>Agregar una función para retirar con eventos de ciclo de vida de IoT Hub
@@ -248,23 +241,18 @@ Para más información sobre los eventos de ciclo de vida, consulte [Eventos que
 
 Para empezar, abra el proyecto de aplicación de función en Visual Studio en el equipo y siga estos pasos.
 
-#### <a name="step-1-add-a-new-function"></a>Paso 1: Agregue una nueva función
-     
-Agregue una nueva función de tipo *Desencadenador de centro de eventos* al proyecto de aplicación de función en Visual Studio.
+1. Primero, cree una función de tipo *Desencadenador del centro de eventos* en el proyecto de aplicación de funciones en Visual Studio. Para obtener instrucciones sobre cómo hacerlo, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png" alt-text="Captura de pantalla de la ventana de Visual Studio que muestra cómo agregar una función de Azure de tipo desencadenador de centro de eventos en un proyecto de aplicación de funciones." lightbox="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png":::
+2. Agregue un nuevo paquete de NuGet al proyecto: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). Es posible que también tenga que agregar más paquetes al proyecto si los paquetes usados en el código ya no forman parte del proyecto.
 
-#### <a name="step-2-fill-in-function-code"></a>Paso 2: Relleno del código de función
+3. En el archivo de código de la función recién creada, pegue el código siguiente, cambie el nombre de la función a *DeleteDeviceInTwinFunc.cs* y guarde el archivo.
 
-En el archivo de código de la función recién creada, pegue el código siguiente, cambie el nombre de la función a `DeleteDeviceInTwinFunc.cs` y guarde el archivo.
+    :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
-:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
+4. Publique el proyecto con la función *DeleteDeviceInTwinFunc.cs* en una aplicación de funciones en Azure. Para obtener instrucciones sobre cómo hacerlo, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-#### <a name="step-3-publish-the-function-app-to-azure"></a>Paso 3: Publicación de la aplicación de funciones en Azure
-
-Publique el proyecto con la función *DeleteDeviceInTwinFunc.cs* en la aplicación de funciones en Azure.
-
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+> [!IMPORTANT]
+> La primera vez que se crea la aplicación de funciones en la [sección de requisitos previos](#prerequisites), es posible que ya se haya asignado un rol de acceso para la función y se haya configurado la aplicación para que acceda a la instancia de Azure Digital Twins. Estos deben realizarse una vez para toda la aplicación de función, por lo que debe comprobar que se han completado en la aplicación antes de continuar. Puede encontrar instrucciones en la sección [Configuración de la aplicación publicada](how-to-authenticate-client.md#configure-published-app) del artículo *Escritura de código de autenticación de aplicaciones*.
 
 ### <a name="create-an-iot-hub-route-for-lifecycle-events"></a>Creación de una ruta de IoT Hub para eventos de ciclo de vida
 
@@ -349,7 +337,7 @@ Por último, elimine la carpeta de ejemplo del proyecto que descargó de la máq
 
 Los gemelos digitales que se han creado para los dispositivos se almacenan como una jerarquía plana en Azure Digital Twins, pero se pueden enriquecer con la información del modelo y una jerarquía de varios niveles para la organización. Para más información sobre este concepto, consulte:
 
-* [Conceptos: Gemelos digitales y grafo de gemelos](concepts-twins-graph.md)
+* [Gemelos digitales y el grafo de gemelos](concepts-twins-graph.md)
 
 Para más información sobre cómo usar solicitudes HTTP con funciones de Azure, consulte:
 
@@ -357,5 +345,5 @@ Para más información sobre cómo usar solicitudes HTTP con funciones de Azure,
 
 Puede escribir la lógica personalizada para proporcionar automáticamente esta información con los datos del modelo y del gráfico ya almacenados en Azure Digital Twins. Para más información sobre cómo administrar, actualizar y recuperar información del grafo de gemelos, consulte lo siguiente:
 
-* [Procedimiento: Administración de un gemelo digital](how-to-manage-twin.md)
-* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)
+* [Administración de un gemelo digital](how-to-manage-twin.md)
+* [Consulta del grafo de gemelos](how-to-query-graph.md)

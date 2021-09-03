@@ -1,6 +1,6 @@
 ---
-title: Eliminación de asignaciones de rol de un grupo en Azure Active Directory | Microsoft Docs
-description: Versión preliminar de los roles personalizados de Azure AD para delegar la administración de identidades. Administre roles de Azure en Azure Portal, PowerShell o Graph API.
+title: Eliminación de asignaciones de rol de un grupo en Azure Active Directory
+description: Quite las asignaciones de roles de un grupo en Azure Active Directory mediante Azure Portal, PowerShell o Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c56c6597e7ff2553089b62cabb84b24168b7cabf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: add87a653c977c1378feeaa6d204a7bce0184431
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085733"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732329"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Eliminación de asignaciones de rol de un grupo en Azure Active Directory
 
@@ -28,16 +28,16 @@ En este artículo se describe cómo un administrador de TI puede quitar roles de
 
 - Una licencia de Azure AD Premium P1 o P2
 - Administrador global o administrador de roles con privilegios
-- Módulo de AzureADPreview al usar PowerShell
+- Módulo AzureAD al usar PowerShell
 - Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
 
 Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure portal
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 
-1. Seleccione **Roles y administradores** > **_nombre de rol_**.
+1. Seleccione **Azure Active Directory** > **Roles y administradores** > *Nombre de rol*.
 
 1. Seleccione el grupo del que desea eliminar la asignación de rol y, a continuación, **Quitar asignación**.
 
@@ -115,5 +115,5 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de grupos en la nube para administrar asignaciones de roles](groups-concept.md)
-- [Solución de problemas de roles asignados a grupos en la nube](groups-faq-troubleshooting.md)
+- [Uso de grupos de Azure AD para administrar asignaciones de roles](groups-concept.md)
+- [Solución de problemas de roles de Azure AD asignados a grupos](groups-faq-troubleshooting.yml)
