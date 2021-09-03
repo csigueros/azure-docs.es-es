@@ -1,28 +1,29 @@
 ---
-title: Migración de recursos de análisis de Azure desde Azure Alemania a Azure global
+title: Migración de recursos de análisis de Azure, Azure Alemania a Azure global
 description: En este artículo se proporciona información sobre cómo migrar los recursos de análisis de Azure desde Azure Alemania a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: 590d790939f2986570019122817444238a41bb7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93630f536127971e922ddceaf5d1e5fa82ea3ad4
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033732"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "117029150"
 ---
 # <a name="migrate-analytics-resources-to-global-azure"></a>Migración de recursos de análisis a Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 
 En este artículo se proporciona información que puede ayudarle a migrar los recursos de análisis de Azure desde Azure Alemania a Azure global.
   
 ## <a name="event-hubs"></a>Event Hubs
 
-No puede migrar directamente recursos de Azure Event Hubs de Azure Alemania a Azure global. El servicio Event Hubs no tiene funcionalidades de exportación o importación de datos. Sin embargo, puede exportar recursos de Event Hubs [como una plantilla](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates). Después, adapta la plantilla exportada para Azure global y vuelve a crear los recursos.
+No puede migrar directamente recursos de Azure Event Hubs de Azure Alemania a Azure global. El servicio Event Hubs no tiene funcionalidades de exportación o importación de datos. Sin embargo, puede exportar recursos de Event Hubs [como una plantilla](../azure-resource-manager/templates/export-template-portal.md). Después, adapta la plantilla exportada para Azure global y vuelve a crear los recursos.
 
 > [!NOTE]
 > Cuando se exporta una plantilla de Event Hubs, no se copian los datos (por ejemplo, los mensajes). Exportar una plantilla solo vuelve a crear los metadatos de Event Hubs.
@@ -42,9 +43,9 @@ Los siguientes elementos de metadatos se vuelven a crear cuando se exporta una p
 Para obtener más información:
 
 - Revise la [introducción a Event Hubs](../event-hubs/event-hubs-about.md).
-- Actualice sus conocimientos completando los [tutoriales de Event Hubs](https://docs.microsoft.com/azure/event-hubs/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Event Hubs](../event-hubs/index.yml).
 - Compruebe los pasos de migración para [Azure Service Bus](./germany-migration-integration.md#service-bus).
-- Familiarícese con el procedimiento de [exportación de plantillas de Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o lea la introducción a [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Familiarícese con el procedimiento de [exportación de plantillas de Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md) o lea la introducción a [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 ## <a name="hdinsight"></a>HDInsight
 
@@ -58,10 +59,10 @@ Para los clústeres más especializados y de ejecución prolongada (Kafka, Spark
 
 Para obtener más información:
 
-- Revise la [documentación de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/).
-- Actualice sus conocimientos completando los [tutoriales de HDInsight](https://docs.microsoft.com/azure/hdinsight/#step-by-step-tutorials).
+- Revise la [documentación de Azure HDInsight](../hdinsight/index.yml).
+- Actualice sus conocimientos completando los [tutoriales de HDInsight](../hdinsight/index.yml).
 - Para obtener ayuda con el [escalado de clústeres de HDInsight](../hdinsight/hdinsight-administer-use-powershell.md#scale-clusters), consulte [Administración de HDInsight con PowerShell](../hdinsight/hdinsight-administer-use-powershell.md).
-- Aprenda a usar [AzCopy](../storage/common/storage-use-azcopy.md).
+- Aprenda a usar [AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
 ## <a name="stream-analytics"></a>Stream Analytics
 
@@ -69,7 +70,7 @@ Para migrar los servicios Azure Stream Analytics de Azure Alemania a Azure globa
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Stream Analytics](../stream-analytics/stream-analytics-real-time-fraud-detection.md).
 - Revise la [introducción de Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 - Aprenda a [crear un trabajo de Stream Analytics mediante PowerShell](../stream-analytics/stream-analytics-quick-create-powershell.md).
 
@@ -88,9 +89,9 @@ Para migrar las cargas de trabajo más pequeñas de Azure SQL Database, utilice 
 
 Para obtener más información:
 
-- Aprenda a [exportar una base de datos a un archivo BACPAC](../sql-database/sql-database-export.md).
-- Aprenda a [importar un archivo BACPAC en una base de datos](../sql-database/sql-database-import.md).
-- Revise la [documentación de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/).
+- Aprenda a [exportar una base de datos a un archivo BACPAC](../azure-sql/database/database-export.md).
+- Aprenda a [importar un archivo BACPAC en una base de datos](../azure-sql/database/database-import.md).
+- Revise la [documentación de Azure SQL Database](/azure/sql-database/).
 
 ## <a name="analysis-services"></a>Analysis Services
 

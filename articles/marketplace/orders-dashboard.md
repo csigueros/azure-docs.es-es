@@ -4,28 +4,27 @@ description: Obtenga información sobre cómo acceder a informes analíticos sob
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: 344c7e6c14ca8ecdd91ffb9c148ce01d2b937573
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 08/06/2021
+ms.openlocfilehash: 1cc7e76833ac710ae4bdd511efa3033f8cf8fed7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542010"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724299"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Panel Pedidos de los análisis de marketplace comercial
 
 En este artículo se proporciona información sobre el panel Pedidos del Centro de partners. En este panel se muestra información sobre los pedidos, incluidas las tendencias de crecimiento, presentada en un formato gráfico y descargable.
 
-Para acceder al panel Pedidos en el Centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Pedidos**.
-
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./analytics-faq.md).
+> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./analytics-faq.yml).
 
 ## <a name="orders-dashboard"></a>Panel Pedidos
 
-En el panel Pedidos se muestran los pedidos actuales de todas las ofertas de software como servicio (SaaS). Puede ver representaciones gráficas de los elementos siguientes:
+En el [panel Pedidos](https://go.microsoft.com/fwlink/?linkid=2165914) se muestran los pedidos actuales de todas las ofertas de software como servicio (SaaS). Puede ver representaciones gráficas de los elementos siguientes:
 
 - Tendencia de pedidos
 - Pedidos por tendencia de puesto y sitio
@@ -40,6 +39,8 @@ En el panel Pedidos se muestran los pedidos actuales de todas las ofertas de sof
 ## <a name="elements-of-the-orders-dashboard"></a>Elementos del panel Pedidos
 
 En las secciones siguientes se describe cómo usar el panel Pedidos y cómo leer los datos.
+
+Para acceder al panel Pedidos en el Centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Pedidos**.
 
 ### <a name="month-range"></a>Intervalo mensual
 
@@ -118,7 +119,7 @@ En la tabla Detalles del pedido se muestra una lista numerada de los 1000 pedid
 | Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. En el caso de las ofertas de infraestructura, este es el GUID de la suscripción de Azure del cliente. En el caso de las ofertas de SaaS, se muestra como ceros, ya que las compras de SaaS no requieren una suscripción a Azure. | Identificador de la suscripción a Marketplace |
 | MonthStartDate | Fecha de inicio del mes | Fecha de inicio del mes representa el mes de la compra. El formato es aaaa-mm-dd. | MonthStartDate |
 | Tipo de oferta | Tipo de oferta | Tipo de oferta de Marketplace comercial. | OfferType |
-| Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También conocido como Canal. Los valores posibles son:<ul><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> | AzureLicenseType |
+| Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También conocido como Canal. Los valores posibles son:<ul><li>[Proveedor de soluciones en la nube](cloud-solution-providers.md)</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li><li>GTM</li></ul> | AzureLicenseType |
 | Marketplace License Type (Tipo de licencia de Marketplace) | Marketplace License Type (Tipo de licencia de Marketplace) | Método de facturación de la oferta de Marketplace comercial. Los distintos valores son:<ul><li>Facturado a través de Azure</li><li>Traiga su propia licencia</li><li>Gratuito</li><li>Microsoft como revendedor</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | Plan asociado con la oferta. | SKU |
 | Customer Country (País del cliente) | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. | CustomerCountry |
@@ -136,7 +137,16 @@ En la tabla Detalles del pedido se muestra una lista numerada de los 1000 pedid
 | Customer ID | Customer ID | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias. | CustomerId |
 | Identificador de la cuenta de facturación | Identificador de la cuenta de facturación | Identificador de la cuenta en la que se genera la facturación. Asigne el **identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso. | BillingAccountId |
 | AssetCount | Número de recursos | Número de recursos asociados al identificador del pedido. | Obsoleto |
+| No disponible * | TermStartDate | Indica la fecha de inicio de un término para un pedido. | TermStartDate |
+| No disponible * | TermEndDate | Indica la fecha de finalización de un término para un pedido. | TermEndDate |
+| No disponible * | purchaseRecordId | Identificador del registro de compra relacionado con un pedido. | purchaseRecordId |
+| No disponible * | purchaseRecordLineItemId | Identificador del elemento de línea del registro de compra relacionado con este pedido. | purchaseRecordLineItemId |
+| No disponible * | EstimatedCharges | Precio que se cobrará al cliente por todas las unidades del pedido antes de aplicar los impuestos. En los países con inclusión fiscal, el precio incluye el impuesto correspondiente. En caso contrario, no se incluye. | EstimatedCharges |
+| No disponible * | Moneda | Moneda de facturación para la oferta | Moneda |
+| No disponible * | HasTrial | Representa si una oferta tiene habilitado el período de evaluación. | HasTrial |
 |||||
+
+`*` Estos campos nuevos se proporcionan actualmente en el conjunto de datos ISVOrderV2 y puede accederse a ellos mediante programación.
 
 ### <a name="orders-page-filters"></a>Filtros de la página de pedidos
 
@@ -153,4 +163,4 @@ Los filtros de la página **Pedidos** se aplican en el nivel de la página de Pe
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
 - Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](downloads-dashboard.md).
 - Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y AppSource, consulte [Panel de análisis de calificaciones y opiniones en el Centro de partners](ratings-reviews.md).
-- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.md).
+- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.yml).

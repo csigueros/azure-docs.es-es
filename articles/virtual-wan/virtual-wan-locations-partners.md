@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: references_regions
-ms.openlocfilehash: bdcb675e379b5ab94f8404966477f4d2df56400c
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: d861a5c820c38eb5e0e8ea8f777e9346871ce658
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163938"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579475"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -60,7 +60,7 @@ Estos asociados tienen ofertas de **Aplicaciones administradas** que ahora está
 |Asociados|Guía de implementación/instrucciones/configuración|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guía de implementación de WAN de Barracuda CloudGen](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[VWAN del enrutador del servicio en la nube de Cisco (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| Durante la versión preliminar pública de la instancia de WAN de Cisco Cloud Services (CSR) en el Centro de VWAN, Cisco requiere que el cliente final se registre como un cliente de Cisco EFT (versión de prueba temprana); para ello, debe enviar un correo electrónico a vwan_public_preview@external.cisco.com y la solicitud de la guía de implementación de vManage. 
+|[VWAN del enrutador del servicio en la nube de Cisco (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| La integración de la solución Cisco SD-WAN con Azure Virtual WAN mejora las implementaciones de Cloud OnRamp for Multi-Cloud y permite configurar Cisco Catalyst 8000V Edge Software (Cisco Catalyst 8000V) como una aplicación virtual de red (NVA) en centros de Azure Virtual WAN. [Visualización de Cisco SD-WAN Cloud OnRamp, Guía de configuración de Cisco IOS XE Release 17.x](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 
 |[VMware SD-WAN en el centro de Virtual WAN](https://sdwan.vmware.com/partners/microsoft) | Durante la versión preliminar pública de VMware SD-WAN en el centro de VWAN, VMware requiere que el cliente se registre mediante el envío de un correo electrónico a vhubsupport@vmware.com. [Guía de implementación de VMware SD-WAN en el centro de Virtual WAN](https://kb.vmware.com/s/article/82746)|
 
 Los siguientes asociados están preparados para agregar NVA en las ofertas del centro virtual en un futuro próximo: Redes de Aviatrix, Citrix y Versa.

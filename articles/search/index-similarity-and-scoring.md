@@ -2,24 +2,24 @@
 title: Información general sobre similitud y puntuación
 titleSuffix: Azure Cognitive Search
 description: En este tema se explican los conceptos de similitud y puntuación, y lo que un desarrollador puede hacer para personalizar el resultado de la puntuación.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: puneet-hariharan-MSFT
+ms.author: puhariharan
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 72243f896b2cf7dbab61a42514bee634da28d4c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cacf6097234a5a2c7ec5261623fe653e509b8d9f
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676321"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981437"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similitud y puntuación en Azure Cognitive Search
 
-En este artículo se describen los dos algoritmos de clasificación de similitudes de Azure Cognitive Search. También se presentan dos características relacionadas: los *perfiles de puntuación* (criterios para ajustar una puntuación de búsqueda) y el parámetro *featuresMode* (desempaqueta una puntuación de búsqueda para mostrar más detalles). 
+En este artículo se describen los dos algoritmos de clasificación de similitud que usa Azure Cognitive Search para determinar qué documentos coincidentes son los más relevantes para la consulta. En el artículo también se presentan dos características relacionadas: los *perfiles de puntuación* (criterios para ajustar una puntuación de búsqueda) y el parámetro *featuresMode* (descomprime una puntuación de búsqueda para mostrar más detalles).
 
-Un tercer algoritmo de reclasificación semántica se encuentra actualmente en versión preliminar pública. Para más información, empiece por [Introducción a la búsqueda semántica](semantic-search-overview.md).
+> [!NOTE]
+> Un tercer [algoritmo de reclasificación semántica](semantic-ranking.md) se encuentra actualmente en versión preliminar pública. Para más información, empiece por [Introducción a la búsqueda semántica](semantic-search-overview.md).
 
 ## <a name="similarity-ranking-algorithms"></a>Algoritmo de clasificación de similitud
 

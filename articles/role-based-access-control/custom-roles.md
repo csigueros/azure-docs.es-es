@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2021
+ms.date: 06/15/2021
 ms.author: rolyon
-ms.openlocfilehash: c9ab7faebc28354e96cf1c54332fc1d7b19ef196
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6177de5dfc89dcbc33b9ff4291bf65ea909a3b9b
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469912"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235723"
 ---
 # <a name="azure-custom-roles"></a>Roles personalizados de Azure
 
@@ -166,6 +166,8 @@ En la tabla siguiente se describe el significado de las propiedades de roles per
 | `DataActions`</br>`dataActions` | No | String[] | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Si crea un rol personalizado con `DataActions`, ese rol no se puede asignar en el ámbito del grupo de administración. Para más información, vea [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | No | String[] | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. Para más información, vea [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes`</br>`assignableScopes` | Sí | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. Solo se puede definir un grupo de administración en `AssignableScopes` de un rol personalizado. La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar. Para obtener más información, consulte [assignableScopes](role-definitions.md#assignablescopes). |
+
+Las cadenas de permiso no distinguen mayúsculas de minúsculas. Al crear los roles personalizados, la convención consiste en hacer coincidir las mayúsculas y minúsculas que se ven para los permisos en las [operaciones del proveedor de recursos de Azure](resource-provider-operations.md).
 
 ## <a name="wildcard-permissions"></a>Permisos con caracteres comodín
 

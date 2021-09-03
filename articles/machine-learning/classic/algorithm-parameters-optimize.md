@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): optimización de algoritmos (Azure)'
-description: Aquí se explica cómo elegir el parámetro óptimo establecido para un algoritmo de Azure Machine Learning Studio (clásico).
+description: Se explica cómo elegir el conjunto de parámetros óptimo para un algoritmo de Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,22 +9,22 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: a216dc7cb17b9e35e412c6bebe34c0cccfb732e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a133f9b8d1ae22114a78be8e4d22d6293c94c7cd
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519310"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582985"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Selección de parámetros para optimizar los algoritmos de Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-En este tema se describe cómo elegir el hiperparámetro adecuado establecido para un algoritmo en Azure Machine Learning Studio (clásico). La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
+En este tema se describe cómo elegir el conjunto de hiperparámetros adecuado para un algoritmo en Machine Learning Studio (clásico). La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
 
 
 
-Existen varias maneras de realizar la selección del modelo. En Machine Learning, la validación cruzada es uno de los métodos más utilizados para la selección de modelos y es el mecanismo de selección de modelos predeterminado en Azure Machine Learning Studio (clásico). Dado que R y Python son compatibles con Azure Machine Learning Studio (clásico), siempre puede implementar sus propios mecanismos de selección de modelos mediante R o Python.
+Existen varias maneras de realizar la selección del modelo. En el aprendizaje automático, la validación cruzada es uno de los métodos más utilizados para la selección de modelos y es el mecanismo de selección de modelos predeterminado en Machine Learning Studio (clásico). Como R y Python se admiten en Machine Learning Studio (clásico), siempre puede implementar mecanismos de selección de modelos propios mediante R o Python.
 
 Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 
@@ -33,7 +33,7 @@ Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 3. **Definir la métrica**: Decida qué métrica se va a usar para determinar el mejor conjunto de parámetros; por ejemplo, la precisión, el error cuadrático medio, la precisión, la recuperación o la puntuación f.
 4. **Formar, evaluar y comparar**: Para cada combinación única de los valores de parámetro, se lleva a cabo la validación cruzada y se basa en la métrica de error que defina. Después de la evaluación y la comparación, puede elegir el modelo de máximo rendimiento.
 
-En la imagen siguiente se muestra cómo lograrlo en Azure Machine Learning Studio (clásico).
+En la imagen siguiente se muestra cómo lograrlo en Machine Learning Studio (clásico).
 
 ![Encontrar el mejor conjunto de parámetros](./media/algorithm-parameters-optimize/fig1.png)
 

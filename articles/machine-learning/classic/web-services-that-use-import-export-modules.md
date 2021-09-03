@@ -10,14 +10,14 @@ ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4824b7a4233bc65d521e1c6ded7d1ea276b2a929
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bd35487bcd11aeacae019acf0b87e4e1e716a66
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520568"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583309"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web de Azure Machine Learning Studio (clásico) que usan módulos de importación y exportación de datos
+# <a name="deploy-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web de Machine Learning Studio (clásico) que usan módulos de importación y exportación de datos
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -77,7 +77,7 @@ A continuación, configure el experimento predictivo desde el que se implementa 
 9. En el campo **Data table name**(Nombre de tabla de datos), escriba dbo.ScoredLabels. Si la tabla no existe, se crea cuando se ejecuta el experimento o se llama al servicio web.
 10. En el campo **Comma separated list of datatable columns** (Lista de elementos separados por comas de las columnas de tablas de datos) escriba ScoredLabels.
 
-Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, utilice la característica de parámetros del servicio web para establecer la propiedad *Origen de datos* del módulo *Importar datos* y la propiedad de destino de datos del módulo *Exportar datos*.  Para obtener más información sobre los parámetros del servicio web, consulte la entrada [Azure Machine Learning Studio Web Service Parameters](/archive/blogs/machinelearning/azureml-web-service-parameters) (Parámetros del servicio web de Azure Machine Learning Studio) en el blog de Cortana Intelligence y Machine Learning.
+Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, utilice la característica de parámetros del servicio web para establecer la propiedad *Origen de datos* del módulo *Importar datos* y la propiedad de destino de datos del módulo *Exportar datos*.  Para obtener más información sobre los parámetros del servicio web, vea la entrada [Parámetros del servicio web de Machine Learning Studio (clásico)](/archive/blogs/machinelearning/azureml-web-service-parameters) en el blog de Cortana Intelligence y Machine Learning.
 
 Para configurar los parámetros del servicio web para la consulta de importación y la tabla de destino:
 
@@ -124,7 +124,7 @@ Al término de la ejecución, se agrega una nueva tabla a la base de datos que c
 ### <a name="deploy-a-new-web-service"></a>Implementación de servicios web nuevos
 
 > [!NOTE]
-> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md).
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, vea [Administración de un servicio web mediante el portal de servicios web de Machine Learning](manage-new-webservice.md).
 
 Para realizar la implementación como un servicio web nuevo y crear una aplicación para usarla:
 

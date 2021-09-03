@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 06/16/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 0afaa9a577432741da44317a9d13e288cdea0d0d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: b8b59db6b73cdc2ecae3ca60741a892580162602
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052488"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287767"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pago de las suscripciones de Azure con factura
 
@@ -31,9 +31,9 @@ Si cambia al pago con factura, significa que pagará el importe en un plazo de 3
 ## <a name="request-to-pay-by-invoice"></a>Solicitud de pago con factura
 
 1. Inicie sesión en Azure Portal para enviar una solicitud de soporte técnico. Busque y seleccione **Ayuda y soporte técnico**.  
-    ![Busca de ayuda y soporte técnico, Microsoft Azure Portal](./media/pay-by-invoice/search-for-help-and-support.png)
+    :::image type="content" source="./media/pay-by-invoice/search-for-help-and-support.png" alt-text="Captura de pantalla de la búsqueda de ayuda y soporte técnico." lightbox="./media/pay-by-invoice/search-for-help-and-support.png" :::
 1. Seleccione **Nueva solicitud de soporte técnico**.  
-    ![Vínculo a la nueva solicitud de soporte técnico, pantalla Ayuda y soporte técnico, Microsoft Azure Portal](./media/pay-by-invoice/help-and-support.png)
+    :::image type="content" source="./media/pay-by-invoice/help-and-support.png" alt-text="Captura de pantalla del vínculo de nueva solicitud de soporte técnico." lightbox="./media/pay-by-invoice/help-and-support.png" :::
 1. Seleccione **Facturación** como **tipo de incidencia**. El *tipo de incidencia* es la categoría de la solicitud de soporte técnico. Seleccione la suscripción que quiere pagar con factura, seleccione un plan de soporte técnico y, después, haga clic en **Siguiente**.
 1. Seleccione **Pago** como el **tipo de problema**. El *tipo de problema* es la subcategoría de la solicitud de soporte técnico.
 1. Seleccione **Switch to Pay by Invoice** (Cambiar a pago por factura) como el **subtipo de problema**.
@@ -75,11 +75,11 @@ Si tiene una cuenta del programa de Microsoft Online Services, puede cambiar su 
 Siga los pasos siguientes para cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. *Una vez que se cambie al pago con factura (cheque o transferencia bancaria), no podrá volver a la modalidad de tarjeta de crédito*.
 
 1. Vaya a Azure Portal para iniciar sesión como administrador de cuenta. Busque y seleccione **Administración de costos + facturación**.  
-    ![Captura de pantalla que muestra la búsqueda de Cost Management + Billing en Azure Portal.](./media/pay-by-invoice/search.png)
+    :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Captura de pantalla en la que se muestra la búsqueda de Administración de costos + facturación en Azure Portal." lightbox="./media/pay-by-invoice/search.png" :::
 1. Seleccione la suscripción que le gustaría cambiar a pago con factura.
 1. Seleccione **Métodos de pago**.
 1. En la barra de comandos, seleccione el botón **Pagar por factura**.  
-    ![Botón Pagar por factura, métodos de pago, Microsoft Azure Portal](./media/pay-by-invoice/pay-by-invoice.png)
+    :::image type="content" source="./media/pay-by-invoice/pay-by-invoice.png" alt-text="Captura de pantalla en la que se muestra Pagar por factura." lightbox="./media/pay-by-invoice/pay-by-invoice.png" :::
 
 ### <a name="switch-billing-profile-to-checkwire-transfer"></a>Cambio del perfil de facturación para pagar mediante cheque o transferencia bancaria
 
@@ -87,12 +87,12 @@ Siga los pasos siguientes para cambiar un perfil de facturación para pagar medi
 
 1. Vaya a Azure Portal para ver la información de facturación. Busque y seleccione **Administración de costos + facturación**.
 1. En el menú, elija **Perfiles de facturación**.  
-    ![Elemento de menú Perfiles de facturación, Administración de costos y facturación, Microsoft Azure Portal](./media/pay-by-invoice/billing-profile.png)
+    :::image type="content" source="./media/pay-by-invoice/billing-profile.png" alt-text="Captura de pantalla en la que se muestra el elemento de menú Perfiles de facturación." lightbox="./media/pay-by-invoice/billing-profile.png" :::
 1. Seleccione un perfil de facturación.
 1. En el menú **Perfil de facturación**, seleccione **Métodos de pago**.  
-   ![Elemento de menú Métodos de pago, Perfiles de facturación, Administración de costos, Microsoft Azure Portal](./media/pay-by-invoice/billing-profile-payment-methods.png)
-1. Seleccione el banner azul que le informa que es apto para pagar mediante cheque o transferencia bancaria.  
-    ![Banner para cambiar a cheque o transferencia, métodos de pago, Microsoft Azure Portal](./media/pay-by-invoice/customer-led-switch-to-invoice.png)
+   :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="Captura de pantalla en la que se muestra el elemento de menú Métodos de pago." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
+1. En el título *Otros métodos de pago*, seleccione el símbolo de puntos suspensivos (...) después **Establecer como valor predeterminado**.  
+    :::image type="content" source="./media/pay-by-invoice/customer-led-switch-to-invoice.png" alt-text="Captura de pantalla en la que se muestran los puntos suspensivos de Cheque o transferencia bancaria y la opción Establecer como valor predeterminado." lightbox="./media/pay-by-invoice/customer-led-switch-to-invoice.png" :::
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

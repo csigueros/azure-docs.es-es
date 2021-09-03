@@ -1,41 +1,38 @@
 ---
-title: Conceptos de conjunto de aptitudes y flujo de trabajo
+title: Conceptos de conjunto de aptitudes
 titleSuffix: Azure Cognitive Search
 description: Los conjuntos de aptitudes es donde se crea una canalización de enriquecimiento con inteligencia artificial en Azure Cognitive Search. Aprenda conceptos importantes y detalles sobre la composición del conjunto de aptitudes.
-manager: nitinme
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: 7e6fdc0d7d0411064136752874978f72ef04aed1
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96558120"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122068268"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceptos de conjunto de aptitudes en Azure Cognitive Search
 
-Este artículo está destinado a los desarrolladores que necesitan una mejor comprensión de los conceptos y la composición del conjunto de aptitudes, y se supone que están familiarizados con el proceso de enriquecimiento con IA. Si no está familiarizado con este concepto, comience por [Enriquecimiento con IA en Azure Cognitive Search](cognitive-search-concept-intro.md).
+Este artículo está destinado a los desarrolladores que necesitan una mejor comprensión de los conceptos y la composición del conjunto de aptitudes, y se supone que están familiarizados con los conceptos y flujos de trabajo de alto nivel del [enriquecimiento con IA](cognitive-search-concept-intro.md).
 
-## <a name="introducing-skillsets"></a>Introducción a los conjuntos de aptitudes
+Un conjunto de aptitudes es un recurso reutilizable en Azure Cognitive Search que se adjunta a [un indexador](search-indexer-overview.md). Contiene una o varias aptitudes, que son operaciones atómicas que llaman a la inteligencia artificial integrada o al procesamiento personalizado externo sobre documentos recuperados de un origen de datos externo.
 
-Un conjunto de aptitudes es un recurso reutilizable en Azure Cognitive Search que está asociado con un indizador y especifica una colección de aptitudes que se usan para analizar, transformar y enriquecer el contenido de texto o imagen durante la indexación. Las aptitudes tienen entradas y salidas y, a menudo, la salida de una aptitud se convierte en la entrada de otra en una cadena o secuencia de procesos.
+Desde el inicio del procesamiento del conjunto de aptitudes hasta su conclusión, las aptitudes leen y escriben en un documento enriquecido. Un documento enriquecido es inicialmente solo el contenido sin procesar extraído de un origen de datos, pero con cada ejecución de aptitud, obtiene estructura y esencia. En última instancia, los nodos de un documento enriquecido [se asignan a campos](cognitive-search-output-field-mapping.md) en un índice de búsqueda o [se asignan a proyecciones](knowledge-store-projection-overview.md) en un almacén de conocimiento, de modo que el contenido se pueda enrutar correctamente, donde otras aplicaciones lo consultarán o consumirán.
 
-Un conjunto de aptitudes tiene tres propiedades principales:
+:::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Canalización con conjunto de aptitudes" border="false":::
 
-+ `skills`, una colección sin ordenar de aptitudes para la que la plataforma determina la secuencia de ejecución en función de las entradas necesarias para cada aptitud.
-+ `cognitiveServices`, la clave de un recurso de Cognitive Services que realiza el procesamiento de imágenes y texto para conjuntos de aptitudes que incluyen aptitudes integradas.
-+ `knowledgeStore`, (opcional) la cuenta de Azure Storage en la que se proyectarán los documentos enriquecidos. Los índices de búsqueda también consumen a los documentos enriquecidos.
+## <a name="skillset-definition"></a>Definición del conjunto aptitudes
 
-Los conjuntos de aptitudes se crean en JSON. El siguiente ejemplo es una versión ligeramente simplificada de este [conjunto de aptitudes hotel-reviews](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json), que se usa para ilustrar los conceptos de este artículo. 
+Un conjunto de aptitudes es una matriz con una o varias *aptitudes* que representan una operación de enriquecimiento atómica, como la traducción de texto, la extracción de frases clave o la realización de reconocimiento óptico de caracteres de un archivo de imagen. Las aptitudes pueden ser las [aptitudes integradas](cognitive-search-predefined-skills.md) de Microsoft o [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) que contengan modelos o lógica de procesamiento que proporcione. Genera documentos enriquecidos que se consumen durante la indexación o se proyectan en un almacén de conocimiento.
 
-A continuación se muestran las dos primeras aptitudes:
+Las aptitudes tienen un tipo, un contexto y entradas y salidas que a menudo están encadenadas entre sí. En el ejemplo siguiente se muestran dos [aptitudes integradas](cognitive-search-predefined-skills.md) que funcionan juntas e introduce parte de la terminología de la definición del conjunto de aptitudes. 
 
-+ La aptitud n.º 1 es una [aptitud de división del texto](cognitive-search-skill-textsplit.md) que acepta el contenido del campo "reviews_text" como entrada y divide el contenido en "pages" de 5000 caracteres como salida.
++ La aptitud n.º 1 es una [aptitud de división del texto](cognitive-search-skill-textsplit.md) que acepta el contenido del campo de origen "reviews_text" como entrada y divide el contenido en "pages" de 5000 caracteres como salida. Dividir texto grande en fragmentos más pequeños puede producir mejores resultados durante el procesamiento del lenguaje natural.
+
 + La aptitud n.º 2 es una [aptitud de detección de opinión](cognitive-search-skill-sentiment.md) que acepta "pages" como entrada y genera un nuevo campo denominado "sentiment" como salida que contiene los resultados del análisis de opiniones.
-
 
 ```json
 {
@@ -79,56 +76,78 @@ A continuación se muestran las dos primeras aptitudes:
                     "targetName": "Sentiment"
                 }
             ]
-        },
-  "cognitiveServices": null,
-  "knowledgeStore": {  }
+        }
+. . . 
 }
 ```
-> [!NOTE]
-> Puede crear conjuntos de aptitudes complejos con bucles y ramificaciones mediante la [aptitud condicional](cognitive-search-skill-conditional.md) para crear las expresiones. La sintaxis está basada en la notación de ruta del [puntero JSON](https://tools.ietf.org/html/rfc6901) con algunas modificaciones para identificar los nodos del árbol de enriquecimiento. `"/"` atraviesa un nivel inferior en el árbol y `"*"` actúa como un operador for-each en el contexto. En los numerosos ejemplos de este artículo se muestra la sintaxis. 
 
-### <a name="enrichment-tree"></a>Árbol de enriquecimiento
+Los puntos clave que hay que tener en cuenta sobre el ejemplo anterior son que las entradas y salidas son pares nombre-valor, que puede hacer coincidir las salidas de una aptitud con las entradas de las aptitudes de nivel inferior y que todas las aptitudes tienen contexto que determina dónde se produce el procesamiento en el árbol de enriquecimiento.
 
-En la progresión de los [pasos de una canalización de enriquecimiento](cognitive-search-concept-intro.md#enrichment-steps), el procesamiento de contenido sigue la fase de *descifrado de documentos* en la que se extraen el texto y las imágenes del origen. Después, el contenido de la imagen se puede enrutar a las aptitudes que especifican el procesamiento de imágenes, mientras que el contenido de texto se pone en cola para su procesamiento. En el caso de los documentos de origen que contienen grandes cantidades de texto, puede configurar un *modo de análisis* en el indizador para segmentar el texto en fragmentos más pequeños para un procesamiento más óptimo. 
+Para obtener más información sobre cómo se formulan las entradas y salidas, consulte [Procedimiento para hacer referencia a anotaciones](cognitive-search-concept-annotations-syntax.md).
 
-![Almacén de conocimiento en un diagrama de canalización](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Almacén de conocimiento en un diagrama de canalización")
+## <a name="enrichment-tree"></a>Árbol de enriquecimiento
 
-Una vez que un documento se encuentra en la canalización de enriquecimiento, se representa como un árbol de contenido y enriquecimientos asociados. Como salida del descifrado de documentos, se crea una instancia de este árbol.  El formato de árbol de enriquecimiento permite que la canalización de enriquecimiento adjunte metadatos incluso a tipos de datos primitivos; no es un objeto JSON válido, pero se puede proyectar en un formato JSON válido. En la tabla siguiente se muestra el estado de un documento que entra en la canalización de enriquecimiento:
+Un documento enriquecido es una estructura de datos temporal similar a un árbol creada durante la ejecución del conjunto de aptitudes que recopila todos los cambios introducidos a través de aptitudes y los representa en una jerarquía de nodos direccionables. Los nodos también incluyen los campos no enriquecidos que se pasan textualmente desde el origen de datos externo. Existe un documento enriquecido durante la ejecución del conjunto de aptitudes, pero se puede almacenar en caché o conservarse en un almacén de conocimiento. 
+
+Inicialmente, un documento enriquecido es simplemente el contenido extraído de un origen de datos durante el [*descifrado de documentos*](search-indexer-overview.md#document-cracking), donde el texto y las imágenes se extraen del origen y están disponibles para el análisis de idioma o imagen. 
+
+El contenido inicial es el *nodo raíz*. Normalmente es un documento completo o una imagen normalizada. La forma en que se articula en un árbol de enriquecimiento varía según cada tipo de origen de datos. En la tabla siguiente se muestra el estado de un documento que entra en la canalización de enriquecimiento para varios orígenes de datos compatibles:
 
 |Origen de datos\Modo de análisis|Valor predeterminado|JSON, líneas JSON y CSV|
 |---|---|---|
 |Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
-|SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
+|Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 
- A medida que se ejecutan las aptitudes, agregan nuevos nodos al árbol de enriquecimiento. Estos nuevos nodos se pueden usar como entradas para aptitudes de bajada, proyectándose en el almacén de conocimiento o asignándose a campos de índice. Los enriquecimientos no son mutables: una vez creados, los nodos no se pueden editar. A medida que los conjuntos de aptitudes se vuelven más complejos, también lo hará el árbol de enriquecimiento, pero no todos los nodos del árbol de enriquecimiento deben asignarse al índice o al almacén de conocimiento. 
+A medida que se ejecutan las aptitudes, la salida se agrega al árbol de enriquecimiento como nodos nuevos. Estos nodos se pueden usar como entradas para las aptitudes de nivel inferior y, finalmente, se proyectarán en un almacén de conocimiento o se asignarán a campos de índice. Las aptitudes que crean contenido, como las cadenas traducidas, escribirán su salida en el documento enriquecido. Del mismo modo, las aptitudes que consumen la salida de las aptitudes de nivel superior leerán desde el documento enriquecido para obtener las entradas necesarias. 
 
-Puede conservar de forma selectiva solo un subconjunto de enriquecimientos en el índice o el almacén de conocimiento.
+:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Aptitudes de lectura y escritura desde el árbol de enriquecimiento" border="false":::
 
-### <a name="context"></a>Context
+Un árbol de enriquecimiento consta de contenido extraído y metadatos extraídos del origen, además de los nodos nuevos creados por una aptitud, como `translated_text` de la [aptitud de traducción de texto](cognitive-search-skill-text-translation.md), `locations` de la [aptitud de reconocimiento de entidades](cognitive-search-skill-entity-recognition-v3.md) o `keyPhrases` de la [aptitud de extracción de frases clave](cognitive-search-skill-keyphrases.md). Aunque puede [visualizar y trabajar con un árbol de enriquecimiento](cognitive-search-debug-session.md) a través de un editor visual, se trata principalmente de una estructura interna. 
 
-Cada aptitud requiere un contexto. Un contexto determina:
+Los enriquecimientos no son mutables: una vez creados, los nodos no se pueden editar. A medida que los conjuntos de aptitudes se vuelven más complejos, también lo hará el árbol de enriquecimiento, pero no todos los nodos del árbol de enriquecimiento deben asignarse al índice o al almacén de conocimiento. Puede conservar de forma selectiva solo un subconjunto de las salidas de enriquecimiento para que solo mantenga lo que piensa usar.
 
-+ El número de veces que se ejecuta la aptitud, basado en los nodos seleccionados. En el caso de valores de contexto de colección de tipos, agregar `/*` al final hará que se invoque la aptitud una vez para cada instancia de la colección. 
+Dado que las entradas y salidas de una aptitud leen y escriben en árboles de enriquecimiento, una de las tareas que se realizarán como parte del diseño del conjunto de aptitudes es crear [asignaciones de campos de salida](cognitive-search-output-field-mapping.md) que muevan el contenido fuera del árbol de enriquecimiento y a un campo de un índice de búsqueda. Del mismo modo, si va a crear un almacén de conocimiento, puede asignar salidas a [formas](knowledge-store-projection-shape.md) asignadas a proyecciones.
 
-+ Dónde se agregan las salidas de la aptitud en el árbol de enriquecimiento. Las salidas siempre se agregan al árbol como elementos secundarios del nodo de contexto. 
+> [!NOTE]
+> El formato de árbol de enriquecimiento permite que la canalización de enriquecimiento adjunte metadatos incluso a tipos de datos primitivos. Los metadatos no serán un objeto JSON válido, pero se pueden proyectar en un formato JSON válido en definiciones de proyección en un almacén de conocimiento. Para obtener más información, consulte [Aptitud de conformador](cognitive-search-skill-shaper.md).
 
-+ La forma de las entradas. En el caso de colecciones de varios niveles, el establecimiento del contexto en la colección primaria afectará a la forma de la entrada de la aptitud. Por ejemplo, si tiene un árbol de enriquecimiento con una lista de países o regiones, cada uno de ellos enriquecido con una lista de estados que contiene una lista de códigos postales.
+## <a name="context"></a>Context
+
+Cada aptitud tiene un contexto, que puede ser todo el documento (`/document`) o un nodo inferior en el árbol (`/document/countries/`). Un contexto determina:
+
++ El número de veces que se ejecuta la aptitud, en un solo valor (una vez por campo, por documento) o para los valores de contexto de la colección de tipos, donde agregar un elemento `/*` genera una invocación de aptitud, una vez para cada instancia de la colección. 
+
++ La declaración de salida o dónde se agregan las salidas de la aptitud en el árbol de enriquecimiento. Las salidas siempre se agregan al árbol como elementos secundarios del nodo de contexto.
+
++ La forma de las entradas. En el caso de colecciones de varios niveles, el establecimiento del contexto en la colección primaria afectará a la forma de la entrada de la aptitud. Por ejemplo, si tiene un árbol de enriquecimiento con una lista de países o regiones, cada uno de ellos enriquecido con una lista de estados que contiene una lista de códigos postales, la forma en que establezca el contexto determinará cómo se interpretará la entrada.
 
 |Context|Entrada|Forma de la entrada|Invocación de la aptitud|
 |-------|-----|--------------|----------------|
 |`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |Lista de todos los códigos postales del país o región |Una vez por país o región |
-|`/document/countries/*/states/*` |`/document/countries/ */states/* /zipcodes/*`` |Lista de todos los códigos postales del estado | Una vez por combinación de país o región y estado|
+|`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*` |Lista de todos los códigos postales del estado | Una vez por combinación de país o región y estado|
 
-## <a name="generate-enriched-data"></a>Generación de datos enriquecidos 
+## <a name="enrichment-example"></a>Ejemplo de enriquecimiento
 
-Con el [conjunto de aptitudes de reseñas de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) como punto de referencia, examinaremos lo siguiente:
+Con el [conjunto de aptitudes de reseñas de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) como punto de referencia, en este ejemplo se explica cómo evoluciona un [árbol de enriquecimiento](cognitive-search-working-with-skillsets.md#enrichment-tree) a través de la ejecución de aptitudes mediante diagramas conceptuales.
 
-+ Cómo evoluciona el árbol de enriquecimiento con la ejecución de cada aptitud.
-+ Cómo funcionan el contexto y las entradas para determinar el número de veces que se ejecuta una aptitud.
+Este ejemplo también muestra lo siguiente:
+
++ Cómo funcionan el contexto y las entradas de una aptitud para determinar el número de veces que se ejecuta una aptitud.
 + Qué forma tiene la entrada según el contexto.
 
-Un elemento "document" dentro del proceso de enriquecimiento representa una sola fila (una reseña de hotel) dentro del archivo de código fuente hotel_reviews.csv.
+En este ejemplo, los campos de origen de un archivo CSV incluyen reseñas de clientes sobre hoteles ("reviews_text") y clasificaciones ("reviews_rating"). El indexador agrega campos de metadatos desde Blob Storage y las aptitudes agregan texto traducido, puntuaciones de opiniones y detección de frases clave.
+
+En el ejemplo de reseñas de hotel, un elemento "document" dentro del proceso de enriquecimiento representa una sola reseña de hotel.
+
+> [!TIP]
+> Puede crear un índice de búsqueda y un almacén de conocimiento para estos datos en [Azure Portal](knowledge-store-create-portal.md) o a través de [Postman y las API REST](knowledge-store-create-rest.md). También puede usar [sesiones de depuración](cognitive-search-debug-session.md) para obtener información sobre la composición del conjunto de aptitudes, las dependencias y los efectos en un árbol de enriquecimiento. Las imágenes de este artículo se extraen de sesiones de depuración.
+
+Conceptualmente, el árbol de enriquecimiento inicial tiene el siguiente aspecto:
+
+![Árbol de enriquecimiento después del descifrado de documentos](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Árbol de enriquecimiento después del descifrado de documentos y antes de la ejecución de la aptitud")
+
+El nodo raíz de todos los enriquecimientos es `"/document"`. Al trabajar con indexadores de blobs, el nodo `"/document"` tendrá nodos secundarios de `"/document/content"` y `"/document/normalized_images"`. Cuando se trabaja con datos CSV, como en este ejemplo, los nombres de columna se asignan a los nodos situados debajo de `"/document"`.
 
 ### <a name="skill-1-split-skill"></a>Aptitud 1: aptitud de división
 
@@ -137,261 +156,132 @@ Cuando el contenido de origen se compone de grandes fragmentos de texto, resulta
 Una aptitud de división de texto suele ir primero en un conjunto de aptitudes.
 
 ```json
-      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "name": "#1",
-      "description": null,
-      "context": "/document/reviews_text",
-      "defaultLanguageCode": "en",
-      "textSplitMode": "pages",
-      "maximumPageLength": 5000,
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/reviews_text"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "textItems",
-          "targetName": "pages"
-        }
+"@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+"name": "#1",
+"description": null,
+"context": "/document/reviews_text",
+"defaultLanguageCode": "en",
+"textSplitMode": "pages",
+"maximumPageLength": 5000,
+"inputs": [
+{
+    "name": "text",
+    "source": "/document/reviews_text"
+}
+],
+"outputs": [
+{
+    "name": "textItems",
+    "targetName": "pages"
+}
 ```
 
 Con el contexto de aptitud de `"/document/reviews_text"`, la aptitud de división se ejecutará una vez para `reviews_text`. La salida de la aptitud es una lista donde `reviews_text` se fragmenta en segmentos de 5000 caracteres. La salida de la aptitud de división se denomina `pages` y se agrega al árbol de enriquecimiento. La característica `targetName` permite cambiar el nombre de una salida de aptitud antes de agregarla al árbol de enriquecimiento.
 
-El árbol enriquecimiento tiene ahora un nuevo nodo colocado en el contexto de la aptitud. Este nodo está disponible para cualquier aptitud, proyección o asignación de campos de salida. Conceptualmente, el árbol tiene el siguiente aspecto:
-
-![Árbol de enriquecimiento después del descifrado de documentos](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Árbol de enriquecimiento después del descifrado de documentos y antes de la ejecución de la aptitud")
-
-El nodo raíz de todos los enriquecimientos es `"/document"`. Al trabajar con indexadores de blobs, el nodo `"/document"` tendrá nodos secundarios de `"/document/content"` y `"/document/normalized_images"`. Cuando se trabaja con datos CSV, como en este ejemplo, los nombres de columna se asignan a los nodos situados debajo de `"/document"`. 
-
-Para acceder a cualquiera de los enriquecimientos agregados a un nodo mediante una aptitud, se necesita la ruta de acceso completa para el enriquecimiento. Por ejemplo, si desea utilizar el texto del nodo ```pages``` como una entrada a otra aptitud, deberá especificarlo como ```"/document/reviews_text/pages/*"```.
+El árbol enriquecimiento tiene ahora un nuevo nodo colocado en el contexto de la aptitud. Este nodo está disponible para cualquier aptitud, proyección o asignación de campos de salida. 
  
- ![Árbol de enriquecimiento después de la aptitud 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Árbol de enriquecimiento después de la ejecución de la aptitud 1")
+![Árbol de enriquecimiento después de la aptitud 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Árbol de enriquecimiento después de la ejecución de la aptitud 1")
+
+Para acceder a cualquiera de los enriquecimientos agregados a un nodo mediante una aptitud, se necesita la ruta de acceso completa para el enriquecimiento. Por ejemplo, si desea utilizar el texto del nodo ```pages``` como una entrada a otra aptitud, deberá especificarlo como ```"/document/reviews_text/pages/*"```. Para obtener más información sobre las rutas de acceso, consulte [Anotaciones de referencia](cognitive-search-concept-annotations-syntax.md).
 
 ### <a name="skill-2-language-detection"></a>Aptitud 2: detección de idioma
 
-Los documentos de reseñas de hoteles incluyen comentarios de los clientes realizados en varios idiomas. La aptitud de detección de idiomas determina el idioma que se usó. A continuación, el resultado se pasa a la extracción de frases clave y a la detección de opiniones, que toma en cuenta el idioma durante la detección de la opinión y las frases.
+Los documentos de reseñas de hoteles incluyen comentarios de los clientes realizados en varios idiomas. La aptitud de detección de idiomas determina el idioma que se usó. A continuación, el resultado se pasará a la extracción de frases clave y a la detección de opiniones (no se muestra), teniendo en cuenta el idioma durante la detección de la opinión y las frases.
 
 Aunque la aptitud de detección de idioma es la tercera (aptitud 3) definida en el conjunto de aptitudes, es la siguiente aptitud que se ejecuta. Dado que no se bloquea al no requerir entradas, se ejecutará en paralelo con la aptitud anterior. Al igual que la aptitud de división que la precedía, la aptitud de detección de idioma también se invoca una vez para cada documento. El árbol de enriquecimiento tiene ahora un nuevo nodo para Language.
 
- ![Árbol de enriquecimiento después de la aptitud 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Árbol de enriquecimiento después de la ejecución de la aptitud 2")
- 
- ### <a name="skill-3-key-phrases-skill"></a>Aptitud 3: aptitud de frases clave 
+ ![Árbol de enriquecimiento después de la aptitud 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Árbol de enriquecimiento después de la ejecución de la aptitud 2")
 
-Dado el contexto de `/document/reviews_text/pages/*`, la aptitud de frases clave se invocará una vez para cada uno de los elementos de la colección `pages`. La salida de la aptitud será un nodo bajo el elemento de página asociado. 
+### <a name="skills-3-and-4-sentiment-analysis-and-key-phrase-detection"></a>Aptitudes 3 y 4: análisis de opiniones y detección de frases clave
 
- Ahora deberá poder observar el resto de las aptitudes del conjunto y visualizar cómo seguirá creciendo el árbol de enriquecimientos con la ejecución de cada una de las aptitudes. Algunas aptitudes, como la aptitud de combinación y la aptitud de conformador, también crean nuevos nodos, pero solo usan datos de los nodos existentes y no crean nuevos enriquecimientos netos.
+Los comentarios de los clientes reflejan una gran variedad de experiencias positivas y negativas. La aptitud de análisis de opiniones analiza los comentarios y asigna una puntuación a lo largo de una continuación de números negativos a positivos, o neutral si la opinión no está determinada. En paralelo al análisis de opiniones, la detección de frases clave identifica y extrae palabras y frases cortas que aparecen como consecuencia.
+
+Dado el contexto de `/document/reviews_text/pages/*`, tanto las aptitudes de análisis de opiniones como de frases clave se invocará una vez para cada uno de los elementos de la colección `pages`. La salida de la aptitud será un nodo bajo el elemento de página asociado. 
+
+Ahora deberá poder observar el resto de las aptitudes del conjunto y visualizar cómo seguirá creciendo el árbol de enriquecimientos con la ejecución de cada una de las aptitudes. Algunas aptitudes, como la aptitud de combinación y la aptitud de conformador, también crean nuevos nodos, pero solo usan datos de los nodos existentes y no crean nuevos enriquecimientos netos.
 
 ![Árbol de enriquecimiento después de todas las aptitudes](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Árbol de enriquecimiento después de todas las aptitudes")
 
 Los colores de los conectores en el árbol anterior indican que los enriquecimientos se crearon mediante distintas aptitudes y que los nodos deben abordarse de forma individual y no formarán parte del objeto devuelto al seleccionar el nodo primario.
 
-## <a name="save-enrichments"></a>Guardado de enriquecimientos
+### <a name="skill-5-shaper-skill"></a>Aptitud 5: aptitud de conformador
 
-En Azure Cognitive Search, un indizador guarda el resultado que crea. Una de las salidas es siempre un [índice de búsqueda](search-what-is-an-index.md). La especificación de un índice es un requisito y, al adjuntar un conjunto de aptitudes, los datos ingeridos por un índice incluyen el contenido de los enriquecimientos. Normalmente, las salidas de aptitudes específicas, como frases clave o puntuaciones de opinión, se ingieren en el índice de un campo creado para ese fin.
+Si la salida incluye un [almacén de conocimiento](knowledge-store-concept-intro.md), agregue una [aptitud de conformador](cognitive-search-skill-shaper.md) como último paso. La aptitud de conformador crea formas de datos de nodos en un árbol de enriquecimiento. Por ejemplo, es posible que desee consolidar varios nodos en una sola forma. Después, puede proyectar esta forma como una tabla (los nodos se convierten en las columnas de una tabla), pasando la forma por nombre a una proyección de tabla.
 
-Un indizador también puede enviar la salida a un [almacén de conocimiento](knowledge-store-concept-intro.md) para su consumo en otras herramientas o procesos. Un almacén de conocimientos se define como parte del conjunto de aptitudes. Su definición determina si los documentos enriquecidos se proyectan como tablas u objetos (archivos o blobs). Las proyecciones tabulares son adecuadas para el análisis interactivo en herramientas como Power BI, mientras que los archivos y los blobs se usan normalmente en la ciencia de datos o en procesos similares. En esta sección, aprenderá la forma en que la composición de un conjunto de aptitudes puede dar forma a las tablas u objetos que quiere proyectar.
+Trabajar con la aptitud de conformador resulta sencillo porque se centra en dar forma a una aptitud. Como alternativa, puede optar por dar forma en línea dentro de proyecciones individuales. La aptitud de conformador no agrega ni resta de un árbol de enriquecimiento, por lo que no se visualiza. En su lugar, puede pensar en una aptitud de conformador como el medio por el que vuelve a articular el árbol de enriquecimiento que ya tiene. Conceptualmente, esto es similar a la creación de vistas de tablas en una base de datos.
 
-### <a name="projections"></a>Proyecciones
-
-En el caso de contenido dirigido a un almacén de información, debería preguntarse cómo se estructura el contenido. La *proyección* es el proceso de seleccionar nodos del árbol de enriquecimiento y crear una expresión física de estos en el almacén de conocimiento. Las proyecciones son formas personalizadas del documento (contenido y enriquecimientos) que se pueden generar como proyecciones de tabla u objeto. Para más información sobre cómo trabajar con proyecciones, consulte [Trabajar con proyecciones](knowledge-store-projection-overview.md).
-
-![Opciones de asignación de campos](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Opciones de asignación de campos para la canalización de enriquecimiento")
-
-### <a name="sourcecontext"></a>SourceContext
-
-El elemento `sourceContext` solo se usa en proyecciones y entradas de aptitudes. Se utiliza para construir objetos anidados de varios niveles. Es posible que tenga que crear un nuevo objeto para pasarlo como una entrada a una aptitud o proyecto en el almacén de conocimiento. Dado que los nodos de enriquecimiento pueden no ser un objeto JSON válido en el árbol de enriquecimiento y que la referencia a un nodo del árbol solo devuelve el estado del nodo cuando se creó, el uso de enriquecimientos como proyecciones o entradas de aptitudes requiere la creación de un objeto JSON bien formado. `sourceContext` permite construir un objeto de tipo anónimo y jerárquico, que requeriría varias aptitudes si solo usara el contexto. 
-
-En el ejemplo siguiente se muestra el uso de `sourceContext`. Observe la salida de aptitud que generó un enriquecimiento para determinar si es un objeto JSON válido y no un tipo primitivo.
-
-### <a name="slicing-projections"></a>Segmentación de proyecciones
-
-Al definir un grupo de proyecciones de tabla, se puede segmentar un solo nodo del árbol de enriquecimiento en varias tablas relacionadas. Si agrega una tabla con una ruta de acceso de origen que sea un elemento secundario de una proyección de tabla existente, el nodo secundario resultante no será un elemento secundario de la proyección de tabla existente, sino que se proyectará en la nueva tabla relacionada. Esta técnica de segmentación permite definir un único nodo en una aptitud de conformador que puede ser el origen de todas sus proyecciones de tabla. 
-
-### <a name="shaping-projections"></a>Modelado de proyecciones
-
-Hay dos maneras de definir una proyección:
-
-+ Use la aptitud de conformador de texto para crear un nuevo nodo que sea el nodo raíz para todos los enriquecimientos que proyecta. Después, en las proyecciones, solo haría referencia a la salida de la aptitud de conformador.
-
-+ Use una forma en línea para crear una proyección en la propia definición de la proyección.
-
-El método del conformador es más detallado que la forma en línea, pero garantiza que todas las mutaciones del árbol de enriquecimiento estén contenidas en las aptitudes y que la salida sea un objeto que se pueda volver a usar. Por el contrario, la forma en línea le permite crear la forma que necesita, pero es un objeto anónimo y solo está disponible para la proyección para la que se define. Estos enfoques se pueden usar juntos o por separado. El conjunto de aptitudes creado en el flujo de trabajo del portal contiene ambos. Usa una aptitud de conformador para las proyecciones de tabla, pero también utiliza la forma en línea para proyectar la tabla de frases clave.
-
-Para ampliar el ejemplo, puede optar por quitar la forma en línea y usar una aptitud de conformador para crear un nuevo nodo para las frases clave. Para crear una forma proyectada en tres tablas, es decir `hotelReviewsDocument`, `hotelReviewsPages`, y `hotelReviewsKeyPhrases`, se describen las dos opciones en las secciones siguientes.
-
-#### <a name="shaper-skill-and-projection"></a>Aptitud de conformador y proyección
-
-> [!Note]
-> Algunas de las columnas de la tabla de documentos se han quitado de este ejemplo para mayor simplicidad.
->
 ```json
 {
-    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-    "name": "#5",
-    "description": null,
-    "context": "/document",
-    "inputs": [        
+  "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+  "name": "#5",
+  "description": null,
+  "context": "/document",
+  "inputs": [
+    {
+      "name": "name",
+      "source": "/document/name"
+    },
+    {
+      "name": "reviews_date",
+      "source": "/document/reviews_date"
+    },
+    {
+      "name": "reviews_rating",
+      "source": "/document/reviews_rating"
+    },
+    {
+      "name": "reviews_text",
+      "source": "/document/reviews_text"
+    },
+    {
+      "name": "reviews_title",
+      "source": "/document/reviews_title"
+    },
+    {
+      "name": "AzureSearch_DocumentKey",
+      "source": "/document/AzureSearch_DocumentKey"
+    },
+    {
+      "name": "pages",
+      "sourceContext": "/document/reviews_text/pages/*",
+      "inputs": [
         {
-            "name": "reviews_text",
-            "source": "/document/reviews_text",
-            "sourceContext": null,
-            "inputs": []
+          "name": "SentimentScore",
+          "source": "/document/reviews_text/pages/*/Sentiment"
         },
         {
-            "name": "reviews_title",
-            "source": "/document/reviews_title",
-            "sourceContext": null,
-            "inputs": []
+          "name": "LanguageCode",
+          "source": "/document/Language"
         },
         {
-            "name": "AzureSearch_DocumentKey",
-            "source": "/document/AzureSearch_DocumentKey",
-            "sourceContext": null,
-            "inputs": []
-        },  
+          "name": "Page",
+          "source": "/document/reviews_text/pages/*"
+        },
         {
-            "name": "pages",
-            "source": null,
-            "sourceContext": "/document/reviews_text/pages/*",
-            "inputs": [
-                {
-                    "name": "SentimentScore",
-                    "source": "/document/reviews_text/pages/*/Sentiment",
-                    "sourceContext": null,
-                    "inputs": []
-                },
-                {
-                    "name": "LanguageCode",
-                    "source": "/document/Language",
-                    "sourceContext": null,
-                    "inputs": []
-                },
-                {
-                    "name": "Page",
-                    "source": "/document/reviews_text/pages/*",
-                    "sourceContext": null,
-                    "inputs": []
-                },
-                {
-                    "name": "keyphrase",
-                    "sourceContext": "/document/reviews_text/pages/*/Keyphrases/*",
-                    "inputs": [
-                        {
-                            "source": "/document/reviews_text/pages/*/Keyphrases/*",
-                            "name": "Keyphrases"
-                        }
-                    ]
-                }
-            ]
+          "name": "keyphrase",
+          "sourceContext": "/document/reviews_text/pages/*/Keyphrases/*",
+          "inputs": [
+            {
+              "name": "Keyphrases",
+              "source": "/document/reviews_text/pages/*/Keyphrases/*"
+            }
+          ]
         }
-    ],
-    "outputs": [
-        {
-            "name": "output",
-            "targetName": "tableprojection"
-        }
-    ]
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "output",
+      "targetName": "tableprojection"
+    }
+  ]
 }
 ```
 
-Con el nodo `tableprojection` definido en la sección `outputs` anterior, ahora podemos usar la característica de segmentación para proyectar partes del nodo `tableprojection` en tablas diferentes:
-
-> [!Note]
-> Este es solo un fragmento de la proyección dentro de la configuración del almacén de conocimiento.
->
-```json
-"projections": [
-    {
-        "tables": [
-            {
-                "tableName": "hotelReviewsDocument",
-                "generatedKeyName": "Documentid",
-                "source": "/document/tableprojection"
-            },
-            {
-                "tableName": "hotelReviewsPages",
-                "generatedKeyName": "Pagesid",
-                "source": "/document/tableprojection/pages/*"
-            },
-            {
-                "tableName": "hotelReviewsKeyPhrases",
-                "generatedKeyName": "KeyPhrasesid",
-                "source": "/document/tableprojection/pages/*/keyphrase/*"
-            }
-        ]
-    }
-]
-```
-
-#### <a name="inline-shaping-projections"></a>Modelado de proyecciones en línea
-
-El método de modelado en línea no requiere una aptitud de conformador, ya que todas las formas necesarias para las proyecciones se crean en el momento en que se necesitan. Para proyectar los mismos datos que en el ejemplo anterior, la opción de proyección en línea tendría el siguiente aspecto:
-
-```json
-"projections": [
-    {
-        "tables": [
-            {
-                "tableName": "hotelReviewsInlineDocument",
-                "generatedKeyName": "Documentid",
-                "sourceContext": "/document",     
-                "inputs": [
-                    {
-                        "name": "reviews_text",
-                        "source": "/document/reviews_text"
-                    },
-                    {
-                        "name": "reviews_title",
-                        "source": "/document/reviews_title"
-                    },
-                    {
-                        "name": "AzureSearch_DocumentKey",
-                        "source": "/document/AzureSearch_DocumentKey"
-                    }                             
-                ]
-            },
-            {
-                "tableName": "hotelReviewsInlinePages",
-                "generatedKeyName": "Pagesid",
-                "sourceContext": "/document/reviews_text/pages/*",
-                "inputs": [
-                        {
-                    "name": "SentimentScore",
-                    "source": "/document/reviews_text/pages/*/Sentiment"
-                    },
-                    {
-                        "name": "LanguageCode",
-                        "source": "/document/Language"
-                    },
-                    {
-                        "name": "Page",
-                        "source": "/document/reviews_text/pages/*"
-                    }
-                ]
-            },
-            {
-                "tableName": "hotelReviewsInlineKeyPhrases",
-                "generatedKeyName": "KeyPhraseId",
-                "sourceContext": "/document/reviews_text/pages/*/Keyphrases/*",
-                "inputs": [
-                    {
-                        "name": "Keyphrases",
-                        "source": "/document/reviews_text/pages/*/Keyphrases/*"
-                    }
-                ]
-            }
-        ]
-    }
-]
-```
-  
-Un ejemplo de ambos enfoques es la proyección de los valores de `"Keyphrases"` mediante `"sourceContext"`. El nodo `"Keyphrases"`, que contiene una colección de cadenas, es en sí mismo un elemento secundario del texto de la página. Sin embargo, dado que las proyecciones requieren un objeto JSON y la página es primitiva (cadena), `"sourceContext"` se usa para encapsular la frase clave en un objeto con una propiedad con nombre. Esta técnica permite que incluso se proyecten primitivas de forma independiente.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como paso siguiente, cree su primer conjunto de aptitudes con aptitudes cognitivas.
+Con una introducción y un ejemplo a sus espaldas, pruebe a crear su primer conjunto de aptitudes mediante [aptitudes integradas](cognitive-search-predefined-skills.md).
 
 > [!div class="nextstepaction"]
 > [Cree su primer conjunto de aptitudes](cognitive-search-defining-skillset.md).

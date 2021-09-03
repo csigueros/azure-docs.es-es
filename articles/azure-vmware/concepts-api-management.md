@@ -3,19 +3,18 @@ title: 'Conceptos: API Management'
 description: Obtenga información sobre la manera en que API Management protege las API que se ejecutan en máquinas virtuales (VM) de Azure VMware Solution
 ms.topic: conceptual
 ms.date: 04/28/2021
-ms.openlocfilehash: aba60f255019701722b38036c87bcb592a0a4410
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 14b2d81d0080ebf389c817d1c718d207aa922b0d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204538"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752108"
 ---
 # <a name="publish-and-protect-apis-running-on-azure-vmware-solution-vms"></a>Publicación y protección de API que se ejecutan en máquinas virtuales basadas en Azure VMware Solution
 
-Con [API Management](https://azure.microsoft.com/services/api-management/) de Microsoft Azure, puede publicar de forma segura a consumidores internos o externos.  Las SKU Desarrollador (desarrollo) y Premium (producción) son las únicas que permiten la integración de Azure Virtual Network para publicar API que se ejecuten en cargas de trabajo de Azure VMware Solution.  Estas dos SKU habilitan la conectividad entre el servicio API Management y el back-end. 
+Con [API Management](https://azure.microsoft.com/services/api-management/) de Microsoft Azure, puede publicar de forma segura a consumidores internos o externos.  Las SKU Desarrollador (desarrollo) y Premium (producción) son las únicas que permiten la integración de Azure Virtual Network para publicar API que se ejecuten en cargas de trabajo de Azure VMware Solution. Además, estas dos SKU habilitan la conectividad entre el servicio API Management y el back-end.
 
-La configuración de API Management es la misma para los servicios de back-end que se ejecutan sobre las máquinas virtuales (VM) de Azure VMware Solution y de forma local. En ambas implementaciones, API Management configura la IP virtual del equilibrador de carga como punto de conexión de back-end cuando el servidor back-end se coloca detrás de una instancia de NSX Load Balancer en Azure VMware Solution. 
-
+La configuración de API Management es la misma para los servicios de back-end que se ejecutan en las máquinas virtuales (VM) de Azure VMware Solution y en el entorno local. API Management también configura la IP virtual del equilibrador de carga como punto de conexión de back-end para las dos implementaciones cuando el servidor de back-end se coloca detrás de una instancia de NSX Load Balancer en Azure VMware Solution.
 
 ## <a name="external-deployment"></a>Implementación externa
 
@@ -31,7 +30,7 @@ El flujo de tráfico pasa por la instancia de API Management, que extrae los se
 
 API Management tiene una API pública de Azure, por lo que se recomienda activar el servicio Azure DDOS Protection. 
 
-:::image type="content" source="media/api-management/external-deployment.png" alt-text="Implementación externa: API Management para Azure VMware Solution":::
+:::image type="content" source="media/api-management/api-management-external-deployment.png" alt-text="Diagrama en el que se muestra una implementación de API Management externa para Azure VMware Solution" border="false":::
 
 
 ## <a name="internal-deployment"></a>Implementación interna
@@ -56,4 +55,4 @@ En una implementación interna, las API se exponen a la misma instancia de API M
 * El tráfico externo entra en Azure a través de Application Gateway, que usa el nivel de protección externa para API Management.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Implementación interna: API Management para Azure VMware Solution" lightbox="media/api-management/internal-deployment.png":::
+:::image type="content" source="media/api-management/api-management-internal-deployment.png" alt-text="Diagrama en el que se muestra una implementación de API Management interna para Azure VMware Solution" lightbox="media/api-management/api-management-internal-deployment.png" border="false":::

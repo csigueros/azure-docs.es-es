@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 06/04/2021
 ms.author: alzam
-ms.openlocfilehash: c9b6671a2baa807d8def27a78d7776eb6fec2c1a
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: af136cab65034be5cd0f3ec18d22492a826678d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559437"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749211"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transición al protocolo OpenVPN o IKEv2 desde SSTP
 
-Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Se establece una conexión de punto a sitio al iniciarla desde el equipo cliente. Este artículo se aplica al modelo de implementación del Administrador de recursos y en él se habla de distintas formas de superar el límite de 128 conexiones simultáneas de SSTP mediante la transición al protocolo OpenVPN o IKEv2.
+Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Se establece una conexión de punto a sitio al iniciarla desde el equipo cliente. Este artículo se aplica al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md) y en él se habla de distintas formas de superar el límite de 128 conexiones simultáneas de SSTP mediante la transición al protocolo OpenVPN o IKEv2.
 
 ## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>¿Qué protocolo utiliza P2S?
 
@@ -31,7 +31,7 @@ La conexión VPN de punto a sitio usa uno de los siguientes protocolos:
 
 
 >[!NOTE]
->IKEv2 y OpenVPN para P2S están disponibles para el modelo de implementación de Resource Manager. No están disponibles para el modelo de implementación clásico. La SKU de puerta de enlace básica no es compatible con los protocolos IKEv2 ni OpenVPN. Si usa la SKU básica, tendrá que eliminar y volver a crear una SKU de producción para la puerta de enlace de red virtual.
+>IKEv2 y OpenVPN para P2S solo están disponibles para el [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md). No están disponibles para el modelo de implementación clásico. La SKU de puerta de enlace básica no es compatible con los protocolos IKEv2 ni OpenVPN. Si usa la SKU básica, tendrá que eliminar y volver a crear una SKU de producción para la puerta de enlace de red virtual.
 >
 
 ## <a name="migrating-from-sstp-to-ikev2-or-openvpn"></a>Migración de SSTP a IKEv2 o a OpenVPN

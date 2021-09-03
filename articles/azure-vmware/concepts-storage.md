@@ -3,13 +3,13 @@ title: Conceptos sobre almacenamiento
 description: Conozca la capacidad de almacenamiento, las directivas de almacenamiento, la tolerancia a errores y la integración del almacenamiento en las nubes privadas de Azure VMware Solution.
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
-ms.date: 04/26/2021
-ms.openlocfilehash: 8aa421cdee105573bd8edd91a4297ed773f7a459
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.date: 07/28/2021
+ms.openlocfilehash: ae37e0147ea03f91c2af68b8733a1702a02f81f3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108069802"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729010"
 ---
 # <a name="azure-vmware-solution-storage-concepts"></a>Conceptos de almacenamiento de Azure VMware Solution
 
@@ -35,7 +35,7 @@ El almacenamiento local en los hosts de un clúster se usa en el almacén de dat
 
 Esa directiva de almacenamiento predeterminada se establece en RAID-1 (creación de reflejo), FTT-1 y aprovisionamiento grueso.  A menos que ajuste la directiva de almacenamiento o aplique una nueva directiva, el clúster seguirá creciendo con esta configuración. En un clúster de tres hosts, FTT-1 admite el error de un solo host. Microsoft regula los errores periódicamente y reemplaza el hardware cuando se detectan eventos desde una perspectiva de la arquitectura.
 
-:::image type="content" source="media/vsphere-vm-storage-policies.png" alt-text="Captura de pantalla que muestra las directivas de almacenamiento de máquinas virtuales cliente de vSphere.":::
+:::image type="content" source="media/concepts/vsphere-vm-storage-policies.png" alt-text="Captura de pantalla que muestra las directivas de almacenamiento de máquinas virtuales cliente de vSphere.":::
 
 
 |Tipo de aprovisionamiento  |Descripción  |
@@ -46,7 +46,7 @@ Esa directiva de almacenamiento predeterminada se establece en RAID-1 (creación
 >[!TIP]
 >Si no está seguro de si el clúster crecerá hasta cuatro o más hosts, realice la implementación con la directiva predeterminada.  Si está seguro de que el clúster crecerá, en lugar de expandirlo después de la implementación inicial, se recomienda implementar los hosts adicionales durante la implementación. A medida que las máquinas virtuales se implementan en el clúster, cambie la directiva de almacenamiento del disco en la configuración de la máquina virtual a RAID-5 FTT-1 o RAID-6 FTT-2. 
 >
->:::image type="content" source="media/vsphere-vm-storage-policies-2.png" alt-text="Captura de pantalla":::
+>:::image type="content" source="media/concepts/vsphere-vm-storage-policies-2.png" alt-text="Captura de pantalla en la que se muestran las opciones RAID-5 FTT-1 y RAID-6 Ftt-2 resaltadas.":::
 
 
 ## <a name="data-at-rest-encryption"></a>Cifrado de datos en reposo
@@ -65,9 +65,10 @@ Microsoft proporciona alertas cuando el consumo de capacidad supera el 75 %.  P
 
 Ahora que ha visto los conceptos de Azure VMware Solution, puede que quiera obtener información sobre:
 
-- [Escalado de clústeres en la nube privada][tutorial-scale-private-cloud]
-- [Azure NetApp Files con Azure VMware Solution](netapp-files-with-azure-vmware-solution.md)
-- [Control de acceso basado en rol de vSphere para Azure VMware Solution](concepts-identity.md)
+- [Conexión de grupos de discos a hosts de Azure VMware Solution (versión preliminar)](attach-disk-pools-to-azure-vmware-solution-hosts.md): puede usar discos como almacenamiento persistente para Azure VMware Solution a fin de optimizar los costos y el rendimiento.
+- [Escala de clústeres y hosts en la nube privada][tutorial-scale-private-cloud]: puede escalar los clústeres y los hosts de una nube privada según sea necesario para la carga de trabajo de la aplicación. Las limitaciones de rendimiento y disponibilidad de los servicios específicos deberán abordarse cada por caso.
+- [Azure NetApp Files con Azure VMware Solution](netapp-files-with-azure-vmware-solution.md): puede usar Azure NetApp para la migración y ejecución de las cargas de trabajo de archivos empresariales más exigentes en la nube: bases de datos, SAP y aplicaciones informáticas de alto rendimiento, sin cambios de código. 
+- [Control de acceso basado en rol de vSphere para Azure VMware Solution](concepts-identity.md): se usa vCenter para administrar cargas de trabajo de máquina virtual y NSX-T Manager para administrar y ampliar la nube privada. En la administración de identidades y acceso se usa el rol CloudAdmin para vCenter y derechos de administrador restringidos para NSX-T Manager.
 
 
 <!-- LINKS - external-->

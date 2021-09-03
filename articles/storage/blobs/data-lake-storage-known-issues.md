@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2d474033bbcc3fbc5852cd95da31eaebd33c25ad
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6fc966fc61893fb05185a15e7149e8a132aecb04
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095291"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113125895"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -54,6 +54,7 @@ Las siguientes API REST de blob no se admiten:
 * [Get Page Ranges](/rest/api/storageservices/get-page-ranges) (Conseguir intervalos de páginas)
 * [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob) (Copia incremental del blob)
 * [Put Page from URL](/rest/api/storageservices/put-page-from-url) (Poner página de dirección URL)
+* [Put Block List](/rest/api/storageservices/put-block-list)
 
 No se admiten discos de máquina virtual no administrados en cuentas que tengan un espacio de nombres jerárquico. Si desea habilitar un espacio de nombres jerárquico en una cuenta de almacenamiento, coloque los discos de máquina virtual no administrados en una cuenta de almacenamiento que no tenga habilitada la característica de espacio de nombres jerárquico.
 
@@ -61,7 +62,7 @@ No se admiten discos de máquina virtual no administrados en cuentas que tengan 
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Compatibilidad con la configuración de listas de control de acceso (ACL) de forma recursiva
 
-La capacidad de aplicar cambios de ACL de forma recursiva desde el directorio principal a los elementos secundarios está disponible con carácter general. En la versión actual de esta funcionalidad, puede aplicar cambios de ACL mediante PowerShell, la CLI de Azure y el SDK de .NET, Java y Python. Todavía no está disponible la compatibilidad con Azure Portal o el Explorador de Azure Storage.
+La capacidad de aplicar cambios de ACL de forma recursiva desde el directorio principal a los elementos secundarios está disponible con carácter general. En la versión actual de esta funcionalidad, puede aplicar cambios de ACL mediante Azure Storage Explorer, PowerShell, la CLI de Azure y el SDK de .NET, Java y Python. Todavía no está disponible la compatibilidad con Azure Portal.
 
 <a id="known-issues-tools"></a>
 
@@ -105,3 +106,7 @@ Los datos que se almacenan en el nivel prémium no se pueden mover entre los niv
 Actualmente, el controlador WASB, que se diseñó para funcionar solo con la API Blob, experimenta problemas en algunos escenarios comunes. En concreto, cuando es un cliente en una cuenta de almacenamiento habilitada para espacios de nombres jerárquicos. El acceso multiprotocolo en Data Lake Storage no mitigará estos problemas. 
 
 Por el momento (y probablemente en un futuro inmediato), no se ofrecerá compatibilidad para el controlador WASB como cliente en una cuenta de almacenamiento habilitada para espacios de nombres jerárquicos. En su lugar, se recomienda que utilice el controlador de [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) en su entorno de Hadoop. Si está intentando migrar de un entorno de Hadoop local con una versión anterior a la rama de Hadoop 3, abra una incidencia de soporte técnico de Azure para que podamos ponernos en contacto con usted para indicarle el camino correcto para usted y su organización.
+
+## <a name="soft-delete-for-blobs-capability-currently-in-preview"></a>Funcionalidad de eliminación temporal para blobs (actualmente en versión preliminar)
+
+Si se cambia el nombre de los directorios primarios para archivos o directorios eliminados temporalmente, es posible que los elementos eliminados temporalmente no se muestren correctamente en Azure Portal. En esos casos, puede usar [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) o la [CLI de Azure](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) para enumerar y restaurar los elementos eliminados temporalmente. 

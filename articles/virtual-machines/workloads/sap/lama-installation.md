@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 9eca2fe92109bcd91fe5943e53d1e18734401984
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: bebae71179153479d66891924ba2f7679838d8bc
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814366"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112297052"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -132,7 +132,7 @@ en la parte inferior del sitio web.
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>Aprovisionamiento de un nuevo sistema SAP adaptable
 
-Puede implementar manualmente una nueva máquina virtual o usar una de las plantillas de Azure del [repositorio de inicio rápido](https://github.com/Azure/azure-quickstart-templates). Este repositorio contiene plantillas para [ASCS de SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [servidores de aplicaciones de SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) y la [base de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). También puede usar estas plantillas para aprovisionar nuevos hosts como parte de la copia o la clonación de un sistema, etc.
+Puede implementar manualmente una nueva máquina virtual o usar una de las plantillas de Azure del [repositorio de inicio rápido](https://github.com/Azure/azure-quickstart-templates). Este repositorio contiene plantillas para [ASCS de SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-ascs), [servidores de aplicaciones de SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-apps) y la [base de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-database). También puede usar estas plantillas para aprovisionar nuevos hosts como parte de la copia o la clonación de un sistema, etc.
 
 Se recomienda usar una subred independiente para todas las máquinas virtuales que quiera administrar con SAP LaMa y no usar direcciones IP dinámicas para impedir el "robo" de direcciones IP al implementar nuevas máquinas virtuales cuando las instancias de SAP no están preparadas.
 
@@ -282,7 +282,7 @@ Este de Australia, Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Norte 
 
 #### <a name="network-requirements"></a>Requisitos de red
 
-ANF requiere una subred delegada que debe formar parte de la misma red virtual que los servidores SAP. Este es un ejemplo de este tipo de configuración:
+ANF requiere una subred delegada que debe formar parte de la misma red virtual que los servidores SAP. Este es un ejemplo de este tipo de configuración.
 En esta pantalla se muestra la creación de la red virtual y la primera subred:
 
 ![SAP LaMa Creación de una red virtual para Azure ANF ](media/lama/sap-lama-createvn-50.png)

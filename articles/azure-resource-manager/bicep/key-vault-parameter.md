@@ -4,20 +4,22 @@ description: Se muestra cómo pasar un secreto de un almacén de claves como par
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: f96b9228b6ebe6ab3ca6d48dc3403bbafa6e8d55
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 06/18/2021
+ms.openlocfilehash: e940a812b4e010e9499a9a85cfd400b679d43781
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029682"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376313"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-bicep-deployment"></a>Uso de Azure Key Vault para pasar valores de parámetro seguros durante la implementación de Bicep
 
-En lugar de colocar un valor seguro (como una contraseña) directamente en el archivo de Bicep o el archivo de parámetros, puede recuperar el valor de una instancia de [Azure Key Vault](../../key-vault/general/overview.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. Cuando un [módulo](./modules.md) espera un parámetro `string` con el modificador `secure:true`, puede usar la función `getSecret` para obtener un secreto del almacén de claves. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en una suscripción distinta a la que usa para implementar el grupo de recursos.
+En lugar de colocar un valor seguro (como una contraseña) directamente en el archivo de Bicep o el archivo de parámetros, puede recuperar el valor de una instancia de [Azure Key Vault](../../key-vault/general/overview.md) durante una implementación. Cuando un [módulo](./modules.md) espera un parámetro `string` con el modificador `secure:true`, puede usar la [función getSecret](bicep-functions-resource.md#getsecret) para obtener un secreto del almacén de claves. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves.
 
-Este artículo se centra en cómo pasar un valor confidencial como parámetro de Bicep. En el artículo no se explica cómo establecer una propiedad de máquina virtual en la dirección URL de un certificado en un almacén de claves.
-Para obtener una plantilla de inicio rápido de este escenario, consulte [Instalar un certificado de Azure Key Vault en una máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
+> [!IMPORTANT]
+> Este artículo se centra en cómo se pasa un valor confidencial como parámetro de plantilla. Cuando el secreto se pasa como parámetro, el almacén de claves puede existir en una suscripción diferente a la del grupo de recursos en el que se realiza la implementación. 
+>
+> En este artículo no se explica cómo establecer una propiedad de máquina virtual en la dirección URL de un certificado en un almacén de claves. Para obtener una plantilla de inicio rápido de este escenario, consulte [Instalar un certificado de Azure Key Vault en una máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implementación de almacenes de claves y secretos
 
@@ -157,7 +159,7 @@ Al usar un almacén de claves con el archivo de Bicep en una [aplicación admini
 
 ## <a name="use-getsecret-function"></a>Uso de la función getSecret
 
-Puede usar la función [`getSecret` ](./bicep-functions-resource.md#getsecret) para obtener un secreto del almacén de claves y pasar el valor a un parámetro `string` de un módulo. Solo se puede llamar a la función `getSecret` en un recurso `Microsoft.KeyVault/vaults` y solo se puede usar con el parámetro con el decorador `@secure()`.
+Puede usar la [función getSecret](./bicep-functions-resource.md#getsecret) para obtener un secreto del almacén de claves y pasar el valor a un parámetro `string` de un módulo. Solo se puede llamar a la función `getSecret` en un recurso `Microsoft.KeyVault/vaults` y solo se puede usar con el parámetro con el decorador `@secure()`.
 
 El siguiente archivo de Bicep crea un servidor de Azure SQL. El parámetro `adminPassword` tiene un decorador `@secure()`.
 
@@ -208,7 +210,7 @@ module sql './sql.bicep' = {
 
 ## <a name="reference-secrets-in-parameter-file"></a>Referencia a los secretos del archivo de parámetros
 
-Con este enfoque, se hace referencia al almacén de claves del archivo de parámetros, no al archivo de Bicep. La siguiente imagen muestra que el archivo de parámetros hace referencia al secreto y pasa dicho valor al archivo de Bicep.
+Si no quiere usar un módulo, puede hacer referencia al almacén de claves directamente en el archivo de parámetros. La siguiente imagen muestra que el archivo de parámetros hace referencia al secreto y pasa dicho valor al archivo de Bicep.
 
 ![Diagrama de la integración del almacén de claves de Resource Manager](./media/key-vault-parameter/statickeyvault.png)
 

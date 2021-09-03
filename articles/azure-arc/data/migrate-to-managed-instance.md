@@ -1,38 +1,42 @@
 ---
-title: Migración de una base de datos desde SQL Server a SQL Managed Instance habilitado para Azure Arc
-description: Migración de una base de datos desde SQL Server a SQL Managed Instance habilitado para Azure Arc
+title: Migración de una base de datos desde SQL Server a SQL Managed Instance habilitado para Azure Arc
+description: Migración de una base de datos desde SQL Server a SQL Managed Instance habilitado para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: f2d2c2ecff92dde411c6ec2a8d00ad997f4c5c02
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: d93fa1d16366ee131d98aebe2ab8e3e040949d72
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495833"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752347"
 ---
-# <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migración: de SQL Server a SQL Managed Instance habilitado para Azure Arc
+# <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migración: de SQL Server a SQL Managed Instance habilitado para Azure Arc
 
 En este escenario se le guía por los pasos necesarios para migrar una base de datos de una instancia de SQL Server a Azure SQL Managed Instance en Azure Arc mediante dos métodos diferentes de copia de seguridad y restauración.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="use-azure-blob-storage"></a>Uso de Azure Blob Storage
 
-Use Azure Blob Storage para migrar a SQL Managed Instance habilitado para Azure Arc.
+Use Azure Blob Storage para realizar la migración a SQL Managed Instance habilitado para Azure Arc.
 
 Este método usa Azure Blob Storage como una ubicación de almacenamiento temporal en la que se puede hacer una copia de seguridad y desde la que se puede restaurar posteriormente.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
 - [Instalación de Azure Data Studio](install-client-tools.md)
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - [Instalación del Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 - Suscripción de Azure
+
+
 
 ### <a name="step-1-provision-azure-blob-storage"></a>Paso 1: aprovisionamiento de Azure Blob Storage
 
@@ -189,8 +193,8 @@ GO
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre las características y capacidades de SQL Managed Instance habilitado para Azure Arc](managed-instance-features.md)
+[Más información sobre las características y funcionalidades de SQL Managed Instance habilitado para Azure Arc](managed-instance-features.md)
 
 [Comienzo con la creación de un controlador de datos](create-data-controller.md)
 
-[¿Ya ha creado un controlador de datos? Creación de una instancia de SQL Managed Instance habilitado para Azure Arc](create-sql-managed-instance.md)
+[¿Ya ha creado un controlador de datos? Creación de una instancia de SQL Managed Instance habilitada para Azure Arc](create-sql-managed-instance.md)

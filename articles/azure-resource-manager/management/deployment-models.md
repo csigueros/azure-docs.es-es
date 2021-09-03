@@ -4,12 +4,12 @@ description: Describe las diferencias entre el modelo de implementación del Adm
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0d4b21b095b715599059452c269cde24fb701364
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e9ea1e778db81cfaa69163d5e127d384f8c4b3f5
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322120"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298176"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementación mediante Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos
 
@@ -107,8 +107,8 @@ En la siguiente tabla se describen los cambios en la interacción de los proveed
 | Servicio en la nube para máquinas virtuales |El servicio en la nube es un contenedor para las máquinas virtuales que exige la disponibilidad de la plataforma y el equilibrio de carga. |El servicio en la nube ya no es un objeto necesario para crear una máquina virtual usando el nuevo modelo. |
 | Virtual Networks |Una red virtual es opcional para la máquina virtual. En caso de incluirse, la red virtual no se puede implementar con Resource Manager. |La máquina virtual requiere una red virtual que se ha implementado con Resource Manager. |
 | Cuentas de almacenamiento |La máquina virtual requiere una cuenta de almacenamiento que almacena los discos duros virtuales para el sistema operativo, el almacenamiento temporal y los discos de datos adicionales. |La máquina virtual requiere una cuenta de almacenamiento para almacenar sus discos en Blob Storage. |
-| Conjuntos de disponibilidad |La disponibilidad en la plataforma se ha indicado mediante la configuración del mismo "AvailabilitySetName" en las máquinas virtuales. El número máximo de dominios con error era de 2. |Un conjunto de disponibilidad es un recurso expuesto por el proveedor de Microsoft.Compute. Las máquinas virtuales que requieren alta disponibilidad deben incluirse en el conjunto de disponibilidad. Ahora, el recuento máximo de dominios con error es de 3. |
-| Grupos de afinidad |Los grupos de afinidad eran necesarios para crear redes virtuales. Sin embargo, con la introducción de las redes virtuales regionales, ya no era necesario. |Para simplificar, no existe el concepto de grupos de afinidad en las API expuestas a través del Administrador de recursos de Azure. |
+| Conjuntos de disponibilidad |La disponibilidad en la plataforma se ha indicado mediante la configuración del mismo valor "AvailabilitySetName" en las máquinas virtuales. El número máximo de dominios con error era de 2. |Un conjunto de disponibilidad es un recurso expuesto por el proveedor de Microsoft.Compute. Las máquinas virtuales que requieren alta disponibilidad deben incluirse en el conjunto de disponibilidad. Ahora, el recuento máximo de dominios con error es de 3. |
+| Grupos de afinidad |Los grupos de afinidad eran necesarios para crear redes virtuales. Sin embargo, con la introducción de las redes virtuales regionales, ya no era necesario. |Para simplificar, no existe el concepto de grupos de afinidad en las API expuestas por medio de Azure Resource Manager. |
 | Equilibrio de carga |La creación de un servicio en la nube proporciona un equilibrador de carga implícito para las máquinas virtuales implementadas. |El equilibrador de carga es un recurso expuesto por el proveedor de Microsoft.Network. La interfaz de red principal de las máquinas virtuales cuya carga se debe equilibrar debe hacer referencia al equilibrador de carga. Los equilibradores de carga pueden ser internos o externos. Una instancia de equilibrador de carga hace referencia al grupo de backend de direcciones IP que incluye la NIC de una máquina virtual (opcional) y hace referencia a una dirección IP pública o privada del equilibrador de carga (opcional). |
 | Dirección IP virtual |Cloud Services obtiene una VIP (dirección IP virtual) predeterminada cuando se agrega una máquina virtual a un servicio en la nube. La dirección IP virtual es la dirección asociada al equilibrador de carga implícito. |La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. Las direcciones IP públicas dinámicas pueden asignarse a un equilibrador de carga. Las direcciones IP públicas se pueden proteger mediante grupos de seguridad. |
 | Dirección IP reservada |Puede reservar una dirección IP en Azure y asociarlo a un servicio en la nube para asegurarse de que la dirección IP es permanente. |La dirección IP pública puede crearse en modo "Estático" y ofrece la misma capacidad que una "dirección IP reservada". |
@@ -148,7 +148,7 @@ Toda la automatización y los scripts que ha creado continúan funcionando para 
 
 **¿Dónde puedo encontrar ejemplos de plantillas del Administrador de recursos de Azure?**
 
-Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
+Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/resources/templates/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

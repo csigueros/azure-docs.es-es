@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a161df47047ffb92b1557b84e457363ee9d2507c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 30e199b87f2cd6436f9d088bc8b2acd4ba8fdcaf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090089"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724443"
 ---
 # <a name="add-tags-to-digital-twins"></a>Incorporación de etiquetas a gemelos digitales 
 
@@ -38,13 +38,35 @@ Este es un extracto de un modelo gemelo que implementa una etiqueta de marcador 
 
 Cuando la propiedad `tags` ya forme parte de un modelo de gemelos digitales, configure el valor de esta propiedad para establecer la etiqueta del marcador en el gemelo digital. 
 
-Este es un ejemplo que rellena el marcador `tags` para tres gemelos:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
-
 Este es un ejemplo de código de cómo establecer el marcador `tags` para un gemelo con el [SDK de .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
+
+Después de crear el gemelo con las propiedades de etiqueta según el ejemplo anterior, el gemelo tendrá este aspecto:
+
+```JSON
+{
+  "$dtId": "myTwinID",
+  "$etag": "W/\"e7429259-6833-46b4-b443-200a77a468c2\"",
+  "$metadata": {
+    "$model": "dtmi:example:Room;1",
+    "Temperature": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    },
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    }
+  },
+  "Temperature": 75,
+  "tags": {
+    "VIP": true,
+    "oceanview": true
+  }
+}
+```
+
+>[!TIP]
+> Para ver una representación JSON del gemelo, [consúltela](how-to-query-graph.md) con la CLI o las API.
 
 ### <a name="query-with-marker-tags"></a>Consulta con etiquetas de marcador
 
@@ -74,11 +96,44 @@ Este es un extracto de un modelo gemelo que implementa una etiqueta de valor com
 
 Al igual que con las etiquetas de marcador, puede establecer la etiqueta de valor en un gemelo digital al configurar el valor de esta propiedad `tags` del modelo. Para usar una etiqueta de valor como etiqueta de marcador, puede establecer el campo `tagValue` en el valor de cadena vacía (`""`). 
 
-Este es un ejemplo que rellena el valor `tags` para tres gemelos:
+A continuación se muestran los cuerpos JSON de dos gemelos que tienen etiquetas de valor para representar sus tamaños. Los gemelos del ejemplo también tienen etiquetas de valor para "red" o "purple" que se usan como etiquetas de marcador.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
+Ejemplo Twin1, con una etiqueta de valor para tamaño grande y una etiqueta de marcador de "red":
 
-Tenga en cuenta que `red` y `purple` se usan como etiquetas de marcador en este ejemplo.
+```JSON
+{
+  "$dtId": "Twin1",
+  "$etag": "W/\"d3997593-cc5f-4d8a-8683-957becc2bcdd\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:02.3150852Z"
+    }
+  },
+  "tags": {
+    "red": "",
+    "size": "large"
+  }
+}
+```
+
+Ejemplo Twin2, con una etiqueta de valor para tamaño pequeño y una etiqueta de marcador de "purple":
+```JSON
+{
+  "$dtId": "Twin2",
+  "$etag": "W/\"e215e586-b14a-4234-8ddb-be69ebfef878\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:53.1517123Z"
+    }
+  },
+  "tags": {
+    "purple": "",
+    "size": "small"
+  }
+}
+```
 
 ### <a name="query-with-value-tags"></a>Consulta con etiquetas de valor
 
@@ -95,7 +150,7 @@ Esta es una consulta para obtener todas las entidades que son "small" (etiqueta 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre el diseño y la administración de modelos de gemelos digitales:
-* [Procedimiento: Administración de modelos DTDL](how-to-manage-model.md)
+* [Administración de modelos DTDL](how-to-manage-model.md)
 
 Más información sobre la consulta del grafo gemelo:
-* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)
+* [Consulta del grafo de gemelos](how-to-query-graph.md)

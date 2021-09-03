@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dc428a79e38f390d926f268bd8147eb7ee06a648
+ms.sourcegitcommit: 04d2dec0316576388e6e10c1558b0a0b3688d01c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594638"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112421841"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -31,6 +31,8 @@ Una o varias suscripciones de Azure pueden establecer una relación de confianza
 Cuando un usuario se suscribe a un servicio en la nube de Microsoft, se crea un nuevo inquilino de Azure AD y el usuario se convierte en miembro del rol de administrador global. Sin embargo, cuando un propietario de una suscripción une su suscripción a un inquilino existente, el propietario no se asigna al rol de administrador global.
 
 Todos los usuarios tienen un único directorio *particular* para la autenticación. Los usuarios también pueden ser invitados en otros directorios. Puede ver los directorios principales e invitados para cada usuario en Azure AD.
+
+:::image type="content" source="media/active-directory-how-subscriptions-associated-directory/trust-relationship-azure-ad.png" alt-text="Captura de pantalla en la que se muestra la relación de confianza entre las suscripciones de Azure y los directorios activos de Azure.":::
 
 > [!Important]
 > Al asociar una suscripción a otro directorio, los usuarios que tienen roles asignados mediante el [control de acceso basado en rol de Azure](../../role-based-access-control/role-assignments-portal.md) pierden el acceso. Los administradores de suscripciones clásicas, incluidos el administrador y los coadministradores del servicio, también pierden el acceso.

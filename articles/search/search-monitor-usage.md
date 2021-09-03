@@ -7,26 +7,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 5cd9438eecc973524d8e5f7218ad0c92ab627f87
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 01/27/2021
+ms.openlocfilehash: 5e9e09508591e2b6e58b6bae17df281c23a5129d
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559885"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414798"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Supervisión de operaciones y actividades de Azure Cognitive Search
 
-Este artículo es una introducción a los conceptos y herramientas de supervisión de Azure Cognitive Search. Para la supervisión holística, puede usar una combinación de funcionalidad integrada y servicios complementarios como Azure Monitor.
+Este artículo es una introducción a los conceptos y herramientas de supervisión de Azure Cognitive Search. Para la supervisión holística, debe usar una combinación de funcionalidad integrada y servicios complementarios como Azure Monitor.
 
 En general puede realizar el seguimiento de lo siguiente:
 
-* Servicio: estado o disponibilidad, y cambios en la configuración del servicio.
-* Almacenamiento: usado y disponible, con recuentos para cada tipo de contenido en relación con la cuota permitida para el nivel de servicio.
+* Servicio de búsqueda: estado y cambios en la configuración del servicio.
+* Consumo de almacenamiento: tanto el usado como el disponible.
+* Límites de objetos para índices, indizadores y otros objetos, con recuentos para cada tipo, relativos al [máximo permitido](search-limits-quotas-capacity.md) para el nivel de servicio.
 * Actividad de consulta: volumen, latencia y consultas limitadas o eliminadas. Las solicitudes de consulta registradas requieren [Azure Monitor](#add-azure-monitor).
 * Actividad de indexación: requiere [registro de diagnóstico](#add-azure-monitor) con Azure Monitor.
 
-Un servicio de búsqueda no admite la autenticación por usuario, por lo que no se encontrará información de identidad en los registros.
+Un servicio de búsqueda no admite la autenticación por usuario, por lo que no se encontrará información de identidad de usuario en los registros.
 
 ## <a name="built-in-monitoring"></a>Supervisión integrada
 
@@ -48,9 +49,9 @@ La captura de pantalla siguiente le ayuda a buscar la información de supervisi�
 
 <a name="monitoring-apis"> </a>
 
-### <a name="apis-useful-for-monitoring"></a>API útiles para la supervisión
+### <a name="rest-apis-useful-for-monitoring"></a>API REST útiles para la supervisión
 
-Puede usar las API siguientes para recuperar la misma información que se encuentra en las pestañas Supervisión y Uso del portal.
+Puede usar [Postman](search-get-started-rest.md) y las API siguientes para recuperar la misma información que se encuentra en las pestañas Supervisión y Uso del portal. Tendrá que proporcionar una [clave de API de administración](search-security-api-keys.md) para obtener información del sistema.
 
 * [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
 * [GET Index Statistics](/rest/api/searchservice/get-index-statistics)

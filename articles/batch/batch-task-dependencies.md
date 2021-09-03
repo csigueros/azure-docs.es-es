@@ -2,18 +2,18 @@
 title: Creación de dependencias de tareas para ejecutar tareas
 description: Cree tareas que dependan de la finalización de otras para procesar grandes cargas de trabajo de macrodatos similares y de estilo MapReduce en Azure Batch.
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 06/29/2021
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: ef05a98fffc3c0684ad0fa29f2f9f039b388f5ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cd5e0bc97d37e4daf76bee66c8b4de4698b7aca
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97803942"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126525"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creación de dependencias de tareas para ejecutar las tareas que dependan de otras tareas
 
-Con dependencias de la tarea de Batch, puede crear tareas que estén programadas para su ejecución en los nodos de proceso después de la finalización de una o varias tareas principales. Por ejemplo, puede crear un trabajo que represente cada fotograma de una película 3D con una tarea independiente y paralela. La última tarea (la "tarea de combinación") no combina los fotogramas representados para crear la película completa hasta que todos los fotogramas se hayan representado correctamente.
+Con dependencias de la tarea de Batch, puede crear tareas que estén programadas para su ejecución en los nodos de proceso después de la finalización de una o varias tareas principales. Por ejemplo, puede crear un trabajo que represente cada fotograma de una película 3D con una tarea independiente y paralela. La última tarea combina los fotogramas representados en la película completa solo después de que todos se hayan representado correctamente. Es decir, la tarea final depende de las tareas primarias anteriores.
 
 A continuación se indican algunos escenarios donde las dependencias de tareas son útiles:
 
@@ -22,9 +22,7 @@ A continuación se indican algunos escenarios donde las dependencias de tareas s
 - Procesos anteriores y posteriores a la representación, donde cada tarea se debe completar para que pueda comenzar la siguiente tarea.
 - Cualquier otro trabajo en el que las tareas que siguen en la cadena dependen de las tareas que preceden en la cadena.
 
-De forma predeterminada, las tareas dependientes están programadas para ejecutarse solo después de que la tarea principal se haya completado correctamente. Puede especificar una [acción de dependencia](#dependency-actions) para invalidar el comportamiento predeterminado y ejecutar tareas cuando se produce un error en la tarea principal.
-
-## <a name="task-dependencies-with-batch-net"></a>Dependencias de tareas con Batch .NET
+De forma predeterminada, las tareas dependientes están programadas para ejecutarse solo después de que la tarea principal se haya completado correctamente. Opcionalmente puede especificar una [acción de dependencia](#dependency-actions) para invalidar el comportamiento predeterminado y ejecutar la tarea dependiente incluso si se produce un error en la tarea principal.
 
 En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET de Batch](/dotnet/api/microsoft.azure.batch). Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). También se describe cómo especificar una acción de dependencia para ejecutar tareas dependientes, si se produce un error en la principal. Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Batch.
 
@@ -73,7 +71,7 @@ Hay tres escenarios de dependencia de tareas básicos que puede usar en Azure Ba
 > [!TIP]
 > Puede crear relaciones de **varios a varios**, por ejemplo, donde las tareas C, D, E y F dependan de las tareas A y B. Esto es útil, por ejemplo, en escenarios de preprocesamiento en paralelo donde las tareas que siguen en la cadena dependen de la salida de varias tareas que preceden en la cadena.
 > 
-> En los ejemplos de esta sección, una tarea dependiente solo se ejecuta después de que las tareas principales se completen correctamente. Este comportamiento es el comportamiento predeterminado para una tarea dependiente. Puede ejecutar una tarea dependiente después de que se produzca un error en una tarea principal especificando una [acción de dependencia](#dependency-actions) para invalidar el comportamiento predeterminado.
+> En los ejemplos de esta sección, una tarea dependiente solo se ejecuta después de que las tareas principales se completen correctamente. Este comportamiento es el comportamiento predeterminado para una tarea dependiente. Puede ejecutar una tarea dependiente después de que se produzca un error en una tarea principal si especifica una [acción de dependencia](#dependency-actions) para invalidar el comportamiento predeterminado.
 
 ### <a name="one-to-one"></a>Uno a uno
 
@@ -92,7 +90,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 
 ### <a name="one-to-many"></a>Uno a varios
 
-En una relación uno a muchos, una tarea depende de la finalización correcta de varias tareas principales. Para crear la dependencia, proporcione una colección de identificadores de tarea al método estático [TaskDependencies.OnIds](/dotnet/api/microsoft.azure.batch.taskdependencies.onids) cuando rellene la propiedad [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson).
+En una relación uno a muchos, una tarea depende de la finalización correcta de varias tareas principales. Para crear la dependencia, proporcione una colección de identificadores de tarea concretos al método estático [TaskDependencies.OnIds](/dotnet/api/microsoft.azure.batch.taskdependencies.onids) cuando rellene la propiedad [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson).
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -107,17 +105,21 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
+> [!IMPORTANT]
+> Se producirá un error en la creación de la tarea dependiente si la longitud combinada de los id. de tarea primarios es superior a 64 000 caracteres. Para especificar un gran número de tareas primarias, considere la posibilidad de usar en su lugar un intervalo de identificadores de tarea.
+
 ### <a name="task-id-range"></a>Intervalo de id. de tarea
 
-En una dependencia de un intervalo de tareas principales, una tarea depende de la finalización de tareas cuyos identificadores se encuentran dentro de un intervalo.
-Para crear la dependencia, proporcione el primer y el último identificador de tarea del intervalo al método estático [TaskDependencies](/dotnet/api/microsoft.azure.batch.taskdependencies.onidrange) cuando rellene la propiedad [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson).
+En un dependencia de un intervalo de tareas principales, una tarea depende de la finalización de las tareas cuyos identificadores se encuentran dentro de un intervalo especificado.
+
+Para crear la dependencia, proporcione el primer y el último identificador de tarea del intervalo al método estático [TaskDependencies.OnIdRange](/dotnet/api/microsoft.azure.batch.taskdependencies.onidrange) cuando rellene la propiedad [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson).
 
 > [!IMPORTANT]
 > Si usa intervalos de identificadores de tareas para las dependencias, el intervalo solo seleccionará aquellas tareas con identificadores que representan valores enteros. Por ejemplo, el intervalo `1..10` seleccionará las tareas `3` y `7`, pero no la tarea `5flamingoes`.
 >
-> Los ceros iniciales no son significativos al evaluar las dependencias de intervalo, por lo que las tareas con los identificadores de cadena `4`, `04` y `004` estarán todas *dentro* del intervalo y todas se tratarán como la tarea `4`, por lo que la primera de ellas en completarse cumplirá la dependencia.
+> Los ceros iniciales no son significativos al evaluar las dependencias de intervalo, por lo que las tareas con los identificadores de cadena `4`, `04` y `004` estarán todas *dentro* del intervalo. Dado que todas se tratarán como la tarea `4`, la primera en completarse cumplirá la dependencia.
 >
-> Todas las tareas del intervalo deben satisfacer la dependencia, ya sea completando correctamente o con un error lo que se asigna a una [acción de dependencia](#dependency-actions) establecida en **Satisfacer**.
+> Para que se ejecute la tarea dependiente, todas las tareas del intervalo deben satisfacer la dependencia, ya sea cuando se completan correctamente como cuando lo hacen con un error que se asigna a una [acción de dependencia](#dependency-actions) establecida en **Satisfacer**.
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
@@ -139,9 +141,9 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ## <a name="dependency-actions"></a>Acciones de dependencia
 
-De forma predeterminada, una tarea dependiente o un conjunto de tareas se ejecuta solo después de que una tarea principal se haya completado correctamente. En algunos escenarios, puede que desee ejecutar tareas dependientes incluso si se produce un error en la tarea principal. Puede invalidar el comportamiento predeterminado especificando una acción de dependencia.
+De forma predeterminada, una tarea dependiente o un conjunto de tareas se ejecuta solo después de que una tarea principal se haya completado correctamente. En algunos escenarios, puede que desee ejecutar tareas dependientes incluso si se produce un error en la tarea principal. Puede invalidar el comportamiento predeterminado si especifica una *acción de dependencia* que indique si una tarea dependiente es apta para ejecutarse.
 
-Una acción de dependencia especifica si una tarea dependiente es apta para ejecutarse, según el éxito o fracaso de la tarea principal. Por ejemplo, suponga que una tarea dependiente está esperando los datos de la finalización de la tarea de nivel superior. Si se produce un error en la tarea de nivel superior, la tarea dependiente aún puede ejecutarse con datos más antiguos. En este caso, una acción de dependencia puede especificar que la tarea dependiente es apta para ejecutarse a pesar del error de la tarea principal.
+Por ejemplo, suponga que una tarea dependiente está esperando los datos de la finalización de la tarea de nivel superior. Si se produce un error en la tarea de nivel superior, la tarea dependiente aún puede ejecutarse con datos más antiguos. En este caso, una acción de dependencia puede especificar que la tarea dependiente es apta para ejecutarse a pesar del error de la tarea principal.
 
 Una acción de dependencia se basa en una condición de salida para la tarea principal. Puede especificar una acción de dependencia para cualquiera de las siguientes condiciones de salida:
 
@@ -151,9 +153,9 @@ Una acción de dependencia se basa en una condición de salida para la tarea pri
 - Cuando la tarea finaliza con un código de salida con error dentro de un intervalo especificado por la propiedad **ExitCodeRanges**.
 - El caso predeterminado, si la tarea finaliza con un código de salida no definido en **ExitCodes** o **ExitCodeRanges**, o si la tarea finaliza con un error de procesamiento previo y no se ha establecido la propiedad **PreProcessingError**, o si se produce un error de carga de archivo en la tarea y no se ha establecido la propiedad **FileUploadError**. 
 
-Para .NET, consulte la clase [ExitConditions](/dotnet/api/microsoft.azure.batch.exitconditions) para obtener más detalles sobre estas condiciones.
+Para .NET, estas condiciones se definen como propiedades de la clase [ExitConditions](/dotnet/api/microsoft.azure.batch.exitconditions).
 
-Para especificar una acción de dependencia en. NET, establezca la propiedad [ExitOptions.DependencyAction](/dotnet/api/microsoft.azure.batch.exitoptions.dependencyaction) para la condición de salida en una de las siguientes:
+Para especificar una acción de dependencia, establezca la propiedad [ExitOptions.DependencyAction](/dotnet/api/microsoft.azure.batch.exitoptions.dependencyaction) para la condición de salida en uno de los valores siguientes:
 
 - **Satisfy**: indica que las tareas dependientes son aptas para ejecutarse si la tarea principal se cierra con un error especificado.
 - **Bloquear**: indica que las tareas dependientes no son aptas para ejecutarse.

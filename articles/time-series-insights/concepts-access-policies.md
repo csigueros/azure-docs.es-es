@@ -3,24 +3,28 @@ title: 'Configuración de la seguridad para conceder acceso a los datos: Azure T
 description: Aprenda a configurar la seguridad y los permisos, y a administrar las directivas de acceso a datos en el entorno de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: shipra1mishra
-ms.author: shmishr
+author: tedvilutis
+ms.author: tvilutis
 manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 84b973dfa016b069b18fda47a4336fe952f73b3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebbb3c02263d860822482e2e19293d9a032274ef
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780865"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135368"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concesión de acceso a datos en un entorno
 
 En este artículo se tratan los dos tipos de directivas de acceso de Azure Time Series Insights.
+
+> [!Warning]
+> Las directivas de acceso conceden acceso del plano de datos a los usuarios o grupos de Azure AD al entorno de Time Series Insights.
+> Una instancia de Azure Active Directory está asociada a un inquilino. Por tanto, si decide mover la suscripción entre inquilinos, asegúrese de seguir el procedimiento de [la sección siguiente](#procedure-for-when-the-subscription-is-moved-across-tenants).
 
 ## <a name="sign-in-to-azure-time-series-insights"></a>Inicie sesión en Azure Time Series Insights
 
@@ -119,6 +123,29 @@ Siga estos pasos para conceder acceso de invitado a un entorno de Time Series In
     Ahora tienen todas las funcionalidades asociadas al rol que le ha proporcionado en el **paso 5**.
 
     [![El usuario invitado selecciona el inquilino de Azure en la lista desplegable](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
+
+## <a name="procedure-for-when-the-subscription-is-moved-across-tenants"></a>Procedimiento para mover la suscripción entre inquilinos
+
+Las directivas de acceso a datos de Time Series Insights están respaldadas por Azure Active Directory, que se asocia a un inquilino de Azure en el que reside la suscripción.
+
+Los objetos de Azure AD a los que conceda las directivas de acceso a datos y el propio entorno de Time Series Insights deben estar en el mismo inquilino. Si no es así, estos objetos no tendrán acceso al entorno.
+
+Si tiene pensado mover la suscripción en la que reside el entorno a otro inquilino, debe asegurarse de que las directivas de acceso a datos se actualicen para reflejar los objetos de Azure AD en el nuevo inquilino.
+
+Para que este proceso sea fluido, siga los pasos que se indican a continuación.
+
+### <a name="before-moving-a-subscription-to-another-tenant"></a>Antes de mover una suscripción a otro inquilino
+
+- Asegúrese de mantener una lista de las asignaciones de directivas de acceso a datos actuales desde el entorno mientras está todavía en el inquilino de origen.
+- Asegúrese de que los usuarios, grupos o aplicaciones que todavía quiere que tengan acceso al entorno después de la suscripción se migran a la instancia de Active Directory en el inquilino de destino.
+- Asegúrese de que tendrá (o trabaja con alguien que tendrá) al menos acceso de colaborador a la suscripción después de moverla, para que las directivas de acceso a datos se puedan volver a aplicar en el entorno del inquilino de destino.
+
+### <a name="after-moving-a-subscription-to-another-tenant"></a>Después de mover una suscripción a otro inquilino
+
+Con acceso de colaborador a la suscripción en el inquilino de destino, puede
+
+- Quitar todas las directivas de acceso a datos que se han migrado con el entorno, ya que pertenecen al inquilino de origen.
+- Volver a conceder directivas de acceso al entorno mediante los pasos anteriores, y apuntar ahora a los objetos de Azure AD en el inquilino de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

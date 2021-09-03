@@ -3,24 +3,26 @@ title: 'Opciones de contexto de proceso para ML Services en HDInsight: Azure'
 description: Obtenga información acerca de las distintas opciones de contexto de proceso disponibles para los usuarios con ML Services en HDInsight
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: efdf410ac566297668a06b0e7da457fcd49bfb59
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943965"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299346"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opciones de contexto de proceso para ML Services en HDInsight
 
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
 ML Services en Azure HDInsight controla cómo se ejecutan las llamadas mediante el establecimiento del contexto de proceso. En este artículo se describen las opciones que están disponibles para especificar si la ejecución se realiza o no en paralelo y, en caso afirmativo, cómo se lleva a cabo a través del nodo perimetral o del clúster de HDInsight.
 
-El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de RevoScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Apache Spark o Hadoop MapReduce de RevoScaleR.
+El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de RevoScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster mediante los contextos de proceso de Apache Spark o Hadoop Map Reduce de RevoScaleR.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services en Azure HDInsight
 
-[ML Services en Azure HDInsight](r-server-overview.md) proporciona las más recientes funcionalidades para el análisis basado en R. Puede usar datos almacenados en un contenedor Apache Hadoop HDFS en su cuenta de almacenamiento de [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como ML Services se basa en el lenguaje R de código abierto, las aplicaciones basadas en R que cree pueden aplicar cualquiera de los más de 8000 paquetes de R de código abierto. También pueden utilizar las rutinas de [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), un paquete de análisis de macrodatos de Microsoft que se incluye con ML Services.  
+[ML Services en Azure HDInsight](r-server-overview.md) proporciona las más recientes funcionalidades para el análisis basado en R. Puede usar datos almacenados en un contenedor Apache Hadoop HDFS en su cuenta de almacenamiento de [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como ML Services se basa en el lenguaje R de código abierto, las aplicaciones basadas en R que cree pueden aplicar cualquiera de los más de 8000 paquetes de R de código abierto. También pueden utilizar las rutinas de [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), un paquete de análisis de macrodatos de Microsoft que se incluye con ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de proceso de un nodo perimetral
 

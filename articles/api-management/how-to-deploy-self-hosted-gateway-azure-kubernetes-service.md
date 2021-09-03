@@ -8,18 +8,18 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.author: apimpm
-ms.openlocfilehash: 366b0fa70fd5229310d0f999acd07a49c45f0da0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c43f31be807d6a649cdd750ee15841a0ecbd7631
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375448"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300766"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Implementación en Azure Kubernetes Service
 
-En este artículo se detallan los pasos para implementar un componente de puerta de enlace autohospedada de Azure API Management en [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). 
+En este artículo se detallan los pasos para implementar un componente de puerta de enlace autohospedada de Azure API Management en [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). Para implementar una puerta de enlace autohospedada en un clúster de Kubernetes, vea el [artículo de la guía paso a paso](how-to-deploy-self-hosted-gateway-kubernetes.md).
 
 > [!NOTE]
 > También puede implementar una puerta de enlace autohospedada en un [clúster de Kubernetes habilitado para Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md) como una [extensión de clúster](../azure-arc/kubernetes/extensions.md).
@@ -35,30 +35,35 @@ En este artículo se detallan los pasos para implementar un componente de puerta
 1. Seleccione **Puertas de enlace** en **Deployment and infrastructure** (Implementación e infraestructura).
 2. Seleccione el recurso de puerta de enlace autohospedada que desea implementar.
 3. Seleccione **Implementación**.
-4. Tenga en cuenta que en el cuadro de texto **Token** se generará automáticamente un nuevo token con los valores predeterminados de **Expiración** y **Clave secreta**. Ajuste uno o ambos si lo desea y seleccione **Generar** para crear un nuevo token.
+4. En el cuadro de texto **Token** se ha generado automáticamente un nuevo token con los valores predeterminados de **Expiración** y **Clave secreta**. Ajuste uno o ambos si lo desea y seleccione **Generar** para crear un nuevo token.
 5. Asegúrese de que **Kubernetes** esté seleccionado en **Scripts de implementación**.
 6. Seleccione el vínculo al archivo **<gateway-name>.yml** junto a **Implementación** para descargar el archivo.
-7. Ajuste las asignaciones de puerto y el nombre del contenedor en el archivo yml según sea necesario.
-8. En función de su escenario, puede que tenga que cambiar el [tipo de servicio](../aks/concepts-network.md#services). El valor predeterminado es `NodePort`.
-9. Seleccione el icono **copiar** situado en el extremo derecho del cuadro de texto **Implementar** para guardar el comando `kubectl` en el portapapeles.
-10. Pegue el comando en la ventana de terminal (o comando). Tenga en cuenta que el comando espera que el archivo de entorno descargado esté presente en el directorio actual.
-```console
-    kubectl apply -f <gateway-name>.yaml
-```
-11. Ejecute el comando. El comando indica al clúster de AKS que ejecute el contenedor mediante la imagen de la puerta de enlace autohospedada descargada de Microsoft Container Registry y que configure el contenedor para exponer los puertos HTTP (8080) y HTTPS (443).
-12. Ejecute el siguiente comando para comprobar que el pod de puerta de enlace se está ejecutando. Tenga en cuenta que el nombre del pod será diferente.
-```console
-kubectl get pods
-NAME                                   READY     STATUS    RESTARTS   AGE
-contoso-apim-gateway-59f5fb94c-s9stz   1/1       Running   0          1m
-```
-13. Ejecute el siguiente comando para comprobar que el servicio de puerta de enlace se está ejecutando. Tenga en cuenta el nombre del servicio y las direcciones IP serán diferentes.
-```console
-kubectl get services
-NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
-contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:30043/TCP   1m
-```
-14. Vuelva a Azure Portal y confirme que el nodo de puerta de enlace que acaba de implementar notifique que su estado sea correcto.
+7. Ajuste `config.service.endpoint`, las asignaciones de puertos y el nombre del contenedor en el archivo .yml según sea necesario.
+8. En función de su escenario, puede que tenga que cambiar el [tipo de servicio](../aks/concepts-network.md#services). 
+    * El valor predeterminado es `LoadBalancer`, que es el equilibrador de carga externo. 
+    * Puede usar el [equilibrador de carga interno](../aks/internal-lb.md) para restringir el acceso a la puerta de enlace autohospedada solo a usuarios internos. 
+    * En el ejemplo siguiente se usa `NodePort`.
+1. Seleccione el icono **copiar** situado en el extremo derecho del cuadro de texto **Implementar** para guardar el comando `kubectl` en el portapapeles.
+1. Pegue el comando en la ventana de terminal (o comando). El comando espera que el archivo de entorno descargado esté presente en el directorio actual.
+    ```console
+        kubectl apply -f <gateway-name>.yaml
+    ```
+1. Ejecute el comando. El comando indica al clúster de AKS que:
+    * Ejecute el contenedor mediante la imagen de puerta de enlace autohospedada descargada de Microsoft Container Registry. 
+    * Configure el contenedor para exponer los puertos HTTP (8080) y HTTPS (443).
+1. Ejecute el siguiente comando para comprobar que el pod de puerta de enlace se está ejecutando. El nombre del pod será diferente.
+    ```console
+    kubectl get pods
+    NAME                                   READY     STATUS    RESTARTS   AGE
+    contoso-apim-gateway-59f5fb94c-s9stz   1/1       Running   0          1m
+    ```
+1. Ejecute el siguiente comando para comprobar que el servicio de puerta de enlace se está ejecutando. El nombre del servicio y las direcciones IP serán diferentes.
+    ```console
+    kubectl get services
+    NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+    contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:30043/TCP   1m
+    ```
+1. Vuelva a Azure Portal y confirme que el nodo de puerta de enlace que ha implementado notifica que su estado es correcto.
 
 > [!TIP]
 > Use el comando <code>kubectl logs <gateway-pod-name></code> para ver una instantánea del registro de la puerta de enlace autohospedada.

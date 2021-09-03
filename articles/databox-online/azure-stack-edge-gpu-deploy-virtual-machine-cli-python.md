@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 06/30/2021
 ms.author: alkohli
-ms.openlocfilehash: d7dd4a3920e947469c85df0d9ab440d95ab7712d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9dfafd76751672d391ecfcc1fd2fd811c0912fe9
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466931"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105892"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implementación de máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU con la CLI de Azure y Python
 
@@ -49,7 +49,7 @@ Para obtener una explicación detallada del diagrama del flujo de trabajo, vea [
 
 Antes de empezar a crear y administrar una máquina virtual en el dispositivo Azure Stack Edge Pro con la CLI de Azure y Python, debe asegurarse de que ha completado los requisitos previos que se indican en los pasos siguientes:
 
-1. Ha completado la configuración de red en el dispositivo Azure Stack Edge Pro como se describe en [Paso 1: configuración de un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Ha completado la configuración de red en el dispositivo Azure Stack Edge Pro como se describe en [Paso 1: configuración de un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
 
 2. Ha habilitado una interfaz de red de proceso. Esta dirección IP de la interfaz de red se utiliza para crear un conmutador virtual para la implementación de la máquina virtual. Los pasos siguientes le guiarán en el proceso:
 
@@ -317,7 +317,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
    Siga estos pasos para iniciar sesión como un *usuario*:
 
-   puede especificar el nombre de usuario y la contraseña directamente en el comando `az login` o autenticarse utilizando un explorador. Debe hacer esto último si la cuenta tiene habilitada la autenticación multifactor.
+   puede especificar el nombre de usuario y la contraseña directamente en el comando `az login` o autenticarse utilizando un explorador. Tendrá que hacer esto último si la cuenta tiene habilitada la autenticación multifactor.
 
    A continuación se muestra un ejemplo de uso del comando `az login`:
     
@@ -355,7 +355,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
    $ENV:ARM_TENANT_ID = "c0257de7-538f-415c-993a-1b87a031879d"
    $ENV:ARM_CLIENT_ID = "cbd868c5-7207-431f-8d16-1cb144b50971"
    $ENV:ARM_CLIENT_SECRET - "<Your Azure Resource Manager password>"
-   $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
+   $ENV:ARM_SUBSCRIPTION_ID = "<Your subscription ID>"
    ```
 
    El identificador de cliente de Azure Resource Manager se codifica de forma rígida. El identificador de suscripción y el identificador de inquilino de Azure Resource Manager están presentes en la salida del comando `az login` que se ejecutó anteriormente. El secreto del cliente de Azure Resource Manager es la contraseña de Azure Resource Manager que estableció.
@@ -404,7 +404,7 @@ Se le proporciona un script de Python para crear una máquina virtual. En funci�
             ubuntu13.vhd
     
     VM image resource id:
-                /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/azure-sample-group-virtual-machines118/providers/Microsoft.Compute/images/UbuntuImage
+                /subscriptions/.../resourceGroups/azure-sample-group-virtual-machines118/providers/Microsoft.Compute/images/UbuntuImage
     
     Create Vnet
     Create Subnet

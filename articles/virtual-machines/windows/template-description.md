@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28262d66794d573d40e4e202d8b047e1d1fbefc7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 167a92e9e9950245d58fd7497eb9df4c29f0fa7e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953797"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281636"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
 En este artículo se explican los aspectos de una plantilla de Azure Resource Manager que se aplican a las máquinas virtuales. En este artículo no se describe una plantilla completa para crear una máquina virtual. Para ello, necesita definiciones de recursos de cuentas de almacenamiento, interfaces de red, direcciones IP públicas y redes virtuales. Para obtener más información sobre cómo se pueden definir estos recursos juntos, consulte el [tutorial de plantilla de Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-Hay muchas [plantillas en la galería](https://azure.microsoft.com/documentation/templates/?term=VM) que incluyen el recurso de máquina virtual. No todos los elementos que pueden incorporarse en una plantilla se describen aquí.
+Hay muchas [plantillas en la galería](https://azure.microsoft.com/resources/templates/?term=VM) que incluyen el recurso de máquina virtual. No todos los elementos que pueden incorporarse en una plantilla se describen aquí.
 
  
 
@@ -33,7 +33,7 @@ En este ejemplo se muestra una sección de recursos típica de una plantilla par
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop", 
+      "name": "virtualMachineLoop",  
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -217,7 +217,7 @@ Si necesita más de una máquina virtual para la aplicación, puede utilizar un 
 
 ```json
 "copy": {
-  "name": "virtualMachineLoop", 
+  "name": "virtualMachineLoop",  
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -237,7 +237,7 @@ Además, tenga en cuenta en el ejemplo se utiliza el índice de bucle al especif
 >
 >
 
-Tenga en cuenta que la creación de un bucle para un recurso de la plantilla puede requerir que se utilice dicho bucle al crear otros recursos o acceder a ellos. Por ejemplo, varias máquinas virtuales no pueden usar la misma interfaz de red; por tanto, si recorre en bucle la creación de tres máquinas virtuales, también debe hacerlo con la generación de las tres interfaces de red. Al asignar una interfaz de red a una máquina virtual, el índice de bucle se utiliza para identificarlo:
+Tenga en cuenta que la creación de un bucle para un recurso de la plantilla puede requerir que se utilice dicho bucle al crear otros recursos o acceder a ellos. Por ejemplo, varias máquinas virtuales no pueden usar la misma interfaz de red; por tanto, si la plantilla recorre en bucle la creación de tres máquinas virtuales, también debe hacerlo con la generación de tres interfaces de red. Al asignar una interfaz de red a una máquina virtual, el índice de bucle se utiliza para identificarlo:
 
 ```json
 "networkInterfaces": [ { 

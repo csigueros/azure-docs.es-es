@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de17fface1a99e7e3832cf815eadda6915a707fd
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667662"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583156"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Cómo ejecutar o restablecer indizadores, aptitudes o documentos
 
@@ -73,7 +73,7 @@ Una vez finalizada la ejecución, se borra una marca de restablecimiento. Cualqu
 ## <a name="reset-skills-preview"></a>Restablecer aptitudes (versión preliminar)
 
 > [!IMPORTANT] 
-> [Restablecer aptitudes](/rest/api/searchservice/preview-api/reset-skills) está en versión preliminar pública, disponible solo a través de la API de REST en versión preliminar. Las características en vista previa (GB) se ofrecen tal cual, en [Términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [Restablecer aptitudes](/rest/api/searchservice/preview-api/reset-skills) está en versión preliminar pública en los [términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API REST de versión preliminar](/rest/api/searchservice/index-preview) admite esta característica.
 
 En el caso de los indizadores que tienen conjuntos de aptitudes, puede restablecer aptitudes específicas para forzar el procesamiento de esa aptitud y cualquier aptitud de nivel inferior que dependa de su salida. Los [enriquecimientos en caché](search-howto-incremental-index.md) también se actualizan. Al restablecer aptitudes se invalidan los resultados de las aptitudes en caché, lo que resulta útil cuando se implementa una nueva versión de una aptitud y se desea que el indizador vuelva a ejecutar esa aptitud para todos los documentos. 
 

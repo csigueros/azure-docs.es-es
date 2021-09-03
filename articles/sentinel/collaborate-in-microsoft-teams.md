@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2021
+ms.date: 06/17/2021
 ms.author: bagol
-ms.openlocfilehash: fed86c1982e78c527c211d4f4ec530386e13425a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 3aefed370606b80249eabeac35123223b2ad5255
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796902"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729751"
 ---
 # <a name="collaborate-in-microsoft-teams-public-preview"></a>Colaboración en Microsoft Teams (versión preliminar pública)
 
@@ -39,6 +39,16 @@ Las organizaciones que ya usan Microsoft Teams para la comunicación y la colabo
 
 Un equipo de incidentes dispone siempre de los datos más actualizados y recientes de Azure Sentinel, lo que garantiza que los equipos tengan a mano los datos más importantes.
 
+## <a name="required-permissions"></a>Permisos necesarios
+
+Para crear equipos desde Azure Sentinel:
+
+- El usuario que crea el equipo debe tener permisos de escritura de incidentes en Azure Sentinel. Por ejemplo, [Respondedor de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) es un rol mínimo idóneo para este privilegio.
+
+- El usuario que crea el equipo también debe tener permisos para crear equipos en Microsoft Teams.
+
+- Cualquier usuario de Azure Sentinel, incluidos los usuarios con los roles [Lector](../role-based-access-control/built-in-roles.md#azure-sentinel-reader), [Respondedor](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) o [Colaborador](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor), puede obtener acceso al equipo creado si lo solicita.
+
 ## <a name="use-an-incident-team-to-investigate"></a>Uso de un equipo de incidentes para investigar
 
 Para investigar de forma conjunta con un *equipo de incidentes* integre Microsoft Teams directamente desde el incidente.
@@ -55,7 +65,7 @@ Para investigar de forma conjunta con un *equipo de incidentes* integre Microsof
 
     - **Nombre del equipo**: se define automáticamente como el nombre del incidente. Modifique el nombre según sea necesario para que pueda identificarlo fácilmente.
     - **Descripción**: escriba una descripción significativa del equipo de incidentes.
-    - **Incorporación de grupos:** seleccione uno o varios grupos de Azure AD para agregarlos al equipo de incidentes. No se admiten usuarios individuales.
+    - **Incorporación de grupos:** seleccione uno o varios grupos de Azure AD para agregarlos al equipo de incidentes. En esta página no se admiten usuarios individuales. Si tiene que agregar usuarios individuales, [hágalo en Microsoft Teams](#more-users) después de haber creado el equipo.
 
         > [!TIP]
         > Si trabaja con regularidad con los mismos equipos, puede seleccionar la estrella :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: para guardarlos como favoritos.
@@ -77,14 +87,14 @@ Para investigar de forma conjunta con un *equipo de incidentes* integre Microsof
 Continúe la conversación sobre la investigación en Teams durante el tiempo que sea necesario. Tiene los detalles completos del incidente directamente en los equipos.
 
 > [!TIP]
-> Al [cerrar un incidente](tutorial-investigate-cases.md#closing-an-incident), se archiva el equipo de incidentes relacionado que ha creado en Microsoft Teams.
+> - <a name="more-users"></a>Si tiene que agregar usuarios individuales al equipo, puede hacerlo en Microsoft Teams con el botón **Agregar más personas** de la pestaña **Publicaciones**.
 >
-> Si el incidente se vuelve a abrir, el equipo de incidentes relacionado también se volverá a abrir en Microsoft Teams para que pueda continuar la conversación, justo donde lo dejó.
+> - Al [cerrar un incidente](investigate-cases.md#closing-an-incident), se archiva el equipo de incidentes relacionado que ha creado en Microsoft Teams. Si el incidente se vuelve a abrir, el equipo de incidentes relacionado también se volverá a abrir en Microsoft Teams para que pueda continuar la conversación, justo donde lo dejó.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte:
 
-- [Tutorial: Investigación de incidentes con Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutorial: Investigación de incidentes con Azure Sentinel](investigate-cases.md)
 - [Introducción a los equipos y canales de Microsoft Teams](/microsoftteams/teams-channels-overview/)

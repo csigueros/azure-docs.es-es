@@ -1,27 +1,29 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: trbye
-ms.openlocfilehash: d2fae1c08132c855f570750a4528a9a37343434e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: lajanuar
+ms.openlocfilehash: cdf9b7132b6509b936d7a3c4d0d41a23933ef389
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104707"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122068973"
 ---
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
 En primer lugar, deberá instalar <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK para JavaScript</a>. Utilice las siguientes instrucciones en función de la plataforma:
 
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Explorador web </a>
 
 ## <a name="create-voice-signatures"></a>Creación de firmas de voz
 
-El primer paso es crear firmas de voz para los participantes en la conversación para que puedan identificarse como hablantes únicos. El archivo `.wav` de audio de entrada para la creación de firmas de voz debe ser de 16 bits, con frecuencia de muestreo de 16 kHz y un formato de canal único (mono). La longitud recomendada para cada muestra de audio está entre 30 segundos y dos minutos. El archivo `.wav` debe ser una muestra de voz de **una persona** para que se cree un perfil de voz único.
+(Puede omitir este paso si no quiere usar perfiles de usuario inscritos previamente para identificar participantes concretos).
+
+Si quiere inscribir perfiles de usuario, el primer paso consiste en crear firmas de voz para los participantes en la conversación a fin de que puedan identificarse como hablantes únicos. El archivo de audio `.wav` de entrada para la creación de firmas de voz debe ser de 16 bits, con frecuencia de muestreo de 16 kHz y un formato de canal único (mono). La longitud recomendada para cada muestra de audio está entre 30 segundos y dos minutos. Una muestra de audio demasiado corta dará como resultado una precisión reducida al reconocer el hablante. El archivo `.wav` debe ser una muestra de voz de **una persona** para que se cree un perfil de voz único.
 
 El ejemplo siguiente muestra cómo crear una firma de voz [mediante la API REST](https://aka.ms/cts/signaturegenservice) de JavaScript. Tenga en cuenta que debe sustituir la información real de `subscriptionKey`, `region` y la ruta de acceso a un archivo `.wav` de ejemplo.
 
@@ -62,6 +64,11 @@ La ejecución de este script devuelve una cadena de firma de voz en la variable 
 ## <a name="transcribe-conversations"></a>Transcripción de conversaciones
 
 El siguiente código de ejemplo muestra cómo transcribir conversaciones en tiempo real para dos hablantes. Se da por supuesto que ya ha creado cadenas de firma de voz para cada hablante como se muestra arriba. Sustituya la información real de `subscriptionKey`, `region` y la ruta de acceso `filepath` por la del audio que desea transcribir.
+
+Si no usa perfiles de usuario inscritos previamente, se tardarán unos segundos más en completar el primer reconocimiento de usuarios desconocidos como speaker1, speaker2, etc.
+
+> [!NOTE]
+> Asegúrese de que se usa el mismo valor `subscriptionKey` en la aplicación para la creación de firmas o se producirán errores. 
 
 Este código de ejemplo realiza las tareas siguientes:
 

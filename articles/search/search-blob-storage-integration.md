@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: 6646a2e5a074219df13f3bf373edfc53310c8104
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 07f208753265e35bbc51c74f74a87a1742fa52ff
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556611"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727485"
 ---
 # <a name="search-over-azure-blob-storage-content"></a>Búsqueda en el contenido de Azure Blob Storage
 
@@ -24,21 +24,21 @@ La búsqueda en los diversos tipos de contenido almacenado en Azure Blob Storag
 
 ## <a name="what-it-means-to-add-full-text-search-to-blob-data"></a>Qué implica agregar búsqueda de texto completo a los datos de blob
 
-Azure Cognitive Search es un servicio de búsqueda que admite las cargas de trabajo de indexación y consulta a través de índices definidos por el usuario que contienen el contenido en que se pueden hacer búsquedas remotas hospedado en la nube. Para mejorar el rendimiento es necesario colocalizar el contenido que permite búsquedas, lo que devuelve resultados a la velocidad a la que los usuarios esperan de las consultas de búsqueda.
+Azure Cognitive Search es un servicio de búsqueda que admite las cargas de trabajo de indexación y consulta por medio de índices definidos por el usuario que incluyen el contenido que se puede buscar de forma remota hospedado en la nube. Para mejorar el rendimiento es necesario colocalizar el contenido que permite búsquedas, lo que devuelve resultados a la velocidad a la que los usuarios esperan de las consultas de búsqueda.
 
-Cognitive Search se integra con Azure Blob Storage en el nivel de indexación e importa el contenido de los blobs en forma de documentos de búsqueda que se indexan en *índices invertidos* y otras estructuras de consulta que admiten consultas de texto en forma libre y expresiones de filtro. Como el contenido de los blobs se indexa en un índice de búsqueda, puede usar toda la gama de características de consulta de Azure Cognitive Search para encontrar información en el contenido de los blobs.
+Cognitive Search se integra con Azure Blob Storage en el nivel de indexación e importa el contenido de los blobs en forma de documentos de búsqueda que se indexan en *índices invertidos* y otras estructuras de consulta que admiten consultas de texto en formato libre y expresiones de filtro. Como el contenido de los blobs se indexa en un índice de búsqueda, puede usar toda la gama de características de consulta de Azure Cognitive Search para encontrar información en el contenido de los blobs.
 
 Las entradas son los blobs, en un solo contenedor, de Azure Blob Storage. Los blobs pueden ser casi prácticamente cualquier tipo de datos de texto. Si los blobs contienen imágenes, puede agregar [enriquecimiento con IA a la indexación de blobs](search-blob-ai-integration.md) para crear y extraer texto de imágenes.
 
 La salida siempre es un índice de Azure Cognitive Search, que se usa para operaciones rápidas de búsqueda, recuperación y exploración de texto en aplicaciones cliente. Entre las entradas y la salida se encuentra la propia arquitectura de canalización de la indexación. La canalización se basa en la característica de *indexador*, que se explica más adelante en este artículo.
 
-Una vez que el índice se crea y se rellena, pasa a existir con independencia del contenedor de blobs, pero se pueden volver a ejecutar operaciones de indexación para actualizar el índice según los documentos cambiados. Para detectar los cambios se usa la información de marca de tiempo de los blobs individuales. Como mecanismo de actualización, puede optar por una ejecución programada o por una indexación a petición.
+Una vez que el índice se crea y se rellena, existe con independencia del contenedor de blobs, pero se pueden volver a ejecutar operaciones de indexación para actualizar el índice según los documentos cambiados. Para detectar los cambios se usa la información de marca de tiempo de los blobs individuales. Como mecanismo de actualización, puede optar por una ejecución programada o por una indexación a petición.
 
 ## <a name="required-resources"></a>Recursos necesarios
 
 Se necesitan tanto Azure Cognitive Search como Azure Blob Storage. En el almacenamiento de blobs, se necesita un contenedor que proporcione el contenido de origen.
 
-Puede empezar directamente en la página del portal de la cuenta de almacenamiento. En la página de navegación izquierda, en **Blob service** haga clic en **Agregar Azure Cognitive Search** para crear un nuevo servicio o seleccionar uno existente. 
+Puede empezar directamente en la página del portal de la cuenta de almacenamiento. En la página de navegación de la izquierda, en **Blob service** seleccione **Agregar Azure Cognitive Search** para crear un servicio o seleccionar uno existente. 
 
 Después de agregar Azure Cognitive Search a la cuenta de almacenamiento, puede seguir el proceso estándar para indexar los datos de blob. Se recomienda utilizar el asistente para **Importar datos** de Azure Cognitive Search para comenzar con una introducción inicial sencilla, o bien llamar a las API de REST mediante una herramienta como, por ejemplo, Postman. Este tutorial le guiará por los pasos necesarios para llamar a la API REST en Postman: [Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Cognitive Search](search-semi-structured-data.md) 
 
@@ -48,7 +48,7 @@ Un *indexador* es un subservicio con reconocimiento del origen de datos de Cogni
 
 Los blobs de Azure Storage se indexan mediante el [indexador de Blob Storage para Azure Cognitive Search](search-howto-indexing-azure-blob-storage.md). Puede invocar este indexador mediante el asistente para la  **importación de datos**, una API REST o el SDK de .NET. En el código, este indexador se usa estableciendo el tipo y proporcionando información de conexión —que incluye una cuenta de Azure Storage junto con un contenedor de blobs—. Puede crear un subconjunto de los blobs mediante la creación de un directorio virtual, que luego puede pasar como parámetro, o filtrando por una extensión de tipo de archivo.
 
-Un indexador realiza el "descifrado de documentos", abriendo un blob para inspeccionar el contenido. Después de conectarse al origen de datos, es el primer paso de la canalización. En el caso de los datos de blob, aquí es donde se detectan los archivos PDF, los documentos de Office y otros tipos de contenido. El descifrado de documentos con extracción de texto no tiene ningún cargo. Si los blobs incluyen contenido de imagen, las imágenes se omiten, a menos que [agregue enriquecimiento con inteligencia artificial](search-blob-ai-integration.md). La indexación estándar solo se aplica al contenido de texto.
+Un indizador realiza el ["descifrado de documentos"](search-indexer-overview.md#document-cracking) y abre un blob para inspeccionar el contenido. Después de conectarse al origen de datos, es el primer paso de la canalización. En el caso de los datos de blob, aquí es donde se detectan los archivos PDF, los documentos de Office y otros tipos de contenido. El descifrado de documentos con extracción de texto no tiene ningún cargo. Si los blobs incluyen contenido de imagen, las imágenes se omiten, a menos que [agregue enriquecimiento con inteligencia artificial](search-blob-ai-integration.md). La indexación estándar solo se aplica al contenido de texto.
 
 El indexador de blobs incluye parámetros de configuración y admite el seguimiento de cambios si los datos subyacentes proporcionan información suficiente. Puede obtener más información sobre la funcionalidad básica en [Indexador en Azure Blob Storage con Azure Cognitive Search](search-howto-indexing-azure-blob-storage.md).
 

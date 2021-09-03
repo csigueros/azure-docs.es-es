@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: a691c242cbe91ea4a3e76bd0b1a93f11a6dd7c8b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 7b295fd67052d91c229977571056b3ea95d56773
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750591"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122177854"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Registro y examen de Azure Blob Storage
 
@@ -21,6 +21,12 @@ En este artículo se describe cómo registrar una cuenta de Azure Blob Storage e
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
 Azure Blob Storage admite exámenes completos e incrementales para capturar los metadatos y el esquema. También clasifica los datos automáticamente en función de las reglas de clasificación personalizadas y del sistema.
+
+Para los tipos de archivo como csv, tsv, psv y ssv, el esquema se extrae cuando se implementan las siguientes lógicas:
+
+1. Los valores de la primera fila no están vacíos
+2. Los valores de la primera fila son únicos
+3. Los valores de la primera fila no son una fecha ni un número
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,7 +51,7 @@ Al elegir la **Identidad administrada** para configurar la conexión, primero de
 1. Establezca el **Rol** en el **Lector de datos de blobs de almacenamiento** y escriba el nombre de la cuenta de Azure Purview en el cuadro de entrada **Seleccionar**. A continuación, seleccione **Save** (Guardar) para dar esta asignación de rol a su cuenta de Purview.
 
 > [!Note]
-> Para obtener más información, consulte los pasos que se detallan en [Autorización del acceso a blobs y colas con Azure Active Directory](../storage/common/storage-auth-aad.md).
+> Para obtener más información, consulte los pasos que se detallan en [Autorización del acceso a blobs y colas con Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md).
 
 ### <a name="account-key"></a>Clave de cuenta
 

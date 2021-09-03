@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines-linux
 author: cynthn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4bfac9be5041fdf4ebfe7ea56f064b8b85806703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52082c22053a5a54a4462fb01012bdceff848a96
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98859883"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113364901"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuciones y controladores admitidos
 
@@ -33,7 +33,7 @@ Los controladores de GRID redistribuidos por Azure no funcionan en máquinas vir
 
 |Distribución|Controlador|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7 a 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 12.0, rama de controlador [R460](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7 a 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 12.2, rama de controlador [R460](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 Para obtener la lista completa de los vínculos de todos los controladores de Nvidia GRID anteriores, visite [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json).
 

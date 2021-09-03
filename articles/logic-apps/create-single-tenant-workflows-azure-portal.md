@@ -1,28 +1,28 @@
 ---
-title: Creación de flujos de trabajo en Azure Logic Apps de un solo inquilino mediante Azure Portal
-description: Cree flujos de trabajo automatizados que integren aplicaciones, datos, servicios y sistemas mediante Azure Logic Apps de un solo inquilino y Azure Portal.
+title: Creación de flujos de trabajo con Azure Logic Apps (estándar) de inquilino único en Azure Portal
+description: Cree flujos de trabajo automatizados para integrar aplicaciones, datos, servicios y sistemas mediante instancias de Azure Logic Apps (estándar) de inquilino único en Azure Portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: 63b3de255269d921f38374adc246fb923fdda100
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 2178b3d4ea9c1cc650685b90fa5dc2cdf6551191
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110497126"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116615"
 ---
-# <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-the-azure-portal"></a>Creación de un flujo de trabajo de integración mediante Azure Logic Apps de un solo inquilino y Azure Portal
+# <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Creación de un flujo de trabajo de integración con Azure Logic Apps (estándar) de inquilino único en Azure Portal
 
-En este artículo se muestra cómo crear un flujo de trabajo de integración automatizado de ejemplo que se ejecuta en el *entorno de Azure Logic Apps de un solo inquilino* mediante el tipo de recurso **Logic Apps (estándar)** . Si es nuevo en el nuevo modelo de un solo inquilino y el tipo de recurso de aplicación lógica, revise [Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración](single-tenant-overview-compare.md).
+En este artículo se muestra cómo crear un flujo de trabajo de integración automatizado de ejemplo que se ejecuta en el entorno de Azure Logic Apps de *inquilino único* mediante el tipo de recurso **Aplicación lógica (estándar)** y Azure Portal. Este tipo de recurso puede hospedar varios [flujos de trabajo con estado y sin estado](single-tenant-overview-compare.md#stateful-stateless). Además, los flujos de trabajo de la misma aplicación lógica e inquilino se ejecutan en el mismo proceso que el entorno de ejecución rediseñado de Azure Logic Apps, por lo que comparten los mismos recursos y proporcionan un rendimiento mejor. Para obtener más información sobre la oferta de Azure Logic Apps de inquilino único, revise [Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps](single-tenant-overview-compare.md).
 
 Aunque este flujo de trabajo de ejemplo está basado en la nube y solo tiene dos pasos, puede crear flujos de trabajo a partir de cientos de operaciones que pueden conectar una amplia variedad de aplicaciones, datos, servicios y sistemas en entornos híbridos, locales y en la nube. El flujo de trabajo de ejemplo comienza con el desencadenador Solicitud integrado y sigue con una acción de Office 365 Outlook. El desencadenador crea un punto de conexión al que se puede llamar para el flujo de trabajo y espera una solicitud HTTPS entrante de cualquier autor de llamada. Cuando el desencadenador recibe una solicitud y se activa, la siguiente acción se ejecuta mediante el envío de un correo electrónico a la dirección de correo electrónico especificada junto con las salidas seleccionadas del desencadenador.
 
 > [!TIP]
 > Si no tiene ninguna cuenta de Office 365, puede usar cualquier otra acción disponible que pueda enviar mensajes desde su cuenta de correo electrónico, como, por ejemplo, Outlook.com.
-> 
-> Para crear este flujo de trabajo de ejemplo mediante Visual Studio Code, siga los pasos descritos en [Creación de flujos de trabajo de integración mediante Azure Logic Apps de un solo inquilino y Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
+>
+> Para crear este flujo de trabajo de ejemplo en Visual Studio Code, siga los pasos descritos en [Creación de flujos de trabajo de integración mediante Azure Logic Apps de inquilino único y Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
 > Ambas opciones proporcionan la funcionalidad para desarrollar, ejecutar e implementar flujos de trabajo de aplicaciones lógicas en los mismos tipos de entornos. 
 > Sin embargo, con Visual Studio Code, puede desarrollar, probar y ejecutar flujos de trabajo *localmente* en el entorno de desarrollo.
 
@@ -247,7 +247,7 @@ Para buscar los nombres de dominio completos (FQDN) de las conexiones, siga esto
 
    ![Captura de pantalla que muestra Azure Portal y el panel de conexión de API con la opción "Vista JSON" seleccionada.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png)
 
-1. Busque, copie y guarde el valor de la propiedad `connectionRuntimeUrl` en un lugar seguro para que pueda configurar el firewall con esta información.
+1. Copie y guarde el valor de la propiedad `connectionRuntimeUrl` en un lugar seguro para que pueda configurar el firewall con esta información.
 
    ![Captura de pantalla que muestra el valor de la propiedad "connectionRuntimeUrl" seleccionado.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png)
 
@@ -294,7 +294,7 @@ En este ejemplo, el flujo de trabajo se ejecuta cuando el desencadenador de soli
 
    1. En **All Collections** (Todas las colecciones), escriba un nombre para la colección que se va a crear para organizar las solicitudes, presione ENTRAR y, a continuación, seleccione **Save to <*nombre-de-la-colección*>** (Guardar en <nombre de la colección>). En este ejemplo se usa `Logic Apps requests` como nombre de la colección.
 
-      Se abre el panel de solicitudes de Postman para que pueda enviar una solicitud a la dirección URL de punto de conexión para el desencadenador de solicitud.
+      En la aplicación Postman, se abre el panel de solicitudes para que pueda enviar una solicitud a la dirección URL de punto de conexión para el desencadenador de solicitud.
 
       ![Captura de pantalla que muestra Postman con el panel de solicitudes abierto.](./media/create-single-tenant-workflows-azure-portal/postman-request-pane.png)
 
@@ -412,7 +412,7 @@ Después de que se abra Application Insights, puede revisar varias métricas de 
 
 Para depurar un flujo de trabajo sin estado con más facilidad, puede habilitar el historial de ejecución para ese flujo de trabajo y luego deshabilitar el historial de ejecución cuando haya terminado. Siga estos pasos para Azure Portal, o bien, si está trabajando en Visual Studio Code, consulte [Creación de flujos de trabajo con y sin estado en Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
-1. En [Azure Portal](https://portal.azure.com), busque y abra el recurso **Logic Apps (estándar)** .
+1. En [Azure Portal](https://portal.azure.com), abra el recurso **Aplicación lógica (estándar)** .
 
 1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración**.
 
@@ -472,7 +472,7 @@ Detener una aplicación lógica afecta a las instancias de flujo de trabajo de l
 
   Para evitar que cada flujo de trabajo se active con elementos no procesados desde la última ejecución, siga estos pasos para borrar el estado del desencadenador antes de reiniciar la aplicación lógica:
 
-  1. En Azure Portal, busque y abra la aplicación lógica.
+  1. Abra la aplicación lógica en Azure Portal.
   1. En el menú de la aplicación lógica, en **Flujos de trabajo**, seleccione **Flujos de trabajo**.
   1. Abra un flujo de trabajo y edite cualquier parte de su desencadenador.
   1. Guarde los cambios. Este paso restablece el estado actual del desencadenador.
@@ -483,7 +483,7 @@ Detener una aplicación lógica afecta a las instancias de flujo de trabajo de l
 
 ### <a name="restart-stop-or-start-a-single-logic-app"></a>Reinicio, detención o inicio de una sola aplicación lógica
 
-1. En Azure Portal, busque y abra la aplicación lógica.
+1. Abra la aplicación lógica en Azure Portal.
 
 1. En el menú de la aplicación lógica, seleccione **Información general**.
 
@@ -585,9 +585,9 @@ La detección de un flujo de trabajo tiene los siguientes efectos en sus instanc
 
 * Azure Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
 
-* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Tiene que volver a guardar todo flujo de trabajo que haya llamado al flujo de trabajo eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
+* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Para actualizar los metadatos, tendrá que volver a guardar cualquier flujo de trabajo que haya llamado al que se ha eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
 
-1. En Azure Portal, busque y abra la aplicación lógica.
+1. Abra la aplicación lógica en Azure Portal.
 
 1. En el menú de la aplicación lógica, en **Flujos de trabajo**, seleccione **Flujos de trabajo**. En la columna de casillas de verificación, seleccione los flujos de trabajo que quiera eliminar.
 

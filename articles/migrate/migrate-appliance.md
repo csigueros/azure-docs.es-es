@@ -1,17 +1,17 @@
 ---
 title: Dispositivo con Azure Migrate
 description: Proporciona un resumen de compatibilidad con el dispositivo de Azure Migrate.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 7a660b6da0d391e7e2671302432c937b5142f4b0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d8aa5f6bf955bcc3ee3fa86c17375d47402628ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747732"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725293"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -23,8 +23,8 @@ El dispositivo Azure Migrate se usa en los escenarios siguientes.
 
 **Escenario** | **Herramienta** | **Se usa para**
 --- | --- | ---
-**Detección y evaluación de servidores que se ejecutan en el entorno de VMware** | Azure Migrate: Detección y evaluación | Detectar servidores que se ejecutan en el entorno de VMware.<br/><br/> Realizar la detección del inventario de software instaladas, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
-**Migración sin agente de servidores que se ejecutan en el entorno de VMware** | Server Migration de Azure Migrate | Detectar servidores que se ejecutan en el entorno de VMware. <br/><br/> Replicar servidores sin necesidad de instalar ningún agente en ellos.
+**Detección y evaluación de servidores que se ejecutan en el entorno de VMware** | Azure Migrate: Detección y evaluación | Detectar servidores que se ejecutan en el entorno de VMware.<br/><br/> Realizar la detección del inventario de software instalado, las aplicaciones web de ASP.NET, las instancias de SQL Server y bases de datos, y el análisis de dependencias sin agente.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
+**Migración sin agente de servidores que se ejecutan en el entorno de VMware** | Azure Migrate: Server Migration | Detectar servidores que se ejecutan en el entorno de VMware. <br/><br/> Replicar servidores sin necesidad de instalar ningún agente en ellos.
 **Detección y evaluación de servidores que se ejecutan en el entorno de Hyper-V** | Azure Migrate: Detección y evaluación | Detectar servidores que se ejecutan en el entorno de Hyper-V.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
 **Detección y evaluación de servidores físicos o virtualizados locales** |  Azure Migrate: Detección y evaluación |  Detectar servidores físicos o virtualizados locales.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
 
@@ -45,30 +45,30 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Requisito** | **VMware**
 --- | ---
 **Permisos** | Para acceder al administrador de configuración del dispositivo de manera local o remota, debe tener una cuenta de usuario local o de dominio con privilegios administrativos en el servidor del dispositivo.
-**Servicios del dispositivo** | El dispositivo tiene los servicios siguientes:<br/><br/> - **Administrador de configuración del dispositivo**: se trata de una aplicación web que se puede configurar con detalles de origen para iniciar la detección y la evaluación de los servidores.<br/> - **Agente de detección de VMware**: el agente recopila los metadatos de configuración del servidor que se pueden usar para crear evaluaciones locales.<br/>- **Agente de evaluación de VMware**: el agente recopila los metadatos de rendimiento del servidor que se pueden usar para crear evaluaciones basadas en el rendimiento.<br/>- **Servicio de actualización automática**: el servicio mantiene actualizados todos los agentes que se ejecutan en el dispositivo. Se ejecuta automáticamente una vez cada 24 horas.<br/>- **Agente DRA**: orquesta la replicación del servidor y coordina la comunicación entre los servidores replicados y Azure. Solo se usa al replicar servidores en Azure mediante la migración sin agente.<br/>- **Puerta de enlace**: Envía los datos replicados a Azure. Solo se usa al replicar servidores en Azure mediante la migración sin agente.<br/>- **Agente de detección y evaluación de SQL**: envía los metadatos de configuración y rendimiento de las instancias y bases de datos de SQL Server a Azure.
+**Servicios del dispositivo** | El dispositivo tiene los servicios siguientes:<br/><br/> - **Administrador de configuración del dispositivo**: es una aplicación web que se puede configurar con detalles de origen para iniciar la detección y la evaluación de los servidores.<br/> - **Agente de detección de VMware**: el agente recopila los metadatos de configuración del servidor que se pueden usar para crear evaluaciones locales.<br/>- **Agente de evaluación de VMware**: el agente recopila los metadatos de rendimiento del servidor que se pueden usar para crear evaluaciones basadas en el rendimiento.<br/>- **Servicio de actualización automática**: el servicio mantiene actualizados todos los agentes que se ejecutan en el dispositivo. Se ejecuta automáticamente una vez cada 24 horas.<br/>- **Agente DRA**: orquesta la replicación del servidor y coordina la comunicación entre los servidores replicados y Azure. Solo se usa al replicar servidores en Azure mediante la migración sin agente.<br/>- **Puerta de enlace**: Envía los datos replicados a Azure. Solo se usa al replicar servidores en Azure mediante la migración sin agente.<br/>- **Agente de detección y evaluación de SQL**: envía los metadatos de configuración y rendimiento de las instancias y bases de datos de SQL Server a Azure.<br/>- **Agente de detección y evaluación de aplicaciones web**: envía los datos de configuración de las aplicaciones web a Azure.
 **Límites del proyecto** |  Un dispositivo solo puede registrarse en un único proyecto.<br/> Un único proyecto puede tener varios dispositivos registrados.
 **Límites de detección** | Un dispositivo puede detectar hasta 10 000 servidores en una instancia de vCenter Server.<br/> Un dispositivo solo puede conectarse a una instancia de vCenter Server.
 **Implementación admitida** | Se implementa como un nuevo servidor que se ejecuta en vCenter Server mediante la plantilla OVA.<br/><br/> Se implementa en un servidor existente que se ejecuta en Windows Server 2016 mediante el script del instalador de PowerShell.
-**Plantilla de OVA** | Se descarga desde el proyecto o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140333).<br/><br/> El tamaño de la descarga es 11,9 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días.<br/>Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo mediante OVA, o bien activar la licencia del sistema operativo del servidor del dispositivo.
+**Plantilla de OVA** | Se descarga desde el proyecto o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140333).<br/><br/> El tamaño de la descarga es 11,9 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días.<br/>Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo mediante la plantilla OVA, o bien activar la licencia del sistema operativo del servidor del dispositivo.
 **Comprobación de OVA** | [Compruebe](tutorial-discover-vmware.md#verify-security) la plantilla OVA descargada del proyecto comprobando los valores hash.
 **Script de PowerShell** | Consulte este [artículo](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) sobre cómo implementar un dispositivo mediante el script del instalador de PowerShell.<br/><br/> 
-**Requisitos de hardware y de red** |  El dispositivo debe ejecutarse en un servidor con Windows Server 2016, 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si implementa el dispositivo mediante la plantilla OVA, necesitará suficientes recursos en vCenter Server para crear un servidor que cumpla los requisitos de hardware.<br/><br/> Si ejecuta el dispositivo en un servidor existente, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/>_(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._
+**Requisitos de hardware y de red** |  El dispositivo debe ejecutarse en un servidor con Windows Server 2016, 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si implementa el dispositivo mediante la plantilla OVA, necesitará suficientes recursos en vCenter Server para crear un servidor que cumpla los requisitos de hardware.<br/><br/> Si ejecuta el dispositivo en un servidor existente, asegúrese de que se ejecuta Windows Server 2016 y de que cumple los requisitos de hardware.<br/>_(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._
 **Requisitos de VMware** | Si implementa el dispositivo como servidor en vCenter Server, debe implementarse en una instancia de vCenter Server que ejecute la versión 5.5, 6.0, 6.5, 6.7 o 7.0 y un host ESXi que ejecute la versión 5.5 o posterior.<br/><br/> 
-**VDDK (migración sin agentes)** | Si quiere utilizar el dispositivo para la migración sin agente de servidores, VMware vSphere VDDK debe estar instalado en el servidor del dispositivo.
+**VDDK (migración sin agentes)** | A fin de utilizar el dispositivo para la migración sin agente de servidores, VMware vSphere VDDK debe estar instalado en el servidor del dispositivo.
 
 ## <a name="appliance---hyper-v"></a>Dispositivo: Hyper-V
 
 **Requisito** | **Hyper-V**
 --- | ---
 **Permisos** | Para acceder al administrador de configuración del dispositivo de manera local o remota, debe tener una cuenta de usuario local o de dominio con privilegios administrativos en el servidor del dispositivo.
-**Servicios del dispositivo** | El dispositivo tiene los servicios siguientes:<br/><br/> - **Administrador de configuración del dispositivo**: se trata de una aplicación web que se puede configurar con detalles de origen para iniciar la detección y la evaluación de los servidores.<br/> - **Agente de detección**: el agente recopila los metadatos de configuración del servidor que se pueden usar para crear evaluaciones locales.<br/>- **Agente de evaluación**: el agente recopila los metadatos de rendimiento del servidor que se pueden usar para crear evaluaciones basadas en el rendimiento.<br/>- **Servicio de actualización automática**: el servicio mantiene actualizados todos los agentes que se ejecutan en el dispositivo. Se ejecuta automáticamente una vez cada 24 horas.
+**Servicios del dispositivo** | El dispositivo tiene los servicios siguientes:<br/><br/> - **Administrador de configuración del dispositivo**: es una aplicación web que se puede configurar con detalles de origen para iniciar la detección y la evaluación de los servidores.<br/> - **Agente de detección**: el agente recopila los metadatos de configuración del servidor que se pueden usar para crear evaluaciones locales.<br/>- **Agente de evaluación**: el agente recopila los metadatos de rendimiento del servidor que se pueden usar para crear evaluaciones basadas en el rendimiento.<br/>- **Servicio de actualización automática**: el servicio mantiene actualizados todos los agentes que se ejecutan en el dispositivo. Se ejecuta automáticamente una vez cada 24 horas.
 **Límites del proyecto** |  Un dispositivo solo puede registrarse en un único proyecto.<br/> Un único proyecto puede tener varios dispositivos registrados.
 **Límites de detección** | Un dispositivo puede detectar hasta 5000 servidores que se ejecutan en el entorno de Hyper-V.<br/> Un dispositivo puede conectarse hasta a 300 hosts de Hyper-V.
 **Implementación admitida** | Implementar como servidor que se ejecuta en un host de Hyper-V mediante una plantilla VHD.<br/><br/> Se implementa en un servidor existente que se ejecuta en Windows Server 2016 mediante el script del instalador de PowerShell.
 **Plantilla de VHD** | Archivo ZIP que incluye una plantilla VHD. Se descarga desde el proyecto o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> El tamaño de la descarga es 8,91 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días.<br/> Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo del servidor del dispositivo.
 **Comprobación de VHD** | [Compruebe](tutorial-discover-hyper-v.md#verify-security) la plantilla VHD descargada del proyecto comprobando los valores hash.
 **Script de PowerShell** | Consulte este [artículo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) sobre cómo implementar un dispositivo mediante el script del instalador de PowerShell.<br/>
-**Requisitos de hardware y de red**  |  El dispositivo debe ejecutarse en un servidor con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo como servidor que se ejecuta en un host de Hyper-V, necesita suficientes recursos en el host para crear un servidor que cumpla los requisitos de hardware.<br/><br/> Si ejecuta el dispositivo en un servidor existente, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/>_(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._
+**Requisitos de hardware y de red**  |  El dispositivo debe ejecutarse en un servidor con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo como servidor que se ejecuta en un host de Hyper-V, necesita suficientes recursos en el host para crear un servidor que cumpla los requisitos de hardware.<br/><br/> Si ejecuta el dispositivo en un servidor existente, asegúrese de que se ejecuta Windows Server 2016 y de que cumple los requisitos de hardware.<br/>_(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._
 **Requisitos de Hyper-V** | Si se implementa el dispositivo con la plantilla VHD, el dispositivo que proporciona Azure Migrate es la versión 5.0 de la máquina virtual de Hyper-V.<br/><br/> El host de Hyper-V debe ejecutarse en Windows Server 2012 R2 o posterior.
 
 ## <a name="appliance---physical"></a>Dispositivo: físico
@@ -76,13 +76,13 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Requisito** | **Físico**
 --- | ---
 **Permisos** | Para acceder al administrador de configuración del dispositivo de manera local o remota, debe tener una cuenta de usuario local o de dominio con privilegios administrativos en el servidor del dispositivo.
-**Servicios del dispositivo** | El dispositivo tiene los servicios siguientes:<br/><br/> - **Administrador de configuración del dispositivo**: se trata de una aplicación web que se puede configurar con detalles de origen para iniciar la detección y la evaluación de los servidores.<br/> - **Agente de detección**: el agente recopila los metadatos de configuración del servidor que se pueden usar para crear evaluaciones locales.<br/>- **Agente de evaluación**: el agente recopila los metadatos de rendimiento del servidor que se pueden usar para crear evaluaciones basadas en el rendimiento.<br/>- **Servicio de actualización automática**: el servicio mantiene actualizados todos los agentes que se ejecutan en el dispositivo. Se ejecuta automáticamente una vez cada 24 horas.
+**Servicios del dispositivo** | El dispositivo tiene los servicios siguientes:<br/><br/> - **Administrador de configuración del dispositivo**: es una aplicación web que se puede configurar con detalles de origen para iniciar la detección y la evaluación de los servidores.<br/> - **Agente de detección**: el agente recopila los metadatos de configuración del servidor que se pueden usar para crear evaluaciones locales.<br/>- **Agente de evaluación**: el agente recopila los metadatos de rendimiento del servidor que se pueden usar para crear evaluaciones basadas en el rendimiento.<br/>- **Servicio de actualización automática**: el servicio mantiene actualizados todos los agentes que se ejecutan en el dispositivo. Se ejecuta automáticamente una vez cada 24 horas.
 **Límites del proyecto** |  Un dispositivo solo puede registrarse en un único proyecto.<br/> Un único proyecto puede tener varios dispositivos registrados.<br/>
 **Límites de detección** | Un dispositivo puede detectar hasta 1000 servidores físicos.
 **Implementación admitida** | Se implementa en un servidor existente que se ejecuta en Windows Server 2016 mediante el script del instalador de PowerShell.
 **Script de PowerShell** | Descargue el script (AzureMigrateInstaller.ps1) en un archivo ZIP desde el proyecto o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140334). [Más información](tutorial-discover-physical.md).<br/><br/> El tamaño de la descarga es de 85,8 MB.
 **Comprobación del script** | [Compruebe](tutorial-discover-physical.md#verify-security) el script del instalador de PowerShell descargado del proyecto comprobando los valores hash.
-**Requisitos de hardware y de red** |  El dispositivo debe ejecutarse en un servidor con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en un servidor existente, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/>_(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._
+**Requisitos de hardware y de red** |  El dispositivo debe ejecutarse en un servidor con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en un servidor existente, asegúrese de que se ejecuta Windows Server 2016 y de que cumple los requisitos de hardware.<br/>_(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._
 
 ## <a name="url-access"></a>acceso URL
 
@@ -97,12 +97,11 @@ El dispositivo de Azure Migrate necesita conectividad a Internet.
 **URL** | **Detalles**  
 --- | --- |
 *.portal.azure.com  | Acceda a Azure Portal.
-\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Inicie sesión en la suscripción de Azure.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
-management.azure.com | Cree aplicaciones de Azure AD para que el dispositivo se comunique con Azure Migrate.
+\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com  <br/> *.microsoftazuread-sso.com | Azure Active Directory lo usa para la administración de identidades y el control de acceso
+management.azure.com | Se usa para implementaciones de recursos y operaciones de administración
 *.services.visualstudio.com | Cargue los registros del dispositivo que se usan para la supervisión interna.
 *.vault.azure.net | Administre secretos en Azure Key Vault.<br/> Nota: Asegúrese de que los servidores que se van a replicar tengan acceso a esto.
-aka.ms/* | Permita el acceso a los vínculos aka; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
+aka.ms/* | Se permite el acceso a estos vínculos; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
 download.microsoft.com/download | Permita descargas del centro de descargas de Microsoft.
 *.servicebus.windows.net | Comunicación entre el dispositivo y el servicio Azure Migrate.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Conéctese a las direcciones URL del servicio Azure Migrate.
@@ -115,11 +114,11 @@ download.microsoft.com/download | Permita descargas del centro de descargas de M
 --- | --- |
 *.portal.azure.us  | Acceda a Azure Portal.
 graph.windows.net | Inicie sesión en la suscripción de Azure.
-login.microsoftonline.us  | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
-management.usgovcloudapi.net | Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Migrate.
+login.microsoftonline.us  | Azure Active Directory lo usa para la administración de identidades y el control de acceso
+management.usgovcloudapi.net |  Se usa para implementaciones de recursos y operaciones de administración
 *.services.visualstudio.com | Cargue los registros del dispositivo que se usan para la supervisión interna.
 *.vault.usgovcloudapi.net | Administre secretos en Azure Key Vault.
-aka.ms/* | Permita el acceso a los vínculos aka; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
+aka.ms/* | Se permite el acceso a estos vínculos; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
 download.microsoft.com/download | Permita descargas del centro de descargas de Microsoft.
 *.servicebus.usgovcloudapi.net  | Comunicación entre el dispositivo y el servicio Azure Migrate.
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Conéctese a las direcciones URL del servicio Azure Migrate.
@@ -129,16 +128,15 @@ download.microsoft.com/download | Permita descargas del centro de descargas de M
 
 ### <a name="public-cloud-urls-for-private-link-connectivity"></a>Direcciones URL de nube pública para la conectividad de vínculo privado
 
-El dispositivo necesita acceso a las siguientes direcciones URL (directamente o a través de proxy) a través del acceso de vínculo privado y superior. 
+El dispositivo necesita acceso a las siguientes direcciones URL (directamente o a través de proxy) a través del acceso de vínculo privado y superior.
 
 **URL** | **Detalles**  
---- | --- | 
+--- | --- |
 *.portal.azure.com  | Acceda a Azure Portal.
-\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Inicie sesión en la suscripción de Azure.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
-management.azure.com | Cree aplicaciones de Azure AD para que el dispositivo se comunique con Azure Migrate.
+\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> *.microsoftazuread-sso.com  | Azure Active Directory lo usa para la administración de identidades y el control de acceso
+management.azure.com |  Se usa para implementaciones de recursos y operaciones de administración
 *.services.visualstudio.com (opcional) | Cargue los registros del dispositivo que se usan para la supervisión interna.
-aka.ms/* (opcional) | Permita el acceso a los vínculos aka; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
+aka.ms/* (opcional) | Se permite el acceso a estos vínculos; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
 download.microsoft.com/download | Permita descargas del centro de descargas de Microsoft.
 *.servicebus.windows.net | **Se usa para la migración sin agentes de VMware.**<br/><br/> Comunicación entre el dispositivo y el servicio Azure Migrate.
 *.hypervrecoverymanager.windowsazure.com | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
@@ -248,6 +246,15 @@ Nombre  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL
 Edición  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Edición
 Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | SP
 Versión  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Versión
+
+#### <a name="aspnet-web-apps-data"></a>Datos de aplicaciones web para ASP.NET
+
+Estos son los datos de configuración de aplicaciones web que el dispositivo recopila de cada instancia de Windows Server detectada en el entorno de VMware.
+
+**Entidad** | **Datos**
+--- | ---
+Aplicaciones web | Nombre de la aplicación <br/>Ruta de acceso de configuración <br/>Enlaces de front-end <br/>Marcos habilitados <br/>Servidor web de hospedaje<br/>Subaplicaciones y aplicaciones virtuales <br/>Nombre del grupo de aplicaciones <br/>Versión en tiempo de ejecución <br/>Modo de canalización administrada
+Servidor Web | Nombre del servidor <br/>Tipo de servidor (actualmente solo IIS) <br/>Ubicación de configuración <br/>Versión <br/>FQDN <br/>Credenciales usadas para la detección <br/>Lista de aplicaciones
 
 #### <a name="windows-server-operating-system-data"></a>Datos del sistema operativo de Windows Server
 

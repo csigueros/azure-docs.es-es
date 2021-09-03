@@ -4,21 +4,16 @@ description: Obtenga información acerca de las expresiones de las directivas de
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
-ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/07/2021
 ms.author: apimpm
-ms.openlocfilehash: aec1967f0652e18c4a24ca258c14a103355b22af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65309253886d8186087a1ac93b5da9d067f444bc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99219322"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468490"
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
 En este artículo se describe la sintaxis de expresiones de directiva en C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
@@ -27,7 +22,7 @@ Para obtener más información:
 
 - Vea cómo proporcionar información de contexto al servicio back-end. Use las directivas [Establecer el parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) y [Establecer encabezado HTTP](api-management-transformation-policies.md#SetHTTPheader) para proporcionar esta información.
 - Vea cómo utilizar la directiva de [validación de JWT](api-management-access-restriction-policies.md#ValidateJWT) para preautorizar el acceso a operaciones según notificaciones de token.
-- Vea cómo se utiliza un seguimiento de [API Inspector](./api-management-howto-api-inspector.md) para ver cómo se evalúan las directivas y los resultados de las evaluaciones.
+- Vea la forma de usar un seguimiento de [API Inspector](./api-management-howto-api-inspector.md) para detectar cómo se evalúan las directivas y los resultados de esas evaluaciones.
 - Vea cómo usar expresiones con las directivas [Obtener de caché](api-management-caching-policies.md#GetFromCache) y [Almacenar en caché](api-management-caching-policies.md#StoreToCache) para configurar el almacenamiento en caché de la respuesta de API Management. Defina una duración que coincida con el almacenamiento en caché de la respuesta del servicio back-end especificado por la directiva `Cache-Control` del servicio back-end.
 - Vea cómo realizar el filtrado de contenido. Quite elementos de datos de la respuesta recibida desde el servicio back-end mediante las directivas [Flujo de control](api-management-advanced-policies.md#choose) y [Establecer cuerpo](api-management-transformation-policies.md#SetBody).
 - Para descargar las declaraciones de directiva, vaya a [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) en el repositorio de GitHub.
@@ -123,6 +118,7 @@ En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en
 |System.Linq.Enumerable|All|
 |System.Math|All|
 |System.MidpointRounding|All|
+|System.Net.IPAddress|All|
 |System.Net.WebUtility|All|
 |System.Nullable|All|
 |System.Random|All|
@@ -212,7 +208,7 @@ Una variable denominada `context` está disponible implícitamente en todas las 
 |----------------------|-------------------------------------------------------|
 |context|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementación](#ref-context-deployment)<br /><br /> Transcurrido: TimeSpan: intervalo de tiempo entre el valor de marca de tiempo y la hora actual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [operación](#ref-context-operation)<br /><br /> [Producto](#ref-context-product)<br /><br /> [Solicitud](#ref-context-request)<br /><br /> RequestId: Guid: identificador único de la solicitud<br /><br /> [Respuesta](#ref-context-response)<br /><br /> [Suscripción](#ref-context-subscription)<br /><br /> Marca de tiempo: DateTime: punto en el tiempo en que se recibió la solicitud<br /><br /> Tracing: bool - indica si el seguimiento está activado o desactivado <br /><br /> [User](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|
 |<a id="ref-context-api"></a>context.Api|Id: cadena<br /><br /> IsCurrentRevision: bool<br /><br />  Name: cadena<br /><br /> Path: cadena<br /><br /> Revision: cadena<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: cadena |
-|<a id="ref-context-deployment"></a>context.Deployment|Region: cadena<br /><br /> ServiceName: cadena<br /><br /> Certificates: IReadOnlyDictionary<cadena, X509Certificate2>|
+|<a id="ref-context-deployment"></a>context.Deployment|GatewayId: string (devuelve "managed" para las puerta de enlace administradas)<br /><br /> Region: cadena<br /><br /> ServiceName: cadena<br /><br /> Certificates: IReadOnlyDictionary<cadena, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: cadena<br /><br /> Reason: cadena<br /><br /> Message: cadena<br /><br /> Scope: cadena<br /><br /> Section: cadena<br /><br /> Path: cadena<br /><br /> PolicyId: cadena<br /><br /> Para obtener más información sobre context.LastError, consulte [Error handling in API Management policies](api-management-error-handling-policies.md) (Control de errores en directivas de API Management).|
 |<a id="ref-context-operation"></a>context.Operation|Id: cadena<br /><br /> Method: cadena<br /><br /> Name: cadena<br /><br /> UrlTemplate: cadena|
 |<a id="ref-context-product"></a>context.Product|Apis: IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: cadena<br /><br /> Name: cadena<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
@@ -224,7 +220,7 @@ Una variable denominada `context` está disponible implícitamente en todas las 
 |<a id="ref-context-user"></a>context.User|Email: cadena<br /><br /> FirstName: cadena<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: cadena<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: cadena<br /><br /> Note: cadena<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: cadena<br /><br /> Name: cadena<br /><br /> Path: cadena<br /><br /> Protocols: IEnumerable<cadena\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: cadena<br /><br /> Name: cadena|
-|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Donde T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Los métodos `context.Request.Body.As<T>` y `context.Response.Body.As<T>` se usan para leer los cuerpos de un mensaje de respuesta y solicitud en un tipo `T` especificado. De forma predeterminada, el método usa la secuencia de cuerpo del mensaje original y lo presenta como no disponible tras la devolución. Para evitar este resultado haciendo que el método procese una copia de la secuencia del cuerpo, establezca el parámetro `preserveContent` en `true`. Vaya [aquí](api-management-transformation-policies.md#SetBody) para ver un ejemplo.|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Donde T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Los métodos `context.Request.Body.As<T>` y `context.Response.Body.As<T>` se usan para leer los cuerpos de un mensaje de respuesta y solicitud en un tipo `T` especificado. De forma predeterminada, el método usa la secuencia de cuerpo del mensaje original y lo presenta como no disponible tras la devolución. Para evitar este resultado haciendo que el método procese una copia de la secuencia del cuerpo, establezca el parámetro `preserveContent` en `true`, como en [este ejemplo](api-management-transformation-policies.md#SetBody).|
 |<a id="ref-iurl"></a>IUrl|Host: cadena<br /><br /> Path: cadena<br /><br /> Port: int<br /><br /> [Consultar](#ref-iurl-query) IReadOnlyDictionary<cadena, cadena[]><br /><br /> QueryString: cadena<br /><br /> Scheme: cadena|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: cadena<br /><br /> Provider: cadena|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: cadena<br /><br /> Query: cadena|

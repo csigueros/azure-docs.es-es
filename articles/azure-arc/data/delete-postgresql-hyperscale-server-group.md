@@ -1,20 +1,20 @@
 ---
 title: Eliminación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
-description: Eliminación de un grupo de servidores de Hiperescala de Postgres habilitada para Azure Arc
+description: Eliminación de un grupo de servidores de Hiperescala de Postgres habilitada para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 7932ad3b30910e539acfbff2329a03f80a4d1a0b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 00387e190df3bcc6f654868d078a068e9196a635
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670365"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750315"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Eliminación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -26,31 +26,31 @@ En este documento se describen los pasos para eliminar un grupo de servidores de
 
 Por ejemplo, supongamos que queremos eliminar la instancia _postgres01_ de la configuración siguiente:
 
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 Name        State    Workers
 ----------  -------  ---------
 postgres01  Ready    3
 ```
 
 El formato general del comando de eliminación es el siguiente:
-```console
-azdata arc postgres server delete -n <server group name>
+```azurecli
+az postgres arc-server delete -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 Al ejecutar este comando, se le solicitará que confirme la eliminación del grupo de servidores. Si usa scripts para automatizar las eliminaciones, deberá usar el parámetro --force para omitir la solicitud de confirmación. Por ejemplo, ejecutaría un comando como el siguiente: 
-```console
-azdata arc postgres server delete -n <server group name> --force
+```azurecli
+az postgres arc-server delete -n <server group name> --force --k8s-namespace <namespace> --use-k8s
 ```
 
 Para más detalles sobre el comando de eliminación, ejecute:
-```console
-azdata arc postgres server delete --help
+```azurecli
+az postgres arc-server delete --help 
 ```
 
 ### <a name="delete-the-server-group-used-in-this-example"></a>Eliminación del grupo de servidores que se usa en este ejemplo
 
-```console
-azdata arc postgres server delete -n postgres01
+```azurecli
+az postgres arc-server delete -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Reclamación de las notificaciones de volumen persistente (PVC) de Kubernetes
@@ -112,7 +112,7 @@ persistentvolumeclaim "data-postgres01-0" deleted
   
 
 >[!NOTE]
-> Tal y como se indicó, si no elimina las PVC podría llevar al clúster de Kubernetes a una situación en la que se produzcan errores. Algunos de estos errores pueden incluir que no se puede iniciar sesión en el clúster de Kubernetes con azdata, ya que es posible que se expulsen los pods debido a este problema de almacenamiento (comportamiento normal de Kubernetes).
+> Tal y como se indicó, si no elimina las PVC podría llevar al clúster de Kubernetes a una situación en la que se produzcan errores. Algunos de estos errores pueden incluir la incapacidad de crear, leer, actualizar, eliminar recursos de la API de Kubernetes, o bien de ejecutar comandos como `az arcdata dc export`, ya que los pods del controlador se pueden expulsar de los nodos de Kubernetes debido a este problema de almacenamiento (el comportamiento normal de Kubernetes).
 >
 > Por ejemplo, puede ver mensajes en los registros similares a:  
 > ```output
@@ -123,4 +123,4 @@ persistentvolumeclaim "data-postgres01-0" deleted
 > ```
     
 ## <a name="next-step"></a>Paso siguiente
-Creación de [Hiperescala de PostgreSQL habilitada para Azure Arc](create-postgresql-hyperscale-server-group.md)
+Creación de [Hiperescala de PostgreSQL habilitada para Azure Arc](create-postgresql-hyperscale-server-group.md)

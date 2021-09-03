@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f34e734b315c7c05ce77f5e168a452fc1c1c547
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 224b0685b922e6ddd833637ddc1b628f0479ec70
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96168685"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200823"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Sincronización de LDAP con Azure Active Directory
 
@@ -59,5 +59,6 @@ Debe sincronizar los datos de identidad entre los directorios de LDAP v3 locale
 * [Información general y creación de un conector LDAP](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
-   > Los conectores LDAP son una configuración avanzada que requiere cierta familiaridad con Forefront Identity Manager o Microsoft Identity Manager. Si se usa en producción, se recomienda plantear las preguntas sobre esta configuración a través del [soporte técnico Premier](https://support.microsoft.com/premier) o Microsoft Partner Network.
-
+   > Para implementar el conector LDAP se necesita una configuración avanzada y este conector se proporciona con compatibilidad limitada. Para la configuración de este conector es necesario estar familiarizado con Microsoft Identity Manager y el directorio LDAP específico. 
+   >
+   > Se recomienda que los clientes que tengan que implementar esta configuración en un entorno de producción trabajen con un asociado como Microsoft Consulting Services para obtener ayuda, instrucciones y soporte técnico para esta configuración.

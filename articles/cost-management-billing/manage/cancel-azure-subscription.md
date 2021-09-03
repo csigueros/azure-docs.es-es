@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: banders
-ms.openlocfilehash: b0c7f1ee4daea871cfdc9e92908cd287a49997da
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 71070f56eaa8b9e1d0a4bef42d609b10ac28b7e5
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481091"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321637"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelación de su suscripción de Azure
 
@@ -70,18 +70,22 @@ Después de cancelar, los servicios se deshabilitan. Esto significa que las máq
 
 Tras la cancelación de la suscripción, Microsoft espera entre 30 y 90 días para eliminar de forma permanente los datos, por si el usuario necesitará acceder a ellos o cambiara de opinión. No se le cobrará nada por conservar los datos. Para más información, consulte el [Microsoft Trust Center: How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centro de confianza de Microsoft: Administración de los datos).
 
-## <a name="delete-free-trial-subscription"></a>Eliminación de una suscripción de evaluación gratuita
+## <a name="delete-free-account-or-pay-as-you-go-subscription"></a>Eliminación de una cuenta gratuita o una suscripción de pago por uso
 
-Si tiene una suscripción de evaluación gratuita, no es preciso que espere 30 días para que la suscripción se elimine automáticamente. Puede eliminarla *tres días* después de cancelarla. La opción **Eliminar suscripción** no está disponible hasta tres días después de cancelar la suscripción.
+Si tiene una cuenta gratuita o una suscripción de pago por uso, no tendrá que esperar de 30 a 90 días para que la suscripción se elimine de forma automática. La opción **Eliminar** estará disponible 3 días después de cancelar una suscripción. Después de 3 días, si no tiene ningún recurso en la suscripción cancelada, puede eliminarla.
 
-1. Espere tres días después de la fecha de cancelación de la suscripción.
-1. Seleccione la suscripción en la página [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal.
-1. Seleccione la suscripción que quiere eliminar.
-1. Seleccione **Información general** y, después, **Eliminar suscripción**.
+Siga estos pasos para eliminar una suscripción:
+
+1. Espere 3 días después de la fecha de cancelación de la suscripción.
+2. Asegúrese de que no tiene ningún recurso en la suscripción antes de intentar eliminarla.
+3. En Azure Portal, vaya a [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+4. Seleccione la suscripción que quiere eliminar.
+5. Seleccione **Información general** y, luego, **Eliminar**.
+6. Escriba el nombre de la suscripción en el mensaje de confirmación y, después, seleccione **Eliminar suscripción**.
 
 ## <a name="delete-other-subscriptions"></a>Eliminación de las demás suscripciones
 
-El único tipo de suscripción que puede eliminar manualmente es una suscripción de evaluación gratuita. Todos los demás tipos de suscripción, incluidas las suscripciones de pago por uso, solo se eliminan a través del proceso de [cancelación de la suscripción](#cancel-subscription-in-the-azure-portal). En otras palabras, no puede eliminar una suscripción directamente a menos que sea una suscripción de evaluación gratuita. Sin embargo, después de cancelar una suscripción, puede crear una [solicitud de soporte técnico de Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para solicitar que la suscripción se elimine inmediatamente.
+Los únicos tipos de suscripción que puede eliminar de forma manual son una cuenta gratuita o una suscripción de pago por uso. Todos los demás tipos de suscripción solo se eliminan a por medio del proceso de [cancelación de la suscripción](#cancel-subscription-in-the-azure-portal). Es decir, no puede eliminar una suscripción directamente a menos que sea una cuenta gratuita o una suscripción de pago por uso. Sin embargo, después de cancelar una suscripción, puede crear una [solicitud de soporte técnico de Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para solicitar que la suscripción se elimine inmediatamente.
 
 ## <a name="reactivate-a-subscription"></a>Reactivación de una suscripción
 

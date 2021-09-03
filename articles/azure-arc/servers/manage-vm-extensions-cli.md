@@ -1,22 +1,22 @@
 ---
 title: Habilitación de la extensión de VM mediante la CLI de Azure
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida mediante la CLI de Azure.
-ms.date: 04/13/2021
+ms.date: 08/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f2255742e626e62f771730359c1c19c3b10f9d71
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: e493e035caf3a201d3670bb352c19455b3cfee72
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015184"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750240"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Habilitación de las extensiones de VM de Azure mediante la CLI de Azure
 
 En este artículo se muestra cómo implementar y desinstalar extensiones de VM, compatibles con servidores habilitados para Azure Arc, en una máquina híbrida Linux o Windows mediante la CLI de Azure.
 
 > [!NOTE]
-> Los servidores habilitados para Azure Arc no admiten la implementación y administración de extensiones de máquina virtual en máquinas virtuales de Azure. En el caso de las máquinas virtuales de Azure, consulte el siguiente artículo con [información general acerca de la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
+> Los servidores habilitados para Azure Arc no admiten la implementación y administración de extensiones de máquina virtual en máquinas virtuales de Azure. En el caso de las máquinas virtuales de Azure, consulte el siguiente artículo con [información general acerca de la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -44,7 +44,7 @@ En el ejemplo siguiente se habilita la extensión de script personalizado en un 
 az connectedmachine extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
 ```
 
-En el ejemplo siguiente se habilita la extensión de máquina virtual de Key Vault (versión preliminar) en un servidor habilitado para Arc:
+En el ejemplo siguiente se habilita la extensión de máquina virtual de Key Vault en un servidor habilitado para Arc:
 
 ```azurecli
 az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
@@ -52,7 +52,7 @@ az connectedmachine extension create --resource-group "resourceGroupName" --mach
 
 ## <a name="list-extensions-installed"></a>Enumeración de extensiones instaladas
 
-Para obtener una lista de las extensiones de VM en el servidor habilitado para Arc, use [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list) con los parámetros `--machine-name` y `--resource-group`.
+Para una lista de las extensiones de VM en el servidor habilitado para Arc, use [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list) con los parámetros `--machine-name` y `--resource-group`.
 
 Ejemplo:
 
@@ -60,7 +60,7 @@ Ejemplo:
 az connectedmachine extension list --machine-name "myMachineName" --resource-group "myResourceGroup"
 ```
 
-De forma predeterminada, la salida de los comandos de la CLI de Azure está en JSON (notación de objetos JavaScript). Para cambiar la salida predeterminada a una lista o tabla, por ejemplo, use [az configure --output](/cli/azure/reference-index). También puede agregar `--output` a cualquier comando para un cambio específico del formato de salida.
+De forma predeterminada, la salida de los comandos de la CLI de Azure está en JSON (notación de objetos JavaScript). Para cambiar la salida predeterminada a una lista o tabla, por ejemplo, use [az config set core.output=table](/cli/azure/reference-index). También puede agregar `--output` a cualquier comando para un cambio específico del formato de salida.
 
 En el ejemplo siguiente se muestra la salida JSON parcial desde el comando `az connectedmachine extension -list`:
 

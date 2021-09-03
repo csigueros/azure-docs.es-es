@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 15ade6fca3885bfabba7a23e2c3d8e561a9e6a0c
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: e5b2c5eaca13b26504c4229ef990abc4adce23c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738471"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724179"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Tipos de archivo y orígenes de datos admitidos en Azure Purview
 
@@ -32,7 +32,7 @@ Los siguientes tipos de archivo se admiten para los exámenes y para la extracci
 - Purview también admite extensiones de archivo personalizadas y analizadores personalizados.
  
 > [!Note]
-> Cada archivo Gzip debe estar asignado a un solo archivo CSV. Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. Además, el analizador de Purview admite el examen de tipos de archivo PARQUET y AVRO comprimidos con Snappy para la extracción y clasificación de esquemas.
+> Cada archivo Gzip debe estar asignado a un solo archivo CSV. Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. Además, el analizador de Purview admite el examen de tipos de archivo PARQUET comprimidos con Snappy para la extracción y clasificación de esquemas. 
 
 > [!Note]
 > El analizador de Purview no admite tipos de datos complejos en los tipos de archivo AVRO, ORC y PARQUET para la extracción de esquemas.   
@@ -46,9 +46,10 @@ En la terminología de Purview:
 
 En todos los formatos de archivo estructurados, el examen de Purview muestrea los archivos de la siguiente manera:
 
-- En el caso de los tipos de archivo estructurados, muestrea 128 filas de cada columna o 1 MB, lo que sea menor.
-- En el caso de los formatos de archivo de documento, muestrea 20 MB de cada archivo.
+- En el caso de los tipos de archivo estructurados, muestra 128 filas de cada columna o el primer MB, lo que sea menor.
+- En el caso de los formatos de archivo de documento, muestra los primeros 20 MB de cada archivo.
     - Si un archivo de documento es mayor de 20 MB, no estará sujeto a un examen profundo (sujeto a clasificación). En tal caso, Purview captura solo metadatos básicos como el nombre de archivo y el nombre completo.
+- Para **orígenes de datos tabulares (SQL, CosmosDB)** , muestra las primeras 128 filas. 
 
 ## <a name="resource-set-file-sampling"></a>Muestreo de archivos del conjunto de recursos
 
@@ -64,7 +65,7 @@ Muestreo de archivos para conjuntos de recursos por tipos de archivo:
 
 ## <a name="classification"></a>clasificación
 
-Las 105 reglas de clasificación del sistema se aplican a los formatos de archivo estructurados. Solo las reglas de clasificación de MCE se aplican a los tipos de archivo de documento (no los patrones de expresiones regulares nativos del examen de datos, detección basada en filtros de Bloom). Para más información sobre las clasificaciones admitidas, consulte [Clasificaciones admitidas en Azure Purview](supported-classifications.md).
+Las 206 reglas de clasificación del sistema se aplican a los formatos de archivo estructurados. Solo las reglas de clasificación de MCE se aplican a los tipos de archivo de documento (no los patrones de expresiones regulares nativos del examen de datos, detección basada en filtros de Bloom). Para más información sobre las clasificaciones admitidas, consulte [Clasificaciones admitidas en Azure Purview](supported-classifications.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

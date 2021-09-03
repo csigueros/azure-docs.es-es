@@ -8,15 +8,16 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/08/2021
 ms.author: apimpm
-ms.openlocfilehash: 521c17efceab04d9f3622f7e0872b35d9b630cbd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4ff1e12aa6748ba6aa9b2d5465bbfa6603f67bbf
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063287"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106504"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
+
+En este artículo se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
 
 > [!IMPORTANT]
 > La caché integrada es volátil y se comparte entre todas las unidades de la misma región del mismo servicio de API Management.
@@ -53,6 +54,9 @@ Use la directiva `cache-lookup` para realizar una consulta en la caché y devolv
   <!-- optional, can repeated several times -->
 </cache-lookup>
 ```
+
+> [!NOTE]
+> Al usar `vary-by-query-parameter`, es posible que quiera declarar los parámetros de la plantilla rewrite-uri o establecer el atributo `copy-unmatched-params` en `false`. Al desactivar esta marca, los parámetros que no se declaran se envían al back-end.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -112,8 +116,8 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 | caching-type               | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | No       | `prefer-external` |
 | downstream-caching-type        | Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.                                                                                                          | No       | None              |
 | must-revalidate                | Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.                                                                                                                                                                                                                      | No       | true              |
-| vary-by-developer              | Establezca el valor en `true` para almacenar en caché las respuestas por cada cuenta de desarrollador que disponga de [clave de suscripción](./api-management-subscriptions.md) incluida en la solicitud.                                                                                                                                                                                                                                                                                                  | Sí      |         Falso          |
-| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sí      |       Falso            |
+| vary-by-developer              | Establezca el valor en `true` para almacenar en caché las respuestas por cada cuenta de desarrollador que disponga de [clave de suscripción](./api-management-subscriptions.md) incluida en la solicitud.                                                                                                                                                                                                                                                                                                  | Sí      |         False          |
+| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sí      |       False            |
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.

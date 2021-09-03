@@ -11,14 +11,14 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/25/2021
+ms.date: 06/01/2021
 ms.author: mathoma
-ms.openlocfilehash: afaabddb9996ee1645439aeec035882221681bab
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: b9aa10e9a11ee1268c8bb49d5cb32d0550c2ca3a
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569771"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582085"
 ---
 # <a name="hadr-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de HADR (SQL Server en Azure Virtual Machines)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,14 +101,14 @@ Es posible cambiar el voto de cuórum de un nodo que participa en un clúster de
 
 Al modificar la configuración de voto de nodo, siga estas instrucciones: 
 
-| Directrices de votación de cuórum |
+| Guía de votación de cuórum |
 |-|
-| Comience configurando que los nodos no tengan ningún voto de forma predeterminada. Cada nodo solo debe tener un voto con justificación explícita.|
+| Comience con los nodos que no tengan ningún voto de manera predeterminada. Cada nodo solo debe tener un voto con justificación explícita.|
 | Habilite los votos para los nodos de clúster que hospedan la réplica principal de un grupo de disponibilidad o los propietarios preferidos de una instancia de clúster de conmutación por error. |
-| Habilitar votos para propietarios de conmutación automática por error. Cada uno de los nodos que puede hospedar una réplica principal o FCI, como resultado de una conmutación automática por error, debe tener un voto. | 
+| Habilite los votos para los propietarios de conmutación automática por error. Cada uno de los nodos que puede hospedar una réplica principal o FCI, como resultado de una conmutación automática por error, debe tener un voto. | 
 | Si un grupo de disponibilidad tiene más de una réplica secundaria, habilite votos solo para las réplicas que tienen conmutación automática por error. | 
-| Deshabilite votos para nodos que se encuentren en sitios de recuperación ante desastres secundarios. Los nodos de los sitios secundarios no deben contribuir a la decisión de desconectar un clúster si no hay ningún problema con el sitio primario. | 
-| Tenga un número impar de votos, con tres votos de quórum como mínimo. Agregue un [testigo de cuórum](hadr-cluster-quorum-configure-how-to.md) para un voto adicional si es necesario en un clúster de dos nodos. | 
+| Deshabilite los votos para los nodos que se encuentren en sitios secundarios de recuperación ante desastres. Los nodos de los sitios secundarios no deben contribuir a la decisión de desconectar un clúster si no hay ningún problema con el sitio primario. | 
+| Tenga un número impar de votos, con un mínimo de tres votos de quórum. Si es necesario, agregue un [testigo de cuórum](hadr-cluster-quorum-configure-how-to.md) para un voto adicional cuando un clúster tenga dos nodos. | 
 | Vuelva a valorar las asignaciones de votos después de la conmutación por error. No es conveniente realizar la conmutación por error en una configuración de clúster que no admita un quórum correcto. |
 
 
@@ -213,10 +213,10 @@ Si el ajuste de la configuración de umbral y latido del clúster como se recomi
 Comience por aumentar los siguientes parámetros de sus valores predeterminados para la supervisión atenuada y ajústelos según sea necesario: 
 
 
-|Parámetro |Valor predeterminado  |Descripción  |
-|---------|---------|---------|
-|**Tiempo de espera de HealthCheck**|60000 |Determina el estado de la réplica o nodo principal. La DLL de recursos de clúster de sp_server_diagnostics devuelve resultados en un intervalo que iguala 1/3 del umbral de tiempo de espera de comprobación de estado. Si sp_server_diagnostics es lento o no devuelve información, la DLL de recursos esperará al intervalo completo del umbral de tiempo de espera de comprobación de estado antes de determinar que el recurso no responde e iniciar una conmutación automática por error, si está configurada para ello. |
-|**Nivel de condición de error** |  2  | Condiciones que desencadenan una conmutación automática por error. Hay cinco niveles de condición de error que abarcan desde el nivel menos restrictivo (nivel uno) al más restrictivo (nivel cinco)  |
+|Parámetro |Valor predeterminado  |Valor relajado  |Descripción  |
+|---------|---------|---------|---------|
+|**Tiempo de espera de HealthCheck**|30000 |60000 |Determina el estado de la réplica o nodo principal. La DLL de recursos de clúster de sp_server_diagnostics devuelve resultados en un intervalo que iguala 1/3 del umbral de tiempo de espera de comprobación de estado. Si sp_server_diagnostics es lento o no devuelve información, la DLL de recursos esperará al intervalo completo del umbral de tiempo de espera de comprobación de estado antes de determinar que el recurso no responde e iniciar una conmutación automática por error, si está configurada para ello. |
+|**Nivel de condición de error** |  3  |   2  |Condiciones que desencadenan una conmutación automática por error. Hay cinco niveles de condición de error que abarcan desde el nivel menos restrictivo (nivel uno) al más restrictivo (nivel cinco)  |
 
 Use Transact-SQL (T-SQL) para modificar las condiciones de comprobación de estado y error de los AG y las FCI. 
 
@@ -236,11 +236,11 @@ ALTER SERVER CONFIGURATION SET FAILOVER CLUSTER PROPERTY FailureConditionLevel =
 
 Específico para **grupos de disponibilidad**, comience con los siguientes parámetros recomendados y ajústelos según sea necesario: 
 
-|Parámetro |Valor predeterminado  |Descripción  |
-|---------|---------|---------|
-|**Tiempo de espera de concesión**|40000|Evita la división de cerebro. |
-|**Tiempo de espera de sesión**|20 |Comprueba las incidencias de comunicación entre réplicas. El período de tiempo de espera de la sesión es una propiedad de réplica que controla el número de segundos que una réplica de disponibilidad espera una respuesta de ping de una réplica conectada antes de determinar que la conexión ha sufrido un error. De forma predeterminada, una réplica espera 10 segundos la respuesta de un ping. Esta propiedad de réplica solamente se aplica a la conexión entre una réplica secundaria dada y la réplica principal del grupo de disponibilidad. |
-| **Número máximo de errores en el período especificado** | 6 | Se usa para evitar el movimiento indefinido de un recurso en clúster dentro de varios errores de nodo. Un valor demasiado bajo puede dar lugar a que el grupo de disponibilidad esté en un estado de error. Aumente el valor para evitar interrupciones cortas por problemas de rendimiento, ya que un valor demasiado bajo puede provocar que el grupo de disponibilidad esté en un estado de error. | 
+|Parámetro |Valor predeterminado  |Valor relajado  |Descripción  |
+|---------|---------|---------|---------|
+|**Tiempo de espera de concesión**|20000|40000|Evita la división de cerebro. |
+|**Tiempo de espera de sesión**|10000 |20000|Comprueba las incidencias de comunicación entre réplicas. El período de tiempo de espera de la sesión es una propiedad de réplica que controla el número de segundos que una réplica de disponibilidad espera una respuesta de ping de una réplica conectada antes de determinar que la conexión ha sufrido un error. De forma predeterminada, una réplica espera 10 segundos la respuesta de un ping. Esta propiedad de réplica solamente se aplica a la conexión entre una réplica secundaria dada y la réplica principal del grupo de disponibilidad. |
+| **Número máximo de errores en el período especificado** | 2 | 6 |Se usa para evitar el movimiento indefinido de un recurso en clúster dentro de varios errores de nodo. Un valor demasiado bajo puede dar lugar a que el grupo de disponibilidad esté en un estado de error. Aumente el valor para evitar interrupciones cortas por problemas de rendimiento, ya que un valor demasiado bajo puede provocar que el grupo de disponibilidad esté en un estado de error. | 
 
 Antes de realizar cambios, tenga en cuenta lo siguiente: 
 - No reduzca los valores de tiempo de espera por debajo de sus valores predeterminados. 
@@ -376,7 +376,7 @@ Para obtener más información, consulte:
 
 - [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
-- [Grupos de disponibilidad Always On con SQL Server en máquinas virtuales de Azure](availability-group-overview.md)
+- [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md)
 - [Información general de las instancias de clúster de conmutación por error](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

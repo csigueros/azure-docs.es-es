@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6537728feb2145520ee49457b00d9944d5967c9f
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 656d72663045b4604b9a94cbc686150925caca83
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112073194"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202047"
 ---
 # <a name="maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-azure-portal"></a>Control de mantenimiento para las actualizaciones de imágenes del sistema operativo en conjuntos de escalado de máquinas virtuales de Azure mediante Azure Portal
 
@@ -60,7 +60,7 @@ En la página de detalles de la configuración de mantenimiento, seleccione **As
 
 ![Captura de pantalla en la que muestra cómo asignar un recurso](media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-Seleccione los recursos a los que desea asignar la configuración de mantenimiento y elija **Aceptar**. En la columna **Tipo** se muestra si el recurso es una máquina virtual aislada o un host dedicado de Azure. Para asignar la configuración, es preciso que la máquina virtual esté en ejecución. Si se intenta asignar una configuración a una máquina virtual que está detenida, se produce un error. 
+Seleccione los recursos de conjunto de escalado de máquinas virtuales a los que quiera asignar la configuración de mantenimiento y seleccione **Aceptar**.  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

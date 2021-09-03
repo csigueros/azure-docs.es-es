@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de Azure Backup para la copia de seguridad de SQL Server en VM de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de SQL Server en VM de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 06/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 354f64eb86cd545860c47562fba7ff43babe72ca
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 678a3e63205d986681016fe64971e9bd874f9c71
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714153"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119940"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de compatibilidad para la copia de seguridad de SQL Server en VM de Azure
 
@@ -20,7 +20,7 @@ Puede usar Azure Backup para realizar copias de seguridad de bases de datos de S
 **Soporte técnico** | **Detalles**
 --- | ---
 **Implementaciones admitidas** | Se admiten máquinas virtuales de Azure de SQL Marketplace y que no son de Marketplace (SQL Server instalado manualmente).
-**Regiones admitidas** | Sudeste de Australia (ASE), Este de Australia (AE), Centro de Australia (AC) y Centro de Australia 2 (AC) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Sudeste de Asia (SEA) y Este de Asia (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS), India occidental <br> Japón Oriental (JPE) y Japón Occidental (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (centro), US DoD (este) <br> Norte de Alemania, Centro-oeste de Alemania <br> Norte de Suiza, Oeste de Suiza <br> Centro de Francia <br> Este de China, Norte de China, Norte de China 2 y Este de China 2
+**Regiones admitidas** | Azure Backup para bases de datos de SQL Server está disponible en todas las regiones, excepto Sur de Francia (FRS), Norte de Reino Unido (UKN), Sur de Reino Unido 2 (UKS2), UG IOWA (UGI) y Alemania (Selva Negra).
 **Sistemas operativos compatibles** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux no se admite actualmente.
 **Versiones admitidas de SQL Server** | SQL Server 2019, SQL Server 2017 tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y los SP tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>No se admiten las versiones de base de datos local rápidas.
 **Versiones de .NET compatibles** | .NET Framework 4.5.2 o posterior instalado en la máquina virtual

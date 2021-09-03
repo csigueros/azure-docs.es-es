@@ -1,33 +1,36 @@
 ---
-title: Canalizaciones y actividades en Azure Data Factory
-description: Obtenga información sobre las canalizaciones y actividades en Azure Data Factory.
+title: Canalizaciones y actividades
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Obtenga información sobre las canalizaciones y actividades en Azure Data Factory y Azure Synapse Analytics.
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 8c910264a01967b62ebae80f63ac3f40e98ab48a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 06/19/2021
+ms.openlocfilehash: b86ae322999441fb4411854e8e11879907ed514f
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773292"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272048"
 ---
-# <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
+# <a name="pipelines-and-activities-in-azure-data-factory-and-azure-synapse-analytics"></a>Canalizaciones y actividades en Azure Data Factory y Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
 > * [Versión 1](v1/data-factory-create-pipelines.md)
 > * [Versión actual](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y a usarlas para construir flujos de trabajo controlados por datos de un extremo para los escenarios de procesamiento de datos y movimiento de datos.
+Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y Azure Synapse Analytics y a usarlas para construir flujos de trabajo controlados por datos de un extremo para los escenarios de procesamiento de datos y movimiento de datos.
 
 ## <a name="overview"></a>Información general
-Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Por ejemplo, una canalización puede contener un conjunto de actividades que ingieren y limpian los datos de registro y, a continuación, inician un flujo de datos de asignación para analizar los datos de registro. La canalización permite administrar las actividades como un conjunto en lugar de hacerlo individualmente. Puede implementar y programar la canalización en lugar de las actividades de forma independiente.
+Una instancia de Data Factory o un área de trabajo de Synapse puede tener una o varias canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Por ejemplo, una canalización puede contener un conjunto de actividades que ingieren y limpian los datos de registro y, a continuación, inician un flujo de datos de asignación para analizar los datos de registro. La canalización permite administrar las actividades como un conjunto en lugar de hacerlo individualmente. Puede implementar y programar la canalización en lugar de las actividades de forma independiente.
 
 Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede utilizar una actividad de copia para copiar datos de SQL Server en una instancia de Azure Blob Storage. A continuación, use una actividad de flujo de datos o una actividad de cuaderno de Databricks para procesar y transformar datos de Blob Storage a un grupo de Azure Synapse Analytics sobre el que se crean las soluciones de informes de inteligencia empresarial.
 
-Data Factory tiene tres agrupaciones de actividades: [actividades de movimiento de datos](copy-activity-overview.md), [actividades de transformación de datos](transform-data.md) y [actividades de control](#control-flow-activities). Una actividad puede tomar diversos [conjuntos de datos](concepts-datasets-linked-services.md), o ninguno, y generar uno o varios [conjuntos de datos](concepts-datasets-linked-services.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos en Data Factory:
+Azure Data Factory y Azure Synapse Analytics tienen tres agrupaciones de actividades: [actividades de movimiento de datos](copy-activity-overview.md), [actividades de transformación de datos](transform-data.md) y [actividades de control](#control-flow-activities). Una actividad puede tomar diversos [conjuntos de datos](concepts-datasets-linked-services.md), o ninguno, y generar uno o varios [conjuntos de datos](concepts-datasets-linked-services.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos:
 
 ![Relación entre el conjunto de datos, la actividad y la canalización](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -42,18 +45,18 @@ Copiar actividad en Data Factory realiza una copia de los datos de un almacén d
 Para obtener más información, consulte el artículo [Información general de la actividad de copia](copy-activity-overview.md).
 
 ## <a name="data-transformation-activities"></a>Actividades de transformación de datos
-Azure Data Factory admite las siguientes actividades de transformación que se pueden agregar a las canalizaciones tanto individualmente como encadenadas a otra actividad.
+Azure Data Factory y Azure Synapse Analytics admiten las siguientes actividades de transformación que se pueden agregar tanto individualmente como encadenadas a otra actividad.
 
 Actividad de transformación de datos | Entorno de procesos
 ---------------------------- | -------------------
-[Flujo de datos](control-flow-execute-data-flow-activity.md) | Azure Databricks administrado por Azure Data Factory
+[Flujo de datos](control-flow-execute-data-flow-activity.md) | Clústeres de Apache Spark administrados por Azure Data Factory
 [Función de Azure](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [de Hadoop](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Actividades de Estudio de Azure Machine Learning (clásico): ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) | Azure VM
+[Actividades de ML Studio (clásico): ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) | Azure VM
 [Procedimiento almacenado](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análisis con Azure Data Lake
 [Actividad personalizada](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -69,17 +72,17 @@ Se admiten las siguientes actividades de flujo de control:
 Actividad de control | Descripción
 ---------------- | -----------
 [Append Variable](control-flow-append-variable-activity.md) | Agrega un valor a una variable de matriz existente.
-[Execute Pipeline](control-flow-execute-pipeline-activity.md) | La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
+[Execute Pipeline](control-flow-execute-pipeline-activity.md) | La actividad Execute Pipeline permite que una canalización de Data Factory o Synapse invoque otra.
 [Filter](control-flow-filter-activity.md) | Aplicar una expresión de filtro a una matriz de entrada
 [For Each](control-flow-for-each-activity.md) | La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura del bucle ForEach de los lenguajes de programación.
-[Get Metadata (Obtener metadatos)](control-flow-get-metadata-activity.md) | La actividad GetMetadata se puede usar para recuperar metadatos de cualquier dato en Azure Data Factory.
+[Get Metadata (Obtener metadatos)](control-flow-get-metadata-activity.md) | La actividad GetMetadata se puede usar para recuperar metadatos de cualquier dato en una canalización de Data Factory o Synapse.
 [Actividad If Condition](control-flow-if-condition-activity.md) | La condición If puede usarse para crear una rama basada en una condición que evalúa como true o false. La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Evalúa un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false.`.
 [Actividad Lookup](control-flow-lookup-activity.md) | La actividad de búsqueda puede usarse para leer o buscar un registro, un nombre de tabla o un valor de cualquier origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida.
 [Set Variable](control-flow-set-variable-activity.md) | Establece el valor de una variable existente.
-[Actividad Until](control-flow-until-activity.md) | Implementa el bucle Do-Until, que es similar a la estructura de bucle Do-Until de los lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory.
+[Actividad Until](control-flow-until-activity.md) | Implementa el bucle Do-Until, que es similar a la estructura de bucle Do-Until de los lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until.
 [Actividad de validación](control-flow-validation-activity.md) | Asegúrese de que una canalización solo continúa la ejecución si existe un conjunto datos de referencia, cumple los criterios especificados o se ha alcanzado el tiempo de espera.
 [Actividad Wait](control-flow-wait-activity.md) | Cuando use una actividad Wait en una canalización, esta espera durante el tiempo especificado antes de continuar con la ejecución de actividades sucesivas.
-[Actividad web](control-flow-web-activity.md) | La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
+[Actividad web](control-flow-web-activity.md) | La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
 [Actividad de webhook](control-flow-webhook-activity.md) | Use la actividad de webhook para llamar a un punto de conexión y pasar una dirección URL de devolución de llamada. La ejecución de canalización espera a que la devolución de llamada se invoque antes de continuar con la siguiente actividad.
 
 ## <a name="pipeline-json"></a>JSON de canalización
@@ -143,7 +146,7 @@ Etiqueta | Descripción | Obligatorio
 name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: ".", "+", "?", "/", "<",">","*"," %"," &",":"," \" | Sí</li></ul>
 description | Texto que describe para qué se usa la actividad. | Sí
 type | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-flow-activities) para ver los diferentes tipos de actividades. | Sí
-linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad de puntuación por lotes de Estudio de Azure Machine Learning (clásico) y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
+linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad de puntuación por lotes de Estudio de ML (clásico) y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
 typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | No
 policy | Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Esta propiedad incluye un comportamiento de tiempo de espera y reintento. Si no se especifica, se usan los valores predeterminados. Para obtener más información, consulte la sección [Directiva de actividades](#activity-policy). | No
 dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | No
@@ -311,7 +314,7 @@ Tenga en cuenta los siguientes puntos:
 - La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](concepts-datasets-linked-services.md) para definir conjuntos de datos en JSON.
 - En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino.
 
-Para obtener un tutorial completo de creación de esta canalización, consulte el [Inicio rápido: Create a data factory](quickstart-create-data-factory-powershell.md) (Crear una factoría de datos).
+Para obtener un tutorial completo de creación de esta canalización, consulte [Inicio rápido: Creación de una instancia de Azure Data Factory con PowerShell](quickstart-create-data-factory-powershell.md).
 
 ## <a name="sample-transformation-pipeline"></a>Canalización de transformación de ejemplo
 En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsightHive** in the **actividades** . En este ejemplo, el [actividad de HDInsight Hive](transform-data-using-hadoop-hive.md) transforma los datos de Azure Blob Storage mediante la ejecución de un archivo de script de Hive en un clúster de Azure HDInsight Hadoop.
@@ -403,3 +406,6 @@ Consulte los siguientes tutoriales para obtener instrucciones paso a paso sobre 
 
 - [Creación de una canalización con una actividad de copia](quickstart-create-data-factory-powershell.md)
 - [Creación de una canalización con una actividad de transformación de datos](tutorial-transform-data-spark-powershell.md)
+
+Procedimiento para lograr CI/CD (integración y entrega continuas) mediante Azure Data Factory
+- [Integración y entrega continuas en Azure Data Factory](continuous-integration-deployment.md)

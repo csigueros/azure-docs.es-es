@@ -1,5 +1,5 @@
 ---
-title: Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS | Microsoft Docs
+title: Montaje de un recurso compartido de archivos de Azure de SMB con macOS | Microsoft Docs
 description: Aprenda a montar un recurso compartido de archivos de Azure sobre SMB con macOS mediante Finder o Terminal. Azure Files es el sencillo sistema de archivos en la nube de Microsoft.
 author: roygara
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 119f4c0ea434bc431b40c905d9142e187b7d9474
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f4bbaed3cf35d25a2441a27755c73dc144a07510
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91326072"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117776"
 ---
-# <a name="mount-azure-file-share-over-smb-with-macos"></a>Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS
+# <a name="mount-smb-azure-file-share-on-macos"></a>Montaje de un recurso compartido de archivos de Azure de SMB en macOS
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar con el protocolo estándar del sector SMB 3 con macOS High Sierra 10.13 y versiones posteriores. En este artículo se muestran dos maneras diferentes de montar un recurso compartido de archivos de Azure en macOS, con la interfaz de usuario de Finder y utilizando el Terminal.
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Requisitos previos para el montaje de un recurso compartido de archivos de Azure en macOS
@@ -23,6 +23,13 @@ ms.locfileid: "91326072"
 * **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria). Actualmente no se admiten claves SAS para el montaje.
 
 * **Asegúrese de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445. En el equipo cliente (Mac), compruebe que el firewall no bloquea el puerto TCP 445.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>Montaje de un recurso compartido de archivos de Azure con Finder
 1. **Abrir Finder**: Finder está abierto en macOS de forma predeterminada, pero puede asegurarse de sea la aplicación seleccionada haciendo clic en el "icono de cara de macOS" en el Dock:  

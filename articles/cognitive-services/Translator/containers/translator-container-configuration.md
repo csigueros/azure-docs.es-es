@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/27/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: fa31cafb414792a5feef7207156ecfb2c0b68778
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f298a4593ef5aa8af9b7f62f48b4e32075429dbf
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652867"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539599"
 ---
 # <a name="configure-translator-docker-containers-preview"></a>Configuración de contenedores de Translator Docker (versión preliminar)
 

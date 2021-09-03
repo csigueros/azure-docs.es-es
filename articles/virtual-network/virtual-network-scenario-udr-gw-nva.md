@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1d84a09ddd758f333ccb588ac341dce607509d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86231716"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749265"
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
 Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad de ofrecer una aplicación en 2 niveles expuesta a Internet a la vez que permiten el acceso al nivel posterior desde un centro de datos local. Este documento le guiará en un escenario con Rutas definidas por el usuario (UDR), una instancia de VPN Gateway y aplicaciones virtuales de red para implementar un entorno de 2 niveles que cumple los siguientes requisitos:
@@ -144,8 +144,12 @@ AZF1 representa una aplicación virtual de Azure que incluye las siguientes regl
 ### <a name="azf2"></a>AZF2
 AZF2 representa una aplicación de Azure que contiene las siguientes reglas:
 
-* **Ruta**: todo el tráfico a 10.0.0.0/16 (**onpremvnet**) se debe enviar a la dirección IP de la puerta de enlace de Azure (es decir, 10.0.0.1) a través de **port1**.
 * **Directiva**: permita todo el tráfico bidireccional entre **port1** y **port2**.
+
+### <a name="azf3"></a>AZF3
+AZF3 representa una aplicación virtual de Azure que incluye las reglas siguientes:
+
+* **Ruta**: todo el tráfico a 192.168.0.0/16 (**onpremvnet**) se debe enviar a la dirección IP de la puerta de enlace de Azure (es decir, 10.0.0.1) a través de **port1**.
 
 ## <a name="network-security-groups-nsgs"></a>Grupos de seguridad de red (NSG)
 En este escenario, no se usan los NSG. Sin embargo, podría aplicar los NSG a cada subred para restringir el tráfico entrante y saliente. Por ejemplo, podría aplicar las siguientes reglas de NSG a la subred de firewall externo.
@@ -167,4 +171,3 @@ Para implementar este escenario, siga estos pasos de alto nivel.
 3. Aprovisione los recursos que son parte de **AZURERG**.
 4. Aprovisione el túnel de **onpremvnet** a **azurevnet**.
 5. Una vez que se aprovisionen todos los recursos, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
-

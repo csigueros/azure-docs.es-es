@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e86c9afcdb68aa6ad030405a2b5cbe59dc92e6f0
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99989079"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201636"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -40,7 +40,7 @@ Se aplican reglas de red en todos los protocolos de red para Azure Cognitive Ser
 
 ## <a name="supported-regions-and-service-offerings"></a>Ofertas de servicio y regiones admitidas
 
-Se admiten redes virtuales en [regiones en las que Cognitive Services está disponible](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services admite etiquetas de servicio para la configuración de reglas de red. Los servicios de la lista siguiente se incluyen en la etiqueta de servicio **CognitiveServicesManagement**.
+Se admiten redes virtuales en [regiones en las que Cognitive Services está disponible](https://azure.microsoft.com/global-infrastructure/services/). Actualmente, el recurso de varios servicios no es compatible con la red virtual. Cognitive Services admite etiquetas de servicio para la configuración de reglas de red. Los servicios de la lista siguiente se incluyen en la etiqueta de servicio **CognitiveServicesManagement**.
 
 > [!div class="checklist"]
 > * Anomaly Detector

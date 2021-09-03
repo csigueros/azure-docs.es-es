@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91fe9cee0178dc3f742ac59995212ae1ef3a7a38
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519259"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582967"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Machine Learning Studio (clásico)
 
@@ -22,10 +22,10 @@ ms.locfileid: "100519259"
 
 NET # es un lenguaje desarrollado por Microsoft que se utiliza para definir arquitecturas de redes neuronales complejas, como las redes neuronales profundas o las convoluciones de dimensiones arbitrarias. Puede usar estructuras complejas para mejorar el aprendizaje en datos, como imágenes, vídeo o audio.
 
-Puede usar una especificación de arquitectura de Net # en estos contextos:
-
-+ Puede usar todos los módulos de red neuronal de Microsoft Azure Machine Learning Studio (clásico): [Red neuronal multiclase](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Red neuronal de dos clases](/azure/machine-learning/studio-module-reference/two-class-neural-network) y [Regresión de red neuronal](/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Funciones de red neuronal en Microsoft Machine Learning Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) y [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet) para el lenguaje R, y [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
+Puede usar una especificación de arquitectura de Net# en todos los módulos de red neuronal de Machine Learning Studio (clásico): 
+* [Red neuronal multiclase](/azure/machine-learning/studio-module-reference/multiclass-neural-network)
+* [Red neuronal de dos clases](/azure/machine-learning/studio-module-reference/two-class-neural-network)
+* [Regresión de red neuronal](/azure/machine-learning/studio-module-reference/neural-network-regression)
 
 
 En este artículo se describen los conceptos básicos y la sintaxis necesaria para desarrollar una red neuronal personalizada con Net#:
@@ -33,7 +33,6 @@ En este artículo se describen los conceptos básicos y la sintaxis necesaria pa
 + Requisitos de red neuronal y definición de componentes principales
 + Sintaxis y palabras clave del lenguaje de especificación Net#
 + Ejemplos de redes neuronales personalizadas creadas mediante Net#
-
 
 
 ## <a name="neural-network-basics"></a>Conceptos básicos sobre redes neuronales
@@ -57,7 +56,7 @@ Además, Net# admite los siguientes cuatro tipos de conjuntos de conexiones avan
 
 ## <a name="supported-customizations"></a>Personalizaciones compatibles
 
-La arquitectura de los modelos de red neuronal creados en Azure Machine Learning Studio (clásico) se puede personalizar ampliamente mediante Net#. Puede:
+La arquitectura de los modelos de red neuronal creados en Machine Learning Studio (clásico) se puede personalizar ampliamente mediante Net#. Puede:
 
 + Crear capas ocultas y controlar el número de nodos de cada capa.
 + Especificar cómo se van a conectar las capas entre ellas.
@@ -293,7 +292,7 @@ from P1 response norm {
   }
 ```
 
-+ La capa de origen incluye cinco asignaciones, cada una con una dimensión de 12 x 12, sumando un total de 1440 nodos.
++ La capa de origen incluye cinco mapas, cada uno con una dimensión de 12 x 12, lo que genera un total de 1440 nodos.
 + El valor de **KernelShape** indica que se trata de una capa de normalización de mismo mapa, donde el entorno es un rectángulo de 3x3.
 + El valor predeterminado de **Padding** es False, por lo que la capa de destino tiene solo 10 nodos en cada dimensión. A fin de incluir un nodo en la capa de destino correspondiente a cada uno de los nodos de la capa de origen, agregue Padding = [true, true, true] y cambie el tamaño de RN1 a [5, 12, 12].
 
@@ -461,6 +460,6 @@ output Digit [10] from Hid3 all;
 + El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa, [50, 5, 5], de este modo: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + Dado que `Sharing[d]` es False solo para `d == 0`, el número de kernels es `MapCount * NodeCount\[0] = 10 * 5 = 50`.
 
-## <a name="acknowledgements"></a>Agradecimientos
+## <a name="acknowledgments"></a>Agradecimientos
 
-El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue desarrollado en Microsoft por Shon Katzenberger (arquitecto, Machine Learning) y Alexey Kamenev (ingeniero de software, Microsoft Research). Se usa internamente para proyectos y aplicaciones de aprendizaje automático que abarcan desde la detección de imágenes para el análisis de texto. Para más información, vea [Neural Nets in Azure Machine Learning studio - Introduction to Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net) (Redes neuronales en Azure Machine Learning Studio: Introducción a Net#).
+El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue desarrollado en Microsoft por Shon Katzenberger (arquitecto, Machine Learning) y Alexey Kamenev (ingeniero de software, Microsoft Research). Se usa internamente para proyectos y aplicaciones de aprendizaje automático que abarcan desde la detección de imágenes para el análisis de texto. Para obtener más información, vea [Redes neuronales en Machine Learning Studio: Introducción a Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net).

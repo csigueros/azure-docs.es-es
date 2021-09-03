@@ -4,13 +4,13 @@ description: Describe cómo definir y utilizar un módulo, y cómo usar ámbitos
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 85f345cfd7085f34f28e4b219c4f379abff74bff
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 07/15/2021
+ms.openlocfilehash: 5e092a0b7f27379cf9fdc488c7a56a295ce17d25
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421425"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752252"
 ---
 # <a name="use-bicep-modules"></a>Uso de módulos de Bicep
 
@@ -102,8 +102,21 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
     ]
     ...
     ```
+- La propiedad **_params_** contiene los parámetros que se pasan al archivo de módulo. Estos parámetros coinciden con los definidos en el archivo Bicep.
+
+Al igual que los recursos, los módulos se implementan en paralelo a menos que dependan de otros módulos o implementaciones de recursos. Para obtener más información sobre las dependencias, vea [Establecer dependencias de recursos](resource-declaration.md#set-resource-dependencies).
 
 Para obtener un valor de salida de un módulo, recupere el valor de la propiedad con la siguiente sintaxis: `stgModule.outputs.storageEndpoint`, donde `stgModule` es el identificador del módulo.
+
+Puede implementar un módulo de manera condicional. Use la misma sintaxis **if** que utilizaría al [implementar un recurso de manera condicional](conditional-resource-deployment.md).
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
+}
+```
 
 ## <a name="configure-module-scopes"></a>Configuración de ámbitos de módulo
 

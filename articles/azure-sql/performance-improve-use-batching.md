@@ -10,13 +10,13 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: e78f6762e3eb94e010909941cc84d19a37f3afc4
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 06/22/2021
+ms.openlocfilehash: dc246908497d8f13bddbc06498900842850397ae
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691364"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253171"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -602,7 +602,7 @@ Este ejemplo demuestra que las operaciones de base de datos más complejas, como
 
 ### <a name="upsert"></a>UPSERT
 
-Otro escenario de procesamiento por lotes supone la actualización de filas existentes y la inserción de nuevas filas de forma simultánea. Esta operación se conoce a veces como operación "UPSERT" (actualización + inserción). En lugar de realizar llamadas independientes para insertar (INSERT) y actualizar (UPDATE), la instrucción MERGE es más adecuada para esta tarea. La instrucción MERGE puede realizar ambas operaciones en una sola llamada.
+Otro escenario de procesamiento por lotes supone la actualización de filas existentes y la inserción de nuevas filas de forma simultánea. Esta operación se conoce a veces como operación "UPSERT" (actualización + inserción). En lugar de realizar llamadas independientes a INSERT y UPDATE, la instrucción MERGE puede ser un reemplazo adecuado. La instrucción MERGE puede realizar ambas operaciones en una sola llamada. La mecánica de bloqueo de instrucciones MERGE funciona de forma diferente a las instrucciones INSERT y UPDATE independientes. Pruebe sus cargas de trabajo específicas antes de implementarlas en producción.
 
 Los parámetros con valores de tabla pueden usarse con la instrucción MERGE para realizar actualizaciones e inserciones. Por ejemplo, piense en una tabla Employee simplificada que contiene las siguientes columnas: EmployeeID, FirstName, LastName y SocialSecurityNumber:
 

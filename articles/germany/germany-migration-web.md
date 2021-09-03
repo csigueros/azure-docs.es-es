@@ -1,22 +1,22 @@
 ---
 title: Migración de recursos web de Azure desde Azure Alemania a Azure global
 description: En este artículo se proporciona información sobre cómo migrar los recursos web de Azure desde Azure Alemania a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: 4e607d821d0a587b25c6cb6929ac6765d500b6fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d67a4aadbe22b5447aa73063e48c0ca43fb45d04
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033656"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "117029208"
 ---
 # <a name="migrate-web-resources-to-global-azure"></a>Migración de recursos web a Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 En este artículo se proporciona información que puede ayudarle a migrar los recursos web de Azure desde Azure Alemania a Azure global.
 
@@ -27,14 +27,53 @@ En este momento, no se admite la migración de aplicaciones que ha creado con la
 > [!IMPORTANT]
 > Cambie la ubicación, los secretos de Azure Key Vault, los certificados y otros GUID para que sea coherente con la nueva región.
 
+### <a name="migrate-web-app-resource"></a>Migración del recurso de aplicación web
+
+1. [Exporte la aplicación web y el plan de App Service como plantilla](../azure-resource-manager/templates/export-template-portal.md) desde la suscripción de Azure Alemania. Seleccione los recursos que quiera migrar en el grupo de recursos de la aplicación web y expórtelos como una plantilla.
+1. Descargue la plantilla como un archivo ZIP. 
+1. Cambie la propiedad location del archivo **template.json** por la región global de Azure de destino. Por ejemplo, el siguiente archivo JSON tiene una ubicación de destino de *Oeste de EE. UU.* .
+
+    ```json
+        "resources": [
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('serverfarms_myappservice_name')]",
+            "location": "West US",
+
+    ```
+1. Implemente la plantilla modificada en Azure global. Por ejemplo, puede usar PowerShell para la implementación.
+
+    ```powershell
+    az deployment group create --name "<web app name>" \
+        --resource-group "<resource group name>" \
+        --template-file "<path of your template.json file>"
+    ```
+
+### <a name="migrate-web-app-content"></a>Migración del contenido de la aplicación web
+
+1. En el portal de Azure Alemania, seleccione la aplicación web.
+1. Seleccione **Herramientas de desarrollo > Herramientas avanzadas**.
+1. En el menú superior, seleccione **Consola de depuración** y después **PowerShell**.
+1. Seleccione **sitio**.
+1. Seleccione el **icono de descarga** situado junto a la carpeta **wwwroot**. El archivo ZIP descargado contiene el código fuente de la aplicación web.
+1. Implemente la raíz web en la aplicación web global de Azure migrada. Por ejemplo, puede usar el siguiente script de PowerShell.
+
+    ``` powershell
+    az webapp deployment source config-zip \
+        --resource-group "<resource group name>" \
+        --name "<web App name>" \
+        --src "path to webroot folder zip file"
+    ```
+
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de App Service](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Obtenga información acerca de cómo [exportar las plantillas de Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Revise la [introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualice sus conocimientos completando los [tutoriales de App Service](../app-service/tutorial-dotnetcore-sqldb-app.md).
+- Obtenga información acerca de cómo [exportar las plantillas de Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md).
+- Revise la [introducción a Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Revise la [introducción a App Service](../app-service/overview.md).
 - Consulte una [introducción a las ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/resource-group-template-deploy.md).
+- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="notification-hubs"></a>Notification Hubs
 
@@ -46,8 +85,22 @@ Para migrar la configuración de una instancia de Azure Notification Hubs a otra
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).
 - Revise la [introducción a Azure Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md).
+
+## <a name="event-hubs"></a>Event Hubs
+
+Para migrar un centro de eventos de Azure, exporte la plantilla de recursos del centro de eventos desde Azure Alemania y, después, implemente la plantilla en Azure global.
+
+1. [Exporte el centro de eventos como plantilla](../azure-resource-manager/templates/export-template-portal.md) desde la suscripción de Azure Alemania.
+1. [Implemente la plantilla del centro de eventos como una plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) en la suscripción global de Azure. Cargue e implemente la plantilla que ha exportado desde la suscripción de Azure Alemania.
+
+Para obtener más información:
+
+- Revise la [introducción a Event Hubs](../event-hubs/event-hubs-about.md).
+- Revise la [introducción a Azure Resource Manager](../azure-resource-manager/management/overview.md).
+- Obtenga información acerca de cómo [exportar las plantillas de Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md).
+- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

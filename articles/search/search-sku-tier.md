@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 06/26/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e62f2a07b4266671bb055e6a672e13f69e2a0bab
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99987888"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982823"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
-Parte del proceso de [creación de un servicio de búsqueda](search-create-service-portal.md) es elegir un plan de tarifa (o SKU) fijado para el período de vigencia del servicio. Los precios, o el costo mensual estimado de ejecución del servicio, se muestran en la página **Seleccionar plan de tarifa** del portal al crear el servicio. Si va a aprovisionar mediante PowerShell o la CLI de Azure, el plan de tarifa se especifica mediante el parámetro **`-Sku`** y se deben comprobar los [precios del servicio](https://azure.microsoft.com/pricing/details/search/) para obtener información sobre los costos estimados.
+Parte del proceso de [creación de un servicio de búsqueda](search-create-service-portal.md) es elegir un plan de tarifa (o SKU) fijado para el período de vigencia del servicio. En el portal, el nivel se especifica en la página **Seleccionar plan de tarifa** al crear el servicio. Si en su lugar va a aprovisionar un servicio desde PowerShell o la CLI de Azure, el nivel se especifica mediante el parámetro **`-Sku`** .
 
 El plan que seleccione determina:
 
@@ -27,6 +27,8 @@ El plan que seleccione determina:
 + Tarifa facturable como un costo mensual fijo, pero también un costo incremental si agrega capacidad.
 
 En algunas instancias, el nivel que elija determinará la disponibilidad de [características prémium](#premium-features).
+
+Los precios, o el costo mensual estimado de ejecución del servicio, se muestran en la página **Seleccionar plan de tarifa** del portal. Debe comprobar los [precios del servicio](https://azure.microsoft.com/pricing/details/search/) para obtener información sobre los costos estimados.
 
 > [!NOTE]
 > ¿Busca información sobre "SKU de Azure"? Empiece en [Precios de Azure](https://azure.microsoft.com/pricing/) y desplácese hacia abajo por los vínculos a las páginas de precios por servicio.
@@ -56,12 +58,13 @@ La mayoría de las características están disponibles en todos los niveles, inc
 | Característica | Limitaciones |
 |---------|-------------|
 | [Indizadores](search-indexer-overview.md) | Los indizadores no están disponibles en S3 HD.  |
-| [Enriquecimiento con IA](search-security-manage-encryption-keys.md) | Se ejecuta en el nivel Gratis, pero no se recomienda. |
+| [Enriquecimiento con IA](cognitive-search-concept-intro.md) | Se ejecuta en el nivel Gratis, pero no se recomienda. |
 | [Identidades administradas o de confianza para el acceso saliente (indexador)](search-howto-managed-identities-data-sources.md) | No disponibles en el nivel Gratis.|
 | [Claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) | No disponibles en el nivel Gratis. |
 | [Acceso al firewall de IP](service-configure-firewall.md) | No disponibles en el nivel Gratis. |
 | [Punto de conexión privado (integración con Azure Private Link)](service-create-private-endpoint.md) | En el caso de las conexiones entrantes a un servicio de búsqueda, no está disponible en el nivel Gratis. En el caso de las conexiones salientes de indexadores a otros recursos de Azure, no es´ta disponible en el nivel Gratis ni S3 HD. Para los indexadores que usan conjuntos de aptitudes, no está disponible en los niveles Gratis, Básico, S1 o S3 HD.| 
-| [Zonas de disponibilidad](search-performance-optimization.md) | No disponibles en el nivel Gratis ni en el Básico. |
+| [Zonas de disponibilidad](search-performance-optimization.md) | No disponibles en los niveles Gratis o Básico. |
+| [Búsqueda semántica (versión preliminar)] | No disponible en los niveles Gratis o Básico. |
 
 Es posible que las características que consumen muchos recursos no funcionen bien a menos que se le proporcione capacidad suficiente. Por ejemplo, el [enriquecimiento con IA](cognitive-search-concept-intro.md) contiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio Gratis, a menos que el conjunto de datos sea pequeño.
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe851cc39ab8856133a5ac24508bc9b6df53a8f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 00b0585e19a4a081502a6b93b79be7ed293a4b1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782337"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750528"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -76,7 +76,7 @@ Un usuario puede ser miembro de varios grupos con licencias. Estos son algunos a
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>Coexistencia de licencias directas con licencias de grupo
 
-Cuando un usuario hereda una licencia de un grupo, no se puede quitar ni modificar esa asignación de licencias en las propiedades del usuario. Puede cambiar la asignación de licencias solo en el grupo y los cambios se propagan a todos los usuarios. Sin embargo, es posible asignar la misma licencia de producto al usuario directamente y por asignación de licencia de grupo. De esta manera, puede habilitar servicios adicionales del producto solo para un usuario, sin que afecten a otros.
+Cuando un usuario hereda una licencia de un grupo, no se puede quitar ni modificar esa asignación de licencias en las propiedades del usuario. Puede cambiar la asignación de licencias solo en el grupo y los cambios se propagan a todos los usuarios. Si tiene que asignar características adicionales a un usuario que tenga su licencia de una asignación de licencia de grupo, tendrá que crear otro grupo para asignar las características adicionales al usuario.
 
 Las licencias asignadas directamente se pueden quitar y no afectan a las licencias heredadas de un usuario. Considere un usuario que hereda una licencia de Office 365 Enterprise E3 de un grupo.
 

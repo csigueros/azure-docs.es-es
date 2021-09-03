@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: bda93712dd9a7501fbfddf0e75b8ae3c0088ed55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f97033d7a22c66a5e02dfd31545143ad6923488b
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96341247"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201687"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Aplicación del descuento por reserva de Azure en las máquinas virtuales
 
@@ -36,7 +36,7 @@ En la tabla siguiente se muestran los costos de la máquina virtual después de 
 
 Un descuento de reserva significa "*usarlo o perderlo*". Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
 
-Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se *pierden*.
+Al cerrar un recurso o modificar la escala del número de máquinas virtuales, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se *pierden*.
 
 ## <a name="reservation-discount-for-non-windows-vms"></a>Descuento de reserva para las máquinas virtuales que no son Windows
 

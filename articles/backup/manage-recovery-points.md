@@ -2,13 +2,13 @@
 title: Administración de puntos de recuperación
 description: Obtenga información sobre cómo el servicio Azure Backup administra los puntos de recuperación de las máquinas virtuales
 ms.topic: conceptual
-ms.date: 11/08/2020
-ms.openlocfilehash: 256df693aba0f799c24bcba6defe846e5c37ccaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/17/2021
+ms.openlocfilehash: 2dd33b430d5aa117f35f74ff92bb3655a9002803
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94428536"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300676"
 ---
 # <a name="manage-recovery-points"></a>Administración de puntos de recuperación
 
@@ -121,6 +121,12 @@ Para entender cómo afecta la renovación al rendimiento de las copias de seguri
 |Renovación de datos de copias de seguridad    |   A1- 4 TB      | B1-1 TB; B2-1 TB <br> B3-1 TB; B4-1 TB  |   C1-2 TB; C4-2 TB      |
 
 El rendimiento de las copias de seguridad seguirá el orden VM2>VM3>VM1. Esto se debe a que los datos renovados se reparten entre los distintos discos. Como la copia de seguridad de discos se produce en paralelo, VM2 mostrará el mejor rendimiento.
+
+## <a name="frequently-asked-question"></a>Preguntas más frecuentes
+
+### <a name="how-can-i-find-the-retention-period-of-an-on-demand-backup"></a>¿Cómo puedo encontrar el período de retención de una copia de seguridad a petición?
+
+En el campo **Hora de expiración del punto de recuperación en UTC** de los trabajos de copia de seguridad a petición se muestra el período de retención del punto de recuperación. Para obtener más información, vea [Ejecución de una copia de seguridad a petición](backup-azure-manage-vms.md#run-an-on-demand-backup). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

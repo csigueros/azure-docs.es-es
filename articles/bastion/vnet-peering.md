@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 07/13/2021
 ms.author: cherylmc
-ms.openlocfilehash: d7f888c5bbb47a3690aee9b139d2516eb956a35f
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ccbee86e8f5ae2ab514c8ec7ece4d41e1e890e4e
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110540391"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733293"
 ---
 # <a name="vnet-peering-and-azure-bastion"></a>Emparejamiento de VNet y Azure Bastion
 
@@ -48,7 +48,7 @@ Esta ilustración muestra la arquitectura de una implementación de Azure Bastio
 3. Para ver Bastion en el menú desplegable **Conectar**, debe seleccionar las suscripciones a las que tiene acceso en **Suscripción > Suscripción global**.
 4. Selección de la máquina virtual a la que conectarse.
 5. Azure Bastion se detecta sin problemas en la red virtual emparejada.
-6. Con un solo clic, la sesión RDP/SSH se abre en el explorador. Para conocer los límites de sesiones simultáneas de RDP y SSH, consulte [Sesiones de RDP y SSH](bastion-faq.md#limits).
+6. Con un solo clic, la sesión RDP/SSH se abre en el explorador.
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Conexión":::
 
@@ -59,7 +59,7 @@ Esta ilustración muestra la arquitectura de una implementación de Azure Bastio
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-[!INCLUDE [FAQ for VNet peering](../../includes/bastion-faq-peering-include.md)]
+Para obtener las preguntas más frecuentes, vea las [preguntas más frecuentes](bastion-faq.md#peering) sobre emparejamiento de red virtual de Bastion.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

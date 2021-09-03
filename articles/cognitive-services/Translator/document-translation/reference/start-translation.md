@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/22/2021
 ms.author: v-jansk
-ms.openlocfilehash: 2896c5c78acb98c798f85684ef6f800f82549b06
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ae867a4383b5644eca2cabf2651c2c40797ed49a
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412716"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540607"
 ---
 # <a name="start-translation"></a>Inicio de traducción
 
-Use esta API para iniciar una solicitud de traducción masiva (por lotes) al servicio de traducción de documentos. Cada solicitud puede contener varios documentos y debe contener un contenedor de origen y otro de destino para cada documento.
+Use esta API para iniciar una solicitud de traducción al servicio de traducción de documentos. Cada solicitud puede contener varios documentos y debe contener un contenedor de origen y otro de destino para cada documento.
 
 El filtro de prefijo y sufijo (si se proporcionan) se usan para filtrar carpetas. El prefijo se aplica a la subruta después del nombre del contenedor.
 
@@ -59,7 +59,7 @@ Los encabezados de solicitud son:
 
 Definición para la solicitud de traducción por lotes de entrada.
 
-|Nombre|Tipo|Requerido|Descripción|
+|Nombre|Tipo|Obligatorio|Descripción|
 |--- |--- |--- |--- |
 |source|SourceInput[]|Verdadero|inputs.source que aparece a continuación. Origen de los documentos de entrada.|
 |storageType|StorageInputType[]|False|inputs.storageType que aparece a continuación. Tipo de almacenamiento de la cadena de origen de los documentos de entrada. Se requiere solo para la traducción de documentos únicos.|
@@ -69,7 +69,7 @@ Definición para la solicitud de traducción por lotes de entrada.
 
 Origen de los documentos de entrada.
 
-|Nombre|Tipo|Requerido|Descripción|
+|Nombre|Tipo|Obligatorio|Descripción|
 |--- |--- |--- |--- |
 |filter|DocumentFilter[]|False|DocumentFilter[] que aparece a continuación.|
 |filter.prefix|string|False|Una cadena de prefijo que distingue entre mayúsculas y minúsculas para filtrar los documentos en la ruta de origen para su traducción. Por ejemplo, cuando se utiliza un URI de Azure Storage Blob, utilice el prefijo para restringir las subcarpetas para la traducción.|
@@ -92,7 +92,7 @@ Tipo de almacenamiento de la cadena de origen de los documentos de entrada.
 
 Destino de los documentos traducidos terminados.
 
-|Nombre|Tipo|Requerido|Descripción|
+|Nombre|Tipo|Obligatorio|Descripción|
 |--- |--- |--- |--- |
 |category|string|False|Categoría/sistema personalizado para la solicitud de traducción.|
 |glossaries|Glossary[]|False|Glosario que aparece a continuación. Lista del glosario.|
