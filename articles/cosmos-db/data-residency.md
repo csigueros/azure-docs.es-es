@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c5f8a4361774368e3934d1e2b16c8311876f5caa
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 63892e4ed71ec435a7068c9c68b9981a71205fb1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491872"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725468"
 ---
 # <a name="how-to-meet-data-residency-requirements-in-azure-cosmos-db"></a>Cumplimiento de los requisitos de residencia de datos en Azure Cosmos DB
 
-En Azure Cosmos DB, puede configurar los datos y las copias de seguridad para que permanezcan en una sola región para cumplir los[ requisitos de residencia.](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/)
+En Azure Cosmos DB, puede configurar los datos y las copias de seguridad para que permanezcan en una sola región para cumplir los[ requisitos de residencia.](https://azure.microsoft.com/global-infrastructure/data-residency/)
 
 ## <a name="residency-requirements-for-data"></a>Requisitos de residencia para los datos
 
@@ -24,7 +24,7 @@ En Azure Cosmos DB, debe configurar explícitamente la replicación de datos en
 
 ## <a name="residency-requirements-for-backups"></a>Requisitos de residencia para las copias de seguridad
 
-**Copias de seguridad en modo continuo**: estas copias de seguridad residen de manera predeterminada, ya que se almacenan en el almacenamiento con redundancia local o con redundancia de zona. Para más información, consulte el artículo [Copia de seguridad continua](continuous-backup-restore-portal.md).
+**Copias de seguridad en modo continuo**: estas copias de seguridad residen de manera predeterminada, ya que se almacenan en el almacenamiento con redundancia local o con redundancia de zona. Para más información, consulte el artículo [Copia de seguridad continua](provision-account-continuous-backup.md).
 
 **Copias de seguridad en modo periódico**: de manera predeterminada, las copias de seguridad en modo periódico se almacenarán en el almacenamiento con redundancia geográfica. En el caso de los modos de copia de seguridad periódica, puede configurar la redundancia de datos en el nivel de cuenta. Existen tres opciones de redundancia para el almacenamiento de copia de seguridad. Estas son redundancia local, redundancia de zona o redundancia geográfica. Para obtener más información, consulte [Configuración de la redundancia de copia de seguridad](configure-periodic-backup-restore.md#configure-backup-interval-retention) mediante el portal.
 
@@ -37,4 +37,7 @@ Azure Policy es un servicio que puede usar para crear, asignar y administrar dir
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Configure y administre la copia de seguridad periódica mediante [Azure Portal](configure-periodic-backup-restore.md)
-* Configure y administre la copia de seguridad continua mediante [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), la [CLI](continuous-backup-restore-command-line.md) o [Azure Resource Manager](continuous-backup-restore-template.md).
+* Aprovisione la copia de seguridad continua mediante [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), la [CLI](provision-account-continuous-backup.md#provision-cli) o [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restaure la cuenta de copia de seguridad continua mediante [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), la [CLI](restore-account-continuous-backup.md#restore-account-cli) o [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Realice la migración a una cuenta desde una copia de seguridad periódica a una copia de seguridad continua](migrate-continuous-backup.md).
+

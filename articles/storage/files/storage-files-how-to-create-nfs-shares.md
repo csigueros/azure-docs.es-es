@@ -1,30 +1,39 @@
 ---
-title: 'Creación de un recurso compartido NFS: Azure Files (versión preliminar)'
+title: 'Creación de un recurso compartido NFS (versión preliminar): Azure Files'
 description: Obtenga información sobre cómo crear un recurso compartido de archivos de Azure que se pueda montar con el protocolo Network File System.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a4d5ff9298b8cbf4203e157bc21fae6059342130
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2b1e7f17445fe2b24b19acf4669637ef4c47c196
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663436"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728502"
 ---
-# <a name="how-to-create-an-nfs-share"></a>Procedimiento para crear un recurso compartido NFS
-Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. En este artículo se describe la creación de un recurso compartido de archivos que usa el protocolo NFS. Para obtener más información sobre ambos protocolos, consulte [Protocolos de recurso compartido de archivos de Azure](storage-files-compare-protocols.md).
+# <a name="how-to-create-an-nfs-share-preview"></a>Procedimiento para crear un recurso compartido de NFS (versión preliminar)
+Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. En este artículo se trata la creación de un recurso compartido de archivos que usa el protocolo NFS (versión preliminar).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="limitations"></a>Limitaciones
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
+
 
 ### <a name="regional-availability"></a>Disponibilidad regional
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
+- Los recursos compartidos NFS solo aceptan UID/GID numéricos. Para evitar que los clientes envíen UID/GID alfanuméricos, deshabilite la asignación de identificadores.
 - Solo se puede tener acceso a los recursos compartidos de NFS desde redes de confianza. Las conexiones a su recurso compartido de NFS deben originarse en uno de los orígenes siguientes:
     - [Cree un punto de conexión privado](storage-files-networking-endpoints.md#create-a-private-endpoint) (recomendado) o [restrinja el acceso al punto de conexión público](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
     - [Configure una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files](storage-files-configure-p2s-vpn-linux.md).
@@ -34,6 +43,9 @@ Los recursos compartidos de archivos de Azure son recursos compartidos de archiv
 - Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli).
 
 ## <a name="register-the-nfs-41-protocol"></a>Registro del protocolo NFS 4.1
+
+Primero debe registrarse para la característica con el fin de crear recursos compartidos de archivos de Azure de NFS. No puede crear recursos compartidos de NFS en cuentas de almacenamiento que se crearon antes del registro.
+
 Si usa el módulo Azure PowerShell o la CLI de Azure, registre la característica con los siguientes comandos:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -43,12 +55,10 @@ Use Azure PowerShell o la CLI de Azure para registrar la característica NFS 4.
 ```azurepowershell
 # Connect your PowerShell session to your Azure account, if you have not already done so.
 Connect-AzAccount
-
 # Set the actively selected subscription, if you have not already done so.
 $subscriptionId = "<yourSubscriptionIDHere>"
 $context = Get-AzSubscription -SubscriptionId $subscriptionId
 Set-AzContext $context
-
 # Register the NFS 4.1 feature with Azure Files to enable the preview.
 Register-AzProviderFeature `
     -ProviderNamespace Microsoft.Storage `
@@ -61,16 +71,13 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```azurecli
 # Connect your Azure CLI to your Azure account, if you have not already done so.
 az login
-
 # Provide the subscription ID for the subscription where you would like to 
 # register the feature
 subscriptionId="<yourSubscriptionIDHere>"
-
 az feature register \
     --name AllowNfsFileShares \
     --namespace Microsoft.Storage \
     --subscription $subscriptionId
-
 az provider register \
     --namespace Microsoft.Storage
 ```
@@ -96,7 +103,6 @@ az feature show \
     --namespace Microsoft.Storage \
     --subscription $subscriptionId
 ```
-
 ---
 
 ## <a name="create-a-filestorage-storage-account"></a>Creación de una cuenta de almacenamiento FileStorage
@@ -170,7 +176,7 @@ Ahora que ha creado una cuenta de FileStorage y ha configurado la red, puede cre
 1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos**.
 1. Seleccione **+ Recurso compartido de archivos** para crear un recurso compartido de archivos.
 1. Asigne un nombre al recurso compartido de archivos y seleccione una capacidad aprovisionada.
-1. En **Protocolo**, seleccione **NFS (versión preliminar)** .
+1. En **Protocolo** seleccione **NFS**.
 1. Para **Squash raíz** realice una selección.
 
     - Squash raíz (predeterminado): el acceso al superusuario remoto (raíz) se asigna a UID (65534) y GID (65534).
@@ -183,32 +189,6 @@ Ahora que ha creado una cuenta de FileStorage y ha configurado la red, puede cre
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Asegúrese de que .NET Framework está instalado. Vea [Descargar .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
- 
-1. Use el siguiente comando para comprobar que la versión de PowerShell que ha instalado es `5.1` o posterior.    
-
-   ```powershell
-   echo $PSVersionTable.PSVersion.ToString() 
-   ```
-    
-   Para actualizar la versión de PowerShell, vea [Actualización de Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
-    
-1. Instale la versión más reciente del módulo PowerShellGet.
-
-   ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force  
-   ```
-
-1. Cierre la consola de PowerShell y vuelva a abrirla.
-
-1. Instale la versión preliminar del módulo **Az.Storage** **2.5.2-preview**.
-
-   ```powershell
-   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
-   ```
-
-   Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
-   
 1. Para crear un recurso compartido de archivos Premium con el módulo de Azure PowerShell, use el cmdlet [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare).
 
     > [!NOTE]

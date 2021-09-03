@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 04/08/2021
-ms.openlocfilehash: 60dca43f95b190791c8fb593042ed612340a3af5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 37c7d94bfb645e444b4fb937823dcb8d56bcb9c7
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874556"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457740"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integración de Git con Azure Machine Learning
 
@@ -153,7 +153,7 @@ Si los archivos de entrenamiento no se encuentran en un repositorio de Git en el
 
 ## <a name="view-the-logged-information"></a>Visualización de la información registrada
 
-La información de Git se almacena en las propiedades para la ejecución de entrenamiento. Puede ver esta información mediante Azure Portal, el SDK de Python y la CLI. 
+La información de Git se almacena en las propiedades para la ejecución de entrenamiento. Puede ver esta información mediante Azure Portal, el SDK de Python y la CLI de Azure. 
 
 ### <a name="azure-portal"></a>Portal de Azure
 
@@ -189,7 +189,7 @@ Después de enviar una ejecución de entrenamiento, se devuelve un objeto [Run](
 run.properties['azureml.git.commit']
 ```
 
-### <a name="cli"></a>CLI
+### <a name="azure-cli"></a>Azure CLI
 
 El comando de la CLI `az ml run` se puede usar para recuperar las propiedades de una ejecución. Por ejemplo, el comando siguiente devuelve las propiedades de la última ejecución en el experimento denominado `train-on-amlcompute`:
 
@@ -197,7 +197,7 @@ El comando de la CLI `az ml run` se puede usar para recuperar las propiedades de
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Para más información, consulte la documentación de referencia de [az ml run](/cli/azure/ml/run).
+Para más información, consulte la documentación de referencia de [az ml run](/cli/azure/ml(v1)/run).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

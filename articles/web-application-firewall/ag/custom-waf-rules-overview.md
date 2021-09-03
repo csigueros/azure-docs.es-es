@@ -5,15 +5,15 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/14/2020
+ms.date: 07/30/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dcce15618159b9d6a06a513435f0e091e02a2b2c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ad73d319e5466bb541a99e3ef33b17cdc644dfe5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411259"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729417"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Personalización de reglas del Firewall de aplicaciones web v2 en Azure Application Gateway
 
@@ -108,7 +108,7 @@ En la actualidad, debe ser **MatchRule**.
 
 Debe ser una de estas variables:
 
-- RemoteAddr: dirección IP o nombre de host de la conexión del equipo remoto
+- RemoteAddr: intervalo o dirección IP de la conexión del equipo remoto
 - RequestMethod: método de solicitud HTTP (GET, POST, PUT, DELETE y así sucesivamente).
 - QueryString: la variable en el URI
 - PostArgs: los argumentos enviados en el cuerpo de POST. Las reglas personalizadas que usan esta variable de coincidencia solo se aplican si el encabezado "Content-Type" está establecido en "application/x-www-form-urlencoded" y "multipart/form-data".
@@ -135,7 +135,7 @@ Debe ser uno de los operadores siguientes:
 - BeginsWith
 - EndsWith
 - Regex
-- Geomatch (vista previa)
+- Geomatch
 
 ### <a name="negate-condition-optional"></a>Negar condición [opcional]
 
@@ -162,9 +162,9 @@ Lista de valores con los que se va a comparar, que se pueden considerar como com
 - Block: bloquea la transacción en función de *SecDefaultAction* (modo de detección o prevención). Como sucede con la acción Allow, una vez que la solicitud se evalúa y se agrega a la lista de bloqueadas, la evaluación se detiene y la solicitud se bloquea. Las solicitudes posteriores que cumplan las mismas condiciones no se evaluarán y simplemente se bloquearán. 
 - Log: permite que la regla escriba en el registro, pero que las reglas restantes se ejecuten para la evaluación. Las otras reglas personalizadas se evalúan por orden de prioridad, seguidas por las reglas administradas.
 
-## <a name="geomatch-custom-rules-preview"></a>Reglas personalizadas de Geomatch (vista previa)
+## <a name="geomatch-custom-rules"></a>Reglas personalizadas de geomatch
 
-Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Puede restringir el acceso a las aplicaciones web por país o región. Para obtener más información, consulte [Reglas personalizadas de Geomatch (versión preliminar)](geomatch-custom-rules.md).
+Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Puede restringir el acceso a las aplicaciones web por país o región. Para obtener más información, consulte [Reglas personalizadas de Geomatch](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

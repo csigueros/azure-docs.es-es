@@ -1,31 +1,61 @@
 ---
 title: Novedades de la administración de aplicaciones en Azure Active Directory
 description: Documentación nueva y actualizada sobre la administración de aplicaciones de Azure Active Directory.
-ms.date: 06/02/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: mtillman
-author: mtillman
+ms.author: davidmu
+author: davidmu1
 manager: CelesteDG
-ms.openlocfilehash: 361fb5cc46d356fbab53defc5c3add4d7a5b768b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+reviewer: napuri
+ms.openlocfilehash: d95c81256dcb58b64273d6062563daf38dfdb4fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079200"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727626"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de administración de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de administración de aplicaciones, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="july-2021"></a>Julio de 2021
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Creación de colecciones en el portal Mis aplicaciones](access-panel-collections.md)
+- [Inicio rápido: Asignación de usuarios a una aplicación](add-application-portal-assign-users.md)
+- [Inicio rápido: Configuración de las propiedades de una aplicación](add-application-portal-configure.md)
+- [Inicio rápido: Configuración del inicio de sesión único basado en OIDC de una aplicación](add-application-portal-setup-oidc-sso.md)
+- [Inicio rápido: Configuración del inicio de sesión único basado en SAML de una aplicación](add-application-portal-setup-sso.md)
+- [Inicio rápido: Adición de una aplicación a su inquilino](add-application-portal.md)
+- [Inicio rápido: Eliminación de una aplicación del inquilino](delete-application-portal.md)
+- [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
+- [Inicio rápido: Visualización de la lista de aplicaciones que usan el inquilino de Azure Active Directory (Azure AD) para la administración de identidades](view-applications-portal.md)
+- [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
+
+
+## <a name="june-2021"></a>Junio de 2021
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory (Azure AD)](add-application-portal.md)
+- [Configuración del consentimiento del propietario del grupo para las aplicaciones que acceden a los datos del grupo](configure-user-consent-groups.md)
+- [Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)](add-application-portal-configure.md)
+- [Administración de la asignación de usuarios para una aplicación en Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Petición de consentimiento inesperada al iniciar sesión en una aplicación](application-sign-in-unexpected-user-consent-prompt.md)
+- [Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
+- [Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS](tenant-restrictions.md)
+- [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
+
 
 ## <a name="may-2021"></a>Mayo de 2021
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
 - [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
-
 
 ## <a name="april-2021"></a>Abril de 2021
 
@@ -47,7 +77,6 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 - [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
 - [Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS](tenant-restrictions.md)
 - [Guía de introducción a la integración de Azure Active Directory con las aplicaciones](plan-an-application-integration.md)
-
 
 ## <a name="march-2021"></a>Marzo de 2021
 
@@ -76,7 +105,6 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 - [Proxy de aplicación de Azure AD ofrece estas ventajas: Historial de lanzamiento de versiones](../app-proxy/application-proxy-release-version-history.md)
 - [Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio](configure-authentication-for-federated-users-portal.md)
 - [Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory](migrate-adfs-apps-to-azure.md)
-
 
 ## <a name="february-2021"></a>Febrero de 2021
 

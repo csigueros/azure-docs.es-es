@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to, devx-track-azurecli
-ms.openlocfilehash: 7f83171733abc07de5997503560c6cc7278f3f39
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: fd6ebf1534869fa96fe6249d302406583fe55e59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752386"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733593"
 ---
 # <a name="use-the-secrets-store-csi-driver-for-kubernetes-in-an-azure-kubernetes-service-aks-cluster-preview"></a>Uso del controlador Secrets Store CSI para Kubernetes en un clúster de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -72,25 +72,33 @@ az extension update --name aks-preview
 
 ## <a name="create-an-aks-cluster-with-secrets-store-csi-driver-support"></a>Creación de un clúster de AKS con compatibilidad con el controlador Secrets Store CSI
 
-> [!NOTE]
-> Si tiene previsto proporcionar acceso al clúster mediante una identidad administrada asignada por el usuario o por el sistema, habilite Azure Active Directory en el clúster con la marca `enable-managed-identity`. Para obtener más información, consulte [Uso de identidades administradas en Azure Kubernetes Service][aks-managed-identity].
-
 En primer lugar, cree un grupo de recursos de Azure:
 
 ```azurecli-interactive
-az group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l eastus2
 ```
 
-Para crear un clúster de AKS con la funcionalidad del controlador CSI del almacén de secretos, use el comando [az aks create][az-aks-create] con el complemento `azure-keyvault-secrets-provider`:
+Para crear un clúster de AKS con la funcionalidad del controlador Secrets Store CSI, use el comando [az aks create][az-aks-create] con el complemento `azure-keyvault-secrets-provider`.
 
 ```azurecli-interactive
-az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider
+az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-managed-identity
+```
+
+El complemento crea una identidad administrada asignada por el usuario con el fin de acceder a los recursos de Azure, denominado `azurekeyvaultsecretsprovider-*`. Podemos usar esta identidad para conectarnos a Azure Key Vault, donde se almacenarán nuestros secretos. Tome nota del `clientId` de la identidad en la salida:
+
+```json
+...,
+ "addonProfiles": {
+    "azureKeyvaultSecretsProvider": {
+      ...,
+      "identity": {
+        "clientId": "<client-id>",
+        ...
+      }
+    }
 ```
 
 ## <a name="upgrade-an-existing-aks-cluster-with-secrets-store-csi-driver-support"></a>Actualización de un clúster de AKS con compatibilidad con el controlador Secrets Store CSI
-
-> [!NOTE]
-> Si tiene previsto proporcionar acceso al clúster mediante una identidad administrada asignada por el usuario o por el sistema, habilite Azure Active Directory en el clúster con la marca `enable-managed-identity`. Para obtener más información, consulte [Uso de identidades administradas en Azure Kubernetes Service][aks-managed-identity].
 
 Para actualizar un clúster de AKS con la funcionalidad del controlador CSI del almacén de secretos, use el comando [az aks enable-addons][az-aks-enable-addons] con el complemento `azure-keyvault-secrets-provider`:
 
@@ -98,9 +106,11 @@ Para actualizar un clúster de AKS con la funcionalidad del controlador CSI del 
 az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --resource-group myResourceGroup
 ```
 
+Como se indicó anteriormente, el complemento crea una identidad administrada asignada por el usuario que se puede usar para autenticarse en Azure Key Vault.
+
 ## <a name="verify-secrets-store-csi-driver-installation"></a>Comprobación de la instalación del controlador CSI del almacén de secretos
 
-Estos comandos instalarán el controlador Secrets Store CSI y el proveedor de Azure Key Vault en los nodos. Para realizar la comprobación, enumere todos los pods con las etiquetas secrets-store-csi-driver y secrets-store-provider-azure en el espacio de nombres kube-system y asegurándose de que la salida sea similar a la siguiente:
+La operación anterior instalará el controlador Secrets Store CSI y el proveedor de Azure Key Vault en los nodos. Para comprobar que la operación se ha completado, enumere todos los pods con las etiquetas secrets-store-csi-driver y secrets-store-provider-azure en el espacio de nombres kube-system y asegúrese de que la salida sea similar a la siguiente:
 
 ```bash
 kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver, secrets-store-provider-azure)'
@@ -113,7 +123,6 @@ kube-system   aks-secrets-store-provider-azure-5p4nb   1/1     Running   0      
 kube-system   aks-secrets-store-provider-azure-6pqmv   1/1     Running   0          4m24s
 kube-system   aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
 ```
-
 
 ## <a name="enabling-and-disabling-autorotation"></a>Habilitación y deshabilitación de la rotación automática
 
@@ -140,55 +149,56 @@ az aks update -g myResourceGroup -n myAKSCluster2 --disable-secret-rotation
 
 ## <a name="create-or-use-an-existing-azure-key-vault"></a>Creación o uso de una instancia de Azure Key Vault
 
-Además de un clúster de AKS, necesitará un recurso de Azure Key Vault que contenga el contenido del secreto. Para implementar una instancia de Azure Key Vault, siga estos pasos:
+Además de un clúster de AKS, necesitará un recurso de Azure Key Vault que contenga el contenido del secreto. Tenga en cuenta que el nombre de Key Vault debe ser único globalmente.
 
-1. [Creación de un Almacén de claves][create-key-vault]
-2. [Establecimiento de un secreto en un almacén de claves][set-secret-key-vault]
+```azurecli
+az keyvault create -n <keyvault-name> -g myResourceGroup -l eastus2
+```
+
+Azure Key Vault puede almacenar claves, secretos y certificados. En este ejemplo, estableceremos un secreto de texto sin formato denominado `ExampleSecret`:
+
+```azurecli
+az keyvault secret set --vault-name <keyvault-name> -n ExampleSecret --value MyAKSExampleSecret
+```
 
 Tome nota de las siguientes propiedades para usarlas en la sección siguiente:
 
 - Nombre del objeto secreto en Key Vault
-- Tipo de contenido secreto (secreto, clave, certificado)
-- Nombre del recurso de Key Vault
+- Tipo de objeto (secreto, clave o certificado)
+- Nombre del recurso de Azure Key Vault
 - Identificador de inquilino de Azure al que pertenece la suscripción
 
 ## <a name="provide-identity-to-access-azure-key-vault"></a>Proporcionar la identidad para acceder a Azure Key Vault
 
-En el ejemplo de este artículo se usa una entidad de servicio, pero el proveedor de Azure Key Vault ofrece cuatro métodos de acceso. Repáselos y elija la que mejor se adapte a su caso de uso. Tenga en cuenta que puede ser necesario realizar otros pasos en función del método elegido, como conceder permisos a la entidad de servicio para obtener secretos del almacén de claves.
+Use los valores de los pasos anteriores para establecer permisos, lo que permite que la identidad administrada creada por el complemento acceda a los objetos keyvault:
 
-- [Entidad de seguridad de servicio][service-principal-access]
-- [Identidad del pod][pod-identity-access]
-- [Identidad administrada asignada por el usuario][ua-mi-access]
-- [Identidad administrada asignada por el sistema][sa-mi-access]
+```azurecli
+az keyvault set-policy -n <keyvault-name> --<object-type>-permissions get --spn <client-id>
+```
 
 ## <a name="create-and-apply-your-own-secretproviderclass-object"></a>Creación y aplicación de un objeto SecretProviderClass personalizado
 
-Para usar y configurar el controlador Secrets Store CSI para el clúster de AKS, cree un recurso personalizado de SecretProviderClass.
-
-Este es un ejemplo en el que se usa una entidad de servicio para acceder al almacén de claves:
+Para usar y configurar el controlador Secrets Store CSI para el clúster de AKS, cree un recurso personalizado de SecretProviderClass. Asegúrese de que la matriz `objects` coincide con los objetos que ha almacenado en la instancia de Azure Key Vault:
 
 ```yml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
 kind: SecretProviderClass
 metadata:
-  name: azure-kvname
+  name: <keyvault-name>
 spec:
   provider: azure
   parameters:
-    usePodIdentity: "false"         # [OPTIONAL] if not provided, will default to "false"
-    keyvaultName: "kvname"          # the name of the KeyVault
-    cloudName: ""                   # [OPTIONAL for Azure] if not provided, azure environment will default to AzurePublicCloud 
+    keyvaultName: "<keyvault-name>"       # The name of the Azure Key Vault
+    useVMManagedIdentity: "true"         
+    userAssignedIdentityID: "<client-id>" # The clientId of the addon-created managed identity
+    cloudName: ""                         # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud 
     objects:  |
       array:
         - |
-          objectName: secret1
-          objectType: secret        # object types: secret, key or cert
-          objectVersion: ""         # [OPTIONAL] object versions, default to latest if empty
-        - |
-          objectName: key1
-          objectType: key
-          objectVersion: ""
-    tenantId: "<tenant-id>"                 # the tenant ID of the KeyVault
+          objectName: <secret-name>       # In this example, 'ExampleSecret'   
+          objectType: secret              # Object types: secret, key or cert
+          objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
+    tenantId: "<tenant-id>"               # the tenant ID containing the Azure Key Vault instance
 ```
 
 Para obtener más información, consulte [Creación de su propio objeto SecretProviderClass][sample-secret-provider-class]. Asegúrese de usar los valores que anotó anteriormente.
@@ -203,7 +213,7 @@ kubectl apply -f ./new-secretproviderclass.yaml
 
 ## <a name="update-and-apply-your-clusters-deployment-yaml"></a>Actualización y aplicación del archivo YAML de implementación del clúster
 
-Para asegurarse de que el clúster use el nuevo recurso personalizado, actualice el archivo YAML de implementación. Para obtener un ejemplo más completo, vea una [implementación de ejemplo][sample-deployment] mediante la entidad de servicio para acceder a Azure Key Vault. Asegúrese de seguir los pasos adicionales del método elegido para el acceso al almacén de claves.
+Para asegurarse de que el clúster use el nuevo recurso personalizado, actualice el archivo YAML de implementación. Por ejemplo:
 
 ```yml
 kind: Pod
@@ -227,9 +237,7 @@ spec:
         driver: secrets-store.csi.k8s.io
         readOnly: true
         volumeAttributes:
-          secretProviderClass: "azure-kvname"
-        nodePublishSecretRef:                       # Only required when using service principal mode
-          name: secrets-store-creds                 # Only required when using service principal mode. The name of the Kubernetes secret that contains the service principal credentials to access keyvault.
+          secretProviderClass: "<keyvault-name>"
 ```
 
 Aplique la implementación actualizada al clúster:
@@ -246,8 +254,8 @@ Una vez que se inicia el pod, el contenido montado en la ruta del volumen especi
 ## show secrets held in secrets-store
 kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
 
-## print a test secret 'secret1' held in secrets-store
-kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/secret1
+## print a test secret 'ExampleSecret' held in secrets-store
+kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
 ```
 
 ## <a name="disable-secrets-store-csi-driver-on-an-existing-aks-cluster"></a>Deshabilitación del controlador CSI del almacén de secretos en un clúster de AKS existente
@@ -284,8 +292,3 @@ Después de aprender a usar el controlador Secrets Store CSI con un clúster de 
 [kube-csi]: https://kubernetes-csi.github.io/docs/
 [key-vault-provider-install]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/installation
 [sample-secret-provider-class]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/usage/#create-your-own-secretproviderclass-object
-[service-principal-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/service-principal-mode/
-[pod-identity-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/pod-identity-mode/
-[ua-mi-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/user-assigned-msi-mode/
-[sa-mi-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/system-assigned-msi-mode/
-[sample-deployment]: https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/service-principal/pod-inline-volume-service-principal.yaml

@@ -1,6 +1,6 @@
 ---
-title: Implementación del conector de datos Azure Sentinel SAP en el entorno local | Microsoft Docs
-description: Aprenda a implementar el conector de datos de Azure Sentinel para entornos SAP mediante una máquina local.
+title: Opciones de configuración de expertos del conector de datos de Azure Sentinel para SAP, implementación local y orígenes de registro de SAPControl | Microsoft Docs
+description: Aprenda a implementar el conector de datos de Azure Sentinel para entornos SAP mediante opciones de configuración de expertos y una máquina local. Asimismo, obtenga más información sobre los orígenes de registros de SAPControl.
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: fc045d4b6c185b9e27573a1dd97c1194239f7463
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ba0457bef8ad4e732cffe229e850272f68a6d30f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466465"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723437"
 ---
-# <a name="deploy-the-azure-sentinel-sap-data-connector-on-premises"></a>Implementación del conector de datos Azure Sentinel SAP en el entorno local
+# <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl
 
 En este artículo se describe cómo implementar el conector de datos Azure Sentinel SAP en un proceso experto o personalizado, como el uso de una máquina local y una instancia de Azure Key Vault para almacenar las credenciales.
 
@@ -38,20 +38,31 @@ Para más información, consulte [Requisitos de SAP detallados de la solución A
 
 Cree un almacén de claves de Azure que pueda dedicar a su conector de datos Azure Sentinel SAP.
 
-Ejecute el siguiente comando para crear el almacén de claves de Azure:
+Ejecute el siguiente comando para crear el almacén de claves de Azure y conceder acceso a una entidad de servicio de Azure: 
 
 ``` azurecli
 kvgp=<KVResourceGroup>
 
 kvname=<keyvaultname>
 
+spname=<sp-name>
+
+kvname=<keyvaultname>
+# Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
+az ad sp create-for-rbac –name $spname 
+
+SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
+
 #Create key vault
 az keyvault create \
   --name $kvname \
   --resource-group $kvgp
+  
+# Add access to SP
+az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID --secret-permissions get list set
 ```
 
-Para más información, consulte [Inicio rápido: Creación de un almacén de claves mediante la CLI de Azure](/azure/key-vault/general/quick-create-cli).
+Para más información, consulte [Inicio rápido: Creación de un almacén de claves mediante la CLI de Azure](../key-vault/general/quick-create-cli.md).
 
 ## <a name="add-azure-key-vault-secrets"></a>Adición de secretos de Azure Key Vault
 
@@ -132,8 +143,9 @@ Se recomienda realizar este procedimiento después de tener un almacén de clave
 
     ```bash
     mkdir /home/$(pwd)/sapcon/<sap-sid>/
-    Cd /home/$(pwd)/sapcon/<sap-sid>/
-    Wget  https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.inicp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
+    cd /home/$(pwd)/sapcon/<sap-sid>/
+    wget  https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.ini 
+    cp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
     ```
 
 1. Edite el archivo **systemconfig.ini** según sea necesario, con los comentarios insertados como guía. Para más información, consulte [Configuración manual del conector de datos de SAP](#manually-configure-the-sap-data-connector).
@@ -164,7 +176,7 @@ Se recomienda realizar este procedimiento después de tener un almacén de clave
     ```bash
     ##############################################################
     ##############################################################
-    # env.list template
+    # env.list template for Credentials
     SAPADMUSER=<SET_SAPCONTROL_USER>
     SAPADMPASSWORD=<SET_SAPCONTROL_PASS>
     ABAPUSER=SET_ABAP_USER>
@@ -172,13 +184,18 @@ Se recomienda realizar este procedimiento después de tener un almacén de clave
     JAVAUSER=<SET_JAVA_OS_USER>
     JAVAPASS=<SET_JAVA_OS_USER>
     ##############################################################
+    ##############################################################
+    # env.list template for AZ Cli when MI is not enabled
+    AZURE_TENANT_ID=<your tenant id>
+    AZURE_CLIENT_ID=<your client/app id>
+    ##############################################################
     ```
 
 1. Descargue y ejecute la imagen de Docker predefinida con el conector de datos de SAP instalado.  Ejecute:
 
     ```bash
-    docker pull mcr.microsoft.com/azure-sentinel/solution/sapcon:latest-preview
-    docker run --env-file=<env.list_location> -d -v /home/$(pwd)/sapcon/<sap-sid>/:/sapcon-app/sapcon/config/system --name sapcon-<sid> sapcon
+    docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
+    docker run --env-file=<env.list_location> -d --restart unless-stopped -v /home/$(pwd)/sapcon/<sap-sid>/:/sapcon-app/sapcon/config/system --name sapcon-<sid> sapcon
     rm -f <env.list_location>
     ```
 
@@ -237,10 +254,10 @@ osuser = <SET_YOUR_SAPADM_LIKE_USER>
 ospasswd = <SET_YOUR_SAPADM_PASS>
 x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 ##############################################################
-appserver = <SET_YOUR_SAPCTRL_SERVER>
-instance = <SET_YOUR_SAP_INSTANCE>
-abapseverity = <SET_ABAP_SEVERITY>
-abaptz = <SET_ABAP_TZ>
+appserver = <SET_YOUR_SAPCTRL_SERVER IP OR FQDN>
+instance = <SET_YOUR_SAP_INSTANCE NUMBER, example 10>
+abapseverity = <SET_ABAP_SEVERITY 0 = All logs ; 1 = Warning ; 2 = Error>
+abaptz = <SET_ABAP_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use abaptz = GMT+12>
 
 [File Extraction JAVA]
 javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
@@ -249,10 +266,10 @@ javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
 javaospasswd = <SET_YOUR_JAVAADM_PASS>
 javax509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 ##############################################################
-javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER>
-javainstance = <SET_YOUR_JAVA_SAP_INSTANCE>
-javaseverity = <SET_JAVA_SEVERITY>
-javatz = <SET_JAVA_TZ>
+javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER IP ADDRESS OR FQDN>
+javainstance = <SET_YOUR_JAVA_SAP_INSTANCE for example 10>
+javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
+javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
 
 ### <a name="define-the-sap-logs-that-are-sent-to-azure-sentinel"></a>Definición de los registros de SAP que se envían a Azure Sentinel
@@ -314,6 +331,28 @@ Esta sección le permite configurar los parámetros siguientes:
 |**timechunk**     |   Determina que el sistema espera un número específico de minutos como intervalo entre extracciones de datos. Use este parámetro si se espera una gran cantidad de datos. <br><br>Por ejemplo, durante la carga de datos inicial durante las primeras 24 horas, es posible que quiera que la extracción de datos se ejecute solo cada 30 minutos para dar tiempo suficiente a cada uno de estos procesos. En tales casos, establezca este valor en **30**.  |
 |     |         |
 
+### <a name="configuring-an-abap-sap-control-instance"></a>Configuración de una instancia de ABAP de SAP Control
+
+Para ingerir todos los registros de ABAP en Azure Sentinel, incluidos los registros basados en NW RFC y SAP Control Web Service, configure los siguientes detalles de ABAP SAP Control:
+
+|Configuración  |Descripción  |
+|---------|---------|
+|**javaappserver**     |Especifique el host del servidor de ABAP de SAP Control. <br>Por ejemplo: `contoso-erp.appserver.com`         |
+|**javainstance**     |Especifique el número de instancia de ABAP de SAP Control. <br>Por ejemplo: `00`         |
+|**abaptz**     |Especifique la zona horaria configurada en el servidor de ABAP de SAP Control, en formato GMT. <br>Por ejemplo: `GMT+3`         |
+|**abapseverity**     |Especifique el nivel de gravedad más bajo, incluido, para el que desea ingerir registros de ABAP en Azure Sentinel.  Estos valores incluyen: <br><br>- **0** = todos los registros <br>- **1** = advertencia <br>- **2** = error     |
+
+
+### <a name="configuring-a-java-sap-control-instance"></a>Configuración de una instancia de Java de SAP Control
+
+Para ingerir registros de SAP Control Web Service en Azure Sentinel, configure los siguientes detalles de la instancia de Java de SAP Control:
+
+|Parámetro  |Descripción  |
+|---------|---------|
+|**javaappserver**     |Especifique el host del servidor Java de SAP Control. <br>Por ejemplo: `contoso-java.server.com`         |
+|**javainstance**     |Especifique el número de instancia de ABAP de SAP Control. <br>Por ejemplo: `10`         |
+|**javatz**     |Especifique la zona horaria configurada en el servidor Java de SAP Control, en formato GMT. <br>Por ejemplo: `GMT+3`         |
+|**javaseverity**     |Especifique el nivel de gravedad más bajo, incluido, para el que desea ingerir registros de Web Service en Azure Sentinel.  Estos valores incluyen: <br><br>- **0** = todos los registros <br>- **1** = advertencia <br>- **2** = error     |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -326,3 +365,4 @@ Para más información, consulte:
 - [Requisitos detallados de SAP para la solución Azure Sentinel SAP](sap-solution-detailed-requirements.md)
 - [Referencia sobre los registros de la solución Azure Sentinel SAP](sap-solution-log-reference.md)
 - [Solución Azure Sentinel SAP: referencia al contenido de seguridad](sap-solution-security-content.md)
+- [Solución de problemas de implementación de la solución SAP de Azure Sentinel](sap-deploy-troubleshoot.md)

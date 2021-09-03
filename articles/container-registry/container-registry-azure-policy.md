@@ -1,22 +1,22 @@
 ---
 title: Cumplimiento mediante Azure Policy
-description: Asignación de directivas integradas en Azure Policy para auditar el cumplimiento de los registros de contenedor de Azure
+description: Asignación de directivas integradas en Azure Policy para auditar el cumplimiento de los registros de contenedor de Azure
 ms.topic: article
-ms.date: 03/01/2021
-ms.openlocfilehash: 62a1fd8d3c996fd3a0bac3cadf77fc7e7ace0ce3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 08/10/2021
+ms.openlocfilehash: d8f986a3a857f622248daa75d0402f1abfbf8a7b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784180"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722485"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditoría del cumplimiento de los registros de contenedor de Azure mediante Azure Policy
 
-[Azure Policy](../governance/policy/overview.md) es un servicio de Azure que se usa para crear, asignar y administrar directivas. Dichas directivas aplican distintas reglas y efectos a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los acuerdos de nivel de servicio.
+[Azure Policy](../governance/policy/overview.md) es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas. Las definiciones de directivas aplican distintas reglas y efectos sobre los recursos, para que estos sigan siendo conformes con los estándares corporativos y los acuerdos de nivel de servicio.
 
-En este artículo se presentan las directivas integradas para Azure Container Registry. Use estas directivas para auditar los registros nuevos y existentes para el cumplimiento.
+En este artículo se presentan las definiciones de directivas integradas para Azure Container Registry. Use estas definiciones para auditar los registros nuevos y existentes a fin de determinar su cumplimiento.
 
-No se aplica ningún cargo por el uso de Azure Policy.
+No se aplican cargos por usar Azure Policy.
 
 ## <a name="built-in-policy-definitions"></a>Definiciones de directiva integradas
 
@@ -24,14 +24,14 @@ Las definiciones de directivas integradas siguientes son específicas de Azure C
 
 [!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
-## <a name="assign-policies"></a>Asignación de directivas
+## <a name="create-policy-assignments"></a>Creación de asignaciones de directivas
 
-* Asigne directivas mediante el uso de [Azure Portal](../governance/policy/assign-policy-portal.md), la [CLI de Azure](../governance/policy/assign-policy-azurecli.md), una [plantilla de Resource Manager](../governance/policy/assign-policy-template.md) o el SDK de Azure Policy.
+* Cree asignaciones de directivas mediante [Azure Portal](../governance/policy/assign-policy-portal.md), la [CLI de Azure](../governance/policy/assign-policy-azurecli.md), una [plantilla de Resource Manager](../governance/policy/assign-policy-template.md) o los SDK de Azure Policy.
 * Limite el ámbito de una asignación de directiva a un grupo de recursos, una suscripción o un [grupo de administración de Azure](../governance/management-groups/overview.md). Las asignaciones de directivas del registro de contenedor se aplican a los registros de contenedor nuevos y existentes dentro del ámbito.
 * Habilite o deshabilite la [aplicación de directivas](../governance/policy/concepts/assignment-structure.md#enforcement-mode) en cualquier momento.
 
 > [!NOTE]
-> Después de asignar o actualizar una directiva, la asignación tarda algún tiempo en aplicarse a los recursos del ámbito definido. Consulte información sobre [desencadenadores de evaluación de directivas](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+> Después de crear o actualizar una asignación de directiva, la asignación tarda algún tiempo en evaluar a los recursos del ámbito definido. Consulte información sobre [desencadenadores de evaluación de directivas](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## <a name="review-policy-compliance"></a>Revisión del cumplimiento de directivas
 

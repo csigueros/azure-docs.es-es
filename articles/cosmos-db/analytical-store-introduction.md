@@ -4,15 +4,15 @@ description: Obtenga información sobre el almacén transaccional (basado en fil
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9328b8159b04d4e7e7bc2383739c86c76dbf156a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 5bcc0fed8413affe6d525f03bd08e8b61751f893
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985893"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745517"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -153,28 +153,66 @@ Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos 
 
 ### <a name="schema-representation"></a>Representación del esquema
 
-En el almacén analítico hay dos maneras de representar el esquema. Estos modos presentan ventajas e inconvenientes en relación con la simplicidad de la representación en columnas, el control de los esquemas polimórficos y la simplicidad de la experiencia de consulta:
+En el almacén analítico hay dos maneras de representar el esquema. Estos modos definen el método de representación del esquema para todos los contenedores de la cuenta de base de datos y tienen un equilibrio entre la simplicidad de la experiencia de consulta y la comodidad de una representación en columnas más inclusiva para esquemas polimórficos.
 
-* Representación de esquemas bien definida
-* Representación de esquemas con fidelidad total
+* Representación de esquema bien definida, opción predeterminada para cuentas de API de SQL (CORE). 
+* Representación del esquema de fidelidad total, opción predeterminada para la API de Azure Cosmos DB para cuentas de MongoDB.
 
+Es posible usar el esquema de fidelidad total para las cuentas de API de SQL (Core). Estas son las consideraciones sobre esta posibilidad:
+
+ * Esta opción solo es válida para las cuentas que no tienen Synapse Link habilitado.
+ * No es posible desactivar Synapse Link y activarlo de nuevo; restablezca la opción predeterminada y cambie del esquema de bien definida al de fidelidad total.
+ * No es posible cambiar del esquema de bien definida al esquema de fidelidad total mediante cualquier otro proceso.
+ * Las cuentas de MongoDB no son compatibles con esta posibilidad de cambiar el método de representación.
+ * Actualmente, esta decisión no se puede tomar a través de Azure Portal.
+ * La decisión sobre esta opción debe tomarse al mismo tiempo que Synapse Link está habilitado en la cuenta:
+ 
+ Con la CLI de Azure:
+ ```cli
+ az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
+ ```
+ 
 > [!NOTE]
-> En el caso de las cuentas de SQL (Core) API, cuando se habilita el almacén analítico, la representación de esquemas predeterminada en él es la representación bien definida. Mientras que para las cuentas de Azure Cosmos DB API para MongoDB, la representación de esquemas predeterminada en el almacén analítico es la representación con fidelidad total. 
+> En el comando anterior, reemplace `create` por `update` para las cuentas existentes.
+ 
+  Con PowerShell:
+  ```
+   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
+   ```
+ 
+> [!NOTE]
+> En el comando anterior, reemplace `New-AzCosmosDBAccount` por `Update-AzCosmosDBAccount` para las cuentas existentes.
+ 
 
-**Representación de esquemas bien definida**
+
+#### <a name="well-defined-schema-representation"></a>Representación de esquemas bien definida
 
 La representación de esquemas bien definida crea una representación tabular simple de los datos independientes del esquema en el almacén transaccional. La representación de esquemas bien definida tiene las siguientes características:
 
-* Las propiedades siempre tienen el mismo tipo en los distintos elementos.
-* Solo se permite un cambio de tipo 1, de NULL a cualquier otro tipo de datos. La primera aparición que no es NULL define el tipo de datos de columna.
+* El primer documento define el esquema base y la propiedad siempre debe tener el mismo tipo en todos los documentos. Las excepciones son estas:
+  * De NULL a cualquier otro tipo de datos. La primera aparición que no es NULL define el tipo de datos de columna. Cualquier documento que no sigue el primer tipo de datos no NULL no se representará en el almacén analítico.
+  * De `float` a `integer`. Todos los documentos se representarán en el almacén analítico.
+  * De `integer` a `float`. Todos los documentos se representarán en el almacén analítico. Sin embargo, para leer estos datos con grupos sin servidor de Azure Synapse SQL, debe usar una cláusula WITH para convertir la columna en `varchar`. Y después de esta conversión inicial, es posible convertirla de nuevo en un número. Consulte el siguiente ejemplo, donde el valor inicial **num** era un número entero y el segundo era un número flotante.
 
-  * Por ejemplo, `{"a":123} {"a": "str"}` no tiene un esquema bien definido porque `"a"` a veces es una cadena y, a veces, un número. En este caso, el almacén analítico registra el tipo de datos de `"a"` como tipo de datos de `“a”` en el primer elemento durante la vigencia del contenedor. Aún así, el documento todavía se incluirá en el almacén analítico, pero los elementos cuyo tipo de datos `"a"` sea distinto no lo serán.
+```SQL
+SELECT CAST (num as float) as num
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = '<your-connection',
+                OBJECT = 'IntToFloat',
+                SERVER_CREDENTIAL = 'your-credential'
+) 
+WITH (num varchar(100)) AS [IntToFloat]
+```
+
+  * Las propiedades que no siguen el tipo de datos de esquema base no se representarán en el almacén analítico. Por ejemplo, considere los dos documentos siguientes y que el primero definió el esquema base del almacén analítico. El segundo documento, donde `id` es `2`, no tiene un esquema bien definido ya que la propiedad `"a"` es una cadena y el primer documento tiene `"a"` como número. En este caso, el almacén analítico registra el tipo de datos de `"a"` como `integer` durante la vigencia del contenedor. El segundo documento todavía se incluirá en el almacén analítico, pero su propiedad `"a"` no.
   
-    Esta condición no se aplica a las propiedades NULL. Por ejemplo, `{"a":123} {"a":null}` sigue estando bien definida.
+    * `{"id": "1", "a":123}` 
+    * `{"id": "2", "a": "str"}`
+     
+ > [!NOTE]
+ > Esta condición anterior no se aplica a las propiedades NULL. Por ejemplo, `{"a":123} and {"a":null}` sigue estando bien definida.
 
-* Los tipos de las matrices deben contener un único tipo repetido.
-
-  * Por ejemplo, `{"a": ["str",12]}` no es un esquema bien definido, porque la matriz contiene una mezcla de tipos enteros y de cadenas.
+* Los tipos de las matrices deben contener un único tipo repetido. Por ejemplo, `{"a": ["str",12]}` no es un esquema bien definido, porque la matriz contiene una mezcla de tipos enteros y de cadenas.
 
 > [!NOTE]
 > Si el almacén analítico de Azure Cosmos DB sigue la representación de esquemas bien definida y no se cumplen las especificaciones anteriores en determinados elementos, estos no se incluirán en el almacén analítico.
@@ -192,7 +230,7 @@ La representación de esquemas bien definida crea una representación tabular si
   * Los grupos sin servidor de SQL en Azure Synapse representarán estas columnas como `NULL`.
 
 
-**Representación de esquemas con fidelidad total**
+#### <a name="full-fidelity-schema-representation"></a>Representación de esquemas con fidelidad total
 
 La representación de esquemas con fidelidad total está diseñada para administrar todos los esquemas polimórficos de los datos operativos independientes del esquema. En esta representación de esquemas no se quita ningún elemento del almacén analítico aunque no se cumplan las restricciones de los esquemas bien definidos (es decir, que no haya campos ni matrices de tipos de datos mixtos).
 
@@ -260,7 +298,11 @@ Si tiene una cuenta de Azure Cosmos DB distribuida globalmente, después de habi
 
 ## <a name="security"></a>Seguridad
 
-La autenticación con el almacén analítico es igual que en un almacén transaccional para una base de datos determinada. Puede usar claves principales o de solo lectura para la autenticación. Puede aprovechar el servicio vinculado en Synapse Studio para evitar pegar las claves de Azure Cosmos DB en los cuadernos de Spark. El acceso a este servicio vinculado está disponible para todos los usuarios que tengan acceso al área de trabajo.
+* La autenticación con el almacén analítico es igual que en un almacén transaccional para una base de datos determinada. Puede usar claves principales o de solo lectura para la autenticación. Puede aprovechar el servicio vinculado en Synapse Studio para evitar pegar las claves de Azure Cosmos DB en los cuadernos de Spark. El acceso a este servicio vinculado está disponible para todos los usuarios que tengan acceso al área de trabajo.
+
+* **Aislamiento de red con puntos de conexión privados**: puede controlar el acceso de red a los datos de los almacenes transaccionales y analíticos de forma independiente. El aislamiento de red se realiza mediante puntos de conexión privados administrados distintos para cada almacén, dentro de redes virtuales administradas en áreas de trabajo de Azure Synapse. Para más información, consulte el artículo [Configuración de puntos de conexión privados para almacenes analíticos](analytical-store-private-endpoints.md).
+
+* **Cifrado de datos con claves administradas por el cliente**: puede cifrar completamente los datos de los almacenes transaccionales y analíticos con las mismas claves administradas por el cliente de manera automática y transparente. Azure Synapse Link solamente admite la configuración de claves administradas por el cliente mediante la identidad administrada de la cuenta de Azure Cosmos DB. Debe configurar la identidad administrada de la cuenta en la directiva de acceso de Azure Key Vault antes de [habilitar Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) en la cuenta. Para más información, consulte el artículo [Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos DB con Azure Key Vault](how-to-setup-cmk.md#using-managed-identity).
 
 ## <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Compatibilidad con varios runtimes de Azure Synapse Analytics
 
@@ -323,6 +365,8 @@ Para obtener más información, consulte [Configuración del TTL analítico en u
 Para obtener más información, consulte la siguiente documentación:
 
 * [Azure Synapse Link para Azure Cosmos DB](synapse-link.md)
+
+* Consulte el módulo de información sobre cómo [diseñar el procesamiento transaccional y analítico híbrido mediante Azure Synapse Analytics](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/).
 
 * [Introducción a Azure Synapse Link para Azure Cosmos DB](configure-synapse-link.md)
 

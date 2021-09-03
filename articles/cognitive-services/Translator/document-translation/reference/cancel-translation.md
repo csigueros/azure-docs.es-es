@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/20/2021
 ms.author: v-jansk
-ms.openlocfilehash: 46348fe35f425811e2ff03208feeae6ab7a112bd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: eb8411717d0229b13571284176da7ccc113cf828
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453586"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540748"
 ---
 # <a name="cancel-translation"></a>Cancelación de la traducción
 
-Puede cancelar una operación en colo o cuyo procesamiento está en curso. Sin embargo, no se podrá cancelar una operación si ya se ha completado, ha generado algún error o ya está cancelada. Se devolverá una solicitud incorrecta. Todos los documentos que hayan completado la traducción no se cancelarán y se cobrarán. Si es posible, se cancelarán todos los documentos pendientes.
+Puede cancelar una operación en colo o cuyo procesamiento está en curso. No se podrá cancelar una operación si ya se ha completado, ha generado un error o se cancela. Se devolverá una solicitud incorrecta. Todos los documentos que hayan completado la traducción no se cancelarán y se cobrarán. Si es posible, se cancelarán todos los documentos pendientes.
 
 ## <a name="request-url"></a>URL de la solicitud
 

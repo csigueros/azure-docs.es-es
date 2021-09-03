@@ -1,7 +1,7 @@
 ---
-title: Protección de un servicio RESTful en Azure AD B2C
+title: API seguras que se usan como conectores de API en Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Proteja los intercambios de notificaciones de la API REST en Azure AD B2C.
+description: Proteja las API de RESTful personalizadas que se usan como conectores de API en Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,36 +12,43 @@ ms.date: 04/28/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 55034efe35ae572fb7b2d5d8eeacb6048bcb8e51
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ef1c747666b2c75567d88f440cef37a631f64064
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175449"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730857"
 ---
-# <a name="secure-your-api-connector"></a>Protección de un conector de API 
-
+# <a name="secure-your-api-used-an-api-connector-in-azure-ad-b2c"></a>Proteja la API que se usa como un conector de API en Azure AD B2C 
 
 Al integrar una API de REST en un flujo de usuario de Azure Active Directory B2C, debe proteger el punto de conexión de la API mediante autenticación. La autenticación de la API de REST garantiza que solo los servicios que tengan credenciales adecuadas, como Azure Active Directory B2C, puedan realizar llamadas al punto de conexión. En este artículo se examina cómo proteger la API de REST. 
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Complete los pasos que se incluyen en la guía [Tutorial: Incorporación de un conector de API a un flujo de usuario de registro](add-api-connector.md).
 
+::: zone pivot="b2c-user-flow"
+
+Puede proteger el punto de conexión de la API mediante la autenticación HTTP básica o la autenticación de certificados de cliente HTTPS. En cualquier caso, debe proporcionar las credenciales que Azure AD B2C usará al llamar a su punto de conexión de la API. A continuación, el punto de conexión de la API comprueba las credenciales y realiza decisiones de autorización.
+
+::: zone-end
+
 ## <a name="http-basic-authentication"></a>Autenticación HTTP básica
 
-La autenticación HTTP básica se define en [RFC 2617](https://tools.ietf.org/html/rfc2617). La autenticación básica funciona de la manera siguiente: Azure AD B2C envía una solicitud HTTP con las credenciales del cliente en el encabezado de autorización. Las credenciales tienen el formato de cadena codificada en Base64 "nombre:contraseña".  
+La autenticación HTTP básica se define en [RFC 2617](https://tools.ietf.org/html/rfc2617). La autenticación básica funciona de la manera siguiente: Azure AD B2C envía una solicitud HTTP con las credenciales del cliente (`username` y `password`) en el encabezado `Authorization`. Las credenciales tienen el formato de cadena codificada en Base 64 `username:password`. A continuación, la API es responsable de comprobar estos valores para tomar otras decisiones de autorización.
 
 ::: zone pivot="b2c-user-flow"
 
 Para configurar un conector de API con autenticación básica HTTP, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. En **Servicios de Azure**, seleccione **Azure AD B2C**.
-1. Seleccione **Conectores de API (versión preliminar)** y, después, el **conector de API** que quiera configurar.
-1. En **Tipo de autenticación**, seleccione **Básica**.
-1. Rellene los campos **Nombre de usuario** y **Contraseña** con relación al punto de conexión de la API de REST.
-1. Seleccione **Guardar**.
+2. En **Servicios de Azure**, seleccione **Azure AD B2C**.
+3. Seleccione **Conectores de API** y, después, el **conector de API** que quiera configurar.
+4. En **Tipo de autenticación**, seleccione **Básica**.
+5. Rellene los campos **Nombre de usuario** y **Contraseña** con relación al punto de conexión de la API de REST.
+    :::image type="content" source="media/add-api-connector/api-connector-config.png" alt-text="Suministro de la configuración de autenticación básica de un conector de API.":::
+6. Seleccione **Guardar**.
 
 ::: zone-end
 
@@ -116,9 +123,26 @@ El siguiente fragmento XML es un ejemplo de perfil técnico de RESTful configura
 
 ## <a name="https-client-certificate-authentication"></a>Autenticación con certificados de cliente HTTPS
 
-La autenticación con certificados de cliente es una autenticación mutua basada en certificados donde el cliente, Azure AD B2C, proporciona su certificado de cliente al servidor para demostrar su identidad. Esto sucede como parte del protocolo de enlace SSL. Solo pueden acceder al servicio de la API REST los servicios que tienen certificados adecuados, como Azure AD B2C. El certificado de cliente es un certificado digital X.509. En entornos de producción, debe estar firmado por una entidad de certificación.
+La autenticación con certificados de cliente es una autenticación mutua basada en certificados donde el cliente, Azure AD B2C, proporciona su certificado de cliente al servidor para demostrar su identidad. Esto sucede como parte del protocolo de enlace SSL. La API es responsable de validar los certificados que pertenecen a un cliente válido, como Azure AD B2C, y de tomar decisiones de autorización. El certificado de cliente es un certificado digital X.509. 
 
-### <a name="prepare-a-self-signed-certificate-optional"></a>Preparación de un certificado autofirmado (opcional)
+> [!IMPORTANT]
+> En entornos de producción, debe estar firmado por una entidad de certificación.
+
+### <a name="create-a-certificate"></a>Crear un certificado
+
+#### <a name="option-1-use-azure-key-vault-recommended"></a>Opción 1: Usar Azure Key Vault (recomendado)
+
+Para crear un certificado, puede usar [Azure Key Vault](../key-vault/certificates/create-certificate.md), que tiene opciones para certificados autofirmados e integraciones con proveedores de emisores de certificados para certificados firmados. La configuración recomendada incluye:
+- **Asunto**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Tipo de contenido**: `PKCS #12`
+- **Tipo de Acton de duración**: `Email all contacts at a given percentage lifetime` o `Email all contacts a given number of days before expiry`
+- **Tipo de clave**: `RSA`
+- **Tamaño de clave**: `2048`
+- **Clave privada exportable**: `Yes` (para poder exportar el archivo `.pfx`)
+
+Después, puede [exportar el certificado](../key-vault/certificates/how-to-export-certificate.md).
+
+#### <a name="option-2-prepare-a-self-signed-certificate-using-powershell-module"></a>Opción 2: Preparar un certificado autofirmado mediante el módulo de PowerShell
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
@@ -129,12 +153,24 @@ La autenticación con certificados de cliente es una autenticación mutua basada
 Para configurar un conector de API con autenticación de certificado de cliente, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. En **Servicios de Azure**, seleccione **Azure AD B2C**.
-1. Seleccione **Conectores de API (versión preliminar)** y, después, el **conector de API** que quiera configurar.
-1. En **Tipo de autenticación**, seleccione **Certificado**.
-1. En el cuadro **Cargar certificado**, seleccione el archivo .pfx del certificado con una clave privada.
-1. En el cuadro **Escribir contraseña**, escriba la contraseña del certificado.
-1. Seleccione **Guardar**.
+2. En **Servicios de Azure**, seleccione **Azure AD B2C**.
+3. Seleccione **Conectores de API** y, después, el **conector de API** que quiera configurar.
+4. En **Tipo de autenticación**, seleccione **Certificado**.
+5. En el cuadro **Cargar certificado**, seleccione el archivo .pfx del certificado con una clave privada.
+6. En el cuadro **Escribir contraseña**, escriba la contraseña del certificado.
+  :::image type="content" source="media/secure-api-connector/api-connector-upload-cert.png" alt-text="Proporcionar la configuración de autenticación de certificados para un conector de API.":::
+7. Seleccione **Guardar**.
+
+### <a name="perform-authorization-decisions"></a>Toma de decisiones de autorización 
+La API debe implementar la autorización basada en certificados de cliente enviados con el fin de proteger los puntos de conexión de la API. Para obtener Azure App Service y Azure Functions, consulte [Configuración de la autenticación mutua de TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) para obtener información sobre cómo habilitar y *validar el certificado desde el código de la API*.  También puede usar Azure API Management como una capa delante de cualquier servicio de API para [comprobar las propiedades del certificado de cliente](
+../api-management/api-management-howto-mutual-certificates-for-clients.md) con los valores deseados.
+
+### <a name="renewing-certificates"></a>Renovación de certificados
+Le recomendamos que establezca alertas de aviso para cuando expire el certificado. Deberá generar un certificado nuevo y repetir los pasos anteriores cuando los certificados usados estén a punto de expirar. Para "implementar" el uso de un nuevo certificado, el servicio de API puede seguir aceptando certificados antiguos y nuevos temporalmente mientras se implementa el nuevo certificado. 
+
+Para cargar un nuevo certificado en un conector de API existente, seleccione el conector de API en **Conectores de API** y haga clic en **Cargar certificado nuevo**. Azure AD B2C usará automáticamente el certificado cargado más recientemente que no haya expirado y cuya fecha de inicio haya pasado.
+
+  :::image type="content" source="media/secure-api-connector/api-connector-renew-cert.png" alt-text="Suministro de un nuevo certificado a un conector de API cuando ya existe uno.":::
 
 ::: zone-end
 
@@ -416,7 +452,20 @@ El siguiente fragmento XML es un ejemplo de perfil técnico RESTful configurado 
 </ClaimsProvider>
 ```
 
+::: zone-end
+
+
 ## <a name="api-key-authentication"></a>Autenticación mediante clave de API
+
+::: zone pivot="b2c-user-flow"
+
+Algunos servicios usan un mecanismo de "clave de API" para ofuscar el acceso a los puntos de conexión HTTP durante el desarrollo. Para ello, exigen que el autor de llamada incluya una clave única, como un encabezado HTTP o un parámetro de consulta HTTP. Para lograrlo en [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), incluya `code` como parámetro de consulta en la **dirección URL del punto de conexión** del conector de la API. Por ejemplo, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>. 
+
+No se trata de un mecanismo que se debe usar por sí solo en el entorno producción. Por lo tanto, siempre se requiere la configuración de autenticación básica o de certificado. Si no quiere implementar ningún método de autenticación (opción no recomendada) con fines de desarrollo, puede elegir la autenticación básica en la configuración del conector de la API y usar valores temporales para `username` y `password` que la API pueda omitir mientras implementa la autorización adecuada.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 La clave de API es un identificador único que se usa para autenticar a un usuario para acceder a un punto de conexión de la API REST. La clave se envía en un encabezado HTTP personalizado. Por ejemplo, el [desencadenador HTTP de Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) utiliza el encabezado HTTP `x-functions-key` para identificar al solicitante.  
 
@@ -478,9 +527,14 @@ El siguiente fragmento XML es un ejemplo de perfil técnico RESTful configurado 
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
+::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el elemento de [perfil técnico RESTful](restful-technical-profile.md) en la referencia de directivas personalizadas.
+::: zone pivot="b2c-user-flow"
+- Comience a trabajar con nuestros [ejemplos](api-connector-samples.md#api-connector-rest-api-samples).
+::: zone-end
 
+::: zone pivot="b2c-custom-policy"
+- Obtenga más información sobre el elemento de [perfil técnico RESTful](restful-technical-profile.md) en la referencia de directivas personalizadas.
 ::: zone-end

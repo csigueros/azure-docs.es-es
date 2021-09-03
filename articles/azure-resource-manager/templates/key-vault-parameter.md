@@ -2,21 +2,23 @@
 title: Secreto de Key Vault con plantilla
 description: Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación.
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/18/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 1cf3b1f3433b47d029876e9676b85c5de776d455
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a5ee223c9cfa2dada3da4f6eb901550c9d4eec9d
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795709"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380723"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
-En lugar de pasar un valor seguro (como una contraseña) directamente en la plantilla o el archivo de parámetro, puede recuperar el valor de [Azure Key Vault](../../key-vault/general/overview.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en una suscripción distinta a la que usa para implementar el grupo de recursos.
+En lugar de pasar un valor seguro (como una contraseña) directamente en la plantilla o el archivo de parámetro, puede recuperar el valor de [Azure Key Vault](../../key-vault/general/overview.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves.
 
-El enfoque de este artículo es el paso de un valor confidencial como parámetro de plantilla. En el artículo no se explica cómo establecer una propiedad de máquina virtual en la dirección URL de un certificado en un almacén de claves.
-Para obtener una plantilla de inicio rápido de este escenario, consulte [Instalar un certificado de Azure Key Vault en una máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
+> [!IMPORTANT]
+> Este artículo se centra en cómo se pasa un valor confidencial como parámetro de plantilla. Cuando el secreto se pasa como parámetro, el almacén de claves puede existir en una suscripción diferente a la del grupo de recursos en el que se realiza la implementación. 
+>
+> En este artículo no se explica cómo establecer una propiedad de máquina virtual en la dirección URL de un certificado en un almacén de claves. Para obtener una plantilla de inicio rápido de este escenario, consulte [Instalar un certificado de Azure Key Vault en una máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implementación de almacenes de claves y secretos
 

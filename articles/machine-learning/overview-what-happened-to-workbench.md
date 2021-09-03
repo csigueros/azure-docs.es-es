@@ -10,18 +10,18 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: 95c9880eb8c61b5a057cf2573aad7871c3c37bb3
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 5bba667b70099e3f88e1ff62ae3472144556a0d1
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613618"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862221"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>¿Qué ha ocurrido con Azure Machine Learning Workbench?
 
 La aplicación Azure Machine Learning Workbench y algunas otras de las características iniciales han quedado en desuso y se han reemplazado en la versión de **septiembre de 2018** para dar paso a una [arquitectura](concept-azure-machine-learning-architecture.md) mejorada.
 
-Para mejorar la experiencia, la versión contiene muchas actualizaciones importantes solicitadas por los comentarios de los clientes. La funcionalidad básica de ejecuciones de experimento hasta la implementación de modelos no ha cambiado, pero ahora puede usar el sólido<a href="/python/api/overview/azure/ml/intro" target="_blank">SDK de Python</a>, el SDK de R y la [CLI de Azure](reference-azure-machine-learning-cli.md) para realizar sus tareas y canalizaciones de aprendizaje automático.
+Para mejorar la experiencia, la versión contiene muchas actualizaciones importantes solicitadas por los comentarios de los clientes. La funcionalidad básica de ejecuciones de experimento hasta la implementación de modelos no ha cambiado, pero ahora puede usar el compacto <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK de Python</a> y la [CLI de Azure](reference-azure-machine-learning-cli.md) para realizar sus tareas y canalizaciones de aprendizaje automático.
 
 La mayoría de los artefactos creados en la versión anterior de Azure Machine Learning se almacenan en su propio almacenamiento local o en la nube. Estos artefactos nunca desaparecerán.
 
@@ -85,7 +85,7 @@ Las imágenes que ha creado en el antiguo registro de imágenes no se pueden mig
 
 Ahora que ha terminado la compatibilidad con la anterior CLI, no puede ya volver a implementar los modelos ni administrar los servicios web que implementó originalmente con la cuenta de Administración de modelos. Sin embargo, dichos servicios web seguirán funcionando siempre y cuando todavía se admita Azure Container Service (ACS).
 
-En la versión más reciente, los modelos se implementan como servicios web para clústeres de Azure Container Instances (ACI) o Azure Kubernetes Service (AKS). También puede implementar en FPGA y en Azure IoT Edge.
+En la versión más reciente, los modelos se implementan como servicios web para clústeres de Azure Container Instances (ACI) o Azure Kubernetes Service (AKS). También puede implementarlos en FPGA.
 
 Para más información, consulte estos artículos:
 + [Dónde y cómo implementar modelos](how-to-deploy-and-where.md)
@@ -95,7 +95,7 @@ Para más información, consulte estos artículos:
 
 Aprenda sobre la [arquitectura más reciente de Azure Machine Learning](concept-azure-machine-learning-architecture.md).
 
-Para información general sobre el servicio, lea [¿Qué es Azure Machine Learning?](overview-what-is-azure-ml.md).
+Para información general sobre el servicio, lea [¿Qué es Azure Machine Learning?](overview-what-is-azure-machine-learning.md).
 
 Empiece por [Guía de inicio rápido: Introducción a Azure Machine Learning](quickstart-create-resources.md).  Después use estos recursos para crear su primer experimento con el método que prefiera:
 

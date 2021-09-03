@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: b8eefda763765fd17fbf86bcf3205e854459a9f6
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: c1e60ae792921ef4e218918f093001ee9947975d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656258"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724266"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Administración de orígenes de datos en Azure Purview (versión preliminar)
 
@@ -38,7 +38,7 @@ Para registrar un nuevo origen, siga estos pasos.
 
 ## <a name="view-sources"></a>Visualización de orígenes
 
-Puede ver todos los orígenes registrados en la pestaña **Sources** (Orígenes) de Azure Purview Studio. Hay dos tipos de vistas: vista de mapa y vista de lista.
+Puede ver todos los orígenes registrados en la pestaña **Mapa de datos** de Azure Purview Studio. Hay dos tipos de vistas: vista de mapa y vista de lista.
 
 ### <a name="map-view"></a>Vista del mapa
 

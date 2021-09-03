@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: c3ee643d525cb5394369aba3b0e803bd1a94c852
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4d725375cb964cb8bc2893f5f8365416e29e5541
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036245"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734059"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organización de costos mediante la personalización de la cuenta de facturación
 
@@ -125,7 +125,7 @@ Para crear un perfil de facturación, debe ser **propietario de la cuenta de fac
     |---------|---------|
     |Nombre     | El nombre para mostrar ayuda a identificar fácilmente el perfil de facturación en Azure Portal.  |
     |Número de pedido de compra    | Número de pedido de compra opcional. El número de pedido de compra se mostrará en las facturas generadas para el perfil de facturación. |
-    |Dirección de facturación   | La dirección de facturación se mostrará en las facturas generadas para el perfil de facturación. |
+    |Dirección de facturación  | La dirección de facturación se mostrará en las facturas generadas para el perfil de facturación. |
     |Enviar factura por correo electrónico   | Active la casilla Enviar factura por correo electrónico para recibir las facturas de este perfil de facturación por correo electrónico. Si no opta por recibirlas, podrá consultarlas y descargarlas en Azure Portal.|
 
 5. Seleccione **Crear**.
@@ -162,10 +162,6 @@ Una vez que haya personalizado su cuenta de facturación en función de sus nece
 
 Si tiene suscripciones a Azure existentes u otros productos, como Azure Marketplace y recursos de origen de la aplicación, puede moverlos de la sección de factura existente a otra para reorganizar los costos.
 
-> [!IMPORTANT]
->
-> Las suscripciones y otros productos solo pueden moverse entre las secciones de factura que pertenezcan al mismo perfil de facturación. No se admite la transferencia de suscripciones y productos entre las secciones de factura de distintos perfiles de facturación.
-
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
@@ -174,11 +170,11 @@ Si tiene suscripciones a Azure existentes u otros productos, como Azure Marketpl
 
 3. Para vincular una suscripción a una nueva sección de factura, seleccione **Suscripciones a Azure** en el lado izquierdo de la pantalla. En el caso de otros productos como Azure Marketplace y recursos de origen de la aplicación, seleccione **Cargos periódicos**.
 
-   [![Captura de pantalla que muestra la opción para cambiar la sección de factura](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section.png#lightbox)
+   [![Captura de pantalla que muestra la opción para cambiar la sección de factura](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section-zoomed-in.png#lightbox)
 
 4. En la página, haga clic en los puntos suspensivos (tres puntos) de la suscripción o el producto que quiera vincular a una nueva sección de factura. Seleccione **Cambiar sección de factura**.
 
-5. Seleccione la sección de factura nueva en el menú desplegable. La lista desplegable solo mostrará las secciones de factura asociadas al mismo perfil de facturación que la sección de factura existente.
+5. Seleccione el nuevo perfil de facturación y la sección de factura en la lista desplegable.
 
     [![Captura de pantalla que muestra la selección de una sección de factura nueva](./media/mca-section-invoice/mca-select-new-invoice-section.png)](./media/mca-section-invoice/mca-select-new-invoice-section-zoomed-in.png#lightbox)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b84526f6f3193fc47bc211fcdec71bb5e27390f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bc800d12dd26f8edc3fa2f8719104f5f0d793b6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077687"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737405"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -38,7 +38,7 @@ Para obtener información sobre los aspectos básicos de Azure Disk Encryption p
 
 Las VM Linux están disponibles en una [variedad de tamaños](../sizes.md). Azure Disk Encryption es compatible con las máquinas virtuales de Gen1 y Gen2. Azure Disk Encryption también está disponible para las VM con almacenamiento Premium.
 
-Consulte [Tamaños de máquina virtual de Azure sin disco temporal local](../azure-vms-no-temp-disk.md).
+Consulte [Tamaños de máquina virtual de Azure sin disco temporal local](../azure-vms-no-temp-disk.yml).
 
 Azure Disk Encryption no está disponible en [VM básicas de la serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ni en máquinas virtuales que no cumplen estos requisitos de memoria mínimos:
 
@@ -63,6 +63,10 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 
 | Publicador | Oferta | SKU | URN | Tipo de volumen admitido para el cifrado |
 | --- | --- |--- | --- |
+| Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | Sistema operativo y disco de datos |
+| Canonical | Ubuntu | 20.04-DAILY-LTS | Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts:latest | Sistema operativo y disco de datos |
+| Canonical | Ubuntu | 20.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest | Sistema operativo y disco de datos |
+| Canonical | Ubuntu | 20.04-DAILY-LTS Gen2 |Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts-gen2:latest | Sistema operativo y disco de datos |
 | Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | Sistema operativo y disco de datos |
 | Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | Sistema operativo y disco de datos |
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | Sistema operativo y disco de datos |

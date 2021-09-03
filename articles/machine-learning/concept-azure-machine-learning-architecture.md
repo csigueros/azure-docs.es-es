@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/20/2020
+ms.date: 07/27/2021
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f1eb7a5b4697801775d23091c610ab594b0b27ec
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 065a06955adc9c157134e138a25aaee9f54f5bea
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813387"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862115"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
-Obtenga información sobre la arquitectura y los conceptos de [Azure Machine Learning](overview-what-is-azure-ml.md).  En este artículo se ofrece una descripción general de los componentes y cómo funcionan juntos para ayudar en el proceso de creación, implementación y mantenimiento de modelos de Machine Learning.
+Obtenga información sobre la arquitectura y los conceptos de [Azure Machine Learning](overview-what-is-azure-machine-learning.md).  En este artículo se ofrece una descripción general de los componentes y cómo funcionan juntos para ayudar en el proceso de creación, implementación y mantenimiento de modelos de Machine Learning.
 
 ## <a name="workspace"></a><a name="workspace"></a> Área de trabajo
 
@@ -197,7 +197,7 @@ Para más información sobre estos componentes, vea [Implementación de modelos 
 
 [Área de trabajo](#workspace) > **Puntos de conexión**
 
-Un punto de conexión es la creación de una instancia del modelo en un servicio web que puede hospedarse en la nube o un módulo de IoT para las implementaciones de dispositivos integrados.
+Un punto de conexión es la creación de una instancia del modelo en un servicio web que puede hospedarse en la nube.
 
 #### <a name="web-service-endpoint"></a>Punto de conexión de servicio web
 
@@ -232,13 +232,7 @@ Los puntos de conexión de canalización permiten llamar a las [canalizaciones d
 Un punto de conexión de canalización es una colección de canalizaciones publicadas. Esta organización lógica le permite administrar y llamar a varias canalizaciones mediante el mismo punto de conexión. Cada canalización publicada en un punto de conexión de canalización tiene versiones. Puede seleccionar una canalización predeterminada para el punto de conexión o especificar una versión en la llamada REST.
  
 
-#### <a name="iot-module-endpoints"></a>Puntos de conexión del módulo de IoT
 
-Un punto de conexión del módulo de IoT implementado es un contenedor de Docker que incluye el modelo y el script asociado o la aplicación y las dependencias adicionales. Estos módulos se implementan con Azure IoT Edge en dispositivos Edge.
-
-Si ha habilitado la supervisión, Azure recopila datos de telemetría desde el modelo que está en el módulo de Azure IoT Edge. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento.
-
-Azure IoT Edge garantiza que el módulo se esté ejecutando y supervisa el dispositivo que lo hospeda. 
 ## <a name="automation"></a>Automation
 
 ### <a name="azure-machine-learning-cli"></a>CLI de Azure Machine Learning 
@@ -261,7 +255,7 @@ Azure Machine Learning proporciona las siguientes funcionalidades de supervisió
    * [Seguimiento de experimentos con MLflow](how-to-use-mlflow.md)
    * [Visualización de ejecuciones con TensorBoard](how-to-monitor-tensorboard.md)
 * Como __administrador__, puede supervisar la información sobre el área de trabajo y los recursos de Azure relacionados, o eventos como la creación y eliminación de recursos mediante Azure Monitor. Para más información, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
-* Como profesional de __DevOps__ o __MLOps__, puede supervisar la información generada por los modelos implementados como servicios web o módulos de IoT Edge para identificar problemas con las implementaciones y recopilar los datos enviados al servicio. Para más información, consulte [Recopilación de datos de modelos](how-to-enable-data-collection.md) y [Supervisión con Application Insights](how-to-enable-app-insights.md).
+* Como profesional de __DevOps__ o __MLOps__, puede supervisar la información generada por los modelos implementados como servicios web para identificar problemas con las implementaciones y recopilar los datos enviados al servicio. Para más información, consulte [Recopilación de datos de modelos](how-to-enable-data-collection.md) y [Supervisión con Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="interacting-with-your-workspace"></a>Interacción con el área de trabajo
 
@@ -283,15 +277,13 @@ Studio también es el lugar desde el que se puede acceder a las herramientas int
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 +  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).
-+ Interactúe con el servicio en cualquier entorno de R con el [SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (versión preliminar).
 + Use el [diseñador de Azure Machine Learning](concept-designer.md) para seguir los pasos del flujo de trabajo sin escribir código. 
 + Use la [CLI de Azure Machine Learning](./reference-azure-machine-learning-cli.md) para la automatización.
-+ El [Acelerador de soluciones Many Models](https://aka.ms/many-models) (versión preliminar) se basa en Azure Machine Learning y permite entrenar, usar y administrar cientos o incluso miles de modelos de Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para una introducción a Azure Machine Learning, consulte:
 
-* [¿Qué es Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [¿Qué es Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 * [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md)
 * [Tutorial (parte 1): Entrenamiento de un modelo](tutorial-train-models-with-aml.md)

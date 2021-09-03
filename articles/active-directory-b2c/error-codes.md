@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/02/2020
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c24bcf45b2440aada43af62035f0b988128c8f8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92215440"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284552"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de error: Azure Active Directory B2C
 
@@ -144,6 +144,7 @@ El servicio Azure Active Directory B2C puede devolver los errores siguientes.
 | `AADB2C90284` | La aplicación con identificador "{0}" no tiene consentimiento y no puede usarse para las cuentas locales. |
 | `AADB2C90285` | La aplicación con el identificador "{0}" no se ha encontrado. |
 | `AADB2C90288` | El valor UserJourney con id. "{0}" al que se hace referencia en TechnicalProfile "{1}" para el canje del token de actualización en el inquilino "{2}" no existe en la directiva "{3}" ni en ninguna de sus directivas de base. |
+| `AADB2C90287` | La solicitud contiene un URI de redireccionamiento "{0}" que no es válido.|
 | `AADB2C90289` | Se ha producido un error en la conexión al proveedor de identidades. Inténtelo de nuevo más tarde. |
 | `AADB2C90296` | La aplicación no se ha configurado correctamente. Póngase en contacto con el administrador del sitio al que intenta acceder. |
 | `AADB2C99005` | La solicitud contiene un parámetro de ámbito no válido que incluye un carácter "{0}" que no es válido. |

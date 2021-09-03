@@ -1,28 +1,28 @@
 ---
-title: Migración de recursos de red de Azure desde Azure Alemania a Azure global
+title: Migración de recursos de red de Azure de Azure Alemania a Azure global
 description: En este artículo se proporciona información sobre cómo migrar los recursos de red de Azure desde Azure Alemania a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
-ms.custom: bfmigrate
-ms.openlocfilehash: 2d6814653967fa76ad22bcefcc94df42d60d67b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.custom: bfmigrate, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 1e8cb8dd4d167b1671edb8367beb5514104938ac
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033668"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "117029240"
 ---
 # <a name="migrate-network-resources-to-global-azure"></a>Migración de recursos de red a Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 La mayoría de servicios de red no admiten la migración de Azure Alemania a Azure global. Sin embargo, puede conectar las redes en ambos entornos en la nube mediante una VPN de sitio a sitio. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Los pasos que debe seguir para configurar una VPN de sitio a sitio entre nubes son similares a los pasos que debe seguir para implementar una VPN de sitio a sitio entre su red local y Azure. Defina una puerta de enlace en ambas nubes y, a continuación, indique a las VPN cómo comunicarse entre sí. [Cree una conexión de sitio a sitio en Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) que describe los pasos que debe seguir para implementar una VPN de sitio a sitio. Este es un resumen de los pasos:
+Los pasos que debe seguir para configurar una VPN de sitio a sitio entre nubes son similares a los pasos que debe seguir para implementar una VPN de sitio a sitio entre su red local y Azure. Defina una puerta de enlace en ambas nubes y, a continuación, indique a las VPN cómo comunicarse entre sí. [Cree una conexión de sitio a sitio en Azure Portal](../vpn-gateway/tutorial-site-to-site-portal.md) que describe los pasos que debe seguir para implementar una VPN de sitio a sitio. Este es un resumen de los pasos:
 
 1. Defina una red virtual.
 1. Defina un espacio de direcciones.
@@ -50,7 +50,7 @@ En este momento no se admite la migración de las redes virtuales desde Azure Al
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Azure Virtual Network](../virtual-network/index.yml).
 - Revise la [introducción a Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 - Obtenga información sobre cómo [planear redes virtuales](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
@@ -67,8 +67,8 @@ Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
 
 Para obtener más información:
 
-- Actualice sus [conocimientos sobre los grupos de seguridad de red](../virtual-network/security-overview.md#network-security-groups).
-- Revise la [introducción a la seguridad de red](../virtual-network/security-overview.md).
+- Actualice sus [conocimientos sobre los grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#network-security-groups).
+- Revise la [introducción a la seguridad de red](../virtual-network/network-security-groups-overview.md).
 - Aprenda cómo [administrar grupos de seguridad de red](../virtual-network/manage-network-security-group.md).
 
 ## <a name="expressroute"></a>ExpressRoute
@@ -77,7 +77,7 @@ En este momento no se admite la migración de una instancia de Azure ExpressRout
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de ExpressRoute](https://docs.microsoft.com/azure/expressroute/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de ExpressRoute](../expressroute/index.yml).
 - Aprenda a [crear una nueva puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
 - Aprenda sobre las [ubicaciones de ExpressRoute y proveedores de servicios](../expressroute/expressroute-locations.md).
 - Lea sobre las [puertas de enlace de red virtual para ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
@@ -92,10 +92,10 @@ Asegúrese de que actualice la configuración local. Además, elimine todas las 
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
-- Aprenda cómo [crear de una conexión de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+- Actualice sus conocimientos completando los [tutoriales de VPN Gateway](../vpn-gateway/index.yml).
+- Aprenda cómo [crear de una conexión de sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md).
 - Revise los cmdlets [Get AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) de PowerShell.
-- Lea la entrada de blob [Create a site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) (Creación de una conexión de sitio a sitio).
+- Lea la entrada de blob [Create a site-to-site connection](/archive/blogs/ralfwi/connecting-clouds) (Creación de una conexión de sitio a sitio).
  
 ## <a name="application-gateway"></a>Application Gateway
 
@@ -105,7 +105,7 @@ Puede recopilar la información sobre la configuración actual la puerta de enla
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Application Gateway](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Application Gateway](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 - Aprenda a [crear una puerta de enlace de aplicaciones](../application-gateway/quick-create-portal.md).
 - Revise los cmdlets [Get AzApplicationGateway](/powershell/module/az.network/get-azapplicationgateway) de PowerShell.
 
@@ -149,7 +149,7 @@ az network dns record-set ns list -g <resource group> -z --output json
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Azure DNS](https://docs.microsoft.com/azure/dns/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Azure DNS](../dns/index.yml).
 - Revise la [introducción a Azure DNS](../dns/dns-overview.md).
 - Obtenga más información sobre la [importación y exportación de Azure DNS](../dns/dns-import-export.md).
 
@@ -159,7 +159,7 @@ En este momento no se admite la migración de una instancia de Azure Network Wat
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Network Watcher](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Network Watcher](../network-watcher/index.yml).
 - Revise la [introducción a Network Watcher](../network-watcher/network-watcher-monitoring-overview.md).
 - Más información sobre los [registros de flujo de grupos de seguridad de red](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
 - Obtenga información sobre el [monitor de conexión](../network-watcher/connection-monitor.md).
@@ -180,9 +180,9 @@ Puede definir puntos de conexión adicionales en el entorno de destino mediante 
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Traffic Manager](../traffic-manager/index.yml).
 - Revise la [introducción a Traffic Manager](../traffic-manager/traffic-manager-overview.md).
-- Aprenda a [crear un perfil de Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- Aprenda a [crear un perfil de Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ## <a name="load-balancer"></a>Load Balancer
 
@@ -190,7 +190,7 @@ En este momento no se admite la migración de una instancia del equilibrador de 
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Load Balancer](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Load Balancer](../load-balancer/index.yml).
 - Revise la [introducción a Load Balancer](../load-balancer/load-balancer-overview.md).
 - Obtenga información sobre cómo [crear un nuevo equilibrador de carga](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 

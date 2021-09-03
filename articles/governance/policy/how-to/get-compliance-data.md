@@ -1,14 +1,14 @@
 ---
 title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.openlocfilehash: fcc82e2f86746f68000e9cfcafedf2d7b8b3105d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 547128d56eb2577a416ad2dae419d58ffe8b645b
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733578"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038379"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -196,7 +196,7 @@ Además de **Compatible** y **No compatible**, las directivas y los recursos tie
 - **No iniciado**: no se ha iniciado el ciclo de evaluación de la directiva o del recurso.
 - **No registrado**: no se ha registrado el proveedor de recursos de Azure Policy o la cuenta con que se ha iniciado sesión no tiene permiso para leer datos de cumplimiento.
 
-Azure Policy usa los campos **type**, **name** o **kind** en la definición para determinar si un recurso coincide. Cuando el recurso coincide, se considera aplicable y tiene un estado de **Compatible**, **No compatible** o **Exento**. Si la única propiedad de la definición es **type**, **name** o **kind**, todos los recursos incluidos y exentos se consideran aplicables y se evalúan.
+Azure Policy usa los campos **type**, **name** o **kind** en la definición para determinar si un recurso coincide. Cuando el recurso coincide, se considera aplicable y tiene un estado de **Compatible**, **No compatible** o **Exento**. Si la única propiedad de la definición es **name** o **kind**, todos los recursos incluidos y exentos se consideran aplicables y se evalúan.
 
 El porcentaje de cumplimiento se determina dividiendo los recursos **compatibles** y **exentos** entre los _recursos totales_. Los _recursos totales_ se definen como la suma de los recursos **compatibles**, **no compatibles**, **exentos** y **en conflicto**. La cifra de cumplimiento general es la suma de los distintos recursos que son **compatibles** o **exentos** dividida entre la suma de todos los recursos distintos. En la imagen siguiente, hay 20 recursos diferentes que son aplicables y solo uno es **No compatible**.
 Por tanto, el cumplimiento general de los recursos es del 95 % (19 de 20).

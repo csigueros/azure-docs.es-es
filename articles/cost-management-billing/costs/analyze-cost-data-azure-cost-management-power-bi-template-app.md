@@ -3,17 +3,17 @@ title: Análisis de los costos de Azure con la aplicación para Power BI
 description: En este artículo se explica cómo instalar y usar la aplicación Azure Cost Management para Power BI.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/19/2021
+ms.date: 06/15/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: b08ff57f964ef7bc3712c930c222a10ed0f89ef4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 903bcab1816263cdd660f5b41561cd5209b6557f
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045105"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200966"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Análisis del costo con la aplicación Azure Cost Management para Power BI para Contrato Enterprise (EA)
 
@@ -46,10 +46,10 @@ Para instalar la aplicación
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" alt-text="Instantánea con el vínculo &quot;Conectar los datos&quot; resaltado." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" :::
 1. En el cuadro de diálogo que aparece, escriba el número de inscripción de Contrato Enterprise para **BillingProfileIdOrEnrollmentNumber**. Especifique el número de meses de datos que se van a obtener. Deje el valor de **Ámbito** predeterminado de **Número de inscripción** y, a continuación, seleccione **Siguiente**.  
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Instantánea en la que se muestra dónde se escribe la información de la inscripción EA." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
-1. El siguiente cuadro de diálogo se conecta a Azure y obtiene los datos. *Deje los valores predeterminados tal como están configurados* y seleccione **Sign in and continue** (Iniciar sesión y continuar).  
-    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Instantánea en la que se muestra el cuadro de diálogo Connect to Azure Cost Management App (Conexión a la aplicación Azure Cost Management) con los valores predeterminados." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
-1. El paso de instalación final se conecta a su inscripción de Contrato Enterprise y requiere una cuenta de [administrador de empresa](../manage/understand-ea-roles.md). Deje todos los valores predeterminados. Seleccione **Sign in and connect** (Iniciar sesión y conectar).  
+1. El paso de instalación siguiente se conecta a la inscripción de EA y necesita una cuenta de [administrador de Enterprise](../manage/understand-ea-roles.md). Deje todos los valores predeterminados. Seleccione **Sign in and connect** (Iniciar sesión y conectar).  
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Instantánea en la que se muestra el cuadro de diálogo Connect to Azure Cost Management App (Conexión a la aplicación Azure Cost Management) con los valores predeterminados de la conexión." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+1. El último cuadro de diálogo se conecta a Azure y obtiene los datos. *Deje los valores predeterminados tal como están configurados* y seleccione **Sign in and continue** (Iniciar sesión y continuar).  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Instantánea en la que se muestra el cuadro de diálogo Connect to Azure Cost Management App (Conexión a la aplicación Azure Cost Management) con los valores predeterminados." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
 1. Se le pedirá que se autentique con su suscripción de EA. Autentíquese con Power BI. Una vez autenticado, comenzarán a actualizarse los datos de Power BI.
     > [!NOTE]
     > El proceso de actualización de datos puede tardar bastante tiempo en completarse. La duración depende del número de meses especificado y de la cantidad de datos que haya que sincronizar.

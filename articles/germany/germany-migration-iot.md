@@ -1,22 +1,22 @@
 ---
 title: Migración de recursos de IoT de Azure desde Azure Alemania a Azure global
 description: En este artículo se proporciona información sobre cómo migrar los recursos de IoT de Azure desde Azure Alemania a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: ccb837001a4ef69ac6145e2f93bb9eb4766120f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e480ef9c12bdf425a41f567f1941d3f1a654b08
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033662"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "117029228"
 ---
 # <a name="migrate-iot-resources-to-global-azure"></a>Migración de recursos de IoT a Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 En este artículo se proporciona información que puede ayudarle a migrar los recursos de IoT de Azure desde Azure Alemania a Azure global.
 
@@ -54,11 +54,11 @@ En este momento no se admite la migración de los recursos de Azure Functions de
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Functions](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Aprenda como [exportar plantillas de Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o lea la introducción a [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualice sus conocimientos completando los [tutoriales de Functions](../azure-functions/index.yml).
+- Aprenda como [exportar plantillas de Resource Manager](../azure-resource-manager/templates/export-template-portal.md) o lea la introducción a [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Revise la [introducción a Azure Functions](../azure-functions/functions-overview.md).
 - Lea una [introducción a las ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/resource-group-template-deploy.md).
+- Obtenga información sobre cómo [volver a implementar una plantilla](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="notification-hubs"></a>Notification Hubs
 
@@ -70,7 +70,7 @@ Para migrar la configuración de una instancia de Azure Notification Hubs a otra
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).
 - Revise la [introducción a Azure Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ## <a name="iot-hub"></a>IoT Hub
@@ -82,9 +82,9 @@ Aunque puede migrar las instancias de Azure IoT Hub desde Azure Germany a Azure 
 
 ### <a name="step-1-re-create-the-iot-hub"></a>Paso 1: Recreación del centro de IoT
 
-IoT Hub no admite la clonación de forma nativa. Sin embargo, puede usar la característica de Azure Resource Manager para [exportar un grupo de recursos como una plantilla](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) y exportar los metadatos de IoT Hub. Las rutas configuradas y demás configuraciones de IoT Hub se incluyen en los metadatos exportados. Después, vuelva a implementar la plantilla en Azure global. Le resultará más fácil volver a crear el centro de IoT en Azure Portal examinando los detalles en el JSON exportado.
+IoT Hub no admite la clonación de forma nativa. Sin embargo, puede usar la característica de Azure Resource Manager para [exportar un grupo de recursos como una plantilla](../azure-resource-manager/templates/export-template-portal.md) y exportar los metadatos de IoT Hub. Las rutas configuradas y demás configuraciones de IoT Hub se incluyen en los metadatos exportados. Después, vuelva a implementar la plantilla en Azure global. Le resultará más fácil volver a crear el centro de IoT en Azure Portal examinando los detalles en el JSON exportado.
 
-### <a name="step-2-migrate-device-identities"></a>Paso 2: Migración de identidades de dispositivo
+### <a name="step-2-migrate-device-identities"></a>Paso 2: Migración de identidades del dispositivo
 
 Para migrar las identidades de dispositivo:
 

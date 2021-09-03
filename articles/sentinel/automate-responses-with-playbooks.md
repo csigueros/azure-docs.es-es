@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 06/29/2021
 ms.author: yelevin
-ms.openlocfilehash: 0687b3bf486d2496763237164536be34f504f7ed
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: bddd27b29a1546f0c985f7a5b3aa15027be75d46
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112070892"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726099"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatización de la respuesta a amenazas con cuadernos de estrategias en Azure Sentinel
 
@@ -33,6 +33,8 @@ Los equipos de SIEM y SOC normalmente se sobrecargan con alertas e incidentes de
 Muchas de estas alertas e incidentes, si no la mayoría, se ajustan a patrones recurrentes que se pueden resolver mediante conjuntos de acciones de corrección específicas y definidas.
 
 Un cuaderno de estrategias es una colección de estas acciones correctivas que se puede ejecutar desde Azure Sentinel de forma rutinaria. Un cuaderno de estrategias puede ayudarle a [**automatizar y organizar la respuesta a las amenazas**](tutorial-respond-threats-playbook.md); se puede ejecutar manualmente o establecer para que se ejecute automáticamente en respuesta a alertas o incidentes específicos, cuando se desencadena mediante una regla de análisis o una regla de automatización, respectivamente.
+
+Por ejemplo, si una cuenta y una máquina están en peligro, un cuaderno de estrategias puede aislar la máquina de la red y bloquear la cuenta en el momento en que se notifica el incidente al equipo de SOC.
 
 Los cuadernos de estrategias se crean y se aplican en el nivel de suscripción, pero en la pestaña **Playbooks** (Cuadernos de estrategias) (en la hoja nueva **Automation** [Automatización]) se muestran todos los cuadernos de estrategias disponibles en todas las suscripciones seleccionadas.
 
@@ -197,7 +199,7 @@ Si la alerta crea un incidente, el incidente desencadenará una regla de automat
 
 En el caso de los cuadernos de estrategias desencadenados por la creación de alertas y que reciben alertas como entradas (el primer paso es "Cuando se desencadena una alerta de Azure Sentinel"), adjunte el cuaderno de estrategias a una regla de análisis:
 
-1. Edite la [regla de análisis](tutorial-detect-threats-custom.md) que genera la alerta para la que desea definir una respuesta automatizada.
+1. Edite la [regla de análisis](detect-threats-custom.md) que genera la alerta para la que desea definir una respuesta automatizada.
 
 1. En **Alert automation** (Automatización de alertas), en la pestaña **Automated response** (Respuesta automática), seleccione el o los cuadernos de estrategias que desencadenará esta regla de análisis cuando se cree una alerta.
 
@@ -242,7 +244,7 @@ La activación manual está disponible en el portal de Azure Sentinel en las sig
 
 ### <a name="run-a-playbook-manually-on-an-incident"></a>Ejecución manual de un cuaderno de estrategias en un incidente
 
-Aún no se admite. <!--make this a note instead? -->
+Aún no se admite.
 
 ## <a name="manage-your-playbooks"></a>Administración de los cuadernos de estrategias
 
@@ -275,6 +277,29 @@ Para ver todas las conexiones de API, escriba *conexiones de API* en el cuadro d
 Otra manera de ver las conexiones de API sería ir a la hoja **Todos los recursos** y filtrar por el tipo *Conexión de API*. De esta manera se permite la selección, el etiquetado y la eliminación de varias conexiones a la vez.
 
 Para cambiar la autorización de una conexión existente, escriba el recurso de conexión y seleccione **Editar conexión de API**.
+
+## <a name="recommended-playbooks"></a>Cuadernos de estrategias recomendados
+
+Los siguientes cuadernos de estrategias recomendados y otros similares están disponibles en el [repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks):
+
+- Los **cuadernos de estrategias de notificación** se activan cuando se crea una alerta o un incidente, y envían una notificación a un destino configurado:
+
+    - [Publicación de un mensaje en un canal de Microsoft Teams](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Teams)
+    - [Envío de una notificación por correo electrónico de Outlook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
+    - [Publicación de un mensaje en un canal de Slack](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Slack)
+
+- Los **cuadernos de estrategias de bloqueo** se activan cuando se crea una alerta o un incidente, recopilan información de la entidad, como la cuenta, la dirección IP y el host y les impiden realizar más acciones:
+
+    - [Aviso de bloqueo de una dirección IP](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-IPs-on-MDATP-Using-GraphSecurity).
+    - [Bloqueo de un usuario de AAD](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUser)
+    - [Restablecimiento de una contraseña de usuario de AAD](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
+    - [Aviso para aislar una máquina](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
+
+- **Creación, actualización o cierre de cuadernos de estrategias**: puede crear, actualizar o cerrar incidentes en Azure Sentinel, servicios de seguridad de Microsoft 365 y otros sistemas de control de vales:
+
+    - [Cambio de la gravedad de un incidente](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)
+    - [Creación de un incidente de ServiceNow](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Create-SNOW-record)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

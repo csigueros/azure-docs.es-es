@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/16/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d13b1f515d5585c6378e48eb64feed59615cdef
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 0b222c604cf565b03d3148e1bd1b6df876ba1353
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616921"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727654"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -56,7 +56,10 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | --- | --- | --- |
 | Dirección IP anónima | Tiempo real | Este tipo de detección de riesgos indica inicios de sesión desde una dirección IP anónima (por ejemplo, el explorador Tor o redes VPN anónimas). Estas direcciones IP normalmente las usan actores que quieren ocultar su telemetría de inicio de sesión (dirección IP, ubicación, dispositivo, etc.) con fines potencialmente malintencionados. |
 | Viaje atípico | Sin conexión | Este tipo de detección de riesgos identifica dos inicios de sesión procedentes de ubicaciones geográficamente distantes, donde al menos una de las ubicaciones puede también ser inusual para el usuario, según su comportamiento anterior. Entre otros factores, este algoritmo de aprendizaje automático tiene en cuenta el tiempo entre los dos inicios de sesión y el tiempo que habría necesitado el usuario para viajar de la primera ubicación a la segunda, lo que indica que otro usuario utiliza las mismas credenciales. <br><br> Este algoritmo omite "falsos positivos" obvios que contribuyen a una condición de viaje imposible, como las VPN y las ubicaciones que usan con regularidad otros usuarios de la organización. El sistema tiene un período de aprendizaje inicial de 14 días o 10 inicios de sesión, lo que ocurra primero, durante el cual aprende el comportamiento de inicio de sesión del nuevo usuario. |
+| Token anómalo | Sin conexión | Esta detección indica que hay características anómalas en el token, como el tiempo activo y la autenticación desde una dirección IP desconocida. |
+| Anomalía del emisor de tokens | Sin conexión | Esta detección de riesgos indica que hay una actividad inusual en los patrones de ataque conocidos, por ejemplo, se está actualizando la configuración de federación de dominios de confianza o se está cambiando un certificado de firma. |
 | Dirección IP vinculada al malware | Sin conexión | Este tipo de detección de riesgos indica inicios de sesión desde direcciones IP infectadas con malware, que se sabe que se comunican activamente con un servidor bot. Esta detección se determina mediante la correlación de direcciones IP del dispositivo del usuario con direcciones IP que han estado en contacto con un servidor bot mientras este último estaba activo. |
+| Explorador sospechoso | Sin conexión | La detección sospechosa del explorador indica un comportamiento anómalo basado en la actividad de inicio de sesión sospechosa en varios inquilinos de distintos países en el mismo explorador. |
 | Propiedades de inicio de sesión desconocidas | Tiempo real | Este tipo de detección de riesgos tiene en cuenta el historial de inicio de sesión anterior (dirección IP, latitud/longitud y ASN) para determinar inicios de sesión anómalos. El sistema almacena información acerca de las ubicaciones anteriores que ha utilizado un usuario y considera estas ubicaciones "conocidas". La detección de riesgos se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estarán en "modo de aprendizaje" durante un período de tiempo, en el que las detecciones de riesgo de las propiedades de inicio de sesión desconocidas estarán desactivadas mientras nuestros algoritmos aprenden el comportamiento del usuario. La duración del modo de aprendizaje es dinámica y depende de cuánto tiempo tarde el algoritmo en recopilar información suficiente sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. <br><br> También se ejecuta esta detección para una autenticación básica o para protocolos heredados. Dado que estos protocolos no tienen propiedades modernas como el identificador de cliente, hay una telemetría limitada para reducir los falsos positivos. Se recomienda que los clientes realicen la migración a la autenticación moderna. |
 | Vulneración de identidad de usuario confirmada por el administrador | Sin conexión | Esta detección indica que un administrador ha seleccionado "Confirmar vulneración de la identidad del usuario" en la interfaz de usuario de Usuarios de riesgo o mediante riskyUsers API. Para ver qué administrador ha confirmado este usuario comprometido, compruebe el historial de riesgos del usuario (a través de la interfaz de usuario o la API). |
 | Dirección IP malintencionada | Sin conexión | Esta detección indica el inicio de sesión desde una dirección IP malintencionada. Una dirección IP se considera malintencionada si se recibe una alta tasa de errores debidos a credenciales no válidas desde la dirección IP u otros orígenes de reputación de IP. |
@@ -90,7 +93,7 @@ Las detecciones de riesgos, como las credenciales filtradas, requieren la presen
 
 #### <a name="where-does-microsoft-find-leaked-credentials"></a>¿Dónde busca Microsoft las credenciales filtradas?
 
-Microsoft busca las credenciales filtradas en una gran variedad de lugares, entre otros:
+Microsoft busca las credenciales filtradas en varios lugares, por ejemplo, en:
 
 - Los sitios de pegado públicos, como pastebin.com y paste.ca, en los que los infiltrados normalmente publican este material. Esta ubicación es la parada obligada para la mayoría de los infiltrados en su búsqueda de credenciales robadas.
 - Organismos de autoridad judicial.
@@ -98,7 +101,7 @@ Microsoft busca las credenciales filtradas en una gran variedad de lugares, entr
 
 #### <a name="why-arent-i-seeing-any-leaked-credentials"></a>¿Por qué no veo ninguna credencial filtrada?
 
-Las credenciales filtradas se procesan siempre que Microsoft encuentra un nuevo lote disponible públicamente. Debido a la naturaleza confidencial, las credenciales filtradas se eliminan poco después de su procesamiento. Solo se procesarán en el inquilino las nuevas credenciales filtradas que se encuentren después de habilitar la sincronización de hash de contraseñas (PHS). No se comprueban los pares de credenciales detectados anteriormente. 
+Las credenciales filtradas se procesan siempre que Microsoft encuentra un nuevo lote disponible públicamente. Debido a la naturaleza confidencial, las credenciales filtradas se eliminan al poco tiempo de procesarse. Solo se procesarán en el inquilino las nuevas credenciales filtradas que se encuentren después de habilitar la sincronización de hash de contraseñas (PHS). No se realiza la comprobación con los pares de credenciales encontrados anteriormente. 
 
 #### <a name="i-havent-seen-any-leaked-credential-risk-events-for-quite-some-time"></a>No he encontrado ningún evento de riesgo de credenciales filtradas durante bastante tiempo.
 

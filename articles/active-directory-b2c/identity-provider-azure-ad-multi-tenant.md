@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 06/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 56a2eff6a39f879de4e9d968eb470243014cb430
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 474bb5582011c9e701a188f227a54238a9f19b57
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982041"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285578"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ ms.locfileid: "111982041"
 
 En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios usando el punto de conexión multiinquilino de Azure Active Directory (Azure AD). Esto permite a los usuarios de varios inquilinos de Azure AD iniciar sesión en Azure AD B2C sin tener que configurar un proveedor de identidades para cada inquilino. Sin embargo, los miembros invitados en cualquiera de estos inquilinos **no** podrán iniciar sesión. Para ello, tendrá que [configurar individualmente cada inquilino](identity-provider-azure-ad-single-tenant.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
-## <a name="register-an-application"></a>Registro de una aplicación
+## <a name="register-an-azure-ad-app"></a>Registrar una aplicación de Azure AD
 
 Para habilitar el inicio de sesión para los usuarios con una cuenta de Azure AD en Azure Active Directory B2C (Azure AD B2C), tiene que crear una aplicación en [Azure Portal](https://portal.azure.com). Para más información, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](../active-directory/develop/quickstart-register-app.md).
 
@@ -63,7 +63,7 @@ Para habilitar el inicio de sesión para los usuarios con una cuenta de Azure A
 1. Seleccione **Certificados y secretos** y luego seleccione **Nuevo secreto de cliente**.
 1. En **Descripción**, escriba una descripción para el secreto, seleccione una fecha de expiración y seleccione **Agregar**. Registre el valor **Value** del secreto para usarlo en un paso posterior.
 
-## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
+### <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
 
 Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, puede configurar notificaciones opcionales para la aplicación en la interfaz de usuario de Azure Portal o el manifiesto de aplicación. Para obtener más información, consulte [Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
@@ -75,6 +75,10 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 1. En **Tipo de token**, seleccione **ID**.
 1. Seleccione las notificaciones opcionales que va a agregar, `family_name` y `given_name`.
 1. Haga clic en **Agregar**.
+
+## <a name="optional-verify-your-app-authenticity"></a>[Opcional] Comprobación de la autenticidad de la aplicación
+
+La [comprobación del editor](../active-directory/develop/publisher-verification-overview.md) ayuda a los usuarios a entender la autenticidad de la aplicación que [ha registrado](#register-an-azure-ad-app). Una aplicación comprobada significa que el editor de la aplicación ha [ comprobado](/partner-center/verification-responses) su identidad mediante su Microsoft Partner Network (MPN). Obtenga información sobre cómo [marcar la aplicación como comprobada por el editor](../active-directory/develop/mark-app-as-publisher-verified.md). 
 
 ## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 
@@ -201,8 +205,6 @@ Si el proceso de inicio de sesión se completa correctamente, el explorador se r
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Al trabajar con directivas personalizadas, en ocasiones es posible que necesite información adicional al solucionar problemas de una directiva durante su desarrollo.
-
-Para ayudar a diagnosticar problemas, puede poner temporalmente la directiva en "modo de programador" y recopilar registros con Azure Application Insights. Descubra cómo en [Azure Active Directory B2C: Recopilación de registros](troubleshoot-with-application-insights.md).
+Obtenga información sobre cómo [pasar el token de Azure AD a la aplicación](idp-pass-through-user-flow.md).
 
 ::: zone-end

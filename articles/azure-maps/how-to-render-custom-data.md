@@ -1,82 +1,104 @@
 ---
-title: Representación de datos personalizados en un mapa de trama | Microsoft Azure Maps
+title: Representación de datos personalizados en un mapa de trama de Microsoft Azure Maps
 description: Aprenda a agregar chinchetas, etiquetas y formas geométricas a un mapa de tramas. Vea cómo usar el servicio de imágenes estáticas de Azure Maps para este fin.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/26/2021
+ms.date: 07/02/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f5c9bf695dc9eb11f1d44857783a727d7afafe03
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e02da9993804ec170ba89b08ee1b46e01a1adac4
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029718"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113232365"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
-En este artículo se explica cómo usar el [servicio de imagen estática](/rest/api/maps/render/getmapimage) con la funcionalidad de composición de imágenes para permitir las superposiciones encima de un mapa de trama. La composición de imágenes incluye la capacidad de obtener un icono de mapa de trama con datos adicionales, como marcadores, etiquetas y superposiciones geométricas personalizadas.
+En este artículo se describe cómo usar el [servicio de imágenes estáticas](/rest/api/maps/render/getmapimage) con la funcionalidad de composición de imágenes. La funcionalidad de composición de imágenes admite la recuperación de mosaicos de trama estáticos que contienen datos personalizados.
 
-Para representar marcadores, etiquetas y superposiciones geométricas personalizadas, se puede usar la aplicación Postman. Puede usar las [API de Data Service](/rest/api/maps/data) de Azure Maps para almacenar y representar superposiciones.
+Estos son algunos ejemplos de datos personalizados:
+
+- Marcadores personalizados
+- Etiquetas
+- Superposiciones de geometría
 
 > [!Tip]
-> Para mostrar un mapa sencillo en una página web, a menudo es mucho más rentable usar el SDK web de Azure Maps, en lugar de usar el servicio de imágenes estáticas. El SDK web usa mosaicos de mapa y, a menos que el usuario desplace lateralmente el mapa y lo acerque, con frecuencia solo se generará una fracción de una transacción por carga del mapa. El SDK web de Azure Maps tiene opciones para deshabilitar el movimiento panorámico y el zoom. Además, ofrece un conjunto mucho más rico de opciones de visualización de datos que las de un servicio web de mapas estáticos.  
+> Para mostrar un mapa sencillo en una página web, a menudo es mucho más rentable usar el SDK web de Azure Maps, en lugar de usar el servicio de imágenes estáticas. El SDK web usa mosaicos de mapa y, a menos que el usuario desplace lateralmente el mapa y lo acerque, con frecuencia solo se generará una fracción de una transacción por carga del mapa. El SDK web de Azure Maps tiene opciones para deshabilitar el movimiento panorámico y el zoom. Además, el SDK web de Azure Maps ofrece un conjunto más completo de opciones de visualización de datos que las de un servicio web de mapas estáticos.  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 
-En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede usar un entorno de desarrollo de API diferente.
+En este artículo se usa la aplicación [Postman](https://www.postman.com/), pero puede usar otro entorno de desarrollo de API.
+
+Se usarán las [API del servicio de datos](/rest/api/maps/data) de Azure Maps para almacenar y representar las superposiciones.
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Representación de marcadores con etiquetas e imágenes personalizadas
 
 > [!Note]
-> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 o Gen 2.
-
+> Para el procedimiento descrito en esta sección se necesita una cuenta de Azure Maps en el plan de tarifa Gen 1 o Gen 2.
 El nivel S0 estándar Gen 1 de la cuenta de Azure Maps solo admite una única instancia del parámetro `pins`. Permite representar hasta cinco marcadores, especificados en la solicitud de dirección URL, con una imagen personalizada.
 
-Para representar los marcadores con etiquetas y una imagen personalizada, siga estos pasos:
+### <a name="get-static-image-with-custom-pins-and-labels"></a>Obtención de una imagen estática con marcas y etiquetas personalizadas
 
-1. Cree una colección en la que vaya a almacenar las solicitudes. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección). Asigne un nombre a la colección y seleccione el botón **Create** (Crear). 
+Para obtener una imagen estática con marcas y etiquetas personalizadas:
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para los marcadores. Seleccione la colección que creó en el paso anterior como ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar**.
-    
-    ![Creación de una solicitud en Postman](./media/how-to-render-custom-data/postman-new.png)
+1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-3. Seleccione el método GET HTTP en la pestaña del generador y escriba la siguiente dirección URL para realizar una solicitud GET.
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Static Image*.
+
+
+4. Seleccione el método HTTP **GET**.
+
+
+5. Escriba la siguiente dirección URL (reemplace `{subscription-key}` por la clave de suscripción principal):
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
 
-    Esta es la imagen resultante:
+6. Seleccione **Enviar**.
 
-    ![Un marcador personalizado con una etiqueta](./media/how-to-render-custom-data/render-pins.png)
+7. El servicio devuelve la siguiente imagen:
 
+    :::image type="content" source="./media/how-to-render-custom-data/render-pins.png" alt-text="Un marcador personalizado con una etiqueta.":::
 
-## <a name="get-data-from-azure-maps-data-storage"></a>Obtener datos del almacenamiento de datos de Azure Maps
+## <a name="upload-pins-and-path-data"></a>Carga de marcadores y datos de rutas
 
 > [!Note]
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2.
 
-También puede obtener la información de ubicación de ruta de acceso y de pin mediante la [API de carga de datos](/rest/api/maps/data-v2/upload-preview). Siga los pasos descritos a continuación para cargar los datos de la ruta de acceso y de los marcadores.
+En esta sección, se cargarán los datos de rutas y marcadores al almacenamiento de datos de Azure Map.
 
-1. En la aplicación Postman, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método POST HTTP en la pestaña del generador y escriba la siguiente dirección URL para realizar una solicitud POST:
+Para cargar marcadores y datos de rutas:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *POST Path and Pin Data*.
+
+4. Seleccione el método HTTP **POST**.
+
+5. Escriba la siguiente dirección URL (reemplace `{subscription-key}` por la clave de suscripción principal):
 
     ```HTTP
     https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
-2. En la pestaña **Params** (Parámetros), escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de `subscription-key` por su clave de suscripción de Azure Maps.
+6. Seleccione la pestaña **Cuerpo**.
 
-    ![Parámetros de clave-valor en Postman](./media/how-to-render-custom-data/postman-key-vals.png)
+7. En las listas desplegables, seleccione **raw** y **JSON**.
 
-3. En **Body** (Cuerpo), seleccione el formato de entrada sin procesar y elija JSON como formato de entrada en la lista desplegable. Proporcione el código JSON como datos que se van a cargar:
-    
+8. Copie los siguientes datos JSON como los datos que se van a cargar y, después, péguelos en la ventana **Body** (Cuerpo):
+  
     ```JSON
     {
       "type": "FeatureCollection",
@@ -137,86 +159,135 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
     }
     ```
 
-4. Haga clic en **Send** (Enviar) y revise el encabezado de la respuesta. Tras una solicitud correcta, el encabezado *Operation-Location* contendrá `status URL` para comprobar el estado actual de la solicitud de carga. `status URL` tiene el siguiente formato:
+9. Seleccione **Enviar**.
+
+10. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados).
+
+11. Copie el valor de la clave de **Operation-Location**, que es `status URL`. Se usará `status URL` para comprobar el estado de la solicitud de carga en la sección siguiente. `status URL` tiene el siguiente formato:
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0
+   https://us.atlas.microsoft.com/mapData/operations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?api-version=2.0
    ```
 
-5. Copie el identificador URI de estado y anéxele un parámetro subscription-key, cuyo valor sea la clave de suscripción de la cuenta de Azure Maps. Use la misma clave de suscripción de la cuenta que usó para cargar los datos. El formato del URI de estado debe ser similar al siguiente:
+>[!TIP]
+>Para obtener información propia sobre rutas y la ubicación de los marcadores, use la [API Data Upload](/rest/api/maps/data-v2/upload-preview).
+
+### <a name="check-pins-and-path-data-upload-status"></a>Comprobación del estado de carga de los datos de marcadores y rutas
+
+Para comprobar el estado de la carga de datos y recuperar su identificador único (`udid`):
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Data Upload Status*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba el valor `status URL` que ha copiado en [Carga de marcadores y datos de rutas](#upload-pins-and-path-data). La solicitud debe ser similar a la siguiente dirección URL (reemplace `{subscription-key}` por la clave de suscripción principal):
 
    ```HTTP
-     https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={Subscription-key}
+     https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={subscription-key}
    ```
 
-6. Para obtener `udid`, abra una nueva pestaña en la aplicación de Postman. Seleccione el método GET HTTP en la pestaña del generador. Realice una solicitud GET en `status URL`. Si la carga de datos se realizó correctamente, recibirá un `udid` en el cuerpo de respuesta. Copie el valor de `udid`.
+6. Seleccione **Enviar**.
 
-   ```JSON
-   {
-      "udid" : "{udId}"
-   }
-   ```
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados).
 
-7. Use el valor de `udid` recibido de la API de carga de datos para representar las características en el mapa. Para ello, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método GET HTTP en la pestaña Builder, reemplace {subscription-Key} y {udId} por sus valores y escriba esta dirección URL para realizar una solicitud GET:
+8. Copie el valor de la clave **Resource-Location**, que es `resource location URL`. `resource location URL` contiene el identificador único (`udid`) del recurso del paquete de dibujo.
+
+    :::image type="content" source="./media/how-to-render-custom-data/resource-location-url.png" alt-text="Copie la dirección URL de la ubicación del recurso.":::
+
+### <a name="render-uploaded-features-on-the-map"></a>Representación de características cargadas en el mapa
+
+Para representar los datos de marcadores y rutas cargados en el mapa:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Data Upload Status*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba la siguiente dirección URL en [Render Service](/rest/api/maps/render/get-map-image) (Representar servicio) (reemplace `{subscription-key}` por la clave de suscripción principal y `udid` por el valor `udid` del paquete cargado):
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
-    Esta es la imagen de respuesta:
+6. El servicio devuelve la siguiente imagen:
 
-    ![Obtener datos del almacenamiento de datos de Azure Maps](./media/how-to-render-custom-data/uploaded-path.png)
+    :::image type="content" source="./media/how-to-render-custom-data/uploaded-path.png" alt-text="Representación de los datos cargados en una imagen de mapa estática.":::
 
 ## <a name="render-a-polygon-with-color-and-opacity"></a>Representación de un polígono con color y opacidad
 
 > [!Note]
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2.
 
-
 Puede modificar la apariencia de un polígono mediante el uso de modificadores de estilo con el [parámetro path](/rest/api/maps/render/getmapimage#uri-parameters).
 
-1. En la aplicación Postman, abra una nueva pestaña en la colección que creó antes. Seleccione el método GET HTTP en la pestaña del generador y escriba la siguiente dirección URL para realizar una solicitud GET a fin de representar un polígono con color y opacidad:
-    
+Para representar un polígono con color y opacidad:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Polygon*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba la siguiente dirección URL en [Render Service](/rest/api/maps/render/get-map-image) (Representar servicio) (reemplace `{subscription-key}` por la clave de suscripción principal):
+  
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&sku=S1&zoom=14&height=500&Width=500&center=-74.040701, 40.698666&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.50||-74.03995513916016 40.70090237454063|-74.04082417488098 40.70028420372218|-74.04113531112671 40.70049568385827|-74.04298067092896 40.69899904076542|-74.04271245002747 40.69879568992435|-74.04367804527283 40.6980961582905|-74.04364585876465 40.698055487620714|-74.04368877410889 40.698022951066996|-74.04168248176573 40.696444909137|-74.03901100158691 40.69837271818651|-74.03824925422668 40.69837271818651|-74.03809905052185 40.69903971085914|-74.03771281242369 40.699340668780984|-74.03940796852112 40.70058515602143|-74.03948307037354 40.70052821920425|-74.03995513916016 40.70090237454063
     &subscription-key={subscription-key}
     ```
 
-    Esta es la imagen de respuesta:
+6. El servicio devuelve la siguiente imagen:
 
-    ![Representación de un polígono opaco](./media/how-to-render-custom-data/opaque-polygon.png)
-
+    :::image type="content" source="./media/how-to-render-custom-data/opaque-polygon.png" alt-text="Representación de un polígono opaco.":::
 
 ## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Representación de un círculo y marcadores con etiquetas personalizadas
 
 > [!Note]
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2.
 
-
 Puede aplicar modificadores de estilo para modificar la apariencia de los marcadores. Por ejemplo, para hacer que los marcadores y sus etiquetas sean mayores o menores, use el modificador "estilo de escala" `sc`. Este modificador toma un valor que es mayor que cero. Un valor de 1 es la escala estándar. Los valores mayores que 1 aumentarán el tamaño de los marcadores, mientras que los valores menores que 1 reducirán su tamaño. Para más información sobre los modificadores de estilo, consulte los [parámetros path del servicio de imagen estática](/rest/api/maps/render/getmapimage#uri-parameters).
 
+Para representar un círculo y marcadores con etiquetas personalizadas:
 
-Siga estos pasos para representar un círculo y marcadores con etiquetas personalizadas:
+1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-1. En la aplicación Postman, abra una nueva pestaña en la colección que creó antes. Seleccione el método GET HTTP en la pestaña del generador y escriba esta dirección URL para realizar una solicitud GET:
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Polygon*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba la siguiente dirección URL en [Render Service](/rest/api/maps/render/get-map-image) (Representar servicio) (reemplace `{subscription-key}` por la clave de suscripción principal):
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-    Esta es la imagen de respuesta:
+6. Seleccione **Enviar**.
 
-    ![Representación de un círculo con marcadores personalizados](./media/how-to-render-custom-data/circle-custom-pins.png)
+7. El servicio devuelve la siguiente imagen:
 
-2. Para cambiar el color de los marcadores del último paso, cambie el modificador de estilo "co". Observe `pins=default|la15+50|al0.66|lc003C62|co002D62|`; el color actual se especificaría como #002D62 en CSS. Supongamos que desea cambiarlo a #41d42a. Escriba el nuevo valor de color después del especificador "co", así: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Realice una nueva solicitud GET:
+    :::image type="content" source="./media/how-to-render-custom-data/circle-custom-pins.png" alt-text="Representación de un círculo con marcadores personalizados.":::
+
+8. Ahora se modificará el modificador de estilo `co` para cambiar el color de los marcadores. Si observa el valor del parámetro `pins` (`pins=default|la15+50|al0.66|lc003C62|co002D62|`), verá que el color actual es `#002D62`. Para cambiar el color a `#41d42a`, se reemplazará `#002D62` por `#41d42a`.  Ahora el parámetro `pins` es `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. La solicitud es similar a la URL siguiente:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-    Esta es la imagen de respuesta después de cambiar los colores de los marcadores:
+9. Seleccione **Enviar**.
 
-    ![Representación de un círculo con marcadores actualizados](./media/how-to-render-custom-data/circle-updated-pins.png)
+10. El servicio devuelve la siguiente imagen:
+
+    :::image type="content" source="./media/how-to-render-custom-data/circle-updated-pins.png" alt-text="Representación de un círculo con marcadores actualizados.":::
 
 Del mismo modo, puede cambiar, agregar y quitar otros modificadores de estilo.
 

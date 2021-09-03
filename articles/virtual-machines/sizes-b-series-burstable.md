@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: risverma
-ms.openlocfilehash: 54958eb6fa6d3ef855bdc3667921535ab47c7b29
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: cdfb44518c75dbb57d184fa72eb7639fd56f738c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468277"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729671"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 
-Las máquinas virtuales de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, las pruebas de concepto, las pequeñas bases de datos y los entornos de compilación de desarrollo. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. La serie B brinda la posibilidad de adquirir un tamaño de máquina virtual con un rendimiento de línea de base que puede acumular créditos si utiliza un rendimiento que no llega a esta línea de base. Cuando la máquina virtual ha acumulado créditos se puede ampliar por encima de la línea de base de esta con un uso de hasta un 100 % de la vCPU si la aplicación necesita el mayor rendimiento de CPU posible.
+Las VM de la serie B se pueden implementar en diversos tipos de hardware y procesadores, por lo que se proporciona una asignación de ancho de banda competitiva. Las VM de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, las pruebas de concepto, las bases de datos pequeñas y los entornos de compilación de desarrollo. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. Con el fin de determinar el hardware físico en que se implementó este tamaño, cree una consulta para el hardware virtual en la máquina virtual. La serie B brinda la posibilidad de adquirir un tamaño de máquina virtual con un rendimiento de línea de base que puede acumular créditos si utiliza un rendimiento que no llega a esta línea de base. Cuando la máquina virtual ha acumulado créditos se puede ampliar por encima de la línea de base de esta con un uso de hasta un 100 % de la vCPU si la aplicación necesita el mayor rendimiento de CPU posible.
 
 La serie B incluye los siguientes tamaños de máquina virtual:
 
@@ -35,20 +35,23 @@ La serie B incluye los siguientes tamaños de máquina virtual:
 <br>
 <br>
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento base de CPU de la máquina virtual | Rendimiento máximo de CPU de la máquina virtual | Créditos iniciales | Créditos ingresados/hora | Créditos máximos ingresados | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5 %   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
-| Standard_B1s              | 1  | 1   | 4   | 10 %  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
-| Standard_B1ms             | 1  | 2   | 4   | 20%  | 100%  | 30  | 12  | 288  | 2  | 800/10    | 640/10    | 2  |
-| Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1600/15   | 1280/15   | 3  |
-| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 2400/22.5 | 1920/22.5 | 3  |
-| Standard_B4ms             | 4  | 16  | 32  | 90%  | 400%  | 120 | 54  | 1296 | 8  | 3600/35   | 2880/35   | 4  |
-| Standard_B8ms             | 8  | 32  | 64  | 135% | 800%  | 240 | 81  | 1944 | 16 | 4320/50   | 4320/50   | 4  |
-| Standard_B12ms            | 12 | 48  | 96  | 202 % | 1200 % | 360 | 121 | 2909 | 16 | 6480/75   | 4320/50   | 6  |
-| Standard_B16ms            | 16 | 64  | 128 | 270 % | 1600 % | 480 | 162 | 3888 | 32 | 8640/100  | 4320/50   | 8  |
-| Standard_B20ms            | 20 | 80  | 160 | 337 % | 2000 % | 600 | 203 | 4860 | 32 | 10800/125 | 4320/50   | 8  |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento base de CPU de la máquina virtual | Rendimiento máximo de CPU de la máquina virtual | Créditos iniciales | Créditos ingresados/hora | Créditos máximos ingresados | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> |Nº máx. NIC |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_B1ls<sup>2</sup> | 1  | 0.5 | 4   | 5 %   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 4000/100  | 2 |
+| Standard_B1s              | 1  | 1   | 4   | 10 %  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 4000/100  | 2 |
+| Standard_B1ms             | 1  | 2   | 4   | 20%  | 100%  | 30  | 12  | 288  | 2  | 800/10    | 640/10    | 4000/100  | 2 |
+| Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1600/15   | 1280/15   | 4000/100  | 3 |
+| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 2400/22.5 | 1920/22.5 | 4000/100  | 3 |
+| Standard_B4ms             | 4  | 16  | 32  | 90%  | 400%  | 120 | 54  | 1296 | 8  | 3600/35   | 2880/35   | 8000/200  | 4 |
+| Standard_B8ms             | 8  | 32  | 64  | 135% | 800%  | 240 | 81  | 1944 | 16 | 4320/50   | 4320/50   | 8000/200  | 4 |
+| Standard_B12ms            | 12 | 48  | 96  | 202 % | 1200 % | 360 | 121 | 2909 | 16 | 6480/75   | 4320/50   | 16 000/400 | 6 |
+| Standard_B16ms            | 16 | 64  | 128 | 270 % | 1600 % | 480 | 162 | 3888 | 32 | 8640/100  | 4320/50   | 16 000/400 | 8 |
+| Standard_B20ms            | 20 | 80  | 160 | 337 % | 2000 % | 600 | 203 | 4860 | 32 | 10800/125 | 4320/50   | 16 000/400 | 8 |
 
-<sup>1</sup> B1ls solo se admite en Linux
+<sup>1</sup> Las VM de la serie B pueden [expandir](./disk-bursting.md) su rendimiento de disco y llegar a una expansión máxima de hasta 30 minutos cada vez.
+
+<sup>2</sup> B1ls solo se admite en Linux.
+
 
 ## <a name="workload-example"></a>Ejemplo de carga de trabajo
 

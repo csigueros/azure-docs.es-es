@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 43a71f6260f688a1e9cc5e39e0c61f81d2265eb3
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 2f07ed4ca7bdb722a2563c5e81f7e30a57c79aeb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559663"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721939"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registro y examen de un servidor de SQL Server local
 
@@ -31,10 +31,6 @@ El origen de datos local de SQL Server admite:
 - todas las versiones desde SQL Server 2019 hasta SQL Server 2000
 
 - Método de autenticación: Autenticación SQL
-
-### <a name="known-limitations"></a>Restricciones conocidas
-
-Azure Purview no admite el examen de [vistas](/sql/relational-databases/views/views) en SQL Server.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -99,7 +95,7 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 
 1. En el panel de navegación izquierdo de Orígenes y análisis, seleccione **Entornos de ejecución de integración**. Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no está configurado, siga los pasos que se mencionan [aquí](manage-integration-runtimes.md) para crear un entorno de ejecución de integración autohospedado para realizar exámenes en una VM o una instancia local de Azure que tenga acceso a la red local.
 
-1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+1. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 
 1. Seleccione **Registrar**.
 

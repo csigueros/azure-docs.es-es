@@ -1,22 +1,22 @@
 ---
 title: Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
-description: Configure clústeres de Hadoop, Kafka, Spark, HBase, R Server o Storm para HDInsight desde un explorador, la CLI de Azure clásica, Azure PowerShell, REST o el SDK.
+description: Configure clústeres de Hadoop, Kafka, Spark, HBase o Storm para HDInsight desde un explorador, la CLI de Azure clásica, Azure PowerShell, REST o el SDK.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
 ms.date: 08/06/2020
-ms.openlocfilehash: 4f412e4a8f85f10efcaaf8a7ec45562d298f4bb5
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 95d61f99dcfac8161a24806afbccfbbf80327274
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890672"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280554"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
-Aprenda a instalar y configurar Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML Services o Apache Storm en HDInsight. Además, aprenda a personalizar clústeres y a aumentar la seguridad al asociarlos a un dominio.
+Aprenda a instalar y configurar Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, o Apache Storm en HDInsight. Además, aprenda a personalizar clústeres y a aumentar la seguridad al asociarlos a un dominio.
 
 Un clúster de Hadoop se compone de varias máquinas virtuales (nodos) que se usan para el procesamiento distribuido de tareas. Azure HDInsight se ocupa de los detalles de implementación de la instalación y configuración de los nodos individuales, por lo que solo tiene que proporcionar información de configuración general.
 
@@ -31,12 +31,12 @@ La tabla siguiente muestra los distintos métodos que se pueden usar para config
 
 | Clústeres creados con | Explorador web | Línea de comandos | API DE REST | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |âœ” |&nbsp; |&nbsp; |&nbsp; |
-| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |âœ” |âœ” |âœ” |âœ” |
-| [CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
-| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |âœ” |âœ” |&nbsp; |
-| [Plantillas del Administrador de recursos de Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
+| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✅ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✅ |✅ |✅ |✅ |
+| [CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
+| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✅ |✅ |&nbsp; |
+| [Plantillas del Administrador de recursos de Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
 
 Este artículo le guía a lo largo del proceso de configuración en [Azure Portal](https://portal.azure.com), donde puede crear un clúster de HDInsight.
 
@@ -77,7 +77,6 @@ Actualmente, Azure HDInsight proporciona los siguientes tipos de clúster, cada 
 | [HBase](hbase/apache-hbase-overview.md) |Procesamiento de grandes cantidades de datos no SQL sin esquema |
 | [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |Almacenamiento en caché en memoria para realizar consultas de Hive interactivas y más rápidas |
 | [Kafka](kafka/apache-kafka-introduction.md) | Una plataforma de streaming distribuida que se puede utilizar para compilar aplicaciones y canalizaciones de datos de streaming en tiempo real. |
-| [ML Services](r-server/r-server-overview.md) |Distintas capacidades de estadísticas de macrodatos, modelado de predicción y aprendizaje automático |
 | [Spark](spark/apache-spark-overview.md) |Procesamiento en memoria, consultas interactivas, procesamiento de transmisión de microlotes |
 | [Storm](storm/apache-storm-overview.md) |Procesamiento de eventos en tiempo real |
 
@@ -126,7 +125,7 @@ Para más información sobre las opciones de almacenamiento con HDInsight, consu
 
 Durante la configuración se especifica un contenedor de blobs de una cuenta de Azure Storage o de Data Lake Storage para el punto de conexión de almacenamiento predeterminado. El almacenamiento predeterminado contiene los registros del sistema y de la aplicación. De manera opcional, puede especificar más cuentas vinculadas de Azure Storage y cuentas de Data Lake Storage a las que el clúster pueda acceder. El clúster de HDInsight y las cuentas de almacenamiento dependientes deben estar en la misma ubicación de Azure.
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 > [!IMPORTANT]
 > Habilitar la transferencia segura del almacenamiento después de crear un clúster puede producir errores al usar la cuenta de almacenamiento, por lo que no se recomienda. Es mejor crear un clúster mediante una cuenta de almacenamiento que ya tenga habilitada la transferencia segura.

@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 01/25/2021
+ms.date: 06/24/2021
 tags: azure-synpase
-ms.openlocfilehash: b44248732891163bc2630cdfe5b297a06f3cf730
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 869498111df151f78cb0a1d9ad7ede1dd84aaf42
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001023"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582629"
 ---
 # <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -84,6 +84,7 @@ Puede usar las API de REST para administrar las reglas y directivas de enmascara
 
 El enmascaramiento dinámico de datos se puede configurar mediante el administrador de Azure SQL Database, el administrador del servidor o el rol [Administrador de seguridad de SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) del control de acceso basado en rol (RBAC).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Vea también
 
-[Enmascaramiento de datos dinámicos](/sql/relational-databases/security/dynamic-data-masking)
+- [Enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking) para SQL Server.
+- Episodio de Data Exposed sobre [permisos granulares para el enmascaramiento dinámico de datos de Azure SQL](https://channel9.msdn.com/Shows/Data-Exposed/Granular-Permissions-for-Azure-SQL-Dynamic-Data-Masking) en Channel 9.

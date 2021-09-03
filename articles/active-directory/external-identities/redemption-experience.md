@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80de2d30055d5a78f4a0105d33f01b4fabfbcd47
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 766228eb291776c0ba4162f78238d6336d9194ae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955095"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746145"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -24,7 +24,9 @@ En este artículo se describen las maneras en las que los usuarios invitados pue
 Al agregar un usuario invitado al directorio, la cuenta de este tiene un estado de consentimiento (visible en PowerShell) que se establece inicialmente en **PendingAcceptance**. Esta configuración permanece hasta que el invitado acepta la invitación, la política de privacidad y los términos de uso. Después de eso, el estado de consentimiento cambia a **Accepted** y las páginas de consentimiento dejan de aparecer para el invitado.
 
    > [!IMPORTANT]
-   > - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Gmail de Google no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   >
+   > - **A partir del 12 de julio de 2021**, si los clientes de Azure AD B2B configuran nuevas integraciones de Google para usarlas con registro de autoservicio para sus aplicaciones personalizadas o de línea de negocio, la autenticación con identidades de Google no funcionará hasta que las autenticaciones se trasladen a las vistas web del sistema. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **A partir del 30 de septiembre de 2021,** Google [retira la compatibilidad con el inicio de sesión en la vista web insertada](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si sus aplicaciones autentican a los usuarios con una vista web insertada y va a usar la federación de Google con [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) o Azure AD B2B para las [invitaciones de usuarios externos](google-federation.md) o el [registro de autoservicio](identity-providers.md), los usuarios de Google Gmail no podrán autenticarse. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, animamos a los clientes a participar en la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md), que ahora está disponible con carácter general.
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Canje e inicio de sesión mediante un punto de conexión común
@@ -62,9 +64,9 @@ Al agregar un usuario invitado al directorio [mediante Azure Portal](./b2b-quick
 
 ## <a name="redemption-limitation-with-conflicting-contact-object"></a>Limitación de canje con el objeto Contact en conflicto
 A veces, el correo electrónico del usuario invitado externo puede entrar en conflicto con un objeto [Contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) existente, lo que da lugar a que el usuario invitado se cree sin una propiedad proxyAddress. Se trata de una limitación conocida que impide que los usuarios invitados hagan lo siguiente: 
-- Canjear una invitación a través de un vínculo directo mediante [IdP de SAML/WS-Fed](/azure/active-directory/external-identities/direct-federation), [cuentas de Microsoft](/azure/active-directory/external-identities/microsoft-account), [federación de Google](/azure/active-directory/external-identities/google-federation) o cuentas de [código de acceso de un solo uso de correo electrónico](/azure/active-directory/external-identities/one-time-passcode). 
-- Canjear una invitación a través de un vínculo de canje de correo electrónico de invitación mediante [IdP de SAML/WS-Fed](/azure/active-directory/external-identities/direct-federation) y cuentas de [código de acceso de un solo uso de correo electrónico](/azure/active-directory/external-identities/one-time-passcode).
-- Volver a iniciar sesión en una aplicación después del canje mediante cuentas de [IdP de SAML/WS-Fed](/azure/active-directory/external-identities/direct-federation) y de [federación de Google](/azure/active-directory/external-identities/google-federation).
+- Canjear una invitación a través de un vínculo directo mediante [IdP de SAML/WS-Fed](./direct-federation.md), [cuentas de Microsoft](./microsoft-account.md), [federación de Google](./google-federation.md) o cuentas de [código de acceso de un solo uso de correo electrónico](./one-time-passcode.md). 
+- Canjear una invitación a través de un vínculo de canje de correo electrónico de invitación mediante [IdP de SAML/WS-Fed](./direct-federation.md) y cuentas de [código de acceso de un solo uso de correo electrónico](./one-time-passcode.md).
+- Volver a iniciar sesión en una aplicación después del canje mediante cuentas de [IdP de SAML/WS-Fed](./direct-federation.md) y de [federación de Google](./google-federation.md).
 
 Para desbloquear a los usuarios que no pueden canjear una invitación debido a un objeto [Contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) en conflicto, siga estos pasos:
 1. Elimine el objeto Contact en conflicto.
@@ -126,7 +128,12 @@ Cuando un invitado iniciar sesión por primera vez para acceder a los recursos d
 
    ![Captura de pantalla que muestra el panel de acceso a las aplicaciones](media/redemption-experience/myapps.png) 
 
-En su directorio, el valor de **Invitación aceptada** cambia a **Sí**. Si se creó una MSA, el **Origen** del usuario muestra **Cuenta Microsoft**. Para más información sobre las propiedades de la cuenta de usuario invitado, consulte [Propiedades de un usuario de colaboración B2B de Azure Active Directory](user-properties.md). 
+> [!NOTE]
+> La experiencia de consentimiento solo aparece después de que el usuario inicia sesión y no antes. Hay algunos escenarios en los que la experiencia de consentimiento no se mostrará al usuario, por ejemplo:
+> - El usuario ya aceptó la experiencia de consentimiento
+> - El administrador [concede el consentimiento del administrador para todo el inquilino a una aplicación](../manage-apps/grant-admin-consent.md)
+
+En su directorio, el valor de **Invitación aceptada** cambia a **Sí**. Si se creó una MSA, el **Origen** del usuario muestra **Cuenta Microsoft**. Para más información sobre las propiedades de la cuenta de usuario invitado, consulte [Propiedades de un usuario de colaboración B2B de Azure Active Directory](user-properties.md). Si ve un error que requiere el consentimiento del administrador al acceder a una aplicación, consulte [Cómo conceder consentimiento de administrador a las aplicaciones](../develop/v2-admin-consent.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

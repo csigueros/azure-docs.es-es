@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 27cc53c3eef1bb2a9962d2c21ae80db3c8b0383d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7958c66275bbfb3d08244c7ca81d50fca4b915d0
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585441"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862212"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Diseño de tablas mediante Synapse SQL en Azure Synapse Analytics
 
@@ -102,7 +102,7 @@ Para más información, consulte [Tablas temporales](develop-tables-temporary.md
 
 Las [tablas externas](develop-tables-external-tables.md) apuntan a datos ubicados en Azure Storage Blob o Azure Data Lake Storage.
 
-Importe los datos de tablas externas a grupos de SQL dedicados mediante la instrucción [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
+Importe los datos de tablas externas a grupos de SQL dedicados mediante la instrucción [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context). Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
 En el caso de un grupo de SQL sin servidor, puede utilizar [CETAS](develop-tables-cetas.md) para guardar el resultado de la consulta en una tabla externa en Azure Storage.
 
@@ -112,7 +112,7 @@ El grupo de SQL dedicado admite los tipos de datos usados más comúnmente. Para
 
 ## <a name="distributed-tables"></a>Tablas distribuidas
 
-Una característica fundamental de un grupo de SQL dedicado es la forma en que puede almacenar y operar en tablas de varias [distribuciones](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  El grupo de SQL dedicado admite tres métodos para distribuir datos:
+Una característica fundamental de un grupo de SQL dedicado es la forma en que puede almacenar y operar en tablas de varias [distribuciones](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?context=/azure/synapse-analytics/context/context#distributions).  El grupo de SQL dedicado admite tres métodos para distribuir datos:
 
 - Round robin (método predeterminado)
 - Hash
@@ -122,19 +122,19 @@ Una característica fundamental de un grupo de SQL dedicado es la forma en que p
 
 La distribución hash de la tabla distribuye las filas en función del valor de la columna de distribución. La tabla distribuida de hash está diseñada para lograr un alto rendimiento para consultas en tablas grandes. Hay varios factores que debe tener en cuenta al elegir una columna de distribución.
 
-Para más información, vea [Distribución de tablas en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para más información, vea [Distribución de tablas en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context).
 
 ### <a name="replicated-tables"></a>Tablas replicadas
 
 Una tabla replicada tiene una copia completa de la tabla disponible en cada nodo de proceso. Las consultas se ejecutan rápidamente en tablas replicadas, ya que las combinaciones en las tablas replicadas no requieren movimiento de datos. Sin embargo, la replicación necesita almacenamiento adicional y este método no resulta práctico para tablas de gran tamaño.
 
-Para más información, consulte [Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse](../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para más información, consulte [Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse](../sql-data-warehouse/design-guidance-for-replicated-tables.md?context=/azure/synapse-analytics/context/context).
 
 ### <a name="round-robin-tables"></a>Tablas round robin
 
 Una tabla round robin distribuye las filas de la tabla uniformemente entre todas las distribuciones. Las filas se distribuyen aleatoriamente. Cargar datos en una tabla round robin es rápido.  Pero las consultas pueden requerir más movimiento de datos que los demás métodos de distribución.
 
-Para más información, vea [Distribución de tablas en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para más información, vea [Distribución de tablas en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context).
 
 ### <a name="common-distribution-methods-for-tables"></a>Métodos comunes de distribución para tablas
 
@@ -150,7 +150,7 @@ La categoría de tabla suele determinar la opción óptima para la distribución
 
 En los grupos de SQL dedicados, una tabla con particiones almacena y ejecuta operaciones en las filas de la tabla según los intervalos de datos. Por ejemplo, una tabla puede tener particiones por día, mes o año. Puede mejorar el rendimiento de las consultas mediante la eliminación de particiones, ya que limita el examen de una consulta a los datos dentro de una partición.
 
-También puede mantener los datos a través de modificación de particiones. Puesto que los datos de un grupo de SQL dedicado ya están distribuidos, demasiadas particiones pueden ralentizar el rendimiento de las consultas. Para más información, consulte [Creación de particiones de tablas en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
+También puede mantener los datos a través de modificación de particiones. Puesto que los datos de un grupo de SQL dedicado ya están distribuidos, demasiadas particiones pueden ralentizar el rendimiento de las consultas. Para más información, consulte [Creación de particiones de tablas en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context).  
 
 > [!TIP]
 > Cuando cambie de partición a otras particiones de tabla que no estén vacías, puede usar la opción TRUNCATE_TARGET en la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true) si se deben truncar los datos existentes.
@@ -200,7 +200,7 @@ La actualización estadística no se realiza automáticamente. Actualice las est
 
 ## <a name="primary-key-and-unique-key"></a>Clave principal y clave única
 
-Para un grupo de SQL dedicado, PRIMARY KEY solo se admite cuando se usa tanto NONCLUSTERED como NOT ENFORCED.  Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.  Para obtener más información, consulte el artículo [Restricciones de tablas del grupo de SQL](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para un grupo de SQL dedicado, PRIMARY KEY solo se admite cuando se usa tanto NONCLUSTERED como NOT ENFORCED.  Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.  Para más información, consulte el artículo [Restricciones de tablas de grupos de SQL dedicados](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="commands-for-creating-tables"></a>Comandos para la creación de tablas
 
@@ -231,7 +231,7 @@ El grupo de SQL dedicado admite muchas, pero no la totalidad, de las caracterís
 - [Vistas indizadas](/sql/relational-databases/views/create-indexed-views?view=azure-sqldw-latest&preserve-view=true)
 - [Secuencia](/sql/t-sql/statements/create-sequence-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [Columnas dispersas](/sql/relational-databases/tables/use-sparse-columns?view=azure-sqldw-latest&preserve-view=true)
-- Claves suplentes, implemente con [Identity](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- Claves suplentes, implemente con [Identity](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?context=/azure/synapse-analytics/context/context)
 - [Sinónimos](/sql/t-sql/statements/create-synonym-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [Desencadenadores](/sql/t-sql/statements/create-trigger-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [Índices únicos](/sql/t-sql/statements/create-index-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -440,4 +440,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de crear las tablas para el almacenamiento de datos, el paso siguiente es cargar datos en la tabla.  Para obtener un tutorial de carga, consulte [Carga de datos en un grupo de SQL dedicado](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).
+Después de crear las tablas para el almacenamiento de datos, el paso siguiente es cargar datos en la tabla.  Para obtener un tutorial de carga, consulte [Carga de datos en un grupo de SQL dedicado](../sql-data-warehouse/load-data-wideworldimportersdw.md?context=/azure/synapse-analytics/context/context#load-the-data-into-sql-pool).

@@ -1,31 +1,30 @@
 ---
-title: Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
-description: Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
+title: Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
+description: Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: e9496b1782cb78cacb378b167386cd9fe950b15c
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 19f5befde22ed7b16302b7da5df313c476b47194
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495902"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733563"
 ---
-# <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
-En este artículo se describe cómo se puede eliminar una instancia creada de SQL Managed Instance habilitada para Azure Arc.
+# <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
+En este artículo se describe cómo se puede eliminar una instancia de SQL Managed Instance habilitada para Azure Arc.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="view-existing-azure-arc-enabled-sql-managed-instances"></a>Visualización de instancias existentes de SQL Managed Instance habilitada para Azure Arc
+## <a name="view-existing-azure-arc-enabled-sql-managed-instances"></a>Visualización de instancias existentes de SQL Managed Instance habilitadas para Azure Arc
 Para ver las instancias creadas de SQL Managed Instance, ejecute el siguiente comando:
 
-```console
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 La salida debe tener un aspecto similar al siguiente:
@@ -36,17 +35,17 @@ Name    Replicas    ServerEndpoint    State
 demo-mi 1/1         10.240.0.4:32023  Ready
 ```
 
-## <a name="delete-a-azure-arc-enabled-sql-managed-instance"></a>Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
+## <a name="delete-a-azure-arc-enabled-sql-managed-instance"></a>Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
 Para eliminar una instancia de SQL Managed Instance, ejecute el siguiente comando:
 
-```console
-azdata arc sql mi delete -n <NAME_OF_INSTANCE>
+```azurecli
+az sql mi-arc delete -n <NAME_OF_INSTANCE> --k8s-namespace <namespace> --use-k8s
 ```
 
 La salida debe tener un aspecto similar al siguiente:
 
-```console
-# azdata arc sql mi delete -n demo-mi
+```azurecli
+# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
 Deleted demo-mi from namespace arc
 ```
 
@@ -90,7 +89,7 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
   
 
 > [!NOTE]
-> Tal y como se indicó, si no elimina las PVC podría llevar al clúster de Kubernetes a una situación en la que se produzcan errores. Algunos de estos errores pueden incluir que no se puede iniciar sesión en el clúster de Kubernetes con azdata, ya que es posible que se expulsen los pods debido a este problema de almacenamiento (comportamiento normal de Kubernetes).
+> Tal y como se indicó, si no elimina las PVC podría llevar al clúster de Kubernetes a una situación en la que se produzcan errores. Algunos de estos errores pueden incluir la incapacidad de crear, leer, actualizar y eliminar recursos de la API de Kubernetes, o bien de ejecutar comandos como `az arcdata dc export`, ya que los pods del controlador se pueden expulsar de los nodos de Kubernetes debido a este problema de almacenamiento (el comportamiento normal de Kubernetes).
 >
 > Por ejemplo, puede ver mensajes en los registros similares a:  
 > - Anotaciones: microsoft.com/ignore-pod-health: true  
@@ -100,8 +99,8 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre las [Características y funcionalidades de SQL Managed Instance habilitada para Azure Arc](managed-instance-features.md).
+Más información sobre las [características y funcionalidades de SQL Managed Instance habilitado para Azure Arc](managed-instance-features.md)
 
 [Comienzo con la creación de un controlador de datos](create-data-controller.md)
 
-¿Ya ha creado un controlador de datos? [Creación de una instancia de SQL Managed Instance habilitada para Azure Arc](create-sql-managed-instance.md)
+¿Ya ha creado un controlador de datos? [Creación de una instancia de SQL Managed Instance habilitada para Azure Arc](create-sql-managed-instance.md)

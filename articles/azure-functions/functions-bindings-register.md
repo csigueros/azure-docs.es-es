@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/16/2020
 ms.author: cshoe
-ms.openlocfilehash: 942ca3229808b57894598c3477e9dc97e40e8c80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bfcefb23fa68e2aa70d4680fcca2462b24322014
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88689578"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730520"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
@@ -55,9 +55,47 @@ En la tabla siguiente se enumeran las versiones disponibles actualmente del conj
 > [!NOTE]
 > Aunque puede especificar un intervalo de versiones personalizado en el archivo host.json, se recomienda usar un valor de versión de esta tabla.
 
-### <a name="explicitly-install-extensions"></a><a name="explicitly-install-extensions"></a>Instalación explícita de extensiones
+### <a name="explicitly-install-extensions"></a>Instalación explícita de extensiones
 
-[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
+Si no puede usar paquetes de extensión, utilice Azure Functions Core Tools localmente para instalar los paquetes de extensión específicos que requiere el proyecto.
+
+> [!IMPORTANT]
+> No se pueden instalar extensiones explícitamente en una aplicación de función que use conjuntos de extensiones. Antes de instalar las extensiones explícitamente, quite la sección `extensionBundle` en *host.json*.
+
+En los siguientes elementos se describen algunos de los motivos por los que es posible que tenga que instalar las extensiones manualmente:
+
+* Debe tener acceso a una versión específica de una extensión que no está disponible en un conjunto.
+* Debe tener acceso a una extensión personalizada que no está disponible en un conjunto.
+* Debe tener acceso a una combinación específica de extensiones que no está disponible en un único conjunto.
+
+> [!NOTE]
+> Para instalar manualmente extensiones mediante Core Tools, debe tener instalado el [SDK de .NET Core 2.x](https://dotnet.microsoft.com/download). Azure Functions Core Tools usa el SDK de .NET Core para instalar extensiones de NuGet. No es necesario tener conocimientos de .NET para usar las extensiones de Azure Functions.
+
+Cuando se instalan las extensiones explícitamente, se agrega un archivo de proyecto .NET denominado extensions.csproj a la raíz del proyecto. Este archivo define el conjunto de paquetes NuGet requeridos por las funciones. Aunque puede trabajar con las [referencias de paquetes de NuGet](/nuget/consume-packages/package-references-in-project-files) en este archivo, las herramientas principales le permiten instalar extensiones sin tener que editar manualmente el archivo.
+
+Hay varias maneras de usar las herramientas principales para instalar las extensiones necesarias en el proyecto local. 
+
+#### <a name="install-all-extensions"></a>Instalación de todas las extensiones 
+
+Utilice el comando siguiente para agregar automáticamente todos los paquetes de extensiones que usan los enlaces del proyecto local:
+
+```command
+func extensions install
+```
+
+El comando lee el archivo *function.json* para ver qué paquetes necesita, los instala y, luego, recompila el proyecto de extensiones. Agrega los nuevos enlaces en la versión actual, pero no actualiza los enlaces existentes. Use la opción `--force` para actualizar los enlaces existentes a la versión más reciente cuando instale otros nuevos. Para obtener más información, vea el [comando `func extensions install`](functions-core-tools-reference.md#func-extensions-install).
+
+Si la aplicación de función usa enlaces que no reconoce Core Tools, debe instalar manualmente la extensión específica.
+
+#### <a name="install-a-specific-extension"></a>Instalación de una extensión específica
+
+Utilice el siguiente comando para instalar un paquete de extensiones específico en una versión específica, en este caso la extensión de almacenamiento:
+
+```command
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 4.0.2
+```
+
+Para obtener más información, vea el [comando `func extensions install`](functions-core-tools-reference.md#func-extensions-install).
 
 ## <a name="install-extensions-from-nuget-in-net-languages"></a><a name="local-csharp"></a>Instalación de las extensiones desde NuGet en los lenguajes .NET
 

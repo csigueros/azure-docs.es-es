@@ -2,13 +2,14 @@
 title: Autenticación de una aplicación para acceder a entidades de Azure Service Bus
 description: En este artículo se proporciona información sobre cómo autenticar una aplicación con Azure Active Directory para acceder a entidades de Azure Service Bus (colas, temas, etc.).
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: fc009c5a84c577c5904b3e0fc834295aa355e802
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 8a28b13a8cde8c908d01d2f0eb2160ba7decb6f6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123112"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122619"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticación y autorización de una aplicación con Azure Active Directory para acceder a entidades de Azure Service Bus
 Azure Service Bus admite el uso de Azure Active Directory (Azure AD) para autorizar solicitudes a entidades de Service Bus (colas, temas, suscripciones o filtros). Con Azure AD, puede usar el control de acceso basado en rol de Azure (Azure RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
@@ -55,31 +56,9 @@ Para más información sobre cómo se definen los roles integrados, consulte [De
 
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Asignación de roles de Azure mediante Azure Portal  
-Para más información sobre cómo administrar el acceso a los recursos de Azure con Azure RBAC y Azure Portal, consulte [este artículo](..//role-based-access-control/role-assignments-portal.md). 
+Asigne uno de los [roles de Service Bus](#azure-built-in-roles-for-azure-service-bus) a la entidad de servicio de la aplicación en el ámbito deseado (espacio de nombres de Service Bus, grupo de recursos, suscripción). Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-Después de determinar el ámbito adecuado de una asignación de roles, vaya a ese recurso en Azure Portal. Acceda a la configuración Control de acceso (IAM) del recurso y siga estas instrucciones para administrar las asignaciones de roles:
-
-> [!NOTE]
-> Los pasos que se describen a continuación asignan un rol a su espacio de nombres de Service Bus. Puede seguir los mismos pasos para asignar un rol a otros ámbitos admitidos (grupo de recursos, suscripción, etc.).
-
-1. En [Azure Portal](https://portal.azure.com/), vaya al espacio de nombres de Service Bus. Seleccione **Control de acceso (IAM)** en el menú de la izquierda para mostrar la configuración de control de acceso para el espacio de nombres. Si necesita crear un espacio de nombres de Service Bus, siga las instrucciones de este artículo: [Creación de un espacio de nombres de Service Bus mediante Azure Portal](service-bus-create-namespace-portal.md).
-
-    ![Selección de Control de acceso en el menú izquierdo](./media/authenticate-application/select-access-control-menu.png)
-1. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles. Seleccione el botón **Agregar** de la barra de herramientas y luego seleccione **Agregar asignación de roles**. 
-
-    ![Botón Agregar de la barra de herramientas](./media/authenticate-application/role-assignments-add-button.png)
-1. En la página **Agregar asignación de roles**, siga estos pasos:
-    1. Seleccione el **rol de Service Bus** que quiere asignar. 
-    1. Realice una búsqueda para localizar la **entidad de seguridad** (usuario, grupo, entidad de servicio) a la que quiere asignar el rol.
-    1. Seleccione **Guardar** para guardar la asignación de roles. 
-
-        ![Asignación de un rol a un usuario](./media/authenticate-application/assign-role-to-user.png)
-    4. La identidad a la que ha asignado el rol aparece enumerada debajo de ese rol. Por ejemplo, en la imagen siguiente se muestra que Azure-users está en el rol Propietario de los datos de Azure Service Bus. 
-        
-        ![Usuario en la lista](./media/authenticate-application/user-in-list.png)
-
-Puede realizar este mismo procedimiento para asignar un rol que tenga como ámbito un grupo de recursos o una suscripción. Una vez que defina el rol y su ámbito, puede probar este comportamiento con los [ejemplos de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
-
+Una vez que defina el rol y su ámbito, puede probar este comportamiento con los [ejemplos de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
 ## <a name="authenticate-from-an-application"></a>Autenticación desde una aplicación
 Una ventaja clave del uso de Azure AD con Service Bus es que ya no necesita almacenar las credenciales en el código. En su lugar, puede solicitar un token de acceso de OAuth 2.0 desde la Plataforma de identidad de Microsoft. Azure AD autentica la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve el token de acceso a la aplicación y la aplicación puede entonces usar dicho token para autorizar las solicitudes de Service Bus.
@@ -130,17 +109,20 @@ Una vez que haya registrado la aplicación y se le haya concedido permisos para 
 
 Para ver una lista de escenarios en los que se admite la adquisición de tokens, consulte la sección [Escenarios](https://aka.ms/msal-net-scenarios) del repositorio de GitHub [Biblioteca de autenticación de Microsoft (MSAL) para .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
-# <a name="net"></a>[.NET](#tab/dotnet)
-Con la biblioteca [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) más reciente, puede autenticar [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) con [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), que se define en la biblioteca [Azure.Identity](https://www.nuget.org/packages/Azure.Identity).
+<!-- TAB -- # [.NET](#tab/dotnet) -  -->
+
+Si usa la biblioteca [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) más reciente, puede autenticar [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) con [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), que se define en la biblioteca [Azure.Identity](https://www.nuget.org/packages/Azure.Identity).
+
 ```cs
 TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>");
 var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
 ```
 
-Si usa los paquetes de .NET anteriores, consulte los ejemplos siguientes.
+Si usa los paquetes de .NET anteriores, vea estos ejemplos:
 - [RoleBasedAccessControl in Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl)
 - [RoleBasedAccessControl in WindowsAzure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
----
+
+<!-- CLOSE TAB --- -->
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre Azure RBAC, consulte [¿Qué es el control de acceso basado en rol de Azure (Azure RBAC) de Azure?](../role-based-access-control/overview.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/4/2021
 ms.author: damaerte
-ms.openlocfilehash: 250e4bc171950bb643a75bdc9d80bdb2941cb97a
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: f380db2502a34115b071c3aa3e70f18a67d2ca6b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539304"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748636"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 
@@ -113,9 +113,9 @@ Obtenga más información sobre cómo montar una [cuenta de almacenamiento nueva
 
 Obtenga más información sobre las características en [Bash en Cloud Shell](features.md) y [PowerShell en Cloud Shell](./features.md).
 
-## <a name="complaince"></a>Conformidad
+## <a name="compliance"></a>Cumplimiento normativo
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
-Toda infraestructura de Cloud Shell es compatible con el cifrado doble en reposo de forma predeterminada. Los usuarios no tienen que hacer nada.
+Toda la infraestructura de Cloud Shell es compatible con el cifrado doble en reposo de forma predeterminada. Los usuarios no tienen que hacer nada.
 
 ## <a name="pricing"></a>Precios
 

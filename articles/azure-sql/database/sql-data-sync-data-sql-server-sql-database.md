@@ -11,12 +11,12 @@ author: MaraSteiu
 ms.author: masteiu
 ms.reviewer: mathoma
 ms.date: 08/20/2019
-ms.openlocfilehash: c3a2be7a00c6718dd33b573faec4a619cbf5a1bb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: f0ec1d641fc78e4fde612f987ad319d62bd9eeaf
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074852"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112914236"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -142,7 +142,6 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 ### <a name="general-limitations"></a>Limitaciones generales
 
 - Una tabla no puede tener una columna de identidad que no sea la clave principal.
-- Una tabla debe tener un índice clúster para usar la sincronización de datos.
 - Una clave principal no puede tener los siguientes tipos de datos: sql_variant, binary, varbinary, image, xml.
 - Tenga cuidado al usar los siguientes tipos de datos como clave principal, porque la precisión admitida solo llega al segundo: time, datetime, datetime2, datetimeoffset.
 - Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
@@ -154,6 +153,8 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - Si dos claves principales solo son diferentes en el uso de mayúsculas (por ejemplo, Foo y foo), Data Sync no admitirá este escenario.
 - El truncamiento de tablas no es una operación admitida por Data Sync (no se realiza un seguimiento de los cambios).
 - No se admiten bases de datos de hiperescala. 
+- No se admiten las tablas optimizadas para memoria.
+- Si las bases de datos de centro y miembro están en una red virtual, Data Sync no funcionará porque la aplicación de sincronización, que es responsable de ejecutar la sincronización entre el centro y los miembros, no admite el acceso a las bases de datos de centro o miembro dentro del vínculo privado de un cliente. Esta limitación todavía se aplica cuando el cliente también usa la característica Private Link de Data Sync. 
 
 #### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
 
@@ -198,6 +199,10 @@ Una vez creado y aprovisionado el grupo de sincronización, puede deshabilitar e
 
 > [!NOTE]
 > Si cambia la configuración del esquema del grupo de sincronización, deberá permitir que el servicio Data Sync acceda de nuevo al servidor para que se pueda volver a aprovisionar la base de datos central.
+
+### <a name="region-data-residency"></a>Residencia de datos en la región 
+
+Si sincroniza datos dentro de la misma región, SQL Data Sync no almacena ni procesa los datos del cliente fuera de la región en la que se implementa la instancia del servicio. Si sincroniza datos entre regiones diferentes, SQL Data Sync replicará los datos de los clientes en las regiones emparejadas.
 
 ## <a name="faq-about-sql-data-sync"></a>Preguntas frecuentes sobre SQL Data Sync
 

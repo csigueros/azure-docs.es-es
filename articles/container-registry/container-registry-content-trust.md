@@ -1,14 +1,15 @@
 ---
 title: Administrar imágenes firmadas
 description: Aprenda a habilitar la confianza en el contenido para Azure Container Registry y a insertar y extraer imágenes firmadas. La confianza en el contenido implementa confianza en el contenido de Docker y es una característica del nivel de servicio Premium.
-ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 238908c0075ffa5d2193eda642175a0cfe75b839
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.topic: how-to
+ms.date: 06/25/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: ddaded0ff733ea717a48bfe2bcaac4a84e102ad8
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784126"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983624"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
@@ -78,13 +79,21 @@ Solo los usuarios o sistemas a los que se ha concedido permiso pueden insertar i
 
 A continuación, puede ver los detalles de la concesión del rol `AcrImageSigner` en Azure Portal y la CLI de Azure.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acceso (IAM)**  > **Agregar asignación de rol**. En **Agregar asignación de rol**, seleccione `AcrImageSigner` para el **Rol**, **seleccione** uno o más usuarios o entidades de servicio y, a continuación, **Guardar**.
+1. Seleccione **Access Control (IAM)** .
 
-En este ejemplo, se ha asignado el rol `AcrImageSigner` a dos entidades: una entidad de servicio llamada "service-principal" y un usuario llamado "Azure User".
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
 
-![Concesión de permisos de firma de imágenes de ACR en Azure Portal][content-trust-02-portal]
+1. Asigne el siguiente rol. En este ejemplo, el rol se asigna a un usuario individual. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | AcrImageSigner |
+    | Asignar acceso a | Usuario |
+    | Members | Alain |
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 

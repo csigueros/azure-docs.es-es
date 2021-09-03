@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 257f3473da4284080d7977021cb97c6dbce0fbde
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 6b115971104699775e9a58a7b25addefe4d12d1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535174"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730735"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -62,7 +62,7 @@ Puede haber varios motivos para que el pod se quede atascado en ese modo. Alguna
 * El propio pod, mediante el comando `kubectl describe pod <pod-name>`.
 * Los registros, mediante el uso de `kubectl logs <pod-name>`.
 
-Para obtener más información sobre cómo solucionar problemas de los pods, consulte cómo [depurar aplicaciones](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+Para más información sobre cómo solucionar problemas de pods, consulte [Depuración de pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) en la documentación de Kubernetes.
 
 ## <a name="im-receiving-tcp-timeouts-when-using-kubectl-or-other-third-party-tools-connecting-to-the-api-server"></a>Recibo `TCP timeouts` al usar `kubectl` u otras herramientas de terceros que se conectan al servidor de API
 AKS tiene planos de control de alta disponibilidad que se escalan verticalmente según el número de núcleos para garantizar los objetivos de nivel de servicio (SLO) y los acuerdos de nivel de servicio (SLA). Si se agota el tiempo de espera de las conexiones, compruebe lo siguiente:
@@ -456,5 +456,5 @@ AKS está investigando la capacidad de mutar etiquetas activas en un grupo de no
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: ./view-control-plane-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [cluster-autoscaler]: cluster-autoscaler.md

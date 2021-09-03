@@ -5,13 +5,13 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 04/16/2020
-ms.openlocfilehash: 5b0a5d2117ea17ec003eb20084a0742e81d12ecb
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 07/27/2021
+ms.openlocfilehash: b2bdd5ee189d4fe350171d37e51d0f88b3e3ac20
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804095"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747192"
 ---
 # <a name="set-up-an-appliance-for-servers-in-a-vmware-environment"></a>Configuración de un dispositivo para servidores en un entorno de VMware
 
@@ -152,7 +152,7 @@ El dispositivo debe conectarse a vCenter Server para detectar los datos de confi
 
 ### <a name="provide-server-credentials"></a>Proporción de las credenciales del servidor
 
-En **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server), puede proporcionar varias credenciales de servidor. Si no desea usar ninguna de estas características del dispositivo, puede omitir este paso y continuar con la detección de vCenter Server. Puede cambiar esta opción en cualquier momento.
+En **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps in your VMware environment** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente, la detección de instancias y bases de datos de SQL Server y la detección de aplicaciones web de ASP.NET en el entorno de VMware), puede proporcionar varias credenciales de servidor. Si no desea usar ninguna de estas características del dispositivo, puede omitir este paso y continuar con la detección de vCenter Server. Puede cambiar esta opción en cualquier momento.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Captura de pantalla que muestra cómo proporcionar credenciales para el inventario de software, el análisis de dependencias y la detección de s q l server.":::
 
@@ -171,7 +171,7 @@ Para agregar credenciales de servidor:
     Seleccione **Guardar**.
 
     Si elige utilizar credenciales de dominio, también debe especificar el nombre de dominio completo. El nombre de dominio completo es obligatorio para validar la autenticidad de las credenciales con la instancia de Active Directory de ese dominio.
-1. Revise los [permisos necesarios](add-server-credentials.md#required-permissions) en la cuenta para detectar las aplicaciones instaladas, realizar el análisis de dependencias sin agente y detectar las instancias y las bases de datos de SQL Server.
+1. Revise los [permisos requeridos](add-server-credentials.md#required-permissions) en la cuenta para Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente, la detección de instancias y bases de datos de SQL Server y la detección de aplicaciones web de ASP.NET).
 1. Para agregar varias credenciales a la vez, seleccione **Add more** (Agregar más) para guardar las credenciales y agregar más.
     Cuando se selecciona **Save** (Guardar) o **Add more** (Agregar más), el dispositivo valida las credenciales de domino con la instancia de Active Directory del dominio para la autenticación. La validación se realiza después de cada adición para evitar bloqueos de cuentas a medida que el dispositivo recorre en iteración para asignar las credenciales a los servidores respectivos.
 
@@ -185,16 +185,17 @@ Si se produce un error en la validación, puede seleccionar el estado **con erro
 
 ### <a name="start-discovery"></a>Iniciar detección
 
-Para iniciar la detección de vCenter Server, seleccione **Start discovery** (Iniciar detección) en **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server). Una vez que la detección se ha iniciado correctamente, puede comprobar el estado de detección examinando la dirección IP o el FQDN de vCenter Server en la tabla de orígenes.
+Para iniciar la detección de vCenter Server, en **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps in your VMware environment** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente, la detección de instancias y bases de datos de SQL Server y la detección de aplicaciones web de ASP.NET en el entorno de VMware), seleccione **Start discovery (Iniciar detección)** . Una vez que la detección se ha iniciado correctamente, puede comprobar el estado de detección examinando la dirección IP o el FQDN de vCenter Server en la tabla de orígenes.
 
 ## <a name="how-discovery-works"></a>Funcionamiento de la detección
 
 * El inventario de servidores detectados tarda alrededor de 15 minutos en aparecer en Azure Portal.
 * Si ha proporcionado las credenciales de los servidores, una vez que se haya completado la detección de servidores que ejecutan vCenter Server, se iniciará automáticamente el inventario de software (la detección de las aplicaciones instaladas). El inventario de software se realiza una vez cada 12 horas.
 * El [inventario de software](how-to-discover-applications.md) identifica las instancias de SQL Server que se ejecutan en los servidores. Con la información que recopila, el dispositivo intenta conectarse a las instancias de SQL Server mediante las credenciales de autenticación de Windows o las credenciales de autenticación de SQL Server proporcionadas en el dispositivo. A continuación, recopila datos de las bases de datos de SQL Server y sus propiedades. La detección de SQL Server se realiza una vez cada 24 horas.
+* El [inventario de software](how-to-discover-applications.md) identifica el rol de servidor web en los servidores. Con la información que recopila, el dispositivo intenta conectarse al servidor web de IIS a través de credenciales de autenticación de Windows proporcionadas en el dispositivo. A continuación, recopila datos de aplicaciones web. La detección de las aplicaciones web se realiza una vez cada 24 horas.
 * La detección de las aplicaciones instaladas puede tardar más de 15 minutos. Todo depende del número de servidores que se detecten. Para 500 servidores, el inventario detectado tarda aproximadamente una hora en aparecer en el proyecto de Azure Migrate en el portal.
 * Durante el inventario de software, las credenciales de servidor agregadas se iteran en los servidores y se validan para realizar el análisis de dependencias sin agente. Una vez completada la detección de servidores, puede habilitar desde el portal el análisis de dependencias sin agente en los servidores. Solo se pueden seleccionar los servidores en los que la validación se realiza correctamente para habilitar el análisis de dependencias sin agente.
-* Los datos de las instancias y bases de datos de SQL Server comienzan a aparecer en el portal en un plazo de 24 horas después de iniciar la detección.
+* Los datos de las bases de datos y las instancias de SQL Server y los datos de las aplicaciones web comienzan a aparecer en el portal en un plazo de 24 horas después de iniciar la detección.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

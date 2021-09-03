@@ -1,27 +1,26 @@
 ---
-title: 'Configuración de clientes VPN para conexiones P2S de protocolo OpenVPN: autenticación de Azure AD en macOS (versión preliminar)'
-description: 'Versión preliminar: aprenda a configurar un cliente VPN de macOS para conectarse a una red virtual mediante una conexión punto a sitio de VPN Gateway y la autenticación de Azure Active Directory.'
+title: 'Configuración de clientes VPN para conexiones P2S de protocolo OpenVPN: Autenticación de Azure AD (macOS)'
+description: Aprenda a configurar un cliente VPN de macOS para conectarse a una red virtual mediante una conexión punto a sitio de VPN Gateway y la autenticación de Azure Active Directory.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 08/04/2021
 ms.author: cherylmc
-ms.openlocfilehash: defcc3c35cab51e9606151f11c37397dc8f4a06e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 25049323d8dc9259c2f6edc439ecb5b624490009
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110105402"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729650"
 ---
-# <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections---macos---preview"></a>Autenticación de Azure Active Directory: configuración de un cliente VPN para conexiones P2S de protocolo OpenVPN en macOS (versión preliminar)
+# <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections---macos"></a>Autenticación de Azure Active Directory: Configuración de un cliente VPN para conexiones P2S de protocolo OpenVPN (macOS)
 
 Este artículo le ayuda a configurar un cliente VPN en un equipo que ejecuta macOS 10.15 y versiones posteriores para conectarse a una red virtual mediante una VPN de punto a sitio y la autenticación de Azure Active Directory. Antes de poder conectarse y autenticarse con Azure AD, primero debe configurar el inquilino de Azure AD. Para más información, consulte [Configurar un inquilino de Azure AD](openvpn-azure-ad-tenant.md). Para más información sobre las conexiones de punto a sitio, consulte [Acerca de las conexiones VPN de punto a sitio](point-to-site-about.md).
 
 > [!NOTE]
-> * Esta versión preliminar está disponible actualmente en la mayoría de los países (pero no en todos) debido a los requisitos normativos locales.
-> * La autenticación de Azure AD solo es compatible con las conexiones del protocolo OpenVPN® y requiere el cliente VPN de Azure.
+> La autenticación de Azure AD solo es compatible con las conexiones del protocolo OpenVPN® y requiere el cliente VPN de Azure.
 >
 
 En cada equipo que quiera que se conecte a una red virtual mediante una conexión VPN de punto a sitio, debe hacer lo siguiente:

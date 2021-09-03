@@ -7,23 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 08/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 836802e65c8eb76f17bbf053e54ed9dbedf54049
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607924"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740030"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definición de atributos personalizados en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-En el artículo [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas](configure-user-input.md) aprendió a usar los [atributos de perfil de usuario](user-profile-attributes.md) integrados. En este artículo, habilitará un atributo personalizado en el directorio de Azure Active Directory B2C (Azure AD B2C). Más adelante, puede usar el nuevo atributo como una notificación personalizada en los [flujos de usuario](user-flow-overview.md) o las [directivas personalizadas](custom-policy-get-started.md) simultáneamente.
+En el artículo [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas](configure-user-input.md) aprendió a usar los [atributos de perfil de usuario](user-profile-attributes.md) integrados. En este artículo, habilitará un atributo personalizado en el directorio de Azure Active Directory B2C (Azure AD B2C). Más adelante, puede usar el nuevo atributo como una notificación personalizada en los [flujos de usuario](user-flow-overview.md) o las [directivas personalizadas](user-flow-overview.md) simultáneamente.
 
 El directorio de Azure AD B2C viene con un [conjunto integrado de atributos](user-profile-attributes.md). Sin embargo, a menudo es necesario crear sus propios atributos para administrar un escenario concreto; por ejemplo, en las siguientes situaciones:
 
@@ -68,7 +68,24 @@ Después de crear un usuario mediante un flujo de usuarios que usa el atributo p
 
 ## <a name="azure-ad-b2c-extensions-app"></a>Aplicación de extensiones de Azure AD B2C
 
-Los atributos de extensión solo se pueden registrar en un objeto de aplicación, aunque pueden contener datos para un usuario. El atributo de extensión está conectado a la aplicación denominada `b2c-extensions-app`. No modifique esta aplicación, ya que Azure AD B2C la usa para almacenar los datos de usuario. Puede encontrar esta aplicación en los registros de aplicaciones de Azure AD B2C. Obtención de las propiedades de la aplicación:
+Los atributos de extensión solo se pueden registrar en un objeto de aplicación, aunque pueden contener datos para un usuario. El atributo de extensión está conectado a la aplicación denominada `b2c-extensions-app`. No modifique esta aplicación, ya que Azure AD B2C la usa para almacenar los datos de usuario. Puede encontrar esta aplicación en los registros de aplicaciones de Azure AD B2C. 
+
+::: zone pivot="b2c-user-flow"
+
+Para obtener el identificador de la aplicación:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Registros de aplicaciones** y, después, **Todas las aplicaciones**.
+1. Seleccione la aplicación `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
+1. Copie el **id. de la aplicación**. Ejemplo: `11111111-1111-1111-1111-111111111111`.
+ 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Obtención de las propiedades de la aplicación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
@@ -78,8 +95,6 @@ Los atributos de extensión solo se pueden registrar en un objeto de aplicación
 1. Copie los identificadores siguientes en el Portapapeles y guárdelos:
     * **Identificador de aplicación**. Ejemplo: `11111111-1111-1111-1111-111111111111`.
     * **Identificador de objeto**. Ejemplo: `22222222-2222-2222-2222-222222222222`.
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="modify-your-custom-policy"></a>Modificación de la directiva personalizada
 

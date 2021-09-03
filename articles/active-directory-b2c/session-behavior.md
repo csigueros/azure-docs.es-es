@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2e0af2e682799d4286a0d00daa2ce7e3805cf4ac
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 9259fac727287ce4d52594d146eaac96a3085433
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565255"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738969"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión en Azure Active Directory B2C
 
@@ -114,7 +114,7 @@ Para cambiar las configuraciones de comportamiento de sesión y SSO, debe agrega
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>Habilitación de Mantener la sesión iniciada (KMSI)
 
-Puede habilitar la característica para mantener la sesión iniciada para los usuarios de las aplicaciones web y nativas que tienen cuentas locales en el directorio de Azure AD B2C. Cuando se habilita la característica, los usuarios pueden optar por mantener la sesión iniciada de forma que siga activa después de que cierren el explorador. Así, al volver a abrir el explorador no se les pedirá que escriban de nuevo el nombre de usuario y la contraseña. Este acceso se revocará cuando el usuario cierre la sesión.
+Puede habilitar la característica para mantener la sesión iniciada para los usuarios de las aplicaciones web y nativas que tienen cuentas locales en el directorio de Azure AD B2C. Cuando se habilita la característica, los usuarios pueden optar por mantener la sesión iniciada de forma que siga activa después de que cierren el explorador. La sesión se mantiene estableciendo una [cookie persistente](cookie-definitions.md). Los usuarios que seleccionan KMSI pueden volver a abrir el explorador sin que se les pida que escriban de nuevo el nombre de usuario y la contraseña. Este acceso (cookie persistente) se revocará cuando un usuario cierre la sesión. 
 
 ![Ejemplo de página de inicio de sesión de registro que muestra la casilla Mantener la sesión iniciada](./media/session-behavior/keep-me-signed-in.png)
 
@@ -194,7 +194,7 @@ Para agregar la casilla KMSI a la página de registro e inicio de sesión, estab
 
 ### <a name="configure-a-relying-party-file"></a>Configuración de un archivo de usuario de confianza
 
-Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado. El parámetro keepAliveInDays permite configurar el tiempo que debe persistir la cookie de sesión de la opción para mantener la sesión iniciada. Por ejemplo, si establece el valor en 30, la cookie de sesión se conservará durante 30 días. El intervalo para el valor es de 1 a 90 días.
+Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado. El parámetro keepAliveInDays permite configurar el tiempo que debe persistir la cookie de sesión de la opción para mantener la sesión iniciada. Por ejemplo, si establece el valor en 30, la cookie de sesión se conservará durante 30 días. El intervalo para el valor es de 1 a 90 días. Si se establece el valor en 0, se desactiva la funcionalidad KMSI.
 
 1. Abra el archivo de la directiva personalizada. Por ejemplo, *SignUpOrSignin.xml*.
 1. Si aún no existe, agregue un nodo secundario `<UserJourneyBehaviors>` al nodo `<RelyingParty>`. Tiene que estar situado inmediatamente después de `<DefaultUserJourney ReferenceId="User journey Id" />`, por ejemplo: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.

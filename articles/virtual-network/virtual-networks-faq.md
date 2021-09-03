@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 61076b49d396c83a67635e46eb4f1b928b3f9e1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec65980e3886b62b8718799d1566a11d5c13a679
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933981"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721763"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -49,7 +49,7 @@ Sí. A través de Azure Marketplace es posible implementar una [aplicación virt
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>¿Qué herramientas debo usar para crear una red virtual?
 Para crear o configurar una red virtual se pueden usar las siguientes herramientas:
 
-* Portal de Azure
+* Azure portal
 * PowerShell
 * Azure CLI
 * Un archivo de configuración de red (netcfg; solo para redes virtuales clásicas). Consulte el artículo [Configuración de una red virtual con un archivo de configuración de red](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file).
@@ -80,10 +80,10 @@ Sí. Azure reserva 5 direcciones IP dentro de cada subred. Son x.x.x.0-x.x.x.3 y
 - x.x.x.0: Dirección de red
 - x.x.x.1: Reservado por Azure para la puerta de enlace predeterminada
 - x.x.x.2, x.x.x.3: Reservado por Azure para asignar las direcciones IP de Azure DNS al espacio de red virtual
-- x.x.x.255: Dirección de difusión de red
+- x.x.x.255: dirección de difusión de red para subredes de tamaño /25 o más. Será una dirección diferente en subredes más pequeñas. 
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>¿Qué tamaños mínimo y máximo pueden tener las redes virtuales y las subredes?
-La subred IPv4 más pequeña admitida es /29 y la más grande /8 (mediante definiciones de subred CIDR).  Las subredes IPv6 deben tener un tamaño exactamente de /64.  
+La subred IPv4 más pequeña admitida es /29 y la más grande es /2 (con definiciones de subred CIDR).  Las subredes IPv6 deben tener un tamaño exactamente de /64.  
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>¿Puedo llevar mis VLAN a Azure mediante redes virtuales?
 No. Las redes virtuales son superposiciones de nivel 3. Azure no admite ninguna semántica de nivel 2.
@@ -419,7 +419,7 @@ No hay límite en el número total de puntos de conexión de servicio de la red 
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure Synapse Analytics|   128|
-|Azure KeyVault|    127|
+|Azure KeyVault|    200 |
 |Azure Cosmos DB|   64|
 |Centro de eventos de Azure|   128|
 |Azure Service Bus| 128|

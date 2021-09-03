@@ -11,16 +11,16 @@ ms.date: 08/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: fb9f90e93ed13faf64703cb511cd540f9af685ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9e61065e209a22d3ded08cf205350a737f7fe94f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780220"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770175"
 ---
 # <a name="configure-authentication-in-a-sample-wpf-desktop-application-using-azure-active-directory-b2c"></a>Configuración de la autenticación en una aplicación de escritorio de WPF de ejemplo mediante Azure Active Directory B2C
 
-En este artículo se usa una aplicación de [escritorio de WPF](/visualstudio/designers/getting-started-with-wpf.md) de ejemplo para ilustrar cómo agregar la autenticación de Azure Active Directory B2C (Azure AD B2C) a las aplicaciones de escritorio.
+En este artículo se usa una aplicación de [escritorio de WPF](/visualstudio/designers/getting-started-with-wpf) de ejemplo para ilustrar cómo agregar la autenticación de Azure Active Directory B2C (Azure AD B2C) a las aplicaciones de escritorio.
 
 ## <a name="overview"></a>Información general
 
@@ -123,7 +123,7 @@ En el proyecto **active-directory-b2c-wpf**, abra el archivo *App.xaml.cs*. Los 
 
 Actualice los miembros siguientes:
 
-|Clave  |Valor  |
+|Clave  |Value  |
 |---------|---------|
 |`TenantName`|La primera parte del [nombre de inquilino](tenant-management.md#get-your-tenant-name) de Azure AD B2C. Por ejemplo, `contoso.b2clogin.com`.|
 |`ClientId`|El identificador de la aplicación de escritorio del [paso 2.3](#23-register-the-desktop-app).|
@@ -154,7 +154,7 @@ public static string ApiEndpoint = "https://contoso.azurewebsites.net/hello";
 
 ## <a name="step-6-run-and-test-the-desktop-app"></a>Paso 6: Ejecución y prueba de la aplicación de escritorio
 
-1. [Restaure los paquetes NuGet](/nuget/consume-packages/package-restore.md).
+1. [Restaure los paquetes NuGet](/nuget/consume-packages/package-restore).
 1. Presione **F5** para compilar y ejecutar el ejemplo.
 1. Seleccione **Iniciar sesión**. A continuación, regístrese o inicie sesión con su cuenta Azure AD B2C local o social.
 

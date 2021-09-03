@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/12/2021
+ms.date: 08/11/2021
 ms.author: radeltch
-ms.openlocfilehash: b202613e6f24a5cd549267a1c8928e8e68caa232
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e722f1dfe131c59e17974ef699b1373244eb6046
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303600"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746209"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP
 
@@ -27,9 +27,9 @@ ms.locfileid: "107303600"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
+[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -44,7 +44,7 @@ ms.locfileid: "107303600"
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
@@ -452,6 +452,13 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
 ### <a name="installing-sap-netweaver-ascsers"></a>Instalación de SAP NetWeaver ASCS/ERS
 
+1. **[1]** Configure las propiedades predeterminadas del clúster
+
+   ```
+   pcs resource defaults resource-stickiness=1
+   pcs resource defaults migration-threshold=3
+   ```
+
 1. **[1]** Cree un recurso IP virtual y un sondeo de estado para la instancia de ASCS
 
    ```
@@ -649,15 +656,17 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
+    sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
+
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
-      
+     
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
     sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
-    sudo pcs constraint order g-QAS_ASCS then g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
     
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
@@ -672,20 +681,24 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
+    sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
+
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
       
+    sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
+
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-    sudo pcs constraint order g-QAS_ASCS then g-QAS_AERS kind=Optional symmetrical=false
-    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then start g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
    
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
@@ -1143,7 +1156,7 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP.
    [root@anftstsapcl2 ~]# pgrep -f enq.sapQAS | xargs kill -9
    ```
 
-   La instancia de ASCS conmutará inmediatamente por error al otro nodo. La instancia de ERS también conmutará por error después de iniciarse la instancia de ASCS. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ASCS y ERS después de la prueba.
+   La instancia de ASCS conmutará por error inmediatamente al otro nodo, en el caso de ENSA1. La instancia de ERS también conmutará por error después de iniciarse la instancia de ASCS. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ASCS y ERS después de la prueba.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00

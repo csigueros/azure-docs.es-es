@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 92edc1e2e2ae1e359cfd951a239e30d506d2452c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/31/2021
+ms.openlocfilehash: 7afdd852bebc4eeff24671d8d60cb8805f86f29c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692024"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736491"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -27,10 +27,10 @@ En la tabla siguiente se muestran las opciones de publicación de las ofertas de
 
 | Opción de publicación | Proceso de transacción |
 | ------------ | ------------- |
-| Ponerse en contacto conmigo | El cliente se pone en contacto directamente a partir de la información de la descripción.``*`` |
-| Evaluación gratuita | Al cliente se le redirige a la dirección URL de destino mediante Azure Active Directory (Azure AD).``*`` |
-| Obténgalo ahora (de forma gratuita) | Al cliente se le redirige a la dirección URL de destino a través de Azure AD.``*`` |
-| Venta mediante Microsoft  | Las ofertas vendidas a través de Microsoft se denominan ofertas _procesables_. Una oferta procesable es aquella en la que Microsoft facilita el intercambio de dinero por una licencia de software en nombre del editor. Microsoft factura las ofertas de SaaS con el modelo de precios elegido y administra las transacciones de los clientes en su nombre. Las cuotas de uso de la infraestructura de Azure se le facturan al asociado directamente. Al elegir el modelo de precio, es necesario considerar los costos de la infraestructura. Este aspecto se explica con más detalle a continuación en [Facturación de SaaS](#saas-billing).  |
+| Ponerse en contacto conmigo | El cliente se pone en contacto directamente a partir de la información de la descripción.``*``<br>Puede cambiar a otra opción de publicación después de publicar la oferta. |
+| Evaluación gratuita | Al cliente se le redirige a la dirección URL de destino mediante Azure Active Directory (Azure AD).``*``<br>Puede cambiar a otra opción de publicación después de publicar la oferta. |
+| Obténgalo ahora (de forma gratuita) | Al cliente se le redirige a la dirección URL de destino a través de Azure AD.``*``<br>Puede cambiar a otra opción de publicación después de publicar la oferta. |
+| Venta mediante Microsoft  | Las ofertas vendidas a través de Microsoft se denominan ofertas _procesables_. Una oferta procesable es aquella en la que Microsoft facilita el intercambio de dinero por una licencia de software en nombre del editor. Microsoft factura las ofertas de SaaS con el modelo de precios elegido y administra las transacciones de los clientes en su nombre. Las cuotas de uso de la infraestructura de Azure se le facturan al asociado directamente. Al elegir el modelo de precio, es necesario considerar los costos de la infraestructura. Este aspecto se explica con más detalle a continuación en [Facturación de SaaS](#saas-billing).<br><br>**Nota**: No puede cambiar esta opción una vez publicada la oferta.  |
 |||
 
 ``*``Los editores son responsables de todos los aspectos de la transacción de las licencias de software, incluidas, entre otras cosas, el pedido, la entrega, la medición, la facturación, el pago y el cobro.

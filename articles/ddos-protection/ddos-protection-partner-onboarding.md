@@ -7,13 +7,13 @@ author: aletheatoh
 mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.author: kumud
-ms.openlocfilehash: 7f8031f74845e957468ac8f47b7d4661c0f7ce23
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.author: yitoh
+ms.openlocfilehash: 67b8e9e5c913323d1786427fcd102de9b98d2827
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108088"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310458"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Asociación con Azure DDoS Protection estándar
 En este artículo se describen las oportunidades de asociación habilitadas por Azure DDoS Protection estándar. Este artículo está diseñado para ayudar a los administradores de productos y a los roles de desarrollo empresarial a comprender las rutas de inversión, y para ofrecer información sobre las propuestas de valor de la asociación.

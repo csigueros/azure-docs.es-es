@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: b66011ff41e1dd4a7439105862ca61355a95bd71
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e90c33f63eb360bae4182ac1f9ed32eb9b8aa0c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042715"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439095"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros personalizados con el agente de Log Analytics en Azure Monitor
 
@@ -52,8 +52,8 @@ Utilice el procedimiento siguiente para definir un archivo de registro personali
 ### <a name="step-1-open-the-custom-log-wizard"></a>Paso 1. Apertura del Asistente para registros personalizados
 El Asistente para registros personalizados se ejecuta en Azure Portal y le permite definir un nuevo registro personalizado para la recopilación.
 
-1. En Azure Portal, seleccione las **áreas de trabajo de Log Analytics**  > su área de trabajo > **Configuración avanzada**.
-2. Haga clic en **Datos** > **Registros personalizados**.
+1. En Azure Portal, seleccione **Áreas de trabajo de Log Analytics** > el área de trabajo > **Configuración**.
+2. Haga clic en **Registros personalizados**.
 3. De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes. En el caso de los agentes de Linux, se envía un archivo de configuración al recopilador de datos Fluentd.
 4. Haga clic en **Agregar+** para abrir el Asistente para registros personalizados.
 

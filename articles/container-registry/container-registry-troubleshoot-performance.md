@@ -3,12 +3,12 @@ title: Solución de problemas de rendimiento del registro
 description: Síntomas, causas y resolución de problemas comunes con el rendimiento de un registro
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8557c8c342919073099a14be91c743b65c4d7fbc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4a93df09c8ceb587815227c073ec69dcd1205451
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069083"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722396"
 ---
 # <a name="troubleshoot-registry-performance"></a>Solución de problemas de rendimiento del registro
 
@@ -21,6 +21,7 @@ Puede encontrarse con uno o varios de los siguientes:
 * Las imágenes de extracción o inserción con la CLI de Docker tardan más de lo esperado.
 * La implementación de imágenes en un servicio como Azure Kubernetes Service tarda más de lo esperado.
 * No es posible realizar un gran número de operaciones simultáneas de extracción o inserción en el tiempo esperado.
+* Verá un error HTTP 429 similar a `Too many requests`.
 * Las operaciones de extracción o inserción en un registro con replicación geográfica tardan más de lo esperado, o bien se produce el error `Error writing blob` o `Error writing manifest` en la inserción
 
 ## <a name="causes"></a>Causas
@@ -46,7 +47,7 @@ Para la implementación de imágenes en otros servicios, compruebe las regiones 
 Vínculos relacionados:
 
 * [Niveles del servicio Azure Container Registry](container-registry-skus.md)    
-* [Preguntas frecuentes sobre Container Registry](container-registry-faq.md)
+* [Preguntas frecuentes sobre Container Registry](container-registry-faq.yml)
 * [Objetivos de escalabilidad y rendimiento de Azure Blob Storage](../storage/blobs/scalability-targets.md)
 
 ### <a name="check-client-hardware"></a>Comprobar el hardware del cliente
@@ -103,8 +104,8 @@ Si la [colección de registros de recursos](monitor-service.md) está habilitada
 
 Vínculos relacionados:
 
-* [Supervisión de Azure Container Registry](monitor-service.md)
-* [Preguntas frecuentes sobre Container Registry](container-registry-faq.md)
+* [Registros para la evaluación y auditoría de diagnóstico](./monitor-service.md)
+* [Preguntas frecuentes sobre Container Registry](container-registry-faq.yml)
 * [Procedimientos recomendados para Azure Container Registry](container-registry-best-practices.md)
 
 ## <a name="next-steps"></a>Pasos siguientes

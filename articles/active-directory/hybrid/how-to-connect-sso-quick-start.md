@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c42fef2abddc5f04a2d74f30df5fcf54e1b1b3
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 3a1c9bcec2a9aec2673e29a3f578146cad7de5d6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854421"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730759"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -177,12 +177,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (todas las plataformas)
 
-Mozilla Firefox no realiza automáticamente la autenticación Kerberos. Cada usuario debe agregar manualmente la dirección URL de Azure AD a su configuración de Firefox mediante estos pasos:
-1. Ejecute Firefox y escriba `about:config` en la barra de direcciones. Descarte las notificaciones que vea.
-2. Busque la preferencia **network.negotiate-auth.trusted-URI**. Esta preferencia enumera los sitios de confianza de Firefox para la autenticación Kerberos.
-3. Haga clic con el botón derecho y seleccione **Modificar**.
-4. Escriba `https://autologon.microsoftazuread-sso.com` en el campo.
-5. Seleccione **Aceptar** y después vuelva a abrir el explorador.
+Si usa la configuración de directiva [Autenticación](https://github.com/mozilla/policy-templates/blob/master/README.md#authentication) en el entorno, asegúrese de agregar la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`) a la sección **SPNEGO**. También puede establecer la opción **PrivateBrowsing** en true para permitir el inicio de sesión único de conexión directa en el modo de exploración privado.
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
@@ -198,17 +193,20 @@ En Microsoft Edge basado en Chromium en macOS y otras plataformas que no son de 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas las plataformas)
 
-Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) en su entorno, asegúrese de agregar también la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`).
+Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateAllowlist](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist) o [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist) en el entorno, asegúrese de agregar también la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
-#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS y otras plataformas que no son Windows)
+#### <a name="macos"></a>macOS
 
-En el caso de Google Chrome para macOS y otras plataformas que no son de Windows, consulte la [lista de directivas del proyecto Chromium](https://chromeenterprise.google/policies/) para obtener información sobre cómo controlar la lista de permitidos para la dirección URL de Azure AD para la autenticación integrada.
-
-El uso de las extensiones de directiva de grupo de Active Directory de terceros para implementar la dirección URL de AD Azure de Firefox y Google Chrome para los usuarios de Mac está fuera del ámbito de este artículo.
+El uso de las extensiones de directiva de grupo de Active Directory de terceros para implementar la dirección URL de Azure AD en Firefox y Google Chrome para los usuarios de macOS está fuera del ámbito de este artículo.
 
 #### <a name="known-browser-limitations"></a>Limitaciones de exploradores conocidos
 
-SSO de conexión directa no funciona en modo de exploración privada en Firefox. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada. El inicio de sesión único de conexión directa admite la versión siguiente de Microsoft Edge basada en Chromium y funciona en modo InPrivate e Invitado por diseño. Microsoft Edge (heredado) ya no se admite.
+El inicio de sesión único de conexión directa no funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada. El inicio de sesión único de conexión directa admite la versión siguiente de Microsoft Edge basada en Chromium y funciona en modo InPrivate e Invitado por diseño. Microsoft Edge (heredado) ya no se admite. 
+
+ Es posible que se tenga que configurar `AmbientAuthenticationInPrivateModesEnabled` para InPrivate o usuarios invitados en función de la documentación correspondiente:
+ 
+   - [Microsoft Edge Chromium](/DeployEdge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled)
+   - [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled)
 
 ## <a name="step-4-test-the-feature"></a>Paso 4: Prueba de la característica
 
@@ -232,7 +230,7 @@ En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure A
 >[!IMPORTANT]
 >Si se pierde la clave de descifrado de Kerberos de la cuenta de un equipo, se puede usar para generar vales de Kerberos para todos los usuarios de su bosque de AD. En ese caso, actores malintencionados pueden suplantar los inicios de sesión de Azure AD de los usuarios en peligro. Se recomienda encarecidamente cambiar las claves de descifrado de Kerberos de manera periódica (al menos cada 30 días).
 
-Para obtener instrucciones sobre cómo sustituir las claves, consulte [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes). Estamos trabajando en una funcionalidad para introducir el cambio automático de claves.
+Para obtener instrucciones sobre cómo sustituir las claves, consulte [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.yml) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes).
 
 >[!IMPORTANT]
 >No es necesario realizar este paso _inmediatamente_ después de haber habilitado la característica. Sustituya las claves de descifrado de Kerberos al menos cada treinta días.
@@ -240,6 +238,6 @@ Para obtener instrucciones sobre cómo sustituir las claves, consulte [Azure Act
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Profundización técnica](how-to-connect-sso-how-it-works.md): comprenda cómo funciona la característica de inicio de sesión único de conexión directa.
-- [Preguntas más frecuentes](how-to-connect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes sobre el inicio de sesión único de conexión directa.
+- [Preguntas más frecuentes](how-to-connect-sso-faq.yml): obtenga respuestas a las preguntas más frecuentes sobre el inicio de sesión único de conexión directa.
 - [Solución de problemas](tshoot-connect-sso.md): aprenda a resolver problemas comunes con la característica de inicio de sesión único de conexión directa.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use el foro de Azure Active Directory para solicitar nuevas características.

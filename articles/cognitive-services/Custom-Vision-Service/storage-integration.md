@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 06/25/2021
 ms.author: pafarley
-ms.openlocfilehash: 92a9b79e4de60e7308224b435953ac7b3eefc8a1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f21313a357c5c86087d3505cfdf654d9958d3893
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951074"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982373"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integración de Azure Storage con las notificaciones y la copia de seguridad
 
@@ -35,12 +35,11 @@ En esta guía se muestra cómo usar las API de REST con cURL. También puede usa
 
 Vaya al recurso de entrenamiento de Custom Vision en Azure Portal, seleccione la página **Identidad** y habilite la identidad administrada asignada por el sistema.
 
-A continuación, vaya al recurso de almacenamiento en Azure Portal. Vaya a la página **Control de acceso (IAM)** y agregue una asignación de roles para cada característica de integración:
-* Seleccione el recurso de entrenamiento de Custom Vision y asigne el rol **Colaborador de datos de Storage Blob** si tiene previsto usar la característica de copia de seguridad del modelo. 
-* Después, seleccione el recurso de entrenamiento de Custom Vision y asigne el rol **Colaborador de datos de la cola de Storage Blob** si tiene previsto usar la característica de cola de notificaciones.
+A continuación, vaya al recurso de almacenamiento en Azure Portal. Vaya a la página **Control de acceso (IAM)** y seleccione **Agregar asignación de roles (versión preliminar)** . Después, agregue una asignación de roles para cualquiera de las características de integración o las dos:
+* Si tiene previsto usar la característica de copia de seguridad del modelo, seleccione el rol **Colaborador de datos de Storage Blob** y agregue el recurso de entrenamiento de Custom Vision como miembro. Seleccione **Revisar y asignar** para completar la operación.
+* Si tiene previsto usar la característica de cola de notificaciones, seleccione el rol **Colaborador de datos de la cola de Storage Blob** y agregue el recurso de entrenamiento de Custom Vision como miembro. Seleccione **Revisar y asignar** para completar la operación.
 
-> [!div class="mx-imgBorder"]
-> ![Página Agregar asignación de roles de la cuenta de Storage](./media/storage-integration/storage-access.png)
+Para obtener ayuda con la asignación de roles, vea [Asignación de roles de Azure mediante Azure Portal](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ### <a name="get-integration-urls"></a>Obtener direcciones URL de integración
 

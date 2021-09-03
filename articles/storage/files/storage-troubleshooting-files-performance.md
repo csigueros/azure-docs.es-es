@@ -1,22 +1,29 @@
 ---
 title: Guía de solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 description: Solución de problemas de rendimiento conocidos con los recursos compartidos de archivos de Azure. Detecte las posibles causas y soluciones alternativas asociadas cuando se producen estos problemas.
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 11/16/2020
-ms.author: rogarana
+ms.date: 07/06/2021
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b303dbc20cf0caf4bb0d75f28a2983bc0f27064d
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 65b703a4f193e6b1197c3c8f2cb03ffbc349471b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108065032"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741856"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
 En este artículo se enumeran algunos problemas habituales relacionados con los recursos compartidos de archivos de Azure. Se proporcionan las posibles causas y soluciones alternativas cuando se detectan estos problemas.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latencia, rendimiento bajo y problemas de rendimiento general
 
@@ -58,9 +65,9 @@ Para confirmar si se está limitando el recurso compartido, puede acceder y usar
     > [!NOTE]
     > Para recibir una alerta, consulte la sección ["Creación de una alerta si un recurso compartido de archivos se limita"](#how-to-create-an-alert-if-a-file-share-is-throttled) más adelante en este artículo.
 
-### <a name="solution"></a>Solución
+#### <a name="solution"></a>Solución
 
-- Si usa un recurso compartido de archivos Estándar, habilite [Recursos compartidos de archivos grandes](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) en su cuenta de almacenamiento. Los recursos compartidos de archivos grandes admiten hasta 10 000 IOPS por recurso compartido.
+- Si usa un recurso compartido de archivos estándar, [habilite los recursos compartidos de archivos grandes](storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) en la cuenta de almacenamiento y [aumente el tamaño de la cuota de recursos compartidos de archivos para aprovechar la compatibilidad con recursos compartidos de archivos de gran tamaño](storage-how-to-create-file-share.md#expand-existing-file-shares). Los recursos compartidos de archivos grandes admiten límites mayores de IOPS y ancho de banda; vea [Destinos de escalabilidad y rendimiento de Azure Files](storage-files-scale-targets.md) para obtener más información.
 - Si usa un recurso compartido de archivos Premium, aumente el tamaño del recurso compartido de archivos aprovisionado para aumentar el límite de IOPS. Para más información, consulte [Descripción del aprovisionamiento de recursos compartidos de archivos premium](./understanding-billing.md#provisioned-model).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Causa 2: Carga de trabajo pesada del espacio de nombres o los metadatos
@@ -71,7 +78,7 @@ Para determinar si la mayoría de las solicitudes están centradas en los metada
 
 ![Captura de pantalla de las opciones de métricas para recursos compartidos de archivos Premium que muestra un filtro de propiedad "Nombre de API".](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
-### <a name="workaround"></a>Solución alternativa
+#### <a name="workaround"></a>Solución alternativa
 
 - Compruebe si la aplicación se puede modificar para reducir el número de operaciones de metadatos.
 - Agregue un disco duro virtual (VHD) al recurso compartido de archivos y móntelo a través de SMB desde el cliente para realizar operaciones de archivos en los datos. Este enfoque funciona para escenarios de escritor o lector único o escenarios con varios lectores y sin escritores. Dado que el sistema de archivos es propiedad del cliente y no de Azure Files, esto permite que las operaciones de metadatos sean locales. La configuración ofrece un rendimiento similar al de un almacenamiento con conexión directa local.
@@ -80,10 +87,18 @@ Para determinar si la mayoría de las solicitudes están centradas en los metada
 
 Si la aplicación que usa tiene un único subproceso, esta configuración puede dar lugar a un rendimiento de IOPS significativamente menor que el máximo posible, en función del tamaño del recurso compartido aprovisionado.
 
-### <a name="solution"></a>Solución
+#### <a name="solution"></a>Solución
 
 - Aumente el paralelismo de la aplicación aumentando el número de subprocesos.
 - Cambie a aplicaciones en las que el paralelismo sea posible. Por ejemplo, para las operaciones de copia, podría usar AzCopy o RoboCopy desde clientes de Windows o el comando **parallel** en los clientes de Linux.
+
+### <a name="cause-4-number-of-smb-channels-exceeds-four"></a>Causa 4: El número de canales SMB es superior a 4
+
+Si usa SMB multicanal y el número de canales que tiene supera los cuatro, el rendimiento será deficiente. Para determinar si el número de conexiones supera las cuatro, use el cmdlet `get-SmbClientConfiguration` de PowerShell para ver la configuración actual del recuento de conexiones.
+
+#### <a name="solution"></a>Solución
+
+Establezca el valor Windows per NIC (Ventanas por NIC) de SMB para que el total de canales no supere los cuatro. Por ejemplo, si tiene dos NIC, puede establecer el máximo por NIC en dos mediante el siguiente cmdlet de PowerShell: `Set-SmbClientConfiguration -ConnectionCountPerRssNetworkInterface 2`.
 
 ## <a name="very-high-latency-for-requests"></a>Latencia muy alta para las solicitudes
 
@@ -275,7 +290,7 @@ Para confirmarlo, puede usar las métricas de Azure en el portal:
 12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 13. Haga clic en **Crear regla de alerta** para crear la alerta.
 
-Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Cómo crear alertas si un recurso compartido de archivos Premium tiene tendencia al límite
 
@@ -313,7 +328,7 @@ Para obtener más información sobre cómo configurar alertas en Azure Monitor, 
     >    - En el paso 5, seleccione la métrica **Transacciones** en lugar de **Salida**.
     >    - En el paso 10, la única opción para **Tipo de agregación** es *Total*. Por lo tanto, el valor de umbral depende de la granularidad de agregación seleccionada. Por ejemplo, si desea que el umbral sea el 80&nbsp;por ciento de la IOPS de base de referencia aprovisionada y selecciona *1 hora* para la **Granularidad de agregación**, el **Valor de umbral** sería su IOPS de base de referencia (en bytes) &times;&nbsp;0,8 &times;&nbsp;3600. 
 
-Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="see-also"></a>Consulte también
 - [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)  

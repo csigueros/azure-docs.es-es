@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 07/06/2021
 ms.author: aahi
-ms.openlocfilehash: 0e897b71f1f5f99ce2834768a72bf99b9773301f
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 105f88499367857d1133ab24a88372db747727bf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078265"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741101"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
 
-> [!NOTE]
-> Los idiomas se agregan a medida que se lanzan nuevas versiones del modelo para características concretas de Text Analytics. Consulte [Control de versiones de modelos](concepts/model-versioning.md) para obtener la versión más reciente del modelo para las características que usa y para obtener más información.   
-
 #### <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment-analysis)
 
-| Idioma              | Código de lenguaje | Compatibilidad con la versión 3 | A partir de la versión del modelo v3: |              Notas |
+> [!NOTE]
+> Los idiomas se agregan a medida que se lanzan nuevas [versiones del modelo](concepts/model-versioning.md) para características concretas de Text Analytics. La versión del modelo actual para Análisis de sentimiento es `2020-04-01`.
+
+| Idioma              | Código de lenguaje | Compatibilidad con v3.x | A partir de la versión del modelo v3: |              Notas |
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Chino simplificado    |   `zh-hans`   |     ✓      |         2019-10-01         | También se acepta `zh` |
 | Chino (tradicional)   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
@@ -42,7 +42,7 @@ ms.locfileid: "112078265"
 | Español               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turco               |     `tr`      |     ✓       |         2020-04-01        |                    |
 
-### <a name="opinion-mining-v31-preview-only"></a>Minería de opiniones (solo v3.1-preview)
+### <a name="opinion-mining-v31-only"></a>Minería de opiniones (solo v3.1)
 
 | Idioma              | Código de lenguaje | A partir de la versión del modelo v3: |              Notas |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
@@ -53,8 +53,9 @@ ms.locfileid: "112078265"
 
 > [!NOTE]
 > * Solo se devuelven las entidades "Persona", "Ubicación" y "Organización" para los idiomas marcados con *.
+> * Los idiomas se agregan a medida que se lanzan nuevas [versiones del modelo](concepts/model-versioning.md) para características concretas de Text Analytics. La versión del modelo actual para NER es `2021-06-01`.
 
-| Idioma               | Código de lenguaje | Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: |       Notas        |
+| Idioma               | Código de lenguaje | Compatibilidad con v3.x | A partir de la versión del modelo de la versión 3: |       Notas        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                 |     `ar`      |      ✓*    |               2019-10-01        |                    |
 | Chino simplificado     |   `zh-hans`   |     ✓      |               15-01-2021        | También se acepta `zh` |
@@ -82,7 +83,10 @@ ms.locfileid: "112078265"
 
 #### <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/key-phrase-extraction)
 
-| Idioma              | Código de lenguaje |  Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: |       Notas        |
+> [!NOTE]
+> Los idiomas se agregan a medida que se lanzan nuevas [versiones del modelo](concepts/model-versioning.md) para características concretas de Text Analytics. La versión del modelo actual para Extracción de frases clave es `2021-06-01`.
+
+| Idioma              | Código de lenguaje |  Compatibilidad con v3.x | A partir de la versión del modelo de la versión 3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
 | Afrikáans             |     `af`      |     ✓      |                01-07-2020                 |                    |
 | Búlgaro             |     `bg`      |     ✓      |                01-07-2020                 |                    |
@@ -115,16 +119,35 @@ ms.locfileid: "112078265"
 | Sueco               |     `sv`      |     ✓      |                2019-10-01                 |                    |
 | Turco               |     `tr`      |     ✓      |                01-07-2020                 |                    |
 
-#### <a name="entity-linking"></a>[Vinculación de entidad](#tab/entity-linking)
+#### <a name="entity-linking"></a>[Entity Linking](#tab/entity-linking)
 
-| Idioma | Código de lenguaje |  Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: | Notas |
+> [!NOTE]
+> Los idiomas se agregan a medida que se lanzan nuevas [versiones del modelo](concepts/model-versioning.md) para características concretas de Text Analytics. La versión del modelo actual para la vinculación de entidad es `2020-02-01`.
+
+| Idioma | Código de lenguaje |  Compatibilidad con v3.x | A partir de la versión del modelo de la versión 3: | Notas |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | Inglés  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Español  |     `es`      |    ✓      |                2019-10-01                 |       |
 
+#### <a name="text-analytics-for-health"></a>[Text Analytics for Health](#tab/health)
+
+> [!NOTE]
+> * El contenedor usa versiones de modelo diferentes que el SDK y los puntos de conexión de la API.
+> * Los idiomas se agregan a medida que se lanzan nuevas versiones del modelo para características concretas de Text Analytics. Las [versiones del modelo](concepts/model-versioning.md) actuales de Text Analytics para el estado son:
+>    * API y SDK: `2021-05-15`
+>    * Contenedor: `2021-03-01`
+
+
+| Idioma | Código de lenguaje |  Compatibilidad con v3.x | A partir de la versión del modelo de la versión 3: | Notas |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Inglés  |     `en`      |     ✓      |                Punto de conexión de API: 2019-10-01 <br> Contenedor: 2020-04-16                |       |
+
 #### <a name="personally-identifiable-information-pii"></a>[Información de identificación personal](#tab/pii)
 
-| Idioma               | Código de lenguaje | Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: |       Notas        |
+> [!NOTE]
+> Los idiomas se agregan a medida que se lanzan nuevas [versiones del modelo](concepts/model-versioning.md) para características concretas de Text Analytics. La versión del modelo actual para PII es `2021-01-15`.
+
+| Idioma               | Código de lenguaje | Compatibilidad con v3.x | A partir de la versión del modelo de la versión 3: |       Notas        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Chino simplificado     |   `zh-hans`   |     ✓      |               15-01-2021        | También se acepta `zh` |
 | Inglés                |     `en`      |     ✓      |               01-07-2020        |                    |
@@ -139,11 +162,14 @@ ms.locfileid: "112078265"
 
 #### <a name="language-detection"></a>[Detección de idioma](#tab/language-detection)
 
+> [!NOTE]
+> Los idiomas se agregan a medida que se lanzan nuevas [versiones del modelo](concepts/model-versioning.md) para características concretas de Text Analytics. La versión del modelo actual para Detección de idioma es `2021-01-05`.
+
 Text Analytics API puede detectar una amplia variedad de idiomas, variantes, dialectos y algunos idiomas regionales o culturales, y puede devolver idiomas con su nombre y código. Los parámetros de código de idioma de Detección de idioma de Text Analytics se ajustan al estándar [BCP-47](https://tools.ietf.org/html/bcp47) y la mayoría de ellos cumplen con los identificadores [ISO-639-1](https://www.iso.org/iso-639-language-codes.html). 
 
 Si tiene contenido que se expresa en un idioma que se usa con menos frecuencia, puede probar Detección de idioma para ver si devuelve un código. La respuesta para los idiomas que no se pueden detectar es `unknown`.
 
-| Idioma | Código de lenguaje | Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: |
+| Idioma | Código de lenguaje | Compatibilidad con v3.x | A partir de la versión del modelo de la versión 3: |
 |:-|:-:|:-:|:-:|
 |Afrikáans|`af`|✓|    |
 |Albanés|`sq`|✓|    |
@@ -261,6 +287,21 @@ Si tiene contenido que se expresa en un idioma que se usa con menos frecuencia, 
 |Maya Yucateco| `yua` | ✓| |
 |Zulú|`zu`|✓|05-01-2021|
 
+
+#### <a name="text-summarization"></a>[Resumen de texto](#tab/summarization)
+
+| Idioma | Código de lenguaje |  Compatibilidad con v3.x | A partir de la versión del modelo de la versión 3: | Notas |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Chino simplificado     |   `zh-hans`   |     ✓      |               2021-08-01        | También se acepta `zh` |
+| Inglés  |     `en`      |     ✓      |                2021-08-01                 |       |
+| Francés                 |     `fr`      |     ✓      |               2021-08-01        |                    |
+| Alemán                 |     `de`      |     ✓      |               2021-08-01        |                    |
+| Italiano               |     `it`      |     ✓       |               2021-08-01        |                    |
+| Japonés              |     `ja`      |     ✓       |               2021-08-01        |                    |
+| Coreano                |     `ko`      |     ✓       |               2021-08-01        |                    |
+| Español               |     `es`      |     ✓       |               2021-08-01        |                    |
+| Portugués (Brasil)   |    `pt-BR`    |     ✓       |               2021-08-01        |                    |
+| Portugués (Portugal) |    `pt-PT`    |     ✓       |               2021-08-01        | También se acepta `pt` |
 
 ---
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 04/07/2021
-ms.openlocfilehash: fa09a03a9ffda04e09bbd5708e97334304013078
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 2bd5ae6696c5ce1c2d4ea3be974245fde1053b71
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006588"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416297"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -21,7 +21,7 @@ ms.locfileid: "112006588"
 - Propietario
 - Manager
 
-Después de [crear una cuenta del Centro de partners](./create-account.md), puede usar el [panel de marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2165290) para administrar su cuenta y las ofertas.
+Después de [crear una cuenta del Centro de partners](./create-account.md), puede usar el [panel de marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2166002) para administrar su cuenta y las ofertas.
 
 ## <a name="access-your-account-settings"></a>Acceso a la configuración de cuenta
 
@@ -122,7 +122,7 @@ Un perfil de pago es la cuenta bancaria a la que se envían los ingresos de sus 
 
 Para configurar el perfil de pago:
 
-1. Vaya a la [página de información general de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) en el Centro de partners.
+1. Vaya a la página de [información general del marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) en el Centro de partners.
 2. En la sección **Perfil**, junto a **Payout Profile** (perfil de pago), seleccione **Actualizar**.
 3. **Elegir una forma de pago**: Cuenta bancaria o PayPal.
 4. **Agregar la información de pago**: Puede que esto incluya la elección de un tipo de cuenta (cheques o ahorro), y especificar el nombre, número de cuenta y de identificación bancaria, dirección de facturación, número de teléfono o dirección de correo electrónico de PayPal, del titular de la cuenta. Para más información acerca del uso de PayPal como forma de pago de la cuenta y para averiguar si esto es compatible con su región o mercado, consulte [Información de PayPal](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).

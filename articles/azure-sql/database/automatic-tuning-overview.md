@@ -11,19 +11,19 @@ author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
 ms.date: 03/23/2021
-ms.openlocfilehash: ae950029e0e20fb0233cb1ca7905309f9c3e7b2a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 8ea21993103e5c461a8cea84f7739160338605a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591285"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747651"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ajuste automático en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 El ajuste automático de Azure SQL Database e Instancia administrada de Azure SQL proporciona un alto rendimiento y cargas de trabajo estables gracias al ajuste continuo del rendimiento basado en la inteligencia artificial y el aprendizaje automático.
 
-El ajuste automático es un servicio de rendimiento inteligente completamente administrado que usa la inteligencia integrada para supervisar continuamente las consultas ejecutadas en una base de datos y mejora automáticamente su rendimiento. Esto se logra mediante la adaptación dinámica de la base de datos a las cargas de trabajo cambiantes y la aplicación de las recomendaciones de ajuste. El ajuste automático aprende horizontalmente de todas las bases de datos de Azure mediante la inteligencia artificial y mejora dinámicamente sus acciones de ajuste. Cuanto más tiempo se ejecute una base de datos con el ajuste automático activado, mejor rendimiento tendrá.
+El ajuste automático es un servicio de rendimiento inteligente completamente administrado que usa la inteligencia integrada para supervisar continuamente las consultas ejecutadas en una base de datos y mejora automáticamente su rendimiento. Esto se logra mediante la adaptación dinámica de una base de datos a las cargas de trabajo cambiantes y la aplicación de las recomendaciones de ajuste. El ajuste automático aprende horizontalmente de todas las bases de datos de Azure mediante la inteligencia artificial y mejora dinámicamente sus acciones de ajuste. Cuanto más tiempo se ejecute una base de datos con el ajuste automático activado, mejor rendimiento tendrá.
 
 El ajuste automático de Azure SQL Database e Instancia administrada de Azure SQL puede ser una de las características más importantes que puede habilitar para proporcionar cargas de trabajo de base de datos estables y con un alto rendimiento.
 

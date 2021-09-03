@@ -9,17 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 346cfa898b5745b5ba8e31635337456ea9adb02d
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: ca240dd4684bfe57cd7e5a0ea1db928768d0fa22
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581725"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694584"
 ---
 # <a name="evaluate-model-performance-in-machine-learning-studio-classic"></a>Evaluación del rendimiento de un modelo en Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 En este artículo puede obtener información sobre las métricas que puede usar para supervisar el rendimiento de un modelo en Machine Learning Studio (clásico).  La evaluación del rendimiento de un modelo es una de las fases principales en el proceso de ciencia de datos. Indica el nivel de acierto de las puntuaciones (predicciones) de un conjunto de datos mediante un modelo entrenado. Machine Learning Studio (clásico) admite la evaluación de modelos por medio de dos de sus módulos principales de aprendizaje automático: 
 + [Evaluación de módulo][evaluate-model] 

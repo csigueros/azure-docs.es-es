@@ -1,19 +1,19 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2021
+ms.date: 06/15/2021
 ms.author: cherylmc
 ms.custom: include file, devx-track-azurepowershell
-ms.openlocfilehash: d41b443a076e303d96588a27285b671123593b57
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5f0d9c821a26d935544f67bca078a9cfdbe50c58
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556453"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112397546"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN puedo tener en mi configuración punto a sitio?
 
@@ -23,7 +23,6 @@ Depende de la SKU de puerta de enlace. Para más información sobre el número d
 
 Se admiten los siguientes sistemas operativos de cliente:
 
-* Windows 7 (32 bits y 64 bits)
 * Windows Server 2008 R2 (solo 64 bits)
 * Windows 8.1 (32 bits y 64 bits)
 * Windows Server 2012 (solo 64 bits)
@@ -81,11 +80,13 @@ Sí. En el portal, vaya a la página **Puerta de enlace VPN -> Configuración de
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>¿Azure admite VPN IKEv2 con Windows?
 
-IKEv2 se admite en Windows 10 y Server 2016. Sin embargo, para poder usar IKEv2, debe instalar las actualizaciones y establecer un valor de clave del Registro localmente. No se admiten las versiones de sistemas operativos anteriores a Windows 10 y solo se puede usar el **protocolo OpenVPN®** o SSTP.
+IKEv2 se admite en Windows 10 y Server 2016. Pero para poder usar IKEv2 en determinadas versiones de sistema operativo, tendrá que instalar las actualizaciones y establecer un valor de clave del Registro localmente. Tenga en cuenta que no se admiten las versiones de sistemas operativos anteriores a Windows 10 y solo se puede usar el **protocolo OpenVPN®** o SSTP.
+
+> NOTA: Estos pasos no son necesarios en las compilaciones del sistema operativo Windows posteriores a Windows 10 versión 1709 y Windows Server 2016 versión 1607.
 
 Para preparar Windows 10 o Server 2016 para IKEv2:
 
-1. Instale la actualización.
+1. Instale la actualización en función de la versión del sistema operativo:
 
    | Versión del SO | Date | Número/vínculo |
    |---|---|---|

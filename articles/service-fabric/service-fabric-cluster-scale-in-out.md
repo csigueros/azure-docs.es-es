@@ -4,12 +4,12 @@ description: Escale o reduzca horizontalmente un clúster de Service Fabric para
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb7e668a5b50e73d5aee8aa3bcbb2ea6b1d4bac7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: bf54e6efe6de64bc02a9ba43dfae3f91c0b4ec7b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677428"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294147"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Escalar o reducir un clúster horizontalmente
 
@@ -53,7 +53,7 @@ Actualmente, la característica de escalado automático no depende de las cargas
 Siga estas instrucciones [para configurar el escalado automático para cada conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> En un escenario de reducción horizontal, a menos que su tipo de nodo tenga un [nivel de durabilidad][durability] Oro o Plata, deberá llamar al cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) con el nombre de nodo adecuado. La durabilidad Bronze, no se recomienda para reducir horizontalmente más de un nodo a la vez.
+> En un escenario de reducción horizontal, a menos que su tipo de nodo tenga un [nivel de durabilidad][durability] Oro o Plata, deberá llamar al cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) con el nombre de nodo adecuado. Para la durabilidad Bronze, no se recomienda reducir horizontalmente más de un nodo a la vez.
 > 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Adición manual de máquinas virtuales a un tipo de nodo o conjunto de escalado de máquinas virtuales
@@ -65,7 +65,7 @@ Al escalar horizontalmente, agrega más instancias de máquina virtual al conjun
 > 
 
 ### <a name="add-vms-using-a-template"></a>Agregar máquinas virtuales mediante una plantilla
-Siga las instrucciones o el ejemplo de la [galería de plantillas de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para cambiar el número de máquinas virtuales en cada tipo de nodo. 
+Siga las instrucciones o el ejemplo de la [galería de plantillas de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-scale-existing) para cambiar el número de máquinas virtuales en cada tipo de nodo. 
 
 ### <a name="add-vms-using-powershell-or-cli-commands"></a>Agregar máquinas virtuales mediante comandos de PowerShell o CLI
 El código siguiente obtiene un conjunto de escalado por el nombre y aumenta la **capacidad** de dicho conjunto en 1.

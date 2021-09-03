@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28c16e4d73fc2379806e1a2bce2fa5dbb3247fed
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a1b944480ce7c09676b65216da4c74f4ffdacdcf
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531962"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292346"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Escenarios comunes de administración de derechos de Azure AD
 
@@ -154,7 +154,7 @@ Hay varias formas para configurar la administración de derechos para su organiz
 
 ## <a name="programmatic-administration"></a>Administración mediante programación
 
-También puede administrar paquetes de acceso, catálogos, directivas, solicitudes y asignaciones mediante Microsoft Graph.  Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la [API de administración de derechos](/graph/tutorial-access-package-api).
+También puede administrar paquetes de acceso, catálogos, directivas, solicitudes y asignaciones mediante Microsoft Graph.  Un usuario de un rol adecuado con una aplicación que tenga el permiso `EntitlementManagement.Read.All` o `EntitlementManagement.ReadWrite.All` delegado puede llamar a la [API de administración de derechos](/graph/tutorial-access-package-api).  Una aplicación con esos permisos de aplicación también puede usar muchas de esas funciones de API, con la excepción de la administración de recursos en catálogos y paquetes de acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

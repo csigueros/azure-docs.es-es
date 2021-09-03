@@ -10,16 +10,23 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 37f3d7a8ff56ea16f6004516c43ac33989263023
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 465109f42a0f5608c6b0a4b030476c915c3514df
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669848"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721786"
 ---
 # <a name="monitoring-azure-files"></a>Supervisión de Azure Files
 
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión que genera Azure Files y cómo puede usar las características de Azure Monitor para analizar las alertas sobre estos datos.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="monitor-overview"></a>Información general de supervisión
 
@@ -62,7 +69,7 @@ Para obtener la lista de operaciones de SMB y de REST que se registran, vea [Ope
 
 ## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 
-Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager.
+Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy.
 
 > [!NOTE]
 > Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
@@ -263,6 +270,10 @@ Este es un ejemplo:
 ### <a name="template"></a>[Plantilla](#tab/template)
 
 Para ver una plantilla de Azure Resource Manager que crea una configuración de diagnóstico, consulte [Configuración de diagnóstico para Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
+
+Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se cree una configuración de diagnóstico para cada cuenta creada o actualizada. Vea [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
 
 ---
 
@@ -465,6 +476,10 @@ En el ejemplo siguiente se muestra cómo leer datos de métricas sobre una métr
 ```
 
 # <a name="template"></a>[Plantilla](#tab/template)
+
+N/D
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
 N/D
 

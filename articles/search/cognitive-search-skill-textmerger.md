@@ -2,25 +2,24 @@
 title: Aptitud cognitiva Combinación de texto
 titleSuffix: Azure Cognitive Search
 description: Combine el texto de una colección de campos en un solo campo consolidado. Use esta aptitud cognitiva en una canalización de enriquecimiento con inteligencia artificial de Búsqueda cognitiva de Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: 4ea7681a28cf8f17c53e42e9ad05ddf12b5d2f9b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88924646"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860549"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Aptitud cognitiva Combinación de texto
 
 La aptitud **Combinación de texto** consolida el texto de una colección de campos en un solo campo. 
 
 > [!NOTE]
-> Esta aptitud no está enlazada a una API de Cognitive Services y no se le cobrará por usarla. Sin embargo, debe [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) para invalidar la opción del recurso **Gratis**, que tiene un límite de unos pocos enriquecimientos al día.
+> Esta aptitud no está enlazada a Cognitive Services. No es facturable y no tiene ningún requisito de clave de Cognitive Services.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

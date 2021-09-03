@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: b77702ea78d9b44da7843d08b2f32adeecfb9383
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 23623d6ddd337c42b56d0c3c26aa7c3a720369d4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440617"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741793"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen administrada de una máquina virtual o un disco duro virtual
 
@@ -24,7 +24,7 @@ Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cua
 
 Para crear una imagen administrada, deberá quitar la información personal de la cuenta. En los pasos siguientes, se desaprovisiona una máquina virtual existente, se desasigna y se crea una imagen. Puede usar esta imagen para crear VM en cualquier grupo de recursos dentro de su suscripción.
 
-Para crear una copia de la máquina virtual Linux existente para la realización de una copia de seguridad o para su depuración o para cargar un disco duro virtual Linux especializado desde una máquina virtual local, consulte [Carga y creación de una máquina virtual Linux desde una imagen de disco personalizada](upload-vhd.md).  
+Para crear una copia de la VM Linux existente con fines de copia de seguridad o depuración, o para cargar un disco duro virtual Linux desde una VM local, consulte [Carga y creación de una VM Linux desde un disco personalizado](upload-vhd.md).  
 
 Puede utilizar **Azure VM Image Builder** para crear la imagen personalizada, sin necesidad de aprender las herramientas o configurar las canalizaciones de compilación, simplemente proporcionando una configuración de imagen e Image Builder creará la imagen. Para más información, consulte [Introducción a Azure VM Image Builder](../image-builder-overview.md).
 

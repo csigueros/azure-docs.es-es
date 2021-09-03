@@ -1,23 +1,22 @@
 ---
-title: Actualización de Azure Percept DK a través de una conexión USB-C
+title: Actualización de Azure Percept DK a través de una conexión por cable USB-C
 description: Aprenda a actualizar Azure Percept DK a través de una conexión por cable USB-C
-author: EthanChangAED
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: eef23597e6cb8f215fd7ce2374d66ff104cc00bc
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: e40a75f91ebf371d27b541b74ba427f42bc518f3
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226005"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652912"
 ---
-# <a name="update-azure-percept-dk-over-a-usb-c-connection"></a>Actualización de Azure Percept DK a través de una conexión USB-C
+# <a name="update-the-azure-percept-dk-over-a-usb-c-cable-connection"></a>Actualización de Azure Percept DK por medio de una conexión por cable USB-C
 
 En esta guía se muestra cómo actualizar correctamente el firmware y el sistema operativo del kit de desarrollo a través de una conexión USB. Esta es una introducción de lo que va a hacer durante este procedimiento.
-
 1. Descarga del paquete de actualización en un equipo host
 1. Ejecución del comando que transfiere el paquete de actualización al kit de desarrollo
 1. Establecer el kit de desarrollo en modo USB mediante conmutadores SSH o DIP
@@ -28,6 +27,7 @@ En esta guía se muestra cómo actualizar correctamente el firmware y el sistema
 > Al actualizar el kit de desarrollo a través de USB, se eliminarán todos los datos existentes en el dispositivo, incluidos los modelos y contenedores de AI.
 >
 > Siga todas las instrucciones en orden. Omitir los pasos podría poner el kit de desarrollo en un estado inutilizable.
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 

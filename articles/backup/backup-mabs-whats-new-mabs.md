@@ -2,15 +2,41 @@
 title: Novedades de Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server proporciona funcionalidades mejoradas de copia de seguridad para proteger máquinas virtuales, archivos y carpetas, cargas de trabajo, etc.
 ms.topic: conceptual
-ms.date: 05/24/2020
-ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/27/2021
+ms.openlocfilehash: 8f7c0e8709cd899b9b6a285dcd8c556763869c65
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91332770"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722662"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novedades de Microsoft Azure Backup Server (MABS)
+
+## <a name="whats-new-in-mabs-v3-ur2"></a>Novedades de MABS v3 UR2
+
+Microsoft Azure Backup Server (MABS) versión 3 UR2 admite las características nuevas o las actualizaciones de características siguientes.
+
+Para obtener información sobre las correcciones de problemas de UR2 y las instrucciones de instalación, consulte el [artículo de KB](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73) correspondiente.
+
+### <a name="support-for-azure-stack-hci"></a>Soporte técnico para Azure Stack HCI
+
+Con MABS v3 UR2, puede realizar copias de seguridad de máquinas virtuales en Azure Stack HCI. [Más información](./back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md).
+
+### <a name="support-for-vmware-70"></a>Compatibilidad con VMware 7.0
+
+Con MABS v3 UR2, puede realizar copias de seguridad de máquinas virtuales de VMware 7.0. [Más información](./backup-azure-backup-server-vmware.md).
+
+### <a name="support-for-sql-server-failover-cluster-instance-fci-using-cluster-shared-volume-csv"></a>Compatibilidad con las instancias de clúster de conmutación por error (FCI) de SQL Server con el volumen compartido de clúster (CSV)
+
+MABS v3 UR2 admite las instancias de clúster de conmutación por error (FCI) de SQL Server con el volumen compartido de clúster (CSV). Con CSV, se simplifica la administración de la instancia de SQL Server. Esto le ayuda a administrar el almacenamiento subyacente desde cualquier nodo, ya que hay una abstracción respecto al nodo propietario del disco. [Más información](./backup-azure-sql-mabs.md).
+
+### <a name="optimized-volume-migration"></a>Migración de volúmenes optimizada
+
+MABS v3 UR2 admite la migración de volúmenes optimizada. La migración de volúmenes optimizada le permite mover orígenes de datos al nuevo volumen mucho más rápido. El proceso de migración mejorado migra solo la copia de seguridad activa (réplica activa) al nuevo volumen. Todos los puntos de recuperación nuevos se crean en el nuevo volumen, mientras que los existentes se mantienen en el volumen original y se purgan de conformidad con la directiva de retención. [Más información](/system-center/dpm/volume-to-volume-migration?view=sc-dpm-2019&preserve-view=true).
+
+### <a name="offline-backup-using-azure-data-box"></a>Copia de seguridad sin conexión con Azure Data Box
+
+MABS v3 UR2 admite la copia de seguridad sin conexión mediante Azure Data Box. Con la integración de Microsoft Azure Data Box, puede afrontar el reto de mover terabytes de datos de copia de seguridad del entorno local al almacenamiento de Azure. Con Azure Data Box, se ahorra el esfuerzo de tener que adquirir sus propios discos y conectores compatibles con Azure o aprovisionar almacenamiento temporal como ubicación provisional. Además, Microsoft controla la logística de transferencia de un extremo a otro, que puede seguir a través de Azure Portal. [Más información](./offline-backup-azure-data-box-dpm-mabs.md).
 
 ## <a name="whats-new-in-mabs-v3-ur1"></a>Novedades de MABS V3 UR1
 
@@ -61,7 +87,7 @@ Con MABS V3 UR1, se agrega una capa de autenticación adicional a las operacion
 MABS V3 UR1 mejora la experiencia de copia de seguridad sin conexión con el servicio Azure Import/Export. Para obtener más información, vea los pasos actualizados [aquí](./backup-azure-backup-server-import-export.md).
 
 >[!NOTE]
->La actualización también aporta la versión preliminar para Copia de seguridad sin conexión con Azure Data Box en MABS. Póngase en contacto con [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) para obtener más información.
+>Desde MABS v3 UR2, MABS puede realizar copias de seguridad sin conexión mediante Azure Data Box. [Más información](./offline-backup-azure-data-box-dpm-mabs.md).
 
 ### <a name="new-cmdlet-parameter"></a>Nuevo parámetro de cmdlet
 

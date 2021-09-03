@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 7b5412b2ca738f5d2099521062e37afcff90e938
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6612d365250a48d9532c0ef331d011c719b95666
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047339"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321655"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
 Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Si bien las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar considerablemente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
@@ -23,6 +23,10 @@ Las consultas optimizadas:
 - Tendrán menos posibilidades de que se limiten o rechacen.
 
 Debe prestar especial atención a las consultas que se usan para el uso recurrente y de ráfaga, como paneles, alertas, Logic Apps y Power BI. El impacto de una consulta ineficaz en estos casos es considerable.
+
+Este es un tutorial en vídeo detallado sobre la optimización de consultas.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4NUH0]
 
 ## <a name="query-performance-pane"></a>Panel de rendimiento de consultas
 Después de ejecutar una consulta en Log Analytics, haga clic en la flecha hacia abajo que aparece sobre los resultados de la consulta para ver el panel rendimiento de consultas que muestra los resultados de varios indicadores de rendimiento para la consulta. Estos indicadores de rendimiento se describen en la sección siguiente.

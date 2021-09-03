@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2d64766c754c0ea104ae83fde799a514e9da6d68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac59d16fc25b8f7d47d3422687a390013df38ebf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693734"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752399"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Instalación de un controlador de entrada de Application Gateway (AGIC) con una instancia de Application Gateway existente
 
@@ -29,7 +29,7 @@ AGIC supervisa los recursos de [entrada](https://kubernetes.io/docs/concepts/ser
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Este documento asume que ya tiene instaladas las siguientes herramientas e infraestructura:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) con [redes avanzadas](../aks/configure-azure-cni.md) habilitadas
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) con [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) en la misma red virtual que AKS
 - [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) instalada en el clúster de AKS
 - [Cloud Shell](https://shell.azure.com/) es el entorno de Azure Shell que tiene `az` CLI, `kubectl` y `helm` instalados. Estas herramientas son necesarias para los siguientes comandos.

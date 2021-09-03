@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 221d8b1d9fdd40a71bcfdeed57c02451e44052f2
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 08/03/2021
+ms.openlocfilehash: 27c7ae33dc889f7bbc29bb5e396fae3a6cdea67d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012769"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726169"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -21,6 +21,13 @@ PostgreSQL ofrece la capacidad de ampliar la funcionalidad de la base de datos m
 ## <a name="use-postgresql-extensions"></a>Uso de extensiones de PostgreSQL
 
 Para poder usar las extensiones de PostgreSQL, es preciso que estén instaladas en su base de datos. Para instalar una extensión determinada, ejecute el comando [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) desde la herramienta psql para cargar los objetos empaquetados en la base de datos.
+
+> [!NOTE]
+> Si se produce un error en `CREATE EXTENSION` con un error de permiso denegado, pruebe la función `create_extension()` en su lugar. Por ejemplo:
+>
+> ```sql
+> SELECT create_extension('postgis');
+> ```
 
 Hiperescala (Citus) de Azure Database for PostgreSQL admite actualmente un subconjunto de extensiones clave, que se enumeran a continuación. No se admiten extensiones distintas de las que se incluyen. No puede crear su propia extensión con Azure Database for PostgreSQL.
 
@@ -35,7 +42,7 @@ Las versiones de cada extensión instaladas en un grupo de servidores a veces di
 > [!div class="mx-tableFixed"]
 > | **Extensión** | **Descripción** | **PG 11** | **PG 12** | **PG 13** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Base de datos distribuida de Citus. | 9.5-1 | 9.5-1 | 10.0-2 |
+> | [citus](https://github.com/citusdata/citus) | Base de datos distribuida de Citus. | 9.5-2 | 10.0-3 | 10.0-3 |
 
 ### <a name="data-types-extensions"></a>Extensiones de tipos de datos
 
@@ -44,14 +51,14 @@ Las versiones de cada extensión instaladas en un grupo de servidores a veces di
 > |---|---|---|---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Proporciona un tipo de cadena de caracteres que no distingue entre mayúsculas y minúsculas. | 1.5 | 1.6 | 1.6 |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | Proporciona un tipo de datos para los cubos multidimensionales. | 1.4 | 1.4 | 1.4 |
-> | [hll](https://github.com/citusdata/postgresql-hll) | Proporciona una estructura de datos HyperLogLog. | 2.14 | 2.15 | 2.15 |
+> | [hll](https://github.com/citusdata/postgresql-hll) | Proporciona una estructura de datos HyperLogLog. | 2.15 | 2.15 | 2.15 |
 > | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Proporciona un tipo de datos para almacenar conjuntos de pares clave-valor. | 1.5 | 1.6 | 1.7 |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | Proporciona tipos de datos para los estándares internacionales de numeración de productos. | 1.2 | 1.2 | 1.2 |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Mantenimiento de objetos grandes. | 1.1 | 1.1 | 1.1 |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Proporciona un tipo de datos para las estructuras de árbol jerárquicas. | 1.1 | 1.1 | 1,2 |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Tipo de datos para representar los segmentos de línea o intervalos de punto flotante. | 1.3 | 1.3 | 1.3 |
 > | [tdigest](https://github.com/tvondra/tdigest) | Tipo de datos para la acumulación en línea de estadísticas basadas en rangos, como cuantiles y medias truncadas | 1.0 | 1.0 | 1.0 |
-> | [topn](https://github.com/citusdata/postgresql-topn/) | Tipo para JSONB de n principales. | 2.2.2 | 2.3.1 | 2.3.1 |
+> | [topn](https://github.com/citusdata/postgresql-topn/) | Tipo para JSONB de n principales. | 2.3.1 | 2.3.1 | 2.3.1 |
 
 ### <a name="full-text-search-extensions"></a>Extensiones de búsqueda de texto completo
 
@@ -74,11 +81,10 @@ Las versiones de cada extensión instaladas en un grupo de servidores a veces di
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | El agregador y enumerador de enteros (obsoleto). | 1.1 | 1.1 | 1.1 |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Proporciona funciones y operadores para manipular matrices de enteros sin valores nulos. | 1.2 | 1.2 | 1.3 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Funciones para el seguimiento de la hora de última modificación. | 1.0 | 1.0 | 1.0 |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Administra las tablas con particiones por hora o identificador. | 4,1 | 4.4.1 | 4.4.1 |
+> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Administra las tablas con particiones por hora o identificador. | 4.5.1 | 4.5.1 | 4.5.1 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Proporciona funciones y operadores para determinar la similitud del texto alfanumérico basado en la coincidencia de trigrama. | 1.4 | 1.4 | 1.5 |
 > | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Proporciona funciones de cifrado. | 1.3 | 1.3 | 1.3 |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Funciones para implementar la integridad referencial (obsoleto). | 1.0 | 1.0 | 1.0 |
-> | session\_analytics | Funciones para realizar consultas a matrices hstore. | | | |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | Proporciona funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas. | 1.0 | 1.0 | 1.0 |
 > | [tcn](https://www.postgresql.org/docs/current/tcn.html) | Desencadenó notificaciones de cambio. | 1.0 | 1.0 | 1.0 |
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Funciones para implementar el viaje en el tiempo. | 1,0 | | |
@@ -111,7 +117,7 @@ Las versiones de cada extensión instaladas en un grupo de servidores a veces di
 > | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Contenedor de datos externo para el acceso de archivos planos. | 1.0 | 1.0 | 1.0 |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspeccione el contenido de páginas de bases de datos a un nivel bajo. | 1.7 | 1.7 | 1.8 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Proporciona un medio para examinar lo que sucede en la caché del búfer compartido en tiempo real. | 1.3 | 1.3 | 1.3 |
-> | [pg\_cron](https://github.com/citusdata/pg_cron) | Programador de trabajos para PostgreSQL. | 1.1 | 1.3 | 1.3 |
+> | [pg\_cron](https://github.com/citusdata/pg_cron) | Programador de trabajos para PostgreSQL. | 1.3 | 1.3 | 1.3 |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine la asignación de espacio libre (FSM). | 1.2 | 1.2 | 1.2 |
 > | [pg\_prewarm](https://www.postgresql.org/docs/current/static/pgprewarm.html) | Proporciona una manera de cargar datos de relación en la caché del búfer. | 1.2 | 1.2 | 1.2 |
 > | [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html) | Proporciona un medio para realizar el seguimiento de las estadísticas de ejecución de todas las instrucciones SQL ejecutadas por un servidor. Consulte la sección "pg_stat_statements" para información sobre esta extensión. | 1.6 | 1.7 | 1.8 |
@@ -130,11 +136,11 @@ Las versiones de cada extensión instaladas en un grupo de servidores a veces di
 > [!div class="mx-tableFixed"]
 > | **Extensión** | **Descripción** | **PG 11** | **PG 12** | **PG 13** |
 > |---|---|---|---|---|
-> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciales y geográficos para PostgreSQL. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | address\_standardizer, address\_standardizer\_data\_us | Se utilizan para analizar una dirección en los elementos que la componen. Se utilizan para admitir el paso de normalización de la dirección de geocodificación. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_sfcgal | Funciones de PostGIS SFCGAL. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_tiger\_geocoder | Geocoder de PostGIS tiger y geocoder inverso. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_topology | Funciones y tipos espaciales de topología PostGIS. | 2.5.1 | 3.0.3 | 3.0.3 |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciales y geográficos para PostgreSQL. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | address\_standardizer, address\_standardizer\_data\_us | Se utilizan para analizar una dirección en los elementos que la componen. Se utilizan para admitir el paso de normalización de la dirección de geocodificación. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_sfcgal | Funciones de PostGIS SFCGAL. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_tiger\_geocoder | Geocoder de PostGIS tiger y geocoder inverso. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_topology | Funciones y tipos espaciales de topología PostGIS. | 2.5.5 | 3.0.3 | 3.0.3 |
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements

@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2021
+ms.date: 07/16/2021
 ms.custom: references_regions
-ms.openlocfilehash: eef2a1eb5f17864074ac346ac7a89a59d1d59778
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1c26761fe23fb1a7558100dea3cb74d7b078550d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037296"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749497"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Disponibilidad de características de Azure Machine Learning entre regiones de nubes en la nube
 
@@ -62,7 +62,7 @@ La información del resto de este documento proporciona información sobre qué 
 | Compatibilidad con Virtual Network (VNet) para aprendizaje                                | Disponibilidad general                   | SÍ                | SÍ         |
 | Compatibilidad con Virtual Network (VNet) para inferencia                               | Disponibilidad general                   | SÍ                | SÍ         |
 | Autenticación de puntos de conexión de puntuación                                            | Vista previa pública       | SÍ                | SÍ         |
-| Punto de conexión privado de área de trabajo                                                 | GA  |  GA  |  GA |
+| Punto de conexión privado de área de trabajo                                                 | Disponibilidad general  |  Vista previa pública  |  Vista previa pública |
 | ACI detrás de VNet                                                            | Vista previa pública       | No                 | No          |
 | ACR detrás de VNet                                                            | Disponibilidad general       | SÍ                 | SÍ          |
 | IP privada de clúster de AKS                                                  | Vista previa pública       | No                 | No          |

@@ -7,18 +7,17 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 24abb1ece1d307276be736b384c3e5e3c7d40f2a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: dbc2f2efffcab9800deff27e42e4130061c531d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407496"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741488"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Creación de una instancia de Azure SQL Managed Instance mediante las herramientas de Kubernetes
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,7 +29,7 @@ Para crear una instancia de SQL Managed Instance mediante las herramientas de Ku
 
 ## <a name="overview"></a>Introducción
 
-Para crear una instancia de SQL Managed Instance, debe crear un secreto de Kubernetes para almacenar el inicio de sesión y la contraseña del administrador del sistema de forma segura, y un recurso personalizado de SQL Managed Instance basado en la definición de recursos personalizada de sqlmanagedinstance.
+Para crear una instancia de SQL Managed Instance, debe crear un secreto de Kubernetes para almacenar el inicio de sesión y la contraseña del administrador del sistema de forma segura, y un recurso personalizado de SQL Managed Instance basado en la definición de recursos personalizada de SqlManagedInstance.
 
 ## <a name="create-a-yaml-file"></a>Creación de un archivo YAML
 
@@ -48,8 +47,8 @@ metadata:
   name: sql1-login-secret
 type: Opaque
 ---
-apiVersion: sql.arcdata.microsoft.com/v1alpha1
-kind: sqlmanagedinstance
+apiVersion: sql.arcdata.microsoft.com/v1
+kind: SqlManagedInstance
 metadata:
   name: sql1
   annotations:
@@ -133,7 +132,7 @@ Requisitos para las solicitudes y los límites de recursos:
 - El valor de límite de núcleos es **necesario** para la facturación.
 - El resto de límites y solicitudes de recursos son opcionales.
 - La solicitud y el límite de núcleos deben ser un valor entero positivo, si se especifican.
-- Se requiere un mínimo de 2 núcleos para la solicitud de núcleos, si se especifica.
+- Se requiere un mínimo de 1 núcleo para la solicitud de núcleos, si se especifica.
 - El formato del valor de memoria sigue la notación de Kubernetes.  
 - Se requiere un mínimo de 2 Gi para la solicitud de memoria, si se especifica.
 - Como norma general, debe tener 4 GB de RAM por cada núcleo para los casos de uso de producción.
@@ -187,4 +186,4 @@ Si tiene problemas con la creación, consulte la [guía de solución de problema
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Conexión a SQL Managed Instance habilitada para Azure Arc](connect-managed-instance.md)
+[Conexión a una instancia de SQL Managed Instance habilitada para Azure Arc](connect-managed-instance.md)

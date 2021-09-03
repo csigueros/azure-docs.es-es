@@ -4,13 +4,13 @@ description: Creación de un archivo de parámetros para pasar valores durante l
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: eab3052b55b1dc1033139c734605e72b5494b174
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 06/16/2021
+ms.openlocfilehash: 4628b7d6a04bdec2a7ec4273536bf895dc23a5d9
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027012"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292238"
 ---
 # <a name="create-bicep-parameter-file"></a>Creación de un archivo de parámetros Bicep
 
@@ -35,31 +35,7 @@ Un archivo de parámetros usa el siguiente formato:
 }
 ```
 
-Tenga en cuenta que el archivo de parámetros almacena los valores de parámetro como texto sin formato. Este enfoque funciona para los valores que no son confidenciales, como la SKU de un recurso. El texto sin formato no funciona para valores confidenciales, como las contraseñas. Si necesita pasar un parámetro que contiene un valor confidencial, almacene el valor en un almacén de claves. A continuación, puede hacer referencia al almacén de claves en el archivo de parámetros. El valor confidencial se recupera de forma segura durante la implementación.
-
-El archivo de parámetros siguiente incluye un valor de texto sin formato y un valor confidencial que está almacenado en un almacén de claves.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "<first-parameter-name>": {
-      "value": "<first-value>"
-    },
-    "<second-parameter-name>": {
-      "reference": {
-        "keyVault": {
-          "id": "<resource-id-key-vault>"
-        },
-        "secretName": "<secret-name>"
-      }
-    }
-  }
-}
-```
-
-Para más información sobre el uso de valores de una instancia de Key Vault, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
+Tenga en cuenta que el archivo de parámetros almacena los valores de parámetro como texto sin formato. Este enfoque funciona para los valores que no son confidenciales, como la SKU de un recurso. El texto sin formato no funciona para valores confidenciales, como las contraseñas. Si necesita pasar un parámetro que contiene un valor confidencial, almacene el valor en un almacén de claves. En lugar de agregar el valor confidencial al archivo de parámetros, recupérelo con la [función getSecret](bicep-functions-resource.md#getsecret). Para obtener más información, vea [Uso de Azure Key Vault para pasar valores de parámetro seguros durante la implementación de Bicep](key-vault-parameter.md).
 
 ## <a name="define-parameter-values"></a>Definición de los valores de parámetro
 
@@ -183,7 +159,7 @@ En el ejemplo siguiente se muestran los formatos de distintos tipos de parámetr
 
 ## <a name="deploy-bicep-file-with-parameter-file"></a>Implementación de un archivo Bicep con un archivo de parámetros
 
-Desde la CLI de Azure se pasa un archivo de parámetros local mediante `@` y el nombre del archivo de parámetros. Por ejemplo, `@storage.parameters.json`.
+Desde la CLI de Azure, pase un archivo de parámetros local mediante `@` y el nombre del archivo de parámetros. Por ejemplo, `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \
@@ -195,7 +171,7 @@ az deployment group create \
 
 Para más información, consulte [Implementación de recursos con Bicep y la CLI de Azure](./deploy-cli.md#parameters). Para implementar archivos _.bicep_, necesita la CLI de Azure versión 2.20 o posterior.
 
-Desde Azure PowerShell se pasa un archivo de parámetros local mediante el parámetro `TemplateParameterFile`.
+Desde Azure PowerShell, pase un archivo de parámetros local mediante el parámetro `TemplateParameterFile`.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -224,4 +200,4 @@ Si el archivo Bicep incluye un parámetro con el mismo nombre que uno de los par
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre cómo definir parámetros en un archivo Bicep, vea [Parámetros en Bicep](./parameters.md).
-- Para más información sobre el uso de valores de una instancia de Key Vault, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
+- Para obtener los valores confidenciales, vea [Uso de Azure Key Vault para pasar valores de parámetro seguros durante la implementación de Bicep](./key-vault-parameter.md).

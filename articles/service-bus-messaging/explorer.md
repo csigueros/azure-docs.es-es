@@ -2,13 +2,13 @@
 title: Uso de Azure Service Bus Explorer para realizar operaciones de datos en Service Bus (versión preliminar)
 description: En este artículo se proporciona información sobre cómo usar la instancia de Azure Service Bus Explorer basada en el portal para acceder a los datos de Azure Service Bus.
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: 0b5274c492a1dfb2523c52d7aea2b7ebf8eae675
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 06/16/2021
+ms.openlocfilehash: 3b561586e77940eda5647aa0ab333ab88937463f
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738963"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294362"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Uso de Azure Service Bus Explorer para realizar operaciones de datos en Service Bus (versión preliminar)
 
@@ -56,6 +56,9 @@ Seleccione **Azure Service Bus Explorer (versión preliminar)** en el menú de n
 
 :::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Menú de navegación izquierdo de Azure Service Bus Explorer":::
 
+> [!NOTE]
+> Service Bus Explorer admite mensajes de hasta 1 MB de tamaño. 
+
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Envío de un mensaje a una cola o un tema
 
 Para enviar un mensaje a una **Cola** o un **Tema**, haga clic en la pestaña **_Enviar_** de Service Bus Explorer.
@@ -100,7 +103,7 @@ Para recibir un mensaje de una cola (o su subcola de mensajes fallidos)
 
 3. Elija entre la ***Cola** _ o la cola secundaria _ *_Mensajes fallidos_**.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
 4. Haga clic en el botón ***Recibir** _ y después en _ *_Sí_** para confirmar la operación "Recibir y eliminar".
 
@@ -112,7 +115,7 @@ Cuando la operación de recepción se realice correctamente, los detalles del me
 
 ### <a name="peeking-a-message-from-a-queue"></a>Inspección de un mensaje de una cola
 
-Con la funcionalidad de inspección, puede usar Azure Service Bus Explorer para ver los primeros 32 mensajes de una cola o de la cola de mensajes fallidos.
+Con la funcionalidad de ver el código sin salir, puede usar Service Bus Explorer para ver los primeros 32 mensajes de una cola o de la cola de mensajes fallidos.
 
 1. Para inspeccionar el mensaje de una cola, haga clic en la pestaña ***Ver*** de Azure Service Bus Explorer.
 
@@ -124,7 +127,7 @@ Con la funcionalidad de inspección, puede usar Azure Service Bus Explorer para 
 
 3. A continuación, elija entre la ***Cola** _ o la cola secundaria _ *_Mensajes fallidos_**.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
 4. Haga clic en el botón ***Ver***. 
 
@@ -139,7 +142,7 @@ Una vez completada la operación de inspección, se mostrarán hasta 32 mensajes
 
 ### <a name="receiving-a-message-from-a-subscription"></a>Recepción de un mensaje de una suscripción
 
-Al igual que con una cola, la operación de ***recepción*** se puede realizar en una suscripción (o en su entidad de mensajes fallidos). Sin embargo, puesto que una suscripción reside en el contexto del tema, para llevar a cabo la operación de recepción, hay que ir a Azure Service Bus Explorer para un tema determinado.
+Como sucede con una cola, la operación ***Recibir*** se puede realizar sobre en una suscripción (o su entidad de mensajes fallidos). Sin embargo, puesto que una suscripción reside en el contexto del tema, para llevar a cabo la operación de recepción, hay que ir a Azure Service Bus Explorer para un tema determinado.
 
 > [!IMPORTANT]
 > Tenga en cuenta que la operación de recepción realizada por Azure Service Bus Explorer es ***destructiva***, es decir, el mensaje se quita de la cola cuando se muestra en la herramienta Azure Service Bus Explorer.
@@ -153,7 +156,7 @@ Al igual que con una cola, la operación de ***recepción*** se puede realizar e
 
 2. Elija entre la ***Suscripción** _ o la entidad secundaria _ *_Mensajes fallidos_**.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadLetter":::
 
 3. Haga clic en el botón ***Recibir** _ y después en _ *_Sí_** para confirmar la operación "Recibir y eliminar".
 
@@ -163,7 +166,7 @@ Si la operación de recepción se realiza correctamente, el mensaje recibido se 
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Inspección de un mensaje desde una suscripción
 
-Para examinar simplemente los mensajes de una suscripción o de su subentidad de mensajes fallidos, también se puede usar la funcionalidad de ***inspección*** en la suscripción.
+Para examinar simplemente los mensajes de una suscripción o de su subentidad de mensajes fallidos, también se puede usar la funcionalidad ***Ver el código sin salir*** en la suscripción.
 
 1. Haga clic en la pestaña ***Ver** _ y seleccione la _ *_Suscripción_** específica en el selector desplegable.
 
@@ -171,7 +174,7 @@ Para examinar simplemente los mensajes de una suscripción o de su subentidad de
 
 2. Elija entre la ***Suscripción** _ o la entidad secundaria _ *_Mensajes fallidos_**.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadLetter":::
 
 3. Haga clic en el botón ***Ver***.
 
@@ -181,8 +184,8 @@ Una vez completada la operación de inspección, se mostrarán hasta 32 mensajes
 
 > [!NOTE]
 >
-> Dado que la inspección no es una operación destructiva, el mensaje **no** se quitará de la cola.
->
+> - Dado que la inspección no es una operación destructiva, el mensaje **no** se quitará de la cola.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

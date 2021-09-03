@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 12/07/2020
 ms.author: zarhoads
-ms.openlocfilehash: f12dffe0b538738a8f6dd00cd3d87d44da828f21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1370182d8ca13acb3d94856df784ecea34252ae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96779174"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724714"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalación de aplicaciones existentes con Helm en Azure Kubernetes Service (AKS)
 
@@ -22,6 +22,8 @@ En este artículo se muestra cómo configurar y usar Helm en un clúster de Kube
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+
+Además, en este artículo se da por supuesto que ya tiene un clúster de AKS con un ACR integrado. Para más información sobre cómo crear un clúster de AKS con un ACR integrado, consulte [Autenticación con Azure Container Registry desde Azure Kubernetes Service][aks-integrated-acr].
 
 También necesita tener instalada la CLI de Helm, que es el cliente que se ejecuta en el sistema de desarrollo. Permite iniciar, detener y administrar las aplicaciones con Helm. Si usa Azure Cloud Shell, la CLI de Helm ya está instalada. Para obtener las instrucciones de instalación en su plataforma local, consulte [Instalación de Helm][helm-install].
 
@@ -87,49 +89,91 @@ Hang tight while we grab the latest from your chart repositories...
 Update Complete. ⎈ Happy Helming!⎈
 ```
 
+## <a name="import-the-images-used-by-the-helm-chart-into-your-acr"></a>Importación de las imágenes usadas por el gráfico de Helm en el ACR
+
+En este artículo se usa el [gráfico de Helm del controlador de entrada de NGINX][ingress-nginx-helm-chart], que se basa en tres imágenes de contenedor. Use `az acr import` para importar esas imágenes en el ACR.
+
+```azurecli
+REGISTRY_NAME=<REGISTRY_NAME>
+CONTROLLER_REGISTRY=k8s.gcr.io
+CONTROLLER_IMAGE=ingress-nginx/controller
+CONTROLLER_TAG=v0.48.1
+PATCH_REGISTRY=docker.io
+PATCH_IMAGE=jettech/kube-webhook-certgen
+PATCH_TAG=v1.5.1
+DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+DEFAULTBACKEND_IMAGE=defaultbackend-amd64
+DEFAULTBACKEND_TAG=1.5
+
+az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+```
+
+> [!NOTE]
+> Además de importar imágenes de contenedor en el ACR, también puede importar gráficos de Helm en el ACR. Para más información, consulte [Inserción y extracción de gráficos de Helm en Azure Container Registry][acr-helm].
+
 ### <a name="run-helm-charts"></a>Ejecución de gráficos de Helm
 
 Para instalar los gráficos con Helm, use el comando [helm install][helm-install-command] y especifique un nombre de versión y el nombre del gráfico que se va a instalar. Para ver cómo funciona la instalación de un gráfico de Helm, vamos a instalar una implementación básica de nginx mediante un gráfico de Helm.
 
+> [!TIP]
+> En el siguiente ejemplo se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *ingress-basic* y está diseñada para funcionar en el espacio de nombres. Especifique un espacio de nombres para su propio entorno según sea necesario.
+
 ```console
-helm install my-nginx-ingress ingress-nginx/ingress-nginx \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+ACR_URL=<REGISTRY_URL>
+
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Use Helm to deploy an NGINX ingress controller
+helm install nginx-ingress ingress-nginx/ingress-nginx \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.image.registry=$ACR_URL \
+    --set controller.image.image=$CONTROLLER_IMAGE \
+    --set controller.image.tag=$CONTROLLER_TAG \
+     --set controller.image.digest="" \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
+    --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
 ```
 
 En la siguiente salida de ejemplo condensada se muestra el estado de implementación de los recursos de Kubernetes creados mediante el gráfico de Helm:
 
 ```console
-$ helm install my-nginx-ingress ingress-nginx/ingress-nginx \
->     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
->     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
-
-NAME: my-nginx-ingress
-LAST DEPLOYED: Fri Nov 22 10:08:06 2019
-NAMESPACE: default
+NAME: nginx-ingress
+LAST DEPLOYED: Wed Jul 28 11:35:29 2021
+NAMESPACE: ingress-basic
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 NOTES:
-The nginx-ingress controller has been installed.
+The ingress-nginx controller has been installed.
 It may take a few minutes for the LoadBalancer IP to be available.
-You can watch the status by running 'kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller'
+You can watch the status by running 'kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller'
 ...
 ```
 
 Use el comando `kubectl get services` para obtener el valor de *EXTERNAL-IP* del servicio.
 
 ```console
-kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller
+kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 ```
 
-Por ejemplo, el siguiente comando muestra el valor de *EXTERNAL-IP* para el servicio *my-nginx-ingress-ingress-nginx-controller*:
+Por ejemplo, el siguiente comando muestra el valor de *EXTERNAL-IP* para el servicio *nginx-ingress-ingress-nginx-controller*:
 
 ```console
-$ kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
-NAME                                        TYPE           CLUSTER-IP   EXTERNAL-IP      PORT(S)                      AGE   SELECTOR
-my-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.2.237   <EXTERNAL-IP>    80:31380/TCP,443:32239/TCP   72s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=my-nginx-ingress,app.kubernetes.io/name=ingress-nginx
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.254.93   <EXTERNAL_IP>   80:30004/TCP,443:30348/TCP   61s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 ### <a name="list-releases"></a>Lista de versiones
@@ -137,16 +181,15 @@ my-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.2.237   <EXTERNA
 Para ver una lista de las versiones instaladas en el clúster, use el comando `helm list`.
 
 ```console
-helm list
+helm list --namespace ingress-basic
 ```
 
 En el siguiente ejemplo se muestra la versión de *my-nginx-ingress* implementada en el paso anterior:
 
 ```console
-$ helm list
-
-NAME                NAMESPACE   REVISION    UPDATED                                 STATUS      CHART                   APP VERSION
-my-nginx-ingress    default     1           2019-11-22 10:08:06.048477 -0600 CST    deployed    nginx-ingress-1.25.0    0.26.1 
+$ helm list --namespace ingress-basic
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+nginx-ingress   ingress-basic   1               2021-07-28 11:35:29.9623734 -0500 CDT   deployed        ingress-nginx-3.34.0    0.47.0
 ```
 
 ### <a name="clean-up-resources"></a>Limpieza de recursos
@@ -154,15 +197,21 @@ my-nginx-ingress    default     1           2019-11-22 10:08:06.048477 -0600 CST
 Al implementar un gráfico de Helm, se crean algunos recursos de Kubernetes. Estos recursos incluyen pods, implementaciones y servicios. Para limpiar estos recursos, use el comando [helm uninstall][helm-cleanup] y especifique el nombre de la versión, tal como aparecía en el comando `helm list` anterior.
 
 ```console
-helm uninstall my-nginx-ingress
+helm uninstall --namespace ingress-basic nginx-ingress
 ```
 
 En el siguiente ejemplo se muestra que se ha desinstalado la versión denominada *my-nginx-ingress*:
 
 ```console
-$ helm uninstall my-nginx-ingress
+$ helm uninstall --namespace ingress-basic nginx-ingress
 
-release "my-nginx-ingress" uninstalled
+release "nginx-ingress" uninstalled
+```
+
+Para eliminar el espacio de nombres de ejemplo completo, use el comando `kubectl delete` y especifique el nombre del espacio de nombres. Todos los recursos del espacio de nombres se eliminan.
+
+```console
+kubectl delete namespace ingress-basic
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -181,8 +230,11 @@ Para más información sobre cómo administrar las implementaciones de aplicacio
 [helm-repo-add]: https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository
 [helm-search]: https://helm.sh/docs/intro/using_helm/#helm-search-finding-charts
 [helm-repo-update]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
+[ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
             
 <!-- LINKS - internal -->
+[acr-helm]: ../container-registry/container-registry-helm-repos.md
+[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [taints]: operator-best-practices-advanced-scheduler.md

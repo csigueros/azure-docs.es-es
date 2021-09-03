@@ -4,19 +4,22 @@ description: En este artículo se describe la versión dos de la característica
 ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/29/2021
-ms.openlocfilehash: 8df0f31b57d7cd82ed89c4f5f0df37535ad9678a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/25/2021
+ms.openlocfilehash: 3e2946bf493da2570106fdb554704ef7f286b7cb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067283"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738541"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Información general sobre Start/Stop VMs v2 (versión preliminar)
 
 La característica Start/Stop VMs v2 (versión preliminar) inicia o detiene las máquinas virtuales (VM) de Azure en varias suscripciones. Inicia o detiene las máquinas virtuales de Azure según las programaciones definidas por el usuario, proporciona información a través de [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) y envía notificaciones opcionales mediante [grupos de acciones](../../azure-monitor/alerts/action-groups.md). La característica puede administrar tanto las máquinas virtuales de Azure Resource Manager como las máquinas virtuales clásicas de la mayoría de los escenarios.
 
 Esta nueva versión de Start/Stop VMs v2 (versión preliminar) proporciona una opción de automatización económica centralizada para los clientes que quieren optimizar los costos de las máquinas virtuales. Ofrece la misma funcionalidad que la [versión original](../../automation/automation-solution-vm-management.md) disponible con Azure Automation, pero está diseñada para aprovechar las ventajas de la tecnología más reciente de Azure.
+
+> [!NOTE]
+> Si tiene problemas durante la implementación, se produce un problema al usar Start/Stop VMs v2 (versión preliminar), o bien si tiene una pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). La apertura de una incidencia de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 
 
 ## <a name="overview"></a>Información general
 
@@ -28,15 +31,16 @@ Se crea una función de punto de conexión de desencadenador HTTP para admitir l
 
 |Nombre |Desencadenador |Descripción |
 |-----|--------|------------|
-|AlertAvailabilityTest |Temporizador |Esta función realiza la prueba de disponibilidad para asegurarse de que la función principal **AutoStopVM** está siempre disponible.|
-|AutoStop |HTTP |Esta función admite el escenario de **detención automática**, que es la función de punto de entrada a la que se llama desde la aplicación lógica.|
-|AutoStopAvailabilityTest |Temporizador |Esta función realiza la prueba de disponibilidad para asegurarse de que la función principal **AutoStop** está siempre disponible.|
-|AutoStopVM |HTTP |La alerta de máquina virtual desencadena automáticamente esta función cuando se cumple la condición de alerta.|
-|CreateAutoStopAlertExecutor |Cola |Esta función obtiene la información de carga de la función **AutoStop** para crear la alerta en la máquina virtual.|
 |Programado |HTTP |Esta función es tanto para escenarios programados como secuenciados (diferenciados por el esquema de carga). Es la función de punto de entrada a la que se llama desde la aplicación lógica y toma la carga para procesar la operación de inicio o detención de la máquina virtual. |
-|ScheduledAvailabilityTest |Temporizador |Esta función realiza la prueba de disponibilidad para asegurarse de que la función principal **Scheduled** está siempre disponible.|
-|VirtualMachineRequestExecutor |Cola |Esta función realiza la operación de inicio y detención real en la máquina virtual.|
+|AutoStop |HTTP |Esta función admite el escenario de **detención automática**, que es la función de punto de entrada a la que se llama desde la aplicación lógica.|
+|AutoStopVM |HTTP |La alerta de máquina virtual desencadena automáticamente esta función cuando se cumple la condición de alerta.|
 |VirtualMachineRequestOrchestrator |Cola |Esta función obtiene la información de carga de la función **Scheduled** y orquesta las solicitudes de inicio y detención de la máquina virtual.|
+|VirtualMachineRequestExecutor |Cola |Esta función realiza la operación de inicio y detención real en la máquina virtual.|
+|CreateAutoStopAlertExecutor |Cola |Esta función obtiene la información de carga de la función **AutoStop** para crear la alerta en la máquina virtual.|
+|HeartBeatAvailabilityTest |Temporizador |Esta función supervisa la disponibilidad de las funciones HTTP principales.|
+|CostAnalyticsFunction |Temporizador |Esta función calcula el costo de ejecutar la solución Start/Stop V2 mensualmente.|
+|CostAnalyticsFunction |Temporizador |Esta función calcula el ahorro total logrado por la solución Start/Stop V2 mensualmente.|
+|VirtualMachineSavingsFunction |Cola |Esta función realiza el cálculo del ahorro real en una VM logrado por la solución Start/Stop V2.|
 
 Por ejemplo, la función de desencadenador HTTP **Scheduled** se utiliza para controlar los escenarios de programación y secuencia. Del mismo modo, la función de desencadenador HTTP **AutoStop** controla el escenario de detención automática.
 

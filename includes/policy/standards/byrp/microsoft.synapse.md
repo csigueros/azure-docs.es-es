@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/13/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 920422c0f65b1fd05a53ebe5fcaf4457c9909dee
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 434a5e215be2a994e36e804019c4b9459acd1b11
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182520"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102237"
 ---
 ## <a name="cmmc-level-3"></a>CMMC nivel 3
 
@@ -51,7 +51,7 @@ Para más información sobre este estándar de cumplimiento, consulte [FedRAMP M
 |Protección del sistema y de las comunicaciones |SC-7 (3) |Puntos de acceso |[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |Protección del sistema y de las comunicaciones |SC-12 |Establecimiento y administración de una clave criptográfica |[Las áreas de trabajo de Azure Synapse deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
 
-## <a name="nist-sp-800-53-rev-4"></a>NIST SP 800-53 Rev. 4
+## <a name="nist-sp-800-53-rev-4"></a>NIST SP 800-53 Rev. 4
 
 Para revisar el modo en que las iniciativas integradas disponibles de Azure Policy de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Detalles de la iniciativa integrada del cumplimiento normativo de NIST SP 800-53 R4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
 Para más información sobre este estándar de cumplimiento, consulte [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
@@ -66,7 +66,7 @@ Para más información sobre este estándar de cumplimiento, consulte [NIST SP 8
 |Protección del sistema y de las comunicaciones |SC-7 (3) |Puntos de acceso |[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |Protección del sistema y de las comunicaciones |SC-12 |Establecimiento y administración de una clave criptográfica |[Las áreas de trabajo de Azure Synapse deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
 
-## <a name="nist-sp-800-53-rev-5"></a>NIST SP 800-53 Rev. 5
+## <a name="nist-sp-800-53-rev-5"></a>NIST SP 800-53 Rev. 5
 
 Para revisar el modo en que las iniciativas integradas disponibles de Azure Policy de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Detalles de la iniciativa integrada del cumplimiento normativo de NIST SP 800-53 R5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
 Para más información sobre este estándar de cumplimiento, consulte [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).

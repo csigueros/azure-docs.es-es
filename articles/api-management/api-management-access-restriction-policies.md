@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 06/02/2021
+ms.date: 06/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 55e87d6f0e2708e94beb1e2f9391bfa7aff44ceb
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: be920fa3cd35d2b1e92891d5595dfbe27a258447
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814087"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741604"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -567,7 +567,7 @@ En este ejemplo se muestra cómo usar la directiva de [validación de JWT](api-m
 | failed-validation-httpcode      | Código de estado HTTP que se devuelve si el elemento JWT no pasa la validación.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
 | header-name                     | El nombre del encabezado HTTP que contiene el token.                                                                                                                                                                                                                                                                                                                                                                                                         | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
 | nombre del parámetro de consulta            | Nombre del parámetro de consulta que contiene el token.                                                                                                                                                                                                                                                                                                                                                                                                     | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
-| token-value                     | Expresión que devuelve una cadena que contiene el token JWT.                                                                                                                                                                                                                                                                                                                                                                                                     | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
+| token-value                     | Expresión que devuelve una cadena que contiene el token JWT. No debe devolver `Bearer ` como parte del valor del token.                                                                                                                                                                                                                                                                                                                                           | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
 | id                              | El atributo `id` del elemento `key` le permite especificar la cadena que se comparará con la notificación `kid` del token (si existe) para averiguar qué clave debe usarse para validar la firma.                                                                                                                                                                                                                                           | No                                                                               | N/D                                                                               |
 | match                           | El atributo `match` del elemento `claim` especifica si todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Los valores posibles son:<br /><br /> - `all`: todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente.<br /><br /> - `any`: al menos un valor de notificación debe estar presente en el token para que la validación se efectúe correctamente.                                                       | No                                                                               | todo                                                                               |
 | require-expiration-time         | booleano. Especifica si es necesaria una notificación de expiración en el token.                                                                                                                                                                                                                                                                                                                                                                               | No                                                                               | true                                                                              |
@@ -601,42 +601,42 @@ Para más información sobre las entidades de certificación y los certificados 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true|false" 
-    validate-trust="true|false" 
-    validate-not-before="true|false" 
-    validate-not-after="true|false" 
-    ignore-error="true|false"> 
-    <identities> 
-        <identity  
-            thumbprint="certificate thumbprint"  
-            serial-number="certificate serial number" 
-            common-name="certificate common name"  
-            subject="certificate subject string"  
-            dns-name="certificate DNS name" 
-            issuer="certificate issuer" 
-            issuer-thumbprint="certificate issuer thumbprint"  
-            issuer-certificate-id="certificate identifier" /> 
-    </identities> 
+<validate-client-certificate 
+    validate-revocation="true|false"
+    validate-trust="true|false" 
+    validate-not-before="true|false" 
+    validate-not-after="true|false" 
+    ignore-error="true|false">
+    <identities>
+        <identity 
+            thumbprint="certificate thumbprint"
+            serial-number="certificate serial number"
+            common-name="certificate common name"
+            subject="certificate subject string"
+            dns-name="certificate DNS name"
+            issuer-subject="certificate issuer"
+            issuer-thumbprint="certificate issuer thumbprint"
+            issuer-certificate-id="certificate identifier" />
+    </identities>
 </validate-client-certificate> 
 ```
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se valida un certificado de cliente para que coincida con las reglas de validación predeterminadas de la directiva y se comprueba si el firmante y el emisor coinciden con los valores especificados.
+En el ejemplo siguiente se valida un certificado de cliente para que coincida con las reglas de validación predeterminadas de la directiva y se comprueba si el nombre del firmante y el emisor coinciden con los valores especificados.
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true" 
-    validate-trust="true" 
-    validate-not-before="true" 
-    validate-not-after="true" 
-    ignore-error="false"
-    <identities> 
-        <identity 
+<validate-client-certificate 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false">
+    <identities>
+        <identity
             subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
-            issuer="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
-    </identities> 
+            issuer-subject="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
+    </identities>
 </validate-client-certificate> 
 ```
 
@@ -662,9 +662,9 @@ En el ejemplo siguiente se valida un certificado de cliente para que coincida co
 | common-name | Nombre común del certificado (parte de la cadena del firmante). | No | N/D |
 | subject | Cadena del firmante. Debe seguir el formato de nombre distintivo (DN). | No | N/D |
 | dns-name | Valor de la entrada dnsName dentro de la notificación Nombre alternativo del firmante. | No | N/D | 
-| issuer | Firmante del emisor. Debe seguir el formato de nombre distintivo (DN). | No | N/D | 
+| issuer-subject | Firmante del emisor. Debe seguir el formato de nombre distintivo (DN). | No | N/D | 
 | issuer-thumbprint | Huella digital del emisor. | No | N/D | 
-| issuer-certificate-id | Identificador de la entidad de certificación existente que representa la clave pública del emisor. | No | N/D | 
+| issuer-certificate-id | Identificador de la entidad de certificación existente que representa la clave pública del emisor. Mutuamente excluyente con otros atributos del emisor.  | No | N/D | 
 
 ### <a name="usage"></a>Uso
 

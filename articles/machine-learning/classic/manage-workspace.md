@@ -9,18 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: cf9b2134dc3a043ad12b109a6e0b0e46fde92219
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: afc53c04110674706c930ba49f19e5be0da86e9c
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693793"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581221"
 ---
 # <a name="manage-a-machine-learning-studio-classic-workspace"></a>Administración del área de trabajo de Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 > [!NOTE]
 > Para obtener información sobre cómo administrar servicios web en el portal de servicios web Machine Learning, vea [Administración de un servicio web mediante el portal de servicios web Machine Learning](manage-new-webservice.md).

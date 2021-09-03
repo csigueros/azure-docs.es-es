@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6116ab543d6dfc886e44206c2a60e4456b39fbc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50c168bffad24646aad0badcdb849d9d3408725b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558192"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727739"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -135,6 +135,10 @@ Utilice la herramienta What-If para simular un inicio de sesión del usuario en 
 ## <a name="policy-deployment"></a>Implementación de directivas
 
 Para asegurarse de que la directiva funciona según lo esperado, el procedimiento recomendado es probarla antes de implementarla en producción. Lo ideal es usar un inquilino de prueba para comprobar si la nueva directiva funciona según lo previsto. Para obtener más información, vea el artículo [Planeamiento de la implementación del acceso condicional](plan-conditional-access.md).
+
+## <a name="known-issues"></a>Problemas conocidos
+- Si configura la frecuencia de inicio de sesión para dispositivos móviles, la autenticación después de cada intervalo de frecuencia de inicio de sesión será lenta (puede tardar 30 segundos de media). Además, podría ocurrir en varias aplicaciones al mismo tiempo. 
+- En dispositivos iOS, si una aplicación configura los certificados como el primer factor de autenticación y la aplicación tiene aplicadas las directivas de [administración de aplicaciones móviles de Intune](/mem/intune/apps/app-lifecycle) y de frecuencia de inicio de sesión, los usuarios finales no podrán iniciar sesión en la aplicación cuando se desencadene la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

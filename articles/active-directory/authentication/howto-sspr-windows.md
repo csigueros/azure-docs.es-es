@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc3defd1bf3e3052f45f00eeeec0078ce0f6bbde
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491392"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723138"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory en la pantalla de inicio de sesión de Windows
 
@@ -45,6 +45,7 @@ Las siguientes limitaciones se aplican al uso de SSPR desde la pantalla de inici
     - *HideFastUserSwitching* está establecido en habilitado o 1.
     - *DontDisplayLastUserName* está establecido en habilitado o 1.
     - *NoLockScreen* está establecido en habilitado o 1.
+    - *BlockNonAdminUserInstall* está establecido en habilitado o 1.
     - *EnableLostMode* se establece en el dispositivo.
     - Explorer.exe se reemplaza por un shell personalizado
 - La combinación de las tres configuraciones específicas siguientes puede hacer que esta característica no funcione.

@@ -7,18 +7,25 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 48924cd16eef4cafb2ee0d6a85e30903203169ce
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f51f4b9a838a7a08259b280c4d9cd185b42e588b
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785518"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116986"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
 La serie StorSimple 8000 está representada por los dispositivos físicos y locales 8100 o 8600 y sus componentes de servicios en la nube. Los datos de uno de estos dispositivos se pueden migrar a un entorno de Azure File Sync. Azure File Sync es el servicio de Azure a largo plazo, estratégico y predeterminado al que se pueden migrar los dispositivos StorSimple.
 
 StorSimple serie 8000 alcanzará el [final de su ciclo de vida](/lifecycle/products/azure-storsimple-8000-series) en diciembre de 2022. Es importante empezar a planear la migración lo antes posible. En este artículo se proporcionan los conocimientos básicos y los pasos de migración necesarios para realizar una migración correcta a Azure File Sync.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="phase-1-prepare-for-migration"></a>Fase 1: Preparación para la migración
 
@@ -208,7 +215,7 @@ El almacenamiento con redundancia geográfica (GRS) en todas las variaciones no 
 
 Optar por los recursos compartidos de archivos de gran tamaño de 100 TiB tiene varias ventajas:
 
-* El rendimiento aumenta en gran medida en comparación con los recursos compartidos de archivos de menor capacidad, de 5 TiB (por ejemplo, 10 veces respecto a IOPS).
+* El rendimiento aumenta considerablemente en comparación con los recursos compartidos de archivos de menor capacidad, de 5 TiB (por ejemplo, 10 veces con respecto a IOPS).
 * La migración finalizará mucho más rápido.
 * Asegúrese de que un recurso compartido de archivos tenga suficiente capacidad para contener todos los datos que va a migrar a él, incluida la capacidad de almacenamiento que requieren las copias de seguridad diferenciales.
 * El crecimiento futuro está cubierto con esta opción.

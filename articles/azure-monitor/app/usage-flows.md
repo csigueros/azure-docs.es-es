@@ -1,17 +1,16 @@
 ---
-title: Flujos de usuario de Azure Application Insights analiza los flujos de navegación
+title: Los flujos de usuario de Application Insights analizan los flujos de navegación
 description: Analice cómo navegan los usuarios por las páginas y características de la aplicación web.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 01/24/2018
-ms.reviewer: mbullwin
-ms.openlocfilehash: a31ab24b96fa44787d08801a0680f94ff98bb5a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
+ms.openlocfilehash: 875e3ba35003459e9e7558af4f7c668250521251
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87309276"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734395"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Análisis de patrones de navegación del usuario mediante Flujos de usuarios de Application Insights
 

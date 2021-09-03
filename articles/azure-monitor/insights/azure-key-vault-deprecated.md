@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c12cb6c344554f4d18af28dd563b7c96358ea2ee
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4702a91154a4aa93a504597a02a915d1fb26ea0f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095168"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724640"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución Azure Key Vault Analytics en Azure Monitor
 
@@ -75,7 +75,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 | Azure |  |  |&#8226; |  |  | a la llegada |
 
 ## <a name="use-azure-key-vault"></a>Uso de Azure Key Vault
-Después de [instalar la solución](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview), vea los datos de Key Vault haciendo clic en el icono de **Key Vault Analytics** desde la página **Información general** de Azure Monitor. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. 
+Después de instalar la solución, consulte los datos de Key Vault haciendo clic en el icono de **Key Vault Analytics** desde la página **Información general** de Azure Monitor. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. 
 
 ![Captura de pantalla del icono de Key Vault Analytics en la página de información general de Azure Monitor que muestra un gráfico de volumen de operaciones del almacén de claves a lo largo del tiempo.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -150,4 +150,3 @@ Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use las [consultas de registros de Azure Monitor](../logs/log-query-overview.md) para ver datos detallados de Azure Key Vault.
-

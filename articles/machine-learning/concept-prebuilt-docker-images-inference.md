@@ -11,19 +11,19 @@ ms.date: 05/25/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 3bc18e02345915c5446895a9acc5a33bd0b33431
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0548b309f84f46d7e1a8c904115167d59cc6f10e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746814"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417404"
 ---
 # <a name="prebuilt-docker-images-for-inference-preview"></a>Imágenes de Docker precompiladas para inferencia (versión preliminar)
 
 Se usan imágenes de contenedor de Docker precompiladas para la inferencia [(versión preliminar)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) al implementar un modelo con Azure Machine Learning.  Las imágenes se precompilan con conocidos marcos de aprendizaje automático y paquetes de Python. También puede ampliar los paquetes para agregar otros paquetes mediante uno de los métodos siguientes:
 
 * [Agregar paquetes de Python](how-to-prebuilt-docker-images-inference-python-extensibility.md).
-* [Usar el paquete precompilado como base para un nuevo Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Con este método, puede instalar **paquetes de Python y paquetes apt**.
+* [Usar una imagen de inferencia precompilada como base para un nuevo Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Con este método, puede instalar **paquetes de Python y paquetes apt**.
 
 ## <a name="why-should-i-use-prebuilt-images"></a>¿Por qué debo usar imágenes precompiladas?
 
@@ -31,7 +31,6 @@ Se usan imágenes de contenedor de Docker precompiladas para la inferencia [(ver
 * Mejora la tasa de éxito de la implementación de modelo.
 * Evite la compilación innecesaria de imágenes durante la implementación de modelo.
 * Disponga solo de las dependencias y el derecho de acceso necesarios en la imagen o contenedor. 
-* El proceso de inferencia en la implementación se ejecuta como no raíz.
 
 ## <a name="list-of-prebuilt-docker-images-for-inference"></a>Lista de imágenes de Docker precompiladas para la inferencia 
 

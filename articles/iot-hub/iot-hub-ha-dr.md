@@ -1,22 +1,22 @@
 ---
 title: Alta disponibilidad y recuperación ante desastres de Azure IoT Hub | Microsoft Docs
 description: Describe las características de Azure e IoT Hub que lo ayudarán a crear soluciones de IoT de Azure de alta disponibilidad con funcionalidades de recuperación ante desastres.
-author: jlian
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.author: philmea
-ms.openlocfilehash: 10a3360f30d211336e4ce861b124a307c85fb150
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.author: robinsh
+ms.openlocfilehash: 6b7fea611eeb3701bc624be8354b4639966dfaa6
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308258"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860343"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
-Como primer paso para implementar una solución IoT resistente, los arquitectos, desarrolladores y propietarios de empresas deben definir los objetivos de tiempo de actividad para las soluciones que vayan a crear. Estos objetivos se pueden definir principalmente en función de los objetivos de negocio específicos para cada escenario. En este contexto, en el artículo de [orientación técnica sobre la continuidad empresarial de Azure](/azure/architecture/resiliency/) se describe un marco general para ayudar a reflexionar sobre la continuidad empresarial y recuperación ante desastres. El documento [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](/azure/architecture/reliability/disaster-recovery) proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
+Como primer paso para implementar una solución IoT resistente, los arquitectos, desarrolladores y propietarios de empresas deben definir los objetivos de tiempo de actividad para las soluciones que vayan a crear. Estos objetivos se pueden definir principalmente en función de los objetivos de negocio específicos para cada escenario. En este contexto, en el artículo de [orientación técnica sobre la continuidad empresarial de Azure](/azure/architecture/framework/resiliency/app-design) se describe un marco general para ayudar a reflexionar sobre la continuidad empresarial y recuperación ante desastres. El documento [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](/azure/architecture/reliability/disaster-recovery) proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
 
 En este artículo se describen las características de alta disponibilidad y recuperación ante desastres que ofrece específicamente el servicio IoT Hub. Las amplias áreas tratadas en este artículo son:
 
@@ -60,7 +60,7 @@ Ambas opciones de conmutación por error ofrecen los siguientes objetivos de pun
 Una vez completada la operación de conmutación por error para la instancia de IoT Hub, se espera que todas las operaciones de las aplicaciones de dispositivo y back-end sigan funcionando sin necesidad de una intervención manual. Esto significa que los mensajes del dispositivo a la nube deben seguir funcionando y todo el registro del dispositivo está intacto. Los eventos emitidos mediante Event Grid pueden consumirse con las mismas suscripciones configuradas anteriormente, siempre y cuando esas suscripciones de Event Grid sigan estando disponibles. No se requiere manipulación adicional para los puntos de conexión personalizados.
 
 > [!CAUTION]
-> - El nombre compatible con Event Hub y el punto de conexión de eventos integrados en IoT Hub cambian tras la conmutación por error. Cuando se reciben mensajes de telemetría desde el punto de conexión integrado mediante el cliente de Event Hub o el host del procesador de eventos, se debe [usar la cadena de conexión de IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para establecer la conexión. Esto garantiza que las aplicaciones de back-end sigan funcionando sin necesidad de intervención manual después de la conmutación por error. Si usa el nombre y el punto de conexión compatibles con Event Hub directamente en la aplicación, tendrá que [capturar el nuevo punto de conexión compatible con Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) después de la conmutación por error para continuar con las operaciones. 
+> - El nombre compatible con Event Hub y el punto de conexión de eventos integrados en IoT Hub cambian tras la conmutación por error. Cuando se reciben mensajes de telemetría desde el punto de conexión integrado mediante el cliente de Event Hub o el host del procesador de eventos, se debe [usar la cadena de conexión de IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para establecer la conexión. Esto garantiza que las aplicaciones de back-end sigan funcionando sin necesidad de intervención manual después de la conmutación por error. Si usa el nombre y el punto de conexión compatibles con Event Hub directamente en la aplicación, tendrá que [capturar el nuevo punto de conexión compatible con Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) después de la conmutación por error para continuar con las operaciones. Para obtener más información, vea [Conmutación por error manual y Event Hub](#manual-failover-and-event-hub), más adelante en este tema.
 >
 > - Si usa Azure Functions o Azure Stream Analytics para conectar el punto de conexión de eventos integrado, puede que tenga que realizar un **reinicio**. Esto se debe a que, durante la conmutación por error, los desplazamientos anteriores ya no son válidos.
 >
@@ -81,6 +81,18 @@ La opción de conmutación por error manual siempre está disponible para su uso
 La conmutación por error manual está disponible sin costo adicional para los centros de IoT creados después del 18 de mayo de 2017.
 
 Para obtener instrucciones paso a paso, consulte [Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub](tutorial-manual-failover.md)
+
+## <a name="manual-failover-and-event-hub"></a>Conmutación por error manual y Event Hub
+
+Como se mencionó anteriormente en la sección **Precaución**, el nombre y el punto de conexión compatibles con el centro Event Hub integrados en IoT Hub cambian tras la conmutación por error. Esto se debe a que el cliente de Event Hub no tiene visibilidad sobre eventos de IoT Hub. Lo mismo sucede con otros clientes basados en la nube, como Functions y Azure Stream Analytics. Para recuperar el punto de conexión y el nombre, puede usar Azure Portal o aprovechar un ejemplo incluido.
+
+### <a name="use-the-portal"></a>Uso del portal
+
+Para obtener más información sobre cómo usar el portal para recuperar el nombre y el punto de conexión compatibles con el centro Event Hub, consulte [Leer desde el punto de conexión integrado](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint).
+
+### <a name="use-the-included-sample"></a>Uso del ejemplo incluido
+
+Para usar la cadena de conexión de IoT Hub para volver a capturar el punto de conexión compatible con Event Hub, aproveche un ejemplo ubicado en [https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs) que muestra cómo usar la cadena de conexión de IoT Hub para volver a capturar el punto de conexión compatible con Event Hub. En el ejemplo de código se usa la cadena de conexión para obtener el nuevo punto de conexión de Event Hub y restablecer la conexión. Debe tener instalado Visual Studio.
 
 ### <a name="running-test-drills"></a>Ejecución de simulacros de prueba
 
@@ -141,5 +153,5 @@ A continuación le mostramos un resumen de las opciones de alta disponibilidad y
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Azure IoT Hub?](about-iot-hub.md)
-* [Introducción a los centros de IoT (inicio rápido)](quickstart-send-telemetry-dotnet.md)
+* [Introducción a los centros de IoT (inicio rápido)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 * [Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub](tutorial-manual-failover.md)

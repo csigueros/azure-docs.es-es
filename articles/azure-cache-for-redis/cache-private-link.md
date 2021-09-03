@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 3/31/2021
-ms.openlocfilehash: e479a743a54e0cf3d7350fa87c3cc5ad8bf332be
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 37955c748135768701fd3429c2e4182f5d18e70c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696521"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722997"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Cache for Redis con Azure Private Link
 
@@ -24,7 +24,7 @@ Un punto de conexión privado de Azure es una interfaz de red que le conecta de 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> Actualmente, no se admiten la redundancia de zona, la compatibilidad con la consola del portal ni la persistencia en cuentas de almacenamiento de firewall. 
+> Actualmente, no se admiten la compatibilidad con la consola del portal ni la persistencia en cuentas de almacenamiento de firewall. 
 >
 >
 
@@ -212,7 +212,7 @@ Si la memoria caché ya está insertada en la red virtual, los puntos de conexi�
 
 ### <a name="what-features-arent-supported-with-private-endpoints"></a>¿Qué características no son compatibles con los puntos de conexión privados?
 
-Actualmente, no se admiten la redundancia de zona, la compatibilidad con la consola del portal ni la persistencia en cuentas de almacenamiento de firewall. 
+Actualmente, no se admiten la compatibilidad con la consola del portal ni la persistencia en cuentas de almacenamiento de firewall. 
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>¿Cómo puedo cambiar el punto de conexión privado para que esté deshabilitado o habilitado el acceso desde la red pública?
 
@@ -238,6 +238,10 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-link-cache"></a>¿Cómo puedo migrar mi memoria caché insertada en la red virtual a una memoria caché de Private Link?
+
+Consulte nuestra [guía de migración](cache-vnet-migration.md) para obtener diferentes enfoques sobre cómo migrar las memorias cachés insertadas en la red virtual a memorias caché de Private Link. 
+
 ### <a name="how-can-i-have-multiple-endpoints-in-different-virtual-networks"></a>¿Cómo puedo tener varios puntos de conexión en diferentes redes virtuales?
 
 Para tener varios puntos de conexión privados en distintas redes virtuales, la zona DNS privada debe configurarse manualmente en las varias redes virtuales _antes_ de crear el punto de conexión privado. Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md). 
@@ -256,9 +260,6 @@ Controle el tráfico mediante el uso de reglas del grupo de seguridad de red par
 
 Solo está vinculada a la red virtual. Dado que no está en la red virtual, no es necesario modificar las reglas del grupo de seguridad de red para los puntos de conexión dependientes.
 
-### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>¿Cómo puedo migrar mi memoria caché insertada en la red virtual a una memoria caché de punto de conexión privado?
-
-Elimine la memoria caché insertada en la red virtual y cree una nueva instancia de memoria caché con un punto de conexión privado. Para más información, consulte [Migración a Azure Cache for Redis](cache-migration-guide.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

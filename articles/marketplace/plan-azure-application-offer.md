@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: bd0e89e1967842e8167c3da1fc3d2a716a5f7bd6
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: c8faefa8f1793275e4c93bf772e89ebf852b33d4
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633782"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283454"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial
 
@@ -95,7 +95,7 @@ Puede agregar o modificar una conexión CRM en cualquier momento durante o despu
 
 ## <a name="categories-and-subcategories"></a>Categorías y subcategorías
 
-Puede elegir una categoría como mínimo y dos como máximo para agrupar la oferta en las áreas de búsqueda apropiadas del marketplace comercial. Puede elegir hasta dos subcategorías por cada categoría principal y secundaria. Para ver la lista completa de categorías y subcategorías, consulte [Procedimientos recomendados para la descripción de ofertas](marketplace-categories-industries.md#categories).
+Puede elegir una categoría como mínimo y dos como máximo para agrupar la oferta en las áreas de búsqueda apropiadas del marketplace comercial. Puede elegir hasta dos subcategorías por cada categoría principal y secundaria. Para ver la lista completa de categorías y subcategorías, consulte [Procedimientos recomendados para la descripción de ofertas](gtm-offer-listing-best-practices.md#categories).
 
 ## <a name="legal-contracts"></a>Contratos legales
 

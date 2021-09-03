@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/22/2021
 ms.custom: template-concept
-ms.openlocfilehash: 262616ca82e9c06baec0d7a1b81a0e3dff2ed8db
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7786cd64ebf46038cc4d41f13ef76bb4d543752f
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304518"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112970128"
 ---
 # <a name="marketing-properties"></a>Propiedades de marketing
 
@@ -50,13 +50,16 @@ En la parte superior de la página de descripción del producto se resaltan las 
 | Target industries (Sectores objetivo)  | Los 3 sectores principales para los que está optimizado el dispositivo  | Detalles de marketing |
 | Descripción del producto  | Campo de texto libre para que escriba su descripción de marketing del producto. Aquí puede incluir los detalles que no aparecen en el portal o agregar contexto adicional de las ventajas de usar el dispositivo. | Detalles de marketing|
 
-El resto de la página va enfocada a la presentación de las especificaciones técnicas del dispositivo en formato de tabla, lo que ayudará a su cliente a entender mejor el producto. Por comodidad, la información que se muestra en la parte superior de la página también se muestra aquí. El resto de la tabla se encuentra dividida en los componentes especificados en el portal.
+El resto de la página va enfocada a la presentación de las especificaciones técnicas del dispositivo en formato de tabla, lo que ayudará a su cliente a entender mejor el producto. Por comodidad, la información que se muestra en la parte superior de la página también se muestra aquí, junto con información adicional sobre el dispositivo. El resto de la tabla se encuentra dividida en los componentes especificados en el portal.
 
 ![Página inferior de PDP](./media/concepts-marketing/pdp-bottom.png)
 
 | Campo | Descripción                  | Dónde agregarlo en el portal                |
 |---------------|-------------------------|----------------------------------|
-| Tipo de componente | Clasificación del factor de forma y el propósito principal de su dispositivo ([Más información](./resources-glossary.md))       | Detalles del producto de Detalles del dispositivo|
+| Certificaciones de entorno | Certificaciones oficiales recibidas para el rendimiento en distintos entornos     | Detalles del hardware del dispositivo  |
+| Condiciones de funcionamiento | Valores de protección de entrada o intervalos de temperatura para los que el dispositivo está calificado     | Detalles del software del dispositivo  |
+| Configuración de software de Azure | Clasificación del proceso de configuración para conectar el dispositivo a Azure ([Más información](./how-to-software-levels.md))     | Detalles del software del dispositivo  |
+| Tipo de componente | Clasificación del factor de forma y el propósito principal de su dispositivo ([Más información](./resources-glossary.md))       | Detalles del hardware del dispositivo|
 | Nombre de componente| Nombre del componente que describe | Detalles del producto de Detalles del dispositivo |
 | Additional component information (Información adicional del componente) | Especificaciones de hardware adicionales, como sensores incluidos, conectividad, aceleradores, etc.  | Información adicional del componentes de Detalles del dispositivo ([Más información](./how-to-using-the-components-feature.md))  |
 | Device dependency text (Texto de dependencia del dispositivo) | Texto proporcionado por el asociado que describe las diferentes dependencias que requiere el producto para conectarse a Azure ([Más información](./how-to-indirectly-connected-devices.md))   | Sección de comentarios orientados al cliente de la pestaña Dependencias de Detalles del dispositivo |
@@ -73,6 +76,7 @@ Tanto en el icono del producto como en la página Descripción del producto hay 
 | Get Device| Vínculo a un sitio web externo donde el cliente puede comprar el dispositivo (o solicitar una oferta al distribuidor). Si el distribuidor es también el fabricante del dispositivo, puede ser el mismo que la página del fabricante del dispositivo. Si no existe una página de compra, se le redirigirá a la página del distribuidor para que el cliente se ponga en contacto con ellos directamente.  | Dirección URL de la página del producto del distribuidor en los detalles de marketing. Si no hay una página de compra, el vínculo se establecerá de forma predeterminada en dirección URL del distribuidor en los detalles de marketing. |
 
 ## <a name="external-links"></a>Vínculos externos
+
 En la página Descripción del producto también se incluyen vínculos que llevan a sitios proporcionados por el asociado o a archivos que ayudan al cliente a comprender mejor el producto. Aparecen hacia la parte superior de la página, debajo del texto de descripción del producto. Los vínculos que se muestran variarán según los distintos tipos de dispositivos y programas de certificación.
 
 | Vínculo | Descripción                  | Dónde agregarlo en el portal                |

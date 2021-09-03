@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f8d58388715b6bd43676ca7e98cf47901f6409a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695522"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285061"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 
@@ -71,8 +71,8 @@ ms.locfileid: "101695522"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
-[azure-cli]:../../../cli-install-nodejs.md
-[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli
+[azure-cli]:/cli/azure/install-classic-cli
+[azure-cli-2]:/cli/azure/install-azure-cli
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -128,6 +128,8 @@ ms.locfileid: "101695522"
 [deployment-guide-5.1-new]:deployment-guide.md#7bf24f59-7347-4c7a-b094-4693e4687ee5 (Comprobación de la preparación de la nueva extensión de Azure para SAP)
 [deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Comprobación del estado de la configuración de la extensión de Azure para SAP)
 [deployment-guide-5.2-new]:deployment-guide.md#464ac96d-7d3c-435d-a5ae-3faf3bfef4b3 (Comprobación del estado de la configuración de la nueva extensión de Azure para SAP)
+
+
 [deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Solución de problemas de la extensión de Azure para SAP)
 [deployment-guide-5.3-new]:deployment-guide.md#b7afb8ef-a64c-495d-bb37-2af96688c530 (Solución de problemas de la nueva extensión de Azure para SAP)
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Solución de problemas de la extensión de Azure para SAP: póngase en contacto con el soporte técnico)
@@ -242,16 +244,16 @@ ms.locfileid: "101695522"
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
 [sap-pam]:https://support.sap.com/pam (Matriz de disponibilidad de productos SAP)
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
-[sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
-[sap-templates-2-tier-os-disk-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk-md%2Fazuredeploy.json
+[sap-templates-2-tier-os-disk-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-user-disk-md%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
-[sap-templates-2-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image-md%2Fazuredeploy.json
+[sap-templates-2-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-user-image-md%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
-[sap-templates-3-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-md%2Fazuredeploy.json
+[sap-templates-3-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-md%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
+[sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
 [storage-azure-cli]:../../../storage/common/storage-azure-cli.md
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
@@ -262,7 +264,7 @@ ms.locfileid: "101695522"
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
-[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
+[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
@@ -438,7 +440,7 @@ El asistente le guiará a través de los parámetros que se requieren para crear
    * **Ubicación**: lugar en donde se implementará la nueva máquina virtual. Si desea conectar la máquina virtual con la red local, asegúrese de seleccionar la ubicación de la red virtual que conecta Azure con su red local. Para más información, consulte [Redes de Microsoft Azure][planning-guide-microsoft-azure-networking] en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
 1. **Size**:
 
-     Lea la nota de SAP [1928533] para ver una lista de los tipos de máquinas virtuales que se admiten. Asegúrese de seleccionar el tipo de máquina virtual correcto si quiere usar Azure Premium Storage. No todos los tipos de VM son compatibles con Premium Storage. Para más información consulte [Almacenamiento: Microsoft Azure Storage y los discos de datos][planning-guide-storage-microsoft-azure-storage-and-data-disks] y [Azure Storage para cargas de trabajo de SAP](./planning-guide-storage.md) en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
+   Lea la nota de SAP [1928533] para ver una lista de los tipos de máquinas virtuales que se admiten. Asegúrese de seleccionar el tipo de máquina virtual correcto si quiere usar Azure Premium Storage. No todos los tipos de VM son compatibles con Premium Storage. Para más información consulte [Almacenamiento: Microsoft Azure Storage y los discos de datos][planning-guide-storage-microsoft-azure-storage-and-data-disks] y [Azure Storage para cargas de trabajo de SAP](./planning-guide-storage.md) en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
 
 1. **Configuración**:
    * **Storage**
@@ -578,7 +580,7 @@ El asistente le guiará a través de los parámetros que se requieren para crear
    * **Ubicación**: lugar en donde se implementará la nueva máquina virtual. Si desea conectar la máquina virtual con la red local, asegúrese de seleccionar la ubicación de la red virtual que conecta Azure con su red local. Para más información, consulte [Redes de Microsoft Azure][planning-guide-microsoft-azure-networking] en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
 1. **Size**:
 
-     Lea la nota de SAP [1928533] para ver una lista de los tipos de máquinas virtuales que se admiten. Asegúrese de seleccionar el tipo de máquina virtual correcto si quiere usar Azure Premium Storage. No todos los tipos de VM son compatibles con Premium Storage. Para más información consulte [Almacenamiento: Microsoft Azure Storage y los discos de datos][planning-guide-storage-microsoft-azure-storage-and-data-disks] y [Azure Storage para cargas de trabajo de SAP](./planning-guide-storage.md) en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
+   Lea la nota de SAP [1928533] para ver una lista de los tipos de máquinas virtuales que se admiten. Asegúrese de seleccionar el tipo de máquina virtual correcto si quiere usar Azure Premium Storage. No todos los tipos de VM son compatibles con Premium Storage. Para más información consulte [Almacenamiento: Microsoft Azure Storage y los discos de datos][planning-guide-storage-microsoft-azure-storage-and-data-disks] y [Azure Storage para cargas de trabajo de SAP](./planning-guide-storage.md) en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
 
 1. **Configuración**:
    * **Storage**
@@ -962,9 +964,8 @@ La salida del script incluye la información siguiente:
 
 #### <a name="azure-cli-for-linux-vms"></a><a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI de Azure para máquinas virtuales de Linux
 
-Para instalar la extensión de Azure para SAP mediante la CLI de Azure:
-
-   1. Instale la CLI de Azure clásica tal y como se describe en [Instalación de la CLI clásica de Azure][azure-cli].
+1. Instale la extensión de Azure para SAP mediante la CLI de Azure:
+   1. Instale la [CLI de Azure clásica][azure-cli].
    1. Inicie sesión con su cuenta de Azure:
 
       ```console
@@ -977,28 +978,27 @@ Para instalar la extensión de Azure para SAP mediante la CLI de Azure:
       azure config mode arm
       ```
 
-   1. Habilite la extensión de Azure para SAP:
+   1. Habilite la extensión:
 
       ```console
       azure vm enable-aem <resource-group-name> <vm-name>
       ```
 
-1. Instalación mediante la CLI de Azure 2.0
-
-   1. Instale la CLI de Azure 2.0 tal y como se describe en [Instalación de la CLI de Azure 2.0][azure-cli-2].
+1. Instale la extensión AEM de la CLI de Azure mediante la CLI de Azure 2.0:
+   1. Instale la [CLI de Azure 2.0][azure-cli-2]. Asegúrese de usar al menos la versión 2.19.1 o posterior (utilice la más reciente).
    1. Inicie sesión con su cuenta de Azure:
 
       ```azurecli
       az login
       ```
 
-   1. Instalación de la extensión AEM de la CLI de Azure
-  
+   1. Instale la extensión AEM de la CLI de Azure. Asegúrese de que usa la versión 0.2.2 o posterior.
+    
       ```azurecli
       az extension add --name aem
       ```
   
-   1. Instalación de la extensión con
+   1. Habilite la extensión:
   
       ```azurecli
       az vm aem set -g <resource-group-name> -n <vm name>
@@ -1021,10 +1021,10 @@ Para instalar la extensión de Azure para SAP mediante la CLI de Azure:
 
 #### <a name="configure-the-new-azure-extension-for-sap-with-azure-powershell"></a><a name="2ad55a0d-9937-4943-9dd2-69bc2b5d3de0"></a>Configuración de la nueva extensión de Azure para SAP con Azure PowerShell
 
-La nueva extensión de VM para SAP usa una identidad administrada asignada a la VM para acceder a los datos de supervisión y configuración de la VM. Para instalar la nueva extensión de Azure para SAP mediante PowerShell, primero debe asignar dicha identidad a la VM y conceder a dicha identidad acceso a todos los recursos que usa esa VM; por ejemplo, discos e interfaces de red.
+La nueva extensión de VM para SAP usa una identidad administrada asignada a la máquina virtual para acceder a los datos de supervisión y configuración de la máquina virtual. Para instalar la nueva extensión de Azure para SAP mediante PowerShell, primero debe asignar esa identidad a la máquina virtual y concederle acceso a todos los recursos que usa esa máquina virtual, por ejemplo, discos e interfaces de red.
 
 > [!NOTE]
-> Los pasos siguientes requieren privilegios de propietario para el grupo de recursos o en recursos individuales (máquinas virtuales, discos de datos, etc.).
+> En los pasos siguientes se necesitan privilegios de propietario para el grupo de recursos o en recursos individuales (máquinas virtuales, discos de datos, etc.)
 
 1. Asegúrese de usar el agente del host 7.21 PL 47 o posterior.
 1. Asegúrese de desinstalar la versión actual de la extensión de VM para SAP. No se admite la instalación de ambas versiones de la extensión de VM para SAP en la misma máquina virtual.
@@ -1042,28 +1042,27 @@ La nueva extensión de VM para SAP usa una identidad administrada asignada a la 
 
 #### <a name="configure-the-new-azure-extension-for-sap-with-azure-cli"></a><a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Configuración de la nueva extensión de Azure para SAP con la CLI de Azure
 
-La nueva extensión de VM para SAP usa una identidad administrada asignada a la VM para acceder a los datos de supervisión y configuración de la VM. Para instalar la nueva extensión de Azure para SAP mediante la CLI de Azure, primero debe asignar dicha identidad a la VM y conceder a dicha identidad acceso a todos los recursos que usa esa VM; por ejemplo, discos e interfaces de red.
+La nueva extensión de VM para SAP usa una identidad administrada asignada a la máquina virtual para acceder a los datos de supervisión y configuración de la máquina virtual. Para instalar la nueva extensión de Azure para SAP mediante la CLI de Azure, primero debe asignar esa identidad a la máquina virtual y concederle acceso a todos los recursos que usa esa máquina virtual, por ejemplo, discos e interfaces de red.
 
 > [!NOTE]
-> Los pasos siguientes requieren privilegios de propietario para el grupo de recursos o en recursos individuales (máquinas virtuales, discos de datos, etc.).
+> En los pasos siguientes se necesitan privilegios de propietario para el grupo de recursos o en recursos individuales (máquinas virtuales, discos de datos, etc.)
 
-1. Asegúrese de usar el agente del host 7.21 PL 47 o posterior.
-1. Asegúrese de desinstalar la versión actual de la extensión de VM para SAP. No se admite la instalación de ambas versiones de la extensión de VM para SAP en la misma máquina virtual.
-1. Instale la CLI de Azure 2.0 tal y como se describe en [Instalación de la CLI de Azure 2.0][azure-cli-2].
-
+1. Asegúrese de usar SAP Host Agent 7.21 PL 47 o posterior.
+1. Asegúrese de desinstalar la versión actual de la extensión de VM para SAP. No puede instalar las dos versiones de la extensión de VM para SAP en la misma máquina virtual. 
+1. Instale la versión más reciente de la [CLI de Azure 2.0][azure-cli-2] (versión 2.19.1 o posterior).
 1. Inicie sesión con su cuenta de Azure:
 
    ```azurecli
    az login
    ```
 
-1. Instale la extensión AEM de la CLI de Azure. Asegúrese de usar al menos la versión 0.2.0 o posterior.
+1. Instale la extensión AEM de la CLI de Azure. Asegúrese de que usa la versión 0.2.2 o posterior.
   
    ```azurecli
    az extension add --name aem
    ```
   
-1. Instale la nueva extensión con
+1. Habilite la nueva extensión:
   
    ```azurecli
    az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension

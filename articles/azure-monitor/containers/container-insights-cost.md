@@ -3,12 +3,12 @@ title: Supervisión del costo de Container Insights | Microsoft Docs
 description: En este artículo se describe el costo de supervisión de las métricas y los datos de inventario recopilados por Container Insights para ayudar a los clientes a administrar su uso y los costos asociados.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 78387e950d476126d7c2065a530844e44fd59b4f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2ff3616b3c78bbd7202acb08ffb3e46e0f7591b0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728916"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738503"
 ---
 # <a name="understand-monitoring-costs-for-container-insights"></a>Descripción de los costos de supervisión de Container Insights
 
@@ -37,7 +37,7 @@ A continuación se ofrece un resumen de los tipos de datos que se recopilan de u
 
 - Extracción activa de métricas de Prometheus
 
-- [Recopilación de registros de diagnóstico](../../aks/view-control-plane-logs.md) del nodo maestro de Kubernetes en el clúster de AKS para analizar los datos de registro generados por los componentes maestros, como *kube-apiserver* y *kube-controller-manager*.
+- [Recopilación de registros de diagnóstico](../../aks/monitor-aks.md#configure-monitoring) del nodo maestro de Kubernetes en el clúster de AKS para analizar los datos de registro generados por los componentes maestros, como *kube-apiserver* y *kube-controller-manager*.
 
 ## <a name="what-is-collected-from-kubernetes-clusters"></a>Qué se recopila de los clústeres de Kubernetes
 
@@ -108,7 +108,7 @@ Si ha habilitado la supervisión de un clúster de AKS configurado de la siguien
 - Cinco servicios de Kubernetes (incluyen pods, servicios y espacio de nombres de kube-system)
 - Frecuencia de recopilación = 60 seg (valor predeterminado)
 
-Puede ver las tablas y el volumen de datos generados por hora en el área de trabajo de Log Analytics asignada. Para más información sobre estas preguntas, consulte [Registros de contenedor](container-insights-log-search.md#container-records).
+Puede ver las tablas y el volumen de datos generados por hora en el área de trabajo de Log Analytics asignada. Para más información sobre cada una de estas tablas, consulte [Tablas de registros de Azure Monitor](../../aks/monitor-aks-reference.md#azure-monitor-logs-tables).
 
 |Tabla | Estimación de tamaño (MB/hora) |
 |------|---------------|

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/11/2021
 ms.author: apimpm
-ms.openlocfilehash: a8199f88527cfd1417997c12f9d682be1c60a810
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f17d271315bc537f916cb4d9addfa7ea1eaec995
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784546"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115829"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management
 
@@ -212,12 +212,13 @@ La puerta de enlace autohospedada también admite varios protocolos, como `local
 | Campo  | Valor predeterminado | Descripción |
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Habilita el registro en flujos estándares. El valor puede ser `none`, `text`, `json`. |
-| telemetry.logs.local  | `none` | Habilita el registro local. El valor puede ser `none`, `auto`, `localsyslog`, `rfc5424`, `journal`.  |
+| telemetry.logs.local  | `auto` | Habilita el registro local. El valor puede ser `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  |
 | telemetry.logs.local.localsyslog.endpoint  | N/D | Especifica el punto de conexión localsyslog.  |
 | telemetry.logs.local.localsyslog.facility  | N/D | Especifica el [código de componente](https://en.wikipedia.org/wiki/Syslog#Facility) de localsyslog. Por ejemplo, `7`
 | telemetry.logs.local.rfc5424.endpoint  | N/D | Especifica el punto de conexión rfc5424.  |
 | telemetry.logs.local.rfc5424.facility  | N/D | Especifica el código de componente por [rfc5424](https://tools.ietf.org/html/rfc5424). Por ejemplo, `7`  |
 | telemetry.logs.local.journal.endpoint  | N/D | Especifica el punto de conexión del diario.  |
+| telemetry.logs.local.json.endpoint | 127.0.0.1:8888 | Especifica el punto de conexión UDP que acepta datos JSON: ruta de archivo, IP:puerto o nombreDeHost:puerto.
 
 A continuación, puede ver un ejemplo de configuración de registro local:
 

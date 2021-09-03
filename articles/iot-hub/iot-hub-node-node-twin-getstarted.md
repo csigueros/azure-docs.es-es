@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 1084951d63d8d7766dcf275336340e7ec93a7e9d
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: bdc1822422f3e8ff7a9ca63b7bcf4627cd0e8470
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890625"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729846"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Introducción a los dispositivos gemelos (Node.js)
 
@@ -233,8 +233,8 @@ En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después,
 
 Use los siguientes recursos para obtener información sobre cómo:
 
-* Enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub](quickstart-send-telemetry-node.md).
+* Enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs).
 
 * Configurar dispositivos mediante las propiedades deseadas del dispositivo gemelo con el tutorial [Uso de las propiedades deseadas para configurar dispositivos](tutorial-device-twins.md).
 
-* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el tutorial [Uso de métodos directos](quickstart-control-device-node.md).
+* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el artículo de inicio rápido [Uso de métodos directos](./quickstart-control-device.md?pivots=programming-language-nodejs).

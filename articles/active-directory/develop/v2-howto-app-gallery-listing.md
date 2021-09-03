@@ -1,6 +1,6 @@
 ---
 title: Publicación de la aplicación en la galería de aplicaciones de Azure Active Directory
-description: Obtenga información sobre cómo mostrar una aplicación compatible con el inicio de sesión único en la galería de aplicaciones de Azure Active Directory.
+description: Obtenga información sobre cómo mostrar una aplicación compatible con el inicio de sesión único en la galería de aplicaciones de Azure Active Directory. La publicación en la galería de aplicaciones facilita a los clientes la búsqueda y adición de la aplicación a su inquilino.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -8,20 +8,34 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/10/2021
+ms.date: 06/23/2021
 ms.author: kenwith
 ms.reviewer: jeedes
-ms.custom: aaddev
-ms.openlocfilehash: ade77d05e209d65a9d7aa40451362bd66718cf75
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: aaddev, contperf-fy21q4
+ms.openlocfilehash: 7938e8ffbaca3f069016a445775d9c669f1ad144
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033344"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228074"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
-Puede publicar la aplicación en la galería de aplicaciones de Azure AD. Una vez publicada la aplicación, se mostrará como una opción para los clientes cuando agreguen aplicaciones a su inquilino. 
+Puede publicar la aplicación en la galería de aplicaciones de Azure Active Directory (Azure AD). Una vez que se haya publicado la aplicación, se mostrará como una opción para los clientes cuando [agreguen aplicaciones a su inquilino](../manage-apps/add-application-portal.md). 
+
+Los pasos para publicar la aplicación en la galería de aplicaciones de Azure AD son:
+1. Requisitos previos
+1. Elija el estándar de inicio de sesión único adecuado para su aplicación.
+1. Implemente el inicio de sesión único en la aplicación.
+1. Implementación del aprovisionamiento de usuarios de SCIM en la aplicación (opcional)
+1. Cree el inquilino de Azure y pruebe la aplicación.
+1. Cree y publique documentación.
+1. Envíe la aplicación.
+1. Únase a Microsoft Partner Network.
+
+## <a name="what-is-the-azure-ad-application-gallery"></a>¿Qué es la galería de aplicaciones de Azure AD?
+
+La [galería de aplicaciones de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) es un catálogo de miles de aplicaciones que facilita la implementación y configuración del inicio de sesión único (SSO) y el aprovisionamiento automatizado de usuarios.
 
 Algunas de las ventajas de agregar la aplicación a la galería de Azure AD incluyen:
 
@@ -30,6 +44,7 @@ Algunas de las ventajas de agregar la aplicación a la galería de Azure AD inc
 - Basta realizar una búsqueda rápida para encontrar la aplicación en la galería.
 - Todos los clientes de Azure AD de los niveles Gratis, Básico y Premium pueden disfrutar de esta integración.
 - Los clientes mutuos pueden utilizar un tutorial de configuración paso a paso.
+- Los clientes que usan el sistema para la administración de identidades entre dominios ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) pueden usar el aprovisionamiento para la misma aplicación.
 
 Además, hay muchas ventajas cuando los clientes usan Azure AD como proveedor de identidades para la aplicación. Algunas son:
 
@@ -47,39 +62,18 @@ Además, hay muchas ventajas cuando los clientes usan Azure AD como proveedor d
 - Agregue seguridad y comodidad cuando los usuarios inicien sesión en las aplicaciones con el inicio de sesión único de Azure AD sin necesidad de usar credenciales independientes.
 
 > [!TIP]
-> Cuando ofrece la aplicación para que la utilicen otras empresas mediante su compra o suscripción, hace que la aplicación esté disponible para los clientes dentro de sus propios inquilinos de Azure. Esto se conoce como creación de una aplicación multiinquilino. Para obtener información general sobre este concepto, vea [Aplicaciones multiinquilino en Azure](../../dotnet-develop-multitenant-applications.md) e [Inquilinos en Azure Active Directory](single-and-multi-tenant-apps.md).
+> Cuando ofrece la aplicación para que la utilicen otras empresas mediante su compra o suscripción, hace que la aplicación esté disponible para los clientes dentro de sus propios inquilinos de Azure. Esto se conoce como creación de una aplicación multiinquilino. Para obtener información general sobre este concepto, vea [Inquilinos in Azure Active Directory](single-and-multi-tenant-apps.md).
 
-> [!IMPORTANT]
-> Para publicar la aplicación en la galería de Azure AD, debe aceptar términos y condiciones concretos. Antes de empezar, asegúrese de leer y aceptar los [términos y condiciones](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
-
-Los pasos para publicar la aplicación en la galería de aplicaciones de Azure AD son:
-1. Elija el estándar de inicio de sesión único adecuado para su aplicación.
-2. Implemente el inicio de sesión único en la aplicación.
-3. Cree el inquilino de Azure y pruebe la aplicación.
-4. Cree y publique documentación.
-5. Envíe la aplicación.
-6. Únase a Microsoft Partner Network.
-
-## <a name="what-is-the-azure-ad-application-gallery"></a>¿Qué es la galería de aplicaciones de Azure AD?
-
-- Los clientes pueden disfrutar de la mejor experiencia posible de inicio de sesión único.
-- La configuración de la aplicación resulta sencilla y apenas requiere esfuerzo.
-- Basta realizar una búsqueda rápida para encontrar la aplicación en la galería.
-- Todos los clientes de Azure AD de los niveles Gratis, Básico y Premium pueden disfrutar de esta integración.
-- Los clientes mutuos pueden utilizar un tutorial de configuración paso a paso.
-- Los clientes que usan el sistema para la administración de identidades entre dominios ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) pueden usar el aprovisionamiento para la misma aplicación.
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
+Para publicar la aplicación en la galería de Azure AD, primero debe leer y aceptar [términos y condiciones](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/) concretos.
 
 Necesita una cuenta permanente para las pruebas con al menos dos usuarios registrados.
 
 - Para las aplicaciones federadas (Open ID y SAML/WS-Fed), la aplicación debe admitir el modelo de software como servicio (SaaS) para que se incluya en la galería de Azure AD. Las aplicaciones de la galería empresarial tienen que admitir varias configuraciones de cliente y no la de un cliente específico.
-- Para OpenID Connect, la aplicación debe ser de varios inquilinos y para ella se debe implementar correctamente el [marco de consentimiento de Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). El usuario puede enviar la solicitud de inicio de sesión a un punto de conexión común para que los clientes puedas proporcionar su consentimiento a la aplicación. Puede controlar el acceso de usuario en función del identificador del inquilino y el UPN del usuario que se recibieron en el token.
+- Para OpenID Connect, la aplicación debe ser de varios inquilinos y para ella se debe implementar correctamente el [marco de consentimiento de Azure AD](../develop/consent-framework.md). El usuario puede enviar la solicitud de inicio de sesión a un punto de conexión común para que los clientes puedas proporcionar su consentimiento a la aplicación. Puede controlar el acceso de usuario en función del identificador del inquilino y el UPN del usuario que se recibieron en el token.
 - Para SAML 2.0 o WS-Fed, la aplicación debe ser capaz de realizar la integración de SSO de SAML o WS-Fed en modo SP o IDP. Asegúrese de que esta funcionalidad funciona correctamente antes de enviar la solicitud.
 - Para el SSO con contraseña, asegúrese de que la aplicación admita la autenticación por formulario para que se pueda realizar el almacenamiento de contraseña y hacer que el inicio de sesión único funcione del modo previsto.
 - Necesita una cuenta permanente para las pruebas con al menos dos usuarios registrados.
-
-**¿Cómo obtener Azure AD para desarrolladores?**
 
 Puede obtener una cuenta de prueba gratuita con todas las características de Azure AD premium gratis durante 90 días. Este período puede ampliarse siempre que realice labores de desarrollo con dicha cuenta: [Únase al programa de desarrolladores de Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
@@ -139,7 +133,7 @@ Para OAuth y OIDC, vea [Guía sobre los patrones de autenticación](v2-app-types
 
 Para SAML y WS-Fed, la aplicación debe ser capaz de realizar la integración de SSO en modo SP o IDP. Asegúrese de que esta funcionalidad funciona correctamente antes de enviar la solicitud.
 
-Para más información sobre la autenticación, vea [¿Qué es la autenticación?](../azuread-dev/v1-authentication-scenarios.md)
+Para más información sobre la autenticación, vea [¿Qué es la autenticación?](authentication-vs-authorization.md)
 
 > [!IMPORTANT]
 > En el caso de las aplicaciones federadas (OpenID y SAML/WS-Fed), la aplicación debe admitir el modelo de software como servicio (SaaS). Las aplicaciones de la galería de Azure AD tienen que admitir varias configuraciones de cliente y no deben especificarse para un único cliente.
@@ -296,6 +290,8 @@ La escala de tiempo para el proceso del listado de una aplicación de SAML 2.0 
 La escala de tiempo que dura el proceso para mostrar una aplicación de OpenID Connect en la lista de la galería es de entre 2 y 5 días laborables.
 
 ![Escala de tiempo para agregar la aplicación de OpenID Connect a la lista de la galería](./media/howto-app-gallery-listing/timeline2.png)
+
+La escala de tiempo del proceso de enumeración de una aplicación de aprovisionamiento de SCIM en la galería es variable y depende de numerosos factores. 
 
 ### <a name="escalations"></a>Extensiones
 

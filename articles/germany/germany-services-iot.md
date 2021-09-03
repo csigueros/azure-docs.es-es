@@ -1,27 +1,22 @@
 ---
 title: Servicios de IoT de Azure Alemania | Microsoft Docs
-description: Proporciona un punto de partida para IoT Suite para Azure Alemania
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: En este artículo se proporciona un punto de partida para Azure IoT Suite para Azure Alemania.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/01/2018
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 932f9457cc5d33063714ae9c9678174a8b64d156
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 16259a816413bcf7f57475b12f46c9410cb3ca44
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033495"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "117029238"
 ---
 # <a name="azure-germany-iot-services"></a>Servicios de IoT de Azure Alemania
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 ## <a name="iot-solution-accelerators"></a>Aceleradores de soluciones de IoT
 Todos los servicios necesarios para Azure IoT Suite están disponibles en Azure Alemania. 
@@ -45,13 +40,15 @@ Ambas soluciones se pueden implementar de dos maneras, mediante sitio web o medi
 
 ### <a name="deploy-via-website"></a>Implementación mediante sitio web
 
-Siga las instrucciones del [tutorial para las soluciones preconfiguradas](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md) mediante el uso de la página principal mencionada con anterioridad.
+Siga las instrucciones del [tutorial para las soluciones preconfiguradas](/previous-versions/azure/iot-accelerators/about-iot-accelerators) mediante el uso de la página principal mencionada con anterioridad.
 
 ### <a name="deploy-via-powershell"></a>Implementación mediante PowerShell
 
 Hay una versión completa (mediante Visual Studio y las plantillas de Azure Resource Manager) para la solución de *supervisión remota*. Descárguela del [repositorio Azure-IoT-Remote-Monitoring en GitHub](https://github.com/Azure/azure-iot-remote-monitoring). La implementación de PowerShell está lista para otros entornos, como Azure Alemania. Especifique el parámetro de *Environment* parámetro "AzureGermanCloud", de forma que sea similar a lo siguiente:
 
-    build.cmd cloud debug AzureGermanCloud
+```powershell
+build.cmd cloud debug AzureGermanCloud
+```
 
 Mapas de Bing no está disponible actualmente en Azure Alemania, lo por que no es posible suscribirse a él automáticamente. Para resolver este problema, suscríbase al servicio en Azure global y use el servicio ahí. 
 
@@ -74,4 +71,4 @@ Así es como se hace:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información complementaria y actualizaciones, suscríbase al [blog de Azure Alemania](https://blogs.msdn.microsoft.com/azuregermany/).
+Para información complementaria y actualizaciones, suscríbase al [blog de Azure Alemania](/archive/blogs/azuregermany/).

@@ -1,21 +1,21 @@
 ---
 title: 'Procedimientos recomendados para elegir un identificador de serie temporal: Azure Time Series Insights | Microsoft Docs'
 description: Conozca los procedimientos recomendados para elegir un identificador de serie temporal en Azure Time Series Insights Gen2.
-author: shipramishra
-ms.author: shmishr
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 3a15b0c74ebe9a4696c2b61b6dd3b16d9f4b9d10
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950746"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730914"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedimientos recomendados al elegir un id. de serie temporal
 
@@ -37,7 +37,7 @@ Vea el tutorial de aprovisionamiento de entorno para obtener una explicación de
 > * Propiedad *immutable*: una vez creada, no se puede cambiar.
 
 > [!TIP]
-> Si el origen del evento es un centro de IoT, es probable que el identificador de serie temporal sea ***iothub-connection-device-id***.
+> Si el origen del evento es un centro de IoT, es probable que el id. de serie temporal sea ***iothub-connection-device-id***. Si planea usar modelos de dispositivo IoT Plug and Play o los usa sin componentes, debe incluir ***dt-subject*** como parte de la clave compuesta por si lo necesita en el futuro.
 
 Los principales procedimientos recomendados que han de seguirse incluyen lo siguiente:
 

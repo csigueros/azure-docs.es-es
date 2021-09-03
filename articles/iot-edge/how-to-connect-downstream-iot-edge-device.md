@@ -2,7 +2,6 @@
 title: 'Conexión de dispositivos IoT Edge de nivel inferior: Azure IoT Edge | Microsoft Docs'
 description: Se describe cómo configurar un dispositivo IoT Edge para conectarse a dispositivos de puerta de enlace Azure IoT Edge.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: cdc7ce9fbb24dc593ebd4dedc7c2c4ce82afa3f0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2fbb03ae08d1146b51a4a73f1b2260443c1609d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094828"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722122"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge
 
@@ -148,7 +147,11 @@ Asegúrese de que el usuario **iotedge** tenga permisos de lectura para el direc
    ```
 
    >[!TIP]
-   >Si el archivo de configuración todavía no existe en el dispositivo, use `/etc/aziot/config.toml.edge.template` como plantilla para crear uno.
+   >Si el archivo de configuración aún no existe en el dispositivo, use el siguiente comando para crearlo en función del archivo de plantilla:
+   >
+   >```bash
+   >sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   >```
 
 1. Busque la sección **Hostname** en el archivo de configuración. Quite la marca de comentario de la línea con el parámetro `hostname` y actualice el valor para que sea el nombre de dominio completo (FQDN) o la dirección IP del dispositivo IoT Edge.
 
@@ -385,7 +388,7 @@ El módulo de proxy de API se diseñó para personalizarse y administrar los esc
                        "edgeAgent": {
                            "settings": {
                                "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
-                               "createOptions": ""
+                               "createOptions": "{}"
                            },
                            "type": "docker"
                        },

@@ -5,23 +5,25 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/10/2020
+ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 697e594581636bb3940684371661705539068e6a
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: c7f33156394b3dfde100014ace6d8b7f1cbc8caf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001671"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780272"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Creación y administración de réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure y API REST
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este artículo aprenderá a crear y administrar réplicas de lectura en el servicio Azure Database for MySQL mediante la CLI de Azure y API REST. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
 ## <a name="azure-cli"></a>Azure CLI
 Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 - [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli)
 - Un [servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) que se usará como servidor de origen. 
@@ -33,6 +35,8 @@ Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
 > [!IMPORTANT]
 > Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+>
+>Si GTID está habilitado en un servidor principal (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación basada en GTID. Para obtener más información, consulte [Identificador de transacción global (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid).
 
 Un servidor de réplica de lectura se puede crear mediante el comando siguiente:
 
@@ -58,7 +62,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 > Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Las réplicas de lectura se crean con la misma configuración de servidor que el servidor maestro. Una vez creado, se puede cambiar la configuración del servidor de réplica. Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el de origen para asegurarse de que la réplica funciona al mismo nivel que el servidor maestro.
+> * El comando `az mysql server replica create` tiene un argumento `--sku-name` que le permite especificar la SKU (`{pricing_tier}_{compute generation}_{vCores}`) mientras crea una réplica mediante la CLI de Azure. </br>
+> * El servidor principal y la réplica de lectura deben estar en el mismo plan de tarifa (De uso general u Optimizado para memoria). </br>
+> * Una vez creada, también se puede cambiar la configuración del servidor de réplica. Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el de origen para asegurarse de que la réplica funciona al mismo nivel que el servidor maestro.
 
 
 ### <a name="list-replicas-for-a-source-server"></a>Enumeración de las réplicas de un servidor de origen
@@ -178,6 +184,14 @@ Cuando se elimina un servidor de origen, la replicación se detiene en todas las
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}?api-version=2017-12-01
 ```
 
+### <a name="known-issue"></a>Problema conocido
+
+Hay dos generaciones de almacenamiento que usan los servidores de los niveles De uso general y Optimizado para memoria, Almacenamiento de uso general v1 (admite hasta 4 TB) y Almacenamiento de uso general v2 (admite almacenamiento de hasta 16 TB).
+El servidor de origen y el servidor de réplica deben tener el mismo tipo de almacenamiento. Como el [Almacenamiento de uso general v2](./concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) no está disponible en todas las regiones, asegúrese de elegir la región de réplica correcta mientras usa la ubicación con la CLI o la API REST para la creación de réplicas de lectura. Para saber cómo identificar el tipo de almacenamiento del servidor de origen, consulte el vínculo [¿Cómo puedo determinar en qué tipo de almacenamiento se ejecuta mi servidor?](./concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on). 
+
+Si elige una región en la que no puede crear una réplica de lectura para el servidor de origen, se producirá el problema por el que la implementación seguirá ejecutándose como se muestra en la ilustración siguiente y, a continuación, se agotará el tiempo de espera con el error *"La operación de aprovisionamiento de recursos no se ha completado dentro del período de tiempo de espera permitido"* .
+
+[ :::image type="content" source="media/howto-read-replicas-cli/replcia-cli-known-issue.png" alt-text="Error de la CLI de réplica de lectura.":::](media/howto-read-replicas-cli/replcia-cli-known-issue.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

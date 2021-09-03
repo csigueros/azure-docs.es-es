@@ -2,13 +2,13 @@
 title: Administración y supervisión de bases de datos de SQL Server en una máquina virtual de Azure
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 3938e26e134f7d823d8a6f6fac631ebf4442e6ab
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/27/2021
+ms.openlocfilehash: e768eae283aaf113d68f425cb306860411a9bcd9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519143"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738427"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -123,6 +123,9 @@ En el panel del almacén, vaya a **Administrar** > **Directivas de copia de segu
   ![Modificación de la directiva de copia de seguridad](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
 La modificación de directivas afectará a todos los elementos de Backup asociados y al desencadenador de los trabajos de **configuración de la protección** correspondientes.
+
+>[!Note]
+>La modificación de la directiva también afectará a los puntos de recuperación existentes. <br><br> En el caso de los puntos de recuperación archivados que no hayan permanecido durante 180 días en el nivel de almacenamiento de archivo, la eliminación de los puntos de recuperación implica un costo de eliminación anticipada. [Más información](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
 
 ### <a name="inconsistent-policy"></a>Directiva incoherente
 

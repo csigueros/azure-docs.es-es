@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 31db8c4d8a371aaad939e3a85972958befb2206e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 630b354768e3ad0882911f11a99cca06fc87154e
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137570"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234436"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Procedimientos recomendados del SDK de Azure Maps Web
 
@@ -405,7 +405,7 @@ https://azure.com/support
 
 **¿Dónde obtengo ayuda técnica para Azure Maps?**
 
-Si está relacionado con el Azure Maps visual en Power BI: https://powerbi.microsoft.com/support/ para todos los demás servicios de Azure Maps: https://azure.com/support o los foros para desarrolladores: https://docs.microsoft.com/answers/topics/azure-maps.html
+Si está relacionado con el objeto visual Azure Maps en Power BI: https://powerbi.microsoft.com/support/ Para todos los demás servicios de Azure Maps: https://azure.com/support o los foros para desarrolladores: [https://docs.microsoft.com/answers/topics/azure-maps.html](/answers/topics/azure-maps.html).
 
 **¿Cómo se puede realizar una solicitud de características?**
 

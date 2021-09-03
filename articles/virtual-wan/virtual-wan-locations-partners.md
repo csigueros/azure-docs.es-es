@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: references_regions
-ms.openlocfilehash: d861a5c820c38eb5e0e8ea8f777e9346871ce658
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: ff6e928c5f50c2f0a15936b190f0191da67b81c3
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579475"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419448"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -21,7 +21,7 @@ En este artículo se proporciona información sobre las regiones admitidas de Vi
 
 Azure Virtual WAN es un servicio de redes que ofrece conectividad de rama a rama automatizada y optimizada mediante Azure. Azure Virtual WAN permite conectar y configurar los dispositivos de rama para comunicarse con Azure. La conexión y la configuración se pueden realizar manualmente o con dispositivos de proveedores mediante un asociado de Virtual WAN. El uso de dispositivos de asociados permite la administración de la configuración, facilita el uso y simplifica la conectividad.
 
-La conectividad desde el dispositivo local se establece de forma automática para el concentrador virtual. Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad de la red local (vpnsite). Solo se puede tener un concentrador por región.
+La conectividad desde el dispositivo local se establece de forma automática para el concentrador virtual. Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad de la red local (vpnsite). 
 
 ## <a name="branch-ipsec-connectivity-automation-from-partners"></a><a name="automation"></a>Automatización de la conectividad IPSec de ramas de los asociados
 

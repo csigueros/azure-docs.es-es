@@ -8,28 +8,25 @@ ms.author: shipatel
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 05/25/2021
+ms.date: 06/16/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 912ad0b1cbb7814774a06cf890e3618ee06b2c0a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f9a298a311ac30b03be569a35aa59c0c6157601e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382957"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287612"
 ---
-# <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning-preview"></a>Entrenamiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)
+# <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning"></a>Entrenamiento de modelos de Machine Learning con proyectos de MLflow y Azure Machine Learning
 
-En este artículo, obtendrá información sobre cómo habilitar el identificador URI de seguimiento y la API de registro de MLflow, que en conjunto se conocen como [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), para enviar trabajos de entrenamiento con [proyectos de MLflow](https://www.mlflow.org/docs/latest/projects.html) y compatibilidad de back-end con Azure Machine Learning (versión preliminar). Puede enviar trabajos localmente con el seguimiento de Azure Machine Learning o migrar las ejecuciones a la nube, por ejemplo, a través de un [Proceso de Azure Machine Learning](./how-to-create-attach-compute-cluster.md).
+En este artículo, aprenderá a habilitar el identificador URI de seguimiento y la API de registro de MLflow, que en conjunto se conocen como [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), para enviar trabajos de entrenamiento con [proyectos de MLflow](https://www.mlflow.org/docs/latest/projects.html) y compatibilidad de back-end con Azure Machine Learning. Puede enviar trabajos localmente con el seguimiento de Azure Machine Learning o migrar las ejecuciones a la nube, por ejemplo, a través de un [Proceso de Azure Machine Learning](./how-to-create-attach-compute-cluster.md).
 
 Los [proyectos de MLflow](https://mlflow.org/docs/latest/projects.html) permiten organizar y describir el código para permitir que otros científicos de datos (o herramientas automatizadas) lo ejecuten. Los proyectos de MLflow con Azure Machine Learning le permiten realizar un seguimiento de las ejecuciones de entrenamiento y administrarlas en el área de trabajo.
 
 [MLflow](https://www.mlflow.org) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que lleva a cabo un registro y un seguimiento de las métricas de ejecución de entrenamiento y de los artefactos del modelo, independientemente del entorno del experimento (localmente en su equipo, en un destino de proceso remoto, en una máquina virtual o en un [clúster de Azure Databricks](how-to-use-mlflow-azure-databricks.md)).
 
 [Obtenga más información sobre la integración de MLflow y Azure Machine Learning](how-to-use-mlflow.md).
-
->[!NOTE]
-> Como biblioteca de código abierto, MLflow cambia con frecuencia. Como tal, la funcionalidad que se pone a disposición a través de la integración de Azure Machine Learning y MLflow debe considerarse como una vista previa y no es totalmente compatible con Microsoft.
 
 > [!TIP]
 > La información de este documento va destinada principalmente a aquellos científicos de datos y desarrolladores que deseen supervisar el proceso de entrenamiento del modelo. Los administradores que estén interesados en la supervisión del uso de recursos y eventos desde Azure Machine Learning, como cuotas, ejecuciones de entrenamiento completadas o implementaciones de modelos completadas pueden consultar [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).

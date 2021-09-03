@@ -9,22 +9,22 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 52fe23315bc6f455460e8e3727d263e14799b186
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: b5394302d3b1028ff6746e9a655028fdb82d9142
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582842"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695024"
 ---
 # <a name="consuming-an-machine-learning-studio-classic-web-service-from-excel"></a>Consumo de un servicio web de Machine Learning Studio (clásico) desde Excel
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 Machine Learning Studio (clásico) facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir código.
 
 Si utiliza Excel 2013 (o posterior) o Excel Online, le recomendamos que use el [complemento de Excel](excel-add-in-for-web-services.md).
-
-
 
 ## <a name="steps"></a>Pasos
 Publicar un servicio web. [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md) (Implementar el modelo de riesgo de crédito) se explica cómo hacerlo. Actualmente, la función de libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única). 

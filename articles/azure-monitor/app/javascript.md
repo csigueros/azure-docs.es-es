@@ -4,12 +4,12 @@ description: Obtenga recuentos de sesiones y vistas de página, además de datos
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 61b7aa455cf9b782ca10d749344c26f5d15caa40
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2d2cf6f53b295d5ac138f86deb765892fd34d907
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072521"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234580"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -186,7 +186,7 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 | loggingLevelTelemetry | Envía errores **internos** de Application Insights como telemetría. <br>0: desactivado <br>1: solo errores críticos <br>2: todo (errores y advertencias) | NUMERIC<br/> 1 |
 | diagnosticLogInterval | (interno) Intervalo de sondeo (en milisegundos) para la cola de registro interno | NUMERIC<br/> 10000 |
 | samplingPercentage | Porcentaje de eventos que se enviarán. El valor predeterminado es 100, lo que significa que se envían todos los eventos. Establézcalo si desea conservar el límite de datos para aplicaciones a gran escala. | NUMERIC<br/>100 |
-| autoTrackPageVisitTime | Si es true, en una vista de página, se realiza un seguimiento del tiempo de visualización de la página instrumentada anterior, que se envía como telemetría, y se inicia un nuevo temporizador para la vista de página actual. | boolean<br/>false |
+| autoTrackPageVisitTime | Si es true, en una vista de página, se realiza el seguimiento de la hora de visualización de la página instrumentada _anterior_, que se envía como telemetría, y se inicia un nuevo temporizador para la vista de página actual. Se envía como una métrica personalizada denominada `PageVisitTime` en `milliseconds` y se calcula por medio de la función de fecha [now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) (si está disponible) y vuelve a (new Date()).[getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) if now() no está disponible (IE8 o una versión inferior). El valor predeterminado es False. | boolean<br/>false |
 | disableAjaxTracking | Si es true, las llamadas Ajax no se recopilan automáticamente. | boolean<br/> false |
 | disableFetchTracking | Si es true, las solicitudes Fetch no se recopilan automáticamente.|boolean<br/>true |
 | overridePageViewDuration | Si es true, el comportamiento predeterminado de trackPageView se cambia para registrar el final del intervalo de duración de la vista de página cuando se llama a trackPageView. Si es false y no se proporciona ninguna duración personalizada a trackPageView, el rendimiento de la vista de página se calcula mediante la API de tiempos de navegación. |boolean<br/>

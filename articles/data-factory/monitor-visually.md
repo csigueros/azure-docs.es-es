@@ -5,14 +5,15 @@ author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: bcc10ccde73f5036e50d1717528933a49ccd69cd
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 07/30/2021
+ms.openlocfilehash: 81649565955d1de031e4eefca548c5d58f7e28c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904953"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730155"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Supervise visualmente Azure Data Factory
 
@@ -95,7 +96,19 @@ Después de crear las propiedades del usuario, puede supervisarlas en las vistas
 
 ![Lista de ejecuciones de actividad con columnas de propiedades de usuario](media/monitor-visually/view-user-properties.png)
 
+
 ## <a name="rerun-pipelines-and-activities"></a>Repetición de canalizaciones y actividades
+ 
+ El comportamiento de repetición de las actividades del contenedor es el siguiente:
+ 
+- `Wait`: la actividad se comportará como antes.
+- `Set Variable`: la actividad se comportará como antes.
+- `Filter`: la actividad se comportará como antes.
+- La actividad `Until` evaluará la expresión y se repetirá en bucle hasta que se satisfaga la condición. Todavía se pueden omitir las actividades internas en función de las reglas de reejecución.
+- La actividad `Foreach` siempre se repetirá en bucle en los elementos que reciba. Todavía se pueden omitir las actividades internas en función de las reglas de reejecución.
+- `If and switch`: siempre se evaluarán las condiciones. Todavía se pueden omitir las actividades internas en función de las reglas de reejecución.
+- `Execute pipeline activity`: la canalización secundaria se desencadenará, pero es posible que todas las actividades de la canalización secundaria se sigan omitiendo en función de las reglas de repetición.
+
 
 Para volver a ejecutar una canalización que se ejecutó previamente desde el inicio, mantenga el puntero sobre la ejecución de canalización específica y seleccione **Volver a ejecutar**. Si selecciona varias canalizaciones, puede usar el botón **Volver a ejecutar** para ejecutarlas todas.
 

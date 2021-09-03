@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2b6b3e9a6bdead4e4da7f1a829698d86cfbf52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9eeed96b87aa5c115994ee73d1985526b26af11
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92366180"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733749"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Acceso condicional: Exigir autenticación multifactor para la administración de Azure
 
 Las organizaciones usan una variedad de servicios de Azure y los administran desde herramientas basadas en Azure Resource Manager, como:
 
-* Azure Portal
+* Azure portal
 * Azure PowerShell
 * Azure CLI
 
-Estas herramientas pueden proporcionar acceso con privilegios elevados a los recursos, que pueden modificar las configuraciones de toda la suscripción, la configuración del servicio y la facturación de la suscripción. Para proteger estos recursos con privilegios, Microsoft recomienda exigir la autenticación multifactor para cualquier usuario que tenga acceso a ellos.
+Estas herramientas pueden proporcionar acceso con privilegios elevados a los recursos, que pueden modificar las configuraciones de toda la suscripción, la configuración del servicio y la facturación de la suscripción. Para proteger estos recursos con privilegios, Microsoft recomienda exigir la autenticación multifactor para cualquier usuario que tenga acceso a ellos. En Azure AD, estas herramientas están agrupadas en un conjunto denominado [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management). Para Azure Government, debería ser la aplicación Cloud Management API de Azure Government. 
 
 ## <a name="user-exclusions"></a>Exclusiones de usuarios
 
@@ -39,7 +39,7 @@ Las directivas de acceso condicional son herramientas eficaces, por lo que se re
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-Los pasos siguientes le ayudarán a crear una directiva de acceso condicional para exigir que aquellos con acceso a la aplicación [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) realicen la autenticación multifactor.
+Los pasos siguientes le ayudarán a crear una directiva de acceso condicional para exigir que los usuarios con acceso a la aplicación [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) realicen la autenticación multifactor.
 
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
@@ -50,7 +50,6 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional pa
    1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
    1. Seleccione **Listo**.
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, elija sucesivamente **Seleccionar aplicaciones**, **Microsoft Azure Management**, **Seleccionar** y, luego, **Listo**.
-1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , en **Seleccionar aplicaciones cliente a las que se aplicará la directiva** mantenga todos los valores seleccionados y haga clic en **Hecho**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir autenticación multifactor** y **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear la directiva.

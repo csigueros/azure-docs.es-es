@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 6a4e969c592e844164d2f031914740e24fdc8f99
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 81e9bc60a7749cdc155fc6997c198e834476dbf0
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540249"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031938"
 ---
 # <a name="edge-secured-core-certification-requirements-preview"></a>Requisitos para la certificación de Edge Secured-Core (versión preliminar) #
 
@@ -49,7 +49,7 @@ Edge Secured-Core es una certificación incremental en el programa de Azure Cert
 |Se aplica a|Cualquier dispositivo|
 |SO|Independiente|
 |Tipo de validación|Manual/herramientas|
-|Validación|Dispositivo que se va a validar mediante el conjunto de herramientas para asegurarse de que el cifrado de almacenamiento está habilitado y el algoritmo predeterminado es XTS-AES, con una longitud de clave de 128 bits o superior.|
+|Validación|Dispositivo que se va a validar mediante el conjunto de herramientas para asegurarse de que el cifrado de almacenamiento está habilitado y el algoritmo predeterminado es XTS-AES, con una longitud de clave de 128 bits o superior. </br></br>Nota: En la versión preliminar de junio de 2021 solo se comprueba que el dispositivo tiene DM-Crypt instalado y tiene una partición cifrada.|
 |Recursos||
 
 ---
@@ -85,7 +85,7 @@ Edge Secured-Core es una certificación incremental en el programa de Azure Cert
 |Se aplica a|Cualquier dispositivo|
 |SO|Independiente|
 |Tipo de validación|Manual/herramientas|
-|Validación|Confirmación del asociado que pudo enviar una actualización al dispositivo a través de la actualización de Microsoft, la actualización del dispositivo de Azure u otros servicios aprobados.|
+|Validación|Confirmación del asociado de que ha podido enviar una actualización al dispositivo mediante la actualización de Microsoft, [Device Update for IoT Hub (ADU)](../iot-hub-device-update/understand-device-update.md). Para los dispositivos Linux en los que se usa Device Update for IoT Hub, para la certificación será necesario proporcionar un archivo de actualización .swu durante el proceso de prueba de Secured Core y la información específica del dispositivo para que el servicio de certificación genere un archivo de [manifiesto de actualización](../iot-hub-device-update/update-manifest.md).|
 |Recursos|[Device Update para IoT Hub](../iot-hub-device-update/index.yml)|
 
 ---
@@ -182,7 +182,7 @@ Validación|Dispositivo que se va a validar mediante el conjunto de herramientas
 |Se aplica a|Cualquier dispositivo|
 |SO|Independiente|
 |Tipo de validación|Manual/herramientas|
-|Validación|Dispositivo que se va a validar mediante el conjunto de herramientas para asegurarse de que las firmas de firmware y kernel se validan cada vez que se inicia el dispositivo. <ul><li>UEFI: el arranque seguro está habilitado</li><li>Uboot: el arranque verificado está habilitado</li></ul>|
+|Validación|Dispositivo que se va a validar mediante el conjunto de herramientas para asegurarse de que las firmas de firmware y kernel se validan cada vez que se inicia el dispositivo. <ul><li>UEFI: el arranque seguro está habilitado</li><li>Uboot: el arranque verificado está habilitado</li></ul> </br> </br>Nota: En la versión preliminar de junio de 2021 solo se comprueba la existencia de UEFI.|
 |Recursos||
 
 ---

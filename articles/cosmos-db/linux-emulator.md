@@ -6,14 +6,15 @@ ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
 ms.date: 06/04/2021
-ms.openlocfilehash: 6e3fd0c2dafd9d174b79206cb5482450fee74f8e
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: c0b7dff4ac6f19b4abcf27ccf98cd8d57b270e21
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984055"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111516"
 ---
 # <a name="run-the-emulator-on-docker-for-linux-preview"></a>Ejecución del emulador en Docker para Linux (versión preliminar)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 El emulador de Azure Cosmos DB proporciona un entorno local que emula el servicio Azure Cosmos DB con fines de desarrollo. Actualmente, el emulador de Linux solo admite SQL API. Mediante el Emulador de Azure Cosmos DB, puede desarrollar y probar su aplicación localmente, sin crear una suscripción de Azure o realizar algún gasto. Cuando esté satisfecho con el funcionamiento de la aplicación en el emulador de Linux de Azure Cosmos DB, puede cambiar a una cuenta de Azure Cosmos DB en la nube. En este artículo se describe cómo instalar y usar el emulador en entornos macOS y Linux.
 
@@ -37,11 +38,11 @@ Dado que el emulador de Azure Cosmos DB proporciona un entorno emulado que se e
 
 - El emulador de Linux no es un servicio escalable y no admite un gran número de contenedores. Cuando se usa el emulador de Azure Cosmos DB, de manera predeterminada se pueden crear hasta 10 contenedores de tamaño fijo a 400 RU/s (solo compatibles con los SDK de Azure Cosmos DB) o 5 contenedores ilimitados. Para obtener más información sobre cómo cambiar este valor, consulte el artículo sobre la [configuración del valor de PartitionCount](emulator-command-line-parameters.md#set-partitioncount).
 
-- Aunque los [niveles de coherencia](consistency-levels.md), como el servicio en la nube, se pueden ajustar mediante argumentos de línea de comandos solo para escenarios de prueba (la configuración predeterminada es Sesión), es posible que un usuario no espere el mismo comportamiento que en el servicio en la nube. Por ejemplo, la coherencia fuerte y de obsolescencia limitada no tiene ningún efecto en el emulador, aparte de señalar al SDK de Cosmos DB la coherencia predeterminada de la cuenta.
+- Aunque los [niveles de coherencia](consistency-levels.md) se pueden ajustar mediante argumentos de línea de comandos solo en escenarios de prueba (la configuración predeterminada es Sesión), es posible que un usuario no espere el mismo comportamiento que en el servicio en la nube. Por ejemplo, la coherencia fuerte y de obsolescencia limitada no tiene ningún efecto en el emulador, aparte de señalar al SDK de Cosmos DB la coherencia predeterminada de la cuenta.
 
 - El emulador de Linux no ofrece [replicación en varias regiones](distribute-data-globally.md).
 
-- Es posible que la copia del emulador de Linux de Azure Cosmos DB no tenga siempre los cambios más recientes del servicio Azure Cosmos DB, por lo que debe consultar la herramienta de [planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md) para calcular con precisión las necesidades de rendimiento (RU) de la aplicación. <add link>
+- Es posible que la copia del emulador de Linux de Azure Cosmos DB no tenga siempre los cambios más recientes del servicio Azure Cosmos DB, por lo que debe consultar la herramienta de [planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md) para calcular con precisión las necesidades de rendimiento (RU) de la aplicación.
 
 - El emulador de Linux admite un tamaño máximo de la propiedad ID de 254 caracteres.
 

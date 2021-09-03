@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
-ms.openlocfilehash: 55672b5d58c6c1185c6bf6b17ea63302b6f9b891
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 7aac4d2fcab192d77c1629e8f53b91f5dadedd86
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487968"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729836"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Programación y difusión de trabajos (Python)
 
@@ -32,7 +32,7 @@ Más información sobre estas funcionalidades en estos artículos:
 
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-python-twin-getstarted.md) y [Tutorial: uso de las propiedades de dispositivos gemelos](tutorial-device-twins.md)
 
-* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](quickstart-control-device-python.md)
+* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) e [Inicio rápido: métodos directos](./quickstart-control-device.md?pivots=programming-language-python)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -81,62 +81,56 @@ En esta sección, creará una aplicación de consola de Python que responda a un
 3. Agregue las siguientes instrucciones y variables `import` al principio del archivo **simDevice.py**. Reemplace `deviceConnectionString` con la cadena de conexión del dispositivo que creó anteriormente:
 
     ```python
-    import threading
-    import time
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
     CONNECTION_STRING = "{deviceConnectionString}"
+    client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
     ```
 
-4. Agregue la siguiente devolución de llamada de función para controlar el método **lockDoor**:
+4. Defina la siguiente función de controlador que se usará para responder al método **lockDoor**:
 
     ```python
-    def lockdoor_listener(client):
-        while True:
-            # Receive the direct method request
-            method_request = client.receive_method_request("lockDoor")  # blocking call
-            print( "Locking Door!" )
+    def method_request_handler(method_request):
+        if method_request.name == "lockDoor":
+            print("Locking Door!")
 
             resp_status = 200
             resp_payload = {"Response": "lockDoor called successfully"}
-            method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+            method_response = MethodResponse.create_from_method_request(
+                method_request=method_request,
+                status=resp_status,
+                payload=resp_payload
+            )
             client.send_method_response(method_response)
     ```
 
-5. Agregue otra devolución de llamada de función para controlar las actualizaciones de los dispositivos gemelos:
+5. Agregue otra función de controlador para recibir actualizaciones de dispositivos gemelos:
 
     ```python
-    def twin_update_listener(client):
-        while True:
-            patch = client.receive_twin_desired_properties_patch()  # blocking call
-            print ("")
-            print ("Twin desired properties patch received:")
-            print (patch)
+    def twin_patch_handler(twin_patch):
+        print("")
+        print("Twin desired properties patch received:")
+        print(twin_patch)
     ```
 
-6. Agregue el código siguiente para registrar el controlador del método **lockDoor**. Incluya también la rutina `main`:
+6. Agregue el código siguiente para registrar los controladores del método **lockDoor**, así como revisiones de gemelos. Incluya también la rutina `main`:
 
     ```python
     def iothub_jobs_sample_run():
+        print("Beginning to listen for 'lockDoor' direct method invocations...")
+        client.on_method_request_received = method_request_handler
+        print("Beginning to listen for updates to the Twin desired properties...")
+        client.on_twin_desired_properties_patch_received = twin_patch_handler
+
+        client.connect()
+
         try:
-            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
-
-            print( "Beginning to listen for 'lockDoor' direct method invocations...")
-            lockdoor_listener_thread = threading.Thread(target=lockdoor_listener, args=(client,))
-            lockdoor_listener_thread.daemon = True
-            lockdoor_listener_thread.start()
-
-            # Begin listening for updates to the Twin desired properties
-            print ( "Beginning to listen for updates to Twin desired properties...")
-            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
-            twin_update_listener_thread.daemon = True
-            twin_update_listener_thread.start()
-            
             while True:
-                time.sleep(1000)
-
+                import time
+                time.sleep(100)
         except KeyboardInterrupt:
-            print ( "IoTHubDeviceClient sample stopped" )
+            print("IoTHubDeviceClient sample stopped!")
+            client.shutdown()
 
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Python jobs sample..." )

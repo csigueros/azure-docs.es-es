@@ -1,34 +1,66 @@
 ---
 title: Uso del emulador de Azurite para el desarrollo local de Azure Storage
 description: El emulador de código abierto Azurite proporciona un entorno local gratuito para probar las aplicaciones de Azure Storage.
-author: twooley
-ms.author: twooley
-ms.date: 07/15/2020
+author: normesta
+ms.author: normesta
+ms.date: 08/02/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a921de0d976b9c92ca7978feb7caf69484ba9379
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: e01957c04e422f26601eab6f4e53694e317e22a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277132"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741875"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Uso del emulador Azurite para el desarrollo local de Azure Storage
 
-El emulador de código abierto Azurite proporciona un entorno local gratuito para probar las aplicaciones de almacenamiento de colas y blobs de Azure. Cuando esté satisfecho con el funcionamiento de la aplicación a nivel local, puede empezar a usarla en una cuenta de almacenamiento de Azure Storage en la nube. El emulador proporciona compatibilidad multiplataforma en Windows, Linux y MacOS.
+El emulador de código abierto Azurite proporciona un entorno local gratuito para probar las aplicaciones de blobs, almacenamiento de colas y almacenamiento de tablas de Azure. Cuando esté satisfecho con el funcionamiento de la aplicación a nivel local, puede empezar a usarla en una cuenta de almacenamiento de Azure Storage en la nube. El emulador proporciona compatibilidad multiplataforma en Windows, Linux y MacOS.
 
 Azurite es la plataforma del emulador de almacenamiento futura. Azurite reemplaza al [emulador de Azure Storage](storage-use-emulator.md). Azurite se seguirá actualizando para admitir las versiones más recientes de las API de Azure Storage.
 
-Hay varias maneras de instalar y ejecutar Azurite en el sistema local:
+Hay varias maneras de instalar y ejecutar Azurite en el sistema local. Seleccione cualquiera de estas pestañas.
 
-  1. [Instalación y ejecución de la extensión de Visual Studio Code para Azurite](#install-and-run-the-azurite-visual-studio-code-extension)
-  1. [Instalación y ejecución de Azurite con NPM](#install-and-run-azurite-by-using-npm)
-  1. [Instalación y ejecución de la imagen de Docker de Azurite](#install-and-run-the-azurite-docker-image)
-  1. [Clonación, compilación y ejecución de Azurite desde el repositorio de GitHub](#clone-build-and-run-azurite-from-the-github-repository)
+## <a name="install-and-run-azurite"></a>Instalación y ejecución de Azurite
 
-## <a name="install-and-run-the-azurite-visual-studio-code-extension"></a>Instalación y ejecución de la extensión de Visual Studio Code para Azurite
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+En Visual Studio, cree un proyecto de Azure, por ejemplo, de **Azure Functions**.
+
+![Nuevo proyecto de Azure Functions](media/storage-use-azurite/visual-studio-azure-function-project.png)
+
+Suponiendo que cree un proyecto de **Azure Functions**, asegúrese de seleccionar **Desencadenador HTTP**. A continuación, en la lista desplegable **Nivel de autorización**, seleccione **Anónimo**.
+
+![Configuración del proyecto de Functions](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
+
+Instale [Node.js, versión 8.0 o posterior](https://nodejs.org). El Administrador de paquetes de nodos (npm) es la herramienta de administración de paquetes que se incluye con cada instalación de Node.js. Después de instalar Node.js, ejecute el siguiente comando `npm` para instalar Azurite.
+
+```console
+npm install -g azurite
+```
+
+Desde la línea de comandos, inicie Azurite con el siguiente comando:
+
+```console
+azurite
+```
+
+En la consola se muestra información de salida similar a la siguiente.
+
+![Salida de línea de comandos](media/storage-use-azurite/azurite-command-line-output.png)
+
+Cambie a la [configuración de compilación de versión](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration) y, a continuación, ejecute el proyecto.
+
+>[!NOTE]
+> Si inicia el proyecto mediante la configuración de compilación de depuración, es posible que reciba un error. Esto se debe a Visual Studio podría intentar iniciar el emulador de almacenamiento heredado integrado en Visual Studio. Cualquier intento de iniciar el emulador heredado se bloqueará, ya que Azurite usa los puertos de escucha que requiere el emulador de almacenamiento heredado.
+
+En la imagen siguiente se muestra la salida de la línea de comandos que aparece al ejecutar un proyecto de Azure Functions.
+
+![Salida de la línea de comandos después de ejecutar el proyecto](media/storage-use-azurite/azurite-command-line-output-2.png)
+
+### <a name="visual-studio-code"></a>Tener [Visual Studio Code](#tab/visual-studio-code)
 
 En Visual Studio Code, seleccione el panel **EXTENSIONES** y busque *Azurite* en **EXTENSIONES: MARKETPLACE**.
 
@@ -41,12 +73,15 @@ La extensión admite los siguientes comandos de Visual Studio Code. Presione F1
    - **Azurite: Clean** (Azurite: Limpiar). Restablece todos los datos de persistencia de los servicios de Azurite
    - **Azurite: Limpiar Blob Service**. Limpia Blob Service
    - **Azurite: Limpiar Queue Service**. Limpia Queue Service
+   - **Azurite: Limpiar Table Service**. Limpia Table Service
    - **Azurite: Close**(Azurite: Cerrar). Cierra todos los servicios de Azurite
    - **Azurite: Cerrar Blob Service**. Cierra Blob Service
    - **Azurite: Cerrar Queue Service**. Cierra Queue Service
+   - **Azurite: Cerrar Table Service**. Cierra Table Service
    - **Azurite: Start** (Azurite: Iniciar). Inicia todos los servicios de Azurite
    - **Azurite: Iniciar Blob Service**. Inicia Blob Service
    - **Azurite: Iniciar Queue Service**. Inicia Queue Service
+   - **Azurite: Iniciar Table Service**. Inicia Table Service
 
 Para configurar Azurite en Visual Studio Code, seleccione el panel de extensiones. Seleccione el icono de **Administración** (engranaje) de **Azurite**. Seleccione la **configuración de extensiones**.
 
@@ -67,8 +102,10 @@ Se admite los siguientes valores de configuración:
    - **Azurite: Puerto de cola**. El puerto de escucha del Queue service. El puerto predeterminado es 10001.
    - **Azurite: Silent** (Azurite: modo silencioso). El modo silencioso deshabilita el registro de acceso. El valor predeterminado es **false**.
    - **Azurite: Skip Api Version Check** (Azurite: Omitir comprobación de la versión de la API): se omite la comprobación de la versión de la API solicitada. El valor predeterminado es **false**.
+   - **Azurite: Host de tabla**. El punto de conexión de escucha de Table Service es 127.0.0.1 de forma predeterminada.
+   - **Azurite: Puerto de tabla**. El puerto de escucha de Table Service es 10002 de forma predeterminada.
 
-## <a name="install-and-run-azurite-by-using-npm"></a>Instalación y ejecución de Azurite con NPM
+### <a name="npm"></a>[npm](#tab/npm)
 
 Este método de instalación requiere que tenga instalada [la versión 8.0 de Node.js o una posterior](https://nodejs.org). El Administrador de paquetes de nodos (npm) es la herramienta de administración de paquetes que se incluye con cada instalación de Node.js. Después de instalar Node.js, ejecute el siguiente comando `npm` para instalar Azurite.
 
@@ -78,7 +115,7 @@ npm install -g azurite
 
 Después de instalar Azurite, consulte [Ejecución de Azurite desde una línea de comandos](#run-azurite-from-a-command-line).
 
-## <a name="install-and-run-the-azurite-docker-image"></a>Instalación y ejecución de la imagen de Docker de Azurite
+### <a name="docker-hub"></a>[Docker Hub](#tab/docker-hub)
 
 Use [DockerHub](https://hub.docker.com/) para extraer la [imagen de Azurite más reciente](https://hub.docker.com/_/microsoft-azure-storage-azurite) con el siguiente comando:
 
@@ -91,7 +128,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 El siguiente comando ejecuta la imagen de Docker de Azurite. El parámetro `-p 10000:10000` redirige las solicitudes del puerto 10000 de la máquina host a la instancia de Docker.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 \
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
     mcr.microsoft.com/azure-storage/azurite
 ```
 
@@ -100,7 +137,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 En el ejemplo siguiente, el `-v c:/azurite:/data`parámetro especifica *c:/azurite* como la ubicación de los datos persistentes de Azurite. El directorio *c:/Azurite* debe crearse antes de ejecutar el comando Docker.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 \
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
     -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
 ```
 
@@ -113,7 +150,7 @@ docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
 
 Para obtener más información sobre la configuración de Azurite al inicio, consulte las [opciones de la línea de comandos](#command-line-options).
 
-## <a name="clone-build-and-run-azurite-from-the-github-repository"></a>Clonación, compilación y ejecución de Azurite desde el repositorio de GitHub
+### <a name="github"></a>[GitHub](#tab/github)
 
 Este método de instalación requiere que tenga instalado [Git](https://git-scm.com/). Clone el [repositorio de GitHub](https://github.com/azure/azurite) para el proyecto de Azurite con el siguiente comando de la consola.
 
@@ -131,10 +168,12 @@ npm install -g
 
 Después de instalar y compilar Azurite, consulte [Ejecución de Azurite desde una línea de comandos](#run-azurite-from-a-command-line).
 
+---
+
 ## <a name="run-azurite-from-a-command-line"></a>Ejecución de Azurite desde una línea de comandos
 
 > [!NOTE]
-> No se puede ejecutar Azurite desde la línea de comandos si solo se instaló la extensión Visual Studio Code. En su lugar, use la paleta de comandos de Visual Studio Code. Para más información, consulte [Instalación y ejecución de la extensión de Visual Studio Code para Azurite](#install-and-run-the-azurite-visual-studio-code-extension).
+> No se puede ejecutar Azurite desde la línea de comandos si solo se instaló la extensión Visual Studio Code. En su lugar, use la paleta de comandos de Visual Studio Code. 
 
 Para empezar inmediatamente con la línea de comandos, cree un directorio denominado *c:\azurite* y, a continuación, inicie Azurite emitiendo el siguiente comando:
 
@@ -233,6 +272,46 @@ Permitir al sistema seleccionar automáticamente un puerto disponible:
 
 ```console
 azurite --queuePort 0
+```
+
+El puerto en uso se muestra durante el inicio de Azurite.
+
+### <a name="table-listening-host"></a>Host de escucha de tabla
+
+**Opcional**: de forma predeterminada, Azurite escuchará a 127.0.0.1 como el servidor local. Use el modificador `--tableHost` para establecer la dirección de acuerdo a sus requisitos.
+
+Acepte solicitudes solo en la máquina local:
+
+```console
+azurite --tableHost 127.0.0.1
+```
+
+Permita las solicitudes remotas:
+
+```console
+azurite --tableHost 0.0.0.0
+```
+
+> [!CAUTION]
+> Permitir las solicitudes remotas puede hacer que el sistema sea vulnerable a ataques externos.
+
+### <a name="table-listening-port-configuration"></a>Configuración del puerto de escucha de tabla
+
+**Opcional**: de forma predeterminada, Azurite escuchará la instancia de Table Service en el puerto 10002. Use el modificador `--tablePort` para especificar el puerto de escucha que necesite.
+
+> [!NOTE]
+> Después de utilizar un puerto personalizado, tiene que actualizar la cadena de conexión o la configuración correspondiente en los SDK o las herramientas de Azure Storage.
+
+Personalice el puerto de escucha de Table Service:
+
+```console
+azurite --tablePort 11111
+```
+
+Permitir al sistema seleccionar automáticamente un puerto disponible:
+
+```console
+azurite --tablePort 0
 ```
 
 El puerto en uso se muestra durante el inicio de Azurite.
@@ -558,9 +637,13 @@ Azurite admite la replicación con redundancia geográfica con acceso de lectura
 
 ### <a name="table-support"></a>Compatibilidad con tablas
 
-La compatibilidad con las tablas de Azurite está actualmente en desarrollo y abierta a colaboraciones. Para obtener el progreso más reciente, consulte el proyecto [Tabla de Azurite V3](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table).
+La compatibilidad con tablas en Azurite se encuentra actualmente en versión preliminar. Para más información, consulte el proyecto [Tabla de Azurite V3](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table).
 
 La compatibilidad con Durable Functions requiere tablas.
+
+> [!IMPORTANT]
+>
+> La compatibilidad de Azurite con Table Storage está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 ## <a name="azurite-is-open-source"></a>Azurite es de código abierto
 

@@ -8,19 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 08/09/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: f79c9cb7381f2325de2efca5e20b37c60ab72013
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 79d527f0a966388758969837aaab95f7f9327e07
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113652470"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739605"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
+
+## <a name="august-2021"></a>Agosto de 2021
+
+* Versión `3.2-preview.1`, que incluye una versión preliminar pública de [resumen extractivo](how-tos/extractive-summarization.md).
+* La [operación asincrónica](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) ahora está disponible en las regiones de Azure Government y Azure China.
+* Nuevas versiones preliminares de la biblioteca cliente, con soporte técnico para el resumen extractivo. Consulte los ejemplos siguientes:
+    * [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample8_ExtractSummary.md)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeExtractiveSummarization.java)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_extract_summary.py)
 
 ## <a name="july-2021"></a>Julio de 2021
 

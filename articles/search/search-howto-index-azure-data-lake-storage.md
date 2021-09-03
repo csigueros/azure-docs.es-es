@@ -1,25 +1,24 @@
 ---
-title: Configuración de un indexador para extraer contenido y metadatos de Azure Data Lake Storage Gen2
+title: Indexación de datos desde Azure Data Lake Storage Gen2
 titleSuffix: Azure Cognitive Search
-description: Obtenga información sobre cómo indexar contenido y metadatos en Azure Data Lake Storage Gen2.
-manager: luisca
+description: Configure un indizador de Azure Data Lake Storage Gen2 para automatizar la indexación de contenido y metadatos en la búsqueda de texto completo en Azure Cognitive Search.
 author: markheff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: 0d5feeb8098016e126e243305babab9746343504
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e0364b3242a0be3e4704ade75f2514c8c63aa779
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752484"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983237"
 ---
-# <a name="how-to-configure-an-indexer-to-pull-content-and-metadata-from-azure-data-lake-storage-gen2"></a>Configuración de un indexador para extraer contenido y metadatos de Azure Data Lake Storage Gen2
+# <a name="index-data-from-azure-data-lake-storage-gen2"></a>Indexación de datos desde Azure Data Lake Storage Gen2
 
-Al configurar una cuenta de almacenamiento de Azure, tiene la opción de habilitar el [espacio de nombres jerárquico](../storage/blobs/data-lake-storage-namespace.md). Esto permite que la colección de contenido de una cuenta se organice en una jerarquía de directorios y subdirectorios anidados. Al habilitar un espacio de nombres jerárquico, habilita a su vez [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+En este artículo se muestra cómo configurar un indizador de Azure Data Lake Storage Gen2 para extraer contenido y hacer que se pueda buscar en Azure Cognitive Search. En este flujo de trabajo se crea un índice de búsqueda en Azure Cognitive Search y se carga con contenido existente extraído de Azure Data Lake Storage Gen2.
 
-En este artículo se describe cómo empezar a usar la indexación de documentos que se encuentran en Azure Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 está disponible por medio de Azure Storage. Al configurar una cuenta de almacenamiento de Azure, tiene la opción de habilitar el [espacio de nombres jerárquico](../storage/blobs/data-lake-storage-namespace.md). Esto permite que la colección de contenido de una cuenta se organice en una jerarquía de directorios y subdirectorios anidados. Al habilitar un espacio de nombres jerárquico, habilita a su vez [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="supported-access-tiers"></a>Niveles de acceso admitidos
 
@@ -338,7 +337,7 @@ Para ejecutar varios indexadores en paralelo, escale horizontalmente el servicio
 
 Los errores que suelen producirse durante la indexación incluyen tipos de contenido no admitidos, contenido que falta o blobs demasiado grandes.
 
-De forma predeterminada, el indizador de blob se detiene cuando encuentra un blob con un tipo de contenido no admitido (por ejemplo, una imagen). Puede usar el parámetro `excludedFileNameExtensions` para omitir determinados tipos de contenido. Sin embargo, es posible que quiera realizar la indexación para continuar aunque se produzcan errores y, a continuación, depurar documentos concretos posteriormente. Para obtener más información sobre los errores del indexador, vea [Solución de problemas comunes con el indexador](search-indexer-troubleshooting.md) y [Errores y advertencias del indexador](cognitive-search-common-errors-warnings.md).
+De forma predeterminada, el indizador de blob se detiene cuando encuentra un blob con un tipo de contenido no admitido (por ejemplo, una imagen). Puede usar el parámetro `excludedFileNameExtensions` para omitir determinados tipos de contenido. Sin embargo, es posible que quiera realizar la indexación para continuar aunque se produzcan errores y, a continuación, depurar documentos concretos posteriormente. Para obtener más información sobre los errores del indizador, vea [Instrucciones de solución de problemas del indizador](search-indexer-troubleshooting.md) y [Errores y advertencias del indizador](cognitive-search-common-errors-warnings.md).
 
 ### <a name="respond-to-errors"></a>Respuesta a errores
 

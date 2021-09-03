@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 08/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 45efa0e955040931516924a1a8a8576a1a8bf12f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 340c9f549d1d60a19867ea4de58834d921871854
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744510"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015347"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -98,7 +98,11 @@ Para habilitar y configurar las alertas de fraude, complete los pasos siguientes
 
 ### <a name="view-fraud-reports"></a>Visualización de notificaciones de fraude
 
-Seleccione **Azure Active Directory** > **Inicios de sesión** > **Detalles de autenticación**. El informe de fraude ahora forma parte del informe de inicios de sesión de Azure AD estándar y se mostrará en el **"Detalle del resultado"** con la denegación de MFA y el código de fraude especificado.
+Cuando un usuario informa de un fraude, el evento se muestra en el informe de inicios de sesión (como un inicio de sesión que el usuario rechazó) y en los registros de auditoría.
+
+- Para ver los informes de fraude en el informe de inicios de sesión, haga clic en **Azure Active Directory** > **Inicios de sesión** > **Detalles de autenticación**. El informe de fraude forma parte del informe de inicios de sesión de Azure AD estándar y aparece en **Detalle del resultado** como la **denegación de MFA y el código de fraude especificado**.
+
+- Para ver los informes de fraude en los registros de auditoría, haga clic en **Azure Active Directory** > **Registros de auditoría** . El informe de fraude aparece en tipo de actividad **Fraude informado: el usuario está bloqueado para MFA** o **Fraude notificado: no se toman medidas** en función de la configuración de nivel de inquilino para el informe de fraude.
  
 ## <a name="notifications"></a>Notificaciones
 

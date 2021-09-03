@@ -4,19 +4,19 @@ description: En este artículo se muestran los pasos para conectar Configuration
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/30/2020
-ms.openlocfilehash: 7302f61fce6763fdbb41c2b4899dea749ac3225f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 08/02/2021
+ms.openlocfilehash: 2bb6bcc45c6ebb325dbb8ec56eb37b6fdce293ab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031079"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735832"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conexión de Configuration Manager con Azure Monitor
 Puede conectar el entorno de Microsoft Endpoint Configuration Manager con Azure Monitor para sincronizar los datos de recopilación del dispositivo y hacer referencia a estas recopilaciones en Azure Monitor y Azure Automation.  
 
 > [!IMPORTANT]
-> A partir de la versión 2010 de Configuration Manager, esta característica está en desuso.<!-- 8269855 --> Para más información, vea [Características en desuso y eliminadas de Configuration Manager](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
+> A partir de la versión 2010 de Configuration Manager, esta característica está en desuso.<!-- 8269855 --> A partir de la versión 2107, se quita de Configuration Manager.<!-- 9649296 --> Para más información, vea [Características en desuso y eliminadas de Configuration Manager](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

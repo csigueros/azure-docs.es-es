@@ -4,14 +4,15 @@ description: En este artículo se describe cómo migrar trabajos de SQL Server 
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: ec10abfd6f2fc221a9e86203b2faa0d173d67675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a9e69b0672a5b4235effcd68b50eeddc5ec9f82
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379597"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735309"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migración de trabajos de Agente SQL Server a ADF con SSMS
 
@@ -30,11 +31,11 @@ En general, para los trabajos del Agente SQL seleccionados con los tipos de paso
 |---------|---------|---------|
 |Trabajo del Agente SQL|pipeline     |El nombre de la canalización se *generará para \<job name>* . <br> <br> Los trabajos del agente integrados no son aplicables: <li> Trabajo de mantenimiento del servidor de SSIS <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
 |Paso de trabajo de SSIS|Ejecución de una actividad del paquete de SSIS|<li> El nombre de la actividad será \<step name>. <li> La cuenta de proxy usada en el paso de trabajo se migrará como autenticación de Windows de esta actividad. <li> Las *opciones de ejecución* excepto *Use 32-bit runtime* (Usar entono de ejecución de 32 bits) definidas en el paso de trabajo se omitirán en la migración. <li> La *comprobación* definida en el paso de trabajo se omitirá en la migración.|
-|schedule      |Programación de un desencadenador        |El nombre del desencadenador de programación se *generará para \<schedule name>* . <br> <br> Las siguientes opciones de programación de trabajos del Agente SQL se omitirán en la migración: <li> Intervalo de segundo nivel. <li> *Iniciar automáticamente al iniciar el Agente SQL Server.* <li> *Iniciar al quedar inactivas las CPU* <li> *día laborable* y *fin de semana* <time zone> <br> A continuación, se muestran las diferencias después de migrar la programación de trabajos del Agente SQL al desencadenador de programación de ADF: <li> La ejecución posterior del desencadenador de programación de ADF es independiente del estado de la ejecución desencadenada previa. <li> La configuración de periodicidad del desencadenador de programación de ADF difiere de la frecuencia diaria del trabajo del Agente SQL.|
+|schedule      |Programación de un desencadenador        |El nombre del desencadenador de programación se *generará para \<schedule name>* . <br> <br> Las siguientes opciones de programación de trabajos del Agente SQL se omitirán en la migración: <li> Intervalo de segundo nivel. <li> *Iniciar automáticamente al iniciar el Agente SQL Server.* <li> *Iniciar al quedar inactivas las CPU* <li> *día laborable* y *fin de semana* &gt;zona horaria&lt; <br> A continuación, se muestran las diferencias después de migrar la programación de trabajos del Agente SQL al desencadenador de programación de ADF: <li> La ejecución posterior del desencadenador de programación de ADF es independiente del estado de la ejecución desencadenada previa. <li> La configuración de periodicidad del desencadenador de programación de ADF difiere de la frecuencia diaria del trabajo del Agente SQL.|
 
 - generar plantillas de Azure Resource Manager (ARM) en la carpeta de salida local e implementarla directamente en la factoría de datos o más tarde manualmente. Para más información sobre las plantillas de Azure Resource Manager, consulte [Tipos de recursos de Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 La característica descrita en este artículo requiere SQL Server Management Studio, versión 18.5 o posterior. Para obtener la versión más reciente de SSMS, vea [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) [Descargar SQL Server Management Studio (SSMS)].
 

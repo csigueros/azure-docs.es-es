@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 07/08/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to resize VMs running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
-ms.openlocfilehash: bf2125a6e1d0b443202a036c52fdf845f79d11fa
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 5e41edf0cf080d06a0829e31e7105a13a0035f93
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080014"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736746"
 ---
 # <a name="use-the-azure-portal-to-resize-the-vms-on-your-azure-stack-edge-pro-gpu"></a>Uso de Azure Portal para cambiar tamaño de las máquinas virtuales de Azure Stack Edge Pro GPU
 
@@ -40,26 +40,26 @@ Antes de cambiar el tamaño de una máquina virtual que se ejecuta en el disposi
 
 1. La máquina virtual debería estar en estado **Detenido**. Para detener la máquina virtual, vaya a **Máquinas virtuales > Información general** y seleccione la máquina virtual que quiere detener. En la página de información general, seleccione **Detener** y luego **Sí** cuando se le pida confirmación. Antes de cambiar el tamaño de la máquina virtual, debe detener la máquina virtual.
 
-    ![Página de información general sobre la detención de máquinas virtuales](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
+    ![Captura de la pantalla para detener una VM desde la introducción de Virtual Machines. El botón Sí está resaltado.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
 
 
 ## <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
 
 Siga estos pasos para cambiar el tamaño de una máquina virtual implementada en el dispositivo. 
 
-1. Vaya a la máquina virtual que ha detenido y luego a la página de **Información general**. Seleccione **el tamaño de la máquina virtual (cambiar)** .
+1. Vaya a la máquina virtual que ha detenido y seleccione **Tamaño de VM (cambiar)** en la pestaña **Detalles** de la máquina virtual.
     
-    ![Página seleccionar cambio de tamaño de máquina virtual en información general](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
+    ![Captura de pantalla de la pestaña Detalles de una máquina virtual. La pestaña Detalles y la opción Tamaño de VM están resaltadas.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
 
 2. En la hoja **Cambiar el tamaño de la máquina virtual**, en la barra de comandos, seleccione **el tamaño de la máquina virtual** y luego seleccione **Cambiar**.
 
-    ![Seleccionar nuevo tamaño de máquina virtual](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-2.png)
+    ![Captura de la pantalla Cambiar tamaño de VM. Se resalta un tamaño de VM, al igual que el botón Cambiar.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-2.png)
 
 3. Verá una notificación de que la máquina virtual está actualizada. Una vez que la máquina virtual se haya actualizado correctamente, se actualizará la página de **información general** para mostrar la máquina virtual cuyo tamaño se ha cambiado.
 
-    ![Máquina virtual redimensionada ](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-3.png)
+    ![Captura de pantalla de la página de información general de una VM. El valor de Tamaño de VM de la VM cuyo tamaño ha cambiado está resaltado.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-3.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo implementar máquinas virtuales en el dispositivo Azure Stack Edge Pro, vea [Implementación de máquinas virtuales a través de Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
+Para obtener información sobre cómo implementar máquinas virtuales en el dispositivo de Azure Stack Edge Pro, consulte [Implementación de máquinas virtuales a través de Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).

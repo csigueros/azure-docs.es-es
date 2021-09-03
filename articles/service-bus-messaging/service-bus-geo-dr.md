@@ -2,13 +2,13 @@
 title: Recuperación ante desastres con localización geográfica de Azure Service Bus | Microsoft Docs
 description: Procedimientos para usar regiones geográficas para realizar conmutaciones por error y recuperaciones ante desastres en Azure Service Bus
 ms.topic: article
-ms.date: 02/10/2021
-ms.openlocfilehash: 2aa7ed118d0ba179ffff4f72a4d4df787edc9d88
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/28/2021
+ms.openlocfilehash: 0cca1b38e5acb5bac3c5ab91460aa43825d4f4a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933762"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728618"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
@@ -23,7 +23,8 @@ La característica de recuperación ante desastres geográfica de Service Bus es
 La característica de recuperación ante desastres geográfica garantiza que toda la configuración de un espacio de nombres (colas, temas, suscripciones y filtros) se replique continuamente de un espacio de nombres principal a uno secundario cuando se emparejan. Además, permite iniciar un movimiento de conmutación por error solo una vez del espacio de nombres principal al secundario en cualquier momento. El movimiento de la conmutación por error volverá a apuntar el nombre de alias elegido para el espacio de nombres al espacio de nombres secundario y, luego, interrumpirá el emparejamiento. La conmutación por error es casi instantánea una vez que se ha iniciado. 
 
 > [!IMPORTANT]
-> La característica permite la continuidad instantánea de las operaciones con la misma configuración, pero **no replica los mensajes incluidos en colas, las suscripciones de temas ni las colas de mensajes fallidos**. Para conservar la semántica de cola, una replicación de este tipo no solo requerirá la replicación de los datos del mensaje, sino de cada cambio de estado en el agente. En el caso de la mayoría de los espacios de nombres de Service Bus, el tráfico de replicación necesario superará en gran medida el tráfico de la aplicación y, con las colas de alto rendimiento, la mayoría de los mensajes se replicarán en el espacio de nombres secundario mientras se eliminan del principal, lo que provocará un desperdicio de tráfico. En el caso de las rutas de replicación de latencia alta, que se aplican a muchos emparejamientos que se eligen para la recuperación ante desastres geográfica, también podría ser imposible que el tráfico de replicación siguiera el ritmo del tráfico de la aplicación debido a las limitaciones inducidas por la latencia.
+> - La característica permite la continuidad instantánea de las operaciones con la misma configuración, pero **no replica los mensajes incluidos en colas, las suscripciones de temas ni las colas de mensajes fallidos**. Para conservar la semántica de cola, una replicación de este tipo no solo requerirá la replicación de los datos del mensaje, sino de cada cambio de estado en el agente. En el caso de la mayoría de los espacios de nombres de Service Bus, el tráfico de replicación necesario superará en gran medida el tráfico de la aplicación y, con las colas de alto rendimiento, la mayoría de los mensajes se replicarán en el espacio de nombres secundario mientras se eliminan del principal, lo que provocará un desperdicio de tráfico. En el caso de las rutas de replicación de latencia alta, que se aplican a muchos emparejamientos que se eligen para la recuperación ante desastres geográfica, también podría ser imposible que el tráfico de replicación siguiera el ritmo del tráfico de la aplicación debido a las limitaciones inducidas por la latencia.
+> - Las asignaciones de control de acceso basado en rol (RBAC) de Azure Active Directory (Azure AD) a entidades de Service Bus en el espacio de nombres principal no se replican en el espacio de nombres secundario. Cree asignaciones de roles manualmente en el espacio de nombres secundario para proteger el acceso a estas. 
  
 > [!TIP]
 > Para replicar el contenido de las colas y las suscripciones a temas, así como operar los espacios de nombres correspondientes en configuraciones de tipo activo/activo a fin de hacer frente a interrupciones y desastres, no se base en este conjunto de características de recuperación ante desastres geográfica. En su lugar, siga la [guía de replicación](service-bus-federation-overview.md).  
@@ -205,6 +206,10 @@ La ventaja de este enfoque es que la conmutación por error puede producirse en 
 
 > [!NOTE]
 > Para obtener instrucciones sobre la recuperación ante desastres con localización geográfica de una red virtual, consulte [Virtual Network: continuidad del negocio](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
+## <a name="role-based-access-control"></a>Control de acceso basado en rol
+Las asignaciones de control de acceso basado en rol (RBAC) de Azure Active Directory (Azure AD) a entidades de Service Bus en el espacio de nombres principal no se replican en el espacio de nombres secundario. Cree asignaciones de roles manualmente en el espacio de nombres secundario para proteger el acceso a estas. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

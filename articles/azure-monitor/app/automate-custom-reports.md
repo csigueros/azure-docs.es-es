@@ -1,17 +1,17 @@
 ---
-title: Automatizar informes personalizados con datos de Azure Application Insights
-description: Automatizar informes personalizados diarios, semanales o mensuales con datos de Azure Application Insights
+title: Automatización de informes personalizados con datos de Application Insights
+description: Automatización de informes personalizados diarios, semanales o mensuales con datos de Application Insights de Azure Monitor
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1579874f77a41abbfef6a9ba44f997d1ec06bb76
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590034"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195730"
 ---
-# <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
+# <a name="automate-custom-reports-with-application-insights-data"></a>Automatización de informes personalizados con datos de Application Insights
 
 Los informes periódicos ayudan a mantener informado al equipo sobre cómo van sus servicios críticos para la empresa. Los desarrolladores, los equipos de DevOps o SRE y sus administradores pueden ser productivos con informes automatizados que proporcionan información de forma fiable sin necesidad de que todos los usuarios inicien sesión en el portal. Estos informes también pueden ayudar a identificar aumentos graduales de las latencias y las velocidades de carga o error que es posible que no desencadenen ninguna regla de alertas.
 

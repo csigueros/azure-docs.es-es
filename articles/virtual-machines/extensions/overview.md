@@ -7,12 +7,12 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.date: 08/03/2020
-ms.openlocfilehash: e1b96293db0389201fdab3340d8f0e74fefc4c52
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a7a11dde69554ae732590ddf36f8cf65929197fd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559722"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737406"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Características y extensiones de las máquinas virtuales de Azure
 Las extensiones son aplicaciones pequeñas que proporcionan automatización y configuración posterior a la implementación en VM de Azure. La plataforma de Azure hospeda numerosas extensiones, que abarcan aplicaciones de configuración, supervisión, seguridad y utilidad de VM. Los editores toman una aplicación, la encapsulan en una extensión y simplifican la instalación. Solo debe proporcionar parámetros obligatorios. 
@@ -33,7 +33,9 @@ Algunas aplicaciones de extensión de máquina virtual individuales pueden tener
 
 ## <a name="troubleshoot-extensions"></a>Extensiones de solución de problemas
 
-Puede encontrar información de solución de problemas para cada extensión en la sección **Solución de problemas y soporte técnico** de la información general de la extensión. A continuación se enumera la información de solución de problemas disponible:
+Si busca pasos de solución de problemas generales para extensiones de VM Windows, consulte [Solución de problemas de la extensión de máquina virtual de Microsoft Azure](troubleshoot.md).
+
+También puede encontrar información de solución de problemas específica de cada extensión en la sección **Solución de problemas y soporte técnico** de la información general de la extensión. A continuación se enumera la información de solución de problemas disponible:
 
 | Espacio de nombres | Solución de problemas |
 |-----------|-----------------|

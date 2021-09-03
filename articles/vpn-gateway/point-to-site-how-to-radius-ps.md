@@ -6,18 +6,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 07/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1dbfc83a24b1c4db09625a73cf0684acedfb2355
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 638a38cf1cbe9aee231e1db400440330bd852b9f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228125"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729655"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configuración de una conexión de punto a sitio a una red virtual con autenticación RADIUS: PowerShell
 
-Este artículo muestra cómo crear una red virtual con conexión de punto a sitio que usa la autenticación RADIUS. Esta configuración solo está disponible para el modelo de implementación de Resource Manager.
+Este artículo muestra cómo crear una red virtual con conexión de punto a sitio que usa la autenticación RADIUS. Esta configuración solo está disponible para el [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 Una puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Las conexiones VPN de punto a sitio resultan útiles cuando quiere conectarse a la red virtual desde una ubicación remota; por ejemplo, cuando realiza teletrabajo desde casa o desde una conferencia. Una VPN P2S también es una solución útil en lugar de una VPN de sitio a sitio cuando hay solo unos pocos clientes que necesitan conectarse a una red virtual.
 
@@ -33,11 +34,11 @@ Este artículo le ayuda a establecer una configuración de punto a sitio con aut
 
 Las conexiones de punto a sitio no requieren un dispositivo VPN ni una dirección IP de acceso público. P2S crea la conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros), OpenVPN o IKEv2.
 
-* SSTP es un túnel VPN basado en TLS que solo se admite en plataformas de cliente Windows. Puede traspasar firewalls, por lo que resulta ideal para conectarse a Azure desde cualquier lugar. En el lado servidor, se admiten las versiones 1.0, 1.1 y 1.2 de SSTP. El cliente decide qué versión va a usar. Para Windows 8.1 y versiones posteriores, SSTP usa 1.2 de forma predeterminada.
+* SSTP es un túnel VPN basado en TLS que solo se admite en plataformas de cliente Windows. Puede traspasar firewalls, por lo que resulta ideal para conectar dispositivos Windows a Azure desde cualquier lugar. En el lado servidor, solo se admite la versión 1.2 de TLS. Para mejorar el rendimiento, la escalabilidad y la seguridad, considere la posibilidad de usar el protocolo OpenVPN en su lugar.
 
-* Protocolo OpenVPN®, un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en TLS puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que usa TLS. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (11.0 y versiones posteriores), Windows, Linux y Mac (OSX 10.13 y versiones posteriores).
+* Protocolo OpenVPN®, un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en TLS puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que usa TLS. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (versión 11.0 y posteriores), Windows, Linux y Mac (macOS 10.13 y versiones posteriores).
 
-* La conexión VPN IKEv2, una solución de VPN con protocolo de seguridad de Internet basada en estándares. La conexión VPN IKEv2 puede utilizarse para la conexión desde dispositivos Mac (versión de OSX 10.11 y versiones posteriores).
+* La conexión VPN IKEv2, una solución de VPN con protocolo de seguridad de Internet basada en estándares. La conexión VPN IKEv2 puede utilizarse para la conexión desde dispositivos Mac (versión macOS 10.11 y posteriores).
 
 Las conexiones P2S requieren lo siguiente:
 
@@ -160,7 +161,7 @@ El artículo [Servidor de directivas de redes (NPS)](/windows-server/networking/
 Configure y cree la puerta de enlace de VPN para la red virtual.
 
 * -GatewayType debe ser "Vpn" y -VpnType, "RouteBased".
-* Una puerta de enlace de VPN puede tardar hasta 45 minutos en completarse, según la  [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku)  que seleccione.
+* Una instancia de VPN Gateway puede tardar 45 minutos o más en completarse, según la  [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku) que seleccione.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

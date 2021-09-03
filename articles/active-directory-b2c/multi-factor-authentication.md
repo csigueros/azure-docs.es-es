@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 08/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 601eec9c65ee7e9bc3c163da78a81a372f26507d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 42feac542760bbebc703cabc4ecc114b0ab4259d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061703"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725753"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
@@ -29,6 +29,14 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 
 - No se requiere autenticación multifactor para acceder a una aplicación, pero sí para acceder a otra. Por ejemplo, el cliente puede iniciar sesión en una aplicación de seguros de automóvil con una cuenta local o social, pero debe comprobar el número de teléfono antes de acceder a la aplicación principal de seguros registrada en el mismo directorio.
 - No se requiere autenticación multifactor para acceder a una aplicación en general, pero sí para acceder a las partes confidenciales que contiene. Por ejemplo, el cliente puede iniciar sesión en una aplicación de banca con una cuenta social o local y comprobar el saldo de las cuentas, pero debe confirmar el número de teléfono antes de realizar una transferencia bancaria.
+
+### <a name="verification-methods"></a>Métodos de comprobación
+
+El [acceso condicional](conditional-access-identity-protection-overview.md) puede o no suponer un desafío de MFA para los usuarios en función las decisiones de configuración que pueda tomar como administrador. Los métodos de la autenticación multifactor son:
+
+- Correo electrónico
+- SMS
+- Llamadas de teléfono
 
 ## <a name="set-multi-factor-authentication"></a>Configuración de la autenticación multifactor
 
@@ -46,8 +54,8 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
    - **Siempre activa**: se requiere siempre MFA, independientemente de cualquier configuración de acceso condicional. Durante el registro, se pide a los usuarios que se inscriban en MFA. Durante el inicio de sesión, si los usuarios aún no están inscritos en MFA, se les pedirá que se inscriban.
    - **Condicional**: durante el registro y el inicio de sesión, se pide a los usuarios que se inscriban en MFA (tanto los nuevos usuarios como los usuarios existentes que no están inscritos en MFA). Durante el inicio de sesión, MFA solo se aplica cuando una evaluación de directiva de acceso condicional activa lo requiere:
 
-      - Si el resultado es un desafío de MFA sin riesgo, se aplica MFA. Si el usuario aún no está inscrito en MFA, se le pedirá que se inscriba.
-      - Si el resultado es un desafío de MFA debido al riesgo *y* el usuario no está inscrito en MFA, el inicio de sesión se bloquea.
+    - Si el resultado es un desafío de MFA sin riesgo, se aplica MFA. Si el usuario aún no está inscrito en MFA, se le pedirá que se inscriba.
+    - Si el resultado es un desafío de MFA debido al riesgo *y* el usuario no está inscrito en MFA, el inicio de sesión se bloquea.
 
    > [!NOTE]
    >

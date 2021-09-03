@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c373e45c8607f10c36f40a23c776bd081bf13207
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 59eb3874a7f0de9eba1f5b75204618c887cb9bb2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789526"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122184117"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -54,6 +54,7 @@ Con *Azure CNI*, cada pod recibe una dirección IP en la subred IP y puede comun
 * Para utilizar kubenet, se necesitan tablas de rutas y rutas definidas por el usuario, lo que agrega complejidad a las operaciones.
 * Por su diseño, kubenet no permite el direccionamiento directo de pods.
 * A diferencia de los clústeres de Azure CNI, no se permite que varios clústeres de kubenet compartan una subred.
+* Si proporciona su propia subred, tendrá que administrar los grupos de seguridad de red (NSG) asociados a dicha subred. AKS no modificará ninguno de los NSG asociados a esa subred. También debe asegurarse de que las reglas de seguridad de los NSG permiten el tráfico entre el nodo y el CIDR del pod.
 * Las características **no admitidas en kubenet** son:
    * [Directivas de red de Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), aunque sí se admiten las de Calico
    * [Grupos de nodos de Windows](./windows-faq.md)
@@ -75,7 +76,7 @@ Los cálculos básicos siguientes comparan la diferencia entre los modelos de re
   - Este número de nodos podría admitir solo hasta *240* pods (con una capacidad máxima predeterminada de 30 pods por nodo con *Azure CNI*).
 
 > [!NOTE]
-> Estos valores máximos no tienen en cuenta las operaciones de actualización o escalado. En la práctica, no puede ejecutar el número máximo de nodos que el intervalo de direcciones IP de la subred admite. Debe dejar algunas direcciones IP disponibles para usarlas durante el escalado de las operaciones de actualización.
+> Estos valores máximos no tienen en cuenta las operaciones de actualización o escalado. En la práctica, no puede ejecutar el número máximo de nodos que el intervalo de direcciones IP de la subred admite. Debe dejar algunas direcciones IP disponibles para usarlas durante el escalado o las operaciones de actualización.
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Emparejamiento de redes virtuales y conexiones de ExpressRoute
 

@@ -3,12 +3,12 @@ title: Administración de directivas de apagado automático en máquinas virtual
 description: Aprenda a establecer una directiva de apagado automático para un laboratorio, de modo que las máquinas virtuales se apaguen automáticamente cuando no se estén usando.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 946ee2a4d6f3503671664b0e46806fef7f71a459
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93318979"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302003"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configuración del apagado automático de máquinas virtuales de laboratorio y proceso en Azure DevTest Labs
 
@@ -112,7 +112,7 @@ Si se especificó un webhook, la notificación se envía a su dirección URL.  S
 
 Le recomendamos que use webhooks porque son ampliamente compatibles con diversas aplicaciones, como Azure Logic Apps y Slack.  Además, le permiten implementar su propio método para enviar notificaciones. A modo de ejemplo, este artículo le indicará cómo configurar la notificación de apagado automáticamente para enviar un correo electrónico al propietario de la máquina virtual mediante Azure Logic Apps. Primero, veamos rápidamente los pasos básicos para habilitar la notificación de apagado automático en su laboratorio.
 
-### <a name="create-a-logic-app-that-receives-email-notifications"></a>Crear una aplicación lógica que reciba notificaciones por correo electrónico
+### <a name="create-a-logic-app-that-sends-email-notifications"></a>Creación de una aplicación lógica que envía notificaciones por correo electrónico
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ofrece muchos conectores que facilitan la integración de un servicio con otros clientes, como Office 365 y Twitter. En el nivel alto, los pasos para configurar una aplicación lógica para las notificaciones por correo electrónico se pueden dividir en cuatro fases:
 

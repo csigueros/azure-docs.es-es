@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 07/21/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 00400197a2f3b523ad83c5bb2667b53c621ca2b1
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 649bf52c48867f4508a7071cb1443b62eae36010
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161886"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860340"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registro de VM con SQL Server con la extensión Agente de IaaS de SQL
 
@@ -57,8 +57,8 @@ Para registrar la máquina virtual con SQL Server con la extensión Agente de I
 
 1. Abra Azure Portal y vaya a **Todos los servicios**.
 1. Vaya a **Suscripciones** y seleccione la suscripción que le interese.
-1. En la página **Suscripciones**, vaya a **Extensiones**.
-1. Escriba **sql** en el filtro para mostrar las extensiones relacionadas con SQL.
+1. En la página **Suscripciones**, en **Configuración**, seleccione **Proveedores de recursos**.
+1. Escriba **sql** en el filtro para mostrar los proveedores de recursos relacionados con SQL.
 1. Seleccione **Registrar**, **Volver a registrar** o **Anular registro** para el proveedor **Microsoft.SqlVirtualMachine**, según la acción que quiera realizar.
 
    ![Modificación del proveedor](./media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
@@ -167,9 +167,11 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ---
 
-## <a name="verify-mode"></a>Comprobación del modo
+## <a name="check-extension-mode"></a>Comprobación del modo de extensión
 
-Puede ver el modo actual del Agente de IaaS de SQL Server mediante Azure PowerShell:
+Use Azure PowerShell para comprobar en qué modo se encuentra la extensión del agente IaaS de SQL Server. 
+
+Para comprobar el modo de la extensión, use este cmdlet Azure PowerShell: 
 
 ```powershell-interactive
 # Get the SqlVirtualMachine
@@ -189,7 +191,7 @@ Las VM con SQL Server que han registrado la extensión en modo *ligero* pueden 
 Para actualizar la extensión al modo completo mediante Azure Portal, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Vaya al recurso [Máquinas virtuales SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource).
+1. Vaya al recurso [Máquinas virtuales SQL](manage-sql-vm-portal.md#access-the-resource).
 1. Seleccione la VM con SQL Server y, luego, **Información general**.
 1. En el caso de las VM con SQL Server con los modos de IaaS NoAgent o Lightweight, seleccione el mensaje **Only license type and edition updates are available with the SQL IaaS extension** (Solo las actualizaciones de la edición y el tipo de licencia están disponibles con la extensión IaaS de SQL).
 
@@ -219,7 +221,7 @@ Para actualizar la extensión al modo completo, ejecute el siguiente fragmento d
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
 
   # Register with SQL IaaS Agent extension in full mode
-  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full -Location $vm.Location
   ```
 
 ---
@@ -238,6 +240,8 @@ Para comprobar el estado del registro mediante Azure Portal, siga estos pasos:
 1. Vea el valor de **Estado**. Si el valor de **Estado** es **Correcto**, la VM con SQL Server se ha registrado con la extensión Agente de IaaS de SQL correctamente.
 
    ![Comprobación del estado con el registro en un proveedor de recursos de SQL](./media/sql-agent-extension-manually-register-single-vm/verify-registration-status.png)
+
+También puede comprobar el estado seleccionando **Reparar** en el panel **Soporte y solución de problemas** del recurso **Máquina virtual SQL**. El estado de aprovisionamiento para la extensión del agente IaaS de SQL puede ser **Correcto** o **Error**. 
 
 ### <a name="command-line"></a>Línea de comandos
 
@@ -262,6 +266,23 @@ Para comprobar el estado del registro mediante Azure PowerShell, ejecute el sigu
 ---
 
 Un error indica que la VM con SQL Server no se ha registrado con la extensión.
+
+## <a name="repair-extension"></a>Reparación de la extensión
+
+Es posible que la extensión del agente IaaS de SQL esté en estado de error. Use Azure Portal para reparar la extensión del agente IaaS de SQL. Para hacerlo, siga estos pasos: 
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya a las [VM con SQL Server](manage-sql-vm-portal.md).
+1. Seleccione la máquina con SQL Server en la lista. Si la VM con SQL Server no aparece en la lista, es probable que no se haya registrado con la extensión Agente de IaaS de SQL.
+1. Seleccione **Reparar** en **Soporte técnico y solución de problemas** en la página de recursos **Máquina virtual SQL**. 
+
+   :::image type="content" source="media/sql-agent-extension-manually-register-single-vm/repair-extension.png" alt-text="Seleccione **Reparar** en **Soporte técnico y solución de problemas** en la página de recursos **Máquina virtual SQL**":::.   
+
+1. Si el estado de aprovisionamiento se muestra como **Error**, elija **Reparar** para reparar la extensión. Si el estado es **Correcto**, puede marcar la casilla situada junto a **Forzar reparación** para reparar la extensión independientemente del estado. 
+
+   ![Si el estado de aprovisionamiento se muestra como **Error**, elija **Reparar** para reparar la extensión. Si el estado es **Correcto**, puede marcar la casilla situada junto a **Forzar reparación** para reparar la extensión independientemente del estado.](./media/sql-agent-extension-manually-register-single-vm/force-repair-extension.png)
+
+
 
 ## <a name="unregister-from-extension"></a>Anulación del registro con la extensión
 
@@ -319,6 +340,6 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 Para más información, consulte los siguientes artículos.
 
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.md)
+* [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.yml)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
 * [Notas de la versión de SQL Server en Azure Virtual Machines](../../database/doc-changes-updates-release-notes.md)
