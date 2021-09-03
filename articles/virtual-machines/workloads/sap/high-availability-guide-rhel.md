@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/11/2021
 ms.author: radeltch
-ms.openlocfilehash: 2bbc8ccf445a9fb45e2dc91041287d6ca47653a2
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: c2fc3d5a4bdc11cbee2d394248c886bc561c9057
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966886"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746203"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux
 
@@ -66,7 +66,7 @@ Lea primero las notas y los documentos de SAP siguientes:
 * [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP en Linux][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide]
-* [Documentación de producto para Red Hat Gluster Storage](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5)
+* [Documentación de producto para Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP Netweaver en el clúster de Pacemaker](https://access.redhat.com/articles/3150081)
 * Documentación general de RHEL
   * [Introducción al complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
