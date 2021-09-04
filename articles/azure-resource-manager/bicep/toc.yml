@@ -22,13 +22,10 @@
     - name: 'Microsoft Learn: Bicep'
       href: learn-bicep.md
 - name: Procedimientos
-  expanded: true
   items:
     - name: Autor
-      expanded: true
       items:
         - name: Recursos
-          expanded: true
           items:
             - name: Declaración de recursos
               href: resource-declaration.md
@@ -75,7 +72,7 @@
             - name: Resource group
               href: deploy-to-resource-group.md
               displayName: 'deployment commands,multiple resource groups'
-            - name: Subscription
+            - name: Suscripción
               href: deploy-to-subscription.md
               displayName: 'Azure Policy,policy,access control'
             - name: Grupo de administración

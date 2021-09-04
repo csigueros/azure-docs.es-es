@@ -41,7 +41,7 @@
           href: virtual-wan-locations-partners.md
         - name: Directrices de automatización para asociados
           href: virtual-wan-configure-automation-providers.md
-    - name: Architecture
+    - name: Arquitectura
       items:
         - name: Migración a Virtual WAN
           href: migrate-from-hub-spoke-topology.md
@@ -195,11 +195,11 @@
           href: howto-private-link.md
         - name: 'Administración del acceso a los recursos: Spoke VNet P2S'
           href: manage-secure-access-resources-spoke-p2s.md
-    - name: Supervisión del estado
+    - name: Supervisión
       items:
         - name: Supervisión de Virtual WAN
           href: monitor-virtual-wan.md
-        - name: Azure Monitor Insights para Virtual WAN
+        - name: Azure Monitor Insights
           href: azure-monitor-insights.md
 - name: Referencia
   items:
