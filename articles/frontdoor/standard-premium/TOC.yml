@@ -39,6 +39,8 @@
           href: concept-rule-set-actions.md
         - name: Redireccionamiento y reescritura de URL
           href: concept-rule-set-url-redirect-and-rewrite.md
+    - name: Filtrado geográfico
+      href: geo-filtering.md
     - name: Sondeos de estado
       href: concept-health-probes.md
     - name: Private Link

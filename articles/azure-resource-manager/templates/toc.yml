@@ -407,6 +407,14 @@
         - name: Paso de valores confidenciales
           displayname: key vault
           href: key-vault-parameter.md
+    - name: Exportar plantillas
+      items:
+        - name: Azure CLI
+          href: export-template-cli.md
+        - name: Portal
+          href: export-template-portal.md
+        - name: PowerShell
+          href: export-template-powershell.md
     - name: Plantillas de prueba
       items:
         - name: Kit de herramientas de prueba
@@ -431,12 +439,6 @@
           href: add-template-to-azure-pipelines.md
         - name: 'Implementación: Acciones de GitHub'
           href: deploy-github-actions.md
-    - name: Detección de propiedades de plantilla
-      items:
-        - name: Exportación de la plantilla
-          href: export-template-portal.md
-        - name: Detección de recursos
-          href: view-resources.md
     - name: Uso de herramientas de creación
       items:
         - name: Visual Studio

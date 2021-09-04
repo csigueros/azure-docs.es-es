@@ -2,411 +2,566 @@
   href: index.yml
 - name: Información general
   href: media-services-overview.md
+  displayName: 'media services v2, v2, version 2'
   items:
     - name: Escenarios frecuentes
       href: scenarios-and-availability.md
+      displayName: 'media services v2, v2, version 2'
     - name: Disponibilidad regional
       href: availability-regions-v-2.md
+      displayName: 'media services v2, v2, version 2'
     - name: Conceptos
       href: media-services-concepts.md
+      displayName: 'media services v2, v2, version 2'
 - name: Introducción
   items:
     - name: Creación y administración de cuentas
       href: media-services-portal-create-account.md
+      displayName: 'media services v2, v2, version 2'
     - name: Configuración del entorno de desarrollo
       href: media-services-set-up-computer.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: .NET
           href: media-services-dotnet-how-to-use.md
+          displayName: 'media services v2, v2, version 2'
         - name: REST
           href: media-services-rest-how-to-use.md
+          displayName: 'media services v2, v2, version 2'
     - name: Uso de la autenticación de Azure AD para acceder a la API
       href: media-services-use-aad-auth-to-access-ams-api.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: Uso del portal para administrar la autenticación de Azure AD
           href: media-services-portal-get-started-with-aad.md
+          displayName: 'media services v2, v2, version 2'
         - name: Acceso a la API con .NET
           href: media-services-dotnet-get-started-with-aad.md
+          displayName: 'media services v2, v2, version 2'
         - name: Acceso a la API con REST
           href: media-services-rest-connect-with-aad.md
+          displayName: 'media services v2, v2, version 2'
         - name: Uso de la CLI de Azure para crear y configurar una aplicación de Azure AD
           href: media-services-cli-create-and-configure-aad-app.md
+          displayName: 'media services v2, v2, version 2'
         - name: Uso de Azure PowerShell para crear y configurar una aplicación de Azure AD
           href: media-services-powershell-create-and-configure-aad-app.md
+          displayName: 'media services v2, v2, version 2'
     - name: Entrega de vídeos a petición
       items:
         - name: Portal de Azure
           href: media-services-portal-vod-get-started.md
+          displayName: 'media services v2, v2, version 2'
         - name: .NET SDK
           href: media-services-dotnet-get-started.md
+          displayName: 'media services v2, v2, version 2'
         - name: Java
           href: media-services-java-how-to-use.md
+          displayName: 'media services v2, v2, version 2'
         - name: REST
           href: media-services-rest-get-started.md
+          displayName: 'media services v2, v2, version 2'
     - name: Realización de streaming en vivo
       items:
         - name: Portal de Azure
           href: media-services-portal-live-passthrough-get-started.md
+          displayName: 'media services v2, v2, version 2'
         - name: .NET
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
+          displayName: 'media services v2, v2, version 2'
 - name: Procedimientos
   items:
     - name: Componentes heredados
-      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      displayName: 'deprecated, deprecation, retired, retirement, legacy, media services v2, v2, version 2'
       href: legacy-components.md
       items:
         - name: Migración desde Azure Media Encoder
           href: migrate-azure-media-encoder.md
-          displayName: AME
+          displayName: 'AME, media services v2, v2, version 2'
         - name: Migración desde Windows Azure Media Encoder
           href: migrate-windows-azure-media-encoder.md
-          displayName: WAME
+          displayName: 'WAME, media services v2, v2, version 2'
         - name: Migración de Indexer V1 y V2
           href: migrate-indexer-v1-v2.md
+          displayName: 'media services v2, v2, version 2'
     - name: Administrar
       items:
         - name: Cuentas
-          displayName: subscription
           href: media-services-account-concept.md
+          displayName: 'media services v2, v2, version 2, subscription, account'
         - name: Entidades
           items:
             - name: .NET
               href: media-services-dotnet-manage-entities.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST
               href: media-services-rest-manage-entities.md
+              displayName: 'media services v2, v2, version 2'
         - name: Puntos de conexión de streaming
           href: media-services-streaming-endpoints-overview.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Portal de Azure
               href: media-services-portal-manage-streaming-endpoints.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-manage-streaming-endpoints.md
+              displayName: 'media services v2, v2, version 2'
         - name: Storage
           items:
             - name: Actualización de Media Services después de sustituir las claves de acceso de almacenamiento
               href: media-services-roll-storage-access-keys.md
+              displayName: 'media services v2, v2, version 2'
             - name: Administración de recursos en varias cuentas de Storage
               href: media-services-managing-multiple-storage-accounts.md
+              displayName: 'media services v2, v2, version 2'
         - name: Cuotas y limitaciones
           href: media-services-quotas-and-limitations.md
+          displayName: 'media services v2, v2, version 2'
     - name: Configuración de Postman
       href: media-rest-apis-with-postman.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: Colección de streaming a petición
           href: postman-collection.md
+          displayName: 'media services v2, v2, version 2'
         - name: Colección de streaming en vivo
           href: postman-live-streaming-collection.md
+          displayName: 'media services v2, v2, version 2'
         - name: Entorno
           href: postman-environment.md
+          displayName: 'media services v2, v2, version 2'
     - name: Carga de contenido
       items:
         - name: Carga de archivos en una cuenta
           items:
             - name: Portal de Azure
               href: media-services-portal-upload-files.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-upload-files.md
-              displayName: invalid character
+              displayName: 'invalid character, media services v2, v2, version 2'
             - name: REST
               href: media-services-rest-upload-files.md
-              displayName: invalid character
+              displayName: 'media services v2, v2, version 2, invalid character'
         - name: Carga de archivos con StorSimple
           href: media-services-upload-files-from-storsimple.md
+          displayName: 'media services v2, v2, version 2'
         - name: Copia de blobs existentes
           href: media-services-copying-existing-blob.md
+          displayName: 'media services v2, v2, version 2'
     - name: Codificar contenido
       href: media-services-encode-asset.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: Administración de la velocidad y la simultaneidad de la codificación
           href: media-services-manage-encoding-speed.md
+          displayName: 'media services v2, v2, version 2'
         - name: Media Encoder Standard (MES)
           items:
             - name: Códecs y formatos de Media Encoder Standard
               href: media-services-media-encoder-standard-formats.md
+              displayName: 'media services v2, v2, version 2'
             - name: Uso de MES para generar automáticamente una escalera de velocidad de bits
               href: media-services-autogen-bitrate-ladder-with-mes.md
+              displayName: 'media services v2, v2, version 2'
             - name: Codificación con Media Encoder Standard
               items:
                 - name: Portal de Azure
                   href: media-services-portal-encode.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: .NET
                   href: media-services-dotnet-encode-with-media-encoder-standard.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: REST
                   href: media-services-rest-encode-asset.md
+                  displayName: 'media services v2, v2, version 2'
             - name: Codificación avanzada con MES
               href: media-services-advanced-encoding-with-mes.md
+              displayName: 'media services v2, v2, version 2'
               items:
                 - name: Personalización de valores preestablecidos de Media Encoder Standard
                   href: media-services-custom-mes-presets-with-dotnet.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET
                   href: media-services-dotnet-generate-thumbnail-with-mes.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: Recorte de vídeos con Codificador multimedia estándar
                   href: media-services-crop-video.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: Generación de un sprite de miniaturas
                   href: generate-thumbnail-sprite.md
+                  displayName: 'media services v2, v2, version 2'
             - name: Esquemas de MES
               items:
                 - name: Esquema de Media Encoder Standard
                   href: media-services-mes-schema.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: Metadatos de entrada
                   href: media-services-input-metadata-schema.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: Metadatos de salida
                   href: media-services-output-metadata-schema.md
+                  displayName: 'media services v2, v2, version 2'
             - name: Valores preestablecidos de MES
               href: media-services-mes-presets-overview.md
+              displayName: 'media services v2, v2, version 2'
               items:
                 - name: H264 Multiple Bitrate 1080p Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 1080p
                   href: media-services-mes-preset-H264-Multiple-Bitrate-1080p.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 16x9 SD Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 16x9 SD
                   href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 16x9 for iOS
                   href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 4K Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 4K
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4K.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 4x3 SD Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 4x3 SD
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 4x3 for iOS
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 720p Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Multiple Bitrate 720p
                   href: media-services-mes-preset-H264-Multiple-Bitrate-720p.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 1080p Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 1080p
                   href: media-services-mes-preset-H264-Single-Bitrate-1080p.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 16x9 SD Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 16x9 SD
                   href: media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 4K Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 4K
                   href: media-services-mes-preset-H264-Single-Bitrate-4K.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 4x3 SD Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 4x3 SD
                   href: media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 720p Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 720p
                   href: media-services-mes-preset-H264-Single-Bitrate-720p.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate 720p for Android
                   href: media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate High Quality SD for Android
                   href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 Single Bitrate Low Quality SD for Android
                   href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
+                  displayName: 'media services v2, v2, version 2'
         - name: Creación de una tarea que genera fragmentos fMP4
           href: media-services-generate-fmp4-chunks.md
+          displayName: 'media services v2, v2, version 2'
         - name: Procesadores de multimedia
           items:
             - name: .NET
               href: media-services-get-media-processor.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST
               href: media-services-rest-get-media-processor.md
+              displayName: 'media services v2, v2, version 2'
         - name: Códigos de error
           href: media-services-encoding-error-codes.md
+          displayName: 'media services v2, v2, version 2'
         - name: Obsoleto
           items:
             - name: Cifrado y empaquetado estático
               href: media-services-static-packaging.md
+              displayName: 'media services v2, v2, version 2'
     - name: Streaming en vivo
       href: media-services-manage-channels-overview.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: Codificadores locales
           href: media-services-live-streaming-with-onprem-encoders.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Codificadores locales recomendados
               href: media-services-recommended-encoders.md
+              displayName: 'media services v2, v2, version 2'
             - name: Portal de Azure
               href: media-services-portal-live-passthrough-get-started.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-live-encode-with-onpremises-encoders.md
+              displayName: 'media services v2, v2, version 2'
         - name: Streaming en vivo con un codificador en la nube
           href: media-services-manage-live-encoder-enabled-channels.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Portal de Azure
               href: media-services-portal-creating-live-encoder-enabled-channel.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-creating-live-encoder-enabled-channel.md
+              displayName: 'media services v2, v2, version 2'
         - name: Configuración de codificadores locales para usarlos con un codificador en la nube
           href: media-services-live-encoders-overview.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Codificador Haivision KB
               href: media-services-configure-kb-live-encoder.md
+              displayName: 'media services v2, v2, version 2'
             - name: Codificador Wirecast
               href: media-services-configure-wirecast-live-encoder.md
+              displayName: 'media services v2, v2, version 2'
         - name: Control de operaciones de larga duración
           href: media-services-dotnet-long-operations.md
+          displayName: 'media services v2, v2, version 2'
         - name: Especificación de ingesta en vivo de MP4 fragmentado
-          href: ../media-services-fmp4-live-ingest-overview.md
+          href: media-services-fmp4-live-ingest-overview.md
+          displayName: 'media services v2, v2, version 2'
     - name: Proteger contenido
       href: media-services-content-protection-overview.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: Cifrado de almacenamiento
           href: media-services-rest-storage-encryption.md
+          displayName: 'media services v2, v2, version 2'
         - name: Cifrado AES-128
           href: media-services-protect-with-aes128.md
+          displayName: 'media services v2, v2, version 2'
         - name: PlayReady y Widevine para streaming
           href: media-services-protect-with-playready-widevine.md
+          displayName: 'media services v2, v2, version 2'
         - name: FairPlay para streaming
           href: media-services-protect-hls-with-fairplay.md
+          displayName: 'media services v2, v2, version 2'
         - name: PlayReady sin conexión para Windows 10
           href: offline-playready-streaming-windows-10.md
+          displayName: 'media services v2, v2, version 2'
         - name: FairPlay sin conexión para iOS
           href: media-services-protect-hls-with-offline-fairplay.md
+          displayName: 'media services v2, v2, version 2'
         - name: Widevine sin conexión para Android
           href: offline-widevine-for-android.md
+          displayName: 'media services v2, v2, version 2'
         - name: Configuración en Azure Portal
           href: media-services-portal-protect-content.md
+          displayName: 'media services v2, v2, version 2'
         - name: Entrega de licencias de DRM
           href: media-services-deliver-keys-and-licenses.md
+          displayName: 'media services v2, v2, version 2'
         - name: Creación de claves de contenido
           items:
             - name: .NET
               href: media-services-dotnet-create-contentkey.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST
               href: media-services-rest-create-contentkey.md
+              displayName: 'media services v2, v2, version 2'
         - name: Introducción a las plantillas de licencias
           items:
             - name: Plantilla de licencia de PlayReady
               href: media-services-playready-license-template-overview.md
+              displayName: 'media services v2, v2, version 2'
             - name: Plantilla de licencia de Widevine
               href: media-services-widevine-license-template-overview.md
+              displayName: 'media services v2, v2, version 2'
         - name: Configuración de directivas de entrega de recursos
           items:
             - name: .NET
               href: media-services-dotnet-configure-asset-delivery-policy.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST
               href: media-services-rest-configure-asset-delivery-policy.md
+              displayName: 'media services v2, v2, version 2'
         - name: Configuración de la directiva de autorización de claves de contenido
           items:
             - name: Portal de Azure
               href: media-services-portal-configure-content-key-auth-policy.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-configure-content-key-auth-policy.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST
               href: media-services-rest-configure-content-key-auth-policy.md
+              displayName: 'media services v2, v2, version 2'
         - name: Transferencia de tokens de autenticación a AMS
           href: media-services-pass-authentication-tokens.md
+          displayName: 'media services v2, v2, version 2'
         - name: Diseños de referencia
           items:
             - name: Diseño del sistema DRM híbrido
               href: hybrid-design-drm-sybsystem.md
+              displayName: 'media services v2, v2, version 2'
             - name: Diseño con DRM múltiple de referencia
               href: media-services-cenc-with-multidrm-access-control.md
+              displayName: 'media services v2, v2, version 2'
     - name: Análisis de contenido
       items:
         - name: Proceso con Indexer
           href: media-services-index-content.md
+          displayName: 'media services v2, v2, version 2'
         - name: Valor predefinido de tarea
           href: indexer-task-preset.md
+          displayName: 'media services v2, v2, version 2'
         - name: Proceso con Face Redactor
           href: media-services-face-redaction.md
+          displayName: 'media services v2, v2, version 2'
         - name: Tutorial de Face Redactor
           href: media-services-redactor-walkthrough.md
+          displayName: 'media services v2, v2, version 2'
     - name: Configuración de la telemetría
       href: media-services-telemetry-overview.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: .NET
           href: media-services-dotnet-telemetry.md
+          displayName: 'media services v2, v2, version 2'
         - name: REST
           href: media-services-rest-telemetry.md
+          displayName: 'media services v2, v2, version 2'
     - name: Escala
       items:
         - name: Procesamiento multimedia
           href: media-services-scale-media-processing-overview.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Portal de Azure
               href: media-services-portal-scale-media-processing.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-encoding-units.md
+              displayName: 'media services v2, v2, version 2'
         - name: Extremos de streaming
           items:
             - name: Portal de Azure
               href: media-services-portal-scale-streaming-endpoints.md
+              displayName: 'media services v2, v2, version 2'
     - name: Entrega de contenido
       href: media-services-deliver-content-overview.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: Empaquetado dinámico
           href: media-services-dynamic-packaging-overview.md
+          displayName: 'media services v2, v2, version 2'
         - name: Introducción a filtros y manifiestos dinámicos
           href: media-services-dynamic-manifest-overview.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Creación de filtros con .NET
               href: media-services-dotnet-dynamic-manifest.md
+              displayName: 'media services v2, v2, version 2'
             - name: Creación de filtros con REST
               href: media-services-rest-dynamic-manifest.md
+              displayName: 'media services v2, v2, version 2'
         - name: Directiva de almacenamiento en caché de CDN en extensión de Media Services
           href: ../../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json
+          displayName: 'media services v2, v2, version 2'
         - name: Publicación de contenido
           items:
             - name: Portal de Azure
               href: media-services-portal-publish.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-deliver-streaming-content.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST
               href: media-services-rest-deliver-streaming-content.md
+              displayName: 'media services v2, v2, version 2'
         - name: Entrega mediante descarga
           href: media-services-deliver-asset-download.md
+          displayName: 'media services v2, v2, version 2'
         - name: Escenario de streaming de conmutación por error
           href: media-services-implement-failover.md
-          displayName: 'HA, high availability'
+          displayName: 'media services v2, v2, version 2, HA, high availability'
     - name: Consumo
       items:
         - name: Reproducción de multimedia con los reproductores existentes
           href: media-services-playback-content-with-existing-players.md
+          displayName: 'media services v2, v2, version 2'
         - name: Otras opciones de reproducción
           items:
             - name: Aplicación Smooth Streaming de la Tienda Windows
               href: media-services-build-smooth-streaming-apps.md
+              displayName: 'media services v2, v2, version 2'
             - name: Aplicación HTML5 con DASH.js
               href: media-services-embed-mpeg-dash-in-html5.md
+              displayName: 'media services v2, v2, version 2'
             - name: Reproductores de Adobe Open Source Media Framework
               href: media-services-use-osmf-smooth-streaming-client-plugin.md
+              displayName: 'media services v2, v2, version 2'
         - name: Inserción de anuncios en el lado cliente
           href: media-services-inserting-ads-on-client-side.md
+          displayName: 'media services v2, v2, version 2'
         - name: Licencias del kit de portabilidad de cliente de Microsoft Smooth Streaming
           href: media-services-sspk.md
+          displayName: 'media services v2, v2, version 2'
     - name: Integrate
       items:
         - name: Uso de Azure Functions con Media Services
           href: media-services-dotnet-how-to-use-azure-functions.md
+          displayName: 'media services v2, v2, version 2'
         - name: Uso de Azure Functions con ejemplos de Media Services
           href: 'https://github.com/Azure-Samples/media-services-dotnet-functions-integration'
+          displayName: 'media services v2, v2, version 2'
     - name: Supervisión
       items:
         - name: Consulta del progreso del trabajo
           items:
             - name: REST
               href: media-services-rest-check-job-progress.md
+              displayName: 'media services v2, v2, version 2'
             - name: Portal de Azure
               href: media-services-portal-check-job-progress.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-check-job-progress.md
+              displayName: 'media services v2, v2, version 2'
         - name: Supervisión de notificaciones de trabajos con Queue Storage
           href: media-services-dotnet-check-job-progress-with-queues.md
+          displayName: 'media services v2, v2, version 2'
         - name: Supervisión de notificaciones de trabajos con webhooks
           href: media-services-dotnet-check-job-progress-with-webhooks.md
+          displayName: 'media services v2, v2, version 2'
     - name: Solución de problemas
       items:
         - name: Preguntas más frecuentes
           href: media-services-frequently-asked-questions.yml
+          displayName: 'media services v2, v2, version 2'
         - name: Guía de solución de problemas para el streaming en vivo
           href: media-services-troubleshooting-live-streaming.md
+          displayName: 'media services v2, v2, version 2'
         - name: Códigos de error
           href: media-services-error-codes.md
+          displayName: 'media services v2, v2, version 2'
         - name: Lógica de reintento
           href: media-services-retry-logic-in-dotnet-sdk.md
+          displayName: 'media services v2, v2, version 2'
 - name: Referencia
   items:
     - name: Ejemplos de código
@@ -422,11 +577,11 @@
     - name: Especificaciones
       items:
         - name: 'Ingesta en vivo: Especificación de ingesta en vivo de MP4 fragmentado'
-          href: ../media-services-fmp4-live-ingest-overview.md
+          href: media-services-fmp4-live-ingest-overview.md
         - name: 'Ingesta en vivo: Señalización de metadatos con tiempo en Live Streaming'
-          href: ../media-services-specifications-live-timed-metadata.md
+          href: media-services-specifications-live-timed-metadata.md
         - name: HEVC de Smooth Streaming
-          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+          href: media-services-specifications-ms-sstr-amendment-hevc.md
     - name: Componentes heredados
       displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md
