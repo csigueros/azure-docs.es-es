@@ -39,7 +39,7 @@
           displayName: Resource Manager
           href: quickstart-arm-template.md
         - name: Soluciones de socios
-          href: sql-data-warehouse-partner-browse-partners.md
+          href: ../partner/browse-partners.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Cargar datos
       items:
         - name: Instrucción COPY
@@ -436,14 +436,14 @@
     - name: Asociados
       items:
         - name: Business intelligence
-          href: sql-data-warehouse-partner-business-intelligence.md
+          href: ../partner/business-intelligence.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
         - name: Integración de datos
-          href: sql-data-warehouse-partner-data-integration.md
+          href: ../partner/data-integration.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
         - name: Administración de datos
-          href: sql-data-warehouse-partner-data-management.md
+          href: ../partner/data-management.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
         - name: Aprendizaje automático e inteligencia artificial
-          href: sql-data-warehouse-partner-machine-learning-ai.md
+          href: ../partner/machine-learning-ai.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
         - name: Integración del sistema
-          href: sql-data-warehouse-partner-system-integration.md
+          href: ../partner/system-integration.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
         - name: Problemas de compatibilidad con aplicaciones de terceros
-          href: sql-data-warehouse-partner-compatibility-issues.md
+          href: ../partner/compatibility-issues.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
