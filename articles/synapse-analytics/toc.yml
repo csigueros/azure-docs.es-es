@@ -54,7 +54,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -76,6 +76,8 @@ items:
           - name: Conectarse al Explorador de datos de Azure
             href: quickstart-connect-azure-data-explorer.md
             displayName: quickstart
+          - name: Soluciones de socios
+            href: ./partner/browse-partners.md
         '-name': null
       - name: Conceptos
         items:
@@ -1240,6 +1242,8 @@ items:
             href: ./catalog-and-governance/quickstart-connect-azure-purview.md
       - name: Guías paso a paso
         items:
+          - name: Acceso a una cuenta de Azure Purview protegida
+            href: ./catalog-and-governance/how-to-access-secured-purview-account.md
           - name: 'Detección, conexión y exploración de datos en Synapse con Azure Purview'
             href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
   - name: Instrucciones
@@ -1304,14 +1308,14 @@ items:
       - name: Asociados
         items:
           - name: Business intelligence
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/business-intelligence.md
           - name: Integración de datos
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-data-integration.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/data-integration.md
           - name: Administración de datos
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-data-management.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/data-management.md
           - name: Aprendizaje automático e inteligencia artificial
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/machine-learning-ai.md
           - name: Integración del sistema
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/system-integration.md
           - name: Problemas de compatibilidad con aplicaciones de terceros
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/compatibility-issues.md

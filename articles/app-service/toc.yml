@@ -315,6 +315,10 @@
           href: webjobs-sdk-get-started.md
         - name: Uso del SDK de WebJobs
           href: webjobs-sdk-how-to.md
+    - name: Alta disponibilidad
+      items:
+        - name: Configuración de alta disponibilidad
+          href: how-to-zone-redundancy.md
 - name: Referencia
   items:
     - name: Supervisión de datos
@@ -376,16 +380,18 @@
           href: troubleshoot-performance-degradation.md
         - name: Solución de problemas de dominios y certificados
           href: troubleshoot-domain-ssl-certificates.md
-        - name: Preguntas más frecuentes
-          items:
-            - name: 'Disponibilidad, rendimiento y preguntas más frecuentes sobre aplicaciones'
-              href: faq-availability-performance-application-issues.yml
-            - name: Preguntas más frecuentes sobre la implementación
-              href: faq-deployment.yml
-            - name: Preguntas más frecuentes sobre las tecnologías de código abierto
-              href: faq-open-source-technologies.yml
-            - name: Preguntas más frecuentes sobre la configuración y administración
-              href: faq-configuration-and-management.yml
+    - name: Preguntas más frecuentes
+      items:
+        - name: 'Disponibilidad, rendimiento y preguntas más frecuentes sobre aplicaciones'
+          href: faq-availability-performance-application-issues.yml
+        - name: Preguntas más frecuentes sobre la implementación
+          href: faq-deployment.yml
+        - name: Preguntas más frecuentes sobre las tecnologías de código abierto
+          href: faq-open-source-technologies.yml
+        - name: Preguntas más frecuentes sobre la configuración y administración
+          href: faq-configuration-and-management.yml
+        - name: App Service en Linux
+          href: faq-app-service-linux.yml
     - name: Cambio de direcciones IP
       items:
         - name: Dirección IP de entrada

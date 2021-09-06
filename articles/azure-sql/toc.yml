@@ -153,8 +153,6 @@
                   href: database/xevent-code-ring-buffer.md
     - name: Procedimientos compartidos
       items:
-        - name: Solicitud de aumento de cuota
-          href: database/quota-increase-request.md
         - name: Automatización de trabajos con trabajos elásticos
           href: database/job-automation-overview.md
         - name: Automatización de trabajos con Agente SQL
@@ -479,6 +477,8 @@
               href: database/private-endpoint-overview.md
             - name: Puntos de conexión de red virtual
               href: database/vnet-service-endpoint-rule-overview.md
+            - name: Roles del servidor
+              href: database/security-server-roles.md
         - name: Partición de base de datos
           items:
             - name: Partición de base de datos
@@ -509,7 +509,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure portal
+                - name: Portal de Azure
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -1422,6 +1422,8 @@
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
     - name: Solución de problemas
       items:
+        - name: Errores de capacidad durante la implementación
+          href: capacity-errors-troubleshoot.md
         - name: Errores de conectividad
           href: database/troubleshoot-common-errors-issues.md
         - name: Problemas de conexión comunes
@@ -1430,6 +1432,8 @@
           href: database/database-import-export-hang.md
         - name: Errores del registro de transacciones
           href: database/troubleshoot-transaction-log-errors-issues.md
+        - name: Solicitud de aumento de cuota
+          href: database/quota-increase-request.md
     - name: Actualizaciones del servicio
       items:
         - name: El certificado raíz de SSL va a expirar

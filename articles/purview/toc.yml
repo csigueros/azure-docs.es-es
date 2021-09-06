@@ -76,6 +76,8 @@ items:
         href: concept-asset-normalization.md
       - name: Preguntas más frecuentes
         href: ./frequently-asked-questions.yml
+      - name: Cuentas de Purview actualizadas
+        href: concept-account-upgrade.md
   - name: Guías paso a paso
     items:
       - name: Creación y administración de colecciones de trabajos

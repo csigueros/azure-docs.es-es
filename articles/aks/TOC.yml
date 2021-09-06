@@ -61,7 +61,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Storage
+    - name: Almacenamiento
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -144,6 +144,8 @@
       items:
         - name: Escalado de un clúster de AKS
           href: scale-cluster.md
+        - name: Detención o desasignación de nodos con el modo de reducción vertical (versión preliminar)
+          href: scale-down-mode.md
         - name: Detención de un clúster de AKS
           href: start-stop-cluster.md
         - name: Uso del mantenimiento planeado (versión preliminar)
@@ -359,7 +361,31 @@
         - name: Acerca de las mallas de servicio
           href: servicemesh-about.md
         - name: Complemento Open Service Mesh (versión preliminar) de AKS
-          href: servicemesh-osm-about.md
+          items:
+            - name: Introducción a OSM
+              href: open-service-mesh-about.md
+            - name: Implementación del complemento AKS de OSM
+              href: open-service-mesh-deploy-add-on.md
+            - name: Descarga del binario de cliente de OSM
+              href: open-service-mesh-binary.md
+            - name: Tutoriales de OSM
+              items:
+                - name: Administración de una nueva implementación de aplicaciones
+                  href: open-service-mesh-deploy-new-application.md
+                - name: Administración de una implementación de aplicaciones existente
+                  href: open-service-mesh-deploy-existing-application.md
+                - name: Uso de la entrada de Azure Application Gateway
+                  href: open-service-mesh-azure-application-gateway-ingress.md
+                - name: Uso de la entrada de NGINX
+                  href: open-service-mesh-nginx-ingress.md
+                - name: 'Configuración de la observabilidad mediante Prometheus, Grafana y Jaeger'
+                  href: open-service-mesh-open-source-observability.md
+            - name: Configuración de Azure Monitor
+              href: open-service-mesh-azure-monitor.md
+            - name: Solución de problemas de OSM
+              href: open-service-mesh-troubleshoot.md
+            - name: Deshabilitación de OSM
+              href: open-service-mesh-disable-add-on.md
     - name: DevOps
       items:
         - name: Uso de Ansible para crear clústeres de AKS

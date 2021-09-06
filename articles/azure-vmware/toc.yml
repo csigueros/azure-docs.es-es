@@ -124,6 +124,8 @@
       items:
         - name: Implementación de la recuperación ante desastres de JetStream
           href: deploy-disaster-recovery-using-jetstream.md
+        - name: Implementación de recuperación ante desastres de Zerto
+          href: deploy-zerto-disaster-recovery.md
         - name: Implementación de VMware HCX para la recuperación ante desastres
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Implementación de VMware SRM para la recuperación ante desastres
@@ -156,9 +158,9 @@
           href: deploy-vm-content-library.md
         - name: Recuperación ante desastres
           items:
-            - name: Implementación de la recuperación ante desastres mediante VMware SRM
+            - name: VMware SRM para la recuperación ante desastres
               href: disaster-recovery-using-vmware-site-recovery-manager.md
-            - name: Implementación de la recuperación ante desastres mediante VMware HCX
+            - name: VMware HCX para la recuperación ante desastres
               href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Actualización del dispositivo VMware HCX
           href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'

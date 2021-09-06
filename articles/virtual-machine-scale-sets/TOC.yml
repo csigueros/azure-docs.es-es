@@ -238,58 +238,44 @@
           href: virtual-machine-scale-sets-design-overview.md
         - name: Descripción de los identificadores de instancias
           href: virtual-machine-scale-sets-instance-ids.md
-    - name: Uso de imágenes
-      displayName: 'SIG, AMI, image'
+    - name: Instancias de Shared Image Gallery
       items:
-        - name: Instancias de Shared Image Gallery
+        - name: Información general
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: ../virtual-machines/shared-image-galleries.md
+        - name: Creación de una galería
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: ../virtual-machines/create-gallery.md
+        - name: Uso compartido de una galería
+          href: ../virtual-machines/share-gallery.md
+        - name: Crear una imagen
+          displayName: 'VM, image, VHD, storage account'
+          href: ../virtual-machines/image-version.md
+        - name: Captura de una máquina virtual en el portal
+          href: ../virtual-machines/capture-image-portal.md
+        - name: Creación de un conjunto de escalado
           items:
             - name: PowerShell
               items:
-                - name: Creación de una galería
-                  href: ../virtual-machines/shared-images-powershell.md
-                - name: Crear una imagen
-                  items:
-                    - name: Desde una máquina virtual
-                      href: ../virtual-machines/image-version-vm-powershell.md
-                    - name: Migración desde una imagen administrada
-                      href: ../virtual-machines/image-version-managed-image-powershell.md
-                    - name: Copia desde otra galería
-                      href: ../virtual-machines/image-version-another-gallery-powershell.md
-                - name: Creación de un conjunto de escalado
-                  items:
-                    - name: Especializada
-                      href: instance-specialized-image-version-powershell.md
-                    - name: Generalizada
-                      href: instance-generalized-image-version-powershell.md
-                - name: Actualización de recursos de imagen
-                  href: ../virtual-machines/update-image-resources-powershell.md
+                - name: Especializada
+                  href: instance-specialized-image-version-powershell.md
+                - name: Generalizada
+                  href: instance-generalized-image-version-powershell.md
             - name: CLI
               items:
-                - name: Creación de una galería
-                  href: ../virtual-machines/shared-images-cli.md
-                - name: Crear una imagen
-                  items:
-                    - name: Desde una máquina virtual
-                      href: ../virtual-machines/image-version-vm-cli.md
-                    - name: Migración desde una imagen administrada
-                      href: ../virtual-machines/image-version-managed-image-cli.md
-                    - name: Copia desde otra galería
-                      href: ../virtual-machines/image-version-another-gallery-cli.md
-                - name: Creación de un conjunto de escalado
-                  items:
-                    - name: Especializada
-                      href: instance-specialized-image-version-cli.md
-                    - name: Generalizada
-                      href: instance-generalized-image-version-cli.md
-                - name: Actualización de recursos de imagen
-                  href: ../virtual-machines/update-image-resources-cli.md
-            - name: Solución de problemas de imágenes compartidas
-              href: ../virtual-machines/troubleshooting-shared-images.md
-            - name: Usando claves administradas por el cliente
-              displayName: 'SSE, CMK, encrypt'
-              href: ../virtual-machines/image-version-encryption.md
-            - name: Registro de aplicaciones para uso compartido
-              href: share-images-across-tenants.md
+                - name: Especializada
+                  href: instance-specialized-image-version-cli.md
+                - name: Generalizada
+                  href: instance-generalized-image-version-cli.md
+        - name: Actualización de recursos de imagen
+          href: ../virtual-machines/update-image-resources.md
+        - name: Solución de problemas de imágenes compartidas
+          href: ../virtual-machines/troubleshooting-shared-images.md
+        - name: Usando claves administradas por el cliente
+          displayName: 'SSE, CMK, encrypt'
+          href: ../virtual-machines/image-version-encryption.md
+        - name: Registro de aplicaciones para uso compartido
+          href: share-images-across-tenants.md
     - name: Creación de una plantilla
       items:
         - name: Más información acerca de las plantillas de conjunto de escalado
@@ -343,15 +329,12 @@
         - name: Conversión de una plantilla de conjunto de escalado para que use un disco administrado
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Uso de hosts dedicados
+          displayName: 'sole-tenant, sole tenant, isolated, isolation'
           items:
             - name: Información general
               href: ../virtual-machines/dedicated-hosts.md
-            - name: CLI
-              href: ../virtual-machines/linux/dedicated-hosts-cli.md
-            - name: PowerShell
-              href: ../virtual-machines/windows/dedicated-hosts-powershell.md
-            - name: Portal
-              href: ../virtual-machines/dedicated-hosts-portal.md
+            - name: Instrucciones
+              href: ../virtual-machines/dedicated-hosts.md
         - name: Máquinas virtuales de Azure Spot
           href: use-spot.md
         - name: Ventaja híbrida de Azure para Linux

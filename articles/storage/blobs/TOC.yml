@@ -18,7 +18,7 @@ items:
         items:
           - name: Uso de blobs
             items:
-              - name: Azure Portal
+              - name: Portal de Azure
                 href: storage-quickstart-blobs-portal.md
               - name: Explorador de Storage
                 href: storage-quickstart-blobs-storage-explorer.md
@@ -172,7 +172,7 @@ items:
                 href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Configuración de las preferencias de enrutamiento de red
                 href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Protección de datos
+          - name: Protección de los datos
             items:
               - name: Información general
                 href: data-protection-overview.md
@@ -291,6 +291,8 @@ items:
             href: storage-blob-pageblob-overview.md
           - name: Sitios web estáticos
             href: storage-blob-static-website.md
+          - name: Compatibilidad de las características de Blob Storage
+            href: storage-feature-support-in-storage-accounts.md
       - name: Procedimientos
         items:
           - name: Crear y administrar cuentas de almacenamiento
@@ -474,8 +476,12 @@ items:
                     href: archive-rehydrate-to-online-tier.md
                   - name: Control de un evento en la rehidratación de blobs
                     href: archive-rehydrate-handle-event.md
-          - name: Configuración de la replicación de objetos
-            href: object-replication-configure.md
+          - name: Administración de la replicación de objetos
+            items:
+              - name: Configuración de directivas de replicación de objetos
+                href: object-replication-configure.md
+              - name: Impedir la replicación de objetos entre inquilinos
+                href: object-replication-prevent-cross-tenant-policies.md
           - name: Administración de la simultaneidad
             href: concurrency-manage.md
           - name: Uso de un emulador de almacenamiento
@@ -634,6 +640,8 @@ items:
                 href: ../common/storage-explorer-direct-link.md
               - name: Seguridad del Explorador de Azure Storage
                 href: ../common/storage-explorer-security.md
+              - name: Eliminación temporal del Explorador de Storage
+                href: ../common/storage-explorer-soft-delete.md
               - name: Control de versiones de blobs del Explorador de Azure Storage
                 href: ../common/storage-explorer-blob-versioning.md
               - name: Administración por parte del Explorador de Storage del almacenamiento de Azure Blob Storage
@@ -757,7 +765,7 @@ items:
               - name: Acceso multiprotocolo
                 href: data-lake-storage-multi-protocol-access.md
               - name: Características de Blob Storage compatibles
-                href: data-lake-storage-supported-blob-storage-features.md
+                href: storage-feature-support-in-storage-accounts.md
               - name: Servicios de Azure compatibles
                 href: data-lake-storage-supported-azure-services.md
               - name: Plataformas de código abierto compatibles

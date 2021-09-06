@@ -156,6 +156,8 @@
               href: backup-azure-linux-app-consistent.md
             - name: Copia de seguridad de discos selectiva
               href: selective-disk-backup-restore.md
+            - name: Uso de la copia de seguridad de máquinas virtuales de Azure para realizar instantáneas coherentes con la base de datos
+              href: backup-azure-linux-database-consistent-enhanced-pre-post.md
         - name: Restauración
           items:
             - name: Acerca de la restauración de máquinas virtuales de Azure

@@ -356,15 +356,9 @@
         - name: Información general
           displayName: 'Dedicated hosts, ADH'
           href: dedicated-hosts.md
-        - name: CLI
-          displayName: 'Dedicated hosts, ADH'
-          href: ./linux/dedicated-hosts-cli.md
-        - name: Portal
-          displayName: 'Dedicated hosts, ADH'
-          href: dedicated-hosts-portal.md
-        - name: PowerShell
-          displayName: 'Dedicated hosts, ADH'
-          href: ./windows/dedicated-hosts-powershell.md
+        - name: Instrucciones
+          displayName: dedicated adh
+          href: dedicated-hosts-how-to.md
     - name: Máquinas virtuales de Azure Spot
       items:
         - name: Información general
@@ -776,8 +770,6 @@
           href: ./linux/no-agent.md
         - name: Deshabilitación del aprovisionamiento del agente Linux
           href: ./linux/disable-provisioning.md
-        - name: Captura de una máquina virtual en una imagen administrada
-          href: ./linux/capture-image.md
     - name: Imágenes personalizadas de Windows
       items:
         - name: Preparación de un disco duro virtual para cargarlo
@@ -801,89 +793,35 @@
         - name: Información general
           displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
           href: ./shared-image-galleries.md
-        - name: CLI
+        - name: Creación de una galería
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: create-gallery.md
+        - name: Uso compartido de una galería
+          href: share-gallery.md
+        - name: Captura de una máquina virtual en el portal
+          href: capture-image-portal.md
+        - name: Crear una imagen
+          displayName: 'VM, image, VHD, storage account'
+          href: image-version.md
+        - name: Crear una VM
           items:
-            - name: Creación de una galería
+            - name: Generalizada
               displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: shared-images-cli.md
-            - name: Crear una imagen
-              items:
-                - name: Desde una máquina virtual
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-vm-cli.md
-                - name: Desde un disco administrado o una instantánea
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-snapshot-cli.md
-                - name: Clonación de una imagen administrada
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-managed-image-cli.md
-                - name: Copia desde otra galería
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-another-gallery-cli.md
-            - name: Crear una VM
-              items:
-                - name: Generalizada
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: vm-generalized-image-version-cli.md
-                - name: Especializada
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: vm-specialized-image-version-cli.md
-            - name: Actualización de recursos de imagen
+              href: vm-generalized-image-version.md
+            - name: Especializada
               displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: update-image-resources-cli.md
-            - name: Registro de aplicaciones para uso compartido
-              items:
-                - name: Linux
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
-                  href: ./linux/share-images-across-tenants.md
-                - name: Windows
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
-                  href: ./windows/share-images-across-tenants.md
-        - name: PowerShell
+              href: vm-specialized-image-version.md
+        - name: Actualización de recursos de imagen
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: update-image-resources.md
+        - name: Registro de aplicaciones para uso compartido
           items:
-            - name: Creación de una galería
-              displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: shared-images-powershell.md
-            - name: Creación de la versión de una imagen
-              items:
-                - name: Desde una máquina virtual
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, version'
-                  href: image-version-vm-powershell.md
-                - name: Desde un disco administrado o una instantánea
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, managed disk, snapshot'
-                  href: image-version-snapshot-powershell.md
-                - name: Clonación de una imagen administrada
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, clone, copy'
-                  href: image-version-managed-image-powershell.md
-                - name: Copia desde otra galería
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, copy, clone'
-                  href: image-version-another-gallery-powershell.md
-            - name: Crear una VM
-              items:
-                - name: Generalizada
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, generalized'
-                  href: vm-generalized-image-version-powershell.md
-                - name: Especializada
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, specialized'
-                  href: vm-specialized-image-version-powershell.md
-                - name: Actualización de recursos de imagen
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: update-image-resources-powershell.md
-                - name: Registro de aplicaciones para uso compartido
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: windows/share-images-across-tenants.md
-        - name: Portal
-          items:
-            - name: 'Creación de una galería, una imagen y una máquina virtual'
-              items:
-                - name: Linux
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, create'
-                  href: ./linux/shared-images-portal.md
-                - name: Windows
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, create'
-                  href: ./windows/shared-images-portal.md
-            - name: Captura de una máquina virtual en el portal
-              href: capture-image-portal.md
+            - name: Linux
+              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
+              href: ./linux/share-images-across-tenants.md
+            - name: Windows
+              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
+              href: ./windows/share-images-across-tenants.md
         - name: Plantillas de Resource Manager
           items:
             - name: Creación de una instancia de Shared Image Gallery
@@ -1437,7 +1375,7 @@
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
     - name: Filtrado del tráfico de red
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
@@ -1445,7 +1383,7 @@
           href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP pública estática'
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
@@ -1457,7 +1395,7 @@
           href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP privada estática'
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context

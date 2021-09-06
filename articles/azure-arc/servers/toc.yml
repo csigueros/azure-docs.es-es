@@ -6,6 +6,8 @@
       href: overview.md
     - name: Novedades del agente de Connected Machine
       href: agent-release-notes.md
+    - name: Archivo de las notas de la versión del agente de Connected Machine
+      href: agent-release-notes-archive.md
 - name: Guías de inicio rápido
   items:
     - name: Habilitación del agente de servidores habilitados para Arc

@@ -4,8 +4,6 @@
   items:
     - name: ¿Qué es una identidad de dispositivo?
       href: overview.md
-    - name: ¿Qué es Enterprise State Roaming?
-      href: enterprise-state-roaming-overview.md
 - name: Tutoriales
   expanded: false
   items:
@@ -49,42 +47,44 @@
       href: device-management-azure-portal.md
     - name: Administración de dispositivos obsoletos
       href: manage-stale-devices.md
-    - name: Habilitar Enterprise State Roaming
-      href: enterprise-state-roaming-enable.md
     - name: "Máquinas virtuales de Azure Linux y Azure\_AD"
       href: howto-vm-sign-in-azure-ad-linux.md
     - name: "Máquinas virtuales de Azure Windows y Azure\_AD"
       href: howto-vm-sign-in-azure-ad-windows.md
     - name: Infraestructura de escritorio virtual
       href: howto-device-identity-virtual-desktop-infrastructure.md
+    - name: Preguntas más frecuentes
+      href: faq.yml
     - name: Solución de problemas de identidades de dispositivo
       items:
         - name: Solución de problemas de dispositivos actuales de Windows unidos a Azure AD híbrido
           href: troubleshoot-hybrid-join-windows-current.md
+        - name: Solución de problemas de estado de dispositivo pendiente
+          href: /troubleshoot/azure/active-directory/pending-devices
         - name: Solución de problemas mediante dsregcmd
           href: troubleshoot-device-dsregcmd.md
         - name: Solución de problemas de dispositivos de Windows de nivel inferior unidos a Azure AD híbrido
           href: troubleshoot-hybrid-join-windows-legacy.md
-        - name: Solución de problemas de Enterprise State Roaming
-          href: enterprise-state-roaming-troubleshooting.md
-    - name: Preguntas más frecuentes
+    - name: Enterprise State Roaming
       items:
-        - name: Preguntas más frecuentes
-          href: faq.yml
+        - name: ¿Qué es Enterprise State Roaming?
+          href: enterprise-state-roaming-overview.md
+        - name: Habilitar Enterprise State Roaming
+          href: enterprise-state-roaming-enable.md
         - name: Habilitar preguntas frecuentes de Enterprise State Roaming
           href: enterprise-state-roaming-faqs.yml
+        - name: Solución de problemas de Enterprise State Roaming
+          href: enterprise-state-roaming-troubleshooting.md
+        - name: Configuración de GPO de Enterprise State Roaming
+          href: enterprise-state-roaming-group-policy-settings.md
+        - name: Configuración de Windows de Enterprise State Roaming
+          href: enterprise-state-roaming-windows-settings-reference.md
 - name: Referencia
   items:
     - name: "Aplicación de TLS\_1.2"
       href: reference-device-registration-tls-1-2.md
-    - name: Configuración de GPO de Enterprise State Roaming
-      href: enterprise-state-roaming-group-policy-settings.md
-    - name: Configuración de Windows de Enterprise State Roaming
-      href: enterprise-state-roaming-windows-settings-reference.md
     - name: Graph API
-      items:
-        - name: API de identidad del dispositivo
-          href: /graph/api/resources/device
+      href: /graph/api/resources/device
 - name: Recursos
   items:
     - name: Foro de comentarios de Azure

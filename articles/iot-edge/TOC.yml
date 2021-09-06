@@ -175,7 +175,7 @@
       items:
         - name: Implementación en dispositivos individuales
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: how-to-deploy-modules-portal.md
             - name: Azure CLI
               href: how-to-deploy-modules-cli.md
@@ -183,7 +183,7 @@
               href: how-to-deploy-modules-vscode.md
         - name: Implementación a escala
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: how-to-deploy-at-scale.md
             - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md
@@ -267,6 +267,8 @@
           href: troubleshoot-common-errors.md
 - name: Referencia
   items:
+    - name: Variables de entorno de módulos en tiempo de ejecución
+      href: 'https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md'
     - name: Funciones de PowerShell
       items:
         - name: IoT Edge para Linux en Windows

@@ -26,8 +26,12 @@
       href: set-up-service-alerts.md
 - name: Instrucciones
   items:
-    - name: Migración manual
-      href: manual-migration.md
+    - name: Migración de una implementación
+      items:
+        - name: Migración automática
+          href: automatic-migration.md
+        - name: Migración manual
+          href: manual-migration.md
     - name: Conexión a recursos de Azure Virtual Desktop
       items:
         - name: Conexión con el cliente de Escritorio de Windows

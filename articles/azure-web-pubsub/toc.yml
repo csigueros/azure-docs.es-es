@@ -7,7 +7,7 @@
       href: overview.md
     - name: 'Acerca de centros de conectividad, grupos y conexiones'
       href: key-concepts.md
-- name: Guías de inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Crear instancia
@@ -34,7 +34,7 @@
       items:
         - name: Compilación de una aplicación de notificación con Azure Function
           href: tutorial-serverless-notification.md
-        - name: Compilación de una aplicación de chat con Azure Function
+        - name: Compilación de una aplicación de chat en tiempo real con autenticación de cliente
           href: quickstart-serverless.md
     - name: Publicación de mensajes y suscripción a ellos
       href: tutorial-pub-sub-messages.md
@@ -85,6 +85,8 @@
       items:
         - name: Subprotocolos de WebSocket de JSON
           href: reference-json-webpubsub-subprotocol.md
+        - name: Subprotocolo de WebSocket de Protobuf
+          href: reference-protobuf-webpubsub-subprotocol.md
     - name: Extensión CloudEvents para Azure Web PubSub
       href: reference-cloud-events.md
     - name: Desencadenador y enlaces de Azure Functions

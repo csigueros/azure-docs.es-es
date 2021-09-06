@@ -10,12 +10,12 @@ metadata:
   author: mimcco
   ms.author: amiyouss
   ms.date: 03/25/2021
-  ms.openlocfilehash: 62ddbb2c5d64e634a534956714b6d2703a61f828
-  ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+  ms.openlocfilehash: 5d5e559b5374f0e635138e8189ff9a0259ef40e4
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/30/2021
-  ms.locfileid: "123223305"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123424373"
 landingContent:
 - title: ¿Qué es Azure Percept?
   linkLists:
@@ -45,12 +45,8 @@ landingContent:
       url: quickstart-percept-dk-unboxing.md
     - text: Configuración del dispositivo de Azure Percept DK
       url: quickstart-percept-dk-set-up.md
-    - text: Configuración del dispositivo de Azure Percept Audio
-      url: quickstart-percept-audio-setup.md
   - linkListType: how-to-guide
     links:
-    - text: Conexión a Azure Percept DK a través de Ethernet
-      url: how-to-connect-over-ethernet.md
     - text: Conexión de Azure Percept a través de redes 5G o LTE
       url: connect-over-cellular.md
     - text: Conexión a Azure Percept DK a través de SSH
@@ -59,10 +55,20 @@ landingContent:
       url: troubleshoot-dev-kit.md
     - text: Solución de los problemas en la instalación de Azure Percept DK
       url: how-to-troubleshoot-setup.md
-    - text: Estados de los botones e indicadores LED de Azure Percept Audio
-      url: audio-button-led-behavior.md
     - text: Obtención de soporte técnico de hardware de Azure Percept desde ASUS
       url: how-to-get-hardware-support.md
+- title: Configuración del dispositivo de Azure Percept Audio
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Configuración del dispositivo de Azure Percept Audio
+      url: quickstart-percept-audio-setup.md
+  - linkListType: how-to-guide
+    links:
+    - text: Estados de los botones e indicadores LED de Azure Percept Audio
+      url: audio-button-led-behavior.md
+    - text: Solución de problemas de Azure Percept Audio y el módulo de voz
+      url: troubleshoot-audio-accessory-speech-module.md
 - title: Administración de Azure Percept DK
   linkLists:
   - linkListType: how-to-guide
@@ -77,11 +83,9 @@ landingContent:
       url: how-to-update-via-usb.md
   - linkListType: download
     links:
-    - text: Selección del paquete de actualización más adecuado para Azure Percept DK
-      url: how-to-select-update-package.md
     - text: Versiones de software para actualizaciones de OTA
       url: software-releases-over-the-air-updates.md
-    - text: Versiones del software de Azure Percept DK para realizar actualizaciones a través de un cable USB
+    - text: Versiones de software para las actualizaciones de por cable USB
       url: software-releases-usb-cable-updates.md
     - text: Notas de la versión del software Azure Percept DK
       url: azure-percept-devkit-software-release-notes.md
@@ -105,7 +109,7 @@ landingContent:
       url: how-to-view-telemetry.md
     - text: Solución de problemas de Azure Percept Vision y de los módulos de visión
       url: vision-solution-troubleshooting.md
-- title: Creación de un asistente para voz sin código
+- title: Creación de un asistente para voz sin código con Azure Percept Studio
   linkLists:
   - linkListType: tutorial
     links:

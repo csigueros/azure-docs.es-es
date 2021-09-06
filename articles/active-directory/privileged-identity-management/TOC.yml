@@ -93,22 +93,14 @@
           href: groups-audit.md
     - name: Revisar acceso
       items:
-        - name: Roles de Azure AD
+        - name: Roles de Azure AD y roles de recursos de Azure
           items:
             - name: Creación de una revisión de acceso
-              href: pim-how-to-start-security-review.md
-            - name: Revisar acceso
-              href: pim-how-to-perform-security-review.md
+              href: pim-create-azure-ad-roles-and-resource-roles-review.md
+            - name: Realización de una revisión de acceso
+              href: pim-perform-azure-ad-roles-and-resource-roles-review.md
             - name: Finalización de una revisión de acceso
-              href: pim-how-to-complete-review.md
-        - name: Roles de Azure
-          items:
-            - name: Creación de una revisión de acceso
-              href: pim-resource-roles-start-access-review.md
-            - name: Revisar acceso
-              href: pim-resource-roles-perform-access-review.md
-            - name: Finalización de una revisión de acceso
-              href: pim-resource-roles-complete-access-review.md
+              href: pim-complete-azure-ad-roles-and-resource-roles-review.md
     - name: "Detección e información para roles de Azure\_AD"
       href: pim-security-wizard.md
     - name: Elevación de los privilegios de acceso para administrar las suscripciones de Azure

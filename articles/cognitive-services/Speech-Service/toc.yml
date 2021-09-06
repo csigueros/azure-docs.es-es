@@ -330,6 +330,8 @@
       href: keyword-recognition-guidelines.md
     - name: Regiones admitidas
       href: keyword-recognition-region-support.md
+- name: Identificación del idioma
+  href: language-identification.md
 - name: Profundización en el escenario
   items:
     - name: Escenarios de conversación
@@ -531,6 +533,8 @@
           href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
         - name: Uso de claves administradas por el cliente
           href: speech-encryption-of-data-at-rest.md
+        - name: Procedimiento de copia de seguridad y recuperación de recursos de personalización de voz
+          href: resiliency-and-recovery-plan.md
 - name: Dispositivos
   items:
     - name: Documentación de dispositivos de voz

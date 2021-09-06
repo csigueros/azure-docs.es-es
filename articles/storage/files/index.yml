@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de Azure Files
-summary: Azure Files ofrece recursos compartidos de archivos multiplataforma completamente administrados en la nube, a los que se puede acceder mediante el protocolo de Bloque de mensajes del servidor (SMB).
+summary: Recursos compartidos de archivos en la nube de nivel empresarial sencillos, seguros y sin servidor.
 metadata:
   title: Documentación de Azure Files
   description: Monte recursos compartidos de archivos en la nube o en el entorno local en Windows, Linux y macOS. Almacene en caché los recursos compartidos de archivos de Azure en servidores Windows Server con Azure File Sync para obtener acceso local.
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: roygara
   ms.author: rogarana
-  ms.date: 04/19/2021
-  ms.openlocfilehash: 56879a2b6efc0ae5e7278828a474d0197f37f255
-  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.date: 08/31/2021
+  ms.openlocfilehash: b5fb9f3419c4aa54fc7c614da84c62d31d760641
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107761716"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123427595"
 landingContent:
 - title: Acerca de Azure Files
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
       url: storage-files-planning.md
     - text: ¿Qué es Azure Files?
       url: storage-files-introduction.md
-    - text: Autenticación basada en identidad
+    - text: Habilitación basada en identidad
       url: storage-files-active-directory-overview.md
 - title: Primeros pasos
   linkLists:

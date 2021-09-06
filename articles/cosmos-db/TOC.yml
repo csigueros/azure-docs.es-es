@@ -52,6 +52,8 @@
           href: how-to-choose-offer.md
         - name: Elija entre el rendimiento aprovisionado y sin servidor
           href: throughput-serverless.md
+        - name: Procedimientos recomendados para escalar el rendimiento aprovisionado
+          href: scaling-provisioned-throughput-best-practices.md
     - name: Seguridad
       items:
         - name: Introducción a la seguridad
@@ -144,7 +146,7 @@
       items:
         - name: Recursos de Cosmos DB
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: sql/create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager

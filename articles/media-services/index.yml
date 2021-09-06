@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentación de Azure Media Services
-summary: 'Azure Media Services permite compilar aplicaciones multimedia mediante streaming en vivo de baja latencia, codificación por lotes, protección de contenido o DRM, y entrega de contenido de streaming a millones de espectadores en cualquier dispositivo.'
+summary: 'Azure Media Services permite compilar aplicaciones multimedia mediante el streaming en vivo de baja latencia, la codificación por lotes, la protección de contenido o DRM, y entrega de contenido de streaming a millones de espectadores en cualquier dispositivo.'
 brand: azure
 metadata:
   title: Documentación de Azure Media Services
-  description: 'Azure Media Services permite compilar aplicaciones multimedia mediante streaming en vivo de baja latencia, codificación por lotes, protección de contenido o DRM, y entrega de contenido de streaming a millones de espectadores en cualquier dispositivo.'
+  description: 'Azure Media Services permite compilar aplicaciones multimedia mediante el streaming en vivo de baja latencia, la codificación por lotes, la protección de contenido o DRM, y entrega de contenido de streaming a millones de espectadores en cualquier dispositivo.'
   services: media-services
   ms.service: media-services
   ms.subservice: null
@@ -18,6 +18,9 @@ highlightedContent:
     - title: "Acerca de Azure Media Services (versión\_3)"
       itemType: overview
       url: ./latest/media-services-overview.md
+    - title: "Acerca de Azure Media Services (versión\_2)"
+      itemType: overview
+      url: ./previous/media-services-overview.md
     - title: "Conceptos de Azure Media Services (versión\_3)"
       itemType: concept
       url: ./latest/concepts-overview.md
@@ -112,13 +115,13 @@ conceptualContent:
           text: Detección y difuminado de caras
     - title: Protocolos y especificaciones
       links:
-        - url: media-services-specifications-live-timed-metadata.md
+        - url: ./previous/media-services-specifications-live-timed-metadata.md
           itemType: concept
           text: Metadatos con tiempo en streaming en vivo (RTMP y Smooth Streaming)
-        - url: media-services-specifications-ms-sstr-amendment-hevc.md
+        - url: ./previous/media-services-specifications-ms-sstr-amendment-hevc.md
           itemType: concept
           text: Modificación del protocolo Smooth Streaming (MS-SSTR) para HEVC
-        - url: media-services-fmp4-live-ingest-overview.md
+        - url: ./previous/media-services-fmp4-live-ingest-overview.md
           itemType: concept
           text: Protocolo de ingesta Smooth Streaming
     - title: "Migración desde la API\_v2"

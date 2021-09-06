@@ -161,8 +161,8 @@
       href: visual-studio-code-extension.md
 - name: Recursos
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/updates/?category=media'
+    - name: Actualizaciones de servicio de Azure
+      href: 'https://azure.microsoft.com/updates/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
     - name: Regiones disponibles

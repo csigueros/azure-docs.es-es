@@ -794,6 +794,8 @@ items:
         items:
           - name: Conexión de Data Factory a Azure Purview
             href: connect-data-factory-to-azure-purview.md
+          - name: Acceso a una cuenta de Azure Purview protegida
+            href: ./how-to-access-secured-purview-account.md
           - name: Detección y exploración de datos en ADF mediante Purview
             href: how-to-discover-explore-purview-data.md
       - name: Escenarios
