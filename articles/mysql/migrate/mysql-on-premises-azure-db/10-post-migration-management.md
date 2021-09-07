@@ -1,5 +1,5 @@
 ---
-title: 'Guía de migración de MySQL local a Azure Database for MySQL: administración posterior a la migración'
+title: 'Migración de MySQL local a Azure Database for MySQL: administración posterior a la migración'
 description: Una vez completada correctamente la migración, en la siguiente fase administrará los nuevos recursos de carga de trabajo de datos basados en la nube.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 85a30571491f08adee55d2c0f19641eb838b69e8
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: bed5253a1d5948e7d016bca9e46236d6b57bac57
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082910"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292959"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-post-migration-management"></a>Guía de migración de MySQL local a Azure Database for MySQL: administración posterior a la migración
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-post-migration-management"></a>Migración de MySQL local a Azure Database for MySQL: administración posterior a la migración
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -28,7 +30,7 @@ Una vez completada correctamente la migración, en la siguiente fase administrar
 
 Azure Database for MySQL proporciona la capacidad de supervisar ambos tipos de actividades operativas mediante herramientas basadas en Azure, como [Azure Monitor,](../../../azure-monitor/overview.md) [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) y [Azure Sentinel.](../../../sentinel/overview.md) Además de las herramientas basadas en Azure, también se pueden configurar sistemas de administración de eventos e información de seguridad (SIEM) para consumir estos registros.
 
-Sea cual sea la herramienta que se utilice para supervisar las nuevas cargas de trabajo basadas en la nube, es necesario crear alertas para advertir a los administradores de Azure y de las bases de datos de cualquier actividad sospechosa. Si un evento de alerta determinado tiene una ruta de corrección bien definida, las alertas pueden activar [libros de ejecuciones de Azure](/azure/automation/automation-quickstart-create-runbook) para solucionar el evento.
+Sea cual sea la herramienta que se utilice para supervisar las nuevas cargas de trabajo basadas en la nube, es necesario crear alertas para advertir a los administradores de Azure y de las bases de datos de cualquier actividad sospechosa. Si un evento de alerta determinado tiene una ruta de corrección bien definida, las alertas pueden activar [libros de ejecuciones de Azure](../../../automation/automation-quickstart-create-runbook.md) para solucionar el evento.
 
 El primer paso para crear un entorno totalmente supervisado es permitir que los datos de registro de MySQL fluyan a Azure Monitor. Consulte [Configuración de los registros de auditoría de Azure Database for MySQL y acceso a ellos en Azure Portal](../../howto-configure-audit-logs-portal.md) para más información.
 
@@ -56,11 +58,11 @@ AzureMetrics
 | project TimeGenerated, Total, Maximum, Minimum, TimeGrain, UnitName 
 | top 1 by TimeGenerated
 ```
-Una vez que haya creado la consulta KQL, cree [alertas de registro](/azure/azure-monitor/platform/alerts-unified-log) basadas en estas consultas.
+Una vez que haya creado la consulta KQL, cree [alertas de registro](../../../azure-monitor/alerts/alerts-unified-log.md) basadas en estas consultas.
 
 ## <a name="server-parameters"></a>Parámetros del servidor
 
-Como parte de la migración, es probable que los [parámetros de servidor](/azure/mysql/concepts-server-parameters) locales se hayan modificado para admitir una salida rápida. Además, se han realizado modificaciones en los parámetros de Azure Database for MySQL para admitir una entrada rápida. Los parámetros de servidor de Azure se deben volver a establecer en sus valores originales optimizados para cargas de trabajo locales después de la migración.
+Como parte de la migración, es probable que los [parámetros de servidor](../../concepts-server-parameters.md) locales se hayan modificado para admitir una salida rápida. Además, se han realizado modificaciones en los parámetros de Azure Database for MySQL para admitir una entrada rápida. Los parámetros de servidor de Azure se deben volver a establecer en sus valores originales optimizados para cargas de trabajo locales después de la migración.
 
 Sin embargo, asegúrese de revisar y realizar cambios en los parámetros de servidor que sean adecuados para la carga de trabajo y el entorno. Algunos valores que eran buenos para un entorno local pueden no serlo para un entorno basado en la nube. Además, al planear la migración de los parámetros locales actuales a Azure, compruebe que resulta factible establecerlos.
 
@@ -93,16 +95,16 @@ Puesto que Azure Database for MySQL es una oferta PaaS, los administradores no s
 > [!NOTE]
 > Este estilo de arquitectura de conmutación por error puede requerir cambios en la capa de datos de las aplicaciones para admitir este tipo de escenario de conmutación por error. Si la réplica de lectura se mantiene como tal y no se promueve, la aplicación solo puede leer datos y se puede producir un error cuando una operación intente escribir información en la base de datos.
 
-La característica [Notificación de mantenimiento planeado](/azure/mysql/concepts-monitoring#planned-maintenance-notification) informa a los propietarios de recursos hasta 72 horas antes de la instalación de una actualización o revisión de seguridad crítica. Es posible que los administradores de bases de datos deban notificar a los usuarios de la aplicación el mantenimiento planeado y no planeado.
+La característica [Notificación de mantenimiento planeado](../../concepts-monitoring.md#planned-maintenance-notification) informa a los propietarios de recursos hasta 72 horas antes de la instalación de una actualización o revisión de seguridad crítica. Es posible que los administradores de bases de datos deban notificar a los usuarios de la aplicación el mantenimiento planeado y no planeado.
 
 > [!NOTE]
 > Las notificaciones de mantenimiento de Azure Database for MySQL son increíblemente importantes. El mantenimiento de la base de datos puede poner la base de datos y las aplicaciones conectadas fuera de servicio durante un período de tiempo.
 
 ## <a name="wwi-scenario"></a>Escenario de WWI
 
-WWI ha decidido usar los registros de actividad de Azure y permitir que el registro de MySQL fluya a un [área de trabajo de Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md). Este área de trabajo está configurado para formar parte de [Azure Sentinel](../../../sentinel/index.yml) de forma tal que los eventos de [Threat Analytics](/azure/mysql/concepts-data-access-and-security-threat-protection) saldrán a la superficie y se crearán incidentes.
+WWI ha decidido usar los registros de actividad de Azure y permitir que el registro de MySQL fluya a un [área de trabajo de Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md). Este área de trabajo está configurado para formar parte de [Azure Sentinel](../../../sentinel/index.yml) de forma tal que los eventos de [Threat Analytics](../../concepts-security.md#threat-protection) saldrán a la superficie y se crearán incidentes.
 
-Los administradores de base de datos de MySQL instalaron los [cmdlets de Azure PowerShell de Azure Database for MySQL](/azure/mysql/quickstart-create-mysql-server-database-using-azure-powershell) para que la administración del servidor de MySQL se automatizara en lugar de tener que iniciar sesión en Azure Portal cada vez.
+Los administradores de base de datos de MySQL instalaron los [cmdlets de Azure PowerShell de Azure Database for MySQL](../../quickstart-create-mysql-server-database-using-azure-powershell.md) para que la administración del servidor de MySQL se automatizara en lugar de tener que iniciar sesión en Azure Portal cada vez.
 
 ## <a name="management-checklist"></a>Lista de comprobación de administración
 
@@ -114,6 +116,8 @@ Los administradores de base de datos de MySQL instalaron los [cmdlets de Azure P
 
   - Configure notificaciones para los eventos de mantenimiento, como actualizaciones y revisiones. Informe a los usuarios cuando sea necesario.  
 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Optimización](./11-optimization.md)

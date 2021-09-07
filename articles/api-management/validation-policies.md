@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 07/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 1a835d26b4c41c92b9849856a2f31b3550947bd8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 26f1f9449a4e02f25e44e55d578f0194615b0be5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801900"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437079"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Directivas de API Management para validar solicitudes y respuestas
 
@@ -40,8 +40,8 @@ Acciones disponibles:
 | Acción         | Descripción          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | ignore | Omitir validación. |
-| prevent | Bloquear el procesamiento de la solicitud o la respuesta, registrar el error detallado de la validación y devolver un error. El procesamiento se interrumpe cuando se detecta el primer conjunto de errores. |
-| detectar | Registrar los errores de validación, sin interrumpir el procesamiento de la solicitud o respuesta. |
+| prevent | Bloquear el procesamiento de la solicitud o la respuesta, registrar el [error de validación](#validation-errors) detallado y devolver un error. El procesamiento se interrumpe cuando se detecta el primer conjunto de errores. 
+| detectar | Registrar los [errores de validación](#validation-errors), sin interrumpir el procesamiento de la solicitud o respuesta. |
 
 ## <a name="logs"></a>Registros
 
@@ -97,7 +97,7 @@ En el ejemplo siguiente, la carga de JSON en solicitudes y respuestas se valida 
 | unspecified-content-type-action | [Acción](#actions) que se realiza para las solicitudes o respuestas con un tipo de contenido que no se especifica en el esquema de la API. |  Sí     | N/D   |
 | max-size | Longitud máxima del cuerpo de la solicitud o respuesta en bytes, comprobada con el encabezado `Content-Length`. Si el cuerpo de la solicitud o de la respuesta está comprimido, este valor es la longitud descomprimida. Valor máximo permitido: 102 400 bytes (100 KB).  | Sí       | N/D   |
 | size-exceeded-action | [Acción](#actions) que se realiza para las solicitudes o respuestas cuyo cuerpo supera el tamaño especificado en `max-size`. |  Sí     | N/D   |
-| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   Sí    | N/D   |
+| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
 | type | Tipo de contenido para el que se va a ejecutar la validación del cuerpo, comprobado con el encabezado `Content-Type`. El valor no distingue mayúsculas y minúsculas. Si está vacío, se aplica a todos los tipos de contenido especificados en el esquema de la API. |   No    |  N/D  |
 | validate-as | Motor de validación que se va a usar para la validación del cuerpo de una solicitud o respuesta con un tipo de contenido coincidente. Actualmente, el único valor admitido es "json".   |  Sí     |  N/D  |
 | action | [Acción](#actions) que se realiza para las solicitudes o respuestas cuyo cuerpo no coincide con el tipo de contenido especificado.  |  Sí      | N/D   |
@@ -165,7 +165,7 @@ En este ejemplo, todos los parámetros de consulta y ruta de acceso se validan e
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-parameter-action | [Acción](#actions) que se va a realizar para los parámetros de solicitud especificados en el esquema de la API. <br/><br/> Cuando se proporciona en un elemento `headers`,`query` o `path`, el valor invalida el valor de `specified-parameter-action` del elemento `validate-parameters`.  |  Sí     | N/D   |
 | unspecified-parameter-action | [Acción](#actions) que se va a realizar para los parámetros de solicitud que no se han especificado en el esquema de la API. <br/><br/>Cuando se proporciona en un elemento `headers` o `query`, el valor invalida el valor de `unspecified-parameter-action` del elemento `validate-parameters`. |  Sí     | N/D   |
-| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   Sí    | N/D   |
+| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
 | name | Nombre del parámetro para el que se va a invalidar la acción de validación. El valor no distingue mayúsculas y minúsculas.  | Sí | N/D |
 | action | [Acción](#actions) que se va a realizar para el parámetro con el nombre coincidente. Si el parámetro se especifica en el esquema de la API, este valor invalida la configuración de `specified-parameter-action` de nivel superior. Si el parámetro no se especifica en el esquema de la API, este valor invalida la configuración de `unspecified-parameter-action` de nivel superior.| Sí | N/D | 
 
@@ -210,7 +210,7 @@ La directiva `validate-headers` valida los encabezados de respuesta con el esque
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-header-action | [Acción](#actions) que se va a realizar para los encabezados de respuesta especificados en el esquema de la API.  |  Sí     | N/D   |
 | unspecified-header-action | [Acción](#actions) que se va a realizar para los encabezados de respuesta que no están especificados en el esquema de la API.  |  Sí     | N/D   |
-| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   Sí    | N/D   |
+| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
 | name | Nombre del encabezado para el que se va a invalidar la acción de validación. El valor no distingue mayúsculas y minúsculas. | Sí | N/D |
 | action | [Acción](#actions) que se va a realizar para el encabezado con el nombre coincidente. Si el encabezado se especifica en el esquema de la API, este valor invalida el valor de `specified-header-action` en el elemento `validate-headers`. De lo contrario, invalida el valor de `unspecified-header-action` en el elemento validate-headers. | Sí | N/D | 
 
@@ -252,7 +252,7 @@ La directiva `validate-status-code` valida los códigos de estado HTTP en las re
 | Nombre                       | Descripción                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-status-code-action | [Acción](#actions) que se realiza para los códigos de estado HTTP en las respuestas que no se especifican en el esquema de la API.  |  Sí     | N/D   |
-| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   Sí    | N/D   |
+| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
 | código | Código de estado HTTP para el que se va a invalidar la acción de validación. | Sí | N/D |
 | action | [Acción](#actions) que se va a realizar para el código de estado coincidente, que no se especifica en el esquema de la API. Si el código de estado se especifica en el esquema de la API, esta invalidación no surte efecto. | Sí | N/D | 
 
@@ -271,7 +271,10 @@ En la tabla siguiente se enumeran todos los errores posibles de las directivas d
 * **Detalles**: se pueden usar para investigar los errores. No debe compartirse públicamente.
 * **Respuesta pública**: error devuelto al cliente. No filtra los detalles de la implementación.
 
-| **Nombre**                             | **Tipo**                                                        | **Regla de validación** | **Detalles**                                                                                                                                       | **Respuesta pública**                                                                                                                       | **Acción**           |
+Cuando una directiva de validación especifica la acción `prevent` y genera un error, la respuesta de la administración de API incluye un código de estado HTTP: 400 cuando se aplica la directiva en la sección entrante y 502 cuando la directiva se aplica en la sección saliente.
+
+
+| **Nombre**   | **Tipo**                                                        | **Regla de validación** | **Detalles**                                                                                                                                       | **Respuesta pública**                                                                                                                       | **Acción**           |
 |----|----|---|---|---|----|
 | **validate-content** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
 | |RequestBody                                                     | SizeLimit           | El cuerpo de la solicitud es de {size} bytes y supera el límite configurado de {maxSize} bytes.                                                       | El cuerpo de la solicitud es de {size} bytes y supera el límite de {maxSize} bytes.                                                          | detect/prevent |
@@ -285,7 +288,7 @@ En la tabla siguiente se enumeran todos los errores posibles de las directivas d
 | {messageContentType}                 | ResponseBody                                                    | IncorrectMessage    | El cuerpo de la respuesta no se ajusta a la definición {definitionName}, que está asociada con el tipo de contenido {messageContentType}.<br/><br/>Línea {valError.Message}: {valError.LineNumber}, posición: {valError.LinePosition}                                       | No se pudo procesar la solicitud debido a un error interno. Póngase en contacto con el propietario de la API.                                                       | detect/prevent |
 |                                      | RequestBody                                                     | ValidationException | No se puede validar el cuerpo de la solicitud para el tipo de contenido {messageContentType}.<br/><br/>{exception details}                                                                | No se pudo procesar la solicitud debido a un error interno. Póngase en contacto con el propietario de la API.                                                       | detect/prevent |
 |                                      | ResponseBody                                                    | ValidationException | No se puede validar el cuerpo de la respuesta para el tipo de contenido {messageContentType}.<br/><br/>{exception details}                                                                | No se pudo procesar la solicitud debido a un error interno. Póngase en contacto con el propietario de la API.                                                       | detect/prevent |
-| **validate-parameter/validate-headers** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
+| **validate-parameters/validate-headers** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
 | {paramName}/{headerName}           | QueryParameter/PathParameter/RequestHeader                  | Sin especificar         | No se permite {path parameter/query parameter/header} {paramName} sin especificar.                                                               | No se permite {path parameter/query parameter/header} {paramName} sin especificar.                                                       | detect/prevent |
 | {headerName}                         | ResponseHeader                                                  | Sin especificar         | No se permite el encabezado {headerName} sin especificar.                                                                                                   | No se pudo procesar la solicitud debido a un error interno. Póngase en contacto con el propietario de la API.                                                       | detect/prevent |
 |                                      |ApiSchema                                                       |                     | El esquema de la API no existe o no se pudo resolver.                                                                                            | No se pudo procesar la solicitud debido a un error interno. Póngase en contacto con el propietario de la API.                                                       | detect/prevent |

@@ -1,56 +1,68 @@
 ---
-title: 'Detección de caras en una imagen: Face'
+title: 'Llamada a la API de detección: face'
 titleSuffix: Azure Cognitive Services
-description: Esta guía muestra cómo usar la detección de caras para extraer atributos como el sexo, la edad o la postura de una imagen determinada.
+description: En esta guía se muestra cómo usar la detección de caras para extraer de una imagen determinada atributos como la edad, la emoción o la posición de la cabeza.
 services: cognitive-services
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/23/2021
-ms.author: sbowles
+ms.date: 08/04/2021
+ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71e98b735b4aa4631d73f8730a48c56a8c7585ab
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 1fe1cddcbd194ec4b8ca25edfc4907631cb18df1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497649"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744825"
 ---
-# <a name="get-face-detection-data"></a>Obtención de los datos de detección de caras
+# <a name="call-the-detect-api"></a>Llamada a la API de detección
 
-Esta guía muestra cómo usar la detección de caras para extraer atributos como el sexo, la edad o la postura de una imagen determinada. Los fragmentos de código de esta guía están escritos en C# con la biblioteca cliente Face de Azure Cognitive Services. La misma funcionalidad está disponible mediante la [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+En esta guía se muestra cómo usar la API de detección de caras para extraer de una imagen determinada atributos como la edad, la emoción o la posición de la cabeza. Conocerá las distintas maneras de configurar el comportamiento de esta API para satisfacer sus necesidades.
 
-Esta guía le muestra cómo:
+Los fragmentos de código de esta guía están escritos en C# con la biblioteca cliente Face de Azure Cognitive Services. La misma funcionalidad está disponible mediante la [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-- Obtener las ubicaciones y las dimensiones de las caras de una imagen.
-- Obtener las ubicaciones de diversos puntos de referencia faciales, como las pupilas, nariz y boca, de una imagen.
-- Adivinar el sexo, edad, emoción y otros atributos de una cara detectada.
 
 ## <a name="setup"></a>Configurar
 
-En esta guía se da por supuesto que ya ha construido un objeto [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) llamado `faceClient`, con una clave de suscripción y una dirección URL de punto de conexión de Face. A partir de aquí, puede usar la característica de detección de caras mediante una llamada a [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync), que se usa en esta guía o una llamada a [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync). Para obtener instrucciones sobre cómo configurar esta característica, siga uno de los inicios rápidos.
+En esta guía se da por supuesto que ya ha construido un objeto [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) llamado `faceClient`, con una clave de suscripción y una dirección URL de punto de conexión de Face. Para obtener instrucciones sobre cómo configurar esta característica, siga uno de los inicios rápidos.
 
-Esta guía se centra en los detalles de la llamada de detección, como los argumentos que se pueden pasar y lo que puede hacer con los datos devueltos. Se recomienda consultar solo las características que necesita. Cada operación tarda más tiempo en completarse.
+## <a name="submit-data-to-the-service"></a>Envío de datos al servicio
 
-## <a name="get-basic-face-data"></a>Obtención de los datos básicos de la cara
-
-Para encontrar caras y obtener sus ubicaciones en una imagen, llame al método [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) o [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync) con el parámetro _returnFaceId_ establecido en **true**. Esta es la configuración predeterminada.
+Para encontrar caras y obtener su ubicación en una imagen, llame a los métodos [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) o [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync). **DetectWithUrlAsync** toma una cadena de dirección URL como entrada, mientras que **DetectWithStreamAsync** toma la secuencia de bytes sin formato de una imagen.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 
-Puede consultar los objetos [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) devueltos para obtener sus identificadores únicos y un rectángulo que proporciona las coordenadas en píxeles de la cara.
+Puede consultar los objetos [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) devueltos para obtener sus identificadores únicos y un rectángulo que proporciona las coordenadas en píxeles de la cara. De este modo, puede saber qué Id. se asigna a cada cara de la imagen original.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
 
-Para obtener información sobre cómo analizar la ubicación y las dimensiones de la cara, consulte [FaceRectangle](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle). Normalmente, este rectángulo contiene los ojos, las cejas, la nariz y la boca. La parte superior de la cabeza, las orejas y la barbilla no están incluidas necesariamente. Para usar el rectángulo facial para recortar una cabeza completa u obtener un retrato intermedio, quizás para una imagen de tipo foto de carnet, puede expandir el rectángulo en cada dirección.
+Para obtener información sobre cómo analizar la ubicación y las dimensiones de la cara, consulte [FaceRectangle](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle). Normalmente, este rectángulo contiene los ojos, las cejas, la nariz y la boca. La parte superior de la cabeza, las orejas y la barbilla no están incluidas necesariamente. Para usar el rectángulo facial con el fin de recortar una cabeza completa u obtener un retrato intermedio, expanda el rectángulo en cada dirección.
 
-## <a name="get-face-landmarks"></a>Obtención de los puntos de referencia faciales
+## <a name="determine-how-to-process-the-data"></a>Determinación de cómo procesar los datos
 
-Los [puntos de referencia faciales](../concepts/face-detection.md#face-landmarks) son un conjunto de puntos fáciles de encontrar en una cara como, por ejemplo, las pupilas o la punta de la nariz. Para obtener los datos de los puntos de referencia faciales, establezca el parámetro _detectionModel_ en **DetectionModel.Detection01** y el parámetro _returnFaceLandmarks_ en **true**.
+Esta guía se centra en los detalles de la llamada de detección, como los argumentos que se pueden pasar y lo que puede hacer con los datos devueltos. Se recomienda consultar solo las características que necesita. Cada operación tarda más tiempo en completarse.
+
+### <a name="get-face-landmarks"></a>Obtención de los puntos de referencia faciales
+
+Los [puntos de referencia faciales](../concepts/face-detection.md#face-landmarks) son un conjunto de puntos fáciles de encontrar en una cara como, por ejemplo, las pupilas o la punta de la nariz. Para obtener datos de los puntos de referencia faciales, establezca el parámetro _detectionModel_ en `DetectionModel.Detection01` y el parámetro _returnFaceLandmarks_ en `true`.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="landmarks1":::
+
+### <a name="get-face-attributes"></a>Obtención de los atributos de la cara
+
+Además de los rectángulos y los puntos de referencia faciales, la API de detección de caras puede analizar varios atributos conceptuales de una cara. Para obtener una lista completa, consulte la sección conceptual [Atributos de una cara](../concepts/face-detection.md#attributes).
+
+Para analizar los atributos de una cara, establezca el parámetro _detectionModel_ en `DetectionModel.Detection01` y el parámetro _returnFaceAttributes_ en una lista de valores [FaceAttributeType Enum](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype).
+
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes1":::
+
+
+## <a name="get-results-from-the-service"></a>Obtención de resultados a partir del servicio
+
+### <a name="face-landmark-results"></a>Resultados de los puntos de referencia faciales
 
 El código siguiente muestra cómo podría recuperar las ubicaciones de la nariz y las pupilas:
 
@@ -60,17 +72,12 @@ También puede usar los datos de los puntos de referencia faciales para calcular
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="direction":::
 
-Cuando conoce la dirección de la cara, puede girar el marco rectangular de la cara para alinearlo más correctamente. Para recortar las caras de una imagen, puede girar mediante programación la imagen para que las caras siempre aparezcan verticales.
+Cuando conoce la dirección de la cara, puede girar el marco rectangular de la cara para alinearlo más correctamente. Para recortar caras de una imagen, puede girar mediante programación la imagen para que siempre aparezcan en vertical.
 
-## <a name="get-face-attributes"></a>Obtención de los atributos de la cara
 
-Además de los rectángulos y los puntos de referencia faciales, la API de detección de caras puede analizar varios atributos conceptuales de una cara. Para obtener una lista completa, consulte la sección conceptual [Atributos de una cara](../concepts/face-detection.md#attributes).
+### <a name="face-attribute-results"></a>Resultados del atributo face
 
-Para analizar los atributos de una cara, establezca el parámetro _detectionModel_ en **DetectionModel.Detection01** y el parámetro _returnFaceAttributes_ en una lista de valores [FaceAttributeType Enum](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype).
-
-:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes1":::
-
-A continuación, puede obtener referencias a los datos devueltos y realizar más operaciones según sus necesidades.
+En el siguiente código se muestra cómo recuperar los datos del atributo face que solicitó en la llamada original.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes2":::
 
@@ -78,11 +85,11 @@ Para más información acerca de cada uno de los atributos, consulte la guía co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía, ha aprendido cómo utilizar las diversas funcionalidades de la detección de caras. A continuación, integre estas características en una aplicación para agregar datos faciales de los usuarios.
+En esta guía ha obtenido información sobre cómo utilizar las diversas funcionalidades de la detección y el análisis de caras. A continuación, integre estas características en una aplicación para agregar datos faciales de los usuarios.
 
 - [Tutorial: Incorporación de usuarios a un servicio de Face](../enrollment-overview.md)
 
-## <a name="related-topics"></a>Temas relacionados
+## <a name="related-articles"></a>Artículos relacionados
 
 - [Documentación de referencia (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Documentación de referencia (SDK para .NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
+- [Documentación de referencia (SDK para .NET)](/dotnet/api/overview/azure/cognitiveservices/face-readme)

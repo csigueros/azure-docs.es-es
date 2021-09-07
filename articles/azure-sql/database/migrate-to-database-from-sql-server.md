@@ -12,12 +12,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: mathoma
 ms.date: 02/11/2019
-ms.openlocfilehash: 53f01086bebc968c1a33f249993e9b6e94ae11db
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3073bce2587cf08c494a5d0524a17d551ebcfa17
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708449"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688631"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migración de una base de datos de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ En ambos casos, debe asegurarse de que la base de datos de origen sea compatible
 
  Use este método para migrar a una base de datos única o agrupada si puede permitirse algún tiempo de inactividad o si va a realizar una migración de prueba de una base de datos de producción en una migración posterior. Para consultar un tutorial, vea [Migración de una base de datos de SQL Server](../../dms/tutorial-sql-server-to-azure-sql.md).
 
-En la lista siguiente se describe el flujo de trabajo general para una migración de base de datos de SQL Server de una base de datos única o agrupada con este método. Para información sobre la migración a SQL Managed Instance, consulte [Migración a SQL Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md).
+En la lista siguiente se describe el flujo de trabajo general para una migración de base de datos de SQL Server de una base de datos única o agrupada con este método. Para migrar a SQL Managed Instance, vea [Guía de SQL Server a Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
   ![Diagrama de migración de VSSSDT](./media/migrate-to-database-from-sql-server/azure-sql-migration-sql-db.png)
 

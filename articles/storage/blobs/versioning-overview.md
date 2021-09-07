@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 268de3e8ea168ac721362d42149389b9f37c86fe
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1742679fbca38b878325bd56fa01fc2efebf4f82
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305062"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733707"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
@@ -182,7 +182,7 @@ En el diagrama siguiente se muestra lo que ocurre cuando toma una instantánea d
 
 Puede autorizar el acceso a las versiones de blobs mediante uno de los enfoques siguientes:
 
-- Mediante el uso de un control de acceso basado en roles (RBAC) para conceder permisos a una entidad de seguridad de Azure Active Directory (Azure AD). Microsoft recomienda usar Azure AD para mayor seguridad y facilidad de uso. Para obtener más información sobre el uso de Azure AD con las operaciones de blobs, consulte [Autorización del acceso a los blobs y las colas con Azure Active Directory](../common/storage-auth-aad.md).
+- Mediante el uso de un control de acceso basado en roles (RBAC) para conceder permisos a una entidad de seguridad de Azure Active Directory (Azure AD). Microsoft recomienda usar Azure AD para mayor seguridad y facilidad de uso. Para más información sobre el uso de Azure AD con las operaciones de blobs, vea [Autorización del acceso a datos en Azure Storage](../common/authorize-data-access.md).
 - Firma de acceso compartido (SAS), para delegar el acceso a las versiones de blobs. Especifique el identificador de versión del tipo de recurso firmado `bv`, que representa una versión de blob, a fin de crear un token de SAS para las operaciones en una versión específica. Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).
 - Claves de acceso a la cuenta, para autorizar las operaciones mediante versiones de blobs con la clave compartida. Para más información, consulte el artículo sobre la [Autorización con clave compartida](/rest/api/storageservices/authorize-with-shared-key).
 

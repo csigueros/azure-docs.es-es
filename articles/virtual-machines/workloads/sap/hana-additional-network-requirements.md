@@ -1,5 +1,5 @@
 ---
-title: Requisitos de red adicionales para SAP HANA en Azure (instancias grandes) | Microsoft Docs
+title: Otros requisitos de red para SAP HANA en Azure (instancias grandes) | Microsoft Docs
 description: Obtenga información sobre los requisitos de red agregados para SAP HANA en Azure (instancias grandes) que podría tener.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 6/3/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 214a73e2e23478c98fb646248ba938e35d7b5108
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: a91f2116eb7eb2e6d7908e5c8c4e5171fff8c294
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421785"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361078"
 ---
-# <a name="additional-network-requirements-for-large-instances"></a>Requisitos de red adicionales para instancias grandes
+# <a name="other-network-requirements-for-large-instances"></a>Otros requisitos de red para instancias grandes
 
 En este artículo, veremos otros requisitos de red que puede tener al implementar SAP HANA (instancias grandes) en Azure.
 
@@ -35,9 +35,9 @@ Este artículo se asume que ha completado los pasos de:
 
 Es posible que necesite agregar más direcciones IP o subredes. Use Azure Portal, PowerShell o la CLI de Azure al agregar más direcciones IP o subredes.
 
-Agregue el nuevo intervalo de direcciones IP como un nuevo intervalo al espacio de direcciones de la red virtual en lugar de generar un nuevo intervalo agregado. Envíe este cambio a Microsoft. De esta forma puede conectarse desde ese nuevo intervalo de direcciones IP a HANA (instancias grandes) en el cliente. Puede abrir una solicitud de soporte técnico de Azure para obtener el nuevo espacio de direcciones de red virtual agregado. Una vez que reciba confirmación, realice los pasos descritos en [Conexión de VM de Azure a HANA (instancias grandes)](hana-connect-azure-vm-large-instances.md). 
+Agregue el nuevo intervalo de direcciones IP como un nuevo intervalo al espacio de direcciones de la red virtual. No genere un nuevo intervalo agregado. Envíe este cambio a Microsoft. De esta forma puede conectarse desde ese nuevo intervalo de direcciones IP a HANA (instancias grandes) en el cliente. Puede abrir una solicitud de soporte técnico de Azure para obtener el nuevo espacio de direcciones de red virtual agregado. Una vez que reciba confirmación, realice los pasos descritos en [Conexión de VM de Azure a HANA (instancias grandes)](hana-connect-azure-vm-large-instances.md). 
 
-Para crear una subred adicional desde Azure Portal, consulte [Creación de una red virtual mediante Azure Portal](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para crear una red virtual desde PowerShell, consulte [Creación de una red virtual mediante PowerShell](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
+Para crear otra subred desde Azure Portal, consulte [Creación de una red virtual mediante Azure Portal](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para crear una red virtual desde PowerShell, consulte [Creación de una red virtual mediante PowerShell](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ## <a name="add-virtual-networks"></a>Incorporación de redes virtuales
 
@@ -51,11 +51,13 @@ Consulte con SAP HANA en Microsoft Service Management. Si se le recomienda aumen
 
 Consulte con SAP HANA en Microsoft Service Management. Si se le recomienda agregar otro circuito ExpressRoute, cree una solicitud de soporte técnico de Azure (incluida una solicitud para obtener información de autorización para conectarse al circuito nuevo). Antes de realizar la solicitud, debe definir el espacio de direcciones usado en las redes virtuales. A continuación, SAP HANA en Microsoft Service Management puede proporcionar autorización.
 
-Una vez creado el circuito y terminada la configuración en SAP HANA en Microsoft Service Management, recibirá una notificación con la información que necesita para continuar. No puede conectar redes virtuales de Azure a este circuito agregado si ya están conectadas a otro circuito ExpressRoute de SAP HANA en Azure (instancias grandes) en la misma región de Azure.
+Una vez creado el circuito y completada la configuración en SAP HANA en la administración de servicios de Microsoft, recibirá una notificación con la información que necesita para continuar. No puede conectar redes virtuales de Azure a este circuito agregado si ya están conectadas a otro circuito ExpressRoute de SAP HANA en Azure (instancias grandes) en la misma región de Azure.
 
 ## <a name="delete-a-subnet"></a>Eliminación de una subred
 
-Para eliminar una subred de red virtual, puede usar Azure Portal, PowerShell o la CLI de Azure. Si el espacio de direcciones o el intervalo de direcciones IP de la red virtual de Azure fuesen intervalos agregados, no tiene que llevar a cabo ninguna acción con Microsoft. (Sin embargo, tenga en cuenta que la red virtual todavía está propagando el espacio de direcciones de la ruta BGP que incluye la subred eliminada). Es posible que haya definido el espacio de direcciones o el intervalo de direcciones de la red virtual de Azure como varios intervalos de direcciones IP. Uno de estos intervalos se podría haber asignado a la subred eliminada. Asegúrese de eliminar el espacio de direcciones de red virtual. A continuación, informe a SAP HANA en Microsoft Service Management para quitarlo de los intervalos con los que SAP HANA en Azure (instancias grandes) tiene permiso para comunicarse.
+Para eliminar una subred de red virtual, puede usar Azure Portal, PowerShell o la CLI de Azure. Si el espacio de direcciones o el intervalo de direcciones IP de la red virtual de Azure fuesen intervalos agregados, no tiene que llevar a cabo ninguna acción con Microsoft. (La red virtual todavía está propagando el espacio de direcciones de la ruta BGP que incluye la subred eliminada). 
+
+Es posible que haya definido el espacio de direcciones o el intervalo de direcciones de la red virtual de Azure como varios intervalos de direcciones IP. Uno de estos intervalos se podría haber asignado a la subred eliminada. Asegúrese de eliminar el espacio de direcciones de red virtual. A continuación, informe a SAP HANA en Microsoft Service Management para quitarlo de los intervalos con los que SAP HANA en Azure (instancias grandes) tiene permiso para comunicarse.
 
 Para obtener más información, consulte [Eliminación de una subred](../../../virtual-network/virtual-network-manage-subnet.md#delete-a-subnet).
 
@@ -67,7 +69,11 @@ SAP HANA en Microsoft Service Management quita las autorizaciones existentes en 
 
 Tras quitar la red virtual, abra una solicitud de soporte técnico de Azure para proporcionar el intervalo de espacios de direcciones IP o los intervalos que se van a quitar.
 
-Asegúrese de quitar todo. Elimine la conexión de ExpressRoute, la puerta de enlace de red virtual, la IP pública de puerta de enlace de red virtual y la red virtual.
+Asegúrese de quitar todo. Elimine lo siguiente:
+- Conexión ExpressRoute
+- Puerta de enlace de red virtual
+- Dirección IP pública de la puerta de enlace de red virtual
+- Red virtual
 
 ## <a name="delete-an-expressroute-circuit"></a>Eliminación de un circuito ExpressRoute
 

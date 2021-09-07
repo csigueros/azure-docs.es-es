@@ -2,14 +2,14 @@
 title: Notas de la versión de Microsoft Azure Backup Server v3
 description: En este artículo se proporciona la información sobre los problemas conocidos y las soluciones alternativas para Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/27/2021
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 87bc415c125a387d98ac88255d77fb1867564acf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b570442fb439c73886b23b07b39ecefb553c0ecf
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91254268"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720754"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de la versión de Microsoft Azure Backup Server
 
@@ -74,6 +74,9 @@ Este artículo describe los problemas conocidos y las soluciones alternativas pa
 ## <a name="after-installing-ur1-the-mabs-reports-arent-updated-with-new-rdl-files"></a>Después de instalar UR1, los informes de MABS no se actualizan con los nuevos archivos RDL
 
 **Descripción**: Con UR1, el problema de formato del informe de MABS se corrige con los archivos RDL actualizados. Los nuevos archivos RDL no se reemplazan automáticamente con los archivos existentes.
+
+>[!NOTE]
+>Este problema se ha corregido en MABS v3 UR2.
 
 **Solución alternativa**: Para reemplazar los archivos RDL, siga estos pasos:
 

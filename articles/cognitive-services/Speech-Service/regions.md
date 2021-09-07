@@ -3,20 +3,20 @@ title: 'Regiones: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Una lista de regiones y puntos de conexión disponibles para el servicio de voz, como la conversión de voz a texto, la conversión de texto a voz y la traducción de voz.
 services: cognitive-services
-author: mahilleb-msft
+author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 07/01/2021
 ms.author: panosper
 ms.custom: seodec18,references_regions
-ms.openlocfilehash: ab3e61a9c6593f8ee3075dd0ef6f0dee62c3a9c2
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 002f8ce7311d59a101f676908453fb1493b6dd39
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315262"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710406"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
@@ -29,6 +29,9 @@ Tenga en cuenta los siguientes puntos al considerar las regiones:
 * Si la aplicación usa un [SDK de voz](speech-sdk.md), proporcione el identificador de región, por ejemplo, `westus`, al crear una configuración de voz.
 * Si la aplicación usa una de las [API de REST](./overview.md#reference-docs) del servicio de voz, la región forma parte del URI del punto de conexión que se emplea al realizar solicitudes.
 * Las claves creadas para una región son válidas únicamente en esa región. Si intenta usarlas con otras regiones se producen errores de autenticación.
+
+> [!NOTE]
+> Los servicios de voz no almacenan ni procesan los datos del cliente fuera de la región en la que el cliente implementa la instancia de servicio.
 
 ## <a name="speech-sdk"></a>SDK de voz
 

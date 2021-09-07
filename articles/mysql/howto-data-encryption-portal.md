@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5522f07ce9543af330b3526c4021a5916a3c80df
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96519066"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674458"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Cifrado de datos para Azure Database for MySQL mediante Azure Portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Aprenda a usar Azure Portal para configurar y administrar el cifrado de datos de Azure Database for MySQL.
 
@@ -52,7 +54,7 @@ Puede comprobar los atributos de la clave con el siguiente comando:
 ```azurecli-interactive
 az keyvault key show --vault-name <key_vault_name> -n <key_name>
 ```
-
+* Azure Database for MySQL: servidor único debe estar en el plan de tarifa de uso general u optimizado para memoria y en el almacenamiento de uso general v2. Antes de continuar, consulte limitaciones para el [cifrado de datos con claves administradas por el cliente](concepts-data-encryption-mysql.md#limitations).
 ## <a name="set-the-right-permissions-for-key-operations"></a>Establecer los permisos adecuados para las operaciones de clave
 
 1. En Key Vault, seleccione **Directivas de acceso** > **Agregar directiva de acceso**.
@@ -110,4 +112,6 @@ Después de cifrar Azure Database for MySQL con la clave administrada de un clie
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- Para más información sobre el cifrado de datos, consulte [Cifrado de datos de Azure Database for MySQL con clave administrada por el cliente](concepts-data-encryption-mysql.md).
+* [Validación del cifrado de datos de Azure Database for MySQL](howto-data-encryption-validation.md)
+* [Solución de problemas del cifrado de datos en Azure Database for MySQL](howto-data-encryption-troubleshoot.md)
+* [Conceptos del cifrado de datos con clave administrada por el cliente](concepts-data-encryption-mysql.md).

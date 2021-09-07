@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ef89cb50770eecb7b61798562ba6228f0ecd0071
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5d6f15f4178b9f026be7205832a1f40c3dc01bab
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479827"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720687"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -65,6 +65,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |DeployedState |wstring, el valor predeterminado es L"Disabled". |estática |Eliminación en dos fases de CSS. |
+|UpdateEncryptionCertificateTimeout |TimeSpan, el valor predeterminado es Common::TimeSpan::MaxValue |estática |Especifique el intervalo de tiempo en segundos. El valor predeterminado ha cambiado a TimeSpan::MaxValue; pero se siguen respetando los reemplazos. Puede que esté en desuso en el futuro. |
 
 ## <a name="clustermanager"></a>ClusterManager
 
@@ -102,6 +103,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |AllowCreateUpdateMultiInstancePerNodeServices |Bool, el valor predeterminado es false. |Dinámica|Permite la creación de varias instancias sin estado de un servicio por nodo. Esta funcionalidad actualmente está en su versión preliminar. |
+|EnableAuxiliaryReplicas |Bool, el valor predeterminado es false. |Dinámica|Habilite la creación o actualización de réplicas auxiliares en los servicios. Si es true, se bloquearán las actualizaciones de SF versión 8.1+ a targetVersion inferior. |
 |PerfMonitorInterval |Tiempo en segundos, el valor predeterminado es 1. |Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de supervisión del rendimiento. La configuración en 0 o un valor negativo deshabilita la supervisión. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
@@ -144,11 +146,14 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|bool, el valor predeterminado es FALSE|estática|Marca para habilitar la compatibilidad de los servicios con particiones con las consultas DNS. La característica está desactivada de forma predeterminada. Para más información, consulte [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
+|ForwarderPoolSize|Int, el valor predeterminado es 20.|estática|El número de reenviadores en el grupo de reenvío.|
+|ForwarderPoolStartPort|Int, el valor predeterminado es 16700|Estático|Dirección de inicio del grupo de reenvío que se usa para las consultas recursivas.|
 |InstanceCount|int, el valor predeterminado es -1|estática|El valor predeterminado es -1, lo que significa que DnsService se ejecuta en cada nodo. OneBox necesita estar establecido en 1, puesto que DnsService usa el conocido puerto 53, por lo que no puede tener varias instancias en el mismo equipo.|
 |IsEnabled|bool, el valor predeterminado es FALSE|estática|Habilita o deshabilita DnsService. DnsService está deshabilitado de forma predeterminada y es necesario establecer esta configuración para habilitarlo. |
 |PartitionPrefix|string, el valor predeterminado es "--"|estática|Controla el valor de cadena del prefijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>No puede ser una cadena vacía.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, el valor predeterminado es "".|estática|Controla el valor de cadena del sufijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md). |
-|RetryTransientFabricErrors|Bool, el valor predeterminado es true.|estática|La configuración controla las funcionalidades de reintento cuando se llama a las API de Service Fabric desde DnsService. Cuando está habilitada, se vuelve a intentar tres veces si se produce un error transitorio.|
+|TransientErrorMaxRetryCount|Int, el valor predeterminado es 3.|estática|Controla el número de veces que el DNS de SF volverá a intentarlo cuando se produzca un error transitorio al llamar a las API de SF (por ejemplo, al recuperar nombres y puntos de conexión).|
+|TransientErrorRetryIntervalInMillis|Int, el valor predeterminado es 0.|estática|Establece el retraso en milisegundos entre reintentos para cuando el DNS de SF llama a las API de SF.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -356,6 +361,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |DeploymentRetryBackoffInterval| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(10)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de espera para el error de implementación. En cada caso de error de implementación continuo, el sistema reintentará la implementación hasta las veces especificadas en MaxDeploymentFailureCount. El intervalo de reintento es producto de un error de implementación continua y el intervalo de espera de la implementación. |
 |DisableContainers|bool, el valor predeterminado es FALSE|estática|Configuración para deshabilitar contenedores, se usa en lugar de la configuración en desuso DisableContainerServiceStartOnContainerActivatorOpen |
 |DisableDockerRequestRetry|bool, el valor predeterminado es FALSE |Dinámica| De forma predeterminada SF se comunica con DD (docker daemon) con un tiempo de espera de "DockerRequestTimeout" para cada solicitud http que se le envía. Si DD no responde dentro de este período de tiempo, SF vuelve a enviar la solicitud si a la operación de nivel superior le queda todavía tiempo.  Con el contenedor de Hyper-v, a veces a DD le lleva mucho más tiempo mostrar el contenedor o desactivarlo. En estos casos la solicitud de DD agota el tiempo de espera desde la perspectiva de SF y SF vuelve a intentar la operación. A veces esto añade más presión a DD. Esta configuración permite deshabilitar este reintento y esperar a que DD responda. |
+|DisableLivenessProbes | wstring, el valor predeterminado es L"" | Estático | Configuración para deshabilitar los sondeos de ejecución en el clúster. Puede especificar cualquier valor no vacío para que SF deshabilite los sondeos. |
+|DisableReadinessProbes | wstring, el valor predeterminado es L"" | Estático | Configuración para deshabilitar los sondeos de preparación en el clúster. Puede especificar cualquier valor no vacío para que SF deshabilite los sondeos. |
 |DnsServerListTwoIps | Bool, el valor predeterminado es FALSE | estática | Este marcador agrega dos veces el servidor DNS local para ayudar a mitigar los problemas de resolución intermitentes. |
 | DockerTerminateOnLastHandleClosed | bool, el valor predeterminado es TRUE | estática | De forma predeterminada, si FabricHost administra "dockerd" (en función de SkipDockerProcessManagement = = false), esta configuración define qué sucede al bloquear FabricHost o dockerd. Cuando se establece en `true`, si alguno de los procesos se bloquea, HCS finalizará forzosamente todos los contenedores en ejecución. Si se establece en `false`, los contenedores seguirán ejecutándose. Nota: Antes de la versión 8.0, este comportamiento era involuntariamente equivalente a `false`. La configuración predeterminada de `true` aquí es lo que esperamos que suceda de forma predeterminada para que nuestra lógica de limpieza sea efectiva en el reinicio de estos procesos. |
 | DoNotInjectLocalDnsServer | bool, el valor predeterminado es FALSE | estática | Impide que el entorno de ejecución inserte la dirección IP local como servidor DNS para contenedores. |
@@ -536,6 +543,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ConstraintFixPartialDelayAfterNewNode | Tiempo en segundos, el valor predeterminado es 120. |Dinámica| Especifique el intervalo de tiempo en segundos. No resuelva infracciones de restricciones FaultDomain y UpgradeDomain dentro de este período después de agregar un nuevo nodo. |
 |ConstraintFixPartialDelayAfterNodeDown | Tiempo en segundos, el valor predeterminado es 120. |Dinámica| Especifique el intervalo de tiempo en segundos. No resuelva infracciones FaultDomain y UpgradeDomain dentro de este período después de un evento de inactividad de nodos. |
 |ConstraintViolationHealthReportLimit | Int, el valor predeterminado es 50. |Dinámica| Define el número de veces que la réplica que infringe la restricción debe estar sin fijar de forma persistente antes de que se realicen diagnósticos y se emitan informes de mantenimiento. |
+|DecisionOperationalTracingEnabled | bool, el valor predeterminado es FALSE |Dinámica| Configuración que habilita el seguimiento estructural operativo de la decisión de CRM en el almacén de eventos. |
 |DetailedConstraintViolationHealthReportLimit | Int, el valor predeterminado es 200. |Dinámica| Define el número de veces que la réplica que infringe la restricción debe estar sin fijar de forma persistente antes de que se realicen diagnósticos y se emitan informes de mantenimiento detallados. |
 |DetailedDiagnosticsInfoListLimit | Int, el valor predeterminado es 15. |Dinámica| Define el número de entradas de diagnóstico (con información detallada) que se incluirán por restricción antes del truncamiento en Diagnostics.|
 |DetailedNodeListLimit | Int, el valor predeterminado es 15. |Dinámica| Define el número de nodos por restricción que se incluirán antes del truncamiento en los informes de réplicas sin colocar. |
@@ -581,6 +589,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |TraceCRMReasons |Bool, el valor predeterminado es true. |Dinámica|Especifica si se rastrearán los motivos de los movimientos emitidos por CRM al canal de eventos operativos. |
 |UpgradeDomainConstraintPriority | Int, el valor predeterminado es 1.| Dinámica|Determina la prioridad de la restricción del dominio de actualización: 0: máxima; 1: mínima; negativo: omitir |
 |UseMoveCostReports | Bool, el valor predeterminado es false. | Dinámica|Indica a LB que ignore el elemento de coste de la función de puntuación. Esto da lugar a un número posiblemente grande de movimientos para una ubicación mejor equilibrada. |
+|UseSeparateAuxiliaryLoad | Bool, el valor predeterminado es true. | Dinámica|Configuración que determina si PLB debe usar una carga diferente para auxiliar en cada nodo. Si UseSeparateLoadiliaryLoad está desactivado: - La carga notificada para auxiliar en un nodo dará como resultado la sobrescritura de la carga para cada auxiliar (en todos los demás nodos). Si UseSeparateLoadIliaryLoad está activado: - La carga notificada para auxiliar en un nodo solo tendrá efecto en ese auxiliar (ningún efecto en los auxiliares en otros nodos) - Si se produce un bloqueo de réplica, se crea una nueva réplica con carga media de todos los auxiliares restantes - Si PLB mueve la réplica existente, la carga va con ella. |
+|UseSeparateAuxiliaryMoveCost | Bool, el valor predeterminado es false. | Dinámica|Configuración que determina si PLB debe usar un coste de movimiento diferente para auxiliar de cada nodo. Si UseSeparateSecondaryMoveCost está desactivado: - El coste de movimiento notificado para auxiliar en un nodo dará como resultado el reemplazo del coste de movimiento de cada auxiliar (en todos los demás nodos). Si UseSeparateSecondaryMoveCost está activado: - El coste de movimiento notificado para auxiliar en un nodo surtirá efecto solo en ese auxiliar (no tendrá efecto alguno en auxiliares en otros nodos). - Si se produce un bloqueo de réplica: se crea una réplica con el coste de movimiento predeterminado especificado en el nivel de servicio. - Si PLB mueve la réplica existente: el coste de movimiento se traslada con ella. |
 |UseSeparateSecondaryLoad | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si se debe usar una carga independiente para las réplicas secundarias. |
 |UseSeparateSecondaryMoveCost | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si PLB debe usar un coste de movimiento diferente para la réplica secundaria en cada nodo. Si UseSeparateSecondaryMoveCost está desactivado: - El coste de movimiento notificado para la réplica secundaria en un nodo provocará que se sobrescriba el coste de movimiento de cada réplica secundaria (en todos los demás nodos). Si UseSeparateSecondaryMoveCost está activado: - El coste de movimiento notificado para la réplica secundaria de un nodo solo se aplicará a dicha réplica secundaria (y no a las réplicas secundarias de otros nodos). - Si se bloquea una réplica: se crea otra réplica con el coste de movimiento predeterminado que se especifica en el nivel de servicio. - Si PLB mueve la réplica existente: el coste de movimiento se traslada con ella. |
 |ValidatePlacementConstraint | Bool, el valor predeterminado es true. |Dinámica| Especifica si la expresión PlacementConstraint de un servicio se valida o no cuando se actualiza la descripción de un servicio. |
@@ -883,6 +893,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MaxSecondaryReplicationQueueMemorySize |Uint, el valor predeterminado es 0. | estática |Es el valor máximo de la cola de replicación secundaria en bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, el valor predeterminado es 16384. | estática |Es el número máximo de operaciones que podrían existir en la cola de replicación secundaria. Tenga en cuenta que debe ser una potencia de 2. |
 |ReplicatorAddress |string, el valor predeterminado es "localhost:0". | estática | El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para establecer conexiones con otras réplicas para enviar o recibir operaciones. |
+|ShouldAbortCopyForTruncation |bool, el valor predeterminado es FALSE | estática | Permitir que el truncamiento del registro pendiente siga durante la copia. Con esta opción habilitada, la fase de copia de las compilaciones se puede cancelar si el registro está lleno y se truncan en bloque. |
 
 ## <a name="transport"></a>Transporte
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización** |**Orientación o breve descripción** |

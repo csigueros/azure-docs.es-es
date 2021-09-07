@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 06/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 8a4a9834b35055fbd5be4fd50f1d5413d5e54a35
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 13d020ed0ea6310f49cbe37555fc2a9048b9f042
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111758307"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465410"
 ---
 # <a name="use-azure-marketplace-image-to-create-vm-image-for-your-azure-stack-edge-pro-gpu"></a>Uso de una imagen de Azure Marketplace para crear una imagen de máquina virtual para Azure Stack Edge Pro con GPU
 
@@ -43,9 +43,9 @@ Antes de poder usar imágenes de Azure Marketplace para Azure Stack Edge, ase
 
 ## <a name="search-for-azure-marketplace-images"></a>Búsqueda de imágenes de Azure Marketplace
 
-Ahora identificará una imagen de Azure Marketplace que desea usar. Azure Marketplace hospeda miles de imágenes de VM. 
+Ahora identificará una imagen de Azure Marketplace que quiere usar. Azure Marketplace hospeda miles de imágenes de VM. 
 
-Para buscar algunas de las imágenes de Marketplace más comunes que coincidan con los criterios de búsqueda, ejecute el comando siguiente.  
+Para buscar algunas de las imágenes de marketplace de uso frecuente que coincidan con los criterios de búsqueda, ejecute el comando siguiente.  
 
 ```azurecli
 az vm image list --all [--publisher <Publisher>] [--offer <Offer>] [--sku <SKU>]
@@ -137,7 +137,9 @@ En este ejemplo, seleccionaremos Windows Server 2019 Datacenter Core, versió
  
 :::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="Lista de imágenes de Marketplace":::
 
-A continuación se muestra una lista de los URN de algunas de las imágenes más comunes. Si solo desea la versión más reciente de un SO determinado, puede reemplazar el número de versión por la palabra "latest" ("más reciente") en el URN. Por ejemplo, "MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest". 
+### <a name="commonly-used-marketplace-images"></a>Imágenes de marketplace de uso frecuente
+
+A continuación, se muestra una lista de los URN de algunas de las imágenes de uso frecuente. Si solo desea la versión más reciente de un SO determinado, puede reemplazar el número de versión por la palabra "latest" ("más reciente") en el URN. Por ejemplo, "MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest". 
 
 
 | SO              | SKU                                     | Versión               | URN                                                                                       |

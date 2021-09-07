@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee850765006af15d8e323831d70dfcd7849d1287
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5dec171c299bdd8ea6c5989794539b6c79e7d3fe
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145968"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229695"
 ---
 # <a name="azure-ad-connect-single-object-sync"></a>Azure AD Connect sincronización de un solo objeto 
 
@@ -56,7 +56,9 @@ El informe HTML tiene lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
-Para usar la herramienta de sincronización de un solo objeto, tendrá que usar la versión de marzo de 2021 de Azure AD Connect o posterior. 
+Para usar la herramienta de sincronización de un solo objeto, tendrá que usar lo siguiente:  
+ - Versión de marzo de 2021 ([1.6.4.0](reference-connect-version-history.md#1640)) de Azure AD Connect o posterior.
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
 
 ### <a name="run-the-single-object-sync-tool"></a>Ejecutar la herramienta de sincronización de un solo objeto 
 

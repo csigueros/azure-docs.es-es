@@ -1,14 +1,14 @@
 ---
 title: Creación de autorizaciones aptas
 description: Al incorporar clientes a Azure Lighthouse, puede permitir que los usuarios del inquilino de administración adopten un rol superior cuando sea necesario.
-ms.date: 06/11/2021
+ms.date: 07/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 938b0ae8f2d105d79237164287b00ec4fdf4d607
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 5f5711b8ee573e0f91437dd1e89a870c755f4725
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060763"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667227"
 ---
 # <a name="create-eligible-authorizations"></a>Creación de autorizaciones aptas
 
@@ -43,30 +43,74 @@ Una vez que un usuario activa correctamente un rol apto, tendrá ese rol superio
 
 Los administradores del inquilino de administración pueden revisar todas las actividades de Privileged Identity Management mediante la visualización del registro de auditoría en el inquilino de administración. Los clientes pueden ver estas acciones en el registro de actividad de Azure de la suscripción delegada.
 
-Al crear una autorización apta, se definen tres elementos: el usuario, el rol y la directiva de acceso.
+## <a name="eligible-authorization-elements"></a>Elementos de autorización aptos
 
-- El **usuario** puede ser un usuario individual o un grupo de Azure AD en el inquilino de administración. Si se define un grupo, cualquier miembro de ese grupo podrá elevar su propio acceso individual al rol según la directiva de acceso. No se pueden usar autorizaciones aptas con entidades de servicio.
-- El **rol** puede ser cualquier rol integrado de Azure que sea compatible con la administración de recursos delegados de Azure, excepto el de administrador de acceso de los usuarios.
-- La **directiva de acceso** define los requisitos de autorización multifactor (MFA) y el período de tiempo que un usuario tendrá el rol activo antes de que expire. La cantidad máxima que se puede especificar para cualquier rol son 8 horas.
+Puede crear una autorización apta al incorporar clientes con plantillas de Azure Resource Manager o publicar una oferta de servicios administrados para Azure Marketplace. Cada autorización apta debe incluir tres elementos: el usuario, el rol y la directiva de acceso.
 
-A continuación se incluye más información sobre estos elementos y cómo definirlos.
+### <a name="user"></a>Usuario
+
+Para cada autorización apta, se proporciona el id. de entidad de seguridad para un usuario individual o un grupo de Azure AD en el inquilino de administración. Junto con el id. de entidad de seguridad, debe proporcionar un nombre para mostrar de su elección para cada autorización.
+
+Si se proporciona un grupo en una autorización apta, cualquier miembro de ese grupo podrá elevar su propio acceso individual al rol según la directiva de acceso.
+
+No puede usar autorizaciones aptas con entidades de servicio, ya que actualmente no hay ninguna manera de que una cuenta de entidad de servicio eleve su acceso y use un rol apto. Tampoco puede usar autorizaciones aptas con `delegatedRoleDefinitionIds` que un administrador de acceso de usuarios puede [asignar a identidades administradas](deploy-policy-remediation.md).
+
+> [!NOTE]
+> Para cada autorización apta, asegúrese de crear también una autorización permanente (activa) para el mismo id. de entidad de seguridad con un rol diferente, como Lector (u otro rol integrado de Azure que incluya acceso de lectura). Si no incluye una autorización permanente con acceso de lectura, el usuario no podrá elevar su rol en Azure Portal.
+
+### <a name="role"></a>Rol
+
+Cada autorización apta debe incluir un [rol integrado de Azure](../../role-based-access-control/built-in-roles.md) que el usuario podrá usar cuando sea necesario.
+
+El rol puede ser cualquier rol integrado de Azure que sea compatible con la administración de recursos delegados de Azure, excepto el de administrador de acceso de los usuarios.
+
+> [!IMPORTANT]
+> Si incluye varias autorizaciones aptas que usan el mismo rol, cada una de las autorizaciones aptas debe tener la misma configuración de directiva de acceso.
+
+### <a name="access-policy"></a>Directiva de acceso
+
+La directiva de acceso define los requisitos de autenticación multifactor, el período de tiempo que un usuario tendrá el rol activo antes de que expire y si se requieren aprobadores.
+
+#### <a name="multifactor-authentication"></a>Autenticación multifactor
+
+Especifique si [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) es necesario o no para que se active un rol apto.
+
+#### <a name="maximum-duration"></a>Duración máxima
+
+Defina el período de tiempo total durante el que el usuario tendrá el rol apto. El valor mínimo es 30 minutos y el máximo es 8 horas.
+
+#### <a name="approvers"></a>Aprobadores
+
+El elemento de aprobadores es opcional. Si lo incluye, puede especificar hasta diez usuarios o grupos de usuarios en el inquilino de administración que pueden aprobar o denegar solicitudes de un usuario para activar el rol apto.
+
+No puede usar una cuenta de entidad de servicio como aprobador. Además, los aprobadores no pueden aprobar su propio acceso. Si un aprobador también se incluye como usuario en una autorización apta, otro aprobador tendrá que concederle acceso para que eleve su rol.
+
+Si no incluye ningún aprobador, el usuario podrá activar el rol apto cuando quiera.
+
+## <a name="create-eligible-authorizations-using-managed-services-offers"></a>Creación de autorizaciones aptas mediante ofertas de Servicios administrados
+
+Para incorporar el cliente a Azure Lighthouse, puede publicar las ofertas de servicios administrados para Azure Marketplace. Al [crear las ofertas en Centro de partners](publish-managed-services-offers.md), ahora puede especificar si el **Tipo de acceso** para cada [Autorización](../../marketplace/create-managed-service-offer-plans.md#authorizations) debe ser **Activo** o **Apto**.
+
+Al seleccionar **Apto**, el usuario de la autorización podrá activar el rol según la directiva de acceso que configure. Debe establecer una duración máxima entre 30 minutos y 8 horas y especificar si va a requerir la autenticación multifactor de Azure. También puede agregar hasta 10 aprobadores si decide usarlos, proporcionando un nombre para mostrar y un id. de entidad de seguridad para cada uno.
+
+Asegúrese de revisar los detalles en la sección [Elementos de autorización aptos](#eligible-authorization-elements) al configurar las autorizaciones aptas en Centro de partners.
 
 ## <a name="create-eligible-authorizations-using-azure-resource-manager-templates"></a>Creación de autorizaciones aptas con plantillas de Azure Resource Manager
 
 Para incorporar el cliente a Azure Lighthouse, use una [plantilla de Azure Resource Manager junto con un archivo de parámetros correspondiente](onboard-customer.md#create-an-azure-resource-manager-template) que modifique. La plantilla que elija dependerá de si se incorpora una suscripción completa, un grupo de recursos o varios grupos de recursos de una suscripción.
 
-> [!NOTE]
-> Aunque también puede incorporar clientes mediante ofertas de servicio administrado en Azure Marketplace, actualmente no se pueden incluir autorizaciones aptas en esas ofertas.
-
-Para incluir autorizaciones aptas al incorporar un cliente, use una de las plantillas de la [sección delegated-resource-management-eligible-authorizations de nuestro repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations).
+Para incluir autorizaciones aptas al incorporar un cliente, use una de las plantillas de la [sección delegated-resource-management-eligible-authorizations de nuestro repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations). Se proporcionan plantillas con y sin aprobadores incluidos, para que pueda usar la que mejor se adapte a su escenario.
 
 |Para incorporar esto (con autorizaciones aptas)  |Use esta plantilla de Azure Resource Manager  |Y modifique este archivo de parámetros |
 |---------|---------|---------|
 |Suscripción   |[subscription.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.json)  |[subscription.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.Parameters.json)    |
+|Suscripción (con aprobadores)  |[subscription-managing-tenant-approvers.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.json)  |[subscription-managing-tenant-approvers.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.parameters.json)    |
 |Resource group   |[rg.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg.json)  |[rg.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg.parameters.json)    |
+|Grupo de recursos (con aprobadores)  |[rg-managing-tenant-approvers.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg-managing-tenant-approvers.json)  |[rg-managing-tenant-approvers.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg-managing-tenant-approvers.parameters.json)    |
 |Varios grupos de recursos de una suscripción   |[multiple-rg.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/multiple-rg.json)  |[multiple-rg.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/multiple-rg.parameters.json)    |
+|Varios grupos de recursos de una suscripción (con aprobadores)  |[multiple-rg-managing-tenant-approvers.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/multiple-rg-managing-tenant-approvers.json)  |[multiple-rg-managing-tenant-approvers.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/multiple-rg-managing-tenant-approvers.parameters.json)    |
 
-La plantilla **subscription.json**, que se puede usar para incorporar una suscripción con autorizaciones aptas, se muestra a continuación. 
+La plantilla **subscription-managing-tenant-approvers.json**, que se puede usar para incorporar una suscripción con autorizaciones aptas (incluidos los aprobadores), se muestra a continuación.
 
 ```json
 {
@@ -121,11 +165,17 @@ La plantilla **subscription.json**, que se puede usar para incorporar una suscri
                 { 
                         "justInTimeAccessPolicy": { 
                             "multiFactorAuthProvider": "Azure", 
-                            "maximumActivationDuration": "PT8H" 
+                            "maximumActivationDuration": "PT8H",
+                            "managedByTenantApprovers": [ 
+                                { 
+                                    "principalId": "00000000-0000-0000-0000-000000000000", 
+                                    "principalIdDisplayName": "PIM-Approvers" 
+                                }
+                            ]
                         },
                         "principalId": "00000000-0000-0000-0000-000000000000", 
                         "principalIdDisplayName": "PIM_Group",
-                        "roleDefinitionId": "36243c78-bf99-498c-9df9-86d9f8d28608" 
+                        "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c" 
                         
                 }                    
             ]    
@@ -182,9 +232,11 @@ La plantilla **subscription.json**, que se puede usar para incorporar una suscri
 
 ### <a name="define-eligible-authorizations-in-your-parameters-file"></a>Definición de autorizaciones aptas en el archivo de parámetros
 
-La [plantilla de ejemplo subscription.Parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.Parameters.json) se puede usar para definir autorizaciones, incluidas las autorizaciones aptas, al incorporar una suscripción.
+La [plantilla de ejemplo subscription-managing-tenant-approvers.Parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.parameters.json) se puede usar para definir autorizaciones, incluidas las autorizaciones aptas, al incorporar una suscripción.
 
 Cada una de las autorizaciones aptas debe definirse en el parámetro `eligibleAuthorizations`. En este ejemplo se incluye una autorización apta.
+
+Esta plantilla también incluye el elemento `managedbyTenantApprovers`, que agrega un objeto `principalId` que será necesario para aprobar todos los intentos de activar los roles aptos que se definen en el elemento `eligibleAuthorizations`.
 
 ```json
 {
@@ -214,7 +266,13 @@ Cada una de las autorizaciones aptas debe definirse en el parámetro `eligibleAu
                 {
                         "justInTimeAccessPolicy": {
                             "multiFactorAuthProvider": "Azure",
-                            "maximumActivationDuration": "PT8H"
+                            "maximumActivationDuration": "PT8H",
+                            "managedByTenantApprovers": [ 
+                                { 
+                                    "principalId": "00000000-0000-0000-0000-000000000000", 
+                                    "principalIdDisplayName": "PIM-Approvers" 
+                                } 
+                            ]
                         },
                         "principalId": "00000000-0000-0000-0000-000000000000", 
                         "principalIdDisplayName": "Tier 2 Support",
@@ -227,33 +285,35 @@ Cada una de las autorizaciones aptas debe definirse en el parámetro `eligibleAu
 }
 ```
 
-Dentro del parámetro `eligibleAuthorizations`, `principalId` especifica el identificador del usuario de Azure AD o del grupo al que se aplicará esta autorización apta. No use un identificador de una cuenta de entidad de servicio, ya que actualmente no hay ninguna manera de que una cuenta de este tipo use un rol apto de nivel superior.
+Cada entrada dentro del parámetro `eligibleAuthorizations` contiene [tres elementos](#eligible-authorization-elements) que definen una autorización apta: `principalId`, `roleDefinitionId` y `justInTimeAccessPolicy`.
 
-> [!IMPORTANT]
-> Asegúrese de incluir el mismo valor de `principalId` en la sección `authorizations` de la plantilla con un rol diferente al de la autorización apta, como el de lectura (u otro rol integrado de Azure que incluya el acceso de lectura). Si no lo hace, el usuario no podrá utilizar un rol superior en Azure Portal.
+`principalId` especifica el id. del usuario o grupo de Azure AD al que se aplicará esta autorización apta.
 
-`roleDefinitionId` contiene el identificador de definición de rol para un [rol integrado de Azure](../../role-based-access-control/built-in-roles.md) que el usuario podrá usar cuando sea necesario.
+`roleDefinitionId` contiene el id. de definición de rol para un [rol integrado de Azure](../../role-based-access-control/built-in-roles.md) que el usuario podrá usar cuando sea necesario. Si incluye varias autorizaciones aptas que usan el mismo `roleDefinitionId`, cada una de ellas debe tener una configuración idéntica para `justInTimeAccessPolicy`.
 
-`justInTimeAccessPolicy` especifica dos elementos:
+`justInTimeAccessPolicy` especifica tres elementos:
 
-- `multiFactorAuthProvider` se puede establecer en **Azure**, que requerirá la autorización multifactor (MFA) de Azure, o en **Ninguno** si no se requiere esta autenticación.
-- `maximumActivationDuration` establece el período de tiempo total durante el que el usuario tendrá el rol apto. Este valor debe usar el formato de duración ISO 8601. El valor mínimo es PT30M (30 minutos) y el máximo, PT8H (8 horas).
+- `multiFactorAuthProvider` se puede establecer en **Azure**, que requerirá la autenticación mediante Azure AD Multi-Factor Autenticación, o en **Ninguno** si no se requiere la autenticación multifactor.
+- `maximumActivationDuration` establece el período de tiempo total durante el que el usuario tendrá el rol apto. Este valor debe usar el formato de duración ISO 8601. El valor mínimo es PT30M (30 minutos) y el máximo, PT8H (8 horas). Para simplificar, se recomienda usar valores solo en incrementos de media hora (por ejemplo, PT6H para 6 horas o PT6H30M para 6,5 horas).
+- `managedByTenantApprovers` es opcional. Si lo incluye, debe contener una o varias combinaciones de un elemento principalId y un elemento principalIdDisplayName que serán necesarios para aprobar cualquier activación del rol apto.
 
-> [!NOTE]
-> Nota: El acceso Just-In-Time no se aplica a los elementos `delegatedRoleDefinitionIds` que un administrador de acceso de usuario pueda [asignar a identidades administradas.](deploy-policy-remediation.md) Estas asignaciones de roles no se pueden crear como autorizaciones aptas. Del mismo modo, no puede crear una autorización apta para el rol de administrador de acceso de usuario.
+Para más información sobre estos elementos, consulte la sección [Elementos de autorización aptos](#eligible-authorization-elements) anterior.
 
 ## <a name="elevation-process-for-users"></a>Proceso de elevación para usuarios
 
 Después de incorporar un cliente a Azure Lighthouse, todos los roles aptos que incluya estarán disponibles para el usuario especificado (o para los usuarios de cualquier grupo especificado).
 
-Cada usuario puede elevar su acceso en cualquier momento. Para hacerlo, debe visitar la página **Mis clientes** de Azure Portal, seleccionar una delegación y, a continuación, seleccionar **Administrar roles elegibles**. Después, pueden seguir los [pasos para activar el rol](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) en Azure AD Privileged Identity Management.
+Cada usuario puede elevar su acceso en cualquier momento. Para hacerlo, debe visitar la página **Mis clientes** de Azure Portal, seleccionar una delegación y, a continuación, seleccionar **Administrar roles elegibles**. Después, pueden seguir los [pasos para activar el rol](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md) en Azure AD Privileged Identity Management.
 
 :::image type="content" source="../media/manage-eligible-roles.png" alt-text="Captura de pantalla que muestra el botón Administrar roles elegibles en Azure Portal.":::
+
+Si se han especificado aprobadores, el usuario no tendrá acceso al rol hasta que un aprobador designado conceda la aprobación. Todos los aprobadores recibirán una notificación cuando se solicite la aprobación y el usuario no podrá usar el rol apto hasta que se le conceda la aprobación. También se notificará a los aprobadores cuando suceda esto. Para más información sobre el proceso de aprobación, consulte [Aprobación o denegación de solicitudes de roles de recursos de Azure en Privileged Identity Management](../../active-directory/privileged-identity-management/pim-resource-roles-approval-workflow.md).
 
 Una vez activado el rol apto, el usuario tendrá ese rol durante todo el tiempo especificado en la autorización apta. Después de ese período de tiempo, ya no podrá usar ese rol, a menos que repita el proceso de elevación para volver a utilizarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo [incorporar clientes a Azure Lighthouse mediante plantillas de ARM](onboard-customer.md).
+- Obtenga información sobre cómo [incorporar clientes mediante ofertas de servicios administrados](publish-managed-services-offers.md).
 - Obtenga más información acerca de [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).
 - Obtenga más información acerca de [inquilinos, usuarios y roles en Azure Lighthouse](../concepts/tenants-users-roles.md).

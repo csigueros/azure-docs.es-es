@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 04/08/2021
-ms.openlocfilehash: 534becdfcba1ccc992daadc5007e2eb56337a45e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/15/2021
+ms.openlocfilehash: b3e30a4914ac52c9d9661d3b6d6e07f54f0afdc6
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379274"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114230421"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conexión a una instancia de proceso de Azure Machine Learning en Visual Studio Code (versión preliminar)
 
@@ -35,25 +35,10 @@ Para configurar una instancia de proceso remoto para el desarrollo, necesitará 
 * Área de trabajo de Azure Machine Learning. [Use la extensión Azure Machine Learning para Visual Studio Code para crear un área de trabajo](how-to-manage-resources-vscode.md#create-a-workspace) si aún no tiene una.
 * Instancia de proceso de Azure Machine Learning. [Use la extensión Azure Machine Learning para Visual Studio Code para crear una instancia de proceso](how-to-manage-resources-vscode.md#create-compute-instance) si no tiene una.
 
+> [!IMPORTANT]
+> Para conectarse a una instancia de proceso detrás de un firewall, consulte [Uso del área de trabajo detrás de un firewall para Azure Machine Learning](how-to-access-azureml-behind-firewall.md#visual-studio-code-hosts).
+
 Para conectarse a la instancia de proceso remoto:
-
-# <a name="vs-code"></a>[Código de VS](#tab/extension)
-
-### <a name="azure-machine-learning-extension"></a>Extensión de Azure Machine Learning
-
-1. En VS Code, inicie la extensión de Azure Machine Learning.
-1. Expanda el nodo **Instancias de proceso** en la extensión.
-1. Haga clic con el botón derecho en la instancia de proceso a la que desea conectarse y seleccione **Conectarse a la instancia de proceso**.
-
-:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Conexión a la extensión de Azure ML de Visual Studio Code de la instancia de proceso" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
-
-### <a name="command-palette"></a>Paleta de comandos
-
-1. En VS Code, seleccione **Ver > Paleta de comandos** para abrir la paleta de comandos.
-1. Escriba en el cuadro de texto **Azure ML: Conectarse a la instancia de proceso**.
-1. Seleccione su suscripción.
-1. Seleccione su área de trabajo.
-1. Seleccione la instancia de proceso o cree una nueva.
 
 # <a name="studio"></a>[Estudio](#tab/studio)
 
@@ -76,6 +61,24 @@ Vaya a [ml.azure.com](https://ml.azure.com).
 1. Seleccione **Editores > Editar en VS Code (versión preliminar)** .
 
 :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Conexión al cuaderno de Estudio de Azure ML de VS Code de la instancia de proceso" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+
+# <a name="vs-code"></a>[Código de VS](#tab/extension)
+
+### <a name="azure-machine-learning-extension"></a>Extensión de Azure Machine Learning
+
+1. En VS Code, inicie la extensión de Azure Machine Learning.
+1. Expanda el nodo **Instancias de proceso** en la extensión.
+1. Haga clic con el botón derecho en la instancia de proceso a la que desea conectarse y seleccione **Conectarse a la instancia de proceso**.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Conexión a la extensión de Azure ML de Visual Studio Code de la instancia de proceso" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+
+### <a name="command-palette"></a>Paleta de comandos
+
+1. En VS Code, seleccione **Ver > Paleta de comandos** para abrir la paleta de comandos.
+1. Escriba en el cuadro de texto **Azure ML: Conectarse a la instancia de proceso**.
+1. Seleccione su suscripción.
+1. Seleccione su área de trabajo.
+1. Seleccione la instancia de proceso o cree una nueva.
 
 ---
 

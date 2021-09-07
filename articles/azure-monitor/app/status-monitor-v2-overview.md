@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fcdca5aaedb9d3b0e86e02e931eb7e38c16cc25
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100583805"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731862"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementación de Azure Application Insights Agent para servidores locales
 
@@ -18,11 +18,11 @@ ms.locfileid: "100583805"
 > Esta guía se recomienda para implementaciones de Application Insights Agent en la nube locales y en el entorno local que no sean de Azure. Este es el enfoque recomendado para [las implementaciones de máquinas virtuales y de conjuntos de escalado de máquinas virtuales de Azure](./azure-vm-vmss-apps.md).
 
 Application Insights Agent (anteriormente conocido como Monitor de estado V2) es un módulo de PowerShell publicado en la [Galería de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
-Reemplaza al [Monitor de estado](./monitor-performance-live-website-now.md).
+Reemplaza al Monitor de estado.
 Se envía telemetría a Azure Portal, donde puede [supervisar](./app-insights-overview.md) la aplicación.
 
 > [!NOTE]
-> El módulo solo admite actualmente la instrumentación sin código de aplicaciones web .NET hospedadas con IIS. Use un SDK para instrumentar las aplicaciones ASP.NET Core, Java y Node.js.
+> El módulo admite actualmente la instrumentación sin código de aplicaciones web .NET y .NET Core hospedadas con IIS. Use un SDK para instrumentar las aplicaciones Java y Node.js.
 
 ## <a name="powershell-gallery"></a>Galería de PowerShell
 
@@ -60,7 +60,7 @@ Cada una de estas opciones se describe en las [instrucciones detalladas](status-
 
 - ¿Admite el Monitor de estado v2 aplicaciones ASP.NET Core?
 
-  *No*. Para instrucciones sobre cómo habilitar la supervisión de aplicaciones ASP.NET Core, consulte [Application Insights para aplicaciones ASP.NET Core](./asp-net-core.md). No es necesario instalar el Monitor de estado para una aplicación ASP.NET Core. Esto es así incluso si la aplicación ASP.NET Core se hospeda en IIS.
+  *Sí*. A partir de [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), se admiten aplicaciones ASP.NET Core hospedadas en IIS.
 
 - ¿Cómo se puede comprobar que la habilitación se realizó correctamente?
 

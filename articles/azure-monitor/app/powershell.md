@@ -4,12 +4,12 @@ description: Automatice la creación y administración de recursos, alertas y pr
 ms.topic: conceptual
 ms.date: 05/02/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d629ef1bc7d2086f85bbb08105041a0457b133c5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 99da4f3134d8e646ba8decbc986ceb082860ca57
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954882"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463754"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Administración de recursos de Application Insights mediante PowerShell
 
@@ -246,7 +246,7 @@ $Resource | Set-AzResource -Force
 
 ### <a name="setting-data-retention-using-rest"></a>Establecimiento de la retención de datos mediante REST
 
-Para obtener la retención actual de datos del recurso de Application Insights, puede usar la herramienta OSS [ARMClient](https://github.com/projectkudu/ARMClient)  (puede obtener más información sobre ARMClient en los artículos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) y [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)).  Este es un ejemplo del uso de `ARMClient` para obtener la retención actual:
+Para obtener la retención actual de datos del recurso de Application Insights, puede usar la herramienta OSS [ARMClient](https://github.com/projectkudu/ARMClient)  (Puede obtener más información sobre ARMClient en los artículos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) y Daniel Bowbyes). Este es un ejemplo del uso de `ARMClient` para obtener la retención actual:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
@@ -472,4 +472,4 @@ Otros artículos de automatización:
 * [Script de PowerShell para crear un recurso de Application Insights](./create-new-resource.md#creating-a-resource-automatically) : método rápido sin necesidad de plantilla.
 * [Creación de pruebas web](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Envío de Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)
-* [Creación de anotaciones de versión](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Creación de anotaciones de versión](annotations.md)

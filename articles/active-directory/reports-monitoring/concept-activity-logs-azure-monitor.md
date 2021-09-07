@@ -17,19 +17,19 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c731648c144d4b25896260e5cf276a97b9e731
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e21e22e231ea5998cf15c7b2982180da91fe49aa
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965764"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733437"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
 Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a varios puntos de conexión para conseguir conclusiones de datos y una retención a largo plazo. Esta característica le permite:
 
 * Archivar los registros de actividad de Azure AD en una cuenta de almacenamiento de Azure para conservar los datos durante mucho tiempo.
-* Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos con herramientas conocidas de Administración de eventos e información de seguridad (SIEM), como Splunk y QRadar.
+* Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos con herramientas conocidas de Administración de eventos e información de seguridad (SIEM), como Splunk, QRadar y Azure Sentinel.
 * Integrar los registros de actividad de Azure AD con sus propias soluciones de registro personalizadas haciendo streaming a un centro de eventos.
 * Envíe los registros de actividad de Azure AD a registros de Azure Monitor para permitir visualizaciones enriquecidas, supervisión y alertas sobre los datos conectados.
 
@@ -53,10 +53,10 @@ Con esta característica, puede enrutar registros de auditoría y de inicios de 
 Para usar esta característica, necesita:
 
 * Suscripción a Azure. Si no tiene ninguna suscripción de Azure, puede [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/free/).
-* Una [licencia](https://azure.microsoft.com/pricing/details/active-directory/) Azure Active Directory Free, Basic, Premium 1 o Premium 2 para acceder a los registros de auditoría de Azure AD en Azure Portal. 
+* Una [licencia](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) Azure Active Directory Free, Basic, Premium 1 o Premium 2 para acceder a los registros de auditoría de Azure AD en Azure Portal. 
 * Un inquilino de Azure AD.
 * Un usuario que sea **administrador global** o **administrador de seguridad** para el inquilino de Azure AD.
-* Una [licencia](https://azure.microsoft.com/pricing/details/active-directory/) Azure AD Premium 1 o Premium 2 para acceder a los registros de inicios de sesión de Azure AD en Azure Portal. 
+* Una [licencia](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) Azure AD Premium 1 o Premium 2 para acceder a los registros de inicios de sesión de Azure AD en Azure Portal. 
 
 Según de hacia dónde desee enrutar los datos de registro de auditoría, necesitará algo de lo siguiente:
 

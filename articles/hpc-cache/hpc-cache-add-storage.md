@@ -4,15 +4,15 @@ description: Definición de los destinos de almacenamiento para que Azure HPC Ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 07/12/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: aae7d29abbb9ef18846e85e9a54ff0fb97f09181
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 3ea51d88d65b8016e68673703ee823df19bcf608
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738525"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294960"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
@@ -20,7 +20,7 @@ Los *destinos de almacenamiento* son espacios de almacenamiento en servidores de
 
 Puede definir 10 destinos de almacenamiento diferentes para cualquier caché, y las memorias caché más grandes pueden [admitir hasta 20 destinos de almacenamiento](#size-your-cache-correctly-to-support-your-storage-targets).
 
-La caché presenta todos los destinos de almacenamiento en un espacio de nombres agregado. Las rutas de acceso del espacio de nombres se configuran por separado después de agregar los destinos de almacenamiento.
+La caché presenta todos los destinos de almacenamiento en un [espacio de nombres agregado](hpc-cache-namespace.md). Las rutas de acceso del espacio de nombres se configuran por separado después de agregar los destinos de almacenamiento.
 
 Recuerde que las exportaciones de almacenamiento deben ser accesibles desde la red virtual de la caché. En el caso del almacenamiento en hardware local, es posible que tenga que configurar un servidor DNS que pueda resolver nombres de host para el acceso al almacenamiento de NFS. Obtenga más información en [Acceso DNS](hpc-cache-prerequisites.md#dns-access).
 
@@ -38,12 +38,37 @@ Haga clic en la imagen siguiente para ver una [demostración en vídeo](https://
 
 ## <a name="size-your-cache-correctly-to-support-your-storage-targets"></a>Asigne el tamaño correcto a la caché para respaldar a los destinos de almacenamiento
 
-El número de destinos de almacenamiento admitidos depende del tamaño de la caché, el cual se establece durante su creación. El tamaño es una combinación de la capacidad de rendimiento (en GB/s) y la capacidad de almacenamiento (en TB).
+El número de destinos de almacenamiento admitidos depende del tamaño de la caché, el cual se establece durante su creación. La capacidad de la caché es una combinación de la capacidad de rendimiento (en GB/s) y la capacidad de almacenamiento (en TB).
 
-* Hasta 10 destinos de almacenamiento: si elige el tamaño de almacenamiento de caché más pequeño o medio para el valor de rendimiento seleccionado, la memoria caché puede tener hasta 10 destinos de almacenamiento.
-* Hasta 20 destinos de almacenamiento: elija el mayor tamaño de caché disponible para el valor de rendimiento seleccionado si desea usar más de 10 destinos de almacenamiento. (Si usa la CLI de Azure, elija el tamaño de caché válido más alto para la SKU de caché).
+* Hasta 10 destinos de almacenamiento: una caché estándar con el valor de almacenamiento de caché más pequeño o medio para el rendimiento seleccionado puede tener un máximo de 10 destinos de almacenamiento.
+
+  Por ejemplo, si elige un rendimiento de 2 GB/segundo y no elige el tamaño de almacenamiento de caché más alto, la memoria caché admite un máximo de 10 destinos de almacenamiento.
+
+* Hasta 20 destinos de almacenamiento:
+
+  * Todas las cachés de alto rendimiento (que tienen tamaños de almacenamiento de caché preconfigurados) pueden admitir hasta 20 destinos de almacenamiento.
+  * Las memorias caché estándar pueden admitir hasta 20 destinos de almacenamiento si elige el tamaño de caché más alto disponible para el valor de rendimiento seleccionado. (Si usa la CLI de Azure, elija el tamaño de caché válido más alto para la SKU de caché).
 
 Consulte [Establecimiento de la capacidad de la memoria caché](hpc-cache-create.md#set-cache-capacity) para más información sobre la configuración de rendimiento y el tamaño de la caché.
+
+## <a name="choose-the-correct-storage-target-type"></a>Elección del tipo de destino de almacenamiento correcto
+
+Puede seleccionar entre tres tipos de destino de almacenamiento: **NFS**, **Blob** y **ADLS-NFS**. Elija el tipo que coincida con la clase de sistema de almacenamiento que usará para almacenar los archivos durante este proyecto de HPC Cache.
+
+* **NFS**: cree un destino de almacenamiento de NFS para acceder a los datos en un sistema de almacenamiento conectado a la red (NAS). Puede ser un sistema de almacenamiento local u otro tipo de almacenamiento al que se pueda acceder con NFS.
+
+  * Requisitos: [requisitos del almacenamiento de NFS](hpc-cache-prerequisites.md#nfs-storage-requirements)
+  * Instrucciones. [Incorporación de un nuevo destino de almacenamiento NFS](#add-a-new-nfs-storage-target)
+
+* **Blob**: use un destino de almacenamiento de blobs para almacenar los archivos de trabajo en un nuevo contenedor de blobs de Azure. Este contenedor solo se puede leer o escribir desde Azure HPC Cache.
+
+  * Requisitos previos: [requisitos del almacenamiento de blobs](hpc-cache-prerequisites.md#blob-storage-requirements)
+  * Instrucciones: [Incorporación de un nuevo destino de almacenamiento de Azure Blob Storage](#add-a-new-azure-blob-storage-target)
+
+* **ADLS-NFS**: el destino de almacenamiento de ADLS-NFS accede a los datos de un contenedor de [blobs habilitado para NFS](../storage/blobs/network-file-system-protocol-support.md). Puede cargar previamente el contenedor mediante comandos NFS estándar y los archivos se pueden leer después con NFS.
+
+  * Requisitos previos: [requisitos del almacenamiento de ADLS-NFS](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements)
+  * Instrucciones. [Incorporación de un nuevo destino de almacenamiento de ADLS-NFS](#add-a-new-adls-nfs-storage-target)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Incorporación de un nuevo destino de almacenamiento de Azure Blob Storage
 
@@ -52,7 +77,9 @@ Un nuevo destino de almacenamiento de Azure Blob Storage necesita un contenedo
 En la página **Agregar destino de almacenamiento** de Azure Portal se incluye la opción de crear un nuevo contenedor de blobs justo antes de agregar el destino.
 
 > [!NOTE]
-> En el caso de la instancia de Blob Storage montada en NFS, use el tipo de [destino de almacenamiento de ADLS-NFS](#).
+>
+> * En el caso de la instancia de Blob Storage montada en NFS, use el tipo de [destino de almacenamiento de ADLS-NFS](#add-a-new-adls-nfs-storage-target).
+> * Las [configuraciones de caché de alto rendimiento](hpc-cache-create.md#choose-the-cache-type-for-your-needs) no admiten destinos estándar de almacenamiento de blobs de Azure. En su lugar, use el almacenamiento de blobs habilitado para NFS (ADLS-NFS).
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -91,7 +118,7 @@ Azure HPC Cache usa el [control de acceso basado en rol de Azure (Azure RBAC)]
 
 El propietario de la cuenta de almacenamiento debe agregar explícitamente los roles [Colaborador de la cuenta de almacenamiento](../role-based-access-control/built-in-roles.md#storage-account-contributor) y [Colaborador de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) para el usuario "HPC Cache Resource Provider" (Proveedor de recursos de HPC Cache).
 
-Puede realizar esta tarea con anterioridad, o bien hacer clic en un vínculo de la página donde se agrega un destino de almacenamiento de Azure Blob Storage. Tenga en cuenta que la configuración de roles puede tardar hasta cinco minutos en propagarse a través del entorno de Azure, por lo que debe esperar unos minutos después de agregar los roles antes de crear un destino de almacenamiento.
+Puede realizar esta tarea con anterioridad, o bien hacer clic en un vínculo de la página del portal donde se agrega un destino de almacenamiento de blobs. Tenga en cuenta que la configuración de roles puede tardar hasta cinco minutos en propagarse a través del entorno de Azure, por lo que debe esperar unos minutos después de agregar los roles antes de crear un destino de almacenamiento.
 
 1. Abra **Control de acceso (IAM)** para su cuenta de almacenamiento.
 
@@ -107,7 +134,7 @@ Puede realizar esta tarea con anterioridad, o bien hacer clic en un vínculo de 
     ![Página Agregar asignación de roles](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
    > [!NOTE]
-   > Si no encuentra el proveedor de recursos HPC Cache, pruebe a buscar la cadena "storagecache". Es posible que los usuarios que han participado en las versiones preliminares de HPC Cache (antes de la disponibilidad general) necesiten usar el nombre anterior de la entidad de servicio.
+   > Si no encuentra el proveedor de recursos HPC Cache, pruebe a buscar la cadena "storagecache". Se trata de un nombre previo a la disponibilidad general para la entidad de servicio.
 
 <!-- 
 Steps to add the Azure roles:
@@ -183,7 +210,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## <a name="add-a-new-nfs-storage-target"></a>Incorporación de un nuevo destino de almacenamiento NFS
 
-Un destino de almacenamiento de NFS tiene una configuración diferente de un destino de almacenamiento de blobs. La configuración del modelo de uso ayuda a la caché a almacenar en caché eficazmente los datos de este sistema de almacenamiento.
+Un destino de almacenamiento de NFS tiene una configuración diferente de un destino de almacenamiento de blobs, incluida una configuración de modelo de uso que indica a la memoria caché cómo almacenar los datos de este sistema de almacenamiento.
 
 ![Captura de pantalla de la página para agregar destino de almacenamiento con destino NFS definido](media/add-nfs-target.png)
 
@@ -191,13 +218,15 @@ Un destino de almacenamiento de NFS tiene una configuración diferente de un des
 > Antes de crear un destino de almacenamiento NFS, asegúrese de que el sistema de almacenamiento sea accesible desde la instancia de Azure HPC Cache y cumple los requisitos de permisos. Se producirá un error en la creación del destino de almacenamiento si la memoria caché no tiene acceso suficiente al sistema de almacenamiento. Consulte [Requisitos de almacenamiento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) y [Solución de problemas de configuración de NAS y problemas del destino de almacenamiento de NFS](troubleshoot-nas.md) para más información.
 
 ### <a name="choose-a-usage-model"></a>Selección de un modelo de uso
-<!-- referenced from GUI by aka.ms link -->
 
 Cuando cree un destino de almacenamiento que use NFS para comunicarse con el sistema de almacenamiento, deberá elegir un modelo de uso de ese destino. Este modelo determina cómo se almacenan los datos en caché.
 
 Consulte [Definición de los modelos de uso](cache-usage-models.md) para obtener más información sobre todos estos valores.
 
-Los modelos de uso integrados permiten elegir cómo equilibrar la respuesta rápida con el riesgo de obtener datos obsoletos. Si quiere optimizar la velocidad de lectura de los archivos, es posible que no le interese si los archivos de la memoria caché se comparan con los archivos de back-end. Por otro lado, si desea asegurarse de que los archivos estén siempre actualizados con el almacenamiento remoto, elija un modelo que realice comparaciones frecuentes.
+Los modelos de uso integrados de HPC Cache permiten elegir cómo equilibrar la respuesta rápida con el riesgo de obtener datos obsoletos. Si quiere optimizar la velocidad de lectura de los archivos, es posible que no le interese si los archivos de la memoria caché se comparan con los archivos de back-end. Por otro lado, si desea asegurarse de que los archivos estén siempre actualizados con el almacenamiento remoto, elija un modelo que realice comparaciones frecuentes.
+
+> [!NOTE]
+> Las [memorias caché de estilo de alto rendimiento](hpc-cache-create.md#choose-the-cache-type-for-your-needs) solo admiten el almacenamiento en caché de lectura.
 
 Estas tres opciones cubren la mayoría de las situaciones:
 
@@ -246,7 +275,7 @@ Proporcione esta información para un destino de almacenamiento respaldado por N
 
 * **Target type** (Tipo de destino): elija **NFS**.
 
-* **Hostname** (Nombre de host): escriba la dirección IP o el nombre de dominio completo del sistema de almacenamiento NFS. Use un nombre de dominio solo si la caché tiene acceso a un servidor DNS que puede resolverlo.
+* **Hostname** (Nombre de host): escriba la dirección IP o el nombre de dominio completo del sistema de almacenamiento NFS. (Use un nombre de dominio solo si la memoria caché tiene acceso a un servidor DNS que pueda resolver el nombre). Puede especificar varias direcciones IP si varias direcciones IP hacen referencia al sistema de almacenamiento.
 
 * **Modelo de uso**: elija uno de los perfiles de almacenamiento en caché de datos en función del flujo de trabajo, tal como se describe en la sección [Selección de un modelo de uso](#choose-a-usage-model) anterior.
 
@@ -324,22 +353,23 @@ Salida:
 
 ---
 
-## <a name="add-a-new-adls-nfs-storage-target-preview"></a>Incorporación de un nuevo destino de almacenamiento de ADLS-NFS (versión preliminar)
+## <a name="add-a-new-adls-nfs-storage-target"></a>Incorporación de un nuevo destino de almacenamiento de ADLS-NFS
 
 Los destinos de almacenamiento de ADLS-NFS usan contenedores de blobs de Azure que admiten el protocolo Network File System (NFS) 3.0.
 
-> [!NOTE]
-> La compatibilidad del protocolo NFS 3.0 con Azure Blob Storage se encuentra en versión preliminar pública. La disponibilidad está restringida, y las características actuales pueden cambiar cuando estén disponibles con carácter general. No use la tecnología de versión preliminar en los sistemas de producción.
->
-> Consulte la [Compatibilidad con el protocolo NFS 3.0](../storage/blobs/network-file-system-protocol-support.md) para obtener la información más reciente.
+Consulte [Compatibilidad con el protocolo NFS 3.0](../storage/blobs/network-file-system-protocol-support.md) para más información sobre esta característica.
 
 Los destinos de almacenamiento de ADLS-NFS tienen algunas similitudes con los destinos de Blob Storage y otros con destinos de almacenamiento NFS. Por ejemplo:
 
 * Al igual que con un destino de Blob Storage, debe conceder permiso a Azure HPC Cache para [acceder a la cuenta de almacenamiento](#add-the-access-control-roles-to-your-account).
 * Al igual que con un destino de almacenamiento NFS, debe establecer un [modelo de uso](#choose-a-usage-model) de caché.
-* Dado que los contenedores de blobs habilitados para NFS tienen una estructura jerárquica compatible con NFS, no es necesario que use la caché para ingerir datos; además, otros sistemas NFS pueden leer los contenedores. Puede cargar previamente los datos en un contenedor de ADLS-NFS y, a continuación, agregarlos a una instancia de HPC Cache como destino de almacenamiento para, finalmente, acceder a los datos más adelante desde fuera de HPC Cache. Cuando se usa un contenedor de blobs estándar como destino de almacenamiento en HPC Cache, los datos se escriben en un formato propietario y solo se puede acceder a ellos desde otros productos compatibles con Azure HPC Cache.
+* Dado que los contenedores de blobs habilitados para NFS tienen una estructura jerárquica compatible con NFS, no es necesario que use la caché para ingerir datos; además, otros sistemas NFS pueden leer los contenedores.
 
-Para que pueda crear un destino de almacenamiento de ADLS-NFS, primero debe crear una cuenta de almacenamiento habilitada para NFS. Siga las sugerencias de [Requisitos previos de Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) y las instrucciones de [Montaje de Blob Storage con NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Una vez configurada la cuenta de almacenamiento, podrá crear un nuevo contenedor cuando cree el destino de almacenamiento.
+  Puede cargar previamente los datos en un contenedor de ADLS-NFS y, a continuación, agregarlos a una instancia de HPC Cache como destino de almacenamiento para, finalmente, acceder a los datos más adelante desde fuera de HPC Cache. Cuando se usa un contenedor de blobs estándar como destino de almacenamiento en HPC Cache, los datos se escriben en un formato propietario y solo se puede acceder a ellos desde otros productos compatibles con Azure HPC Cache.
+
+Para que pueda crear un destino de almacenamiento de ADLS-NFS, primero debe crear una cuenta de almacenamiento habilitada para NFS. Siga los pasos de [Requisitos previos de Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements) y las instrucciones de [Montaje de Blob Storage con NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Si no usa la misma red virtual para la caché y la cuenta de almacenamiento, asegúrese de que la red virtual de la caché pueda acceder a la red virtual de la cuenta de almacenamiento.
+
+Una vez configurada la cuenta de almacenamiento, podrá crear un nuevo contenedor cuando cree el destino de almacenamiento.
 
 Consulte [Uso del almacenamiento de blobs montado en NFS (versión preliminar) con Azure HPC Cache](nfs-blob-considerations.md) para más información sobre esta configuración.
 

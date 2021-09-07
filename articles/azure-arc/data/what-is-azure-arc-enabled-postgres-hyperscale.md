@@ -9,16 +9,16 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8edf540c3f67a3a8bee075569f0a2588cae18a62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d43753084f79184b338b16223ed45cb00a2dfb33
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390018"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732465"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>¿Qué es Hiperescala de PostgreSQL habilitada para Azure Arc?
 
-La Hiperescala de PostgreSQL habilitada para Azure Arc es uno de los servicios de base de datos disponibles como parte de los servicios de datos habilitados para Azure Arc. Azure Arc permite ejecutar servicios de datos de Azure en el entorno local, en el perímetro y en nubes públicas con Kubernetes y la infraestructura de su elección. La propuesta de valor de los servicios de datos habilitados para Azure Arc se articula sobre lo siguiente:
+Hiperescala de PostgreSQL habilitada para Azure Arc es uno de los servicios de base de datos disponibles como parte de los servicios de datos habilitados para Azure Arc. Azure Arc permite ejecutar servicios de datos de Azure en el entorno local, en el perímetro y en nubes públicas con Kubernetes y la infraestructura de su elección. La propuesta de valor de los servicios de datos habilitados para Azure Arc se articula sobre lo siguiente:
 - Siempre actual
 - Escalado elástico
 - Aprovisionamiento de autoservicio
@@ -30,6 +30,9 @@ Más información en:
 - [Modos de conectividad y requisitos](connectivity.md)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+Para obtener más información sobre estas funcionalidades, también puede ver este episodio de Data Exposed.
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-PostgreSQL-Hyperscale--Data-Exposed/player?format=ny]
 
 ## <a name="compare-solutions"></a>Comparación de soluciones
 
@@ -56,5 +59,5 @@ Este es el factor de forma de hiperescala del motor de base de datos de Postgres
    3. [Creación de un grupo de servidores Hiperescala de Azure Database for PostgreSQL en Azure Arc](create-postgresql-hyperscale-server-group.md) 
 
 - **Learn**
-   - [Más información sobre los servicios de datos habilitados para Azure Arc](https://azure.microsoft.com/services/azure-arc/hybrid-data-services).
+   - [Más información sobre los servicios de datos habilitados para Azure Arc](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
    - [Obtenga información sobre Azure Arc](https://aka.ms/azurearc).

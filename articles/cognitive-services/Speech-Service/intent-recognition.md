@@ -11,29 +11,35 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: reconocimiento de la intención
-ms.openlocfilehash: 532101c8cc307e6a5bb65022702b516c492a51fe
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: c4a81c5f666b9cb42b642390ba79ca2a1bf7232b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210387"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710081"
 ---
 # <a name="what-is-intent-recognition"></a>¿Qué es el reconocimiento de intenciones?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-En esta introducción, descubrirá las ventajas y funcionalidades del reconocimiento de intenciones. El SDK de Voz de Cognitive Services se integra con Language Understanding Intelligent Service (LUIS) para proporcionar un reconocimiento de la intención. Una intención es algo que el usuario quiere hacer: reservar un vuelo, comprobar el tiempo o hacer una llamada.
-Con el reconocimiento de intenciones, las aplicaciones, herramientas y dispositivos pueden determinar lo que el usuario desea iniciar o hacer en función de las opciones que defina en LUIS.
+En esta introducción, descubrirá las ventajas y las funcionalidades del reconocimiento de intenciones. El SDK de Voz de Cognitive Services proporciona dos maneras de reconocer intenciones, que se describen a continuación. Una intención es algo que el usuario quiere hacer: reservar un vuelo, comprobar el tiempo o hacer una llamada. Con el reconocimiento de intenciones, las aplicaciones, herramientas y dispositivos pueden determinar lo que el usuario quiere iniciar o hacer en función de las opciones que defina en el reconocedor de intenciones o en LUIS.
 
-## <a name="luis-key-required"></a>Se requiere la clave de LUIS
+## <a name="pattern-matching"></a>Detección de patrones
+El SDK proporciona un buscador de coincidencias de patrones insertado que puede usar para reconocer intenciones de una manera muy estricta. Resulta útil cuando se necesita una solución sin conexión rápida. Funciona especialmente bien cuando el usuario se va a entrenar de algún modo o cuando se puede esperar que use frases específicas para desencadenar intenciones. Por ejemplo: "Ir a la séptima planta" o "Encender la luz", etc. Se recomienda empezar aquí y, si ya no satisface sus necesidades, cambiar al uso de LUIS o una combinación de los dos. 
+
+## <a name="luis-language-understanding-intent-service"></a>LUIS (Language Understanding Intelligence Service)
+El servicio LUIS de Microsoft está disponible como un servicio completo de intenciones de IA que funciona bien cuando el dominio de posibles intenciones es grande y no está realmente seguro de lo que dirá el usuario. Admite muchos escenarios complejos, intenciones y entidades.
+
+### <a name="luis-key-required"></a>Se requiere la clave de LUIS
 
 * LUIS se integra con el servicio Voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción al servicio Voz, solo LUIS.
-* El reconocimiento de intenciones de Voz se integra con el SDK. Puede usar una clave de LUIS con el servicio de voz.
+* El reconocimiento de intenciones de Voz se integra con el SDK de Voz. Puede usar una clave de LUIS con el servicio de voz.
 * El reconocimiento de intenciones mediante el SDK de Voz se [ofrece en un subconjunto de regiones admitidas por LUIS](./regions.md#intent-recognition).
 
 ## <a name="get-started"></a>Introducción
+Consulte este [procedimiento](how-to-use-simple-language-pattern-matching.md) para empezar a trabajar con la coincidencia de patrones.
 
-Consulte el [inicio rápido](get-started-intent-recognition.md) para empezar a usar el reconocimiento de intenciones.
+Consulte este [inicio rápido](get-started-intent-recognition.md) para empezar a usar el reconocimiento de intenciones de LUIS.
 
 ## <a name="sample-code"></a>Código de ejemplo
 

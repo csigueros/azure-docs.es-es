@@ -13,19 +13,19 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d1d5e1b9a159d8084c3bf93d00611af72f2b21
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 38b6ee8181f24601a66df7205d44256604834c10
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085876"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228641"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Asignación de un rol a un grupo mediante Privileged Identity Management
 
 En este artículo se describe cómo puede asignar un rol de Azure Active Directory (Azure AD) a un grupo mediante Azure AD Privileged Identity Management (PIM).
 
 > [!NOTE]
-> Debe usar la versión actualizada de Privileged Identity Management para poder asignar un grupo a un rol de Azure AD mediante PIM. Podría estar en una versión anterior de PIM si su organización de Azure AD aprovecha la API de Privileged Identity Management. Si es así, póngase en contacto con el alias pim_preview@microsoft.com para trasladar la organización y actualizar la API. Obtenga más información en el artículo sobre [roles y características de Azure AD en PIM](../privileged-identity-management/azure-ad-roles-features.md).
+> Debe usar la versión actualizada de Privileged Identity Management para poder asignar un grupo a un rol de Azure AD mediante PIM. Podría estar en una versión anterior de PIM si su organización de Azure AD aprovecha la API de Privileged Identity Management. Si es así, póngase en contacto con el alias pim_preview@microsoft.com para trasladar la organización y actualizar la API. Obtenga más información en el artículo sobre [roles y características de Azure AD en PIM](../privileged-identity-management/pim-configure.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -84,7 +84,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de grupos en la nube para administrar asignaciones de roles](groups-concept.md)
-- [Solución de problemas de roles asignados a grupos en la nube](groups-faq-troubleshooting.md)
+- [Uso de grupos de Azure AD para administrar asignaciones de roles](groups-concept.md)
+- [Solución de problemas de roles de Azure AD asignados a grupos](groups-faq-troubleshooting.yml)
 - [Configuración del rol de administrador de Azure AD en Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Asignación de roles de recursos de Azure en Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

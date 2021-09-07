@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 7dc6827f7ebd7b034ffc00906629bafe04036fbd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6e018985b231e67e519968c0057754c7f3383ee4
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789576"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731948"
 ---
 # <a name="azure-digital-twins-query-language-reference-join-clause"></a>Referencia del lenguaje de consulta de Azure Digital Twins: cláusula JOIN
 
@@ -23,9 +23,9 @@ La cláusula `JOIN` se usa en el lenguaje de consulta de Azure Digital Twins co
 Esta cláusula es opcional durante la consulta.
 
 ## <a name="core-syntax-join--related"></a>Sintaxis básica: JOIN... RELATED 
-Dado que las relaciones de Azure Digital Twins forman parte de gemelos digitales, no de entidades independientes, la palabra clave `RELATED` se usa en las consultas `JOIN` para hacer referencia al conjunto de relaciones de un tipo determinado de la colección de gemelos. A este conjunto de relaciones se le puede asignar un nombre de colección.
+Dado que las relaciones de Azure Digital Twins forman parte de gemelos digitales, no de entidades independientes, la palabra clave `RELATED` se usa en las consultas `JOIN` para hacer referencia al conjunto de relaciones de un tipo determinado de la colección de gemelos (el tipo se especifica mediante el campo **nombre** de la relación de su [definición de DTDL](concepts-models.md#basic-relationship-example)). Al conjunto de relaciones se le puede asignar un nombre de colección dentro de la consulta.
 
-Posteriormente, la consulta debe usar la cláusula `WHERE` para especificar qué gemelos o gemelos específicos se usan para admitir la consulta de relación. Para ello, se filtra por el valor `$dtId` del gemelo de origen o de destino.
+A continuación, la consulta debe usar la cláusula `WHERE` para especificar qué gemelo o gemelos específicos se usan para admitir la consulta de relación, que se realiza mediante el filtrado por el valor `$dtId` del gemelo de origen o de destino.
 
 ### <a name="syntax"></a>Sintaxis
 
@@ -58,7 +58,7 @@ Los límites siguientes se aplican a las consultas que usan la cláusula `JOIN`.
 * [Sin semántica OUTER JOIN](#no-outer-join-semantics)
 * [Se requiere un gemelo de origen](#twins-required)
 
-Consulte las siguientes secciones para obtener más detalles.
+Para más información, consulte las siguientes secciones:
 
 ### <a name="depth-limit-of-five"></a>Límite de profundidad de cinco
 
@@ -66,7 +66,7 @@ La profundidad transversal del grafo está restringida a cinco niveles `JOIN` po
 
 #### <a name="example"></a>Ejemplo
 
-En la consulta siguiente se muestra el número máximo de `JOINs` posibles en una consulta de Azure Digital Twins. Obtiene todos los elementos LightBulb de Building1.
+En la consulta siguiente se muestra el número máximo de cláusulas `JOIN` posibles en una consulta de Azure Digital Twins. Obtiene todos los elementos LightBulb de Building1.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MaxJoinExample":::
 
@@ -84,6 +84,6 @@ Si Building1 no contiene ninguna planta, esta consulta devolverá un conjunto de
 
 ### <a name="twins-required"></a>Gemelos necesarios
 
-Las relaciones en Azure Digital Twins no se pueden consultar como entidades independientes; también debe proporcionar información sobre el gemelo de origen del que procede la relación. Esta se incluye como parte del uso de `JOIN` predeterminado en Azure Digital Twins a través de la palabra clave `RELATED`. 
+Las relaciones en Azure Digital Twins no se pueden consultar como entidades independientes; también debe proporcionar información sobre el gemelo de origen del que procede la relación. Esta funcionalidad se incluye como parte del uso de `JOIN` predeterminado en Azure Digital Twins a través de la palabra clave `RELATED`. 
 
 Las consultas con una cláusula `JOIN` también deben filtrar por la propiedad `$dtId` de cualquier gemelo de la cláusula `WHERE`, a fin de aclarar qué gemelos se usan para admitir la consulta de relación.

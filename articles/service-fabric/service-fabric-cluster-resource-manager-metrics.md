@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bf4598166250eb6ad7b65621e67184bfdeb839e
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92173005"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465032"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Administración de consumo y carga de recursos en Service Fabric con métricas
 *Métricas* son los recursos por los que se interesan sus servicios y que proporcionan los nodos del clúster. Una métrica es cualquier cosa que debe administrar para mejorar o supervisar el rendimiento de los servicios. Por ejemplo, podría observar el consumo de memoria para saber si el servicio está sobrecargado. Otro uso es averiguar si el servicio se podría mover a cualquier otro lugar en el que la memoria esté menos restringida, para poder obtener un mejor rendimiento.
@@ -178,7 +178,7 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 Un servicio puede informar sobre cualquiera de las métricas definidas para él en tiempo de creación. Si un servicio informa sobre carga para una medida que no está configurada para usar, Service Fabric omite ese informe. Si se notifican al mismo tiempo otras métricas válidas, dichos informes se aceptan. El código de servicio puede medir y notificar todas las métricas que sabe cómo manejar, y los operadores pueden especificar la configuración de la métrica a usar, sin tener que cambiar el código de servicio. 
 
 ## <a name="reporting-load-for-a-partition"></a>Notificación de la carga para una partición
-En la sección anterior se describe cómo se cargan el informe de instancias o las réplicas de servicio. Existe una opción adicional para notificar la carga dinámicamente con FabricClient. Al notificar la carga de una partición, puede notificar varias particiones a la vez.
+En la sección anterior se describe cómo se cargan el informe de instancias o las réplicas de servicio. Hay una opción adicional para notificar dinámicamente la carga de las réplicas o instancias de una partición a través de la API de Service Fabric. Al notificar la carga de una partición, puede notificar varias particiones a la vez.
 
 Estos informes se utilizarán de la misma manera que los informes de carga que proceden de las propias réplicas o instancias. Los valores notificados serán válidos hasta que se notifiquen los nuevos valores de carga, ya sea mediante la réplica o la instancia o con la notificación de un nuevo valor de carga para una partición.
 
@@ -188,7 +188,11 @@ Con esta API, hay varias maneras de actualizar la carga en el clúster:
   - Los servicios con y sin estado pueden actualizar la carga de todas sus instancias o réplicas secundarias.
   - Los servicios con y sin estado pueden actualizar la carga de una instancia o réplica específica o una instancia en un nodo.
 
-También es posible combinar cualquiera de esas actualizaciones por partición al mismo tiempo.
+También es posible combinar cualquiera de esas actualizaciones por partición al mismo tiempo. La combinación de actualizaciones de carga para una partición determinada debe especificarse a través del objeto PartitionMetricLoadDescription, que puede contener la lista correspondiente de actualizaciones de carga, como se muestra en el ejemplo siguiente. Las actualizaciones de carga se representan a través del objeto MetricLoadDescription, que puede contener el valor de carga _actual_ o _previsto_ para una métrica, especificado con un nombre de métrica.
+
+> [!NOTE]
+> Actualmente, los _valores previstos de carga de métricas_ es una característica en _vista previa_. Permite notificar y usar los valores de carga previstos en el lado Service Fabric, pero esa característica no está habilitada actualmente.
+>
 
 Las cargas de varias particiones se pueden actualizar con una sola llamada API, en cuyo caso la salida contendrá una respuesta por partición. Si la actualización de particiones no se aplica correctamente por algún motivo, se omitirán las actualizaciones de esa partición y se proporcionará el código de error correspondiente para una partición de destino:
 
@@ -198,7 +202,7 @@ Las cargas de varias particiones se pueden actualizar con una sola llamada API, 
   - ReplicaDoesNotExist: la réplica o instancia secundaria no existe en un nodo especificado.
   - InvalidOperation: podría ocurrir en los dos casos siguientes: al actualizar la carga de una partición que pertenece a la aplicación del sistema o cuando la actualización de la carga de predicción no está habilitada.
 
-Si se devuelven algunos de estos errores, puede actualizar la entrada de una partición específica y volver a intentar la actualización para dicha partición.
+Si se devuelven algunos de estos errores, puede actualizar la entrada de una partición específica y volver a intentar la actualización.
 
 Código:
 

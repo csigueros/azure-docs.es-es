@@ -1,14 +1,14 @@
 ---
 title: 'Solución de problemas de Azure Video Analyzer: Azure'
 description: En este artículo se tratan los pasos de solución de problemas de Azure Video Analyzer.
-ms.topic: how-to
-ms.date: 05/04/2021
-ms.openlocfilehash: cd54386702c24065cccad4f7ede43c313a44886c
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.topic: troubleshooting
+ms.date: 07/15/2021
+ms.openlocfilehash: c3b95936eabfcaefa12b9271b152d196790841c4
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613670"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362652"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Solución de problemas de Azure Video Analyzer
 
@@ -107,14 +107,14 @@ Si hay algún problema adicional con el que pueda necesitar ayuda, consulte **[R
 
 ### <a name="video-analyzer-working-with-external-modules"></a>Funcionamiento de Video Analyzer con módulos externos
 
-Video Analyzer, mediante el procesador de extensiones de canalización, puede ampliar la canalización para enviar y recibir datos de otros módulos de IoT Edge mediante HTTP o protocolos gRPC. Como [ejemplo específico](), esta canalización en directo puede enviar fotogramas de vídeo como imágenes a un módulo de inferencia externo, como Yolo v3, y recibir resultados de análisis basados en JSON mediante el protocolo HTTP. En esta topología, el destino final de los eventos es, principalmente, el centro de IoT. En situaciones en las que no vea los eventos de inferencia en el centro de conectividad, compruebe lo siguiente:
+Video Analyzer, mediante el procesador de extensiones de canalización, puede ampliar la canalización para enviar y recibir datos de otros módulos de IoT Edge mediante HTTP o protocolos gRPC. Como [ejemplo específico](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/httpExtension), esta canalización en directo puede enviar fotogramas de vídeo como imágenes a un módulo de inferencia externo, como Yolo v3, y recibir resultados de análisis basados en JSON mediante el protocolo HTTP. En esta topología, el destino final de los eventos es, principalmente, el centro de IoT. En situaciones en las que no vea los eventos de inferencia en el centro de conectividad, compruebe lo siguiente:
 
 - Compruebe si el centro de conectividad en el que publica la canalización en directo es la misma que está examinando. Cuando crea varias implementaciones, puede que haya muchos centros de conectividad y podría estar comprobando el centro incorrecto para los eventos.
 - En Azure Portal, compruebe si el módulo externo está implementado y en ejecución. En la imagen de ejemplo que se muestra aquí, rtspsim, yolov3, tinyyolov3 y logAnalyticsAgent son módulos de IoT Edge que se ejecutan fuera del módulo avaedge.
 
   [ ![Captura de pantalla que muestra el estado de ejecución de los módulos en Azure IoT Hub.](./media/troubleshoot/iot-hub-azure.png) ](./media/troubleshoot/iot-hub-azure.png#lightbox)
 
-- Compruebe que está enviando eventos al punto de conexión de URL correcto. El contenedor de inteligencia artificial externo expone una dirección URL y un puerto a través del cual recibe y devuelve los datos de las solicitudes POST. Esta dirección URL se especifica como una propiedad `endpoint: url` para el procesador de extensión HTTP. Como se aprecia en la [dirección URL de la topología](), el punto de conexión se establece en el parámetro URL de inferencia. Asegúrese de que el valor predeterminado del parámetro o el valor pasado son correctos. Puede realizar una prueba para ver si funciona mediante una dirección URL del cliente (cURL).
+- Compruebe que está enviando eventos al punto de conexión de URL correcto. El contenedor de inteligencia artificial externo expone una dirección URL y un puerto a través del cual recibe y devuelve los datos de las solicitudes POST. Esta dirección URL se especifica como una propiedad `endpoint: url` para el procesador de extensión HTTP. Como se aprecia en la [dirección URL de la topología](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtension/topology.json), el punto de conexión se establece en el parámetro URL de inferencia. Asegúrese de que el valor predeterminado del parámetro o el valor pasado son correctos. Puede realizar una prueba para ver si funciona mediante una dirección URL del cliente (cURL).
 
   Por ejemplo, este es un contenedor de Yolo v3 que se ejecuta en una máquina local con esta dirección IP: 172.17.0.3.
 
@@ -152,8 +152,8 @@ Si los pasos de solución de problemas autoguiados no resuelven el problema, deb
 
 Para recopilar los registros significativos que se deben agregar al vale, siga las instrucciones que se indican a continuación en orden y cargue los archivos de registro en el panel de **detalles** de la solicitud de soporte técnico.
 
-1. [Configure el módulo Video Analyzer para que recopile registros detallados]().
-1. [Active los registros de depuración]().
+1. [Configure el módulo Video Analyzer para que recopile registros detallados](#configure-video-analyzer-module-to-collect-verbose-logs).
+1. [Active los registros de depuración](#video-analyzer-debug-logs).
 1. Reproduzca el problema
 1. Conéctese a la máquina virtual desde la página **IoT Hub** del portal.
 
@@ -218,22 +218,8 @@ Para configurar el módulo Video Analyzer para que genere registros de depuraci�
    ![Captura de pantalla del botón "Establecer módulos" en Azure Portal.](media/troubleshoot/set-modules.png)
 
 1. En la sección **Módulos de IoT Edge**, busque y seleccione **avaedge**.
-1. Seleccione **Opciones de creación del contenedor**.
-1. En la sección **Enlaces**, agregue el comando siguiente:
-
-   `/var/local/videoanalyzer/logs:/var/lib/videoanalyzer/logs`
-
-   > [!NOTE]
-   > Este comando enlaza las carpetas de registros entre el dispositivo Edge y el contenedor. Si desea recopilar los registros en una ubicación diferente, use el comando siguiente, reemplazando **$LOG_LOCATION_ON_EDGE_DEVICE** por la ubicación que desea usar: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/videoanalyzer/logs`
-
-1. Seleccione **Actualizar**.
-1. Seleccione **Revisar + crear**. Se publica un mensaje de validación correcto en un banner verde.
-1. Seleccione **Crear**.
-1. Actualice **Identidad de módulo gemela** para que apunte al parámetro DebugLogsDirectory a fin de seleccionar el directorio en el que se recopilarán los registros:
-
-   a. En la tabla **Módulos**, seleccione **avaedge**.
-   b. En la parte superior del panel, seleccione **Identidad de módulo gemela**. Se abre un panel editable.
-   c. Agregue el siguiente par clave-valor en la **clave que desee**:
+1. Seleccione **Identidad de módulo gemela**. Se abre un panel editable.
+1. Agregue el siguiente par clave-valor en la **clave que desee**:
 
    `"DebugLogsDirectory": "/var/lib/videoanalyzer/logs"`
 
@@ -243,7 +229,7 @@ Para configurar el módulo Video Analyzer para que genere registros de depuraci�
    > 1. Cree un enlace para la ubicación del registro de depuración en la sección **Enlaces**, y reemplace los elementos **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** y **$DEBUG_LOG_LOCATION** por la ubicación que desee: `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
    > 2. Use el comando siguiente y reemplace **$DEBUG _LOG_LOCATION** por la ubicación usada en el paso anterior: `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-   d. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 1. La recopilación de registros se puede detener estableciendo ese valor en **Identidad de módulo gemela** en _NULL_. Vuelva a la página **Identidad de módulo gemela** y actualice los siguientes parámetros como:
 

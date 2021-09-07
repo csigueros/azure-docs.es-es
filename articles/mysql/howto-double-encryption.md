@@ -6,20 +6,23 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 3f9c22a690859b459b6bb748c3b1001c4aa7660d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0666cce0668d315c34a9d6cade1f8d6e087f20dc
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241759"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674407"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Cifrado doble de infraestructura para Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Obtenga información sobre cómo configurar y administrar el cifrado doble de infraestructura para Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Debe tener una suscripción de Azure y ser un administrador en esa suscripción.
+* Azure Database for MySQL: servidor único debe estar en el plan de tarifa de uso general u optimizado para memoria y en el almacenamiento de uso general v2. Antes de continuar, consulte las limitaciones del [cifrado doble de infraestructura](concepts-infrastructure-double-encryption.md#limitations).
 
 ## <a name="create-an-azure-database-for-mysql-server-with-infrastructure-double-encryption---portal"></a>Creación de un servidor de Azure Database for MySQL con el cifrado doble de infraestructura: portal
 

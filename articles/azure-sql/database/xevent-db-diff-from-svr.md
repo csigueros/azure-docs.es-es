@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
-ms.date: 12/19/2018
-ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: ''
+ms.date: 07/23/2021
+ms.openlocfilehash: 79226ed8fa4d4e78120a0c91b672d4cfa23712fc
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96501216"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675248"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos extendidos en Base de datos SQL de Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Encontrará información adicional sobre los eventos extendidos en:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tema se da por sentado que ya tiene algunos conocimientos sobre:
+En este artículo se da por sentado que ya tiene algunos conocimientos sobre:
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Eventos extendidos](/sql/relational-databases/extended-events/extended-events)
@@ -49,12 +49,12 @@ Exposición anterior a los elementos siguientes es útil cuando se elige el arch
 
 ## <a name="code-samples"></a>Ejemplos de código
 
-Los temas relacionados proporcionan dos ejemplos de código:
+Los artículos relacionados proporcionan dos ejemplos de código:
 
 - [Código de destino de búfer en anillo para eventos extendidos en Azure SQL Database](xevent-code-ring-buffer.md)
 
   - Breve script de Transact-SQL simple.
-  - En el tema de ejemplo de código, hacemos hincapié en que, cuando haya terminado con un destino de búfer en anillo, debe liberar sus recursos mediante la ejecución de una instrucción alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` . Más adelante, puede agregar otra instancia de búfer en anillo de `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+  - En el artículo de ejemplo de código, hacemos hincapié en que, cuando haya terminado con un destino de búfer en anillo, debe liberar sus recursos mediante la ejecución de una instrucción alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;`. Más adelante, puede agregar otra instancia de búfer en anillo de `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 - [Código de destino del archivo de evento para eventos extendidos en Azure SQL Database](xevent-code-event-file.md)
 
@@ -75,13 +75,13 @@ La característica eventos extendidos es compatible con varias [vistas de catál
 
 | Nombre de<br/>vista de catálogo | Descripción |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Devuelve una fila por cada acción en cada evento de una sesión de eventos. |
-| **sys.database_event_session_events** |Devuelve una fila por cada evento de una sesión de eventos. |
-| **sys.database_event_session_fields** |Devuelve una fila por cada columna personalizable que se estableció de forma explícita en los eventos y destinos. |
-| **sys.database_event_session_targets** |Devuelve una fila para cada destino de evento de una sesión de eventos. |
-| **sys.database_event_sessions** |Devuelve una fila por cada sesión de eventos en la base de datos. |
+| `sys.database_event_session_actions` |Devuelve una fila por cada acción en cada evento de una sesión de eventos. |
+| `sys.database_event_session_events` |Devuelve una fila por cada evento de una sesión de eventos. |
+| `sys.database_event_session_fields` |Devuelve una fila por cada columna personalizable que se estableció de forma explícita en los eventos y destinos. |
+| `sys.database_event_session_targets` |Devuelve una fila para cada destino de evento de una sesión de eventos. |
+| `sys.database_event_sessions` |Devuelve una fila por cada sesión de eventos en la base de datos. |
 
-En Microsoft SQL Server, hay vistas de catálogo similares con nombres que incluyen *.server\_* en lugar de *.database\_* . El patrón de nombre es parecido a **sys.server_event_%** .
+En Microsoft SQL Server, hay vistas de catálogo similares con nombres que incluyen *.server\_* en lugar de *.database\_* . El patrón de nombre es como `sys.server_event_%`.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Nuevas vistas de administración dinámica [(DMV)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
@@ -89,30 +89,30 @@ Azure SQL Database tiene [vistas de administración dinámica (DMV)](/sql/relati
 
 | Nombre de DMV | Descripción |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Devuelve información sobre las acciones de la sesión de eventos. |
-| **sys.dm_xe_database_session_events** |Devuelve información sobre los eventos de la sesión. |
-| **sys.dm_xe_database_session_object_columns** |Muestra los valores de configuración de los objetos enlazados a una sesión. |
-| **sys.dm_xe_database_session_targets** |Devuelve información acerca de los destinos de la sesión. |
-| **sys.dm_xe_database_sessions** |Devuelve una fila para cada sesión de eventos del ámbito de la base de datos actual. |
+| `sys.dm_xe_database_session_event_actions` |Devuelve información sobre las acciones de la sesión de eventos. |
+| `sys.dm_xe_database_session_events` |Devuelve información sobre los eventos de la sesión. |
+| `sys.dm_xe_database_session_object_columns` |Muestra los valores de configuración de los objetos enlazados a una sesión. |
+| `sys.dm_xe_database_session_targets` |Devuelve información acerca de los destinos de la sesión. |
+| `sys.dm_xe_database_sessions` |Devuelve una fila para cada sesión de eventos del ámbito de la base de datos actual. |
 
 En Microsoft SQL Server, las vistas de catálogo similares tienen nombres sin la parte *\_database* del nombre, como:
 
-- **sys.dm_xe_sessions**, en vez del nombre<br/>**sys.dm_xe_database_sessions**.
+- `sys.dm_xe_sessions` en lugar de `sys.dm_xe_database_sessions`.
 
 ### <a name="dmvs-common-to-both"></a>DMV comunes
 
 Para eventos extendidos hay DMV adicionales que son comunes a Azure SQL Database, Instancia administrada de Azure SQL y Microsoft SQL Server:
 
-- **sys.dm_xe_map_values**
-- **sys.dm_xe_object_columns**
-- **sys.dm_xe_objects**
-- **sys.dm_xe_packages**
+- `sys.dm_xe_map_values`
+- `sys.dm_xe_object_columns`
+- `sys.dm_xe_objects`
+- `sys.dm_xe_packages`
 
 <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## <a name="find-the-available-extended-events-actions-and-targets"></a>Búsqueda de los eventos extendidos, acciones y destinos disponibles
 
-Puede ejecutar una sencilla instruccióon SQL **SELECT** para obtener una lista de los eventos, acciones y destinos disponibles.
+Para obtener una lista de los eventos, las acciones y el destino disponibles, use la consulta de ejemplo:
 
 ```sql
 SELECT
@@ -140,9 +140,9 @@ SELECT
 
 Estos son los destinos que pueden capturar los resultados de las sesiones de eventos en Azure SQL Database:
 
-- [Destino de búfer de anillo](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) : guarda brevemente los datos en la memoria.
-- [Destino del contador de eventos de](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) :cuenta todos los eventos que se producen durante una sesión de eventos extendidos.
-- [Destino de archivo de evento](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) : escribe búferes completos en un contenedor de Azure Storage.
+- [Destino de búfer de anillo](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target) : guarda brevemente los datos en la memoria.
+- [Destino del contador de eventos de](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_counter-target) :cuenta todos los eventos que se producen durante una sesión de eventos extendidos.
+- [Destino de archivo de evento](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target) : escribe búferes completos en un contenedor de Azure Storage.
 
 La API [Seguimiento de eventos para Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracing) no está disponible para eventos extendidos en Azure SQL Database.
 
@@ -151,11 +151,11 @@ La API [Seguimiento de eventos para Windows (ETW)](/dotnet/framework/wcf/samples
 Hay un par de diferencias relacionadas con la seguridad que se adaptan al entorno de nube de Azure SQL Database:
 
 - Los eventos extendidos se basan en el modelo de aislamiento de inquilino único. Una sesión de eventos en una base de datos no puede tener acceso a datos o eventos desde otra base de datos.
-- No se puede emitir una instrucción **CREATE EVENT SESSION** en el contexto de la base de datos **maestra**.
-
+- No se puede emitir una instrucción `CREATE EVENT SESSION` en el contexto de la base de datos `master`.
+    
 ## <a name="permission-model"></a>Nombre del permiso
 
-Debe tener permiso de **Control** en la base de datos para emitir una instrucción **CREATE EVENT SESSION**. El propietario de la base de datos (dbo) tiene permiso de **Control** .
+Debe tener permiso de **Control** en la base de datos para emitir una instrucción `CREATE EVENT SESSION`. El propietario de la base de datos (dbo) tiene permiso de **Control** .
 
 ### <a name="storage-container-authorizations"></a>Autorizaciones de contenedor de almacenamiento
 
@@ -168,6 +168,11 @@ El token SAS genere para el contenedor de Azure Storage debe especificar **rwl**
 ## <a name="performance-considerations"></a>Consideraciones de rendimiento
 
 Existen escenarios donde un uso intensivo de eventos extendidos puede acumular más memoria activa de la que sería conveniente para el buen estado de todo el sistema. Por ello, Azure SQL Database establece y ajusta de forma dinámica los límites en la cantidad de memoria activa que puede acumularse en una sesión de eventos. En el cálculo dinámico se incluyen muchos factores.
+
+Hay un límite de memoria disponible para las sesiones de XEvent en Azure SQL Database:
+  - En una única instancia de Azure SQL Database en el modelo de compra de DTU, cada base de datos puede usar hasta 128 MB. Esto se eleva a 256 MB solo en el nivel prémium.
+  - En una única instancia de Azure SQL Database en el modelo de compra de núcleo virtual, cada base de datos puede usar hasta 128 MB.
+  - En un grupo elástico, las bases de datos individuales están limitadas por los límites de base de datos única y, en total, no pueden superar los 512 MB.
 
 Si recibe un mensaje de error que indica que se aplicó un máximo de memoria, algunas acciones correctivas que puede tomar son:
 
@@ -182,13 +187,11 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 
 ## <a name="related-links"></a>Vínculos relacionados
 
-- [Usar Azure PowerShell con Azure Storage](/powershell/module/az.storage/)
 - [Cmdlets de Azure Storage](/powershell/module/Azure.Storage)
 - [Usar Azure PowerShell con Azure Storage](/powershell/module/az.storage/)
 - [Uso del almacenamiento de blobs de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
 - [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
-- [Las publicaciones del blog de Jonathan Kehayias acerca de los eventos extendidos en Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - La página web de *actualizaciones del servicio* de Azure, restringida por parámetros a Azure SQL Database:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 

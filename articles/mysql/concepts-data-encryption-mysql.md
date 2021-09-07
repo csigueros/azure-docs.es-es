@@ -6,23 +6,25 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: d8e40cf9dac496266f67ad94e1e65db01e42f9d2
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 6d2fca3ed64711133f1701446ebea61c28a3dcab
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816843"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674320"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente
 
-El cifrado de datos con claves administradas por el cliente para Azure Database for MySQL le permite traer su propia clave (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado administrado por el cliente, el usuario es responsable y tiene el control total del ciclo de vida de una clave, los permisos de uso de la clave y la auditoría de operaciones con claves.
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
+El cifrado de datos con claves administradas por el cliente para Azure Database for MySQL le permite traer su propia clave (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado administrado por el cliente, usted es responsable y tiene el control total del ciclo de vida de una clave, los permisos de uso de la clave y la auditoría de operaciones con claves.
 
 El cifrado de datos con claves administradas por el cliente para Azure Database for MySQL se establece en el nivel de servidor. En un servidor determinado, se usa una clave administrada por el cliente, denominada clave de cifrado de claves (KEK), para cifrar la clave de cifrado de datos (DEK) que usa el servicio. KEK es una clave asimétrica almacenada en una instancia de [Azure Key Vault](../key-vault/general/security-features.md) administrada por el cliente y de su propiedad. La clave de cifrado de claves (KEK) y la clave de cifrado de datos (DEK) se describen con más detalle más adelante en este artículo.
 
 Key Vault es un sistema de administración de claves externas basado en la nube. Tiene una gran disponibilidad y ofrece almacenamiento seguro escalable para claves criptográficas RSA respaldado opcionalmente por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite acceso directo a una clave almacenada, pero proporciona servicios de cifrado y descifrado a entidades autorizadas. Key Vault puede generar la clave, importarla o [hacer que se transfiera desde un dispositivo HSM local](../key-vault/keys/hsm-protected-keys.md).
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MySQL admita los planes de tarifa "Uso general" y "Optimizado para memoria". Para otras limitaciones, consulte la sección [Limitaciones](concepts-data-encryption-mysql.md#limitations).
+> Esta característica solo se admite en el "Almacenamiento de uso general v2 (admite hasta 16 TB)" disponible en los planes de tarifa De uso general y optimizados para memoria. Consulte [Conceptos de almacenamiento](concepts-pricing-tiers.md#storage) para más información. Para otras limitaciones, consulte la sección [Limitaciones](concepts-data-encryption-mysql.md#limitations).
 
 ## <a name="benefits"></a>Ventajas
 
@@ -105,7 +107,7 @@ Cuando se configura el cifrado de datos con una clave administrada por el client
 
 Podría suceder que alguien con derechos de acceso suficientes a Key Vault deshabilitara por accidente el acceso del servidor a la clave de la siguiente forma:
 
-* Revocación de los permisos get, wrapKey o unwrapKey de Key Vault desde el servidor.
+* Revocación de los permisos `get`, `wrapKey` y `unwrapKey` del almacén de claves del servidor.
 * Eliminación de la clave.
 * Eliminación del almacén de claves.
 * Cambio de las reglas de firewall del almacén de claves.
@@ -134,15 +136,16 @@ Para evitar incidencias al configurar el cifrado de datos administrado por el cl
 
 En el caso de Azure Database for MySQL, la compatibilidad con el cifrado de datos en reposo con la clave administrada de clientes (CMK) tiene algunas limitaciones:
 
-* La compatibilidad con esta funcionalidad se limita a los planes de tarifa para **De uso general** y **Optimizados para memoria**.
-* Esta característica solo se admite en regiones y servidores que admiten almacenamiento de hasta 16 TB. Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte [aquí](concepts-pricing-tiers.md#storage) la sección de almacenamiento de la documentación.
+* La compatibilidad con esta funcionalidad se limita a **De uso general** y los planes de tarifa **Optimizados para memoria**.
+* Esta característica solo se admite en regiones y servidores compatibles con el almacenamiento de uso general v2 (hasta 16 TB). Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte [aquí](concepts-pricing-tiers.md#storage) la sección de almacenamiento de la documentación.
 
     > [!NOTE]
-    > - En todos los nuevos servidores MySQL creados en las regiones mencionadas anteriormente, el soporte para el cifrado con claves de administrador de clientes está **disponible**. El servidor de Restauración a un momento dado (PITR) o la réplica de lectura no calificarán aunque en teoría son "nuevos".
-    > - Para validar si el servidor aprovisionado admite hasta 16 TB, puede ir a la hoja del plan de tarifa en el portal y ver el tamaño de almacenamiento máximo admitido por el servidor aprovisionado. Si puede subir el control deslizante hasta 4 TB, es posible que el servidor no admita el cifrado con claves administradas por el cliente. Pero los datos se cifran en todo momento con claves administradas por el servicio. Póngase en contacto con AskAzureDBforMySQL@service.microsoft.com si tiene alguna pregunta.
+    > - Para todos los nuevos servidores MySQL creados en las [regiones de Azure](concepts-pricing-tiers.md#storage) compatibles con el almacenamiento de uso general v2, está **disponible** soporte del cifrado con claves de administrador de clientes. El servidor Point In Time Restored (PITR) o la réplica de lectura no calificarán, aunque en teoría son "nuevos".
+    > - Para validar el almacenamiento de uso general v2 del servidor aprovisionado, puede ir a la hoja del plan de tarifa en el portal y ver el tamaño de almacenamiento máximo que admite el servidor aprovisionado. Si puede subir el control deslizante hasta 4 TB, el servidor está en el almacenamiento de uso general v1 y no admitirá el cifrado con claves administradas por el cliente. Pero los datos se cifran en todo momento con claves administradas por el servicio. Póngase en contacto con AskAzureDBforMySQL@service.microsoft.com si tiene alguna pregunta.
 
 * El cifrado solo se admite con la clave criptográfica RSA 2048.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre cómo configurar el cifrado de datos con una clave administrada por el cliente en Azure Database for MySQL mediante [Azure Portal](howto-data-encryption-portal.md) y la [CLI de Azure](howto-data-encryption-cli.md).
+* Más información sobre cómo configurar el cifrado de datos con una clave administrada por el cliente en Azure Database for MySQL mediante [Azure Portal](howto-data-encryption-portal.md) y la [CLI de Azure](howto-data-encryption-cli.md).
+* Obtenga información sobre la compatibilidad con tipos de almacenamiento para [Azure Database for MySQL: servidor único](concepts-pricing-tiers.md#storage).

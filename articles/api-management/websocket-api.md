@@ -6,14 +6,14 @@ ms.service: api-management
 author: v-hhunter
 ms.author: v-hhunter
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c179aaca2d5d80686340c36dc271f4d5bb0fa40
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 887e1257ef5585e99da1922aa840761ebcb7aa05
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110482895"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439780"
 ---
 # <a name="import-a-websocket-api-preview"></a>Importación de una API de WebSocket (versión preliminar)
 
@@ -29,6 +29,8 @@ En este artículo:
 > [!div class="checklist"]
 > * Comprenderá el flujo de tráfico de Websocket.
 > * Agregará una API de WebSocket a la instancia de API Management.
+> * Probará la API de WebSocket.
+> * Visualizará las métricas y los registros de la API de WebSocket.
 > * Conocerá las limitaciones de la API de WebSocket.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -80,6 +82,23 @@ Según el [protocolo WebSocket](https://tools.ietf.org/html/rfc6455), cuando una
     | Puertas de enlace | Asocie la API de WebSocket a las puertas de enlace existentes. |
  
 1. Haga clic en **Crear**.
+
+## <a name="test-your-websocket-api"></a>Prueba de la API de WebSocket
+
+1. Navegue hasta la API de WebSocket.
+1. En la API de WebSocket, seleccione la operación onHandshake.
+1. Seleccione la pestaña **Prueba** para acceder a la consola Prueba. 
+1. Opcionalmente, proporcione los parámetros de cadena de consulta necesarios para el protocolo de enlace WebSocket.
+
+    :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="Ejemplo de API de prueba":::
+
+1. Haga clic en **Conectar**.
+1. Vea el estado de la conexión en **Salida**.
+1. Escriba el valor en **Carga**. 
+1. Haga clic en **Enviar**.
+1. Vea los mensajes recibidos en **Salida**.
+1. Repita los pasos anteriores para probar diferentes cargas.
+1. Cuando se complete la prueba, seleccione **Desconectar**.
 
 ## <a name="limitations"></a>Limitaciones
 

@@ -4,14 +4,14 @@ description: Cómo usar Azure Key Vault con Azure HPC Cache para controlar el ac
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 07/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: ae4c52ec1390166eccb0e73d6f81a8553c445b2e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: dbb2834d6d51f2555da05863c606b4678b9a17b7
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813297"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772290"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Uso de claves de cifrado administradas por el cliente para Azure HPC Cache
 
@@ -25,10 +25,17 @@ Azure HPC Cache también está protegida por el [cifrado del host de la máquina
 Hay tres pasos para habilitar el cifrado de claves administradas por el cliente para Azure HPC Cache:
 
 1. Configure una instancia de Azure Key Vault para almacenar las claves.
-1. Al crear la instancia de Azure HPC Cache, elija el cifrado de claves administradas por el cliente y especifique el almacén de claves y la clave que se usarán.
-1. Una vez creada la memoria caché, autorícela para que tenga acceso al almacén de claves.
+1. Al crear la instancia de Azure HPC Cache, elija el cifrado de claves administradas por el cliente y especifique el almacén de claves y la clave que se usarán. Opcionalmente, proporcione una identidad administrada para que la caché la use para acceder al almacén de claves.
 
-El cifrado no se configura por completo hasta que se le autorice desde la caché recién creada (paso 3). Esto es porque debe pasar la identidad de la caché al almacén de claves para que sea un usuario autorizado. No se puede hacer esto antes de crear la memoria caché, ya que la identidad no existe hasta que se crea la memoria caché.
+   En función de las opciones que realice en este paso, es posible que pueda omitir el paso 3. Lea [Elección de una opción de identidad administrada para la memoria caché](#choose-a-managed-identity-option-for-the-cache) para más información.
+
+1. Si usa una **identidad administrada asignada por el sistema** o una **identidad asignada por el usuario que no está configurada con acceso al almacén de claves**: vaya a la caché recién creada y autorícela para acceder al almacén de claves.
+
+   Si la identidad administrada aún no tiene acceso a Azure Key Vault, el cifrado no se configura completamente hasta después de autorizarla desde la caché recién creada (paso 3).
+
+   Si usa una identidad administrada por el sistema, la identidad se crea cuando se crea la memoria caché. Debe pasar la identidad de la caché al almacén de claves para que sea un usuario autorizado después de la creación.
+
+   Puede omitir este paso si asigna una identidad administrada por el usuario que ya tiene acceso al almacén de claves.
 
 Después de crear la caché, no puede cambiar entre claves administradas por el cliente y claves administradas por Microsoft. Sin embargo, si la memoria caché usa claves administradas por el cliente, puede [cambiar](#update-key-settings) la clave de cifrado, la versión de la clave y el almacén de claves según sea necesario.
 
@@ -58,6 +65,25 @@ Permisos de acceso al almacén de claves:
 
   Para obtener más información, consulte [Protección del acceso a un almacén de claves](../key-vault/general/security-features.md).
 
+## <a name="choose-a-managed-identity-option-for-the-cache"></a>Elección de una opción de identidad administrada para la memoria caché
+<!-- check for cross-references from here and create -->
+
+HPC Cache usa su credencial de identidad administrada para conectarse al almacén de claves.
+
+Azure HPC Cache puede usar dos tipos de identidades administradas:
+
+* Identidad administrada **asignada por el sistema**: una identidad única creada automáticamente para la memoria caché. Esta identidad administrada solo existe mientras HPC Cache exista y no se puede administrar ni modificar directamente.
+
+* Identidad administrada **asignada por el usuario**: una credencial de identidad independiente que se administra por separado de la memoria caché. Puede configurar una identidad administrada asignada por el usuario que tenga exactamente el acceso que quiera y usarla en varias instancias de HPC Cache.
+
+Si no asigna una identidad administrada a la caché al crearla, Azure crea automáticamente una identidad administrada asignada por el sistema para la caché.
+
+Con una identidad administrada asignada por el usuario, puede proporcionar una identidad que ya tenga acceso al almacén de claves. (Por ejemplo, se ha agregado a una directiva de acceso del almacén de claves o tiene un rol Azure RBAC que permite el acceso). Si usa una identidad asignada por el sistema o proporciona una identidad administrada que no tiene acceso, deberá solicitar acceso desde la caché después de la creación. Se trata de un paso manual, que se describe a continuación en el [paso 3](#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed).
+
+* Más información sobre las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md)
+
+* Información sobre los [conceptos básicos de Azure Key Vault](../key-vault/general/basic-concepts.md)
+
 ## <a name="1-set-up-azure-key-vault"></a>1. Configuración de Azure Key Vault
 
 Puede configurar un almacén de claves y una clave antes de crear la memoria caché, o bien hacerlo como parte de la creación de la memoria caché. Asegúrese de que estos recursos cumplan los requisitos descritos [anteriormente](#understand-key-vault-and-key-requirements).
@@ -76,6 +102,8 @@ Debe especificar el origen de la clave de cifrado al crear su instancia de Azure
 > [!TIP]
 > Si la página **Clave de cifrado de disco** no aparece, asegúrese de que la memoria caché se encuentre en una de las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
+![Captura de pantalla de la pantalla de claves de cifrado de disco completada, parte de la interfaz de creación de caché en el portal.](media/customer-keys-populated.png)
+
 El usuario que crea la memoria caché debe tener privilegios iguales a los del [rol colaborador de Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor) o superior.
 
 1. Haga clic en el botón para habilitar las claves administradas de forma privada. Después de cambiar esta configuración, aparecerá la configuración del almacén de claves.
@@ -92,28 +120,40 @@ El usuario que crea la memoria caché debe tener privilegios iguales a los del [
 
 1. Especifique la versión de la clave seleccionada. Obtenga más información sobre el control de versiones en la [documentación de Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
 
+Estos parámetros son opcionales:
+
+* Active la casilla **Always use current key version** (Usar siempre la versión actual de la clave) si quiere usar la [rotación automática de claves](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
+
+* Si quiere usar una identidad administrada específica para esta caché, seleccione **Asignada por el usuario** en la sección **Identidades administradas** y seleccione la identidad que quiere usar. Consulte la [documentación sobre las identidades administradas](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para obtener ayuda.
+
+  > [!TIP]
+  > Una identidad administrada asignada por el usuario puede simplificar la creación de la caché si pasa una identidad que ya está configurada para acceder al almacén de claves. Con una identidad administrada asignada por el sistema, debe realizar un paso adicional después de crear la caché para autorizar a la identidad asignada por el sistema recién creada a usar el almacén de claves.
+
+  > [!NOTE]
+  > No es posible cambiar la identidad asignada tras crear la memoria caché.
+
 Continúe con el resto de las especificaciones y cree la memoria caché como se describe en [Creación de una instancia de Azure HPC Cache](hpc-cache-create.md).
 
-## <a name="3-authorize-azure-key-vault-encryption-from-the-cache"></a>3. Autorización del cifrado de Azure Key Vault desde la memoria caché
+## <a name="3-authorize-azure-key-vault-encryption-from-the-cache-if-needed"></a>3. Autorización del cifrado de Azure Key Vault desde la memoria caché (si es necesario)
 <!-- header is linked from create article, update if changed -->
+
+> [!NOTE]
+> Este paso no es necesario si proporcionó una identidad administrada asignada por el usuario con acceso al almacén de claves al crear la memoria caché.
 
 Después de unos minutos, la nueva instancia de Azure HPC Cache aparece en Azure Portal. Vaya a la página **Información general** para autorizarla a acceder a su instancia de Azure Key Vault y habilitar el cifrado de claves administradas por el cliente.
 
 > [!TIP]
 > La caché puede aparecer en la lista de recursos antes de que se borren los mensajes de "implementación en curso". Compruebe la lista de recursos al cabo de un minuto o dos en lugar de esperar una notificación de operación correcta.
-
-Este proceso de dos pasos es necesario porque la instancia de Azure HPC Cache necesita una identidad para pasar a la instancia de Azure Key Vault para la autorización. La identidad de la caché no existe hasta que se hayan completado los pasos de creación iniciales.
-
-> [!NOTE]
+>
 > Debe autorizar el cifrado en un plazo de 90 minutos después de crear la memoria caché. Si no completa este paso, se agotará el tiempo de espera de la caché y se producirá un error. Una caché con errores debe volver a crearse, no se puede corregir.
 
 La memoria caché muestra el estado **Esperando la clave**. Haga clic en el botón **Habilitar cifrado** en la parte superior de la página para autorizar a la memoria caché a acceder al almacén de claves especificado.
 
-![Captura de pantalla de la página de información general de la caché en el portal, con resaltado en el botón Habilitar cifrado (fila superior) y Estado: Esperando la clave](media/waiting-for-key.png)
+![Captura de pantalla de la página de información general de la caché en el portal, con el botón Habilitar cifrado (fila superior) y Estado: Esperando la clave resaltados.](media/waiting-for-key.png)
 
 Haga clic en **Habilitar cifrado** y, a continuación, haga clic en el botón **Sí** para autorizar a la memoria caché a usar la clave de cifrado. Esta acción también habilita la eliminación temporal y protección de purga (si aún no están habilitadas) en el almacén de claves.
 
-![Captura de pantalla de la página de información general de la caché en el portal, con un mensaje de banner en la parte superior que pide al usuario que habilite el cifrado haciendo clic en Sí](media/enable-keyvault.png)
+![Captura de pantalla de la página de información general de la caché en el portal, con un mensaje de banner en la parte superior que pide al usuario que habilite el cifrado haciendo clic en Sí.](media/enable-keyvault.png)
 
 Después de que la memoria caché solicita acceso al almacén de claves, puede crear y cifrar los discos que almacenan los datos en caché.
 
@@ -125,17 +165,17 @@ Puede cambiar el almacén de claves, la clave o la versión de clave de la memor
 
 No se puede cambiar una caché entre claves administradas por el cliente y claves administradas por el sistema.
 
-![Captura de pantalla de la página "Configuración de clave de cliente", a la que se accede al hace clic en Configuración > Cifrado en la página de caché de Azure Portal](media/change-key-click.png)
+![Captura de pantalla de la página "Configuración de clave de cliente", a la que se accede al hacer clic en Configuración > Cifrado en la página de caché de Azure Portal.](media/change-key-click.png)
 
 Haga clic en el vínculo **Cambiar clave** y, a continuación, haga clic en **Cambiar el almacén de claves, la clave o la versión** para abrir el selector de claves.
 
-![Captura de pantalla de la página "Seleccionar clave en Azure Key Vault" con tres selectores desplegables para elegir el almacén de claves, la clave y la versión](media/select-new-key.png)
+![Captura de pantalla de la página "Seleccionar la clave de Azure Key Vault" con tres selectores desplegables para elegir el almacén de claves, la clave y la versión.](media/select-new-key.png)
 
 Los almacenes de claves de la misma suscripción y la misma región que esta caché se muestran en la lista.
 
 Después de elegir los nuevos valores de clave de cifrado, haga clic en **Seleccionar**. Aparece una página de confirmación con los nuevos valores. Haga clic en **Guardar** para finalizar la selección.
 
-![Captura de pantalla de la página de confirmación con el botón Guardar en la parte superior izquierda](media/save-key-settings.png)
+![Captura de pantalla de la página de confirmación con el botón Guardar en la parte superior izquierda.](media/save-key-settings.png)
 
 ## <a name="read-more-about-customer-managed-keys-in-azure"></a>Más información sobre las claves administradas por el cliente en Azure
 

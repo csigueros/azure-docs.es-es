@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eaf8bd06493fb105207024b3b78c584ad58d4149
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 44a8c8ab6420db717533e83af9e01a89fad47bad
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745410"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205036"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicación de la licencia de Windows a máquinas virtuales de host de sesión
 
@@ -35,7 +35,7 @@ Update-AzVM -ResourceGroupName <resourceGroupName> -VM $vm
 ```
 
 ## <a name="verify-your-session-host-vm-is-utilizing-the-licensing-benefit"></a>Comprobación de que la máquina virtual de host de sesión usa la ventaja de licencia
-Después de implementar la máquina virtual, ejecute este cmdlet y compruebe el tipo de licencia:
+Después de implementar la máquina virtual, ejecute este cmdlet para comprobar el tipo de licencia:
 ```powershell
 Get-AzVM -ResourceGroupName <resourceGroupName> -Name <vmName>
 ```

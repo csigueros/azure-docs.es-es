@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/29/2016
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d8aad654fce1b62bdc51e6cd15f5836742b772f2
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 49e0edf880efbf07e541d935e9b111b037a1f08d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669570"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292789"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solución de problemas de la extensión de máquina virtual de Microsoft Azure.
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -59,6 +59,30 @@ Extensions:  {
 
 ## <a name="troubleshooting-extension-failures"></a>Solución de problemas de errores de extensión
 
+### <a name="verify-that-the-vm-agent-is-running-and-ready"></a>Comprobación de que el agente de máquina virtual está en ejecución y listo
+El agente de máquina virtual es necesario para administrar, instalar y ejecutar extensiones. Si el agente de máquina virtual no está en ejecución o no informa de un estado Listo a la plataforma Azure, las extensiones no funcionarán correctamente.
+
+Consulte las páginas siguientes para solucionar problemas del agente de máquina virtual:
+- [Solución de problemas con el agente invitado de Windows Azure](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent) para una máquina virtual de Windows.
+- [Solución de problemas del agente de Azure Linux](/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) para una máquina virtual de Linux.
+
+### <a name="check-for-your-specific-extension-troubleshooting-guide"></a>Búsqueda de la guía de solución de problemas de la extensión específica
+Algunas extensiones tienen una página específica que describe cómo solucionar problemas. Puede encontrar la lista de estas extensiones y páginas en [Extensiones de solución de problemas](./overview.md#troubleshoot-extensions).
+
+### <a name="view-the-extensions-status"></a>Visualización del estado de la extensión
+Como se explicó anteriormente, el estado de la extensión se puede encontrar mediante la ejecución del cmdlet de PowerShell:
+```azurepowershell
+Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
+```
+
+o el comando de la CLI:
+```azurecli
+az vm extension show -g <RG Name> --vm-name <VM Name>  --name <Extension Name>
+```
+
+o en Azure Portal, para ello, se examina la hoja de la máquina virtual/Configuración/Extensiones. A continuación, puede hacer clic en la extensión y comprobar su estado y mensaje.
+
+
 ### <a name="rerun-the-extension-on-the-vm"></a>Volver a ejecutar la extensión en la máquina virtual
 Si está ejecutando los scripts en la máquina virtual mediante la extensión de script personalizada, a veces podría recibir un error en el que la máquina virtual se creó correctamente, pero en el que el script ha generado un error. En estas condiciones, la manera que se recomienda para recuperarse de este error es quitar la extensión y volver a ejecutar la plantilla.
 Nota: En el futuro, esta funcionalidad se mejoraría para eliminar la necesidad de desinstalar la extensión.
@@ -99,3 +123,44 @@ az vm reapply -g <RG Name> -n <VM Name>
 ```
 
 Si no funcionó "Volver a aplicar la VM", puede agregar un nuevo disco de datos vacío a la máquina virtual desde el portal de administración de Azure y, después, quitarlo cuando el certificado se haya agregado de nuevo.
+
+
+### <a name="look-at-the-extension-logs-inside-the-vm"></a>Consulta los registros de extensión dentro de la máquina virtual
+
+Si los pasos anteriores no funcionaron y la extensión sigue en estado de error, el siguiente paso es ver sus registros dentro de la máquina virtual.
+
+En una máquina virtual de **Windows**, los registros de extensión normalmente residirán en 
+```
+C:\WindowsAzure\Logs\Plugins
+```
+Y los archivos de configuración y estado de la extensión estarán en 
+```
+C:\Packages\Plugins
+```
+<br/>
+
+En una máquina virtual de **Linux**, los registros de extensión normalmente residirán en 
+```
+/var/log/azure/
+```
+Y los archivos de configuración y estado de la extensión estarán en 
+```
+/var/lib/waagent/
+```
+
+
+Cada extensión es diferente, pero normalmente siguen principios similares:
+
+Los paquetes de extensión y los archivos binarios se descargan en la máquina virtual (por ejemplo, _"/var/lib/waagent/custom-script/download/1"_ para Linux o _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Downloads\0"_ para Windows). 
+
+Su configuración y valores se pasan desde la plataforma Azure al controlador de extensiones a través del agente de máquina virtual (por ejemplo, _"/var/lib/waagent/Microsoft.Azure.Extensions.CustomScript-2.1.3/config"_ para Linux o _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\RuntimeSettings"_ para Windows)
+
+Los controladores de extensión dentro de la máquina virtual escriben en un archivo de estado (por ejemplo, _"/var/lib/waagent/Microsoft.Azure.Extensions.CustomScript-2.1.3/status/1.status"_ para Linux o _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Status"_ para Windows) que luego se notificarán a la plataforma Azure. Ese estado es el que se notifica a través de PowerShell, la CLI o en la hoja de extensión de la máquina virtual de Azure Portal.
+
+También escriben registros detallados de su ejecución (por ejemplo, _"/var/log/azure/custom-script/handler.log"_ para Linux o _"C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\CustomScriptHandler.log"_ para Windows).
+
+
+### <a name="if-the-vm-is-recreated-from-an-existing-vm"></a>Si la máquina virtual se vuelve a crear a partir de una máquina virtual existente
+
+Podría ocurrir que está creando una máquina virtual de Azure basada en un disco especializado procedente de otra máquina virtual de Azure. En ese caso, es posible que la máquina virtual anterior contenga extensiones, por lo que sobrarán archivos binarios, registros y archivos de estado. El nuevo modelo de máquina virtual no conocerá los estados de las extensiones de la máquina virtual anterior y podría notificar un estado incorrecto para estas extensiones. Se recomienda encarecidamente quitar las extensiones de la máquina virtual anterior antes de crear la nueva y, después, volver a instalar estas extensiones una vez creada la nueva máquina virtual.
+Lo mismo puede ocurrir cuando se crea una imagen generalizada a partir de una máquina virtual de Azure existente. Le invitamos a quitar extensiones para evitar el estado incoherente de las extensiones.

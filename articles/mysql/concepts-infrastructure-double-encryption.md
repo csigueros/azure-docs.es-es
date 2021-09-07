@@ -6,28 +6,30 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: e9182a2a0b88f85af5305f5794fec2ffe7935701
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b6d87c3bfabf3884d9a90966994eea002a45dd8
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98631740"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674441"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Cifrado doble de infraestructura de Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL usa el [cifrado de datos en reposo](concepts-security.md#at-rest) del almacenamiento mediante claves administradas de Microsoft. Los datos, incluidas las copias de seguridad, se cifran en el disco y este cifrado está siempre activo y no se puede deshabilitar. El cifrado usa el módulo criptográfico validado FIPS 140-2 y un cifrado AES de 256 bits para el cifrado del almacenamiento de Azure.
 
 El cifrado doble de infraestructura agrega una segunda capa de cifrado con claves administradas por el servicio. Usa el módulo criptográfico validado FIPS 140-2, pero con un algoritmo de cifrado diferente. Esto proporciona una capa adicional de protección para los datos en reposo. La clave que se usa en el cifrado doble de infraestructura también la administra el servicio Azure Database for MySQL. El cifrado doble de infraestructura no está habilitado de forma predeterminada ya que el nivel adicional de cifrado puede afectar al rendimiento.
 
 > [!NOTE]
-> Esta característica solo se admite en los planes de tarifa "De uso general" y "Optimizado para memoria" de Azure Database for MySQL.
+> Al igual que el cifrado de datos en reposo, esta característica solo se admite en el almacenamiento "Almacenamiento de uso general v2 (admite hasta 16 TB)" disponible en los planes de tarifa De uso general y optimizados para memoria. Consulte [Conceptos de almacenamiento](concepts-pricing-tiers.md#storage) para más información. Para otras limitaciones, consulte la sección [Limitaciones](concepts-infrastructure-double-encryption.md#limitations).
 
 El cifrado del nivel de infraestructura tiene la ventaja de que se implementa en la capa más cercana al dispositivo de almacenamiento o a los cables de red. Azure Database for MySQL implementa las dos capas de cifrado mediante claves administradas por el servicio. Aunque técnicamente siga en la capa de servicio, está muy cerca del hardware que almacena los datos en reposo. También puede habilitar opcionalmente el cifrado de datos en reposo mediante el uso de una [clave administrada por el cliente](concepts-data-encryption-mysql.md) para el servidor MySQL aprovisionado. 
 
 La implementación en los niveles de infraestructura también admite una diversidad de claves. La infraestructura debe tener en cuenta los diferentes clústeres de máquinas y redes. Por ello, se usan diferentes claves para minimizar el radio de impacto de los ataques a la infraestructura y de diversos errores de hardware y de red. 
 
 > [!NOTE]
-> El uso del cifrado doble de infraestructura afectará al rendimiento en el servidor de Azure Database for MySQL debido al proceso de cifrado adicional.
+> El uso del cifrado doble de infraestructura tendrá un impacto del 5 al 10 % en el rendimiento del servidor de Azure Database for MySQL debido al proceso de cifrado adicional.
 
 ## <a name="benefits"></a>Ventajas
 
@@ -56,14 +58,16 @@ Las funcionalidades de cifrado que proporciona Azure Database for MySQL se puede
 
 ## <a name="limitations"></a>Limitaciones
 
-Para Azure Database for MySQL, la compatibilidad con el cifrado doble de infraestructura mediante una clave administrada por el servicio tiene las siguientes limitaciones:
+Para Azure Database for MySQL, la compatibilidad con el cifrado doble de infraestructura tiene unas limitaciones:
 
-* La compatibilidad con esta funcionalidad se limita a los planes de tarifa **De uso general** y **Optimizados para memoria**.
-* Esta característica solo se admite en regiones y servidores que admiten almacenamiento de hasta 16 TB. Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte la [documentación de almacenamiento](concepts-pricing-tiers.md#storage).
+* La compatibilidad con esta funcionalidad se limita a **De uso general** y los planes de tarifa **Optimizados para memoria**.
+* Esta característica solo se admite en regiones y servidores compatibles con el almacenamiento de uso general v2 (hasta 16 TB). Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte [aquí](concepts-pricing-tiers.md#storage) la sección de almacenamiento de la documentación.
 
     > [!NOTE]
-    > - Todos los **nuevos** servidores MySQL creados en las regiones mencionadas anteriormente también admiten el cifrado de datos con claves administradas por el cliente. En este caso, los servidores creados mediante la restauración a un momento dado (PITR) o las réplicas de lectura no se califican como "nuevos".
-    > - Para validar si el servidor aprovisionado admite hasta 16 TB, puede ir a la hoja del plan de tarifa en el portal y comprobar si el control deslizante del almacenamiento se puede mover hasta 16 TB. Si solo puede mover el control deslizante hasta 4 TB, es posible que el servidor no admita el cifrado con claves administradas por el cliente. No obstante, los datos están cifrados en todo momento mediante claves administradas por el servicio. Póngase en contacto con AskAzureDBforMySQL@service.microsoft.com si tiene alguna pregunta.
+    > - Para todos los nuevos servidores MySQL creados en las [regiones de Azure](concepts-pricing-tiers.md#storage) compatibles con el almacenamiento de uso general v2, está **disponible** soporte del cifrado con claves de administrador de clientes. El servidor Point In Time Restored (PITR) o la réplica de lectura no calificarán, aunque en teoría son "nuevos".
+    > - Para validar el almacenamiento de uso general v2 del servidor aprovisionado, puede ir a la hoja del plan de tarifa en el portal y ver el tamaño de almacenamiento máximo que admite el servidor aprovisionado. Si puede subir el control deslizante hasta 4 TB, el servidor está en el almacenamiento de uso general v1 y no admitirá el cifrado con claves administradas por el cliente. Pero los datos se cifran en todo momento con claves administradas por el servicio. Póngase en contacto con AskAzureDBforMySQL@service.microsoft.com si tiene alguna pregunta.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

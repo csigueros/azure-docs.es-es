@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 6e0bb7949e6f528925eb66c1148662720b144e06
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 2431ba1b59ae1f9891affe510e098d41fe166797
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060361"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711856"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escritura de auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,14 +33,14 @@ Consulte el artículo [¿Qué es Azure Virtual Network?](../../virtual-network/v
 
 Para obtener más información sobre cómo crear una red virtual, vea [Inicio rápido: Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para que una auditoría escriba eventos en una cuenta de almacenamiento detrás de un firewall o una red virtual, se necesitan los siguientes requisitos previos:
 
 > [!div class="checklist"]
 >
 > * Una cuenta de almacenamiento de uso general v2. Si tiene una cuenta de almacenamiento de uso general v1 o una cuenta de almacenamiento de blobs, [actualice a una cuenta de almacenamiento de uso general v2](../../storage/common/storage-account-upgrade.md). Para obtener más información, consulte la sección [Tipos de cuentas de almacenamiento](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
-> * La cuenta de almacenamiento debe estar en la misma suscripción y en la misma ubicación que el [servidor SQL lógico](logical-servers.md).
+> * La cuenta de almacenamiento debe estar en el mismo inquilino y en la misma ubicación que el [servidor SQL lógico](logical-servers.md) (es correcto que estén en suscripciones diferentes).
 > * La cuenta de Azure Storage requiere `Allow trusted Microsoft services to access this storage account`. Establezca esta configuración en **Firewalls y redes virtuales** en la cuenta de almacenamiento.
 > * Debe tener el permiso `Microsoft.Authorization/roleAssignments/write` en la cuenta de almacenamiento seleccionada. Para más información, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md).
 

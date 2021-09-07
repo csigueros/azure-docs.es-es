@@ -5,23 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/26/2021
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59e573c9b24d9a8b5577b55d143fcaca67952f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 36bc5a283665abb03bd1c49a0a067b551bcc979d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120766"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720932"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación
-
-> [!NOTE]
-> Algunas de las características que se mencionan en este artículo son características en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Con las aplicaciones que cree, puede crear flujos de usuario que permitan al usuario registrarse en una aplicación y crear una cuenta de invitado. Un flujo de usuario de autoservicio de suscripción define la serie de pasos que seguirá el usuario durante el registro, los proveedores de identidades que le permitirá usar y los atributos de usuario que quiere recopilar. Puede asociar una o varias aplicaciones a un solo flujo de usuario.
 
@@ -32,9 +29,9 @@ Con las aplicaciones que cree, puede crear flujos de usuario que permitan al usu
 
 ### <a name="add-identity-providers-optional"></a>Adición de los proveedores de identidades (opcional)
 
-Azure AD es el proveedor de identidades predeterminado para el registro de autoservicio. Esto significa que los usuarios pueden registrarse de manera predeterminada con una cuenta de Azure AD. En los flujos de usuario de autoservicio de registro, también puede incluir proveedores de identidades sociales, como Google y Facebook, Cuenta Microsoft (versión preliminar) y el código de acceso de un solo uso por correo electrónico (versión preliminar).
+Azure AD es el proveedor de identidades predeterminado para el registro de autoservicio. Esto significa que los usuarios pueden registrarse de manera predeterminada con una cuenta de Azure AD. En los flujos de usuario de autoservicio de registro, también puede incluir proveedores de identidades sociales, como Google y Facebook, la cuenta Microsoft y el código de acceso de un solo uso por correo electrónico. Para obtener más información, consulte estos artículos:
 
-- [Proveedor de identidades Cuenta Microsoft (versión preliminar)](microsoft-account.md)
+- [Proveedor de identidades de la cuenta Microsoft](microsoft-account.md)
 - [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md)
 - [Incorporación de Facebook a la lista de proveedores de identidades sociales](facebook-federation.md)
 - [Incorporación de Google a la lista de proveedores de identidades sociales](google-federation.md)

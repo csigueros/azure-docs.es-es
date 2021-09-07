@@ -6,13 +6,13 @@ ms.author: v-ssudhir
 ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/21/2021
-ms.openlocfilehash: 9e987b4db88379e0dfe40b8839b073b893811fb4
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 06/15/2021
+ms.openlocfilehash: 1b2dd711fb44b1b6b684257e5e5f6abefb5eda50
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110547946"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291156"
 ---
 # <a name="troubleshoot-network-connectivity"></a>Solución de problemas de conectividad de red
 Este artículo le ayuda a solucionar problemas de conectividad de red mediante Azure Migrate con puntos de conexión privados.
@@ -61,6 +61,7 @@ Puede comprobar la resolución DNS de otros artefactos de Azure Migrate mediante
 
 Si la resolución DNS es incorrecta, siga estos pasos:  
 
+**Recomendación** para la prueba: puede actualizar manualmente los registros DNS del entorno de origen editando el archivo de hosts DNS en el dispositivo local con los FQDN del recurso de vínculo privado y sus direcciones IP privadas asociadas.
 - Si usa un DNS personalizado, revise la configuración personalizada de DNS y compruebe que esta sea correcta. Para más información, consulte [Introducción al punto de conexión privado: Configuración de DNS](../private-link/private-endpoint-overview.md#dns-configuration).
 - Si usa servidores DNS proporcionados por Azure, consulte la sección siguiente para solucionar más problemas.  
 
@@ -121,3 +122,146 @@ Esta es una lista no exhaustiva de elementos que se pueden encontrar en escenari
 - Las soluciones de puerta de enlace personalizada (NAT) pueden afectar a la forma en que se enruta el tráfico, incluido el tráfico de las consultas de DNS.
 
 Para obtener más información, consulte la [guía de solución de problemas de conectividad de puntos de conexión privados](../private-link/troubleshoot-private-endpoint-connectivity.md).  
+
+## <a name="common-issues-while-using-azure-migrate-with-private-endpoints"></a>Problemas comunes al usar Azure Migrate con puntos de conexión privados
+En esta sección, enumeraremos algunos de los problemas que se producen habitualmente y sugeriremos pasos para solucionar el problema.
+
+### <a name="appliance-registration-fails-with-the-error-forbiddentoaccesskeyvault"></a>Se produce un error en el registro del dispositivo con el error ForbiddenToAccessKeyVault
+Error en la operación de creación o actualización de Azure Key Vault para <_KeyVaultName_> debido al error <_ErrorMessage_>
+#### <a name="possible-causes"></a>Causas posibles:
+Este problema puede producirse si la cuenta de Azure que se usa para registrar el dispositivo no tiene los permisos necesarios o el dispositivo de Azure Migrate no puede acceder a Key Vault.
+#### <a name="remediation"></a>Corrección:
+**Pasos para solucionar problemas de acceso a Key Vault:**
+1. Asegúrese de que la cuenta de usuario de Azure que se ha usado para registrar el dispositivo tiene al menos el permiso de colaborador de la suscripción.
+2. Asegúrese de que el usuario que intenta registrar el dispositivo tiene acceso al Key Vault y tiene una directiva de acceso asignada en la sección Key Vault>Directiva de acceso. [Más información](../key-vault/general/assign-access-policy-portal.md)
+- [Más información](./migrate-appliance.md#appliance---vmware) sobre los roles y permisos de Azure necesarios.
+
+**Pasos para solucionar problemas de conectividad con Key Vault:** si ha habilitado el dispositivo para la conectividad de punto de conexión privado, siga estos pasos para solucionar problemas de conectividad de red:
+- Asegúrese de que el dispositivo se hospeda en la misma red virtual o está conectado a la red virtual de Azure de destino (donde se ha creado el punto de conexión privado de Key Vault) a través de un vínculo privado. El punto de conexión privado de Key Vault se creará en la red virtual seleccionada durante la experiencia de creación del proyecto. Puede comprobar los detalles de la red virtual en la página **Azure Migrate > Propiedades**.
+![Propiedades de Azure Migrate](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)  
+
+- Asegúrese de que el dispositivo tiene conectividad de red con Key Vault a través de un vínculo privado. Para validar la conectividad del enlace privado, realice una resolución DNS del punto de conexión de recursos de Key Vault desde el servidor local en el que se hospeda el dispositivo y asegúrese de que se resuelve en una dirección IP privada.
+- Vaya a **Azure Migrate: Discovery and assessment (Azure Migrate: Detección y evaluación) > Propiedades** para encontrar los detalles de los puntos de conexión privados para recursos como la instancia de Key Vault creada durante el paso de generación de claves.  
+
+    ![Propiedades de evaluación del servidor de Azure Migrate](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-assessment-properties.png)  
+- Seleccione **Download DNS settings** (Descargar configuración de DNS) para descargar las asignaciones DNS.
+
+    ![Descarga de la configuración de DNS](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)  
+
+- Abra la línea de comandos y ejecute el siguiente comando nslookup para comprobar la conectividad de red con la dirección URL de Key Vault mencionada en el archivo de configuración DNS.   
+
+    ```console
+    nslookup <your-key-vault-name>.vault.azure.net
+    ```
+
+    Si ejecuta el comando de búsqueda ns para resolver la dirección IP de un almacén de claves sobre un punto de conexión público, verá un resultado similar al siguiente:
+
+    ```console
+    c:\ >nslookup <your-key-vault-name>.vault.azure.net
+
+    Non-authoritative answer:
+    Name:    
+    Address:  (public IP address)
+    Aliases:  <your-key-vault-name>.vault.azure.net
+    ```
+
+    Si ejecuta el comando de búsqueda ns para resolver la dirección IP de un almacén de claves sobre un punto de conexión privado, verá un resultado similar al siguiente:
+
+    ```console
+    c:\ >nslookup your_vault_name.vault.azure.net
+
+    Non-authoritative answer:
+    Name:    
+    Address:  10.12.4.20 (private IP address)
+    Aliases:  <your-key-vault-name>.vault.azure.net
+              <your-key-vault-name>.privatelink.vaultcore.azure.net
+    ```
+
+    El comando nslookup debe resolverse en una dirección IP privada como se mencionó anteriormente. La dirección IP privada debe coincidir con la que aparece en el archivo de configuración DNS.
+
+Si la resolución DNS es incorrecta, siga estos pasos:
+1. Actualice manualmente los registros DNS del entorno de origen editando el archivo de hosts DNS en el dispositivo local con las asignaciones DNS y las direcciones IP privadas asociadas. Esta opción solo se recomienda para pruebas.
+
+   ![Archivo de hosts DNS](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
+
+2. Si usa un servidor DNS personalizado, revise la configuración personalizada de DNS y valide que esta sea correcta. Para más información, consulte [Introducción al punto de conexión privado: Configuración de DNS](../private-link/private-endpoint-overview.md#dns-configuration).
+3. Si el problema persiste, [consulte esta sección](#validate-the-private-dns-zone) para obtener más información sobre la solución de problemas.
+
+Después de comprobar la conectividad, vuelva a intentar el proceso de registro.
+
+### <a name="start-discovery-fails-with-the-error-agentnotconnected"></a>Se produce un error al iniciar la detección con el error AgentNotConnected
+El dispositivo no pudo iniciar la detección, ya que el agente local no puede comunicarse con el punto de conexión de servicio de Azure Migrate: <_NombreURL_> en Azure.
+
+![Error de agente no conectado](./media/how-to-use-azure-migrate-with-private-endpoints/agent-not-connected-error.png)  
+
+#### <a name="possible-causes"></a>Causas posibles:
+Este problema puede producirse si el dispositivo no puede acceder a los puntos de conexión de servicio mencionados en el mensaje de error.
+#### <a name="remediation"></a>Corrección:
+Asegúrese de que el dispositivo tenga conectividad, ya sea directamente o a través de proxy, y que pueda resolver el punto de conexión de servicio proporcionado en el mensaje de error.  
+
+Si ha habilitado la conectividad de punto de conexión privado en el dispositivo, asegúrese de que este esté conectado a la red virtual de Azure a través de un vínculo privado y pueda resolver los puntos de conexión de servicio proporcionados en el mensaje de error.
+
+**Pasos para solucionar problemas de conectividad de vínculo privado con el servicio Azure Migrate:**
+
+Si ha habilitado el dispositivo para la conectividad de punto de conexión privado, siga estos pasos para solucionar problemas de conectividad de red:
+
+- Asegúrese de que el dispositivo se hospeda en la misma red virtual o está conectado a la red virtual de Azure de destino (donde se ha creado el punto de conexión privado) a través de un vínculo privado. Los puntos de conexión privados para los servicios Azure Migrate se crean en la red virtual seleccionada durante la experiencia de creación del proyecto. Puede comprobar los detalles de la red virtual en la página **Azure Migrate > Propiedades**.
+
+![Propiedades de Azure Migrate](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)   
+
+- Asegúrese de que el dispositivo tiene conectividad de red con las direcciones URL del punto de conexión de servicio y otras direcciones URL, mencionadas en el mensaje de error, a través de una conexión de vínculo privado. Para validar la conectividad del vínculo privado, realice una resolución DNS de las direcciones URL del servidor local en el que se hospeda el dispositivo y asegúrese de que se resuelve en una dirección IP privada.
+- Vaya a **Azure Migrate: Discovery and assessment (Azure Migrate: Detección y evaluación) > Propiedades** para encontrar los detalles de los puntos de conexión privados para los puntos de conexión de servicio creados durante el paso de generación de claves.  
+    ![Propiedades de evaluación del servidor de Azure Migrate](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-assessment-properties.png)  
+- Seleccione **Download DNS settings** (Descargar configuración de DNS) para descargar las asignaciones DNS.
+
+    ![Descarga de la configuración de DNS](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)   
+
+|**Asignaciones de DNS que contienen direcciones URL de punto de conexión privado**  | **Detalles** |
+|--- | ---|
+|*.disc.privatelink.test.migration.windowsazure.com | Punto de conexión de servicio de detección de Azure Migrate
+|*.asm.privatelink.test.migration.windowsazure.com  | Punto de conexión de servicio de evaluación de Azure Migrate  
+|*.hub.privatelink.test.migration.windowsazure.com  | Punto de conexión del centro de Azure Migrate para recibir datos de otras ofertas de Microsoft o de [proveedores de software independientes (ISV)](./migrate-services-overview.md#isv-integration) externos
+|*.vault.azure.net | Punto de conexión de Key Vault
+|*.blob.core.windows.net | Punto de conexión de la cuenta de almacenamiento para los datos de dependencia y rendimiento  
+
+Además de las direcciones URL anteriores, el dispositivo necesita acceso a las siguientes direcciones URL a través de Internet, directamente o a través de proxy.
+
+| **Otras direcciones URL de nube pública <br> (direcciones URL de punto de conexión público)** | **Detalles** |
+|--- | ---|
+|*.portal.azure.com | Vaya a Azure Portal.
+|\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Azure Active Directory lo usa para la administración de identidades y el control de acceso
+|management.azure.com | Para desencadenar implementaciones de Azure Resource Manager.
+|*.services.visualstudio.com (opcional) | Cargue los registros del dispositivo que se usan para la supervisión interna.
+|aka.ms/* (opcional) | Permita el acceso a los vínculos aka; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
+|download.microsoft.com/download | Permita descargas del centro de descargas de Microsoft.    
+
+- Abra la línea de comandos y ejecute el siguiente comando nslookup para comprobar la conectividad del vínculo privado con las direcciones URL enumeradas en el archivo de configuración DNS. Repita este paso para todas las direcciones URL del archivo de configuración DNS.
+
+    _**Ilustración**: Comprobación de la conectividad del vínculo privado con el punto de conexión del servicio de detección_
+
+    ```console
+    nslookup 04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+    ```
+    Si la solicitud puede llegar al punto de conexión del servicio de detección a través de un punto de conexión privado, verá un resultado similar al siguiente:
+
+    ```console
+    nslookup 04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+
+    Non-authoritative answer:
+    Name:    
+    Address:  10.12.4.23 (private IP address)
+    Aliases:  04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+              prod.cus.discoverysrv.windowsazure.com
+    ```
+
+    El comando nslookup debe resolverse en una dirección IP privada como se mencionó anteriormente. La dirección IP privada debe coincidir con la que aparece en el archivo de configuración DNS.
+
+Si la resolución DNS es incorrecta, siga estos pasos:
+1. Actualice manualmente los registros DNS del entorno de origen editando el archivo de hosts DNS en el dispositivo local con las asignaciones DNS y las direcciones IP privadas asociadas. Esta opción solo se recomienda para pruebas.
+
+   ![Archivo de hosts DNS](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
+
+2. Si usa un servidor DNS personalizado, revise la configuración personalizada de DNS y valide que esta sea correcta. Para más información, consulte [Introducción al punto de conexión privado: Configuración de DNS](../private-link/private-endpoint-overview.md#dns-configuration).
+3. Si el problema persiste, [consulte esta sección](#validate-the-private-dns-zone) para obtener más información sobre la solución de problemas.
+
+Después de comprobar la conectividad, vuelva a intentar el proceso de detección.

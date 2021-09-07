@@ -4,15 +4,15 @@ description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 07/15/2021
 ms.author: v-erkel
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 72c9590cca805d0a6e22d42f482ad80935e842d3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 26272090d3ec18328df2ac553b15e53abc824708
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706785"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294926"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -28,7 +28,7 @@ Haga clic en la imagen siguiente para ver una [demostración en vídeo](https://
 
 ## <a name="define-basic-details"></a>Definición de los detalles básicos
 
-![captura de pantalla de la página de detalles del proyecto en Azure Portal](media/hpc-cache-create-basics.png)
+![Captura de pantalla de la página de detalles del proyecto en Azure Portal.](media/hpc-cache-create-basics.png)
 
 En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará la caché.
 
@@ -39,49 +39,92 @@ En **Detalles del servicio**, establezca el nombre de la memoria caché y estos 
 * Subred: elija o cree una subred con al menos 64 direcciones IP (/24). Esta subred solo se debe usar para esta instancia de Azure HPC Cache.
 
 ## <a name="set-cache-capacity"></a>Establecimiento de la capacidad de la memoria caché
-<!-- referenced from GUI - update aka.ms link if you change this header text -->
+<!-- referenced from GUI - update aka.ms/hpc-cache-iops link if you change this header text -->
 
-En la página **Caché**, debe establecer la capacidad de la memoria caché. Estos valores determinan la cantidad de datos que puede contener la memoria caché y la rapidez con la que puede atender las solicitudes de cliente.
+En la página **Caché**, debe establecer la capacidad de la memoria caché. Estos valores determinan la rapidez con la que la memoria caché puede atender las solicitudes de clientes y la cantidad de datos que puede contener.
 
 La capacidad también afecta al costo de la memoria caché y a cuántos destinos de almacenamiento puede admitir.
 
-Para elegir la capacidad, establezca estos dos valores:
+La capacidad de caché es una combinación de dos valores:
 
 * La velocidad de transferencia de datos máxima para la memoria caché (rendimiento), en GB/segundo
 * La cantidad de almacenamiento asignado a los datos en caché, en TB
 
-Elija uno de los valores de rendimiento disponibles y los tamaños de almacenamiento en caché.
+![Captura de pantalla de la página de tamaño de la caché en Azure Portal.](media/hpc-cache-create-capacity.png)
 
-> [!TIP]
-> Si quiere usar más de 10 destinos de almacenamiento con la memoria caché, debe elegir el valor de tamaño de almacenamiento de caché más alto disponible para el tamaño de rendimiento. Obtenga más información en [Adición de destinos de almacenamiento](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+### <a name="understand-throughput-and-cache-size"></a>Información sobre el rendimiento y el tamaño de la caché
 
-Tenga en cuenta que la velocidad de transferencia de datos real depende de la carga de trabajo, las velocidades de red y el tipo de destinos de almacenamiento. Los valores que elija establecen el rendimiento máximo para todo el sistema de caché, pero una parte se usa para tareas de sobrecarga. Por ejemplo, si un cliente solicita un archivo que aún no está almacenado en la memoria caché, o si el archivo está marcado como obsoleto, la memoria caché utiliza parte de su capacidad de proceso para recuperarlo del almacenamiento back-end.
+Varios factores pueden afectar a la eficacia de HPC Cache, pero elegir un valor de rendimiento adecuado y un tamaño de almacenamiento en caché es uno de los más importantes.
 
-Azure HPC Cache administra qué archivos se almacenan en caché y se cargan previamente para maximizar las tasas de aciertos de caché. El contenido de la caché se evalúa continuamente y los archivos se mueven al almacenamiento a largo plazo cuando se accede a ellos con menos frecuencia. Elija un tamaño de almacenamiento en caché que pueda contener el conjunto activo de archivos de trabajo con espacio adicional para los metadatos y otras sobrecargas.
+Al elegir un valor de rendimiento, tenga en cuenta que la velocidad de transferencia de datos real depende de la carga de trabajo, las velocidades de red y el tipo de destinos de almacenamiento.
 
-![captura de pantalla de la página de tamaño de caché](media/hpc-cache-create-capacity.png)
+Los valores que elija establecen el rendimiento máximo para todo el sistema de caché, pero una parte se usa para tareas de sobrecarga. Por ejemplo, si un cliente solicita un archivo que aún no está almacenado en la memoria caché, o si el archivo está marcado como obsoleto, la memoria caché utiliza parte de su capacidad de proceso para recuperarlo del almacenamiento back-end.
+
+Azure HPC Cache administra qué archivos se almacenan en caché y se cargan previamente para maximizar las tasas de aciertos de caché. El contenido de la caché se evalúa continuamente y los archivos se mueven al almacenamiento a largo plazo cuando se accede a ellos con menos frecuencia.
+
+Elija un tamaño de almacenamiento en caché que pueda contener el conjunto activo de archivos de trabajo con espacio adicional para los metadatos y otras sobrecargas.
+
+El rendimiento y el tamaño de la caché también afectan a cuántos destinos de almacenamiento se admiten para una caché determinada. Si quiere usar más de 10 destinos de almacenamiento con la memoria caché, debe elegir el valor de tamaño de almacenamiento de caché más alto disponible para el tamaño de rendimiento o elegir una de las configuraciones de solo lectura de alto rendimiento. Obtenga más información en [Adición de destinos de almacenamiento](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+
+Si necesita ayuda para cambiar el tamaño de la memoria caché correctamente, póngase en contacto con el servicio y soporte técnico de Microsoft.
+
+### <a name="choose-the-cache-type-for-your-needs"></a>Elección del tipo de caché según las necesidades
+
+Al elegir la capacidad de caché, es posible que observe que algunos valores de rendimiento tienen tamaños fijos de caché y otros le permiten seleccionar entre varias opciones de tamaño de caché. Se debe a que hay dos estilos diferentes de infraestructura de caché:
+
+* Memorias caché estándar: enumeradas en **Read-write caching** (Almacenamiento en caché de lectura y escritura) del menú de rendimiento
+
+  Con las memorias caché estándar, puede elegir entre varios valores de tamaño de caché. Estas memorias caché se pueden configurar para el almacenamiento en caché de solo lectura o de lectura y escritura.
+
+* Memorias caché de alto rendimiento: enumeradas en **Read-only caching** (Almacenamiento en caché de solo lectura) del menú de rendimiento
+
+  Las configuraciones de alto rendimiento tienen establecidos tamaños de caché porque están preconfiguradas con discos NVME. Están diseñadas para optimizar el acceso de lectura de archivos únicamente.
+
+![Captura de pantalla del menú de rendimiento máximo en el portal. Hay varias opciones de tamaño bajo el encabezado "Read-write caching" (Almacenamiento en caché de lectura y escritura) y varias bajo el encabezado "Solo lectura".](media/rw-ro-cache-sizing.png)
+
+En esta tabla se explican algunas diferencias importantes entre las dos opciones.
+
+| Atributo | Memoria caché estándar | Caché de alto rendimiento |
+|--|--|--|
+| Categoría del menú de rendimiento |"Almacenamiento en caché de lectura y escritura"| "Almacenamiento en caché de solo lectura"|
+| Tamaños de rendimiento | 2, 4 o 8 GB/s | 4,5, 9 o 16 GB/s |
+| Tamaños de caché | 3, 6 o 12 TB para 2 GB/s<br/> 6, 12 o 24 TB para 4 GB/s<br/> 12, 24 o 48 TB para 8 GB/s| 21 TB para 4,5 GB/s <br/> 42 TB para 9 GB/s <br/> 84 TB para 16 GB/s |
+| Número máximo de destinos de almacenamiento | [10 o 20](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) según la selección de tamaño de caché | 20 |
+| Tipos de destino de almacenamiento compatibles | Blob de Azure, almacenamiento NFS local, blob habilitado para NFS | Almacenamiento NFS local <br/>El almacenamiento de blobs habilitado para NFS está en versión preliminar para esta combinación. |
+| Estilos de almacenamiento en caché | Almacenamiento en caché de lectura o almacenamiento en caché de lectura y escritura | Almacenamiento en caché de solo lectura |
+| La memoria caché se puede detener para ahorrar costes cuando no es necesaria | Sí | No |
+
+Más información sobre estas opciones:
+
+* [Número máximo de destinos de almacenamiento](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets)
+* [Modos de almacenamiento en caché de lectura y escritura](cache-usage-models.md#basic-file-caching-concepts)
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Habilitación del cifrado de Azure Key Vault (opcional)
-
-Aparece la página **Claves de cifrado de disco** entre las pestañas **Caché** y **Etiquetas**.<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 Si desea administrar las claves de cifrado usadas para el almacenamiento en caché, proporcione la información de Azure Key Vault en la página **Claves de cifrado de disco**. El almacén de claves debe estar en la misma región y en la misma suscripción que la memoria caché.
 
 Puede omitir esta sección si no necesita claves administradas por el cliente. De manera predeterminada, Azure cifra los datos con claves administradas por Microsoft. Para obtener más información, lea [Cifrado de Azure Storage](../storage/common/storage-service-encryption.md).
 
 > [!NOTE]
->
-> * No puede cambiar entre claves administradas por Microsoft y claves administradas por el cliente después de crear la memoria caché.
-> * Una vez creada la memoria caché, debe autorizarla para que tenga acceso al almacén de claves. Haga clic en el botón **Habilitar cifrado** en la página **Información general** de la memoria caché para activar el cifrado. Complete este paso en un plazo de 90 minutos a partir de la creación de la memoria caché.
-> * Los discos de caché se crean después de esta autorización. Esto significa que el tiempo de creación de la memoria caché inicial es breve, pero la memoria caché no estará lista para usarse durante diez minutos o más después de que autorice el acceso.
+> No puede cambiar entre claves administradas por Microsoft y claves administradas por el cliente después de crear la memoria caché.
 
 Para obtener una explicación completa del proceso de cifrado con claves administradas por el cliente, lea [Uso de claves de cifrado administradas por el cliente para Azure HPC Cache](customer-keys.md).
 
-![Captura de pantalla de la página Claves de cifrado con "Administrado por el cliente" y los campos del almacén de claves](media/create-encryption.png)
+![Captura de pantalla de la página de claves de cifrado en la que se muestran la opción "Administrado por el cliente" seleccionada y los formularios de configuración "Configuración de clave de cliente" e "Identidades administradas".](media/create-encryption.png)
 
 Seleccione **Administrado por el cliente** para elegir el cifrado con claves administradas por el cliente. Aparecen los campos de especificación del almacén de claves. Seleccione la instancia de Azure Key Vault que se va a usar y, a continuación, seleccione la clave y la versión que se usarán para esta caché. Debe ser una clave RSA de 2048 bits. Puede crear un nuevo almacén de claves, clave o versión de clave desde esta página.
 
-Después de crear la memoria caché, debe autorizarla para que use el servicio de almacén de claves. Para obtener más información, lea [Autorización del cifrado de Azure Key Vault desde la memoria caché](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache).
+Active la casilla **Always use current key version** (Usar siempre la versión actual de la clave) si quiere usar la [rotación automática de claves](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
+
+Si quiere usar una identidad administrada específica para esta caché, configúrela en la sección **Identidades administradas**. Consulte [¿Qué son las identidades administradas para los recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md) para más información.
+
+> [!NOTE]
+> No es posible cambiar la identidad asignada tras crear la memoria caché.
+
+Si usa una identidad administrada asignada por el sistema o una identidad asignada por el usuario que aún no tiene acceso al almacén de claves, hay un paso adicional que debe realizar después de crear la caché. Este paso manual autoriza a la identidad administrada de la caché a usar el almacén de claves.
+
+* Lea [Elección de una opción de identidad administrada para la memoria caché](customer-keys.md#choose-a-managed-identity-option-for-the-cache) para comprender las diferencias en la configuración de identidades administradas.
+* Lea [Autorización del cifrado de Azure Key Vault desde la memoria caché](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) para más información sobre el paso manual.
 
 ## <a name="add-resource-tags-optional"></a>Incorporación de etiquetas de recursos (opcional)
 
@@ -100,7 +143,7 @@ Cuando finaliza la creación, aparece una notificación con un vínculo a la nue
 ![captura de pantalla de la instancia de Azure HPC Cache en Azure Portal](media/hpc-cache-new-overview.png)
 
 > [!NOTE]
-> Si la memoria caché usa claves de cifrado administradas por el cliente, la memoria caché podría aparecer en la lista de recursos antes de que el estado de implementación cambie a Completo. Tan pronto como el estado de la memoria caché sea **Waiting for key** (Esperando la clave), puede [autorizarla](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) para usar el almacén de claves.
+> Si la memoria caché usa claves de cifrado administradas por el cliente y requiere un paso de autorización manual después de la creación, la memoria caché podría aparecer en la lista de recursos antes de que el estado de implementación cambie a completo. Tan pronto como el estado de la memoria caché sea **Waiting for key** (Esperando la clave), puede [autorizarla](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) para usar el almacén de claves.
 
 ## <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -120,8 +163,7 @@ Especifique estos valores:
 * Región de Azure
 * Subred de la caché, con este formato:
 
-  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
-nets/<cache_subnet_name>"``
+  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"``
 
   La subred de la caché necesita al menos 64 direcciones IP (/24) y no puede hospedar ningún otro recurso.
 
@@ -137,8 +179,8 @@ nets/<cache_subnet_name>"``
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 GB    | sí         | No          | No          |
-  | 6144 GB    | sí         | sí         | No          |
-  | 12288 GB   | sí         | sí         | sí         |
+  | 6144 GB    | sí         | Sí         | No          |
+  | 12288 GB   | sí         | Sí         | sí         |
   | 24576 GB   | No          | sí         | sí         |
   | 49152 GB   | No          | No          | sí         |
 
@@ -225,8 +267,7 @@ Proporcione estos valores:
 * Región de Azure
 * Subred de la caché, con este formato:
 
-  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
-nets/<cache_subnet_name>"`
+  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"`
 
   La subred de la caché necesita al menos 64 direcciones IP (/24) y no puede hospedar ningún otro recurso.
 
@@ -242,8 +283,8 @@ nets/<cache_subnet_name>"`
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 GB    | sí         | No          | No          |
-  | 6144 GB    | sí         | sí         | no          |
-  | 12,288 GB   | sí         | sí         | sí         |
+  | 6144 GB    | sí         | Sí         | no          |
+  | 12,288 GB   | sí         | Sí         | sí         |
   | 24,576 GB   | no          | sí         | sí         |
   | 49,152 GB   | no          | No          | sí         |
 
@@ -293,4 +334,4 @@ El mensaje incluye alguna información útil, incluidos estos elementos:
 Después de que la memoria caché aparezca en la lista **Recursos**, puede avanzar al paso siguiente.
 
 * [Defina los destinos de almacenamiento](hpc-cache-add-storage.md) para otorgar a la memoria caché acceso a los orígenes de datos.
-* Si usa claves de cifrado administradas por el cliente, debe [autorizar el cifrado de Azure Key Vault](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) en la página de información general de la memoria caché para completar la configuración de la memoria caché. Debe completar este paso para poder agregar almacenamiento. Para obtener más información, lea [Uso de claves de cifrado administradas por el cliente](customer-keys.md).
+* Si usa claves de cifrado administradas por el cliente y debe [autorizar el cifrado de Azure Key Vault](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) en la página de información general de la memoria caché para completar la configuración de la memoria caché, siga las instrucciones de [Uso de claves de cifrado administradas por el cliente](customer-keys.md). Debe completar este paso para poder agregar almacenamiento.

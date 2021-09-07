@@ -3,12 +3,12 @@ title: Personalización de los inicios y cierres de sesión
 description: Use la autenticación y autorización integradas en App Service y, al mismo tiempo, personalice el comportamiento de inicio y cierre de sesión.
 ms.topic: article
 ms.date: 03/29/2021
-ms.openlocfilehash: bdb100afa821aa08fb831aac53b1eb80cdda043e
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 80ad2725419db590cb470f5b7809c675090b37bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429545"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743901"
 ---
 # <a name="customize-sign-in-and-sign-out-in-azure-app-service-authentication"></a>Personalización del inicio y cierre de sesión en la autenticación de Azure App Service
 
@@ -34,10 +34,10 @@ En la página de inicio de sesión, en la barra de navegación o en cualquier ot
 
 Cuando el usuario haga clic en uno de los vínculos, la página de inicio de sesión correspondiente se abrirá para que el usuario inicie sesión.
 
-Para redirigir al usuario después del inicio de sesión a una dirección URL personalizada, use el parámetro de cadena de consulta `post_login_redirect_uri` (que no debe confundirse con el URI de redireccionamiento den su configuración de proveedor de identidades). Por ejemplo, para redirigir al usuario a `/Home/Index` después de iniciar sesión, utilice el siguiente código HTML:
+Para redirigir al usuario después del inicio de sesión a una dirección URL personalizada, use el parámetro de cadena de consulta `post_login_redirect_url` (que no debe confundirse con el URI de redireccionamiento den su configuración de proveedor de identidades). Por ejemplo, para redirigir al usuario a `/Home/Index` después de iniciar sesión, utilice el siguiente código HTML:
 
 ```html
-<a href="/.auth/login/<provider>?post_login_redirect_uri=/Home/Index">Log in</a>
+<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
 ## <a name="client-directed-sign-in"></a>Inicio de sesión dirigido por el cliente

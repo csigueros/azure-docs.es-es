@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: f71084e9c13bd1a30f5d5f01a04172671074db03
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 5ba7559cdcfbb4f02ee99be6dce7997d7451f3e1
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525217"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674424"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
 
 ## <a name="server-parameters"></a>Parámetros del servidor
@@ -58,7 +61,8 @@ No se admite lo siguiente:
 - `LOAD_FILE(file_name)`: no se admite en el servicio.
 
 ### <a name="supported"></a>Compatible
-- `LOAD DATA INFILE` es compatible, pero el parámetro `[LOCAL]` debe especificarse y dirigirse a una ruta de acceso UNC (Azure Storage montado a través de SMB).
+- `LOAD DATA INFILE` es compatible, pero el parámetro `[LOCAL]` debe especificarse y dirigirse a una ruta de acceso UNC (Azure Storage montado a través de SMB). Además, si usa una versión de cliente de MySQL igual o superior a 8.0, debe incluir el parámetro `-–local-infile=1` en la cadena de conexión.
+
 
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 
@@ -66,8 +70,8 @@ No se admite lo siguiente:
 - El escalado dinámico hacia y desde planes de tarifa Básico no se admite en este momento.
 - La reducción del tamaño de almacenamiento del servidor no se admite.
 
-### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
-- La migración automatizada entre versiones principales del motor de base de datos no se admite en este momento. Si quiere actualizar a la siguiente versión principal, realice un [volcado y restáurelo](./concepts-migrate-dump-restore.md) a un servidor que se haya creado con la nueva versión del motor.
+### <a name="major-version-upgrades"></a>Actualizaciones de versiones principales
+- [La actualización de la versión principal solo se admite para las actualizaciones de la versión 5.6 a la versión 5.7](how-to-major-version-upgrade.md). Todavía no se admiten las actualizaciones a v8.0.
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 - Al usar la característica PITR, el nuevo servidor se crea con la misma configuración que el servidor en el que se basa.
@@ -77,7 +81,7 @@ No se admite lo siguiente:
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 
 ### <a name="storage-size"></a>Tamaño de almacenamiento
-- Consulte [Planes de tarifa](concepts-pricing-tiers.md) para obtener los límites de tamaño de almacenamiento para cada plan de tarifa.
+- Consulte [Planes de tarifa](concepts-pricing-tiers.md#storage) para obtener los límites de tamaño de almacenamiento para cada plan de tarifa.
 
 ## <a name="current-known-issues"></a>Problemas conocidos actualmente
 - La instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.

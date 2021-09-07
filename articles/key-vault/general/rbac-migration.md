@@ -8,29 +8,29 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a369ed26ca91dbf951b28b99250c6307608c5eb3
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 75a6064ba44f803837719e0cb1f574d4295f8ac4
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749085"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732897"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migración desde la directiva de acceso de almacén a un modelo de permisos de control de acceso basado en rol de Azure
 
-El modelo de directiva de acceso de almacén es un sistema de autorización existente integrado en Key Vault que sirve para proporcionar acceso a claves, secretos y certificados. Puede controlar el acceso mediante la asignación de permisos individuales a la entidad de seguridad (usuario, grupo, entidad de servicio e identidad administrada) en el ámbito de Key Vault. 
+El modelo de directiva de acceso de almacén es un sistema de autorización existente integrado en Key Vault que sirve para proporcionar acceso a claves, secretos y certificados. Puede controlar el acceso mediante la asignación de permisos individuales a entidades de seguridad (usuario, grupo, entidad de servicio e identidad administrada) en el ámbito de Key Vault. 
 
-El control de acceso basado en rol de Azure es un sistema de autorización basado en [Azure Resource Manager](../../azure-resource-manager/management/overview.md) que proporciona administración de acceso específico a los recursos de Azure. Con Azure RBAC, puede controlar el acceso a los recursos mediante la creación de asignaciones de roles, que consta de tres elementos: entidad de seguridad, definición de roles (conjunto predefinido de permisos) y ámbito (grupo de recursos o recurso individual). Para más información, consulte [Control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+El control de acceso basado en rol de Azure es un sistema de autorización basado en [Azure Resource Manager](../../azure-resource-manager/management/overview.md) que proporciona administración de acceso específico a los recursos de Azure. Con Azure RBAC, puede controlar el acceso a los recursos mediante la creación de asignaciones de roles, que constan de tres elementos: una entidad de seguridad, una definición de roles (conjunto predefinido de permisos) y un ámbito (grupo de recursos o recurso individual). Para más información, consulte [Control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 Antes de migrar a Azure RBAC, es importante comprender sus ventajas y limitaciones.
 
 Ventajas clave de Azure RBAC en comparación con las directivas de acceso de almacén:
-- Proporciona un modelo de control de acceso unificado para los recursos de Azure: la misma API en los servicios de Azure.
+- Proporciona un modelo de control de acceso unificado para los recursos de Azure mediante el uso de la misma API en los servicios de Azure.
 - Administración de acceso centralizada para administradores: administrar todos los recursos de Azure en una sola vista.
 - Integración con [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) para el control de acceso basado en el tiempo.
-- Asignaciones de denegación: capacidad de excluir la entidad de seguridad en un ámbito concreto. Para información, vea [Descripción de las asignaciones de denegación de Azure](../../role-based-access-control/deny-assignments.md).
+- Asignaciones de denegación: capacidad de excluir entidades de seguridad en un ámbito concreto. Para información, vea [Descripción de las asignaciones de denegación de Azure](../../role-based-access-control/deny-assignments.md).
 
 Desventajas de Azure RBAC:
-- Latencia de las asignaciones de roles: la asignación de roles puede tardar varios minutos en aplicarse. Las directivas de acceso de almacén se asignan al instante.
+- Latencia de las asignaciones de roles: las asignaciones de roles pueden tardar varios minutos en aplicarse. Las directivas de acceso de almacén se asignan al instante.
 - Número limitado de asignaciones de roles: 2000 asignaciones de roles por suscripción frente a 1024 directivas de acceso por instancia de Key Vault.
 
 ## <a name="access-policies-to-azure-roles-mapping"></a>Directivas de acceso para la asignación de roles de Azure
@@ -51,7 +51,7 @@ Para más información sobre los roles integrados existentes, vea [Roles integra
 
 Se pueden asignar directivas de acceso de almacén con permisos seleccionados individualmente o con plantillas de permisos predefinidas.
 
-Plantillas de permisos predefinidas de directivas de acceso:
+Plantillas de permisos predefinidas de directiva de acceso:
 - Administración de claves, secretos y certificados
 - Administración de claves y secretos
 - Administración de secretos y certificados
@@ -65,7 +65,7 @@ Plantillas de permisos predefinidas de directivas de acceso:
 - Clave de cliente de SharePoint Online
 - BYOK para información de Azure
 
-### <a name="access-policies-templates-to-azure-roles-mapping"></a>Plantillas de directivas de acceso para la asignación de roles de Azure
+### <a name="access-policy-templates-to-azure-roles-mapping"></a>Plantillas de directiva de acceso para la asignación de roles de Azure
 | Plantilla de directiva de acceso | Operations | Rol de Azure |
 | --- | --- | --- |
 | Administración de claves, secretos y certificados | Claves: todas las operaciones <br>Certificados: todas las operaciones<br>Secretos: todas las operaciones | Administrador de Key Vault |
@@ -91,7 +91,7 @@ Azure RBAC para Key Vault permite la asignación de roles en los siguientes ámb
 - Recurso de Key Vault
 - Clave, secreto y certificado individuales
 
-El modelo de permisos de la directiva de acceso de almacén está limitado a asignar la directiva solo al nivel de recurso de Key Vault, que: 
+El modelo de permisos de la directiva de acceso de almacén está limitado a asignar directivas solo en el nivel de recursos de Key Vault.
 
 En general, se recomienda tener un almacén de claves por aplicación y administrar el acceso al nivel de almacén de claves. Hay escenarios en los que la administración del acceso en otros ámbitos puede simplificar la administración del acceso.
 

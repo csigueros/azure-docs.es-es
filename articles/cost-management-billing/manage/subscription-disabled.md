@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 07/15/2021
 ms.author: banders
-ms.openlocfilehash: aad194babdf539584f3e349e8050105ed801bbf0
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 1e669a794abe848d326a6d08156621dcf3883ec5
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331743"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292244"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reactivación de una suscripción deshabilitada de Azure
 
@@ -60,6 +60,10 @@ Para otros tipos de suscripción, [póngase en contacto con soporte técnico](ht
 ## <a name="after-reactivation"></a>Después de la reactivación
 
 Una vez reactivada la suscripción, puede haber un retraso en la creación o la administración de recursos. Si el retraso supera los 30 minutos, póngase en contacto con el [soporte técnico de facturación de Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para obtener ayuda. La mayoría de los recursos de Azure se reanudan automáticamente y no requieren ninguna acción. Sin embargo, es aconsejable que compruebe los recursos de sus servicios de Azure y que reinicie los que no se reanuden automáticamente.
+
+## <a name="upgrade-a-disabled-free-account"></a>Actualización de una cuenta gratuita deshabilitada
+
+Si usa recursos que no son gratuitos y la suscripción se deshabilita porque se queda sin crédito y, a continuación, actualiza la suscripción, los recursos se habilitan después de la actualización. Esta situación dará lugar a que se le cobre por los recursos usados. Para más información sobre cómo actualizar una cuenta gratuita, consulte [Actualización de la cuenta de Azure](upgrade-azure-subscription.md).
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

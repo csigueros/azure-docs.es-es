@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3278e210daf1995366ff4d18cf5a3d3d8f7b344d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: a9193b71f2634e2cf9ac5970fb6f9fe2a965dc93
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538937"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458263"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Actualización desde DirSync
 Azure AD Connect es el sucesor de DirSync. En este tema, se explican distintas formas de realizar actualizaciones desde DirSync. Estos pasos no funcionan para la actualización desde otra versión de Azure AD Connect ni desde Sincronización de Azure AD.
@@ -158,7 +158,7 @@ Al instalar Azure AD Connect en un nuevo servidor, se presupone que se desea rea
 5. Seleccione el archivo de configuración exportado desde la instalación de DirSync.
 6. Configure las opciones avanzadas, que se incluyen:
    * Una ubicación de instalación personalizada para Azure AD Connect.
-   * Una instancia existente de SQL Server (valor predeterminado: Azure AD Connect instala SQL Server 2012 Express). No use la misma instancia de base de datos como servidor de DirSync.
+   * Una instancia existente de SQL Server (de forma predeterminada, Azure AD Connect instala SQL Server 2019 Express). No use la misma instancia de base de datos como servidor de DirSync.
    * Una cuenta de servicio usada para conectarse a SQL Server (si la base de datos de SQL Server es remota, esta cuenta debe ser una cuenta de servicio de dominio).
      Estas opciones se pueden ver en esta pantalla:  
      ![Captura de pantalla que muestra las opciones de configuración avanzada para actualizar desde DirSync.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)

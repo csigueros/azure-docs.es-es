@@ -1,6 +1,6 @@
 ---
-title: 'Guía de migración de MySQL local a Azure Database for MySQL: migración de datos con MySQL Workbench'
-description: Siga todas las instrucciones de la guía de instalación para crear un entorno que admita los pasos siguientes.
+title: 'Migración de MySQL local a Azure Database for MySQL: migración de datos con MySQL Workbench'
+description: Siga todos los pasos de la guía de instalación para crear un entorno que admita los pasos siguientes.
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 485a377decee390701cb43a99bd47e96f29f1f55
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 2b3dc8702251a6fcc53386cb17cbe44a45e59db2
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082927"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292974"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-data-migration-with-mysql-workbench"></a>Guía de migración de MySQL local a Azure Database for MySQL: migración de datos con MySQL Workbench
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-data-migration-with-mysql-workbench"></a>Migración de MySQL local a Azure Database for MySQL: migración de datos con MySQL Workbench
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -32,7 +34,7 @@ En función del tipo de migración que haya elegido (sin conexión o en línea),
 
 ## <a name="configuring-server-parameters-target"></a>Configuración de los parámetros de servidor (destino)
 
-Revise los parámetros de servidor antes de iniciar el proceso de importación en Azure Database for MySQL. Los parámetros de servidor se pueden recuperar y establecer mediante [Azure Portal](/azure/mysql/howto-server-parameters) o llamando a los [cmdlets de Azure PowerShell para MySQL](/azure/mysql/howto-configure-server-parameters-using-powershell) para realizar los cambios.
+Revise los parámetros de servidor antes de iniciar el proceso de importación en Azure Database for MySQL. Los parámetros de servidor se pueden recuperar y establecer mediante [Azure Portal](../../howto-server-parameters.md) o llamando a los [cmdlets de Azure PowerShell para MySQL](../../howto-configure-server-parameters-using-powershell.md) para realizar los cambios.
 
 Ejecute el siguiente script de PowerShell para obtener todos los parámetros:
 
@@ -47,10 +49,10 @@ $serverName = "{SERVER\_NAME}";
 Get-AzMySqlConfiguration -ResourceGroupName $rgName -ServerName $serverName
 ```
 
-- Para hacer lo mismo con la herramienta mysql, descargue la [certificación raíz de la entidad de certificación](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) en c:\\temp (cree este directorio).
+- Para hacer lo mismo con la herramienta mysql, descargue la [certificación raíz de la entidad de certificación](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) en c:\\temp (crear este directorio).
 
     > [!NOTE]
-    > El certificado está sujeto a cambios. Para conocer la última información sobre los certificados, consulte [Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MySQL](/azure/mysql/howto-configure-ssl).
+    > Recuerde que el certificado está sujeto a cambios. Para conocer la última información sobre los certificados, consulte [Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MySQL](../../howto-configure-ssl.md).
     
 - Ejecute el siguiente código en un símbolo del sistema y asegúrese de actualizar los tokens:
 
@@ -66,7 +68,7 @@ Para respaldar la migración, establezca los parámetros de la instancia de MySQ
 
 - `max\_allowed\_packet`: establezca el parámetro en `1073741824` (es decir, 1 GB) o el tamaño más grande de una fila de la base de datos para evitar problema de desbordamiento debido a filas largas. Considere la posibilidad de ajustar este parámetro si hay filas BLOB de gran tamaño que se deban extraer (o leer).
 
-- `innodb\_buffer\_pool\_size`: escale verticalmente el servidor a una SKU optimizada para memoria de 32 núcleos virtuales del plan de tarifa del portal durante la migración para aumentar el tamaño de innodb\_buffer\_pool\_size. El valor de innodb\_buffer\_pool\_size solo se puede aumentar escalando verticalmente el proceso del servidor de Azure Database for MySQL. Consulte [Parámetros de servidor de Azure Database for MySQL](/azure/mysql/concepts-server-parameters#innodb_buffer_pool_size) para conocer el valor máximo del plan. El valor máximo de un sistema de 32 núcleos virtuales optimizados para memoria es `132070244352`.
+- `innodb\_buffer\_pool\_size`: escale verticalmente el servidor a una SKU optimizada para memoria de 32 núcleos virtuales del plan de tarifa del portal durante la migración para aumentar el tamaño de innodb\_buffer\_pool\_size. El valor de innodb\_buffer\_pool\_size solo se puede aumentar escalando verticalmente el proceso del servidor de Azure Database for MySQL. Consulte [Parámetros de servidor de Azure Database for MySQL](../../concepts-server-parameters.md#innodb_buffer_pool_size) para conocer el valor máximo del plan. El valor máximo de un sistema de 32 núcleos virtuales optimizados para memoria es `132070244352`.
 
 - `innodb\_io\_capacity` & `innodb\_io\_capacity\_max`: cambie el parámetro por `9000` para mejorar la utilización de E/S y así optimizar la velocidad de migración.
 
@@ -109,7 +111,7 @@ Una vez que se han migrado los objetos de base de datos y los usuarios del siste
 
 - En \*\*Administración\*\*, seleccione \*\*Exportación de datos\*\*. Seleccione el esquema **reg\_app**.
 
-- En **Objects to Export** (Objetos para exportar), seleccione **Dump Stored Procedures and Functions** (Volcar procedimientos y funciones almacenados), **Dump Events** (Volcar eventos) y **Dump Triggers** (Volcar desencadenadores).
+- En **Objetos para exportar**, seleccione **Dump Stored Procedures and Functions** (Volcar procedimientos y funciones almacenados), **Dump Events** (Volcar eventos) y **Dump Triggers** (Volcar desencadenadores).
 
 - En **Export Options** (Opciones de exportación), seleccione **Export to Self-Contained File** (Exportar a archivo autocontenido).
 
@@ -172,7 +174,7 @@ Una vez que se han migrado los objetos de base de datos y los usuarios del siste
 
 - Guarde el archivo **launch.json**.
 
-- Actualice **DB\_CONNECTION\_URL** a `jdbc:mysql://serverDNSname:3306/reg\_app?useUnicode=true\&useJDBCCompliantT imezoneShift=true\&useLegacyDatetimeCode=false\&serverTimezone=UTC\&verifySe rverCertificate=true\&useSSL=true\&requireSSL=true\&noAccessToProcedureBodie s=true.`. Observe los parámetros SSL adicionales.
+- Actualice **DB\_CONNECTION\_URL** a `jdbc:mysql://serverDNSname:3306/reg\_app?useUnicode=true\&useJDBCCompliantT imezoneShift=true\&useLegacyDatetimeCode=false\&serverTimezone=UTC\&verifySe rverCertificate=true\&useSSL=true\&requireSSL=true\&noAccessToProcedureBodie s=true.` y observe los parámetros SSL adicionales.
 
 - Actualice **DB\_USER\_NAME** a **conferenceuser@servername** .
 
@@ -180,7 +182,7 @@ Una vez que se han migrado los objetos de base de datos y los usuarios del siste
 
 ## <a name="revert-server-parameters"></a>Reversión de los parámetros de servidor
 
-Los parámetros siguientes se pueden cambiar en la instancia de destino de Azure Database for MySQL. Estos parámetros se pueden establecer mediante Azure Portal o los [cmdlets de Azure PowerShell para MySQL](/azure/mysql/howto-configure-server-parameters-using-powershell).
+Los parámetros siguientes se pueden cambiar en la instancia de destino de Azure Database for MySQL. Estos parámetros se pueden establecer mediante Azure Portal o los [cmdlets de Azure PowerShell para MySQL](../../howto-configure-server-parameters-using-powershell.md).
 
 ```
 $rgName = "YourRGName";
@@ -215,6 +217,8 @@ az webapp restart -g $rgName -n $app\_name
 ```
 Ha completado correctamente una migración del entorno local a Azure Database for MySQL\!.  
 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Administración posterior a la migración](./10-post-migration-management.md)

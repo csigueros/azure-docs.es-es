@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 59cb8290809df877e6faf374026db5aa3011e81b
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/30/2021
+ms.openlocfilehash: 3ccbe4cfa7b6e4f485d16ffecbda5c3b7042b8e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984201"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745149"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: Servidor flexible
 
@@ -49,6 +49,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | Agregador y enumerador de enteros. (Obsoleto)|
 > |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | Funciones, operadores e índices compatibles con matrices 1D de números enteros|
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | Tipos de datos para los estándares internacionales de numeración de productos|
+> |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | Mantenimiento de objetos grandes |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | Inspección del contenido de páginas de bases de datos a un nivel bajo.|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | Examina la caché del búfer compartido|
@@ -61,6 +62,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | Examen del mapa de visibilidad (VM) y la información de visibilidad de nivel de página.|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | Proporciona funcionalidad de auditoría|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | Funciones de cifrado| 
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Replicación de streaming lógica |
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | Muestra información de bloqueo de nivel de fila|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | Muestra estadísticas de nivel de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | Lenguaje de procedimientos de PL/pgSQL|
@@ -100,6 +102,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | Agregador y enumerador de enteros. (Obsoleto)|
 > |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | Funciones, operadores e índices compatibles con matrices 1D de números enteros|
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | Tipos de datos para los estándares internacionales de numeración de productos|
+> |[lo](https://www.postgresql.org/docs/12/lo.html)                            | 1.1             | Mantenimiento de objetos grandes |
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | Inspección del contenido de páginas de bases de datos a un nivel bajo.|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | Examina la caché del búfer compartido|
@@ -112,6 +115,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | Examen del mapa de visibilidad (VM) y la información de visibilidad de nivel de página.|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | Proporciona funcionalidad de auditoría|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | Funciones de cifrado|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Replicación de streaming lógica |
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | Muestra información de bloqueo de nivel de fila|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Muestra estadísticas de nivel de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Lenguaje de procedimientos de PL/pgSQL|
@@ -151,6 +155,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | Agregador y enumerador de enteros. (Obsoleto)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | Funciones, operadores e índices compatibles con matrices 1D de números enteros|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | Tipos de datos para los estándares internacionales de numeración de productos|
+> |[lo](https://www.postgresql.org/docs/11/lo.html)                            | 1.1             | Mantenimiento de objetos grandes |
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | Inspección del contenido de páginas de bases de datos a un nivel bajo.|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | Examina la caché del búfer compartido|
@@ -163,6 +168,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | Examen del mapa de visibilidad (VM) y la información de visibilidad de nivel de página.|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | Proporciona funcionalidad de auditoría|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | Funciones de cifrado|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Replicación de streaming lógica |
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Muestra información de bloqueo de nivel de fila|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Muestra estadísticas de nivel de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Lenguaje de procedimientos de PL/pgSQL|

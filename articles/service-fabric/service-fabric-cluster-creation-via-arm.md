@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo configurar un clúster de Service 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3f3d76b1cea2e1ed06f50bbdfbf4343972bc3945
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 7323f6762fe6c55f1ab548f1c8196ee761014a2d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671055"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463905"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -57,16 +57,14 @@ Use los siguientes comandos para crear un clúster protegido con un certificado 
 
 ### <a name="use-the-default-cluster-template-that-ships-in-the-module"></a>Uso de la plantilla de clúster predeterminada que se incluye con el módulo
 
-Use el siguiente comando para crear un clúster rápidamente, con solo los parámetros mínimos, con la plantilla predeterminada.
+Puede usar los siguientes comandos de PowerShell o la CLI de Azure para crear un clúster rápidamente mediante la plantilla predeterminada.
 
-La plantilla que se usa está disponible en las [plantillas de ejemplo de Azure Service Fabric: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
+La plantilla predeterminada usada está disponible aquí para [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y aquí para [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
-El comando siguiente puede crear clústeres Windows o Linux; debe especificar el sistema operativo según corresponda. Los comandos de PowerShell y de la CLI también generan el certificado en la *CertificateOutputFolder* especificada; no obstante, asegúrese de que la carpeta de certificados ya esté creada. El comando toma también otros parámetros, como la SKU de VM.
+Los siguientes comandos pueden crear clústeres de Windows o Linux, en función de cómo especifique el parámetro del sistema operativo. Ambos comandos de PowerShell o la CLI devuelven el certificado en la carpeta *CertificateOutputFolder* especificada (asegúrese de que la ubicación de la carpeta del certificado que especifique ya existe antes de ejecutar el comando).
 
 > [!NOTE]
-> El siguiente comando de PowerShell solo funciona con el módulo `Az` de Azure PowerShell. Para comprobar la versión actual de PowerShell de Azure Resource Manager, ejecute el siguiente comando de PowerShell "Get-Module Az". Siga [este vínculo](/powershell/azure/install-Az-ps) para actualizar la versión de PowerShell de Azure Resource Manager. 
->
->
+> El siguiente comando de PowerShell solo funciona con el módulo `Az` de Azure PowerShell. Para comprobar la versión actual de PowerShell de Azure Resource Manager, ejecute el siguiente comando de PowerShell "Get-Module Az". Siga [este vínculo](/powershell/azure/install-Az-ps) para actualizar la versión de PowerShell de Azure Resource Manager.
 
 Implemente el clúster mediante PowerShell:
 
@@ -158,12 +156,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## <a name="create-a-new-cluster-using-your-own-x509-certificate"></a>Creación de un nuevo clúster con su propio certificado X.509
 
-Si tiene un certificado que quiere usar para proteger el clúster, use el siguiente comando para crear el clúster.
+Puede usar el siguiente comando para especificar un certificado existente con el que crear y proteger un nuevo clúster.
 
 Si es un certificado firmado por una entidad de certificación que terminará usándose también para otros fines, se recomienda proporcionar un grupo de recursos distinto específicamente para su almacén de claves. Se recomienda colocar el almacén de claves en su propio grupo de recursos. Esto le permite quitar los grupos de recursos de proceso y almacenamiento, incluido el grupo de recursos que tiene el clúster de Service Fabric, sin perder las claves y los secretos. **El grupo de recursos que contiene el almacén de claves *debe estar en la misma región* que el clúster que lo usa.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Uso de la plantilla predeterminada de cinco nodos, un tipo de nodo que se incluye con el módulo
-La plantilla que se usa está disponible en las [plantillas de Azure: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
+
+La plantilla predeterminada usada está disponible aquí para [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y aquí para [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
 Implemente el clúster mediante PowerShell:
 
@@ -285,7 +284,7 @@ En este punto, tiene un clúster seguro que se ejecuta en Azure. Después, [con�
 Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consulte la referencia de la plantilla [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
+[azure-powershell]:/powershell/azure/install-Az-ps
+[azure-CLI]:/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md
