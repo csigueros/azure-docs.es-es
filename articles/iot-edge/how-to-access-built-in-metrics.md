@@ -2,31 +2,32 @@
 title: 'Acceso a las métricas integradas: Azure IoT Edge'
 description: Acceso remoto a métricas integradas desde los componentes de entorno de ejecución de Azure IoT Edge
 author: v-tcassi
-manager: philmea
 ms.author: v-tcassi
-ms.date: 10/05/2020
+ms.date: 06/25/2021
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a78db821c0fab01ad5d6752216a8f7682fb2c46
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ee4c39b7dfc4097480588620465eedd40eba53f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200498"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743322"
 ---
 # <a name="access-built-in-metrics"></a>Acceso a las métricas integradas
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Los componentes de entorno de ejecución de Azure IoT Edge, IoT Edge Hub y IoT Edge Agent generan métricas integradas en el [formato de exposición de Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Obtenga acceso a estas métricas de forma remota para supervisar y comprender el estado de un dispositivo IoT Edge.
+Los componentes de entorno de ejecución de Azure IoT Edge, centro de IoT Edge y agente de IoT Edge generan métricas integradas en el [formato de exposición de Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Obtenga acceso a estas métricas de forma remota para supervisar y comprender el estado de un dispositivo IoT Edge.
+
+Puede usar su propia solución para acceder a estas métricas. O bien, puede usar el [módulo del recopilador de métricas](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector), que controla la recopilación de las métricas integradas y su envío a Azure Monitor o Azure IoT Hub. Para más información, consulte [Recopilación y transporte de métricas](how-to-collect-and-transport-metrics.md).
 
 A partir de la versión 1.0.10, las métricas se exponen automáticamente de manera predeterminada en el **puerto 9600** de los módulos **edgeHub** y **edgeAgent** (`http://edgeHub:9600/metrics` y `http://edgeAgent:9600/metrics`). No se asignan por puertos al host de manera predeterminada.
 
 Para acceder a las métricas desde el host, exponga y asigne el puerto de las métricas desde `createOptions` del módulo. En el ejemplo siguiente se asigna el puerto de métricas predeterminado al puerto 9601 en el host:
 
-```
+```json
 {
   "ExposedPorts": {
     "9600/tcp": {}
@@ -116,5 +117,6 @@ El módulo **edgeAgent** genera las métricas siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Recopilación y transporte de métricas](how-to-collect-and-transport-metrics.md)
 * [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md)
 * [Propiedades de los módulos gemelos del agente de IoT Edge y del centro de IoT Edge](module-edgeagent-edgehub.md)

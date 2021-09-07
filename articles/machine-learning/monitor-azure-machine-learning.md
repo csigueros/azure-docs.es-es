@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: e5fd0fdd5a6f9a4a7537a844b096efdfef253638
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: c0f35290aa653d5b9e9be9f1a9a0184854509889
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816861"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862215"
 ---
 # <a name="monitor-azure-machine-learning"></a>Supervisión de Azure Machine Learning
 
@@ -29,7 +29,7 @@ Si tiene aplicaciones y procesos empresariales críticos que dependen de recurso
 > * [Seguimiento de experimentos con MLflow](how-to-use-mlflow.md)
 > * [Visualización de ejecuciones con TensorBoard](how-to-monitor-tensorboard.md)
 >
-> Si quiere supervisar la información generada por los modelos implementados como servicios web o módulos de IoT Edge, consulte [Recopilación de datos de modelos](how-to-enable-data-collection.md) y [Supervisión con Application Insights](how-to-enable-app-insights.md).
+> Si quiere supervisar la información generada por los modelos implementados como servicios web, consulte [Recopilación de datos de modelos](how-to-enable-data-collection.md) y [Supervisión con Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="what-is-azure-monitor"></a>¿Qué es Azure Monitor?
 
@@ -60,9 +60,9 @@ Consulte [Referencia de datos de supervisión de Azure Machine Learning](monitor
 
 Las métricas de la plataforma y el registro de actividad se recopilan y almacenan de forma automática, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico.  
 
-Los registros de recursos no se recopilan ni almacenan hasta que se crea una configuración de diagnóstico y se enrutan a una o varias ubicaciones.
+Los registros de recursos no se recopilan ni almacenan hasta que se crea una configuración de diagnóstico y se enrutan a una o varias ubicaciones. Cuando tenga que administrar varias áreas de trabajo de Azure Machine Learning, puede enrutar los registros de todas las áreas de trabajo al mismo destino de registro y consultar todos los registros desde un solo lugar.
 
-Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/essentials/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell. Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar. Las categorías de Azure Machine Learning se muestran en la [Referencia de datos de supervisión de Azure Machine Learning](monitor-resource-reference.md#resource-logs).
+Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/essentials/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante Azure Portal, la CLI de Azure o PowerShell. Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar. Las categorías de Azure Machine Learning se muestran en la [Referencia de datos de supervisión de Azure Machine Learning](monitor-resource-reference.md#resource-logs).
 
 > [!IMPORTANT]
 > La habilitación de esta configuración requiere servicios adicionales de Azure (cuenta de almacenamiento, centro de eventos o Log Analytics), lo que puede aumentar el costo. Para calcular un costo estimado, visite la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator).
@@ -74,6 +74,7 @@ Puede configurar los siguientes registros para Azure Machine Learning:
 | AmlComputeClusterEvent | Eventos de clústeres de proceso de Azure Machine Learning. |
 | AmlComputeClusterNodeEvent | Eventos de nodos dentro de un clúster de proceso de Azure Machine Learning. |
 | AmlComputeJobEvent | Eventos de trabajos en ejecución en un proceso de Azure Machine Learning. |
+
 
 > [!NOTE]
 > Cuando se habilitan las métricas en una configuración de diagnóstico, la información de dimensión no se incluye actualmente como parte de la información que se envía a una cuenta de almacenamiento, a un centro de eventos o al análisis de registros.
@@ -111,9 +112,20 @@ Los datos de los registros de Azure Monitor se almacenan en tablas, cada tabla t
 
 | Tabla | Descripción |
 |:---|:---|
-| AmlComputeClusterEvent | Eventos de clústeres de proceso de Azure Machine Learning. |
+| AmlComputeClusterEvent | Eventos de clústeres de proceso de Azure Machine Learning.|
 | AmlComputeClusterNodeEvent | Eventos de nodos dentro de un clúster de proceso de Azure Machine Learning. |
 | AmlComputeJobEvent | Eventos de trabajos en ejecución en un proceso de Azure Machine Learning. |
+| AmlComputeInstanceEvent | Eventos cuando se accede a la instancia de proceso de ML (lectura/escritura). Categoría includes:ComputeInstanceEvent (very chatty). |
+| AmlDataLabelEvent | Eventos cuando se accede a las etiquetas de datos o a sus proyectos (lectura, creación o eliminación). Categoría includes:DataLabelReadEvent,DataLabelChangeEvent.  |
+| AmlDataSetEvent | Eventos cuando se accede a un conjunto de datos de ML registrado o no registrado (lectura, creación o eliminación). Categoría includes:DataSetReadEvent,DataSetChangeEvent. |
+| AmlDataStoreEvent | Eventos cuando se accede al almacén de datos de ML (lectura, creación o eliminación). Categoría includes:DataStoreReadEvent,DataStoreChangeEvent. |
+| AmlDeploymentEvent | Eventos cuando se produce una implementación de modelo en ACI o AKS. Categoría includes:DeploymentReadEvent,DeploymentEventACI,DeploymentEventAKS. |
+| AmlInferencingEvent | Eventos para la inferencia u operación relacionada en el tipo de proceso de AKS o ACI. Categoría includes:InferencingOperationACI (very chatty),InferencingOperationAKS (very chatty). |
+| AmlModelsEvent | Eventos cuando se accede al modelo de ML (lectura, creación o eliminación). Incluye eventos cuando el empaquetado de modelos y recursos tiene lugar en paquetes listos para compilarse. Categoría includes:ModelsReadEvent,ModelsActionEvent.|
+| AmlPipelineEvent | Eventos cuando se accede a un borrador de canalización o punto de conexión o módulo de ML (lectura, creación o eliminación). Categoría includes:PipelineReadEvent,PipelineChangeEvent. |
+| AmlRunEvent | Eventos cuando se accede a los experimentos de ML (lectura, creación o eliminación). Categoría includes:RunReadEvent,RunEvent. |
+| AmlEnvironmentEvent | Eventos cuando se accede a las configuraciones de entorno de ML (lectura, creación o eliminación). Categoría includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
+
 
 > [!IMPORTANT]
 > Al seleccionar **Registros** en el menú Azure Machine Learning, Log Analytics se abre con el ámbito de la consulta establecido en el área de trabajo actual. Esto significa que las consultas de registro solo incluirán datos de ese recurso. Si desea ejecutar una consulta que incluya datos de otras bases de datos o de otros servicios de Azure, elija **Registros** en el menú **Azure Monitor**. Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](../azure-monitor/logs/scope.md) para obtener más información.
@@ -157,6 +169,17 @@ A continuación se muestran las consultas que puede usar para supervisar los rec
     AmlComputeClusterNodeEvent
     | where TimeGenerated > ago(8d) and NodeAllocationTime  > ago(8d)
     | distinct NodeId
+    ```
+
+Al conectar varias áreas de trabajo de Azure Machine Learning a la misma área de trabajo de Log Analytics, puede consultar en todos los recursos. 
+
++ Obtenga el número de nodos en ejecución entre áreas de trabajo y clústeres en el último día:
+
+    ```Kusto
+    AmlComputeClusterEvent
+    | where TimeGenerated > ago(1d)
+    | summarize avgRunningNodes=avg(TargetNodeCount), maxRunningNodes=max(TargetNodeCount)
+             by Workspace=tostring(split(_ResourceId, "/")[8]), ClusterName, ClusterType, VmSize, VmPriority
     ```
 
 ## <a name="alerts"></a>Alertas

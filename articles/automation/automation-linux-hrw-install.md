@@ -3,15 +3,15 @@ title: Implementación de una instancia de Hybrid Runbook Worker en Azure Automa
 description: En este artículo se describe cómo instalar Hybrid Runbook Worker de Azure Automation para ejecutar runbooks en máquinas con Linux en su centro de datos local o en su entorno en la nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/06/2021
+ms.date: 08/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d60e4964ca9ce4de4b4d8e5545875f5c47f0f809
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 1cd00a81717e95efe65402c2eb0912d2f43d89b6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854403"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744974"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -45,11 +45,11 @@ La característica Hybrid Runbook Worker admite las siguientes distribuciones. S
 
 * Amazon Linux 2012.09 a 2015.09
 * CentOS Linux 5, 6, 7 y 8
-* Oracle Linux 5, 6 y 7
+* Oracle Linux 6, 7 y 8
 * Red Hat Enterprise Linux Server 5, 6, 7 y 8
 * Debian GNU/Linux 6, 7 y 8
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS y 18.04 LTS
-* SUSE Linux Enterprise Server 12 y 15 (no se publicaron las versiones 13 y 14 de SUSE)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 18.04 y 20.04 LTS
+* SUSE Linux Enterprise Server 12, 15 y 15.1 (no se publicaron las versiones 13 ni 14 de SUSE)
 
 > [!IMPORTANT]
 > Antes de habilitar la característica Update Management, que depende del rol Hybrid Runbook Worker del sistema, confirme las distribuciones que admite [aquí](update-management/operating-system-requirements.md).
@@ -67,9 +67,11 @@ Los requisitos mínimos de un sistema Linux y una instancia de Hybrid Runbook Wo
 |Glibc |Biblioteca GNU C| 2.5-12 |
 |Openssl| Bibliotecas OpenSSL | 1.0 (se admiten TLS 1.1 y TLS 1.2)|
 |Curl | Cliente web de cURL | 7.15.5|
-|Python ctypes | Se requieren Python 2.x o Python 3.x |
+|Python ctypes | Biblioteca de funciones externas para Python| Se requieren Python 2.x o Python 3.x |
 |PAM | Módulos de autenticación conectables|
+
 | **Paquete opcional** | **Descripción** | **Versión mínima**|
+|--------------------- | --------------------- | -------------------|
 | PowerShell Core | Para ejecutar runbooks de PowerShell, es necesario instalar PowerShell Core. Consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para obtener información sobre cómo instalarlo. | 6.0.0 |
 
 ### <a name="adding-a-machine-to-a-hybrid-runbook-worker-group"></a>Adición de una máquina a un grupo de Hybrid Runbook Worker.
@@ -116,7 +118,7 @@ El procedimiento de importación se describe en detalle en [Importación de runb
 
 El runbook usa los parámetros siguientes.
 
-| Parámetro | Estado | Descripción |
+| Parámetro | Status | Descripción |
 | ------- | ----- | ----------- |
 | `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
 | `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |

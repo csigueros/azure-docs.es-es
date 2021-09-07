@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 08/03/2021
 ms.author: phjensen
-ms.openlocfilehash: 0eae929d60ce852e7a98f12430de796aa664d86f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5eae527b288570053e1e899bc776d541ffa9e60b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481456"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729231"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Instalación de la herramienta Azure Application Consistent Snapshot
 
@@ -69,9 +69,13 @@ Siga las instrucciones para configurar y ejecutar los comandos de instantáneas 
 
 ## <a name="enable-communication-with-storage"></a>Habilitación de la comunicación con el almacenamiento
 
-En esta sección se explica cómo habilitar la comunicación con el almacenamiento.
+En esta sección se explica cómo habilitar la comunicación con el almacenamiento.  
 
-### <a name="azure-netapp-files"></a>Azure NetApp Files
+Siga las instrucciones para configurar el almacenamiento para la configuración:
+1. [Azure NetApp Files (con máquina virtual)](#azure-netapp-files-with-virtual-machine) 
+1. [Instancia grande de Azure (equipo sin sistema operativo)](#azure-large-instance-bare-metal)
+
+### <a name="azure-netapp-files-with-virtual-machine"></a>Azure NetApp Files (con máquina virtual)
 
 Creación de una entidad de servicio de RBAC
 
@@ -114,7 +118,7 @@ Creación de una entidad de servicio de RBAC
 
 1. Corte y pegue el contenido de la salida en un archivo denominado `azureauth.json` almacenado en el mismo sistema que el comando `azacsnap`, y proteja el archivo con los permisos de sistema adecuados.
 
-### <a name="azure-large-instance"></a>Azure (instancias grandes)
+### <a name="azure-large-instance-bare-metal"></a>Instancia grande de Azure (equipo sin sistema operativo)
 
 La comunicación con el back-end de almacenamiento se ejecuta a través de un canal SSH cifrado. Los siguientes pasos de ejemplo sirven de guía de configuración de SSH para esta comunicación.
 

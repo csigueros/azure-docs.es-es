@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 8a64956deb7849568e70e94c9b58170df60db1e3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: cf0afce3c5495199b23059df226115154dade7f0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775752"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736101"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminación TLS con certificados de Key Vault
 
@@ -36,6 +36,9 @@ Actualmente, Application Gateway solo admite certificados validados por software
 
 > [!NOTE]
 > Azure Portal solo admite certificados de KeyVault, no secretos. Application Gateway sigue admitiendo hacer referencia a secretos desde KeyVault, pero solo a través de recursos que no son de portal, como PowerShell, la CLI, API, plantillas de ARM, etc. 
+
+> [!WARNING]
+> Azure Application Gateway actualmente solo admite cuentas de Key Vault de la misma suscripción que el recurso de Application Gateway. Si elige una instancia de Key Vault de una suscripción que no es la suya de Application Gateway, se producirá un error.
 
 ## <a name="how-integration-works"></a>Funcionamiento de la integración
 

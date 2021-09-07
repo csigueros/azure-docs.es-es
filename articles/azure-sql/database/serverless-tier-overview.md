@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein
-ms.date: 4/16/2021
-ms.openlocfilehash: 514e7e229ba1b72f2c357f6cefdd272889ed46b9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.reviewer: mathoma, wiassaf
+ms.date: 7/29/2021
+ms.openlocfilehash: ac1241b28ae85f19aa4bfdbc1a92310b64d88462
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591015"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745757"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ A diferencia de las bases de datos de proceso aprovisionadas, la memoria de la c
 
 En el caso de las bases de datos sin servidor y las de proceso aprovisionadas, se pueden expulsar entradas de la caché si se usa toda la memoria disponible.
 
-Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché activa puede ser alto en función del patrón de uso y prevenir la reclamación de memoria.  Además, puede haber retrasos adicionales después de que la actividad del usuario se detenga antes de que se produzca la recuperación de memoria, debido a que los procesos en segundo plano periódicos responden a la actividad anterior del usuario.  Por ejemplo, las operaciones de eliminación y las operaciones de limpieza de QDS generan registros fantasmas marcados para su eliminación, pero no se eliminan físicamente hasta que se ejecuta el proceso de limpieza de dichos registros, lo que puede conllevar la lectura de páginas de datos en la caché.
+Cuando el uso de la CPU es bajo, la utilización de la caché activa puede ser alto en función del patrón de uso e impedir la reclamación de memoria.  Además, puede haber otros retrasos después de que la actividad del usuario se detenga antes de que se produzca la reclamación de la memoria debido a los procesos en segundo plano periódicos que responden a la actividad anterior del usuario.  Por ejemplo, las operaciones de eliminación y las tareas de limpieza del Almacén de consultas generan registros fantasma que se marcan para su eliminación, pero no se eliminan físicamente hasta que se ejecuta el proceso de limpieza de registros fantasma. La limpieza de registros fantasma puede suponer la lectura de páginas de datos adicionales en la caché.
 
 #### <a name="cache-hydration"></a>Hidratación de la memoria caché
 
@@ -110,19 +110,58 @@ La memoria caché de SQL crece a medida que se capturan datos del disco de la mi
 La pausa automática se desencadena si todas las condiciones siguientes se cumplen durante la demora de pausa automática:
 
 - Número de sesiones = 0
-- CPU = 0 para la carga de trabajo de usuario en ejecución en el grupo de usuarios
+- CPU = 0 para la carga de trabajo de usuario que se ejecuta en el grupo de usuarios
 
 Hay disponible una opción para deshabilitar la pausa automática si se desea.
 
-Las características siguientes no admiten la pausa automática, pero admiten el escalado automático.  Si se utiliza cualquiera de las siguientes características, la pausa automática debe estar desactivada y la base de datos permanecerá en línea, independientemente de la duración de la inactividad de la base de datos:
+Las características siguientes no admiten la pausa automática, pero admiten el escalado automático. Si se utiliza cualquiera de las siguientes características, la pausa automática debe estar desactivada y la base de datos permanecerá en línea, independientemente de la duración de la inactividad de la base de datos:
 
-- Replicación geográfica (replicación geográfica activa y grupos de conmutación por error automáticos).
-- Retención de copia de seguridad a largo plazo (LTR).
-- La base de datos de sincronización utilizada en la sincronización de datos SQL.  A diferencia de las bases de datos de sincronización, las bases de datos centrales y miembro admiten las pausas automáticas.
-- Establecimiento de alias de DNS
-- La base de datos de trabajo utilizada en trabajos elásticos (versión preliminar).
+- Replicación geográfica ([replicación geográfica activa](active-geo-replication-overview.md) y [grupos de conmutación por error automática](auto-failover-group-overview.md)).
+- [Retención de copia de seguridad a largo plazo](long-term-retention-overview.md) (LTR).
+- La base de datos de sincronización utilizada en [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md). A diferencia de las bases de datos de sincronización, las bases de datos centrales y miembro admiten la pausa automática.
+- [Alias DNS](dns-alias-overview.md) creado para el servidor lógico que contiene una base de datos sin servidor.
+- [Trabajos elásticos (versión preliminar)](elastic-jobs-overview.md), cuando la base de datos de trabajos es una base de datos sin servidor. Las bases de datos destinadas a trabajos elásticos admiten la pausa automática y se reanudarán mediante las conexiones del trabajo.
 
 Se impide temporalmente la pausa automática durante la implementación de algunas actualizaciones de servicio que requieren que la base de datos esté en línea.  En tales casos, se vuelve a permitir la pausa automática una vez finalizada la actualización del servicio.
+
+#### <a name="auto-pause-troubleshooting"></a>Solución de problemas de la pausa automática
+
+Si la pausa automática está habilitada, pero una base de datos no se pausa automáticamente después del período de retraso, y no se utilizan las características mencionadas anteriormente, la aplicación o las sesiones de usuario pueden estar impidiendo esta característica. Para ver si hay alguna aplicación o sesión de usuario conectada actualmente a la base de datos, conéctese a la base de datos mediante cualquier herramienta de cliente y ejecute la consulta siguiente:
+
+```sql
+SELECT session_id,
+       host_name,
+       program_name,
+       client_interface_name,
+       login_name,
+       status,
+       login_time,
+       last_request_start_time,
+       last_request_end_time
+FROM sys.dm_exec_sessions AS s
+INNER JOIN sys.dm_resource_governor_workload_groups AS wg
+ON s.group_id = wg.group_id
+WHERE s.session_id <> @@SPID
+      AND
+      (
+      (
+      wg.name like 'UserPrimaryGroup.DB%'
+      AND
+      TRY_CAST(RIGHT(wg.name, LEN(wg.name) - LEN('UserPrimaryGroup.DB') - 2) AS int) = DB_ID()
+      )
+      OR
+      wg.name = 'DACGroup'
+      );
+```
+
+> [!TIP]
+> Después de ejecutar la consulta, asegúrese de desconectarse de la base de datos. De lo contrario, la sesión abierta usada por la consulta impedirá la pausa automática.
+
+Si el conjunto de resultados no está vacío, significa que hay sesiones que impiden la pausa automática. 
+
+Si el conjunto de resultados está vacío, todavía es posible que las sesiones estuvieran abiertas, posiblemente durante un corto periodo de tiempo, en algún momento anterior durante el periodo de retraso de la pausa automática. Para ver si dicha actividad se ha producido durante el período de retraso, puede usar [Auditoría de Azure SQL](auditing-overview.md) y examinar los datos de auditoría del período pertinente.
+
+La presencia de sesiones abiertas, con o sin uso simultáneo de CPU en el grupo de recursos de usuario, es la razón más común de que una base de datos sin servidor no se pause automáticamente según lo previsto. Tenga en cuenta que algunas [características](#auto-pausing) no admiten la pausa automática, pero sí el escalado automático.
 
 ### <a name="auto-resuming"></a>Reanudación automática
 
@@ -142,7 +181,7 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 |Ajuste automático|Aplicación y comprobación de recomendaciones de ajuste automático, como la indexación automática|
 |Copia de base de datos|Creación de base de datos como copia.<br>Exportación a un archivo BACPAC.|
 |Sincronización de datos SQL|Sincronización entre la base de datos central y las bases de datos miembro que se ejecutan según una programación configurable o bien de forma manual|
-|Modificación de algunos metadatos de base de datos|Adición de nuevas etiquetas de base de datos.<br>Cambio del máximo de núcleos virtuales, el mínimo de núcleos virtuales y la demora de pausa automática.|
+|Modificación de algunos metadatos de base de datos|Adición de nuevas etiquetas de base de datos.<br>Cambio del número máximo de núcleos virtuales, el número mínimo de núcleos virtuales y el retraso de la pausa automática.|
 |SQL Server Management Studio (SSMS)|Al usar las versiones de SSMS anteriores a 18.1 y abrir una nueva ventana de consulta para cualquier base de datos en el servidor, se reanudará cualquier base de datos en pausa automática en el mismo servidor. Este comportamiento no se produce si se usa SSMS versión 18.1 o posterior.|
 
 La supervisión, la administración u otras soluciones que realicen cualquiera de las operaciones indicadas anteriormente desencadenarán la reanudación automática.
@@ -155,11 +194,11 @@ Si una base de datos sin servidor está en pausa, la primera vez que se inicie s
 
 ### <a name="latency"></a>Latencia
 
-La latencia de la reanudación y la pausa automáticas de una base de datos sin servidor es, por lo general, de 1 minuto para la reanudación automática y de 1 a 10 minutos para la pausa automática.
+La latencia de la reanudación y la pausa automáticas de una base de datos sin servidor es, por lo general, de 1 minuto para la reanudación automática y de 1 a 10 minutos para la pausa automática.
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Cifrado de datos transparente administrado por el cliente (BYOK)
 
-Si se usa el [cifrado de datos transparente administrado por el cliente](transparent-data-encryption-byok-overview.md) (BYOK) y la base de datos sin servidor se pausa automáticamente cuando se produce la eliminación o la revocación de claves, la base de datos permanece en estado de pausa automática.  En este caso, después de que la base de datos se reanude la próxima vez, esta dejará de estar accesible en aproximadamente 10 minutos.  Si la base de datos pasa a ser inaccesible, el proceso de recuperación es el mismo que para las bases de datos de proceso aprovisionadas.  Si la base de datos sin servidor está en línea cuando se produce la eliminación o la revocación de claves, la base de datos también pasa a ser inaccesible en el plazo de unos 10 minutos, como sucede con las bases de datos de proceso aprovisionadas.
+Si se usa el [cifrado de datos transparente administrado por el cliente](transparent-data-encryption-byok-overview.md) (BYOK) y la base de datos sin servidor se pausa automáticamente cuando se produce la eliminación o la revocación de claves, la base de datos permanece en estado de pausa automática.  En este caso, después de que la base de datos se reanude la próxima vez, esta dejará de estar accesible en aproximadamente 10 minutos. Si la base de datos pasa a ser inaccesible, el proceso de recuperación es el mismo que para las bases de datos de proceso aprovisionadas. Si la base de datos sin servidor está en línea cuando se produce la eliminación o la revocación de claves, la base de datos también pasa a ser inaccesible en el plazo de unos 10 minutos, como sucede con las bases de datos de proceso aprovisionadas.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Incorporación en un nivel de proceso sin servidor
 
@@ -168,7 +207,7 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
 1. Especifique el objetivo de servicio. El objetivo de servicio preceptúa el nivel de servicio, la generación de hardware y el máximo de núcleos virtuales. Para ver las opciones de objetivo de servicio, consulte [Límites de los recursos sin servidor](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
 
-2. Opcionalmente, especifique el mínimo de núcleos virtuales y la demora de pausa automática para cambiar sus valores predeterminados. En la siguiente tabla se muestran los valores disponibles para estos parámetros.
+2. Opcionalmente, especifique el número mínimo de núcleos virtuales y el retraso de la pausa automática para cambiar sus valores predeterminados. En la siguiente tabla se muestran los valores disponibles para estos parámetros.
 
    |Parámetro|Opciones de valores|Valor predeterminado|
    |---|---|---|---|
@@ -180,7 +219,7 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
 
 En el siguiente ejemplo se crea una base de datos en el nivel de proceso sin servidor.
 
-#### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+#### <a name="use-azure-portal"></a>Usar Azure Portal
 
 Consulte [Quickstart: Creación de una base de datos única en Azure SQL Database con Azure Portal](single-database-create-quickstart.md).
 
@@ -192,7 +231,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
+#### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -202,7 +241,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Uso de Transact-SQL (T-SQL)
 
-Cuando se usa T-SQL, se aplican los valores predeterminados para el número mínimo de núcleos virtuales y la demora de pausa automática.
+Cuando se usa T-SQL, se aplican los valores predeterminados para el número mínimo de núcleos virtuales y la demora de pausa automática. Más adelante se pueden cambiar desde el portal o a través de otras API de administración (PowerShell, CLI de Azure, API REST).
 
 ```sql
 CREATE DATABASE testdb
@@ -217,24 +256,22 @@ En el siguiente ejemplo se mueve una base de datos del nivel de proceso aprovisi
 
 #### <a name="use-powershell"></a>Uso de PowerShell
 
-
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -Edition GeneralPurpose -ComputeModel Serverless -ComputeGeneration Gen5 `
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
+#### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-
 #### <a name="use-transact-sql-t-sql"></a>Uso de Transact-SQL (T-SQL)
 
-Cuando se usa T-SQL, se aplican los valores predeterminados para el número mínimo de núcleos virtuales y la demora de pausa automática.
+Cuando se usa T-SQL, se aplican los valores predeterminados para el número mínimo de núcleos virtuales y la demora de pausa automática. Más adelante se pueden cambiar desde el portal o a través de otras API de administración (PowerShell, CLI de Azure, API REST).
 
 ```sql
 ALTER DATABASE testdb 
@@ -253,10 +290,9 @@ Una base de datos sin servidor se puede mover a un nivel de proceso aprovisionad
 
 Puede usar el comando [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) en PowerShell con los argumentos `MaxVcore`, `MinVcore` y `AutoPauseDelayInMinutes` para modificar el número máximo o mínimo de núcleos virtuales, así como la demora de la pausa automática.
 
-### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
+### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
 Puede usar el comando [az sql db update](/cli/azure/sql/db#az_sql_db_update) en la CLI de Azure con los argumentos `capacity`, `min-capacity` y `auto-pause-delay` para modificar el número máximo o mínimo de núcleos virtuales, así como la demora de la pausa automática.
-
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -266,26 +302,26 @@ Los recursos de una base de datos sin servidor se encapsulan por paquete de la a
 
 #### <a name="app-package"></a>Paquete de aplicaciones
 
-El paquete de aplicaciones es el límite de administración de recursos más externo de una base de datos, independientemente de si la base de datos se encuentra en un nivel de proceso sin servidor o aprovisionado. El paquete de aplicaciones contiene la instancia de SQL y servicios externos (como la búsqueda de texto completo) que en conjunto abarcan todos los recursos de usuario y del sistema que utiliza una base de datos en SQL Database. Generalmente, la instancia de SQL domina el uso de recursos global en el paquete de aplicaciones.
+El paquete de aplicaciones es el límite de administración de recursos más externo de una base de datos, independientemente de si la base de datos se encuentra en un nivel de proceso sin servidor o aprovisionado. El paquete de la aplicación contiene la instancia de SQL y servicios externos (como la búsqueda de texto completo) que, en conjunto, abarcan todos los recursos de usuario y del sistema que utiliza una base de datos en SQL Database. Generalmente, la instancia de SQL domina el uso de recursos global en el paquete de aplicaciones.
 
 #### <a name="user-resource-pool"></a>Grupo de recursos de usuario
 
-El grupo de recursos de usuario es el límite de administración de recursos más interno de una base de datos, independientemente de si la base de datos se encuentra en un nivel de proceso sin servidor o aprovisionado. El grupo de recursos de usuario abarca la CPU y la E/S para cargas de trabajo de usuario generadas por consultas de DDL como CREATE y ALTER, y por consultas de DML como SELECT, INSERT, UPDATE y DELETE. Por lo general, estas consultas representan la proporción de uso dentro del paquete de aplicaciones más importante.
+El grupo de recursos de usuario es un límite interno de administración de recursos para una base de datos, independientemente de si la base de datos está en un nivel de proceso sin servidor o aprovisionado. El grupo de recursos de usuario abarca la CPU y la E/S de las cargas de trabajo de usuario generadas por consultas de DDL, como CREATE y ALTER, consultas de DML, como INSERT, UPDATE, DELETE y consultas MERGE y SELECT. Por lo general, estas consultas representan la proporción de uso dentro del paquete de aplicaciones más importante.
 
 ### <a name="metrics"></a>Métricas
 
-Las métricas para supervisar el uso de recursos del paquete de la aplicación y grupo de usuarios de una base de datos sin servidor se muestran en la tabla siguiente:
+Las métricas para supervisar el uso de recursos del paquete de la aplicación y el grupo de recursos de usuario de una base de datos sin servidor se muestran en la tabla siguiente:
 
 |Entidad|Métrica|Descripción|Unidades|
 |---|---|---|---|
 |Paquete de aplicaciones|app_cpu_percent|Porcentaje de núcleos virtuales utilizado por la aplicación con respecto al máximo de núcleos virtuales permitido para la aplicación.|Porcentaje|
 |Paquete de aplicaciones|app_cpu_billed|La cantidad de procesos que se facturan para la aplicación durante el período de informe. El importe pagado durante este período es el producto de esta métrica por el precio de la unidad de núcleo virtual. <br><br>Los valores de esta métrica se determinan al agregar en el tiempo el máximo de CPU utilizada y la memoria usada por segundo. Si la cantidad utilizada es menor que la cantidad mínima aprovisionada definida por el mínimo de núcleos virtuales y la memoria mínima, se factura la cantidad mínima aprovisionada. Para comparar la CPU y la memoria con fines de facturación, la memoria se normaliza en unidades de núcleos virtuales cambiando la escala de la cantidad de GB de memoria en 3 GB por núcleo virtual.|Segundos de núcleo virtual|
 |Paquete de aplicaciones|app_memory_percent|Porcentaje de memoria utilizada por la aplicación con respecto a la memoria máxima permitida para la aplicación.|Porcentaje|
-|Grupo de usuarios|cpu_percent|Porcentaje de núcleos virtuales utilizado por la carga de trabajo de usuario con respecto al máximo de núcleos virtuales permitido para la carga de trabajo de usuario.|Porcentaje|
-|Grupo de usuarios|data_IO_percent|Porcentaje de IOPS de datos utilizado por la carga de trabajo de usuario con respecto al máximo de IOPS de datos permitido para la carga de trabajo de usuario.|Porcentaje|
-|Grupo de usuarios|log_IO_percent|Porcentaje de MB/s de registro utilizado por la carga de trabajo de usuario con respecto al máximo de MB/s de registro permitido para la carga de trabajo de usuario.|Porcentaje|
-|Grupo de usuarios|workers_percent|Porcentaje de trabajos utilizado por la carga de trabajo de usuario con respecto al máximo de trabajos permitido para la carga de trabajo de usuario.|Porcentaje|
-|Grupo de usuarios|sessions_percent|Porcentaje de sesiones utilizado por la carga de trabajo de usuario con respecto al máximo de sesiones permitido para la carga de trabajo de usuario.|Porcentaje|
+|Grupo de recursos de usuario|cpu_percent|Porcentaje de núcleos virtuales utilizado por la carga de trabajo de usuario con respecto al máximo de núcleos virtuales permitido para la carga de trabajo de usuario.|Porcentaje|
+|Grupo de recursos de usuario|data_IO_percent|Porcentaje de IOPS de datos utilizado por la carga de trabajo de usuario con respecto al máximo de IOPS de datos permitido para la carga de trabajo de usuario.|Porcentaje|
+|Grupo de recursos de usuario|log_IO_percent|Porcentaje de MB/s de registro utilizado por la carga de trabajo de usuario con respecto al máximo de MB/s de registro permitido para la carga de trabajo de usuario.|Porcentaje|
+|Grupo de recursos de usuario|workers_percent|Porcentaje de trabajos utilizado por la carga de trabajo de usuario con respecto al máximo de trabajos permitido para la carga de trabajo de usuario.|Porcentaje|
+|Grupo de recursos de usuario|sessions_percent|Porcentaje de sesiones utilizado por la carga de trabajo de usuario con respecto al máximo de sesiones permitido para la carga de trabajo de usuario.|Porcentaje|
 
 ### <a name="pause-and-resume-status"></a>Estado de pausa y reanudación
 
@@ -300,12 +336,11 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
+#### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
-
 
 ## <a name="resource-limits"></a>Límites de recursos
 
@@ -342,7 +377,7 @@ La [calculadora de precios de Azure SQL Database](https://azure.microsoft.com/pr
 
 ### <a name="example-scenario"></a>Escenario de ejemplo
 
-Considere la posibilidad de una base de datos sin servidor configurada con 1 núcleo virtual como mínimo y 4 como máximo.  Esto se corresponde a aproximadamente 3 GB de memoria como mínimo y 12 GB de memoria como máximo.  Supongamos que la demora de la pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras 2 horas de un período de 24 horas e inactiva el resto del tiempo.    
+Considere la posibilidad de una base de datos sin servidor configurada con 1 núcleo virtual como mínimo y 4 como máximo.  Esto equivale aproximadamente a 3 GB de memoria como mínimo y a 12 GB de memoria como máximo.  Supongamos que la demora de la pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras 2 horas de un período de 24 horas e inactiva el resto del tiempo.    
 
 En este caso, la base de datos se facturará por proceso y almacenamiento durante las primeras 8 horas.  Aunque la base de datos está inactiva después de la segunda hora, se le seguirá facturando por el proceso de las 6 horas siguientes en función del proceso mínimo aprovisionado mientras la base de datos está en línea.  Solo se facturará por el almacenamiento el resto del período de 24 horas mientras la base de datos está en pausa.
 
@@ -356,7 +391,7 @@ Más concretamente, la facturación del proceso en este ejemplo se calcula como 
 |8:00-24:00|0|0|No se factura ningún proceso mientras la base de datos está en pausa|0 segundos de núcleo virtual|
 |Número total de segundos de núcleo virtual facturados durante 24 horas||||50 400 segundos de núcleo virtual|
 
-Suponga que el precio de la unidad de proceso es 0,000145 $/núcleo virtual/segundo.  El proceso que se factura en este período de 24 horas es igual al producto del precio por unidad de proceso por los segundos de núcleo virtual facturados: 0,000145 $/núcleo virtual/segundo * 50400 segundos de núcleo virtual = aproximadamente 7,31 $.
+Suponga que el precio de la unidad de proceso es 0,000145 $/núcleo virtual/segundo.  El proceso que se factura en este período de 24 horas es igual al producto del precio por unidad de proceso por los segundos de núcleo virtual facturados: 0,000145 USD/núcleo virtual/segundo * 50400 segundos de núcleo virtual = aproximadamente 7,31 USD.
 
 ### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Ventaja híbrida de Azure y capacidad reservada
 

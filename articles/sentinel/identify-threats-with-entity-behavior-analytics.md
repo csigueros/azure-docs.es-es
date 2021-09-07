@@ -14,20 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2021
 ms.author: yelevin
-ms.openlocfilehash: a706704365731d5f5ba157837269a90dbcb12e18
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 851b1659baf10826d98246aaf8ebd8ec138c5542
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810307"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182538"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en **_todas_** las zonas geográficas y regiones de Azure Sentinel.
+> - Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en **_todas_** las zonas geográficas y regiones de Azure Sentinel. 
 >
 > - La **entidad de dirección IP** se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>¿Qué es el Análisis de comportamiento de usuarios y entidades (UEBA)?
 
@@ -82,7 +84,7 @@ Las páginas de entidad constan de tres partes:
 - En el panel derecho se muestran conclusiones de comportamiento sobre la entidad. Estas conclusiones ayudan a detectar rápidamente las anomalías y las amenazas de seguridad. Los equipos de investigación de seguridad de Microsoft desarrollan las conclusiones, que se basan en los modelos de detección de anomalías.
 
 > [!NOTE]
-> La **página de entidad de dirección IP** (ahora en versión preliminar) contiene **datos de geolocalización** proporcionados por el **servicio de inteligencia sobre amenazas de Microsoft**. Este servicio combina datos de geolocalización tanto de soluciones de Microsoft como de proveedores y asociados de terceros. Posteriormente, los datos están disponibles para su análisis e investigación en el contexto de un incidente de seguridad.
+> La **página de entidad de dirección IP** (ahora en versión preliminar) contiene **datos de geolocalización** proporcionados por el **servicio de inteligencia sobre amenazas de Microsoft**. Este servicio combina datos de geolocalización tanto de soluciones de Microsoft como de proveedores y asociados de terceros. Posteriormente, los datos están disponibles para su análisis e investigación en el contexto de un incidente de seguridad. Para más información, consulte también [Enriquecimiento de entidades en Azure Sentinel con datos de geolocalización mediante la API REST (versión preliminar pública)](geolocation-data-api.md).
 
 ### <a name="the-timeline"></a>Escala de tiempo
 
@@ -94,7 +96,7 @@ Puede elegir el **intervalo de tiempo** entre varias opciones preestablecidas (c
 
 En la escala de tiempo se incluyen los siguientes tipos de elementos:
 
-- Alertas: alertas en las que la entidad se define como **entidad asignada**. Tenga en cuenta que si su organización ha creado [alertas personalizadas mediante reglas de análisis](./tutorial-detect-threats-custom.md), debe asegurarse de que la asignación de entidades de las reglas se realice correctamente.
+- Alertas: alertas en las que la entidad se define como **entidad asignada**. Tenga en cuenta que si su organización ha creado [alertas personalizadas mediante reglas de análisis](./detect-threats-custom.md), debe asegurarse de que la asignación de entidades de las reglas se realice correctamente.
 
 - Marcadores: marcadores que incluyen la entidad específica que se muestra en la página.
 
@@ -163,7 +165,7 @@ Azure Sentinel proporciona de serie un conjunto de consultas de búsqueda, consu
 Para obtener más información, consulte:
 
 - [Búsqueda de amenazas con Azure Sentinel](hunting.md)
-- [Visualizar y supervisar los datos](tutorial-monitor-your-data.md)
+- [Visualizar y supervisar los datos](monitor-your-data.md)
 
 A medida que las herramientas de defensa heredadas se quedan obsoletas, las organizaciones pueden tener un patrimonio digital tan amplio y poroso que resulta imposible obtener una perspectiva completa del riesgo y la posición a los que su entorno puede estar haciendo frente. Confiar principalmente en esfuerzos reactivos, como el análisis y las reglas, permite a los actores malintencionados aprender a eludir esos esfuerzos. Aquí es donde UEBA entra en juego, ya que proporciona metodologías de puntuación de riesgos y algoritmos para averiguar lo que sucede realmente.
 

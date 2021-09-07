@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev
-ms.openlocfilehash: aae64b3ef63d5ac18bb26019ba74756438adfc7a
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: 5b490ff71253739779089da92c87532f7abbdbcc
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272262"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418531"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)
 
@@ -171,7 +171,7 @@ Pruebe esta configuración solo con aplicaciones que tengan errores de inicio de
 
 #### <a name="summary-of-keys"></a>Resumen de claves
 
-| Clave | Tipo | Valor |
+| Clave | Tipo | Value |
 |--|--|--|
 | `Enable_SSO_On_All_ManagedApps` | Entero | `1` para habilitar el inicio de sesión único para todas las aplicaciones administradas, `0` para deshabilitar el inicio de sesión único para todas las aplicaciones administradas. |
 | `AppAllowList` | String<br/>*(lista delimitada por comas)* | Identificadores de agrupación de las aplicaciones que pueden participar en el inicio de sesión único. |
@@ -183,21 +183,21 @@ Pruebe esta configuración solo con aplicaciones que tengan errores de inicio de
 
 - *Escenario*: Quiero habilitar el inicio de sesión único para la mayoría de las aplicaciones administradas, pero no para todas ellas.
 
-    | Clave | Valor |
+    | Clave | Value |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
     | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones que quiere evitar que participen en el inicio de sesión único. |
 
 - *Escenario*: Quiero deshabilitar el inicio de sesión único para Safari, que está habilitado de manera predeterminada, pero habilitar el inicio de sesión único para todas las aplicaciones administradas.
 
-    | Clave | Valor |
+    | Clave | Value |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
     | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones de Safari que quiere evitar que participen en el inicio de sesión único.<br/><li>Para iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>Para macOS: `com.apple.Safari` |
 
 - *Escenario*: Quiero habilitar el inicio de sesión único en todas las aplicaciones administradas y en algunas aplicaciones no administradas, pero deshabilitar el inicio de sesión único para algunas otras aplicaciones.
 
-    | Clave | Valor |
+    | Clave | Value |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
     | `AppAllowList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones en las que quiere habilitar la participación en el inicio de sesión único. |

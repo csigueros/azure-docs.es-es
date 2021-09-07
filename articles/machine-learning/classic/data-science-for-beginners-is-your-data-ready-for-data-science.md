@@ -9,14 +9,17 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 07db1f1c8021759fbd5702ad9353f74fcd1524c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cc7334d225f706610aacfed0cce8e15b4da21c1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100516981"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694817"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>¿Están sus datos preparados para la ciencia de datos?
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciencia de datos para principiantes
 Aprenda cómo evaluar los datos para asegurarse de que cumplen los criterios básicos para la ciencia de datos.
 
@@ -99,8 +102,8 @@ A medida que agrega más datos, la imagen se vuelve más clara y puede tomar dec
 
 Con datos pertinentes, conectados, precisos y suficientes, tiene todos los ingredientes necesarios para llevar a cabo ciencia de datos de gran calidad.
 
-Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiantes* en Microsoft Azure Machine Learning Studio (clásico).
+Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiantes* en Machine Learning Studio (clásico).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio (clásico)](create-experiment.md)
-* [Introducción a Machine Learning en Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Introducción a Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

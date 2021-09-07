@@ -8,19 +8,15 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: d9b5803069316a97d6180429bd6b096d401d2396
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 28365f4c5e4096c83bdf7b1c4cd7ade3fe1e46b2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695586"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742118"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Realización de preguntas que pueden responderse con datos
-
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
-
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciencia de datos para principiantes
-
 Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Este vídeo incluye una comparación de preguntas para algoritmos de clasificación y regresión.
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)

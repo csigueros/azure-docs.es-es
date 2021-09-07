@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1cdc40b8aebe2d80553a23deec3990d4349ebd79
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 9accd34601ed900ff7600485b1b3007054c4202a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255620"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780111"
 ---
 # <a name="configure-immutability-policies-for-containers"></a>Configuración de directivas de inmutabilidad para contenedores
 

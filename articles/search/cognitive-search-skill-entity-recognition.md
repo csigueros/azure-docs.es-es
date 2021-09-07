@@ -2,22 +2,24 @@
 title: Aptitud cognitiva de reconocimiento de entidades
 titleSuffix: Azure Cognitive Search
 description: Extraiga diferentes tipos de entidades del texto de una canalización de enriquecimiento de Búsqueda cognitiva de Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cf6bae3548a459a1d47dc0dcd55d28a290ca0f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547907"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749382"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
 La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](../cognitive-services/text-analytics/overview.md) en Cognitive Services.
+
+> [!IMPORTANT]
+> La aptitud de reconocimiento de entidades ya no está disponible y se ha reemplazado por [Microsoft.Skills.Text.v3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Siga las recomendaciones de las [Aptitudes de Cognitive Search en desuso](cognitive-search-skill-deprecated.md) para migrar a una aptitud admitida.
 
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
@@ -196,3 +198,4 @@ Si el código de idioma del documento no se admite, se devuelve una advertencia 
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Aptitud Reconocimiento de entidades (V3)](cognitive-search-skill-entity-recognition-v3.md)

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: bde1b1f84847c3ebf05f14312b89ae8227908948
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 5a2b51573e4b639c80fd36b69cef667b9ea6eff5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411186"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743853"
 ---
 # <a name="delete-resources-from-azure"></a>Eliminación de recursos de Azure
 
@@ -48,11 +48,10 @@ En algunos casos, puede que tenga que eliminar manualmente en Azure los recursos
     - [Eliminación de los recursos del controlador de datos de Azure Arc mediante la CLI de Azure](#delete-azure-arc-data-controller-resources-using-the-azure-cli)
     - [Eliminación de un grupo de recursos mediante la CLI de Azure](#delete-a-resource-group-using-the-azure-cli)
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="delete-an-entire-resource-group"></a>Eliminación de un grupo de recursos completo
 
-Si ha utilizado un grupo de recursos específico y dedicado para los servicios de datos habilitados para Azure Arc y desea eliminar *todo* lo que hay dentro del grupo de recursos, puede eliminar el grupo de recursos, lo que eliminará todo lo que contiene.  
+Si ha utilizado un grupo de recursos específico y dedicado para los servicios de datos habilitados para Azure Arc y quiere eliminar *todo* lo que hay dentro del grupo de recursos, puede eliminar el grupo de recursos, lo que eliminará todo lo que contiene.  
 
 Para eliminar un grupo de recursos en Azure Portal, realice los pasos siguientes:
 
@@ -62,7 +61,7 @@ Para eliminar un grupo de recursos en Azure Portal, realice los pasos siguientes
 
 ## <a name="delete-specific-resources-in-the-resource-group"></a>Eliminación de recursos específicos del grupo de recursos
 
-Para eliminar recursos específicos de los servicios de datos habilitados para Azure Arc de un grupo de recursos en Azure Portal, realice los siguientes pasos:
+Para eliminar recursos específicos de los servicios de datos habilitados para Azure Arc de un grupo de recursos en Azure Portal, siga los pasos a continuación:
 
 - En Azure Portal, vaya al grupo de recursos en el que se han creado los recursos de los servicios de datos habilitados para Azure Arc.
 - Seleccione todos los recursos que se van a eliminar.

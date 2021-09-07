@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
 ms.date: 06/01/2021
-ms.openlocfilehash: 97f557ec45530de3f42dd61ee1cded57fd7c33a0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ce4b7ee2fea9d5b2b7c92b5ade1b3ad146382214
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793752"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744981"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Azure Monitor Dependency para Linux
 
@@ -27,7 +27,7 @@ La extensión de Dependency Agent de Azure VM para Linux se puede ejecutar en lo
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-El siguiente JSON muestra el esquema de la extensión de Dependency Agent de Azure VM en una máquina virtual Linux de Azure. 
+El siguiente JSON muestra el esquema de la extensión de Dependency Agent de Azure VM en una máquina virtual Linux de Azure.
 
 ```json
 {
@@ -101,7 +101,7 @@ En el siguiente ejemplo se da por supuesto que la extensión de Dependency Agent
 }
 ```
 
-Al colocar el JSON de la extensión en la raíz de la plantilla, el nombre de recurso incluye una referencia a la máquina virtual principal. El tipo refleja la configuración anidada. 
+Al colocar el JSON de la extensión en la raíz de la plantilla, el nombre de recurso incluye una referencia a la máquina virtual principal. El tipo refleja la configuración anidada.
 
 ```json
 {
@@ -132,31 +132,22 @@ az vm extension set \
     --vm-name myVM \
     --name DependencyAgentLinux \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
-    --version 9.5 
+    --version 9.5
 ```
 
-## <a name="automatic-upgrade-preview"></a>Actualización automática (versión preliminar)
-Ahora hay disponible una nueva característica para actualizar automáticamente las versiones secundarias de la extensión Dependency en versión preliminar pública. Debe realizar los siguientes cambios de configuración para habilitar esta característica.
+## <a name="automatic-extension-upgrade"></a>Actualización automática de extensiones
+Ahora hay disponible una nueva característica para [actualizar automáticamente las versiones secundarias](../automatic-extension-upgrade.md) de la extensión Dependency.
 
--   Use uno de los métodos de [Habilitación del acceso en versión preliminar](../automatic-extension-upgrade.md#enabling-preview-access) para habilitar la característica en la suscripción.
-- Agregue el atributo `enableAutomaticUpgrade` a la plantilla.
+Para habilitar la actualización automática de extensiones para una extensión, debe asegurarse de que la propiedad `enableAutomaticUpgrade` esté establecida en `true` y de que se haya agregado a la plantilla de extensiones. Esta propiedad debe habilitarse individualmente en cada VM o conjunto de escalado de VM. Use uno de los métodos descritos en la sección [habilitación](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) para habilitar la característica para la VM o el conjunto de escalado de VM.
 
-El esquema del control de versiones de la extensión Dependency Agent sigue el formato siguiente:
+Cuando la actualización automática de extensiones está habilitada en una VM o en un conjunto de escalado de VM, la extensión se actualiza automáticamente cada vez que el editor de la extensión publica una nueva versión de esta. La actualización se aplica de forma segura siguiendo los principios de orden de disponibilidad, como se describe [aquí](../automatic-extension-upgrade.md#how-does-automatic-extension-upgrade-work).
 
-```
-<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
-```
+La funcionalidad del atributo `enableAutomaticUpgrade` es diferente de la de `autoUpgradeMinorVersion`. Los atributos `autoUpgradeMinorVersion` no desencadenan automáticamente una actualización de una versión secundaria cuando el editor de la extensión publica una nueva versión. El atributo `autoUpgradeMinorVersion` indica si la extensión debe usar una versión secundaria más reciente si hay una disponible en el momento de la implementación. Sin embargo, una vez implementada, la extensión no actualizará las versiones secundarias a menos que se vuelva a implementar, incluso con esta propiedad establecida en true.
 
-Los atributos `enableAutomaticUpgrade` y `autoUpgradeMinorVersion` funcionan conjuntamente para determinar cómo se controlarán las actualizaciones de las máquinas virtuales de la suscripción.
-
-| enableAutomaticUpgrade | autoUpgradeMinorVersion | Efecto |
-|:---|:---|:---|
-| true | false | Actualice Dependency Agent si existe una versión más reciente de bb.rr. Por ejemplo, si ejecuta 9.6.0.1355 y la versión más reciente es 9.6.2.1366, las máquinas virtuales de las suscripciones habilitadas se actualizarán a 9.6.2.1366. |
-| true | true |  Esto actualizará Dependency Agent si existe una versión más reciente de mm.bb.rr o bb.rr. Por ejemplo, si ejecuta 9.6.0.1355 y la versión más reciente es 9.7.1.1416, las máquinas virtuales de las suscripciones habilitadas se actualizarán a 9.7.1.1416. Además, si ejecuta 9.6.0.1355 y la versión más reciente es 9.6.2.1366, las máquinas virtuales de las suscripciones habilitadas se actualizarán a 9.6.2.1366. |
-| false | true o false | La actualización automática está deshabilitada.
+Para mantener actualizada la versión de la extensión, se recomienda usar `enableAutomaticUpgrade` con la implementación de la extensión.
 
 > [!IMPORTANT]
-> Si agrega `enableAutomaticUpgrade` a la plantilla, asegúrese de usar al menos la versión de API 2019-12-01.
+> Si agrega `enableAutomaticUpgrade` a la plantilla, asegúrese de usar la versión de API 2019-12-01 o superior.
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
@@ -171,7 +162,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 El resultado de la ejecución de las extensiones se registra en el archivo siguiente:
 
 ```
-/opt/microsoft/dependency-agent/log/install.log 
+/opt/microsoft/dependency-agent/log/install.log
 ```
 
 ### <a name="support"></a>Soporte técnico

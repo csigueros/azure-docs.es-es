@@ -1,23 +1,22 @@
 ---
-title: Análisis de usuarios, sesiones y eventos en Azure Application Insights
+title: Análisis de usuarios, sesiones y eventos en Application Insights
 description: Este artículo trata sobre el análisis de los usuarios de su aplicación web.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 01/24/2018
-ms.reviewer: mbullwin
-ms.openlocfilehash: 6eb91734afac81e103cebea48865793fa687ad71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
+ms.openlocfilehash: 09dc9ba915b0ecf99219aadd9214192b9f4b1e19
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024836"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747681"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análisis de usuarios, sesiones y eventos en Application Insights
 
-Descubra cuándo utilizan los usuarios la aplicación web, en qué páginas están más interesados, en qué ubicación se encuentran dichos usuarios, y los sistemas operativos y exploradores que emplean. Analice la telemetría de uso y de negocio con [Azure Application Insights](./app-insights-overview.md).
+Descubra cuándo utilizan los usuarios la aplicación web, en qué páginas están más interesados, en qué ubicación se encuentran dichos usuarios, y los sistemas operativos y exploradores que emplean. Analice la telemetría de uso y de negocio con [Application Insights](./app-insights-overview.md).
 
-![Captura de pantalla de usuarios de Application Insights](./media/usage-segmentation/0001-users.png)
+:::image type="content" source="./media/usage-segmentation/users.png" alt-text="Captura de pantalla que muestra la pestaña Usuarios con un gráfico de áreas." lightbox="./media/usage-overview/users.png":::
 
 ## <a name="get-started"></a>Introducción
 
@@ -31,29 +30,23 @@ Tres de las hojas de uso usan la misma herramienta para segmentar y desglosar te
 * **Herramienta Sesiones**: la cantidad de sesiones de actividad de usuario que han incluido determinadas páginas y características de la aplicación. Una sesión se cuenta después de media hora de inactividad del usuario o después de 24 horas de uso continuo.
 * **Herramienta Eventos**: la frecuencia con la que se usan ciertas páginas y características de la aplicación. Una vista de página se cuenta cuando un explorador carga una página de la aplicación, siempre que se haya [instrumentado](./javascript.md). 
 
-    Un evento personalizado representa una repetición de algo que sucede en la aplicación, a menudo, una interacción del usuario como un clic en el botón o la realización de alguna tarea. Inserte código en su aplicación para [generar eventos personalizados](./api-custom-events-metrics.md#trackevent).
+    Un evento personalizado representa una repetición de algo que sucede en la aplicación, a menudo, una interacción del usuario como una selección en el botón o la finalización de alguna tarea. Inserte código en su aplicación para [generar eventos personalizados](./api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Consulta de determinados usuarios
 
 Explore distintos grupos de usuarios mediante ajustando las opciones de consulta en la parte superior de la herramienta Usuarios:
 
-* Mostrar: elija una cohorte de usuarios que se va a analizar.
-* Que usaron: elija eventos personalizados y vistas de página.
-* Durante: elija un intervalo de tiempo.
-* Por: elija cómo se desglosarán los datos, por un periodo u otra propiedad como un explorador o una ciudad.
-* Dividir por: elija una propiedad por la que dividir o segmentar los datos. 
-* Agregar filtros: limite la consulta a determinados usuarios, sesiones o eventos en función de sus propiedades, como un explorador o una ciudad. 
+- Durante: elija un intervalo de tiempo.
+- Mostrar: elija una cohorte de usuarios que se va a analizar.
+- Qué usaron: elija qué eventos personalizados, solicitudes y vistas de página.
+- Eventos: Elija varios eventos, solicitudes y vistas de página que mostrarán los usuarios que realizaron al menos uno, aunque no necesariamente todas las opciones seleccionadas.
+- Por eje X de valores: Elija cómo se desglosarán los datos, por intervalo de tiempo o por otra propiedad, como por explorador o ciudad.
+- Dividir por: elija una propiedad por la que dividir o segmentar los datos. 
+- Agregar filtros: limite la consulta a determinados usuarios, sesiones o eventos en función de sus propiedades, como un explorador o una ciudad. 
  
-## <a name="saving-and-sharing-reports"></a>Guardado e intercambio de informes 
-Puede guardar los informes de Usuarios, de forma privada (solo para usted) en la sección Mis informes, o bien con todos aquellos que tengan acceso a este recurso de Application Insights en la sección Informes compartidos.
-
-Para compartir un vínculo con un informe de usuarios, sesiones o eventos, haga clic en **Recurso compartido** en la barra de herramientas y, después, copie el vínculo.
-
-Para compartir una copia de los datos de un informe de usuarios, sesiones o eventos, haga clic en **Recurso compartido** en la barra de herramientas y, después, en el **icono Word** para crear un documento de Word con los datos. O bien, haga clic en el **icono Word** encima del gráfico principal.
-
 ## <a name="meet-your-users"></a>Conozca a sus usuarios
 
-La sección **Meet your users** (Conozca a sus usuarios) muestra información acerca de los cinco usuarios de ejemplo coincidentes con la consulta actual. Al tener en cuenta y explorar los comportamientos de los usuarios, además de los agregados, se puede proporcionar información sobre cómo se utiliza realmente la aplicación.
+La sección **Meet your users** (Conozca a sus usuarios) muestra información acerca de los cinco usuarios de ejemplo coincidentes con la consulta actual. Explorar los comportamientos de los usuarios individuales y en su conjunto puede brindar información sobre cómo se usa realmente la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

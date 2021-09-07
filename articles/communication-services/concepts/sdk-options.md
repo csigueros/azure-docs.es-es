@@ -2,19 +2,19 @@
 title: SDK y API de REST para Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Obtenga más información acerca de los SDK de Azure Communication Services y las API de REST.
-author: probableprime
-manager: chpalm
+author: mikben
+manager: jken
 services: azure-communication-services
-ms.author: rifox
+ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: baba53d797d3d530b7f71b7f87e01dd673e6a6cc
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: cdc9ae8f89c13a528ff31855f731821b39e5a048
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966409"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742537"
 ---
 # <a name="sdks-and-rest-apis"></a>SDK y API REST
 
@@ -37,10 +37,10 @@ Las API de Communication Services están documentadas junto con otras API REST d
 | Números de teléfono| [REST](/rest/api/communication/phonenumbers)| Servicio| Adquisición y administración de números de teléfono |
 | SMS| [REST](/rest/api/communication/sms) | Servicio| Envía y recibe mensajes SMS.|
 | Chat | [REST](/rest/api/communication/) con señalización propietaria | Cliente y servicio | Incorpora chat de texto en tiempo real a las aplicaciones. |
-| Llamar| Transporte propietario | Remoto | Permite usar la voz, el vídeo, el uso compartido de pantalla y otras comunicaciones en tiempo real. |
+| Llamar| Transporte propietario | Cliente | Permite usar la voz, el vídeo, el uso compartido de pantalla y otras comunicaciones en tiempo real. |
 | Servidor de llamadas | REST| Servicio| Permite hacer y administrar llamadas, reproducir audio y configurar la grabación. |
 | Network Traversal| REST| Servicio| Permite acceder a servidores TURN para el transporte de datos de bajo nivel. |
-| Biblioteca de interfaz de usuario | N/D | Remoto | Componentes de interfaz de usuario listos para producción para aplicaciones de chat y de llamadas |
+| Biblioteca de interfaz de usuario | N/D | Cliente | Componentes de interfaz de usuario listos para producción para aplicaciones de chat y de llamadas |
 
 ### <a name="languages-and-publishing-locations"></a>Idiomas y ubicaciones de publicación
 

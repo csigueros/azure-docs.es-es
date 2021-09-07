@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f25e83644c78328d866751a71e15a9658932e66f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 65df8c53522bb971bcd089967047f8a86de55f44
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689281"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749364"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Administre el servicio Azure Cognitive Search con PowerShell
 > [!div class="op_single_selector"]
@@ -166,7 +166,7 @@ Update-Module -Name Az.Search
 
 ## <a name="get-search-service-information"></a>Obtención de información del servicio de búsqueda
 
-Después de que **Az.Search** se importe y sepa el grupo de recursos que contiene el servicio de búsqueda, ejecute [Get-AzSearchService](/powershell/module/az.search/get-azsearchservice) para devolver la definición del servicio, incluido el nombre, la región, el nivel y los recuentos de réplicas y particiones.
+Después de que **Az.Search** se importe y sepa el grupo de recursos que contiene el servicio de búsqueda, ejecute [Get-AzSearchService](/powershell/module/az.search/get-azsearchservice) para devolver la definición del servicio, incluido el nombre, la región, el nivel y los recuentos de réplicas y particiones. Para este comando, proporcione el grupo de recursos que contiene el servicio de búsqueda.
 
 ```azurepowershell-interactive
 Get-AzSearchService -ResourceGroupName <resource-group-name>
@@ -241,15 +241,15 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
 
 ## <a name="create-a-service-with-a-private-endpoint"></a>Creación de un servicio con un punto de conexión privado
 
-Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/private-ip-addresses.md) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para obtener más información, consulte la documentación sobre la [creación de un punto de conexión privado para Azure Cognitive Search](service-create-private-endpoint.md).
+Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/private-ip-addresses.md) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para más información, consulte [Creación de un punto de conexión privado para Azure Cognitive Search](service-create-private-endpoint.md).
 
-En el ejemplo siguiente se muestra cómo crear un servicio de búsqueda con un punto de conexión privado.
+En el ejemplo siguiente se muestra cómo crear un servicio de búsqueda con un punto de conexión privado. 
 
 En primer lugar, implemente un servicio de búsqueda con `PublicNetworkAccess` establecido en `Disabled`.
 
 ```azurepowershell-interactive
 $searchService = New-AzSearchService `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <search-service-resource-group-name> `
     -Name <search-service-name> `
     -Sku Standard `
     -Location "West US" `
@@ -269,7 +269,7 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig `
 
 # Create the virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <vm-resource-group-name> `
     -Location "West US" `
     -Name <virtual-network-name> `
     -AddressPrefix 10.1.0.0/16 `
@@ -284,7 +284,7 @@ $privateLinkConnection = New-AzPrivateLinkServiceConnection `
 # Create the private endpoint
 $privateEndpoint = New-AzPrivateEndpoint `
     -Name <private-endpoint-name> `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <private-endpoint-resource-group-name> `
     -Location "West US" `
     -Subnet $virtualNetwork.subnets[0] `
     -PrivateLinkServiceConnection $privateLinkConnection
@@ -295,12 +295,12 @@ Por último, cree una zona DNS privada.
 ```azurepowershell-interactive
 ## Create private dns zone
 $zone = New-AzPrivateDnsZone `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <private-dns-resource-group-name> `
     -Name "privatelink.search.windows.net"
 
 ## Create dns network link
 $link = New-AzPrivateDnsVirtualNetworkLink `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <private-dns-link-resource-group-name> `
     -ZoneName "privatelink.search.windows.net" `
     -Name "myLink" `
     -VirtualNetworkId $virtualNetwork.Id
@@ -312,7 +312,7 @@ $config = New-AzPrivateDnsZoneConfig `
 
 ## Create DNS zone group
 New-AzPrivateDnsZoneGroup `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <private-dns-zone-resource-group-name> `
     -PrivateEndpointName <private-endpoint-name> `
     -Name 'myZoneGroup' `
     -PrivateDnsZoneConfig $config
@@ -327,19 +327,19 @@ Además de crear una conexión de punto de conexión privado, también puede apl
 [Get-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Get-AzSearchPrivateEndpointConnection) se usa para recuperar una conexión de punto de conexión privado y para ver su estado.
 
 ```azurepowershell-interactive
-Get-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name>
+Get-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name>
 ```
 
 [Set-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Set-AzSearchPrivateEndpointConnection) se usa para actualizar la conexión. En el ejemplo siguiente se establece una conexión de punto de conexión privado como rechazada:
 
 ```azurepowershell-interactive
-Set-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name> -Status Rejected  -Description "Rejected"
+Set-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name> -Status Rejected  -Description "Rejected"
 ```
 
 [Remove-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Remove-AzSearchPrivateEndpointConnection) se usa para eliminar la conexión de punto de conexión privado.
 
 ```azurepowershell-interactive
- Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name>
+ Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name>
 ```
 
 ## <a name="regenerate-admin-keys"></a>Regeneración de claves de administración
@@ -353,7 +353,7 @@ Como puede imaginar, si regenera las claves sin actualizar el código de cliente
 El servicio genera los valores de las claves de API. No puede proporcionar una clave personalizada para que la use Azure Cognitive Search. De forma similar, no hay ningún nombre definido por el usuario para las claves de API de administración. Las referencias a la clave son cadenas fijas, ya sea `primary` o `secondary`. 
 
 ```azurepowershell-interactive
-New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
+New-AzSearchAdminKey -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
 ```
 
 Los resultados deben tener un aspecto similar a la siguiente salida. Se devuelven las dos claves aunque solo cambie una a la vez.
@@ -371,7 +371,7 @@ Primary                    Secondary
 No puede proporcionar una clave para que la use Azure Cognitive Search. El servicio genera las claves de API.
 
 ```azurepowershell-interactive
-New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
+New-AzSearchQueryKey -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
 ```
 
 ## <a name="scale-replicas-and-partitions"></a>Escalado de réplicas y particiones
@@ -385,7 +385,7 @@ La retirada de la capacidad puede ser perjudicial. Para evitar la eliminación d
 Una vez que envíe el comando, no hay forma de terminarlo a la mitad. Tendrá que esperar hasta que el comando finalice antes de revisar los recuentos.
 
 ```azurepowershell-interactive
-Set-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -PartitionCount 6 -ReplicaCount 6
+Set-AzSearchService -ResourceGroupName <search-service-resource-group-name> -Name <search-service-name> -PartitionCount 6 -ReplicaCount 6
 ```
 
 Los resultados deben tener un aspecto similar a la siguiente salida.
@@ -412,13 +412,13 @@ Puede encontrar una lista completa de los recursos de Azure para los que puede c
 [New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) se usa para crear el recurso compartido de vínculo privado. Tenga en cuenta que es posible que se requiera una configuración para el origen de datos antes de ejecutar este comando.
 
 ```azurepowershell-interactive
-New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
+New-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-serviceresource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<storage-resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
 ```
 
 [Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Get-AzSearchSharedPrivateLinkResource) le permite recuperar los recursos compartidos de vínculo privado y ver su estado.
 
 ```azurepowershell-interactive
-Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name>
+Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name>
 ```
 
 Deberá aprobar la conexión con el comando siguiente para poder usarlo.
@@ -427,14 +427,14 @@ Deberá aprobar la conexión con el comando siguiente para poder usarlo.
 Approve-AzPrivateEndpointConnection `
     -Name <spl-name> `
     -ServiceName <search-service-name> `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <search-service-resource-group-name> `
     -Description = "Approved"
 ```
 
 [Remove-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Remove-AzSearchSharedPrivateLinkResource) se usa para eliminar el recurso compartido de vínculo privado.
 
 ```azurepowershell-interactive
-$job = Remove-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -Force -AsJob
+$job = Remove-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -Force -AsJob
 
 $job | Get-Job
 ```

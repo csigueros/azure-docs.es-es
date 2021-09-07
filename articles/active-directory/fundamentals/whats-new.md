@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d723423fdb57ad60f5665be2d5fa0a760c9d770d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3c9b954776c33fedc3a770bc0aab0185ad595aff
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742908"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219742"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -584,7 +584,7 @@ La nueva experiencia simplificada de flujo de usuario ofrece paridad con las car
 **Categoría del servicio:** Protección de identidad  
 **Funcionalidad del producto:** Seguridad y protección de la identidad
  
-Esta nueva detección sirve de método ad-hoc para permitir que nuestros equipos de seguridad le envíen notificaciones y protejan a sus usuarios, elevando el riesgo de su sesión a alto cuando observamos que se está produciendo un ataque. La detección también marcará los inicios de sesión asociados como de riesgo. Esta detección sigue la inteligencia sobre amenazas actual de Azure Active Directory para la detección de riesgo de usuarios con el fin de proporcionar una cobertura completa de los distintos ataques observados por los equipos de seguridad de Microsoft. [Más información](../identity-protection/concept-identity-protection-risks.md#user-risk).
+Esta nueva detección sirve de método ad-hoc para permitir que nuestros equipos de seguridad le envíen notificaciones y protejan a sus usuarios, elevando el riesgo de su sesión a alto cuando observamos que se está produciendo un ataque. La detección también marcará los inicios de sesión asociados como de riesgo. Esta detección sigue la inteligencia sobre amenazas actual de Azure Active Directory para la detección de riesgo de usuarios con el fin de proporcionar una cobertura completa de los distintos ataques observados por los equipos de seguridad de Microsoft. [Más información](../identity-protection/concept-identity-protection-risks.md#user-linked-detections).
  
 ---
 

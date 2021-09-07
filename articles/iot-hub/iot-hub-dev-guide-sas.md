@@ -2,7 +2,6 @@
 title: Control del acceso a IoT Hub con el uso de tokens de SAS | Microsoft Docs
 description: Cómo controlar el acceso a IoT Hub para aplicaciones de dispositivo y de back-end mediante tokens de firma de acceso compartido.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -16,12 +15,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 0724a1281475ffc9cbeaa4480bd45aa69f9d4857
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: aec64f22cf0af9de9b99c914d972f45f3dfefe1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967800"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728800"
 ---
 # <a name="control-access-to-iot-hub-using-shared-access-signatures-and-security-tokens"></a>Control del acceso a IoT Hub mediante firmas de acceso compartido y tokens de seguridad
 
@@ -362,13 +361,13 @@ Una puerta de enlace de protocolo podría utilizar el mismo token para todos los
 
 Puede usar el [registro de identidades](iot-hub-devguide-identity-registry.md) de IoT Hub para configurar las credenciales de seguridad de cada dispositivo o módulo y el control de acceso mediante [tokens](iot-hub-dev-guide-sas.md#security-tokens). Si una solución IoT ya tiene un registro de identidad personalizado y un esquema de autenticación, considere la posibilidad de crear un *servicio de token* para integrar esta infraestructura con IoT Hub. De este modo, puede usar otras características de IoT en la solución.
 
-Un servicio de token es un servicio en la nube personalizado. Usa una *directiva de acceso compartido* de IoT Hub con los permisos **DeviceConnect** o **ModuleConnect** para crear tokens *centrados en el dispositivo* o *centrados en el módulo*. Estos tokens permiten que un dispositivo o módulo se conecten a su centro de IoT.
+Un servicio de token es un servicio en la nube personalizado. Usa una *directiva de acceso compartido* de IoT Hub con los permisos **DeviceConnect** para crear tokens *centrados en el dispositivo* o *centrados en el módulo*. Estos tokens permiten que un dispositivo o módulo se conecten a su centro de IoT.
 
 ![Pasos del modelo de servicio de tokens](./media/iot-hub-devguide-security/tokenservice.png)
 
 Estos son los pasos principales del modelo de servicio de tokens:
 
-1. Cree una directiva de acceso compartido de IoT Hub con los permisos **DeviceConnect** o **ModuleConnect** para IoT Hub. Puede crear esta directiva en [Azure Portal](https://portal.azure.com) o mediante programación. El servicio de tokens usará esta directiva para firmar los tokens que crea.
+1. Cree una directiva de acceso compartido de IoT Hub con el permiso **DeviceConnect** para su centro de IoT. Puede crear esta directiva en [Azure Portal](https://portal.azure.com) o mediante programación. El servicio de tokens usará esta directiva para firmar los tokens que crea.
 
 2. Cuando un dispositivo o un módulo necesitan acceder al centro de IoT, solicitan un token firmado al servicio de tokens. El dispositivo se puede autenticar mediante el esquema de autenticación o registro de identidades personalizado para determinar la identidad del dispositivo o módulo que el servicio de token usa para crear el token.
 
@@ -416,6 +415,6 @@ Ahora que ha aprendido a controlar el acceso a IoT Hub, puede interesarle los si
 
 Si desea probar algunos de los conceptos descritos en este artículo, vea los siguientes tutoriales de IoT Hub:
 
-* [Introducción a Azure IoT Hub](quickstart-send-telemetry-node.md)
+* [Introducción a Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 * [Cómo enviar mensajes de la nube a un dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md)
 * [Procesamiento de mensajes del dispositivo a la nube de IoT Hub](tutorial-routing.md)

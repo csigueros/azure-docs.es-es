@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/11/2021
 ms.author: yelevin
-ms.openlocfilehash: b64adbb63efaa4ce4781474f732bc9509d51029e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 97c35aa059f4419ee951875e769b252016578963
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310332"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723499"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permisos de Azure Sentinel
 
@@ -103,6 +103,23 @@ En la siguiente tabla se resumen los roles de Azure Sentinel y sus acciones perm
     - [RBAC de nivel de tabla](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)
 
     RBAC de contexto de recursos y de nivel de tabla son dos métodos de proporcionar acceso a datos específicos en el área de trabajo de Azure Sentinel sin permitir el acceso a toda la experiencia de Azure Sentinel.
+
+## <a name="role-recommendations"></a>Recomendaciones de roles
+
+Después de comprender cómo funcionan los roles y permisos en Azure Sentinel, puede usar la siguiente guía de procedimientos recomendados para aplicar roles a los usuarios:
+
+|Tipo de usuario  |Rol |Grupo de recursos  |Descripción  |
+|---------|---------|---------|---------|
+|**Analistas de seguridad**     | [Respondedor de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)        | Grupo de recursos de Azure Sentinel        | Visualización de datos, incidentes, libros y otros recursos de Azure Sentinel. <br><br>Administración de incidentes, como los de asignación o descarte.        |
+|     | [Colaborador de Logic Apps](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Grupo de recursos de Azure Sentinel o grupo de recursos donde se almacenan los cuadernos de estrategias        | Adjunte cuadernos de estrategias a reglas de análisis y automatización, y ejecute cuadernos de estrategias. <br><br>**Nota**: Este rol también permite a los usuarios modificar cuadernos de estrategias.         |
+|**Ingenieros de seguridad**     | [Colaborador de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)       |Grupo de recursos de Azure Sentinel         |   Visualización de datos, incidentes, libros y otros recursos de Azure Sentinel. <br><br>Administración de incidentes, como los de asignación o descarte. <br><br>Creación y edición de libros, reglas de análisis y otros recursos de Azure Sentinel.      |
+|     | [Colaborador de Logic Apps](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Grupo de recursos de Azure Sentinel o grupo de recursos donde se almacenan los cuadernos de estrategias        | Adjunte cuadernos de estrategias a reglas de análisis y automatización, y ejecute cuadernos de estrategias. <br><br>**Nota**: Este rol también permite a los usuarios modificar cuadernos de estrategias.         |
+|  **Entidad de seguridad de servicio**   | [Colaborador de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)      |  Grupo de recursos de Azure Sentinel       | Configuración automatizada de las tareas de administración |
+|     |         |        | |
+
+> [!TIP]
+> Es posible que se requieran roles adicionales en función de los datos que se ingieren o supervisan. Por ejemplo, se pueden requerir roles de Azure AD, como los de administrador global o administrador de seguridad, para configurar conectores de datos para servicios de otros portales de Microsoft.
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

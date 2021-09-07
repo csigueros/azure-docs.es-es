@@ -7,12 +7,12 @@ ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: reference
-ms.openlocfilehash: e0c23dcc8f98353d9d009a81b6187ad1bd5b4e56
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 738081a8f31e50accee17f66272b278e72544916
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740155"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215339"
 ---
 # <a name="azure-blob-storage-api-reference"></a>Referencia de la API de Azure Blob Storage
 
@@ -29,7 +29,7 @@ En la tabla siguiente se muestra la información de referencia de las API de .NE
 
 ### <a name="storage-management-net-apis"></a>API de .NET de administración de Storage
 
-En la tabla siguiente se muestra la información de referencia de las API de .NET de administración de Azure Storage.
+En la siguiente tabla se muestra información de referencia de las API de .NET de administración de Azure Storage.
 
 |  Versión  | Documentación de referencia | Paquete |
 | :-------: | ----------------------- | ------- |
@@ -37,7 +37,7 @@ En la tabla siguiente se muestra la información de referencia de las API de .NE
 
 ### <a name="data-movement-net-apis"></a>API de .NET de movimiento de datos
 
-En la tabla siguiente se muestra la información de referencia de las API de .NET de movimiento de datos de Azure Storage.
+En la siguiente tabla se muestra información de referencia de las API de .NET de movimiento de datos de Azure Storage.
 
 |  Versión  | Documentación de referencia | Paquete |
 | :-------: | ----------------------- | ------- |
@@ -54,7 +54,7 @@ En la tabla siguiente se enumera la información de referencia de las API de Jav
 
 ### <a name="storage-management-java-apis"></a>API de Java de administración de Storage
 
-En la tabla siguiente se enumera la información de referencia de las API de Java de administración de Azure Storage.
+En la siguiente tabla se muestra información de referencia de las API de Java de administración de Azure Storage.
 
 |  Versión  | Documentación de referencia | Paquete |
 | :-------: | ----------------------- | ------- |
@@ -84,7 +84,7 @@ En la tabla siguiente se enumera la información de referencia de las API de C++
 
 |  Versión  | Documentación de referencia | Código fuente/Léame | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [SDK de Azure para las API de C++](https://azure.github.io/azure-sdk-for-cpp/index.html) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage) | [Inicio rápido: Versión 12 de la biblioteca cliente de Azure Blob Storage para C++](./quickstart-blobs-c-plus-plus.md) |
+| 12.x | [SDK de Azure para API de C++](https://azure.github.io/azure-sdk-for-cpp/index.html) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage) | [Inicio rápido: Versión 12 de la biblioteca cliente de Azure Blob Storage para C++](./quickstart-blobs-c-plus-plus.md) |
 
 ## <a name="rest-apis"></a>API de REST
 
@@ -113,4 +113,4 @@ La lista siguiente contiene vínculos a bibliotecas para otros lenguajes de prog
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[Referencia de la CLI de Azure](/cli/azure/storage)
+[Referencia de la CLI de Azure](/cli/azure/azure-cli-reference-for-storage)

@@ -2,16 +2,16 @@
 title: Mantener direcciones IP tras la conmutación por error de máquina virtual de Azure Site Recovery
 description: Describe cómo retener las direcciones IP cuando se conmuta por error máquinas virtuales de Azure para la recuperación ante desastres en una región secundaria con Azure Site Recovery
 ms.service: site-recovery
-ms.date: 4/9/2019
+ms.date: 07/25/2021
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 782e6247bb17485e8e654c7e879f477fe531edc4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023557"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736230"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conservar las direcciones IP durante la conmutación por error
 
@@ -33,6 +33,8 @@ En este artículo se proporcionan algunos ejemplos para conservar las direccione
 Todas las aplicaciones de la empresa A se ejecutan en Azure.
 
 ### <a name="before-failover"></a>Antes de la conmutación por error
+
+>[!NOTA La replicación ahora se puede realizar entre dos regiones de Azure de cualquier lugar del mundo. Los clientes ya no se limitan a habilitar la replicación en su continente.
 
 Esta es la arquitectura antes de la conmutación por error.
 
@@ -93,7 +95,7 @@ Antes de la conmutación por error, la arquitectura es la siguiente:
         Las redes - **VNET de recuperación 1** y **VNET de recuperación 2** tienen, cada una, dos subredes que coinciden con **VNET de origen 1** y **VNET de origen 2**. Sudeste de Asia tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.3.0.0/16.
         - **VNET de Azure** contiene una subred (**Subred 4**) con un espacio de direcciones 10.3.4.0/24.
         - Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en la **Subred 4**.
-- Hay diferentes conexiones de VPN de sitio a sitio: 
+- Hay diferentes conexiones de VPN de sitio a sitio:
     - **VNET de origen 1** y **VNET de Azure**
     - **VNET de origen 2** y **VNET de Azure**
     - Las redes **VNET de origen 1** y **VNET de origen 2** están conectadas con VPN de sitio a sitio
@@ -121,7 +123,7 @@ Si se produce una interrupción o un problema que afecta a una sola aplicación 
 
 ## <a name="hybrid-resources-full-failover"></a>Recursos de Hybrid: conmutación por error completa
 
-En este escenario, la **empresa B** ejecuta una empresa híbrida, en la cual una parte de la infraestructura de aplicaciones se ejecuta en Azure y el resto se ejecuta de forma local. 
+En este escenario, la **empresa B** ejecuta una empresa híbrida, en la cual una parte de la infraestructura de aplicaciones se ejecuta en Azure y el resto se ejecuta de forma local.
 
 ### <a name="before-failover"></a>Antes de la conmutación por error
 

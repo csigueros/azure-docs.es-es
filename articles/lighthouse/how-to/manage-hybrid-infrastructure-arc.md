@@ -3,12 +3,12 @@ title: Administración de la infraestructura híbrida a gran escala con Azure A
 description: Azure Lighthouse ayuda a administrar de forma eficaz las máquinas de sus clientes y los clústeres de Kubernetes fuera de Azure.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: edb9553288ff909e5a5f51bf1440c29914672cb9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 926ec6d3fdca6b31ee5296832e12a63a2dfa9d65
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082089"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228839"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Administración de la infraestructura híbrida a gran escala con Azure Arc
 
@@ -46,7 +46,7 @@ También puede supervisar los clústeres conectados con Azure Monitor y [usar Az
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Explore las guías de inicio rápidio y los ejemplos en el [repositorio de Azure Arc en GitHub](https://github.com/microsoft/azure_arc).
-- Obtenga información sobre [escenarios compatibles con los servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md#supported-scenarios).
+- Obtenga información sobre [escenarios compatibles con los servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md#supported-cloud-operations).
 - Obtenga información sobre [distribuciones de Kubernetes compatibles con Azure Arc](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions).
 - Obtenga información sobre cómo [implementar una directiva a gran escala](policy-at-scale.md).
 - Obtenga información sobre cómo [usar registros de Azure Monitor a gran escala](monitor-at-scale.md).

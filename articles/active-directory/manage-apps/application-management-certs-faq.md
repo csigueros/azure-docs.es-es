@@ -2,21 +2,21 @@
 title: Preguntas más frecuentes sobre los certificados de administración de aplicaciones de Azure Active Directory
 description: Obtenga respuestas a las preguntas más frecuentes (P + F) sobre la administración de certificados para aplicaciones mediante Azure Active Directory como proveedor de identidades (IdP).
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/19/2021
-ms.author: mtillman
-ms.reviewer: secherka, mifarca, shchaur, shravank, sureshja
-ms.openlocfilehash: 0f0bfe38dc28586d2fdfc40777dc0c599ab7b307
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: sureshja, saumadan
+ms.openlocfilehash: 497cc5b00db313c8bccbb31130ea7656634d051d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077417"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723109"
 ---
 # <a name="azure-active-directory-azure-ad-application-management-certificates-frequently-asked-questions"></a>Preguntas más frecuentes sobre los certificados de administración de aplicaciones de Azure Active Directory (Azure AD)
 
@@ -24,7 +24,7 @@ Esta página responde a las preguntas más frecuentes sobre la administración d
 
 ## <a name="is-there-a-way-to-generate-a-list-of-expiring-saml-signing-certificates"></a>¿Hay alguna manera de generar una lista de los certificados de firma de SAML que van a expirar?
 
-Puede exportar todas las aplicaciones con secretos y certificados que van a expirar y sus propietarios para las aplicaciones especificadas desde el directorio a un archivo CSV mediante los [scripts de PowerShell](app-management-powershell-samples.md). 
+Puede exportar todas las aplicaciones con secretos y certificados que van a expirar y sus propietarios para las aplicaciones especificadas desde el directorio a un archivo CSV mediante los [scripts de PowerShell](app-management-powershell-samples.md).
 
 ## <a name="where-can-i-find-the-information-about-soon-to-expire-certificates-renewal-steps"></a>¿Dónde puedo encontrar la información sobre los pasos de renovación de los certificados que expirarán pronto?
 
@@ -36,10 +36,10 @@ De manera predeterminada, Azure AD configura un certificado para que expire des
 
 ## <a name="how-can-i-automate-the-certificates-expiration-notifications"></a>¿Cómo puedo automatizar las notificaciones de expiración de los certificados?
 
-Azure AD enviará una notificación por correo electrónico 60, 30 y 7 días antes de que expire el certificado de SAML. Puede agregar varias direcciones de correo electrónico para recibir notificaciones. 
+Azure AD enviará una notificación por correo electrónico 60, 30 y 7 días antes de que expire el certificado de SAML. Puede agregar varias direcciones de correo electrónico para recibir notificaciones.
 
 > [!NOTE]
-> Puede agregar hasta 5 direcciones de correo electrónico a la lista de notificaciones (incluida la dirección de correo electrónico del administrador que agregó la aplicación). Si necesita enviar notificaciones a más personas, use los mensajes de correo electrónico de la lista de distribución. 
+> Puede agregar hasta 5 direcciones de correo electrónico a la lista de notificaciones (incluida la dirección de correo electrónico del administrador que agregó la aplicación). Si necesita enviar notificaciones a más personas, use los mensajes de correo electrónico de la lista de distribución.
 
 Para especificar los correos electrónicos a los que quiere que se envíen las notificaciones, consulte [Inclusión de direcciones de correo electrónico para notificar la expiración del certificado](manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration).
 
@@ -59,7 +59,7 @@ Para reemplazar los certificados de las aplicaciones Application Proxy de Azure�
 
 ## <a name="how-do-i-manage-certificates-for-custom-domains-in-azure-ad-application-proxy"></a>¿Cómo administro los certificados de dominios personalizados en Application Proxy de Azure AD?
 
-Para configurar una aplicación local para que use un dominio personalizado, necesita un dominio personalizado de Azure Active Directory comprobado, un certificado PFX para dicho dominio y una aplicación local para configurar. Para obtener más información, consulte [Dominios personalizados en Application Proxy de Azure AD](../app-proxy/application-proxy-configure-custom-domain.md). 
+Para configurar una aplicación local para que use un dominio personalizado, necesita un dominio personalizado de Azure Active Directory comprobado, un certificado PFX para dicho dominio y una aplicación local para configurar. Para obtener más información, consulte [Dominios personalizados en Application Proxy de Azure AD](../app-proxy/application-proxy-configure-custom-domain.md).
 
 ## <a name="i-need-to-update-the-token-signing-certificate-on-the-application-side-where-can-i-get-it-on-azure-ad-side"></a>Necesito actualizar el certificado de firma de tokens en el lado de la aplicación. ¿Dónde puedo obtenerlo en Azure AD?
 
@@ -67,11 +67,11 @@ Para renovar un certificado SAML X.509, consulte [Certificado de firma de SAML]
 
 ## <a name="what-is-azure-ad-signing-key-rollover"></a>¿Qué es la sustitución de la clave de firma de Azure AD?
 
-Puede encontrar más información [aquí](../develop/active-directory-signing-key-rollover.md). 
+Puede encontrar más información [aquí](../develop/active-directory-signing-key-rollover.md).
 
 ## <a name="how-do-i-renew-application-token-encryption-certificate"></a>¿Cómo renuevo el certificado de cifrado de tokens de la aplicación?
 
-Para renovar un certificado de cifrado de tokens de la aplicación, consulte [Cómo renovar un certificado de cifrado de tokens para una aplicación empresarial](howto-saml-token-encryption.md). 
+Para renovar un certificado de cifrado de tokens de la aplicación, consulte [Cómo renovar un certificado de cifrado de tokens para una aplicación empresarial](howto-saml-token-encryption.md).
 
 ## <a name="how-do-i-renew-application-token-signing-certificate"></a>¿Cómo renuevo el certificado de firma de tokens de la aplicación?
 

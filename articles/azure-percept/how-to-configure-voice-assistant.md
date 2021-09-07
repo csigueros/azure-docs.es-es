@@ -1,20 +1,20 @@
 ---
-title: Configuración de la aplicación de asistente para voz mediante Azure IoT Hub
+title: Configuración de la aplicación de asistente para voz de Azure Percept
 description: Configuración de la aplicación de asistente para voz mediante Azure IoT Hub
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 01e7fd180448639f9dc2440b546746046d9097aa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ed9a6bcc77e94b569e10a439b044ce78a90faff2
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743731"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226828"
 ---
-# <a name="configure-your-voice-assistant-application-using-azure-iot-hub"></a>Configuración de la aplicación de asistente para voz mediante Azure IoT Hub
+# <a name="configure-your-azure-percept-voice-assistant-application"></a>Configuración de la aplicación de asistente para voz de Azure Percept
 
 En este artículo se describe cómo configurar la aplicación de asistente para voz mediante IoT Hub. Para obtener un tutorial paso a paso del proceso de creación de un asistente para voz, vea [Compilación de un asistente para voz sin código con Azure Percept Studio y Azure Percept Audio](./tutorial-no-code-speech.md).
 

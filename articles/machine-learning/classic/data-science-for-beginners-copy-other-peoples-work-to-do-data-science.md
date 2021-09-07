@@ -9,14 +9,17 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: b36d7bbde524bf3ddcaed2e096f9403caf16ea3c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5151b00c0ef07b929df30c67e1e27d24245fcf13
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742132"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694555"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copia del trabajo de otras personas para realizar ciencia de datos
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciencia de datos para principiantes
 Uno de los secretos empresariales de la ciencia de datos es conseguir que otras personas hagan el trabajo por usted. Vea un ejemplo de algoritmo de agrupación en clústeres de Azure AI Gallery que usará en su propio experimento de Machine Learning.
 

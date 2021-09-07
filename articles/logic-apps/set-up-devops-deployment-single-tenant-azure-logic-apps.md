@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 41cc4c174028ff23cdcc248c6b10d746e5669349
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 08/11/2021
+ms.openlocfilehash: 010fbfc3b6a2df9c8cdca1221fb4f25a5d288d70
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751242"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742184"
 ---
 # <a name="set-up-devops-deployment-for-single-tenant-azure-logic-apps"></a>Configuración de la implementación de DevOps para Azure Logic Apps de inquilino único
 
@@ -31,7 +31,7 @@ En este artículo se muestra cómo implementar en su infraestructura un proyecto
 
 ## <a name="deploy-infrastructure-resources"></a>Implementación de recursos de infraestructura
 
-Si aún no tiene un proyecto de aplicación lógica o una infraestructura configurados, puede usar los proyectos de ejemplo incluidos para implementar una aplicación y una infraestructura de ejemplo, en función de las opciones de origen e implementación que prefiera usar:
+Si aún no ha configurado un proyecto o infraestructura de aplicación lógica, puede usar los proyectos de ejemplo siguientes para implementar una aplicación y una infraestructura de ejemplo, en función de las opciones de origen e implementación que prefiera usar:
 
 - [Ejemplo de GitHub para Azure Logic Apps de inquilino único](https://github.com/Azure/logicapps/tree/master/github-sample)
 
@@ -47,7 +47,7 @@ Ambos ejemplos incluyen los siguientes recursos que emplea una aplicación lógi
 |---------------|----------|-------------|
 | Aplicación lógica (estándar) | Yes | Este recurso de Azure contiene los flujos de trabajo que se ejecutan en Azure Logic Apps de inquilino único. |
 | Plan de hospedaje de App Service o Prémium de Functions | Yes | Este recurso de Azure especifica los recursos de hospedaje que se usarán para ejecutar la aplicación lógica, por ejemplo, proceso, procesamiento, almacenamiento, redes, etc. <p><p>**Importante**: En la experiencia actual, el recurso **Aplicación lógica (estándar)** requiere el plan de hospedaje [**Flujo de trabajo estándar**](logic-apps-pricing.md#standard-pricing), que se basa en el plan de hospedaje Prémium de Functions. |
-| Cuenta de almacenamiento de Azure | Sí, para flujos de trabajo sin estado | Este recurso de Azure almacena los metadatos, el estado, las entradas, las salidas, el historial de ejecución y otra información sobre los flujos de trabajo. |
+| Cuenta de almacenamiento de Azure | Sí, para flujos de trabajo con y sin estado | Este recurso de Azure almacena los metadatos, las claves para el control de acceso, el estado, las entradas, las salidas, el historial de ejecución y otra información sobre los flujos de trabajo. |
 | Application Insights | Opcionales | Este recurso de Azure proporciona funcionalidades de supervisión para los flujos de trabajo. |
 | Conexiones de API | Opcional, si no existe ninguno | Estos recursos de Azure definen las conexiones de API administradas que los flujos de trabajo emplean para ejecutar operaciones de conector administrado, como Office 365, SharePoint, etc. <p><p>**Importante**: En el proyecto de aplicación lógica, el archivo **connections.json** contiene metadatos, puntos de conexión y claves para las conexiones de API administradas y las funciones de Azure que usan los flujos de trabajo. Para usar diferentes conexiones y funciones en cada entorno, asegúrese de parametrizar el archivo **connections.json** y actualizar los puntos de conexión. <p><p>Para más información, consulte [Recursos de conexión de API y directivas de acceso](#api-connection-resources). |
 | Plantilla de Azure Resource Manager (ARM) | Opcionales | Este recurso de Azure define una implementación de infraestructura de línea de base que puede reutilizar o [exportar](../azure-resource-manager/templates/template-tutorial-export-template.md). La plantilla también incluye las directivas de acceso necesarias, por ejemplo, para usar las conexiones de API administradas. <p><p>**Importante**: La exportación de la plantilla de ARM no incluirá todos los parámetros relacionados para los recursos de conexión de API que usan los flujos de trabajo. Para más información, consulte [Búsqueda de los parámetros de conexión de API](#find-api-connection-parameters). |
@@ -81,7 +81,7 @@ Si los flujos de trabajo emplean conexiones de API administradas, el uso de la f
 
 Para encontrar los valores que debe usar en el objeto `properties` para completar la definición del recurso de conexión, puede usar la siguiente API en un conector concreto:
 
-`PUT https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2018–07–01-preview`
+`GET https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2016-06-01`
 
 En la respuesta, busque el objeto `connectionParameters`, que contiene toda la información necesaria para completar la definición del recurso de ese conector en concreto. En el ejemplo siguiente se muestra una definición de recurso de ejemplo para una conexión administrada de SQL:
 
@@ -175,7 +175,7 @@ Para más información, consulte la documentación [Implementación de una funci
 
 Si usa otras herramientas de implementación, puede implementar la aplicación lógica de inquilino único mediante la CLI de Azure. Antes de empezar, es preciso tener los siguientes elementos:
 
-- La extensión más reciente de la CLI de Azure instalada en el equipo local.
+- La más reciente extensión de la CLI de Azure instalada en el equipo local.
 
   - Si no la tiene, consulte la [guía de instalación del sistema operativo o de la plataforma](/cli/azure/install-azure-cli).
 
@@ -217,9 +217,16 @@ Si usa otras herramientas de implementación, puede implementar la aplicación l
 
 ##### <a name="install-azure-logic-apps-standard-extension-for-azure-cli"></a>Instalación de la extensión de Azure Logic Apps (Estándar) para la CLI de Azure
 
-Para instalar la *versión preliminar* de la extensión de Azure Logic Apps (Estándar) de inquilino único para la CLI de Azure, ejecute el comando `az extension add` con los siguientes parámetros requeridos:
+Actualmente, solo está disponible la versión *preliminar* de esta extensión. Si no ha instalado previamente esta extensión, ejecute el comando `az extension add` con los siguientes parámetros obligatorios:
 
 ```azurecli-interactive
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+```
+
+Para obtener la extensión más reciente, que es la versión 0.1.1, ejecute estos comandos para quitar la extensión existente y, luego, instale la versión más reciente desde el origen:
+
+```azurecli-interactive
+az extension remove --name logicapp
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 

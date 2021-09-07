@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: mathoma
 ms.date: 03/31/2021
-ms.openlocfilehash: 535ad3bac6c4f88593fc196cf6487038f937d509
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e76493aa83383e4ce59da77cfb0ce050475ad303
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697278"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751264"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migración de bases de datos de SQL Server a SQL Managed Instance mediante el servicio de reproducción de registros (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Se recomiendan las siguientes prácticas recomendadas:
 - Divida las copias de seguridad completas y diferenciales en varios archivos, en lugar de usar uno solo.
 - Habilite la compresión de copias de seguridad.
 - Use Cloud Shell para ejecutar los scripts, ya que siempre se actualizarán con los últimos cmdlets publicados.
-- Planee de forma que la migración se complete en un plazo de 47 horas después de iniciar LRS. Este período de gracia impide la instalación de revisiones de software administradas por el sistema.
+- Planee de forma que la migración se complete en un plazo de 36 horas después de iniciar LRS. Este período de gracia impide la instalación de revisiones de software administradas por el sistema.
 
 > [!IMPORTANT]
 > - La base de datos que se está restaurando mediante LRS no se puede usar mientras no haya finalizado el proceso de migración. 
@@ -166,7 +166,7 @@ Azure Blob Storage se utiliza como almacenamiento intermedio para los archivos d
 
 Cuando migra bases de datos a una instancia administrada mediante LRS, puede usar los métodos siguientes para cargar las copias de seguridad en Blob Storage:
 - Usar la funcionalidad [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) nativa de SQL Server
-- Usar [AzCopy](../../storage/common/storage-use-azcopy-v10.md) o el [Explorador de Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer) para cargar las copias de seguridad en un contenedor de blobs
+- Usar [AzCopy](../../storage/common/storage-use-azcopy-v10.md) o el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer) para cargar las copias de seguridad en un contenedor de blobs
 - Usar el Explorador de Storage en Azure Portal
 
 ### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>Creación de copias de seguridad de SQL Server directamente en Blob Storage
@@ -330,7 +330,7 @@ az sql midb log-replay start <required parameters> &
 ```
 
 > [!IMPORTANT]
-> Después de iniciar LRS, todas las revisiones de software administradas por el sistema se detienen durante 47 horas. Tras este periodo, la siguiente revisión de software automatizada detendrá automáticamente LRS. Si esto sucede, no podrá reanudar la migración y deberá volver a iniciarla desde el principio. 
+> Después de iniciar LRS, todas las revisiones de software administradas por el sistema se detienen durante 36 horas. Tras este periodo, la siguiente revisión de software automatizada detendrá automáticamente LRS. Si esto sucede, no podrá reanudar la migración y deberá volver a iniciarla desde el principio. 
 
 ## <a name="monitor-the-migration-progress"></a>Supervisión del progreso de la migración
 
@@ -389,7 +389,7 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 
 A continuación se indican las limitaciones funcionales de LRS:
 - La base de datos que se está restaurando no se puede usar para el acceso de solo lectura durante el proceso de migración.
-- Las revisiones de software administradas por el sistema se bloquean durante 47 horas después de iniciar LRS. Tras la expiración de esta ventana de tiempo, la siguiente actualización de software detendrá LRS. Después, deberá reiniciar LRS desde cero.
+- Las revisiones de software administradas por el sistema se bloquean durante 36 horas después de iniciar LRS. Tras la expiración de esta ventana de tiempo, la siguiente actualización de software detendrá LRS. Después, deberá reiniciar LRS desde cero.
 - LRS requiere que las copias de seguridad de las bases de datos de SQL Server se realicen con la opción `CHECKSUM` habilitada.
 - El token de SAS que utilizará LRS debe generarse para todo el contenedor de Azure Blob Storage y solo debe tener permisos de lectura y enumeración.
 - Los archivos de copia de seguridad de diferentes bases de datos se deben colocar en distintas carpetas de Blob Storage.

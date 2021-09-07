@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 08/15/2021
-ms.openlocfilehash: 46e97cf7bb2fd3f54988f1643d047cc19e3fa82e
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: f8e860cb93930c8e412fe102cf52fbf0c8b78e41
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195203"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418344"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilidad de las características en la nube para clientes de la Administración Pública de Estados Unidos
 
@@ -128,7 +128,7 @@ En las siguientes tablas se muestra la disponibilidad de características de Azu
 
 | Característica | Azure | Azure Government  |
 | ----- | ----- | ---- |
-|- [Regalas de automatización](../../sentinel/automate-incident-handling-with-automation-rules.md) | Vista previa pública | No disponible |
+|- [Regalas de automatización](../../sentinel/automate-incident-handling-with-automation-rules.md) | Vista previa pública | Vista previa pública |
 |- [Traiga su propio aprendizaje automático (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Vista previa pública | Vista previa pública |
 | - [Vista de incidentes entre inquilinos o áreas de trabajo](../../sentinel/multiple-workspace-view.md) |Vista previa pública | Vista previa pública |
 | - [Conclusiones sobre la entidad](../../sentinel/enable-entity-behavior-analytics.md) | Disponibilidad general | Vista previa pública |

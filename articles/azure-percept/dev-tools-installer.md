@@ -1,20 +1,20 @@
 ---
 title: Instalación de las herramientas de desarrollo de Azure Percept
 description: Obtenga información sobre el uso del instalador del paquete de herramientas de desarrollo para acelerar el desarrollo avanzado con Azure Percept.
-author: tsampige
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f445170d3cd2b2cfeb45a85371409a539368ba22
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 88d93b98b9bd456c5529bff67fbef98b9e792ba0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224997"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729204"
 ---
-# <a name="install-azure-percept-development-tools"></a>Instalación de las herramientas de desarrollo de Azure Percept
+# <a name="dev-tools-pack-installer-overview"></a>Información general del instalador del paquete de herramientas de desarrollo
 
 El instalador del paquete de herramientas de desarrollo es una solución única que instala y configura todas las herramientas necesarias para desarrollar una solución de inteligencia perimetral avanzada.
 

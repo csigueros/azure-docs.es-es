@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8931103305d85b50a76dab001b37612a6c50a5cf
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: d32ea2a26bfcf4f1186cc93f65d67ed10b1eb4e9
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028620"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860791"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión
 
@@ -22,9 +22,9 @@ Use este artículo para solucionar problemas que tiene al configurar las máquin
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 
-Visite la [comunidad técnica de Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para analizar el servicio Azure Virtual Desktop con el equipo de producto y los miembros activos de la comunidad.
+Visite la [comunidad técnica de Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum) para analizar el servicio Azure Virtual Desktop con el equipo de producto y los miembros activos de la comunidad.
 
-## <a name="vms-are-not-joined-to-the-domain"></a>Las VM no se unen al dominio
+## <a name="vms-arent-joined-to-the-domain"></a>Las máquinas virtuales no se unen al dominio
 
 Siga estas instrucciones si tiene problemas para unir las máquinas virtuales al dominio.
 
@@ -44,7 +44,7 @@ Siga estas instrucciones si tiene problemas para unir las máquinas virtuales al
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Error: Se agotó el tiempo de espera para la entrada del usuario
 
-**Causa:** La cuenta usada para completar la unión a un dominio puede tener autenticación multifactor (MFA).
+**Causa:** la cuenta usada para completar la unión al dominio puede tener autenticación multifactor (MFA).
 
 **Solución:** realice una de las siguientes acciones para resolverlo.
 
@@ -70,20 +70,20 @@ Siga estas instrucciones si tiene problemas para unir las máquinas virtuales al
 
 **Corrección 2:** con el fin de actualizar la configuración DNS de la red virtual que contiene Azure AD DS, [consulte Actualización de la configuración DNS para la red virtual de Azure](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
-**Causa 3:** la configuración del servidor DNS de la interfaz de red no apunta al servidor DNS adecuado en la red virtual.
+**Causa 3:** la configuración del servidor DNS de la interfaz de red no apunta al servidor DNS adecuado de la red virtual.
 
 **Corrección 3:** realice una de las siguientes acciones para resolverlo, siguiendo los pasos descritos en [Cambio de servidores DNS].
 - Cambie la configuración del servidor DNS de la interfaz de red a **Personalizado** con los pasos que se indican en [Cambio de servidores DNS](../virtual-network/virtual-network-network-interface.md#change-dns-servers) y especifique las direcciones IP privadas de los servidores DNS en la red virtual.
 - Cambie la configuración del servidor DNS de la interfaz de red a **Herencia de la red virtual** con los pasos que se indican en [Cambio de servidores DNS](../virtual-network/virtual-network-network-interface.md#change-dns-servers) y, después, cambie la configuración del servidor DNS de la red virtual con los pasos que se indican en [Cambio de servidores DNS](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-## <a name="azure-virtual-desktop-agent-and-azure-virtual-desktop-boot-loader-are-not-installed"></a>El agente de Azure Virtual Desktop y el cargador de arranque de Azure Virtual Desktop no están instalados
+## <a name="azure-virtual-desktop-agent-and-azure-virtual-desktop-boot-loader-arent-installed"></a>El agente de Azure Virtual Desktop y el cargador de arranque de Azure Virtual Desktop no están instalados
 
 La manera recomendada para aprovisionar máquinas virtuales es usar la plantilla de creación de Azure Portal. La plantilla instala automáticamente el agente de Azure Virtual Desktop y el cargador de arranque del agente de Azure Virtual Desktop.
 
 Siga estas instrucciones para confirmar que los componentes se han instalado y para comprobar los mensajes de error.
 
-1. Para confirmar que los dos componentes se han instalado, consulte **Panel de control** > **Programas** > **Programas y características**. Si el **agente de Azure Virtual Desktop** y el **cargador de arranque del agente de Azure Virtual Desktop** no están visibles, no se instalan en la máquina virtual.
-2. Abra el **Explorador de archivos** y vaya a **C:\Windows\Temp\ScriptLog.log**. Si falta el archivo, es señal de que el DSC de PowerShell que instala los dos componentes no pudo ejecutarse en el contexto de seguridad proporcionado.
+1. Para confirmar que los dos componentes se han instalado, consulte **Panel de control** > **Programas** > **Programas y características**. Si el **agente de Azure Virtual Desktop** y el **cargador de arranque del agente de Azure Virtual Desktop** no están visibles, es que no están instalados en la máquina virtual.
+2. Abra el **Explorador de archivos** y vaya a **C:\Windows\Temp\ScriptLog.log**. Si falta el archivo, es señal de que el DSC de PowerShell que instaló los dos componentes no pudo ejecutarse en el contexto de seguridad proporcionado.
 3. Si se encuentra el archivo **C:\Windows\Temp\ScriptLog.log**, ábralo y busque mensajes de error.
 
 ### <a name="error-azure-virtual-desktop-agent-and-azure-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>Error: Faltan el agente de Azure Virtual Desktop y el cargador de arranque de Azure Virtual Desktop. C:\Windows\Temp\ScriptLog.log también falta
@@ -110,7 +110,7 @@ Siga estas instrucciones para confirmar que los componentes se han instalado y p
 - Confirme que la cuenta usada para conectarse a Azure Virtual Desktop tiene permisos en el grupo de recursos o la suscripción de Azure para crear grupos de hosts.
 - Confirme que la cuenta no tenga MFA.
 
-## <a name="azure-virtual-desktop-agent-is-not-registering-with-the-azure-virtual-desktop-service"></a>El agente de Azure Virtual Desktop no se registra en el servicio de Azure Virtual Desktop
+## <a name="azure-virtual-desktop-agent-isnt-registering-with-the-azure-virtual-desktop-service"></a>El agente de Azure Virtual Desktop no se registra en el servicio Azure Virtual Desktop
 
 Cuando el agente de Azure Virtual Desktop se instala por primera vez en las VM de host de sesión (ya sea manualmente o a través de la plantilla de Azure Resource Manager y DSC de PowerShell), proporciona un token de registro. En la siguiente sección se trata la solución de problemas aplicables al agente de Azure Virtual Desktop y el token.
 
@@ -138,7 +138,7 @@ Cuando el agente de Azure Virtual Desktop se instala por primera vez en las VM d
 
 1. Si ya hay un token de registro, quítelo con Remove-AzWvdRegistrationInfo.
 2. Ejecute el cmdlet **New-AzWvdRegistrationInfo** para generar un nuevo token.
-3. Confirme que el parámetro *-ExpirationTime* esté configurado en 3 días.
+3. Confirme que el parámetro *-ExpirationTime* está establecido en tres días.
 
 ### <a name="error-azure-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>El agente de Azure Virtual Desktop no notifica un latido al ejecutar Get-AzWvdSessionHost
 
@@ -215,7 +215,7 @@ Examine las entradas del Registro que se enumeran a continuación y confirme que
 1. Use el Protocolo de escritorio remoto (RDP) para ir directamente a la VM del host de sesión como administrador local.
 2. Instale la pila en paralelo con [Creación de un grupo host con PowerShell](create-host-pools-powershell.md).
 
-## <a name="how-to-fix-a-azure-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Cómo corregir una pila en paralelo de Azure Virtual Desktop con error de funcionamiento
+## <a name="how-to-fix-an-azure-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Cómo corregir una pila en paralelo de Azure Virtual Desktop que funciona mal
 
 Existen circunstancias conocidas que pueden provocar que la pila en paralelo no funcione correctamente:
 
@@ -299,11 +299,11 @@ Si el sistema operativo es Microsoft Windows 10, continúe con las instrucciones
 
 ## <a name="remote-desktop-licensing-mode-isnt-configured"></a>El modo de licencia de Escritorio remoto no está configurado
 
-Si inicia sesión en Windows 10 Enterprise multisesión con una cuenta administrativa, puede recibir una notificación que diga que "el modo de administración de licencias de Escritorio remoto no está configurado, los servicios de Escritorio remoto dejarán de funcionar en X días. En el servidor de Agente de conexión, use el administrador del servidor para especificar el modo de administración de licencias de Escritorio remoto."
+Si inicia sesión en Windows 10 Enterprise multisesión con una cuenta administrativa, puede recibir una notificación que diga que el modo de administración de licencias de Escritorio remoto no está configurado, y que los servicios de Escritorio remoto dejarán de funcionar en X días. En el servidor de Agente de conexión, use el administrador del servidor para especificar el modo de administración de licencias de Escritorio remoto."
 
 Si el límite de tiempo expira, aparece el mensaje de error "Se desconectó la sesión remota porque no hay licencias de acceso de cliente de Escritorio remoto disponibles para este equipo".
 
-Si ve alguno de estos mensajes, la imagen no tiene instaladas las actualizaciones más recientes de Windows o está configurando el modo de licencia de Escritorio remoto a través de la directiva de grupo. Siga los pasos descritos en las secciones siguientes para comprobar la configuración de la directiva de grupo, identificar la versión de la sesión múltiple de Windows 10 Enterprise e instalar la actualización correspondiente.
+Si ve alguno de estos mensajes, significa que la imagen no tiene instaladas las actualizaciones de Windows más recientes o que está configurando el modo de licencia de Escritorio remoto mediante la directiva de grupo. Siga los pasos descritos en las secciones siguientes para comprobar la configuración de la directiva de grupo, identificar la versión de la sesión múltiple de Windows 10 Enterprise e instalar la actualización correspondiente.
 
 >[!NOTE]
 >Azure Virtual Desktop solo requiere una licencia de acceso de cliente (CAL) de RDS si el grupo de hosts contiene hosts de sesión de Windows Server. Para obtener información sobre cómo configurar una CAL de RDS, vea [Licencia para la implementación de RDS con licencias de acceso de cliente (CAL)](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
@@ -343,16 +343,20 @@ Si los usuarios ven un error que dice "no se pudo conectar al equipo remoto debi
 
 Para obtener más información acerca de esta directiva, consulte [Permitir el inicio de sesión a través de Servicios de Escritorio remoto](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
+## <a name="i-cant-deploy-the-golden-image"></a>No puedo implementar la imagen maestra
+
+Las imágenes maestras no deben incluir el agente de Azure Virtual Desktop. Solo puede instalar el agente después de implementar la imagen maestra.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre la solución de problemas de Azure Virtual Desktop y las pistas de escalación, consulte [Introducción a la solución de problemas, comentarios y soporte técnico](troubleshoot-set-up-overview.md).
-- Para solucionar problemas durante la creación de un grupo de hosts en un entorno de Azure Virtual Desktop, consulte [Creación de entornos y grupos de hosts](troubleshoot-set-up-issues.md).
-- Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
+- Para información general sobre la solución de problemas de Azure Virtual Desktop y las pistas de escalación, consulte [Introducción a la solución de problemas, comentarios y soporte técnico](troubleshoot-set-up-overview.md).
+- Para solucionar problemas durante la creación de un grupo de hosts en un entorno de Azure Virtual Desktop, consulte [Creación de entornos y grupos de hosts](troubleshoot-set-up-issues.md).
+- Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
 - Para solucionar problemas relacionados con el agente de Windows Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Azure Virtual Desktop](troubleshoot-agent.md).
 - Para solucionar problemas con conexiones de cliente de Azure Virtual Desktop, consulte [Conexiones de servicios de Azure Virtual Desktop](troubleshoot-service-connection.md).
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md).
-- Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell.md).
-- Para obtener más información sobre el servicio, consulte [Entorno de Azure Virtual Desktop](environment-setup.md).
+- Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell.md).
+- Para más información sobre el servicio, consulte [Entorno de Azure Virtual Desktop](environment-setup.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../azure-resource-manager/templates/deployment-history.md).
