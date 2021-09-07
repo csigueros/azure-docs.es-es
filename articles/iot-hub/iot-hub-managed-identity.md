@@ -5,14 +5,14 @@ author: miag
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/24/2021
 ms.author: miag
-ms.openlocfilehash: 34b83376a555b5fd06947049f959badc9a1aed67
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 4d5a518bc517b950f5366ba53eadb7284121a5e3
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731084"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866414"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>Compatibilidad de IoT Hub con identidades administradas 
 
@@ -273,7 +273,7 @@ La característica de [carga de archivos](iot-hub-devguide-file-upload.md) de Io
     > Debe completar los pasos anteriores para asignar a la identidad administrada el acceso correcto antes de guardar la cuenta de almacenamiento en IoT Hub para la carga de archivos mediante la identidad administrada. Espere unos minutos a que se propague la asignación de roles. 
  
 5. En la página de recursos del centro de IoT, vaya a la pestaña **Carga de archivo**.
-6. En la página que se muestra, seleccione el contenedor que quiere usar en Blob Storage, y configure las opciones **Configuración de notificación de archivos, TTL de SAS, TTL predeterminado y Número máximo de entregas**. Elija el tipo de autenticación preferido y haga clic en **Guardar**.
+6. En la página que se muestra, seleccione el contenedor que quiere usar en Blob Storage, y configure las opciones **Configuración de notificación de archivos, TTL de SAS, TTL predeterminado y Número máximo de entregas**. Elija el tipo de autenticación preferido y haga clic en **Guardar**. Si recibe un error en este paso, establezca de forma temporal la cuenta de almacenamiento para permitir el acceso desde **Todas las redes** y, a continuación, vuelva a intentarlo. Puede configurar el firewall en la cuenta de almacenamiento una vez completada la configuración de carga de archivos.
 
     :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="Carga de archivos de IoT Hub con msi":::
 

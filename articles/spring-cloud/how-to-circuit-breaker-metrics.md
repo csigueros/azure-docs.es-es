@@ -1,18 +1,18 @@
 ---
 title: Recopilación de métricas del interruptor Resilience4J de Spring Cloud con Micrometer
 description: Cómo recopilar de métricas del interruptor Resilience4J de Spring Cloud con Micrometer en Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: be67e2fb1bafaecd538f6fc671c006ac013cc849
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dae08798aa7b3bc1937295e0cd7701446bd7259e
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135282"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015557"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Recopilación de métricas del interruptor Resilience4J de Spring Cloud con Micrometer (versión preliminar)
 
@@ -22,10 +22,8 @@ Usamos [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-sampl
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Habilite el agente en proceso de Java en la [guía del agente en proceso de Java para Application Insights](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights). 
-
+* Habilite el agente en proceso de Java en la [guía del agente en proceso de Java para Application Insights](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights).
 * Habilite la colección de dimensiones para las métricas de resilience4j desde la [guía de Application Insights](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
 * Instale GIT, Maven y Java, siempre que el equipo de desarrollo no los esté usando ya.
 
 ## <a name="build-and-deploy-apps"></a>Compilación e implementación de aplicaciones
@@ -73,6 +71,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
+>
 > * El código de cliente debe usar la API de `CircuitBreakerFactory`, que se implementa en forma de `bean`, que se crea automáticamente cuando se incluye un iniciador del interruptor de Spring Cloud. Para más información, consulte el artículo sobre el [interruptor de Spring Cloud](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
 >
 > * Las dos dependencias siguientes tienen conflictos con los paquetes de resilience4j anteriores.  Asegúrese de que el cliente no las incluye.
@@ -99,7 +98,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## <a name="locate-resilence4j-metrics-from-portal"></a>Búsqueda de métricas de Resilence4j desde Azure Portal
 
-1. Seleccione la hoja **Application Insights** del portal de Azure Spring Cloud y haga clic en **Application Insights**.
+1. Seleccione la hoja **Application Insights** del portal de Azure Spring Cloud y, a continuación, **Application Insights**.
 
    [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
@@ -111,11 +110,11 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.png)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
 
-4. Seleccione la métrica **resilience4j_circuitbreaker_buffered_calls** y **Average** (Promedio).  Haga clic en **Add filter** (Agregar filtro) y, después, seleccione nombre como **createNewAccount**.
+4. Seleccione la métrica **resilience4j_circuitbreaker_buffered_calls** y **Average** (Promedio). Seleccione **Agregar filtro** y, a continuación, **createNewAccount** como nombre.
 
    [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.png)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
 
-5. Seleccione la métrica **resilience4j_circuitbreaker_buffered_calls** y **Average** (Promedio).  Luego, haga clic en **Apply splitting** (Aplicar separación) y seleccione **kind**  (tipo).
+5. Seleccione la métrica **resilience4j_circuitbreaker_buffered_calls** y **Average** (Promedio).  Luego, seleccione **Aplicar separación** y, a continuación, **tipo**.
 
    [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.png)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 

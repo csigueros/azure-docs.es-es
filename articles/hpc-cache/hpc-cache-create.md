@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: v-erkel
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 26272090d3ec18328df2ac553b15e53abc824708
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: eb7d88424a04754612f981d58e8e1d6cb85ce0fb
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294926"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770595"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -114,7 +114,7 @@ Para obtener una explicación completa del proceso de cifrado con claves adminis
 
 Seleccione **Administrado por el cliente** para elegir el cifrado con claves administradas por el cliente. Aparecen los campos de especificación del almacén de claves. Seleccione la instancia de Azure Key Vault que se va a usar y, a continuación, seleccione la clave y la versión que se usarán para esta caché. Debe ser una clave RSA de 2048 bits. Puede crear un nuevo almacén de claves, clave o versión de clave desde esta página.
 
-Active la casilla **Always use current key version** (Usar siempre la versión actual de la clave) si quiere usar la [rotación automática de claves](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
+Active la casilla **Always use current key version** (Usar siempre la versión actual de la clave) si quiere usar la [rotación automática de claves](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
 
 Si quiere usar una identidad administrada específica para esta caché, configúrela en la sección **Identidades administradas**. Consulte [¿Qué son las identidades administradas para los recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md) para más información.
 
@@ -179,8 +179,8 @@ Especifique estos valores:
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 GB    | sí         | No          | No          |
-  | 6144 GB    | sí         | Sí         | No          |
-  | 12288 GB   | sí         | Sí         | sí         |
+  | 6144 GB    | sí         | sí         | No          |
+  | 12288 GB   | sí         | sí         | sí         |
   | 24576 GB   | No          | sí         | sí         |
   | 49152 GB   | No          | No          | sí         |
 
@@ -283,8 +283,8 @@ Proporcione estos valores:
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 GB    | sí         | No          | No          |
-  | 6144 GB    | sí         | Sí         | no          |
-  | 12,288 GB   | sí         | Sí         | sí         |
+  | 6144 GB    | sí         | sí         | no          |
+  | 12,288 GB   | sí         | sí         | sí         |
   | 24,576 GB   | no          | sí         | sí         |
   | 49,152 GB   | no          | No          | sí         |
 

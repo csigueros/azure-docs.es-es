@@ -1,8 +1,8 @@
 ---
-title: Uso de colas de Service Bus con Java
-description: En este tutorial, obtendrá información sobre cómo crear aplicaciones de Java para enviar mensajes a una cola de Azure Service Bus y recibir mensajes de una cola de Azure Service Bus.
-ms.date: 06/23/2020
-ms.topic: quickstart
+title: Uso de colas de Azure Service Bus con Java (versión antigua)
+description: En este artículo obtendrá información sobre cómo crear aplicaciones de Java para enviar mensajes a una cola de Azure Service Bus y recibirlos de esta.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
 ms.custom:
 - seo-java-july2019
@@ -10,24 +10,24 @@ ms.custom:
 - seo-java-september2019
 - devx-track-java
 - mode-api
-ms.openlocfilehash: 38657f333fea4ca18fb76eb5832649067bfd01b4
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 28b57d309c673cfe57bd6d743d876c07685b6353
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538247"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780428"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Inicio rápido: Uso de colas de Azure Service Bus con Java para enviar y recibir mensajes
+# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages-old-package"></a>Uso de colas de Azure Service Bus con Java para enviar y recibir mensajes (paquete antiguo)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-En este tutorial, obtendrá información sobre cómo crear aplicaciones de Java para enviar mensajes a una cola de Azure Service Bus y recibir mensajes de una cola de Azure Service Bus. 
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
+En este artículo obtendrá información sobre cómo crear aplicaciones de Java para enviar mensajes a una cola de Azure Service Bus y recibirlos de esta. 
 
 > [!WARNING]
->  En este inicio rápido se usan los paquetes `azure-servicebus` anteriores. Para ver un inicio rápido en el que se use el paquete `azure-messaging-servicebus`más reciente, consulte [Envío y recepción de mensajes mediante`azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
+>  En este artículo se usan paquetes `azure-servicebus` antiguos. Puede consultar un artículo en el que se usa el paquete `azure-messaging-servicebus` más reciente en [Envío y recepción de mensajes mediante `azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
 
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Suscripción a Azure. Para completar los pasos de este artículo, necesitará una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
     1. Lea la **introducción** rápida de las **colas** de Service Bus. 
     2. Cree un **espacio de nombres** de Service Bus. 
