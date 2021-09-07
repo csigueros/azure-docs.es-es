@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 08/06/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b67f3514246bcac1185370393ac469f8c96cf3
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ef457948a28d9d07464b96bfaea4df6a6f2a8723
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890625"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747856"
 ---
 # <a name="prerequisites-to-use-powershell-or-graph-explorer-for-azure-ad-roles"></a>Requisitos previos para el uso de PowerShell o Probador de Graph para roles de Azure AD
 
@@ -35,7 +35,7 @@ Para usar comandos de PowerShell que realicen las siguientes acciones:
 
 Debe tener instalado el siguiente módulo:
 
-- Versión 2.0.2.130 o posterior de [AzureAD](https://www.powershellgallery.com/packages/AzureAD)
+- Versión 2.0.2.137 o posterior de [AzureAD](https://www.powershellgallery.com/packages/AzureAD)
 
 
 #### <a name="check-azuread-version"></a>Comprobación de la versión de AzureAD
@@ -51,7 +51,7 @@ Debería ver un resultado similar al siguiente:
 ```powershell
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-2.0.2.130  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
+2.0.2.137  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
 ```
 
 #### <a name="install-azuread"></a>Instalación de AzureAD
@@ -97,7 +97,7 @@ Para usar AzureAD, siga estos pasos para asegurarse de que se importa en la sesi
     ```powershell
     ModuleType Version    Name                                ExportedCommands
     ---------- -------    ----                                ----------------
-    Binary     2.0.2.130  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
+    Binary     2.0.2.137  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
     ```
 
 ## <a name="azureadpreview-module"></a>Módulo AzureADPreview
@@ -111,7 +111,7 @@ Para usar comandos de PowerShell que realicen las siguientes acciones:
 
 Debe tener instalado el siguiente módulo:
 
-- La versión 2.0.2.129 o posterior de [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview).
+- Versión 2.0.2.138 o posterior de [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)
 
 
 #### <a name="check-azureadpreview-version"></a>Comprobación de la versión de AzureADPreview
@@ -127,7 +127,7 @@ Debería ver un resultado similar al siguiente:
 ```powershell
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-2.0.2.129  AzureADPreview                      PSGallery            Azure Active Directory V2 Preview Module. ...
+2.0.2.138  AzureADPreview                      PSGallery            Azure Active Directory V2 Preview Module. ...
 ```
 
 #### <a name="install-azureadpreview"></a>Instalación de AzureADPreview
@@ -156,7 +156,7 @@ Para usar AzureADPreview, siga estos pasos para asegurarse de que se importa en 
     Get-Module -Name AzureADPreview
     ```
 
-1. Si no ve ninguna salida en el paso anterior, use [Import-Module](/powershell/module/powershellget/import-module) para importar AzureADPreview. El parámetro `-Force` elimina el módulo cargado y, a continuación, lo importa de nuevo.
+1. Si no ve ninguna salida en el paso anterior, use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) para importar AzureADPreview. El parámetro `-Force` elimina el módulo cargado y, a continuación, lo importa de nuevo.
 
     ```powershell
     Import-Module -Name AzureADPreview -Force
@@ -173,22 +173,22 @@ Para usar AzureADPreview, siga estos pasos para asegurarse de que se importa en 
     ```powershell
     ModuleType Version    Name                                ExportedCommands
     ---------- -------    ----                                ----------------
-    Binary     2.0.2.129  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
+    Binary     2.0.2.138  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
     ```
 
 ## <a name="graph-explorer"></a>Explorador de gráfico
 
 Para administrar roles de Azure AD mediante [Microsoft Graph API](/graph/overview) y [Probador de Graph](/graph/graph-explorer/graph-explorer-overview), debe hacer lo siguiente:
 
-1. En Azure Portal, abra **Azure Active Directory**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 
-1. Haga clic en **Aplicaciones empresariales**.
+1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
 
-1. En la lista de aplicaciones, busque y haga clic en **Probador de Graph**.
+1. En la lista de aplicaciones, busque y seleccione **Probador de Graph**.
 
-1. Haga clic en **Permisos**.
+1. Seleccione **Permisos**.
 
-1. Haga clic en **Conceder consentimiento de administrador para Probador de Graph**.
+1. Seleccione **Grant admin consent for Graph explorer** (Conceder consentimiento de administrador para Probador de Graph).
 
     ![Captura de pantalla en la que se muestra el vínculo "Conceder consentimiento de administrador para Probador de Graph".](./media/prerequisites/select-graph-explorer.png)
 

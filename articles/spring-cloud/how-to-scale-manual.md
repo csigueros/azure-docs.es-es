@@ -3,16 +3,16 @@ title: Escalado de una aplicación en Azure Spring Cloud | Microsoft Docs
 description: Aprenda a escalar una aplicación con Azure Spring Cloud en Azure Portal
 ms.service: spring-cloud
 ms.topic: how-to
-ms.author: brendm
-author: bmitchell287
+ms.author: karler
+author: karlerickson
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 97261755f55f9193d0169e91597318928bb45b97
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 22bae9cd5a626f6a90427bd7522f2b99fa08ca0c
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134706"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015362"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Escalado de una aplicación en Azure Spring Cloud
 
@@ -28,7 +28,7 @@ Cuando termine, sabrá cómo realizar cambios manuales rápidos en cada aplicaci
 
 Para seguir estos procedimientos, necesita:
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Una instancia del servicio Azure Spring Cloud implementada.  Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](./quickstart.md).
 * Al menos una aplicación ya creada en su instancia de servicio.
 
@@ -63,7 +63,8 @@ Asegúrese de seleccionar **Save** (Guardar) para aplicar la configuración de e
 Tras unos segundos, se muestran los cambios realizados en la página **Overview** (Información general), y puede encontrar más detalles en la pestaña **Application instances** (Instancias de la aplicación). El escalado no requiere cambios en el código ni nuevas implementaciones.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Actualización al nivel Estándar
-Si está en el nivel Básico y se le imponen una o varias de estas [limitaciones](./quotas.md), puede actualizar al nivel Estándar. Para hacerlo, seleccione primero la columna de nivel Estándar y haga clic en el botón **Actualizar** para ir al menú Plan de tarifa.
+
+Si está en el nivel Básico y se le imponen una o varias de estas [limitaciones](./quotas.md), puede actualizar al nivel Estándar. Para ello, vaya al menú Plan de tarifa, para lo que antes debe seleccionar la columna **Nivel estándar** y, después, seleccionar el botón **Actualizar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

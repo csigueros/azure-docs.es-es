@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 0a08dfd1771ab0a8f866ffad1faa2c7d867b3072
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: f873bec75d0454aed2c6569a8f8dfaa7eaab9868
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075508"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195866"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -84,7 +84,7 @@ Cuando expone el punto de conexión global de un equilibrador de carga entre reg
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>IP estática
-El equilibrador de carga entre regiones viene con una dirección pública estática, que garantiza que la dirección IP siga siendo la misma. Para obtener más información sobre la dirección IP estática, lea más [aquí](../virtual-network/public-ip-addresses.md#allocation-method).
+El equilibrador de carga entre regiones viene con una dirección pública estática, que garantiza que la dirección IP siga siendo la misma. Para obtener más información sobre la dirección IP estática, lea más [aquí](../virtual-network/public-ip-addresses.md#ip-address-assignment).
 
 ### <a name="client-ip-preservation"></a>Conservación de la dirección IP de cliente
 El equilibrador de carga entre regiones es un equilibrador de carga de red de tránsito de nivel 4. Este tránsito conserva la dirección IP original del paquete.  La dirección IP original está disponible para el código que se ejecuta en la máquina virtual. Esta conservación permite aplicar lógica específica de una dirección IP.
@@ -140,6 +140,8 @@ El equilibrador de carga entre regiones enruta el tráfico al equilibrador de ca
 * No se puede agregar un equilibrador de carga interno o privado al grupo de back-end del equilibrador de carga entre regiones. 
 
 * Las configuraciones de direcciones IP de front-end IPv6 entre regiones no se admiten. 
+
+* No se admite el tráfico UDP en el equilibrador de carga entre regiones 
 
 * Un sondeo de estado no se puede configurar actualmente. Un sondeo de estado predeterminado recopila de forma automática información de disponibilidad sobre el equilibrador de carga regional cada 20 segundos. 
 

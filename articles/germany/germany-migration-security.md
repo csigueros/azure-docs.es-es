@@ -1,22 +1,22 @@
 ---
-title: Migración de recursos de seguridad de Azure desde Azure Alemania a Azure global
+title: Migración de recursos de seguridad de Azure de Azure Alemania a Azure global
 description: En este artículo se proporciona información sobre cómo migrar los recursos de seguridad de Azure desde Azure Alemania a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: f411e4fce32e31bfd02db554999e467770409857
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db8c13e214145df91f4b385f95c54e8084f3206c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033652"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "117029236"
 ---
 # <a name="migrate-security-resources-to-global-azure"></a>Migración de recursos de seguridad a Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 En este artículo se proporciona información que puede ayudarle a migrar los recursos de seguridad de Azure desde Azure Alemania a Azure global.
 
@@ -47,8 +47,8 @@ Get-AzKeyVaultSecret -vaultname mysecrets -name Deploydefaultpw
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Key Vault](https://docs.microsoft.com/azure/key-vault/#step-by-step-tutorials).
-- Revise [Introducción a Key Vault](../key-vault/key-vault-overview.md).
+- Actualice sus conocimientos completando los [tutoriales de Key Vault](../key-vault/index.yml).
+- Revise [Introducción a Key Vault](../key-vault/general/overview.md).
 - Examine los [cmdlets de PowerShell para Key Vault](/powershell/module/az.keyvault/).
 
 ## <a name="vpn-gateway"></a>VPN Gateway
@@ -61,10 +61,10 @@ Asegúrese de que actualice la configuración local. Además, elimine todas las 
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
-- Aprenda cómo [crear de una conexión de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+- Actualice sus conocimientos completando los [tutoriales de VPN Gateway](../vpn-gateway/index.yml).
+- Aprenda cómo [crear de una conexión de sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md).
 - Revise los cmdlets [Get AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) de PowerShell.
-- Lea la entrada de blob [Create a site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) (Creación de una conexión de sitio a sitio).
+- Lea la entrada de blob [Create a site-to-site connection](/archive/blogs/ralfwi/connecting-clouds) (Creación de una conexión de sitio a sitio).
   
 ## <a name="application-gateway"></a>Application Gateway
 
@@ -74,7 +74,7 @@ Puede recopilar la información sobre la configuración actual la puerta de enla
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Application Gateway](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
+- Actualice sus conocimientos completando los [tutoriales de Application Gateway](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 - Aprenda a [crear una puerta de enlace de aplicaciones](../application-gateway/quick-create-portal.md).
 - Revise los cmdlets [Get AzApplicationGateway](/powershell/module/az.network/get-azapplicationgateway) de PowerShell.
 
@@ -93,4 +93,3 @@ Obtenga información sobre herramientas, técnicas y recomendaciones para migrar
 - [Identidad](./germany-migration-identity.md)
 - [Herramientas de administración](./germany-migration-management-tools.md)
 - [Elementos multimedia](./germany-migration-media.md)
-

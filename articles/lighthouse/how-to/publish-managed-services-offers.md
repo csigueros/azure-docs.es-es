@@ -1,14 +1,14 @@
 ---
 title: Publicación de una oferta de servicio administrado en Azure Marketplace
 description: Aprenda a publicar una oferta de servicio administrado que incorpore clientes a Azure Lighthouse.
-ms.date: 03/31/2021
+ms.date: 08/10/2021
 ms.topic: how-to
-ms.openlocfilehash: 014386c6c4676abbc441cc2e23bdfcf90f3adc09
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: af5ca37d312f5bdfcfae179997b920a466f01462
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965110"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742187"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicación de una oferta de servicio administrado en Azure Marketplace
 
@@ -63,6 +63,9 @@ Una vez que un cliente agregue su oferta, podrá [delegar uno o varios grupos de
 > La delegación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente, que tenga el rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para buscar usuarios que puedan delegar la suscripción, un usuario del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Una vez que el cliente delega una suscripción (o uno o varios grupos de recursos dentro de una suscripción), el proveedor de recursos **Microsoft.ManagedServices** se registrará para esa suscripción y los usuarios del inquilino podrán acceder a los recursos delegados según las autorizaciones de la oferta.
+
+> [!NOTE]
+> Para delegar suscripciones o grupos de recursos adicionales en la misma oferta más adelante, el cliente deberá [registrar manualmente el proveedor de recursos **Microsoft.ManagedServices**](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) en cada suscripción antes de delegar.
 
 Si publica una versión actualizada de la oferta, el cliente puede [revisar los cambios en Azure Portal y aceptar la nueva versión](view-manage-service-providers.md#update-service-provider-offers).
 

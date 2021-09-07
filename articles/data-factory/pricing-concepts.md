@@ -5,14 +5,15 @@ author: shirleywangmsft
 ms.author: shwang
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 48c0f47b3b8ca5eddef76c66ad220a18018dc321
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: a5032ce26fcce2dbee2a95385292c5b455904586
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904900"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749898"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -184,22 +185,22 @@ En este escenario, quiere eliminar archivos originales en Azure Blob Storage y
 | Creación de una canalización | 6 entidades de lectura y escritura (2 para la creación de la canalización y 4 para las referencias del conjunto de datos) |
 | Obtención de la canalización | 2 entidades de lectura y escritura |
 | Ejecución de la canalización | 6 ejecuciones de actividad (2 para la ejecución del desencadenador y 4 para ejecuciones de actividad) |
-| Ejecución de la actividad de eliminación: cada tiempo de ejecución = 5 minutos. La ejecución de la actividad de eliminación en la primera canalización es de 10:00 AM UTC a 10:05 AM UTC. La ejecución de la actividad de eliminación en la segunda canalización es de 10:02 AM UTC a 10:07 AM UTC.|Ejecución total de actividad de canalización de 7 minutos en VNET administrada. La actividad de canalización admite hasta 50 actividades simultáneas en una VNET administrada. |
-| Asunción de copia de datos: cada tiempo de ejecución = 10 minutos. La ejecución de la copia en la primera canalización es de 10:06 AM UTC a 10:15 AM UTC. La ejecución de la actividad de eliminación en la segunda canalización es de 10:08 AM UTC a 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (valor predeterminado de DIU = 4). Para obtener más información sobre las unidades de integración de datos y la optimización del rendimiento de la copia, vea [este artículo](copy-activity-performance.md) |
+| Ejecución de la actividad de eliminación: cada tiempo de ejecución = 5 minutos. La ejecución de la actividad de eliminación en la primera canalización es de 10:00 AM UTC a 10:05 AM UTC. La ejecución de la actividad de eliminación en la segunda canalización es de 10:02 AM UTC a 10:07 AM UTC.|Ejecución total de actividad de canalización de 7 minutos en VNET administrada. La actividad de canalización admite hasta 50 actividades simultáneas en una VNET administrada. Hay un período de vida de 60 minutos para la actividad de canalización.|
+| Asunción de copia de datos: cada tiempo de ejecución = 10 minutos. La ejecución de la copia en la primera canalización es de 10:06 AM UTC a 10:15 AM UTC. La ejecución de la actividad de copia en la segunda canalización es de 10:08 a. m. UTC a 10:17 a. m. UTC. | 10 * 4 Azure Integration Runtime (valor predeterminado de DIU = 4). Para obtener más información sobre las unidades de integración de datos y la optimización del rendimiento de la copia, vea [este artículo](copy-activity-performance.md) |
 | Asunción de la supervisión de la canalización: Solo se han producido 2 ejecuciones | 6 registros de ejecución de supervisión recuperados (2 para la ejecución de la canalización y 4 para la ejecución de la actividad) |
 
 
-**Precio total del escenario: 0,45523 USD**
+**Precio total del escenario: 1,45523 USD**
 
 - Operaciones de Data Factory = 0,00023 USD
   - Lectura y escritura = 20*00001 = 0,0002 USD [1 lectura y escritura = 0,50 USD/50000 = 0,00001]
   - Supervisión = 6*000005 = 0,00003 USD [1 supervisión = 0,25 USD/50000 = 0,000005]
-- Orquestación y ejecución de canalizaciones = 0,455 USD
+- Orquestación y ejecución de la canalización = 1,455 USD
   - Ejecuciones de actividad = 0,001*6 = 0,006 [1 ejecución = 1 USD/1000 = 0,001]
   - Actividades de movimiento de datos = 0,333 USD (prorrateo durante 10 minutos de tiempo de ejecución. 0,25 $/hora en Azure Integration Runtime)
-  - Actividad de canalización = 0,116 USD (prorrateo durante 7 minutos de tiempo de ejecución. 1 USD/hora en Azure Integration Runtime)
+  - Actividad de canalización = 1,116 USD (prorrateo por 7 minutos de tiempo de ejecución más 60 minutos de período de vida. 1 USD/hora en Azure Integration Runtime)
 
-> [!NOTE]
+> [!NOTE] 
 > Estos precios son solo para los fines de este ejemplo.
 
 **P+F**

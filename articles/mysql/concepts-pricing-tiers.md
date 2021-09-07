@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: be7f15b5221be8b3acb7f64c4435e40f40f21f8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9e726e53d40ac90aec6bbbaaf41399698b11209
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720926"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748207"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Puede crear un servidor de Azure Database for MySQL en tres planes de tarifa diferentes: Básico, De uso general y Optimizado para memoria. Los planes de tarifa se diferencian por la cantidad de proceso en núcleos virtuales que se puede aprovisionar, la cantidad de memoria por núcleo virtual y la tecnología de almacenamiento usada para almacenar los datos. Todos los recursos se aprovisionan en el nivel de servidor MySQL. Un servidor puede tener una o varias bases de datos.
 
@@ -29,7 +31,7 @@ Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
 
 | Plan de tarifa | Carga de trabajo objetivo |
 |:-------------|:-----------------|
-| Básico | Cargas de trabajo que requieren proceso y rendimiento de E/S ligeros. Algunos ejemplos son los servidores que se usan para desarrollo o prueba, o bien las aplicaciones a pequeña escala que se usan con poca frecuencia. |
+| Básica | Cargas de trabajo que requieren proceso y rendimiento de E/S ligeros. Algunos ejemplos son los servidores que se usan para desarrollo o prueba, o bien las aplicaciones a pequeña escala que se usan con poca frecuencia. |
 | De uso general | La mayoría de las cargas de trabajo de empresa que requieren un equilibrio entre proceso y memoria con rendimiento de E/S escalable. Por ejemplo, servidores para hospedar aplicaciones web y móviles, y otras aplicaciones empresariales.|
 | Memoria optimizada | Cargas de trabajo de base de datos de alto rendimiento que requieren rendimiento en memoria para un procesamiento de transacciones más rápido y una mayor simultaneidad. Por ejemplo, servidores para procesar datos en tiempo real y aplicaciones de análisis y transacciones de alto rendimiento.|
 
@@ -43,27 +45,94 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 
 El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamiento disponible para el servidor de Azure Database for MySQL. El almacenamiento se usa para los archivos de base de datos, los archivos temporales, los registros de transacciones y los registros del servidor MySQL. La cantidad total de almacenamiento que se aprovisiona también define la capacidad de E/S disponible para su servidor.
 
-| Atributo de almacenamiento   | Básico | Uso general | Memoria optimizada |
+Azure Database for MySQL: servidor único que admite el siguiente almacenamiento de back-end para los servidores. 
+
+| Tipo de almacenamiento   | Básica | Uso general v1 | Uso general v2 |
 |:---|:----------|:--------------------|:---------------------|
-| Tipo de almacenamiento | Almacenamiento básico | Almacenamiento de uso general | Almacenamiento de uso general |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 16 TB | De 5 GB a 16 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 16 TB |
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
-| E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
-
-> [!NOTE]
-> Se admite el almacenamiento de hasta 16 TB y 20 000 IOPS en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Sur de Brasil, Oeste de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste de Asia, Asia Pacífico, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá y Centro de Canadá.
->
-> El resto de regiones admiten hasta 4 TB de almacenamiento y 6000 IOPS.
->
-
-Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor y permitir que el sistema aumente el almacenamiento automáticamente en función del consumo de almacenamiento de su carga de trabajo. 
+| E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
 
 >[!NOTE]
+> El almacenamiento básico no ofrece garantía de IOPS. En el almacenamiento De uso general, las IOPS oscilan en un ratio de 3:1 con el tamaño de almacenamiento aprovisionado.
+
+### <a name="basic-storage"></a>Almacenamiento básico 
+El almacenamiento básico es el almacenamiento de back-end que admite los servidores de nivel de precio Básico. El almacenamiento básico aprovecha el almacenamiento estándar de Azure en el back-end, donde no se garantizan las IOPS aprovisionadas y la latencia es variable. El nivel Básico es más adecuado para cargas de trabajo que requieren proceso ligero, bajo coste y rendimiento de E/S para el desarrollo o aplicaciones de uso poco frecuente a pequeña escala.
+
+### <a name="general-purpose-storage"></a>Almacenamiento de uso general 
+El almacenamiento de uso general es el almacenamiento de back-end que admite el servidor De uso general y el servidor de nivel Optimizado para memoria. En el almacenamiento De uso general, las IOPS oscilan en un ratio de 3:1 con el tamaño de almacenamiento aprovisionado. Hay dos generaciones de almacenamiento de uso general, como se describe a continuación:
+
+#### <a name="general-purpose-storage-v1-supports-up-to-4-tb"></a>Almacenamiento de uso general v1 (admite hasta 4 TB)
+El almacenamiento de uso general v1 se basa en la tecnología de almacenamiento heredada, que puede admitir hasta 4 TB de almacenamiento y 6000 IOPS por servidor. El almacenamiento de uso general v1 está optimizado para aprovechar la memoria de los nodos de proceso que ejecutan el motor MySQL para el almacenamiento en caché local y las copias de seguridad. El proceso de copia de seguridad en el almacenamiento de uso general v1 lee los archivos de datos y registro en la memoria de los nodos de proceso y los copia en el almacenamiento de copia de seguridad de destino para su retención hasta 35 días. Como resultado, el consumo de memoria y E/S del almacenamiento durante las copias de seguridad es relativamente mayor. 
+
+Todas las regiones de Azure admiten el almacenamiento de uso general v1
+
+Para el servidor De uso general u Optimizado para memoria en el almacenamiento de uso general v1, le recomendamos que considere:
+
+*   Planificar el nivel de SKU de proceso teniendo en cuenta un exceso de memoria del 10 al 30 % para el almacenamiento en caché y los búferes de copia de seguridad 
+*   Aprovisionar un 10 % más IOPS de lo requerido por la carga de trabajo de la base de datos para tener en cuenta las E/S de copia de seguridad 
+*   También puede migrar a un almacenamiento de uso general v2 que se describe a continuación y que admite hasta 16 TB si la infraestructura de almacenamiento subyacente está disponible en las regiones de Azure de su preferencia indicadas a continuación. 
+
+#### <a name="general-purpose-storage-v2-supports-up-to-16-tb-storage"></a>Almacenamiento de uso general v2 (admite hasta 16 TB de almacenamiento)
+El almacenamiento de uso general v2 está basado en la infraestructura de almacenamiento más reciente, que puede admitir hasta 16 TB y 20 000 IOPS. En un subconjunto de regiones de Azure donde la infraestructura está disponible, todos los servidores recién aprovisionados se encuentran en el almacenamiento de uso general v2 de manera predeterminada. El almacenamiento de uso general v2 no consume memoria del nodo de ejecución de MySQL y proporciona mejores latencias de E/S predecibles en comparación con el almacenamiento de uso general v1. Las copias de seguridad de los servidores de almacenamiento de uso general v2 están basadas en instantáneas sin sobrecarga adicional de E/S. En el almacenamiento de uso general v2, se espera que el rendimiento del servidor MySQL sea mayor en comparación con el almacenamiento de uso general v1 para el mismo almacenamiento e IOPS aprovisionados. No hay ningún coste adicional por el almacenamiento de uso general que admite almacenamiento de hasta 16 TB. Si necesita ayuda para migrar a un almacenamiento de 16 TB, abra una incidencia de soporte técnico en Azure Portal.
+
+El almacenamiento de uso general v2 se admite en las siguientes regiones de Azure: 
+
+| Region | Disponibilidad de almacenamiento de uso general v2 | 
+| --- | --- | 
+| Este de Australia | :heavy_check_mark: | 
+| Sudeste de Australia | :heavy_check_mark: | 
+| Sur de Brasil | :heavy_check_mark: | 
+| Centro de Canadá | :heavy_check_mark: |
+| Este de Canadá | :heavy_check_mark: |
+| Centro de EE. UU. | :heavy_check_mark: | 
+| Este de EE. UU. | :heavy_check_mark: | 
+| Este de EE. UU. 2 | :heavy_check_mark: |
+| Este de Asia | :heavy_check_mark: | 
+| Japón Oriental | :heavy_check_mark: | 
+| Japón Occidental | :heavy_check_mark: | 
+| Centro de Corea del Sur | :heavy_check_mark: |
+| Corea del Sur | :heavy_check_mark: |
+| Norte de Europa | :heavy_check_mark: | 
+| Centro-Norte de EE. UU | :heavy_check_mark: | 
+| Centro-sur de EE. UU. | :heavy_check_mark: | 
+| Sudeste de Asia | :heavy_check_mark: | 
+| Sur de Reino Unido | :heavy_check_mark: | 
+| Oeste de Reino Unido | :heavy_check_mark: | 
+| Centro-Oeste de EE. UU. | :heavy_check_mark: | 
+| Oeste de EE. UU. | :heavy_check_mark: | 
+| Oeste de EE. UU. 2 | :heavy_check_mark: | 
+| Oeste de Europa | :heavy_check_mark: | 
+| Centro de la India* | :heavy_check_mark: | 
+| Centro de Francia* | :heavy_check_mark: | 
+| Norte de Emiratos Árabes Unidos* | :heavy_check_mark: | 
+| Norte de Sudáfrica* | :heavy_check_mark: |
+
+> [!Note] 
+> *Regiones donde Azure Database for MySQL tiene Almacenamiento de uso general v2 en la versión preliminar pública. <br /> *Para estas regiones de Azure, tendrá la opción de crear un servidor en Almacenamiento de uso general v1 y v2. En el caso de los servidores creados con almacenamiento de uso general v2 en versión preliminar pública, estas son las limitaciones: <br /> 
+> * No se admiten copias de seguridad con almacenamiento con redundancia geográfica.<br /> 
+> * El servidor Réplica debe estar en las regiones que admiten el almacenamiento de uso general v2. <br /> 
+    
+
+### <a name="how-can-i-determine-which-storage-type-my-server-is-running-on"></a>¿Cómo puedo determinar en qué tipo de almacenamiento se ejecuta mi servidor?
+
+Para encontrar el tipo de almacenamiento del servidor, vaya a la hoja Plan de tarifa del portal. 
+* Si el servidor se aprovisiona mediante SKU básica, el tipo de almacenamiento es almacenamiento básico.
+* Si el servidor se aprovisiona mediante SKU de uso general u optimizada para memoria, el tipo de almacenamiento es almacenamiento de uso general.
+   *  Si el almacenamiento máximo que se puede aprovisionar en el servidor es de hasta 4 TB, el tipo de almacenamiento es almacenamiento de uso general v1.
+   *  Si el almacenamiento máximo que se puede aprovisionar en el servidor es de hasta 16 TB, el tipo de almacenamiento es almacenamiento de uso general v2.
+
+### <a name="can-i-move-from-general-purpose-storage-v1-to-general-purpose-storage-v2-if-yes-how-and-is-there-any-additional-cost"></a>¿Puedo pasar del almacenamiento de uso general v1 al almacenamiento de uso general v2? En caso afirmativo, ¿cómo se hace? ¿Hay algún coste adicional?
+Sí, se admite la migración al almacenamiento de uso general v2 desde v1 si la infraestructura de almacenamiento subyacente está disponible en la región de Azure del servidor de origen. La migración y el almacenamiento v2 están disponibles sin coste adicional.
+
+### <a name="can-i-grow-storage-size-after-server-is-provisioned"></a>¿Puedo aumentar el tamaño de almacenamiento después de aprovisionar el servidor?
+Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor y permitir que el sistema aumente el almacenamiento automáticamente en función del consumo de almacenamiento de su carga de trabajo. 
+
+>[!IMPORTANT]
 > El almacenamiento solo se puede escalar verticalmente, no reducir.
 
-El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
-
-Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md).
+### <a name="monitoring-io-consumption"></a>Supervisión del consumo de E/S
+Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se van a supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md). Las métricas de supervisión del servidor MySQL con almacenamiento de uso general v1 notifican la memoria y la E/S consumidas por el motor de MySQL, pero es posible que no capturen la memoria y el consumo de E/S de la capa de almacenamiento, lo cual es una limitación.
 
 ### <a name="reaching-the-storage-limit"></a>Alcance del límite de almacenamiento
 

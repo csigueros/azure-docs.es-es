@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: ba973bd5609dacf05eca842025d4e828d8a9f841
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc8cd7e3c52f6d9dd247c62590bef358afe06306
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550954"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732463"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
 Mediante el análisis de los datos de uso de Azure, es posible obtener información importante sobre el consumo, es decir, información que puede permitirle mejorar la asignación y administración de los costos en toda la organización. En este documento se profundiza en los detalles de consumo de Azure Compute. Para más detalles sobre el uso general de Azure, navegue a [Descripción de la factura](../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Descarga de los detalles de uso
-Para comenzar, [descargue los detalles de uso](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). En la tabla siguiente se proporciona la definición y valores de ejemplo de uso de las máquinas virtuales implementadas a través de Azure Resource Manager. Este documento no contiene información detallada de las máquinas virtuales implementadas a través del modelo clásico.
+Para comenzar, [descargue los detalles de uso](../cost-management-billing/understand/download-azure-daily-usage.md). En la tabla siguiente se proporciona la definición y valores de ejemplo de uso de las máquinas virtuales implementadas a través de Azure Resource Manager. Este documento no contiene información detallada de las máquinas virtuales implementadas a través del modelo clásico.
 
 
 | Campo | Significado | Valores de ejemplo | 
@@ -38,7 +38,7 @@ Para comenzar, [descargue los detalles de uso](../cost-management-billing/manage
 | Grupo de recursos | El grupo de recursos en el que se ejecuta el recurso implementado. Para más información, consulte [Información general de Azure Resource Manager](../azure-resource-manager/management/overview.md).|`MyRG`|
 | Id. de instancia | Identificador del recurso. El identificador contiene el nombre especificado para el recurso cuando se creó En el caso de las máquinas virtuales, el identificador de instancia contendrá los valores SubscriptionId, ResourceGroupName y VMName (o el nombre del conjunto de escalado para el uso de conjunto de escalado).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>or<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | Etiquetas| Etiqueta asignada al recurso. Use etiquetas para agrupar los registros de facturación. Obtenga información sobre cómo etiquetar las máquinas virtuales mediante la [CLI](./tag-cli.md) o [PowerShell](./tag-portal.md). Solo está disponible para máquinas virtuales de Resource Manager.| `{"myDepartment":"RD","myUser":"myName"}`|
-| Información adicional | Metadatos específicos del servicio. En el caso de las VM, rellenamos los siguientes datos en el campo de información adicional: <br><br> Tipo de imagen: la imagen específica que ejecutó. Encuentre la lista completa de cadenas compatibles a continuación, en Tipos de imagen.<br><br> Tipo de servicio: el tamaño que implementó.<br><br> VMName: el nombre de la máquina virtual. Este campo solo se rellena para las VM del conjunto de escalado. Si necesita el nombre de la máquina virtual para las máquinas virtuales del conjunto de escalado, puede buscarlo en la cadena del identificador de instancia anterior.<br><br> UsageType: especifica el tipo de uso que representa.<br><br> ComputeHR es el uso de Horas de proceso de la máquina virtual subyacente, como Standard_D1_v2.<br><br> ComputeHR_SW es el cambio de software Premium si la máquina virtual usa software Premium, como Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Software Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
+| Información adicional | Metadatos específicos del servicio. En el caso de las VM, rellenamos los siguientes datos en el campo de información adicional: <br><br> Tipo de imagen: la imagen específica que ejecutó. Encuentre la lista completa de cadenas compatibles a continuación, en Tipos de imagen.<br><br> Tipo de servicio: el tamaño que implementó.<br><br> VMName: el nombre de la máquina virtual. Este campo solo se rellena para las VM del conjunto de escalado. Si necesita el nombre de la máquina virtual para las máquinas virtuales del conjunto de escalado, puede buscarlo en la cadena del identificador de instancia anterior.<br><br> UsageType: especifica el tipo de uso que representa.<br><br> ComputeHR es el uso de Horas de proceso de la máquina virtual subyacente, como Standard_D1_v2.<br><br> ComputeHR_SW es el cargo de software prémium si la VM usa software prémium. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Software Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Tipo de imagen
 Para algunas imágenes de la Galería de Azure, el tipo de imagen se rellena en el campo de información adicional. Esto permite que los usuarios comprendan y hagan un seguimiento de lo que implementaron en su máquina virtual. Los siguientes valores que se rellenan en este campo según la imagen que implementó son los siguientes:
@@ -130,7 +130,7 @@ Microsoft.ClassicCompute representa los recursos clásicos implementados a trav�
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>¿Por qué el campo InstanceID está en blanco en el uso de mi máquina virtual?
 Si implementa a través del modelo de implementación clásica, la cadena InstanceID no está disponible.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>¿Por qué las etiquetas de mis máquinas virtuales no se transmiten a los detalles de uso?
-Las etiquetas solo se transmiten al CSV de uso para las máquinas virtuales de Resource Manager. Las etiquetas de recursos clásicos no están disponibles en los detalles de uso.
+Las etiquetas solo se transmiten al CSV de uso para las VM de Resource Manager. Las etiquetas de recursos clásicos no están disponibles en los detalles de uso.
 ### <a name="how-can-the-consumed-quantity-be-more-than-24-hours-one-day"></a>¿Cómo la cantidad consumida puede ser más de 24 horas al día?
 En el modelo clásico, la facturación de recursos se agrega en el nivel de servicio en la nube. Si tiene más de una máquina virtual en un servicio en la nube que usa el mismo medidor de facturación, el uso se agrega en conjunto. Las máquinas virtuales que se implementan a través de Resource Manager se facturan en el nivel de máquina virtual, por lo que no se aplicará esta agregación.
 ### <a name="why-is-pricing-not-available-for-dsfsgsls-sizes-on-the-pricing-page"></a>¿Por qué en la página de precios no aparecen los precios de los tamaños DS/FS/GS/LS?

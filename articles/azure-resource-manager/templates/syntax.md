@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager (plantillas de ARM) mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 05/17/2021
-ms.openlocfilehash: 9a1ead39ed680921f444068e8e52136247272ac5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/16/2021
+ms.openlocfilehash: ee60651da5cee986a19cba9940c068679b342c53
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959915"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228670"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -185,6 +185,12 @@ Defina recursos con la siguiente estructura:
           "<tag-name1>": "<tag-value1>",
           "<tag-name2>": "<tag-value2>"
       },
+      "identity": {
+        "type": "<system-assigned-or-user-assigned-identity>",
+        "userAssignedIdentities": {
+          "<resource-id-of-identity>": {}
+        }
+      },
       "sku": {
           "name": "<sku-name>",
           "tier": "<sku-tier>",
@@ -234,6 +240,7 @@ Defina recursos con la siguiente estructura:
 | ubicación |Varía |Ubicaciones geográficas compatibles del recurso proporcionado. Puede seleccionar cualquiera de las ubicaciones disponibles, pero normalmente tiene sentido elegir aquella que esté más cerca de los usuarios. Normalmente, también tiene sentido colocar los recursos que interactúan entre sí en la misma región. La mayoría de los tipos de recursos requieren una ubicación, pero algunos (por ejemplo, una asignación de roles) no la necesitan. Consulte [Establecimiento de la ubicación del recurso](resource-location.md). |
 | dependsOn |No |Recursos que se deben implementar antes de implementar este. Resource Manager evalúa las dependencias entre recursos y los implementa en su orden correcto. Cuando no hay recursos dependientes entre sí, se implementan en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos. Solo los recursos de lista que se implementan en esta plantilla. Deben existir los recursos que no estén definidos en esta plantilla. Evite agregar dependencias innecesarias, ya que pueden ralentizar la implementación y crear dependencias circulares. Para obtener instrucciones sobre cómo establecer dependencias, vea [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](./resource-dependency.md). |
 | etiquetas |No |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
+| identidad | No | Algunos recursos admiten [identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Dichos recursos tienen un objeto de identidad en el nivel raíz de la declaración de recursos. Puede establecer si la identidad está asignada por el usuario o por el sistema. Para las identidades asignadas por el usuario, indique una lista de identificadores de recursos para las identidades. Establezca la clave en el identificador de recurso y el valor en un objeto vacío. Para más información, consulte [Configuración de identidades administradas para recursos de Azure en una máquina virtual de Azure mediante plantillas](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md). |
 | sku | No | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
 | kind | No | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
 | scope | No | La propiedad scope solo está disponible para los [tipos de recursos de extensión](../management/extension-resource-types.md). Úsela al especificar un ámbito diferente del ámbito de implementación. Consulte [Establecimiento del ámbito de los recursos de extensión en las plantillas de Resource Manager](scope-extension-resources.md). |
@@ -284,9 +291,7 @@ Para los comentarios insertados, puede usar `//` o `/* ... */`.
 
 > [!NOTE]
 >
-> Para implementar plantillas con comentarios, use Azure PowerShell o la CLI de Azure. Para la CLI, use la versión 2.3.0 o posterior y especifique el modificador `--handle-extended-json-format`.
->
-> No se admiten comentarios al implementar la plantilla mediante Azure Portal, una canalización de DevOps o la API REST.
+> Al usar la CLI de Azure para implementar plantillas con comentarios, use la versión 2.3.0 o posterior y especifique el modificador `--handle-extended-json-format`.
 
 ```json
 {
@@ -381,9 +386,9 @@ Una cadena se puede dividir en varias líneas. Por ejemplo, consulte la propieda
 
 > [!NOTE]
 >
-> Para implementar plantillas con cadenas multilínea, use Azure PowerShell o la CLI de Azure. Para la CLI, use la versión 2.3.0 o posterior y especifique el modificador `--handle-extended-json-format`.
+> Para implementar plantillas con cadenas de varias líneas, use Azure PowerShell o la CLI de Azure. Para la CLI, use la versión 2.3.0 o posterior y especifique el modificador `--handle-extended-json-format`.
 >
-> No se admiten cadenas multilínea al implementar la plantilla mediante Azure Portal, una canalización de DevOps o la API REST.
+> Las cadenas de varias líneas no se admiten al implementar la plantilla a través de Azure Portal, una canalización de DevOps o la API REST.
 
 
 ```json
@@ -406,8 +411,8 @@ Una cadena se puede dividir en varias líneas. Por ejemplo, consulte la propieda
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
+* Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
 * Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, vea [Funciones de plantilla de ARM](template-functions.md).
 * Para combinar varias plantillas durante la implementación, vea [Uso de plantillas vinculadas y anidadas al implementar recursos de Azure](linked-templates.md).
 * Para recomendaciones sobre la creación de platillas, consulte [Procedimientos recomendados de plantillas de ARM](./best-practices.md).
-* Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre las plantillas de ARM](frequently-asked-questions.md).
+* Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre las plantillas de ARM](frequently-asked-questions.yml).

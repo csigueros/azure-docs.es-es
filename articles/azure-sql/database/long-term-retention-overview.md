@@ -8,16 +8,16 @@ ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
+author: SQLSourabh
+ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 02/25/2021
-ms.openlocfilehash: e49f6220a25a449221ccab70a7439722189378cd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/13/2021
+ms.openlocfilehash: 13e522b45673723a33b8739ccefafa4a8410910a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708492"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751326"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retención a largo plazo: Azure SQL Database y Azure SQL Managed Instance
 
@@ -75,7 +75,7 @@ Si modifica la directiva anterior y establece W=0 (sin copias de seguridad seman
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Retención de copia de seguridad a largo plazo y replicación geográfica
 
-Si usa grupos de conmutación por error o de replicación geográfica activa como solución de continuidad del negocio, debe prepararse para posibles conmutaciones por error y configurar la misma directiva de LTR en la instancia o base de datos secundaria. El costo de almacenamiento de LTR no aumentará, ya que las copias de seguridad no se generan desde las bases de datos secundarias. Las copias de seguridad solo se crean cuando la base de datos secundaria se convierte en principal. Esto garantiza una generación de las copias de seguridad LTR ininterrumpida cuando se desencadene la conmutación por error y la base de datos principal se mueva a la región secundaria. 
+Si usa grupos de conmutación por error o de replicación geográfica activa como solución de continuidad del negocio, debe prepararse para posibles conmutaciones por error y configurar la misma directiva de LTR en la instancia o base de datos secundaria. El costo de almacenamiento de LTR no aumentará, ya que las copias de seguridad no se generan desde las bases de datos secundarias. Las copias de seguridad solo se crean cuando la secundaria se convierte en principal. Esto garantiza una generación de las copias de seguridad LTR ininterrumpida cuando se desencadene la conmutación por error y la base de datos principal se mueva a la región secundaria. 
 
 > [!NOTE]
 > Cuando la base de datos principal original se recupere de una interrupción que provoque la conmutación por error, se convertirá en una nueva base de datos secundaria. Por lo tanto, no se reanudará la creación de copia de seguridad y la directiva LTR existente no surtirá efecto hasta que vuelva a ser la base de datos principal de nuevo. 
@@ -87,7 +87,7 @@ Puede configurar la retención de copias de seguridad a largo plazo mediante Azu
 
 Para aprender a configurar la retención a largo plazo o restaurar una base de datos a partir de una copia de seguridad de SQL Database mediante Azure Portal o PowerShell, consulte [Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database](long-term-backup-retention-configure.md).
 
-Para obtener información sobre cómo configurar la retención a largo plazo o cómo restaurar una base de datos a partir de una copia de seguridad de SQL Managed Instance mediante PowerShell, consulte [Administración de la retención de copias de seguridad a largo plazo en Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
+Para obtener información sobre cómo configurar la retención a largo plazo o cómo restaurar una base de datos a partir de una copia de seguridad de SQL Managed Instance mediante Azure Portal o PowerShell, consulte [Administración de la retención de copias de seguridad a largo plazo en Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
 
 Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo. La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. Para más información sobre cómo restaurar la base de datos a partir de una copia de seguridad de LTR mediante Azure Portal o PowerShell, vea [Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database](long-term-backup-retention-configure.md). 
 

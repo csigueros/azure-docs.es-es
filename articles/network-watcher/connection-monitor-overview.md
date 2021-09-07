@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: fe259c3858e798f9bcb72600b680f12c19055884
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 41c39a87375b66e9aaf916f927d09a3b6abb3b0e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470363"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748199"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Supervisión de conectividad de red con Connection Monitor
 
@@ -76,14 +76,14 @@ Las reglas de un grupo de seguridad de red (NSG) o firewall pueden bloquear la c
 
 Para que el Monitor de conexión reconozca las máquinas locales como orígenes para la supervisión, instale el agente de Log Analytics en las máquinas.  Luego, habilite la solución Network Performance Monitor. Estos agentes están vinculados a áreas de trabajo de Log Analytics, por lo que es necesario configurar el identificador de área de trabajo y la clave principal antes de que los agentes puedan iniciar la supervisión.
 
-Para instalar el agente de Log Analytics para las máquinas Windows, consulte [Extensión de máquina virtual de Azure Monitor para Windows](../virtual-machines/extensions/oms-windows.md).
+Para instalar el agente de Log Analytics para máquinas Windows, consulte [Instalación del agente de Log Analytics en Windows](../azure-monitor/agents/agent-windows.md).
 
 Si la ruta de acceso incluye firewalls o aplicaciones virtuales de red (NVA), asegúrese de que el destino sea accesible.
 
 En las máquinas Windows, para abrir el puerto, ejecute el script de PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sin parámetros en una ventana de PowerShell con privilegios administrativos.
 
 Para las máquinas Linux, el uso de portNumbers se debe cambiar manualmente. 
-* Vaya a ruta de acceso /var/opt/Microsoft/omsagent/npm_state. 
+* Vaya a la ruta de acceso /var/opt/microsoft/omsagent/npm_state. 
 * Abra el archivo npmdregistry.
 * Cambie el valor de número de puerto ```“PortNumber:<port of your choice>”```.
 
@@ -279,9 +279,18 @@ Para ver las tendencias en RTT y el porcentaje de comprobaciones con error de un
 
 Utilice Log Analytics para crear vistas personalizadas de los datos de supervisión. Todos los datos que muestra la interfaz de usuario son de Log Analytics. Puede analizar de manera interactiva los datos en el repositorio. Correlacione los datos de Agent Health u otras soluciones basadas en Log Analytics. Exporte los datos a Excel o Power BI, o bien cree un vínculo que se pueda compartir.
 
+#### <a name="network-topology-in-connection-monitor"></a>Topología de red en Connection Monitor 
+
+La topología de Connection Monitor se suele componer mediante el resultado del comando Trace route a cargo del agente, que básicamente obtiene todos los saltos del origen al destino.
+Sin embargo, en caso de que el origen o el destino se encuentren entre los límites de Azure, la topología se genera combinando los resultados de dos operaciones distintas.
+La primera es, evidentemente, el resultado del comando Trace Route. La segunda es el resultado de un comando interno (muy similar a la herramienta Next Hop Diagnostics de NW) que identifica una ruta lógica basada en la configuración de red (cliente) dentro de los límites de Azure. Dado que la segunda es lógica y la primera no suele identificar ningún salto dentro de los límites de Azure, algunos saltos del resultado combinado (principalmente todos los saltos dentro de los límites de Azure) no tendrán valores de latencia.
+
 #### <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
 
 En los monitores de conexión creados antes de la experiencia de Connection Monitor, las cuatro métricas están disponibles: % Probes Failed (% de sondeos con error), AverageRoundtripMs (recorrido de ida y vuelta promedio en milisegundos), ChecksFailedPercent (% de comprobaciones con erro) y RoundTripTimeMs (recorrido de ida y vuelta en milisegundos). En los monitores de conexión creados en la experiencia de Connection Monitor, los datos solo están disponibles para las métricas (% de comprobaciones con erro), RoundTripTimeMs (recorrido de ida y vuelta en milisegundos) y Resultado de la prueba.
+
+Las métricas se emiten según la frecuencia de supervisión y describen el aspecto de una supervisión de conexión en un momento determinado. Las métricas de Connection Monitor también tienen varias dimensiones, como SourceName, DestinationName, TestConfiguration, TestGroup, etc. Estas dimensiones se pueden usar para visualizar un conjunto específico de datos y también para tenerlo como destino al definir alertas.
+Actualmente, las métricas de Azure permiten una granularidad mínima de 1 minuto. Si la frecuencia es inferior a 1 minuto, se mostrarán los resultados agregados.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Captura de pantalla que muestra métricas en Connection Monitor" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -365,6 +374,37 @@ En el caso de las redes cuyos orígenes son máquinas virtuales de Azure, se pue
 * BGP no está habilitado en la conexión de puerta de enlace.
 * El sondeo de DIP está inactivo en el equilibrador de carga.
 
+## <a name="comparision-between-azures-connectivity-monitoring-support"></a>Comparación entre la compatibilidad con la supervisión de conectividad de Azure 
+
+Puede migrar las pruebas de Network Performance Monitor y Connection Monitor (clásico) a la nueva y mejorada característica Connection Monitor con un solo clic y sin tiempo de inactividad.
+ 
+La migración ayuda a generar los siguientes resultados:
+
+* Los agentes y la configuración del firewall funcionan tal cual. No es preciso realizar cambios. 
+* Los monitores de conexión existentes se asignan a Connection Monitor -> Grupo de prueba -> Test format (Formato de prueba). Al hacer clic en **Editar**, puede ver y modificar las propiedades de la nueva característica Connection Monitor, descargar una plantilla para realizar cambios en ella y enviar la plantilla a través de Azure Resource Manager. 
+* Las máquinas virtuales de Azure con la extensión Network Watcher envían datos tanto al área de trabajo como a las métricas. Connection Monitor permite que los datos estén disponibles mediante las nuevas métricas (ChecksFailedPercent y RoundTripTimeMs) en lugar de las anteriores (ProbesFailedPercent y AverageRoundtripMs). Las métricas anteriores se migrarán a las nuevas métricas como ProbesFailedPercent -> ChecksFailedPercent y AverageRoundtripMs -> RoundTripTimeMs.
+* Supervisión de datos:
+   * **Alertas**: se migran automáticamente a las nuevas métricas.
+   * **Paneles e integraciones**: se requiere la edición manual del conjunto de métricas. 
+   
+Hay varios motivos para migrar de Network Performance Monitor y Connection Monitor (clásico) a Connection Monitor. A continuación se muestran algunos de los casos de uso que indican cómo funciona Connection Monitor de Azure en Network Performance Monitor y Connection Monitor (clásico). 
+
+ | Característica  | Monitor de rendimiento de red | Connection Monitor (clásico) | Monitor de conexión |
+ | -------  | --------------------------- | -------------------------- | ------------------ | 
+ | Experiencia unificada para la supervisión híbrida y de Azure | No disponible | No disponible | Disponible |
+ | Supervisión entre suscripciones, entre regiones y entre áreas de trabajo | Permite la supervisión entre suscripciones y entre regiones, pero no permite la supervisión entre áreas de trabajo | No disponible | Permite la supervisión entre suscripciones, entre áreas de trabajo; los agentes de Azure tienen límites regionales  |
+ | Compatibilidad con áreas de trabajo centralizadas |  No disponible | No disponible   | Disponible |
+ | Varios orígenes pueden hacer ping a varios destinos | La supervisión de rendimiento permite que varios orígenes hagan ping a varios destinos, la supervisión de conectividad de servicio permite que varios orígenes hagan ping a un único servicio o dirección URL, y Express Route permite que varios orígenes hagan ping a varios destinos. | No disponible | Disponible |
+ | Topología unificada entre el entorno local, los saltos de Internet y Azure | No disponible | No disponible | Disponible |
+ | Comprobaciones de código de estado de HTTP | No disponible  | No disponible | Disponible |
+ | Diagnósticos de conectividad | No disponible | Disponible | Disponible |
+ | Recursos compuestos: redes virtuales, subredes y redes personalizadas locales | Supervisión de rendimiento admite subredes, redes locales y grupos de redes lógicas, supervisión de conectividad de servicio y compatibilidad con Express Route solo en agentes locales y de Azure. | No disponible | Disponible |
+ | Métricas de conectividad y medidas de dimensiones |   No disponible | Pérdida, latencia, RTT | Disponible |
+ | Automation: PS/CLI/Terraform | No disponible | Disponible | Disponible |
+ | Compatibilidad con Linux | Supervisión de rendimiento admite Linux, Monitor de conectividad de servicio y Express Route no admiten Linux. | Disponible | Disponible |
+ | Compatibilidad con nubes públicas, de administración pública, Mooncake y aisladas | Disponible | Disponible | Disponible|
+
+
 ## <a name="faq"></a>Preguntas más frecuentes
 
 ### <a name="are-classic-vms-supported"></a>¿Se admiten VM clásicas?
@@ -379,6 +419,9 @@ No se puede usar la misma VM de Azure con configuraciones diferentes en el mismo
 ### <a name="the-test-failure-reason-is-nothing-to-display"></a>¿El motivo del error de la prueba es "No hay nada para mostrar"?
 Los problemas que se muestran en el panel Connection Monitor se detectan durante la detección de topología o la exploración de saltos. Puede haber casos en los que el umbral establecido para el porcentaje de pérdida o RTT se incumpla, pero no se encuentre ningún problema en los saltos.
 
+### <a name="while-migrating-existing-connection-monitor-classic-to-connection-monitor-the-external-endpoint-tests-are-being-migrated-with-tcp-protocol-only"></a>Al migrar la instancia existente de Connection Monitor (clásico) a Connection Monitor, ¿las pruebas de puntos de conexión externos solo se migran con el protocolo TCP? 
+No hay ninguna selección de protocolo en Connection Monitor (clásico). Por lo tanto, el cliente no habría podido especificar la conectividad con puntos de conexión externos mediante el protocolo HTTP en Connection Monitor (clásico).
+Todas las pruebas tienen el protocolo TCP solo en Connection Monitor (clásico), por eso en la migración se crea la configuración TCP en las pruebas de Connection Monitor. 
 
 ## <a name="next-steps"></a>Pasos siguientes
     

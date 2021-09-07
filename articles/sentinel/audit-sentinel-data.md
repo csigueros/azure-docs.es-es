@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: a02be0938b1ab925fb0343351ce1c414cc59c615
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 82d406521ad534c77fc48c095631e07a74bfd080
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044845"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252924"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Auditoría de consultas y actividades de Azure Sentinel
 
@@ -226,8 +226,35 @@ LAQueryLogs
 ```
 
 
+## <a name="monitor-azure-sentinel-with-workbooks-rules-and-playbooks"></a>Supervisión de Azure Sentinel con libros, reglas y cuadernos de estrategias
+
+Use las propias características de Azure Sentinel para supervisar los eventos y las acciones que se producen en Azure Sentinel.
+
+- **Supervise con libros**. Los siguientes libros se crearon para supervisar la actividad de las áreas de trabajo:
+
+    - **Auditoría de áreas de trabajo**. Incluye información sobre qué usuarios del entorno realizan acciones, qué acciones han realizado, etc.
+    - **Eficacia de los análisis**. Proporciona información sobre qué reglas de análisis se usan, qué tácticas de MITRE están más cubiertas y qué incidentes se generaron a partir de las reglas.
+    - **Eficiencia de las operaciones de seguridad**. Presenta métricas sobre el rendimiento del equipo de SOC, los incidentes abiertos, los incidentes cerrados y mucho más. Este libro se puede usar para mostrar el rendimiento del equipo y destacar las áreas faltantes a las que haya que prestar atención.
+    - **Seguimiento del estado de la recopilación de datos**. Ayuda a inspeccionar las ingestas paradas o detenidas. 
+
+    Para más información, consulte [Libros de Azure Sentinel que se usan comúnmente](top-workbooks.md).
+
+- **Observe el retraso de ingesta**.  Si le preocupa el retraso de ingesta, [establezca una variable en una regla de análisis](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851) para representar el retraso. 
+
+    Por ejemplo, la siguiente regla de análisis puede ayudar a garantizar que los resultados no incluyan duplicados y que los registros no se pierden al ejecutar las reglas:
+
+    ```kusto
+    let ingestion_delay= 2min;let rule_look_back = 5min;CommonSecurityLog| where TimeGenerated >= ago(ingestion_delay + rule_look_back)| where ingestion_time() > (rule_look_back)
+    -   Calculating ingestion delay
+    CommonSecurityLog| extend delay = ingestion_time() - TimeGenerated| summarize percentiles(delay,95,99) by DeviceVendor, DeviceProduct
+    ```
+
+    Para más información, consulte [Automatización del control de incidentes en Azure Sentinel con las reglas de automatización](automate-incident-handling-with-automation-rules.md).
+
+- **Supervise el estado del conector de datos** mediante el cuaderno de la [solución de notificaciones push del estado de los conectores](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-ConnectorHealthStatus) para ver si la ingesta está parada o detenida, y envíe notificaciones cuando un conector haya dejado de recopilar datos o las máquinas hayan dejado de informar.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En Azure Sentinel, use el libro **Workspace audit** (Auditoría de área de trabajo) para auditar las actividades en el entorno de SOC.
 
-Para más información, vea [Tutorial: Visualización y supervisión de los datos](tutorial-monitor-your-data.md).
+Para más información, consulte [Visualización y supervisión de los datos](monitor-your-data.md).

@@ -9,16 +9,24 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b3fc9f12dfa6ad4edcc120ac7c9592c9435a0e4
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 2f7af8ebc054b49df03a7f03c512db08a5098f2b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830185"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723020"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Revisión en caliente para nuevas máquinas virtuales (versión preliminar)
 
-La aplicación de revisiones en caliente es una nueva manera de instalar actualizaciones en nuevas máquinas virtuales (VM) de Windows Server Azure Edition que no es necesario reiniciar después de la instalación. En este artículo se describen las máquinas virtuales de Hotpatch para Windows Server Azure Edition, que presentan las siguientes ventajas:
+> [!IMPORTANT]
+> Automanage para los servicios de Windows Server está actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de revisión en caliente que se describe a continuación.
+> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> Las funcionalidades de revisión en caliente se pueden encontrar en una de estas imágenes de _Windows Server Azure Edition_: Windows Server 2019 Datacenter: Azure Edition (Core), Windows Server 2022 Datacenter: Azure Edition (Core)
+
+La aplicación de revisiones en caliente es una nueva manera de instalar actualizaciones en nuevas máquinas virtuales (VM) de _Windows Server Azure Edition_ admitidas que no es necesario reiniciar después de la instalación. En este artículo se ofrece información sobre la revisión en caliente de VM de _Windows Server Azure Edition_ admitidas, que presentan las siguientes ventajas:
 * Impacto reducido sobre la carga de trabajo con menos reinicios
 * Implementación más rápida de actualizaciones ya que los paquetes son más pequeños, se instalan más rápido y tienen una orquestación de revisiones más sencilla con Azure Update Manager
 * Mejor protección, ya que los paquetes de actualización de Hotpatch se limitan a las actualizaciones de seguridad de Windows que se instalan más rápido sin necesidad de reiniciar.
@@ -41,16 +49,16 @@ Hotpatch está disponible en todas las regiones globales de Azure en versión pr
 ## <a name="how-to-get-started"></a>Primeros pasos
 
 > [!NOTE]
-> Durante la fase de versión preliminar, solo puede empezar a trabajar en Azure Portal mediante [este vínculo](https://aka.ms/AzureAutomanageHotPatch).
+> Durante la fase de versión preliminar, puede empezar a trabajar en Azure Portal mediante [este vínculo](https://aka.ms/AutomanageWindowsServerPreview).
 
 Para empezar a usar Hotpatch en una nueva máquina virtual, siga estos pasos:
 1.  Habilitación del acceso a la versión preliminar
     * Se requiere la habilitación puntual del acceso a la versión preliminar por cada suscripción.
     * El acceso a la versión preliminar se puede habilitar mediante API, PowerShell o la CLI, como se describe en la sección siguiente.
 1.  Creación de una máquina virtual en Azure Portal
-    * Durante la versión preliminar, deberá empezar a usar [este vínculo](https://aka.ms/AzureAutomanageHotPatch).
+    * Durante la versión preliminar, deberá empezar a usar [este vínculo](https://aka.ms/AutomanageWindowsServerPreview).
 1.  Suministro de los detalles de la máquina virtual
-    * Asegúrese de que _Windows Server 2019 Datacenter: Azure Edition_ esté seleccionado en la lista desplegable de imágenes.
+    * Asegúrese de que la imagen de _Windows Server Azure Edition_ que le gustaría usar esté seleccionada en la lista desplegable Imagen.  Las imágenes admitidas se muestran en la parte superior de este artículo.
     * En el paso de la pestaña Administración, desplácese hacia abajo hasta la sección "Guest OS updates" (Actualizaciones del SO invitado). Verá que Aplicar revisión en caliente está establecida en Activado y que Patch installation (Instalación de revisiones) tiene el valor predeterminado de Azure-orchestrated patching (Aplicación de revisiones orquestada por Azure).
     * De forma predeterminada, se habilitarán los procedimientos recomendados de administración automática de máquinas virtuales.
 1. Creación de la máquina virtual
@@ -130,21 +138,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>Instalación de revisiones
 
-Durante la versión preliminar, la opción [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) (Aplicación automática de revisiones a invitados de máquina virtual) se habilita automáticamente para todas las máquinas virtuales creadas con _Windows Server 2019 Datacenter: Azure Edition_. Con la revisión automática de invitado de máquina virtual habilitada:
+Durante la versión preliminar, la [aplicación de revisiones automáticas a los invitados de la máquina virtual](../virtual-machines/automatic-vm-guest-patching.md) se habilita automáticamente para todas las VM creadas con una imagen de _Windows Server Azure Edition_ compatible. Con la revisión automática de invitado de máquina virtual habilitada:
 * Las revisiones clasificadas de tipo Critico o de Seguridad se descargan y se aplican automáticamente en la máquina virtual.
 * Las revisiones se aplican durante las horas valle de la zona horaria de la máquina virtual.
-* Azure administra la orquestación de las revisiones y estas se aplican siguiendo el [principio de orden de disponibilidad](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
+* Azure administra la orquestación de las revisiones y estas se aplican siguiendo el [principio de orden de disponibilidad](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates).
 * Se supervisa el mantenimiento de la máquina virtual, determinado a través de las señales de mantenimiento de la plataforma, para detectar errores en la aplicación de revisiones.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>¿Cómo funciona la aplicación de revisiones a invitados de máquina virtual?
 
 Si [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) (Aplicación automática de revisiones a invitados de máquina virtual) está habilitada en una máquina virtual, se descargan y aplican automáticamente las revisiones críticas y de seguridad. Este proceso se inicia automáticamente cada mes cuando se lanzan nuevas revisiones. La evaluación e instalación de las revisiones es un proceso automático, que incluye el reinicio de la máquina virtual si es necesario.
 
-Con la revisión en caliente habilitada en las máquinas virtuales de _Windows Server 2019 Datacenter: Azure Edition_, la mayoría de las actualizaciones de seguridad mensuales se entregan como revisiones en caliente que no requieren reinicios. Las actualizaciones acumulativas más recientes enviadas en los meses de líneas de base planeadas o no planeadas requerirán que se reinicie la máquina virtual. También puede haber revisiones críticas o de seguridad adicionales disponibles periódicamente, lo que puede requerir que se reinicie la máquina virtual.
+Con la revisión en caliente habilitada en las VM de _Windows Server Azure Edition_ admitidas, la mayoría de las actualizaciones de seguridad mensuales se entregan como revisiones en caliente que no requieren reinicios. Las actualizaciones acumulativas más recientes enviadas en los meses de líneas de base planeadas o no planeadas requerirán que se reinicie la máquina virtual. También puede haber revisiones críticas o de seguridad adicionales disponibles periódicamente, lo que puede requerir que se reinicie la máquina virtual.
 
 La máquina virtual se evalúa de forma automática cada pocos días y varias veces en un período de 30 días para determinar las revisiones que se le pueden aplicar. Esta evaluación automática garantiza que las revisiones que faltan se detecten lo antes posible.
 
-Las revisiones de instalan a los 30 días de las versiones de revisiones mensuales, siguiendo los [principios de orden de disponibilidad](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Las revisiones solo se instalan durante las horas valle de la máquina virtual, en función de la zona horaria donde se encuentre. La máquina virtual debe estar en ejecución durante las horas valle para que las revisiones se instalen automáticamente. Si se apaga una máquina virtual durante una evaluación periódica, esta se evaluará y las revisiones aplicables se instalarán automáticamente durante la siguiente evaluación periódica, cuando la máquina virtual esté activada. La siguiente evaluación periódica suele tener lugar a los pocos días.
+Las revisiones de instalan a los 30 días de las versiones de revisiones mensuales, siguiendo los [principios de orden de disponibilidad](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates). Las revisiones solo se instalan durante las horas valle de la máquina virtual, en función de la zona horaria donde se encuentre. La máquina virtual debe estar en ejecución durante las horas valle para que las revisiones se instalen automáticamente. Si se apaga una máquina virtual durante una evaluación periódica, esta se evaluará y las revisiones aplicables se instalarán automáticamente durante la siguiente evaluación periódica, cuando la máquina virtual esté activada. La siguiente evaluación periódica suele tener lugar a los pocos días.
 
 Las actualizaciones de definiciones y otras revisiones no clasificadas como críticas o de seguridad no se instalarán mediante la aplicación de revisiones automáticas a invitados de máquinas virtuales.
 
@@ -165,14 +173,14 @@ De igual modo que con la evaluación a petición, también puede instalar revisi
 
 Hotpatch abarca las actualizaciones de seguridad de Windows y mantiene la paridad con el contenido de las actualizaciones de seguridad emitidas en el canal normal de Windows Update (sin Hotpatch).
 
-Existen algunas consideraciones importantes a la hora de ejecutar una máquina virtual de Windows Server Azure Edition con Hotpatch habilitado. Para instalar actualizaciones que no se incluyen en el programa Hotpatch, los reinicios siguen siendo necesarios. Los reinicios también son necesarios periódicamente después de instalar una nueva línea de base. Estos reinicios mantienen la máquina virtual sincronizada con las revisiones que no son de seguridad incluidas en la actualización acumulativa más reciente.
+Existen algunas consideraciones importantes a la hora de ejecutar una VM de _Windows Server Azure Edition_ con la revisión en caliente habilitada. Para instalar actualizaciones que no se incluyen en el programa Hotpatch, los reinicios siguen siendo necesarios. Los reinicios también son necesarios periódicamente después de instalar una nueva línea de base. Estos reinicios mantienen la máquina virtual sincronizada con las revisiones que no son de seguridad incluidas en la actualización acumulativa más reciente.
 * Las revisiones que actualmente no están incluidas en el programa Hotpatch incluyen las actualizaciones que no son de seguridad publicadas para Windows y las actualizaciones que no son de Windows (como las revisiones de .NET).  Estos tipos de revisiones deben instalarse durante el mes de una línea de base y requerirán un reinicio.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="what-is-hotpatching"></a>¿Qué es la aplicación de revisiones en caliente?
 
-* La aplicación de revisiones en caliente es una nueva manera de instalar actualizaciones en máquinas virtuales (VM) de Windows Server 2019 Azure Edition en Azure en la que no es necesario reiniciar después la máquina virtual. Lo que hace es aplica revisiones al código en memoria de los procesos en ejecución sin necesidad de reiniciar el proceso.
+* La aplicación de revisiones en caliente es una nueva manera de instalar actualizaciones en una VM de _Windows Server Azure Edition_ admitida en la que no es necesario reiniciar después la instalación. Lo que hace es aplica revisiones al código en memoria de los procesos en ejecución sin necesidad de reiniciar el proceso.
 
 ### <a name="how-does-hotpatching-work"></a>¿Cómo funciona la aplicación de revisiones en caliente?
 
@@ -180,7 +188,7 @@ Existen algunas consideraciones importantes a la hora de ejecutar una máquina v
 
 ### <a name="why-should-i-use-hotpatch"></a>¿Por qué habría que usar Hotpatch?
 
-* Cuando se usa Hotpatch en Windows Server 2019 Datacenter: Azure Edition, la máquina virtual tiene mayor disponibilidad (menos reinicios) y actualizaciones más rápidas (paquetes más pequeños que se instalan más rápido sin necesidad de reiniciar los procesos). Como consecuencia, la máquina virtual siempre está actualizada y protegida.
+* Cuando se usa la revisión en caliente en una imagen de _Windows Server Azure Edition_ admitida, la VM tiene mayor disponibilidad (menos reinicios) y actualizaciones más rápidas (paquetes más pequeños que se instalan más rápido sin necesidad de reiniciar los procesos). Como consecuencia, la máquina virtual siempre está actualizada y protegida.
 
 ### <a name="what-types-of-updates-are-covered-by-hotpatch"></a>¿Qué tipos de actualizaciones se incluyen en Hotpatch?
 
@@ -210,7 +218,7 @@ Existen algunas consideraciones importantes a la hora de ejecutar una máquina v
 
 ### <a name="can-i-upgrade-from-my-existing-windows-server-os"></a>¿Se pueden realizar actualizaciones desde el sistema operativo Windows Server existente?
 
-* Actualmente no se admite la actualización desde versiones existentes de Windows Server (es decir, ediciones de Windows Server 2016 o 2019 que no son de Azure). Se admitirá la actualización a versiones futuras de Windows Server Azure Edition.
+* Se admite la actualización desde versiones existentes de Windows Server (es decir, ediciones de Windows Server 2016 o 2019 que no son de Azure) a _Windows Server 2022 Datacenter: Azure Edition_. No se admite la actualización a _Windows Server 2019 Datacenter: Azure Edition_.
 
 ### <a name="can-i-use-hotpatch-for-production-workloads-during-the-preview"></a>¿Puedo usar Hotpatch con las cargas de trabajo de producción durante la versión preliminar?
 
@@ -218,7 +226,7 @@ Existen algunas consideraciones importantes a la hora de ejecutar una máquina v
 
 ### <a name="will-i-be-charged-during-the-preview"></a>¿Se cobrará durante la versión preliminar?
 
-* La licencia de Windows Server Azure Edition es gratuita durante la versión preliminar. Sin embargo, el costo de cualquier infraestructura subyacente configurada para la máquina virtual (almacenamiento, proceso, redes, etc.) se le seguirá cargando en su suscripción.
+* La licencia de _Windows Server Azure Edition_ es gratuita durante la versión preliminar. Sin embargo, el costo de cualquier infraestructura subyacente configurada para la máquina virtual (almacenamiento, proceso, redes, etc.) se le seguirá cargando en su suscripción.
 
 ### <a name="how-can-i-get-troubleshooting-support-for-hotpatching"></a>¿Cómo se puede obtener ayuda para solucionar problemas con la aplicación de revisiones en caliente?
 

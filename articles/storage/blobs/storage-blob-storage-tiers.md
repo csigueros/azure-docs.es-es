@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 810a62dee277453d4cc2f41c72d0868549d711cf
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: b11fff95543abb4fc74b2087deffe56786998e28
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653226"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179656"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo
 
@@ -75,7 +75,7 @@ El nivel de acceso esporádico tiene menores costos de almacenamiento y mayores 
 
 ## <a name="archive-access-tier"></a>Nivel de acceso de archivo
 
-El nivel de acceso de archivo tiene el menor costo de almacenamiento, pero los mayores costos de recuperación de datos en comparación con los niveles de acceso frecuente y esporádico. Los datos deben permanecer en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana. Los datos del nivel de archivo pueden tardar varias horas en recuperarse en función de la prioridad de rehidratación especificada. En el caso de los objetos pequeños, una rehidratación de alta prioridad puede recuperar el objeto del archivo en menos de una hora. Consulte [Rehidratación de los datos de blob desde el nivel de archivo](storage-blob-rehydration.md) para obtener más información.
+El nivel de acceso de archivo tiene el menor costo de almacenamiento, pero los mayores costos de recuperación de datos en comparación con los niveles de acceso frecuente y esporádico. Los datos deben permanecer en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana. Los datos del nivel de archivo pueden tardar varias horas en recuperarse en función de la prioridad de rehidratación especificada. En el caso de los objetos pequeños, una rehidratación de alta prioridad puede recuperar el objeto del archivo en menos de una hora. Para más información, consulte [Introducción a la rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md).
 
 Mientras un blob está en almacenamiento de archivo, sus datos están sin conexión y no se pueden leer ni modificar. Para leer o descargar un blob en un archivo, primero debe rehidratarlo en un nivel en línea. No puede tomar instantáneas de un blob en almacenamiento de archivo. Sin embargo, los metadatos de blob permanecen en línea y se mantienen disponibles, lo que permite enumerar el blob, sus propiedades, los metadatos y las etiquetas de índice de blob. No se permite establecer ni modificar los metadatos de blob mientras están en almacenamiento de archivo, aunque se pueden establecer y modificar las etiquetas de índice de blob. En el caso de los blobs en almacenamiento de archivo, las únicas operaciones válidas son [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), [Set Blob Tags](/rest/api/storageservices/set-blob-tags), [Get Blob Tags](/rest/api/storageservices/get-blob-tags), [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags), [List Blobs](/rest/api/storageservices/list-blobs), [Set Blob Tier](/rest/api/storageservices/set-blob-tier), [Copy Blob](/rest/api/storageservices/copy-blob) y [Delete Blob](/rest/api/storageservices/delete-blob).
 
@@ -122,7 +122,7 @@ Cuando un blob se carga o se mueve entre niveles, se cobra a la tarifa correspon
 
 Cuando un blob se mueve a un nivel de almacenamiento de acceso más esporádico (frecuente -> esporádico, frecuente -> archivo o esporádico -> archivo), la operación se factura como una operación de escritura del nivel de destino, donde se aplican los cargos de la operación de escritura (por 10 000) y de la escritura de datos (por GB) del nivel de destino.
 
-Cuando un blob se mueve a un nivel más frecuente (archivo->esporádico, archivo->frecuente, o esporádico->frecuente), la operación se factura como una lectura desde el nivel de origen, donde se aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen. También podrían aplicarse cargos por la [eliminación temprana](#cool-and-archive-early-deletion) de cualquier blob que se haya trasladado desde el nivel de acceso esporádico o de archivo. La [Rehidratación de los datos desde el nivel de archivo](storage-blob-rehydration.md) lleva tiempo, y los datos se cobran a los precios de archivo hasta que se restauran en línea y el nivel de blob cambia a acceso frecuente o esporádico.
+Cuando un blob se mueve a un nivel más frecuente (archivo->esporádico, archivo->frecuente, o esporádico->frecuente), la operación se factura como una lectura desde el nivel de origen, donde se aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen. También podrían aplicarse cargos por la [eliminación temprana](#cool-and-archive-early-deletion) de cualquier blob que se haya trasladado desde el nivel de acceso esporádico o de archivo. La [Rehidratación de los datos desde el nivel de archivo](archive-rehydrate-overview.md) lleva tiempo, y los datos se cobran a los precios de archivo hasta que se restauran en línea y el nivel de blob cambia a acceso frecuente o esporádico.
 
 La tabla siguiente resume cómo se facturan los cambios de nivel:
 
@@ -155,7 +155,7 @@ En la siguiente tabla se muestra una comparación del almacenamiento de blobs en
 
 <sup>1</sup> Los objetos del nivel de acceso esporádico en las cuentas de GPv2 tienen una duración mínima de la retención de 30 días. Las cuentas de Blob Storage no tienen ninguna duración mínima de la retención para el nivel esporádico.
 
-<sup>2</sup> Archive Storage admite actualmente dos prioridades de rehidratación, alta y estándar, que ofrecen diferentes latencias y costos de recuperación. Para más información, consulte [Rehidratación de los datos de blob desde el nivel de archivo](storage-blob-rehydration.md).
+<sup>2</sup> Archive Storage admite actualmente dos prioridades de rehidratación, alta y estándar, que ofrecen diferentes latencias y costos de recuperación. Para más información, consulte [Introducción a la rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md).
 
 > [!NOTE]
 > Las cuentas de Blob Storage admiten los mismos objetivos de rendimiento y escalabilidad que las cuentas de almacenamiento de uso general v2 (GPv2). Para más información, consulte [Objetivos de escalabilidad y rendimiento de Blob Storage](scalability-targets.md).

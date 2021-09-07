@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.openlocfilehash: b87f36b755037519d29881eeaefddfa8c92f6a3f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 07/21/2021
+ms.openlocfilehash: e3ae63b202d826e48789bd8d15a197048d5566b7
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744942"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178333"
 ---
 # <a name="create-a-query-that-invokes-semantic-ranking-and-returns-semantic-captions"></a>Crear una consulta que invoque la clasificación semántica y devuelva títulos semánticos
 
@@ -30,7 +30,7 @@ Las leyendas y las respuestas se extraen literalmente del texto del documento de
 
 + [Suscríbase a la versión preliminar](https://aka.ms/SemanticSearchPreviewSignup). El plazo de respuesta esperado es de aproximadamente dos días laborables.
 
-+ Índice de búsqueda existente, con contenido en un [idioma admitido](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
++ Índice de búsqueda existente, con contenido en un [idioma admitido](/rest/api/searchservice/preview-api/search-documents#queryLanguage). La búsqueda semántica funciona mejor en contenido informativo o descriptivo.
 
 + Un cliente de búsqueda para el envío de consultas.
 
@@ -104,7 +104,7 @@ En la tabla siguiente se resumen los parámetros que se utilizan en una consulta
 | queryLanguage | String | Necesario para las consultas semánticas. El léxico que especifique se aplica igualmente a la clasificación semántica, los títulos, las respuestas y la revisión ortográfica. Para más información, consulte [Idiomas admitidos (referencia de API REST)](/rest/api/searchservice/preview-api/search-documents#queryLanguage). |
 | searchFields | String | Una lista delimitada por comas de campos que permiten búsqueda. Especifica los campos en los que se produce la clasificación semántica, de los que se extraen las leyendas y las respuestas. </br></br>A diferencia de los tipos de consulta simple y completa, el orden en que se muestran los campos determina la precedencia. Para ver más instrucciones de uso, vea [Paso 2: Establecer searchFields](#searchfields). |
 | Corrector ortográfico | String | Parámetro opcional, no específico de las consultas semánticas, que corrige términos mal escritos antes de que lleguen al motor de búsqueda. Para obtener más información, vea [Agregar corrección ortográfica a las consultas](speller-how-to-add.md). |
-| answers |String | Parámetros opcionales que especifican si el resultado incluye las respuestas semánticas. Actualmente, solo está implementado "extractive". Las respuestas se pueden configurar para que se devuelvan cinco como máximo. El valor predeterminado es uno. En este ejemplo se muestra un recuento de tres respuestas: "extractive\|count3". Para obtener más información, consulte [Devolución de respuestas semánticas](semantic-answers.md).|
+| answers |String | Parámetros opcionales que especifican si el resultado incluye las respuestas semánticas. Actualmente, solo está implementado "extractive". Las respuestas se pueden configurar para que se devuelvan diez como máximo. El valor predeterminado es uno. En este ejemplo se muestra un recuento de tres respuestas: `extractive\|count-3`. Para obtener más información, consulte [Devolución de respuestas semánticas](semantic-answers.md).|
 
 ### <a name="formulate-the-request"></a>Formulación de la solicitud
 
@@ -163,9 +163,13 @@ El orden de los campos es fundamental porque el clasificador semántico limita l
 
   + Agregue otros campos descriptivos a los campos anteriores en los que se pueda encontrar la respuesta a las consultas semánticas, como el contenido principal de un documento.
 
-#### <a name="step-3-remove-orderby-clauses"></a>Paso 3: Quitar las cláusulas orderBy
+#### <a name="step-3-remove-or-bracket-query-features-that-bypass-relevance-scoring"></a>Paso 3: Quitar o poner entre corchetes las funciones de consulta que omiten la puntuación por relevancia
 
-Quite todas las cláusulas orderBy del código de consulta existente. La puntuación semántica se usa para ordenar los resultados y, si incluye la lógica de ordenación explícita, se devuelve un error HTTP 400.
+Varias funcionalidades de consulta de Cognitive Search no se someten a la puntuación por relevancia y otras omiten por completo el motor de búsqueda de texto completo. Si la lógica de consulta incluye las siguientes funciones, los resultados no incluirán puntuaciones de relevancia ni clasificación semántica:
+
++ Los filtros, las consultas de búsqueda aproximada y las expresiones regulares iteran sobre el texto sin tokenizar y buscan coincidencias textuales en el contenido. Las puntuaciones de búsqueda de todos los formularios de consulta anteriores tienen un valor uniforme de 1.0 y no proporcionan información significativa para la clasificación semántica.
+
++ La ordenación (cláusulas orderBy) en campos específicos también invalidará las puntuaciones de búsqueda y la puntuación semántica. Dado que la puntuación semántica se usa para ordenar los resultados, incluir una lógica de ordenación explícita provocará un error HTTP 400.
 
 #### <a name="step-4-add-answers"></a>Paso 4: Agregar respuestas
 
@@ -190,6 +194,17 @@ Especifique cualquier otro parámetro que quiera incluir en la solicitud. Parám
 ```
 
 El estilo de resaltado se aplica a los títulos de la respuesta. Puede usar el estilo predeterminado u, opcionalmente, personalizar el estilo de resaltado aplicado a los títulos. Los subtítulos aplican el formato de resaltado sobre los pasajes principales del documento que resumen la respuesta. El valor predeterminado es `<em>`. Si quiere especificar el tipo de formato (por ejemplo, fondo amarillo), puede establecer los parámetros highlightPreTag y highlightPostTag.
+
+## <a name="query-using-azure-sdks"></a>Consulta mediante los SDK de Azure
+
+Las versiones beta de los SDK de Azure incluyen compatibilidad con la búsqueda semántica. Dado que los SDK son versiones beta, no hay documentación ni ejemplos, pero puede consultar la sección anterior de API de REST para obtener información sobre cómo deben funcionar las API.
+
+| SDK de Azure | Paquete |
+|-----------|---------|
+| .NET | [Azure.Search.Documents package 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2)  |
+| Java | [com.azure:azure-search-documents 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar)  |
+| JavaScript | [azure/search-documents 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2)|
+| Python | [azure-search-documents 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
 
 ## <a name="evaluate-the-response"></a>Evaluación de la respuesta
 

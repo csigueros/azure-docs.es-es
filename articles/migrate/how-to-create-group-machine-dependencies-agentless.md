@@ -6,21 +6,19 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 7966750d7c3e0f12bb9404a4d78bbc27e4075c52
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 7f4066f466b6dd9e8cb41bf68592aa88c192c44d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786590"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743239"
 ---
 # <a name="analyze-server-dependencies-agentless"></a>Análisis de las dependencias del servidor (sin agente)
 
 En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate: Detección y evaluación. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias entre servidores para la evaluación y la migración a Azure.
 
 > [!IMPORTANT]
-> El análisis de dependencias sin agente se encuentra actualmente en versión preliminar para los servidores que se ejecutan en el entorno de VMware, detectados con la herramienta Azure Migrate: Detección y evaluación.
-> Esta versión preliminar está incluida en el soporte al cliente y se puede usar para cargas de trabajo de producción.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>El análisis de dependencias sin agente se encuentra actualmente disponibles para los servidores que se ejecutan en el entorno de VMware, detectados con la herramienta Azure Migrate: Detección y evaluación.
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 

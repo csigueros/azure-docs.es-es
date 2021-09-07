@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/15/2020
+ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: eb9a6e1f3044492b09dac3fb3168a9bd26aeff0f
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: aae64b3ef63d5ac18bb26019ba74756438adfc7a
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494618"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272262"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)
 
@@ -118,23 +118,91 @@ Es probable que la organización ya use la aplicación Authenticator en escenari
 
 Use los parámetros siguientes para configurar el complemento Microsoft Enterprise SSO en dispositivos que no usan una biblioteca de la Plataforma de identidad de Microsoft.
 
-Para proporcionar una lista de aplicaciones específicas, use estos parámetros:
+#### <a name="enable-sso-for-all-managed-apps"></a>Habilitación del inicio de sesión único para todas las aplicaciones administradas
+
+- **Clave**: `Enable_SSO_On_All_ManagedApps`
+- **Tipo**: `Integer`
+- **Valor**: 1 o 0.
+
+Cuando esta marca está activa (su valor está establecido en `1`), todas las aplicaciones administradas por MDM que no están en `AppBlockList` pueden participar en el inicio de sesión único.
+
+#### <a name="enable-sso-for-specific-apps"></a>Habilitación del inicio de sesión único para aplicaciones específicas
 
 - **Clave**: `AppAllowList`
 - **Tipo**: `String`
 - **Valor**: lista delimitada por comas de identificadores de agrupación de aplicaciones que pueden participar en el inicio de sesión único.
 - **Ejemplo**: `com.contoso.workapp, com.contoso.travelapp`
 
-Para proporcionar una lista de prefijos, use estos parámetros:
+>[!NOTE]
+> Safari y Safari View Service pueden participar en el inicio de sesión único de manera predeterminada. Se pueden configurar para que *no* participen en el inicio de sesión único si se agregan los identificadores de agrupación de Safari y Safari View Service en AppBlockList. Identificadores de agrupación de iOS: [com.apple.mobilesafari, com.apple.SafariViewService]; identificador de agrupación de macOS: com.apple.Safari
+
+#### <a name="enable-sso-for-all-apps-with-a-specific-bundle-id-prefix"></a>Habilitación del inicio de sesión único para todas las aplicaciones con un prefijo de identificador de agrupación específico
 - **Clave**: `AppPrefixAllowList`
 - **Tipo**: `String`
 - **Valor**: lista delimitada por comas de los prefijos de identificadores de agrupación de las aplicaciones que pueden participar en el inicio de sesión único. Este parámetro permite que todas las aplicaciones que comienzan con un prefijo determinado participen en el SSO.
 - **Ejemplo**: `com.contoso., com.fabrikam.`
 
-Las [aplicaciones consentidas](./application-consent-experience.md) que el administrador de MDM permita participar en el inicio de sesión único pueden obtener un token para el usuario final de forma silenciosa. Por tanto, agregue solo las aplicaciones de confianza a la lista de permitidos. 
+#### <a name="disable-sso-for-specific-apps"></a>Deshabilitación del inicio de sesión único para aplicaciones específicas
 
->[!NOTE]
-> No es necesario agregar aplicaciones que usen MSAL o ASWebAuthenticationSession a la lista de aplicaciones que pueden participar en SSO. Esas aplicaciones están habilitadas de forma predeterminada. 
+- **Clave**: `AppBlockList`
+- **Tipo**: `String`
+- **Valor**: lista delimitada por comas de identificadores de agrupación de aplicaciones que no pueden participar en el inicio de sesión único.
+- **Ejemplo**: `com.contoso.studyapp, com.contoso.travelapp`
+
+Para *deshabilitar* el inicio de sesión único para Safari o Safari View Service, debe hacerlo explícitamente agregando sus identificadores de agrupación a `AppBlockList`: 
+
+- iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`
+- macOS: `com.apple.Safari`
+
+#### <a name="enable-sso-through-cookies-for-a-specific-application"></a>Habilitación de SSO mediante cookies para una aplicación específica
+
+Algunas aplicaciones que tienen una configuración de red avanzada pueden experimentar problemas inesperados cuando se habilita en ellas el inicio de sesión único. Por ejemplo, podría aparecer un error que indica que una solicitud de red se ha cancelado o interrumpido.
+
+Si los usuarios tienen problemas para iniciar sesión en una aplicación incluso después de habilitarla a través de la otra configuración, intente agregarla a `AppCookieSSOAllowList` para resolver los problemas.
+
+- **Clave**: `AppCookieSSOAllowList`
+- **Tipo**: `String`
+- **Valor**: lista delimitada por comas de los prefijos de identificadores de lote de las aplicaciones que pueden participar en el inicio de sesión único. Todas las aplicaciones que comienzan con los prefijos de la lista podrán participar en el SSO.
+- **Ejemplo**: `com.contoso.myapp1, com.fabrikam.myapp2`
+
+**Otros requisitos**: para habilitar el inicio de sesión único para aplicaciones mediante `AppCookieSSOAllowList`, también debe agregar sus prefijos de identificador de agrupación, `AppPrefixAllowList`.
+
+Pruebe esta configuración solo con aplicaciones que tengan errores de inicio de sesión inesperados. 
+
+#### <a name="summary-of-keys"></a>Resumen de claves
+
+| Clave | Tipo | Valor |
+|--|--|--|
+| `Enable_SSO_On_All_ManagedApps` | Entero | `1` para habilitar el inicio de sesión único para todas las aplicaciones administradas, `0` para deshabilitar el inicio de sesión único para todas las aplicaciones administradas. |
+| `AppAllowList` | String<br/>*(lista delimitada por comas)* | Identificadores de agrupación de las aplicaciones que pueden participar en el inicio de sesión único. |
+| `AppBlockList` | String<br/>*(lista delimitada por comas)* | Identificadores de agrupación de las aplicaciones que no pueden participar en el inicio de sesión único. |
+| `AppPrefixAllowList` | String<br/>*(lista delimitada por comas)* | Prefijos de identificadores de agrupación de las aplicaciones que pueden participar en el inicio de sesión único. |
+| `AppCookieSSOAllowList` | String<br/>*(lista delimitada por comas)* | Prefijos de identificadores de agrupación de aplicaciones que pueden participar en el inicio de sesión único, pero que usan una configuración de red especial y tienen problemas con el inicio de sesión único con la otra configuración. Las aplicaciones que agregue a `AppCookieSSOAllowList` también se deben agregar a `AppPrefixAllowList`. |
+
+#### <a name="settings-for-common-scenarios"></a>Configuraciones para escenarios comunes
+
+- *Escenario*: Quiero habilitar el inicio de sesión único para la mayoría de las aplicaciones administradas, pero no para todas ellas.
+
+    | Clave | Valor |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones que quiere evitar que participen en el inicio de sesión único. |
+
+- *Escenario*: Quiero deshabilitar el inicio de sesión único para Safari, que está habilitado de manera predeterminada, pero habilitar el inicio de sesión único para todas las aplicaciones administradas.
+
+    | Clave | Valor |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones de Safari que quiere evitar que participen en el inicio de sesión único.<br/><li>Para iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>Para macOS: `com.apple.Safari` |
+
+- *Escenario*: Quiero habilitar el inicio de sesión único en todas las aplicaciones administradas y en algunas aplicaciones no administradas, pero deshabilitar el inicio de sesión único para algunas otras aplicaciones.
+
+    | Clave | Valor |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppAllowList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones en las que quiere habilitar la participación en el inicio de sesión único. |
+    | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones que quiere evitar que participen en el inicio de sesión único. |
+
 
 ##### <a name="find-app-bundle-identifiers-on-ios-devices"></a>Detección de identificadores de agrupación de aplicaciones en dispositivos iOS
 
@@ -192,21 +260,6 @@ Al habilitar la marca `disable_explicit_app_prompt`, se restringe la posibilidad
 - **Valor**: 1 o 0
 
 Se recomienda habilitar esta marca para obtener una experiencia uniforme entre todas las aplicaciones. De forma predeterminada, está deshabilitada. 
-
-#### <a name="enable-sso-through-cookies-for-a-specific-application"></a>Habilitación de SSO mediante cookies para una aplicación específica
-
-Un pequeño número de aplicaciones podría ser incompatible con la extensión de SSO. En concreto, las aplicaciones que tienen una configuración de red avanzada pueden experimentar problemas inesperados cuando se habilita en ellas el SSO. Por ejemplo, podría aparecer un error que indica que la solicitud de red se ha cancelado o interrumpido. 
-
-Si tiene problemas para iniciar sesión con el método descrito en la sección [Aplicaciones que no usan MSAL](#applications-that-dont-use-msal), pruebe una configuración alternativa. Use estos parámetros para configurar el complemento:
-
-- **Clave**: `AppCookieSSOAllowList`
-- **Tipo**: `String`
-- **Valor**: lista delimitada por comas de los prefijos de identificadores de lote de las aplicaciones que pueden participar en el inicio de sesión único. Todas las aplicaciones que comienzan con los prefijos de la lista podrán participar en el SSO.
-- **Ejemplo**: `com.contoso.myapp1, com.fabrikam.myapp2`
-
-Las aplicaciones habilitadas para el SSO mediante esta configuración deben agregarse tanto a `AppCookieSSOAllowList` como a `AppPrefixAllowList`.
-
-Pruebe esta configuración solo con aplicaciones que tengan errores de inicio de sesión inesperados. 
 
 #### <a name="use-intune-for-simplified-configuration"></a>Uso de Intune para la configuración simplificada
 

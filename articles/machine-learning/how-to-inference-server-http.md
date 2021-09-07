@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: inference server, local development, local debugging
+ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 05/14/2021
-ms.openlocfilehash: d54195829c4f4734d135e3468897711bdaa0421f
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 924995fe9330a44b52a40a8e3eb651efdeb24398
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538455"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751947"
 ---
 # <a name="azure-machine-learning-inference-http-server-preview"></a>Servidor HTTP de inferencia de Azure Machine Learning (versión preliminar)
 
@@ -24,9 +24,9 @@ El servidor HTTP de inferencia de Azure Machine Learning [(versión preliminar)]
 
 El servidor también se puede usar al crear puertas de validación en una canalización de integración e implementación continuas. Puede, por ejemplo, iniciar el servidor con el script candidato y ejecutar el conjunto de pruebas en el punto de conexión local.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-- Versión de Python 3.7
+- Requiere: Python >=3.7
 
 ## <a name="installation"></a>Instalación
 
@@ -55,7 +55,7 @@ python -m pip install azureml-inference-server-http
     source myenv/bin/activate
     ```
 
-1. Instale el paquete `azureml-inference-server-http` desde la fuente [pypi](https://pypi.org/):
+1. Instale el paquete `azureml-inference-server-http` desde la fuente [pypi](https://pypi.org/project/azureml-inference-server-http/):
 
     ```bash
     python -m pip install azureml-inference-server-http
@@ -84,13 +84,6 @@ python -m pip install azureml-inference-server-http
     > [!NOTE]
     > El servidor se hospeda en 0.0.0.0, lo que significa que escuchará todas las direcciones IP del equipo host.
 
-    El servidor escucha en el puerto 5001 en estas rutas.
-
-    | Nombre | Ruta|
-    | --- | --- |
-    | Sondeo de ejecución | 127.0.0.1:5001/|
-    | Puntuación | 127.0.0.1:5001/score|
-
 1. Envíe una solicitud de puntuación al servidor mediante `curl`:
 
     ```bash
@@ -105,6 +98,15 @@ python -m pip install azureml-inference-server-http
 
 Ahora podrá modificar el script de puntuación y probar los cambios mediante la ejecución del servidor de nuevo.
 
+## <a name="server-routes"></a>Rutas de servidor
+
+El servidor escucha en el puerto 5001 en estas rutas.
+
+| Nombre | Ruta|
+| --- | --- |
+| Sondeo de ejecución | 127.0.0.1:5001/|
+| Puntuación | 127.0.0.1:5001/score|
+
 ## <a name="server-parameters"></a>Parámetros del servidor
 
 La tabla siguiente contiene los parámetros que acepta el servidor:
@@ -115,6 +117,7 @@ La tabla siguiente contiene los parámetros que acepta el servidor:
 | model_dir | Falso | N/D | Ruta de acceso relativa o absoluta al directorio que contiene el modelo utilizado para la inferencia.
 | port | False | 5001 | Puerto de servicio del servidor.|
 | worker_count | False | 1 | Número de subprocesos de trabajo que procesarán solicitudes simultáneas. |
+| appinsights_instrumentation_key | Falso | N/D | Clave de instrumentación de Application Insights donde se publicarán los registros. |
 
 ## <a name="request-flow"></a>Flujo de las solicitudes
 
@@ -129,6 +132,7 @@ En los pasos siguientes se explica cómo el servidor HTTP de inferencia de Azure
 1. Por último, la solicitud se envía al script de entrada. A continuación, el script de entrada realiza una llamada de inferencia al modelo cargado y devuelve una respuesta.
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagrama del proceso del servidor HTTP":::
+
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="do-i-need-to-reload-the-server-when-changing-the-score-script"></a>¿Es necesario volver a cargar el servidor al cambiar el script de puntuación?
@@ -141,4 +145,5 @@ El servidor de inferencia de Azure Machine Learning se ejecuta en Windows y en l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo crear un script de entrada e implementar modelos, consulte [Implementación de un modelo mediante Azure Machine Learning](how-to-deploy-and-where.md).
+* Para más información sobre cómo crear un script de entrada e implementar modelos, consulte [Implementación de un modelo mediante Azure Machine Learning](how-to-deploy-and-where.md).
+* Más información sobre las [imágenes de Docker precompiladas para la inferencia](concept-prebuilt-docker-images-inference.md)

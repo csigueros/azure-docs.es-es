@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 3d7ba65e6965ff488ead6094376bea7142eb5ec9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 354bc77283949f46ce5f1f1e972e7917855634b1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590601"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742137"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -22,11 +22,80 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
 
 __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando y pegando la siguiente dirección URL en su lector de fuentes: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
-## <a name="2021-05-25"></a>25 de mayo de 2021
+## <a name="2021-08-02"></a>02/08/2021
 
-### <a name="announcing-the-20-cli-preview-for-azure-machine-learning"></a>Anuncio de la CLI 2.0 (versión preliminar) para Azure Machine Learning
+### <a name="azure-machine-learning-sdk-for-python-v1330"></a>SDK de Azure Machine Learning para Python v1.33.0
+  + **azureml-automl-core**
+    + Se ha mejorado el control de errores en torno a la recuperación del modelo XGBoost.
+    + Se ha agregado la posibilidad de convertir las predicciones de float a enteros para las tareas de previsión y regresión.
+    + Se ha actualizado el valor predeterminado de enable_early_stopping en AutoMLConfig a True.
+  + **azureml-automl-runtime**
+    + Se ha agregado la posibilidad de convertir las predicciones de float a enteros para las tareas de previsión y regresión.
+    + Se ha actualizado el valor predeterminado de enable_early_stopping en AutoMLConfig a True.
+  + **azureml-contrib-automl-pipeline-steps**
+    + Las series temporales jerárquicas (HTS) están habilitadas para las tareas de previsión a través de canalizaciones.
+    + Se agregó compatibilidad con conjuntos de datos tabulares para inferencia.
+    + Se puede especificar una ruta de acceso personalizada para los datos de inferencia.
+  + **azureml-contrib-reinforcementlearning**
+    + Algunas propiedades de `azureml.core.environment.DockerSection` están en desuso, como la propiedad `shm_size` usada por los roles de trabajo de Ray en trabajos de aprendizaje de refuerzo. Ahora, esta propiedad se puede especificar en `azureml.contrib.train.rl.WorkerConfiguration` en su lugar.
+  + **azureml-core**
+    + Se ha corregido un hipervínculo en la documentación de `ScriptRunConfig.distributed_job_config`.
+    + Los clústeres de proceso de Azure Machine Learning ahora se pueden crear en una ubicación diferente de la ubicación del área de trabajo. Esto resulta útil para maximizar la asignación de capacidad inactiva y administrar el uso de cuotas en distintas ubicaciones, sin tener que crear más áreas de trabajo tan solo para usar la cuota y crear un clúster de proceso en una ubicación determinada. Para más información, consulte [Creación de un clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md?tabs=python).
+    + Se ha agregado display_name como campo de nombre mutable del objeto Run.
+    + El conjunto de datos from_files ahora admite la omisión de extensiones de datos para datos de entrada de gran tamaño.
+  + **azureml-dataprep**
+    + Se ha corregido un error de to_dask_dataframe debido a una condición de carrera.
+    + El conjunto de datos from_files ahora admite la omisión de extensiones de datos para datos de entrada de gran tamaño.
+  + **azureml-defaults**
+    + Vamos a quitar la dependencia azureml-model-management-sdk==1.0.1b6.post1 de azureml-defaults.
+  + **azureml-interpret**
+    + Se ha actualizado azureml-interpret a interpret-community 0.19*.
+  + **azureml-pipeline-core**
+    + Las series temporales jerárquicas (HTS) están habilitadas para las tareas de previsión a través de canalizaciones.
+  + **azureml-train-automl-client**
+    + Se ha cambiado al uso del almacén de blobs para el almacenamiento en caché en Automated ML.
+    + Las series temporales jerárquicas (HTS) están habilitadas para las tareas de previsión a través de canalizaciones.
+    + Se ha mejorado el control de errores en torno a la recuperación del modelo XGBoost.
+    + Se ha actualizado el valor predeterminado de enable_early_stopping en AutoMLConfig a True.
+  + **azureml-train-automl-runtime**
+    + Se ha cambiado al uso del almacén de blobs para el almacenamiento en caché en Automated ML.
+    + Las series temporales jerárquicas (HTS) están habilitadas para las tareas de previsión a través de canalizaciones.
+    + Se ha actualizado el valor predeterminado de enable_early_stopping en AutoMLConfig a True.
 
-La extensión `ml` de la CLI de Azure es la interfaz de próxima generación de Azure Machine Learning. Permite entrenar e implementar modelos desde la línea de comandos, e incluye características que aceleran el escalado vertical y horizontal de la ciencia de datos al tiempo que se hace un seguimiento del ciclo de vida del modelo. [Instalación e introducción](how-to-configure-cli.md).
+
+## <a name="2021-07-06"></a>06/07/2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1320"></a>SDK de Azure Machine Learning para Python v1.32.0
++ **Mejoras y correcciones de errores**
+  + **azureml-core**
+    + Se ha expuesto el diagnóstico de estado del área de trabajo en el SDK o la CLI.
+  + **azureml-defaults**
+    + Se ha agregado la dependencia `opencensus-ext-azure==1.0.8` a azureml-defaults.
+  + **azureml-pipeline-core**
+    + Se ha actualizado AutoMLStep para usar imágenes precompiladas cuando el entorno para el envío de trabajos coincide con el entorno predeterminado.
+  + **azureml-responsibleai**
+    + Se ha agregado un nuevo cliente de análisis de errores para cargar, descargar y enumerar informes de análisis de errores.
+    + Se ha garantizado que las versiones de los paquetes `raiwidgets` y `responsibleai` estén sincronizados.
+  + **azureml-train-automl-runtime**
+    + Se ha establecido el tiempo asignado para buscar dinámicamente en varias estrategias de caracterización hasta un máximo de una cuarta parte del tiempo de espera total del experimento.
+
+
+## <a name="2021-06-21"></a>21/06/2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1310"></a>SDK de Azure Machine Learning para Python v1.31.0
++ **Mejoras y correcciones de errores**
+  + **azureml-core**
+    + Se ha mejorado la documentación para la propiedad de plataforma en la clase Environment.
+    + Se ha cambiado el tiempo de reducción vertical del nodo de proceso de AML de 120 segundos a 1800 segundos.
+    + Se ha actualizado el vínculo de solución de problemas predeterminado que aparece en el portal para solucionar errores de ejecución a https://aka.ms/azureml-run-troubleshooting.
+  + **azureml-automl-runtime**
+    + Limpieza de datos: las muestras con valores de destino en [None, "", "nan", np.nan] se anularán antes de la caracterización o el entrenamiento del modelo.
+  + **azureml-interpret**
+    + Se ha aumentado el tiempo de espera para evitar errores de cola de tareas de vaciado en ejecuciones remotas de AzureML que usan ExplanationClient.
+  + **azureml-pipeline-core**
+    + Se ha agregado el parámetro jar al paso de Synapse.
+  + **azureml-train-automl-runtime**
+    + Se han corregido los límites de protección de cardinalidad alta para que estén más alineados con los documentos.
 
 ## <a name="2021-06-07"></a>07-06-2021
 
@@ -49,6 +118,11 @@ La extensión `ml` de la CLI de Azure es la interfaz de próxima generación de 
     + Compatibilidad con cuantiles definidos por el usuario durante la inferencia de MM
     + Compatibilidad con forecast_quantiles durante la inferencia por lotes.
 
+## <a name="2021-05-25"></a>25 de mayo de 2021
+
+### <a name="announcing-the-20-cli-preview-for-azure-machine-learning"></a>Anuncio de la CLI 2.0 (versión preliminar) para Azure Machine Learning
+
+La extensión `ml` de la CLI de Azure es la interfaz de próxima generación de Azure Machine Learning. Permite entrenar e implementar modelos desde la línea de comandos, e incluye características que aceleran el escalado vertical y horizontal de la ciencia de datos al tiempo que se hace un seguimiento del ciclo de vida del modelo. [Instalación e introducción](how-to-configure-cli.md).
 
 ### <a name="azure-machine-learning-sdk-for-python-v1290"></a>SDK de Azure Machine Learning para Python v1.29.0
 + **Mejoras y correcciones de errores**
@@ -634,7 +708,7 @@ Obtenga más información sobre el [etiquetado de segmentación de instancias de
   + **azure-cli-ml**
     + La generación de perfiles de cuadrícula se quitó del SDK y ya no se admite.
   + **azureml-accel-models**
-    + El paquete azureml-accel-models ahora admite Tensorflow 2.x.
+    + El paquete azureml-accel-models ahora admite TensorFlow 2.x.
   + **azureml-automl-core**
     + Se agregó el control de errores en get_output para casos en los que las versiones locales de pandas/sklearn no coinciden con las que se usan durante el entrenamiento.
   + **azureml-automl-runtime**
@@ -716,7 +790,7 @@ Obtenga más información sobre el [etiquetado de segmentación de instancias de
   + **azureml-train-core**
     + Ahora, los usuarios deben proporcionar un argumento hyperparameter_sampling válido al crear un elemento HyperDriveConfig. Además, la documentación de HyperDriveRunConfig se ha editado para informar a los usuarios de la degradación de HyperDriveRunConfig.
     + Se ha revertido la versión predeterminada de PyTorch a 1.4.
-    + Se ha agregado un entorno mantenido e imágenes de PyTorch 1.6 y Tensorflow 2.2.
+    + Se ha agregado un entorno mantenido e imágenes de PyTorch 1.6 y TensorFlow 2.2.
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-august-update"></a>Experiencia con Cuadernos de Azure Machine Learning Studio (actualización de agosto)
 + **Nuevas características:**
@@ -1074,7 +1148,7 @@ Obtenga más información sobre el [etiquetado de segmentación de instancias de
     + Se ha habilitado la protección para las imputaciones de los valores que faltan en la previsión.
     + Se ha mejorado el registro en AutoML.
     + Se ha agregado un control de errores minucioso para las excepciones que se produzcan en la preparación de datos.
-    + Se eliminan las restricciones en los modelos phrophet y xgboost cuando se entrenan en un proceso remoto.
+    + Se eliminan las restricciones en los modelos prophet y xgboost cuando se entrenan en un proceso remoto.
     + `azureml-train-automl-runtime` y `azureml-automl-runtime` han actualizado las dependencias de `pytorch`, `scipy` y `cudatoolkit`. Ahora se admiten `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1` y `cudatoolkit==10.1.243`.
     + Se ha mejorado el control de errores para la caracterización personalizada en las tareas de previsión.
     + Se ha mejorado el mecanismo de detección de frecuencia del conjunto de datos de previsión.
@@ -1129,13 +1203,13 @@ Obtenga más información sobre el [etiquetado de segmentación de instancias de
     + Se admite que cv_split_column_names se use con training_data
     + Deprecated azureml.dprep.Dataflow como un tipo válido para los datos de entrada.
     + Se ha actualizado Mac para que use cudatoolkit=9.0, ya que aún no está disponible en la versión 10.
-    + Se eliminan las restricciones en los modelos phrophet y xgboost cuando se entrenan en un proceso remoto.
+    + Se eliminan las restricciones en los modelos prophet y xgboost cuando se entrenan en un proceso remoto.
     + `azureml-train-automl-runtime` y `azureml-automl-runtime` han actualizado las dependencias de `pytorch`, `scipy` y `cudatoolkit`. Ahora se admiten `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1` y `cudatoolkit==10.1.243`.
     + Se ha agregado una funcionalidad que permite a los usuarios incluir características con desfase para generar previsiones.
   + **azureml-train-automl-runtime**
     + Se ha mejorado el registro en AutoML.
     + Se ha agregado un control de errores minucioso para las excepciones que se produzcan en la preparación de datos.
-    + Se eliminan las restricciones en los modelos phrophet y xgboost cuando se entrenan en un proceso remoto.
+    + Se eliminan las restricciones en los modelos prophet y xgboost cuando se entrenan en un proceso remoto.
     + `azureml-train-automl-runtime` y `azureml-automl-runtime` han actualizado las dependencias de `pytorch`, `scipy` y `cudatoolkit`. Ahora se admiten `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1` y `cudatoolkit==10.1.243`.
     + Se han actualizado los mensajes de error para que muestren correctamente el error del usuario.
     + Se admite que cv_split_column_names se use con training_data
@@ -1434,8 +1508,8 @@ Acceda a las siguientes herramientas de creación basadas en web desde Studio:
     + Se ha movido `AutoMLStep` al paquete `azureml-pipeline-steps`. Se ha puesto en desuso `AutoMLStep` en `azureml-train-automl-runtime`.
     + Se ha agregado un ejemplo de documentación para el conjunto de datos como entrada PythonScriptStep.
   + **azureml-tensorboard**
-    + Se ha actualizado azureml-tensorboard para que admita Tensorflow 2.0
-    + Se muestra el número de puerto correcto al usar un puerto Tensorboard personalizado en una instancia de proceso.
+    + Se ha actualizado azureml-tensorboard para que admita TensorFlow 2.0.
+    + Se muestra el número de puerto correcto al usar un puerto TensorBoard personalizado en una instancia de proceso.
   + **azureml-train-automl-client**
     + Se ha corregido un problema por el que algunos paquetes se instalaban en versiones incorrectas en ejecuciones remotas.
     + Se ha corregido el problema de invalidación de FeaturizationConfig que filtra la configuración de características personalizada.
@@ -1514,7 +1588,7 @@ Acceda a las siguientes herramientas de creación basadas en web desde Studio:
   + **azureml-contrib-pipeline-steps**
     + Se ha agregado el parámetro opcional side_inputs a ParallelRunStep. Este parámetro se puede utilizar para montar la carpeta en el contenedor. Los tipos que se admiten actualmente son DataReference y PipelineData.
   + **azureml-tensorboard**
-    + Se ha actualizado azureml-tensorboard para que admita Tensorflow 2.0
+    + Se ha actualizado azureml-tensorboard para que admita TensorFlow 2.0.
   + **azureml-train-automl-client**
     + Se ha corregido el problema de invalidación de FeaturizationConfig que filtra la configuración de características personalizada.
   + **azureml-train-automl-runtime**
@@ -1829,7 +1903,7 @@ Azure Machine Learning es ahora un proveedor de recursos para Event Grid, puede 
     + Agregación de una CLI de conjunto de datos. Para obtener más información: `az ml dataset --help`
     + Agregación de compatibilidad para la implementación y el empaquetado de modelos admitidos (ONNX, scikit-learn y TensorFlow) sin una instancia de InferenceConfig.
     + Agregación de una marca de sobrescritura para la implementación del servicio (ACI y AKS) en el SDK y la CLI. Si se proporciona, sobrescribirá el servicio existente si ya existe un servicio con ese nombre. Si el servicio no existe, creará un servicio nuevo.
-    + Los modelos se pueden registrar con dos nuevos marcos, Onnx y Tensorflow. El registro del modelo acepta los datos de entrada de ejemplo, los datos de salida de ejemplo y la configuración de recursos para el modelo.
+    + Los modelos se pueden registrar con dos nuevos marcos, Onnx y TensorFlow. El registro del modelo acepta los datos de entrada de ejemplo, los datos de salida de ejemplo y la configuración de recursos para el modelo.
   + **azureml-automl-core**
     + El entrenamiento de una iteración se ejecutará en un proceso secundario solo cuando se establecen restricciones en tiempo de ejecución.
     + Agregación de una medida de protección para las tareas de previsión, para comprobar si un elemento max_horizon especificado producirá o no un problema de memoria en el equipo correspondiente. Si es así, se mostrará un mensaje de medida de protección.
@@ -1842,7 +1916,7 @@ Azure Machine Learning es ahora un proveedor de recursos para Event Grid, puede 
     + Actualización del tamaño de datos mínimo necesario para la validación cruzada a fin de garantizar un mínimo de dos muestras en cada iteración de validación.
   + **azureml-cli-common**
     + La CLI ahora admite el empaquetado de modelos.
-    + Los modelos se pueden registrar con dos nuevos marcos, Onnx y Tensorflow.
+    + Los modelos se pueden registrar con dos nuevos marcos, Onnx y TensorFlow.
     + El registro del modelo acepta los datos de entrada de ejemplo, los datos de salida de ejemplo y la configuración de recursos para el modelo.
   + **azureml-contrib-gbdt**
     + Corrección del canal de versión del cuaderno
@@ -1857,7 +1931,7 @@ Azure Machine Learning es ahora un proveedor de recursos para Event Grid, puede 
     + Permita que los datos intermedios de la canalización de Azure Machine Learning se conviertan en un conjunto de datos tabular y que se usen en [`AutoMLStep`](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlstep).
     + Agregación de compatibilidad para la implementación y el empaquetado de modelos admitidos (ONNX, scikit-learn y TensorFlow) sin una instancia de InferenceConfig.
     + Agregación de una marca de sobrescritura para la implementación del servicio (ACI y AKS) en el SDK y la CLI. Si se proporciona, sobrescribirá el servicio existente si ya existe un servicio con ese nombre. Si el servicio no existe, creará un servicio nuevo.
-    +  Los modelos se pueden registrar con dos nuevos marcos, Onnx y Tensorflow. El registro del modelo acepta los datos de entrada de ejemplo, los datos de salida de ejemplo y la configuración de recursos para el modelo.
+    +  Los modelos se pueden registrar con dos nuevos marcos, Onnx y TensorFlow. El registro del modelo acepta los datos de entrada de ejemplo, los datos de salida de ejemplo y la configuración de recursos para el modelo.
     + Agregación de un nuevo almacén de datos para Azure Database for MySQL. Agregación de un ejemplo para usar Azure Database for MySQL en DataTransferStep en las canalizaciones de Azure Machine Learning.
     + Agregación de la funcionalidad para agregar y quitar etiquetas de experimentos. Agregación de la funcionalidad para quitar etiquetas de las ejecuciones
     + Agregación de una marca de sobrescritura para la implementación del servicio (ACI y AKS) en el SDK y la CLI. Si se proporciona, sobrescribirá el servicio existente si ya existe un servicio con ese nombre. Si el servicio no existe, creará un servicio nuevo.
@@ -2415,7 +2489,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
     + Se corrige el error en el uso de InteractiveLoginAuthentication para tracking_uri de mlflow.
     + Se mejora la utilización de recursos de las ejecuciones remotas que usan azureml.mlflow.
     + Se mejora la documentación del paquete azureml-mlflow.
-    + Se corrige el error que hacía que mlflow.log_artifacts("my_dir") guardara artefactos en "my_dir/artifact-paths" en lugar de "artifact-paths".
+    + Se ha corregido el error que hacía que mlflow.log_artifacts("my_dir") guardara artefactos en `my_dir/<artifact-paths>` en lugar de `<artifact-paths>`.
   + **azureml-opendatasets**
     + Se ancla `pyarrow` de `opendatasets` para las versiones anteriores (<0.14.0) debido al problema de memoria reciente.
     + Se mueve azureml-contrib-opendatasets a azureml-opendatasets.
@@ -2423,7 +2497,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
     + Se mejoró significativamente el rendimiento de enriquecimiento de NoaaIsdWeather en una versión que no es de SPARK.
   + **azureml-pipeline-steps**
     + El almacén de datos DBFS se admite ahora en las entradas y salidas de DatabricksStep.
-    + Se actualiza la documentación para Azure Batch Step con respecto a las entradas y salidas.
+    + Se ha actualizado la documentación para Azure Batch Step con respecto a las entradas y salidas.
     + En AzureBatchStep, se cambió el valor predeterminado de *delete_batch_job_after_finish* a *true*.
   + **azureml-telemetry**
     +  Se mueve azureml-contrib-opendatasets a azureml-opendatasets.
@@ -2630,4 +2704,4 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la introducción de [Azure Machine Learning](overview-what-is-azure-ml.md).
+Consulte la introducción de [Azure Machine Learning](overview-what-is-azure-machine-learning.md).

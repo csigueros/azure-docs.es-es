@@ -2,22 +2,22 @@
 title: Administrar certificados de federación en Azure AD | Microsoft Docs
 description: Aprenda a personalizar la fecha de expiración de los certificados de federación y a renovar certificados que expiran pronto.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.author: davidmu
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 538307a4ffe9970960a4f8cea32ed8052bb87bf9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5217f358e7977d8414204c48d82dd6b4f1554b1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080622"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749160"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Administrar certificados para inicio de sesión único federado en Azure Active Directory
 
@@ -60,7 +60,7 @@ En primer lugar, cree y guarde el certificado nuevo con otra fecha de expiració
 1. Seleccione **Nuevo certificado**. Aparece una nueva fila debajo de la lista de certificados, donde se establece la fecha de expiración predeterminada en exactamente tres años después de la fecha actual. (Los cambios todavía no se han guardado, por lo que aún se puede modificar la fecha de expiración).
 1. En la nueva fila del certificado, pase el ratón por encima de la columna de fecha de expiración y seleccione el icono **Seleccionar fecha** (un calendario). Aparece un control de calendario que muestra los días de un mes de la fecha de expiración actual de la nueva fila.
 1. Use el control del calendario para establecer una nueva fecha. Puede establecer cualquier fecha del período entre la fecha actual y los tres años posteriores.
-1. Seleccione **Guardar**. El nuevo certificado aparece ahora con el estado **Inactivo**, la fecha de expiración que ha elegido y una huella digital.
+1. Seleccione **Guardar**. El nuevo certificado aparece ahora con el estado **Inactivo**, la fecha de expiración que ha elegido y una huella digital. **Nota**: Si tiene un certificado existente que ya ha expirado y genera un certificado nuevo, se tomará el nuevo certificado para firmar tokens, aunque no lo haya activado aún.
 1. Seleccione la **X** para volver a la página **Configurar el inicio de sesión único con SAML (versión preliminar)** .
 
 ### <a name="upload-and-activate-a-certificate"></a>Cargar y activar un certificado
@@ -77,6 +77,8 @@ A continuación, descargue el nuevo certificado en el formato correcto, cárguel
 1. Cuando quiera sustituir el certificado nuevo, vuelva a la página **Certificado de firma de SAML** y, en la fila de certificado que se acaba de guardar, seleccione los puntos suspensivos ( **...** ) y seleccione **Activar el certificado**. El estado del nuevo certificado cambia a **Activo** y el certificado activo anteriormente se cambia a un estado de **Inactivo**.
 1. Siga las instrucciones de configuración de inicio de sesión de SAML de la aplicación que se mostraron anteriormente para que pueda cargar el certificado de firma de SAML en el formato de codificación correcto.
 
+Si la aplicación no tiene ninguna validación para la expiración del certificado y el certificado coincide tanto en Azure Active Directory como en la aplicación, seguirá pudiendo acceder a la aplicación a pesar de tener un certificado expirado. Asegúrese de que la aplicación pueda validar la fecha de expiración del certificado.
+
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Adición de direcciones de notificación de correo electrónico a la expiración del certificado
 
 Azure AD enviará una notificación por correo electrónico 60, 30 y 7 días antes de que expire el certificado de SAML. Puede agregar varias direcciones de correo electrónico para recibir notificaciones. Para especificar las direcciones de correo electrónico a las que quiere que se envíen las notificaciones:
@@ -89,7 +91,7 @@ Azure AD enviará una notificación por correo electrónico 60, 30 y 7 días ant
 
 Puede agregar hasta 5 direcciones de correo electrónico a la lista de notificaciones (incluida la dirección de correo electrónico del administrador que agregó la aplicación). Si necesita enviar notificaciones a más personas, use los mensajes de correo electrónico de la lista de distribución.
 
-Recibirá el correo electrónico de notificación de aadnotification@microsoft.com. Para evitar que el correo electrónico vaya a la ubicación de correo no deseado, agregue este correo electrónico a los contactos.
+Recibirá el correo electrónico de notificación de azure-noreply@microsoft.com. Para evitar que el correo electrónico vaya a la ubicación de correo no deseado, agregue este correo electrónico a los contactos.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Renovar un certificado que expirará pronto
 
@@ -102,8 +104,10 @@ Si un certificado está a punto de expirar, se puede renovar mediante un procedi
    1. Omita los dos pasos siguientes.
 
 1. Si la aplicación solo puede controlar un certificado a la vez, elija un intervalo de tiempo de inactividad para realizar el paso siguiente. (En caso contrario, si la aplicación no elige automáticamente el nuevo certificado, pero puede controlar más de un certificado de firma, puede realizar el paso siguiente en cualquier momento).
-1. Antes de que expire el certificado antiguo, siga las instrucciones de la sección anterior [Cargar y activar un certificado](#upload-and-activate-a-certificate).
+1. Antes de que expire el certificado antiguo, siga las instrucciones de la sección anterior [Cargar y activar un certificado](#upload-and-activate-a-certificate). Si el certificado de aplicación no se actualiza después de actualizar un nuevo certificado en Azure Active Directory, puede que se produzca un error en la autenticación de la aplicación.
 1. Inicie sesión en la aplicación para asegurarse de que el certificado funciona correctamente.
+
+Si la aplicación no valida la expiración del certificado configurada en Azure Active Directory, y el certificado coincide tanto en Azure Active Directory como en la aplicación, seguirá pudiendo acceder a la aplicación a pesar de tener un certificado expirado. Asegúrese de que la aplicación pueda validar la expiración del certificado.
 
 ## <a name="related-articles"></a>Artículos relacionados
 

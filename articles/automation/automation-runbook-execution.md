@@ -3,15 +3,15 @@ title: Ejecución de un runbook en Azure Automation
 description: En este artículo se proporciona información general del procesamiento de runbooks en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2021
+ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5fcef44fed77b01e069129a160299f547340c346
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 454c59b5f5f5d0781f99f21b612ac2a3fc904fb9
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964557"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122072391"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -21,7 +21,7 @@ Automation ejecuta los runbooks según la lógica definida dentro de ellos. Si s
 
 Al iniciar un runbook en Azure Automation se crea un trabajo, que es una instancia de ejecución única del runbook. Cada trabajo accede a los recursos de Azure mediante una conexión a la suscripción a Azure. El rol de trabajo solo accede a los recursos de su centro de datos si se puede acceder a estos recursos desde la nube pública.
 
-Azure Automation asigna un rol de trabajo para ejecutar cada trabajo durante la ejecución de un runbook. Aunque los trabajadores los comparten varias cuentas de Azure, los trabajos de diferentes cuentas de Automation están aislados entre sí. No puede controlar qué servicios de rol de trabajo solicita su trabajo.
+Azure Automation asigna un rol de trabajo para ejecutar cada trabajo durante la ejecución de un runbook. Aunque varias cuentas de Automation comparten los trabajos, los trabajos de distintas cuentas de Automation están aislados entre sí. No puede controlar qué servicios de rol de trabajo solicita su trabajo.
 
 Al ver la lista de runbooks en Azure Portal, se muestra el estado de cada trabajo iniciado para cada runbook. Azure Automation almacena los registros de trabajo durante un máximo de 30 días.
 
@@ -35,10 +35,11 @@ En el siguiente diagrama se muestra el ciclo de vida de un trabajo de runbook pa
 
 Los runbooks de Azure Automation puede ejecutarse en un espacio aislado de Azure o una instancia de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). 
 
-Cuando los runbooks están diseñados para autenticarse y ejecutarse en recursos de Azure, se ejecutan en un espacio aislado de Azure, que es un entorno compartido que pueden usar varios trabajos. Los trabajos con el mismo espacio aislado están sujetos a las limitaciones de recursos de dicho espacio. El entorno de espacio aislado de Azure no admite operaciones interactivas. Impide el acceso a todos los servidores COM fuera de proceso y no admite la realización de [llamadas de WMI](/windows/win32/wmisdk/wmi-architecture) al proveedor Win32 en el runbook.  Estos escenarios solo se admiten si se ejecuta el runbook en una instancia de Hybrid Runbook Worker de Windows.
-
+Cuando los runbooks están diseñados para autenticarse y ejecutarse en recursos de Azure, se ejecutan en un espacio aislado de Azure. Azure Automation asigna un rol de trabajo para ejecutar cada trabajo durante la ejecución del runbook en el espacio aislado. Aunque varias cuentas de Automation comparten los trabajos, los trabajos de distintas cuentas de Automation están aislados entre sí.  Los trabajos con el mismo espacio aislado están sujetos a las limitaciones de recursos de dicho espacio. El entorno de espacio aislado de Azure no admite operaciones interactivas. Impide el acceso a todos los servidores COM fuera de proceso y no admite la realización de [llamadas de WMI](/windows/win32/wmisdk/wmi-architecture) al proveedor Win32 en el runbook.  Estos escenarios solo se admiten si se ejecuta el runbook en una instancia de Hybrid Runbook Worker de Windows.
 
 También puede usar una instancia de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) para ejecutar runbooks directamente en el equipo que hospeda el rol y en los recursos locales del entorno. Azure Automation almacena y administra los runbooks y después los entrega a uno o más equipos asignados.
+
+La habilitación de Azure Firewall en [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md) o [Azure SQL](../azure-sql/database/firewall-configure.md) bloquea el acceso desde runbooks de Azure Automation para esos servicios. El acceso se bloqueará incluso cuando la excepción de firewall para permitir servicios de Microsoft de confianza esté habilitada, ya que Automation no forma parte de la lista de servicios de confianza. Con un firewall habilitado, el acceso solo se puede realizar mediante una instancia de Hybrid Runbook Worker y un [punto de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 >[!NOTE]
 >Para ejecutarse en una instancia de Hybrid Runbook Worker en Linux, los scripts deben estar firmados y el trabajo configurado en consecuencia. Como alternativa, la [validación de la firma debe estar desactivada](automation-linux-hrw-install.md#turn-off-signature-validation).
@@ -145,7 +146,7 @@ Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afect
 
 En la tabla siguiente se describen los estados posibles para un trabajo. Puede ver un resumen del estado de todos los trabajos del runbook o profundizar en los detalles de un trabajo específico del runbook en Azure Portal. También puede configurar la integración con el área de trabajo de Log Analytics para reenviar flujos de trabajos y el estado del trabajo del runbook. Para más información sobre la integración con los registros de Azure Monitor, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md). Consulte también [Obtención de estados del trabajo](manage-runbooks.md#obtain-job-statuses) para ver un ejemplo de cómo trabajar con estados en un runbook.
 
-| Estado | Descripción |
+| Status | Descripción |
 |:--- |:--- |
 | En activación |El trabajo se está activando. |
 | Completed |El trabajo se completó correctamente. |

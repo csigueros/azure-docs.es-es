@@ -1,6 +1,6 @@
 ---
-title: 'Integración de Application Gateway con puntos de conexión de servicio: Azure App Service | Microsoft Docs'
-description: En este artículo se describe cómo Application Gateway se integra con Azure App Service protegido con puntos de conexión de servicio.
+title: 'Integración de Application Gateway: Azure App Service | Microsoft Docs'
+description: En este artículo se describe cómo se integra Application Gateway con Azure App Service.
 services: app-service
 documentationcenter: ''
 author: madsd
@@ -11,18 +11,18 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/04/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: b383c28ca5097a6a30dc43f48213b0793ccdee11
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 50de997203357f86cae4a684eb55b5e30e97b712
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096389"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736110"
 ---
-# <a name="application-gateway-integration-with-service-endpoints"></a>Integración de Application Gateway con puntos de conexión de servicio
-Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) y se explican las consideraciones sobre ILB y el ASE externo.
+# <a name="application-gateway-integration"></a>Integración de Application Gateway
+Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) mediante el punto de conexión de servicio para proteger el tráfico. En el artículo también se tratarán las consideraciones sobre el uso del punto de conexión privado y la integración con ILB y ASE externo. Por último, el artículo tiene consideraciones sobre el sitio de SCM/Kudu.
 
 ## <a name="integration-with-app-service-multi-tenant"></a>Integración con App Service (multiinquilino)
 App Service (multiinquilino) tiene un punto de conexión público accesible desde Internet. Con los [puntos de conexión de servicio](../../virtual-network/virtual-network-service-endpoints-overview.md) puede permitir el tráfico solo desde una subred específica en una instancia de Azure Virtual Network y bloquear todo lo demás. En el siguiente escenario, usaremos esta funcionalidad para garantizar que una instancia de App Service solo pueda recibir tráfico de una instancia específica de Application Gateway.
@@ -40,7 +40,7 @@ Con Azure Portal, siga estos cuatro pasos para aprovisionar y realizar la confi
 
 Ahora puede acceder a App Service a través de Application Gateway, pero si trata de obtener acceso a App Service directamente, debería recibir un error HTTP 403 que indica que el sitio web está detenido.
 
-![Captura de pantalla que muestra el texto de un error 403: prohibido.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
+:::image type="content" source="./media/app-gateway-with-service-endpoints/website-403-forbidden.png" alt-text="Captura de pantalla que muestra el texto de un error 403: prohibido.":::
 
 ## <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
 La [plantilla de implementación de Resource Manager][template-app-gateway-app-service-complete] aprovisionará un escenario completo. El escenario consta de una instancia de App Service bloqueada con puntos de conexión de servicio y restricciones de acceso para recibir únicamente el tráfico de Application Gateway. La plantilla incluye muchos valores predeterminados inteligentes y versiones de reparación únicas agregadas a los nombres de recursos para que sea simple. Para invalidarlos, tendrá que clonar el repositorio o descargar la plantilla y editarla.
@@ -55,6 +55,12 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 En la configuración predeterminada, el comando garantizará que se establezca la configuración de los puntos de conexión de servicio en la subred y la restricción de acceso en App Service.
+
+## <a name="considerations-when-using-private-endpoint"></a>Consideraciones sobre el uso de un punto de conexión privado
+
+Como alternativa al punto de conexión de servicio, puede usar un punto de conexión privado para proteger el tráfico entre Application Gateway y App Service (multiinquilino). Deberá asegurarse de que Application Gateway puede resolver mediante DNS la dirección IP privada de las aplicaciones de App Service, o bien usar la dirección IP privada en el grupo de back-end e invalidar el nombre de host en la configuración de HTTP.
+
+:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="En el diagrama se muestra el flujo de tráfico a una instancia de Application Gateway en Azure Virtual Network, y el flujo desde allí a través de un punto de conexión privado a instancias de aplicaciones de App Service.":::
 
 ## <a name="considerations-for-ilb-ase"></a>Consideraciones del ASE de ILB
 El ASE de ILB no está expuesto a Internet y el tráfico entre la instancia y Application Gateway está ya aislado en la red virtual. La siguiente [guía paso a paso](../environment/integrate-with-application-gateway.md) configura un ASE de ILB y lo integra con Application Gateway mediante Azure Portal.

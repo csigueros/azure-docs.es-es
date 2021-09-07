@@ -1,19 +1,19 @@
 ---
 title: Cómo examinar asignaciones de roles de Synapse RBAC en Synapse Studio
 description: En este artículo se describe cómo examinar asignaciones de roles de Synapse RBAC en Synapse Studio
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: acc1ed8cece087628f6f8deb41696acefe124874
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 11e5ed746215df4518e9bd6af2c0c92539067e47
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784040"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747004"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Cómo examinar asignaciones de roles de Synapse RBAC
 
@@ -28,7 +28,7 @@ Con cualquier rol de Synapse RBAC, puede enumerar las asignaciones de roles de S
 
 ## <a name="open-synapse-studio"></a>Abrir Synapse Studio  
 
-Para revisar las asignaciones de roles, primero [abra Synapse Studio](https://web.azuresynapse.net/) y seleccione el área de trabajo. 
+Para revisar las asignaciones de roles, primero [abra Synapse Studio](https://web.azuresynapse.net/) y seleccione el área de trabajo. Para iniciar sesión en el área de trabajo, hay dos **Métodos de selección de cuenta**. Uno corresponde a la **Suscripción de Azure**, y la otra a **Escribir manualmente**. Si tiene el rol de Azure Synapse o roles de Azure de nivel superior, puede usar ambos métodos para iniciar sesión en el área de trabajo. Si no tiene los roles de Azure relacionados y se le concedió el rol RBAC de Synapse, **Escribir manualmente** es la única manera de iniciar sesión en el área de trabajo.
 
 ![Inicio de sesión en el área de trabajo](./media/common/login-workspace.png) 
  

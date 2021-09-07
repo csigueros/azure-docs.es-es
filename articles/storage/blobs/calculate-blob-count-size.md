@@ -4,16 +4,17 @@ description: Obtenga información sobre cómo calcular el recuento de blobs y su
 services: storage
 author: normesta
 ms.author: normesta
-ms.date: 03/10/2021
+ms.date: 08/16/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 8365c4873165b5a8040bc3def5743eca435cb7e9
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: ffdb6dd0d998cfe12b50dab85f49f06e30903d6f
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653943"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122270953"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Cálculo del recuento de blobs y su tamaño total por contenedor mediante el inventario de Azure Storage
 
@@ -21,25 +22,11 @@ En este artículo se usa la característica de inventario de Azure Blob Storage 
 
 Los metadatos de blob no se incluyen en este método. La característica de inventario de Azure Blob Storage usa la API de REST para [List Blobs](/rest/api/storageservices/list-blobs) con parámetros predeterminados. Así pues, el ejemplo no admite instantáneas, contenedores '$', etc.
 
-> [!IMPORTANT]
-> Inventario de blobs está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
-
 ## <a name="enable-inventory-reports"></a>Habilitación de informes de inventario
 
-El primer paso de este método es [habilitar informes de inventario](blob-inventory.md#enable-inventory-reports) en la cuenta de almacenamiento. Es posible que tenga que esperar hasta 24 horas después de habilitar los informes de inventario para que se genere el primer informe.
+El primer paso de este método es [habilitar informes de inventario](blob-inventory.md#enabling-inventory-reports) en la cuenta de almacenamiento. Es posible que tenga que esperar hasta 24 horas después de habilitar los informes de inventario para que se genere el primer informe.
 
-Cuando tenga un informe de inventario para analizarlo, conceda usted mismo acceso de lectura de blobs al contenedor en el que reside el archivo CSV del informe.
-
-1. Vaya al contenedor con el archivo de informe CSV de inventario.
-1. Seleccione **Control de acceso (IAM)** y, luego, **Agregar asignación de roles**.
-
-    :::image type="content" source="media/calculate-blob-count-size/access.png" alt-text="Seleccione Agregar asignación de roles":::
-
-1. Seleccione **Lector de datos de blobs de almacenamiento** en la lista desplegable de **Rol**.
-
-    :::image type="content" source="media/calculate-blob-count-size/add-role-assignment.png" alt-text="Adición del rol Lector de datos de blobs de almacenamiento en la lista desplegable":::
-
-1. Escriba la dirección de correo electrónico de la cuenta que usa para ejecutar el informe en el campo **Seleccionar**.
+Cuando tenga un informe de inventario para analizar, asígnese el rol **lector de datos de blobs de almacenamiento** para concederse a usted mismo acceso de lectura al contenedor en el que reside el archivo CSV del informe. Asegúrese de usar la dirección de correo electrónico de la cuenta que usa para ejecutar el informe. Para obtener información sobre cómo asignar un rol de Azure a un usuario con el control de acceso basado en roles de Azure (Azure RBAC), siga las instrucciones que se encuentran en [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-an-azure-synapse-workspace"></a>Creación de un área de trabajo de Azure Synapse
 

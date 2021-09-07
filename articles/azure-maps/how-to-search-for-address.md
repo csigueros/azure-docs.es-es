@@ -7,13 +7,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de8acfbf4d4930f5c029aaa71300af770a274194
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98598373"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751457"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Búsqueda de ubicaciones con los servicios Search de Azure Maps
 
@@ -22,7 +21,7 @@ El [servicio Search de Azure Maps](/rest/api/maps/search) es un conjunto de API 
 
 En este artículo, aprenderá a:
 
-* Solicitar las coordenadas de latitud y longitud de una dirección (geocodificación de la ubicación de la dirección) mediante [Search Address API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress).
+* Solicitar las coordenadas de latitud y longitud de una dirección (geocodificación de la ubicación de la dirección) mediante [Search Address API](/rest/api/maps/search/getsearchaddress).
 * Buscar una dirección o punto de interés (POI) mediante [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy).
 * Realizar una [búsqueda de dirección inversa](/rest/api/maps/search/getsearchaddressreverse) para traducir la ubicación de coordenadas a la dirección postal.
 * Traducir la ubicación de coordenadas a una calle transversal que pueda entender cualquier persona mediante [Search Address Reverse Cross Street API](/rest/api/maps/search/getsearchaddressreversecrossstreet).  Por lo general, esto es necesario en las aplicaciones de seguimiento que reciben una fuente GPS de un dispositivo o recurso y desea saber en qué dirección se encuentra en la coordenada.
@@ -41,25 +40,23 @@ En este ejemplo, usaremos [Get Search Address API](/rest/api/maps/search/getsear
 >[!TIP]
 >Si tiene un conjunto de direcciones para la geocodificación, puede usar [Post Search Address Batch API](/rest/api/maps/search/postsearchaddressbatch) para enviar un lote de consultas en una única llamada API.
 
-1. Abra la aplicación Postman. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear). Usará esta colección para el resto de los ejemplos de este documento.
+1. En la aplicación Postman, seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
-
-3. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. En esta solicitud, estamos buscando una dirección específica: `400 Braod St, Seattle, WA 98109`. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. En esta solicitud, estamos buscando una dirección específica: `400 Braod St, Seattle, WA 98109`. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
-4. Haga clic en el botón azul **Enviar**. El cuerpo de la respuesta contendrá datos para una sola ubicación.
+3. Haga clic en el botón azul **Enviar**. El cuerpo de la respuesta contendrá datos para una sola ubicación.
 
-5. Ahora buscaremos una dirección que tenga más de una posible ubicación. En la sección **Params** (Parámetros), cambie la clave `query` a `400 Broad, Seattle`. Haga clic en el botón azul **Enviar**.
+4. Ahora buscaremos una dirección que tenga más de una posible ubicación. En la sección **Params** (Parámetros), cambie la clave `query` a `400 Broad, Seattle`. Haga clic en el botón azul **Enviar**.
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="Búsqueda de dirección":::
 
-6. Luego, intente establecer la clave `query` en `400 Broa`.
+5. Luego, intente establecer la clave `query` en `400 Broa`.
 
-7. Haga clic en el botón **Enviar**. Ahora puede ver que la respuesta incluye respuestas de varios países. Para sesgar geográficamente los resultados al área pertinente para el usuario, agregue siempre a la solicitud tantos detalles como sea posible.
+6. Haga clic en el botón **Enviar**. Ahora puede ver que la respuesta incluye respuestas de varios países. Para sesgar geográficamente los resultados al área pertinente para el usuario, agregue siempre a la solicitud tantos detalles como sea posible.
 
 ## <a name="using-fuzzy-search-api"></a>Uso de Fuzzy Search API
 
@@ -75,7 +72,7 @@ En este ejemplo, usaremos la búsqueda aproximada para buscar `pizza` en todo el
 >[!IMPORTANT]
 >Para sesgar geográficamente los resultados al área pertinente para los usuarios, agregue siempre tantos detalles de ubicación como sea posible. Para más información, consulte [Procedimientos recomendados de búsqueda](how-to-use-best-practices-for-search.md#geobiased-search-results).
 
-1. Abra la aplicación Postman, haga clic en **New** (Nuevo) y seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en la sección anterior o cree una nueva y, a continuación, seleccione **Save** (Guardar).
+1. En la aplicación Postman, seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
@@ -113,7 +110,7 @@ En este ejemplo, usaremos la búsqueda aproximada para buscar `pizza` en todo el
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>Buscar una dirección mediante la búsqueda de direcciones inversa
 
-[Get Search Address Reverse API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) de Azure Maps traduce las coordenadas en direcciones legibles. Esta API se usa a menudo para las aplicaciones que consumen fuentes GPS y desean detectar direcciones en puntos de coordenadas específicos.
+[Get Search Address Reverse API](/rest/api/maps/search/getsearchaddressreverse) de Azure Maps traduce las coordenadas en direcciones legibles. Esta API se usa a menudo para las aplicaciones que consumen fuentes GPS y desean detectar direcciones en puntos de coordenadas específicos.
 
 >[!IMPORTANT]
 >Para sesgar geográficamente los resultados al área pertinente para los usuarios, agregue siempre tantos detalles de ubicación como sea posible. Para más información, consulte [Procedimientos recomendados de búsqueda](how-to-use-best-practices-for-search.md#geobiased-search-results).
@@ -123,7 +120,7 @@ En este ejemplo, usaremos la búsqueda aproximada para buscar `pizza` en todo el
 
 En este ejemplo vamos a realizar búsquedas inversas con algunos de los parámetros opcionales que están disponibles. Para una lista completa de los parámetros opcionales, consulte la sección sobre [parámetros de búsqueda inversa](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
 
-1. En la aplicación Postman, haga clic en **New** (Nuevo) y seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en la primera sección o cree una nueva y, a continuación, seleccione **Save** (Guardar).
+1. En la aplicación Postman, seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
@@ -159,7 +156,7 @@ En este ejemplo vamos a realizar búsquedas inversas con algunos de los parámet
 
 En este ejemplo, buscaremos una calle transversal en función de las coordenadas de una dirección.
 
-1. En la aplicación Postman, haga clic en **New** (Nuevo) y seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en la primera sección o cree una nueva y, a continuación, seleccione **Save** (Guardar).
+1. En la aplicación Postman, seleccione **Nuevo** para crear la solicitud. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**. Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud.
 
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
   

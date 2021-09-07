@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cdcf22a42375949cc4d6be0b4f3062cee26219d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c15c4e2f269791dfce80d89edf22d5041be636b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704861"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734473"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
@@ -244,13 +244,11 @@ Después de comprar el dominio de App Service, dispone de cinco días para cance
 
 1. En la sección **Dominios de App Service**, seleccione el dominio que desea configurar.
 
-1. En el panel de navegación de la izquierda, seleccione **Enlaces de nombre de host**. Aquí se enumeran los enlaces de nombre de host de todos los servicios de Azure.
+1. En el panel de navegación izquierdo del dominio, seleccione **Bloqueos**. 
 
-    ![Captura de pantalla de la página Enlaces de nombre de host.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+    Se ha creado un bloqueo de eliminación para el dominio. Siempre que exista un bloqueo de eliminación, no se puede eliminar el dominio de App Service.
 
-1. Para eliminar todos los enlaces de nombre de host, seleccione **...**  > **Eliminar**. Después de eliminarlos todos, haga clic en **Guardar**.
-
-    <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
+1. Haga clic en **Eliminar** para quitar el bloqueo.
 
 1. En el panel de navegación de la izquierda del dominio, seleccione **Información general**. 
 

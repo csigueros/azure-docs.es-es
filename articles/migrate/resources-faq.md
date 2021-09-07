@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: a5db000ad76f23be60d279923a590204c2fcf5e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87dc84b7f73fe95f7ba62dcdef63816753cc233e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377387"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735030"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Preguntas frecuentes
 
@@ -26,14 +26,14 @@ Azure Migrate proporciona un centro de conectividad para realizar la detección,
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>¿Qué puedo hacer con Azure Migrate?
 
-Use Azure Migrate para descubrir, valorar y migrar la infraestructura, las aplicaciones y los datos locales a Azure. Azure Migrate admite la valoración y migración de máquinas virtuales de VMware locales, máquinas virtuales de Hyper-V, servidores físicos, otras máquinas virtuales virtualizadas, bases de datos, aplicaciones web y escritorios virtuales. 
+Use Azure Migrate para descubrir, valorar y migrar la infraestructura, las aplicaciones y los datos locales a Azure. Azure Migrate admite la valoración y migración de máquinas virtuales de VMware locales, máquinas virtuales de Hyper-V, servidores físicos, otras máquinas virtuales virtualizadas, bases de datos, aplicaciones web y escritorios virtuales.
 
 ## <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>¿Cuál es la diferencia entre Azure Migrate y Azure Site Recovery?
 
-[Azure Migrate](migrate-services-overview.md) ofrece un centro principal para la valoración y la migración a Azure. 
+[Azure Migrate](migrate-services-overview.md) ofrece un centro principal para la valoración y la migración a Azure.
 
 - El uso de Azure Migrate proporciona interoperabilidad y extensibilidad futura con herramientas de Azure Migrate, otros servicios de Azure y herramientas de terceros.
-- Azure Migrate: Server Migration está diseñada específicamente para la migración de servidores a Azure. Está optimizada para la migración. No es necesario obtener información sobre los conceptos y escenarios que no son directamente pertinentes para la migración. 
+- Azure Migrate: Server Migration está diseñada específicamente para la migración de servidores a Azure. Está optimizada para la migración. No es necesario obtener información sobre los conceptos y escenarios que no son directamente pertinentes para la migración.
 - No hay cargos por uso de herramientas para la migración durante 180 días a partir del momento en que se inicia la replicación de una máquina virtual. Le da tiempo para completar la migración. Solo paga por los recursos de almacenamiento y de red que se usan en la replicación, y por los cargos de proceso consumidos durante las migraciones de prueba.
 - Azure Migrate admite todos los escenarios de migración que admite Site Recovery. Asimismo, en el caso de las VM de VMware, Azure Migrate proporciona una opción de migración sin agente.
 - Estamos dando prioridad a las nuevas características de migración solo de la herramienta Azure Migrate: Server Migration. Estas características no están dirigidas a Site Recovery.
@@ -44,9 +44,9 @@ Azure Migrate: La herramienta Server Migration usa cierta funcionalidad de back-
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Tengo un proyecto con la experiencia clásica anterior de Azure Migrate. ¿Cómo empiezo a usar la nueva versión?
 
-Azure Migrate clásico se retira en febrero de 2024. Después de febrero de 2024, ya no se admitirá la versión clásica de Azure Migrate y se eliminarán los metadatos de inventario del proyecto clásico. No se pueden actualizar proyectos ni componentes de la versión anterior a la nueva versión. Tiene que [crear un proyecto de Azure Migrate](create-manage-projects.md) y [agregarle herramientas de valoración y migración](./create-manage-projects.md). Use los tutoriales para aprender a usar las herramientas de valoración y migración disponibles. Si tiene un área de trabajo Log Analytics asociada a un proyecto clásico, puede adjuntarla a un proyecto de la versión actual después de eliminar el proyecto clásico.
+Azure Migrate clásico se retira en febrero de 2024. Después de febrero de 2024, ya no se admitirá la versión clásica de Azure Migrate y se eliminarán los metadatos de inventario del proyecto clásico. No se pueden actualizar proyectos ni componentes de la versión anterior a la nueva versión. Tiene que [crear un proyecto de Azure Migrate](create-manage-projects.md) y [agregarle herramientas de valoración y migración](./create-manage-projects.md). Use los tutoriales para aprender a usar las herramientas de valoración y migración disponibles. Si tiene un área de trabajo de Log Analytics asociada a un proyecto clásico y desea adjuntarla a uno de la versión actual, no tiene más que eliminar el proyecto clásico.
 
-## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>¿Cuál es la diferencia entre Azure Migrate: Server Assessment y MAP Toolkit?
+## <a name="whats-the-difference-between-azure-migrate-discovery-and-assessment-and-the-map-toolkit"></a>¿Cuál es la diferencia entre Azure Migrate: Detección y evaluación y MAP Toolkit?
 
 Server Assessment proporciona una valoración para ayudar con la preparación de la migración y la evaluación de las cargas de trabajo para la migración a Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/download/details.aspx?id=7826) ayuda con otras tareas, como el planeamiento de la migración para versiones más recientes de los sistemas operativos cliente y servidor de Windows y el seguimiento del uso de software. Para esos escenarios, siga usando MAP Toolkit.
 
@@ -70,7 +70,7 @@ Revise las zonas geográficas admitidas para [nubes públicas](migrate-support-m
 
 ## <a name="how-do-i-get-started"></a>¿Cómo empiezo?
 
-Identifique la herramienta que necesita y agréguela a un proyecto de Azure Migrate. 
+Identifique la herramienta que necesita y agréguela a un proyecto de Azure Migrate.
 
 Para agregar una herramienta de ISV o Movere:
 
@@ -81,7 +81,7 @@ Realice un seguimiento del recorrido de la migración desde el proyecto de Azure
 
 ## <a name="how-do-i-delete-a-project"></a>¿Cómo puedo eliminar un proyecto?
 
-Aprenda a [eliminar un proyecto](how-to-delete-project.md). 
+Aprenda a [eliminar un proyecto](how-to-delete-project.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

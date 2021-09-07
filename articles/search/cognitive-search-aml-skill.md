@@ -8,19 +8,19 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 529be70de61fe9adb025ee801bd417bc860ef5e6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630282"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736328"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Aptitud de AML en una canalización de enriquecimiento de Azure Cognitive Search
 
 > [!IMPORTANT] 
-> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el SDK de .NET.
+> Esta aptitud está en versión preliminar pública en los [términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API de REST de versión preliminar](/rest/api/searchservice/index-preview) admite esta aptitud.
 
-La aptitud **AML** permite ampliar el enriquecimiento de IA con un modelo personalizado de [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) (AML). Una vez que un modelo de AML se ha [entrenado e implementado](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), una aptitud de **AML** lo integra en el enriquecimiento con IA.
+La aptitud **AML** permite ampliar el enriquecimiento de IA con un modelo personalizado de [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (AML). Una vez que un modelo de AML se ha [entrenado e implementado](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), una aptitud de **AML** lo integra en el enriquecimiento con IA.
 
 Como en las aptitudes integradas, una aptitud de **AML** tiene entradas y salidas. Las entradas se envían al servicio AML implementado como un objeto JSON, lo que genera una carga JSON como respuesta junto con un código de estado correcto. Se espera que la respuesta tenga las salidas especificadas por la aptitud de **AML**. Cualquier otra respuesta se considera un error y no se realiza ningún enriquecimiento.
 

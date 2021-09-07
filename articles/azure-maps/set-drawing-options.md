@@ -7,18 +7,17 @@ ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 95a04d763fa5982181cc1c797bce969d9857ae4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e9bb7ac183873c0fc4d97bd883ddd85110f9188
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92890639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747718"
 ---
 # <a name="use-the-drawing-tools-module"></a>Uso del módulo de herramientas de dibujo
 
-El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Este módulo facilita el dibujo y la edición de formas en el mapa mediante un dispositivo de entrada, como un mouse o la pantalla táctil. La clase principal de este módulo es el [administrador de dibujos](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). El administrador de dibujos proporciona todas las funcionalidades necesarias para dibujar y editar formas en el mapa. Se puede usar directamente y se integra con una interfaz de usuario de barra de herramientas personalizada. También puede usar la clase integrada [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar). 
+El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Este módulo facilita el dibujo y la edición de formas en el mapa mediante un dispositivo de entrada, como un mouse o la pantalla táctil. La clase principal de este módulo es el [administrador de dibujos](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). El administrador de dibujos proporciona todas las funcionalidades necesarias para dibujar y editar formas en el mapa. Se puede usar directamente y se integra con una interfaz de usuario de barra de herramientas personalizada. También puede usar la clase integrada [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar).
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Carga del módulo de herramientas de dibujo en una página web
 
@@ -27,14 +26,14 @@ El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Est
     - Utilizar la versión de Azure Content Delivery Network hospedada globalmente del módulo de servicios de Azure Maps. Agregue una referencia a la hoja de estilos de JavaScript y CSS en el elemento `<head>` del archivo:
 
         ```html
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.js"></script>
         ```
 
     - Otra alternativa es cargar localmente el módulo de herramientas de dibujo para el código fuente del SDK web de Azure Maps mediante el paquete npm [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) y, luego, hospedarlo con la aplicación. Este paquete también incluye las definiciones de TypeScript. Use este comando:
-    
+
         > **npm install azure-maps-drawing-tools**
-    
+
         Luego, agregue una referencia a la hoja de estilos de JavaScript y CSS en el elemento `<head>` del archivo:
 
          ```html
@@ -102,6 +101,64 @@ En los ejemplos anteriores se ha mostrado cómo personalizar las opciones de dib
 <iframe height="685" title="Personalizar el administrador de dibujos" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Obtención de datos de forma</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+### <a name="put-a-shape-into-edit-mode"></a>Puesta de una forma en modo de edición
+
+Ponga una forma existente en modo de edición mediante programación pasándola a la función `edit` del administrador de dibujos. Si la forma es una característica GeoJSON, inclúyala entre la clase `atls.Shape` antes de pasarla.
+
+Para sacar una forma del modo de edición mediante programación, establezca el modo del administrador de dibujos en `idle`.
+
+```javascript
+//If you are starting with a GeoJSON feature, wrap it with the atlas.Shape class.
+var feature = { 
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [0,0]
+        },
+    "properties":  {}
+};
+
+var shape = new atlas.Shape(feature);
+
+//Pass the shape into the edit function of the drawing manager.
+drawingManager.edit(shape);
+
+//Later, to programmatically take shape out of edit mode, set mode to idle. 
+drawingManager.setOptions({ mode: 'idle' });
+```
+
+> [!NOTE]
+> Cuando se pasa una forma a la función `edit` del administrador de dibujos, se agrega al origen de datos que mantiene el administrador. Si la forma estaba anteriormente en otro origen de datos, se eliminará de dicho origen.
+
+Si desea agregar al administrador de dibujos formas que el usuario final pueda ver y editar, pero no quiere ponerlas en modo de edición mediante programación, recupere el origen de datos del administrador y agréguele las formas.
+
+```javascript
+//The shape(s) you want to add to the drawing manager so 
+var shape = new atlas.Shape(feature);
+
+//Retrieve the data source from the drawing manager.
+var source = drawingManager.getSource();
+
+//Add your shape.
+source.add(shape);
+
+//Alternatively, load in a GeoJSON feed using the sources importDataFromUrl function.
+source.importDataFromUrl('yourFeatures.json');
+```
+
+En la tabla siguiente se muestra el tipo de edición que admiten diferentes tipos de características de forma.
+
+| Característica de forma | Editar puntos | Girar | Eliminar forma |
+|---------------|:-----------:|:------:|:------------:|
+| Punto         | ✓           |        | ✓           |
+| LineString    | ✓           | ✓      | ✓           |
+| Polygon       | ✓           | ✓      | ✓           |
+| MultiPoint    |             | ✓      | ✓           |
+| MultiLineString |           | ✓      | ✓           |
+| MultiPolygon  |             | ✓      | ✓           |
+| Circle        | ✓           |        | ✓           |
+| Rectángulo     | ✓           | ✓      | ✓           |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

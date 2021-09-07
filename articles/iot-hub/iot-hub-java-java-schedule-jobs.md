@@ -2,7 +2,6 @@
 title: Programación de trabajos con Azure IoT Hub (Java) | Microsoft Docs
 description: Cómo programar un trabajo de Azure IoT Hub para invocar un método directo y definir una propiedad deseada en varios dispositivos. Usará el SDK de dispositivo IoT de Azure para Java con el fin de implementar las aplicaciones de dispositivo simulado, además del SDK de servicio IoT de Azure para Java con el objetivo de implementar una aplicación de servicio para ejecutar el trabajo.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 3e98cfc2d8c7fb8d40c8565a1c620f123ce171ff
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8a3ae9c425ed3ef34977f443c09ffb4b88c7a497
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217846"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750773"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Programación y difusión de trabajos (Java)
 
@@ -33,7 +32,7 @@ Para más información sobre estas funcionalidades, vea:
 
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-java-java-twin-getstarted.md)
 
-* Métodos directos: [Guía para desarrolladores de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](quickstart-control-device-java.md)
+* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Inicio rápido: Uso de métodos directos](./quickstart-control-device.md?pivots=programming-language-java)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -520,6 +519,6 @@ En este tutorial, ha utilizado un trabajo para programar un método directo para
 
 Use los siguientes recursos para obtener información sobre cómo:
 
-* Enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub](quickstart-send-telemetry-java.md).
+* Enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java).
 
-* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el tutorial [Uso de métodos directos](quickstart-control-device-java.md).
+* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el artículo de inicio rápido [Uso de métodos directos](./quickstart-control-device.md?pivots=programming-language-java).

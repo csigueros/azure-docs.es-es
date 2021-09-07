@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de servicios de datos habilitados para Azure Arc
+title: Solución de problemas de servicios de datos habilitados para Azure Arc
 description: Introducción a la solución de problemas de recursos
 services: azure-arc
 ms.service: azure-arc
@@ -7,20 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: fa90099a6da79135ae53eecc4996a26649ffa7cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83354dd53d36dee93af943e0238ac6393d20b1cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90932236"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741447"
 ---
 # <a name="troubleshooting-resources"></a>Solución de problemas de recursos
 
-En este artículo se identifica la solución de problemas de recursos de los servicios de datos habilitados para Azure Arc.
+En este artículo se identifica la solución de problemas de recursos de los servicios de datos habilitados para Azure Arc.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="resources-by-type"></a>Recursos por tipo
 

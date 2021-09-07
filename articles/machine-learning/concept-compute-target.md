@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/29/2020
-ms.openlocfilehash: 389460e79dbcc9c6ba9480540d7f361382ef5987
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 07/27/2021
+ms.openlocfilehash: a3c52783cf88e9890ffa1a96feb3a332e43c5e1c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021094"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860826"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -24,7 +24,7 @@ En un ciclo de vida de desarrollo de modelos típico, puede:
 
 1. Comenzar desarrollando y experimentando con una pequeña cantidad de datos. En esta etapa, use su entorno local, como un equipo local o una máquina virtual (VM) basada en la nube, como destino de proceso.
 1. Escalar verticalmente a datos más grandes o realizar un entrenamiento distribuido mediante el uso de uno de estos [destinos de proceso de entrenamiento](#train).
-1. Después de que el modelo esté listo, impleméntelo en un entorno de hospedaje web o en un dispositivo de IoT con uno de estos [destinos de proceso de implementación](#deploy).
+1. Después de que el modelo esté listo, impleméntelo en un entorno de hospedaje web con uno de estos [destinos de proceso de implementación](#deploy).
 
 Los recursos de proceso que use para los destinos de proceso están asociados a un [área de trabajo](concept-workspace.md). Los usuarios del área de trabajo comparten los recursos de proceso que no sean el equipo local.
 
@@ -52,10 +52,9 @@ Azure Machine Learning crea y administra un recurso de proceso administrado. Dic
 Puede crear instancias de procesos o clústeres de procesos de Azure Machine Learning con cualquiera de las siguientes opciones:
 
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md).
-* La CLI y el SDK de Python:
+* El SDK de Python y la CLI de Azure:
     * [Instancia de proceso](how-to-create-manage-compute-instance.md).
     * [Clúster de proceso](how-to-create-attach-compute-cluster.md).
-* El [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (versión preliminar).
 * Una plantilla de Azure Resource Manager Para ver una plantilla de ejemplo, consulte [Creación de un clúster de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 * Una [extensión de aprendizaje automático para la CLI de Azure](reference-azure-machine-learning-cli.md#resource-management).
 
@@ -64,7 +63,7 @@ Cuando se crean, estos recursos de proceso forman parte automáticamente del ár
 
 |Capacidad  |Clúster de proceso  |Instancia de proceso  |
 |---------|---------|---------|
-|Clúster de uno o varios nodos     |    **&check;**       |         |
+|Clúster de uno o varios nodos     |    **&check;**       |    Clúster de un solo nodo     |
 |Se escala automáticamente cada vez que se envía una ejecución     |     **&check;**      |         |
 |Administración del clúster automático y programación de trabajos     |   **&check;**        |     **&check;**      |
 |Es compatible con recursos de CPU y GPU     |  **&check;**         |    **&check;**       |
@@ -107,8 +106,8 @@ Consulte la tabla siguiente para más información sobre las series admitidas y 
 | [NDv2](../virtual-machines/ndv2-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
 | [NV](../virtual-machines/nv-series.md) | Ninguno. | GPU | Clústeres de proceso e instancia |
 | [NVv3](../virtual-machines/nvv3-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
-| [NCT4_v3](../virtual-machines/nct4-v3-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
-| [NDA100_v4](../virtual-machines/nda100-v4-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [NCasT4_v3](../virtual-machines/nct4-v3-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [NDasrA100_v4](../virtual-machines/nda100-v4-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
 
 
 Aunque Azure Machine Learning admite estas series de máquinas virtuales, puede que no estén disponibles en todas las regiones de Azure. Para comprobar si las series de máquinas virtuales están disponibles o no, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -152,7 +151,20 @@ Para más información sobre el aislamiento, consulte [Aislamiento en la nube p�
 
 ## <a name="unmanaged-compute"></a>Proceso no administrado
 
-Azure Machine Learning *no* administra un destino de proceso no administrado. Cree este tipo de destino de proceso fuera de Azure Machine Learning y luego adjúntelo al área de trabajo. Estos recursos de proceso no administrados pueden requerir pasos adicionales para mantener o mejorar el rendimiento de las cargas de trabajo de Machine Learning.
+Azure Machine Learning *no* administra un destino de proceso no administrado. Cree este tipo de destino de proceso fuera de Azure Machine Learning y luego adjúntelo al área de trabajo. Estos recursos de proceso no administrados pueden requerir pasos adicionales para mantener o mejorar el rendimiento de las cargas de trabajo de Machine Learning. 
+
+Azure Machine Learning admite los siguientes tipos de proceso no administrado:
+
+* Equipo local
+* Máquinas virtuales remotas
+* HDInsight de Azure
+* Azure Batch
+* Azure Databricks
+* Análisis con Azure Data Lake
+* Azure Container Instances
+* Azure Kubernetes Service y Kubernetes habilitado para Azure Arc (versión preliminar)
+
+Para más información, consulte [Configuración de destinos de proceso para el entrenamiento y la implementación de modelos](how-to-attach-compute-targets.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

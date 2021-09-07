@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db1878c2760cfcaa157d0ef233bb1931a5f310b3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9acbe5d7b57906c894021ec4e4f83633433b3c3b
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970897"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228618"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -82,7 +82,7 @@ Los siguientes vídeos pueden ser útiles a medida que se familiarice con las re
 
 Se necesita una licencia válida de Azure AD Premium (P2) para cada persona, sin contar a los administradores globales o los administradores de usuarios, que crearán o realizarán revisiones de acceso. Para obtener más información, consulte los [requisitos de licencia de las revisiones de acceso](access-reviews-overview.md).
 
-Además es posible que necesite utilizar otras características de gobernanza de identidades, como la [administración del ciclo de vida de los derechos](entitlement-management-overview.md) o Privileged Identity Management. En tal caso, puede que también necesite licencias relacionadas. Para más información, consulte los [precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Además es posible que necesite utilizar otras características de gobernanza de identidades, como la [administración del ciclo de vida de los derechos](entitlement-management-overview.md) o Privileged Identity Management. En tal caso, puede que también necesite licencias relacionadas. Para más información, consulte los [precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="plan-the-access-reviews-deployment-project"></a>Planeamiento del proyecto de implementación de revisiones de acceso
 
@@ -336,7 +336,7 @@ Vaya a [Usar las revisiones de acceso de Azure AD para administrar los usuarios
 
 ### <a name="review-guest-users-group-memberships"></a>Revisión de la pertenencia a grupos de usuarios invitados
 
-Vaya a [Administrar el acceso de invitado con revisiones de acceso de Azure AD](./manage-guest-access-with-access-reviews.md) para aprender a revisar el acceso de los usuarios invitados a pertenencias de grupo.
+Vaya a [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](./manage-guest-access-with-access-reviews.md) para aprender a revisar el acceso de los usuarios invitados a pertenencias de grupo.
 
 ### <a name="review-access-to-on-premises-groups"></a>Revisión del acceso a grupos locales
 

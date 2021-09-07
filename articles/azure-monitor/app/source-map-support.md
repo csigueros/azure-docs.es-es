@@ -2,16 +2,14 @@
 title: 'Compatibilidad con mapas de origen para aplicaciones JavaScript: Azure Monitor Application Insights'
 description: Aprenda a cargar mapas de origen en su propio contenedor de blobs de la cuenta de almacenamiento mediante Application Insights.
 ms.topic: conceptual
-author: DavidCBerry13
-ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 79462dcb503e5835254b89f7ebaa7a9ee34946d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81ca8de41c4d68ddc5ff3fc0355def975e6df30d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933933"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732023"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Compatibilidad con mapas de origen para aplicaciones JavaScript
 
@@ -50,7 +48,7 @@ Si usa Azure Pipelines para compilar e implementar de forma continua la aplicaci
 En la pestaña de detalles de la transacción completa, puede hacer clic en *Desminificar* y se mostrará un aviso de configuración si el recurso no está configurado.
 
 1. En el portal, consulte los detalles de una excepción que está minificada.
-2. Haga clic en *Desminificar*
+2. Seleccione *Desminificar*.
 3. Si el recurso no se ha configurado, aparecerá un mensaje que le solicitará que lo configure.
 
 ### <a name="from-the-properties-page"></a>En la página de propiedades
@@ -58,9 +56,9 @@ En la pestaña de detalles de la transacción completa, puede hacer clic en *Des
 Si desea configurar o cambiar la cuenta de almacenamiento o el contenedor de blobs que está vinculado a su recurso de Application Insights, puede hacerlo en la pestaña *Propiedades* del recurso de Application Insights.
 
 1. Vaya a la pestaña *Propiedades* del recurso de Application Insights.
-2. Haga clic en *Cambiar el contenedor de blobs del mapa de origen*.
+2. Seleccione *Cambiar el contenedor de blobs del mapa de origen*.
 3. Seleccione otro contenedor de blobs como contenedor de mapas de origen.
-4. Haga clic en `Apply`.
+4. Seleccione `Apply`.
 
 > [!div class="mx-imgBorder"]
 > ![Nueva configuración del contenedor de blobs de Azure seleccionado con la hoja Propiedades](./media/source-map-support/reconfigure.png)

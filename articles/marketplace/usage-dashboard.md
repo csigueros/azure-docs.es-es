@@ -4,28 +4,27 @@ description: Obtenga información sobre cómo obtener acceso a todas las métric
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/28/2021
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: fca763f307c8ae1437009b282e460fc249c40b60
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/15/2021
+ms.openlocfilehash: c68216675a41a71b21216ce558b03171781dbc43
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540966"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749467"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
 En este artículo se proporciona información sobre el panel de uso del Centro de partners. En este panel se muestran todas las máquinas virtuales (VM) que ofrecen métricas de facturación de uso normalizado, de uso sin procesar y de uso medido en tres pestañas diferentes: Uso normalizado de VM, uso sin procesar de VM y uso medido de facturación.
 
-Para obtener acceso al panel de uso en el centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Uso**.
-
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./analytics-faq.md).
+> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./analytics-faq.yml).
 
 ## <a name="usage-dashboard"></a>Panel de uso
 
-En el panel **Uso** del menú **Analizar** se muestran los pedidos actuales de todas las ofertas de software como servicio (SaaS). Puede ver representaciones gráficas de los elementos siguientes:
+En el [panel Uso](https://go.microsoft.com/fwlink/?linkid=2166106) se muestran los pedidos actuales de todas las ofertas de software como servicio (SaaS). Puede ver representaciones gráficas de los elementos siguientes:
 
 - Tendencia de uso
 - Uso normalizado en función de las ofertas
@@ -40,6 +39,8 @@ En el panel **Uso** del menú **Analizar** se muestran los pedidos actuales de t
 ## <a name="elements-of-the-usage-dashboard"></a>Elementos del panel de uso
 
 En las secciones siguientes se describe cómo usar el panel de Uso y cómo leer los datos.
+
+Para obtener acceso al panel de uso en el centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Uso**.
 
 ### <a name="month-range"></a>Intervalo mensual
 
@@ -122,7 +123,7 @@ _**Tabla 1: diccionario de términos de datos**_
 | Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. Antes era el GUID de la suscripción a Azure. | MarketplaceSubscriptionId |
 | MonthStartDate | Fecha de inicio del mes | Fecha de inicio del mes representa el mes de la compra. | MonthStartDate |
 | Tipo de oferta | Tipo de oferta | Tipo de oferta de Marketplace comercial. | OfferType |
-| Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También se conoce como Canal. Los valores posibles son:<ui><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> | AzureLicenseType |
+| Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También se conoce como Canal. Los valores posibles son:<ul><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> | AzureLicenseType |
 | Marketplace License Type (Tipo de licencia de Marketplace) | Marketplace License Type (Tipo de licencia de Marketplace) | Método de facturación de la oferta de Marketplace comercial. Los valores posibles son:<ul><li>Facturado a través de Azure</li><li>Traiga su propia licencia</li><li>Gratuito</li><li>Microsoft como revendedor</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | Plan asociado con la oferta. | SKU |
 | Customer Country (País del cliente) | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. | CustomerCountry |
@@ -162,6 +163,7 @@ _**Tabla 1: diccionario de términos de datos**_
 | Acción realizada a las | Acción realizada a las | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica la hora en que el publicador ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | ActionTakenAt |
 | Acción realizada por | Acción realizada por | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica la persona que ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | ActionTakenBy |
 | Impacto financiero estimado (USD) | Impacto financiero estimado en USD | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Cuando el Centro de partners marca como anómalo un uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta, el campo especifica el impacto financiero estimado (en USD) del uso anómalo por encima del límite.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna mediante programación, el valor será NULL._ | EstimatedFinancialImpactUSD |
+| N/D | Id. de recurso | Identificador completo del recurso, incluido el nombre del recurso y el tipo de recurso. Tenga en cuenta que se trata de un campo de datos disponible solo en los informes de descarga.<br>Utilice el formato:<br> /subscriptions/{guid}/resourceGroups/{nombre-del-grupo-de-recursos}/{espacio-de-nombres-del-proveedor-de-recursos}/{tipo-de-recurso}/{nombre-del-recurso} | N/D |
 |||||
 
 ### <a name="usage-page-filters"></a>Filtros de la página de uso
@@ -200,4 +202,4 @@ Si tiene varias ofertas que usan medidores personalizados, el informe de uso de 
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](usage-dashboard.md).
 - Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](downloads-dashboard.md).
 - Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y Microsoft AppSource, consulte [Panel de análisis de calificaciones y opiniones en el Centro de partners](ratings-reviews.md).
-- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.md).
+- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.yml).

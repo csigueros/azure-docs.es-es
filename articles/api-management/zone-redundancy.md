@@ -4,15 +4,15 @@ description: Aprenda a habilitar la redundancia de zona para mejorar la resisten
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/11/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 6e8352a93575ec6222be463daea14aee28f08a7c
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 2415a07a215c99a1775593aae403af6f84b308fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634822"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752475"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Compatibilidad con la zona de disponibilidad para Azure API Management 
 
@@ -29,19 +29,26 @@ La configuración de API Management para la redundancia de zona se admite actual
 * Este de Australia
 * Sur de Brasil
 * Centro de Canadá
-* Centro de la India
+* Centro de la India (*)
 * Centro de EE. UU.
 * Este de EE. UU.
 * Este de EE. UU. 2
 * Centro de Francia
+* Centro-oeste de Alemania
 * Japón Oriental
+* Centro de Corea del Sur (*)
 * Norte de Europa
+* Este de Noruega (*)
+* Norte de Sudáfrica (*)
 * Centro-sur de EE. UU.
 * Sudeste de Asia
-* Sur de Reino Unido
+* Sur de Reino Unido 2
 * Oeste de Europa
 * Oeste de EE. UU. 2
 * Oeste de EE. UU. 3
+
+> [!IMPORTANT]
+> Las regiones con * tienen acceso restrictivo en una suscripción de Azure para habilitar la compatibilidad con Zona de disponibilidad. Trabaje junto a su representante de ventas o al cliente de Microsoft.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -70,6 +77,6 @@ En el portal también tiene la opción de habilitar la redundancia de zona cuand
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información acerca de cómo [implementar una instancia de servicio de Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md).
-* También puede habilitar la redundancia de zona con una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-api-management-simple-zones).
+* También puede habilitar la redundancia de zona con una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones).
 * Obtenga más información acerca de los [servicios de Azure compatibles con zonas de disponibilidad](../availability-zones/az-region.md).
-* Obtenga más información sobre el desarrollo de la [confiabilidad](/azure/architecture/framework/resiliency/overview) en Azure.
+* Obtenga más información sobre el desarrollo de la [confiabilidad](/azure/architecture/framework/resiliency/app-design) en Azure.

@@ -3,20 +3,20 @@ title: 'Lenguaje de marcado de síntesis de voz (SSML): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Uso del lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3ba2dad93778e9d4482fa00c854a73dbc616d290
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f69ea6fcc48cf12b012e15ab7ff1fd2b569c0889
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750414"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071529"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -764,6 +764,7 @@ A continuación se muestran los tipos de contenido admitidos para los atributos 
 | `ordinal` | | El texto se pronuncia como un número ordinal. El motor de síntesis de voz pronuncia:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Como "Seleccionar la tercera opción". |
 | `telephone` | | El texto se pronuncia como un número de teléfono. El atributo `format` puede contener dígitos que representan un código de país. Por ejemplo, "1" para Estados Unidos o "39" para Italia. El motor de síntesis de voz puede utilizar esta información para orientar la pronunciación de un número de teléfono. El número de teléfono también puede incluir el código de país y, si es así, tiene prioridad sobre el código de país de `format`. El motor de síntesis de voz pronuncia:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Como "Mi número es el código de área ocho ocho ocho cinco cinco cinco uno dos uno dos". |
 | `time` | hms12, hms24 | El texto se pronuncia como una hora. El atributo `format` especifica si la hora se especifica mediante un reloj de 12 horas (hms12) o de 24 horas (hms24). Use un signo de dos puntos para separar los números que representan las horas, los minutos y los segundos. Los siguientes son ejemplos de horas válidos: 12:35, 1:14:32, 08:15 y 02:50:45. El motor de síntesis de voz pronuncia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Como "El tren sale a las cuatro A. M.". |
+| `name` | | El texto se pronuncia como un nombre de persona. El motor de síntesis de voz pronuncia:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />as [æd]. <br />En los nombres chinos, algunos caracteres se pronuncian de forma diferente cuando aparecen en un nombre de familia. Por ejemplo, el motor de síntesis de voz dice 仇 en <br /><br />`<say-as interpret-as="address">仇先生</say-as>`<br /><br /> como [qiú] en lugar de [chóu]. |
 
 **Uso**
 

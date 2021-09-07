@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: e02ad9187743603d46259d70965e49d6839ecd71
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4aa2a22f6e7bfef4a04eb65ac6063c81077b6153
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104949845"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739102"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Procedimientos recomendados de implementación de Azure Purview
 
@@ -112,7 +112,7 @@ Los escenarios deben ser específicos, accionables, ejecutables y deben tener re
 
 |Escenario|Detalle|Persona|
 |---------|---------|---------|
-|Catalogar recursos críticos para la empresa|Necesito obtener información sobre cada conjunto de datos para entenderlos correctamente. En este escenario se incluyen metadatos técnicos y empresariales sobre el conjunto de datos del catálogo. Los orígenes de datos incluyen Azure Data Lake Storage Gen2, Azure Synapse DW y Power BI. Igualmente, este escenario también incluye recursos locales como SQL Server.|Analista de negocios, Científico de datos, Ingeniero de datos|
+|Catalogar recursos críticos para la empresa|Necesito obtener información sobre cada conjunto de datos para entenderlos correctamente. En este escenario se incluyen metadatos técnicos y empresariales sobre el conjunto de datos del catálogo. Los orígenes de datos incluyen Azure Data Lake Storage Gen2, Azure Synapse DW y Power BI. Este escenario también incluye recursos locales como SQL Server.|Analista de negocios, Científico de datos, Ingeniero de datos|
 |Descubrir recursos críticos para la empresa|Necesito un motor de búsqueda que pueda buscar en todos los metadatos del catálogo. Debería poder realizar búsquedas con términos técnicos y términos empresariales mediante una búsqueda simple o compleja gracias a los caracteres comodín.|Analista de negocios, Científico de datos, Ingeniero de datos, Administrador de datos|
 |Seguimiento de datos para comprender su origen y solucionar problemas|Necesito obtener un linaje de datos para realizar un seguimiento hasta el origen de los datos de los informes, las predicciones o los modelos, para así poder comprender los cambios realizados y dónde se han guardado los datos durante el ciclo de vida de los mismos. Este escenario debe admitir canalizaciones de datos con prioridad de Azure Data Factory y Databricks.|Ingeniero de datos, Científico de datos|
 |Enriquecer metadatos en recursos de datos críticos|Necesito enriquecer el conjunto de datos en el catálogo con metadatos técnicos que se generen automáticamente. La clasificación y el etiquetado son algunos ejemplos.|Ingeniero de datos, Propietario del dominio o la empresa|
@@ -223,7 +223,7 @@ Una vez que haya pasado la fase MVP, es el momento de planificar el hito de prep
 |Evaluar la disponibilidad de la región para el examen|En función de la región de los orígenes de datos y de los requisitos de la organización según el cumplimiento y la seguridad, es posible que quiera considerar qué regiones deben estar disponibles en el examen.|1 día|
 |Comprender el concepto de firewall al realizar el examen|Para realizar este paso, debe saber cómo se configura el firewall de su organización y cómo puede autenticarse Purview para obtener acceso a los orígenes de datos que se deben examinar.|1 día|
 |Comprender el concepto de Private Link al realizar el examen|Si su organización usa un Private Link, debe diseñar la base de la seguridad de red para incluir Private Link como parte de los requisitos.|1 día|
-|[Examinar la instancia local de SQL Server](register-scan-on-premises-sql-server.md)|Esto es opcional si tiene una instancia local de SQL Server. El examen requerirá que configure el [entorno de ejecución de integración autohospedado](manage-integration-runtimes.md) y agregue SQL Server como origen de datos.|1 a 2 semanas|
+|[Examen de SQL Server local](register-scan-on-premises-sql-server.md)|Este paso es opcional si tiene una instancia local de SQL Server. El examen requerirá que configure el [entorno de ejecución de integración autohospedado](manage-integration-runtimes.md) y agregue SQL Server como origen de datos.|1 a 2 semanas|
 |Usar la API de REST de Purview en escenarios de integración|Si tiene requisitos para integrar Purview con otras tecnologías de terceros, como la orquestación o el sistema de vales, puede que quiera explorar el área de la API de REST.|1 a 4 semanas|
 |Comprender los precios de Purview|En este paso se proporcionará a la organización información financiera importante para tomar decisiones.|1 a 5 días|
 

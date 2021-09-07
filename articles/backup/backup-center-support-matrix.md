@@ -3,12 +3,12 @@ title: Matriz de compatibilidad del Centro de copias de seguridad
 description: En este artículo se resumen los escenarios que admite el Centro de copias de seguridad para cada tipo de carga de trabajo.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: d6e5d34e201edda4fd1e9fda85f210fb88211e28
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b922f2e320f9b41186f5a6397af5cd5f4b3f7750
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504514"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181364"
 ---
 # <a name="support-matrix-for-backup-center"></a>Matriz de compatibilidad del Centro de copias de seguridad
 
@@ -31,14 +31,15 @@ El Centro de copia de seguridad proporciona un panel único para que las empresa
 | Información detallada | Ver informes de copia de seguridad | <li> Máquina virtual de Azure <br><br> <li> SQL en la máquina virtual de Azure <br><br> <li> SAP HANA en la máquina virtual de Azure <br><br> <li> Azure Files <br><br> <li> System Center Data Protection Manager <br><br> <li> Agente de Azure Backup (MARS) <br><br> <li> Servidor de Azure Backup (MABS) | Consulte los [escenarios admitidos para Informes de Backup](./configure-reports.md#supported-scenarios) |
 | Gobernanza | Ver y asignar directivas de Azure integradas y personalizadas en la categoría "Copia de seguridad" | N/D | N/D |
 | Gobernanza | Ver orígenes de datos no configurados para la copia de seguridad | <li> Máquina virtual de Azure <br><br> <li> Servidor de Azure Database for PostgreSQL | N/D |
+| Supervisión | Visualización de alertas de Azure Monitor a gran escala | <li> Máquina virtual de Azure <br><br> <li> Servidor de Azure Database for PostgreSQL <br><br> <li> SQL en Azure VM <br><br> <li> SAP HANA en la máquina virtual de Azure <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | Consulte la documentación sobre [alertas](./backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview). |
+| Acciones | Ejecutar trabajo de restauración entre regiones desde el Centro de copias de seguridad | <li> Máquina virtual de Azure <br><br> <li> SQL en Azure VM <br><br> <li> SAP HANA en la máquina virtual de Azure | Consulte la documentación sobre la [restauración entre regiones](./backup-create-rs-vault.md#set-cross-region-restore). |
 
 ## <a name="unsupported-scenarios"></a>Escenarios no admitidos
 
 | **Categoría** | **Escenario**  |
 |--------------|---------------|
-| Supervisión | Ver alertas a gran escala |
-| Acciones | Configurar almacenes a gran escala |
-| Acciones | Ejecutar trabajo de restauración entre regiones desde el Centro de copias de seguridad |
+| Acciones | La configuración del almacén a gran escala no se admite actualmente desde el Centro de copia de seguridad. |
+| Disponibilidad | El Centro de copia de seguridad no está disponible actualmente en nubes nacionales. | 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

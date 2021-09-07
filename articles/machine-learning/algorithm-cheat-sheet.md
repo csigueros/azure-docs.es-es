@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 03/05/2020
+ms.date: 07/20/2021
 adobe-target: true
-ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebe02e264a9f3faea2812253eeced6d56319627d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100367063"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742167"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Hoja de características de los algoritmos de Machine Learning para el diseñador de Azure Machine Learning
 
@@ -23,13 +23,13 @@ La **hoja de características de los algoritmos de Azure Machine Learning** lo a
 
 Azure Machine Learning tiene una gran biblioteca de algoritmos de las familias ***clasificación** _, _*_sistemas de recomendación_*_, _*_agrupación en clústeres_*_, _*_detección de anomalías_*_, _*_regresión_*_ y _ *_análisis de texto_* *. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
 
-Para obtener instrucciones adicionales, consulte [Selección de algoritmos](how-to-select-algorithms.md).
+Para más información, consulte [Selección de algoritmos](how-to-select-algorithms.md).
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Descargar: Hoja de características de los algoritmos de Machine Learning
 
 **Descargue aquí la hoja de referencia rápida: [Hoja de referencia rápida de algoritmos de aprendizaje automático (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
 
-![Hoja de características de los algoritmos de Machine Learning: Aprenda a elegir un algoritmo de Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
+![Hoja de características de los algoritmos de Machine Learning: Aprenda a elegir un algoritmo de Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png)
 
 Descargue e imprima la hoja de referencia rápida de algoritmos de Machine Learning en tamaño tabloide para tenerlo a mano y que le sirva de ayuda al elegir un algoritmo.
 
@@ -59,9 +59,9 @@ En el aprendizaje de refuerzo, el algoritmo elige una acción en respuesta a cad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte instrucciones adicionales en [Selección de algoritmos](how-to-select-algorithms.md).
+* Consulte más información en [Selección de algoritmos](how-to-select-algorithms.md).
 
-* [Obtenga información sobre Studio en Azure Machine Learning y Azure Portal](overview-what-is-azure-ml.md).
+* [Obtenga información sobre Studio en Azure Machine Learning y Azure Portal](overview-what-is-azure-machine-learning.md).
 
 * [Tutorial: Compilar un modelo de predicción en el diseñador de Azure Machine Learning ](tutorial-designer-automobile-price-train-score.md).
 

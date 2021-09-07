@@ -1,24 +1,22 @@
 ---
-title: Escalado y reducción vertical de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL mediante la CLI (azdata o kubectl)
-description: Escalado y reducción vertical de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL mediante la CLI (azdata o kubectl)
+title: Escalado y reducción vertical de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL mediante la CLI (az o kubectl)
+description: Escalado y reducción vertical de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL mediante la CLI (az o kubectl)
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 490eaaef7e4e8569e4422b2ef2659ced583f7ff2
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8b2b64de8dd16e36b6956c289beda986d89a5c98
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407406"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733503"
 ---
-# <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Escalado y reducción vertical de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL mediante la CLI (azdata o kubectl)
-
-
+# <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-az-or-kubectl"></a>Escalado y reducción vertical de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL mediante la CLI (az o kubectl)
 
 En algunas ocasiones, es posible que necesite cambiar las características o la definición de un grupo de servidores. Por ejemplo:
 
@@ -35,10 +33,10 @@ El escalado o la reducción vertical de la configuración de la memoria o los n�
 
 Para mostrar la definición actual del grupo de servidores y ver cuál es la configuración de los núcleos virtuales y de la memoria en este momento, ejecute cualquiera de los siguientes comandos:
 
-### <a name="cli-with-azdata"></a>CLI con azdata
+### <a name="cli-with-azure-cli-az"></a>CLI con azure cli (az):
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 ### <a name="cli-with-kubectl"></a>CLI con kubectl
 
@@ -107,32 +105,29 @@ Tenga en cuenta la configuración especificada para el clúster de Kubernetes a 
 
 **La sintaxis general es:**
 
-```console
-azdata arc postgres server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
+```azurecli
+az postgres arc-server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2> --k8s-namespace <namespace> --use-k8s
 ```
 
 El valor que se indica para la configuración de memoria es un número seguido de una unidad de volumen. Por ejemplo, para indicar 1 Gb, debe indicar 1024Mi o 1Gi.
 Para indicar un número de núcleos, basta con pasar un número sin unidad. 
 
-### <a name="examples-using-the-azdata-cli"></a>Ejemplos de uso de la CLI de azdata
-
-
-
-
+### <a name="examples-using-the-azure-cli"></a>Ejemplos de uso de la CLI de Azure
 
 **Configuración del rol de coordinador para que no supere los 2 núcleos y del rol de trabajo para que no supere los 4 núcleos:**
-```console
- azdata arc postgres server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
- azdata arc postgres server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
+
+```azurecli
+ az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace <namespace> --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
 o bien
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!NOTE]
-> Para obtener más información sobre estos parámetros, ejecute `azdata arc postgres server edit --help`.
+> Para obtener más información sobre estos parámetros, ejecute `az postgres arc-server edit --help`.
 
 ### <a name="example-using-kubernetes-native-tools-like-kubectl"></a>Ejemplo de uso de herramientas nativas de Kubernetes, como `kubectl`
 
@@ -190,14 +185,14 @@ Si no está familiarizado con el editor `vi`, puede ver una descripción de los 
 ## <a name="reset-to-default-values"></a>Restablecimiento de los valores predeterminados
 Para restablecer los valores predeterminados de los parámetros de núcleo, límites de memoria y solicitudes, edítelos y pase una cadena vacía en lugar de un valor real. Por ejemplo, si quiere restablecer el parámetro de límite de núcleos, ejecute los siguientes comandos:
 
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker=''
-azdata arc postgres server edit -n postgres01 --cores-limit coordinator='',worker=''
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
 ```
 
 o bien 
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

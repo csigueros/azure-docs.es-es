@@ -8,15 +8,19 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 2ff440801db7ba8c5bfc1785fc7a399a1d773b73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9b5803069316a97d6180429bd6b096d401d2396
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517032"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695586"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Realización de preguntas que pueden responderse con datos
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciencia de datos para principiantes
+
 Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Este vídeo incluye una comparación de preguntas para algoritmos de clasificación y regresión.
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
@@ -87,8 +91,8 @@ Y más importante aún, formule esa pregunta directa, la pregunta que se pueda r
 
 Hemos hablado de algunos principios básicos para formular una pregunta que se pueda responder con datos.
 
-Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para principiantes" de Microsoft Azure Machine Learning Studio (clásico).
+Asegúrese de ver los otros vídeos de "Ciencia de datos para principiantes" en Machine Learning Studio (clásico).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio (clásico)](create-experiment.md)
-* [Introducción a Machine Learning en Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Introducción a Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

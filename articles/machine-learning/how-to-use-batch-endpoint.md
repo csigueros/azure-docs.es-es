@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 5/25/2021
-ms.custom: how-to
-ms.openlocfilehash: 53fa68fdffd27c1d48322104c541894c6f9c4dd8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 8/11/2021
+ms.custom: how-to, devplatv2
+ms.openlocfilehash: bd5d5eba2d5da4cd0f920d4c6287e779d83ac293
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751260"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739118"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>Uso de puntos de conexión por lotes (versión preliminar) para la puntuación por lotes
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá a realizar las siguientes tareas:
 > [!div class="checklist"]
 > * Creación de un punto de conexión por lotes con una experiencia sin código para el modelo MLflow
 > * Comprobación de los detalles de un punto de conexión por lotes
-> * Inicio de un trabajo de puntuación por lotes mediante la CLI
+> * Inicio de un trabajo de puntuación por lotes mediante la CLI de Azure
 > * Supervisión del progreso de la ejecución de trabajos de puntuación por lotes y comprobar los resultados de puntuación
 > * Adición de una nueva implementación a un punto de conexión por lotes
 > * Inicio de un trabajo de puntuación por lotes mediante REST
@@ -36,7 +36,7 @@ En este artículo, aprenderá a realizar las siguientes tareas:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: si aún no tiene una, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Una suscripción a Azure: si aún no tiene una, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * La interfaz de la línea de comandos de Azure (CLI) y la extensión ML.
 
@@ -77,16 +77,14 @@ La puntuación por lotes solo se ejecuta en recursos de informática en la nube,
 Ejecute el código siguiente para crear un destino de [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) de uso general. Para más información sobre los destinos de proceso, consulte [¿Qué son los destinos de proceso en Azure Machine Learning?](./concept-compute-target.md)
 
 ```azurecli
-az ml compute create --name cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
+az ml compute create --name cpu-cluster --type amlcompute --min-instances 0 --max-instances 5
 ```
 
 ## <a name="create-a-batch-endpoint"></a>Creación de un punto de conexión por lotes
 
 Si usa un modelo MLflow, puede utilizar la creación de puntos de conexión por lotes sin código. Es decir, no es necesario preparar un script y un entorno de puntuación, ya que ambos se pueden generar automáticamente. Para más información, consulte [Entrenamiento y seguimiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)](how-to-use-mlflow.md).
 
-```azurecli
-az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpoint.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_endpoint" :::
 
 A continuación, se muestra el archivo YAML que define el punto de conexión por lotes de MLFlow:
 
@@ -120,15 +118,13 @@ Atributos de implementación:
 
 Después de crear un punto de conexión por lotes, puede usar `show` para comprobar los detalles. Use [`--query parameter`](/cli/azure/query-azure-cli) para obtener solo atributos específicos de los datos devueltos.
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
-## <a name="start-a-batch-scoring-job-using-cli"></a>Inicio de un trabajo de puntuación por lotes mediante la CLI
+## <a name="start-a-batch-scoring-job-using-the-azure-cli"></a>Inicio de un trabajo de puntuación por lotes mediante la CLI de Azure
 
-Una carga de trabajo de puntuación por lotes se ejecuta como un trabajo sin conexión. La puntuación por lotes está concebida para procesar datos de gran tamaño. Las entradas se procesan en paralelo en el clúster de proceso. Una partición de datos se asigna a un proceso en un nodo. Un único nodo con varios procesos tendrá varias particiones ejecutadas en paralelo. De forma predeterminada, la puntuación por lotes almacena las salidas de puntuación en almacenamiento de blobs. Puede iniciar un trabajo de puntuación por lotes mediante la CLI pasando las entradas de datos. También puede configurar la ubicación de las salidas y sobrescribir algunas de las opciones para obtener el mejor rendimiento.
+Una carga de trabajo de puntuación por lotes se ejecuta como un trabajo sin conexión. La puntuación por lotes está concebida para procesar datos de gran tamaño. Las entradas se procesan en paralelo en el clúster de proceso. Una partición de datos se asigna a un proceso en un nodo. Un único nodo con varios procesos tendrá varias particiones ejecutadas en paralelo. De forma predeterminada, la puntuación por lotes almacena las salidas de puntuación en almacenamiento de blobs. Puede iniciar un trabajo de puntuación por lotes mediante la CLI de Azure pasando las entradas de datos. También puede configurar la ubicación de las salidas y sobrescribir algunas de las opciones para obtener el mejor rendimiento.
 
-### <a name="start-a-bath-scoring-job-with-different-inputs-options"></a>Inicio de un trabajo de puntuación por lotes con distintas opciones de entrada
+### <a name="start-a-batch-scoring-job-with-different-input-options"></a>Inicio de un trabajo de puntuación por lotes con distintas opciones de entrada
 
 Tiene tres opciones para especificar las entradas de datos.
 
@@ -187,30 +183,26 @@ Algunas opciones de configuración se pueden sobrescribir al iniciar un trabajo 
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
 ```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
 
 ## <a name="check-batch-scoring-job-execution-progress"></a>Comprobación del progreso de la ejecución del trabajo de puntuación por lotes
 
 Los trabajos de puntuación por lotes suelen tardar algún tiempo en procesar todo el conjunto de entradas. Puede supervisar el progreso del trabajo desde Azure Machine Learning Studio. El vínculo de Studio se proporciona en la respuesta de `invoke`, como el valor de `interactionEndpoints.Studio.endpoint`.
 
-También puede comprobar los detalles del trabajo junto con el estado mediante la CLI.
+También puede comprobar los detalles del trabajo junto con el estado mediante la CLI de Azure.
 
 Obtenga el nombre del trabajo de la respuesta de invocación.
 
-```azurecli
-job_name=$(az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --query name -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
 Use `job show` para comprobar los detalles y el estado de un trabajo de puntuación por lotes.
 
-```azurecli
-az ml job show --name $job_name
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
 
 Transmita los registros de trabajo mediante `job stream`.
 
-```azurecli
-az ml job stream --name $job_name
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="stream_job_logs_to_console" :::
+
 
 ## <a name="check-batch-scoring-results"></a>Comprobación de los resultados de la puntuación por lotes
 
@@ -234,9 +226,7 @@ Un punto de conexión por lotes puede tener varias implementaciones. Cada implem
 
 Use el siguiente comando para agregar una nueva implementación a un punto de conexión por lotes existente.
 
-```azurecli
-az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpoints/batch/add-deployment.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" range="65" :::
 
 En este ejemplo se usa un modelo que no es MLflow. Al usar un modelo de este tipo, deberá especificar el entorno y un script de puntuación en el archivo YAML:
 
@@ -252,29 +242,21 @@ Más atributos de implementación para el modelo que no es MLflow:
 
 Para revisar los detalles de la implementación, ejecute:
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 ### <a name="activate-the-new-deployment"></a>Activación de la nueva implementación
 
 Para la inferencia por lotes, debe enviar el 100 % de las consultas a la implementación deseada. Para establecer la implementación recién creada como destino, use:
 
-```azurecli
-az ml endpoint update --name mybatchedp --type batch --traffic mnist-deployment:100
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="switch_traffic" :::
 
 Si vuelve a examinar los detalles de la implementación, verá los cambios:
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 Ahora puede invocar un trabajo de puntuación por lotes con esta nueva implementación:
 
-```azurecli
-az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/mnist --mini-batch-size 10 --instance-count 2
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
 
 ## <a name="start-a-batch-scoring-job-using-rest"></a>Inicio de un trabajo de puntuación por lotes mediante REST
 
@@ -282,28 +264,17 @@ Los puntos de conexión por lotes tienen identificadores URI de puntuación para
 
 1. Obtenga el valor de `scoring_uri`:  
 
-```azurecli
-scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring_uri -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="get_scoring_uri" :::
 
 2. Obtenga el token de acceso:
 
-```azurecli
-auth_token=$(az account get-access-token --query accessToken -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="get_token" :::
+
 
 3. Use `scoring_uri`, el token de acceso y los datos JSON para publicar una solicitud e iniciar un trabajo de puntuación por lotes:
 
-```bash
-curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
-"properties": {
-  "dataset": {
-    "dataInputType": "DataUrl",
-    "Path": "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
-    }
-  }
-}'
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_rest":::
+
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -321,3 +292,4 @@ También puede mantener el grupo de recursos pero eliminar una sola área de tra
 En este artículo, ha aprendido a crear y llamar a puntos de conexión por lotes, lo que le permite puntuar grandes cantidades de datos. Consulte estos otros artículos para obtener más información sobre Azure Machine Learning:
 
 * [Solución de problemas de puntos de conexión por lotes](how-to-troubleshoot-batch-endpoints.md)
+* [Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)](how-to-deploy-managed-online-endpoints.md)

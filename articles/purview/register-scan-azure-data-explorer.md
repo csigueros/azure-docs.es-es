@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: f218d87fe1f91e206c3b8873c9af0dddddd45b42
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: adf9f3da66908dc473388f9b3da14439de86ddcb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656510"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740278"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Registro y examen de Azure Data Explorer
 
@@ -72,7 +72,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 Para registrar una nueva cuenta de Azure Data Explorer (Kusto) en el catálogo de datos, haga lo siguiente:
 
 1. Vaya a la cuenta de Purview.
-1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+1. Seleccione **Mapa de datos** en el panel de navegación izquierdo.
 1. Seleccione **Registrar**.
 1. En **Registrar orígenes**, seleccione **Azure Data Explorer**.
 1. Seleccione **Continuar**
@@ -89,7 +89,35 @@ En la pantalla **Registrar orígenes (Azure Data Explorer [Kusto])** , haga lo s
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
+## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+
+Para crear y ejecutar un nuevo examen, siga estos pasos:
+
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+
+1. Seleccione el origen de Azure Data Explorer que ha registrado.
+
+1. Seleccione **New scan** (Nuevo examen).
+
+1. Seleccione la credencial para conectarse al origen de datos. 
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/set-up-scan-data-explorer.png" alt-text="Configurar examen":::
+
+1. Elija los elementos adecuados de la lista para limitar el ámbito del examen a bases de datos específicas.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/scope-your-scan-data-explorer.png" alt-text="Ámbito del examen":::
+
+1. A continuación, seleccione un conjunto de reglas de examen. Puede elegir entre los valores predeterminados del sistema, los conjuntos de reglas personalizadas existentes o la creación de un conjunto de reglas en línea.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/scan-rule-set-data-explorer.png" alt-text="Conjunto de reglas de examen":::
+
+1. Elija el desencadenador del examen. Puede configurar una programación o ejecutar el examen una vez.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/trigger-scan.png" alt-text="trigger":::
+
+1. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

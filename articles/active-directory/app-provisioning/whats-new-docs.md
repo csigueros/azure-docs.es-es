@@ -1,7 +1,7 @@
 ---
 title: Novedades en el aprovisionamiento de aplicaciones de Azure Active Directory
 description: Documentación nueva y actualizada sobre el aprovisionamiento de aplicaciones de Azure Active Directory.
-ms.date: 06/02/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,47 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: mtillman
-ms.openlocfilehash: 77f09b6285a5fcb3539c377b65d333141384c81e
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 23d3c074ee1a4cb07b4770b27ee1ead145bae28a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409044"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732406"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Aprovisionamiento de aplicaciones de Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de aprovisionamiento de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de aprovisionamiento, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="july-2021"></a>Julio de 2021
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory](functions-for-customizing-application-data.md)
+- [Configuración del aprovisionamiento mediante las Microsoft Graph API](application-provisioning-configuration-api.md)
+- [Planeamiento de una implementación de aprovisionamiento automático de usuarios en Azure Active Directory](plan-auto-user-provisioning.md)
+- [Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory](plan-cloud-hr-provision.md)
+- [Problemas conocidos del aprovisionamiento de aplicaciones en Azure Active Directory](known-issues.md)
+- [Tutorial sobre el conector SQL genérico del host del conector ECMA de Azure AD](tutorial-ecma-sql-connector.md)
+- [¿Qué es el aprovisionamiento de aplicaciones en Azure Active Directory?](user-provisioning.md)
+- [Solución de problemas del host del conector ECMA](on-premises-ecma-troubleshoot.md)
+- [Exportación de un conector de Microsoft Identity Manager para su uso con el host del conector ECMA de Azure AD](on-premises-migrate-microsoft-identity-manager.md)
+- [Aprovisionamiento de aplicaciones locales de Azure AD para aplicaciones habilitadas para SCIM](on-premises-scim-provisioning.md)
+- [Configuración del conector SQL genérico del host del conector ECMA de Azure AD](on-premises-sql-connector-configure.md)
+
+
+## <a name="june-2021"></a>Junio de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Configuración del aprovisionamiento mediante las Microsoft Graph API](application-provisioning-configuration-api.md)
+- [Descripción del funcionamiento del generador de expresiones con el aprovisionamiento de aplicaciones](expression-builder.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Funcionamiento del aprovisionamiento de aplicaciones en Azure Active Directory](how-provisioning-works.md)
+- [Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory](plan-cloud-hr-provision.md)
+- [Integración del aprovisionamiento de Azure Active Directory con Workday](workday-integration-reference.md)
+
 
 ## <a name="may-2021"></a>Mayo de 2021
 
@@ -27,7 +58,7 @@ Le damos la bienvenida a las novedades sobre la documentación de aprovisionamie
 - [Tutorial: Desarrollo de un punto de conexión SCIM de ejemplo en Azure Active Directory](use-scim-to-build-users-and-groups-endpoints.md)
 - [Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM en Azure Active Directory](use-scim-to-provision-users-and-groups.md)
 - [Sincronización de los atributos de extensión para el aprovisionamiento de aplicaciones de Azure Active Directory](user-provisioning-sync-attributes-for-mapping.md)
-- [¿Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure Active Directory?](user-provisioning.md)
+- [¿Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure Active Directory?](user-provisioning.md)
 - [Referencia de los atributos de Workday para Azure Active Directory](workday-attribute-reference.md)
 - [Integración del aprovisionamiento de Azure Active Directory con Workday](workday-integration-reference.md)
 - [Habilitación del aprovisionamiento automático de usuarios para aplicaciones multiinquilino de Azure Active Directory](isv-automatic-provisioning-multi-tenant-apps.md)

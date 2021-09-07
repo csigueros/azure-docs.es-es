@@ -2,30 +2,36 @@
 title: Aptitud cognitiva de análisis de imágenes
 titleSuffix: Azure Cognitive Search
 description: Extraiga texto semántico a través del análisis de imágenes mediante la aptitud cognitiva de análisis de imágenes en una canalización de enriquecimiento con inteligencia artificial de Búsqueda cognitiva de Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 69b84a3edb606ed99b6aaca7db5ad0e57124f1b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: d6b32dfedcb5ad5322a32c519084eac3858225ba
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91948942"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861492"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
 La aptitud de **Análisis de imágenes** extrae un amplio conjunto de características visuales en función del contenido de la imagen. Por ejemplo, puede generar una leyenda a partir de una imagen, generar etiquetas o identificar celebridades y lugares de referencia. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](../cognitive-services/computer-vision/overview.md) en Cognitive Services. 
 
+**Image Analysis** funciona con imágenes que cumplen los requisitos siguientes:
+
++ La imagen se debe presentar en formato JPEG, PNG, GIF o BMP
++ El tamaño de archivo de la imagen debe ser inferior a 4 megabytes (MB)
++ Las dimensiones de la imagen deben ser mayores que 50 x 50 píxeles
+
 > [!NOTE]
-> Los volúmenes pequeños (menos de 20 transacciones) se pueden ejecutar gratis en Búsqueda cognitiva de Azure, pero las cargas de trabajo más grandes requieren la [asociación de un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
+> Esta aptitud está enlazada a Cognitive Services y necesita [un recurso facturable](cognitive-search-attach-cognitive-services.md) para las transacciones que superan los 20 documentos por indexador al día. La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes.
+> 
+> Además, la extracción de imágenes [se puede facturar mediante Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
 
+## <a name="odatatype"></a>@odata.type 
 
-## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
@@ -43,8 +49,6 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de entrada      | Descripción                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
-
-
 
 ##  <a name="sample-skill-definition"></a>Ejemplo de definición de la aptitud
 
@@ -86,7 +90,9 @@ Los parámetros distinguen mayúsculas de minúsculas.
             ]
         }
 ```
+
 ### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Índice de ejemplo (solo para los campos de categorías, descripción, etiquetas y caras)
+
 ```json
 {
     "fields": [
@@ -298,7 +304,9 @@ Los parámetros distinguen mayúsculas de minúsculas.
 }
 
 ```
+
 ### <a name="sample-output-field-mapping-for-the-above-index"></a>Asignación de campos de salida de ejemplo (para el índice anterior)
+
 ```json
     "outputFieldMappings": [
         {
@@ -322,6 +330,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
             "targetFieldName": "brands"
         }
 ```
+
 ### <a name="variation-on-output-field-mappings-nested-properties"></a>Variación en las asignaciones de campos de salida (propiedades anidadas)
 
 Puede definir asignaciones de campos de salida para propiedades de nivel inferior, como puntos de referencia o celebridades. En este caso, asegúrese de que el esquema de índice tiene un campo para contener puntos de referencia específicamente.
@@ -333,6 +342,7 @@ Puede definir asignaciones de campos de salida para propiedades de nivel inferio
             "targetFieldName": "celebrities"
         }
 ```
+
 ##  <a name="sample-input"></a>Entrada de ejemplo
 
 ```json
@@ -540,6 +550,7 @@ Si recibe el error similar a `"One or more skills are invalid. Details: Error in
 
 ## <a name="see-also"></a>Consulte también
 
++ [¿Qué es Image Analysis?](../cognitive-services/computer-vision/overview-image-analysis.md)
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

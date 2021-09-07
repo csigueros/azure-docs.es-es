@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 2410e5fed48b7ab206360debc3bbeb174b3943cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b36d7bbde524bf3ddcaed2e096f9403caf16ea3c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517066"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742132"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copia del trabajo de otras personas para realizar ciencia de datos
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciencia de datos para principiantes
@@ -49,9 +49,9 @@ Uno de los secretos empresariales de la ciencia de datos es conseguir que otras 
 
 ## <a name="find-examples-in-the-azure-ai-gallery"></a>Búsqueda de ejemplos en Azure AI Gallery
 
-Microsoft tiene un servicio basado en la nube llamado [Azure Machine Learning Studio (clásico)](https://azure.microsoft.com/services/machine-learning-studio/). Proporciona un área de trabajo donde puede experimentar con diferentes algoritmos de aprendizaje automático y, si consigue una solución que funciona, puede iniciarla como un servicio web.
+Microsoft tiene un servicio basado en la nube llamado [Machine Learning Studio (clásico)](https://azure.microsoft.com/services/machine-learning-studio/). Proporciona un área de trabajo donde puede experimentar con diferentes algoritmos de aprendizaje automático y, si consigue una solución que funciona, puede iniciarla como un servicio web.
 
-Una parte de este servicio recibe el nombre de **[Galería de Azure AI](https://gallery.azure.ai/)** . Contiene recursos, incluida una colección de experimentos o modelos de Azure Machine Learning Studio (clásico), que los usuarios han compilado y con los que han ayudado para que los usen otros usuarios. Estos experimentos son una excelente manera de aprovechar las ideas y el duro trabajo de otras personas para empezar a crear sus propias soluciones. Todo el mundo puede consultarla.
+Una parte de este servicio recibe el nombre de **[Galería de Azure AI](https://gallery.azure.ai/)** . Contiene recursos, incluida una colección de experimentos o modelos de Machine Learning Studio (clásico), que los usuarios han compilado y con los que han ayudado para que los usen otros usuarios. Estos experimentos son una excelente manera de aprovechar las ideas y el duro trabajo de otras personas para empezar a crear sus propias soluciones. Todo el mundo puede consultarla.
 
 ![Galería de Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -74,7 +74,7 @@ Observe el vínculo que dice **Abrir en Studio (clásico)** .
 
 ![Botón Abrir en Studio (clásico)](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-Puedo hacer clic en él y me lleva directamente a **Azure Machine Learning Studio (clásico)** . Crea una copia del experimento y la coloca en mi propia área de trabajo. Incluye el conjunto de datos del colaborador, todo el procesamiento que realizaron, todos los algoritmos que usaron y cómo se guardaron los resultados.
+Puedo hacer clic en él y me lleva directamente a **Machine Learning Studio (clásico)** . Crea una copia del experimento y la coloca en mi propia área de trabajo. Incluye el conjunto de datos del colaborador, todo el procesamiento que realizaron, todos los algoritmos que usaron y cómo se guardaron los resultados.
 
 ![Abra un experimento de la Galería en Machine Learning Studio (clásico) (ejemplo de algoritmo de agrupación en clústeres)](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
@@ -87,8 +87,8 @@ Hay otros experimentos en [Azure AI Gallery](https://gallery.azure.ai) incluidos
 
 [Azure AI Gallery](https://gallery.azure.ai) es un lugar para buscar experimentos que funcionan y que puede usar como punto de partida para sus propias soluciones.
 
-Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para principiantes" de Microsoft Azure Machine Learning Studio (clásico).
+Asegúrese de ver los otros vídeos de "Ciencia de datos para principiantes" en Machine Learning Studio (clásico).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Prueba del primer experimento de ciencia de datos con Azure Machine Learning Studio (clásico)](create-experiment.md)
-* [Introducción a Machine Learning en Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Prueba de un primer experimento de ciencia de datos con Machine Learning Studio (clásico)](create-experiment.md)
+* [Introducción a Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

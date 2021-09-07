@@ -1,19 +1,19 @@
 ---
 title: Control de código fuente en Synapse Studio
 description: Obtenga información sobre cómo configurar el control de código fuente en Azure Synapse Studio
-author: liud
+author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7371bc023cc13278c0d1382ac1ac60ee42a39f0b
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 10df7f8db2a787300787f8995ac0ea3a33736e68
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809147"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745054"
 ---
 # <a name="source-control-in-synapse-studio"></a>Control de código fuente en Synapse Studio
 
@@ -100,7 +100,10 @@ La integración de GitHub con Synapse Studio admite tanto GitHub público (es de
 
 ### <a name="github-settings"></a>Configuración de GitHub
 
-Al conectarse al repositorio de Git, seleccione primero el tipo de repositorio como GitHub y luego proporcione la cuenta de GitHub o la dirección URL del servidor de GitHub Enterprise (si usa dicho servidor) y haga clic en **Continuar**.
+Al conectarse al repositorio de GIT, seleccione primero el tipo de repositorio como GitHub y, a continuación, indique la cuenta de GitHub, la dirección URL de GitHub Enterprise Server si usa GitHub Enterprise Server, o el nombre de la organización de GitHub Enterprise si usa GitHub Enterprise Cloud. Seleccione **Continuar**.
+
+> [!NOTE]
+> Si usa GitHub Enterprise Cloud, deje desactivada la casilla **Use GitHub Enterprise Server** (Usar GitHub Enterprise Server). 
 
 ![Configuración del repositorio de GitHub](media/connect-with-github-repo-1.png)
 
@@ -128,7 +131,7 @@ Si se va a conectar a GitHub desde Synapse Studio por primera vez, siga estos pa
 
 1. En el panel de configuración de Git, escriba el nombre de la organización en el campo *Cuenta de GitHub*. Aparecerá una solicitud para iniciar sesión en GitHub. 
 
-1. Inicie sesión con sus credenciales de usuario.
+1. Inicie sesión con sus credenciales de usuario. 
 
 1. Se le pedirá que autorice a Synapse como una aplicación llamada *Azure Synapse*. En esta pantalla, verá una opción para conceder permiso a Synapse para acceder a la organización. Si no ve la opción para conceder el permiso, pida a un administrador que conceda el permiso manualmente a través de GitHub.
 
@@ -190,7 +193,7 @@ Se abrirá un panel lateral en el que se confirma que la rama de publicación y 
 ![Confirmar la rama de publicación correcta](media/publish-change.png)
 
 > [!IMPORTANT]
-> La rama de colaboración no es representativa de lo que se implementa en el servicio. Los cambios en la rama de colaboración *deben* publicarse manualmente en el servicio.
+> La rama de colaboración no es representativa de lo que se implementa en el servicio. Los cambios en la rama de colaboración *deben* publicarse manualmente.
 
 ## <a name="switch-to-a-different-git-repository"></a>Cambio a un repositorio de Git diferente
 

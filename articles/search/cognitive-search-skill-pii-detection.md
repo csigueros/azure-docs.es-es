@@ -1,31 +1,27 @@
 ---
-title: Aptitud cognitiva para la detección de información de identificación personal (versión preliminar)
+title: Aptitud cognitiva para la detección de información de identificación personal
 titleSuffix: Azure Cognitive Search
-description: Extraiga y enmascare información personal de un texto en una canalización de enriquecimiento en Azure Cognitive Search. Esta aptitud está actualmente en versión preliminar pública.
+description: Extraiga y enmascare información personal de un texto en una canalización de enriquecimiento en Azure Cognitive Search.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 448784987f3304303a1bd47c2038440db5cdd194
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 08/12/2021
+ms.openlocfilehash: 71bd45fae729efed6d76ab65fc4ea45944998f45
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063241"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862696"
 ---
 # <a name="pii-detection-cognitive-skill"></a>Aptitud cognitiva para la detección de información de identificación personal
-
-> [!IMPORTANT] 
-> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
 
 La aptitud para la **detección de información de identificación personal** extrae información personal de un texto de entrada y le ofrece la opción de enmascararla. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](../cognitive-services/text-analytics/overview.md) en Cognitive Services.
 
 > [!NOTE]
-> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
+> Esta aptitud está enlazada a Cognitive Services y necesita [un recurso facturable](cognitive-search-attach-cognitive-services.md) para las transacciones que superan los 20 documentos por indexador al día. La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
 
 ## <a name="odatatype"></a>@odata.type
 
@@ -41,17 +37,19 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| `defaultLanguageCode` | (Opcional) Es el código de idioma que se aplicará a los documentos que no especifiquen el lenguaje de forma explícita.  Si no se especifica el código de idioma predeterminado, se usará el inglés (en) como código de idioma predeterminado. <br/> Vea [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) (Lista completa de idiomas admitidos). |
+| `defaultLanguageCode` | (Opcional) Es el código de idioma que se aplicará a los documentos que no especifiquen el lenguaje de forma explícita.  Si no se especifica el código de idioma predeterminado, se usará el inglés (en) como código de idioma predeterminado. <br/> Vea [Full list of supported languages](../cognitive-services/text-analytics/language-support.md?tabs=pii) (Lista completa de idiomas admitidos). |
 | `minimumPrecision` | Un valor entre 0,0 y 1,0. Si la puntuación de confianza (en la salida `piiEntities`) es inferior al valor `minimumPrecision` establecido, la entidad no se devuelve ni se enmascara. El valor predeterminado es 0,0. |
 | `maskingMode` | Un parámetro que proporciona varias formas de enmascarar la información personal detectada en el texto especificado. Se admiten las siguientes opciones: <ul><li>`none` (predeterminado): no se produce enmascaramiento y no se devolverá la salida `maskedText`. </li><li> `replace`: reemplaza las entidades detectadas por el carácter que se especifica en el parámetro `maskingCharacter`. El carácter se repetirá hasta completar la longitud de la entidad detectada, con el fin de que los desplazamientos se correspondan correctamente tanto con el texto introducido como la salida `maskedText`.</li></ul> <br/> Durante la versión preliminar de PIIDetectionSkill, también se admitía la opción `maskingMode` `redact`, que permitía quitar completamente las entidades detectadas sin reemplazo. La opción `redact` ha quedado en desuso y ya no se admite en la aptitud. |
 | `maskingCharacter` | El carácter utilizado para enmascarar el texto si el parámetro `maskingMode` está establecido en `replace`. Se admite la siguiente opción: `*` (predeterminada). Este parámetro solo puede ser `null` si `maskingMode` no está establecido en `replace`. <br/><br/> Durante la versión preliminar de PIIDetectionSkill, se admitían las opciones `maskingCharacter` adicionales `X` y `#`. Las opciones `X` y `#` han quedado en desuso y ya no se admiten en la aptitud. |
+| `domain`   | (Opcional) Un valor de cadena, si se especifica, establecerá el dominio PII para incluir solo un subconjunto de las categorías de entidad. Entre los valores posibles se incluyen: `phi` (solo se detecta información de mantenimiento confidencial), o `none`. |
+| `piiCategories`   | (Opcional) Si quiere especificar qué entidades se detectarán y devolverán, use el parámetro opcional `piiCategories` (se define como una lista de cadenas) con las categorías de entidad adecuadas. Este parámetro también puede permitirle detectar entidades que no están habilitadas de forma predeterminada para el lenguaje del documento. Consulte [la documentación de TextAnalytics](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) para obtener una lista de categorías disponibles.  |
 | `modelVersion`   | (Opcional) La versión del modelo que se va a usar al llamar al servicio de Text Analytics. Si no se especifica, el valor predeterminado será la versión más reciente disponible. Se recomienda no especificar este valor a menos que sea absolutamente necesario. Vea [Control de versiones de modelos en Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) para obtener más información. |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
 | Nombre de entrada      | Descripción                   |
 |---------------|-------------------------------|
-| `languageCode`    | Cadena que indica el idioma de los registros. Si no se especifica este parámetro, el código de idioma predeterminado se utilizará para analizar los registros. <br/>Vea [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) (Lista completa de idiomas admitidos).  |
+| `languageCode`    | Cadena que indica el idioma de los registros. Si no se especifica este parámetro, el código de idioma predeterminado se utilizará para analizar los registros. <br/>Vea [Full list of supported languages](../cognitive-services/text-analytics/language-support.md?tabs=pii) (Lista completa de idiomas admitidos).  |
 | `text`          | Texto que se analizará.          |
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud

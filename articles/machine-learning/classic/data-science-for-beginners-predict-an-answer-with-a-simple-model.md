@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: c6d78b10b98abe33744673459b3d31d8941aac89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d0617412fcfef3846670d5ff5e957dad8e98ee8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742112"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
 
@@ -125,8 +125,8 @@ Además, si en lugar de un puñado de diamantes, tuviéramos dos mil o dos millo
 
 Hoy, hemos hablado sobre cómo realizar la regresión lineal y hemos realizado una predicción con datos.
 
-Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para principiantes" de Microsoft Azure Machine Learning Studio (clásico).
+Asegúrese de ver los otros vídeos de "Ciencia de datos para principiantes" en Machine Learning Studio (clásico).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio (clásico)](create-experiment.md)
-* [Introducción a Machine Learning en Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Introducción a Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

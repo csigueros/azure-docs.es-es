@@ -1,18 +1,20 @@
 ---
 title: Transformación de origen en flujo de datos de asignación
-description: Aprenda a configurar una transformación de origen en Mapping Data Flow.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Obtenga información sobre cómo configurar una transformación de origen en un flujo de datos de asignación en canalizaciones de Azure Data Factory o Azure Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
-ms.openlocfilehash: 1001ef2e76d2d7c68d709cee52ecf75278766fe4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/24/2021
+ms.openlocfilehash: 88765f756e5473243cb22719c00d1e497fbd6ea6
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789685"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822198"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformación de origen en flujo de datos de asignación
 
@@ -36,28 +38,37 @@ Para usar un conjunto de datos en línea, seleccione el formato que desee en el 
 
 ![Captura de pantalla que muestra la opción En línea seleccionada.](media/data-flow/inline-selector.png "Captura de pantalla que muestra la opción En línea seleccionada.")
 
+## <a name="workspace-db-synapse-workspaces-only"></a>Workspace DB (solo áreas de trabajo de Synapse)
+
+En áreas de trabajo de Azure Synapse, hay una opción adicional en las transformaciones de origen de flujo de datos, denominada ```Workspace DB```. Con esta opción podrá elegir directamente como datos de origen una base de datos de área de trabajo de cualquier tipo disponible, sin necesidad de otros servicios o conjuntos de datos vinculados.
+
+> [!NOTE]
+> El conector Workspace DB de Azure Synapse está actualmente en versión preliminar pública y, en este momento, solo puede funcionar con bases de datos de Spark Lake.
+
+![Captura de pantalla en la que se muestra Workspace DB seleccionado](media/data-flow/syms-source.png "Captura de pantalla en la que se muestra Workspace DB seleccionado")
+
 ##  <a name="supported-source-types"></a><a name="supported-sources"></a> Tipos de orígenes admitidos
 
 El flujo de datos de asignación sigue un enfoque de extracción, carga y transformación (ELT) y funciona con conjuntos de datos de un *almacenamiento provisional* que están todos en Azure. Actualmente, se pueden usar los siguientes conjuntos de datos en una transformación de origen.
 
 | Conector | Formato | Conjunto de datos/insertado |
 | --------- | ------ | -------------- |
-| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties) <br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br>✓/✓<br/>✓/-<br>✓/✓<br/>✓/-<br>✓/✓ |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties) <br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓ |
 | [Azure Cosmos DB (API de SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br/>✓/-<br>✓/✓<br/>✓/-<br>✓/✓ |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Common Data Model](format-common-data-model.md#source-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br/>-/✓<br>✓/✓<br>✓/✓<br>✓/✓<br>✓/-<br/>✓/✓<br/>✓/-<br>✓/✓ |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Common Data Model](format-common-data-model.md#source-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br/>-/✓<br>✓/✓<br>✓/✓<br>✓/✓<br>✓/✓<br/>✓/✓<br/>✓/✓<br>✓/✓ |
 | [Azure Database for MySQL](connector-azure-database-for-mysql.md) |  | ✓/✓ |
 | [Azure Database para PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/✓ |
-| [Instancia administrada de Azure SQL](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Instancia administrada de Azure SQL](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |
 
 La configuración específica de estos conectores se encuentra en la pestaña **Source options** (Opciones de origen). La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector.
 
-Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-overview.md). Para incluir datos de esos otros orígenes en el flujo de datos, use la herramienta de actividad de copia para cargar esos datos en una de las áreas de almacenamiento provisional compatibles.
+Las canalizaciones de Azure Data Factory y Synapse tienen acceso a más de [90 conectores nativos](connector-overview.md). Para incluir datos de esos otros orígenes en el flujo de datos, use la herramienta de actividad de copia para cargar esos datos en una de las áreas de almacenamiento provisional compatibles.
 
 ## <a name="source-settings"></a>Configuración de origen
 
@@ -73,11 +84,11 @@ Los valores de desarrollo de los parámetros del conjunto de datos se pueden con
 
 **Probar conexión**: pruebe si el servicio Spark del flujo de datos puede conectarse correctamente al servicio vinculado que se usa en el conjunto de datos de origen. El modo de depuración debe estar activado para habilitar esta característica.
 
-**Desfase de esquema**: el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas.
+**Desfase de esquema:** el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad del servicio de administrar de forma nativa esquemas flexibles de los flujos de datos sin necesidad de definir explícitamente cambios en las columnas.
 
 * Si las columnas de origen van a cambiar con frecuencia, seleccione la casilla **Allow schema drift** (Permitir el desfase de esquema). Esta opción permite que todos los campos de origen entrantes fluyan hasta el receptor a través de las transformaciones.
 
-* Al seleccionar **Infer drifted column types** (Inferir tipos de columnas desfasadas), se indica a Data Factory que detecte y defina los tipos de datos para cada nueva columna detectada. Con esta característica desactivada, todas las columnas desfasadas serán del tipo cadena.
+* Al seleccionar **Inferir tipos de columnas desfasadas**, se indica a Data Factory que detecte y defina los tipos de datos para cada nueva columna detectada. Con esta característica desactivada, todas las columnas desfasadas serán del tipo cadena.
 
 **Validate schema:** (Validar esquema) Si la casilla **Validar esquema** está seleccionada, el flujo de datos no se podrá ejecutar si los datos de origen entrantes no coinciden con el esquema definido del conjunto de datos.
 
@@ -100,7 +111,7 @@ Al igual que los esquemas en los conjuntos de datos, la proyección de un origen
 
 ![Captura de pantalla que muestra la configuración en la pestaña Proyección.](media/data-flow/source3.png "Captura de pantalla que muestra la configuración en la pestaña Proyección.")
 
-Si el archivo de texto no tiene ningún esquema definido, seleccione **Detectar tipo de datos** para que Data Factory muestree e infiera los tipos de datos. Seleccione **Definir formato predeterminado** para detectar automáticamente los formatos de datos predeterminados.
+Si el archivo de texto no tiene ningún esquema definido, seleccione **Detectar tipo de datos** para que el servicio muestree e infiera los tipos de datos. Seleccione **Definir formato predeterminado** para detectar automáticamente los formatos de datos predeterminados.
 
 **Reset schema** (Restablecer esquema) restablece la proyección a la definición del conjunto de datos de referencia.
 
@@ -116,7 +127,7 @@ La importación del esquema resulta útil en los conjuntos de datos como Avro y 
 
 La pestaña **Optimizar** permite la edición de la información de partición en cada paso de la transformación. En la mayoría de los casos, **Use current partitioning** (Usar la creación de particiones actual) optimizará la estructura de la creación de particiones ideal para un origen.
 
-Si va a leer de un origen de Azure SQL Database, la creación de particiones de **Origen** personalizada probablemente leerá los datos con mayor rapidez. Data Factory leerá las consultas grandes realizando conexiones a la base de datos en paralelo. Esta creación de particiones de origen se puede realizar en una columna o mediante una consulta.
+Si va a leer de un origen de Azure SQL Database, la creación de particiones de **Origen** personalizada probablemente leerá los datos con mayor rapidez. El servicio leerá las consultas grandes realizando conexiones en paralelo con su base de datos. Esta creación de particiones de origen se puede realizar en una columna o mediante una consulta.
 
 ![Captura de pantalla que muestra la configuración de la partición de origen.](media/data-flow/sourcepart3.png "Captura de pantalla que muestra la configuración de la partición de origen.")
 

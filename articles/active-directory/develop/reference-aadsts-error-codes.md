@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/17/2021
+ms.date: 07/28/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e08f9090682a62ffe209122e88adca9e9710b96
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 3b1d7d8b658e0a0ac01789ca8a13ce0a2f779767
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064042"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734530"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -119,13 +119,13 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS50048 | SubjectMismatchesIssuer: el asunto no coincide con la notificación del emisor en la aserción de cliente. Póngase en contacto con el administrador del inquilino. |
 | AADSTS50049 | NoSuchInstanceForDiscovery: instancia desconocida o no válida. |
 | AADSTS50050 | MalformedDiscoveryRequest: la solicitud no está correctamente formada. |
-| AADSTS50053 | IdsLocked: la cuenta está bloqueada porque el usuario intentó iniciar sesión demasiadas veces con un identificador de usuario o contraseña incorrectos. |
-| AADSTS50055 | InvalidPasswordExpiredPassword: la contraseña ha expirado. |
-| AADSTS50056 | Contraseña no válida o nula: la contraseña no existe en el almacén de este usuario. |
-| AADSTS50057 | UserDisabled: la cuenta de usuario está deshabilitada. Un administrador ha deshabilitado la cuenta. |
-| AADSTS50058 | UserInformationNotProvided: esto significa que un usuario no ha iniciado sesión. Este es un error común que se espera cuando un usuario no está autenticado y aún no ha iniciado sesión.</br>Si este error se encuentra en un contexto de inicio de sesión único en el que el usuario ha iniciado sesión anteriormente, significa que la sesión SSO no se encuentra o no es válida.</br>Este error puede devolverse a la aplicación si se especifica prompt=none. |
+| AADSTS50053 | Este error puede tener dos motivos diferentes: <br><ul><li>IdsLocked: la cuenta está bloqueada porque el usuario intentó iniciar sesión demasiadas veces con un identificador de usuario o contraseña incorrectos. El usuario se bloquea debido a intentos repetidos de inicio de sesión. Consulte [Corregir riesgos y desbloquear usuarios](../identity-protection/howto-identity-protection-remediate-unblock.md).</li><li>O bien, el inicio de sesión se bloqueó porque procedía de una dirección IP con actividad malintencionada.</li></ul> <br>Para determinar qué motivo del error produjo este error, inicie sesión en [Azure Portal](https://portal.azure.com).  Vaya al inquilino de Azure AD y, a continuación, a **Supervisión** -> **Inicios de sesión**. Busque el inicio de sesión de usuario con el **código de error de inicio de sesión** 50053 y compruebe el **motivo del error**.|
+| AADSTS50055 | InvalidPasswordExpiredPassword: la contraseña ha expirado. La contraseña del usuario ha expirado y, por tanto, el inicio de sesión o la sesión han finalizado. Se les ofrecerá la oportunidad de restablecerla o pueden pedir a un administrador que la restablezca a través de [Restablecer la contraseña de un usuario mediante Azure Active Directory](../fundamentals/active-directory-users-reset-password-azure-portal.md). |
+| AADSTS50056 | Contraseña no válida o nula: la contraseña no existe en el directorio de este usuario. Se debe solicitar al usuario que vuelva a escribir su contraseña. |
+| AADSTS50057 | UserDisabled: la cuenta de usuario está deshabilitada. El objeto de usuario de Active Directory que respalda esta cuenta se ha deshabilitado. Un administrador puede volver a habilitar esta cuenta [a través de PowerShell](/powershell/module/activedirectory/enable-adaccount). |
+| AADSTS50058 | UserInformationNotProvided: la información de sesión no es suficiente para el inicio de sesión único. Esto significa que un usuario no ha iniciado sesión. Este es un error común que se espera cuando un usuario no está autenticado y aún no ha iniciado sesión.</br>Si este error se encuentra en un contexto de inicio de sesión único en el que el usuario ha iniciado sesión anteriormente, significa que la sesión SSO no se encuentra o no es válida.</br>Este error puede devolverse a la aplicación si se especifica prompt=none. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided: no se ha encontrado ninguna información de identificación del inquilino ni en la solicitud ni implícita en ninguna credencial proporcionada. El usuario puede ponerse en contacto con el administrador del inquilino para ayudar a resolver el problema. |
-| AADSTS50061 | SignoutInvalidRequest: la solicitud de cierre de sesión no es válida. |
+| AADSTS50061 | SignoutInvalidRequest: no se puede completar el cierre de sesión. La solicitud no era válida. |
 | AADSTS50064 | CredentialAuthenticationError: error de validación de credenciales en el nombre de usuario o la contraseña. |
 | AADSTS50068 | SignoutInitiatorNotParticipant: error de cierre de sesión. La aplicación que inició el cierre de sesión no participa en la sesión actual. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier: error de cierre de sesión. La solicitud de cierre de sesión especificó un identificador de nombre que no coincidía con las sesiones existentes. |
@@ -136,14 +136,16 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS50079 | UserStrongAuthEnrollmentRequired: debido a un cambio de configuración realizado por el administrador, o porque el usuario se ha trasladado a una nueva ubicación, el usuario debe usar la autenticación multifactor. |
 | AADSTS50085 | El token de actualización necesita un inicio de sesión de IDP social. Haga que el usuario intente iniciar sesión de nuevo con el nombre de usuario y la contraseña |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError: el servicio no está disponible temporalmente. Inténtelo de nuevo. |
-| AADSTS50089 | El token de flujo ha expirado: error de autenticación. Haga que el usuario intente iniciar sesión de nuevo con el nombre de usuario y la contraseña. |
+| AADSTS50087 | SasRetryableError: se produjo un error transitorio durante la autenticación segura. Inténtelo de nuevo. |
+| AADSTS50088 | Se alcanzó el límite de llamadas MFA de telecomunicaciones. Inténtalo de nuevo al cabo de un rato. |
+| AADSTS50089 | Se produjo un error de autenticación debido a la expiración del token de flujo. Previsto: los códigos de autenticación, los tokens de actualización y las sesiones expiran con el tiempo o los revoca el usuario o un administrador. La aplicación solicitará un nuevo inicio de sesión al usuario. |
 | AADSTS50097 | DeviceAuthenticationRequired: la autenticación de dispositivo es obligatoria. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized: la firma JWT no es válida. |
 | AADSTS50105 | EntitlementGrantsNotFound: el usuario que ha iniciado sesión no está asignado a un rol de la aplicación en la que inició sesión. Asigne el usuario a la aplicación. Para obtener más información, consulte el artículo de solución de problemas de error [AADSTS50105](/troubleshoot/azure/active-directory/error-code-aadsts50105-user-not-assigned-role). |
 | AADSTS50107 | InvalidRealmUri: el objeto solicitado del dominio Kerberos de federación no existe. Póngase en contacto con el administrador del inquilino. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat: hay un problema con el encabezado JWT. Póngase en contacto con el administrador del inquilino. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter: la transformación de notificaciones contiene parámetros de entrada no válidos. Póngase en contacto con el administrador del inquilino para actualizar la directiva. |
+| AADSTS501241 | Falta la entrada obligatoria "{paramName}" del identificador de transformación "{transformId}". Este error se devuelve mientras Azure AD está intentando compilar una respuesta SAML a la aplicación. La notificación NameID o NameIdentifier son obligatorias en la respuesta SAML y, si Azure AD no puede obtener el atributo de origen de la notificación NameID, devolverá este error. Como solución, asegúrese de agregar reglas de notificación en Azure Portal > Azure Active Directory > Aplicaciones empresariales > Seleccione su aplicación > Inicio de sesión único > Atributos y reclamaciones del usuario > Identificador de usuario único (Id. de nombre).  |
 | AADSTS50125 | PasswordResetRegistrationRequiredInterrupt: el inicio de sesión se interrumpió debido a una entrada de registro de contraseña o restablecimiento de contraseña. |
 | AADSTS50126 | InvalidUserNameOrPassword: se ha producido un error al validar las credenciales debido a un nombre de usuario o contraseña no válidos. |
 | AADSTS50127 | BrokerAppNotInstalled: el usuario necesita instalar una aplicación de agente para acceder a este contenido. |
@@ -156,7 +158,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS50135 | PasswordChangeCompromisedPassword: es obligatorio cambiar la contraseña debido al riesgo de la cuenta. |
 | AADSTS50136 | RedirectMsaSessionToApp: se ha detectado una única sesión de MSA. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken: la sesión no es válida debido a un token de actualización externo que falta. |
-| AADSTS50140 | KmsiInterrupt: este error se ha producido debido a una interrupción en "Mantener la sesión iniciada" cuando el usuario estaba iniciando sesión. [Abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles. |
+| AADSTS50140 | KmsiInterrupt: este error se ha producido debido a una interrupción en "Mantener la sesión iniciada" cuando el usuario estaba iniciando sesión. Se trata de una parte esperada del flujo de inicio de sesión, donde se pregunta a un usuario si desea mantener la sesión iniciada en el explorador actual para facilitar más inicios de sesión. Para obtener más información, consulte [The new Azure AD sign-in and "Keep me signed in" experiences rolling out now!](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/the-new-azure-ad-sign-in-and-keep-me-signed-in-experiences/m-p/128267) (Las nuevas experiencias de inicio de sesión de Azure AD y "Mantener la sesión iniciada" se están implementando). [Abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) con el id. de correlación, el id. de solicitud y el código de error para conocer más detalles.|
 | AADSTS50143 | Error de coincidencia de sesión: la sesión no es válida porque el inquilino de usuario no coincide con la sugerencia de dominio debido a que el recurso es diferente. [Abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword: la contraseña de Active Directory del usuario ha expirado. Genere una nueva contraseña para el usuario o solicite al usuario que restablezca la contraseña con la herramienta de autoservicio de restablecimiento. |
 | AADSTS50146 | MissingCustomSigningKey: es necesario que esta aplicación esté configurada con una clave de firma específica de la aplicación. En este momento no tiene configurada ninguna o ha expirado o ya no es válida. |
@@ -193,6 +195,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS65004 | UserDeclinedConsent: el usuario no ha dado su consentimiento para acceder a la aplicación. Haga que el usuario intente iniciar sesión de nuevo y dé el consentimiento para acceder a la aplicación|
 | AADSTS65005 | MisconfiguredApplication: la lista de acceso a los recursos necesarios de la aplicación no contiene aplicaciones reconocibles por el recurso, o la aplicación cliente ha solicitado el acceso a un recurso que no se especificó en su lista de acceso a recursos requeridos, o el servicio Graph ha devuelto una solicitud incorrecta o no se encontró el recurso. Si la aplicación admite SAML, es posible que haya configurado la aplicación con el identificador incorrecto (entidad). Para obtener más información, consulte el artículo de solución de problemas de error [AADSTS650056](/troubleshoot/azure/active-directory/error-code-aadsts650056-misconfigured-app). |
 | AADSTS650052 | La aplicación necesita acceso a un servicio `(\"{name}\")` que su organización `\"{organization}\"` no ha habilitado o al que no se ha suscrito. Póngase en contacto con el administrador de TI para revisar la configuración de las suscripciones de servicio. |
+| AADSTS650054 |  La aplicación solicitó permisos para acceder a un recurso que se quitó o que ya no está disponible. Asegúrese de que todos los recursos a los que llama la aplicación están presentes en el inquilino en el que está trabajando. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant: se ha producido un error de autenticación de cliente. El token de actualización no es válido. El error puede deberse a los siguientes motivos:<ul><li>El encabezado del enlace de token está vacío.</li><li>El hash del enlace de token no coincide.</li></ul> |
 | AADSTS70001 | UnauthorizedClient: la aplicación está deshabilitada. Para obtener más información, consulte el artículo de solución de problemas de error [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory). |
@@ -200,6 +203,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS70003 | UnsupportedGrantType: la aplicación ha devuelto un tipo de concesión no admitido. |
 | AADSTS70004 | InvalidRedirectUri: la aplicación ha devuelto un URI de redireccionamiento no válido. La dirección de redireccionamiento que ha especificado el cliente no coincide con ninguna de las direcciones configuradas ni con ninguna de las de la lista de direcciones aprobadas de OIDC. |
 | AADSTS70005 | UnsupportedResponseType: la aplicación ha devuelto un tipo de respuesta no admitido por alguno de los siguientes motivos:<ul><li>el tipo de respuesta "token" no está habilitado para la aplicación</li><li>el tipo de respuesta "id_token" requiere el ámbito "OpenID", o contiene un valor de parámetro de OAuth no admitido en el wctx codificado</li></ul> |
+| AADSTS700054 | El elemento 'id_token' de response_type no está habilitado para la aplicación.  La aplicación solicitó un token de identificador al punto de conexión de autorización, pero no tenía habilitada la concesión implícita del token de identificador.  Vaya a Azure Portal > Azure Active Directory > Registros de aplicaciones > Seleccione su aplicación > Autenticación > en "Implicit grant and hybrid flows" (Concesión implícita y flujos híbridos), asegúrese de que "Tokens de id." está seleccionado.|
 | AADSTS70007 | UnsupportedResponseMode: la aplicación ha devuelto un valor no admitido de `response_mode` al solicitar un token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant: el token de actualización ha expirado debido por inactividad. El token se emitió en XXX y estuvo inactivo durante un período de tiempo. |
 | AADSTS70011 | InvalidScope: el ámbito solicitado por la aplicación no es válido. |

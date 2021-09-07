@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: sgilley
-ms.author: copeters
-author: lostmygithubaccount
+ms.author: wibuchan
+author: buchananwp
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
-ms.openlocfilehash: e73b14e24fffacde11e355ae5a4caf0cb76f07ba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 5d4c3974bdd1ef90556d19e3ca49cc613d36923d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884883"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729791"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
 
@@ -38,10 +38,10 @@ Puede ver las métricas de desfase de datos con el SDK de Python o en Azure Mach
 > La detección de un desfase de datos en conjuntos de datos se encuentra actualmente en versión preliminar pública.
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para crear y trabajar con conjuntos de datos, necesita:
-* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 * El [SDK de Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install), que incluye el paquete azureml-datasets.
 * Datos estructurados (tabulares) con una marca de tiempo especificada en la ruta de acceso del archivo, el nombre de archivo o la columna de los datos.
@@ -102,7 +102,7 @@ El monitor comparará los conjuntos de datos de referencia y de destino.
 
 ## <a name="create-target-dataset"></a>Creación del conjunto de datos de destino
 
-El conjunto de datos de destino debe tener configurado el rasgo `timeseries` especificando la columna de marca de tiempo de una columna de los datos o en una columna virtual derivada del patrón de ruta de los archivos. Cree el conjunto de datos con una marca de tiempo a través del [SDK de Python](#sdk-dataset) o [Azure Machine Learning Studio](#studio-dataset). Tiene que especificarse una columna que represente una "marca de tiempo" para poder agregar el rasgo `timeseries` al conjunto de datos. Si los datos se particionan en la estructura de carpetas con información de hora, como '{AAAA/MM/DD}', cree una columna virtual mediante la configuración del patrón de ruta de acceso y establézcala como la "marca de tiempo de partición" para mejorar la importancia de la funcionalidad de serie temporal.
+El conjunto de datos de destino debe tener configurado el rasgo `timeseries` especificando la columna de marca de tiempo de una columna de los datos o en una columna virtual derivada del patrón de ruta de los archivos. Cree el conjunto de datos con una marca de tiempo a través del [SDK de Python](#sdk-dataset) o [Azure Machine Learning Studio](#studio-dataset). Tiene que especificarse una columna que represente una "marca de tiempo" para poder agregar el rasgo `timeseries` al conjunto de datos. Si los datos se particionan en la estructura de carpetas con información temporal, como "{aaaaa/MM/dd}", cree una columna virtual mediante la configuración del patrón de ruta de acceso y establézcala como la "marca de tiempo de partición" para habilitar la funcionalidad de la API de serie temporal.
 
 # <a name="python"></a>[Python](#tab/python)
 <a name="sdk-dataset"></a>
@@ -147,11 +147,11 @@ En el ejemplo siguiente, se toman todos los datos de la subcarpeta *NoaaIsdFlori
 
 [![Formato de partición](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
 
-En la configuración de **Esquema**, especifique la columna de marca de tiempo de una columna virtual o real del conjunto de datos especificado:
+En la configuración de **Esquema**, especifique la columna **marca de tiempo** desde una columna virtual o real en el conjunto de datos especificado. Este tipo indica que los datos tienen un componente temporal. 
 
 :::image type="content" source="media/how-to-monitor-datasets/timestamp.png" alt-text="Configuración de la marca de tiempo":::
 
-Si los datos tienen particiones por fecha, como es el caso aquí, también puede especificar el valor partition_timestamp.  Con ello se consigue un procesamiento más eficaz de fechas.
+Si los datos ya tienen particiones por fecha u hora, como es el caso aquí, también puede especificar la **marca de tiempo de partición**. Con ello se consigue un procesamiento más eficaz de fechas y se habilitan las API de serie temporal que puede utilizar durante el entrenamiento.
 
 :::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Marca de tiempo de partición":::
 
@@ -175,7 +175,7 @@ from datetime import datetime
 ws = Workspace.from_config()
 
 # get the target dataset
-dset = Dataset.get_by_name(ws, 'target')
+target = Dataset.get_by_name(ws, 'target')
 
 # set the baseline dataset
 baseline = target.time_before(datetime(2019, 2, 1))

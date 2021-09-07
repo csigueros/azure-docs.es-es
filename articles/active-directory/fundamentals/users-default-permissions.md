@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 08/04/2021
 ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348f1b4e6182739b3afbc96597853a5b887877c1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: db47b66a08ebe1c8a053995d0d8d8d810ae6b564
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748779"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746081"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
 En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [asignaciones de roles](active-directory-users-assign-role-azure-portal.md) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
@@ -43,7 +43,9 @@ Directivas | <ul><li>Leer todas las propiedades de las directivas<li>Administrar
 
 ## <a name="restrict-member-users-default-permissions"></a>Restringir los permisos predeterminados de los usuarios miembros 
 
-Los permisos predeterminados de los usuarios miembros se pueden restringir de las maneras siguientes:
+Es posible agregar restricciones a los permisos predeterminados de los usuarios. Puede que algunas organizaciones tengan que restringir el acceso de los usuarios al portal. Esta característica se usará si no quiere que todos los usuarios del directorio tengan acceso al directorio o al portal de administración de Azure AD. 
+
+Por ejemplo, una universidad tendrá muchos usuarios dentro de su directorio, y es posible que el administrador no quiera que todos los alumnos del directorio puedan ver el directorio completo e infrinjan la privacidad de otros alumnos. El uso de esta característica es opcional y queda a criterio del administrador de Azure AD. Los permisos predeterminados de los usuarios miembros se pueden restringir de las maneras siguientes:
 
 Permiso | Explicación del valor
 ---------- | ------------
@@ -51,8 +53,10 @@ Los usuarios pueden registrar aplicaciones | Si se selecciona No en esta opción
 Permitir a los usuarios conectar su cuenta profesional o educativa con LinkedIn | Si se selecciona No en esta opción, se impide que los usuarios conecten su cuenta profesional o educativa con su cuenta de LinkedIn. Para más información, consulte [Consentimiento y uso compartido de datos de conexiones de cuentas de LinkedIn](../enterprise-users/linkedin-user-consent.md).
 Capacidad para crear grupos de seguridad | Si se selecciona No en esta opción, se impide que los usuarios creen grupos de seguridad. Tanto los administradores globales como los administradores de tipo usuario pueden seguir creando grupos de seguridad. Para aprender a hacerlo, consulte [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../enterprise-users/groups-settings-cmdlets.md).
 Capacidad de crear grupos de Microsoft 365 | Si esta opción se establece en No, se impide que los usuarios creen grupos de Microsoft 365. Si esta opción se establece en Algunos, se permite que un conjunto de usuarios creen grupos de Microsoft 365. Tanto los administradores globales como los administradores de usuarios pueden seguir creando grupos de Microsoft 365. Para aprender a hacerlo, consulte [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../enterprise-users/groups-settings-cmdlets.md).
-Restringir el acceso al portal de administración de Azure AD | Si esta opción se establece en No, los usuarios que no son administradores pueden usar el portal de administración de Azure AD para leer y administrar recursos de Azure AD. Si se elige Sí, los usuarios que no son administradores no podrán acceder a ningún dato de Azure AD en el portal de administración.<p>**Nota**: Esta configuración no restringe el acceso a los datos de Azure AD mediante PowerShell u otros clientes como Visual Studio. Cuando se establece en Sí, para conceder a un usuario no administrador específico la capacidad de usar el portal de administración de Azure AD, asigne cualquier rol administrativo, como el rol Lectores de directorio.<p>Este rol permite leer información básica del directorio, que los usuarios miembros tienen de forma predeterminada (los invitados y las entidades de servicio, no).
+Restringir el acceso al portal de administración de Azure AD | <p>Si esta opción se establece en No, los usuarios que no son administradores pueden usar el portal de administración de Azure AD para leer y administrar recursos de Azure AD. Si se elige Sí, los usuarios que no son administradores no podrán acceder a ningún dato de Azure AD en el portal de administración.</p><p>**Nota**: Esta configuración no restringe el acceso a los datos de Azure AD mediante PowerShell u otros clientes como Visual Studio. Cuando se establece en Sí, para conceder a un usuario no administrador específico la capacidad de usar el portal de administración de Azure AD, asigne cualquier rol administrativo, como el rol Lectores de directorio.</p><p>**Nota**: Esta configuración impedirá que los usuarios no administradores, que sean propietarios de grupos o aplicaciones utilicen Azure Portal administrar los recursos de su propiedad.</p><p>Este rol permite leer información básica del directorio, que los usuarios miembros tienen de forma predeterminada (los invitados y las entidades de servicio, no).</p>
 Capacidad para leer otros usuarios | Esta configuración solo está disponible en PowerShell. Si establece esta marca en $false, se impide que quienes no son administradores lean la información de los usuarios desde el directorio. Esta marca no impide que puedan leer la información de los usuarios en otros servicios de Microsoft, como Exchange Online. Esta configuración está pensada para circunstancias especiales y no se recomienda establecer esta marca en $false.
+
+>![NOTA] Se supone que el usuario promedio solo usaría el portal para acceder a Azure AD y no usaría PowerShell ni la CLI para acceder a sus recursos. Actualmente, la restricción del acceso a los permisos predeterminados de los usuarios solo tiene lugar cuando el usuario intenta acceder al directorio dentro de Azure Portal.
 
 ## <a name="restrict-guest-users-default-permissions"></a>Restringir los permisos predeterminados de los usuarios invitados
 

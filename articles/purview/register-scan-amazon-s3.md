@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: e339c9847024aa35665b9a8b4114102c8fde22a1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 181e0ae76dccf763d23fb648a5e6553ed352655a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470294"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748140"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector de Azure Purview para Amazon S3
 
@@ -25,15 +25,7 @@ En esta guía de procedimientos, aprenderá a agregar cubos de Amazon S3 como re
 
 ## <a name="purview-scope-for-amazon-s3"></a>Ámbito de Purview para Amazon S3
 
-El siguiente ámbito es específico para el registro y el examen de los cubos de Amazon S3 como orígenes de datos de Purview.
-
-|Ámbito  |Descripción  |
-|---------|---------|
-|**Tipos de archivo**     | El servicio de examen de Purview admite actualmente los siguientes tipos de archivo: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Regiones**     | El conector de Purview para el servicio Amazon S3 está implementado actualmente solo en regiones específicas. <br><br>Para más información, consulte [Regiones de almacenamiento y examen](#storage-and-scanning-regions).   |
-|     |         |
-
-Para más información, consulte los límites documentados de Purview en:
+Para obtener información sobre los límites de Purview, consulte:
 
 - [Administración y aumento de las cuotas de los recursos con Azure Purview](how-to-manage-quotas.md)
 - [Tipos de archivo y orígenes de datos admitidos en Azure Purview](sources-and-scans.md)
@@ -41,7 +33,7 @@ Para más información, consulte los límites documentados de Purview en:
 
 ### <a name="storage-and-scanning-regions"></a>Regiones de almacenamiento y examen
 
-En la tabla siguiente se asignan las regiones en las que se almacenan los datos a la región en la que se examinarán con Azure Purview.
+El conector de Purview para el servicio Amazon S3 está implementado actualmente solo en regiones específicas. En la tabla siguiente se asignan las regiones en las que se almacenan los datos a la región en la que se examinarán con Azure Purview.
 
 > [!IMPORTANT]
 > A los clientes se les cobrará por todos los cargos de transferencia de datos relacionados en función de la región de su cubo.
@@ -51,24 +43,24 @@ En la tabla siguiente se asignan las regiones en las que se almacenan los datos 
 | ------------------------------- | ------------------------------------- |
 | Este de EE. UU. (Ohio)                  | Este de EE. UU. (Ohio)                        |
 | Este de EE. UU. (N. Virginia)           | Este de EE. UU. (N. Virginia)                       |
-| Oeste de EE. UU. (N. California)         | Este de EE. UU. (Ohio) u Oeste de EE. UU. (N. California)                        |
-| Oeste de EE. UU. (Oregon)                | Este de EE. UU. (Ohio) u Oeste de EE. UU. (Oregón)                      |
+| Oeste de EE. UU. (N. California)         | Oeste de EE. UU. (N. California)                        |
+| Oeste de EE. UU. (Oregon)                | Oeste de EE. UU. (Oregon)                      |
 | África (Ciudad del cabo)              | Europa (Frankfurt)                    |
-| Asia Pacífico (Hong Kong)        | Asia Pacífico (Sydney) o Asia Pacífico (Singapur)                |
-| Asia Pacífico (Mumbai)           | Asia Pacífico (Sydney) o Asia Pacífico (Singapur)                |
-| Asia Pacífico (Osaka-local)      | Asia Pacífico (Sydney) o Asia Pacífico (Tokio)                 |
-| Asia Pacífico (Seúl)            | Asia Pacífico (Sydney) o Asia Pacífico (Tokio)                 |
-| Asia Pacífico (Singapur)        | Asia Pacífico (Sydney) o Asia Pacífico (Singapur)                 |
+| Asia Pacífico (Hong Kong)        | Asia Pacífico (Tokio)                |
+| Asia Pacífico (Mumbai)           | Asia Pacífico (Singapur)                |
+| Asia Pacífico (Osaka-local)      | Asia Pacífico (Tokio)                 |
+| Asia Pacífico (Seúl)            | Asia Pacífico (Tokio)                 |
+| Asia Pacífico (Singapur)        | Asia Pacífico (Singapur)                 |
 | Asia Pacífico (Sídney)           | Asia Pacífico (Sídney)                  |
-| Asia Pacífico (Tokio)            | Asia Pacífico (Sydney) o Asia Pacífico (Tokio)                |
+| Asia Pacífico (Tokio)            | Asia Pacífico (Tokio)                |
 | Canada (Central)                | Este de EE. UU. (Ohio)                        |
 | China (Pekín)                 | No compatible                    |
 | China (Ningxia)                 | No compatible                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
 | Europa (Irlanda)                | Europa (Irlanda)                   |
-| Europa (Londres)                 | Europa (Irlanda) o Europa (Londres)                 |
-| Europa (Milán)                  | Europa (Frankfurt)                    |
-| Europa (París)                  | Europa (Frankfurt) o Europa (París)                   |
+| Europa (Londres)                 | Europa (Londres)                 |
+| Europa (Milán)                  | Europa (París)                    |
+| Europa (París)                  | Europa (París)                   |
 | Europa (Estocolmo)              | Europa (Frankfurt)                    |
 | Oriente Medio (Bahrein)           | Europa (Frankfurt)                    |
 | Sudamérica (Sao Paulo)       | Este de EE. UU. (Ohio)                        |
@@ -305,7 +297,7 @@ Use este procedimiento si solo tiene un único cubo de S3 que desee registrar en
 
     ![Inicie el portal de Purview.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Vaya a la página **Sources** (Orígenes) de Azure Purview y seleccione **Register** (Registrar). ![Icono Registrar.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue** (Amazon S3 > Continuar).
+1. Vaya a la página **Mapa de datos** de Azure Purview y seleccione **Registrar** ![Icono Registrar.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue** (Amazon S3 > Continuar).
 
     ![Agregue un cubo de Amazon AWS como un origen de datos de Purview.](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
 
@@ -337,7 +329,7 @@ Al [configurar el examen](#create-a-scan-for-one-or-more-amazon-s3-buckets), pod
 
     ![Inicio del conector para Amazon S3 en el portal de Purview dedicado](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Vaya a la página **Sources** (Orígenes) de Azure Purview y seleccione **Register** (Registrar). ![Icono Registrar.](./media/register-scan-amazon-s3/register-button.png) > **Amazon accounts** > **Continue** (Cuentas de Amazon > Continuar).
+1. Vaya a la página **Mapa de datos** de Azure Purview y seleccione **Registrar** ![Icono Registrar.](./media/register-scan-amazon-s3/register-button.png) > **Amazon accounts** > **Continue** (Cuentas de Amazon > Continuar).
 
     ![Agregue una cuenta de Amazon como un origen de datos de Purview.](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
 
@@ -362,7 +354,7 @@ Vaya a [Creación de un examen para uno o varios cubos de Amazon S3](#create-a-s
 
 Una vez que haya agregado los cubos como orígenes de datos de Purview, puede configurar un examen para que se ejecute a intervalos programados o inmediatamente.
 
-1. Vaya al área **Sources** (Orígenes) de Azure Purview y, a continuación, realice una de las acciones siguientes:
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio y, luego, siga uno de los procedimientos a continuación:
 
     - En **Map view** (Vista de mapa), seleccione **New scan** (Nuevo examen) ![Icono Nuevo examen.](./media/register-scan-amazon-s3/new-scan-button.png) en el cuadro del origen de datos.
     - En **List view** (Vista de lista), mantenga el puntero sobre la fila del origen de datos y seleccione **New scan** (Nuevo examen) ![Icono Nuevo examen.](./media/register-scan-amazon-s3/new-scan-button.png).
@@ -411,7 +403,7 @@ Para más información, consulte [Exploración de los resultados del examen de P
 
 ## <a name="explore-purview-scanning-results"></a>Exploración de los resultados del examen de Purview
 
-Una vez que se completa un examen de Purview en los cubos de Amazon S3, puede explorar en profundidad en el área **Sources** (Orígenes) de Purview para ver el historial de exámenes.
+Una vez que se completa un examen de Purview en los cubos de Amazon S3, puede explorar en profundidad en el área **Mapa de datos** de Purview para ver el historial de exámenes.
 
 Seleccione un origen de datos para ver sus detalles y, a continuación, seleccione la pestaña **Scans** (Exámenes) para ver los exámenes que se están ejecutando o que se han completado.
 Si ha agregado una cuenta de AWS con varios cubos, el historial de exámenes de cada cubo se muestra en la cuenta.

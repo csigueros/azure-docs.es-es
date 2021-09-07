@@ -3,12 +3,12 @@ title: Adición de identidad administrada a un rol en un destino de Azure Event 
 description: En este artículo se describe cómo agregar identidad administrada a roles de Azure en destinos como Azure Service Bus y Azure Event Hubs.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 1578e4c24201614ce89351b3c3cee52a09cadc30
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c2bfc10f0019b6753e9290d20c84ba5e2bbb59fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280486"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746515"
 ---
 # <a name="grant-managed-identity-the-access-to-event-grid-destination"></a>Concesión a la identidad administrada el acceso al destino de Event Grid
 En esta sección se describe cómo agregar un rol de Azure a la identidad del tema del sistema, de un tema personalizado o del dominio. 
@@ -28,9 +28,8 @@ Actualmente, Azure Event Grid admite temas o dominios personalizados configurado
 | ----------- | --------- | 
 | Colas y temas de Service Bus | [Emisor de datos de Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Azure Event Hubs | [Emisor de datos de Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Azure Blob Storage | [Colaborador de datos de blobs de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
-| Azure Queue Storage |[Emisor de mensajes de datos de la cola de Storage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
-
+| Azure Blob Storage | [Colaborador de datos de blobs de almacenamiento](../storage/blobs/assign-azure-role-data-access.md) |
+| Azure Queue Storage |[Emisor de mensajes de datos de la cola de Storage](../storage/blobs/assign-azure-role-data-access.md) | 
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 Puede usar Azure Portal para asignar un rol adecuado a la identidad del tema o del dominio personalizados, de modo que el tema o el dominio personalizados puedan reenviar eventos al destino. 
@@ -39,11 +38,24 @@ En el siguiente ejemplo se agrega el rol **Remitente de los datos de Azure Event
 
 1. Vaya al **espacio de nombres de Service Bus** en [Azure Portal](https://portal.azure.com). 
 1. Seleccione **Control de acceso** en el panel izquierdo. 
-1. Seleccione **Agregar** en la sección **Agregar una asignación de roles**. 
-1. En la página **Agregar una asignación de roles**, siga estos pasos:
-    1. Seleccione el rol. En este caso, es **Emisor de datos de Azure Event Hubs** 
-    1. Seleccione la **identidad** del tema o del dominio personalizados de Event Grid. 
-    1. Para guardar la configuración, seleccione **Guardar**.
+1. Seleccione **Agregar** en la sección **Agregar asignación de roles (versión preliminar)** . 
+
+    :::image type="content" source="./media/add-identity-roles/add-role-assignment-menu.png" alt-text="Imagen que muestra la selección del menú Agregar asignación de roles (versión preliminar)":::
+1. En la página **Agregar asignación de roles**, seleccione **Remitente de los datos de Azure Service Bus** y seleccione **Siguiente**.  
+    
+    :::image type="content" source="./media/add-identity-roles/select-role.png" alt-text="Imagen en la que se muestra la selección del rol Remitente de los datos de Azure Service Bus":::
+1. En la pestaña **Miembros**, siga estos pasos: 
+    1. Seleccione **Usuario, grupo o entidad de servicio** y haga clic en **+ Seleccionar miembros**. La opción **Identidad administrada** aún no admite identidades de Event Grid. 
+    1. En la ventana **Seleccionar miembros**, busque y seleccione la entidad de servicio con el mismo nombre que el tema personalizado. En el ejemplo siguiente, es **spcustomtopic0728**.
+    
+        :::image type="content" source="./media/add-identity-roles/select-managed-identity-option.png" alt-text="Imagen que muestra la selección de la opción Usuario, grupo o entidad de servicio":::    
+    1. En la ventana **Seleccionar miembros**, haga clic en **Seleccionar**. 
+
+        :::image type="content" source="./media/add-identity-roles/managed-identity-selected.png" alt-text="Imagen que muestra la selección de la opción Identidad administrada":::            
+1. Ahora, nuevamente en la pestaña **Miembros**, seleccione **Siguiente**. 
+
+    :::image type="content" source="./media/add-identity-roles/members-select-next.png" alt-text="Imagen que muestra la selección del botón Siguiente en la página Miembros":::                
+1. En la pestaña **Review + assign** (Revisión y asignación), seleccione **Review + assign** (Revisar y asignar) para revisar la configuración. 
 
 Los pasos son similares para agregar una identidad a otros roles que se mencionan en la tabla. 
 
@@ -90,5 +102,3 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha asignado una identidad asignada por el sistema al tema del sistema, a un tema personalizado o a un dominio, y ha agregado la identidad a los roles adecuados en los destinos, consulte [Entrega de eventos con una identidad administrada](managed-service-identity.md) sobre la entrega de eventos a destinos con la identidad.
-
-

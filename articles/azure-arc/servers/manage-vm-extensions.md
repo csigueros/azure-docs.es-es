@@ -1,20 +1,20 @@
 ---
-title: Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
-description: Los servidores habilitados para Azure Arc pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con máquinas virtuales que no son de Azure.
-ms.date: 04/13/2021
+title: Administración de extensiones de VM con servidores habilitados para Azure Arc
+description: Los servidores habilitados para Azure Arc pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con VM que no son de Azure.
+ms.date: 08/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: e28cd7753fc85f2e40385c65392fea73502aa05b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 20ae8b6cbb29a9a0b43592c3b242707bb2d3add6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832849"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727324"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
 
 Las extensiones de máquina virtual (VM) son pequeñas aplicaciones que realizan tareas de automatización y configuración posteriores a la implementación en máquinas virtuales de Azure. Por ejemplo, si una máquina virtual necesita que se instale software, protección antivirus o ejecutar un script en ella, se puede usar una extensión de máquina virtual.
 
-Los servidores habilitados para Azure Arc permiten implementar extensiones de máquina virtual de Azure en máquinas virtuales Windows y Linux que no son de Azure, lo que simplifica la administración de la máquina híbrida local durante su ciclo de vida. Las extensiones de VM se pueden administrar con los siguientes métodos en las máquinas híbridas o servidores administrados por servidores habilitados para Arc:
+Los servidores habilitados para Azure Arc permiten implementar, quitar y actualizar extensiones de VM de Azure en VM Windows y Linux que no son de Azure, lo que simplifica la administración de la máquina híbrida durante su ciclo de vida. Las extensiones de VM se pueden administrar con los siguientes métodos en las máquinas híbridas o los servidores administrados por servidores habilitados para Arc:
 
 - [Azure Portal](manage-vm-extensions-portal.md)
 - La [CLI de Azure](manage-vm-extensions-cli.md)
@@ -22,13 +22,16 @@ Los servidores habilitados para Azure Arc permiten implementar extensiones de m�
 - [Plantillas de Azure Resource Manager](manage-vm-extensions-template.md)
 
 > [!NOTE]
-> Los servidores habilitados de Azure Arc no admiten la implementación y administración de extensiones de máquina virtual en máquinas virtuales de Azure. Para las máquinas virtuales de Azure, consulte el siguiente artículo de [información general sobre la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
+> Los servidores habilitados para Azure Arc no admiten la implementación y administración de extensiones de VM en máquinas virtuales de Azure. Para las máquinas virtuales de Azure, consulte el siguiente artículo de [información general sobre la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
+
+> [!NOTE]
+> Actualmente solo puede actualizar extensiones desde Azure Portal. Esta operación desde la CLI de Azure, Azure PowerShell o una plantilla de Azure Resource Manager no se admite en este momento.
 
 ## <a name="key-benefits"></a>Ventajas principales
 
-La compatibilidad con la extensión de máquina virtual de servidores habilitados para Azure Arc ofrece las ventajas principales siguientes:
+La compatibilidad con la extensión de VM de servidores habilitados para Azure Arc ofrece las siguientes ventajas clave:
 
-- Recopile datos de registro para analizarlos con los [registros de Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) mediante la habilitación de la extensión de máquina virtual del agente de Log Analytics. Esto es especialmente útil para llevar a cabo un análisis complejo de datos procedentes de diferentes tipos de orígenes.
+- Recopile datos de registro para analizarlos con los [registros de Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) mediante la habilitación de la extensión de máquina virtual del agente de Log Analytics. Log Analytics hace que sea especialmente útil para llevar a cabo un análisis complejo en datos de registro de diferentes tipos de orígenes.
 
 - Con [Información de máquinas virtuales](../../azure-monitor/vm/vminsights-overview.md), analiza el rendimiento de las VM Windows y Linux, y supervisa sus procesos y dependencias en otros recursos y procesos externos. Esto se logra al habilitar las extensiones de máquina virtual del agente de Log Analytics y Dependency Agent.
 
@@ -47,7 +50,9 @@ En esta versión se admiten las siguientes extensiones de máquina virtual en m�
 Para obtener información sobre el paquete del agente de Azure Connected Machine y los detalles del componente del agente de extensión, consulte [Información general del agente](agent-overview.md#agent-component-details).
 
 > [!NOTE]
-> Recientemente se quitó la compatibilidad con la extensión de máquina virtual de DSC de los servidores habilitados para ARC. Como alternativa, se recomienda usar la extensión de script personalizado para administrar la configuración posterior a la implementación del servidor o la máquina.
+> Recientemente se quitó la compatibilidad con la extensión de VM de DSC de los servidores habilitados para Arc. Como alternativa, se recomienda usar la extensión de script personalizado para administrar la configuración posterior a la implementación del servidor o la máquina.
+
+Los servidores habilitados para Arc admiten el movimiento de máquinas con una o varias extensiones de VM instaladas entre grupos de recursos u otra suscripción de Azure sin experimentar ningún impacto en su configuración. Las suscripciones de origen y destino deben existir en el mismo [inquilino de Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md). Para obtener más información sobre el movimiento de recursos y las consideraciones a tener en cuenta antes de continuar, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="windows-extensions"></a>Extensiones de Windows
 
@@ -86,15 +91,15 @@ No olvide revisar la documentación de cada extensión de máquina virtual a la 
 
 La extensión de máquina virtual del agente de Log Analytics para Linux requiere que Python 2.x esté instalado en el equipo de destino.
 
-### <a name="azure-key-vault-vm-extension-preview"></a>Extensión de máquina virtual de Azure Key Vault (versión preliminar)
+### <a name="azure-key-vault-vm-extension"></a>Extensión de VM de Azure Key Vault 
 
-La extensión de máquina virtual de Key Vault (versión preliminar) no es compatible con los siguientes sistemas operativos Linux:
+La extensión de VM de Key Vault no es compatible con los siguientes sistemas operativos Linux:
 
 - CentOS Linux 7 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
 
-La implementación de la extensión de máquina virtual de Key Vault (versión preliminar) solo se admite mediante:
+La implementación de la extensión de VM de Key Vault solo se admite mediante:
 
 - La CLI de Azure
 - Azure PowerShell
@@ -104,7 +109,7 @@ Antes de implementar la extensión, debe completar lo siguiente:
 
 1. [Cree un almacén y un certificado](../../key-vault/certificates/quick-create-portal.md) (autofirmado o importado).
 
-2. Conceda al servidor habilitado para Azure Arc acceso al secreto del certificado. Si usa la [versión preliminar de RBAC](../../key-vault/general/rbac-guide.md), busque el nombre del recurso de Azure Arc y asígnele el rol **Usuario de secretos de almacén de claves (versión preliminar)** . Si está usando una [directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-portal.md), asigne los permisos para **obtener** secretos a la identidad asignada por el sistema del recurso de Azure Arc.
+2. Conceda al servidor habilitado para Azure Arc acceso al secreto del certificado. Si usa la [versión preliminar de RBAC](../../key-vault/general/rbac-guide.md), busque el nombre del recurso de Azure Arc y asígnele el rol **Usuario de secretos de almacén de claves (versión preliminar)** . Si está usando una [directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-portal.md), asigne los permisos para **obtener** secretos a la identidad asignada por el sistema del recurso de Azure Arc.
 
 ### <a name="connected-machine-agent"></a>Agente de Connected Machine
 

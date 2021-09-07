@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b10e1d1c903f306668e051633467ba15079dcaca
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 448a646b4fd615967e63c6d13b16940441478971
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664331"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739041"
 ---
 # <a name="monitoring-azure-table-storage"></a>Supervisión de Azure Table Storage
 
@@ -64,7 +64,7 @@ Para recopilar registros de recursos, debe crear una configuración de diagnóst
 
 ## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 
-Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager. 
+Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy. 
 
 Para obtener instrucciones generales, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas de la plataforma en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -261,6 +261,10 @@ Este es un ejemplo:
 ### <a name="template"></a>[Plantilla](#tab/template)
 
 Para ver una plantilla de Azure Resource Manager que crea una configuración de diagnóstico, consulte [Configuración de diagnóstico para Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
+
+Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se crea una configuración de diagnóstico para cada cuenta que se crea o actualiza. Consulte [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
 
 ---
 
@@ -474,6 +478,10 @@ En el ejemplo siguiente se muestra cómo leer datos de métricas sobre una métr
 ```
 
 ### <a name="template"></a>[Plantilla](#tab/template)
+
+N/D
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
 N/D
 

@@ -6,20 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 76e1f80e1c6e1d977521724959db6ad36694f238
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 80337c4953182e903655eddb360fc8b49a88ca59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110684127"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732931"
 ---
 # <a name="install-gpu-extension-on-vms-for-your-azure-stack-edge-pro-gpu-device"></a>Instalación de la extensión de GPU en máquinas virtuales en el dispositivo de GPU de Azure Stack Edge Pro
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-En este artículo se describe cómo instalar la extensión de controlador de GPU para instalar los controladores de Nvidia adecuados en las máquinas virtuales de GPU que se ejecutan en el dispositivo de Azure Stack Edge. En el artículo se tratan los pasos de instalación de la extensión de GPU en máquinas virtuales Windows y Linux.
+En este artículo se describe cómo instalar la extensión de controlador de GPU para instalar los controladores de Nvidia adecuados en las máquinas virtuales de GPU que se ejecutan en el dispositivo de Azure Stack Edge. En el artículo se tratan los pasos para instalar una extensión de GPU mediante plantillas de Azure Resource Manager en VM Windows y Linux.
+
+> [!NOTE]
+> En Azure Portal, puede instalar una extensión de GPU durante la creación de la VM o posteriormente. Para ver los pasos y requisitos, consulte [Implementación de máquinas virtuales de GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -32,11 +35,9 @@ Antes de instalar la extensión de GPU en las máquinas virtuales de GPU que se 
 
         Este es un ejemplo en el que el puerto 2 estaba conectado a Internet y se usaba para habilitar la red de proceso. Si no se ha implementado Kubernetes en el entorno, puede omitir la dirección IP del nodo de Kubernetes y la asignación de direcciones IP del servicio externo.
 
-        ![Habilitación de la configuración de proceso en el puerto conectado a Internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
+        ![Captura de pantalla del panel Proceso de un dispositivo Azure Stack Edge. La configuración de Proceso del puerto 2 está resaltada.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension/enable-compute-network-1.png)
 1. [Descargue las plantillas de extensión de GPU y los archivos de parámetros](https://aka.ms/ase-vm-templates) en la máquina cliente. Descomprímalos en un directorio que usará como directorio de trabajo.
 1. Compruebe que el cliente que va a usar para acceder al dispositivo sigue conectado a Azure Resource Manager a través de Azure PowerShell. La conexión a Azure Resource Manager expira cada 1,5 horas o si se reinicia el dispositivo Azure Stack Edge. Si esto ocurre, los cmdlets que ejecute, devolverán mensajes de error porque ya no está conectado a Azure. Tiene que volver a iniciar sesión. Para consultar las instrucciones detalladas, vaya a [Conexión a Azure Resource Manager en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-connect-resource-manager.md).
-
-
 
 ## <a name="edit-parameters-file"></a>Edición del archivo de parámetros
 
@@ -391,6 +392,9 @@ PS C:\Program Files\NVIDIA Corporation\NVSMI>
 
 Para más información, consulte [Extensión del controlador de GPU de NVIDIA para Windows](../virtual-machines/extensions/hpccompute-gpu-windows.md).
 
+> [!NOTE]
+> Cuando termine de instalar el controlador de GPU y la extensión de GPU, ya no tendrá que usar un puerto con acceso a Internet para el proceso.
+
 ### <a name="linux"></a>[Linux](#tab/linux)
 
 Siga estos pasos para comprobar la instalación del controlador:
@@ -468,6 +472,10 @@ Siga estos pasos para comprobar la instalación del controlador:
 
 Para más información, consulte [Extensión del controlador de GPU de NVIDIA para Linux](../virtual-machines/extensions/hpccompute-gpu-linux.md).
 
+> [!NOTE]
+> Cuando termine de instalar el controlador de GPU y la extensión de GPU, ya no tendrá que usar un puerto con acceso a Internet para el proceso.
+
+
 ---
 
 
@@ -493,6 +501,8 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 
 Obtenga información sobre cómo:
 
+- [Solucionar problemas de extensiones de GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md).
+- [Supervisar la actividad de la VM en el dispositivo](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
 - [Administrar discos de máquinas virtuales](azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md).
 - [Administrar interfaces de red de máquina virtual](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 - [Administrar tamaños de máquina virtual](azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md).

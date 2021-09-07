@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 07/02/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f741cb21f427734c49001b9c672ed3e61c43adbc
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 3f2f3a3c561b2fe82dcbeaaee1138c0d465ac6a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613237"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737329"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator 
 
@@ -36,7 +36,12 @@ Las personas que habilitaron el inicio de sesión en el teléfono desde la aplic
 
 Para usar el inicio de sesión en el teléfono sin contraseña con la aplicación Microsoft Authenticator, se deben cumplir los siguientes requisitos previos:
 
-- Multi-Factor Authentication de Azure AD, con notificaciones push permitidas como método de verificación.
+- Multi-Factor Authentication de Azure AD, con notificaciones push permitidas como método de verificación. Las notificaciones de inserción en su smartphone o tableta ayudan a la aplicación Authenticator a impedir el acceso no autorizado a las cuentas y a detener las transacciones fraudulentas. La aplicación Authenticator genera códigos automáticamente cuando se configura para realizar notificaciones de inserción, de modo que un usuario tenga un método de inicio de sesión de reserva aunque el dispositivo no tenga conectividad. 
+  
+  El conector de Azure Multi-Factor Authentication debe estar habilitado para permitir que los usuarios se registren para recibir notificaciones de inserción para el inicio de sesión en el teléfono.
+
+  ![Captura de pantalla del conector de Azure Multi-Factor Authentication habilitado.](media/howto-authentication-passwordless-phone/connector.png)
+
 - Versión más reciente de Microsoft Authenticator instalada en dispositivos que ejecutan iOS 8.0 o superior o Android 6.0 o superior.
 - El dispositivo en el que está instalada la aplicación Microsoft Authenticator debe estar registrado en el inquilino de Azure AD para un usuario individual. 
 
@@ -57,7 +62,7 @@ Azure AD le permite elegir los métodos de autenticación que se pueden usar du
 
 Siga estos pasos para habilitar el método de autenticación para el inicio de sesión en teléfono sin contraseña:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de *administrador global*.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de *administrador de directivas de autenticación*.
 1. Busque y seleccione *Azure Active Directory*, a continuación, vaya a **Seguridad** > **Métodos de autenticación** > **Directivas**.
 1. En **Microsoft Authenticator**, elija las opciones siguientes:
    1. **Habilitar**: Sí o No
@@ -144,5 +149,5 @@ Actualmente, un dispositivo solo se puede registrar en un único inquilino. Este
 Para obtener información sobre la autenticación de Azure AD y los métodos sin contraseña, consulte los siguientes artículos:
 
 - [Obtener información sobre cómo funciona la autenticación con contraseñas](concept-authentication-passwordless.md)
-- [Obtenga información sobre el registro de dispositivos](../devices/overview.md#getting-devices-in-azure-ad)
+- [Obtenga información sobre el registro de dispositivos](../devices/overview.md)
 - [Más información sobre Multi-Factor Authentication de Azure AD](../authentication/howto-mfa-getstarted.md)

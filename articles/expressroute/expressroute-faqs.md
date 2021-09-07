@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 50ae89aefda00f21d07a19051c9aaa6e85726f8a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 108c7c30ad84c83e895cade79bc8a6ad30029199
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741390"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272259"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -60,7 +60,9 @@ La puerta de enlace de ExpressRoute anunciará los *espacios de direcciones* de 
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>¿Cuántos prefijos se pueden anunciar desde una red virtual a un entorno local en el emparejamiento privado de ExpressRoute?
 
-Se pueden anunciar un máximo de 1000 prefijos en una única conexión de ExpressRoute o a través del emparejamiento de VNet mediante el tránsito de puerta de enlace. Por ejemplo, si tiene 999 espacios de direcciones en una sola red virtual conectada a un circuito ExpressRoute, los 999 prefijos se anunciarán en el entorno local. Como alternativa, si tiene una red virtual habilitada para permitir el tránsito de puerta de enlace con 1 espacio de direcciones y 500 redes virtuales radiales habilitadas con la opción "Permitir puerta de enlace remota", la red virtual implementada con la puerta de enlace anunciará los 501 prefijos en el entorno local.
+Se pueden anunciar un máximo de 1000 prefijos IPv4 en una única conexión de ExpressRoute o a través del emparejamiento de VNet mediante el tránsito de puerta de enlace. Por ejemplo, si tiene 999 espacios de direcciones en una sola red virtual conectada a un circuito ExpressRoute, los 999 prefijos se anunciarán en el entorno local. Como alternativa, si tiene una red virtual habilitada para permitir el tránsito de puerta de enlace con 1 espacio de direcciones y 500 redes virtuales radiales habilitadas con la opción "Permitir puerta de enlace remota", la red virtual implementada con la puerta de enlace anunciará los 501 prefijos en el entorno local.
+
+Si usa un circuito de doble pila, hay un máximo de 100 prefijos IPv6 en una sola conexión ExpressRoute o a través del emparejamiento de VNet mediante tránsito de puerta de enlace. Esto se suma a los límites descritos anteriormente.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>¿Qué ocurre si se supera el límite de prefijos en una conexión de ExpressRoute?
 
@@ -240,7 +242,7 @@ No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman p
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>¿Se puede conectar una red virtual a más de un circuito ExpressRoute?
 
-Sí. Puede vincular una única red virtual única con hasta cuatro circuitos ExpressRoute ya sea en las mismas o en diferentes ubicaciones de emparejamiento. 
+Sí. Puede vincular una única red virtual con hasta cuatro circuitos ExpressRoute en la misma ubicación o hasta 16 circuitos ExpressRoute en diferentes ubicaciones de emparejamiento. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>¿Es posible obtener acceso a Internet desde mis redes virtuales conectadas a circuitos ExpressRoute?
 
@@ -297,7 +299,7 @@ También tendrá que realizar un seguimiento con su proveedor de conectividad pa
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>¿Cómo se cambia el ancho de banda de un circuito ExpressRoute?
 
-Puede actualizar el ancho de banda del circuito ExpressRoute mediante el cmdlet de PowerShell o la API de REST.
+Puede actualizar el ancho de banda del circuito ExpressRoute mediante Azure Portal, el API de REST, PowerShell o CLI de Azure.
 
 ### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>He recibido una notificación sobre el mantenimiento del circuito ExpressRoute. ¿Cuál es el impacto técnico de este mantenimiento?
 

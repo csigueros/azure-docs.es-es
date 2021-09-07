@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: rsethur
 ms.author: seramasu
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.reviewer: laobri
-ms.openlocfilehash: b8162a9770aea9d8cb3d1220f0ab81169151f781
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: devplatv2
+ms.openlocfilehash: 97cfd7a5121094af9fc1663fcdddcd4c620b77cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747606"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742028"
 ---
 # <a name="deploy-models-with-rest-preview"></a>Implementación de modelos con REST (versión preliminar)
 
@@ -34,7 +35,7 @@ En este artículo, aprenderá a usar las nuevas API REST para:
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Una **suscripción de Azure** en la que tenga derechos administrativos Si no tiene este tipo de suscripción, pruebe la [suscripción personal gratis o de pago](https://aka.ms/AMLFree).
+- Una **suscripción de Azure** en la que tenga derechos administrativos Si no tiene este tipo de suscripción, pruebe la [suscripción personal gratis o de pago](https://azure.microsoft.com/free/).
 - Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 - Una entidad de servicio en el área de trabajo. Las solicitudes administrativas de REST usan la [autenticación de entidad de servicio](how-to-setup-authentication.md#use-service-principal-authentication).
 - Un token de autenticación de entidad de servicio. Para recuperar este token, siga los pasos que se describen en la sección [Recuperación de un token de autenticación de entidad de servicio](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). 
@@ -50,7 +51,7 @@ En este artículo, aprenderá a usar las nuevas API REST para:
 ## <a name="azure-machine-learning-managed-online-endpoints"></a>Puntos de conexión en línea administrados de Azure Machine Learning
 Los puntos de conexión en línea administrados (versión preliminar) permiten implementar el modelo sin tener que crear y administrar la infraestructura subyacente. En este artículo, creará un punto de conexión en línea y una implementación, y lo validará invocándolo. Pero primero tendrá que registrar los recursos necesarios para la implementación, incluidos el modelo, el código y el entorno.
 
-Hay muchas formas de crear puntos de conexión en línea de Azure Machine Learning, [incluida la CLI de ](how-to-deploy-managed-online-endpoints.md), y visualmente con [Studio](how-to-use-managed-online-endpoint-studio.md). En el ejemplo siguiente se muestra un punto de conexión en línea administrado con la API REST.
+Hay muchas formas de crear puntos de conexión en línea de Azure Machine Learning, [incluida la CLI de Azure](how-to-deploy-managed-online-endpoints.md), y visualmente con [Studio](how-to-use-managed-online-endpoint-studio.md). En el ejemplo siguiente se muestra un punto de conexión en línea administrado con la API REST.
 
 ## <a name="create-machine-learning-assets"></a>Crear recursos de aprendizaje automático
 
@@ -154,6 +155,12 @@ Si no va a usar la implementación, debe eliminarla con el siguiente comando (se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a implementar el modelo [mediante la CLI](how-to-deploy-managed-online-endpoints.md).
+* Aprenda a implementar el modelo [mediante la CLI de Azure](how-to-deploy-managed-online-endpoints.md).
 * Aprenda a implementar el modelo [mediante Studio](how-to-use-managed-online-endpoint-studio.md).
+* Aprenda sobre la [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md).
+* Aprenda sobre el [Acceso a recursos de Azure con un punto de conexión en línea administrado e identidad administrada por el sistema (versión preliminar)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md).
 * Aprenda a [supervisar los puntos de conexión en línea](how-to-monitor-online-endpoints.md).
+* Aprenda sobre la [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md).
+* [Visualización de los costos de un punto de conexión en línea administrado de Azure Machine Learning (versión preliminar)](how-to-view-online-endpoints-costs.md).
+* [Lista de SKU de puntos de conexión en línea administrados (versión preliminar)](reference-managed-online-endpoints-vm-sku-list.md).
+* Aprenda sobre los límites relacionados de los puntos de conexión administrados en [Administración y aumento de las cuotas de recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).

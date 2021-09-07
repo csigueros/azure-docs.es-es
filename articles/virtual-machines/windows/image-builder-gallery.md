@@ -1,21 +1,23 @@
 ---
-title: Utilizar Azure Image Builder con una galería de imágenes para máquinas virtuales Windows (versión preliminar)
+title: Uso de Azure Image Builder con una galería de imágenes para máquinas virtuales Windows
 description: Cree versiones de imágenes de Azure Shared Gallery mediante Azure Image Builder and Azure PowerShell.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: e8caf9f742217161c60ce90351989999f18adabb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 03ae984a5950a026fc9bc5c30ee1951e1c17b909
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694094"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734577"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Vista previa: Creación de una imagen de Windows y distribución en una galería de imágenes compartidas 
+# <a name="create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Creación de una imagen de Windows y distribución en una galería de imágenes compartidas 
 
 En este artículo se muestra cómo puede usar Azure Image Builder y Azure PowerShell para crear una versión de una imagen en una instancia de [Shared Image Gallery](../shared-image-galleries.md) y después distribuirla globalmente. También puede hacerlo mediante la [CLI de Azure](../linux/image-builder-gallery.md).
 
@@ -25,26 +27,11 @@ Para distribuir la imagen en una galería de imágenes compartidas, en la planti
 
 Azure Image Builder ejecuta automáticamente sysprep para generalizar la imagen; consiste en un comando sysprep genérico que puede [reemplazar](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) si es necesario. 
 
-Tenga en cuenta el número de veces que pone una capa en las personalizaciones. Puede ejecutar el comando Sysprep hasta ocho veces en una sola imagen de Windows. Después de ejecutar Sysprep ocho veces, debe volver a crear la imagen de Windows. Para más información, consulte [Límites en la cantidad de veces que se puede ejecutar Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Tenga en cuenta el número de veces que pone una capa en las personalizaciones. Puede ejecutar el comando Sysprep un número de veces limitado en una sola imagen de Windows. Después de alcanzar el límite de Sysprep, debe volver a crear la imagen de Windows. Para más información, consulte [Límites en la cantidad de veces que se puede ejecutar Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
-> [!IMPORTANT]
-> Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registro de las características
-Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
-
-```powershell
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Compruebe el estado del registro de la característica.
-
-```powershell
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Espere a que el estado de `RegistrationState` sea `Registered` antes de continuar con el paso siguiente.
+Para usar Azure Image Builder, debe registrar la característica.
 
 Compruebe los registros del proveedor. Asegúrese de que cada uno devuelve `Registered`.
 

@@ -3,16 +3,17 @@ title: Identidad administrada de Data Factory
 description: Obtenga información sobre la identidad administrada de Azure Data Factory.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 07/19/2021
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d175bf7123cc8fdab336594c0ef05f13562a5622
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a350553659ea6028e3fb2079f790d14ae1653a86
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681077"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746567"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -24,16 +25,29 @@ En este artículo podrá entender qué es la identidad administrada de Data Fact
 
 ## <a name="overview"></a>Información general
 
-Al crear una factoría de datos, se puede crear también una identidad administrada. La identidad administrada es una aplicación administrada registrada en Azure Active Directory que representa a esta factoría de datos específica.
+Las identidades administradas en factorías de datos eliminan la necesidad de que los ingenieros de datos administren las credenciales. Proporcionan una identidad que usa la instancia de Data Factory al conectarse a recursos que admiten la autenticación de Azure Active Directory (Azure AD). Por ejemplo, Data Factory puede usar una identidad administrada para acceder a recursos como [Azure Key Vault](../key-vault/general/overview.md), donde los administradores de datos pueden almacenar credenciales o acceder a cuentas de almacenamiento de manera segura. Data Factory usa la identidad administrada para obtener tokens de Azure AD.
 
-La identidad administrada de Data Factory ofrece las características siguientes:
+Hay dos tipos de identidades administradas compatibles con Data Factory: 
+
+- **Asignada por el sistema:** Data Factory le permite habilitar una identidad administrada directamente en una instancia de servicio. Cuando se permite una identidad administrada asignada por el sistema durante la creación de la factoría de datos, se crea una identidad en Azure AD asociada al ciclo de vida de esa instancia de servicio. Por diseño, solo ese recurso de Azure puede usar esta identidad para solicitar tokens de Azure AD. Por tanto, cuando se elimina el recurso, Azure elimina automáticamente la identidad.
+- **Asignada por el usuario:** también es posible crear una identidad administrada como recurso independiente de Azure. Puede [crear una identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) y asignarla a una o varias instancias de una factoría de datos. En las identidades administradas asignadas por el usuario, la identidad se administra independientemente de los recursos que la utilicen.
+
+
+
+La identidad administrada para Data Factory proporciona las ventajas siguientes:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md), en cuyo caso la identidad administrada de Data Factory se usa para la autenticación de Azure Key Vault.
 - Obtenga acceso a almacenes de datos o procesos mediante la autenticación de identidad administrada, como Azure Blob Storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, actividad de Databricks, actividad web y mucho más. Consulte los artículos sobre el conector y las actividades para obtener más información.
+- La identidad administrada asignada por el usuario también se usa para cifrar o descifrar los metadatos de la factoría de datos mediante la clave administrada por el cliente almacenada en Azure Key Vault, lo que brinda cifrado doble. 
 
-## <a name="generate-managed-identity"></a>Generar identidad administrada
+## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema 
 
-La identidad administrada de Data Factory se genera de la manera siguiente:
+>[!NOTE]
+> La identidad administrada asignada por el sistema también se conoce como "identidad administrada" en la documentación de Data Factory y en la interfaz de usuario de Data Factory con fines de compatibilidad con versiones anteriores. Al hacer referencia a una "identidad administrada asignada por el usuario", lo mencionaremos de manera explícita. 
+
+#### <a name="generate-system-assigned-managed-identity"></a><a name="generate-managed-identity"></a> Generación de una identidad administrada asignada por el sistema
+
+La identidad administrada por el sistema para Data Factory se genera de la manera siguiente:
 
 - Cuando se crea una factoría de datos mediante **Azure Portal o PowerShell**, la identidad administrada siempre se crea automáticamente.
 - Cuando se crea una factoría de datos mediante **SDK**, la identidad administrada se crea solo si se especifica "Identity = new FactoryIdentity()" en el objeto de factoría para la creación. Vea el ejemplo que aparece en el [Inicio rápido de .NET: Crear una factoría de datos](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
@@ -41,17 +55,18 @@ La identidad administrada de Data Factory se genera de la manera siguiente:
 
 Si observa que la factoría de datos no tiene una identidad administrada asociada tras la instrucción [Recuperar identidad administrada](#retrieve-managed-identity), puede generar una de forma explícita si actualiza la factoría de datos con el iniciador de identidades mediante programación:
 
-- [Generar identidad administrada con PowerShell](#generate-managed-identity-using-powershell)
-- [Generar identidad administrada con API de REST](#generate-managed-identity-using-rest-api)
-- [Generar identidad administrada con una plantilla de Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
-- [Generar identidad administrada con SDK](#generate-managed-identity-using-sdk)
+- [Generar identidad administrada con PowerShell](#generate-system-assigned-managed-identity-using-powershell)
+- [Generar identidad administrada con API de REST](#generate-system-assigned-managed-identity-using-rest-api)
+- [Generar identidad administrada con una plantilla de Azure Resource Manager](#generate-system-assigned-managed-identity-using-an-azure-resource-manager-template)
+- [Generar identidad administrada con SDK](#generate-system-assigned-managed-identity-using-sdk)
 
 >[!NOTE]
+>
 >- La identidad administrada no se puede modificar. La actualización de una factoría de datos que ya tiene una identidad administrada no tiene ningún impacto, la identidad administrada se mantiene sin cambios.
 >- Si actualiza una factoría de datos que ya tiene una identidad administrada sin especificar el parámetro "identity" en el objeto de factoría o sin especificar la sección "identity" en el cuerpo de la solicitud de REST, se obtiene un error.
 >- Cuando se elimina una factoría de datos, se elimina también la identidad administrada asociada.
 
-### <a name="generate-managed-identity-using-powershell"></a>Generar identidad administrada con PowerShell
+##### <a name="generate-system-assigned-managed-identity-using-powershell"></a>Generación de una identidad administrada asignada por el sistema mediante PowerShell
 
 Llame al comando **Set-AzDataFactoryV2** y verá cómo se van agregando campos "Identity":
 
@@ -67,7 +82,7 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-### <a name="generate-managed-identity-using-rest-api"></a>Generar identidad administrada con API de REST
+##### <a name="generate-system-assigned-managed-identity-using-rest-api"></a>Generación de una identidad administrada asignada por el sistema mediante la API REST
 
 Llame a la siguiente API con la sección "identity" en el cuerpo de la solicitud:
 
@@ -111,7 +126,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generar identidad administrada con una plantilla de Azure Resource Manager
+##### <a name="generate-system-assigned-managed-identity-using-an-azure-resource-manager-template"></a>Generación de una identidad administrada asignada por el sistema mediante una plantilla de Azure Resource Manager
 
 **Plantilla**: agregue "identity": { "type": "SystemAssigned" }.
 
@@ -131,7 +146,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-managed-identity-using-sdk"></a>Generar identidad administrada con SDK
+##### <a name="generate-system-assigned-managed-identity-using-sdk"></a>Generación de una identidad administrada asignada por el sistema mediante el SDK
 
 Llame a la función create_or_update de la factoría de datos con Identity=new FactoryIdentity(). Código de ejemplo mediante .NET:
 
@@ -144,14 +159,14 @@ Factory dataFactory = new Factory
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
-## <a name="retrieve-managed-identity"></a>Recuperar identidad administrada
+#### <a name="retrieve-system-assigned-managed-identity"></a><a name="retrieve-managed-identity"></a> Recuperación de una identidad administrada asignada por el sistema
 
 Puede recuperar la identidad administrada desde Azure Portal o mediante programación. Las secciones siguientes le muestran algunos ejemplos.
 
 >[!TIP]
 > Si no ve la identidad administrada, [genérela](#generate-managed-identity) mediante la actualización de la factoría.
 
-### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperar identidad administrada mediante Azure Portal
+#### <a name="retrieve-system-assigned-managed-identity-using-azure-portal"></a>Recuperación de una identidad administrada asignada por el sistema mediante Azure Portal
 
 Puede encontrar la información de la identidad administrada en Azure Portal -> su factoría de datos -> Propiedades.
 
@@ -162,7 +177,7 @@ La información de identidad administrada también se mostrará cuando se crea u
 
 Al conceder el permiso, en la pestaña Access Control de recursos de Azure (IAM) -> Agregar asignación de roles -> Asignar acceso a -> seleccione Data Factory en identidad administrada asignada por el sistema -> seleccione en función del nombre de factoría; o, en general, puede usar el id. de objeto o el nombre de la factoría de datos (como nombre de identidad administrada) para encontrar esta identidad. Si necesita obtener el id. de la aplicación de la identidad administrada, puede usar PowerShell.
 
-### <a name="retrieve-managed-identity-using-powershell"></a>Recuperar identidad administrada mediante PowerShell
+#### <a name="retrieve-system-assigned-managed-identity-using-powershell"></a>Recuperación de una identidad administrada asignada por el sistema mediante PowerShell
 
 Al obtener una factoría de datos específicas, se devuelven el identificador de identidad de seguridad y el de inquilino de la identidad administrada del modo siguiente. Use el valor de **PrincipalId** para conceder acceso:
 
@@ -186,7 +201,7 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
-### <a name="retrieve-managed-identity-using-rest-api"></a>Recuperación de identidad administrada mediante la API de REST
+#### <a name="retrieve-managed-identity-using-rest-api"></a>Recuperación de identidad administrada mediante la API de REST
 
 Al obtener una factoría de datos específicas, se devuelven el identificador de identidad de seguridad y el de inquilino de la identidad administrada del modo siguiente.
 
@@ -241,7 +256,36 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
+## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
+
+Puede crear, eliminar y administrar identidades administradas asignadas por el usuario en Azure Active Directory. Para más información, consulte la documentación sobre [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+
+### <a name="credentials"></a>Credenciales
+
+Presentamos Credenciales, que pueden contener identidades administradas asignadas por el usuario, entidades de servicio y también enumerar la identidad administrada asignada por el sistema que puede usar en los servicios vinculados que admiten la autenticación de Azure Active Directory (AAD). Le ayudan a consolidar y administrar todas las credenciales basadas en AAD.  
+
+A continuación se muestran los pasos genéricos para usar una **identidad administrada asignada por el usuario** en los servicios vinculados para la autenticación. 
+
+1. Asocie una identidad administrada asignada por el usuario a la instancia de Data Factory mediante Azure Portal, el SDK, PowerShell, la API REST. 
+   En la captura de pantalla siguiente se usa Azure Portal (hoja Data Factory) para asociar la identidad administrada asignada por el usuario. 
+
+   :::image type="content" source="media/managed-identities/uami-azure-portal.jpg" alt-text="Captura de pantalla que muestra cómo usar Azure Portal para asociar una identidad administrada asignada por el usuario." lightbox="media/managed-identities/uami-azure-portal.jpg":::
+
+2. Cree una "Credencial" en la interfaz de usuario de Data Factory de forma interactiva. Puede seleccionar la identidad administrada asignada por el usuario asociada a Data Factory en el paso 1. 
+
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-1.png" alt-text="Captura de pantalla que muestra el primer paso para crear nuevas credenciales." lightbox="media/managed-identities/credential-adf-ui-create-new-1.png":::
+
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-2a.png" alt-text="Captura de pantalla que muestra el segundo paso para crear nuevas credenciales." lightbox="media/managed-identities/credential-adf-ui-create-new-2a.png":::
+
+3. Cree un nuevo servicio vinculado y seleccione "Identidad administrada asignada por el usuario" en autenticación.
+
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-linked-service.png" alt-text="Captura de pantalla que muestra el nuevo servicio vinculado con la autenticación de identidad administrada asignada por el usuario." lightbox="media/managed-identities/credential-adf-ui-create-new-linked-service.png":::
+
+> [!NOTE] 
+> Puede usar SDK, PowerShell o la API REST para las acciones anteriores.
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 Consulte los siguientes temas que presentan cuándo y cómo usar la identidad administrada de la factoría de datos:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)

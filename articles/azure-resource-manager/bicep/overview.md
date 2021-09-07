@@ -2,19 +2,19 @@
 title: Lenguaje Bicep para implementar recursos de Azure
 description: Describe el lenguaje Bicep para implementar la infraestructura en Azure. Ofrece una experiencia de creación mejorada sobre el uso de JSON para desarrollar plantillas.
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 673578a8415009428b49e320c954079ebf7a0116
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/30/2021
+ms.openlocfilehash: 28d42335901db5326be502be52fd4ce2209a7980
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556773"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724606"
 ---
 # <a name="what-is-bicep"></a>¿Qué es Bicep?
 
-Bicep es un lenguaje específico del dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Brinda sintaxis concisa, seguridad de tipos confiable y compatibilidad con la reutilización de código. Creemos que Bicep ofrece la mejor experiencia de creación para sus soluciones de infraestructura como código de Azure.
+Bicep es un lenguaje específico del dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Brinda sintaxis concisa, seguridad de tipos confiable y compatibilidad con la reutilización de código. Creemos que Bicep ofrece la mejor experiencia de creación para sus soluciones de infraestructura como código en Azure.
 
-Puede usar Bicep en lugar de JSON para desarrollar las plantillas de Azure Resource Manager (plantillas de ARM). La sintaxis JSON para crear una plantilla de ARM puede ser detallada y exigir expresiones complicadas. La sintaxis de Bicep reduce esa complejidad y mejora la experiencia de desarrollo. Bicep es una abstracción transparente del código JSON de plantillas de ARM, y no pierde ninguna de las funcionalidades de las plantillas JSON. Durante la implementación, la CLI de Bicep transpila un archivo de Bicep en un JSON de plantilla de ARM.
+Puede usar Bicep en lugar de JSON para desarrollar las plantillas de Azure Resource Manager (plantillas de ARM). La sintaxis JSON para crear una plantilla de ARM puede ser detallada y exigir expresiones complicadas. La sintaxis de Bicep reduce esa complejidad y mejora la experiencia de desarrollo. Bicep es una abstracción transparente del código JSON de plantillas de ARM, y no pierde ninguna de las funcionalidades de las plantillas JSON. Durante la implementación, la CLI de Bicep convierte un archivo de Bicep en un archivo JSON de plantilla de ARM.
 
 Bicep no está pensado como lenguaje general de programación para escribir aplicaciones. Un archivo de Bicep declara recursos de Azure y propiedades de estos recursos, sin escribir una secuencia de comandos de programación para crear recursos.
 
@@ -30,12 +30,12 @@ Para obtener información sobre Bicep, consulte el vídeo siguiente.
 
 Para empezar a trabajar con Bicep:
 
-1. **Instale las herramientas**. Consulte [Configuración de entornos de desarrollo e implementación de Bicep](./install.md). Como alternativa, puede usar [Bicep Playground](./decompile.md#side-by-side-view) para ver el código Bicep y JSON equivalente en paralelo, o usar el [repositorio Devcontainer/Codespaces de VS Code](https://github.com/Azure/vscode-remote-try-bicep) para obtener un entorno de creación preconfigurado.
+1. **Instale las herramientas**. Consulte [Configuración de entornos de desarrollo e implementación de Bicep](./install.md). O bien, puede usar el [repositorio VS Code Devcontainer/Codespaces](https://github.com/Azure/vscode-remote-try-bicep) para obtener un entorno de creación preconfigurado.
 2. **Complete el artículo de [inicio rápido](./quickstart-create-bicep-use-visual-studio-code.md) y los [módulos de Bicep en Microsoft Learn](./learn-bicep.md)** .
 
-Para descompilar en Bicep una plantilla de ARM existente, consulte [Descompilación de plantillas de ARM en Bicep](./decompile.md).
+Para descompilar en Bicep una plantilla de ARM existente, consulte [Descompilación de plantillas de ARM en Bicep](./decompile.md). Para ver el archivo de Bicep y el de JSON equivalente en paralelo, consulte [Bicep Playground](https://bicepdemo.z22.web.core.windows.net/).
 
-Puede encontrar ejemplos adicionales de Bicep en el [repositorio de Bicep en GitHub](https://github.com/Azure/bicep/tree/main/docs/examples).
+Puede encontrar ejemplos de Bicep en el [repositorio de Bicep en GitHub](https://github.com/Azure/bicep/tree/main/docs/examples).
 
 ## <a name="benefits-of-bicep-versus-other-tools"></a>Ventajas de Bicep frente a otras herramientas
 
@@ -51,7 +51,7 @@ Bicep proporciona las siguientes ventajas con respecto a otras opciones:
 
 ## <a name="bicep-improvements"></a>Mejoras de Bicep
 
-Bicep ofrece una sintaxis más sencilla y concisa en comparación con el JSON equivalente. No se usan expresiones `[...]`. En su lugar, se llama directamente a las funciones y se obtienen los valores de los parámetros y las variables. Se asigna un nombre simbólico a cada recurso implementado, lo que facilita la referencia a ese recurso en la plantilla.
+Bicep ofrece una sintaxis más sencilla y concisa en comparación con el JSON equivalente. No se usan expresiones entre `[...]` corchetes. En su lugar, se llama directamente a las funciones y se obtienen los valores de los parámetros y las variables. Se asigna un nombre simbólico a cada recurso implementado, lo que facilita la referencia a ese recurso en la plantilla.
 
 Por ejemplo, el siguiente JSON devuelve un valor de salida de una propiedad de recurso.
 
@@ -94,7 +94,7 @@ En el caso de los clientes que han seleccionado plantillas de ARM, creemos que B
 
 **¿Está listo para su uso en producción?**
 
-Sí. A partir de v0.3, Bicep es compatible con los planes de soporte técnico de Microsoft. Bicep tiene paridad con lo que se puede lograr con las plantillas de ARM. Actualmente no se están planeando cambios importantes, pero es posible que sea necesario crearlos en el futuro.
+Sí. A partir de la versión 0.3, Bicep es compatible con los planes de soporte técnico de Microsoft. Bicep tiene paridad con lo que se puede lograr con las plantillas de ARM. Actualmente no se están planeando cambios importantes, pero es posible que sea necesario crearlos en el futuro.
 
 **¿Está Bicep dirigido solo a Azure?**
 
@@ -107,6 +107,29 @@ Para satisfacer ese objetivo, es necesario trabajar con algunas API que están f
 Siguen funcionando exactamente como siempre lo han hecho. No es necesario hacer ningún cambio. Seguiremos admitiendo el lenguaje JSON subyacente para las plantillas de ARM. Los archivos de Bicep se compilan en JSON, y ese JSON se envía a Azure para su implementación.
 
 Cuando esté listo, puede [descompilar los archivos JSON en Bicep](./decompile.md).
+
+## <a name="known-limitations"></a>Limitaciones conocidas
+
+- No se admiten matrices ni objetos de una sola línea. Por ejemplo, `['a', 'b', 'c']` no es compatible. Para obtener más información, consulte [Matrices](data-types.md#arrays) y [Objetos](data-types.md#objects).
+- No se admite la separación de líneas largas en varias líneas. Por ejemplo:
+
+    ```bicep
+    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+      ...
+    }
+    ```
+
+    No se puede escribir como:
+
+    ```bicep
+    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+        if (newOrExisting == 'new') {
+          ...
+        }
+    ```
+
+- No se admite el concepto de apiProfile, que se usa para asignar un único apiProfile a un valor de apiVersion establecido para cada tipo de recurso.
+- No se admiten las funciones definidas por el usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

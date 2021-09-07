@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/09/2021
 ms.author: alsin
-ms.openlocfilehash: 78cf28903311c542a83c9ace4f794e1cdda9a61c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 34f20a50fc62cff98362380222822ac016b76a48
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368537"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746766"
 ---
 # <a name="onboard-a-machine-to-automanage-with-an-azure-resource-manager-arm-template"></a>Incorporación de una máquina a Automanage con una plantilla de Azure Resource Manager (ARM)
 
@@ -22,8 +22,9 @@ ms.locfileid: "107368537"
 Siga los pasos que se indican a continuación para incorporar una máquina a los procedimientos recomendados de Automanage. La plantilla de ARM siguiente creará un objeto `configurationProfileAssignment`, es decir, el recurso de Azure que representa a una máquina incorporada a Automanage.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Debe haber creado una cuenta de Automanage. Consulte [este documento](./automanage-account.md) para obtener más información sobre las cuentas de Automanage y cómo crear una.
-* Debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas que quiere incorporar a Automanage.
+* Tiene que haber creado una cuenta de Automanage y haberle asignado los permisos correctos. Consulte [este documento](./automanage-account.md) para obtener más información sobre las cuentas de Automanage y cómo crear una y asignarle permisos.
+* Si tiene una cuenta de Automanage existente con permisos asignados, también debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas que desea incorporar a Automanage.
+
 
 ## <a name="arm-template-overview"></a>Introducción a la plantilla de ARM
 La plantilla de ARM siguiente incorporará la máquina especificada a los procedimientos recomendados de Azure Automanage. Los detalles sobre la plantilla de ARM y los pasos sobre cómo implementarla se encuentran en la sección de implementación de la plantilla de ARM que aparece [a continuación](#arm-template-deployment).
@@ -64,7 +65,7 @@ El valor `configurationProfileAssignment` puede ser uno de los siguientes:
 * "DevTest"
 
 Siga estos pasos para implementar la plantilla de ARM:
-1. Guarde la plantilla de ARM siguiente como `azuredeploy.json`.
+1. Guarde la plantilla de ARM anterior como `azuredeploy.json`.
 1. Ejecute la implementación de la plantilla de ARM con `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`.
 1. Proporcione los valores para machineName, automanageAccountName y configurationProfileAssignment cuando se le solicite.
 1. Ya está todo listo.

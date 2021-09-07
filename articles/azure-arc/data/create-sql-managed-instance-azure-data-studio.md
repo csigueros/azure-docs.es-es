@@ -7,41 +7,22 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 3223ec1a9538228c1b3d9f2cdcb8ea1c051e0e10
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 15d4ba669f736fd1322c137a16d8b79f40cea6d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495970"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743884"
 ---
-# <a name="create-sql-managed-iinstance---azure-arc-using-azure-data-studio"></a>Creación de instancia administrada de SQL: Azure Arc con Azure Data Studio
+# <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Creación de SQL Managed Instance: Azure Arc con Azure Data Studio
 
 En este documento se le guía por los pasos para la instalación de Azure SQL Managed Instance: Azure Arc con Azure Data Studio
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## <a name="log-in-to-the-azure-arc-data-controller"></a>Inicio de sesión en el controlador de datos de Azure Arc
-
-Antes de poder crear una instancia, inicie sesión en el controlador de datos de Azure Arc si todavía no lo ha hecho.
-
-```console
-azdata login
-```
-
-Después, se le solicitará el espacio de nombres en el que se ha creado el controlador de datos, el nombre de usuario y la contraseña para iniciar sesión en el controlador.  
-
-> Si tiene que validar el espacio de nombres, puede ejecutar ```kubectl get pods -A``` para obtener una lista de todos los espacios de nombres del clúster.
-
-```console
-Username: arcadmin
-Password:
-Namespace: arc
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ## <a name="create-azure-sql-managed-instance-on-azure-arc"></a>Creación de Azure SQL Managed Instance en Azure Arc
 
@@ -49,10 +30,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - En la pestaña Conexiones, haga clic en los tres puntos de la parte superior izquierda y elija "Nueva implementación".
 - En las opciones de implementación, seleccione **Azure SQL Managed Instance: Azure Arc**. 
   > [!NOTE]
-  > Es posible que se le pida que instale [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] si no lo está actualmente.
+  > Es posible que aquí se le pida instalar la CLI apropiada si aún no lo está.
 - Acepte los términos de privacidad y de licencia, y haga clic en **Seleccionar** en la parte inferior.
-
-
 
 - En la hoja Implementar Azure SQL Managed Instance: Azure Arc, escriba la información siguiente:
   - Escriba un nombre para la instancia de SQL Server
@@ -68,15 +47,10 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 ## <a name="connect-to-azure-sql-managed-instance---azure-arc-from-azure-data-studio"></a>Conexión a Azure SQL Managed Instance: Azure Arc desde Azure Data Studio
 
-- Inicie sesión en el controlador de datos de Azure Arc; para ello, proporcione el espacio de nombres, el nombre de usuario y la contraseña para el controlador de datos: 
-```console
-azdata login
-```
-
 - Para ver todas las instancias administradas de Azure SQL aprovisionadas, use los comandos siguientes:
 
-```console
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 La salida debería ser similar a la siguiente; copie el valor ServerEndpoint (incluido el número de puerto) desde aquí.
@@ -96,9 +70,6 @@ sqlinstance1  1/1         25.51.65.109:1433  Ready
 - Opcionalmente, escriba el nombre de la base de datos específica a la que quiera conectarse
 - Opcionalmente, seleccione o agregue un nuevo grupo de servidores según corresponda
 - Seleccione **Conectar** para conectarse a Azure SQL Managed Instance: Azure Arc
-
-
-
 
 ## <a name="next-steps"></a>Pasos a seguir
 

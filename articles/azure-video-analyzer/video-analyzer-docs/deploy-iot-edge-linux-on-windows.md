@@ -2,13 +2,13 @@
 title: 'Implementación en IoT Edge para Linux en Windows: Azure'
 description: En este artículo se proporcionan instrucciones sobre cómo realizar la implementación en un dispositivo de IoT Edge para Linux en Windows.
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: 2907318f7d1c49c4aea247880a9880e724b46ca6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: e80721375cf4b0c912fe47ec76c2cebe92359f90
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388547"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743646"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Implementación en un dispositivo de IoT Edge para Linux en Windows (EFLOW)
 
@@ -25,19 +25,17 @@ En este artículo, aprenderá a implementar Azure Video Analyzer en un dispositi
 
 A continuación se describe el flujo general del documento y en cinco pasos sencillos estará listo para ejecutar Azure Video Analyzer en un dispositivo Windows con EFLOW:
 
-![Diagrama de IoT Edge para Linux en Windows (EFLOW)](./media/deploy-iot-edge-linux-on-windows/eflow.png)
+![Diagrama de IoT Edge para Linux en Windows (EFLOW).](./media/deploy-iot-edge-linux-on-windows/eflow.png)
 
-1. [Instale EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) en el dispositivo Windows. 
+1. [Instale EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) en el dispositivo Windows mediante PowerShell.
 
-    1. Si usa su PC Windows, en la página de inicio de [Windows Admin Center](/windows-server/manage/windows-admin-center/overview), en la lista de conexiones, verá una conexión de host local que representa el equipo en el que se ejecuta Windows Admin Center. 
-    1. Los servidores, equipos o clústeres adicionales que administre también aparecerán aquí.
-    1. Puede usar Windows Admin Center para instalar y administrar Azure EFLOW tanto en el dispositivo local como en los dispositivos administrados remotos. En esta guía, la conexión de host local actúa como dispositivo de destino para la implementación de Azure IoT Edge para Linux en Windows. Por lo tanto, el host local también aparece como un dispositivo de IoT Edge.
 
-    ![Pasos de implementaciones: Windows Admin Center](./media/deploy-iot-edge-linux-on-windows/windows-admin-center.png) 
-1. Haga clic en el dispositivo de IoT Edge para conectarse y aparecerá una pestaña de información general y el shell de comandos. En la pestaña del shell de comandos puede emitir comandos para el dispositivo perimetral.
+1. Una vez configurado EFLOW, escriba el comando `Connect-EflowVm` en PowerShell (con privilegios administrativos) para conectarse. Esto mostrará un terminal de Bash en PowerShell para controlar la VM de EFLOW, donde puede ejecutar comandos de Linux, incluidas utilidades como Top y Nano. 
 
-    ![Pasos de implementaciones: Administrador de Azure IoT Edge](./media/deploy-iot-edge-linux-on-windows/azure-iot-edge-manager.png)
-1. Vaya al shell de comandos y escriba el siguiente comando:
+    > [!TIP] 
+    > Para salir de la VM de EFLOW, escriba `exit` en el terminal.
+
+1. Inicie sesión en la VM de EFLOW a través de PowerShell y escriba el comando siguiente:
 
     `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
 
@@ -51,18 +49,22 @@ A continuación se describe el flujo general del documento y en cinco pasos senc
     * `/var/media`
 
     Observe los archivos de vídeo (*.mkv) de la carpeta /home/lvaedgeuser/samples/input, ya que le servirán como los archivos de entrada que se van a analizar. 
-1. Ahora que tiene el dispositivo perimetral configurado, registrado en el centro de conectividad y ejecutándose correctamente con las estructuras de carpetas correctas creadas, el paso siguiente consiste en configurar los siguientes recursos adicionales de Azure e implementar el módulo de AVA. 
-
-    * Cuenta de almacenamiento
-    * Cuenta de Azure Media Services
+1. Ahora que tiene el dispositivo perimetral configurado, registrado en el centro de conectividad y ejecutándose correctamente con las estructuras de carpetas correctas creadas, el paso siguiente consiste en configurar los siguientes recursos adicionales de Azure e implementar el módulo de AVA. La siguiente plantilla de implementación se ocupará de la creación de recursos:
 
     [![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+    
+    El proceso de implementación tardará unos 20 minutos. Al finalizar, tendrá determinados recursos de Azure implementados en la suscripción de Azure, entre los que se incluyen:
+
+    * Cuenta de Video Analyzer: este servicio en la nube se usa para registrar el módulo perimetral Video Analyzer y para reproducir vídeo grabado y análisis de vídeo.
+    * Cuenta de almacenamiento: para almacenar vídeo grabado y análisis de vídeo.
+    * Identidad administrada: es la identidad administrada asignada por el usuario que se usa para administrar el acceso a la cuenta de almacenamiento anterior.
+    * IoT Hub: funciona como un centro de mensajes común para la comunicación bidireccional entre la aplicación de IoT, los módulos de IoT Edge y los dispositivos que administra.
 
     En la plantilla, cuando se le pregunte si necesita un dispositivo perimetral, elija la opción "Use an existing edge device" (Usar un dispositivo perimetral existente), ya que creó el dispositivo y la instancia de IoT Hub anteriormente. También se le pedirán el nombre de la instancia de IoT Hub y el identificador del dispositivo de IoT Edge en los pasos siguientes.  
     
     ![Uso del dispositivo existente](./media/deploy-iot-edge-linux-on-windows/use-existing-device.png) 
 
-    Una vez finalizado, puede volver a iniciar sesión en el shell de comandos del dispositivo de IoT Edge y ejecutar el siguiente comando.
+    Una vez finalizado, puede volver a iniciar sesión en la VM de EFLOW y ejecutar el siguiente comando.
 
     **`sudo iotedge list`**
 

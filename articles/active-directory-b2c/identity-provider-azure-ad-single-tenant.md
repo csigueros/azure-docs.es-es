@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 08/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a6952679ad2497a059b6ad043ef5e1e23fea0236
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 7a213198421597e444a55c53d85cdb6e427425a3
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744078"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178056"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C
 
@@ -35,6 +35,14 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+### <a name="verify-the-applications-publisher-domain"></a>Comprobación del dominio del publicador de la aplicación
+A partir de noviembre de 2020, los nuevos registros de aplicaciones se muestran como no comprobados en el mensaje de consentimiento del usuario, a menos que [se haya comprobado el dominio del publicador de la aplicación](../active-directory/develop/howto-configure-publisher-domain.md) ***y además*** se haya comprobado la identidad de la empresa con Microsoft Partner Network y se haya asociado a la aplicación. [Obtenga más información](../active-directory/develop/publisher-verification-overview.md) sobre este cambio. Tenga en cuenta que, en los flujos de usuario de Azure AD B2C, el dominio del publicador solo aparece cuando se usa una [cuenta de Microsoft](../active-directory-b2c/identity-provider-microsoft-account.md) u otro inquilino de Azure AD como proveedor de identidades. Para cumplir estos nuevos requisitos, haga lo siguiente:
+
+1. [Compruebe la identidad de la empresa con la cuenta de Microsoft Partner Network (MPN)](/partner-center/verification-responses). Este proceso comprueba la información sobre la empresa y el contacto principal de la empresa.
+1. Complete el proceso de comprobación del publicador para asociar la cuenta de MPN con el registro de la aplicación mediante una de las siguientes opciones:
+   - Si el registro de la aplicación para el proveedor de identidades de la cuenta de Microsoft está en un inquilino de Azure AD, [compruebe la aplicación en el portal de registro de aplicaciones](../active-directory/develop/mark-app-as-publisher-verified.md).
+   - Si el registro de la aplicación para el proveedor de identidades de la cuenta de Microsoft está en un inquilino de Azure AD B2C, [marque la aplicación como publicador comprobado mediante las API de Microsoft Graph](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (por ejemplo, mediante Probador de Graph). La interfaz de usuario para establecer el publicador comprobado de una aplicación está deshabilitada actualmente para inquilinos de Azure AD B2C.
 
 ## <a name="register-an-azure-ad-app"></a>Registrar una aplicación de Azure AD
 
@@ -72,6 +80,10 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 1. En **Tipo de token**, seleccione **ID**.
 1. Seleccione las notificaciones opcionales que va a agregar, `family_name` y `given_name`.
 1. Haga clic en **Agregar**.
+
+## <a name="optional-verify-your-app-authenticity"></a>[Opcional] Comprobación de la autenticidad de la aplicación
+
+La [comprobación del editor](../active-directory/develop/publisher-verification-overview.md) ayuda a los usuarios a entender la autenticidad de la aplicación que [ha registrado](#register-an-azure-ad-app). Una aplicación comprobada significa que el editor de la aplicación ha [ comprobado](/partner-center/verification-responses) su identidad mediante su Microsoft Partner Network (MPN). Obtenga información sobre cómo [marcar la aplicación como comprobada por el editor](../active-directory/develop/mark-app-as-publisher-verified.md). 
 
 ::: zone pivot="b2c-user-flow"
 
@@ -236,10 +248,8 @@ Para obtener un token del punto de conexión de Azure AD es preciso definir los 
 
 Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
+::: zone-end
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Al trabajar con directivas personalizadas, en ocasiones es posible que necesite información adicional al solucionar problemas de una directiva durante su desarrollo.
-
-Para ayudar a diagnosticar problemas, puede poner temporalmente la directiva en "modo de programador" y recopilar registros con Azure Application Insights. Descubra cómo en [Azure Active Directory B2C: Recopilación de registros](troubleshoot-with-application-insights.md).
-
-::: zone-end
+Obtenga información sobre cómo [pasar el token de Azure AD a la aplicación](idp-pass-through-user-flow.md).

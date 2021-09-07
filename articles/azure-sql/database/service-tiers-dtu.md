@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 5/4/2021
-ms.openlocfilehash: c5413918923ebb4e613ecb48e86dbccfcc60889b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 8/12/2021
+ms.openlocfilehash: 56ed469843c78b299d0cec426eb490cedce1defe
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693277"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015473"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Los niveles de servicio en el modelo de compra basado en DTU se diferencian por una variedad de tamaños de proceso con una cantidad fija de almacenamiento incluido, un período de retención fijo para copias de seguridad y un precio fijo. Todos los niveles de servicio en el modelo de compra basado en DTU proporcionan flexibilidad de cambiar los tamaños de proceso con el mínimo [tiempo de inactividad](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); sin embargo, hay un breve período de cambio donde se pierde la conectividad a la base de datos, lo que se puede mitigar con la lógica de reintento. Las bases de datos únicas y los grupos elásticos se facturan por horas en función del nivel de servicio y el tamaño de proceso.
+Los niveles de servicio en el modelo de compra basado en DTU se diferencian por una variedad de tamaños de proceso con una cantidad fija de almacenamiento incluido, un período de retención fijo para copias de seguridad y un precio fijo. Todos los niveles de servicio en el modelo de compra basado en DTU proporcionan flexibilidad de cambiar los tamaños de proceso con el mínimo [tiempo de inactividad](https://azure.microsoft.com/support/legal/sla/azure-sql-database); sin embargo, hay un breve período de cambio donde se pierde la conectividad a la base de datos, lo que se puede mitigar con la lógica de reintento. Las bases de datos únicas y los grupos elásticos se facturan por horas en función del nivel de servicio y el tamaño de proceso.
 
 > [!IMPORTANT]
 > [Instancia administrada de Azure SQL Database](../managed-instance/sql-managed-instance-paas-overview.md) no admite un modelo de compra basado en DTU. 
@@ -178,6 +178,9 @@ Las métricas clave de la prueba comparativa son rendimiento y tiempo de respues
 | Premium |Transacciones por segundo |Percentil 95 en 0,5 segundos |
 | Estándar |Transacciones por minuto |Percentil 90 en 1,0 segundo |
 | Básico |Transacciones por hora |Percentil 80 en 2,0 segundos |
+
+> [!NOTE]
+> Las métricas de tiempo de respuesta son específicas de la [prueba comparativa de DTU](#dtu-benchmark). Los tiempos de respuesta de otras cargas de trabajo dependen de la carga de trabajo y variarán.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

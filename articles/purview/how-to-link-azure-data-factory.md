@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/31/2021
-ms.openlocfilehash: 0f92a5313622ffafe5ea5cbe2fdedc77d685b0ab
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/10/2021
+ms.openlocfilehash: 0a5ab1b8e79c3cfacb2944369b5f9234355ba4c8
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792227"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122229011"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -20,10 +20,10 @@ En este documento se explican los pasos necesarios para conectar una cuenta de A
 
 ## <a name="view-existing-data-factory-connections"></a>Visualización de conexiones existentes de Data Factory
 
-Es posible conectar varias instancias de Azure Data Factory a una sola de Data Catalog de Azure Purview para enviar información de linaje. El límite actual permite conectar hasta diez cuentas de Data Factory a la vez desde el centro de administración de Purview. Para mostrar la lista de cuentas de Data Factory conectadas a la instancia de Data Catalog de Purview, haga lo siguiente:
+Es posible conectar varias instancias de Azure Data Factory a una sola de Data Catalog de Azure Purview para enviar información de linaje. El límite actual permite conectar hasta 10 cuentas de Data Factory a la vez desde el centro de administración de Purview. Para mostrar la lista de cuentas de Data Factory conectadas a la instancia de Data Catalog de Purview, haga lo siguiente:
 
-1. En el panel de navegación izquierdo, seleccione **Centro de administración**.
-2. En **Conexiones externas**, seleccione **Data Factory connection** (Conexión de Data Factory).
+1. En el panel de navegación izquierdo, seleccione **Administración**.
+2. En **Lineage connections** (Conexiones de linaje), seleccione **Data Factory**.
 3. Aparece la lista de conexiones de Data Factory.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Captura de pantalla que muestra una lista de conexiones de Data Factory." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
@@ -49,10 +49,10 @@ Es posible conectar varias instancias de Azure Data Factory a una sola de Data C
 >
 > Además, requiere que los usuarios sean el "Propietario" o "Colaborador" de la factoría de datos. 
 
-Siga los pasos que se indican a continuación para conectar una cuenta existente de Data Factory a la instancia de Data Catalog de Purview.
+Siga los pasos que se indican a continuación para conectar una factoría de datos existente  a la instancia de Data Catalog de Purview.
 
-1. En el panel de navegación izquierdo, seleccione **Centro de administración**.
-2. En **Conexiones externas**, seleccione **Data Factory connection** (Conexión de Data Factory).
+1. En el panel de navegación izquierdo, seleccione **Administración**.
+2. En **Lineage connections** (Conexiones de linaje), seleccione **Data Factory**.
 3. En la página **Data Factory connection** (Conexión de Data Factory), seleccione **Nueva**.
 
 4. Seleccione la cuenta de Data Factory en la lista y luego **Aceptar**. También puede filtrar por nombre de suscripción para limitar la lista.
@@ -63,7 +63,6 @@ Siga los pasos que se indican a continuación para conectar una cuenta existente
 
     Si alguna de las factorías de datos seleccionadas ya está conectada a otra cuenta de Purview, aparece un mensaje de advertencia. Al seleccionar Aceptar, la conexión de Data Factory con la otra cuenta de Purview se interrumpe. No se requieren confirmaciones adicionales.
 
-
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Captura de pantalla que muestra la advertencia de desconexión de Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
 
 >[!Note]
@@ -71,7 +70,7 @@ Siga los pasos que se indican a continuación para conectar una cuenta existente
 
 ### <a name="how-does-the-authentication-work"></a>¿Cómo funciona la autenticación?
 
-Cuando un usuario de Purview registra una instancia de Data Factory a la que tiene acceso, ocurre lo siguiente en el back-end:
+Cuando un usuario de Purview registra una factoría de datos a la que tiene acceso, ocurre lo siguiente en el back-end:
 
 1. La **identidad administrada de Data Factory** se agrega al rol RBAC de Purview: **Conservador de datos de Purview**.
 
@@ -88,10 +87,6 @@ Para quitar una conexión de Data Factory, haga lo siguiente:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Captura de pantalla que muestra cómo seleccionar factorías de datos para quitar la conexión." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>Configuración de una instancia de Integration Runtime autohospedada para recopilar el linaje
-
-El linaje de la actividad de copia de Data Factory está disponible para los almacenes de datos locales, como las bases de datos SQL. Si está ejecutando un entorno de ejecución de integración autohospedado para el movimiento de datos con Azure Data Factory y quiere capturar el linaje en Azure Purview, asegúrese de que la versión sea 5.0 o posterior. Para obtener más información sobre el entorno de ejecución de integración autohospedado, vea [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
-
 ## <a name="supported-azure-data-factory-activities"></a>Actividades admitidas de Azure Data Factory
 
 Azure Purview captura el linaje en tiempo de ejecución de las siguientes actividades de Azure Data Factory:
@@ -105,55 +100,9 @@ Azure Purview captura el linaje en tiempo de ejecución de las siguientes activi
 
 La integración entre Data Factory y Purview solo admite un subconjunto de los sistemas de datos que admite Data Factory, como se explica en las secciones siguientes.
 
-### <a name="data-factory-copy-activity-support"></a>Compatibilidad con la actividad de copia de Data Factory
+[!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
-| Almacén de datos | Compatible | 
-| ------------------- | ------------------- | 
-| Azure Blob Storage | Sí |
-| Azure Cognitive Search | Sí | 
-| Azure Cosmos DB (SQL API) \* | Sí | 
-| API de Azure Cosmos DB para MongoDB \* | Sí |
-| Azure Data Explorer \* | Sí | 
-| Azure Data Lake Storage Gen1 | Sí | 
-| Azure Data Lake Storage Gen2 | Sí | 
-| Azure Database for Maria DB \* | Sí | 
-| Azure Database for MySQL \* | Sí | 
-| Azure Database for PostgreSQL \* | Sí |
-| Azure File Storage | Sí | 
-| Azure SQL Database \* | Sí | 
-| Azure SQL Managed Instance \* | Sí | 
-| Azure Synapse Analytics \* | Sí | 
-| Azure Table Storage | Sí |
-| Amazon S3 | Sí | 
-| Hive \* | Sí | 
-| SAP ECC \* | Sí |
-| SAP Table | Sí |
-| SQL Server \* | Sí | 
-| Teradata \* | Sí |
-
-*\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
-
-> [!Note]
-> La característica de linaje tiene cierta sobrecarga de rendimiento en la actividad de copia de Data Factory. Aquellos que configuren las conexiones de Data Factory en Purview pueden observar que determinados trabajos de copia tardan más tiempo en completarse. Pero, en su mayor parte, el impacto es o ninguno o insignificante. Póngase en contacto con soporte técnico y proporcione la comparación de tiempo si los trabajos de copia tardan mucho más tiempo del habitual en terminar.
-
-#### <a name="known-limitations-on-copy-activity-lineage"></a>Limitaciones conocidas en el linaje de la actividad de copia
-
-Actualmente, si usa las siguientes características de la actividad de copia, el linaje no se admite todavía:
-
-- Copia de datos en Azure Data Lake Storage Gen1 mediante el formato binario.
-- Copia de datos en Azure Synapse Analytics mediante PolyBase o la instrucción COPY.
-- Configuración de compresión para archivos binarios, de texto delimitado, de Excel, JSON y XML.
-- Opciones de partición de origen para Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server y la tabla de SAP.
-- Opción de detección de partición de origen para almacenes basados en archivos.
-- Copia de datos en un receptor basado en archivos con la configuración de número máximo de filas por archivo.
-- Adición de más columnas durante la copia.
-
-Además del linaje, se indica el esquema de recursos de datos (que se muestra en la pestaña Recurso -> Esquema) para los siguientes conectores:
-
-- Archivos CSV y Parquet en Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2 y Amazon S3
-- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
-
-### <a name="data-factory-data-flow-support"></a>Compatibilidad de Data Flow de Data Factory
+### <a name="data-flow-support"></a>Compatibilidad de Data Flow
 
 | Almacén de datos | Compatible |
 | ------------------- | ------------------- | 
@@ -169,23 +118,13 @@ Además del linaje, se indica el esquema de recursos de datos (que se muestra en
 
 *\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
 
-### <a name="data-factory-execute-ssis-package-support"></a>Compatibilidad de Ejecución de paquete de SSIS de Data Factory
+### <a name="execute-ssis-package-support"></a>Compatibilidad de ejecución de paquetes SSIS
 
-| Almacén de datos | Compatible |
-| ------------------- | ------------------- |
-| Azure Blob Storage | Sí |
-| Azure Data Lake Storage Gen1 | Sí |
-| Azure Data Lake Storage Gen2 | Sí |
-| Azure File Storage | Sí |
-| Azure SQL Database \* | Sí |
-| Azure SQL Managed Instance \*| Sí |
-| Azure Synapse Analytics \* | Sí |
-| SQL Server \* | Sí |
+Consulte los [almacenes de datos admitidos](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
-*\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
+## <a name="bring-data-factory-lineage-into-purview"></a>Inserción del linaje de Data Factory en Purview
 
-> [!Note]
-> Azure Data Lake Storage Gen2 ya está disponible con carácter general. Se recomienda que empiece a usarlo hoy mismo. Para más información, consulte la [página del producto](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+Para ver un tutorial completo, siga el [Tutorial: Inserción de datos de linaje de Data Factory en Azure Purview](../data-factory/turorial-push-lineage-to-purview.md).
 
 ## <a name="supported-lineage-patterns"></a>Patrones de linaje admitidos
 
@@ -193,7 +132,7 @@ Hay varios patrones de linaje que Azure Purview admite. Los datos de linaje gene
 
 Para configurar Data Factory para enviar información de linaje, vea [Introducción al linaje](catalog-lineage-user-guide.md#get-started-with-lineage).
 
-Entre otras formas de buscar información en la vista de linaje se incluyen las siguientes:
+Entre otras maneras de buscar información en la vista de linaje se incluyen las siguientes:
 
 - En la pestaña **Linaje**, mantenga el mouse sobre las formas para obtener una vista previa de la información adicional sobre el recurso en la información sobre herramientas.
 - Seleccione el nodo o el borde para ver el tipo de recurso al que pertenece o para cambiar de recurso.
@@ -249,5 +188,8 @@ En el ejemplo siguiente se genera un conjunto de recursos de Azure Data Lake Ge
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Guía de usuario del linaje de Data Catalog](catalog-lineage-user-guide.md)
-- [Vínculo a Azure Data Share para linaje](how-to-link-azure-data-share.md)
+[Tutorial: Inserción de datos de linaje de Data Factory en Azure Purview](../data-factory/turorial-push-lineage-to-purview.md)
+
+[Guía de usuario del linaje de Data Catalog](catalog-lineage-user-guide.md)
+
+[Vínculo a Azure Data Share para linaje](how-to-link-azure-data-share.md)

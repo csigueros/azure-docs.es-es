@@ -1,5 +1,5 @@
 ---
-title: Modelos de inteligencia artificial de Azure Percept
+title: Modelos de inteligencia artificial de ejemplo de Azure Percept
 description: Más información sobre los modelos de inteligencia artificial disponibles para la creación de prototipos y la implementación
 author: mimcco
 ms.author: mimcco
@@ -7,14 +7,14 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: f10a330de52d40f728cd628a1d7cb83b54ad1ff6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0db18be3e075df6e5566bd622f956839f23769c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557367"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743727"
 ---
-# <a name="azure-percept-ai-models"></a>Modelos de inteligencia artificial de Azure Percept
+# <a name="azure-percept-sample-ai-models"></a>Modelos de inteligencia artificial de ejemplo de Azure Percept
 
 Azure Percept permite desarrollar e implementar modelos de inteligencia artificial directamente en [Azure Percept DK](./overview-azure-percept-dk.md) con [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). La implementación de modelos utiliza [Azure IOT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
 

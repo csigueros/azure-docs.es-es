@@ -6,37 +6,32 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 07/13/2021
 ms.author: tamram
-ms.reviewer: sohamnc
+ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b417bff98b7e48154c96ede973a8b8bc7256f128
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 34c3f19ebb48bef3ece00b6413af2c1d7e585cf5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984579"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737459"
 ---
 # <a name="assign-an-azure-role-for-access-to-blob-data"></a>Asignación de un rol de Azure para acceder a datos de blobs
 
-Azure Active Directory (Azure AD) autoriza derechos de acceso a recursos protegidos mediante el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los contenedores.
+Azure Active Directory (Azure AD) autoriza derechos de acceso a recursos protegidos mediante el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob.
 
-Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure concede acceso a esos recursos a esa entidad de seguridad. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure concede a esa entidad de seguridad acceso a esos recursos. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-En este artículo se muestra cómo asignar roles de Azure para el acceso de datos a blobs.
+Para más información sobre el uso de Azure AD para autorizar el acceso a los datos de blob, consulte [Autorización del acceso a blobs mediante Azure Active Directory](authorize-access-azure-active-directory.md).
 
-## <a name="azure-roles-for-blobs"></a>Roles de Azure para blobs
-
-[!INCLUDE [storage-auth-rbac-roles-blob-include](../../../includes/storage-auth-rbac-roles-blob-include.md)]
-
-## <a name="determine-resource-scope"></a>Determinar el ámbito de recursos
-
-[!INCLUDE [storage-auth-resource-scope-blob-include](../../../includes/storage-auth-resource-scope-blob-include.md)]
+> [!NOTE]
+> En este artículo se muestra cómo asignar un rol de Azure para el acceso a los datos de blob en una cuenta de almacenamiento. Para obtener información sobre la asignación de roles para las operaciones de administración en Azure Storage, consulte [Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración](../common/authorization-resource-provider.md).
 
 ## <a name="assign-an-azure-role"></a>Asignación de un rol de Azure
 
-Puede usar Azure Portal, PowerShell o la CLI de Azure para asignar un rol para el acceso a datos.
+Puede usar Azure Portal, PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager para asignar un rol para el acceso a datos.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -62,7 +57,7 @@ También puede asignar un rol de Azure Resource Manager que proporciona permisos
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para asignar un rol de Azure a una entidad de seguridad, llame al comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). El formato del comando puede variar en función del ámbito de la asignación. Para ejecutar el comando, debe tener un rol que incluya los permisos **Microsoft.Authorization/roleAssignments/write** asignados en el ámbito correspondiente o superior.
+Para asignar un rol de Azure a una entidad de seguridad con PowerShell, llame al comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). El formato del comando puede variar en función del ámbito de la asignación. Para ejecutar el comando, debe tener un rol que incluya los permisos **Microsoft.Authorization/roleAssignments/write** asignados en el ámbito correspondiente o superior.
 
 Para asignar un rol cuyo ámbito es un contenedor, especifique una cadena que contenga el ámbito del contenedor en el parámetro `--scope`. El ámbito de un contenedor tiene este formato:
 
@@ -82,7 +77,7 @@ Para obtener información sobre cómo asignar roles con PowerShell en el ámbito
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para asignar un rol de Azure a una entidad de seguridad, use el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create). El formato del comando puede variar en función del ámbito de la asignación. El formato del comando puede variar en función del ámbito de la asignación. Para ejecutar el comando, debe tener un rol que incluya los permisos **Microsoft.Authorization/roleAssignments/write** asignados en el ámbito correspondiente o superior.
+Para asignar un rol de Azure a una entidad de seguridad con la CLI de Azure, use el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create). El formato del comando puede variar en función del ámbito de la asignación. El formato del comando puede variar en función del ámbito de la asignación. Para ejecutar el comando, debe tener un rol que incluya los permisos **Microsoft.Authorization/roleAssignments/write** asignados en el ámbito correspondiente o superior.
 
 Para asignar un rol cuyo ámbito es un contenedor, especifique una cadena que contenga el ámbito del contenedor en el parámetro `--scope`. El ámbito de un contenedor tiene este formato:
 
@@ -101,12 +96,17 @@ az role assignment create \
 
 Para obtener información sobre cómo asignar roles con PowerShell en el ámbito de la suscripción, el grupo de recursos o la cuenta de almacenamiento, consulte [Asignación de roles de Azure mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md).
 
+# <a name="template"></a>[Plantilla](#tab/template)
+
+Para obtener información sobre cómo usar una plantilla de Azure Resource Manager para asignar un rol de Azure, consulte [Asignación de roles de Azure mediante plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+
 ---
 
 Tenga en cuenta los siguientes puntos sobre las asignaciones de roles de Azure en Azure Storage:
 
 - Al crear una cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos a través de Azure AD. Tiene que asignarse a sí mismo de forma explícita un rol de Azure para Azure Storage. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor.
 - Si la cuenta de almacenamiento se bloquea con un bloqueo de solo lectura de Azure Resource Manager, el bloqueo evita la asignación de roles de Azure que tienen como ámbito la cuenta de almacenamiento o un contenedor.
+- Si ha establecido los permisos adecuados para acceder a los datos a través de Azure AD y no puede acceder a los datos (por ejemplo, recibe un error "AuthorizationPermissionMismatch"). Asegúrese de dejar tiempo suficiente para que los cambios de permisos realizados en Azure AD se repliquen y asegúrese de que no tiene ninguna asignación de denegación que bloquee el acceso. Consulte [Descripción de las asignaciones de denegación de Azure](../../role-based-access-control/deny-assignments.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

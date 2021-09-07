@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 9424162e847a9d92019efe907ce74f21c55cdb23
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: b646c4d263896e1bf4d63bdaf965209c005b8228
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226253"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742653"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -21,7 +21,7 @@ El archivo de metadatos *host.json* contiene las opciones de configuración glob
 > [!NOTE]
 > Este artículo trata sobre Azure Functions 2.x y versiones posteriores.  Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md).
 
-Otras opciones de configuración de la aplicación de funciones se administran en la [configuración de la aplicación](functions-app-settings.md) (para aplicaciones implementadas) o en el archivo [local.settings.json](functions-run-local.md#local-settings-file) (para desarrollo local).
+Otras opciones de configuración de la aplicación de funciones se administran en la [configuración de la aplicación](functions-app-settings.md) (para aplicaciones implementadas) o en el archivo [local.settings.json](functions-develop-local.md#local-settings-file) (para desarrollo local).
 
 Las configuraciones de host.json relacionadas con los enlaces se aplican por igual a cada función de la aplicación de funciones. 
 
@@ -221,6 +221,28 @@ Para obtener más información sobre las instantáneas, vea los artículos sobre
 
 Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de blobs de Storage](functions-bindings-storage-blob.md#hostjson-settings).  
 
+## <a name="console"></a>console
+
+Esta configuración es un elemento secundario de [logging](#logging). Controla el registro de la consola cuando no está en modo de depuración.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": false,
+          "DisableColors": true
+        },
+    ...
+    }
+}
+```
+
+|Propiedad  |Valor predeterminado | Descripción |
+|---------|---------|---------| 
+|DisableColors|false| Suprime el formato de registro en los registros de contenedor en Linux. Establezca el valor en true si ve caracteres de control ANSI no deseados en los registros de contenedor durante la ejecución en Linux. |
+|isEnabled|false|Habilita o deshabilita el registro de la consola.| 
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -349,26 +371,6 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 |console|N/D| Configuración del registro de [consola](#console). |
 |applicationInsights|N/D| Configuración de [applicationInsights](#applicationinsights). |
 
-## <a name="console"></a>console
-
-Esta configuración es un elemento secundario de [logging](#logging). Controla el registro de la consola cuando no está en modo de depuración.
-
-```json
-{
-    "logging": {
-    ...
-        "console": {
-          "isEnabled": "false"
-        },
-    ...
-    }
-}
-```
-
-|Propiedad  |Valor predeterminado | Descripción |
-|---------|---------|---------| 
-|isEnabled|false|Habilita o deshabilita el registro de la consola.| 
-
 ## <a name="manageddependency"></a>managedDependency
 
 La dependencia administrada es una característica en versión preliminar que actualmente solo se admite con funciones basadas en PowerShell. Permite que el servicio administre de forma automática las dependencias. Cuando la propiedad `enabled` está establecida en `true`, se procesa el archivo `requirements.psd1`. Las dependencias se actualizarán cuando se publique alguna versión secundaria. Para obtener más información, lea [Dependencia administrada](functions-reference-powershell.md#dependency-management) en el artículo de PowerShell.
@@ -465,7 +467,7 @@ Matriz de uno o más nombres de archivos que se supervisan para ver los cambios 
 
 ## <a name="override-hostjson-values"></a>Invalidación de valores de host.json
 
-Puede haber instancias en las que quiera configurar o modificar valores específicos en un archivo host.json para un entorno específico, sin cambiar el propio archivo host.json.  Puede invalidar valores específicos de host.json para crear un valor equivalente como una configuración de aplicación. Cuando el entorno de ejecución encuentra una configuración de aplicación en el formato `AzureFunctionsJobHost__path__to__setting`, invalida la configuración de host.json equivalente que se encuentra en `path.to.setting` en el archivo JSON. Cuando se expresa como una configuración de aplicación, el punto (`.`), que se utilizaba para indicar la jerarquía JSON, se reemplaza por un carácter de subrayado doble (`__`). 
+Puede haber instancias en las que quiera configurar o modificar valores específicos en un archivo host.json para un entorno específico, sin cambiar el propio archivo host.json.  Puede invalidar valores específicos de host.json al crear un valor equivalente como una configuración de aplicación. Cuando el entorno de ejecución encuentra una configuración de aplicación en el formato `AzureFunctionsJobHost__path__to__setting`, invalida la configuración de host.json equivalente que se encuentra en `path.to.setting` en el archivo JSON. Cuando se expresa como una configuración de aplicación, el punto (`.`), que se utilizaba para indicar la jerarquía JSON, se reemplaza por un carácter de subrayado doble (`__`). 
 
 Por ejemplo, suponga que desea deshabilitar el muestreo de Application Insights cuando se ejecuta localmente. Si ha cambiado el archivo host.json local para deshabilitar Application Insights, este cambio podría insertarse en la aplicación de producción durante la implementación. La manera más segura de hacerlo es crear una configuración de aplicación como `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` en el archivo `local.settings.json`. Puede verlo en el siguiente archivo `local.settings.json`, que no se publica:
 

@@ -3,12 +3,12 @@ title: Eliminación de un almacén de Microsoft Azure Recovery Services
 description: En este artículo, aprenderá a quitar dependencias y, luego, a eliminar un almacén de Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 06/07/2021
-ms.openlocfilehash: 022297407200f6045cd0cf4c0922a83c41333a04
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0eb5e7c48bf15583e96a5bf30149ba01ee7c2e33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752808"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747649"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -52,7 +52,7 @@ Para eliminar correctamente un almacén, debe seguir los pasos en este orden:
 
 Después de completar estos pasos, puede continuar y [eliminar el almacén](#delete-the-recovery-services-vault).
 
-Si no tiene elementos protegidos locales o en la nube, pero sigue obteniendo el error de eliminación del almacén, siga los pasos de [Eliminación del almacén de Recovery Services mediante Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager).
+Si **sigue sin poder eliminar el almacén** que no contiene dependencias, siga los pasos indicados en [**Eliminación del almacén mediante el cliente de ARM**](#delete-the-recovery-services-vault-by-using-azure-resource-manager).
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Eliminación de elementos protegidos en la nube
 

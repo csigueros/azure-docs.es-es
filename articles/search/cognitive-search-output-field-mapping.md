@@ -1,21 +1,20 @@
 ---
-title: Asignación de entrada a campos de salida
+title: Asignación de campos de salida de aptitudes
 titleSuffix: Azure Cognitive Search
-description: Extraiga y enriquezca los campos de datos de origen y asígnelos a los campos de salida de un índice de Búsqueda cognitiva de Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+description: Exporte el contenido enriquecido creado por un conjunto de aptitudes mediante la asignación de sus campos de salida a los campos de un índice de búsqueda.
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 58bb87d5af785d3cffd96f3bd02477f97ed967a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: 0e1db5f12e83a88697db38a6ddd77edab445f6c0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001310"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195206"
 ---
-# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Cómo asignar campos enriquecidos con IA a un índice de búsqueda
+# <a name="map-enrichment-output-to-fields-in-a-search-index"></a>Asignación de la salida de enriquecimiento a campos de un índice de búsqueda
 
 ![Fases del indexador](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "fases del indexador")
 
@@ -32,7 +31,7 @@ Ejemplos de asignaciones de campos de salida:
 * No tiene un conjunto de aptitudes pero está indizando un tipo complejo desde una base de datos Cosmos DB. Quiere obtener acceso a un nodo de ese tipo complejo y asignarlo a un campo en el índice.
 
 > [!NOTE]
-> Recientemente se ha habilitado la funcionalidad de asignación de funciones en las asignaciones de campos de salida. Para obtener más información sobre las funciones de asignación, consulte [Funciones de asignación de campos](./search-indexer-field-mappings.md#field-mapping-functions)
+> Las asignaciones de campos de salida solo se aplican a índices de búsqueda. En el caso de los indexadores que crean [almacenes de conocimiento](knowledge-store-concept-intro.md), se omiten las asignaciones de campos de salida.
 
 ## <a name="use-outputfieldmappings"></a>Usar outputFieldMappings
 
@@ -81,7 +80,7 @@ El cuerpo de la solicitud está estructurado de la siguiente manera:
 }
 ```
 
-En cada asignación de campo de salida, establezca la ubicación de los datos del árbol de documentos enriquecidos (sourceFieldName) y el nombre del campo al que se hace referencia en el índice (targetFieldName).
+En cada asignación de campo de salida, establezca la ubicación de los datos del árbol de documentos enriquecidos (sourceFieldName) y el nombre del campo al que se hace referencia en el índice (targetFieldName). Asigne las [funciones de asignación](search-indexer-field-mappings.md#field-mapping-functions) que necesite para transformar el contenido de un campo antes de almacenarlo en el índice.
 
 ## <a name="flattening-information-from-complex-types"></a>Reducción de la información de tipos complejos 
 

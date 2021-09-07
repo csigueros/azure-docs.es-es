@@ -10,18 +10,18 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: 74060212d5cf140dcd7a3ee099954123e52b82ae
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 7dff98002d92c6214a6e88f0bb20ef216329e127
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961979"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745797"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>Guía de migración: de Oracle a Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
-Con esta guía aprenderá a migrar sus esquemas de Oracle a Azure SQL Managed Instance mediante SQL Server Migration Assistant para Oracle (SSMA para Oracle).
+ Con esta guía aprenderá a migrar sus esquemas de Oracle a Azure SQL Managed Instance mediante SQL Server Migration Assistant para Oracle.
 
 Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](/data-migration).
 
@@ -30,7 +30,7 @@ Para ver otras guías de migración, consulte la [Guía de Azure Database Migrat
 Antes de empezar a migrar el esquema de Oracle a SQL Managed Instance:
 
 - Comprobar que el entorno de origen es compatible.
-- Descargue [SSMA para Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+- Descargue [SSMA para Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 - Prepare un destino de [SQL Managed Instance](../../managed-instance/instance-create-quickstart.md).
 - Obtenga los [permisos necesarios de SSMA para Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) y el [proveedor](/sql/ssma/oracle/connect-to-oracle-oracletosql).
  
@@ -44,7 +44,7 @@ Al usar SSMA para Oracle, puede revisar los objetos y datos de base de datos, ev
 
 Para crear una evaluación:
 
-1. Abra [SSMA para Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+1. Abra [SSMA para Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 1. Seleccione **Archivo** y, a continuación, seleccione **Nuevo proyecto**.
 1. Escriba el nombre del proyecto y elija una ubicación para guardar el proyecto. Después, seleccione **Azure SQL Managed Instance** como destino de la migración en la lista desplegable y seleccione **Aceptar**.
 
@@ -58,7 +58,7 @@ Para crear una evaluación:
 
    ![Captura de pantalla que muestra la selección de esquema de Oracle.](./media/oracle-to-managed-instance-guide/select-schema.png)
 
-1. En **Explorador de metadatos de Oracle**, haga clic con el botón derecho en el esquema de Oracle que quiere migrar y seleccione **Crear informe** para generar un informe HTML. También puede seleccionar una base de datos y luego la pestaña **Crear informe**.
+1. En **Explorador de metadatos de Oracle**, haga clic con el botón derecho en el esquema de Oracle que quiere migrar y seleccione **Crear informe** para generar un informe HTML. En lugar de ello, puede seleccionar una base de datos y luego la pestaña **Crear informe**.
 
    ![Captura de pantalla que muestra la opción Crear informe.](./media/oracle-to-managed-instance-guide/create-report.png)
 
@@ -91,7 +91,7 @@ Para convertir el esquema:
 
     ![Captura de pantalla que muestra la pestaña Conectarse a Azure SQL Managed Instance.](./media/oracle-to-managed-instance-guide/connect-to-sql-managed-instance.png)
 
-1. En **Explorador de metadatos de Oracle**, haga clic con el botón derecho en el esquema de Oracle y seleccione **Convertir esquema**. También puede seleccionar el esquema y luego la pestaña **Convertir esquema**.
+1. En **Explorador de metadatos de Oracle**, haga clic con el botón derecho en el esquema de Oracle y seleccione **Convertir esquema**. O bien, puede seleccionar el esquema y luego la pestaña **Convertir esquema**.
 
    ![Captura de pantalla que muestra la pestaña Convertir esquema.](./media/oracle-to-managed-instance-guide/convert-schema.png)
 
@@ -111,6 +111,7 @@ Para convertir el esquema:
 Cuando haya terminado de evaluar las bases de datos y de resolver las discrepancias, el siguiente paso consiste en ejecutar el proceso de migración. La migración conlleva dos pasos: publicar el esquema y migrar los datos.
 
 Para publicar el esquema y migrar los datos, haga lo siguiente:
+
 1. Para publicar el esquema, haga clic con el botón derecho en la base de datos desde el nodo **Bases de datos** del **Explorador de metadatos de Azure SQL Managed Instance** y seleccione **Sincronizar con la base de datos**.
 
    ![Captura de pantalla que muestra la pestaña Sincronizar con la base de datos.](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
@@ -120,7 +121,7 @@ Para publicar el esquema y migrar los datos, haga lo siguiente:
 
    ![Captura de pantalla que muestra la revisión de Sincronizar con base de datos.](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
 
-1. Para migrar los datos, haga clic con el botón derecho en el esquema o el objeto que quiera migrar en el **Explorador de metadatos de Oracle** y seleccione **Migrar datos**. También puede seleccionar la pestaña **Migrar datos**. Para migrar datos de una base de datos completa, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas concretas, expanda la base de datos, expanda **Tablas** y, a continuación, active las casillas que hay junto a las tablas. Para omitir datos de tablas concretas, desactive las casillas.
+1. Para migrar los datos, haga clic con el botón derecho en el esquema o el objeto que quiera migrar en el **Explorador de metadatos de Oracle** y seleccione **Migrar datos**. O bien, puede seleccionar la pestaña **Migrar datos**. Para migrar datos de una base de datos completa, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas concretas, expanda la base de datos, expanda **Tablas** y, a continuación, active las casillas que hay junto a las tablas. Para omitir datos de tablas concretas, desactive las casillas.
 
    ![Captura de pantalla que muestra la pestaña Migrar datos.](./media/oracle-to-managed-instance-guide/migrate-data.png)
 
@@ -133,12 +134,12 @@ Para publicar el esquema y migrar los datos, haga lo siguiente:
 
    ![Captura de pantalla que muestra la validación en SSMA para Oracle.](./media/oracle-to-managed-instance-guide/validate-data.png)
 
-También puede usar SQL Server Integration Services para realizar la migración. Para obtener más información, consulte:
+O bien, puede usar SQL Server Integration Services para realizar la migración. Para obtener más información, consulte:
 
 - [Introducción a SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services para Azure y movimiento de datos híbridos](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
-## <a name="post-migration"></a>Después de la migración
+## <a name="post-migration"></a>Etapa posterior a la migración
 
 Cuando haya completado correctamente la fase de *migración*, deberá realizar una serie de tareas posteriores para asegurarse de que todo funcione de la forma más fluida y eficaz posible.
 
@@ -157,6 +158,96 @@ El enfoque de prueba para la migración de bases de datos consta de las siguient
 3. **Ejecutar pruebas de validación**: ejecute las pruebas de validación en el origen y el destino y, luego, analice los resultados.
 4. **Ejecutar pruebas de rendimiento**: ejecute la prueba de rendimiento en el origen y el destino y, luego, analice y compare los resultados.
 
+### <a name="validate-migrated-objects"></a>Validación de objetos migrados
+
+Microsoft SQL Server Migration Assistant para Oracle Tester (SSMA Tester) permite probar objetos de base de datos migrados. SSMA Tester se usa para comprobar que los objetos convertidos se comportan de la misma manera.
+
+#### <a name="create-test-case"></a>Crear caso de prueba
+
+1. Abra SSMA para Oracle, seleccione **Tester** (Evaluador) seguido de **New Test Case** (Nuevo caso de prueba).
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/ssma-tester-new.png" alt-text="Captura de pantalla en la que se muestra el nuevo caso de prueba.":::
+
+1. En el Asistente para casos de prueba, proporcione la información siguiente:
+
+   **Name** (Nombre): escriba el nombre para identificar el caso de prueba.
+
+   **Creation date** (Fecha de creación): fecha actual de hoy, definida automáticamente.
+
+   **Last Modified date** (Fecha de última modificación): se rellena automáticamente; no debe cambiarse.
+
+   **Description** (Descripción): escriba cualquier información adicional para identificar la finalidad del caso de prueba.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-init-test-case.png" alt-text="Captura de pantalla que muestra los pasos necesario para inicializar un caso de prueba.":::
+
+1. Seleccione los objetos que forman parte del caso de prueba en el árbol de objetos de Oracle ubicado en el lado izquierdo.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-objects.png" alt-text="Captura de pantalla que muestra el paso para seleccionar y configurar el objeto.":::
+
+   En este ejemplo, se seleccionan el procedimiento almacenado `ADD_REGION` y la tabla `REGION`.
+
+   Para obtener más información, consulte [Selección y configuración de objetos de prueba (OracleToSQL)](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql).
+
+1. Después, seleccione las tablas, las claves externas y otros objetos dependientes del árbol de objetos de Oracle en la ventana izquierda.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-affected.png" alt-text="Captura de pantalla que muestra el paso para seleccionar y configurar el objeto afectado.":::
+
+    Para obtener más información, consulte [Selección y configuración de objetos afectados (OracleToSQL)](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql).
+
+1. Revise la secuencia de evaluación de objetos. Para cambiar el orden, haga clic en los botones de la cuadrícula.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/test-call-ordering.png" alt-text="Captura de pantalla que muestra el paso para secuenciar la ejecución de objetos de prueba.":::
+
+1. Para finalizar el caso de prueba, revise la información proporcionada en los pasos anteriores. Configure las opciones de ejecución de pruebas en función del escenario de prueba.
+
+   :::image type="content" source="./media//oracle-to-managed-instance-guide/tester-finalize-case.png" alt-text="Captura de pantalla que muestra el paso para finalizar el objeto.":::
+
+   Para más información sobre la configuración de casos de prueba, consulte [Finalización de la preparación del caso de prueba (OracleToSQL)](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql).
+
+1. Haga clic en Finalizar para crear el caso de prueba.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-repo.png" alt-text="Captura de pantalla que muestra el paso para probar el repositorio.":::
+
+#### <a name="run-test-case"></a>Ejecución del caso de prueba
+
+Cuando el evaluador de SSMA ejecuta un caso de prueba, el motor de pruebas ejecuta los objetos seleccionados para las pruebas y genera un informe de comprobación.
+
+1. Seleccione el caso de prueba en el repositorio de pruebas y haga clic en Ejecutar.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-repo-run.png" alt-text="Captura de pantalla que se muestra para revisar el repositorio de pruebas.":::
+
+1. Revise el caso de prueba de inicio y haga clic en Ejecutar.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-test-case.png" alt-text="Captura de pantalla que muestra el paso necesario para iniciar el caso de prueba.":::
+
+1. A continuación, proporcione las credenciales de origen de Oracle. Haga clic en Conectar después de escribir las credenciales.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-oracle-connect.png" alt-text="Captura de pantalla que muestra el paso necesario para conectarse al origen de Oracle.":::
+
+1. Proporcione las credenciales de SQL Server de destino y haga clic en Conectar.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-sqlmi-connect.png" alt-text="Captura de pantalla que muestra el paso para conectarse al destino de SQL.":::
+
+   Si se realiza correctamente, el caso de prueba pasa a la página de inicialización.
+
+1. Una barra de progreso en tiempo real muestra el estado de ejecución de la ejecución de prueba.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-status.png" alt-text="Captura de pantalla que muestra el progreso de la prueba del evaluador.":::
+
+1. Revise el informe una vez completada la prueba. El informe proporciona las estadísticas, los errores durante la ejecución de pruebas y un informe detallado.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-result.png" alt-text="Captura de pantalla que muestra un informe de prueba del evaluador de ejemplo":::
+
+1. Haga clic en detalles para obtener más información.
+
+   Ejemplo de validación de datos positivos.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-success.png" alt-text="Captura de pantalla que muestra un informe correcto del evaluador de ejemplo.":::
+
+   Ejemplo de validación de datos con errores.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-failed.png" alt-text="Captura de pantalla que muestra el informe de errores del evaluador.":::
+
 ### <a name="optimize"></a>Optimización
 
 La fase posterior a la migración es fundamental para reconciliar cualquier problema de precisión de datos y comprobar su integridad, así como para solucionar problemas de rendimiento con la carga de trabajo.
@@ -170,11 +261,9 @@ Para obtener más ayuda para completar este escenario de migración, consulte lo
 
 | **Título/vínculo**                                                                                                                                          | **Descripción**                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Esta herramienta proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y el nivel de corrección de la aplicación o base de datos para una carga de trabajo determinada. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado.                                                          |
-| [Artefactos de script de inventario de Oracle](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | Este recurso incluye una consulta PL/SQL que visita las tablas del sistema de Oracle y proporciona un recuento de objetos por tipo de esquema, tipo de objeto y estado. También proporciona una estimación aproximada de datos sin procesar en cada esquema y del tamaño de las tablas de cada esquema; almacena los resultados en formato CSV.                                                                                                               |
-| [Automatización de la recopilación y consolidación de evaluaciones de SSMA para Oracle](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | Este conjunto de recursos usa un archivo .csv como entrada (sources.csv en las carpetas del proyecto) para generar los archivos XML necesarios para ejecutar una evaluación de SSMA en modo de consola. El cliente proporciona el archivo source.csv basado en un inventario de las instancias de Oracle existentes. Los archivos de salida son AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml y VariableValueFile.xml.|
-| [Errores comunes de SSMA para Oracle y procedimiento para corregirlos](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Con Oracle, puede asignar una condición no escalar en la cláusula WHERE. Sin embargo, SQL Server no admite este tipo de condición. Como resultado, SSMA para Oracle no convierte las consultas que tienen una condición no escalar en la cláusula WHERE, sino que genera el error O2SS0001. Estas notas del producto proporcionan más detalles sobre el problema y las maneras de resolverlo.          |
-| [Manual de migración de Oracle a SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento se centra en las tareas asociadas a la migración de un esquema de Oracle a la versión más reciente de SQL Server Database. Si la migración requiere cambios en las características o funcionalidades, se debe tener muy en cuenta el posible impacto de cada cambio en las aplicaciones que usan la base de datos.                                                     |
+| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://www.microsoft.com/download/details.aspx?id=103130) | Esta herramienta proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y el nivel de corrección de la aplicación o base de datos para una carga de trabajo determinada. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado.                                                          |
+| [Artefactos de script de inventario de Oracle](https://www.microsoft.com/download/details.aspx?id=103121)                 | Este recurso incluye una consulta PL/SQL que visita las tablas del sistema de Oracle y proporciona un recuento de objetos por tipo de esquema, tipo de objeto y estado. También proporciona una estimación aproximada de datos sin procesar en cada esquema y del tamaño de las tablas de cada esquema; almacena los resultados en formato CSV.                                                                                                               |
+| [Automatización de la recopilación y consolidación de evaluaciones de SSMA para Oracle](https://www.microsoft.com/download/details.aspx?id=103120)                                             | Este conjunto de recursos usa un archivo .csv como entrada (sources.csv en las carpetas del proyecto) para generar los archivos XML necesarios para ejecutar una evaluación de SSMA en modo de consola. El cliente proporciona el archivo source.csv basado en un inventario de las instancias de Oracle existentes. Los archivos de salida son AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml y VariableValueFile.xml.|
 |[Utilidad Comparación de bases de datos de Oracle a SQL MI](https://www.microsoft.com/download/details.aspx?id=103016)|SSMA para Oracle Tester es la herramienta recomendada para validar automáticamente la conversión de objetos de base de datos y la migración de datos. Se trata de un superconjunto de la funcionalidad Comparación de bases de datos.<br /><br />Si busca una opción alternativa de validación de datos, puede usar la utilidad Comparación de bases de datos para comparar los datos hasta el nivel de fila o de columna en todas las tablas, filas y columnas o únicamente en las seleccionadas.|
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
@@ -185,7 +274,7 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 
 - Para obtener más información acerca de SQL Managed Instance, consulte:
   - [Introducción a Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md)
-  - [Calculadora del costo total de propiedad (TCO) de Azure](https://azure.microsoft.com/en-us/pricing/tco/calculator/)
+  - [Calculadora del costo total de propiedad (TCO) de Azure](https://azure.microsoft.com/pricing/tco/calculator/)
 
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)

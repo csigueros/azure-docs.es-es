@@ -1,30 +1,33 @@
 ---
 title: Creación de una clasificación personalizada y una regla de clasificación (versión preliminar)
 description: Descubra cómo crear clasificaciones personalizadas para definir en Azure Purview los tipos de datos únicos del patrimonio de datos de su organización.
-author: anmuk601
-ms.author: anmuk
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 3/24/2021
-ms.openlocfilehash: e54535449ddf9605bc483b9a309a717b22d8398d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: fff9f128e6a533d8a8926093ca58a79ef2e974d3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071504"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748114"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Clasificaciones personalizadas en Azure Purview
 
 En este artículo se describe cómo puede crear clasificaciones personalizadas para definir los tipos de datos únicos para su organización en el patrimonio de datos. También se detalla la creación de reglas de clasificación personalizadas que le permitirán buscar los datos especificados en todo el patrimonio de datos.
 
-## <a name="default-classifications"></a>Clasificaciones predeterminadas
+## <a name="default-system-classifications"></a>Clasificaciones del sistema predeterminadas
 
-Azure Purview Data Catalog proporciona un gran conjunto de clasificaciones predeterminadas que representan los tipos de datos personales típicos que puede tener en su patrimonio de datos.
+Azure Purview Data Catalog proporciona un gran conjunto de clasificaciones predeterminadas del sistema que representan los tipos de datos personales típicos que puede tener en su patrimonio de datos. Para obtener una lista completa de las clasificaciones del sistema disponibles, consulte [Clasificaciones admitidas en Azure Purview](supported-classifications.md).
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="seleccionar clasificación" border="true":::
 
 También tiene la posibilidad de crear clasificaciones personalizadas, si alguna de las clasificaciones predeterminadas no satisface sus necesidades.
+
+> [!Note]
+> Nuestras [reglas de muestreo de datos](sources-and-scans.md#sampling-within-a-file) se aplican a las clasificaciones tanto del sistema como personalizadas.  
 
 ## <a name="steps-to-create-a-custom-classification"></a>Pasos para crear una clasificación personalizada
 
@@ -118,16 +121,12 @@ Para crear una regla de clasificación personalizada:
    |Patrón de datos    |Opcional. Expresión regular que representa los datos que se almacenan en el campo de datos. El límite es muy amplio. En el ejemplo anterior, los patrones de datos prueban un id. de empleado que es literalmente la palabra `Employee{GUID}`.  |
    |Patrón de columna    |Opcional. Expresión regular que representa los nombres de columna que quiere buscar. El límite es muy amplio. |
 
-1. En **Patrón de datos**, hay dos umbrales que se pueden establecer:
+1. En **Patrón de datos** puede usar el **Umbral de coincidencia mínimo** para establecer el porcentaje mínimo de coincidencias de valores de datos únicos que debe encontrar el escáner en una columna para que se aplique la clasificación. El valor sugerido es el 60 %. Si especifica varios patrones de datos, esta configuración se deshabilitará y el valor se fijará en el 60 %.
 
-   - **Umbral de coincidencia único**: es el número total de valores de datos únicos que deben encontrarse en una columna antes de que el escáner ejecute el patrón de datos en ella. El valor sugerido es 8. Este valor se puede ajustar manualmente en un rango de 2 a 32. Asimismo, el sistema necesita este valor para asegurarse de que la columna contiene suficientes datos para que el escáner pueda clasificarla con precisión. Por ejemplo, una columna que contenga varias filas con el valor 1 no se clasificará. Tampoco se clasificarán las columnas que contengan una fila con un valor y el resto de las filas con valores NULL. Recuerde que si especifica varios patrones, este valor se aplica a cada uno de ellos.
-
-   - **Umbral de coincidencia mínimo**: puede usar esta opción para establecer el porcentaje mínimo de coincidencias de valores de datos únicos que debe encontrar el escáner en una columna para que se aplique la clasificación. El valor sugerido es el 60 %. Debe tener cuidado con esta configuración. Si reduce el nivel por debajo del 60 %, podría introducir clasificaciones de falsos positivos en el catálogo. Si especifica varios patrones de datos, esta configuración se deshabilitará y el valor se fijará en el 60 %.
+   > [!Note]
+   > El Umbral de coincidencia mínimo debe ser al menos del 1 %.
 
 1. Ahora puede comprobar la regla y **crearla**.
-
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Comprobación de la regla antes de crearla" border="true":::
-
 1. Pruebe la regla de clasificación antes de completar el proceso de creación para validar que se aplicarán etiquetas a los recursos. Las clasificaciones de la regla se aplicarán a los datos de ejemplo cargados, tal como lo haría en un examen. Esto significa que todas las clasificaciones del sistema y su clasificación personalizada coincidirán con los datos del archivo.
 
    Los archivos de entrada pueden incluir contenido de archivos delimitados (CSV, PSV, SSV, TSV), JSON o XML. El contenido se analizará en función de la extensión del archivo de entrada. Los datos delimitados pueden tener una extensión de archivo que coincida con cualquiera de los tipos mencionados. Por ejemplo, los datos TSV pueden existir en un archivo denominado MySampleData.csv. El contenido delimitado también debe tener un mínimo de 3 columnas.
@@ -142,9 +141,7 @@ Para crear una regla de clasificación personalizada:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Creación de regla de diccionario" border="true":::
 
-1. Una vez generado el diccionario, puede ajustar la coincidencia de valores únicos y los umbrales de coincidencia mínimos, y enviar la regla.
-
-- **Umbral de coincidencia único**: es el número total de valores de datos únicos que deben encontrarse en una columna antes de que el escáner ejecute el patrón de datos en ella. Un umbral de coincidencia único no tiene nada que ver con la coincidencia de patrones, pero es un requisito previo de la coincidencia de patrones. El valor sugerido es 8. Este valor se puede ajustar manualmente en un rango de 2 a 32. Asimismo, el sistema necesita este valor para asegurarse de que la columna contiene suficientes datos para que el escáner pueda clasificarla con precisión. Por ejemplo, una columna que contenga varias filas con el valor 1 no se clasificará. Tampoco se clasificarán las columnas que contengan una fila con un valor y el resto de las filas con valores NULL. Recuerde que si especifica varios patrones, este valor se aplica a cada uno de ellos.
+1. Una vez generado el diccionario, puede ajustar el umbral de coincidencia mínimo y enviar la regla.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Cree una regla de diccionario, con marca de verificación generada por el diccionario." border="true":::
 

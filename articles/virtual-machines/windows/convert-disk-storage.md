@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2b0ac2750515c8a61674b695e0faf3fd54ff7c6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 994b24110399057741b9f62f7ecf30a8a505fd6d
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670260"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181767"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Actualizar el tipo de almacenamiento de un disco administrado
 
@@ -117,7 +117,7 @@ Siga estos pasos:
 3. Si la máquina virtual no se detiene, seleccione la opción **Detener** que se encuentra en la parte superior del panel **Información general** de la máquina virtual y espere a que se detenga.
 4. En el panel de la máquina virtual, seleccione **Discos** del menú.
 5. Seleccione el disco que quiera convertir.
-6. Seleccione **Configuración** del menú.
+6. Seleccione **Size + performance** (Tamaño y rendimiento).
 7. Cambie el **tipo de cuenta** del tipo de disco original al tipo de disco deseado.
 8. Seleccione **Guardar** y cierre el panel de discos.
 

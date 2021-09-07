@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: b61e1e0b185355c06d10648f267895e819162318
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 522cf0ad115e1149d7746ecadef96ae9494a1d8c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969704"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744941"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Habilitación de la redundancia de zona para Azure Cache for Redis
 En este artículo, aprenderá a configurar una instancia de Azure Cache con redundancia de zona mediante Azure Portal.
@@ -51,18 +51,18 @@ Para crear una instancia de caché, siga estos pasos:
    
     :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Zonas de disponibilidad":::
 
-1. Deje las demás opciones con los valores predeterminados. 
+1. Configure los valores para la agrupación en clústeres o la persistencia de RDB.  
 
     > [!NOTE]
     > La redundancia de zona no admite la persistencia de AOF ni funciona actualmente con la replicación geográfica.
     >
 
-1. Haga clic en **Crear**. 
+1. Seleccione **Crear**. 
    
     La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso.
    
     > [!NOTE]
-    > Las zonas de disponibilidad no se pueden cambiar una vez creada la instancia de caché.
+    > Las zonas de disponibilidad no se pueden cambiar ni habilitar una vez creada la instancia de caché. 
     >
 
 ## <a name="zone-redundancy-faq"></a>Preguntas más frecuentes sobre la redundancia de zona

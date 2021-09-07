@@ -1,23 +1,23 @@
 ---
 title: Uso de extensiones de PostgreSQL
 description: Uso de extensiones de PostgreSQL
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: ba92ca8a959fae389dbdb30c295e6592f76100eb
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 831b3e220afe826b5190588b8855b72a8d648916
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288533"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743836"
 ---
-# <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Uso de extensiones de PostgreSQL en el grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
+# <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Uso de extensiones de PostgreSQL en el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
 PostgreSQL es idóneo cuando se usa con extensiones. De hecho, un elemento clave de la propia funcionalidad de Hiperescala es la extensión `citus` proporcionada por Microsoft, que se instala de forma predeterminada y que permite a Postgres particionar datos de manera transparente entre varios nodos.
 
@@ -59,12 +59,12 @@ Para obtener más información sobre `shared_preload_libraries`, lea la document
 - Este paso no es necesario para las extensiones que shared_preload_libraries no necesita cargar previamente. En el caso de estas extensiones, puede pasar al párrafo [Creación de extensiones](#create-extensions).
 
 ### <a name="add-an-extension-at-the-creation-time-of-a-server-group"></a>Adición de una extensión en el momento de crear un grupo de servidores
-```console
-azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
+```azurecli
+az postgres arc-server create -n <name of your postgresql server group> --extensions <extension names>
 ```
 ### <a name="add-an-extension-to-an-instance-that-already-exists"></a>Adición de una extensión a una instancia que ya existe
-```console
-azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
+```azurecli
+az postgres arc-server server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
 
@@ -73,9 +73,9 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 ## <a name="show-the-list-of-extensions-added-to-shared_preload_libraries"></a>Mostrar la lista de extensiones agregadas a shared_preload_libraries
 Luego, ejecute cualquiera de los comandos siguientes.
 
-### <a name="with-an-azdata-cli-command"></a>Con el comando azdata de la CLI
-```console
-azdata arc postgres server show -n <server group name>
+### <a name="with-cli-command"></a>Con un comando de la CLI
+```azurecli
+az postgres arc-server show -n <server group name>
 ```
 Desplácese por la salida y observe las secciones engine\extensions en las especificaciones del grupo de servidores. Por ejemplo:
 ```console
@@ -185,8 +185,8 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 
 Ahora, vamos a habilitar `pg_cron` en el grupo de servidores de PostgreSQL, para lo cual se va a agregar a shared_preload_libraries:
 
-```console
-azdata postgres server update -n pg2 -ns arc --extensions pg_cron
+```azurecli
+az postgres arc-server update -n pg2 -ns arc --extensions pg_cron
 ```
 
 El grupo de servidores se reiniciará para completar la instalación de las extensiones. Esta operación puede tardar entre 2 y 3 minutos.

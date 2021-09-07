@@ -3,12 +3,12 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre la forma en que Azure Policy usa el cliente de configuración de invitado para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 80de6651d59b26b596633b8ba775c774dcfea62e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6ecfd3fd9f426676fe0b5c9a69af26b1245b7824
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970349"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742289"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -72,8 +72,10 @@ El texto ".x" es simbólico y se usa para representar nuevas versiones secundari
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3 -8.x|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 8.x|
+|Red Hat|Red Hat Enterprise Linux\*|7.4 - 8.x|
 |SUSE|SLES|12 SP3-SP5, 15.x|
+
+\* Red Hat CoreOS no se admite.
 
 Las definiciones de directivas de configuración de invitado admiten imágenes de máquina virtual personalizadas, siempre y cuando se trate de uno de los sistemas operativos de la tabla anterior.
 
@@ -85,7 +87,7 @@ Las máquinas de Azure Arc se conectan mediante la infraestructura de red local 
 
 ### <a name="communicate-over-virtual-networks-in-azure"></a>Comunicación a través de redes virtuales en Azure
 
-Para comunicarse con el proveedor de recursos de la configuración de invitado en Azure, las máquinas requieren acceso de salida a los centros de datos Azure en el puerto **443**. Si una red en Azure no permite el tráfico saliente, las excepciones deben configurarse con las reglas del [grupo de seguridad de red](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). La [etiqueta de servicio](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" se puede usar para hacer referencia al servicio de configuración de invitado en lugar de mantener manualmente la [lista de intervalos IP](https://www.microsoft.com/en-us/download/details.aspx?id=56519) para los centros de datos de Azure.
+Para comunicarse con el proveedor de recursos de la configuración de invitado en Azure, las máquinas requieren acceso de salida a los centros de datos Azure en el puerto **443**. Si una red en Azure no permite el tráfico saliente, las excepciones deben configurarse con las reglas del [grupo de seguridad de red](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). Las [etiquetas de servicio](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" y "Storage" se pueden usar para hacer referencia a los servicios de Configuración de invitado y Almacenamiento en lugar de mantener manualmente la [lista de intervalos IP](https://www.microsoft.com/download/details.aspx?id=56519) para los centros de datos de Azure. Ambas etiquetas son obligatorias porque los paquetes de contenido de Configuración de invitado se hospedan en Azure Storage.
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicación a través de un vínculo privado en Azure
 
@@ -167,6 +169,11 @@ Los clientes que diseñan una solución de alta disponibilidad deben tener en cu
 Al considerar una arquitectura para aplicaciones de alta disponibilidad, especialmente cuando las máquinas virtuales se aprovisionan en [conjuntos de disponibilidad](../../../virtual-machines/availability.md#availability-sets) detrás de una solución de equilibrador de carga para proporcionar alta disponibilidad, se recomienda asignar las mismas definiciones de directiva con los mismos parámetros a todas las máquinas de la solución. Si es posible, una asignación de directiva única que abarca todas las máquinas ofrecería la menor sobrecarga administrativa.
 
 En el caso de las máquinas protegidas por [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md), asegúrese de que las máquinas de un sitio secundario están dentro del ámbito de las asignaciones de Azure Policy para las mismas definiciones con los mismos valores de parámetro que las máquinas del sitio primario.
+
+## <a name="data-residency"></a>Residencia de datos
+
+Configuración de invitado almacena o procesa los datos del cliente. De manera predeterminada, los datos del cliente se replican en [la región emparejada](../../../best-practices-availability-paired-regions.md).
+En el caso de una sola región residente, todos los datos de los clientes se almacenan y procesan en la región.
 
 ## <a name="troubleshooting-guest-configuration"></a>Solución de problemas de la configuración de invitado
 

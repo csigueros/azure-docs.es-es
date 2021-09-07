@@ -2,18 +2,19 @@
 title: Integración y entrega continuas en Azure Data Factory
 description: Aprenda a usar la integración y la entrega continuas para mover canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro.
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b8502363d7868b32bf2576742ca443b673c5123
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d85659730ae78277056ec88c8a35c545646b38ab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971985"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738271"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -97,9 +98,9 @@ A continuación se ofrece una guía para configurar una versión de Azure Pipeli
 
     d.  En la lista **Acción**, seleccione **Create or update resource group** (Crear o actualizar grupo de recursos).
 
-    e.  Seleccione el botón de puntos suspensivos ( **...** ) situado junto al cuadro **Plantilla**. Busque la plantilla de Azure Resource Manager que se ha generado en la rama de publicación del repositorio de Git configurado. Busque el archivo `ARMTemplateForFactory.json` en la carpeta <FactoryName> de la rama adf_publish.
+    e.  Seleccione el botón de puntos suspensivos ( **...** ) situado junto al cuadro **Plantilla**. Busque la plantilla de Azure Resource Manager que se ha generado en la rama de publicación del repositorio de Git configurado. Busque el archivo `ARMTemplateForFactory.json` en la carpeta &lt;FactoryName&gt; de la rama adf_publish.
 
-    f.  Seleccione **…** junto al cuadro **Parámetros de plantilla** para elegir el archivo de parámetros. Busque el archivo `ARMTemplateParametersForFactory.json` en la carpeta <FactoryName> de la rama adf_publish.
+    f.  Seleccione **…** junto al cuadro **Parámetros de plantilla** para elegir el archivo de parámetros. Busque el archivo `ARMTemplateParametersForFactory.json` en la carpeta &gt;FactoryName&lt; de la rama adf_publish.
 
     g.  Seleccione **…** junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de los parámetros deseados de la factoría de datos de destino. En el caso de las credenciales que proceden de Azure Key Vault, escriba el nombre del secreto entre comillas dobles. Por ejemplo, si el nombre del secreto es cred1, escriba **"$(cred1)"** para este valor.
 

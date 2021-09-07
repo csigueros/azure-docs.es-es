@@ -1,25 +1,25 @@
 ---
 title: Residencia de datos
-description: Residencia de datos e información sobre los servidores habilitados para Azure Arc.
+description: Residencia de datos e información sobre los servidores habilitados para Azure Arc.
 ms.topic: reference
-ms.date: 02/16/2021
+ms.date: 08/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4764772473bbf2e5aafe2607a9462c9a6a15203
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b32cb56658020f4464522db621155ebe03c5583
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559502"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734412"
 ---
-# <a name="azure-arc-enabled-servers-data-residency"></a>Servidores habilitados para Azure Arc: Residencia de datos
+# <a name="azure-arc-enabled-servers-data-residency"></a>Servidores habilitados para Azure Arc: residencia de datos
 
-En este artículo se explica el concepto de residencia de datos y cómo se aplica a los servidores habilitados para Azure Arc.
+En este artículo se explica el concepto de residencia de datos y cómo se aplica a los servidores habilitados para Azure Arc.
 
-Los servidores habilitados para Azure Arc están **[disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** en **Estados Unidos, Europa, Reino Unido, Australia y Asia Pacífico**.
+Los servidores habilitados para Azure Arc están **[disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** en **Estados Unidos, Europa, Reino Unido, Australia y Asia Pacífico**.
 
 ## <a name="data-residency"></a>Residencia de datos
 
-Los servidores habilitados para Azure Arc almacenan los valores de configuración de la [extensión de máquina virtual de Azure](manage-vm-extensions.md) (es decir, los valores de propiedad). Es necesario especificar la extensión antes de intentar habilitarla en la máquina conectada. Por ejemplo, cuando se habilita la extensión de máquina virtual de Log Analytics, se solicita el **id. de área de trabajo** y la **clave principal** de Log Analytics.
+Los servidores habilitados para Azure Arc almacenan los valores de configuración de la [extensión de VM de Azure](manage-vm-extensions.md) (es decir, los valores de propiedad). Es necesario especificar la extensión antes de intentar habilitarla en la máquina conectada. Por ejemplo, cuando se habilita la extensión de máquina virtual de Log Analytics, se solicita el **id. de área de trabajo** y la **clave principal** de Log Analytics.
 
 También se recopila información de metadatos sobre la máquina conectada. Concretamente:
 
@@ -34,7 +34,10 @@ También se recopila información de metadatos sobre la máquina conectada. Conc
 * Clave pública para la identidad administrada
 * Estado y detalles de cumplimiento de las directivas (si usa directivas de configuración de invitado de Azure Policy)
 
-Los servidores habilitados para Arc permiten especificar la región en la que se almacenarán los datos. Microsoft puede replicar en otras regiones para obtener resistencia de datos, pero no replica ni mueve datos fuera de la geografía. Estos datos se almacenan en la región donde se ha configurado el recurso de máquina de Azure Arc. Por ejemplo, si la máquina se registra en Arc en la región Este de EE. UU., estos datos se almacenan en la región de EE. UU.
+Los servidores habilitados para Arc permiten especificar la región en la que se almacenan los datos. Microsoft puede replicar en otras regiones para obtener resistencia de datos, pero no replica ni mueve datos fuera de la geografía. Estos datos se almacenan en la región donde se ha configurado el recurso de máquina de Azure Arc. Por ejemplo, si la máquina se registra en Arc en la región Este de EE. UU., estos datos se almacenan en la región de EE. UU.
+
+> [!NOTE] 
+> En el caso de Sudeste de Asia, los datos no se replican fuera de esta región. 
 
 Para obtener más información sobre la resistencia regional y la compatibilidad con el cumplimiento, consulte [Geografía de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
