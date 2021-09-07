@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.openlocfilehash: aa4fb6b7870831d0f24b0a7071cbf0dfd2431c14
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 2bdcdf79ee28bf6a3c233decd6dceafce74276ef
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294551"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258377"
 ---
 # <a name="how-to-get-lineage-from-sql-server-integration-services-ssis-into-azure-purview"></a>Obtención del linaje de SQL Server Integration Services (SSIS) en Azure Purview
 
@@ -35,7 +35,7 @@ Todavía no se admite la extracción del linaje de SSIS local.
 | Azure Blob Storage | Sí |
 | Azure Data Lake Storage Gen1 | Sí |
 | Azure Data Lake Storage Gen2 | Sí |
-| Azure File Storage | Sí |
+| Azure Files | Sí |
 | Azure SQL Database \* | Sí |
 | Azure SQL Managed Instance \*| Sí |
 | Azure Synapse Analytics \* | Sí |
@@ -48,7 +48,7 @@ Todavía no se admite la extracción del linaje de SSIS local.
 
 ### <a name="step-1-connect-a-data-factory-to-azure-purview"></a>Paso 1. [Conexión de Data Factory a Azure Purview](how-to-link-azure-data-factory.md)
 
-### <a name="step-2-trigger-ssis-activity-execution-in-azure-data-factory"></a>Paso 2. Desencadenamiento de la ejecución de la actividad de SSIS en Azure Data Factory
+### <a name="step-2-trigger-ssis-activity-execution-in-azure-data-factory"></a>Paso 2. Desencadenamiento de la ejecución de la actividad de SSIS en Azure Data Factory
 
 Puede [ejecutar el paquete SSIS con la actividad de ejecución de paquetes de SSIS](../data-factory/how-to-invoke-ssis-package-ssis-activity.md) o puede [ejecutar el paquete SSIS con Transact-SQL en ADF SSIS Integration Runtime](../data-factory/how-to-invoke-ssis-package-stored-procedure-activity.md).  
 

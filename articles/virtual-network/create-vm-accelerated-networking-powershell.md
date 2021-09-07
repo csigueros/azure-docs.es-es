@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44f061b124523a920a6fe02bb0c04233d533ab1c
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919976"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195615"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Crear una VM Windows con redes aceleradas mediante Azure PowerShell
 
@@ -51,11 +51,11 @@ Las ventajas de las redes aceleradas solo se aplican a la VM en que estén habil
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
+Se admiten las siguientes versiones de Windows:
 
-- **Windows Server 2019 Datacenter**
-- **Windows Server 2016 Datacenter** 
-- **Windows Server 2012 R2 Datacenter**
+- **Windows Server 2019 Standard/Datacenter**
+- **Windows Server 2016 Standard/Datacenter** 
+- **Windows Server 2012 R2 Standard/Datacenter**
 
 ## <a name="limitations-and-constraints"></a>Limitaciones y restricciones
 

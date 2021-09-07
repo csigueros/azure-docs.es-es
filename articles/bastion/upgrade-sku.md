@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 07/13/2021
 ms.author: cherylmc
-ms.openlocfilehash: 5ed0dd6ad86b5f7758f0e1972867876eedc3b51a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8a2c35f2ef4dafe9024deab1c26116c0ca20e01e
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225936"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733311"
 ---
 # <a name="upgrade-a-sku-preview"></a>Actualización de una SKU (versión preliminar)
 
@@ -21,7 +21,8 @@ Este artículo le ayuda a actualizar del nivel básico al estándar (SKU). Una v
 
 ## <a name="configuration-steps"></a>Pasos de configuración
 
-1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com).
+[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
+
 1. En Azure Portal, vaya al host bastión.
 1. En la página **Configuración**, en **Nivel**, seleccione **Estándar** en el menú desplegable.
 
