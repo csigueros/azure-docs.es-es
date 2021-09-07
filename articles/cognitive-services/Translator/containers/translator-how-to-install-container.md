@@ -12,12 +12,12 @@ ms.date: 05/25/2021
 ms.author: lajanuar
 recommendations: false
 keywords: entorno local, Docker, contenedor, identificar
-ms.openlocfilehash: 4cbc6e65eb72050726a0da5969aab07bf06358f2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 680f1f6f1bfddc5bf525ae06b61bcf9098dc850f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961718"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745608"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Instalación y ejecución de contenedores de Translator (versión preliminar)
 
@@ -36,7 +36,7 @@ Los contenedores de Translator permiten compilar una arquitectura de aplicación
 
 Para empezar, necesitará una [**cuenta de Azure**](https://azure.microsoft.com/free/cognitive-services/) activa.  En caso de no tener ninguna, puede crear una [**cuenta gratuita**](https://azure.microsoft.com/free/).
 
-También va a necesitar lo siguiente para usar contenedores de Translator:
+También necesitará los siguientes elementos:
 
 | Obligatorio | Propósito |
 |--|--|
@@ -165,7 +165,7 @@ Hay varias maneras de comprobar que el contenedor se está ejecutando:
 
 #### <a name="english-leftrightarrow-german"></a>Inglés &leftrightarrow; Alemán
 
-Vaya a la página de Swagger: <http://localhost:5000/swagger/index.html>
+Vaya a la página de Swagger: `<http://localhost:5000/swagger/index.html>`
 
 1. Seleccione **POST /translate**.
 1. Haga clic en **Probar**.
