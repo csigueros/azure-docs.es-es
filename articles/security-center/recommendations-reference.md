@@ -4,15 +4,15 @@ description: En este artículo se enumeran recomendaciones de seguridad de Azure
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 07/25/2021
+ms.date: 09/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 1f194230cf85086ee3cc0aa0356521f6bbf56f9c
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: a1fd045bebf4a5821d9f411f409d301b5d2c453d
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114675225"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536926"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 

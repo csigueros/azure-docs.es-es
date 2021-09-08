@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas en Azure Lighthouse
 description: Se enumeran las definiciones de directivas integradas de Azure Policy en Azure Lighthouse. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 20e0c28bac4625188dbfb220e2913eee38300b94
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 85dfc6c503cd00677c66ece918cffb8dd7aebde4
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102861"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479910"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Definiciones integradas de Azure Policy para Azure Lighthouse
 

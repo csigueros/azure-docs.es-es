@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d4037e66e653bc6e958020a5ef8722f2febb53d0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f7bf21933f7b9eae40794ef67be48dd3bad2a9b6
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772187"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473701"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Administración de Key Vault mediante la CLI de Azure 
 
@@ -128,7 +128,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 La salida de este comando muestra las propiedades del almacén de claves que ha creado. Las dos propiedades más importantes son:
 
 * **name**: en el ejemplo, el nombre es ContosoKeyVault. Usará este nombre para otros comandos de Key Vault.
-* **vaultUri**: en el ejemplo, el URI es https://contosokeyvault.vault.azure.net. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **vaultUri**: en el ejemplo, el URI es `https://contosokeyvault.vault.azure.net`. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta ahora, nadie más está autorizado.
 

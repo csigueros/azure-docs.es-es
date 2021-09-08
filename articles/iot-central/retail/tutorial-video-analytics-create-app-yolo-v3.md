@@ -7,13 +7,13 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
-ms.date: 10/06/2020
-ms.openlocfilehash: a11ee7c31c5db7b1ee2af8a08ddf152211aed5a3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 09/01/2021
+ms.openlocfilehash: 1517a2312751574e3d590c0fc27636c994e8c12c
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756600"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479929"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>Tutorial: Creación de una aplicación de análisis de vídeo con detección de objetos y movimiento en Azure IoT Central (YOLO v3)
 

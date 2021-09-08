@@ -1,15 +1,15 @@
 ---
 title: Detalles de cumplimiento normativo de Canada Federal PBMM
 description: Detalles de la iniciativa integrada de cumplimiento normativo Canada Federal PBMM. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: bf393f082d08da17b8fb986b16dc5a139f3317f6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: a42a97410f7147215abaafc50e4e434b993dbdb1
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110121"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475123"
 ---
 # <a name="details-of-the-canada-federal-pbmm-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo Canada Federal PBMM
 

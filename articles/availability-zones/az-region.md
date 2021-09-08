@@ -8,12 +8,12 @@ ms.date: 08/04/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 6271fcb1702d14913578f6cc535b1dd74ba3205b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3973941a5fbceb58ed265f2594661c8365c618d9
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750375"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480253"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con Availability Zones
 
@@ -120,6 +120,7 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 
 |     Productos                                                    | Resistencia             |
 |-----------------------------------------------------------------|:----------------------------:|
+|     [App Service](../app-service/how-to-zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Entornos de App Service](../app-service/environment/zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |

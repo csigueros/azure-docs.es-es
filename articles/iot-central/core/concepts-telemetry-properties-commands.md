@@ -3,17 +3,17 @@ title: Cargas de telemetría, propiedades y comandos en Azure IoT Central | Micr
 description: Las plantillas de dispositivos de Azure IoT Central permiten especificar la telemetría, las propiedades y los comandos que un dispositivo debe implementar. Conozca el formato de los datos que un dispositivo puede intercambiar con IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 08/25/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 2f76be3bd5a2688e91f63da5da137492190b2ccb
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 3c30662a9ca85265f43e78ad9dd3f33c70c167a5
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789082"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479947"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Cargas de telemetría, propiedades y comandos
 
