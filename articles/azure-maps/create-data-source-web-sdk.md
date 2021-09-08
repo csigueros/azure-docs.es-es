@@ -1,20 +1,20 @@
 ---
 title: Creación de un origen de datos para un mapa en Microsoft Azure Maps
 description: 'Obtenga información sobre cómo crear un origen de datos para un mapa. Aprenda sobre los orígenes de datos que usa el SDK Web de Azure Maps: Orígenes GeoJSON e iconos vectoriales.'
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: d20be688ccd13e7f053c4633a91cc5ce7a6cc34f
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: bb5050d1305f88987ed7ac38a8217e6b4f9c724e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669078"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425777"
 ---
 # <a name="create-a-data-source"></a>Creación de un origen de datos
 
@@ -132,7 +132,7 @@ map.layers.add(flowLayer, 'labels');
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Capa de línea de mosaico vectorial" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Capa de línea de mosaico vectorial" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>Capa de línea de mosaico vectorial</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

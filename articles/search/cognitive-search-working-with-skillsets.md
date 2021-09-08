@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
-ms.openlocfilehash: 7e6fdc0d7d0411064136752874978f72ef04aed1
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: c189fd8d77d33a2397e5a83f73dcdda759247a03
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122068268"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535246"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceptos de conjunto de aptitudes en Azure Cognitive Search
 
@@ -246,7 +246,7 @@ Trabajar con la aptitud de conformador resulta sencillo porque se centra en dar 
       "sourceContext": "/document/reviews_text/pages/*",
       "inputs": [
         {
-          "name": "SentimentScore",
+          "name": "Sentiment",
           "source": "/document/reviews_text/pages/*/Sentiment"
         },
         {

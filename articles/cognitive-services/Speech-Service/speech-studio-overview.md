@@ -3,19 +3,19 @@ title: Introducción a Speech Studio - Servicio Voz
 titleSuffix: Azure Cognitive Services
 description: Speech Studio es un conjunto de herramientas basadas en la interfaz de usuario para compilar e integrar características del servicio Voz de Azure en las aplicaciones.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.author: lajanuar
-ms.openlocfilehash: 6042a129308b7be478b2bd1a45379ad56f62aca6
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 229a94d0a7140c98e0a8240311257ee45ecea276
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122067061"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538403"
 ---
 # <a name="what-is-speech-studio"></a>¿Qué es el Speech Studio?
 

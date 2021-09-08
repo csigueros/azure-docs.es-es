@@ -1,20 +1,20 @@
 ---
 title: Expresiones de estilo basadas en datos en mapas de Android | Microsoft Azure Maps
 description: Aprenda sobre las expresiones de estilo controladas por datos. Vea cómo usar estas expresiones en Android SDK para Azure Maps para ajustar los estilos de mapas.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: d26947b48ca64ea5f06f3f9566d05fd110d6e93f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 7c73c52045504dfeeaccf5292aea7ab07b75d8d8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091850"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438541"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Expresiones de estilo basadas en datos (Android SDK)
 

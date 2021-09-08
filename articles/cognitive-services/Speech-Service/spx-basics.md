@@ -3,19 +3,19 @@ title: 'Inicio rápido de la CLI de Voz: servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: Introducción a la CLI de Voz de Azure. Es posible interactuar con los servicios Voz como conversión de voz en texto, texto a voz y traducción de voz sin tener que escribir ni una sola línea de código.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.author: lajanuar
-ms.openlocfilehash: fc75f5e0db2c3b4d71fac360d229a7eaa13c91f4
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 55d84da6f7ebdbf45bbf6c90b5cb881319a62aa9
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122070762"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540820"
 ---
 # <a name="get-started-with-the-azure-speech-cli"></a>Introducción a la CLI de Voz de Azure
 

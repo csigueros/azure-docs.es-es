@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de mosaico al objeto visual de Azure Maps en Power BI | Microsoft Azure Maps
 description: En este artículo, aprenderá a usar la capa de mosaico en el objeto visual de Microsoft Azure Maps para Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 1aee3c8213221775e3fde21003055fd9cc973455
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 0edb31901950da22c321af2d6c41966465f916f9
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669357"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430421"
 ---
 # <a name="add-a-tile-layer"></a>Adición de una capa de icono
 

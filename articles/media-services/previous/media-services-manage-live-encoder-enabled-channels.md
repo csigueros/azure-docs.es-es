@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: b9b4cd54375a13da95259e27da680255f785df45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d66c920636b328541a7d1294e5d319622baf635f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103013217"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437389"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -366,6 +366,6 @@ Consulte las rutas de aprendizaje de Media Services.
 
 [Conceptos de Media Services](media-services-concepts.md)
 
-[Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](../media-services-fmp4-live-ingest-overview.md)
+[Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png

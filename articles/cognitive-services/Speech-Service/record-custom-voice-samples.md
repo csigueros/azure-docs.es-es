@@ -3,19 +3,19 @@ title: 'Grabación de ejemplos de voz personalizada: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Para crear una voz personalizada con calidad de producción, prepare un guion sólido, contrate un buen actor de voz y realice la grabación de manera profesional.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: lajanuar
-ms.openlocfilehash: 6384cd5a7f4fdd2441bcf14f24f8f36bd2f73d12
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 965791510a58391476e0f0ef1e276d06a83a690b
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122070239"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540674"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 

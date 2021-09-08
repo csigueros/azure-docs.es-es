@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/16/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: c32046ff7d4a65b955ab35c3bb2e7a0848987456
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 2f1dff42ff161e7092266dfdc3b2918de2e91e68
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405871"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480858"
 ---
 ## <a name="azure-security-benchmark"></a>Prueba comparativa de la seguridad de Azure
 
@@ -42,6 +42,28 @@ Para más información sobre este estándar de cumplimiento, consulte [Certifica
 |Protección del sistema y de las comunicaciones |SC.3.177 |Emplea una criptografía validada por FIPS para proteger la confidencialidad de CUI. |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 |Protección del sistema y de las comunicaciones |SC.3.191 |Protege la confidencialidad de CUI en reposo. |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 
+## <a name="fedramp-high"></a>FedRAMP High
+
+Para revisar el modo en que las iniciativas integradas disponibles de Azure Policy de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
+Para más información sobre este estándar de cumplimiento, consulte [FedRAMP High](https://www.fedramp.gov/).
+
+|Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protección del sistema y de las comunicaciones |SC-12 |Establecimiento y administración de una clave criptográfica |[Las cuentas de Azure Automation deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56a5ee18-2ae6-4810-86f7-18e39ce5629b). |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_CMK_Audit.json) |
+|Protección del sistema y de las comunicaciones |SC-28 |Protección de la información en reposo |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
+|Protección del sistema y de las comunicaciones |SC-28 (1) |Protección criptográfica |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
+
+## <a name="fedramp-moderate"></a>FedRAMP Moderate
+
+Para revisar el modo en que las iniciativas integradas disponibles de Azure Policy de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
+Para más información sobre este estándar de cumplimiento, consulte [FedRAMP Moderate](https://www.fedramp.gov/).
+
+|Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protección del sistema y de las comunicaciones |SC-12 |Establecimiento y administración de una clave criptográfica |[Las cuentas de Azure Automation deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56a5ee18-2ae6-4810-86f7-18e39ce5629b). |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_CMK_Audit.json) |
+|Protección del sistema y de las comunicaciones |SC-28 |Protección de la información en reposo |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
+|Protección del sistema y de las comunicaciones |SC-28 (1) |Protección criptográfica |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
+
 ## <a name="iso-270012013"></a>ISO 27001:2013
 
 Si desea ver la correspondencia que existe entre las integraciones de Azure Policy disponibles para todos los servicios de Azure y este estándar de cumplimiento, consulte este artículo sobre el [cumplimiento normativo de Azure Policy: ISO 27001:2013](../../../../articles/governance/policy/samples/iso-27001.md).
@@ -51,27 +73,21 @@ Para más información sobre este estándar de cumplimiento, consulte [ISO 27001
 |---|---|---|---|---|
 |Criptografía |10.1.1 |Directiva sobre el uso de controles criptográficos |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 
-## <a name="nist-sp-800-53-r4"></a>NIST SP 800-53 R4
+## <a name="nist-sp-800-53-rev-4"></a>NIST SP 800-53 Rev. 4
 
-Para revisar el modo en que las integraciones de Azure Policy disponibles para todos los servicios de Azure se corresponden a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: NIST SP 800-53 R4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
-Para más información acerca de este estándar normativo, consulte [NIST SP 800-53 R4](https://nvd.nist.gov/800-53).
+Para revisar el modo en que las iniciativas integradas disponibles de Azure Policy de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Detalles de la iniciativa integrada del cumplimiento normativo de NIST SP 800-53 R4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+Para más información sobre este estándar de cumplimiento, consulte [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-28 |Protección de la información en reposo |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-28 (1) |Protección criptográfica |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-28 |Protección de la información en reposo |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-28 (1) |Protección criptográfica |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-28 |Protección de la información en reposo |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-28 (1) |Protección criptográfica |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-12 |Establecimiento y administración de una clave criptográfica |[Las cuentas de Azure Automation deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56a5ee18-2ae6-4810-86f7-18e39ce5629b). |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_CMK_Audit.json) |
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-12 |Establecimiento y administración de una clave criptográfica |[Las cuentas de Azure Automation deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56a5ee18-2ae6-4810-86f7-18e39ce5629b). |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_CMK_Audit.json) |
-|Protección del sistema y de las comunicaciones |NIST SP 800-53 Rev. 4 SC-12 |Establecimiento y administración de una clave criptográfica |[Las cuentas de Azure Automation deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56a5ee18-2ae6-4810-86f7-18e39ce5629b). |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_CMK_Audit.json) |
+|Protección del sistema y de las comunicaciones |SC-12 |Establecimiento y administración de una clave criptográfica |[Las cuentas de Azure Automation deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56a5ee18-2ae6-4810-86f7-18e39ce5629b). |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_CMK_Audit.json) |
+|Protección del sistema y de las comunicaciones |SC-28 |Protección de la información en reposo |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
+|Protección del sistema y de las comunicaciones |SC-28 (1) |Protección criptográfica |[Las variables de cuenta de Automation deben cifrarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 
-## <a name="nist-sp-800-53-r5"></a>NIST SP 800-53 R5
+## <a name="nist-sp-800-53-rev-5"></a>NIST SP 800-53 Rev. 5
 
-Para revisar el modo en que las iniciativas integradas disponibles de Azure Policy de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: NIST SP 800-53 R5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
-Para más información sobre este estándar de cumplimiento, consulte [NIST SP 800-53 R5](https://nvd.nist.gov/800-53).
+Para revisar el modo en que las iniciativas integradas disponibles de Azure Policy de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Detalles de la iniciativa integrada del cumplimiento normativo de NIST SP 800-53 R5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
+Para más información sobre este estándar de cumplimiento, consulte [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

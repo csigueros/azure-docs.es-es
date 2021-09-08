@@ -1,20 +1,20 @@
 ---
 title: Plantillas de imagen en el SDK web de Azure Maps | Microsoft Azure Maps
 description: Aprenda a agregar iconos de imagen y polígonos rellenados por patrones a los mapas mediante el SDK Web de Azure Maps. Vea las plantillas de patrón de relleno y de imagen disponibles.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 8/6/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 520a8681ff72f6cbf0587baa501b5ece3d5369e7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92895688"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437857"
 ---
 # <a name="how-to-use-image-templates"></a>Uso de plantillas de imagen
 
@@ -58,7 +58,7 @@ En el ejemplo siguiente se representa una capa de símbolos mediante la plantill
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Capa de símbolos con la plantilla de iconos integrada" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Capa de símbolos con la plantilla de iconos integrada" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código (pen) de una <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>capa de símbolos con plantilla de iconos integrada</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -70,7 +70,7 @@ En el ejemplo siguiente se representa una línea rosa en el mapa y se usa una ca
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Capa de línea con la plantilla de iconos integrada" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Capa de línea con la plantilla de iconos integrada" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código (pen) de una <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>capa de línea con plantilla de iconos integrada</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -85,7 +85,7 @@ En el ejemplo siguiente se representa una capa de polígono mediante la plantill
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Polígono de relleno con la plantilla de iconos integrada" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Polígono de relleno con la plantilla de iconos integrada" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código (pen) de un <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>polígono de relleno con plantilla de iconos integrada</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -100,7 +100,7 @@ En el ejemplo siguiente se usa la plantilla `marker-arrow` con un color principa
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Marcador HTML con plantilla de iconos integrada" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Marcador HTML con plantilla de iconos integrada" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código (pen) de un <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcador HTML con plantilla de iconos integrada</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -138,7 +138,7 @@ En el ejemplo siguiente se muestra cómo tomar una plantilla SVG y agregarla al 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Adición de una plantilla de icono personalizada al espacio de nombres atlas" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Adición de una plantilla de icono personalizada al espacio de nombres atlas" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código (pen) para <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>agregar una plantilla de icono personalizada al espacio de nombres atlas</a> de Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -505,7 +505,7 @@ Con la siguiente herramienta, puede representar las distintas plantillas de imag
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Opciones de plantilla de iconos" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Opciones de plantilla de iconos" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código (pen) de las <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>opciones de plantilla de icono</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

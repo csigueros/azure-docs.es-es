@@ -1,15 +1,15 @@
 ---
 title: Consultas de ejemplo de Azure Resource Graph para Azure Advisor
 description: Consultas de ejemplo de Azure Resource Graph para Azure Advisor en las que se muestra el uso de tipos de recursos y tablas para acceder a recursos y propiedades relacionados con Azure Advisor.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 71010cd64afc93ac1a5949275b05b69e12dc74b5
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 959f1fe33f088826a803ee3125f842d99d42f3a8
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123309352"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543098"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-advisor"></a>Consultas de ejemplo de Azure Resource Graph para Azure Advisor
 

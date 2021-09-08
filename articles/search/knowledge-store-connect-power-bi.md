@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
-ms.openlocfilehash: dce33ff6ea1aef45059cc5535d7e6b5e1dc270ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 494c60b054585754d3caf90a73f504494e21c341
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736320"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537956"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conexión a un almacén de conocimiento con Power BI
 
@@ -75,7 +75,7 @@ Haga clic en **Obtener plantilla de Power BI** en la página **Agregar conocimi
    ![Cambiar tipos de datos](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Cambiar tipos de datos")
 
 1. Seleccione *hotelReviewsSsPages* y repita los pasos 9 y 10 para eliminar las columnas y expandir el *contenido*.
-1. Cambie el tipo de datos de *Content.SentimentScore* a **Número decimal**.
+
 1. Seleccione *hotelReviewsSsKeyPhrases* y repita los pasos 9 y 10 para eliminar las columnas y expandir el *contenido*. No hay modificaciones de tipo de datos para esta tabla.
 
 1. En la barra de comandos, haga clic en **Cerrar y aplicar**.

@@ -1,20 +1,20 @@
 ---
 title: Incorporación de una capa de gráfico de barras al objeto visual de Azure Maps en Power BI | Microsoft Azure Maps
 description: En este artículo, aprenderá a usar la capa de gráfico de barras en el objeto visual de Microsoft Azure Maps para Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 136676b46df6e32f98dca99fccba19d4aa369dbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4cb7fdf7f32070de66e81736d7572e0b48aad896
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896283"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429503"
 ---
 # <a name="add-a-bar-chart-layer"></a>Adición de una capa de gráfico de barras
 

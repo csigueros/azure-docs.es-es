@@ -3,16 +3,16 @@ title: Uso de flujos de trabajo para integrar la aplicación de Azure IoT Centra
 description: En este artículo de procedimientos se muestra cómo puede, como generador, configurar las reglas y las acciones que integran la aplicación de IoT Central con otros servicios en la nube. Para crear una regla avanzada, puede usar un conector de IoT Central en Power Automate o en Azure Logic Apps.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/12/2020
+ms.date: 08/26/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9cbcfa355198b94a60242503745f5cfc183e170d
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: b90e96975dadc1f7fb168345aa89b98bb6a22b9c
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683763"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473593"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Uso de flujos de trabajo para integrar la aplicación de Azure IoT Central con otros servicios en la nube
 

@@ -3,19 +3,19 @@ title: Recomendaciones de matriz de micrófonos del SDK de dispositivos de voz
 titleSuffix: Azure Cognitive Services
 description: Recomendaciones para la matriz de micrófonos del SDK de dispositivos de voz. Se recomiendan las geometrías de matriz para su uso con la pila de audio de Microsoft.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
-ms.author: lajanuar
-ms.openlocfilehash: 13ee7f12ad6fe170d846128c72a60d20a59e3054
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: e7fbe41da74f112e6081ef9abc8ce1601c9491d7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071961"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535210"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendaciones de matriz de micrófonos del SDK de dispositivos de voz
 

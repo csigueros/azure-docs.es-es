@@ -3,17 +3,17 @@ title: ¿Qué son las plantillas de dispositivos en Azure IoT Central | Microsof
 description: Las plantillas de dispositivos de Azure IoT Central permiten especificar el comportamiento de los dispositivos conectados a la aplicación. Una plantilla de dispositivo especifica la telemetría, las propiedades y los comandos que el dispositivo debe implementar. Una plantilla de dispositivo también define la interfaz de usuario del dispositivo en IoT Central, como los formularios y las vistas que utiliza un operador.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: b2122dc50b265c31c1c21c2758e343ec88384a8b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d0e5f563e61cec96e67dd998e969a34a8da3615f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114474062"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123481243"
 ---
 # <a name="what-are-device-templates"></a>¿Qué son las plantillas de dispositivo?
 

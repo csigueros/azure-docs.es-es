@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c9b954776c33fedc3a770bc0aab0185ad595aff
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 50ddfbbcf86459c21d5a61ad2b8282da9c76208b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219742"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429089"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -95,7 +95,7 @@ Para obtener más información sobre Aplicaciones, consulte [Inicio de sesión e
 **Categoría del servicio:** MS Graph  
 **Funcionalidad del producto:** Experiencia para el desarrollador
  
-Las directivas de métodos de autenticación de aplicaciones de MS Graph permiten a los administradores de TI aplicar una vigencia a las credenciales secretas de contraseñas de aplicaciones o bloquear por completo el uso de secretos. Es posible aplicar directivas a todo un inquilino como una configuración predeterminada o limitar su ámbito a aplicaciones o entidades de servicio específicas. [Más información](/graph/api/resources/policy-overview?view=graph-rest-1.0).
+Las directivas de métodos de autenticación de aplicaciones de MS Graph permiten a los administradores de TI aplicar una vigencia a las credenciales secretas de contraseñas de aplicaciones o bloquear por completo el uso de secretos. Es posible aplicar directivas a todo un inquilino como una configuración predeterminada o limitar su ámbito a aplicaciones o entidades de servicio específicas. [Más información](/graph/api/resources/policy-overview?view=graph-rest-beta).
  
 ---
 
@@ -306,7 +306,7 @@ La compatibilidad de Microsoft Graph con la configuración de movilidad (MDM/MAM
 **Categoría del servicio:** Administración de acceso de usuarios  
 **Funcionalidad del producto:** Administración de derechos
  
-La administración de derechos de Azure AD ahora admite la creación de preguntas personalizadas en el flujo de solicitud del paquete de acceso. Esta característica le permite configurar preguntas personalizadas en la directiva del paquete. Estas preguntas se muestran a los solicitantes, que pueden especificar sus respuestas como parte del proceso de solicitud de acceso. Estas respuestas se mostrarán a los aprobadores, que dispondrán de información útil para tomar mejores decisiones sobre la solicitud de acceso. [Más información](../governance/entitlement-management-access-package-create.md#add-requestor-information-to-an-access-package).
+La administración de derechos de Azure AD ahora admite la creación de preguntas personalizadas en el flujo de solicitud del paquete de acceso. Esta característica le permite configurar preguntas personalizadas en la directiva del paquete. Estas preguntas se muestran a los solicitantes, que pueden especificar sus respuestas como parte del proceso de solicitud de acceso. Estas respuestas se mostrarán a los aprobadores, que dispondrán de información útil para tomar mejores decisiones sobre la solicitud de acceso. [Más información](../governance/entitlement-management-access-package-create.md).
 
 ---
 
