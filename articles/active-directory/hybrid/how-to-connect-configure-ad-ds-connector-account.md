@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: adea0e63c9e285a751a1a0508e84c5b83a10e994
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: e2acad2519fbf29aec72b97095318b4131207f91
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074698"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464554"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
@@ -84,7 +84,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 
 No olvide reemplazar `<ADAccountName>`, `<ADDomainName>` y `<ADAccountDN>` con los valores adecuados para su entorno.
 
-En caso de que no quiera modificar los permisos en el contenedor AdminSDHolder, use el modificador `-SkipAdminSdHolders`. 
+En caso de que quiera modificar los permisos en el contenedor AdminSDHolder, use el modificador `-IncludeAdminSdHolders`. Tenga en cuenta que eso no se recomienda.
 
 De forma predeterminada, todos los cmdlets de permisos establecidos intentarán establecer los permisos de AD DS en la raíz de cada dominio en el bosque, lo que significa que el usuario que ejecuta la sesión de PowerShell necesita tener derechos de administrador de dominio en cada dominio del bosque.  Debido a este requisito, es recomendable usar un administrador de empresa desde la raíz del bosque. Si su implementación de Azure AD Connect tiene varios conectores de AD DS, será necesario que ejecute el mismo cmdlet en cada bosque que tenga un conector de AD DS. 
 

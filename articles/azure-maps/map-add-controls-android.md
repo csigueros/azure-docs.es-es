@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 90d037fc02bdc1c4d6fe682386790561c890c1e6
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b84150196467606800df737ba9c9d50c69346e30
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100226"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093596"
 ---
 # <a name="add-controls-to-a-map-android-sdk"></a>Incorporación de controles a un mapa (Android SDK)
 
@@ -126,7 +126,7 @@ La captura de pantalla siguiente es de un control de tráfico cargado en un mapa
 
 ## <a name="a-map-with-all-controls"></a>Mapa con todos los controles
 
-Se pueden colocar varios controles en una matriz, agregarlos al mapa a la vez y colocarlos en la misma área del mapa para simplificar el desarrollo. Lo siguiente agrega los controles de navegación estándar al mapa usando este método.
+Se pueden colocar varios controles en una matriz, agregarlos al mapa a la vez y colocarlos en la misma área del mapa para simplificar el desarrollo. El código siguiente agrega los controles de navegación estándar al mapa usando este método.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -158,7 +158,7 @@ map.controls.add(
 
 ::: zone-end
 
-La captura de pantalla siguiente muestra todos los controles cargados en un mapa. Tenga en cuenta que el orden en que se agregan al mapa es el orden en que aparecerán.
+La captura de pantalla siguiente muestra todos los controles cargados en un mapa. El orden en el que se agreguen al mapa es el orden en el que aparecerán.
 
 ![Todos los controles agregados en el mapa](media/map-add-controls-android/android-all-controls.jpg)
 

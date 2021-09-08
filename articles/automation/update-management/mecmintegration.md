@@ -3,14 +3,14 @@ title: Integración de Update Management de Azure Automation con Microsoft Endpo
 description: Este artículo se indica cómo configurar Microsoft Endpoint Configuration Manager con Update Management para implementar actualizaciones de software en clientes de administrador.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 07/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: a848c7c15bf786ba26b8a1fdb1dab41b9aa20b8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6889d5058a7ca93e410afa0454e108d79bb70569
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575768"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203909"
 ---
 # <a name="integrate-update-management-with-microsoft-endpoint-configuration-manager"></a>Integración de Update Management con Microsoft Endpoint Configuration Manager
 
@@ -34,9 +34,11 @@ La forma de administrar los clientes hospedados en IaaS de Azure con el entorno 
 
 Siga estos pasos si va a continuar con la administración de implementaciones de actualizaciones desde Microsoft Endpoint Configuration Manager. Azure Automation se conecta a Microsoft Endpoint Configuration Manager para aplicar actualizaciones a los equipos cliente conectados al área de trabajo de Log Analytics. El contenido de la actualización está disponible en la caché del equipo cliente como si la implementación se administrara mediante Microsoft Endpoint Configuration Manager.
 
-1. Cree una implementación de actualizaciones de software desde el sitio de nivel superior de la jerarquía de Microsoft Endpoint Configuration Manager mediante el proceso descrito en [Implementación de actualizaciones de software](/configmgr/sum/deploy-use/deploy-software-updates). La única opción que se debe configurar de forma distinta de una implementación estándar es la opción **No instalar actualizaciones de software** para controlar el comportamiento de descarga del paquete de implementación. Este comportamiento se administra en Update Management mediante la creación de una implementación de actualizaciones programada en el paso siguiente.
+1. Cree una implementación de actualizaciones de software desde el sitio de nivel superior de la jerarquía de Microsoft Endpoint Configuration Manager mediante el proceso descrito en [Implementación de actualizaciones de software](/configmgr/sum/deploy-use/deploy-software-updates). La única opción que debe configurarse de forma diferente a una implementación estándar es la opción **Fecha límite de instalación** en Endpoint Configuration Manager. Debe establecerse en una fecha futura para asegurarse de que solo Update Management de Automation inicia la implementación de actualizaciones. Esta opción se describe en [Paso 4, Implementar el grupo de actualizaciones de software](/configmgr/sum/deploy-use/manually-deploy-software-updates#BKMK_4DeployUpdateGroup).
 
-2. En Azure Automation, seleccione **Update Management**. Siga los pasos descritos en [Creación de una implementación de actualizaciones](deploy-updates.md#schedule-an-update-deployment) para crear una implementación y seleccione **Grupos importados** en la lista desplegable **Tipo** para seleccionar la colección adecuada de Microsoft Endpoint Configuration Manager. Tenga en cuenta los siguientes puntos importantes:
+2. En Endpoint Configuration Manager,configure la opción **Notificaciones de usuario** para evitar mostrar notificaciones en las máquinas de destino. Se recomienda establecer la opción **Ocultar en el Centro de software y ocultar todas las notificaciones** para evitar que un usuario que ha iniciado sesión sea notificado de una implementación de actualizaciones programada y que implemente manualmente esas actualizaciones. Esta opción se describe en [Paso 4, Implementar el grupo de actualizaciones de software](/configmgr/sum/deploy-use/manually-deploy-software-updates#BKMK_4DeployUpdateGroup).
+
+3. En Azure Automation, seleccione **Update Management**. Siga los pasos descritos en [Creación de una implementación de actualizaciones](deploy-updates.md#schedule-an-update-deployment) para crear una implementación y seleccione **Grupos importados** en la lista desplegable **Tipo** para seleccionar la colección adecuada de Microsoft Endpoint Configuration Manager. Tenga en cuenta los siguientes puntos importantes:
 
     a. Si se define una ventana de mantenimiento en la colección de dispositivos de Microsoft Endpoint Configuration Manager, los miembros de la colección respetan sus condiciones, en lugar de la configuración **Duración** definida en la implementación programada.
 

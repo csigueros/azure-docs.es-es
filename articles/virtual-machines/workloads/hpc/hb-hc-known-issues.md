@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7f9a10aca24203b69ff38ff5fab7960681145af5
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 9b0e33b80cf5bd8963efa036dc76ae9f634fee66
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227837"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460544"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conocidos con las máquinas virtuales de las series H y N
 
@@ -49,7 +49,7 @@ En este [artículo de TechCommunity](https://techcommunity.microsoft.com/t5/azur
 
 ## <a name="infiniband-driver-installation-on-non-sr-iov-vms"></a>Instalación del controlador InfiniBand en máquinas virtuales que no son SR-IOV
 
-Actualmente, H16r, H16mr y NC24r no están habilitados para SR-IOV. [Aquí](../../sizes-hpc.md#rdma-capable-instances) se muestran algunos detalles sobre la bifurcación de la pila de Infiniband.
+Actualmente, H16r, H16mr y NC24r no están habilitados para SR-IOV. Para más información sobre la bifurcación de la pila InfiniBand, consulte [Tamaños de máquina virtual de Azure: HPC](../../sizes-hpc.md#rdma-capable-instances).
 InfiniBand puede configurarse en los tamaños de máquina virtual habilitados para SR-IOV con los controladores OFED, mientras que los tamaños de máquina virtual que no son SR-IOV requieren de los controladores ND. Esta compatibilidad con InfiniBand está disponible adecuadamente para [CentOS, RHEL y Ubuntu](configure.md).
 
 ## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplicación de MAC mediante cloud-init con Ubuntu en máquinas virtuales de las series H y N

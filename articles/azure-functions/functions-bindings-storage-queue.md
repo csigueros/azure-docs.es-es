@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 7497f98ec82596417a8c3fbb8cef11814e7df6c0
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ea5f9511cd9ae6d569d833ef8f950f1391c30f38
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412194"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113112192"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Introducción al desencadenador y enlaces de Azure Queue Storage para Azure Functions
 
@@ -80,7 +80,7 @@ En esta sección se describen las opciones de configuración globales disponible
 
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|Intervalo máximo entre sondeos de la cola. El mínimo es 00:00:00.100 (100 ms) y se incrementa hasta 00:01:00 (1 min).  En Functions 2.x y versiones posteriores, el tipo de datos es `TimeSpan`, mientras que en la versión 1.x se encuentra en milisegundos.|
+|maxPollingInterval|00:01:00|Intervalo máximo entre sondeos de la cola. El intervalo mínimo es 00:00:00.100 (100 milisegundos). Los intervalos se incrementan hasta `maxPollingInterval`. El valor predeterminado de `maxPollingInterval` es 00:01:00 (1 minuto). `maxPollingInterval` no debe ser menor que 00:00:00.100 (100 milisegundos). En Functions 2.x y versiones posteriores, el tipo de datos es `TimeSpan`. En Functions 1.x, se expresa en milisegundos.|
 |visibilityTimeout|00:00:00|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje. |
 |batchSize|16|El número de mensajes en cola que el runtime de Functions recupera simultáneamente y procesa en paralelo. Cuando el número que se está procesando llega a `newBatchThreshold` el runtime obtiene otro lote y empieza a procesar esos mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es `batchSize` más `newBatchThreshold`. Este límite se aplica por separado a cada función desencadenada por la cola. <br><br>Si desea evitar la ejecución en paralelo de los mensajes de una cola, puede establecer `batchSize` en 1. Sin embargo, este valor elimina la simultaneidad siempre y cuando la aplicación de funciones se ejecute en una única máquina virtual (VM). Si la aplicación de función se escala horizontalmente a varias máquinas virtuales, cada una de ellas podría ejecutar una instancia de cada función desencadenada por la cola.<br><br>El valor máximo de `batchSize` es 32. |
 |maxDequeueCount|5|Número de veces que se intenta procesar un mensaje antes de pasarlo a la cola de mensajes dudosos.|

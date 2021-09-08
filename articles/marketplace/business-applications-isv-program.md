@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: e4cd22418c4f8a2f9504baf665c67a4a57f7f6f5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 1accce46358c360be83ebc3ea85f0f2257b567c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103392"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456547"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guía de incorporación del programa Connect para fabricantes de software independientes (ISV) de Microsoft Business Applications
 
@@ -37,7 +37,7 @@ La participación en este programa requiere que revise y acepte el [anexo de Bus
 > [!NOTE]
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners para poder firmar contratos legales con su cuenta.
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Seleccione **Configuración** (icono de engranaje) > **Configuración de la cuenta**.
 1. Seleccione **Acuerdos**.
 1. Seleccione el vínculo de la versión y consulte el contrato.
@@ -50,7 +50,7 @@ Configure la información de facturación para el programa Connect para ISV de B
 > [!NOTE]
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners para poder actualizar la información de facturación con su cuenta.
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Seleccione **Configuración** (icono de engranaje) > **Configuración de la cuenta**.
 1. En **Perfil de la organización**, seleccione **Perfil de facturación** y, a continuación, la pestaña **Desarrollador**.
 1. Revise la información del contacto principal y de facturación que se ha rellenado a partir de la entidad legal.
@@ -77,8 +77,7 @@ El último paso para la inscripción en el programa Connect para ISV de Business
 
 Póngase en contacto con el administrador de cuentas o el [soporte técnico para asociados de Microsoft](https://aka.ms/marketplacepublishersupport) para obtener ayuda con su cuenta. Para obtener información general sobre el programa Connect para ISV de Business Applications, vea:
 
-- [Business Applications para ISV](https://partner.microsoft.com/solutions/business-applications/isv-overview) (artículo en línea)
-- [Información general sobre el nuevo programa para ISV de Business Applications](https://aka.ms/BizAppsISVProgram) (PDF)
-- [Preguntas más frecuentes sobre el programa Connect para ISV de Business Applications](https://assetsprod.microsoft.com/faq-using-partner-center-isv-connect.pdf) (PDF)
-- [Próximo programa para ISV de Business Applications](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (entrada de blog)
-- [Directivas del programa Connect para ISV](https://aka.ms/bizappsisvpolicies) (PDF)
+- [Información de asociado de Business Applications ](https://aka.ms/bizappsisvWeb) (sitio web)
+- [Guía del programa Connect para ISV](https://aka.ms/bizappsisvProgram) (PDF)
+- [Preguntas frecuentes de asociados del programa Connect para ISV](https://powerplatformpartners.transform.microsoft.com/download?assetname=assets/ISV%20Connect%20Partner%20FAQ.pdf&download=1) (PDF)
+- [Cambios en el programa Connect para ISV](https://cloudblogs.microsoft.com/dynamics365/bdm/2021/07/14/innovate-and-grow-with-the-simplified-business-applications-isv-connect-program/) (PDF)

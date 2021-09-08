@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 5b136a95d841775861c0e4d7c0bba1feec101f0d
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 9d59e8eab9aff857991a886838cc1063a36de00c
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110493786"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112120109"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Uso de almacenamiento de archivos externo en Lab Services
 
@@ -46,9 +46,9 @@ Si está usando un punto de conexión privado al recurso compartido de Azure Fil
 - Este enfoque requiere que la red virtual de recurso compartido de archivos esté emparejada con la cuenta de laboratorio. La red virtual de la cuenta de Azure Storage se debe emparejar con la red virtual de la cuenta de laboratorio antes de que se cree el laboratorio.
 
 > [!NOTE]
-> Los recursos compartidos de archivos de más de 5 TB solo están disponibles para las [cuentas de almacenamiento con redundancia local](../storage/files/storage-files-how-to-create-large-file-share.md#restrictions).
+> De manera predeterminada, los recursos compartidos de archivos estándar pueden llegar hasta 5 TiB. Consulte [Creación de un recurso compartido de archivos de Azure](../storage/files/storage-how-to-create-file-share.md) para obtener información sobre cómo crear recursos compartidos de archivos que puedan llegar hasta 100 TiB.
 
-Siga estos pasos para crear una máquina virtual conectada a un recurso compartido de Azure Files.
+Siga estos pasos para crear una máquina virtual conectada a un recurso compartido de archivos de Azure.
 
 1. Cree una [cuenta de Azure Storage](../storage/files/storage-how-to-create-file-share.md). En la página **Método de conectividad**, elija **punto de conexión público** o **punto de conexión privado**.
 2. Si opta por el método privado, cree un [punto de conexión privado](../private-link/tutorial-private-endpoint-storage-portal.md) para que los recursos compartidos de archivos sean accesibles desde la red virtual. Cree una [zona DNS privada](../dns/private-dns-privatednszone.md) o use una existente. Las zonas de Azure DNS privadas proporcionan la resolución de nombres dentro de una red virtual.

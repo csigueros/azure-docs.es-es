@@ -5,16 +5,16 @@ description: Más información sobre cómo habilitar HTTPS con la versión 1.2 d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: aashishb
-author: aashishb
-ms.date: 03/11/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 9531862ffb62a92a3b9be33b38e4ecef97bf974e
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 10eb9d57b19968737077a595030bb2a986ec6c7b
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884667"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564795"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Uso de TLS para proteger un servicio web con Azure Machine Learning
 
@@ -152,16 +152,21 @@ Para más información, consulte [AciWebservice.deploy_configuration()](/python/
 
 Para realizar una implementación de Azure Container Service con un certificado o una implementación de ACI, debe actualizar el registro de DNS para que apunte a la dirección IP del punto de conexión de puntuación.
 
-  > [!IMPORTANT]
-  > Cuando se usa un certificado de Microsoft para la implementación de Azure Container Service, no es preciso actualizar manualmente el valor de DNS para el clúster. El valor debe establecerse automáticamente.
+> [!IMPORTANT]
+> Cuando se usa un certificado de Microsoft para la implementación de Azure Container Service, no es preciso actualizar manualmente el valor de DNS para el clúster. El valor debe establecerse automáticamente.
 
 Para actualizar el registro DNS para el nombre de dominio personalizado puede seguir estos pasos:
-* Obtenga la dirección IP del punto de conexión de puntuación del identificador URI del punto de conexión de puntuación, que normalmente tiene el formato *http://104.214.29.152:80/api/v1/service/<service-name>/score* . 
-* Use las herramientas del registrador de nombres de dominio para actualizar el registro de DNS de su nombre de dominio. El registro debe apuntar a la dirección IP del punto de conexión de puntuación.
-* Después de la actualización del registro de DNS, puede validar la resolución de DNS mediante el comando *nslookup custom-domain-name*. Si el registro de DNS se actualiza correctamente, el nombre de dominio personalizado apuntará a la dirección IP del punto de conexión de puntuación.
-* Puede haber una demora de varios minutos o de horas antes de que los clientes puedan resolver el nombre de dominio, en función del registrador y del período de vida (TTL) configurado para el nombre de dominio.
+1. Obtenga la dirección IP del punto de conexión de puntuación del identificador URI del punto de conexión de puntuación, que normalmente tiene el formato *http://104.214.29.152:80/api/v1/service/<service-name>/score* . En este ejemplo, la dirección IP es 104.214.29.152.
+1. Use las herramientas del registrador de nombres de dominio para actualizar el registro de DNS de su nombre de dominio. El registro asigna el FQDN (por ejemplo, www\.contoso.com) a la dirección IP. El registro debe apuntar a la dirección IP del punto de conexión de puntuación.
 
+    > [!TIP]
+    > Microsoft no es responsable de actualizar el DNS para el nombre DNS o certificado personalizados. Debe actualizarlo con el registrador de nombres de dominio.
 
+1. Después de la actualización del registro de DNS, puede validar la resolución de DNS mediante el comando *nslookup custom-domain-name*. Si el registro de DNS se actualiza correctamente, el nombre de dominio personalizado apuntará a la dirección IP del punto de conexión de puntuación.
+
+    Puede haber una demora de varios minutos o de horas antes de que los clientes puedan resolver el nombre de dominio, en función del registrador y del período de vida (TTL) configurado para el nombre de dominio.
+
+Para obtener más información sobre la resolución DNS con Azure Machine Learning, consulte [Uso del área de trabajo con un servidor DNS personalizado](how-to-custom-dns.md).
 ## <a name="update-the-tlsssl-certificate"></a>Actualización del certificado TLS/SSL
 
 Los certificados TLS/SSL expiran y se deben renovar. Normalmente esto sucede cada año. Utilice la información de las secciones siguientes para actualizar y renovar el certificado para los modelos implementados en Azure Kubernetes Service:
@@ -263,3 +268,4 @@ aks_target.update(update_config)
 Obtenga información sobre cómo:
 + [Consumir un modelo de Machine Learning implementado como un servicio web](how-to-consume-web-service.md)
 + [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md)
++ [Uso de un área de trabajo con un servidor DNS personalizado](how-to-custom-dns.md)

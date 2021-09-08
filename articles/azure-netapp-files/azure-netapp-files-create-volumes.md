@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 08/06/2021
 ms.author: b-juche
-ms.openlocfilehash: d8e8daba3806ad651f66324f362eb2573111dd80
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: ed67984dac9d1beb7106c78a8ffa35d778f69d59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112070910"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725608"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creación de un volumen de NFS para Azure NetApp Files
 
-Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), SMB3 o el protocolo dual (NFSv3 y SMB). El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo. 
+Azure NetApp Files admite la creación de volúmenes mediante NFS (NFSv3 o NFSv4.1), SMB3 o un protocolo dual (NFSv3 y SMB, o NFSv4.1 y SMB). El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo. 
 
 En este artículo se muestra cómo crear un volumen NFS. Para los volúmenes SMB, consulte [Creación de un volumen SMB](azure-netapp-files-create-volumes-smb.md). Para volúmenes de protocolo dual, consulte [Creación de un volumen de protocolo dual](create-volumes-dual-protocol.md).
 
@@ -62,7 +62,7 @@ En este artículo se muestra cómo crear un volumen NFS. Para los volúmenes SMB
     * **Nombre del volumen**      
         Especifique el nombre para el volumen que va a crear.   
 
-        Un nombre de volumen debe ser único dentro de cada grupo de capacidad. Debe tener tres caracteres de longitud, como mínimo. Puede usar cualquier carácter alfanumérico.   
+        Un nombre de volumen debe ser único dentro de cada grupo de capacidad. Debe tener tres caracteres de longitud, como mínimo. El nombre debe comenzar por una letra. Solo puede incluir letras, números, caracteres de subrayado("_") y guiones ("-").
 
         No se puede usar `default` ni `bin` como nombre del volumen.
 
@@ -109,7 +109,7 @@ En este artículo se muestra cómo crear un volumen NFS. Para los volúmenes SMB
         - Solo puede contener letras, números o guiones (`-`). 
         - La longitud no debe superar los 80 caracteres.
 
-    * Seleccione la versión de NFS (**NFSv3** o **NFSv4.1**) del volumen.  
+    * Seleccione la **versión** (**NFSv3** o **NFSv4.1**) del volumen.  
 
     * Si usa NFSv4.1, indique si desea habilitar el cifrado de **Kerberos** para el volumen.  
 
@@ -117,6 +117,9 @@ En este artículo se muestra cómo crear un volumen NFS. Para los volúmenes SMB
 
     * Si quiere habilitar usuarios y grupos extendidos LDAP de Active Directory (hasta 1024 grupos) para que accedan al volumen, seleccione la opción **LDAP**. Siga las instrucciones en [Configuración de ADDS LDAP con grupos extendidos para el acceso a volúmenes NFS](configure-ldap-extended-groups.md) para completar las configuraciones necesarias. 
  
+    *  Personalice los **permisos de Unix** según sea necesario para especificar los permisos de cambio de la ruta de acceso de montaje. El valor no se aplica a los archivos de la ruta de acceso de montaje. El valor predeterminado es `0770`. Este valor concede permisos de lectura, escritura y ejecución al propietario y al grupo, pero no se conceden permisos a otros usuarios.     
+        Se aplican el requisito y las consideraciones de registro para establecer los **permisos de Unix**. Siga las instrucciones que encontrará en [Configuración de permisos de Unix y cambio del modo de propiedad](configure-unix-permissions-change-ownership-mode.md).   
+
     * Si lo desea, [configure la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md).
 
     ![Especificación del protocolo NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
@@ -135,5 +138,6 @@ En este artículo se muestra cómo crear un volumen NFS. Para los volúmenes SMB
 * [Configuración de ADDS LDAP con grupos extendidos para el acceso a volúmenes NFS](configure-ldap-extended-groups.md)
 * [Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configuración de la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md)
+* [Configuración de permisos de Unix y cambio del modo de propiedad](configure-unix-permissions-change-ownership-mode.md). 
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Obtenga información sobre la integración de redes virtuales para los servicios de Azure](../virtual-network/virtual-network-for-azure-services.md)

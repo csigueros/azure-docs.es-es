@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 908d9492a6eb699c999fe93b92697dc511dca082
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 0967e440a661d6bf51dc5206e5c21cdda45db073
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189289"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565137"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -57,7 +57,7 @@ Mediante la asignación de elementos registrados a una categoría, tiene más co
 
 ### <a name="custom-telemetry-data"></a>Datos de telemetría personalizados
 
-En [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions) y [JavaScript](functions-reference-node.md#log-custom-telemetry), puede usar un SDK de Application Insights para escribir datos de telemetría personalizados.
+En [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#log-custom-telemetry) y [Python](functions-reference-python.md#log-custom-telemetry), puede usar un SDK de Application Insights para escribir datos de telemetría personalizados.
 
 ### <a name="dependencies"></a>Dependencias
 
@@ -80,6 +80,7 @@ Además de la recopilación automática de datos de dependencia, también puede 
 
 + [Registrar telemetría personalizada en funciones de C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 + [Registrar telemetría personalizada en funciones de JavaScript](functions-reference-node.md#log-custom-telemetry) 
++ [Registrar telemetría personalizada en funciones de Python](functions-reference-python.md#log-custom-telemetry)
 
 ## <a name="writing-to-logs"></a>Escritura en los registros 
 
@@ -123,6 +124,10 @@ _Esta característica se encuentra en su versión preliminar._
 El [controlador de escala de Azure Functions](./event-driven-scaling.md#runtime-scaling) supervisa las instancias del host de Azure Functions en el que se ejecuta la aplicación. Este controlador toma decisiones sobre cuándo agregar o quitar instancias en función del rendimiento actual. Puede hacer que el controlador de escala emita registros en Application Insights para comprender mejor las decisiones que este controlador está tomando para la aplicación de funciones. También puede almacenar los registros generados en Blob Storage para analizarlos mediante otro servicio. 
 
 Para habilitar esta característica, agregue una configuración de aplicación denominada `SCALE_CONTROLLER_LOGGING_ENABLED` a la configuración de la aplicación de funciones. Para obtener información sobre cómo hacerlo, consulte [Configuración de los registros del controlador de escala](configure-monitoring.md#configure-scale-controller-logs).
+
+## <a name="azure-monitor-metrics"></a>Métricas de Azure Monitor
+
+Además de los datos de telemetría basados en registro recopilados por Application Insights, también puede obtener datos sobre cómo se ejecuta la aplicación de funciones a partir de las [métricas de Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md). Para obtener más información, vea [Uso de métricas de Azure Monitor con Azure Functions](monitor-metrics.md).
 
 ## <a name="report-issues"></a>Informar de problemas
 

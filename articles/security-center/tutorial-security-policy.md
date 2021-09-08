@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: memildin
-ms.openlocfilehash: b48adf5e6c2c7b91e98ef410c71802b5d47d2845
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b7c8003bd40df21fb749fcb576afeaec5dacead9
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459795"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236848"
 ---
 # <a name="manage-security-policies"></a>Administrar directivas de seguridad
 
@@ -35,7 +35,7 @@ Para ver las directivas de seguridad de Security Center:
 
 1. En el panel de **Security Center**, seleccione **Directiva de seguridad**.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Página Administración de directivas":::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Página de administración de directivas":::
 
    En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
 
@@ -56,7 +56,7 @@ Para ver las directivas de seguridad de Security Center:
 
     1. Para ver y editar la iniciativa predeterminada, seleccione **Ver directiva efectiva** y continúe tal como se describe a continuación. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Pantalla Directiva efectiva":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Pantalla de directiva efectiva":::
 
        La pantalla de **directiva de seguridad** refleja las acciones que realizaron las directivas asignadas en el grupo de administración o la suscripción que seleccionó.
        
@@ -93,7 +93,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
 1. En la lista desplegable, cambie el valor de la directiva correspondiente a **Deshabilitado**.
 
-   ![deshabilitar la directiva](./media/tutorial-security-policy/disable-policy.png)
+   ![Deshabilitar la directiva.](./media/tutorial-security-policy/disable-policy.png)
 
 1. Seleccione **Guardar**.
 

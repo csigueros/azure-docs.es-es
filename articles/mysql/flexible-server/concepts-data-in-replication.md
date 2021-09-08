@@ -6,19 +6,22 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 5cc19531f076d3b630faced7fef4ea5cb05be9f1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 071672c5c2d3c741abd14dad94c8c150e427a3ce
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751386"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464780"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql-flexible--server-preview"></a>Replicación de datos en el servidor flexible de Azure Database for MySQL (versión preliminar)
+
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 La replicación de datos de entrada permite sincronizar datos de una instancia externa de MySQL Server con el servicio flexible de Azure Database for MySQL. El servidor externo puede ser local, de máquinas virtuales, servidor único de Azure Database for MySQL o un servicio de base de datos hospedado por otros proveedores de nube. La replicación de datos de entrada se basa en la posición del archivo de registro binario (binlog). Para obtener más información acerca de la replicación de binlog, consulte la [Introducción a la replicación de binlog de MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 > [!Note]
-> Actualmente, la replicación basada en GTID no se admite para los servidores flexibles de Azure Database for MySQL. 
+> Actualmente, la replicación basada en GTID no se admite para los servidores flexibles de Azure Database for MySQL.<br>
+> No se admite la configuración de la replicación de los datos de entrada para servidores de alta disponibilidad con redundancia de zona. 
 
 ## <a name="when-to-use-data-in-replication"></a>Cuándo utilizar la replicación de datos de entrada
 
@@ -36,11 +39,12 @@ Para los escenarios de migración, use [Azure Database Migration Service](https:
 
 La [*base de datos del sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) del servidor de origen no se replica. Además, los cambios en las cuentas y en los permisos del servidor de origen no se replican. Si crea una cuenta en el servidor de origen y esta cuenta necesita acceder al servidor de réplica, cree manualmente la misma cuenta en el servidor de réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea el [manual de MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
+### <a name="data-in-replication-not-supported-on-ha-enabled-servers"></a>No se admite la replicación de datos de entrada en servidores habilitados para la alta disponibilidad. 
+No se admite la configuración de la replicación de datos de entrada para servidores de alta disponibilidad con redundancia de zona. En los servidores en los que se ha habilitado la alta disponibilidad, los procedimientos almacenados `mysql.az_replication_*` para la replicación no estarán disponibles. 
+
 ### <a name="filtering"></a>Filtrado
 
-Para omitir la replicación de tablas del servidor de origen (hospedado de forma local, en máquinas virtuales o en un servicio de base de datos hospedado por otros proveedores de nube), se admite el parámetro `replicate_wild_ignore_table`. También tiene la opción de actualizar este parámetro en el servidor de réplica hospedado en Azure mediante [Azure Portal](how-to-configure-server-parameters-portal.md) o la [CLI de Azure](how-to-configure-server-parameters-cli.md).
-
-Para obtener más información sobre este parámetro, revise la [documentación de MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table).
+La modificación del parámetro `replicate_wild_ignore_table` que se usaba para crear un filtro de replicación para las tablas no se admite actualmente para Azure Database for MySQL con la opción de servidor flexible. 
 
 ### <a name="requirements"></a>Requisitos
 
@@ -52,6 +56,8 @@ Para obtener más información sobre este parámetro, revise la [documentación 
 - Si el servidor de origen tiene SSL habilitado, asegúrese de que el certificado de entidad de certificación de SSL proporcionado para el dominio se haya incluido en el procedimiento almacenado `mysql.az_replication_change_master`. Consulte los [ejemplos](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) siguientes y el parámetro `master_ssl_ca`.
 - Asegúrese de que la máquina que hospeda el servidor de origen permite el tráfico entrante y saliente en el puerto 3306.
 - Asegúrese de que el servidor de origen tenga una **dirección IP pública**, de que el DNS sea accesible públicamente o de que el servidor de origen tenga un nombre de dominio completo (FQDN).
+- En el caso del acceso público, asegúrese de que el servidor de origen tenga una dirección IP pública, que DNS sea accesible públicamente y que el servidor de origen tenga un nombre de dominio completo (FQDN).
+- En caso de acceso privado, asegúrese de que el nombre del servidor de origen se pueda resolver y sea accesible desde la red virtual en la que se ejecuta la instancia de Azure Database for MySQL . Para más información, consulte [Resolución de nombres para recursos en redes virtuales de Azure](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

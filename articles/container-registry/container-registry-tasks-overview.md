@@ -2,13 +2,13 @@
 title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
-ms.date: 08/12/2020
-ms.openlocfilehash: a42a2bfcdc1621689421940c4db2fcf4f5e64b89
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/14/2021
+ms.openlocfilehash: 8a68ff312df13517bfe2b59d97dff25783da11ab
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781008"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202281"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -61,12 +61,21 @@ ACR Tasks admite los siguientes desencadenadores cuando establece un repositorio
 | Commit | Sí |
 | Solicitud de incorporación de cambios | No |
 
-Para configurar el desencadenador de actualización de código fuente, debe proporcionar un token de acceso personal (PAT) a la tarea para establecer el webhook en el repositorio de GitHub público o privado o el repositorio de Azure DevOps.
-
 > [!NOTE]
 > Actualmente, ACR Tasks no admite desencadenadores de solicitud de confirmación o de extracción en repositorios de GitHub Enterprise.
 
 Aprenda a desencadenar compilaciones tras la confirmación del código fuente en el segundo tutorial de ACR Tasks: [Automatización de compilaciones de imágenes de contenedor con Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
+
+### <a name="personal-access-token"></a>Token de acceso personal
+
+Para configurar el desencadenador de actualización de código fuente, debe proporcionar un token de acceso personal (PAT) a la tarea para establecer el webhook en el repositorio de GitHub público o privado o el repositorio de Azure DevOps. Los ámbitos necesarios para el PAT son los siguientes:
+
+| Tipo de repositorio |GitHub  |DevOps  |
+|---------|---------|---------|
+|Repositorio público    | repo:status<br/>public_repo        | Código (leer)        |
+|Repositorio privado   | Repositorio (control total)    | Código (leer)      |
+
+Para crear un PAT, consulte la documentación [GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) o [Azure DevOps](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 ## <a name="automate-os-and-framework-patching"></a>Automatización de aplicación de revisiones de sistema operativo y marco
 
@@ -114,7 +123,7 @@ En la tabla siguiente se muestran ejemplos de ubicaciones de contexto admitidas 
 | Artefacto en el registro de contenedor | Los archivos de [artefactos OCI](container-registry-oci-artifacts.md) en un repositorio del registro de contenedor. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
-> Al usar un repositorio de Git privado como contexto para una tarea, debe proporcionar un token de acceso personal (PAT).
+> Al usar un repositorio de Git como contexto para una tarea desencadenada por un código fuente, debe proporcionar un [token de acceso personal (PAT)](#personal-access-token).
 
 ## <a name="image-platforms"></a>Plataformas de imagen
 

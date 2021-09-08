@@ -8,19 +8,14 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: fc6c9f6c7c69f92c66706678dd27e082412afa3e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 6613952b5d7811c187123963a6e611602aabb5dc
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539178"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113127697"
 ---
-# <a name="configure-nat-rules-for-your-virtual-wan-vpn-gateway---preview"></a>Configuración de reglas NAT para la puerta de enlace de VPN de Virtual WAN (versión preliminar)
-
-> [!IMPORTANT]
-> Las reglas NAT se encuentran actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin ningún acuerdo de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="configure-nat-rules-for-your-virtual-wan-vpn-gateway"></a>Configuración de reglas NAT para la puerta de enlace de VPN de Virtual WAN
 
 Puede configurar una puerta de enlace de VPN de Virtual WAN con reglas NAT estáticas de uno a uno. Una regla NAT proporciona un mecanismo para configurar la traducción uno a uno de las direcciones IP. NAT se puede usar para interconectar dos redes IP que tienen direcciones IP incompatibles o superpuestas. Un escenario típico son las ramas con direcciones IP superpuestas que quieren acceder a los recursos de la red virtual de Azure.
 

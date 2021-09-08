@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f4642b8f9f1ede65766a0026940c0af0f01ec2
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 48d424a64df215a7506130a44d57fc45d638255d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111331"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739945"
 ---
 # <a name="best-practices-for-azure-ad-roles"></a>Procedimientos recomendados para roles de Azure AD
 
@@ -32,7 +32,9 @@ Al planear la estrategia de control de acceso, se recomienda administrar con pri
 
 Siga estos pasos para ayudarle a encontrar el rol correcto.
 
-1. En Azure Portal, Abra [Roles y administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) para ver la lista de roles de Azure AD.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
+
+1. Seleccione **Azure Active Directory** > **Roles y administradores** para ver la lista de roles de Azure AD.
 
 1. Use el filtro **Servicio** para restringir la lista de roles.
 
@@ -44,7 +46,7 @@ Siga estos pasos para ayudarle a encontrar el rol correcto.
 
 ## <a name="2-use-privileged-identity-management-to-grant-just-in-time-access"></a>2. Uso de Privileged Identity Management para conceder acceso Just-in-Time
 
-Uno de los principios de los privilegios mínimos es que solo se debe conceder el acceso durante un período de tiempo específico. [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) le permite conceder acceso Just-in-Time a los administradores. Microsoft recomienda que habilite PIM en Azure AD. Con PIM, el usuario puede convertirse en miembro elegible de un rol de Azure AD. Después, puede activar su rol durante un período limitado cada vez que necesite usarlo. El acceso con privilegios se retira automáticamente cuando expira el período de tiempo. También puede [configurar las opciones de PIM](../privileged-identity-management/pim-how-to-change-default-settings.md) para requerir aprobación o recibir correos electrónicos de notificación cuando alguien activa su asignación de roles. Estas notificaciones proporcionan una alerta cuando se agregan nuevos usuarios a roles con privilegios elevados. 
+Uno de los principios de los privilegios mínimos es que solo se debe conceder el acceso durante un período de tiempo específico. [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) le permite conceder acceso Just-in-Time a los administradores. Microsoft recomienda que habilite PIM en Azure AD. Con PIM, un usuario puede convertirse en un miembro apto de un rol de Azure AD y activar el rol durante un tiempo limitado cuando sea necesario. El acceso con privilegios se retira automáticamente cuando expira el período de tiempo. También puede [configurar las opciones de PIM](../privileged-identity-management/pim-how-to-change-default-settings.md) para requerir aprobación o recibir correos electrónicos de notificación cuando alguien activa su asignación de roles. Estas notificaciones proporcionan una alerta cuando se agregan nuevos usuarios a roles con privilegios elevados. 
 
 ## <a name="3-turn-on-multi-factor-authentication-for-all-your-administrator-accounts"></a>3. Activación de la autenticación multifactor para todas las cuentas de administrador
 
@@ -74,7 +76,7 @@ Microsoft recomienda que mantenga dos cuentas de emergencia que estén asignadas
 
 Si tiene un sistema de gobierno externo que aprovecha los grupos, considere la posibilidad de asignar roles a los grupos de Azure AD, en lugar de a usuarios individuales. También puede administrar los grupos a los que se pueden asignar roles en PIM para asegurarse de que no haya propietarios o miembros permanentes en estos grupos con privilegios. Para más información, consulte [Funcionalidades de administración de grupos de Azure AD de acceso con privilegios (versión preliminar)](../privileged-identity-management/groups-features.md).
 
-Puede asignar un propietario a los grupos a los que se pueden asignar roles. Ese propietario decide quién se agrega o se quita del grupo, por lo que indirectamente decide quién obtiene la asignación de roles. De este modo, un administrador global o un administrador de roles con privilegios pueden delegar la administración de roles por rol mediante el uso de grupos. Para más información, consulte [Uso de grupos en la nube para administrar asignaciones de roles en Azure Active Directory (versión preliminar)](groups-concept.md).
+Puede asignar un propietario a los grupos a los que se pueden asignar roles. Ese propietario decide quién se agrega o se quita del grupo, por lo que indirectamente decide quién obtiene la asignación de roles. De este modo, un administrador global o un administrador de roles con privilegios pueden delegar la administración de roles por rol mediante el uso de grupos. Para obtener más información, consulte [Uso de grupos para administrar asignaciones de roles en Azure Active Directory](groups-concept.md).
 
 ## <a name="7-activate-multiple-roles-at-once-using-privileged-access-groups"></a>7. Activación de varios roles a la vez mediante grupos de acceso con privilegios
 

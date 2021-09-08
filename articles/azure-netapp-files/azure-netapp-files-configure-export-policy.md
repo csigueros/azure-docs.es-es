@@ -7,17 +7,17 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 05/07/2021
-ms.openlocfilehash: 35bcff2615ab9b31f077a13c1cae7fbe38518575
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.date: 08/06/2021
+ms.openlocfilehash: f930c52c4b913e9411c6f619231fb50d0bb6cc5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109628255"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733397"
 ---
 # <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>Configuración de la directiva de exportación para volúmenes NFS o de protocolo dual
 
-Puede configurar la directiva de exportación para controlar el acceso a un volumen de Azure NetApp Files que usa el protocolo NFS (NFSv3 y NFSv4.1) o el protocolo dual (NFSv3 y SMB). 
+Puede configurar la directiva de exportación para controlar el acceso a un volumen de Azure NetApp Files que usa el protocolo NFS (NFSv3 y NFSv4.1) o el protocolo dual (NFSv3 y SMB, o NFSv4.1 y SMB). 
 
 Puede crear hasta cinco reglas en la directiva de exportación.
 
@@ -48,6 +48,16 @@ Puede crear hasta cinco reglas en la directiva de exportación.
 
       ![Directiva de exportación](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
+    * **Modo de cambio de propiedad:** : modifique el modo de cambio de propiedad según sea necesario para establecer las funcionalidades de administración de la propiedad de archivos y directorios.  Hay dos opciones de disponibles:   
+
+      * `Restricted` (valor predeterminado): solo el usuario raíz puede cambiar la propiedad de los archivos y directorios.
+      * `Unrestricted`: los usuarios no raíz pueden cambiar la propiedad de los archivos y directorios que poseen.  
+
+        Se aplican requisitos de registro y consideraciones para establecer el valor de **`Chown Mode`** . Siga las instrucciones que encontrará en [Configuración de permisos de Unix y del modo de cambio de propiedad para los volúmenes de protocolo dual y NFS](configure-unix-permissions-change-ownership-mode.md).  
+
+      ![Captura de pantalla que muestra la opción del modo de cambio de propiedad.](../media/azure-netapp-files/chown-mode-export-policy.png) 
+
 ## <a name="next-steps"></a>Pasos siguientes 
 * [Montaje o desmontaje de un volumen](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configuración de permisos de Unix y del modo de cambio de propiedad para los volúmenes de protocolo dual y NFS](configure-unix-permissions-change-ownership-mode.md) 
 * [Administración de instantáneas](azure-netapp-files-manage-snapshots.md)

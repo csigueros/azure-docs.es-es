@@ -3,16 +3,16 @@ title: Conexión a Azure Event Hubs
 description: Conéctese al centro de eventos y agregue un desencadenador o una acción al flujo de trabajo en Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 05/03/2021
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 07/16/2021
 tags: connectors
-ms.openlocfilehash: 7f82debf0cc09d032b00de8197cf873c01801353
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 079d131cac55c6d7a54547a3720546ab6422f7d5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755592"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473082"
 ---
 # <a name="connect-to-an-event-hub-from-workflows-in-azure-logic-apps"></a>Conexión a un centro de eventos desde flujos de trabajo en Azure Logic Apps
 
@@ -135,10 +135,12 @@ En los pasos siguientes se describe la manera general de agregar un desencadenad
 
 ## <a name="trigger-polling-behavior"></a>Desencadenamiento del comportamiento de sondeo
 
-Todos los desencadenadores de Event Hubs son de *sondeo largo*, lo que significa que el desencadenador procesa todos los eventos y espera 30 segundos por partición a que aparezcan más eventos en el centro de eventos. 
+Todos los desencadenadores de Event Hubs son de sondeo prolongado, lo que significa que, cuando se activa cualquiera de ellos, procesa todos los eventos y espera 30 segundos a que aparezcan más eventos en la instancia de Event Hubs. Por diseño, si no aparece ningún evento en 30 segundos, se omite el desencadenador. De lo contrario, el desencadenador sigue leyendo eventos hasta que el centro de eventos está vacío. El momento en que se produzca el siguiente sondeo del desencadenador dependerá del intervalo de periodicidad especificado en las propiedades del desencadenador.
 
 Por ejemplo, si el desencadenador está configurado con cuatro particiones, este retraso podría ser de hasta dos minutos antes de que termine de sondearlas todas. Si no se recibe ningún evento dentro de este retraso, se omite la ejecución del desencadenador. De lo contrario, el desencadenador sigue leyendo eventos hasta que el centro de eventos está vacío. El siguiente sondeo del desencadenador ocurre en función del intervalo de periodicidad especificado en las propiedades del desencadenador.
 
+Si conoce las particiones específicas en las que aparecen los mensajes, puede actualizar el desencadenador para que lea eventos solo de una o varias particiones. Para ello, debe establecer las claves de partición máxima y mínima del desencadenador. Para más información, consulte la sección [Adición de un desencadenador de Event Hubs](#add-trigger).
+     
 ## <a name="trigger-checkpoint-behavior"></a>Desencadenamiento del comportamiento de punto de control
 
 Cuando un desencadenador de Event Hubs lee eventos de cada partición de un centro de eventos, utiliza su propio estado para mantener información sobre el desplazamiento de secuencia (la posición del evento en una partición) y las particiones desde donde el desencadenador lee los eventos.

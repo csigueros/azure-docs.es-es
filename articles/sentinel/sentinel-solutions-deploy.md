@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
-ms.openlocfilehash: ce1620982aac833472102dce8a80b0c4195eb61d
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 5cb84ad912e5430948d0dedc71d94e69d1dd1a86
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109811908"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251910"
 ---
 # <a name="discover-and-deploy-azure-sentinel-solutions"></a>Detección e implementación de soluciones de Azure Sentinel
 
@@ -46,7 +46,7 @@ Las soluciones pueden constar de cualquiera de los componentes siguientes (o tod
 
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Lista de soluciones":::
 
-    - Si se desplaza hasta la parte inferior de la lista pero no encuentra lo que busca, haga clic en el vínculo **Cargar más** en la parte inferior para expandir la lista.
+    - Si se desplaza hasta el final de la lista pero no encuentra lo que busca, seleccione el vínculo **Cargar más** de la parte inferior para expandirla.
 
         :::image type="content" source="./media/sentinel-solutions-deploy/load-more.png" alt-text="Carga de más soluciones":::
 
@@ -68,7 +68,7 @@ Las soluciones pueden constar de cualquiera de los componentes siguientes (o tod
 
 1. Escriba la suscripción, el grupo de recursos y el área de trabajo en la que desea implementar la solución. 
 
-1. Haga clic en **Siguiente** para recorrer las pestañas restantes (correspondientes a los componentes incluidos en la solución), donde puede obtener información sobre cada uno de los componentes y, en algunos casos, configurarlos.
+1. Seleccione **Siguiente** para desplazarse por las pestañas restantes (correspondientes a los componentes incluidos en la solución), donde puede obtener información sobre cada uno de los componentes y, en algunos casos, configurarlos.
 
     > [!NOTE]
     > Las pestañas que se enumeran a continuación se corresponden con los componentes que ofrece la solución que se muestra en las capturas de pantalla adjuntas. Las diferentes soluciones pueden tener distintos tipos de componentes, por lo que es posible que no vea todas las mismas pestañas en todas las soluciones, y es posible que vea pestañas que no se muestran a continuación.
@@ -80,7 +80,7 @@ Las soluciones pueden constar de cualquiera de los componentes siguientes (o tod
     1. Pestaña **Cuadernos de estrategias**: aquí deberá escribir las credenciales válidas de Proofpoint TAP, para que el cuaderno de estrategias pueda autenticarse en su sistema Proofpoint para realizar las acciones de respuesta prescritas.
         :::image type="content" source="./media/sentinel-solutions-deploy/wizard-playbooks.png" alt-text="pestaña Cuadernos de estrategias del Asistente para implementación":::
 
-1. Por último, en la pestaña **Revisar y crear**, espere el mensaje "Validación completada" y, a continuación, haga clic en **Crear** para implementar la solución. También puede seleccionar el vínculo **Descargar una plantilla para la automatización** para implementar la solución como código.
+1. Por último, en la pestaña **Revisar y crear**, espere el mensaje "Validación superada" y seleccione **Crear** para implementar la solución. También puede seleccionar el vínculo **Descargar una plantilla para la automatización** para implementar la solución como código.
 
     :::image type="content" source="./media/sentinel-solutions-deploy/wizard-create.png" alt-text="pestaña Revisar y crear del Asistente para implementación":::
 

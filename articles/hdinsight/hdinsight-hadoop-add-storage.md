@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 32757fef131c5e443350f032c0ac987d7f491396
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86fa4eb83592d5c9927139c096a60c2ebc4efbc0
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864319"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552089"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
@@ -124,12 +124,11 @@ Si cambia la clave de una cuenta de almacenamiento, HDInsight ya no podrá acced
 
 Volver a ejecutar la acción de script **no** actualizará la clave, ya que el script comprueba si ya existe una entrada para la cuenta de almacenamiento. Si ya existe una entrada, no realiza ningún cambio.
 
-Para solucionar temporalmente este problema:  
-1. Elimine la cuenta de almacenamiento.
-1. Agregue la cuenta de almacenamiento.
+Para solucionar temporalmente este problema:
 
-> [!IMPORTANT]  
-> No se admite la rotación de la clave de almacenamiento de la cuenta de almacenamiento principal asociada a un clúster.
+* Consulte [Actualización de las claves de acceso de la cuenta de almacenamiento](hdinsight-rotate-storage-keys.md) para saber cómo rotar las claves de acceso.
+
+* También puede quitar la cuenta de almacenamiento y, después, volver a agregarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

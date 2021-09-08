@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 06/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c64a712cc916cad0f6f6fec77f33fcb422f834fb
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a6005c267423787fed61f2fb9badfea5769137d2
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982977"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565371"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -70,6 +70,7 @@ Los runbooks de PowerShell están basados en Windows PowerShell. Puede modificar
 * Los runbooks no pueden usar el [procesamiento paralelo](automation-powershell-workflow.md#use-parallel-processing) para ejecutar varias acciones en paralelo.
 * Los runbooks no pueden usar los [puntos de control](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) para reanudar un runbook si se produce un error.
 * Solo puede incluir los runbooks gráficos y de flujo de trabajo de PowerShell como runbooks secundarios mediante el cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook), que crea un trabajo.
+* Los runbooks no pueden usar la instrucción [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) de PowerShell, no se admite en el espacio aislado de Azure ni en Hybrid Runbook Worker y provocarán un error en el trabajo.
 
 ### <a name="known-issues"></a>Problemas conocidos
 

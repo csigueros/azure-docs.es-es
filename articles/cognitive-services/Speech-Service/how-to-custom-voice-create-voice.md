@@ -3,19 +3,19 @@ title: 'Creación de un proyecto de Voz personalizada: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Cuando esté listo para cargar los datos, vaya al portal de voz personalizada. Cree o seleccione un proyecto de voz personalizada. El proyecto debe compartir el idioma o configuración regional y las propiedades de género correctos con los datos que pretende usar para el entrenamiento de voz.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: lajanuar
-ms.openlocfilehash: a380c66159304e8e5fabbc73c8a2c663f7d23c27
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 83c3c4b9d3ab4f2497b919a2a929ad87f3cadbea
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122066469"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535570"
 ---
 # <a name="create-and-use-your-voice-model"></a>Creación y uso de un modelo de voz
 

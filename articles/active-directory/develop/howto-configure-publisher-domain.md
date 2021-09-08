@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 06/23/2021
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
-ms.custom: aaddev
-ms.openlocfilehash: d17bd46d8036ff2535b0dede9ab95121ad3bf7a8
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.custom: contperf-fy21q4, aaddev
+ms.openlocfilehash: 43fef26f3006120cb62676bfd5675c1e79b849d4
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713439"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579979"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procedimientos: Configuración del dominio de editor de una aplicación
 
@@ -81,9 +81,7 @@ Si la aplicación no está registrada en un inquilino, solo verá la opción par
    ```
 
 1. Reemplace el marcador de posición *{YOUR-APP-ID-HERE}* por el identificador de aplicación (cliente) que corresponde a la aplicación.
-
 1. Hospede el archivo en: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Reemplace el marcador de posición *{YOUR-DOMAIN-HERE}* para que coincida con el dominio verificado.
-
 1. Haga clic en el botón **Verificar y guardar dominio**.
 
 No es necesario mantener los recursos que se han usado para la comprobación una vez comprobado un dominio. Una vez finalizada la comprobación, puede eliminar el archivo hospedado.
@@ -93,8 +91,8 @@ No es necesario mantener los recursos que se han usado para la comprobación una
 Si el inquilino ha verificado los dominios, seleccione uno de los dominios en la lista desplegable **Seleccionar un dominio verificado**.
 
 > [!NOTE]
-> El encabezado `Content-Type` esperado que se debe devolver es `application/json`. Es posible que reciba el error que se indica a continuación si usa cualquier otro elemento, como `application/json; charset=utf-8`:
-> 
+> El encabezado `Content-Type` esperado que se debe devolver es `application/json`. Es posible que aparezca un error si usa cualquier otro elemento, como `application/json; charset=utf-8`:
+>
 > `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >
 
@@ -112,7 +110,7 @@ El comportamiento de las aplicaciones nuevas creadas después del 21 de mayo de 
 
 ## <a name="implications-on-redirect-uris"></a>Implicaciones en los URI de redireccionamiento
 
-Las aplicaciones en que inician sesión los usuarios con cualquier cuenta profesional o educativa o con cuentas personales de Microsoft ([multiinquilino](single-and-multi-tenant-apps.md)) están sujetas a algunas restricciones al especificar URI de redireccionamiento.
+Las aplicaciones en que inician sesión los usuarios con cualquier cuenta profesional o educativa o con cuentas personales de Microsoft (multiinquilino) están sujetas a algunas restricciones al especificar URI de redireccionamiento.
 
 ### <a name="single-root-domain-restriction"></a>Restricción de dominio de raíz único
 

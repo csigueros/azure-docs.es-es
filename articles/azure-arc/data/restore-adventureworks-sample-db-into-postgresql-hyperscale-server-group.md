@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 476fb664df261cf2b71802d15f23e28eb9970a65
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: f802bb5d681e9e77d258d6071def53d4c5e4958f
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407460"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113731115"
 ---
 # <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Importación de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -70,7 +70,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 ```
 
 
-> **Nota: No verá muchas ventajas en el rendimiento de la ejecución en Hiperescala de PostgreSQL habilitada para Azure Arc hasta que escale horizontalmente y particione o distribuya los datos y las tablas entre los nodos de trabajo del grupo de servidores de Hiperescala de PostgreSQL. Consulte los [pasos siguientes sugeridos](#suggested-next-steps).**
+> **Nota: No verá muchas ventajas en cuando a rendimiento al realizar la ejecución en Hiperescala de PostgreSQL habilitada para Azure Arc hasta que escale horizontalmente y cree particiones o distribuya los datos y las tablas entre los nodos de trabajo del grupo de servidores de Hiperescala de PostgreSQL. Consulte la sección [Pasos siguientes sugeridos](#suggested-next-steps).**
 
 ## <a name="suggested-next-steps"></a>Pasos siguientes sugeridos
 - Consulte los conceptos y las guías paso a paso de la hiperescala de Azure Database for PostgreSQL para distribuir los datos entre varios nodos de Hiperescala de PostgreSQL y beneficiarse de toda la eficacia de esta opción. :

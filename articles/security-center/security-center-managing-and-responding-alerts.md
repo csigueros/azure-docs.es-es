@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: df8b4534c6da446bd4ceeb18acf70036cd63f83c
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: dbed9883fbddc2efdaaa8ad252578afa928167bd
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061189"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237261"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a alertas de seguridad en Azure Security Center
 
@@ -46,7 +46,7 @@ Para obtener información general sobre la forma en que Security Center genera a
 
 1. Para filtrar la lista de alertas, seleccione cualquiera de los filtros pertinentes. Opcionalmente, puede agregar más filtros con la opción **Agregar filtro**.
 
-    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Adición de filtros a la vista de alertas" lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Adición de filtros a la vista de alertas." lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
 
     La lista se actualiza según las opciones de filtro que haya seleccionado. El filtrado puede resultar muy útil. Por ejemplo, podría comprobar las alertas de seguridad que se produjeron en las 24 horas anteriores, ya que se está investigando una posible brecha en el sistema.
 
@@ -55,7 +55,7 @@ Para obtener información general sobre la forma en que Security Center genera a
 
 1. En la lista **Alertas de seguridad**, seleccione una alerta. Se abre un panel lateral en el que se muestra una descripción de la alerta y de todos los recursos afectados. 
 
-    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Vista mínima de detalles de una alerta de seguridad":::
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Vista mínima de detalles de una alerta de seguridad.":::
 
     > [!TIP]
     > Con este panel lateral abierto, puede revisar rápidamente la lista de alertas con las flechas arriba y abajo del teclado.
@@ -66,7 +66,7 @@ Para obtener información general sobre la forma en que Security Center genera a
 
     En el panel derecho se incluye la pestaña **Detalles de alerta** que contiene más detalles de la alerta para ayudarle a investigar el problema: Direcciones IP, archivos, procesos, etc.
      
-    ![Sugerencias sobre qué hacer con las alertas de seguridad](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
+    ![Sugerencias sobre qué hacer con las alertas de seguridad.](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
     Además, en el panel derecho se encuentra la pestaña **Realizar acción**. Use esta pestaña para realizar acciones adicionales con respecto a la alerta de seguridad. Acciones como:
     - *Mitigar las amenazas:* proporciona pasos de corrección manual para esta alerta de seguridad
@@ -74,7 +74,7 @@ Para obtener información general sobre la forma en que Security Center genera a
     - *Desencadenar respuesta automatizada:* ofrece la opción de desencadenar una aplicación lógica como respuesta a esta alerta de seguridad
     - *Suprimir alertas similares:* ofrece la opción de suprimir las alertas futuras con características similares si la alerta no es relevante para su organización
 
-    ![Pestaña Realizar acción](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
+    ![Pestaña Realizar acción.](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
 
 

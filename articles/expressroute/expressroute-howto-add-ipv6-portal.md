@@ -7,37 +7,16 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 7f5afc05a8d03d33366a2f76318bcf5e039d4d30
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 75a659f9927c186e313b4f1d40b8c8e236ba091d
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561668"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302849"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Adición de compatibilidad con IPv6 para el emparejamiento privado mediante Azure Portal (versión preliminar)
 
 En este artículo se describe cómo agregar compatibilidad con IPv6 para conectarse a través de ExpressRoute a los recursos de Azure mediante Azure Portal. 
-
-> [!Note]
-> Esta característica está disponible actualmente en versión preliminar en [regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). Por lo tanto, el circuito ExpressRoute se puede crear con cualquier ubicación de emparejamiento, pero las implementaciones basadas en IPv6 a las que se conecta deben encontrarse en una región con Availability Zones.
-
-## <a name="register-for-public-preview"></a>Registro para la versión preliminar pública
-Antes de agregar la compatibilidad con IPv6, primero debe inscribir su suscripción. Para realizar la inscripción, ejecute los siguientes comandos a través de Azure PowerShell:
-
-1.  Inicie sesión en Azure y seleccione la suscripción. Ejecute estos comandos para la suscripción que contiene el circuito ExpressRoute y para la suscripción que contiene las implementaciones de Azure (si son diferentes).
-
-    ```azurepowershell-interactive
-    Connect-AzAccount 
-
-    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
-    ```
-
-1. Registre la suscripción para la versión preliminar pública con el siguiente comando:
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -FeatureName AllowIpv6PrivatePeering -ProviderNamespace Microsoft.Network
-    ```
-
-El equipo de ExpressRoute aprobará su solicitud en un plazo de 2 a 3 días laborables.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -63,7 +42,7 @@ En un explorador, vaya a [Azure Portal](https://portal.azure.com) e inicie sesi�
 
 ## <a name="update-your-connection-to-an-existing-virtual-network"></a>Actualización de la conexión a una red virtual existente
 
-Siga los pasos que se indican a continuación si tiene un entorno existente de recursos de Azure en una región con Availability Zones con el que quisiera usar el emparejamiento privado IPv6.
+Siga los pasos que se indican a continuación si tiene un entorno existente de recursos de Azure con el que quisiera usar el emparejamiento privado IPv6.
 
 1. Navegue a la red virtual a la que está conectado el circuito ExpressRoute.
 
@@ -76,37 +55,38 @@ Siga los pasos que se indican a continuación si tiene un entorno existente de r
 1. Vaya a la pestaña **Subredes** y seleccione **GatewaySubnet**. Active **Agregar un espacio de direcciones IPv6** y proporcione un espacio de direcciones IPv6 para la subred. La subred IPv6 de la puerta de enlace debe ser /64 o superior. Seleccione **Guardar** la configuración una vez que haya especificado todos los parámetros.
 
     :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/add-ipv6-gateway-space.png" alt-text="Captura de pantalla de la adición del espacio de direcciones IPv6 a la subred.":::
+    
+1. Si tiene una puerta de enlace con redundancia de zona existente, ejecute lo siguiente en PowerShell para habilitar la conectividad IPv6 (tenga en cuenta que los cambios pueden tardar hasta una hora en reflejarse). De lo contrario, [cree la puerta de enlace de red virtual](./expressroute-howto-add-gateway-portal-resource-manager.md) con cualquier SKU y una dirección IP pública estática Estándar. Si tiene previsto usar FastPath, use UltraPerformance o ErGw3AZ (tenga en cuenta que esta opción solo está disponible para los circuitos mediante ExpressRoute Direct).
 
-1. Si tiene una puerta de enlace con redundancia de zona existente, vaya a la puerta de enlace de ExpressRoute y actualice el recurso para habilitar la conectividad IPv6. De lo contrario, [cree la puerta de enlace de red virtual](expressroute-howto-add-gateway-portal-resource-manager.md) mediante una SKU con redundancia de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si tiene previsto usar FastPath, use ErGw3AZ.
+    ```azurepowershell-interactive
+    $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/refresh-gateway.png" alt-text="Captura de pantalla de la actualización de la puerta de enlace.":::
+## Create a connection to a new virtual network
 
-## <a name="create-a-connection-to-a-new-virtual-network"></a>Creación de una conexión a una nueva red virtual
+Follow the steps below if you plan to connect to a new set of Azure resources using your IPv6 Private Peering.
 
-Siga los pasos que se indican a continuación si tiene previsto conectarse a un nuevo conjunto de recursos de Azure en una región con Availability Zones mediante el emparejamiento privado IPv6.
+1. Create a dual-stack virtual network with both IPv4 and IPv6 address space. For more information, see [Create a virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
-1. Cree una red virtual de doble pila con espacios de direcciones IPv4 e IPv6. Para obtener más información, consulte [Creación de una red virtual](../virtual-network/quick-create-portal.md#create-a-virtual-network).
+1. [Create the dual-stack gateway subnet](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
 
-1. [Creación de la subred de puerta de enlace de doble pila](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
+1. [Create the virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU and a Standard, Static public IP address. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this option is only available for circuits using ExpressRoute Direct).
 
-1. [Cree la puerta de enlace de red virtual](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) mediante una SKU con redundancia de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si tiene previsto usar FastPath, use ErGw3AZ (tenga en cuenta que esta opción solo está disponible para los circuitos mediante ExpressRoute Direct).
+1. [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md).
 
-1. [Vincule la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md).
+## Limitations
+While IPv6 support is available for connections to deployments in Public Azure regions, it doesn't support the following use cases:
 
-## <a name="limitations"></a>Limitaciones
-Aunque la compatibilidad con IPv6 está disponible para las conexiones a las implementaciones en regiones con Availability Zones, no se admiten los siguientes casos de uso:
+* Connections to existing ExpressRoute gateways that are *not* zone-redundant
+* Global Reach connections between ExpressRoute circuits
+* Use of ExpressRoute with virtual WAN
+* FastPath with non-ExpressRoute Direct circuits
+* FastPath with circuits in the following peering locations: Dubai
+* Coexistence with VPN Gateway
 
-* Conexiones a implementaciones en Azure a través de una SKU de puerta de enlace ExpressRoute sin AZ
-* Conexiones a implementaciones en regiones que no sin AZ
-* Conexiones Global Reach entre circuitos ExpressRoute
-* Uso de ExpressRoute con WAN virtual
-* FastPath con circuitos que no son de ExpressRoute Direct
-* FastPath con circuitos en las siguientes ubicaciones de emparejamiento: Dubái
-* Coexistencia con VPN Gateway
+## Next steps
 
-## <a name="next-steps"></a>Pasos siguientes
+To troubleshoot ExpressRoute problems, see the following articles:
 
-Para solucionar problemas de ExpressRoute, consulte los siguientes artículos:
-
-* [Comprobación de la conectividad de ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
-* [Solución de problemas de rendimiento de red](expressroute-troubleshooting-network-performance.md)
+* [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
+* [Troubleshooting network performance](expressroute-troubleshooting-network-performance.md)

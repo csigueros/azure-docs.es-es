@@ -1,14 +1,14 @@
 ---
 title: 'Referencia de YAML: ACR Tasks'
 description: Referencia para definir tareas en YAML para ACR Tasks, como propiedades de tareas, tipos de pasos, propiedades de pasos y variables integradas.
-ms.topic: article
+ms.topic: reference
 ms.date: 07/08/2020
-ms.openlocfilehash: 126fcbce0569b2be6d9302cbbb718fa11e3e8046
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31e96c64ef8209e5e18add9508fe379f1eb0f414
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780954"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302670"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -63,12 +63,12 @@ Son varios los archivos de tareas de ejemplo a los que se hace referencia en las
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-En el formato de los comandos de ejemplo se da por hecho que ha configurado un registro de forma predeterminada en la CLI de Azure, por lo que se omite el parámetro `--registry`. Para configurar un registro predeterminado, use el comando [az configure][az-configure] con el parámetro `--defaults`, que acepta un valor `acr=REGISTRY_NAME`.
+En el formato de los comandos de ejemplo se da por hecho que ha configurado un registro de forma predeterminada en la CLI de Azure, por lo que se omite el parámetro `--registry`. Para configurar un registro predeterminado, use el comando [az config][az-config] con el comando `set`, que acepta el par de clave y valor `defaults.acr=REGISTRY_NAME`.
 
 Por ejemplo, para configurar la CLI de Azure con un registro predeterminado llamado "myregistry":
 
 ```azurecli
-az configure --defaults acr=myregistry
+az config set defaults.acr=myregistry
 ```
 
 ## <a name="task-properties"></a>Propiedades de tareas
@@ -78,7 +78,7 @@ Las propiedades de tareas suelen aparecer en la parte superior de un archivo `ac
 | Propiedad | Tipo | Opcional | Descripción | Invalidación admitida | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, se establece de manera predeterminada en la versión más reciente. | No | None |
-| `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Si la propiedad se especifica en una tarea, establece la propiedad `timeout` predeterminada de todos los pasos. Si la propiedad `timeout` se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | 600 (10 minutos) |
+| `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Si se especifica la propiedad `stepTimeout` en una tarea, se establece la propiedad `timeout` predeterminada de todos los pasos. Si se especifica la propiedad `timeout` en un paso, invalida la propiedad `stepTimeout` proporcionada por la tarea.<br/><br/>La suma de los valores de tiempo de espera del paso para una tarea debe ser igual al valor de la propiedad `timeout` de la ejecución de la tarea (por ejemplo, establecida al pasar `--timeout` al comando `az acr task create`). Si el valor de `timeout` de la ejecución de las tareas es menor, tiene prioridad.  | Sí | 600 (10 minutos) |
 | `workingDirectory` | string | Sí | El directorio de trabajo del contenedor durante el tiempo de ejecución. Si la propiedad se especifica en una tarea, establece la propiedad `workingDirectory` predeterminada de todos los pasos. Si se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | `c:\workspace` en Windows o `/workspace` en Linux |
 | `env` | [string, string, ...] | Sí |  Matriz de cadenas en formato `key=value` que define las variables de entorno de la tarea. Si la propiedad se especifica en una tarea, establece la propiedad `env` predeterminada de todos los pasos. Si se especifica en un paso, invalida las variables de entorno heredadas de la tarea. | Sí | None |
 | `secrets` | [secret, secret, ...] | Sí | Matriz de objetos de [secreto](#secret). | No | None |
@@ -631,4 +631,4 @@ Para compilaciones paso a paso, consulte la [Introducción a ACR Tasks](containe
 <!-- LINKS - Internal -->
 [az-acr-run]: /cli/azure/acr#az_acr_run
 [az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
-[az-configure]: /cli/azure/reference-index#az_configure
+[az-config]: /cli/azure/reference-index#az_config

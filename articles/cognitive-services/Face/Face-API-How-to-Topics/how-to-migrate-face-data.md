@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea2a127ffbf966b024322ab5a908466dec1cc8a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: afedf72e1d6fa52bbcccefe5a3d15ec203251c51
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935641"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744827"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migración de los datos de caras a una suscripción de Face distinta
 
@@ -236,4 +236,4 @@ A continuación, consulte la documentación de referencia de la API relevante, e
 - [Documentación de referencia de Instantánea (SDK de .NET)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations)
 - [Ejemplo de instantánea de Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Agregar caras](how-to-add-faces.md)
-- [Detección de caras en una imagen](HowtoDetectFacesinImage.md)
+- [Llamada a la API de detección](HowtoDetectFacesinImage.md)

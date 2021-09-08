@@ -1,15 +1,15 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/08/2020
-ms.author: lajanuar
-ms.openlocfilehash: 06499883236d0f893e05134441265964a76648e3
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 8f3574839f8f7c330b49249f5b90a5404117ab9e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071225"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542851"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar la CLI de Voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2021
+ms.date: 07/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c060a029b1cdbdd890ced96cab732966cb652de0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94b00fb293913e5501bd70ecb782304c56314ed9
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500587"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430131"
 ---
 # <a name="userinfo-endpoint"></a>Punto de conexión de UserInfo
 
@@ -132,7 +132,7 @@ La información de usuario UserJourney especifica:
         }
         ```
     
-1.  El elemento OutputClaims del perfil técnico **UserInfoAuthorization** especifica los atributos que quiere leer desde el token de acceso. **ClaimTypeReferenceId** es la referencia a un tipo de notificación. El elemento **PartnerClaimType** opcional es el nombre de la notificación definida en el token de acceso.
+1.  El elemento OutputClaims del perfil técnico **UserInfoAuthorization** especifica los atributos que quiere leer desde el token de acceso. **ClaimTypeReferenceId** es la referencia a un tipo de notificación. El elemento opcional **PartnerClaimType** es el nombre de la notificación definida en el token de acceso.
 
 
 
@@ -266,6 +266,43 @@ Una respuesta correcta tiene el siguiente aspecto:
     "signInNames.emailAddress": "john.s@contoso.com"
 }
 ```
+
+## <a name="provide-optional-claims"></a>Proporcionar notificaciones opcionales
+
+Para proporcionar más notificaciones a la aplicación, siga estos pasos:
+
+1. [Agregue atributos de usuario y personalice la entrada de usuario](configure-user-input.md).
+1. Modifique el elemento OutputClaims del [perfil técnico de la directiva de usuario de confianza](relyingparty.md#technicalprofile) con las notificaciones que quiere proporcionar. Use el atributo `DefaultValue` para establecer un valor predeterminado. También puede establecer el valor predeterminado en un [solucionador de notificaciones](claim-resolver-overview.md), como `{Context:CorrelationId}`. Para forzar el uso del valor predeterminado, establezca el atributo `AlwaysUseDefaultValue` en `true`. En el ejemplo siguiente, se agrega la notificación city (ciudad) con un valor predeterminado.
+    
+    ```xml
+    <RelyingParty>
+      ...
+      <TechnicalProfile Id="PolicyProfile">
+        ...
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="city" DefaultValue="Berlin" />
+        </OutputClaims>
+        ...
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+  
+1. Modifique el elemento InputClaims del perfil técnico UserInfoIssuer con las notificaciones que quiere proporcionar. Utilice el atributo `PartnerClaimType` para cambiar el nombre del valor devuelto de la notificación a la aplicación. En el ejemplo siguiente, se agrega la notificación city (ciudad) y se cambia el nombre de algunas de las notificaciones.
+
+    ```xml
+    <TechnicalProfile Id="UserInfoIssuer">
+      ...
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="city" />
+        <InputClaim ClaimTypeReferenceId="givenName" />
+        <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="familyName" />
+        <InputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+        <InputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
+      </InputClaims>
+      ...
+    </TechnicalProfile>
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

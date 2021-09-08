@@ -3,14 +3,14 @@ title: Creación de implementaciones de actualizaciones para Update Management e
 description: En este artículo se describe cómo programar implementaciones de actualizaciones y revisar su estado.
 services: automation
 ms.subservice: update-management
-ms.date: 04/19/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: c190af2532f28bd183a92b37b814210cb794501d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2e9b10206a28072d37668207993007dc29320f04
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748500"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679029"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -78,6 +78,11 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 
    >[!NOTE]
    > La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en las versiones RTM de CentOS. Para implementar correctamente actualizaciones para CentOS, seleccione todas las clasificaciones para asegurarse de que se aplican las actualizaciones. Actualmente no hay ningún método compatible para habilitar la disponibilidad de datos de clasificación nativos en CentOS. Consulte lo siguiente para obtener más información sobre [las clasificaciones de actualización](overview.md#update-classifications).
+
+   >[!NOTE]
+   > Es posible que la implementación de actualizaciones por clasificación de actualizaciones no funcione correctamente para las distribuciones de Linux compatibles con Update Management. Esto se debe a un problema identificado con el esquema de nomenclatura del archivo OVAL, lo que impide que Update Management establezca correctamente la coincidencia de las clasificaciones en función de las reglas de filtrado. Dada la lógica diferente que se usa en las evaluaciones de las actualizaciones de seguridad, los resultados pueden diferir de las actualizaciones de seguridad que se aplican durante la implementación. Si ha establecido la clasificación como **Crítico** y **Seguridad**, la implementación de actualizaciones funcionará según lo previsto. Solo se ve afectada la *clasificación de las actualizaciones* durante una evaluación.
+   >
+   > Update Management para máquinas con Windows Server no se ve afectado; la clasificación de actualizaciones y las implementaciones no cambian.
 
 8. Use la región **Incluir o excluir las actualizaciones** para agregar o excluir actualizaciones seleccionadas de la implementación. En la página **Incluir/excluir**, escriba los números de identificador de artículo de KB que se van a incluir o excluir para actualizaciones de Windows. Para distribuciones de Linux compatibles, especifique el nombre del paquete.
 

@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): módulos de PowerShell (Azure)'
-description: Use PowerShell para crear y administrar áreas de trabajo de Azure Machine Learning Studio (clásico), experimentos, servicios web y mucho más.
+description: Use PowerShell para crear y administrar áreas de trabajo de Estudio de Machine Learning (clásico), experimentos, servicios web y mucho más.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 684299d61ba6e9e27e16a162c9f226a7ea3b5f58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 060cea47bf70f1e13310ecc408f89a46365a8595
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518018"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580303"
 ---
-# <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Módulos de PowerShell para Azure Machine Learning Studio (clásico)
+# <a name="powershell-modules-for-machine-learning-studio-classic"></a>Módulos de PowerShell para Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -26,7 +26,7 @@ Puede interactuar con recursos de Studio (clásico) mediante tres módulos de Po
 
 * [Azure PowerShell Az](#az-rm), lanzado en 2018, que incluye toda la funcionalidad de AzureRM, aunque con distintos nombres de cmdlets
 * [AzureRM](#az-rm) publicado en 2016, se sustituye por PowerShell Az
-* [PowerShell clásico para Azure Machine Learning](#classic), lanzado en 2016
+* [PowerShell clásico para Machine Learning](#classic), lanzado en 2016
 
 Aunque estos módulos de PowerShell presentan algunas similitudes, cada uno está diseñado para escenarios determinados. En este artículo se describen las diferencias entre los módulos de PowerShell y se ofrece orientación para decidir cuál elegir.  
 

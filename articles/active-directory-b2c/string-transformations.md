@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 176c36ee5c3addf655503e3a371767764e0d9968
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a7041f343eec34f16f4cfd7b32ae56157963dd09
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738060"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439367"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -718,6 +718,44 @@ Use esta transformación de notificaciones para analizar el nombre de dominio de
   - **emailAddress**: joe@outlook.com
 - Notificaciones de salida:
     - **domain**: outlook.com
+
+## <a name="setclaimifbooleansmatch"></a>SetClaimIfBooleansMatch
+
+Comprueba que una notificación booleana es `true` o `false`. En caso afirmativo, establece las notificaciones de salida con el valor presente en el parámetro de entrada `outputClaimIfMatched`.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | claimToMatch | string | Tipo de la notificación que se va a comprobar. Un valor nulo inicia una excepción. |
+| InputParameter | matchTo | string | Valor que se va a comparar con la notificación de entrada `claimToMatch`. Valores posibles: `true` o `false`.  |
+| InputParameter | outputClaimIfMatched | string | Valor que se va a establecer si la notificación de entrada es igual al parámetro de entrada `matchTo`. |
+| OutputClaim | outputClaim | string | Si la notificación de entrada `claimToMatch` es igual al parámetro de entrada `matchTo`, esta notificación de salida contiene el valor del parámetro de entrada `outputClaimIfMatched`. |
+
+Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **hasPromotionCode** es igual a `true`. En caso afirmativo, devuelve el valor *Promotion code not found*.
+
+```xml
+<ClaimsTransformation Id="GeneratePromotionCodeError" TransformationMethod="SetClaimIfBooleansMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="hasPromotionCode" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="true" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Promotion code not found." />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="promotionCode" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **claimToMatch**: true
+- Parámetros de entrada:
+    - **matchTo**: true
+    - **outputClaimIfMatched:** "Promotion code not found".
+- Notificaciones de salida:
+    - **outputClaim**: "Promotion code not found."
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 

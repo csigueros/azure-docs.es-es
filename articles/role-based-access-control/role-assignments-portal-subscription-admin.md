@@ -7,14 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/11/2021
+ms.date: 06/25/2021
 ms.author: rolyon
-ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: af88edbb788afa3576d3317d4e1cd54dea6f4deb
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556841"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988074"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Asignación de un usuario como administrador de una suscripción de Azure
 
@@ -30,15 +31,13 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
 1. Busque las suscripciones en el cuadro de búsqueda.
 
-    ![Buscar grupo de recursos en Azure Portal](./media/shared/sub-portal-search.png)
-
 1. Haga clic en la suscripción que desee usar.
 
     A continuación se muestra una suscripción de ejemplo.
 
-    ![Información general del grupo de recursos](./media/shared/sub-overview.png)
+    ![Captura de pantalla de información general de Suscripciones](./media/shared/sub-overview.png)
 
-## <a name="step-2-open-the-add-role-assignment-pane"></a>Paso 2: abrir el panel Agregar asignación de roles
+## <a name="step-2-open-the-add-role-assignment-page"></a>Paso 2: Abrir la página Agregar asignación de roles
 
 **Control de acceso (IAM)** es la página que se usa normalmente para asignar roles y conceder acceso a los recursos de Azure. También se conoce como administración de identidad y acceso (IAM) y aparece en varias ubicaciones de Azure Portal.
 
@@ -46,46 +45,61 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
     A continuación se muestra un ejemplo de la página Control de acceso (IAM) de una suscripción.
 
-    ![Página Control de acceso (IAM) para un grupo de recursos](./media/shared/sub-access-control.png)
+    ![Captura de pantalla de la página Control de acceso (IAM) para una suscripción.](./media/shared/sub-access-control.png)
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
-1. Haga clic en **Agregar** > **Agregar asignación de roles**.
+1. Haga clic en **Agregar** > **Agregar asignación de roles (versión preliminar)** .
+
    Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
-   ![Menú Agregar asignación de roles](./media/shared/add-role-assignment-menu.png)
+    ![Captura de pantalla del menú Agregar > Agregar asignación de roles en la experiencia con la versión preliminar.](./media/shared/add-role-assignment-menu-preview.png)
 
-    Se abre el panel Agregar asignación de roles.
-
-   ![Panel Agregar asignación de roles](./media/shared/add-role-assignment.png)
+    Se abre la página Agregar asignación de roles.
 
 ## <a name="step-3-select-the-owner-role"></a>Paso 3: Seleccionar el rol Propietario
 
 El rol [Propietario](built-in-roles.md#owner) permite conceder acceso total para administrar todos los recursos, incluida la posibilidad de asignar roles en Azure RBAC. Debe tener un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro.
 
-- En la lista **Rol**, seleccione el rol **Propietario**.
+1. En la pestaña **Roles**, seleccione el rol **Propietario**.
 
-   ![Seleccione el rol Propietario en el panel Agregar asignación de roles](./media/role-assignments-portal-subscription-admin/add-role-assignment-role-owner.png)
+    Puede buscar un rol por nombre o por descripción. También puede filtrar los roles por tipo y categoría.
 
-## <a name="step-4-select-who-needs-access"></a>Paso 4: Determinar quién necesita acceso
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Roles de la experiencia con la versión preliminar.](./media/shared/roles.png)
 
-1. En la lista **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
+1. Haga clic en **Next**.
 
-1. En la sección **Seleccionar**, busque el usuario escribiendo una cadena o desplazándose por la lista.
+## <a name="step-4-select-who-needs-access"></a>Paso 4: elegir quién necesita acceso
 
-   ![Seleccione el usuario en Agregar asignación de roles](./media/role-assignments-portal-subscription-admin/add-role-assignment-user-admin.png)
+1. En la pestaña **Miembros**, seleccione **Usuario, grupo o entidad de servicio**.
 
-1. Una vez que haya encontrado el usuario, haga clic en él para seleccionarlo.
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Agregar miembros de la experiencia con la versión preliminar.](./media/shared/members.png)
+
+1. Haga clic en **Seleccionar miembros**.
+
+1. Busque y seleccione el usuario.
+
+    Puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombre para mostrar o dirección de correo electrónico.
+
+   ![Captura de pantalla del panel Seleccionar miembros de la experiencia con la versión preliminar.](./media/shared/select-members.png)
+
+1. Haga clic en **Guardar** para agregar el usuario a la lista Miembros.
+
+1. En el cuadro de texto **Descripción**, escriba una descripción opcional para esta asignación de roles.
+
+    Más adelante puede mostrar esta descripción en la lista de asignaciones de roles.
+
+1. Haga clic en **Next**.
 
 ## <a name="step-5-assign-role"></a>Paso 5: Asignación de un rol
 
-1. Haga clic en **Guardar** para asignar el rol.
+1. En la pestaña **Revisión y asignación**, revise la configuración de la asignación de roles.
 
-   Transcurridos unos instantes, se asigna el rol al usuario en el ámbito seleccionado.
+1. Haga clic en **Revisión y asignación** para asignar el rol.
 
-1. En la pestaña **Asignaciones de roles**, compruebe que ve la asignación del rol en la lista.
+   Transcurridos unos instantes, al usuario se le asigna el rol Propietario para la suscripción.
 
-    ![Agregar asignación de roles guardado](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
+    ![Captura de pantalla de la lista de asignaciones de roles después de asignar el rol en la experiencia con la versión preliminar.](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

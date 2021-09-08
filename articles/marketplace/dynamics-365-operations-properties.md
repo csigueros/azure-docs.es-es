@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 8dd5dc8223314894e04b060f7080ab5f3b0fdfba
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 07/08/2021
+ms.openlocfilehash: f390f6126ce2e4e780fe98f9aa038b98893b341a
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483172"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566217"
 ---
 # <a name="configure-dynamics-365-for-operations-offer-properties"></a>Configuración de las propiedades de una oferta de Dynamics 365 for Operations
 
@@ -30,9 +30,9 @@ Vea la lista completa de categorías y subcategorías en [Procedimientos recomen
 
 ### <a name="industries"></a>Industrias
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)].
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
-Seleccione los **productos** en Dynamics 365 a los que se aplica esta oferta.
+Seleccione los **productos aplicables** que correspondan a la oferta: Comercio, Finanzas, Recursos humanos, Operaciones de proyectos o Administración de cadenas de suministros. Estas selecciones permiten a los clientes encontrar la oferta en función de los filtros de producto de AppSource Dynamics 365 en los que se muestra.
 
 Escriba una **versión de la aplicación** para la oferta. Los clientes verán este número en la página de detalles de la oferta.
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27c95b0b16c36ca24709ec72c741dec633c5c81
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: c81a9912dc33a78d78f77fedecc58b658b4fac3e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108063970"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443099"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Descarga de una lista de usuarios en el portal de Azure Active Directory
 
@@ -36,8 +36,9 @@ Para descargar la lista de usuarios del Centro de administración de Azure AD, d
 4. En la página **Descargar usuarios**, seleccione **Iniciar** para recibir un archivo .csv que enumera las propiedades de perfil del usuario. Si hay errores, puede descargar y ver el archivo de resultados en la página de resultados de la operación masiva. El archivo contiene el motivo de cada error.
 
    ![Seleccione dónde quiere la lista de usuarios que quiere descargar.](./media/users-bulk-download/bulk-download.png)
-
-   El archivo de descarga contendrá la lista filtrada de usuarios.
+   
+>[!NOTE]
+>El archivo de descarga contendrá la lista filtrada de usuarios en función del ámbito de los filtros aplicados.
 
    Se incluyen los atributos de usuario siguientes:
 

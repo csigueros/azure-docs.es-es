@@ -2,13 +2,13 @@
 title: Autenticación y autorización de Azure Service Bus | Microsoft Docs
 description: Autentique aplicaciones en Service Bus con la autenticación de firma de acceso compartido (SAS).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 73b6dc1004ec40c228c0ef5104de5f21eccd0437
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 09/01/2021
+ms.openlocfilehash: 0e5c6654cb3efc85e3d3bd7756c90612bd6c18cd
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988755"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429125"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticación y autorización de Service Bus
 Hay dos maneras de autenticar y autorizar el acceso a los recursos de Azure Service Bus: Azure Activity Directory (Azure AD) y firma de acceso compartido (SAS). En este artículo se proporcionan detalles sobre el uso de estos dos tipos de mecanismos de seguridad. 

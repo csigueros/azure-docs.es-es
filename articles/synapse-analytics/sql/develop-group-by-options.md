@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: c2e1ddbfb87df40a0e3683e7bca7539c26191a7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e88a1b87dae62b928f2238c6c525b6345b891337
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671312"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112680047"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Opciones de GROUP BY en SQL de Synapse
 
@@ -26,7 +26,7 @@ SQL de Synapse permite crear soluciones de desarrollo al implementar distintas o
 
 La cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest&preserve-view=true) de T-SQL se usa para agregar datos a un conjunto de filas de resumen.
 
-El grupo de SQL sin servidor admite todo el abanico de opciones de GROUP BY. El grupo de SQL dedicado admite un número limitado de opciones de GROUP BY.
+El grupo de SQL sin servidor no admite las opciones de GROUP BY. El grupo de SQL dedicado admite un número limitado de opciones de GROUP BY.
 
 ## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>Opciones de GROUP BY admitidas en el grupo de SQL dedicado
 

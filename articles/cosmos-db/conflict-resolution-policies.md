@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ba55d88de3a5a4087db30613b22a7d2441de9be1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa21a1a6d6dfdd89f6532159a8da98fc5df08465
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93334385"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281375"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflicto y directivas de resolución al usar varias regiones de escritura
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -46,7 +46,7 @@ Azure Cosmos DB ofrece un mecanismo flexible controlado por directivas para reso
   Si configura el contenedor con la opción de resolución personalizada y no registra un procedimiento de combinación en el contenedor o procedimiento de combinación lanza una excepción en tiempo de ejecución, los conflictos se escriben en la *fuente de conflictos*. La aplicación tendrá luego que resolver manualmente los conflictos en la fuente de conflictos. Para obtener más información, consulte los [ejemplos de uso de la directiva de resolución personalizada y la fuente de conflictos](how-to-manage-conflicts.md).
 
   > [!NOTE]
-  > La directiva de resolución de conflictos personalizada solo está disponible para las cuentas de API de SQL.
+  > La directiva de resolución de conflictos personalizada solo está disponible para las cuentas de API de SQL y solo se puede establecer en el momento de la creación. No es posible establecer una directiva de resolución personalizada en un contenedor existente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

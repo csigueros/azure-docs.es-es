@@ -9,13 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2021
-ms.openlocfilehash: 60e5d37f57d6a87d9190650f044a1ffc991e60fb
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/12/2021
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: 4fe1e8cd4c78d4411a7cb9058648fc0e782cb0ee
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096097"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666310"
 ---
 # <a name="how-to-create-and-manage-luis-resources"></a>Creación y administración de recursos de LUIS
 
@@ -69,9 +70,9 @@ Para crear recursos de LUIS, puede usar el portal de LUIS, [Azure Portal](https:
 
 [!INCLUDE [Create LUIS Prediction resource in LUIS portal](./includes/add-prediction-resource-portal.md)]
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
+# <a name="without-luis-portal"></a>[Sin el portal de LUIS](#tab/without-portal)
 
-### <a name="create-luis-resources-in-the-azure-cli"></a>Creación de recursos de LUIS en la CLI de Azure
+### <a name="create-luis-resources-without-using-the-luis-portal"></a>Creación de recursos de LUIS sin usar el portal de LUIS
 
 Use la [CLI de Azure](/cli/azure/install-azure-cli) para crear cada recursos de manera individual.
 
@@ -130,9 +131,9 @@ En el siguiente procedimiento se asigna un recurso a una aplicación específica
 1. En la pestaña **Prediction resource** (Recurso de predicción) o **Authoring resource** (Recurso de creación), seleccione el botón **Add prediction resource** (Agregar recurso de predicción) o **Add authoring resource** (Agregar recurso de creación), respectivamente.
 1. Use los campos del formulario para buscar el recurso correcto y, a continuación, seleccione **Save** (Guardar).
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
+# <a name="without-luis-portal"></a>[Sin el portal de LUIS](#tab/without-portal)
 
-## <a name="assign-prediction-resource-programmatically"></a>Asignación de recursos de predicción mediante programación 
+## <a name="assign-prediction-resource-without-using-the-luis-portal"></a>Asignación de un recurso de predicción sin usar el portal de LUIS
 
 En el caso de procesos automatizados, como las canalizaciones de CI/CD, puede automatizar la asignación de un recurso de LUIS a una aplicación de LUIS mediante los pasos siguientes:
 
@@ -181,9 +182,9 @@ Al anular la asignación de un recurso, no se elimina de Azure; solo se desvincu
 1. Vaya a **Administrar** > **Recursos de Azure**.
 1. Seleccione el botón **Cancelar la asignación del recurso** para el recurso.
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
+# <a name="without-luis-portal"></a>[Sin el portal de LUIS](#tab/without-portal)
 
-## <a name="unassign-prediction-resource-programmatically"></a>Cancelación de asignación de recursos de predicción mediante programación
+## <a name="unassign-prediction-resource-without-using-the-luis-portal"></a>Cancelación de la asignación de un recurso de predicción sin usar el portal de LUIS
 
 1. Obtenga un [token de Azure Resource Manager](https://resources.azure.com/api/token?plaintext=true) que es una cadena alfanumérica de caracteres. Este token expira, por lo que debe usarlo de inmediato. También puede usar el siguiente comando de la CLI de Azure.
 

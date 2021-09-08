@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.author: azfuncdf
-ms.openlocfilehash: a91baf110e08794bcf2dedec2a61f0e6c2c734a5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 179eb4c5c380a65374143cf24b2f960458fe62b5
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375883"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112240442"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -234,7 +234,7 @@ Si se alcanza el número máximo de actividades, orquestaciones o entidades en u
 > Esta configuración resulta útil para ayudar a administrar el uso de memoria y de CPU en una única máquina virtual. Pero al escalar horizontalmente en varias máquinas virtuales, cada una tiene su propio conjunto de límites. Esta configuración no se puede usar para controlar la simultaneidad a nivel global.
 
 > [!NOTE]
-> Las orquestaciones y entidades solo se cargan en la memoria cuando están procesando eventos u operaciones de forma activa. Después de ejecutar su lógica y esperar (es decir, pulsar una instrucción `await` (C#) o `yield` (JavaScript, Python) en el código de función de orquestador), se descargan de la memoria. Las orquestaciones y entidades que se descargan de la memoria no cuentan para la limitación `maxConcurrentOrchestratorFunctions`. Incluso aunque haya millones de orquestaciones o entidades en el estado "En ejecución", no se tienen en cuenta para el límite a menos que se carguen en la memoria activa. Una orquestación que programa una función de actividad de forma similar no cuenta para la limitación si la orquestación está esperando a que la actividad termine de ejecutarse.
+> Las orquestaciones y entidades solo se cargan en la memoria cuando están procesando eventos u operaciones de forma activa. Después de ejecutar su lógica y esperar (es decir, pulsar una instrucción `await` (C#) o `yield` (JavaScript, Python) en el código de función de orquestador), se descargan de la memoria. Las orquestaciones y entidades que se descargan de la memoria no cuentan para la limitación `maxConcurrentOrchestratorFunctions`. Aunque haya millones de orquestaciones o entidades en estado "En ejecución", solo se tienen en cuenta para el límite cuando se cargan en la memoria activa. Una orquestación que programa una función de actividad de forma similar no cuenta para la limitación si la orquestación está esperando a que la actividad termine de ejecutarse.
 
 ### <a name="language-runtime-considerations"></a>Consideraciones de entorno de ejecución de lenguaje
 
