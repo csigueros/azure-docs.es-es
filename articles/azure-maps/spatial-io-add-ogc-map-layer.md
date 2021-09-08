@@ -6,13 +6,12 @@ ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-ms.openlocfilehash: 387521e07108aeb101361c3720ea6347ded58c75
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 43fec3aacb1bc22566f4e918166f5e004110a563
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735866"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437695"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Incorporación de una capa de mapa desde Open Geospatial Consortium (OGC)
 
@@ -54,7 +53,7 @@ En el código siguiente se muestra cómo superponer una capa de mapa de OGC en e
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Ejemplo de capa de mapa de OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>Ejemplo de capa de mapa de OGC</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Ejemplo de capa de mapa de OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>Ejemplo de capa de mapa de OGC</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="ogc-map-layer-options"></a>Opciones de la capa de mapa de OGC
@@ -63,7 +62,7 @@ En el ejemplo siguiente se muestran las diferentes opciones de la capa de mapa d
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opciones de la capa de mapa de OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el lápiz <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>Opciones de la capa de mapa de OGC</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opciones de la capa de mapa de OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consulte el lápiz <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>Opciones de la capa de mapa de OGC</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="ogc-web-map-service-explorer"></a>Explorador de Web Map Service de OGC
@@ -72,7 +71,7 @@ La siguiente herramienta superpone las imágenes de Web Map Services (WMS) y de 
 
 <br/>
 
-<iframe height='750' style='width: 100%;' scrolling='no' title='Explorador de Web Map Service de OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Explorador de Web Map Service de OGC</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='750' scrolling='no' title='Explorador de Web Map Service de OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Explorador de Web Map Service de OGC</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 También puede especificar la configuración de mapa para usar un servicio de proxy. El servicio de proxy le permite cargar recursos que se hospedan en dominios que no tienen CORS habilitado.

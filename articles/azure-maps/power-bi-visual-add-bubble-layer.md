@@ -1,20 +1,20 @@
 ---
 title: Incorporación de una capa de burbujas al objeto visual de Azure Maps en Power BI | Microsoft Azure Maps
 description: En este artículo, aprenderá a usar la capa de burbujas en el objeto visual de Microsoft Azure Maps para Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc463a69dc0823e14b08e9fd056f3876e1ba9984
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896232"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430457"
 ---
 # <a name="add-a-bubble-layer"></a>Adición de una capa de burbuja
 

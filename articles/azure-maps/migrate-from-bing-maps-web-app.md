@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Migración de una aplicación web desde Mapas de Bing | Microsoft Azure Maps'
 description: Tutorial sobre cómo migrar una aplicación web desde Mapas de Bing a Microsoft Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 9/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 8726f6211ef792064e9e180a8c2e34383eeb6d53
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: adec0b04e82d0a00b2f95b6b4f7980f628b93a7a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441579"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439639"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Tutorial: Migración de una aplicación web desde Mapas de Bing
 

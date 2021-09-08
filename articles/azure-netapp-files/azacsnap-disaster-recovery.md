@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: ad91260eac0f638d339baf64071cad6475ac19a7
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 1fbf8052a3852e010fc002116cab131ea4f371b8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929820"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438109"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool"></a>Recuperación ante desastres con la herramienta Azure Application Consistent Snapshot
 
@@ -122,7 +122,7 @@ tmpfs 76G 0 76G 0% /run/user/0
 
 Si realiza una conmutación por error completa de cargas de trabajo de producción y es posible la conexión al sitio de producción principal, cierre las instancias de SAP HANA que se vayan a conmutar por error para la recuperación ante desastres.
 
-Por ejemplo, si ha iniciado sesión como raíz, en el ejemplo siguiente se muestra el apagado de SAP HANA.  Reemplace <sid> por el identificador de seguridad de SAP HANA.
+Por ejemplo, si ha iniciado sesión como raíz, en el ejemplo siguiente se muestra el apagado de SAP HANA.  Reemplace \<sid\> por el identificador de seguridad de SAP HANA.
 
 ```bash
 su - <sid>adm
@@ -133,7 +133,7 @@ HDB stop
 
 Es importante apagar SAP HANA en el sitio de recuperación ante desastres antes de restaurar los volúmenes.
 
-Por ejemplo, si ha iniciado sesión como raíz, en el ejemplo siguiente se muestra el apagado de SAP HANA.  Reemplace <sid> por el identificador de seguridad de SAP HANA.
+Por ejemplo, si ha iniciado sesión como raíz, en el ejemplo siguiente se muestra el apagado de SAP HANA.  Reemplace \<sid\> por el identificador de seguridad de SAP HANA.
 
 ```bash
 su - <sid>adm

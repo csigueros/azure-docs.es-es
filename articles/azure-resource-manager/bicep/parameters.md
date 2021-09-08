@@ -4,13 +4,13 @@ description: Se describe cómo definir parámetros en un archivo Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 8701d437a34d364ff6f6e2d58cbf84dc28a79798
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 09/02/2021
+ms.openlocfilehash: 901e95708be75ebd4415c90dbd51eeb46ba492c4
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634216"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450258"
 ---
 # <a name="parameters-in-bicep"></a>Parámetros en Bicep
 
@@ -85,9 +85,7 @@ Para especificar un valor predeterminado junto con otras propiedades para el par
 param demoParam string = 'Contoso'
 ```
 
-Puede usar expresiones con el valor predeterminado. La función no puede usar la función [reference](bicep-functions-resource.md#reference) ni ninguna de las funciones [list](bicep-functions-resource.md#list) de la sección de parámetros. Estas funciones obtienen el estado del runtime del recurso y no se pueden ejecutar antes de la implementación cuando se resuelven parámetros.
-
-No se permiten expresiones con otras propiedades de parámetro.
+Puede usar expresiones con el valor predeterminado. No se permiten expresiones con otras propiedades de parámetro. La función no puede usar la función [reference](bicep-functions-resource.md#reference) ni ninguna de las funciones [list](bicep-functions-resource.md#list) de la sección de parámetros. Estas funciones obtienen el estado del runtime del recurso y no se pueden ejecutar antes de la implementación cuando se resuelven parámetros.
 
 ```bicep
 param location string = resourceGroup().location
@@ -95,10 +93,7 @@ param location string = resourceGroup().location
 
 Puede usar otro valor de parámetro para compilar un valor predeterminado. La plantilla siguiente crea un nombre de plan de host a partir del nombre del sitio.
 
-```bicep
-param siteName string = 'site${uniqueString(resourceGroup().id)}'
-param hostingPlanName string = '${siteName}-plan'
-```
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep":::
 
 ## <a name="length-constraints"></a>Restricciones de longitud
 
@@ -154,62 +149,8 @@ Puede ser más fácil organizar los valores relacionados pasándolos como objeto
 
 En el ejemplo siguiente se muestra un parámetro que es un objeto. El valor predeterminado muestra las propiedades esperadas para el objeto. Esas propiedades se usan al definir el recurso que se va a implementar.
 
-```bicep
-param vNetSettings object = {
-  name: 'VNet1'
-  location: 'eastus'
-  addressPrefixes: [
-    {
-      name: 'firstPrefix'
-      addressPrefix: '10.0.0.0/22'
-    }
-  ]
-  subnets: [
-    {
-      name: 'firstSubnet'
-      addressPrefix: '10.0.0.0/24'
-    }
-    {
-      name: 'secondSubnet'
-      addressPrefix: '10.0.1.0/24'
-    }
-  ]
-}
-resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
-  name: vNetSettings.name
-  location: vNetSettings.location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        vNetSettings.addressPrefixes[0].addressPrefix
-      ]
-    }
-    subnets: [
-      {
-        name: vNetSettings.subnets[0].name
-        properties: {
-          addressPrefix: vNetSettings.subnets[0].addressPrefix
-        }
-      }
-      {
-        name: vNetSettings.subnets[1].name
-        properties: {
-          addressPrefix: vNetSettings.subnets[1].addressPrefix
-        }
-      }
-    ]
-  }
-}
-```
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterobject.bicep":::
 
-## <a name="example-templates"></a>Plantillas de ejemplo
-
-En los siguientes ejemplos se muestran escenarios para usar parámetros.
-
-|Plantilla  |Descripción  |
-|---------|---------|
-|[parámetros con funciones para los valores predeterminados](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterswithfunctions.bicep) | Muestra cómo utilizar las funciones de Bicep al definir valores predeterminados para parámetros. El archivo Bicep no implementa ningún recurso. Genera valores de parámetro y devuelve dichos valores. |
-|[objeto de parámetro](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterobject.bicep) | Muestra cómo utilizar un objeto para un parámetro. El archivo Bicep no implementa ningún recurso. Genera valores de parámetro y devuelve dichos valores. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

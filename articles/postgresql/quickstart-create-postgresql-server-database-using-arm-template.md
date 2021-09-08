@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 02/11/2021
-ms.openlocfilehash: 40e48cade82f8ffc808303dd43cb0d5f9ff5fe86
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 20022df3080b18a93746b61bafc3bcbc0e9e44b7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984435"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424895"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor
 
@@ -179,7 +179,7 @@ read -p "Press [ENTER] to continue: "
 Puede [exportar una plantilla de ARM](../azure-resource-manager/templates/export-template-portal.md) desde Azure Portal. Hay dos maneras de exportar una plantilla:
 
 - [Exportar desde el grupo de recursos o el recurso](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Esta opción genera una plantilla nueva a partir de los recursos existentes. La plantilla exportada es una "instantánea" del estado actual del grupo de recursos. Puede exportar un grupo de recursos completo o recursos específicos dentro de ese grupo de recursos.
-- [Exportar antes de la implementación o desde el historial](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Esta opción recupera una copia exacta de una plantilla usada para la implementación.
+- [Exportar antes de la implementación o desde el historial](../azure-resource-manager/templates/export-template-portal.md#download-template-before-deployment). Esta opción recupera una copia exacta de una plantilla usada para la implementación.
 
 Al exportar la plantilla, en la sección ```"properties":{ }``` del recurso del servidor PostgreSQL observará que ```administratorLogin``` y ```administratorLoginPassword``` no se incluyen por motivos de seguridad. **DEBE** agregar estos parámetros a la plantilla antes de implementarla o, de lo contrario, se producirá un error en la plantilla.
 

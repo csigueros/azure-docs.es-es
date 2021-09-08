@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
-ms.openlocfilehash: acd1b6c8e5c1be76b29c93fddc57c799aef0a526
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 282df705e8a98a7c236cfff549447cdd36017df8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046710"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431447"
 ---
 # <a name="how-to-upgrade-the-vm-insights-dependency-agent"></a>Actualización del agente Dependency Agent de VM Insights
 
@@ -47,7 +47,7 @@ Puede descargar la versión más reciente del agente de Windows [aquí](https://
 
 2. Ejecute el siguiente comando:
 
-    ```dos
+    ```cmd
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
     ```
 
@@ -63,7 +63,11 @@ Puede descargar la versión más reciente del agente de Linux [aquí](https://ak
 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 
-2. Ejecute el siguiente comando como raíz`sh InstallDependencyAgent-Linux64.bin -s`. 
+2. Ejecute el siguiente comando como raíz.
+
+    ```bash
+    InstallDependencyAgent-Linux64.bin -s
+    ```
 
 Si Dependency Agent no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Linux, el directorio de registro es */var/opt/microsoft/dependency-agent/log*. 
 

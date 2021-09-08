@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de línea a mapas de Android | Microsoft Azure Maps
 description: Aprenda a agregar líneas a mapas. Consulte los ejemplos que usan Android SDK de Azure Maps para agregar capas de línea a los mapas y para personalizar las líneas con símbolos y degradados de color.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ff071d03e00a0380d1ab6642828b0940931d3302
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ce8733fdc6e6fd22414df944e35fa3609668e653
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097455"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438469"
 ---
 # <a name="add-a-line-layer-to-the-map-android-sdk"></a>Adición de una capa de línea al mapa (Android SDK)
 

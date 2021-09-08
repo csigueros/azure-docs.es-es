@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1391ca9ff3fb7563aa8a31729a8f4cd66091b264
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 73435cbc7a630e77f7ed2d7804afd314f68c1a87
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175053"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433231"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Uso del sitio de la nube privada de CloudSimple para hospedar una infraestructura de escritorio virtual mediante VMware Horizon
 
@@ -124,7 +124,7 @@ Instale los componentes como se indica a continuación:
 
 2. Para instalar Horizon View en la nube privada, siga las instrucciones que se indican en el artículo [Guía de instalación de View](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html).
 
-3. Para instalar App Volume Manager, siga las instrucciones del artículo [Instalar y configurar VMware App Volumes](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html).
+3. Para instalar App Volume Manager, siga las instrucciones del artículo [Instalar y configurar VMware App Volumes](https://docs.vmware.com/en/VMware-App-Volumes/4/com.vmware.appvolumes.install.doc/GUID-3F92761D-9F83-4610-978C-4DAA55E07D14.html).
 
 4. Para instalar y configurar User Environment Manager, siga las instrucciones incluidas en [Cómo instalar y configurar VMware User Environment Manager](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html).
 

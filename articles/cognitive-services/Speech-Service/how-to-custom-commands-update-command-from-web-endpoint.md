@@ -3,19 +3,19 @@ title: Actualizar un comando desde un punto de conexión web
 titleSuffix: Azure Cognitive Services
 description: Aprenda a actualizar el estado de un comando mediante una llamada a un punto de conexión web.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: lajanuar
-ms.openlocfilehash: 9900d873de5efac89db13b80c0cc37167a0cee05
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 3f75755a3ab9f327c526103e9fbe08d1c149dba6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122066612"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540467"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>Actualizar un comando desde un punto de conexión web
 

@@ -1,20 +1,20 @@
 ---
 title: Uso del módulo de servicios de Azure Maps | Microsoft Azure Maps
 description: Aprenda a usar el módulo de servicios de Azure Maps. Vea cómo cargar y usar esta biblioteca auxiliar para acceder a los servicios REST de Azure Maps en las aplicaciones web o Node.js.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/25/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
-ms.openlocfilehash: 2e07b614e87ed5dad94cf9bc5994e78071187839
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cd1cd820583a177ec65c9b63066119399e4bba0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008606"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435157"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Uso del módulo de servicios de Azure Maps
 
@@ -160,7 +160,7 @@ El SDK web de Azure Maps proporciona un *módulo de servicios*. Este módulo es 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Uso del módulo de servicios" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Uso del módulo de servicios" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Using the Services Module</a> (Uso de módulo de servicios) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 06/25/2021
 ms.author: aahi
-ms.openlocfilehash: bad25e569077a7503be64fffc85501a2550db96c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4d56b29311c7c74d8e331b7730e88aca4e8968a9
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747552"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473450"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Etiquetas de imágenes de contenedor de Azure Cognitive Services notas de la versión
 
@@ -105,47 +105,6 @@ Notas de la versión `1.1.013050001-amd64-preview`
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |
-
----
-
-## <a name="form-recognizer"></a>Form Recognizer
-
-Las características de Form Recognizer se admiten en siete contenedores:
-
-| Nombre del contenedor | Nombre completo de la imagen |
-|---|---|
-| **Diseño** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout |
-| **Tarjeta de presentación** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard |
-| **Documento de identificación** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document |
-| **Recibo** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt |
-| **Factura** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice |
-| **API personalizada** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api |
-| **Supervisado personalizado** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised |
-
-Las imágenes de contenedor de [Form Recognizer][fr-containers] se pueden encontrar en la distribución del registro de contenedor `mcr.microsoft.com`. Residen en el repositorio `azure-cognitive-services/form-recognizer`.
-
-Las imágenes de contenedor tienen disponibles las siguientes etiquetas:
-
-# <a name="latest-version"></a>[La versión más reciente](#tab/current)
-
-Notas de la versión `v2.1`:
-
-Los contenedores de Form Recognizer están actualmente en versión preliminar validada. Para usarlos, debe enviar una [solicitud en línea](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu) y recibir la aprobación.
-
-| Contenedor | Etiquetas |
-|------------|:------|
-| **Diseño**| &bullet; `latest` </br> &bullet; `2.1-preview` </br> &bullet; `2.1.0.016140001-08108749-amd64-preview`|
-| **Tarjeta de presentación** | &bullet; `latest` </br> &bullet; `2.1-preview` </br> &bullet; `2.1.016190001-amd64-preview`  </br> &bullet; `2.1.016320001-amd64-preview`  |
-| **Documento de identificación** | &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
-| **Recibo**| &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
-| **Factura**| &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
-| **API personalizada** | &bullet; `latest` </br> &bullet;`2.1-distroless-20210622013115034-0cc5fcf6`</br>&bullet; `2.1-preview`|
-| **Supervisado personalizado**| &bullet; `latest` </br> &bullet; `2.1-distroless-20210622013149174-0cc5fcf6`</br>&bullet; `2.1-preview`|
-
-# <a name="previous-versions"></a>[Versiones anteriores](#tab/previous)
-
-> [!IMPORTANT]
-> El contenedor de Form Recognizer v1.0 se ha retirado.
 
 ---
 

@@ -3,22 +3,22 @@ title: 'Inicio rápido del reconocimiento de la intención: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido, se usa el reconocimiento de la intención para reconocer de forma interactiva las intenciones de los datos de audio capturados a través de un micrófono.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/04/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
 keywords: reconocimiento de la intención
-ms.openlocfilehash: 63b289d4c5f0d6b82ee0fa41b00611b06122a537
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: a556fa79b0ed9144dfd6a39420de26413e88554f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071865"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543338"
 ---
 # <a name="get-started-with-intent-recognition"></a>Introducción al reconocimiento de la intención
 
