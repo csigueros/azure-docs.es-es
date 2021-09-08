@@ -5,12 +5,12 @@ description: Aprenda a actualizar los nodos de Linux y a reiniciarlos automátic
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a81d778b8346a03622ef837b6732e7d50e807652
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88164247"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747850"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicación de actualizaciones de kernel y seguridad a los nodos de Linux en Azure Kubernetes Service (AKS)
 
@@ -39,6 +39,12 @@ Algunas actualizaciones de seguridad, como las actualizaciones del kernel, requi
 
 Puede usar sus propios flujos de trabajo y procesos para controlar los reinicios de nodo, o usar `kured` para coordinar el proceso. Con `kured`, se implementa un valor de [DaemonSet][DaemonSet] que ejecuta un pod en cada nodo de Linux del clúster. Estos pods en DaemonSet comprueban si existe el archivo */var/run/reboot-required* y, a continuación, inician un proceso para reiniciar los nodos.
 
+### <a name="node-image-upgrades"></a>Actualizaciones de imágenes de nodo
+
+Las actualizaciones desatendidas aplican actualizaciones al sistema operativo del nodo de Linux, pero la imagen que se usa para crear nodos para su clúster no sufre cambios. Si se agrega un nuevo nodo de Linux al clúster, se usa la imagen original para crear el nodo. Este nuevo nodo recibirá todas las actualizaciones disponibles de seguridad y del kernel durante la comprobación automática de cada noche, pero no será objeto de revisiones hasta que se completen todas las comprobaciones y reinicios.
+
+También puede usar la actualización de las imágenes de nodo para buscar y actualizar las imágenes de nodo que usa su clúster. Para obtener más información sobre la actualización de imágenes de nodo, consulte [Actualización de la imagen de nodos de Azure Kubernetes Service (AKS)][node-image-upgrade].
+
 ### <a name="node-upgrades"></a>Actualizaciones de nodo
 
 Hay un proceso adicional en AKS que le permite *actualizar* un clúster. Una actualización consiste generalmente en el cambio a una versión más reciente de Kubernetes, no solo en aplicar las actualizaciones de seguridad de nodo. Una actualización de AKS realiza las acciones siguientes:
@@ -65,7 +71,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install kured kured/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install kured kured/kured --namespace kured --set nodeSelector."kubernetes\.io/os"=linux
 ```
 
 También puede configurar parámetros adicionales para `kured`, como la integración con Prometheus o Slack. Para más información sobre los parámetros de configuración adicionales, consulte el [gráfico de Kured Helm][kured-install].
@@ -118,3 +124,4 @@ Para los clústeres de AKS que usan los nodos de Windows Server, consulte [Actu
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[node-image-upgrade]: node-image-upgrade.md
