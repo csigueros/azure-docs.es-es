@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de polígono a mapas de Android | Microsoft Azure Maps
 description: Obtenga información sobre cómo agregar polígonos o círculos a los mapas. Vea cómo usar Android SDK de Azure Maps para personalizar las formas geométricas y facilitar su actualización y mantenimiento.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 68d68424e71bcf60bf504ae174b84b9c361b8637
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 5659e366fd5c949ea374768bf848313d747896d2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097268"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425862"
 ---
 # <a name="add-a-polygon-layer-to-the-map-android-sdk"></a>Adición de una capa de polígono al mapa (Android SDK)
 

@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: aebee9b2511e3616a9170d5ed84be3acf391b6ad
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 0609b2e39576850665937246afa6954f2580d195
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071964"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449610"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -65,7 +65,6 @@ Para más información, vea [Procedimiento para conectar dispositivos con certif
 Solo para pruebas, puede usar las siguientes utilidades para generar certificados raíz, intermedio y de dispositivo:
 
 - [Herramientas del SDK de dispositivo de Azure IoT Device Provisioning](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): colección de herramientas de Node.js que se puede usar para generar y verificar claves y certificados X.509.
-- Si usa un dispositivo DevKit, esta [herramienta de la línea de comandos](https://aka.ms/iotcentral-docs-dicetool) genera un certificado de entidad de certificación que puede agregar a la aplicación de IoT Central para verificar los certificados.
 - [Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): una colección de scripts de PowerShell y Bash para:
   - Crear una cadena de certificados.
   - Guardar los certificados como archivos .cer para cargarlos en la aplicación de IoT Central.

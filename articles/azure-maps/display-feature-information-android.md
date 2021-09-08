@@ -1,20 +1,20 @@
 ---
 title: Visualización de información de características en los mapas de Android | Microsoft Azure Maps
 description: Aprenda a mostrar información cuando los usuarios interactúan con las características de mapas. Use Android SDK de Azure Maps para mostrar las notificaciones del sistema y otros tipos de mensajes.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 9d7606a259f46981f672cba114410f84d395615c
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: a8bd232ccba2adb3666ee7fd54983be2ed1f7296
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091796"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426443"
 ---
 # <a name="display-feature-information"></a>Mostrar información de características
 

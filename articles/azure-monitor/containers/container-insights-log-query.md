@@ -3,12 +3,12 @@ title: Procedimiento para consultar registros desde Container Insights
 description: Container Insights recopila datos de registro y métricas, y en este artículo se describen los registros y se incluyen consultas de ejemplo.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 6b5e88e8de1f88a738fdfbb60678909d20e72863
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 07ff7a65f6f4ed0865a45e92288caa362051fd20
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187206"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428027"
 ---
 # <a name="how-to-query-logs-from-container-insights"></a>Procedimiento para consultar registros desde Container Insights
 
@@ -44,8 +44,8 @@ ContainerInventory
 ### <a name="kubernetes-events"></a>Eventos de Kubernetes
 
 ``` kusto
-KubeEvents_CL
-| where not(isempty(Namespace_s))
+KubeEvents
+| where not(isempty(Namespace))
 | sort by TimeGenerated desc
 | render table
 ```

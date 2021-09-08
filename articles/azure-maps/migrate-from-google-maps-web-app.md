@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Migración de una aplicación web desde Google Maps a Microsoft Azure Maps'
 description: Tutorial sobre cómo migrar de una aplicación web de Google Maps a Microsoft Azure Maps
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: f034d5e4edd1e99605f3620cdf99084ae8c4ea86
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8d429785c87b7dbbbd4ea8eb4c6a24fea021b214
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437218"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439567"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>Tutorial: Migración de una aplicación web desde Google Maps
 
@@ -1158,7 +1158,7 @@ Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un
 
 En los siguientes ejemplos se carga del USGS una fuente GeoJSON de todos los terremotos del último mes y se representan como un mapa térmico ponderado. Para la ponderación se utiliza la propiedad `"mag"`.
 
-#### <a name="before-google-maps"></a>Antes: Google Maps
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Para crear un mapa térmico, agregue `&libraries=visualization` a la dirección URL del script de la API para cargar la biblioteca de "visualización". La capa de mapa térmico de Google Maps no admite directamente datos GeoJSON. En primer lugar, descargue los datos y conviértalos en una matriz de puntos de datos ponderados:
 
@@ -1318,7 +1318,7 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 
 ![Capa de mosaicos de Google Maps](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
 
-#### <a name="after-azure-maps&quot;></a>Después: Azure Maps
+#### <a name="after-azure-maps&quot;></a>Después: Azure Maps
 
 Agregue una capa de mosaicos al mapa igual que haría con cualquier otra capa. Use una dirección URL con formato que tenga marcadores de X, Y y zoom: `{x}`, `{y}`, `{z}`, para indicar a la capa dónde puede acceder a los mosaicos. Las capas de mosaicos de Azure Maps también admiten los marcadores de posición `{quadkey}`, `{bbox-epsg-3857}` y `{subdomain}`.
 

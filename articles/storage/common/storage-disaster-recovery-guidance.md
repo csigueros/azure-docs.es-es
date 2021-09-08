@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 383757cf20c7ac508aa396b947640c3a1221052d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 29392d17d31926f7ae261bad96b53623b3c5a36a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749315"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470515"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -67,7 +67,8 @@ Microsoft también recomienda diseñar la aplicación para prepararse para la po
 
 La conmutación por error de una cuenta administrada por el cliente le permite conmutar por error toda una cuenta de almacenamiento en la región secundaria si la región principal deja de estar disponible por cualquier motivo. Cuando se fuerza una conmutación por error en la región secundaria, los clientes pueden empezar a escribir datos en el punto de conexión secundario una vez que se completa la conmutación por error. Por lo general, la conmutación por error tarda aproximadamente una hora.
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+> [!NOTE]
+> Esta característica aún no se admite en cuentas con un espacio de nombres jerárquico (Azure Data Lake Storage Gen2). Para obtener más información, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](../blobs/data-lake-storage-supported-blob-storage-features.md).
 
 ### <a name="how-an-account-failover-works"></a>Funcionamiento de la conmutación por error de una cuenta
 

@@ -3,21 +3,21 @@ title: 'Inicio rápido: Creación de palabras clave en el servicio Speech'
 titleSuffix: Azure Cognitive Services
 description: El dispositivo siempre espera una palabra clave (o frase). Cuando el usuario dice la palabra clave, el dispositivo envía todo el audio subsiguiente a la nube, hasta que el usuario deja de hablar. La personalización de la palabra clave es una forma eficaz de diferenciar el dispositivo y de reforzar la marca.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 439bbb40ac58ea0f3f0870bb86e6c9f4a29980a5
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 8cf0da3ca3787580513d818a2c0ebca5a07829b6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122066661"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541106"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introducción a Palabra clave personalizada
 

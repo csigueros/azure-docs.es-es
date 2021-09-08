@@ -1,20 +1,20 @@
 ---
 title: Control de eventos de mapa en los mapas de Android | Microsoft Azure Maps
 description: Obtenga información sobre los eventos que se desencadenan cuando los usuarios interactúan con mapas. Vea una lista de todos los eventos de mapa admitidos. Vea cómo usar Android SDK de Azure Maps para controlar eventos.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ebe61e5956dc0f35794211a336eb7d884ee18d76
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49a06fdd2c8025515fd42124aa7d00f27d8c5978
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608908"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425723"
 ---
 # <a name="interact-with-the-map-android-sdk"></a>Interactuación con el mapa (Android SDK)
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/19/2020
-ms.openlocfilehash: 2e9589063d5a094161a8eef09d0968c0679d58bd
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 3d2750c607c8fe370122988d3836e00230ef0f21
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643589"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123423995"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear un servidor de Azure Database for MySQL
 
@@ -187,7 +187,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 Puede [exportar una plantilla de ARM](../azure-resource-manager/templates/export-template-portal.md) desde Azure Portal. Hay dos maneras de exportar una plantilla:
 
 - [Exportar desde el grupo de recursos o el recurso](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Esta opción genera una plantilla nueva a partir de los recursos existentes. La plantilla exportada es una "instantánea" del estado actual del grupo de recursos. Puede exportar un grupo de recursos completo o recursos específicos dentro de ese grupo de recursos.
-- [Exportar antes de la implementación o desde el historial](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Esta opción recupera una copia exacta de una plantilla usada para la implementación.
+- [Exportar antes de la implementación o desde el historial](../azure-resource-manager/templates/export-template-portal.md#download-template-before-deployment). Esta opción recupera una copia exacta de una plantilla usada para la implementación.
 
 Al exportar la plantilla, en la sección ```"properties":{ }``` del recurso del servidor MySQL observará que ```administratorLogin``` y ```administratorLoginPassword``` no se incluyen por motivos de seguridad. **DEBE** agregar estos parámetros a la plantilla antes de implementarla o, de lo contrario, se producirá un error en la plantilla.
 

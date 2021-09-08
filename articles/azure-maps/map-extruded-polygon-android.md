@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de extrusión de polígono a un mapa de Android | Microsoft Azure Maps
 description: Cómo agregar una capa de extrusión de polígonos a Android SDK de Microsoft Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: a5d5fb3419a3bdaaef9480c3979cb83e806a97c2
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 85e8f7e2d4d6dad05484131cc7c0cf0932fee407
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093542"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432709"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map-android-sdk"></a>Adición de una capa de extrusión de polígono al mapa (Android SDK)
 

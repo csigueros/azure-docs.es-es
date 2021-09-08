@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas en Azure Portal
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure Portal. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6c534348963dcca70b34db658e7d1e60288eb1f3
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: de308f7165d1457ead578ac2e2987d9e433a7721
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102068"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469470"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Definiciones integradas de Azure Policy para Azure Portal
 

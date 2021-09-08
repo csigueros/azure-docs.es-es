@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: d58ae0125e37d781075a0df0da65eb8b08241f4d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6f1855474454cc69489b76e03b8ce17dd97ccf32
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750172"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437670"
 ---
 # <a name="add-a-simple-data-layer"></a>Adición de una capa de datos simple
 
@@ -56,7 +55,7 @@ El código siguiente representa la característica de punto anterior mediante la
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Uso de la capa de datos simple" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Uso de la capa de datos simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" scrolling="no" title="Uso de la capa de datos simple" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Uso de la capa de datos simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 La eficacia real de la capa de datos simple se aprecia cuando:
@@ -69,7 +68,7 @@ Por ejemplo, al analizar fuentes de distribución de datos XML, es posible que n
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opciones de la capa de datos simple" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Opciones de la cada de datos simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" scrolling="no" title="Opciones de la capa de datos simple" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Opciones de la cada de datos simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
