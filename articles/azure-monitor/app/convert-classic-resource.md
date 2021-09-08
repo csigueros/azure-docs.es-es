@@ -4,12 +4,12 @@ description: Obtenga información sobre los pasos necesarios para actualizar un 
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3d6092d694d1c99ff7755dfcbec5c0edbfb7567f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3eea51b69bbb1138ac7c5418370759d1777b482c
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077309"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361843"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migración a recursos de Application Insights basados en áreas de trabajo
 
@@ -26,7 +26,7 @@ Application Insights basado en áreas de trabajo permite aprovechar todas las c
 * Las [claves administradas por el cliente (CMK)](../logs/customer-managed-keys.md) proporcionan cifrado en reposo de los datos mediante claves de cifrado a las que solo tiene acceso el usuario.
 * [Azure Private Link](../logs/private-link-security.md) le permite vincular de forma segura los servicios PaaS de Azure a la red virtual mediante puntos de conexión privados.
 * [Traiga su propio almacenamiento (BYOS) para Profiler y Snapshot Debugger](./profiler-bring-your-own-storage.md) le proporciona control total sobre la directiva de cifrado en reposo, la directiva de administración de la duración y el acceso a la red para todos los datos asociados a Application Insights Profiler y Snapshot Debugger. 
-* Los [niveles de reserva de capacidad](../logs/manage-cost-storage.md#pricing-model) permiten ahorrar hasta un 25 % en comparación con el precio de Pago por uso. 
+* Los [niveles de compromiso](../logs/manage-cost-storage.md#pricing-model) permiten ahorrar hasta un 30 % en comparación con el precio de Pago por uso. 
 * Ingesta de datos más rápida gracias a la ingesta de streaming de Log Analytics.
 
 ## <a name="migration-process"></a>Proceso de migración
@@ -49,8 +49,11 @@ Si no tiene que migrar un recurso existente y quiere crear un nuevo recurso de A
 
     - Si aún no tiene un área de trabajo de Log Analytics, [vea la documentación de creación de áreas de trabajo de Log Analytics](../logs/quick-create-workspace.md).
     
-- La exportación continua no es compatible con los recursos basados en áreas de trabajo y se debe deshabilitar.
+- **La exportación continua no es compatible con los recursos basados en áreas de trabajo** y se debe deshabilitar.
 Una vez completada la migración, puede usar la [configuración de diagnóstico](../essentials/diagnostic-settings.md) para configurar el archivado de datos en una cuenta de almacenamiento o el streaming al centro de eventos de Azure.  
+
+    > [!CAUTION]
+    > La configuración de diagnóstico usa un formato o esquema de exportación diferente al de la exportación continua. La migración interrumpirá las integraciones existentes con Stream Analytics.
 
 - Compruebe la configuración de retención actual en **Genera** > **Uso y costos estimados** > **Retención de datos** del área de trabajo de Log Analytics. Este valor afecta al periodo de tiempo que se almacenan los nuevos datos ingeridos una vez migrado el recurso de Application Insights. Si actualmente está almacenando datos de Application Insights durante más tiempo que el valor predeterminado de 90 días y quiere mantener este período de retención mayor, es posible que tenga que ajustar la configuración de retención del área de trabajo.
 

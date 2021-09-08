@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ae3c214cb1e1d58098dddd29a31d6403aa2e42c6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7e581925928276ebaddb6b3af9d5f549067a29c0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475627"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457559"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -22,7 +22,7 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 
 ## <a name="how-to-view-azure-digital-twins-metrics"></a>Procedimiento para ver las métricas de Azure Digital Twins
 
-1. Cree una instancia de Azure Digital Twins. Puede encontrar instrucciones sobre cómo configurar una instancia de Azure Digital Twins en [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md).
+1. Cree una instancia de Azure Digital Twins. Encontrará instrucciones sobre cómo configurar una instancia de Azure Digital Twins en [Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md).
 
 2. Busque la instancia de Azure Digital Twins en [Azure Portal](https://portal.azure.com) (puede abrir la página correspondiente escribiendo su nombre en la barra de búsqueda del portal). 
 

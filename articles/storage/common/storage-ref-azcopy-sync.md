@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 83d10a7a6e9eb14379d32cc88800a2c443feac60
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c08d0f561e743b33720258ce5d6886411f3859f0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503055"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462529"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -150,6 +150,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 **--include-pattern** string   Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: `*.jpg;*.pdf;exactName`
 
 **--log-level** string: define el nivel de detalle del registro para el archivo de registro, niveles disponibles: `INFO`(todas las solicitudes y respuestas), `WARNING`(respuestas lentas), `ERROR`(solo solicitudes con errores) y `NONE`(sin registros de salida). (El valor predeterminado es `INFO`). 
+
+**--mirror mode** Deshabilita la comparación basada en la hora de última modificación y sobrescribe los archivos y blobs en conflicto en el destino si esta marca está establecida en `true`. El valor predeterminado es `false`.
 
 **--preserve-smb-info** False de manera predeterminada. Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files). Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, include-pattern).  La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que no se conserva para las carpetas.
 

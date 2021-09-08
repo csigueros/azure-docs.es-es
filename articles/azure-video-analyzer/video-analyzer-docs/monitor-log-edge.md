@@ -2,13 +2,13 @@
 title: 'Supervisión y registro: Azure'
 description: En este artículo se proporciona información general sobre la supervisión y el registro de Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: d7f048aecd89d75ad7bff728bc8a4ddebc8f515a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 7938a68272378cf592fff17be0c4dfef2ca0e3f3
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388668"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604864"
 ---
 # <a name="monitor-and-log-on-iot-edge"></a>Supervisión y registro en IoT Edge
 
@@ -392,31 +392,38 @@ Al igual que sucede con otros módulos de IoT Edge, también se pueden [examina
    * `MediaPipeline`: registros de bajo nivel que pueden ofrecer información detallada cuando está solucionando problemas, como dificultades para establecer una conexión con una cámara compatible con RTSP.
    
 ### <a name="generating-debug-logs"></a>Generación de registros de depuración
+En algunos casos, para ayudar al soporte técnico de Azure a resolver un problema, puede que tenga que generar registros más detallados que los descritos anteriormente. Para generar estos registros:  
 
-En algunos casos, para ayudar al soporte técnico de Azure a resolver un problema, puede que tenga que generar registros más detallados que los descritos anteriormente. Para generar estos registros:
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya al centro de IoT.
+1. En el panel izquierdo, seleccione **IoT Edge**.
+1. Seleccione el identificador del dispositivo de destino en la lista de dispositivos.
+1. En la parte superior del panel, seleccione **Establecer módulos**.
 
-1. [Vincule el almacenamiento del módulo con el almacenamiento del dispositivo](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) mediante `createOptions`. Si examina una [plantilla de manifiesto de implementación](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp/blob/master/src/edge/deployment.template.json) de los inicios rápidos, verá este código:
+   ![Captura de pantalla del botón "Establecer módulos" en Azure Portal.](media/troubleshoot/set-modules.png)
 
-   ```json
-   "createOptions": {
-     …
-     "Binds": [
-       "/var/local/videoAnalyzer/:/var/lib/videoAnalyzer/"
-     ]
-    }
-   ```
+1. En la sección **Módulos de IoT Edge**, busque y seleccione **avaedge**.
+1. Seleccione **Identidad de módulo gemela**. Se abre un panel editable.
+1. Agregue el siguiente par clave-valor en la **clave que desee**:
 
-   Este código permite que el módulo de Edge escriba registros en la ruta de acceso de almacenamiento del dispositivo `/var/local/videoAnalyzer/`. 
+   `"DebugLogsDirectory": "/var/lib/videoanalyzer/logs"`
 
- 1. Agregue la siguiente propiedad `desired` al módulo:
+   > [!NOTE]
+   > Este comando enlaza las carpetas de registros entre el dispositivo Edge y el contenedor. Si quiere recopilar los registros en una ubicación diferente en el dispositivo:
+   >
+   > 1. Cree un enlace para la ubicación del registro de depuración en la sección **Enlaces**, y reemplace los elementos **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** y **$DEBUG_LOG_LOCATION** por la ubicación que desee: `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+   > 2. Use el comando siguiente y reemplace **$DEBUG _LOG_LOCATION** por la ubicación usada en el paso anterior: `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-    `"debugLogsDirectory": "/var/lib/videoAnalyzer/debuglogs/"`
+1. Seleccione **Guardar**.
 
-El módulo escribirá ahora los registros de depuración en un formato binario en la ruta de acceso de almacenamiento del dispositivo `/var/local/videoAnalyzer/debuglogs/`. Puede compartir estos registros con el soporte técnico de Azure.
+El módulo escribirá ahora los registros de depuración en un formato binario en la ruta de acceso de almacenamiento del dispositivo `/var/local/videoAnalyzer/debuglogs/`. Puede compartir estos registros con el soporte técnico de Azure.  
+
+La recopilación de registros se puede detener estableciendo ese valor en **Identidad de módulo gemela** en _NULL_. Vuelva a la página **Identidad de módulo gemela** y actualice los siguientes parámetros como:
+
+   `"DebugLogsDirectory": ""`
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-Si tiene alguna pregunta, consulte las [preguntas frecuentes sobre supervisión y métricas](faq-edge.md#monitoring-and-metrics).
+Si tiene alguna pregunta, consulte las [preguntas frecuentes sobre supervisión y métricas](faq-edge.yml#monitoring-and-metrics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

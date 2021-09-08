@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/15/2021
+ms.date: 07/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 183abae52d8b8dc4b78f48118866d6d667aaeaed
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8e17f6933695755a86c5d1e2fbcb7a14c183d0c4
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061631"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602829"
 ---
 # <a name="mitigate-credential-attacks-in-azure-ad-b2c"></a>Mitigación de ataques a credenciales en Azure AD B2C
 
@@ -59,6 +59,9 @@ La característica de bloqueo inteligente usa muchos factores para determinar cu
 Cuando pruebe la característica de bloqueo inteligente, use un patrón distintivo para cada contraseña que escriba. Considere la posibilidad de usar aplicaciones web de generación de contraseñas, como [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
 
 Cuando se alcance el umbral de bloqueo inteligente, recibirá el siguiente mensaje mientras la cuenta está bloqueada: **La cuenta está bloqueada temporalmente para evitar el uso no autorizado. Vuelva a intentarlo más adelante**. Los mensajes de error se pueden [localizar](localization-string-ids.md#sign-up-or-sign-in-error-messages).
+
+> [!NOTE]
+> Al probar el bloqueo inteligente, las solicitudes de inicio de sesión pueden ser controladas por distintos centros de datos debido a la naturaleza de distribución geográfica y de equilibrio de carga del servicio de autenticación de Azure AD. En ese escenario, dado que cada centro de datos de Azure AD hace un seguimiento de manera independiente, se puede tardar más que el número de intentos de bloqueo definido para producir un bloqueo. Un usuario tiene un número máximo (threshold_limit * datacenter_count) de intentos fallidos antes de bloquearse completamente.
 
 ## <a name="viewing-locked-out-accounts"></a>Visualización de las cuentas bloqueadas
 

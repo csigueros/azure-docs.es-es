@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8141d44aa4da394726d8c45a1f8514bdcaac09aa
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f3a19958770e157ed31dc3104331bcf5f860041d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229385"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114719590"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-multiple-authentication-types-azure-portal"></a>Configuración de una conexión VPN de punto a sitio a una red virtual mediante varios tipos de autenticación: Azure Portal
 
@@ -41,7 +41,8 @@ Puede usar los siguientes valores para crear un entorno de prueba o hacer refere
 * **Grupos de recursos:** TestRG1
 * **Ubicación:** Este de EE. UU.
 * **GatewaySubnet:** 10.1.255.0/27<br>
-* **Nombre de la puerta de enlace de red virtual:** VNet1GW
+* **SKU:** VpnGw2
+* **Generación:** Generación 2
 * **Tipo de puerta de enlace:** VPN
 * **Tipo de VPN:** basada en rutas
 * **Nombre de dirección IP pública:** VNet1GWpip
@@ -66,7 +67,12 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+Puede ver el estado de implementación en la página Información general de la puerta de enlace. En general, una puerta de enlace puede tardar 45 minutos o más en crearse e implementarse completamente. Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="client-address-pool"></a><a name="addresspool"></a>Grupo de direcciones de clientes
 

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, mathoma
 ms.date: 07/01/2019
-ms.openlocfilehash: 58194f74bb32fec7d58f707d74720c37e26dba5a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c6afb13902282e1e89acb6fe7929e97994883589
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699489"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463422"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,13 +29,26 @@ La información más actualizada se mantendrá en la tabla [Direcciones IP de la
 ## <a name="status-updates"></a>Actualizaciones de estado
 
 # <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
+## <a name="august-2021"></a>Agosto de 2021
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
+
+- Este de Noruega: 51.120.104.32, 51.120.208.32
+- Este de Japón: 40.79.184.32
+- Centro de la India: 40.80.48.32, 20.192.96.32
+
+Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 2 de agosto de 2021.
+
 ## <a name="june-2021"></a>Junio de 2021
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
+
 - Oeste de Reino Unido: 51.140.208.96, 51.140.208.97
 - Centro de Corea del Sur: 20.44.24.32, 20.194.64.33
 - Este de Japón: 13.78.104.32
 
-Esta puerta de enlace de SQL comenzará a aceptar el tráfico de clientes el 1 de junio de 2021.
+Estas puertas de enlace de SQL comenzarán a aceptar el tráfico de clientes el 1 de junio de 2021.
+
+# <a name="completed"></a>[Completado](#tab/completed-ip)
+Se han completado las siguientes migraciones de puerta de enlace: 
 
 ## <a name="may-2021"></a>Mayo de 2021
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
@@ -74,9 +87,6 @@ Las siguientes puertas de enlace de SQL en varias regiones están en proceso de 
 - Oeste de EE. UU.: 23.99.34.75
 
 No se prevé ningún impacto para los clientes, ya que estas puertas de enlace (que se ejecutan en hardware anterior) no enrutan el tráfico de los clientes. Las direcciones IP de estas puertas de enlace se desactivarán el 15 de marzo de 2021.
-
-# <a name="completed"></a>[Completado](#tab/completed-ip)
-Se han completado las siguientes migraciones de puerta de enlace: 
 
 ## <a name="february-2021"></a>Febrero de 2021
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
@@ -192,7 +202,7 @@ No se verá afectado en los siguientes casos:
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>Qué puede hacer si se ve afectado
 
-Es recomendable que permita el tráfico saliente a direcciones IP para todas las [direcciones IP de puerta de enlace](connectivity-architecture.md#gateway-ip-addresses) de la región en el puerto TCP 1433 y el intervalo de puertos de 11000 a 11999. Esta recomendación se aplica a los clientes que se conectan desde el entorno local y también a los que se conectan a través de puntos de conexión de servicio. Para obtener más información sobre los intervalos de puertos, consulte [Directiva de conexión](connectivity-architecture.md#connection-policy).
+Es recomendable que permita el tráfico saliente a direcciones IP para todas las [direcciones IP de puerta de enlace](connectivity-architecture.md#gateway-ip-addresses) de la región en el puerto TCP 1433. Además, permita el intervalo de puertos entre 11000 y 11999 al conectarse desde un cliente ubicado en Azure (por ejemplo, una máquina virtual de Azure) o cuando la directiva de conexión esté establecida en Redireccionamiento. Esta recomendación se aplica a los clientes que se conectan desde el entorno local y también a los que se conectan a través de puntos de conexión de servicio. Para obtener más información sobre los intervalos de puertos, consulte [Directiva de conexión](connectivity-architecture.md#connection-policy).
 
 Es posible que las conexiones realizadas desde aplicaciones que usan versiones de Microsoft JDBC Driver anteriores a 4.0 no superen la validación de certificados. Las versiones inferiores de Microsoft JDBC dependen del nombre común (CN) en el campo Asunto del certificado. La mitigación consiste en asegurarse de que la propiedad hostNameInCertificate esté establecida en *.database.windows.net. Para más información sobre cómo establecer la propiedad hostNameInCertificate, consulte [Conexión con el cifrado](/sql/connect/jdbc/connecting-with-ssl-encryption).
 

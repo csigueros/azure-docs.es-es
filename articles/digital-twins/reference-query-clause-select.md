@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 1118e44e822068566579fdc516479afeda294cf6
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: eeba36b200028d4e90e22cd32c9bab6dbe3799e0
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789504"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492872"
 ---
 # <a name="azure-digital-twins-query-language-reference-select-clause"></a>Referencia del lenguaje de consulta de Azure Digital Twins: cláusula SELECT
 
@@ -268,7 +268,7 @@ La consulta siguiente devuelve el recuento de todas las relaciones de la instanc
 
 ## <a name="select-top"></a>SELECT TOP
 
-Use este método para que se devuelva solo un determinado número de elementos principales que cumplan los requisitos de consulta.
+Use este método para que se devuelvan solo algunos elementos principales que cumplan los requisitos de consulta.
 
 ### <a name="syntax"></a>Sintaxis
 

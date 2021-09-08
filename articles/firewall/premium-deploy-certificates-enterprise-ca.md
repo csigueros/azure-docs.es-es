@@ -1,35 +1,31 @@
 ---
-title: Implementación y configuración de certificados de entidad de certificación de empresa para la versión preliminar de Azure Firewall Prémium
-description: Obtenga información sobre cómo implementar y configurar certificados de entidad de certificación de empresa para la versión preliminar de Azure Firewall Prémium.
+title: Implementación y configuración de certificados de entidad de certificación de empresa para Azure Firewall Premium
+description: Obtenga información sobre cómo implementar y configurar certificados de entidad de certificación de empresa para Azure Firewall Premium.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/18/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 067daef5782697357d08edc0a6c09bea8af085f6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590473"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441079"
 ---
-# <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Implementación y configuración de certificados de entidad de certificación de empresa para la versión preliminar de Azure Firewall
-
-> [!IMPORTANT]
-> Azure Firewall Prémium se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall"></a>Implementación y configuración de certificados de entidad de certificación de empresa para Azure Firewall
 
 
-En la versión preliminar de Azure Firewall Prémium se incluye una característica de inspección de TLS, que requiere una cadena de autenticación de certificado. En el caso de las implementaciones de producción, debe usar una infraestructura de clave pública de la organización para generar los certificados que se usan con Azure Firewall Prémium. Use este artículo para crear y administrar un certificado de entidad de certificación intermedio para la versión preliminar de Azure Firewall Prémium.
+En Azure Firewall Premium se incluye una característica de inspección de TLS, que requiere una cadena de autenticación de certificado. En el caso de las implementaciones de producción, debe usar una infraestructura de clave pública de la organización para generar los certificados que se usan con Azure Firewall Prémium. Use este artículo para crear y administrar un certificado de entidad de certificación intermedio para Azure Firewall Premium.
 
-Para más información sobre los certificados que usa la versión preliminar de Azure Firewall Prémium, consulte [Certificados de la versión preliminar de Azure Firewall Prémium](premium-certificates.md).
+Para más información sobre los certificados que usa Azure Firewall Premium, consulte [Certificados de Azure Firewall Premium](premium-certificates.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Para usar una entidad de certificación de empresa para generar un certificado para usarlo con la versión preliminar de Azure Firewall Prémium, debe tener los siguientes recursos: 
+Para usar una entidad de certificación de empresa para generar un certificado para usarlo con Azure Firewall Premium, debe tener los siguientes recursos: 
 
 - un bosque de Active Directory 
 - una entidad de certificación raíz de servicios de certificación de Active Directory con inscripción en web habilitada 
@@ -57,7 +53,7 @@ Para usar una entidad de certificación de empresa para generar un certificado p
 
 1. En Azure Portal, vaya a la página Certificados de su instancia de Key Vault y seleccione **Generar o importar**.
 1. Seleccione **Importar** como método de creación, asigne un nombre al certificado, seleccione el archivo .pfx exportado, escriba la contraseña y, después, seleccione **Crear**.
-1. Vaya a la página **Inspección de TLS (versión preliminar)** de la directiva de firewall y seleccione la identidad administrada, Key Vault y el certificado. 
+1. Vaya a la página **Inspección de TLS** de la directiva de firewall y seleccione la identidad administrada, Key Vault y el certificado. 
 1. Seleccione **Guardar**.
    :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/tls-inspection.png" alt-text="La inspección de TLS":::
 
@@ -79,4 +75,4 @@ Para usar una entidad de certificación de empresa para generar un certificado p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Versión preliminar de Azure Firewall Prémium en Azure Portal](premium-portal.md)
+[Azure Firewall Premium en Azure Portal](premium-portal.md)

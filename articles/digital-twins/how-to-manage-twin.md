@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2c83ac769cc4a8aec6148e1a45ec6435f117d73a
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: b670c244c502049cc9eb419aa6570ad40e5aafa7
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812057"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689933"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
 Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación.
 
-Este artículo se centra en la administración de gemelos digitales; para trabajar con relaciones y con el [grafo de gemelos](concepts-twins-graph.md) en conjunto, consulte [Procedimiento: Administración del grafo de gemelos con relaciones](how-to-manage-graph.md).
+Este artículo se centra en la administración de gemelos digitales. Para trabajar con relaciones y con el [grafo de gemelos](concepts-twins-graph.md) en conjunto, consulte [Administración del grafo de gemelos y las relaciones](how-to-manage-graph.md).
 
 > [!TIP]
 > Todas las funciones del SDK cuentan con versiones sincrónicas y asincrónicas.
@@ -40,7 +40,7 @@ Para crear un gemelo, use el método `CreateOrReplaceDigitalTwinAsync()` en el c
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 Para crear un gemelo digital, debe proporcionar lo siguiente:
-* El identificador deseado para el gemelo digital.
+* El identificador deseado para el gemelo digital, que se va a definir en esta fase.
 * El [modelo](concepts-models.md) que quiere usar.
 
 Opcionalmente, puede proporcionar los valores iniciales de todas las propiedades del gemelo digital. Las propiedades se tratan como opcionales y se pueden establecer más adelante, pero **no aparecerán como parte de un gemelo hasta que se hayan establecido.**
@@ -57,7 +57,7 @@ El modelo y los valores iniciales de las propiedades se proporcionan mediante el
 
 Puede inicializar las propiedades de un gemelo en el momento en que este se crea. 
 
-La API de creación de gemelos acepta un objeto serializado en una descripción JSON válida de las propiedades gemelas. Consulte [Conceptos: Gemelos digitales y el grafo de gemelos](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo. 
+La API de creación de gemelos acepta un objeto serializado en una descripción JSON válida de las propiedades gemelas. Consulte [Gemelos digitales y el grafo de gemelos](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo. 
 
 En primer lugar, puede crear un objeto de datos para representar el gemelo y los datos de sus propiedades. Puede crear un objeto de parámetro manualmente o mediante una clase auxiliar proporcionada. A continuación se muestra un ejemplo de cada opción.
 
@@ -86,7 +86,12 @@ Puede acceder a los detalles de cualquier gemelo digital mediante una llamada al
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwinCall":::
 
-Esta llamada devuelve los datos del gemelo en forma de un tipo de objeto fuertemente tipado, como `BasicDigitalTwin`. `BasicDigitalTwin` es una clase auxiliar de serialización que se incluye con el SDK, que devolverá los metadatos y las propiedades de gemelos principales en formato analizado previamente. Este es un ejemplo de cómo se usa para ver los detalles del gemelo:
+Esta llamada devuelve los datos del gemelo en forma de un tipo de objeto fuertemente tipado, como `BasicDigitalTwin`. `BasicDigitalTwin` es una clase auxiliar de serialización que se incluye con el SDK, que devolverá los metadatos y las propiedades de gemelos principales en formato analizado previamente. Siempre puede deserializar los datos gemelos mediante la biblioteca JSON que prefiera, como `System.Text.Json` o `Newtonsoft.Json`. Las clases auxiliares hacen más cómodo el acceso básico a un gemelo.
+
+> [!NOTE]
+> `BasicDigitalTwin` utiliza atributos `System.Text.Json`. Para usar `BasicDigitalTwin` con el elemento [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), debe inicializar el cliente con el constructor predeterminado, o bien, si desea personalizar la opción del serializador, use [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
+
+La clase de asistente de `BasicDigitalTwin` también proporciona acceso a las propiedades definidas en el gemelo, a través de un `Dictionary<string, object>`. Para enumerar las propiedades del gemelo, puede usar:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
@@ -95,7 +100,7 @@ Solo se devuelven las propiedades que se han establecido al menos una vez cuando
 >[!TIP]
 >El `displayName` para un gemelo es parte de sus metadatos del modelo, por lo que no se mostrará al obtener los datos de la instancia gemela. Para ver este valor, puede [recuperarlo del modelo](how-to-manage-model.md#retrieve-models).
 
-Para recuperar varios gemelos mediante una única llamada API, consulte los ejemplos de la API de consulta en [Procedimiento: consultar el grafo de gemelos](how-to-query-graph.md).
+Para recuperar varios gemelos mediante una única llamada API, vea los ejemplos de la API de consulta en [Consulta del grafo de gemelos](how-to-query-graph.md).
 
 Tenga en cuenta el siguiente modelo (escrito en el [Lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) que define un objeto Moon:
 
@@ -137,7 +142,7 @@ Las propiedades definidas del gemelo digital se devuelven como propiedades de ni
   - Estado de sincronización de cada propiedad de escritura. Esto es útil principalmente para los dispositivos, donde es posible que el servicio y el dispositivo tengan estados divergentes (por ejemplo, cuando un dispositivo está sin conexión). Actualmente, esta propiedad solo se aplica a dispositivos físicos conectados a IoT Hub. Los datos de la sección de metadatos permiten comprender el estado completo de una propiedad, así como las últimas marcas de tiempo modificadas. Para más información sobre el estado de sincronización, consulte este [tutorial de IoT Hub](../iot-hub/tutorial-device-twins.md) sobre el estado de sincronización del dispositivo.
   - Metadatos específicos del servicio, como de IoT Hub o Azure Digital Twins. 
 
-Puede obtener más información sobre las clases auxiliares de serialización como `BasicDigitalTwin` en [Conceptos: API y SDK de Azure Digital Twins](concepts-apis-sdks.md).
+Puede obtener más información sobre las clases auxiliares de serialización como `BasicDigitalTwin` en [API y SDK de Azure Digital Twins](concepts-apis-sdks.md#serialization-helpers).
 
 ## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
 
@@ -162,7 +167,7 @@ Este es un ejemplo de código de revisión de JSON. En este documento se reempla
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Puede crear revisiones mediante [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) del SDK para .NET de Azure. A continuación se muestra un ejemplo:
+Las llamadas de actualización de los gemelos y las relaciones usan la estructura de [revisión de JSON](http://jsonpatch.com/). Puede crear revisiones mediante [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) del SDK para .NET de Azure. A continuación se muestra un ejemplo:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -184,15 +189,7 @@ Cuando se crea un gemelo con este modelo, no es necesario crear una instancia de
 
 Esto se puede hacer con una operación de revisión `add` de JSON, como la siguiente:
 
-```json
-[
-  {
-    "op": "add", 
-    "path": "/ObjectProperty", 
-    "value": {"StringSubProperty":"<string-value>"}
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-object-sub-property-1.json":::
 
 >[!NOTE]
 > Si `ObjectProperty` tiene más de una propiedad, debe incluirlas todas en el campo `value` de esta operación, aunque solo vaya a actualizar una:
@@ -203,15 +200,7 @@ Esto se puede hacer con una operación de revisión `add` de JSON, como la sigui
 
 Una vez hecho esto, existe una ruta de acceso a `StringSubProperty`, que a partir de ahora se podrá actualizar directamente con una operación `replace` típica:
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/ObjectProperty/StringSubProperty",
-    "value": "<string-value>"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-object-sub-property-2.json":::
 
 Aunque el primer paso no es necesario en los casos en los que se creara una instancia de `ObjectProperty` al crease el gemelo, se recomienda usarlo cada vez que actualice una subpropiedad por primera vez, ya que es posible que no siempre sepa con seguridad si se creó una instancia inicial de la propiedad de objeto o no.
 
@@ -257,7 +246,7 @@ Este es un ejemplo de código para eliminar gemelos y sus relaciones. La llamada
 
 ### <a name="delete-all-digital-twins"></a>Eliminación de todos los gemelos digitales
 
-Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue la aplicación de ejemplo que se usa en el [Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllTwins()`.
+Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue la aplicación de ejemplo que se usa en [Exploración de los conceptos básicos mediante una aplicación cliente de ejemplo](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllTwins()`.
 
 ## <a name="runnable-digital-twin-code-sample"></a>Ejemplo de código de gemelo digital ejecutable
 
@@ -299,4 +288,4 @@ Esta es la salida de consola del programa anterior:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte cómo crear y administrar relaciones entre los gemelos digitales:
-* [Procedimiento: Administración del grafo de gemelos con relaciones](how-to-manage-graph.md)
+* [Administración del grafo de gemelos y las relaciones](how-to-manage-graph.md)

@@ -4,14 +4,14 @@ description: Información y pasos para configurar la clave administrada por el c
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/21/2021
+ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: fc66f79e09021a10c2dde3cc973cd608baeedc32
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: d689d06536dd04532571190b8857c3be24278866
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061621"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729314"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -27,9 +27,9 @@ Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren 
 
 La clave administrada por el cliente se entrega en [clústeres dedicados](./logs-dedicated-clusters.md) que proporcionan un mayor nivel de protección y control. Los datos ingeridos en clústeres dedicados se cifran dos veces: una en el nivel de servicio mediante claves administradas por Microsoft o claves administradas por el cliente, y otra en el nivel de infraestructura mediante dos algoritmos de cifrado y dos claves diferentes. El [doble cifrado](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [caja de seguridad](#customer-lockbox-preview).
 
-Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, con independencia de la configuración de la clave administrada por el cliente, pero el control sobre los datos de SSD se ciñe a la [revocación de claves](#key-revocation). Estamos trabajando para cifrar los datos de SSD con una clave administrada por el cliente en la primera mitad de 2021.
+Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, con independencia de la configuración de la clave administrada por el cliente, pero el control sobre los datos de SSD se ciñe a la [revocación de claves](#key-revocation). Estamos trabajando para cifrar los datos de SSD con una clave administrada por el cliente en la segunda mitad de 2021.
 
-Los clústeres dedicados de Log Analytics usan un [modelo de precios](./logs-dedicated-clusters.md#cluster-pricing-model) de reserva de capacidad que parte de 1000 GB/día.
+El [modelo de precios](./logs-dedicated-clusters.md#cluster-pricing-model) de clústeres dedicados de Log Analytics requiere un nivel de compromiso a partir de 500 GB/día y puede tener valores de 500, 1000, 2000 o 5000 GB/día.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funcionamiento de las claves administradas por el cliente en Azure Monitor
 
@@ -93,12 +93,12 @@ N/D
 
 Cuando se usa REST, la respuesta devuelve inicialmente un código de estado HTTP 202 (Aceptado) y un encabezado con la propiedad *Azure-AsyncOperation*:
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
 ```
 
 Puede comprobar el estado de la operación asincrónica mediante el envío de una solicitud GET al punto de conexión del encabezado *Azure-AsyncOperation*:
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -117,8 +117,7 @@ Esta configuración puede actualizarse en Key Vault a través de la CLI y PowerS
 
 ## <a name="create-cluster"></a>Crear clúster
 
-Los clústeres admiten dos [tipos de identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): Asignado por el sistema y asignado por el usuario, mientras que una sola identidad se puede definir en un clúster en función del escenario. 
-- La identidad administrada asignada por el sistema es más sencilla y se genera automáticamente con la creación del clúster cuando la identidad `type` se establece en "*SystemAssigned*". Esta identidad se puede usar más adelante para conceder acceso de almacenamiento a su instancia de Key Vault para las operaciones de encapsulado y desencapsulado. 
+Los clústeres admiten la identidad administrada asignada por el sistema y la propiedad `type` de la identidad debe establecerse en `SystemAssigned`. La identidad se genera automáticamente con la creación del clúster y se puede usar más adelante para conceder acceso de almacenamiento a la instancia de Key Vault para las operaciones de encapsulado y desencapsulado. 
   
   Configuración de identidad en el clúster para la identidad administrada asignada por el sistema
   ```json
@@ -128,22 +127,6 @@ Los clústeres admiten dos [tipos de identidad administrada](../../active-direct
       }
   }
   ```
-
-- Si desea configurar una clave administrada por el cliente en la creación del clúster, debe tener una clave y una identidad asignada por el usuario concedida de antemano en su instancia de Key Vault y, a continuación, crear el clúster con estos valores: la identidad `type` establecida como "*UserAssigned*", `UserAssignedIdentities` con el *identificador de recurso* de la identidad.
-
-  Configuración de identidad en el clúster para la identidad administrada asignada por el usuario
-  ```json
-  {
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
-      }
-  }
-  ```
-
-> [!IMPORTANT]
-> No se puede usar una identidad administrada asignada por el usuario si su instancia de Key Vault está en un vínculo privado (vNet). En este escenario puede usar la identidad administrada asignada por el sistema.
 
 Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](./logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -192,7 +175,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 # <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -205,14 +188,14 @@ Content-type: application/json
   },
   "sku": {
     "name": "CapacityReservation",
-    "capacity": 1000
+    "capacity": 500
   }
 }
 ```
 
 **Respuesta**
 
-La propagación de la clave tarda unos minutos en completarse. Puede comprobar el estado de actualización de dos maneras:
+La propagación de la clave tarda un tiempo en completarse. Puede comprobar el estado de actualización de dos maneras:
 1. Copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la [comprobación del estado de operaciones asincrónicas](#asynchronous-operations-and-status-check).
 2. Envíe una solicitud GET en el clúster y examine las propiedades de *KeyVaultProperties*. La clave actualizada recientemente se debe devolver en la respuesta.
 
@@ -222,13 +205,12 @@ Una respuesta a la solicitud GET debe ser similar a la siguiente cuando se compl
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principle-id"
-    },
+    "principalId": "principal-id"
+  },
   "sku": {
-    "name": "capacityReservation",
-    "capacity": 1000,
-    "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-    },
+    "name": "capacityreservation",
+    "capacity": 500
+  },
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
@@ -236,13 +218,21 @@ Una respuesta a la solicitud GET debe ser similar a la siguiente cuando se compl
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
-    "billingType": "cluster",
-    "clusterId": "cluster-id"
+    "clusterId": "cluster-id",
+    "billingType": "Cluster",
+    "lastModifiedDate": "last-modified-date",
+    "createdDate": "created-date",
+    "isDoubleEncryptionEnabled": false,
+    "isAvailabilityZonesEnabled": false,
+    "capacityReservationProperties": {
+      "lastSkuUpdate": "last-sku-modified-date",
+      "minCapacity": 500
+    }
   },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
   "name": "cluster-name",
   "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
+  "location": "cluster-region"
 }
 ```
 
@@ -270,7 +260,7 @@ El almacenamiento del clúster comprueba periódicamente su instancia de Key Vau
 ## <a name="key-rotation"></a>Rotación de claves
 
 La rotación de clave tiene dos modos: 
-- Rotación automática: cuando el clúster se actualiza con ```"keyVaultProperties"``` pero se omite la propiedad ```"keyVersion"```, o bien se establece en ```""```, el almacenamiento usará las últimas versiones de forma automática.
+- Rotación automática: cuando el clúster se actualiza con ```"keyVaultProperties"```, pero se omite la propiedad ```"keyVersion"``` o se establece en ```""```, el almacenamiento usará las últimas versiones de forma automática.
 - Actualización de la versión de clave explícita: cuando el clúster se actualiza y se proporciona la versión de la clave en la propiedad ```"keyVersion"```, las nuevas versiones de clave requieren una actualización ```"keyVaultProperties"``` explícita en el clúster. Consulte [Actualización del clúster con detalles del identificador de clave](#update-cluster-with-key-identifier-details). Si genera la nueva versión de la clave en la instancia de Key Vault, pero no la actualiza en el clúster, el almacenamiento de clúster de Log Analytics seguirá usando la clave anterior. Si deshabilita o elimina la clave anterior antes de actualizar la nueva clave en el clúster, obtendrá el estado de [revocación de clave](#key-revocation).
 
 Se puede acceder a todos los datos después de la operación de rotación de claves, incluidos los datos ingeridos antes y después de la rotación, ya que todos los datos permanecen cifrados mediante la clave de cifrado de cuenta (AEK), mientras que la AEK ahora se cifra con la nueva versión de la clave de cifrado de claves (KEK).
@@ -319,7 +309,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -363,7 +353,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -424,7 +414,7 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
 - La caja de seguridad no está disponible actualmente en China. 
 
 - El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante el envío de una solicitud GET en el clúster y observando que el valor `isDoubleEncryptionEnabled` sea `true` para los clústeres con el cifrado doble habilitado. 
-  - Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble agregando `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
+  - Si crea un clúster y recibe un error que indica que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble si agrega `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
   - La configuración de cifrado doble no se puede cambiar después de crear el clúster.
 
   - Al establecer la opción `identity` `type` del clúster en `None`, también se revoca el acceso a los datos, pero no se recomienda este enfoque, ya que no se puede revertir sin contactar con el soporte técnico. La forma recomendada de revocar el acceso a sus datos es la [revocación de la clave](#key-revocation).
@@ -436,11 +426,9 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
 - Comportamiento con la disponibilidad de Key Vault
   - En el funcionamiento normal, Storage almacena en caché la AEK durante breves períodos de tiempo y vuelve regularmente a Key Vault para desajustarla.
     
-  - En el caso de los errores de conexión transitorios (tiempos de espera, errores de conexión, problemas de DNS), Storage permite que las claves permanezcan en la memoria caché durante un período de tiempo más prolongado; así es más fácil resolver pequeños problemas de disponibilidad. Las funciones de consulta e ingesta continúan sin interrupción.
+  - Errores de conexión de Key Vault: Storage controla los errores transitorios (tiempos de espera, errores de conexión y problemas de DNS). Para ello, permite que las claves permanezcan en caché durante la vigencia del problema de disponibilidad, lo que supera las interrupciones momentáneas y los problemas de disponibilidad. Las funciones de consulta e ingesta continúan sin interrupción.
     
-  - La falta de disponibilidad de un sitio activo durante unos 30 minutos hará que la cuenta de Storage deje de estar disponible. La función de consulta no está disponible y los datos ingeridos se copian en caché durante varias horas mediante la clave de Microsoft para evitar la pérdida de datos. Cuando se restaura el acceso a Key Vault, la consulta está disponible y los datos almacenados en caché temporalmente se ingieren en el almacén de datos y se cifran con la clave administrada por el cliente.
-
-  - Frecuencia de acceso a Key Vault: la frecuencia con la que Azure Monitor Storage accede a Key Vault para las operaciones de encapsulado y desencapsulado es de entre 6 y 60 segundos.
+- Frecuencia de acceso a Key Vault: la frecuencia con la que Azure Monitor Storage accede a Key Vault para las operaciones de encapsulado y desencapsulado es de entre 6 y 60 segundos.
 
 - Si actualiza el clúster mientras este está en el estado de aprovisionamiento o actualización, se producirá un error en la actualización.
 
@@ -467,10 +455,9 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
   -  400: El cuerpo de la solicitud es NULL o tiene un formato incorrecto.
   -  400: El nombre de SKU no es válido. Establezca el nombre de SKU en capacityReservation.
   -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de la SKU en capacityReservation.
-  -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 1000 o más en incrementos de 100 (GB).
-  -  400: Capacity en la SKU no está en el rango. Debe ser 1000 como mínimo y hasta la capacidad máxima permitida que está disponible en "Uso y costos estimados" en el área de trabajo.
+  -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 500, 1000, 2000 o 5000 GB/día.
   -  400: Capacity está bloqueado durante 30 días. Se permite la reducción de la capacidad 30 días después de la actualización.
-  -  400: No se estableció ninguna SKU. Establezca el nombre de la SKU en capacityReservation y el valor de Capacity en 1000 o más en incrementos de 100 (GB).
+  -  400: No se estableció ninguna SKU. Establezca el nombre de la SKU en capacityReservation y el valor de Capacity en 500, 1000, 2000 o 5000 GB/día.
   -  400: Identity es NULL o está vacío. Establezca Identity en el tipo systemAssigned.
   -  400: KeyVaultProperties se estableció en la creación. Actualice KeyVaultProperties después de la creación del clúster.
   -  400: No se puede ejecutar la operación ahora. La operación asincrónica está en un estado distinto del correcto. El clúster debe completar su operación antes de realizar cualquier operación de actualización.

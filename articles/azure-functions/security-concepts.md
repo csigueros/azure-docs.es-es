@@ -3,12 +3,12 @@ title: Protección de Azure Functions
 description: Obtenga información sobre cómo hacer que el código de función que se ejecuta en Azure sea más seguro frente a ataques comunes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: c8649c342b237a321c3c47510644451ceb3581fe
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 97a58c38f08e3b22f25ca2834a26692452fcff9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467929"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746722"
 ---
 # <a name="securing-azure-functions"></a>Protección de Azure Functions
 
@@ -78,9 +78,9 @@ De forma predeterminada, las claves se almacenan en un contenedor de Blob Storag
 
 |Location  |Configuración | Valor | Descripción  |
 |---------|---------|---------|---------|
-|Cuenta de almacenamiento distinta     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Almacena claves en Blob Storage de una segunda cuenta de almacenamiento, según la dirección URL de SAS proporcionada. Las claves se cifran antes de almacenarse con un secreto único para la aplicación de funciones. |
+|Cuenta de almacenamiento distinta     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL>` | Almacena claves en Blob Storage de una segunda cuenta de almacenamiento, según la dirección URL de SAS proporcionada. Las claves se cifran antes de almacenarse con un secreto único para la aplicación de funciones. |
 |Sistema de archivos   | `AzureWebJobsSecretStorageType`   |  `files`       | Las claves se conservan en el sistema de archivos y se cifran antes del almacenamiento con un secreto único para la aplicación de funciones. |
-|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | El almacén debe tener una directiva de acceso que corresponda a la identidad administrada asignada por el sistema del recurso de hospedaje. La directiva de acceso debe conceder a la identidad los permisos de secretos siguientes: `Get`,`Set`, `List` y `Delete`. <br/>Cuando se ejecuta de manera local, se usa la identidad del desarrollador y la configuración debe estar en el [archivo local.settings.json](functions-run-local.md#local-settings-file). | 
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | El almacén debe tener una directiva de acceso que corresponda a la identidad administrada asignada por el sistema del recurso de hospedaje. La directiva de acceso debe conceder a la identidad los permisos de secretos siguientes: `Get`,`Set`, `List` y `Delete`. <br/>Cuando se ejecuta de manera local, se usa la identidad del desarrollador y la configuración debe estar en el [archivo local.settings.json](functions-develop-local.md#local-settings-file). | 
 |Secretos de Kubernetes  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (opcional) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Solo se admite cuando se ejecuta el entorno en tiempo de ejecución de Functions en Kubernetes. Cuando no se establece `AzureWebJobsKubernetesSecretName`, el repositorio se considera como de solo lectura. En este caso, los valores se deben generar antes de la implementación. Azure Functions Core Tools genera automáticamente los valores al implementar en Kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Autenticación y autorización
@@ -131,7 +131,7 @@ Por ejemplo, todas las aplicaciones de funciones requieren una cuenta de almacen
 
 La configuración de la aplicación y las cadenas de conexión se almacenan cifradas en Azure. Solo se descifran antes de insertarlas en la memoria de proceso de la aplicación cuando se inicia la aplicación. Las claves de cifrado rotan con regularidad. Si en su lugar prefiere administrar el almacenamiento seguro de los secretos, la configuración de la aplicación debe ser referencias a Azure Key Vault. 
 
-También puede cifrar la configuración de forma predeterminada en el archivo local.settings.json al desarrollar funciones en el equipo local. Para más información, vea la propiedad `IsEncrypted` en el [archivo de configuración local](functions-run-local.md#local-settings-file).  
+También puede cifrar la configuración de forma predeterminada en el archivo local.settings.json al desarrollar funciones en el equipo local. Para más información, vea la propiedad `IsEncrypted` en el [archivo de configuración local](functions-develop-local.md#local-settings-file).  
 
 #### <a name="key-vault-references"></a>Referencias de Key Vault
 

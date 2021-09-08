@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: cddaf1bde84d7e60eb59bd4c58c65fa889e06ae3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ab256d58284e79323b988b2b81f4c664fa3fc16
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028818"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456694"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solución de problemas de Azure Load Balancer
 
@@ -35,7 +35,7 @@ Cuando los clientes externos a las VM de back-end pasan a través del equilibrad
 
 **Validación y resolución**
 
-Los ILB estándar son **seguros de manera predeterminada**. Los ILB básicos permitían conectarse a Internet a través de una dirección IP pública *oculta*. Esto no es recomendable para cargas de trabajo de producción, ya que la dirección IP no es estática ni se bloquea mediante NSG de su propiedad. Si ha pasado recientemente de un ILB básico a uno estándar, debe crear una dirección IP pública de forma explícita mediante la configuración [Solo salida](egress-only.md), que bloquea la IP por medio de NSG. También puede usar una instancia de [NAT Gateway](../virtual-network/nat-overview.md) en la subred.
+Los ILB estándar son **seguros de manera predeterminada**. Los ILB básicos permitían conectarse a Internet a través de una dirección IP pública *oculta* denominada IP de acceso de salida predeterminada. Esto no es recomendable para cargas de trabajo de producción, ya que la dirección IP no es estática ni se bloquea mediante NSG de su propiedad. Si ha pasado recientemente de un ILB básico a uno estándar, debe crear una dirección IP pública de forma explícita mediante la configuración [Solo salida](egress-only.md), que bloquea la IP por medio de NSG. También puede usar una instancia de [NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) en la subred. NAT Gateway es la solución recomendada para la salida.
 
 ## <a name="cant-change-backend-port-for-existing-lb-rule-of-a-load-balancer-that-has-virtual-machine-scale-set-deployed-in-the-backend-pool"></a>No se puede cambiar el puerto de back-end para la regla de LB existente de un equilibrador de carga que tenga un conjunto de escalado de máquinas virtuales implementado en el grupo de back-end.
 

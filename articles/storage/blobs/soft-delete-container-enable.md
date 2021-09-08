@@ -1,48 +1,68 @@
 ---
-title: Habilitación y administración de la eliminación temporal para contenedores (versión preliminar)
+title: Habilitación y administración de la eliminación temporal para contenedores
 titleSuffix: Azure Storage
-description: Habilitación de la eliminación temporal de contenedores (versión preliminar) para recuperar sus datos con mayor facilidad al modificarse o eliminarse estos de forma errónea.
+description: Habilite la eliminación temporal de contenedores para recuperar sus datos con mayor facilidad si estos se modifican o se eliminan de forma errónea.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2097c1743e07b5563bc75d3d1cce48aa11b98e5f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2284344e525608c2c1498503f3bf479df1cea559
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216350"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504512"
 ---
-# <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitación y administración de la eliminación temporal para contenedores (versión preliminar)
+# <a name="enable-and-manage-soft-delete-for-containers"></a>Habilitación y administración de la eliminación temporal para contenedores
 
-La eliminación temporal de contenedores (versión preliminar) evita que los datos se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal de contenedores está habilitada para una cuenta de almacenamiento, un contenedor y su contenido se pueden recuperar después de eliminarse, dentro de un período de retención especificado.
+La eliminación temporal de contenedores impide que los datos se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal de contenedores está habilitada para una cuenta de almacenamiento, un contenedor y su contenido se pueden recuperar después de eliminarse, dentro de un período de retención especificado. Para obtener más información sobre la eliminación temporal de contenedores, consulte [Eliminación temporal para contenedores](soft-delete-container-overview.md).
 
-Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos accidentalmente, Microsoft aconseja activar la eliminación temporal de contenedores. En este artículo se muestra cómo habilitar la eliminación temporal para contenedores. Para más información sobre la eliminación temporal de contenedores, incluida la forma de registrarse para la versión preliminar, vea [Eliminación temporal para contenedores (versión preliminar)](soft-delete-container-overview.md).
-
-Para la protección de datos de un extremo a otro, Microsoft recomienda que también habilite la eliminación temporal para blobs y el control de versiones de blobs. Para información sobre cómo habilitar también la eliminación temporal para blobs, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-blob-enable.md). Para información sobre cómo habilitar el control de versiones de blobs, consulte [Control de versiones de blobs](versioning-overview.md).
-
-> [!IMPORTANT]
->
-> La eliminación temporal del contenedor se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+Para la protección de datos de un extremo a otro, Microsoft recomienda también habilitar la eliminación temporal para blobs y el control de versiones de blobs. Para información sobre cómo habilitar también la eliminación temporal para blobs, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-blob-enable.md). Para información sobre cómo habilitar el control de versiones de blobs, consulte [Control de versiones de blobs](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Habilitación de la eliminación temporal de contenedores
 
-Puede habilitar o deshabilitar la eliminación temporal de contenedores para la cuenta de almacenamiento en cualquier momento mediante Azure Portal o una plantilla de Azure Resource Manager.
+Puede habilitar o deshabilitar la eliminación temporal de contenedores para la cuenta de almacenamiento en cualquier momento mediante Azure Portal, PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager. Microsoft recomienda establecer el período de retención para la eliminación temporal de contenedores en un mínimo de siete días.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para habilitar la eliminación temporal de contenedores para la cuenta de almacenamiento mediante Azure Portal, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de almacenamiento.
-1. Vaya a la opción **Protección de datos** en **Blob service**.
-1. Establezca la propiedad **Container soft delete** (Eliminación temporal de contenedores) en *Habilitada*.
-1. En **Directivas de retención**, especifique cuánto tiempo se conservan los contenedores eliminados temporalmente mediante Azure Storage.
+1. Busque la opción **Protección de datos** en **Administración de datos**.
+1. Seleccione **Enable soft delete for containers** (Habilitación de la eliminación temporal para contenedores).
+1. Especifique un período de retención de entre 1 y 365 días.
 1. Guarde los cambios.
 
-:::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Captura de pantalla que muestra cómo habilitar la eliminación temporal de contenedores en Azure Portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Captura de pantalla que muestra cómo habilitar la eliminación temporal de contenedores en Azure Portal":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para habilitar la eliminación temporal de contenedores con PowerShell, primero instale la versión 3.9.0 o posterior del módulo [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage). Después, llame al comando **Enable-AzStorageContainerDeleteRetentionPolicy** y especifique el número de días para el período de retención. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
+
+```azurepowershell-interactive
+Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -RetentionDays 7 
+```
+
+Para deshabilitar la eliminación temporal de contenedores, llame al comando **Disable-AzStorageContainerDeleteRetentionPolicy**.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para habilitar la eliminación temporal de contenedores con la CLI de Azure, primero instale la CLI de Azure, versión 2.26.0 o posterior. Después, llame al comando [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) y especifique el número de días para el período de retención. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
+
+```azurecli-interactive
+az storage account blob-service-properties update \
+    --enable-container-delete-retention true \
+    --container-delete-retention-days 7 \
+    --account-name <storage-account> \
+    --resource-group <resource_group>
+```
+
+Para deshabilitar la eliminación temporal de contenedores, especifique `false` para el parámetro `--enable-container-delete-retention`.
 
 # <a name="template"></a>[Plantilla](#tab/template)
 
@@ -75,11 +95,11 @@ Para habilitar la eliminación temporal de contenedores con una plantilla de Azu
     }
     ```
 
----
-
 1. Especifique el período de retención. El valor predeterminado es 7.
 1. Guarde la plantilla.
 1. Especifique el grupo de recursos de la cuenta y, luego, elija el botón **Revisar y crear** para implementar la plantilla y habilitar la eliminación temporal de contenedores.
+
+---
 
 ## <a name="view-soft-deleted-containers"></a>Visualización de contenedores eliminados temporalmente
 
@@ -103,6 +123,6 @@ Puede restaurar un contenedor eliminado temporalmente y su contenido dentro del 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Eliminación temporal para contenedores (versión preliminar)](soft-delete-container-overview.md)
+- [Eliminación temporal de contenedores](soft-delete-container-overview.md)
 - [Eliminación temporal para blobs](soft-delete-blob-overview.md)
 - [Control de versiones de blobs](versioning-overview.md)

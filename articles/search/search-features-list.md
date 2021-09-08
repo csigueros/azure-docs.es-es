@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: fca6e59d3aa5b95db0b9ad28f652226ae2eb30ba
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: f25f67839c0bf859e020859db60027d9a5b2db91
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556536"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729160"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Características de Azure Cognitive Search
 
@@ -23,7 +23,7 @@ Azure Cognitive Search proporciona un motor de búsqueda de texto completo, un a
 
 | Categoría&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Características |
 |-------------------|----------|
-| Orígenes de datos | Los índices de búsqueda pueden aceptar texto de cualquier origen, siempre que se envíe como un documento JSON. <br/><br/> Los [**indexadores**](search-indexer-overview.md) automatizan la ingesta de datos de orígenes de datos de Azure compatibles y se encargan de la serialización de JSON. Conéctese a [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) o [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) para extraer el contenido que se puede buscar en los almacenes de datos principales. Los indexadores de Azure Blog pueden realizar el *descifrado de documentos* para [extraer texto de los principales formatos de archivo](search-howto-indexing-azure-blob-storage.md), incluidos los documentos de Microsoft Office, PDF y HTML. |
+| Orígenes de datos | Los índices de búsqueda pueden aceptar texto de cualquier origen, siempre que se envíe como un documento JSON. <br/><br/> Los [**indexadores**](search-indexer-overview.md) son una característica que automatiza la importación de datos desde orígenes de datos compatibles para extraer contenido que permite realizar búsquedas en almacenes de datos principales. Los indexadores controlan la serialización JSON por usted. Puede conectarse a [varios orígenes de datos](search-data-sources-gallery.md), incluidos [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) o [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md). |
 | Estructuras de datos jerárquicas y anidadas | Los [**tipos complejos**](search-howto-complex-data-types.md) y las colecciones le permiten modelar casi cualquier tipo de estructura JSON dentro de un índice de búsqueda. La cardinalidad "uno a varios" y "varios a varios" se puede expresar de forma nativa a través de colecciones, tipos complejos y colecciones de tipos complejos.|
 | Análisis lingüístico | Los analizadores son componentes que se usan para el procesamiento de texto durante las operaciones de indexación y búsqueda. De forma predeterminada, puede usar el analizador estándar de Lucene de uso general o reemplazar el valor predeterminado por un analizador de lenguaje, un analizador personalizado que usted configure u otro analizador predefinido que genere tokens en el formato que necesite. <br/><br/>Los [**analizadores de idioma**](index-add-language-analyzers.md) de Lucene o de Microsoft se usan para controlar de manera inteligente la lingüística específica del idioma, como tiempos verbales, género, nombres plurales irregulares (por ejemplo, "régimen" frente a "regímenes"), separación de palabras compuestas, separación de palabras (para idiomas sin espacios) y mucho más. <br/><br/>Los [**analizadores léxicos personalizados**](index-add-custom-analyzers.md) se usan para formas de consulta complejas, como la coincidencia fonética y las expresiones regulares.<br/><br/> |
 

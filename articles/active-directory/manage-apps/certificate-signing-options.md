@@ -1,26 +1,27 @@
 ---
-title: Opciones avanzadas de firma de certificados de token SAML para aplicaciones de Azure AD
+title: Opciones avanzadas de firma de certificados en un token SAML
+titleSuffix: Azure AD
 description: Aprenda a usar opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.date: 07/30/2021
+ms.author: davidmu
+ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3ca6af6a70abd1781a62337ba67ea1d3f4961a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8c44d2a346dcd77352715b63937e5bad5274f2d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080244"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738869"
 ---
-# <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
+# <a name="advanced-certificate-signing-options-in-a-saml-token"></a>Opciones avanzadas de firma de certificados en un token SAML
 
 En la actualidad Azure Active Directory (Azure AD) es compatible con miles de aplicaciones previamente integradas de la galería de aplicaciones de Azure Active Directory. Más de 500 de estas aplicaciones admiten el inicio de sesión único mediante el protocolo [Lenguaje de marcado de aserción de seguridad](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0, como la aplicación [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite). Cuando un cliente se autentica en una aplicación a través de Azure AD con SAML, Azure AD envía un token a la aplicación (mediante HTTP POST). Después, la aplicación valida y usa el token para iniciar la sesión del cliente, en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML se firman con el certificado único que se genera en Azure AD y mediante algoritmos estándar específicos.
 
@@ -52,7 +53,7 @@ Para cambiar las opciones de firma de certificados SAML y el algoritmo de firma 
 
 1. En el [portal de Azure Active Directory](https://aad.portal.azure.com/), inicie sesión en su cuenta. Aparecerá la página del **Centro de administración de Azure Active Directory**.
 1. En el panel izquierdo, seleccione **Aplicaciones empresariales**. Aparecerá una lista de las aplicaciones empresariales de su cuenta.
-1. Seleccione una aplicación. Aparecerá una página de información general de la aplicación.
+1. Seleccione una aplicación. Aparecerá una página de información general de la aplicación. En este ejemplo, se usa la aplicación Salesforce.
 
    ![Ejemplo: Página Información general de aplicación](./media/certificate-signing-options/application-overview-page.png)
 

@@ -4,12 +4,12 @@ description: Aprenda a configurar Iniciar sesión con Apple como un proveedor de
 ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
-ms.openlocfilehash: b77e0613f502d003b5e4651e34be4cadbd4209a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01216b7527fd6479f43c3bf0b9d4abeb60d06435
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96603005"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093056"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Configuración de la aplicación de App Service o Azure Functions para iniciar sesión mediante un proveedor de Iniciar sesión con Apple (versión preliminar)
 
@@ -39,7 +39,7 @@ Deberá crear un identificador de aplicación y un identificador de servicio en 
 ![Registro de un nuevo identificador de servicio en el portal de Apple Developer](media/configure-authentication-provider-apple/apple-register-service.jpg)
 8. En la página **Register a Services ID** (Registrar un identificador de servicios), proporcione una descripción y un identificador. La descripción es lo que se mostrará al usuario en la pantalla de consentimiento. El identificador será el identificador de cliente que se usará para configurar el proveedor de Apple con el servicio de aplicación. A continuación, seleccione **Configurar**.
 ![Proporcionar una descripción y un identificador](media/configure-authentication-provider-apple/apple-configure-service-1.jpg)
-9. En la ventana emergente, establezca el identificador de aplicación principal en el identificador de aplicación que creó anteriormente. Especifique el dominio de la aplicación en la sección de dominio. Para la dirección URL de retorno, utilice la dirección URL `<app-url>/.auth/login/apple/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Seleccione **Agregar** y **Guardar**.
+9. En la ventana emergente, establezca el identificador de aplicación principal en el identificador de aplicación que ha creado antes. Especifique el dominio de la aplicación en la sección de dominio. Para la dirección URL de retorno, utilice la dirección URL `<app-url>/.auth/login/apple/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Seleccione **Agregar** y **Guardar**.
 ![Especificación del dominio y la URL de retorno para el registro](media/configure-authentication-provider-apple/apple-configure-service-2.jpg)
 10. Revise la información de registro del servicio y seleccione **Guardar**.
 
@@ -137,7 +137,7 @@ Agregue el secreto de cliente como una [configuración de aplicación](./configu
 ## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>Adición de información de un proveedor a su aplicación
 
 > [!NOTE]
-> La configuración necesaria está en un nuevo formato de API, que actualmente solo es compatible con la [configuración basada en archivos (versión preliminar)](.\app-service-authentication-how-to.md#config-file). Debe seguir los pasos que se indican a continuación para usar este tipo de archivo.
+> La configuración necesaria está en un nuevo formato de API, que actualmente solo es compatible con la [configuración basada en archivos (versión preliminar)](configure-authentication-file-based.md). Debe seguir los pasos que se indican a continuación para usar este tipo de archivo.
 
 Esta sección le guiará a través de la actualización de la configuración para incluir su nuevo IDP. La siguiente es una configuración de ejemplo.
 
@@ -147,7 +147,7 @@ Esta sección le guiará a través de la actualización de la configuración par
     ```json
     "apple" : {
        "registration" : {
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_CLIENT_SECRET" 
         },
        "login": {

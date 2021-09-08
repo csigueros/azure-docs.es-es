@@ -2,18 +2,18 @@
 title: 'Azure PowerShell: habilitación del cifrado de un extremo a otro en el host de máquina virtual'
 description: Habilitación del cifrado de un extremo a otro para las máquinas virtuales de Azure mediante el cifrado en el host.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 51b8b202b95e5246b31bf97c3cc7f2e9ba8e36e7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9fc618480b4c00ab65f4300a66747acdc2a11f74
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669092"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359018"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Uso del módulo Azure PowerShell para habilitar el cifrado de un extremo a otro mediante cifrado en el host
 
@@ -171,6 +171,21 @@ $VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName
 $VM.SecurityProfile.EncryptionAtHost
 ```
 
+### <a name="disable-encryption-at-host"></a>Deshabilitación del cifrado en el host
+
+Debe desasignar la máquina virtual para poder deshabilitar el cifrado en el host.
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMName = "yourVMName"
+
+$VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName
+
+Stop-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName -Force
+
+Update-AzVM -VM $VM -ResourceGroupName $ResourceGroupName -EncryptionAtHost $false
+```
+
 ### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Cree un conjunto de escalado de máquinas virtuales con cifrado en el host habilitado con claves administradas por el cliente. 
 
 Cree un conjunto de escalado de máquinas virtuales con discos administrados mediante el identificador URI del recurso de DiskEncryptionSet creado anteriormente para cifrar la caché de los discos de datos y del sistema operativo con claves administradas por el cliente. Los discos temporales se cifran con claves administradas por la plataforma. 
@@ -276,6 +291,19 @@ $VMScaleSetName = "yourVMSSName"
 $VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -Name $VMScaleSetName
 
 $VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
+```
+
+### <a name="update-a-virtual-machine-scale-set-to-disable-encryption-at-host"></a>Actualice un conjunto de escalado de máquinas virtuales para deshabilitar el cifrado en el host. 
+
+Puede deshabilitar el cifrado en el host en el conjunto de escalado de máquinas virtuales, pero esto solo afectará a las máquinas virtuales creadas después de deshabilitar el cifrado en el host. En el caso de las máquinas virtuales existentes, debe desasignar la máquina virtual, [deshabilitar el cifrado en el host en esa máquina virtual individual](#disable-encryption-at-host) y volver a asignar la máquina virtual.
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMScaleSetName = "yourVMSSName"
+
+$VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -Name $VMScaleSetName
+
+Update-AzVmss -VirtualMachineScaleSet $VMSS -Name $VMScaleSetName -ResourceGroupName $ResourceGroupName -EncryptionAtHost $false
 ```
 
 ## <a name="finding-supported-vm-sizes"></a>Búsqueda de tamaños de máquinas virtuales admitidos

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42b756e96829a19ddd25258087a8537c9a747b10
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92895824"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668863"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interacción y métodos abreviados de teclado en el módulo de herramientas de dibujo
 
@@ -140,6 +140,7 @@ Las herramientas de dibujo admiten los métodos abreviados de teclado. Estos mé
 | `C` | Completa cualquier dibujo que esté en curso y establece el modo de dibujo en inactivo. El foco se desplazará al elemento de mapa de nivel superior.  |
 | `Escape` | Cancela cualquier dibujo que esté en curso y establece el modo de dibujo en inactivo. El foco se desplazará al elemento de mapa de nivel superior.  |
 | `F` | Agrega una coordenada a un punto, línea o polígono si el mouse está sobre el mapa. Acción equivalente de hacer clic en el mapa cuando se está en modo de clic o híbrido. Este método abreviado permite dibujos más precisos y más rápidos. Puede usar una mano para colocar el mouse y la otra para presionar el botón sin mover el mouse con el gesto de presionar. |
+| `Delete` o `Backspace` | Si durante el modo de edición se seleccionan formas, elimínelas.  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

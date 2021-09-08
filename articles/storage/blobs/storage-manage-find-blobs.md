@@ -1,22 +1,22 @@
 ---
-title: Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs (versión preliminar)
+title: Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs
 description: Aprenda a usar etiquetas de índice de blobs para categorizar, administrar y consultar objetos de blobs.
 author: normesta
 ms.author: normesta
-ms.date: 05/17/2021
+ms.date: 06/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: bd1738c0a5d63ad9eacaa1500a6ce10268a93b04
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c4ff918be67d74d536159ebbd3e707c1d7e68e8b
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664885"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730755"
 ---
-# <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs (versión preliminar)
+# <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs
 
 A medida que los conjuntos de datos crecen, buscar un objeto específico en un mar de datos puede resultar difícil. Las etiquetas de índice de blob proporcionan funcionalidades de administración y detección de datos mediante atributos de etiquetas de índice de clave-valor. Puede clasificar y buscar objetos en un único contenedor o en todos los contenedores de su cuenta de almacenamiento. A medida que cambian los requisitos de datos, los objetos se pueden clasificar dinámicamente mediante la actualización de sus etiquetas de índice. Los objetos pueden permanecer en contexto con su organización de contenedores actual.
 
@@ -28,9 +28,6 @@ Las etiquetas de índice de blobs le permiten:
 - Usar etiquetas de índice para controles avanzados de las características, como la [administración del ciclo de vida de los blobs](storage-lifecycle-management-concepts.md)
 
 Considere un escenario en el que tiene millones de blobs en su cuenta de almacenamiento, donde son muchas aplicaciones diferentes las que acceden a ellos. Quiere buscar todos los datos relacionados de un único proyecto. No está seguro del ámbito exacto, ya que los datos pueden estar distribuidos entre varios contenedores con distintas convenciones de nomenclatura. Sin embargo, las aplicaciones cargan todos los datos con etiquetas basadas en el proyecto. En lugar de buscar a través de millones de blobs y comparar nombres y propiedades, puede usar `Project = Contoso` como criterio de detección. El índice de blobs filtrará todos los contenedores en toda la cuenta de almacenamiento para buscar y devolver rápidamente solo el conjunto de 50 blobs de `Project = Contoso`.
-
-> [!IMPORTANT]
-> Actualmente, las etiquetas de índice de blob se encuentran en **versión preliminar** y están disponibles en todas las regiones públicas. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 Para empezar a trabajar con ejemplos sobre cómo usar el índice de blobs, consulte [Uso de etiquetas de índice de blobs para administrar y buscar datos](storage-blob-index-how-to.md).
 
@@ -222,7 +219,7 @@ El siguiente ejemplo de regla de administración del ciclo de vida se aplica a l
 
 Puede autorizar el acceso a las etiquetas de índice de blobs mediante uno de los métodos siguientes:
 
-- Mediante un control de acceso basado en roles (RBAC) para conceder permisos a una entidad de seguridad de Azure Active Directory (Azure AD). Use Azure AD para mayor seguridad y facilidad de uso. Para obtener más información sobre el uso de Azure AD con las operaciones de blobs, consulte [Autorización del acceso a los blobs y las colas con Azure Active Directory](../common/storage-auth-aad.md).
+- Mediante un control de acceso basado en roles (RBAC) para conceder permisos a una entidad de seguridad de Azure Active Directory (Azure AD). Use Azure AD para mayor seguridad y facilidad de uso. Para obtener más información sobre el uso de Azure AD con las operaciones de blobs, vea [Autorización del acceso a datos en Azure Storage](../common/authorize-data-access.md).
 - Mediante la firma de acceso compartido (SAS) para delegar el acceso al índice de blobs. Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).
 - Mediante claves de acceso de cuenta para autorizar las operaciones con Clave compartida. Para más información, consulte el artículo sobre la [Autorización con clave compartida](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -230,7 +227,7 @@ Las etiquetas de índice de blobs son un subrecurso de los datos de blobs. Un us
 
 ### <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-A los autores de llamadas que usan una [identidad de Azure AD](../common/storage-auth-aad.md) se les pueden conceder los permisos siguientes para operar con etiquetas de índice de blobs.
+A los autores de llamadas que usan una [identidad de Azure AD](../common/authorize-data-access.md) se les pueden conceder los permisos siguientes para operar con etiquetas de índice de blobs.
 
 | Operaciones de etiquetas de índice de blobs                                          | Acción de RBAC de Azure                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -282,7 +279,7 @@ En la tabla siguiente se resumen las diferencias entre los metadatos y las etiqu
 
 ## <a name="pricing"></a>Precios
 
-Los precios del índice de blobs se encuentran en versión preliminar pública y están sujetos a cambios para disponibilidad general. Se le cobrará por el número promedio mensual de etiquetas de índice en una cuenta de almacenamiento. El motor de indexación no tiene ningún costo. Las solicitudes para establecer etiquetas de blog, obtenerlas o buscarlas se cobran según las tarifas de transacción correspondientes actuales. Tenga en cuenta que el número de transacciones de lista consumidas al realizar una transacción para buscar blobs por etiqueta es igual al número de cláusulas de la solicitud. Por ejemplo, la consulta (StoreID = 100) es una transacción de lista.  La consulta (StoreID = 100 AND SKU = 10010) son dos transacciones de lista. Para obtener más información, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Se le cobrará por el número promedio mensual de etiquetas de índice en una cuenta de almacenamiento. El motor de indexación no tiene ningún costo. Las solicitudes para establecer etiquetas de blog, obtenerlas o buscarlas se cobran según las tarifas de transacción correspondientes actuales. Tenga en cuenta que el número de transacciones de lista consumidas al realizar una transacción para buscar blobs por etiqueta es igual al número de cláusulas de la solicitud. Por ejemplo, la consulta (StoreID = 100) es una transacción de lista.  La consulta (StoreID = 100 AND SKU = 10010) son dos transacciones de lista. Para obtener más información, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="regional-availability-and-storage-account-support"></a>Disponibilidad región y compatibilidad para cuentas de almacenamiento
 
@@ -295,42 +292,20 @@ Actualmente, las etiquetas de índice de blob están disponibles en todas las re
 Para empezar, consulte [Uso de etiquetas de índice de blobs para administrar y buscar datos](storage-blob-index-how-to.md).
 
 > [!IMPORTANT]
-> Debe registrar la suscripción para poder usar el índice de blobs en versión preliminar en las cuentas de almacenamiento. Consulte la sección [Condiciones y problemas conocidos](#conditions-and-known-issues) de este artículo.
-
-### <a name="register-your-subscription-preview"></a>Registro de la suscripción (versión preliminar)
-
-Dado que las etiquetas de índice de blobs solo están en versión preliminar pública, deberá registrar su suscripción para poder usar la característica. Para enviar una solicitud, ejecute los siguientes comandos de PowerShell o de la CLI.
-
-#### <a name="register-by-using-powershell"></a>Registro mediante PowerShell
-
-```powershell
-Register-AzProviderFeature -FeatureName BlobIndex -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-#### <a name="register-by-using-azure-cli"></a>Registro mediante la CLI de Azure
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name BlobIndex
-az provider register --namespace 'Microsoft.Storage'
-```
+> Debe registrar la suscripción para poder usar el índice de blobs en las cuentas de almacenamiento. Consulte la sección [Condiciones y problemas conocidos](#conditions-and-known-issues) de este artículo.
 
 ## <a name="conditions-and-known-issues"></a>Condiciones y problemas conocidos
 
-En esta sección se describen los problemas conocidos y las condiciones de la versión preliminar pública de las etiquetas de índice de blobs. Esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la versión de disponibilidad general (GA), ya que el comportamiento puede cambiar.
+En esta sección se describen problemas y condiciones conocidos.
 
-- En el caso de la versión preliminar, primero debe registrar la suscripción para poder usar el índice de blobs en la cuenta de almacenamiento en las regiones de versión preliminar.
-- Solo se admiten cuentas de uso general v2 en versión preliminar. No se admiten blobs en bloques prémium, blobs heredados ni cuentas con un espacio de nombres jerárquico habilitado. No se admitirán cuentas de uso general v1.
+- Solo se admiten cuentas de uso general v2. No se admiten blobs en bloques prémium, blobs heredados ni cuentas con un espacio de nombres jerárquico habilitado. No se admitirán cuentas de uso general v1.
 - La carga de blobs en páginas con etiquetas de índice no conserva las etiquetas. Establezca las etiquetas después de cargar un blob en páginas.
 - Cuando el filtrado se limita a un único contenedor, `@container` solo se puede pasar si todas las etiquetas de índice de la expresión de filtro son comprobaciones de igualdad (clave=valor).
 - Al usar el operador de intervalo con la condición `AND`, solo puede especificar el mismo nombre de clave de etiqueta de índice (`"Age" > '013' AND "Age" < '100'`).
-- El control de versiones y el índice de blobs no se admiten. Las etiquetas de índice de blobs se conservan para las versiones, pero no se pasan al motor de índices de blobs.
+- Si control de versiones está habilitado, puede seguir utilizando etiquetas de índice en la versión actual. Para las versiones anteriores, las etiquetas de índice se conservan, pero no se pasan al motor de índices de blobs. No se pueden consultar etiquetas de índice para recuperar versiones anteriores.
 - No hay ninguna API para determinar si las etiquetas de índice están indizadas.
-- No se admite la conmutación por error de cuentas. Es posible que el índice de blobs no se actualice correctamente después de la conmutación por error.
 - La administración del ciclo de vida solo admite comprobaciones de igualdad con coincidencia del índice de blobs.
 - `Copy Blob` no copia las etiquetas de índice de blobs del blob de origen en el nuevo blob de destino. Puede especificar las etiquetas que desea que se apliquen al blob de destino durante la operación de copia.
-- `Copy Blob` (copia asincrónica) de otra cuenta de almacenamiento con etiquetas aplicadas en el blob de destino hace que el motor de índices de blobs no devuelva el blob y sus etiquetas en el conjunto de filtros. Use `Copy Blob` de la dirección URL (copia sincrónica).
-- Las etiquetas se conservan al crear la instantánea. Sin embargo, no se admite la promoción de una instantánea, ya que puede dar lugar a un conjunto de etiquetas vacío.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

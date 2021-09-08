@@ -7,20 +7,19 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 07/30/2021
 ms.custom: template-concept
-ms.openlocfilehash: 46c2addc8c844e2fe909bccddfa4927feef5a34a
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 189021997362da8508d2e60c23cc3acb1238ca55
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495782"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728030"
 ---
 # <a name="azure-arc-data-services-data-collection-and-reporting"></a>Servicios de datos para Azure Arc | Informes y recopilación de datos
 
 En este artículo se describen los datos que los servicios de datos habilitados para Azure Arc transmiten a Microsoft. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="related-products"></a>Productos relacionados
 
@@ -29,6 +28,9 @@ Los servicios de datos habilitados para Azure Arc pueden usar algunos de los pro
 - MI de SQL: Azure Arc 
 - Hiperescala de PostgreSQL: Azure Arc
 - Azure Data Studio
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - CLI de Azure (az)
 - CLI de datos de Azure (`azdata`) 
 
@@ -60,7 +62,7 @@ Programa para la mejora de la experiencia del usuario (CEIP)|[Resumen del CEIP](
 
 ## <a name="detailed-description-of-data"></a>Descripción detallada de los datos
 
-Esta sección proporciona más detalles sobre la información que se incluye con las transmisiones de servicios de datos habilitados de Azure Arc a Microsoft.
+Esta sección proporciona más detalles sobre la información que se incluye con las transmisiones de servicios de datos habilitados para Azure Arc a Microsoft.
 
 ### <a name="operational-data"></a>Datos operativos
 
@@ -86,12 +88,12 @@ Existen tres tipos de recursos:
 
 - SQL Managed Instance habilitado para Arc 
 - El grupo de servidores de Hiperescala de PostgreSQL habilitado para Arc 
-- SQL Server habilitado para Arc 
+- SQL Server en servidores habilitados para Azure Arc 
 - Controlador de datos 
 
 En las secciones siguientes se muestran las propiedades, los tipos y las descripciones que se recopilan y almacenan de cada tipo de recurso: 
 
-### <a name="arc-enabled-sql-server"></a>SQL Server habilitado para Arc 
+### <a name="sql-server-on-azure-arc-enabled-servers"></a>SQL Server en servidores habilitados para Azure Arc 
 - Edición de SQL Server. 
    - `string: Edition` 
 - Identificador de recurso del recurso contenedor (Azure Arc para servidores). 
@@ -256,10 +258,6 @@ Si le atiende el soporte técnico, es posible que se le pida que proporcione reg
 |Vistas    |Las vistas pueden contener datos de clientes pero están restringidas y solo las comparte el usuario     |
 |Volcado de memoria - Datos de clientes | Retención máxima de 30 días de volcados de memoria: puede contener datos de control de acceso <br/><br/> En los volcados de memoria del cliente puede haber objetos de estadísticas, valores de datos de filas y textos de consulta    |
 |Volcados de memoria - Datos personales | Los siguientes elementos requieren el consentimiento del usuario para poder incluirlos: máquina, inicios de sesión, nombres de usuario, correos electrónicos, información de ubicación, identificación del cliente  |
-
-### <a name="customer-experience-improvement-program-ceip-telemetry"></a>Programa para la mejora de la experiencia del usuario (CEIP) (Telemetría) 
-
-La telemetría se usa para realizar un seguimiento de las métricas de uso del producto y la información del entorno. Consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Carga de datos a uso en Azure Monitor](upload-usage-data.md)

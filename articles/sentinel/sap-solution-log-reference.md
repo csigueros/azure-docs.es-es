@@ -6,14 +6,14 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
 ms.custom: mvc
-ms.date: 05/12/2021
+ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 42cd84387d1b5b67a09afcc072c897d6980b3d49
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: f2a634aa73cf9b9cb2b379887f9a677a79c39b57
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109815287"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745055"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Referencia sobre de los registros de la solución Azure Sentinel para SAP (versión preliminar pública)
 
@@ -38,7 +38,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 - **Fin del registro**: registra el progreso de la ejecución de una aplicación para que pueda reconstruirla más adelante si fuera necesario.
 
-    Disponible mediante RFC con un servicio personalizado basado en servicios estándar de la interfaz de XBP.
+    Disponible mediante RFC con un servicio personalizado basado en servicios estándar de la interfaz de XBP. Este registro se genera por cliente.
 
 
 ### <a name="abapapplog_cl-log-schema"></a>Esquema del registro ABAPAppLog_CL
@@ -90,9 +90,9 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
     - Otras entidades del sistema SAP, como datos de usuario, roles o direcciones.
 
-    Disponible mediante RFC con un servicio personalizado basado en servicios estándar.
+    Disponible mediante RFC con un servicio personalizado basado en servicios estándar. Este registro se genera por cliente.
 
-### <a name="abapauditlog_cl-log-schema"></a>Esquema de registro ABAPAuditLog_CL
+### <a name="abapchangedocslog_cl-log-schema"></a>Esquema de registro ABAPChangeDocsLog_CL
 
 
 | Campo                    | Descripción                 |
@@ -134,7 +134,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 - **Fin del registro**: incluye los registros de Change & Transport System (CTS), incluidos los objetos de directorio y las personalizaciones en que se realizaron los cambios.
 
-    Disponible mediante RFC con un servicio personalizado basado en tablas y servicios estándar.
+    Disponible mediante RFC con un servicio personalizado basado en tablas y servicios estándar. Este registro se genera con datos en todos los clientes.
 
 > [!NOTE]
 > Además del registro de aplicaciones, los documentos de cambio y la grabación de tablas, todos los cambios que realice en el sistema de producción mediante Change & Transport System se documentan en los registros de CTS y TMS.
@@ -170,7 +170,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 - **Fin del registro**: proporciona registro para las tablas que son críticas o susceptibles a auditorías.
 
-    Disponible mediante RFC con un servicio personalizado.
+    Disponible mediante RFC con un servicio personalizado. Este registro se genera con datos en todos los clientes.
 
 ### <a name="abaptabledatalog_cl-log-schema"></a>Esquema de registro ABAPTableDataLog_CL
 
@@ -196,13 +196,13 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-gateway-log"></a>Registro de puerta de enlace de ABAP
 
-- **Nombre en Azure Sentinel**: `GW_CL`
+- **Nombre en Azure Sentinel**: `ABAPOS_GW_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
 
-- **Fin del registro:** supervisa las actividades de la puerta de enlace. Disponible por el servicio web de control de SAP.
+- **Fin del registro:** supervisa las actividades de la puerta de enlace. Disponible por el servicio web de control de SAP. Este registro se genera con datos en todos los clientes.
 
-### <a name="gw_cl-log-schema"></a>Esquema de registro GW_CL
+### <a name="abapos_gw_cl-log-schema"></a>Esquema de registro ABAPOS_GW_CL
 
 | Campo        | Descripción      |
 | ------------ | ---------------- |
@@ -216,15 +216,15 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-icm-log"></a>Registro de ICM de ABAP
 
-- **Nombre en Azure Sentinel**: `ICM_CL`
+- **Nombre en Azure Sentinel**: `ABAPOS_ICM_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.52.4/en-US/a10ec40d01e740b58d0a5231736c434e.html)
 
 - **Fin del registro**: registra las solicitudes entrantes y salientes, y compila las estadísticas de las solicitudes HTTP.
 
-    Disponible por el servicio web de control de SAP.
+    Disponible por el servicio web de control de SAP. Este registro se genera con datos en todos los clientes.
 
-### <a name="icm_cl-log-schema"></a>Esquema de registro ICM_CL
+### <a name="abapos_icm_cl-log-schema"></a>Esquema de registro ABAPOS_ICM_CL
 
 | Campo        | Descripción      |
 | ------------ | ---------------- |
@@ -244,7 +244,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 - **Propósito del registro**: combina todos los registros de trabajos de procesamiento en segundo plano (SM37).
 
-    Disponible mediante RFC con un servicio personalizado basado en servicios estándar de la interfaz de XBP.
+    Disponible mediante RFC con un servicio personalizado basado en servicios estándar de la interfaz de XBP. Este registro se genera con datos en todos los clientes.
 
 ### <a name="abapjoblog_cl-log-schema"></a>Esquema de registro ABAPJobLog_CL
 
@@ -292,7 +292,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
     - Información que proporciona un mayor nivel de datos, como los intentos de inicio de sesión correctos e infructuosos
     - Información que permite la reconstrucción de una serie de eventos, como los inicios de transacciones correctos o incorrectos
 
-    Disponible mediante el uso de interfaces XAL/SAL de RFC. SAL está disponible a partir de la versión Basis 7.50.
+    Disponible mediante el uso de interfaces XAL/SAL de RFC. SAL está disponible a partir de la versión Basis 7.50. Este registro se genera con datos en todos los clientes.
 
 ### <a name="abapauditlog_cl-log-schema"></a>Esquema de registro ABAPAuditLog_CL
 
@@ -338,7 +338,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 - **Fin del registro**: sirve como registro principal para la impresión de SAP con el historial de solicitudes de spool. (SP01).
 
-    Disponible mediante RFC con un servicio personalizado basado en tablas estándar.
+    Disponible mediante RFC con un servicio personalizado basado en tablas estándar. Este registro se genera con datos en todos los clientes.
 
 ### <a name="abapspoollog_cl-log-schema"></a>Esquema de registro ABAPSpoolLog_CL
 
@@ -397,7 +397,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 - **Fin del registro**: sirve como registro principal para la impresión de SAP con el historial de solicitudes de salida del spool. (SP02).
 
-    Disponible mediante RFC con un servicio personalizado basado en tablas estándar.
+    Disponible mediante RFC con un servicio personalizado basado en tablas estándar. Este registro se genera con datos en todos los clientes.
 
 ### <a name="abapspooloutputlog_cl-log-schema"></a>Esquema de registro ABAPSpoolOutputLog_CL
 
@@ -442,15 +442,15 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-syslog"></a>Syslog ABAP
 
-- **Nombre en Azure Sentinel**: `SysLog_CL`
+- **Nombre en Azure Sentinel**: `ABAPOS_Syslog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
 
 - **Fin del registro**: registra todos los errores del sistema ABAP, advertencias, bloqueos de usuario debido a intentos de inicio de sesión con errores de usuarios conocidos y mensajes de proceso del servidor de aplicaciones de SAP NetWeaver (SAP NetWeaver AS).
 
-    Disponible por el servicio web de control de SAP.
+    Disponible por el servicio web de control de SAP. Este registro se genera con datos en todos los clientes.
 
-### <a name="syslog_cl-log-schema"></a>Esquema de registro SysLog_CL
+### <a name="abapos_syslog_cl-log-schema"></a>Esquema de registro ABAPOS_Syslog_CL
 
 
 | Campo            | Descripción            |
@@ -479,7 +479,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
     Por ejemplo, los procesos empresariales desasignados pueden ser procedimientos de aprobación o lanzamiento sencillos, o bien procesos empresariales más complejos, como la creación de material base y la posterior coordinación de los departamentos asociados.
 
-    Disponible mediante RFC con un servicio personalizado basado en tablas y servicios estándar.
+    Disponible mediante RFC con un servicio personalizado basado en tablas y servicios estándar. Este registro se genera por cliente.
 
 ### <a name="abapworkflowlog_cl-log-schema"></a>Esquema de registro ABAPWorkflowLog_CL
 
@@ -526,15 +526,15 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-workprocess-log"></a>Registro de proceso de trabajo de ABAP
 
-- **Nombre en Azure Sentinel**: `WP_CL`
+- **Nombre en Azure Sentinel**: `ABAPOS_WP_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
 
 - **Fin del registro**: combina todos los registros de procesos de trabajo. (valor predeterminado: `dev_*`).
 
-    Disponible por el servicio web de control de SAP.
+    Disponible por el servicio web de control de SAP. Este registro se genera con datos en todos los clientes.
 
-### <a name="wp_cl-log-schema"></a>Esquema de registro WP_CL
+### <a name="abapos_wp_cl-log-schema"></a>Esquema de registro ABAPOS_WP_CL
 
 
 | Campo        | Descripción         |
@@ -557,7 +557,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 - **Fin del registro**: registra las acciones del usuario o las acciones intentadas en la base de datos de SAP HANA. Por ejemplo, permite registrar y supervisar el acceso de lectura a datos confidenciales.
 
-    Disponible por el agente Linux de Sentinel para Syslog.
+    Disponible por el agente Linux de Sentinel para Syslog. Este registro se genera con datos en todos los clientes.
 
 ### <a name="syslog-log-schema"></a>Esquema de registro de Syslog
 
@@ -581,7 +581,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 - **Fin del registro**: combina todos los registros basados en archivos de Java, incluidos el registro de auditoría de seguridad y los registros del sistema (proceso de clúster y servidor), de rendimiento y de puerta de enlace. También incluye los registros de seguimientos para desarrolladores y de seguimiento predeterminado.
 
-    Disponible por el servicio web de control de SAP.
+    Disponible por el servicio web de control de SAP. Este registro se genera con datos en todos los clientes.
 
 ### <a name="javafileslogscl-log-schema"></a>Esquema de registro de JavaFilesLogsCL
 
@@ -618,7 +618,8 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 Para más información, consulte:
 
-- [Tutorial: Implementación de la solución Azure Sentinel para SAP](sap-deploy-solution.md)
-- [Requisitos detallados de SAP para la solución Azure Sentinel para SAP](sap-solution-detailed-requirements.md)
-- [Implementación del conector de datos de SAP de Azure Sentinel en el entorno local](sap-solution-deploy-alternate.md)
+- [Implementación de la solución Azure Sentinel para SAP](sap-deploy-solution.md)
+- [Requisitos detallados de SAP para la solución Azure Sentinel SAP](sap-solution-detailed-requirements.md)
+- [Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl](sap-solution-deploy-alternate.md)
 - [Azure Sentinel para SAP: contenido de seguridad integrado](sap-solution-security-content.md)
+- [Solución de problemas de implementación de la solución SAP de Azure Sentinel](sap-deploy-troubleshoot.md)

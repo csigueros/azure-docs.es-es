@@ -2,22 +2,23 @@
 title: Configuración de la aceleración automática de inicio de sesión mediante la detección del dominio de inicio
 description: Aprenda a configurar la directiva de detección del dominio de inicio para la autenticación de Azure Active Directory para los usuarios federados, incluidas sugerencias de dominio y aceleración automática.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: mtillman
+ms.author: davidmu
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2729ec3ca445fa53503a1968e1fee639bd990f6b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: hirsin
+ms.openlocfilehash: c909f888ac498900cfa4aac409ee6cabfc381250
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081504"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738826"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -166,7 +167,7 @@ Usaremos los cmdlets de PowerShell de Azure AD para desplazarse por algunos esce
 
 - Enumerar las aplicaciones para las que se configura una directiva.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 En los ejemplos siguientes, podrá crear, actualizar, vincular y eliminar directivas en las entidades de servicio de aplicación en Azure AD.
 
@@ -254,7 +255,7 @@ Para comprobar qué aplicaciones tienen configurada la directiva de aceleración
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-#### <a name="step-5-youre-done"></a>Paso 5: ¡Y ya está!
+#### <a name="step-5-youre-done"></a>Paso 5: Todo listo
 
 Pruebe la aplicación para comprobar que la nueva directiva funciona correctamente.
 

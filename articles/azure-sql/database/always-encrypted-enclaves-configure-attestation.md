@@ -1,5 +1,5 @@
 ---
-title: Configuración de Azure Attestation para el servidor lógico de Azure SQL
+title: Configuración de la atestación para Always Encrypted mediante Azure Attestation
 description: Configure Azure Attestation para Always Encrypted con enclaves seguros en Azure SQL Database.
 keywords: cifrar datos, cifrado sql, cifrado de base de datos, datos confidenciales, Always Encrypted, enclaves seguros, SGX, atestación
 services: sql-database
@@ -10,21 +10,18 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
+ms.date: 07/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e2e6bc57a830b5257d246a4229e174cf8612d3c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6a27acf96b42a4a963b88e281fd692a91616b7e4
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662528"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727208"
 ---
-# <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configuración de Azure Attestation para el servidor lógico de Azure SQL
+# <a name="configure-attestation-for-always-encrypted-using-azure-attestation"></a>Configuración de la atestación para Always Encrypted mediante Azure Attestation
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted con enclaves seguros para Azure SQL Database está actualmente en **versión preliminar pública.**
 
 [Microsoft Azure Attestation](../../attestation/overview.md) es una solución para la atestación de entornos de ejecución de confianza (TEE), incluidos los enclaves de Intel Software Guard Extensions (Intel SGX). 
 
@@ -42,6 +39,9 @@ Para usar Azure Attestation para la atestación de enclaves de Intel SGX usados 
 Un [proveedor de atestación](../../attestation/basic-concepts.md#attestation-provider) es un recurso de Azure Attestation que evalúa [solicitudes de atestación](../../attestation/basic-concepts.md#attestation-request) con [directivas de atestación](../../attestation/basic-concepts.md#attestation-request) y emite [tokens de atestación](../../attestation/basic-concepts.md#attestation-token). 
 
 Las directivas de atestación se especifican mediante la [gramática de reglas de notificaciones](../../attestation/claim-rule-grammar.md).
+
+> [!IMPORTANT]
+> Se crea un proveedor de atestación con la directiva predeterminada para enclaves de Intel SGX, lo cual no valida el código que se ejecuta dentro de enclave. Microsoft recomienda encarecidamente establecer la directiva recomendada siguiente y no usar la directiva predeterminada para Always Encrypted con enclaves seguros.
 
 Microsoft recomienda la siguiente directiva para la atestación de enclaves de Intel SGX que se usa para Always Encrypted en Azure SQL Database:
 
@@ -69,7 +69,7 @@ La directiva anterior comprueba lo siguiente:
   > Uno de los principales objetivos de la atestación es convencer a los clientes de que el binario que se ejecuta en el enclave es el binario que se supone que se ejecuta. Las directivas de atestación proporcionan dos mecanismos para este fin. Una es la notificación de **mrenclave**, que es el hash del archivo binario que se supone que se va a ejecutar en un enclave. El problema con **mrenclave** es que el hash binario cambia incluso con cambios triviales en el código, lo que dificulta la revisión del código que se ejecuta en el enclave. Por lo tanto, se recomienda el uso de **mrsigner**, que es un hash de una clave que se usa para firmar el binario del enclave. Cuando Microsoft revierte el enclave, **mrsigner** permanece igual, siempre y cuando la clave de firma no cambie. De esta manera, es factible implementar archivos binarios actualizados sin interrumpir las aplicaciones de los clientes. 
 
 > [!IMPORTANT]
-> Se crea un proveedor de atestación con la directiva predeterminada para enclaves de Intel SGX, lo cual no valida el código que se ejecuta dentro de enclave. Microsoft recomienda encarecidamente establecer la directiva recomendada anterior y no usar la directiva predeterminada para Always Encrypted con enclaves seguros.
+> De forma poco frecuente, es posible que Microsoft tenga que rotar la clave que se usa para firmar el binario del enclave Always Encrypted. Antes de que se implemente en Azure SQL Database una nueva versión del binario del enclave firmada con una nueva clave, este artículo se actualizará para proporcionar una nueva directiva de atestación recomendada e instrucciones sobre cómo debe actualizar la directiva en los proveedores de atestación para asegurarse de que las aplicaciones sigan funcionando sin interrupciones.
 
 Para obtener instrucciones sobre cómo crear un proveedor de atestación y configurar con una directiva de atestación, consulte:
 
@@ -82,6 +82,7 @@ Para obtener instrucciones sobre cómo crear un proveedor de atestación y confi
 - [Inicio rápido: Configuración de Azure Attestation con la CLI de Azure](../../attestation/quickstart-azure-cli.md)
     > [!IMPORTANT]
     > Cuando configure la directiva de atestación con la CLI de Azure, establezca el parámetro `attestation-type` en `SGX-IntelSDK`.
+
 
 ## <a name="determine-the-attestation-url-for-your-attestation-policy"></a>Determinación de la dirección URL de atestación de la directiva de atestación
 

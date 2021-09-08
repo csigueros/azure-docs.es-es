@@ -2,20 +2,18 @@
 title: 'Aprovisionamiento automático de dispositivos con DPS mediante certificados X.509: Azure IoT Edge | Microsoft Docs'
 description: Uso de certificados X.509 para probar el aprovisionamiento automático de dispositivos para Azure IoT Edge con Device Provisioning Service
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.reviewer: kevindaw
-ms.date: 03/01/2021
+ms.date: 06/18/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 180226741d77defb0a9f0d00165cf858cb65ecbb
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 4095207fbc4fbbf4cb3f6463e3091717fcd3921a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906519"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740653"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creación y aprovisionamiento de un dispositivo IoT Edge mediante certificados X.509
 
@@ -31,7 +29,7 @@ En este artículo se muestra cómo crear una inscripción de Device Provisioning
 
 El uso de certificados X.509 como un mecanismo de atestación es una manera excelente para escalar la producción y simplificar el aprovisionamiento de dispositivos. Normalmente, los certificados X.509 están organizados en una cadena de certificados de confianza. Comenzando por un certificado raíz de confianza o autofirmado, cada certificado de la cadena firma al certificado inmediatamente inferior. Este patrón crea una cadena delegada de confianza desde el certificado raíz a través de todos los certificados intermedios hasta el certificado "hoja" final que está instalado en un dispositivo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una instancia de IoT Hub activa.
 * Un dispositivo físico o virtual para que sea el dispositivo IoT Edge.
@@ -216,7 +214,28 @@ Ahora que existe una inscripción para este dispositivo, el entorno de ejecució
 
 El runtime de IoT Edge se implementa en todos los dispositivos de IoT Edge. Sus componentes se ejecutan en contenedores y permiten implementar contenedores adicionales en el dispositivo para que pueda ejecutar código en Edge.
 
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
+
+Siga los pasos adecuados para instalar Azure IoT Edge en función del sistema operativo:
+
+* [Instalación de IoT Edge para Linux](how-to-install-iot-edge.md)
+* [Instalación de IoT Edge para Linux en dispositivos Windows](how-to-install-iot-edge-on-windows.md)
+  * Este escenario es la manera recomendada de ejecutar IoT Edge en dispositivos Windows.
+* [Instalación de IoT Edge con contenedores de Windows](how-to-install-iot-edge-windows-on-windows.md)
+
+Una vez que IoT Edge esté instalado en el dispositivo, vuelva a este artículo para aprovisionar el dispositivo.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
 Siga los pasos descritos en [Instalación del entorno de ejecución de Azure IoT Edge](how-to-install-iot-edge.md) y, luego, vuelva a este artículo para aprovisionar el dispositivo.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 El aprovisionamiento de X.509 con DPS solo se admite en IoT Edge versión 1.0.9 o posterior.
 
@@ -230,7 +249,7 @@ Tenga lista la siguiente información:
 * El archivo de cadena de certificados de identidad del dispositivo en el dispositivo.
 * El archivo de clave de identidad del dispositivo en el dispositivo.
 
-### <a name="linux-device"></a>Dispositivo Linux
+# <a name="linux"></a>[Linux](#tab/linux)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -338,7 +357,57 @@ Tenga lista la siguiente información:
 :::moniker-end
 <!-- end 1.2 -->
 
-### <a name="windows-device"></a>Dispositivo Windows
+# <a name="linux-on-windows"></a>[Linux en Windows](#tab/eflow)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+Puede usar PowerShell o Windows Admin Center para aprovisionar el dispositivo de IoT Edge.
+
+### <a name="powershell"></a>PowerShell
+
+Para PowerShell, ejecute el siguiente comando con los valores de marcador de posición actualizados con sus propios valores:
+
+```powershell
+Provision-EflowVm -provisioningType DPSX509 -scopeId <ID_SCOPE_HERE> -identityCertPath <ABSOLUTE_CERT_DEST_PATH_ON_WINDOWS_HOST> -identityPrivKeyPath <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_WINDOWS_HOST>
+```
+
+### <a name="windows-admin-center"></a>Windows Admin Center
+
+Para Windows Admin Center, siga los pasos a continuación:
+
+1. En el panel **Azure IoT Edge device provisioning** (Aprovisionamiento de dispositivos de Azure IoT Edge), seleccione **X.509 Certificate (DPS)** (certificado X.509 [DPS]) en el menú desplegable Método de aprovisionamiento.
+
+1. En [Azure Portal](https://ms.portal.azure.com/), vaya a su instancia de DPS.
+
+1. En la pestaña **Información general**, copie el valor de **Ámbito de id.** Péguelo en el campo de id. de ámbito de Windows Admin Center.
+
+1. Proporcione el id. de registro del dispositivo en el campo Id. de registro de Windows Admin Center.
+
+1. Cargue los archivos de clave privada y certificado.
+
+1. Elija **Provisioning with the selected method** (aprovisionar con el método seleccionado).
+
+   ![Elija Aprovisionar con el método seleccionado después de rellenar los campos obligatorios para el aprovisionamiento de certificados X.509.](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-x509-certs.png)
+
+1. Una vez completado el aprovisionamiento, seleccione **Finalizar**. Volverá al panel principal. Ahora debería mostrarse un nuevo dispositivo, cuyo tipo es `IoT Edge Devices`. Puede seleccionar el dispositivo de IoT Edge para conectarse a él. Una vez en la página **Información general** del dispositivo, puede ver los valores de **IoT Edge Module List** (lista de módulos de IoT Edge) y **IoT Edge Status** (estado de IoT Edge) del dispositivo.
+
+:::moniker-end
+<!-- end 1.1. -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Actualmente, no hay compatibilidad para IoT Edge, versión 1.2, en ejecución en IoT Edge para Linux en Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 1. Abra una ventana de Azure PowerShell en modo de administrador. Asegúrese de usar una sesión de AMD64 de PowerShell para instalar IoT Edge, no PowerShell (x86).
 
@@ -358,15 +427,29 @@ Tenga lista la siguiente información:
    >[!TIP]
    >El archivo de configuración almacena la información de certificado y clave como identificadores URI de archivo. Sin embargo, el comando Initialize-IoTEdge controla este paso de formato automáticamente. Por ello, puede proporcionar la ruta de acceso absoluta a los archivos de clave y certificado del dispositivo.
 
+:::moniker-end
+<!-- end 1.1. -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Actualmente, no hay compatibilidad para IoT Edge, versión 1.2, en ejecución en Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+---
+
 ## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
 
 Si el entorno de ejecución se inició correctamente, puede ir a IoT Hub y empezar a implementar módulos de IoT Edge en el dispositivo.
 
 Puede comprobar que la inscripción individual que ha creado se ha utilizado en el servicio Device Provisioning. En Azure Portal, vaya a la instancia del servicio Device Provisioning. Abra los detalles de la inscripción para la inscripción individual que ha creado. Tenga en cuenta que el estado de la inscripción está **asignado** y se muestra el id. de dispositivo.
 
-Use los siguientes comandos en el dispositivo para comprobar que el entorno de ejecución está instalado e iniciado correctamente.
+Use los siguientes comandos en el dispositivo para comprobar que la instancia de IoT Edge se ha instalado e iniciado correctamente.
 
-### <a name="linux-device"></a>Dispositivo Linux
+# <a name="linux"></a>[Linux](#tab/linux)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -388,6 +471,7 @@ Enumere los módulos en ejecución.
 ```cmd/sh
 iotedge list
 ```
+
 :::moniker-end
 
 <!-- 1.2 -->
@@ -410,9 +494,53 @@ Enumere los módulos en ejecución.
 ```cmd/sh
 sudo iotedge list
 ```
+
 :::moniker-end
 
-### <a name="windows-device"></a>Dispositivo Windows
+# <a name="linux-on-windows"></a>[Linux en Windows](#tab/eflow)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+Conéctese a la máquina virtual de IoT Edge para Linux en Windows.
+
+```powershell
+Connect-EflowVM
+```
+
+Compruebe el estado del servicio IoT Edge.
+
+```cmd/sh
+sudo systemctl status iotedge
+```
+
+Examine los registros del servicio.
+
+```cmd/sh
+sudo journalctl -u iotedge --no-pager --no-full
+```
+
+Enumere los módulos en ejecución.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Actualmente, no hay compatibilidad para IoT Edge, versión 1.2, en ejecución en IoT Edge para Linux en Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
 
 Compruebe el estado del servicio IoT Edge.
 
@@ -431,6 +559,19 @@ Enumere los módulos en ejecución.
 ```powershell
 iotedge list
 ```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Actualmente, no hay compatibilidad para IoT Edge, versión 1.2, en ejecución en Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

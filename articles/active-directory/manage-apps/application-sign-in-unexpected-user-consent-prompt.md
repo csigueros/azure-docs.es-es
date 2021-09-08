@@ -2,34 +2,36 @@
 title: Petición de consentimiento inesperada al iniciar sesión en una aplicación | Microsoft Docs
 description: Cómo solucionar problemas cuando un usuario ve una solicitud de consentimiento para una aplicación que ha integrado con Azure AD que no esperaba
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mtillman
-ms.reviewer: asteen
+ms.author: davidmu
+ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd58aefca395cab7645f444763c50e6451e0cffc
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 81640356eb60167e8cdefc67b962bf7f38783556
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080784"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738873"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Petición de consentimiento inesperada al iniciar sesión en una aplicación
 
-Muchas aplicaciones que se integran con Azure Active Directory requieren permisos para acceder a diversos recursos para poder ejecutarse. Cuando estos recursos también se integran con Azure Active Directory, suelen solicitarse permisos para acceder a ellos mediante el marco de consentimiento de Azure AD. 
+Muchas aplicaciones que se integran con Azure Active Directory requieren permisos para acceder a diversos recursos para poder ejecutarse. Cuando estos recursos también se integran con Azure Active Directory, suelen solicitarse permisos para acceder a ellos mediante el marco de consentimiento de Azure AD.
 
-Esto da como resultado que la primera vez que se usa una aplicación aparece una solicitud de consentimiento, que suele ser una operación única. 
+Esto da como resultado que la primera vez que se usa una aplicación aparece una solicitud de consentimiento, que suele ser una operación única.
 
 > [!VIDEO https://www.youtube.com/embed/a1AjdvNDda4]
 
 ## <a name="scenarios-in-which-users-see-consent-prompts"></a>Escenarios en los que los usuarios ven solicitudes de consentimiento
 
 Se pueden esperar más solicitudes en distintos escenarios:
+
+* La aplicación se ha configurado para requerir la asignación. El consentimiento del usuario no se admite actualmente para las aplicaciones que requieren asignación. Si configura una aplicación para requerir la asignación, asegúrese de conceder también el consentimiento del administrador a todos los inquilinos para que los usuarios asignados puedan iniciar sesión.
 
 * El conjunto de permisos que requiere la aplicación ha cambiado.
 
@@ -43,8 +45,11 @@ Se pueden esperar más solicitudes en distintos escenarios:
 
 * El desarrollador ha configurado la aplicación para que requiera una solicitud de consentimiento cada vez que se utilice (nota: esto no es recomendable).
 
+   > [!NOTE]
+   > Siguiendo las recomendaciones y los procedimientos recomendados de Microsoft, muchas organizaciones han deshabilitado o limitado el permiso de los usuarios para conceder consentimiento a las aplicaciones. Si una aplicación obliga a los usuarios a dar su consentimiento cada vez que inicien sesión, la mayoría de los usuarios no podrán usar estas aplicaciones incluso si un administrador concede consentimiento de administrador a todos los inquilinos. Si encuentra una aplicación que requiere el consentimiento del usuario incluso después de que se haya concedido el consentimiento del administrador, consulte al publicador de la aplicación para ver si existe una configuración o una opción para dejar de forzar el consentimiento del usuario en cada inicio de sesión.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
--   [Aplicaciones, permisos y consentimiento en Azure Active Directory (punto de conexión v1.0)](../develop/quickstart-register-app.md)
+* [Aplicaciones, permisos y consentimiento en Azure Active Directory (punto de conexión v1.0)](../develop/quickstart-register-app.md)
 
--   [Ámbitos, permisos y consentimiento en Azure Active Directory (punto de conexión v2.0)](../develop/v2-permissions-and-consent.md)
+* [Ámbitos, permisos y consentimiento en Azure Active Directory (punto de conexión v2.0)](../develop/v2-permissions-and-consent.md)

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b47462a60e35200908592274a9e1c424eca5ab62
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 61865a38cfa96dae35a02b25a1f5025438e91816
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655373"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379751"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Opciones de aislamiento de red de Azure Cache for Redis
 
@@ -31,7 +31,7 @@ Azure Private Link proporciona conectividad privada desde una red virtual a los 
 ### <a name="limitations"></a>Limitaciones
 
 * Los grupos de seguridad de red (NSG) se deshabilitan para los puntos de conexión privados. Sin embargo, si hay otros recursos en la subred, la obligatoriedad de NSG se aplicará a esos recursos.
-* No se admite todavía la replicación geográfica, las reglas de firewall, la compatibilidad con la consola del portal, varios puntos de conexión por caché en clúster, la persistencia en el firewall ni las cachés insertadas en la red virtual.
+* Actualmente, no se admiten la compatibilidad con la consola del portal ni la persistencia en cuentas de almacenamiento de firewall. 
 * Para conectarse a una caché en clúster, `publicNetworkAccess` debe establecerse en `Disabled`, y solo puede haber una conexión de punto de conexión privado.
 
 > [!NOTE]

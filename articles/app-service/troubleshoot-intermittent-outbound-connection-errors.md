@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 2b4719561ad94d54267410d0af28db6ee8d82b00
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dc6a56cff3492011a4717d867f08a580cf5a198c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799112"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738690"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solución de errores intermitentes en la conexión de salida en Azure App Service
 
@@ -49,7 +49,7 @@ Evitar el problema del puerto SNAT se traduce en evitar la creación de conexion
 
 Si el destino es un servicio de Azure que admite puntos de conexión de servicio, podrá evitar los problemas de agotamiento de puertos SNAT utilizando la [integración con red virtual regional](./web-sites-integrate-with-vnet.md) junto con puntos de conexión privados o de servicio. Cuando se usa la integración con red virtual regional y se colocan puntos de conexión de servicio en la subred de integración, el tráfico que sale de la aplicación hacia esos servicios no tiene restricciones sobre los puertos SNAT de salida. Del mismo modo, si usa la integración con red virtual regional junto con puntos de conexión privados, no tendrá ningún problema con los puertos SNAT de salida en ese destino. 
 
-Si el destino es un punto de conexión externo fuera de Azure, el uso de una instancia de NAT Gateway proporciona 64 000 puertos SNAT de salida. También proporciona una dirección de salida dedicada que no se comparte con ningún otro usuario. 
+Si el destino es un punto de conexión externo fuera de Azure, el [uso de una instancia de NAT Gateway](./networking/nat-gateway-integration.md) proporciona 64 000 puertos SNAT de salida. También proporciona una dirección de salida dedicada que no se comparte con ningún otro usuario. 
 
 Si es posible, mejore el código para usar grupos de conexiones y evitar toda esta situación. No siempre es posible cambiar el código lo suficientemente rápido como para mitigar esta situación. En los casos en los que el código no se puede modificar a tiempo, aproveche las otras soluciones. La mejor solución para el problema es combinar todas las soluciones como mejor se pueda. Intente usar puntos de conexión de servicio y puntos de conexión privados para los servicios de Azure y NAT Gateway para el resto. 
 

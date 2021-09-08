@@ -5,13 +5,13 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: e1f5b06d40ca6883092193493143f668ec999b1c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710828"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114452461"
 ---
 # <a name="access-control"></a>Control de acceso
 
@@ -21,8 +21,7 @@ El control de acceso en los libros hace referencia a dos cosas:
 
 * Acceso necesario para guardar libros
 
-    - Guardar los libros `("My")` privados no requiere ningún privilegio adicional. Todos los usuarios pueden guardar libros privados y solo ellos pueden verlos.
-    - Guardar los libros compartidos requiere privilegios de escritura en un grupo de recursos para guardar el libro. Estos privilegios se especifican normalmente mediante el rol de [Colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor), pero también se pueden establecer mediante el rol *Colaborador de libros*.
+    - Para guardar libros, se requieren privilegios de escritura en un grupo de recursos. Estos privilegios se especifican normalmente mediante el rol de [Colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor), pero también se pueden establecer mediante el rol *Colaborador de libros*.
     
 ## <a name="standard-roles-with-workbook-related-privileges"></a>Roles estándar con privilegios relacionados con el libro
 
@@ -30,11 +29,10 @@ El [lector de supervisión](../../role-based-access-control/built-in-roles.md#mo
 
 El [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) incluye los privilegios de `/write` generales utilizados por diversas herramientas de supervisión para guardar elementos (incluido el privilegio `workbooks/write` para guardar libros compartidos).
 "Colaborador de libros" agrega privilegios de "libros y escritura" a un objeto para guardar libros compartidos.
-No se requiere ningún privilegio especial para que los usuarios guarden libros privados que solo ellos pueden ver.
 
 Para los roles personalizados:
 
-Agregue `microsoft.insights/workbooks/write` para guardar los libros compartidos. Para obtener más información, vea el rol [Colaborador de libro](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
+Agregue `microsoft.insights/workbooks/write` para guardar libros. Para obtener más información, vea el rol [Colaborador de libro](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

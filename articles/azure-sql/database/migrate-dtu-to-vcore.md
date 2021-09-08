@@ -9,13 +9,13 @@ ms.custom: sqldbrb=1
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma, moslake
-ms.date: 02/09/2021
-ms.openlocfilehash: e0f2ffbb09929a919f90fdec50fe72173af78606
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 07/26/2021
+ms.openlocfilehash: aad6da736bde6a50d3bf0b0164830333823f444b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411870"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709750"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migración de Azure SQL Database del modelo basado en DTU al modelo basado en núcleo virtual.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,15 +35,15 @@ Para elegir el objetivo del servicio, o el tamaño de proceso, para la base de d
 > [!TIP]
 > Esta regla es aproximada porque no tiene en cuenta la generación de hardware utilizada para la base de datos de DTU o el grupo elástico. 
 
-En el modelo de DTU, se puede usar cualquier [generación de hardware](purchasing-models.md#hardware-generations-in-the-dtu-based-purchasing-model) disponible para la base de datos o el grupo elástico. Además, solo tiene control indirecto sobre el número de núcleos virtuales (CPU lógicas) si elige valores más altos o más bajos de DTU o eDTU. 
+En el modelo de DTU, el sistema podría seleccionar cualquier [generación de hardware](purchasing-models.md#hardware-generations-in-the-dtu-based-purchasing-model) disponible para la base de datos o el grupo elástico. Además, en el modelo de DTU, solo tiene control indirecto sobre el número de núcleos virtuales (CPU lógicas) si elige valores más altos o más bajos de DTU o eDTU. 
 
-Con el modelo de núcleo virtual, los clientes deben tomar una decisión explícita de la generación de hardware y el número de núcleos virtuales (CPU lógicas). El modelo de DTU no ofrece estas opciones; sin embargo, la generación de hardware y el número de CPU lógicas que se usan para cada base de datos y cada grupo elástico se exponen a través de vistas de administración dinámicas. Esto permite determinar el objetivo de servicio de núcleo virtual coincidente con más precisión. 
+En el modelo de núcleo virtual, los clientes deben tomar una decisión explícita de la generación de hardware y el número de núcleos virtuales (CPU lógicas). Mientras que el modelo de DTU no ofrece estas opciones, la generación de hardware y el número de CPU lógicas que se usan para cada base de datos y cada grupo elástico se exponen a través de vistas de administración dinámicas. Esto permite determinar el objetivo de servicio de núcleo virtual coincidente con más precisión. 
 
 El siguiente enfoque usa esta información para determinar un objetivo de servicio de núcleo virtual con una asignación similar de recursos, para obtener un nivel de rendimiento similar después de la migración al modelo de núcleo virtual.
 
 ### <a name="dtu-to-vcore-mapping"></a>Asignación de DTU a núcleo virtual
 
-La consulta de T-SQL siguiente, si se ejecuta en el contexto de una base de datos de DTU que se va a migrar, devolverá un número coincidente (posiblemente fraccionario) de núcleos virtuales en cada generación de hardware del modelo de núcleo virtual. Al redondear este número al número más cercano de núcleos virtuales disponibles para las [bases de datos](resource-limits-vcore-single-databases.md) y los [grupos elásticos](resource-limits-vcore-elastic-pools.md) en cada generación de hardware del modelo de núcleo virtual, los clientes pueden elegir el objetivo de servicio de núcleo virtual que sea la coincidencia más exacta para su grupo elástico o base de datos de DTU. 
+La consulta de T-SQL siguiente, si se ejecuta en el contexto de una base de datos de DTU que se va a migrar, devuelve un número coincidente (posiblemente fraccionario) de núcleos virtuales en cada generación de hardware del modelo de núcleo virtual. Al redondear este número al número más cercano de núcleos virtuales disponibles para las [bases de datos](resource-limits-vcore-single-databases.md) y los [grupos elásticos](resource-limits-vcore-elastic-pools.md) en cada generación de hardware del modelo de núcleo virtual, los clientes pueden elegir el objetivo de servicio de núcleo virtual que sea la coincidencia más exacta para su grupo elástico o base de datos de DTU. 
 
 Los escenarios de migración de ejemplo que usan este enfoque se describen en la sección [Ejemplos](#dtu-to-vcore-migration-examples).
 
@@ -65,7 +65,7 @@ SELECT rg.slo_name,
 FROM sys.dm_user_db_resource_governance AS rg
 CROSS JOIN (SELECT COUNT(1) AS scheduler_count FROM sys.dm_os_schedulers WHERE status = 'VISIBLE ONLINE') AS s
 CROSS JOIN sys.dm_os_job_object AS jo
-WHERE dtu_limit > 0
+WHERE rg.dtu_limit > 0
       AND
       DB_NAME() <> 'master'
       AND
@@ -103,18 +103,18 @@ FROM dtu_vcore_map;
 Además del número de núcleos virtuales (CPU lógicas) y la generación de hardware, varios factores diferentes pueden influir en la elección del objetivo de servicio de núcleo virtual:
 
 - La consulta de T-SQL de asignación coincide con los objetivos de servicio de DTU y núcleo virtual en cuanto a su capacidad de CPU, por lo que los resultados serán más precisos para las cargas de trabajo enlazadas a la CPU.
-- Para la misma generación de hardware y el mismo número de núcleos virtuales, los límites de recursos de rendimiento del registro de transacciones e IOPS para las bases de datos de núcleo virtual suelen ser mayores que para las bases de datos de DTU. En el caso de las cargas de trabajo enlazadas a E/S, es posible reducir el número de núcleos virtuales en el modelo de núcleo virtual para lograr el mismo nivel de rendimiento. Los límites de recursos para las bases de datos de DTU y núcleo virtual en valores absolutos se exponen en la vista [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database). La comparación de estos valores entre la base de datos de DTU que se va a migrar y una base de datos de núcleo virtual con un objetivo de servicio de coincidencia aproximada le ayudará a seleccionar el objetivo de servicio de núcleo virtual con mayor precisión.
+- Para la misma generación de hardware y el mismo número de núcleos virtuales, los límites de recursos de rendimiento del registro de transacciones e IOPS para las bases de datos de núcleo virtual suelen ser mayores que para las bases de datos de DTU. En el caso de las cargas de trabajo enlazadas a E/S, es posible reducir el número de núcleos virtuales en el modelo de núcleo virtual para lograr el mismo nivel de rendimiento. Los límites de recursos reales para las bases de datos de DTU y núcleo virtual se exponen en la vista [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database). La comparación de estos valores entre la base de datos de DTU o el grupo que se van a migrar y una base de datos de núcleo virtual o un grupo con un objetivo de servicio de coincidencia aproximada le ayudará a seleccionar el objetivo de servicio de núcleo virtual con mayor precisión.
 - La consulta de asignación también devuelve la cantidad de memoria por núcleo para el grupo elástico o la base de datos de DTU que se va a migrar, y para cada generación de hardware del modelo de núcleo virtual. Garantizar una memoria total similar o superior después de la migración a núcleo virtual es importante para las cargas de trabajo que requieren una memoria caché de datos de gran tamaño para lograr un rendimiento suficiente o para cargas de trabajo que requieren concesiones de memoria grandes para el procesamiento de consultas. En el caso de estas cargas de trabajo, en función del rendimiento real, puede ser necesario aumentar el número de núcleos virtuales para obtener suficiente memoria total.
 - La [utilización de recursos históricos](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de la base de datos de DTU se debe tener en cuenta al elegir el objetivo de servicio de núcleo virtual. Es posible que las bases de datos de DTU con recursos de CPU infrautilizados de forma constante necesiten menos núcleos virtuales que el número devuelto por la consulta de asignación. Por el contrario, las bases de datos de DTU en las que el uso de CPU elevado constante provoca un rendimiento inadecuado de la carga de trabajo pueden requerir más núcleos virtuales de los que devuelve la consulta.
-- Si migra bases de datos con patrones de uso intermitentes o imprevisibles, tenga en cuenta el uso del nivel de proceso [Sin servidor](serverless-tier-overview.md). Tenga en cuenta que el número máximo de trabajos simultáneos (solicitudes) en la opción sin servidor es el 75 % del límite en el proceso aprovisionado para el mismo número de núcleos virtuales máximo configurado. Además, la memoria máxima disponible en la opción sin servidor expresada en GB es 3 veces el número máximo de núcleos virtuales configurados; por ejemplo, la memoria máxima será de 120 GB cuando se configura un máximo de 40 núcleos virtuales.   
+- Si migra bases de datos con patrones de uso intermitentes o imprevisibles, tenga en cuenta el uso del nivel de proceso [Sin servidor](serverless-tier-overview.md). Tenga en cuenta que el número máximo de trabajos simultáneos (solicitudes) en la opción sin servidor es el 75 % del límite en el proceso aprovisionado para el mismo número de núcleos virtuales máximo configurado. Además, la memoria máxima disponible en la opción sin servidor expresada en GB es 3 veces el número máximo de núcleos virtuales configurados, lo que es menor que la memoria por núcleo para el proceso aprovisionado. Por ejemplo, en Gen5, la memoria máxima será de 120 GB cuando se configura un máximo de 40 núcleos virtuales como máximo en la opción sin servidor, frente a 204 GB para un proceso aprovisionado de 40 núcleos virtuales.
 - En el modelo de núcleo virtual, el tamaño máximo admitido de la base de datos puede variar en función de la generación de hardware. En el caso de las bases de datos de gran tamaño, compruebe los tamaños máximos admitidos en el modelo de núcleo virtual para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).
 - En el caso de los grupos elásticos, los modelos de [DTU](resource-limits-dtu-elastic-pools.md) y [núcleo virtual](resource-limits-vcore-elastic-pools.md) presentan diferencias en el número máximo de bases de datos admitidas por grupo. Esto se debe tener en cuenta al migrar grupos elásticos con muchas bases de datos.
-- Es posible que algunas generaciones de hardware no estén disponibles en todas las regiones. Compruebe la disponibilidad en [Generaciones de hardware para SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) o [Generaciones de hardware para SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
+- Es posible que algunas generaciones de hardware no estén disponibles en todas las regiones. Compruebe la disponibilidad en [Generaciones de hardware para SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations).
 
 > [!IMPORTANT]
 > Las directrices de ajuste de tamaño de DTU a núcleo virtual se proporcionan para ayudarle en la estimación inicial del objetivo de servicio de base de datos de destino.
 >
-> La configuración óptima de la base de datos de destino depende de la carga de trabajo. Por tanto, para lograr la relación óptima entre precio y rendimiento después de la migración puede que se deba aprovechar la flexibilidad del modelo de núcleo virtual para ajustar el número de núcleos virtuales, la generación de hardware, los niveles de servicio y proceso, así como ajustar otros parámetros de configuración de base de datos, como el [grado máximo de paralelismo](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+> La configuración óptima de la base de datos de destino depende de la carga de trabajo. Por lo tanto, para lograr una relación óptima entre el precio y el rendimiento después de la migración, aproveche la flexibilidad del modelo de núcleo virtual para ajustar el número de núcleos virtuales, la generación de hardware y los niveles de servicio y proceso. También puede que tenga que ajustar los parámetros de configuración de la base de datos, como el [grado máximo de paralelismo](configure-max-degree-of-parallelism.md), o cambiar el [nivel de compatibilidad](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) de la base de datos para habilitar mejoras recientes en el motor de base de datos.
 > 
 
 ### <a name="dtu-to-vcore-migration-examples"></a>Ejemplos de migración de DTU a núcleo virtual
@@ -198,7 +198,7 @@ Si va a crear una base de datos secundaria de replicación geográfica en el gru
 
 ## <a name="use-database-copy-to-migrate-from-dtu-to-vcore"></a>Uso de la copia de base de datos para la migración de DTU a núcleo virtual
 
-Puede copiar cualquier base de datos con un tamaño de proceso basado en DTU en una base de datos que tenga un tamaño de proceso basado en núcleos virtuales sin restricciones o secuencias especiales, siempre y cuando el tamaño de proceso de destino admita el tamaño máximo de base de datos de la base de datos de origen. La copia de base de datos crea una instantánea de los datos a partir de la hora de inicio de la operación de copia y no sincroniza los datos entre el origen y el destino.
+Puede copiar cualquier base de datos con un tamaño de proceso basado en DTU en una base de datos que tenga un tamaño de proceso basado en núcleos virtuales sin restricciones o secuencias especiales, siempre y cuando el tamaño de proceso de destino admita el tamaño máximo de base de datos de la base de datos de origen. La copia de la base de datos crea una instantánea transaccionalmente coherente de los datos a partir de un momento dado después de que se inicie la operación de copia. No sincroniza los datos entre el origen y el destino después de ese momento dado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

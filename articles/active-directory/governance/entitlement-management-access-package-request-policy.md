@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/16/2020
+ms.date: 07/01/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccd3de1b05c416ea25f7636c683f887dccc76898
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 4fcd11f88cb25ef3afb199b147856d0a0140e44c
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713799"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491990"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de solicitud de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -141,7 +141,7 @@ Siga estos pasos si quiere que los usuarios que no están en el directorio solic
 1. Una vez que haya seleccionado todas las organizaciones conectadas, haga clic en **Seleccionar**.
 
     > [!NOTE]
-    > Todos los usuarios de las organizaciones conectadas seleccionadas podrán solicitar este paquete de acceso. Esto incluye a los usuarios de Azure AD de todos los subdominios asociados a la organización, a menos que los dominios estén bloqueados por la lista de permitidos o denegados de Azure B2B. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
+    > Todos los usuarios de las organizaciones conectadas seleccionadas podrán solicitar este paquete de acceso. Esto incluye a los usuarios de Azure AD de todos los subdominios asociados a la organización, a menos que los dominios estén bloqueados por la lista de permitidos o la lista de bloqueados de Azure B2B. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
 
 1. Si quiere solicitar aprobación, siga los pasos descritos en [Cambio de la configuración de aprobación de un paquete de acceso en la administración de derechos de Azure AD](entitlement-management-access-package-approval-policy.md) para configurar los valores de aprobación.
  
@@ -198,11 +198,17 @@ Para cambiar la configuración de solicitudes y aprobación de un paquete de acc
 
 1. Haga clic en **Next**.
 
-1. Si desea exigir a los solicitantes que proporcionen información adicional al solicitar acceso a un paquete de acceso, siga los pasos de [Cambio de la configuración de información de aprobación y del solicitante (versión preliminar) para un paquete de acceso de administración de derechos de Azure AD](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) para configurar la información del solicitante (versión preliminar).
+1. Si quiere exigir a los solicitantes que proporcionen información adicional al solicitar acceso a un paquete de acceso, siga los pasos de [Cambio de la configuración de información de aprobación y del solicitante para un paquete de acceso de administración de derechos de Azure AD](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval) para configurar la información del solicitante.
 
 1. Configure los valores del ciclo de vida.
 
 1. Si va a editar una directiva, haga clic en **Actualizar**. Si va a agregar una directiva nueva, haga clic en **Crear**.
+
+## <a name="prevent-requests-from-users-with-incompatible-access-preview"></a>Prevención de solicitudes de usuarios con acceso incompatible (versión preliminar)
+
+Además de las comprobaciones de directivas sobre quién puede realizar solicitudes, puede que quiera restringir aún más el acceso para evitar que un usuario que ya lo tenga (mediante un grupo u otro paquete de acceso) obtenga acceso excesivo.
+
+Si quiere configurar que los usuarios no puedan solicitar un paquete de acceso si ya tienen otro asignado o si son miembros de un grupo, siga los pasos en [Configuración de comprobaciones de separación de obligaciones para paquetes de acceso](entitlement-management-access-package-incompatible.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,13 +2,13 @@
 title: Administración y supervisión de copias de seguridad de máquinas virtuales de Azure
 description: Aprenda a administrar y supervisar las copias de seguridad de Azure VM con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 08/02/2020
-ms.openlocfilehash: 70ce8ababcb596c3eb804e429156000ff7d64ecc
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/27/2021
+ms.openlocfilehash: 015ce2a16359f3a99fcd71c8ea7f97142c2d54e6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372578"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728989"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
@@ -140,6 +140,10 @@ Una notificación le confirma que se han detenido los trabajos de copia de segur
 ### <a name="stop-protection-and-delete-backup-data"></a>Detener la protección y eliminar los datos de copia de seguridad
 
 Para detener la protección y eliminar los datos de una máquina virtual:
+
+>[!Note]
+>En el caso de los puntos de recuperación archivados que no hayan permanecido durante 180 días en el nivel de almacenamiento de archivo, la eliminación de los puntos de recuperación implica un costo de eliminación anticipada. [Más información](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
+
 
 1. En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **Detener copia de seguridad**.
 2. Elija **Eliminar datos de la copia de seguridad** y confirme su selección según sea necesario. Escriba el nombre del elemento de copia de seguridad y agregue un comentario si lo desea.

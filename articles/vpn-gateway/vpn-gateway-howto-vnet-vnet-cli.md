@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4f247131c2ce20ec9e95e8b5327ae7e7249f93f
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 99fa8ed7550579d0ec1a9194084b5bc3afa736ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729483"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
 
 Este artículo le ayuda a conectarse a redes virtuales mediante el tipo de conexión de red virtual a red virtual. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory.
 
-Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y usan la CLI de Azure. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+Los pasos descritos en este artículo se aplican al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md) y usan la CLI de Azure. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

@@ -1,121 +1,133 @@
 ---
-title: Introducción a las máquinas virtuales con GPU en el dispositivo GPU de Azure Stack Edge Pro y cómo implementarlas
-description: Se describe cómo crear y administrar máquinas virtuales (VM) con GPU en un dispositivo GPU de Azure Stack Edge Pro mediante plantillas.
+title: Implementación de máquinas virtuales en el dispositivo GPU de Azure Stack Edge Pro
+description: Se describe cómo crear e implementar máquinas virtuales (VM) con GPU de Azure Stack Edge Pro mediante Azure Portal o plantillas.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 08/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 754cb296d6edebe4a8026df612fc52113e171a1c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 958c87a78551555d2994c37e2b72c75cb989a834
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663882"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740823"
 ---
 # <a name="deploy-gpu-vms-on-your-azure-stack-edge-pro-gpu-device"></a>Implementación de máquinas virtuales en el dispositivo GPU de Azure Stack Edge Pro
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-En este artículo se proporciona información general sobre las máquinas virtuales con GPU en el dispositivo GPU de Azure Stack Edge Pro. También se describe cómo crear una máquina virtual con GPU mediante las plantillas de Azure Resource Manager. 
+En este artículo se explica cómo crear una máquina virtual de GPU en Azure Portal o mediante las plantillas de Azure Resource Manager.
 
-
-## <a name="about-gpu-vms"></a>Acerca de las máquinas virtuales con GPU
-
-Los dispositivos Azure Stack Edge están equipados con 1 o 2 GPU Tesla T4 de NVIDIA. Para implementar cargas de trabajo de máquinas virtuales con aceleración de GPU en estos dispositivos, use tamaños de máquina virtual optimizados para GPU. Por ejemplo, se debe usar la serie NC T4 v3 para implementar cargas de trabajo de inferencia que incluyen las GPU T4. 
-
-Para más información, consulte [Serie NCasT4_v3](../virtual-machines/nct4-v3-series.md).
-
-## <a name="supported-os-and-gpu-drivers"></a>Sistema operativo y controladores de GPU admitidos 
-
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, se deben instalar los controladores de GPU de Nvidia. 
-
-La extensión del controlador de GPU de Nvidia instala los controladores CUDA o GRID de Nvidia adecuados. Puede instalar o administrar la extensión mediante las plantillas de Azure Resource Manager.
-
-### <a name="supported-os-for-gpu-extension-for-windows"></a>Sistema operativo admitido para la extensión de GPU para Windows
-
-Esta extensión admite los siguientes sistemas operativos. Otras versiones pueden funcionar, pero no se han probado internamente en máquinas virtuales con GPU que se ejecutan en dispositivos Azure Stack Edge.
-
-| Distribución | Versión |
-|---|---|
-| Windows Server 2019 | Core |
-| Windows Server 2016 | Core |
-
-### <a name="supported-os-for-gpu-extension-for-linux"></a>Sistema operativo admitido para la extensión de GPU para Linux
-
-Esta extensión admite las siguientes distribuciones del sistema operativo, en función de la compatibilidad del controlador para la versión específica del sistema operativo. Otras versiones pueden funcionar, pero no se han probado internamente en máquinas virtuales con GPU que se ejecutan en dispositivos Azure Stack Edge.
-
-
-| Distribución | Versión |
-|---|---|
-| Ubuntu | 18.04 LTS |
-| Red Hat Enterprise Linux | 7.4 |
-
-
-## <a name="gpu-vms-and-kubernetes"></a>Máquinas virtuales con GPU y Kubernetes
-
-Antes de implementar máquinas virtuales con GPU en el dispositivo y, si Kubernetes está configurado en el dispositivo, revise las siguientes consideraciones.
-
-#### <a name="for-1-gpu-device"></a>Para un dispositivo con 1 GPU: 
-
-- **Cree una máquina virtual con GPU seguida de la configuración de Kubernetes en el dispositivo**: en este escenario, la creación de la máquina virtual con GPU y la configuración de Kubernetes se realizarán correctamente. En este caso, Kubernetes no tendrá acceso a la GPU.
-
-- **Configure Kubernetes en el dispositivo y, después, cree una máquina virtual con GPU**: en este escenario, Kubernetes reclamará la GPU del dispositivo y se producirá un error en la creación de la máquina virtual, ya que no hay ningún recurso de GPU disponible.
-
-#### <a name="for-2-gpu-device"></a>Para un dispositivo con 2 GPU:
-
-- **Cree una máquina virtual con GPU seguida de la configuración de Kubernetes en el dispositivo**: en este escenario, la máquina virtual con GPU que cree reclamará una GPU del dispositivo y la configuración de Kubernetes también se realizará correctamente y reclamará la GPU restante. 
-
-- **Cree dos máquinas virtuales con GPU seguida de la configuración de Kubernetes en el dispositivo**: en este escenario, las dos máquinas virtuales con GPU reclamarán las dos GPU del dispositivo y Kubernetes se configurará correctamente sin GPU. 
-
-- **Configure Kubernetes en el dispositivo y, después, cree una máquina virtual con GPU**: en este escenario, Kubernetes reclamará ambas GPU del dispositivo y se producirá un error en la creación de la máquina virtual, ya que no hay ningún recurso de GPU disponible.
-
-<!--Li indicated that this is fixed. If you have GPU VMs running on your device and Kubernetes is also configured, then anytime the VM is deallocated (when you stop or remove a VM using Stop-AzureRmVM or Remove-AzureRmVM), there is a risk that the Kubernetes cluster will claim all the GPUs available on the device. In such an instance, you will not be able to restart the GPU VMs deployed on your device or create GPU VMs. -->
-
+Use Azure Portal para implementar rápidamente una sola máquina virtual de GPU. Puede instalar la extensión de GPU durante o después de la creación de la máquina virtual. O bien, puede usar Azure Resource Manager para implementar y administrar de forma eficaz varias máquinas virtuales de GPU.
 
 ## <a name="create-gpu-vms"></a>Creación de máquinas virtuales con GPU
 
-Siga estos pasos al implementar máquinas virtuales con GPU en el dispositivo:
+Puede implementar una máquina virtual de GPU mediante el portal o mediante plantillas de Azure Resource Manager.
 
-1. Identifique si el dispositivo también va a ejecutar Kubernetes. Si el dispositivo va a ejecutar Kubernetes, primero deberá crear la máquina virtual con GPU y luego configurar Kubernetes. Si Kubernetes se configura en primer lugar, reclamará todos los recursos de GPU disponibles y se producirá un error en la creación de la máquina virtual con GPU.
+Para obtener una lista de los sistemas operativos, controladores y tamaños de máquina virtual admitidos para máquinas virtuales de GPU, consulte [¿Qué son las máquinas virtuales de GPU?](azure-stack-edge-gpu-overview-gpu-virtual-machines.md). Para ver las consideraciones de implementación, consulte [Máquinas virtuales de GPU y Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
+
+
+> [!IMPORTANT]
+> Si el dispositivo va a ejecutar Kubernetes, no configure Kubernetes antes de implementar las máquinas virtuales de GPU. Si configura Kubernetes en primer lugar, reclamará todos los recursos de GPU disponibles y se producirá un error en la creación de la máquina virtual con GPU. Para ver las consideraciones de implementación de Kubernetes en dispositivos de 1 GPU y 2 GPU, consulte [Máquinas virtuales de GPU y Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
+
+### <a name="portal"></a>[Portal](#tab/portal)
+
+Siga estos pasos al implementar máquinas virtuales con GPU en el dispositivo mediante Azure Portal:
+
+1. Para crear máquinas virtuales de GPU, siga todos los pasos descritos en [Implementación de máquinas virtuales en Azure Stack Edge mediante Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md), con estos requisitos de configuración:
+
+    - En la pestaña **Aspectos básicos**, seleccione un [tamaño de VM de la serie NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+
+       ![Captura de pantalla de la pestaña Aspectos básicos para "Agregar una máquina virtual" en Azure Stack Edge. La opción Tamaño, con un tamaño de máquina virtual compatible para máquinas virtuales de GPU, está resaltada.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/basics-vm-size-for-gpu.png)
+
+    - Para instalar la extensión de GPU durante la implementación, en la pestaña **Opciones avanzadas**, elija **Seleccionar una extensión para instalar**. A continuación, seleccione una extensión de GPU para instalar. Las extensiones de GPU solo están disponibles para una máquina virtual con un [tamaño de máquina virtual de la serie NCasT4-v3](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+        
+        > [!NOTE]
+        > Si usa una imagen de Red Hat, deberá instalar la extensión de GPU después de la implementación de la máquina virtual. Siga los pasos descritos en [Instalación de la extensión de GPU](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
+    
+       ![Ilustración de los pasos para agregar una extensión de GPU a la pestaña Opciones avanzadas de Agregar una máquina virtual. Las opciones para seleccionar y agregar una extensión están resaltadas.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-01.png)
+
+       En la pestaña **Opciones avanzadas** se muestra la extensión seleccionada.
+
+       ![Captura de pantalla de la pestaña Opciones avanzadas de Agregar una máquina virtual. Una extensión de GPU instalada resaltada.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-02.png)
+
+1. Una vez que la máquina virtual con GPU se crea correctamente, puede ver esta máquina virtual en la lista de máquinas virtuales del recurso de Azure Stack Edge en Azure Portal.
+
+    ![Captura de pantalla de la vista "Máquinas virtuales" en Azure Stack Edge con una máquina virtual GPU recién creada resaltada.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/list-virtual-machines-01.png)
+
+    Seleccione la máquina virtual y explore en profundidad los detalles. Asegúrese de que la extensión de GPU tiene el estado **Correcto**.
+
+    ![Captura de pantalla del panel Detalles de una máquina virtual de Azure Stack Edge. Las extensiones instaladas, con una extensión de GPU instalada, están resaltadas.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/vm-details-extension-installed.png)
+
+
+### <a name="templates"></a>[Templates](#tab/templates) (Plantillas [C++])
+
+Siga estos pasos al implementar máquinas virtuales de GPU en el dispositivo mediante plantillas de Azure Resource Manager:
 
 1. [Descargue las plantillas de máquina virtual y los archivos de parámetros](https://aka.ms/ase-vm-templates) en la máquina cliente. Descomprímalos en un directorio que usará como directorio de trabajo.
 
 1. Para poder implementar VM en el dispositivo Azure Stack Edge, debe configurar el cliente para que se conecte al dispositivo mediante Azure Resource Manager con Azure PowerShell. Para consultar las instrucciones detalladas, vaya a [Conexión a Azure Resource Manager en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-connect-resource-manager.md).
 
-1. Para crear máquinas virtuales con GPU, siga todos los pasos descritos en [Implementación de máquinas virtuales en Azure Stack Edge mediante plantillas](azure-stack-edge-gpu-deploy-virtual-machine-templates.md) o [Implementación de máquinas virtuales en Azure Stack Edge mediante Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md), excepto por las siguientes diferencias: 
-
+1. Para crear máquinas virtuales de GPU, siga todos los pasos descritos en [Implementación de máquinas virtuales en Azure Stack Edge mediante plantillas](azure-stack-edge-gpu-deploy-virtual-machine-templates.md), con estos requisitos de configuración: 
             
-    1. Si crea una máquina virtual mediante las plantillas, al especificar los tamaños de máquina virtual con GPU, asegúrese de usar la serie NCasT4-V3 en el archivo `CreateVM.parameters.json`, ya que se admite para máquinas virtuales con GPU. Para más información, consulte [Tamaños y tipos de máquina virtual para el dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+    - Al especificar los tamaños de la máquina virtual con GPU, asegúrese de usar la serie NCasT4-V3 en el archivo `CreateVM.parameters.json`, ya que se admiten para las máquinas virtuales con GPU. Para más información, consulte [Tamaños y tipos de máquina virtual para el dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
 
-        ```json
-            "vmSize": {
-          "value": "Standard_NC4as_T4_v3"
-        },
-        ```
-        Si usa Azure Portal para crear la máquina virtual, también puede seleccionar un tamaño de máquina virtual de la serie NCasT4-v3.
+       ```json
+           "vmSize": {
+         "value": "Standard_NC4as_T4_v3"
+       },
+       ```
 
-    1. Una vez que la máquina virtual con GPU se crea correctamente, puede ver esta máquina virtual en la lista de máquinas virtuales del recurso de Azure Stack Edge en Azure Portal.
+    Una vez que la máquina virtual con GPU se crea correctamente, puede ver esta máquina virtual en la lista de máquinas virtuales del recurso de Azure Stack Edge en Azure Portal.
 
-        ![Máquina virtual con GPU en la lista de máquinas virtuales de Azure Portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/list-virtual-machine-1.png)
+    ![Captura de pantalla de la vista Máquinas virtuales en Azure Stack Edge. Se resalta una máquina virtual de GPU recién creada.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/list-virtual-machines-01.png)
 
 1. Seleccione la máquina virtual y explore en profundidad los detalles. Copie la dirección IP asignada a la máquina virtual.
 
-    ![Dirección IP asignada a la máquina virtual con GPU en Azure Portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-gpu-virtual-machine-1.png)
+    ![Captura de pantalla del panel Detalles de una máquina virtual de Azure Stack Edge. La dirección IP, en Redes, está resaltada.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-of-virtual-machine.png)
 
-1. Si es necesario, puede volver a cambiar la red de proceso. 
+Una vez creada la máquina virtual, puede [implementar la extensión de GPU mediante la plantilla de extensiones](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux).
 
-
-Una vez creada la máquina virtual, puede implementar la extensión de GPU mediante la plantilla de extensiones.
-
+---
 
 > [!NOTE]
 > Al actualizar la versión del software del dispositivo de la versión 2012 a una posterior, tendrá que detener manualmente las máquinas virtuales con GPU.
 
+## <a name="install-gpu-extension-after-deployment"></a>Instalación de la extensión de GPU después de la implementación
 
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, se deben instalar los controladores de GPU de Nvidia. Desde Azure Portal, puede instalar la extensión de GPU durante o después de la implementación de la máquina virtual. Si usa plantillas, instalará la extensión de GPU después de crear la máquina virtual.
+
+---
+
+### <a name="portal"></a>[Portal](#tab/portal)
+
+Si no instaló la extensión de GPU cuando creó la máquina virtual, siga estos pasos para instalarla en la máquina virtual implementada:
+
+1. Vaya a la máquina virtual a la que quiere agregar la extensión de GPU.
+
+    ![Captura de pantalla de la vista "Máquinas virtuales" para un dispositivo de Azure Stack Edge, con una máquina virtual resaltada en la lista de máquinas virtuales.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-after-deployment-01.png)
+  
+1. En **Detalles**, seleccione **+ Agregar extensión**. A continuación, seleccione una extensión de GPU para instalar.
+
+    Las extensiones de GPU solo están disponibles para una máquina virtual con un [tamaño de máquina virtual de la serie NCasT4-v3](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview). Si lo prefiere, puede [instalar la extensión de GPU después de la implementación](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension-after-deployment).
+
+![Ilustración en la que se muestran 2 pasos para usar el botón "Más agregar extensión" en el panel "Detalles" de la máquina virtual para agregar una extensión de GPU a una máquina virtual en un dispositivo de Azure Stack Edge.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-after-deployment-02.png)
+
+> [!Note]
+> No se puede eliminar una extensión de GPU mediante el portal. En su lugar, use el cmdlet [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension?view=azurermps-6.13.0&preserve-view=true) en Azure PowerShell. Para obtener instrucciones, consulte [Eliminación de la extensión de GPU](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md#remove-gpu-extension).
+
+### <a name="templates"></a>[Templates](#tab/templates) (Plantillas [C++])
+
+Cuando se crea una máquina virtual de GPU mediante plantillas, se instala la extensión de GPU después de la implementación. Para obtener pasos detallados para usar plantillas para implementar una extensión de GPU en una máquina virtual Windows o una máquina virtual Linux, consulte [Instalación de la extensión de GPU](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [instalar la extensión de GPU](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md) en las máquinas virtuales con GPU que se ejecutan en el dispositivo.
+- [Solución de problemas de implementación de máquinas virtuales](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
+- [Solución de problemas de extensiones de GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md)
+- [Supervisión de la actividad de VM en el dispositivo](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
+- [Supervisión de CPU y memoria en una VM](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md)

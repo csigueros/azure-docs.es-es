@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: kkrishna
 ms.workload: identity
 ms.custom: aaddev
-ms.openlocfilehash: c632b19daf52fd2af4d2c2920c3a61519da6c85c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 0a310df6793d2caecda095f0c89244ffee5e46eb
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408072"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728037"
 ---
 # <a name="developers-guide-to-conditional-access-authentication-context"></a>Instrucciones para desarrolladores sobre el contexto de autenticación del acceso condicional
 
@@ -45,7 +45,7 @@ Estos son los requisitos previos y los pasos si desea usar el contexto de autent
 
 **En primer lugar**, la aplicación debe integrarse con Microsoft Identity Platform mediante el uso de los protocolos [OpenID Connect](v2-protocols-oidc.md)/ [OAuth 2.0](v2-oauth2-auth-code-flow.md) para la autenticación y autorización. Se recomienda usar las [bibliotecas de autenticación de la plataforma de identidad de Microsoft](reference-v2-libraries.md) para integrar y proteger la aplicación con Azure Active Directory. La [documentación de la plataforma de identidad de Microsoft](index.yml) es un buen lugar para aprender a integrar las aplicaciones con dicha plataforma. La compatibilidad con las características de contexto de autenticación del acceso condicional se basa en las extensiones de protocolo proporcionadas por el protocolo estándar [OpenID Connect](v2-protocols-oidc.md) del sector. Los desarrolladores usan un **valor** de [referencia para el contexto de autenticación del acceso condicional](/graph/api/resources/authenticationcontextclassreference) con el parámetro [Solicitud de notificaciones](claims-challenge.md) para proporcionar a las aplicaciones una manera de desencadenar y cumplir con la directiva.
 
-**En segundo lugar**, el [acceso condicional](../conditional-access/overview.md) requiere licencias de Azure AD Premium P1. Para más información sobre las licencias, consulte la [página de precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+**En segundo lugar**, el [acceso condicional](../conditional-access/overview.md) requiere licencias de Azure AD Premium P1. Para más información sobre las licencias, consulte la [página de precios de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 **En tercer lugar**, actualmente solo está disponible para las aplicaciones en las que inician sesión los usuarios. No se admiten las aplicaciones que se autentican por sí mismas. Use la [guía Flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md) para más información sobre los tipos y flujos de aplicaciones de autenticación admitidos en la plataforma de identidad de Microsoft.
 
@@ -221,6 +221,7 @@ No use el contexto de autenticación en aquellos casos en los que la propia apli
 - [Acceso condicional específico para acciones y datos confidenciales (blog)](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775)
 - [Confianza cero con la plataforma de identidad de Microsoft](/security/zero-trust/identity-developer)
 - [Creación de aplicaciones listas para la Confianza cero con la Plataforma de identidad de Microsoft](/security/zero-trust/identity-developer)
+- [Uso del contexto de autenticación del acceso condicional para realizar la autenticación por pasos para operaciones con privilegios elevados en una API web](https://github.com/Azure-Samples/ms-identity-dotnetcore-ca-auth-context-app/blob/main/README.md)
 - [Uso del contexto de autenticación del acceso condicional para realizar la autenticación por pasos para operaciones con privilegios elevados en una API web](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md)
 - [Contexto de autenticación del acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context-preview)
 - [Tipo de recurso authenticationContextClassReference: MS Graph](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences)

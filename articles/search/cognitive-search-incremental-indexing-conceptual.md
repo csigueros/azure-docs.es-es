@@ -2,24 +2,22 @@
 title: Conceptos de enriquecimiento incremental (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Almacene en caché contenido intermedio y cambios incrementales de la canalización de enriquecimiento con IA en Azure Storage para conservar las inversiones en los documentos procesados existentes. Esta característica actualmente está en su versión preliminar pública.
-manager: nitinme
-author: Vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: f3d9d9481821902246721c5c27ed99451f323ba3
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 7b3d0fc85afbff58641edea332576f921c96b672
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539818"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727792"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enriquecimiento incremental y almacenamiento en caché en Azure Cognitive Search
 
 > [!IMPORTANT] 
-> El enriquecimiento incremental se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> Las [versiones preliminares de la API REST](search-api-preview.md) proporcionan esta característica. Por el momento, no hay compatibilidad con el portal ni con .NET SDK.
+> Esta característica se encuentra en versión preliminar pública en los [términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API REST de versión preliminar](/rest/api/searchservice/index-preview) admite esta característica.
 
 El *enriquecimiento incremental* es una característica que tiene como destino los [conjuntos de aptitudes](cognitive-search-working-with-skillsets.md). Aprovecha Azure Storage para guardar la salida de procesamiento que emite una canalización de enriquecimiento para su reutilización en ejecuciones futuras del indizador. Siempre que sea posible, el indizador reutiliza cualquier salida almacenada en caché que todavía sea válida. 
 
@@ -37,12 +35,12 @@ Para obtener más información sobre los pasos y las consideraciones al trabajar
 
 ## <a name="indexer-cache"></a>Caché de indexador
 
-El enriquecimiento incremental agrega una caché a la canalización de enriquecimiento. El indizador almacena en caché los resultados del descifrado de documentos más las salidas de todas las aptitudes de todos los documentos. Cuando se actualiza un conjunto de aptitudes, solo se vuelven a ejecutar las aptitudes modificadas o descendentes. Los resultados actualizados se escriben en la caché y el documento se actualiza en el índice de búsqueda o el almacén de conocimiento.
+El enriquecimiento incremental agrega una caché a la canalización de enriquecimiento. El indizador almacena en caché los resultados del [descifrado de documentos](search-indexer-overview.md#document-cracking) más las salidas de todas las aptitudes de todos los documentos. Cuando se actualiza un conjunto de aptitudes, solo se vuelven a ejecutar las aptitudes modificadas o descendentes. Los resultados actualizados se escriben en la caché y el documento se actualiza en el índice de búsqueda o el almacén de conocimiento.
 
 Físicamente, la caché se almacena en un contenedor de blobs en la cuenta de Azure Storage. La memoria caché también utiliza Table Storage para obtener un registro interno de las actualizaciones de procesamiento. Todos los índices de un servicio de búsqueda pueden compartir la misma cuenta de almacenamiento para la caché del indexador. A cada indizador se le asigna un identificador de caché único e inmutable al contenedor que usa.
 
 > [!NOTE]
-> La caché del indexador requiere una cuenta de almacenamiento de uso general. Para más información, consulte los [diferentes tipos de cuentas de almacenamiento](/storage/common/storage-account-overview#types-of-storage-accounts).
+> La caché del indexador requiere una cuenta de almacenamiento de uso general. Para más información, consulte los [diferentes tipos de cuentas de almacenamiento](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 ## <a name="cache-configuration"></a>Configuración de la caché
 

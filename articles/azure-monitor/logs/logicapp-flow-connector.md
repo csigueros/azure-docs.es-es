@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 4a25d7a23d486c8ce22fa433cc1ead390726facc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9b6cddc32b81f0e1bf915bfa09527a3ef395f744
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735789"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de Azure Monitor Logs para Logic Apps y Power Automate
 [Azure Logic Apps](../../logic-apps/index.yml) y [Power Automate](https://flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. El conector de Azure Monitor Logs le permite crear flujos de trabajo destinados a recuperar datos de un área de trabajo de Log Analytics o de una aplicación Application Insights en Azure Monitor. En este artículo se describen las acciones que se incluyen con el conector y se proporciona un tutorial para crear un flujo de trabajo con estos datos.
@@ -20,10 +20,9 @@ Por ejemplo, puede crear una aplicación lógica para usar los datos de registro
 
 ## <a name="connector-limits"></a>Límites de conector
 El conector de registros de Azure Monitor tiene estos límites:
-* Tamaño máximo de datos: 16 MB
-* Tamaño máximo de respuesta de consultas de 100 MB
+* Tamaño máximo de respuesta de consultas de ~16.7 MB (16 MiB). La infraestructura del conector dicta que el límite sea menor que el límite de la API de consulta.
 * Número máximo de registros: 500.000
-* Tiempo de espera máximo de consulta de 110 segundos.
+* Tiempo de espera máximo de consulta de 110 segundos.
 * Las visualizaciones de gráficos pueden estar disponibles en la página de registros y faltar en el conector, ya que el conector y la página de registros no usan actualmente las mismas bibliotecas de gráficos.
 
 En función del tamaño de los datos y de la consulta que use, el conector puede alcanzar sus límites y producir un error. Puede solucionar estos casos al ajustar la periodicidad del desencadenador para que se ejecute con más frecuencia y consulte menos datos. Puede usar consultas que agreguen los datos para devolver menos registros y columnas.

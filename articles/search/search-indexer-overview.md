@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: ac9708e496fd0ee84d6e225ff8a63807bbe34fcd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7a0ac8a344bc48a9d1ce14b326724236c229d096
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468397"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734961"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores de Azure Cognitive Search
 
@@ -62,19 +62,23 @@ Las conexiones de indexador a orígenes de datos remotos se pueden realizar medi
 
 En una ejecución inicial, cuando el índice está vacío, un indexador lee todos los datos proporcionados en la tabla o el contenedor. En las ejecuciones posteriores, el indexador normalmente puede detectar y recuperar solo los datos que han cambiado. En el caso de los datos de blob, la detección de cambios es automática. En otros orígenes de datos, como Azure SQL o Cosmos DB, la detección de cambios se debe habilitar.
 
-En todos los documentos que recibe, un indexador implementa o coordina varios pasos, desde la recuperación del documento hasta una "entrega" final del motor de búsqueda para la indexación. Opcionalmente, un indexador también es fundamental para impulsar la ejecución y los resultados del conjunto de aptitudes, siempre que se haya definido uno.
+En todos los documentos que recibe, un indexador implementa o coordina varios pasos, desde la recuperación del documento hasta una "entrega" final del motor de búsqueda para la indexación. Opcionalmente, un indexador también impulsa la [ejecución y los resultados del conjunto de aptitudes](cognitive-search-concept-intro.md), siempre y cuando se haya definido uno.
 
 :::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Fases del indexador" border="false":::
 
+<a name="document-cracking"></a>
+
 ### <a name="stage-1-document-cracking"></a>Fase 1 Descifrado de documentos
 
-El descifrado de documentos es el proceso de abrir archivos y extraer contenido. Según el tipo de origen de datos, el indexador intenta realizar diferentes operaciones para extraer contenido que posiblemente se pueda indexar.  
+El descifrado de documentos es el proceso de abrir archivos y extraer contenido. El contenido basado en texto se puede extraer de los archivos de un servicio, de las filas de una tabla o de los elementos de un contenedor o una colección. Si agrega un conjunto de aptitudes y [aptitudes de imagen](cognitive-search-concept-image-scenarios.md) a un indizador, el descifrado de documentos también puede extraer imágenes y ponerlas en cola para su procesamiento.
 
-Ejemplos:  
+Según el origen de datos, el indizador intenta realizar diferentes operaciones para extraer contenido que posiblemente se pueda indexar:
 
-+ Si el documento es un registro de un [origen de datos de Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), el indexador extrae cada uno de los campos del registro.
-+ Si el documento es un archivo PDF de un [origen de datos de Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), el indexador extrae el texto, las imágenes y los metadatos.
-+ Si el documento es un registro de un [origen de datos de Cosmos DB](search-howto-index-cosmosdb.md), el indexador extrae los campos y subcampos del documento de Cosmos DB.
++ Cuando el documento es un archivo, como un PDF u otro formato de archivo compatible en [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#supported-document-formats), el indizador abrirá el archivo y extraerá texto, imágenes y metadatos. Los indizadores también pueden abrir archivos desde [SharePoint](search-howto-index-sharepoint-online.md#supported-document-formats) y [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md#supported-document-formats).
+
++ Si el documento es un registro de [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), el indizador extrae contenido no binario de cada campo de cada registro.
+
++ Si el documento es un registro de [Cosmos DB](search-howto-index-cosmosdb.md), el indizador extrae contenido no binario de los campos y subcampos del documento de Cosmos DB.
 
 ### <a name="stage-2-field-mappings"></a>Fase 2: Asignaciones de campos 
 

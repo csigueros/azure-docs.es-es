@@ -2,17 +2,17 @@
 title: 'Azure Premium Storage: Diseño para alto rendimiento'
 description: Diseñe aplicaciones de alto rendimiento mediante discos administrados SSD Prémium de Azure. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 79fa9b3a84bbf523fe243b1d37d798dfd1172a6b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9edab369f009eb1d8c2c9ca9a09f7121aa180c79
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146282"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440933"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -230,7 +230,7 @@ La tabla siguiente resume el análisis de costos de este escenario de Premium St
 
 *Linux Distros*  
 
-Con Azure Premium Storage, obtendrá el mismo nivel de rendimiento para las máquinas virtuales de Windows y de Linux. Se admiten muchas versiones de las distribuciones de Linux; puede ver la lista completa [aquí](linux/endorsed-distros.md). Es importante tener en cuenta que son adecuadas distintas distribuciones para diferentes tipos de carga de trabajo. Podrá ver diferentes niveles de rendimiento según la distribución en la que se ejecuta la carga de trabajo. Pruebe las distribuciones de Linux con su aplicación y elija la que mejor se adapte.
+Con Azure Premium Storage, obtendrá el mismo nivel de rendimiento para las máquinas virtuales de Windows y de Linux. Se admiten muchos tipos de distribuciones de Linux. Para obtener más información, consulte [Distribuciones de Linux aprobadas en Azure](linux/endorsed-distros.md). Es importante tener en cuenta que son adecuadas distintas distribuciones para diferentes tipos de carga de trabajo. Podrá ver diferentes niveles de rendimiento según la distribución en la que se ejecuta la carga de trabajo. Pruebe las distribuciones de Linux con su aplicación y elija la que mejor se adapte.
 
 Cuando ejecute Linux con Premium Storage, compruebe las actualizaciones más recientes acerca de los controladores necesarios para garantizar un alto rendimiento.
 

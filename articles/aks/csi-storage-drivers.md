@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: c9edfdf1c9740ec1fdaaeeedbc6ba92793eb0b3f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7aad80816a7bf8f6a1c55c8a4f1de1d4761fc523
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779964"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733597"
 ---
-# <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>Habilitar los controladores de interfaz de almacenamiento de contenedores (CSI) para discos de Azure y Azure Files en Azure Kubernetes Service (AKS) (versión preliminar)
+# <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>Habilitación de los controladores de Container Storage Interface (CSI) para discos de Azure y Azure Files en Azure Kubernetes Service (AKS)
 
 La interfaz de almacenamiento de contenedores (CSI) es un estándar para exponer sistemas de almacenamiento de archivos y bloques arbitrarios a cargas de trabajo en contenedores en Kubernetes. Gracias a la adopción y al uso de CSI, Azure Kubernetes Service (AKS) puede escribir, implementar e iterar complementos para exponer nuevos sistemas de almacenamiento o mejorar los existentes en Kubernetes sin tener que tocar el código principal de Kubernetes ni esperar a sus ciclos de versión.
 
@@ -29,47 +29,7 @@ La compatibilidad con el controlador de almacenamiento CSI en AKS permite el uso
 
 - Esta característica solo se puede establecer durante el momento de la creación del clúster.
 - La versión mínima secundaria de Kubernetes compatible con los controladores CSI es la 1.17.
-- Durante la versión preliminar, la clase de almacenamiento predeterminada seguirá siendo la [misma clase de almacenamiento en árbol](concepts-storage.md#storage-classes). Una vez que esta característica esté disponible con carácter general, la clase de almacenamiento predeterminada será la clase de almacenamiento `managed-csi`, y se quitarán las clases de almacenamiento en árbol.
-- Durante la primera fase de la versión preliminar, solo se admite la CLI de Azure.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### <a name="register-the-enableazurediskfilecsidriver-preview-feature"></a>Registro de la característica en vista previa (GB) `EnableAzureDiskFileCSIDriver`
-
-Para crear un clúster de AKS que pueda usar controladores CSI para los discos de Azure y Azure Files, debe habilitar la marca de la característica `EnableAzureDiskFileCSIDriver` en la suscripción.
-
-Registre la marca de la característica `EnableAzureDiskFileCSIDriver` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureDiskFileCSIDriver"
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureDiskFileCSIDriver')].{Name:name,State:properties.state}"
-```
-
-Cuando haya terminado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para crear un clúster de AKS o un grupo de nodos que pueda usar los controladores de almacenamiento CSI, necesita la extensión de la CLI de Azure *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add]. También puede instalar las actualizaciones disponibles mediante el comando [az extension update][az-extension-update].
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
-
+- La clase de almacenamiento predeterminada será `managed-csi`.
 
 ## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>Creación de un clúster que pueda usar controladores de almacenamiento CSI
 

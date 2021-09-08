@@ -8,31 +8,63 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/05/2021
+ms.date: 08/03/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8469e05b82a651760829761ca57af3bdb1b256a9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3eeed53c16bbd6b2c1170512606472ac5329b126
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443413"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733764"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
 Los paquetes de diseño de página se actualizan periódicamente para incluir correcciones y mejoras en sus elementos de la página. El registro de cambios siguiente especifica los cambios introducidos en cada versión.
 
-## <a name="jquery-version"></a>versión jQuery
+> [!IMPORTANT]
+> Azure Active Directory B2C publica actualizaciones y correcciones con cada nueva versión de diseño de página. Se recomienda encarecidamente mantener actualizadas las versiones de diseño de página para que todos los elementos de la página reflejen las mejoras de seguridad, los estándares de accesibilidad y los comentarios más recientes.
+>
 
-El diseño de página de Azure AD B2C utiliza la siguiente versión de la [biblioteca de jQuery](https://jquery.com/):
+## <a name="jquery-and-handlebars-versions"></a>Versiones de jQuery y Handlebars
 
-|Desde la versión de diseño de página  |versión jQuery  |
-|---------|---------|
-|2.1.4 | 3.5.1 |
-|1.2.0 | 3.4.1 |
-|1.1.0 | 1.10.2 |
+El diseño de página de Azure AD B2C usa las siguientes versiones de la [biblioteca de jQuery](https://jquery.com/) y las [plantillas de Handlebars](https://handlebarsjs.com/):
+
+|Elemento |Intervalo de versiones del diseño de página |versión jQuery  |Versión en tiempo de ejecución de Handlebars |Versión de compilador de Handlebars |
+|---------|---------|------|--------|----------|
+|multifactor |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
+|            |< 1.2.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|selfasserted |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssp |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|globalexception |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|providerselection |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|claimsconsent |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssd |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Página autoafirmada (selfasserted)
+
+**2.1.7**
+- Se ha corregido un problema de codificación del idioma que provocaba un error en la solicitud.
+- Se ha corregido un error de accesibilidad para mostrar mensajes de error insertados solo al enviar el formulario.
+
+**2.1.6**
+- Se ha corregido un error de borrado de contraseña al escribir demasiado rápido en otro campo.
+
+**2.1.5**
+- Se ha corregido un problema de saltos de cursor en iOS al editar en medio del texto.
 
 **2.1.4**
 - Se actualizó JQuery a la versión 3.5.1.
@@ -94,6 +126,10 @@ El diseño de página de Azure AD B2C utiliza la siguiente versión de la [bibli
 > [!TIP]
 > Si localiza la página para que admita varias configuraciones regionales o idiomas en un flujo de usuario. El artículo sobre los [identificadores de localización](localization-string-ids.md) proporciona la lista de identificadores de localización que puede utilizar para la versión de la página que seleccione.
 
+**2.1.5**
+- Se ha corregido un problema en el orden de tabulación cuando se usa la plantilla de selector de idp en la página de inicio de sesión.
+- Se ha corregido un problema de codificación en el texto del vínculo de inicio de sesión.
+
 **2.1.4**
 - Se actualizó JQuery a la versión 3.5.1.
 - Se actualizó HandlebarJS a la versión 4.7.6.
@@ -140,6 +176,9 @@ El diseño de página de Azure AD B2C utiliza la siguiente versión de la [bibli
 - Versión inicial
 
 ## <a name="mfa-page-multifactor"></a>Página de MFA (multifactor)
+
+**1.2.5**
+- Se ha corregido un problema de codificación del idioma que provocaba un error en la solicitud.
 
 **1.2.4**
 - Se actualizó JQuery a la versión 3.5.1.

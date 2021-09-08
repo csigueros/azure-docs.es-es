@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/20/2021
+ms.date: 07/17/2021
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d1f997ff34703e95c498a0f3c1646bf3acb0129e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8a9ef41dcb85ddd8478078a927759190a6475840
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470032"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652113"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -64,7 +64,7 @@ Para más información sobre cómo agregar usuarios invitados a su directorio, c
 
 Es posible que los usuarios invitados a los que se haya asignado el rol de coadministrador observen algunas diferencias con respecto a los usuarios miembros con este mismo rol. Considere el caso siguiente:
 
-- El usuario A, con una cuenta de Azure AD (profesional o educativa), es un administrador de servicios en una suscripción de Azure.
+- El usuario A, con una cuenta de Azure AD (profesional o educativa), es el administrador de servicios de una suscripción de Azure.
 - El usuario B tiene una cuenta de Microsoft.
 - El usuario A asigna el rol de coadministrador al usuario B.
 - El usuario B puede hacer casi todo, pero no puede registrar las aplicaciones ni buscar usuarios en el directorio de Azure AD.
@@ -133,6 +133,26 @@ Solo puede haber un administrador de servicios por suscripción de Azure. El cam
 Si el administrador de la cuenta es una cuenta de Azure AD, puede cambiar el administrador de servicios por una cuenta de Azure AD del mismo directorio, pero no de un directorio diferente. Por ejemplo, abby@contoso.com puede cambiar el administrador de servicios por bob@contoso.com, pero no puede cambiarlo por john@notcontoso.com a menos que john@notcontoso.com exista en el directorio contoso.com.
 
 Para más información sobre las cuentas Microsoft y de Azure AD, consulte [¿Qué es Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
+
+## <a name="remove-the-service-administrator"></a>Eliminación del administrador de servicios
+
+Es posible que quiera quitar el administrador de servicios, por ejemplo, si ya no pertenece a la empresa. Si quita el administrador de servicios, debe tener un usuario con el rol de [Propietario](built-in-roles.md#owner) asignado en el ámbito de la suscripción para evitar que la suscripción quede huérfana. El propietario de una suscripción tiene el mismo acceso que el administrador de servicios.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como propietario de la suscripción o coadministrador.
+
+1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
+
+1. Haga clic en **Control de acceso (IAM).**
+
+1. Haga clic en la pestaña **Administradores clásicos**.
+
+1. Active la marca de verificación junto al administrador de servicios.
+
+1. Haga clic en **Quitar**.
+
+1. En el cuadro de mensaje que aparece, haga clic en **Sí**.
+
+    ![Captura de pantalla donde se quita el administrador de servicios.](./media/classic-administrators/service-admin-remove.png)
 
 ## <a name="view-the-account-administrator"></a>Visualización del administrador de cuenta
 

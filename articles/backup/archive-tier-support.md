@@ -1,23 +1,23 @@
 ---
-title: Compatibilidad del nivel de acceso de archivo (versión preliminar)
+title: Compatibilidad con el nivel de archivo
 description: Conozca más sobre la compatibilidad del nivel de acceso de archivo para Azure Backup.
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/04/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c817e5e0fbed7ebe6c659a91e180820de3fdc677
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ccb85c42685f962da3c9faf098d7847a93f4de74
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410106"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722741"
 ---
-# <a name="archive-tier-support-preview"></a>Compatibilidad del nivel de acceso de archivo (versión preliminar)
+# <a name="archive-tier-support"></a>Compatibilidad con el nivel de archivo
 
 Los clientes confían en Azure Backup para almacenar los datos de copia de seguridad, incluidos los datos de copia de seguridad de retención a largo plazo (LTR), donde las necesidades de retención están definidas por las reglas de cumplimiento de la organización. En la mayoría de los casos, pocas veces se accede a los datos de copia de seguridad antiguos, que solo se almacenan para satisfacer las necesidades de cumplimiento.
 
 Azure Backup admite la copia de seguridad de puntos de retención a largo plazo en el nivel de archivo, además de instantáneas y el nivel estándar.
 
-## <a name="scope-for-preview"></a>Ámbito de la versión preliminar
+## <a name="scope"></a>Ámbito
 
 Cargas de trabajo compatibles:
 
@@ -36,8 +36,8 @@ Clientes compatibles:
 
 - La funcionalidad se proporciona mediante PowerShell
 
->[!NOTE]
->La compatibilidad con el nivel de archivo para máquinas virtuales de Azure y SQL Server en máquinas virtuales de Azure se encuentra en versión preliminar pública limitada con suscripciones limitadas. Para suscribirse al soporte de archivo, use este [vínculo](https://aka.ms/ArchivePreviewInterestForm).
+>[!Note]
+>La compatibilidad con el nivel de archivo en servidores SQL Server en máquinas virtuales de Azure ya está disponible con carácter general en Norte de Europa, Centro de la India, Sudeste de Asia y Este de Australia. Para obtener una lista detallada de las regiones admitidas, consulte la [matriz de compatibilidad](#support-matrix).    <br><br>    En el caso de las regiones restantes de servidores SQL Server en máquinas virtuales de Azure, la compatibilidad con el nivel de archivo está en versión preliminar pública limitada. La compatibilidad con el nivel de archivo en Azure Virtual Machines también está en versión preliminar pública limitada. Si quiere registrarse para obtener una versión preliminar pública limitada, use este [vínculo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## <a name="get-started-with-powershell"></a>Introducción a PowerShell
 
@@ -46,7 +46,7 @@ Clientes compatibles:
 1. En PowerShell, ejecute el siguiente comando:
   
     ```azurepowershell
-    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.4.0 -AllowPrerelease -force
     ```
 
 1. Conéctese a Azure mediante el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
@@ -86,7 +86,7 @@ Clientes compatibles:
 
     ```
     >[!NOTE]
-    >El intervalo de la fecha de inicio y la fecha de finalización no debe ser superior a treinta días.<br><br>Para ver los puntos de recuperación de un intervalo de tiempo diferente, modifique las fechas de inicio y finalización en consecuencia.
+    >Para ver los puntos de recuperación de un intervalo de tiempo diferente, modifique las fechas de inicio y finalización en consecuencia.
 ## <a name="use-powershell"></a>Uso de PowerShell
 
 ### <a name="check-archivable-recovery-points"></a>Comprobación de los puntos de recuperación que se pueden archivar
@@ -207,6 +207,13 @@ Los puntos de recuperación que no se hayan mantenido en el nivel de archivo dur
 
 La detención de la protección y la eliminación de los datos eliminan todos los puntos de recuperación. En el caso de los puntos de recuperación archivados que no hayan permanecido durante 180 días en el nivel de archivo, la eliminación de los puntos de recuperación dará lugar a un costo de eliminación temprana.
 
+## <a name="support-matrix"></a>Matrices compatibles
+
+| Cargas de trabajo | Vista previa | Disponibilidad general |
+| --- | --- | --- |
+| SQL Server en VM de Azure | Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro-norte de EE. UU., Sur de Brasil, Este de Canadá, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Este de Asia, Este de Japón, Sur de la India | Este de Australia, Centro de la India, Norte de Europa, Sudeste de Asia |
+| Azure Virtual Machines | Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro-norte de EE. UU., Sur de Brasil, Este de Canadá, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Este de Asia, Este de Japón, Sur de la India, Sudeste de Asia, Este de Australia, Centro de la India, Norte de Europa | Ninguno |
+
 ## <a name="error-codes-and-troubleshooting-steps"></a>Códigos de error y pasos de solución de problemas
 
 Hay varios códigos de error que aparecen cuando no se puede mover un punto de recuperación al archivo.
@@ -217,7 +224,7 @@ Hay varios códigos de error que aparecen cuando no se puede mover un punto de r
 
 **Descripción**: este código de error se muestra cuando el tipo de punto de recuperación seleccionado no es válido para moverlo al nivel de archivo.
 
-**Acción recomendada**: compruebe que el punto de recuperación sea apto [aquí](#scope-for-preview).
+**Acción recomendada**: compruebe que el punto de recuperación sea apto [aquí](#scope).
 
 ### <a name="recoverypointhaveactivedependencies"></a>RecoveryPointHaveActiveDependencies
 
@@ -225,7 +232,7 @@ Hay varios códigos de error que aparecen cuando no se puede mover un punto de r
 
 **Descripción:** el punto de recuperación seleccionado tiene dependencias activas y, por tanto, no se puede mover al nivel de archivo.
 
-**Acción recomendada**: compruebe que el punto de recuperación sea apto [aquí](#scope-for-preview).
+**Acción recomendada**: compruebe que el punto de recuperación sea apto [aquí](#scope).
 
 ### <a name="minlifespaninstandardrequiredforarchive"></a>MinLifeSpanInStandardRequiredForArchive
 
@@ -233,7 +240,7 @@ Hay varios códigos de error que aparecen cuando no se puede mover un punto de r
 
 **Descripción**: el punto de recuperación tiene que permanecer en el nivel Estándar durante un mínimo de tres meses para las máquinas virtuales de Azure, y de 45 días para SQL Server en máquinas virtuales de Azure
 
-**Acción recomendada**: compruebe que el punto de recuperación sea apto [aquí](#scope-for-preview).
+**Acción recomendada**: compruebe que el punto de recuperación sea apto [aquí](#scope).
 
 ### <a name="minremaininglifespaninarchiverequired"></a>MinRemainingLifeSpanInArchiveRequired
 
@@ -241,7 +248,7 @@ Hay varios códigos de error que aparecen cuando no se puede mover un punto de r
 
 **Descripción**: la duración mínima necesaria para que un punto de recuperación sea apto para mover al nivel de archivo es de seis meses.
 
-**Acción recomendada**: compruebe que el punto de recuperación sea apto [aquí](#scope-for-preview).
+**Acción recomendada**: compruebe que el punto de recuperación sea apto [aquí](#scope).
 
 ### <a name="usererrorrecoverypointalreadyinarchivetier"></a>UserErrorRecoveryPointAlreadyInArchiveTier
 

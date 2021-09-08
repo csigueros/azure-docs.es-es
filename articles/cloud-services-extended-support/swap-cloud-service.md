@@ -8,12 +8,12 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
 ms.custom: ''
-ms.openlocfilehash: f5e01075ffb460c7ddd70b40a6b19f7ea70dd776
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d9e30d77708ad5ae8c5249a15d28685a56fd0216
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748845"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462990"
 ---
 # <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Cambio de una implementación a otra en Azure Cloud Services (soporte extendido)
 
@@ -24,9 +24,14 @@ Después de intercambiar las implementaciones, puede agregar al "stage" y probar
 > [!NOTE]
 > No se puede cambiar de una implementación mediante Azure Cloud Services (clásica) a una implementación mediante Azure Cloud Services (soporte extendido).
 
-Si implementa el segundo de un par de servicios en la nube, es preciso que uno de ellos no se pueda cambiar por el segundo.
+Si implementa el segundo de un par de servicios en la nube por primera vez, es preciso que uno de ellos no se pueda cambiar por el segundo. Una vez implementado el segundo par de servicios en la nube, no se puede intercambiar con un servicio en la nube existente en las actualizaciones posteriores.
 
 Para cambiar de una implementación a otra puede usar una plantilla de Azure Resource Manager, Azure Portal o la API REST.
+
+Tras la implementación del segundo servicio en la nube, ambos servicios en la nube tienen la propiedad SwappableCloudService establecida para que se apunten entre sí. Cualquier actualización posterior de estos servicios en la nube deberá especificar que esta propiedad ha fallado, de modo que devolverá un error que indique que la propiedad SwappableCloudService no se puede eliminar ni actualizar.
+
+Una vez establecida, la propiedad SwappableCloudService se trata como propiedad de solo lectura. No se puede eliminar ni cambiar a otro valor. Al eliminar uno de los servicios en la nube (del par intercambiable) se borrará la propiedad SwappableCloudService del servicio en la nube restante.
+
 
 ## <a name="arm-template"></a>Plantilla ARM
 
@@ -114,7 +119,7 @@ Los intercambios de servicios en la nube normalmente son rápidos, ya que son so
 ## <a name="next-steps"></a>Pasos siguientes 
 
 * Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de Azure Cloud Services (soporte extendido).
-* Consulte las [preguntas más frecuentes](faq.md) sobre Azure Cloud Services (soporte extendido).
+* Consulte las [preguntas más frecuentes](faq.yml) sobre Azure Cloud Services (soporte extendido).
 * Implemente un servicio en la nube de Azure Cloud Services en la nube (soporte extendido) mediante una de estas opciones:
   * [Azure Portal](deploy-portal.md)
   * [PowerShell](deploy-powershell.md)

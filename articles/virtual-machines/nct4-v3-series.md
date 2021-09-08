@@ -7,23 +7,23 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: e023eacd173ce23e3f88fa97f8c0127132c953ea
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c53d875e35e77d782ac2897bbe2a1a356f8ac5a2
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744540"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359594"
 ---
 # <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
-Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) y las CPU AMD EPYC 7V12 (Rome). Las máquinas virtuales incluyen hasta 4 GPU de NVIDIA T4 con 16 GB de memoria cada una, hasta 64 núcleos de procesador de AMD EPYC 7V12 (Rome) sin multiproceso, y 440 GiB de memoria del sistema. Estas máquinas virtuales son idóneas para implementar servicios de inteligencia artificial, como la inferencia en tiempo real de solicitudes generadas por el usuario, o bien para cargas de trabajo de visualización y gráficos interactivos mediante el controlador de GRID de NVIDIA y tecnología de GPU virtual. Las cargas de trabajo de proceso de GPU estándar basadas en CUDA, TensorRT, Caffe, ONNX y otros marcos de trabajo, o las aplicaciones gráficas con aceleración por GPU basadas en OpenGL y DirectX, se pueden implementar de forma económica, cerca de los usuarios, en la serie NCasT4_v3.
+Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) y las CPU AMD EPYC 7V12 (Rome). Las máquinas virtuales cuentan con hasta 4 GPU NVIDIA T4 con 16 GB de memoria cada una, hasta 64 núcleos de procesador AMD EPYC 7V12 (Rome) sin multiproceso (frecuencia base de 2,45 GHz, frecuencia máxima de todos los núcleos de 3,1 GHz y frecuencia máxima de un solo núcleo de 3,3 GHz) y 440 GiB de memoria del sistema. Estas máquinas virtuales son idóneas para implementar servicios de inteligencia artificial, como la inferencia en tiempo real de solicitudes generadas por el usuario, o bien para cargas de trabajo de visualización y gráficos interactivos mediante el controlador GRID de NVIDIA y tecnología de GPU virtual. Las cargas de trabajo de proceso de GPU estándar basadas en CUDA, TensorRT, Caffe, ONNX y otros marcos, o las aplicaciones gráficas con aceleración por GPU basadas en OpenGL y DirectX, se pueden implementar de forma económica, cerca de los usuarios, en la serie NCasT4_v3.
 
 <br>
 
 [ACU](acu.md): 230-260<br>
 [Premium Storage](premium-storage-performance.md): Compatible<br>
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
-[Ultra Disks:](disks-types.md#ultra-disk) Compatible ([más información](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre la disponibilidad, el uso y el rendimiento) <br>
+[Ultra Disks](disks-types.md#ultra-disk): Compatible ([más información](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre la disponibilidad, el uso y el rendimiento) <br>
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>

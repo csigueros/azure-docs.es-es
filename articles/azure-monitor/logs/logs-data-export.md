@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 73cce13f296d65167ab2c45f677849b7f05f8b3a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b9efc6c8f568d054662f9084d63b83de7b39e776
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410124"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735785"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -30,7 +30,6 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
 - Exportación programada desde una consulta de registro con una aplicación lógica. Es similar a la característica de exportación de datos, pero permite enviar datos filtrados o agregados a Azure Storage. Este método está sujeto a los [límites de las consultas de registro](../service-limits.md#log-analytics-workspaces); consulte [Archivado de datos de un área de trabajo de Log Analytics a Azure Storage mediante Logic Apps](logs-export-logic-app.md).
 - Exportación única a la máquina local mediante el script de PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
-
 ## <a name="limitations"></a>Limitaciones
 
 - Actualmente, la configuración se puede realizar mediante solicitudes REST o la CLI. Todavía no se admiten Azure Portal o PowerShell.
@@ -38,7 +37,7 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
 - Las tablas admitidas actualmente se limitan a las especificadas en la sección [Tablas admitidas](#supported-tables) más adelante. Por ejemplo, actualmente no se admiten las tablas de registro personalizadas.
 - Si la regla de exportación de datos incluye una tabla no admitida, la operación se realizará correctamente, pero no se exportará ningún dato de esa tabla hasta que se admita. 
 - Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error `Table <tableName> does not exist in the workspace`.
-- La exportación de datos estará disponible en todas las regiones, pero actualmente no está disponible en las siguientes regiones: Azure Government, Japón Occidental, Sudeste de Brasil, Este de Noruega, Oeste de Noruega, Norte de Emiratos Árabes Unidos, Centro de Emiratos Árabes Unidos, Centro de Australia 2, Norte de Suiza, Oeste de Suiza, Centro-oeste de Alemania, Sur de la India, Sur de Francia, Japón Occidental.
+- La exportación de datos estará disponible en todas las regiones, pero actualmente no está disponible en las siguientes: Norte de Suiza, Oeste de Suiza, Centro-oeste de Alemania, Centro de Australia 2, Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos, Japón Occidental, Sudeste de Brasil, Este de Noruega, Oeste de Noruega, Sur de Francia, Sur de la India, Sur de Corea del Sur, Centro de la India (Jio), Oeste de la India (Jio), Este de Canadá, Oeste de EE. UU. 3, Centro de Suecia, Sur de Suecia, nubes de Administración Pública y China.
 - Puede definir hasta 10 reglas habilitadas en el área de trabajo. Se permiten reglas adicionales, pero en estado de deshabilitación. 
 - El destino debe ser único en todas las reglas de exportación del área de trabajo.
 - La cuenta de almacenamiento de destino o el centro de eventos deben estar en la misma región que el área de trabajo de Log Analytics.
@@ -61,7 +60,7 @@ El formato de los datos de la cuenta de almacenamiento es en [líneas JSON](../e
 
 [![Datos de ejemplo de almacenamiento](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
-La exportación de datos de Log Analytics puede escribir blobs en anexos en cuentas de almacenamiento inmutables cuando las directivas de retención con una duración definida tienen habilitada la opción *allowProtectedAppendWrites*. Esto permite escribir nuevos bloques en un blob en anexos al tiempo que se mantienen la protección y el cumplimiento de la inmutabilidad. Consulte [Permitir escrituras de blobs en anexos protegidos](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+La exportación de datos de Log Analytics puede escribir blobs en anexos en cuentas de almacenamiento inmutables cuando las directivas de retención con una duración definida tienen habilitada la opción *allowProtectedAppendWrites*. Esto permite escribir nuevos bloques en un blob en anexos al tiempo que se mantienen la protección y el cumplimiento de la inmutabilidad. Consulte [Permitir escrituras de blobs en anexos protegidos](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Centro de eventos
 Los datos se envían al centro de eventos prácticamente en tiempo real a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todos los datos para las tablas definidas en él.
@@ -76,8 +75,8 @@ Consideraciones:
 ## <a name="prerequisites"></a>Requisitos previos
 A continuación se indican los requisitos previos que hay que cumplir para poder configurar la exportación de datos de Log Analytics:
 
-- Los destinos deben crearse antes de la configuración de la regla de exportación y deben estar en la misma región que el área de trabajo de Log Analytics. Si tiene que replicar los datos en otras cuentas de almacenamiento, puede utilizar cualquiera de las [opciones de redundancia Azure Storage](../../storage/common/storage-redundancy.md).  
-- La cuenta de almacenamiento debe ser StorageV1 o StorageV2. No se admite el almacenamiento clásico.  
+- Los destinos deben crearse antes de la configuración de la regla de exportación y deben estar en la misma región que el área de trabajo de Log Analytics. Si tiene que replicar los datos en otras cuentas de almacenamiento, puede usar cualquiera de las [opciones de redundancia de Azure Storage](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), incluidos GRS y GZRS.
+- La cuenta de almacenamiento debe ser StorageV1 o superior. No se admite el almacenamiento clásico.
 - Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las redes seleccionadas, tiene que agregar una excepción en la configuración de la cuenta de almacenamiento para permitir que Azure Monitor escriba en el almacenamiento.
 
 ## <a name="enable-data-export"></a>Habilitación de la exportación de datos
@@ -440,7 +439,7 @@ N/D
 Las reglas de exportación se pueden deshabilitar para permitir que se detenga la exportación cuando no sea necesario conservar los datos durante un período determinado, como al realizar pruebas. Use el siguiente comando para deshabilitar una regla de exportación de datos mediante la CLI.
 
 ```azurecli
-az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
+az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --enable false
 ```
 
 # <a name="rest"></a>[REST](#tab/rest)
@@ -543,7 +542,7 @@ Si la regla de exportación de datos incluye una tabla que no existe, se produci
 
 
 ## <a name="supported-tables"></a>Tablas admitidas
-Las tablas admitidas se limitan actualmente a las que se especifican a continuación. Todos los datos de la tabla se exportarán a menos que se especifiquen limitaciones. Esta lista se actualizará a medida que se agregue compatibilidad con tablas adicionales.
+Las tablas admitidas se limitan actualmente a las que se especifican a continuación. Todos los datos de la tabla se exportarán a menos que se especifiquen limitaciones. Esta lista se actualiza a medida que se agrega compatibilidad con tablas adicionales.
 
 | Tabla | Limitaciones |
 |:---|:---|
@@ -558,8 +557,11 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | AADManagedIdentitySignInLogs |  |
 | AADNonInteractiveUserSignInLogs |  |
 | AADProvisioningLogs |  |
+| AADRiskyUsers |  |
 | AADServicePrincipalSignInLogs |  |
+| AADUserRiskEvents |  |
 | ABSBotRequests |  |
+| ACSAuthIncomingOperations |  |
 | ACSBillingUsage |  |
 | ACSChatIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
@@ -569,6 +571,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | ADFSSignInLogs |  |
 | ADFTriggerRun |  |
 | ADPAudit |  |
+| ADPDiagnostics |  |
 | ADPRequests |  |
 | ADReplicationResult |  |
 | ADSecurityAssessmentRecommendation |  |
@@ -580,7 +583,9 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | ADXQuery |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
+| AEWAuditLogs |  |
 | Alerta |  |
+| AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
 | AppPlatformSystemLogs |  |
@@ -594,13 +599,17 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
 | AWSCloudTrail |  |
+| AWSGuardDuty |  |
+| AWSVPCFlow |  |
 | AzureAssessmentRecommendation |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
 | BlockchainApplicationLog |  |
 | BlockchainProxyLog |  |
+| CDBCassandraRequests |  |
 | CDBControlPlaneRequests |  |
 | CDBDataPlaneRequests |  |
+| CDBGremlinRequests |  |
 | CDBMongoRequests |  |
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
@@ -636,6 +645,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | Dynamics365Activity |  |
 | EmailAttachmentInfo |  |
 | EmailEvents |  |
+| EmailPostDeliveryEvents |  |
 | EmailUrlInfo |  |
 | Evento | Compatibilidad parcial: los datos que llegan del agente de Log Analytics (MMA) o el agente de Azure Monitor (AMA) son totalmente compatibles con la exportación. Los datos que llegan a través del agente de Diagnostics Extension se recopilan a través del almacenamiento, mientras que esta ruta de acceso no se admite en la exportación.2 |
 | ExchangeAssessmentRecommendation |  |
@@ -645,9 +655,14 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | HDInsightAmbariSystemMetrics |  |
 | HDInsightHadoopAndYarnLogs |  |
 | HDInsightHadoopAndYarnMetrics |  |
+| HDInsightHBaseLogs |  |
+| HDInsightHBaseMetrics |  |
 | HDInsightHiveAndLLAPLogs |  |
 | HDInsightHiveAndLLAPMetrics |  |
 | HDInsightHiveTezAppStats |  |
+| HDInsightJupyterNotebookEvents |  |
+| HDInsightKafkaLogs |  |
+| HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
 | HDInsightSecurityLogs |  |
 | HDInsightSparkApplicationEvents |  |
@@ -674,6 +689,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | KubeServices |  |
 | LAQueryLogs |  |
 | McasShadowItReporting |  |
+| MCCEventLogs |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
@@ -681,7 +697,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | MicrosoftHealthcareApisAuditLogs |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
-| OfficeActivity | Compatibilidad parcial: algunos de los datos se ingieren mediante webhooks de O365 en LA. Esta parte no está disponible en la exportación actualmente. |
+| OfficeActivity | Compatibilidad parcial en nubes de Administración Pública: algunos de los datos se ingieren mediante webhooks de O365 en LA. Esta parte no está disponible en la exportación actualmente. |
 | Operación | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten para la exportación. Esta parte no está disponible en la exportación actualmente. |
 | Perf | Compatibilidad parcial: actualmente solo se admiten los datos de rendimiento de Windows. En este momento, faltan los datos de rendimiento de Linux en la exportación. |
 | PowerBIDatasetsWorkspace |  |
@@ -706,6 +722,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | SigninLogs |  |
 | SPAssessmentRecommendation |  |
 | SQLAssessmentRecommendation |  |
+| SQLSecurityAuditEvents |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |

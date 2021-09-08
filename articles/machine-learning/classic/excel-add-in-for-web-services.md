@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): Complemento de Excel para servicios web: Azure'
-description: Uso de los servicios web Azure Machine Learning directamente en Excel sin escribir código.
+description: Procedimiento para usar los servicios web de Machine Learning directamente en Excel sin escribir código.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,14 +9,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 45d9e494b9f885cfa0680bec595aefcd4074d41e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee1c55fdfe1ab184853546fd8bb3b293e27fe734
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520007"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581595"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Complemento de Excel para servicios web de Azure Machine Learning Studio (clásico)
+# <a name="excel-add-in-for-machine-learning-studio-classic-web-services"></a>Complemento de Excel para servicios web de Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -29,7 +29,7 @@ Excel facilita la llamada a servicios web directamente sin necesidad de escribir
  
     > [!NOTE]
     > - Verá que la lista de los servicios web relacionados en el archivo y en la parte inferior una casilla para "Predicción automática". Si habilita la predicción automática, las predicciones en **todos** los servicios se actualizarán cada vez que haya un cambio en las entradas. Si la desactiva, tendrá que hacer clic en "Predecir todo" para actualizar. Para habilitar la predicción automática en un nivel de servicio, vaya al paso 6.
-    > - El complemento Excel para Azure Machine Learning llamará a la tienda de complementos de Office para cargarse. Si su organización veta el acceso a la tienda de complementos de Office, verá un error al cargarlo. En este caso, implemente el complemento Excel para Azure Machine Learning desde el centro de administración de Microsoft 365. Después, invóquelo y agregue el servicio web manualmente pegando la dirección URL y la clave de API.
+    > - El complemento de Excel para Machine Learning llamará a la tienda de complementos de Office para cargarse. Si su organización veta el acceso a la tienda de complementos de Office, verá un error al cargarlo. En este caso, implemente el complemento de Excel para Machine Learning desde el centro de administración de Microsoft 365. Después, invóquelo y agregue el servicio web manualmente pegando la dirección URL y la clave de API.
 
  
 
@@ -59,13 +59,13 @@ Obtenga la clave de API del servicio web. Realizará esta acción en un sitio u 
 4. Busque la sección **URI de solicitud** .  Copie y guarde la URL.
 
 > [!NOTE]
-> Ahora se puede iniciar sesión en el portal [Servicios web Azure Machine Learning](https://services.azureml.net) para obtener la clave de API de un servicio web Machine Learning clásico.
+> Ahora se puede iniciar sesión en el portal [Servicios web Machine Learning](https://services.azureml.net) para obtener la clave de API de un servicio web Machine Learning clásico.
 > 
 > 
 
 **Uso de un servicio web nuevo**
 
-1. En el portal [Servicios web Azure Machine Learning](https://services.azureml.net), haga clic en **Servicios web** y seleccione su servicio web. 
+1. En el portal [Servicios web Machine Learning](https://services.azureml.net), haga clic en **Servicios web** y seleccione el servicio web. 
 2. Haga clic en **Consume**(Consumo).
 3. Busque la sección **Basic consumption info** (Información básica de consumo). Copie y guarde la **clave principal** y la URL de **solicitud-respuesta**.
 

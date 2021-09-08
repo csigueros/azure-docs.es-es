@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 54cbd03283814fd21a95dfe7578173f3481c4cd8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6b5316f25725f90be63fb5fbbc135285ad5bce3e
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757614"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204130"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de equilibrio de carga para un grupo host
 
@@ -23,7 +23,7 @@ Azure Virtual Desktop admite dos métodos de equilibrio de carga. Cada método 
 Están disponibles los siguientes métodos de equilibrio de carga en Azure Virtual Desktop:
 
 - El equilibrio de carga en amplitud le permite distribuir uniformemente las sesiones de usuario entre los hosts de sesión de un grupo de hosts.
-- El equilibrio de carga en profundidad le permite saturar un host de sesión con las sesiones de usuario de un grupo de hosts. Una vez que la primera sesión alcanza su umbral de límite de sesión, el equilibrador de carga dirige las nuevas conexiones de usuario al siguiente host de sesión del grupo de hosts hasta que alcanza su límite, y así sucesivamente.
+- El equilibrio de carga en profundidad le permite saturar un host de sesión con las sesiones de usuario de un grupo de hosts. Una vez que el primer host de sesión alcanza su umbral de límite de sesión, el equilibrador de carga dirige las nuevas conexiones de usuario al siguiente host de sesión del grupo de hosts hasta que alcanza su límite, y así sucesivamente.
 
 Cada grupo de hosts solo puede configurar un tipo de equilibrio de carga específico. Sin embargo, ambos métodos de equilibrio de carga comparten los comportamientos siguientes, independientemente del grupo de hosts en el que estén:
 

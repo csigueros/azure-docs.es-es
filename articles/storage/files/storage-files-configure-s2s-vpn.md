@@ -7,21 +7,28 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a08ca4142876a5a92adbe8b1c3fce9ec7953019
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7436cb2a2dc85a41ae42f15d6df7574a6bb2d5cf
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778020"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224515"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configuración de una VPN de sitio a sitio para su uso con Azure Files
-Puede usar una conexión VPN de sitio a sitio (S2S) para montar los recursos compartidos de archivos de Azure a través de SMB desde su red local sin necesidad de abrir el puerto 445. Puede configurar una VPN de sitio a sitio mediante [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), que es un recurso de Azure que ofrece servicios VPN y se implementa en un grupo de recursos junto con las cuentas de almacenamiento u otros recursos de Azure.
+Puede usar una conexión VPN de sitio a sitio (S2S) para montar los recursos compartidos de archivos de Azure desde la red local, sin necesidad de enviar datos por la red abierta de Internet. Puede configurar una VPN de sitio a sitio mediante [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), que es un recurso de Azure que ofrece servicios VPN y se implementa en un grupo de recursos junto con las cuentas de almacenamiento u otros recursos de Azure.
 
 ![Un gráfico de topología que ilustra la topología de una puerta de enlace de VPN de Azure que conecta un recurso compartido de archivos de Azure con un sitio local mediante una VPN de sitio a sitio](media/storage-files-configure-s2s-vpn/s2s-topology.png)
 
 Se recomienda que lea [Introducción a las redes de Azure Files](storage-files-networking-overview.md) antes de continuar con este artículo para obtener una descripción completa de las opciones de red disponibles para Azure Files.
 
 En este artículo se detallan los pasos para configurar una VPN de sitio a sitio para montar recursos compartidos de archivos de Azure directamente en el entorno local. Si quiere enrutar el tráfico sincrónico para Azure File Sync a través de una VPN de sitio a sitio, consulte [Configuración del proxy y el firewall de Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Un recurso compartido de archivos de Azure que le gustaría montar en el entorno local. Los recursos compartidos de archivos de Azure se implementan en cuentas de almacenamiento, que son construcciones que representan un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Puede encontrar más información sobre cómo implementar cuentas de almacenamiento y recursos compartidos de archivos de Azure en [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
@@ -94,7 +101,8 @@ El último paso para configurar una VPN de sitio a sitio es comprobar que funcio
 
 - [Windows](storage-how-to-use-files-windows.md)
 - [macOS](storage-how-to-use-files-mac.md)
-- [Linux](storage-how-to-use-files-linux.md)
+- [Linux (NFS)](storage-files-how-to-mount-nfs-shares.md)
+- [Linux (SMB)](storage-how-to-use-files-linux.md)
 
 ## <a name="see-also"></a>Consulte también
 - [Introducción a las redes de Azure Files](storage-files-networking-overview.md)

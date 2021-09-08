@@ -11,15 +11,15 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/10/2020
+ms.date: 07/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f862299dfb677a4b459611050832f602ff5598eb
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: f53eb460d6b131dce607c0dd99f97babd758de35
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412500"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603417"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitectura de almacenamiento de SAP HANA (instancias grandes)
 
@@ -27,7 +27,7 @@ En este artículo, veremos la arquitectura de almacenamiento para implementar SA
 
 El diseño de almacenamiento para SAP HANA en Azure (instancias grandes) es configurado por SAP HANA en el modelo de implementación clásica según las instrucciones recomendadas de SAP. Para obtener más información sobre las directrices, consulte [Requisitos de almacenamiento SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
-La clase de tipo I de HANA (instancias grandes) suele tener cuatro veces el volumen de memoria como volumen de almacenamiento. Este no es el caso de la clase de tipo II de unidades de HANA (instancias grandes), que incluyen un volumen diseñado para almacenar copias de seguridad del registro de transacciones de HANA. Para más información, consulte [Instalación y configuración de SAP HANA en Azure (instancias grandes)](hana-installation.md).
+La clase de tipo I de HANA (instancias grandes) suele tener cuatro veces el volumen de memoria como volumen de almacenamiento, mientras que la clase de tipo II incluye un volumen diseñado para almacenar copias de seguridad del registro de transacciones de HANA. Para más información, consulte [Instalación y configuración de SAP HANA en Azure (instancias grandes)](hana-installation.md).
 
 Consulte la tabla siguiente para la asignación de almacenamiento. En la tabla se enumera la capacidad aproximada de los diferentes volúmenes que se proporcionan con las diferentes unidades de HANA (instancias grandes).
 
@@ -121,9 +121,9 @@ En los siguientes ejemplos se muestra cómo se vería la ejecución de varias in
 Hay también otras variaciones. 
 
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
-El almacenamiento para HANA (instancias grandes) usa cifrado transparente para los datos cuando se almacenan en los discos. En las implementaciones anteriores a finales de 2018, podría elegir tener los volúmenes cifrados. Si opta por esa opción, puede solicitar que los volúmenes se cifren en línea. El movimiento de volúmenes no cifrados a cifrados es transparente y no requiere ningún tiempo de inactividad. 
+El almacenamiento para HANA (instancias grandes) usa cifrado transparente para los datos cuando se almacenan en los discos. En las implementaciones anteriores a finales de 2018, podía hacer que los volúmenes se cifrasen. Si optaba por no usar esa opción, podía solicitar que los volúmenes se cifrasen en línea. El movimiento de volúmenes no cifrados a cifrados es transparente y no requiere ningún tiempo de inactividad. 
 
-Con las SKU de clase de tipo I, se cifra el volumen que almacena el LUN de arranque. En los sellos de HANA (instancias grandes) de la revisión 3 que usan SKU de clase de tipo II de HANA (instancias grandes), es necesario cifrar el LUN de arranque con los métodos del sistema operativo. En los sellos de HANA (instancias grandes) de la revisión 4 que usan unidades de tipo II, el volumen que almacena el LUN de arranque se cifra en reposo. 
+Con las SKU de clase de tipo I de HANA (instancias grandes), se cifra el volumen que almacena el LUN de arranque. En los sellos de HANA (instancias grandes) de la revisión 3 que usan SKU de clase de tipo II, es necesario cifrar el LUN de arranque con los métodos del sistema operativo. En los sellos de HANA (instancias grandes) de la revisión 4 que usan SKU de clase de tipo II, el volumen que almacena el LUN de arranque se cifra en reposo de manera predeterminada. 
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Configuración necesaria para instancias más grandes de HANA en instancias grandes de HANA
 

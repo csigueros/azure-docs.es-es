@@ -7,24 +7,20 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: d7c611f1cdb5e3294e38f87c0534003813e50388
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56eed522dc28b29f24e97a94a03e848d5cf58898
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575691"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725665"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Carga de métricas a Azure Monitor
 
 Puede exportar las métricas de supervisión de forma periódica y, a continuación, cargarlas en Azure. La exportación y la carga de los datos crea y actualiza los recursos del controlador de datos, la instancia administrada de SQL y el grupo de servidores Hiperescala de PostgreSQL en Azure.
 
-> [!NOTE] 
-> Durante el período de versión preliminar, los servicios de datos habilitados para Azure Arc no suponen ningún costo.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -107,20 +103,23 @@ echo %SPN_AUTHORITY%
 
 ## <a name="upload-metrics-to-azure-monitor"></a>Carga de métricas a Azure Monitor
 
-Para cargar las métricas de las instancias administradas de SQL habilitadas para Azure Arc y los grupos de servidores Hiperescala de PostgreSQL habilitada para Azure Arc, ejecute los siguientes comandos de la CLI:
+Para cargar las métricas de las instancias administradas de SQL habilitadas para Azure Arc y los grupos de servidores de Hiperescala de PostgreSQL habilitados para Azure Arc, ejecute los siguientes comandos de la CLI:
 
 1. Inicie sesión en el controlador de datos con `azdata`.
  
 1. Exporte todas las métricas al archivo especificado:
 
-   ```console
-   azdata arc dc export --type metrics --path metrics.json
+> [!NOTE]
+> La exportación de información de uso o facturación, métricas y registros mediante el comando `az arcdata dc export` requiere omitir la comprobación de SSL por ahora.  Se le pedirá que omita la comprobación de SSL, o bien puede establecer la variable de entorno `AZDATA_VERIFY_SSL=no` para evitar que se le solicite.  Actualmente no hay ninguna manera de configurar un certificado SSL para la API de exportación del controlador de datos.
+
+   ```azurecli
+   az arcdata dc export --type metrics --path metrics.json
    ```
 
 2. Cargue las métricas en Azure Monitor:
 
-   ```console
-   azdata arc dc upload --path metrics.json
+   ```azurecli
+   az arcdata dc upload --path metrics.json
    ```
 
    >[!NOTE]
@@ -131,8 +130,8 @@ Para cargar las métricas de las instancias administradas de SQL habilitadas par
 
 Si ve un error que indica "Error al obtener métricas" durante la exportación, compruebe si la recopilación de datos está establecida en `true`, ejecutando el comando siguiente:
 
-```console
-azdata arc dc config show
+```azurecli
+az arcdata dc config show
 ```
 
 Consulte la "sección de seguridad".
@@ -174,9 +173,9 @@ Si quiere cargar métricas y registros de forma programada, puede crear un scrip
 
 En el editor de código o texto que prefiera, agregue el siguiente script al archivo y guárdelo como un archivo ejecutable de script como .sh (Linux o Mac), o bien .cmd, .bat, .ps1.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type metrics --path metrics.json --force
+az arcdata dc upload --path metrics.json
 ```
 
 Conversión del archivo de script en ejecutable
@@ -197,7 +196,7 @@ También puede usar un programador de trabajos como cron o el Programador de tar
 
 Las operaciones de creación, lectura, actualización y eliminación (CRUD) en los servicios de datos habilitados para Azure Arc se registran con fines de facturación y supervisión. Hay servicios en segundo plano que supervisan para estas operaciones CRUD y calculan el consumo adecuadamente. El cálculo real del uso o del consumo tiene lugar de forma programada y se realiza en segundo plano. 
 
-Durante la versión preliminar, este proceso se produce por la noche. Las instrucciones generales es cargar el uso solo una vez al día. Cuando la información de uso se exporta y se carga varias veces dentro del mismo período de 24 horas, solo se actualiza el inventario de recursos en Azure Portal, pero no en el uso de recursos.
+Cargue el uso solo una vez al día. Cuando la información de uso se exporta y se carga varias veces dentro del mismo período de 24 horas, solo se actualiza el inventario de recursos en Azure Portal, pero no en el uso de recursos.
 
 En el caso de la carga de métricas, Azure Monitor solo acepta los últimos 30 minutos de datos ([Más información](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). Las instrucciones para cargar métricas es cargar las métricas inmediatamente después de crear el archivo de exportación para que pueda ver todo el conjunto de datos en Azure Portal. Por ejemplo, si exportó las métricas a las 14:00 horas y ejecutó el comando de carga a las 14:50. Como Azure Monitor solo acepta datos de los últimos 30 minutos, es posible que no vea ningún dato en el portal. 
 

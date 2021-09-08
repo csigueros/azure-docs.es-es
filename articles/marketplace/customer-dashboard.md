@@ -4,33 +4,32 @@ description: Obtenga detalles sobre cómo acceder a la información de los clien
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: 3d5016e1671bb52d4b819c10e7c52c12e5046b7e
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 43332c559c309bc99754467994a4718ece78d3cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541167"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731208"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Panel Clientes de los análisis de marketplace comercial
 
 En este artículo se proporciona información sobre el panel Clientes del Centro de partners. En este panel se muestra información sobre los clientes, incluidas las tendencias de crecimiento, presentada en un formato gráfico y descargable
 
-Para obtener acceso al panel Clientes en el Centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Clientes**.
-
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./analytics-faq.md).
+> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./analytics-faq.yml).
 
 ## <a name="customers-dashboard"></a>Panel Clientes
 
-En el panel Clientes se muestran los datos de los clientes que han adquirido sus ofertas. Puede ver representaciones gráficas de los elementos siguientes:
+En el [panel Clientes](https://go.microsoft.com/fwlink/?linkid=2166011) se muestran los datos de los clientes que han adquirido sus ofertas. Puede ver representaciones gráficas de los elementos siguientes:
 
 - Tendencia de los clientes activos y perdidos
 - Tendencia de crecimiento de los clientes, incluidos los clientes existentes, nuevos y perdidos
 - Clientes por pedidos o uso
-- Percentil de clientes 
+- Percentil de clientes
 - Tipo de cliente por pedidos y uso
 - Clientes por geografía
 - Tabla de detalles de clientes
@@ -42,6 +41,8 @@ En el panel Clientes se muestran los datos de los clientes que han adquirido sus
 ## <a name="elements-of-the-customers-dashboard"></a>Elementos del panel Clientes
 
 En las secciones siguientes se describe cómo usar el panel Clientes y cómo leer los datos.
+
+Para obtener acceso al panel Clientes en el Centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Clientes**.
 
 ### <a name="month-range"></a>Intervalo mensual
 
@@ -76,17 +77,17 @@ En esta sección, encontrará la tendencia y el recuento de todos los clientes, 
 
 [![Muestra el widget Tendencia de los clientes en la página Clientes.](./media/customer-dashboard/customers-trend.png)](./media/customer-dashboard/customers-trend.png#lightbox)
 
-### <a name="customers-by-ordersusage&quot;></a>Clientes por pedidos o uso
+### <a name="customers-by-ordersusage"></a>Clientes por pedidos o uso
 
 El gráfico **Clientes por pedidos o uso** tiene tres pestañas: Pedidos, Uso normalizado y Uso sin procesar. Seleccione la pestaña **Pedidos** para mostrar detalles de pedido.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage" alt-text="Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.":::
+:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.":::
 
 Tenga en cuenta lo siguiente:
 
 - En la tabla de clasificación se presentan los detalles de los clientes clasificados por recuento de pedidos. Después de seleccionar un cliente, los detalles del cliente se presentan en las secciones “Detalles”, “Pedidos por SKU” y “SKU por puestos” adyacentes.
 - Los detalles del perfil Cliente se muestran en este espacio cuando los editores inician sesión con un rol de propietario. Si los editores inician sesión con un rol de colaborador, los detalles de esta sección no estarán disponibles.
-- En el gráfico de anillos **Pedidos por SKU** se muestra el desglose de los pedidos realizados de planes. Se muestran los cinco planes principales con el número de pedidos más alto, mientras que el resto de los pedidos se agrupan en **Rest all** (&quot;Todo el resto").
+- En el gráfico de anillos **Pedidos por SKU** se muestra el desglose de los pedidos realizados de planes. Se muestran los cinco planes principales con el número de pedidos más alto, mientras que el resto de los pedidos se agrupan en **Rest all** ("Todo el resto").
 - En el gráfico de anillos **SKU por puestos** se muestra el desglose de los puestos pedidos de planes. Se muestran los cinco planes principales con el número de puestos más alto, mientras que el resto de los pedidos se agrupan en **Rest All** ("Todo el resto").
 
 También puede seleccionar la tabla **Uso normalizado** o **Uso sin procesar** para ver los detalles de uso.
@@ -181,4 +182,4 @@ Los filtros de la página Clientes se aplican a nivel de la página Clientes. Pu
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
 - Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](downloads-dashboard.md).
 - Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y Microsoft AppSource, consulte [Panel de análisis de calificaciones y opiniones en el Centro de partners](ratings-reviews.md).
-- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.md).
+- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.yml).

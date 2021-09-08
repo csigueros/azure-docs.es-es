@@ -1,23 +1,22 @@
 ---
 title: Creación de una aplicación y una entidad de servicio de Azure AD en el portal
 titleSuffix: Microsoft identity platform
-description: Cree una aplicación y una entidad de servicio de Azure Active Directory para administrar el acceso a los recursos mediante el control de basado en rol en Azure Resource Manager.
+description: Cree una aplicación y una entidad de servicio de Azure Active Directory para administrar el acceso a los recursos mediante el control de acceso basado en rol en Azure Resource Manager.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 06/16/2021
 ms.author: ryanwi
-ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: b772112a238b4af4ff536a98e0a4105e7237c1af
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
+ms.openlocfilehash: b4589f451894e328a27b67ac19be4ea91374bee5
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951953"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579961"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -29,6 +28,7 @@ En este artículo se muestra cómo usar el portal para crear la entidad de servi
 > En lugar de crear una entidad de servicio, considere el uso de identidades administradas para recursos de Azure para la identidad de la aplicación. Si el código se ejecuta en un servicio que admite identidades administradas y tiene acceso a recursos que admiten la autenticación de Azure AD, las identidades administradas son la opción ideal para usted. Para obtener más información sobre las identidades administradas para recursos de Azure, incluidos los servicios que actualmente lo admiten, consulte [¿Qué es Managed Identities for Azure Resources?](../managed-identities-azure-resources/overview.md).
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Registro de aplicaciones, objetos de aplicación y entidades de servicio
+
 No hay una manera directa de crear una entidad de servicio con Azure Portal.  Cuando registre una aplicación mediante Azure Portal, se crearán automáticamente un objeto de aplicación y una entidad de servicio en el inquilino o directorio principal.  Para obtener más información sobre la relación entre el registro de aplicaciones, los objetos de aplicación y las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md).
 
 ## <a name="permissions-required-for-registering-an-app"></a>Permisos necesarios para registrar una aplicación
@@ -105,12 +105,10 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
    Si no ve la suscripción que busca, seleccione el **filtro de suscripciones globales**. Asegúrese de que la suscripción que desea está seleccionada para el portal.
 
 1. Seleccione **Access Control (IAM)** .
-1. Seleccione **Agregar asignación de roles**.
-1. Seleccione el rol que quiere asignar a la aplicación. Por ejemplo, para que la aplicación ejecute acciones como **reiniciar**, **iniciar** y **detener** instancias, seleccione **Colaborador**.  Más información sobre los [roles disponibles](../../role-based-access-control/built-in-roles.md). De manera predeterminada, las aplicaciones de Azure AD no se muestran en las opciones disponibles. Para encontrar la aplicación, busque el nombre y selecciónelo.
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página **Agregar asignación de roles**.
+1. Seleccione el rol que quiere asignar a la aplicación. Por ejemplo, para que la aplicación ejecute acciones como **reiniciar**, **iniciar** y **detener** instancias, seleccione **Colaborador**.  Más información sobre los [roles disponibles](../../role-based-access-control/built-in-roles.md). De manera predeterminada, las aplicaciones de Azure AD no se muestran en las opciones disponibles. Para encontrar la aplicación, busque el nombre y selecciónelo. 
 
-   ![Seleccione el rol que se asignará a la aplicación](./media/howto-create-service-principal-portal/select-role.png)
-
-1. Haga clic en **Guardar** para finalizar la asignación del rol. Verá la aplicación en la lista de usuarios con un rol para ese ámbito.
+    Asigne el rol Colaborador a la aplicación en el ámbito de la suscripción. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 La entidad de servicio está configurada. Puede empezar a usarla para ejecutar aplicaciones o scripts. Para administrar la entidad de servicio (permisos, permisos confirmados por el usuario, ver qué usuarios han dado su consentimiento, revisar permisos, ver información de inicio de sesión, etc.), vaya a **Aplicaciones empresariales**.
 

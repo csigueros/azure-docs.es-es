@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cef84415deb9b108dce4016fc76265f077695898
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 18e7132d6c767ecd1a7cd085d5b563a89d6af300
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662820"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446091"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Extensión del controlador InfiniBand para Linux
 
 Esta extensión instala los controladores InfiniBand OFED en máquinas virtuales de las series [H](../sizes-hpc.md) y [N](../sizes-gpu.md) habilitadas para InfiniBand y SR-IOV (tamaños "r") que ejecutan Linux. En función de la familia de máquinas virtuales, la extensión instala los controladores adecuados para la NIC de Connect-X.
 
-Las instrucciones sobre la instalación manual de los controladores OFED están disponibles [aquí](../workloads/hpc/enable-infiniband.md#manual-installation).
+Las instrucciones sobre la instalación manual de los controladores OFED están disponibles en [Habilitación de InfiniBand en VM de HPC](../workloads/hpc/enable-infiniband.md#manual-installation).
 
 También hay una extensión para instalar los controladores InfiniBand para [máquinas virtuales Windows](hpc-compute-infiniband-windows.md).
 

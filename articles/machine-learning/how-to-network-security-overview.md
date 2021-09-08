@@ -10,45 +10,49 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack
-ms.openlocfilehash: c5e5461163b28ff53e77121a8e48dc478887ea6c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
+ms.openlocfilehash: 06dc1a34f35434019d1b992c12502577aa470360
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081072"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653497"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Protección de los recursos del área de trabajo de Azure Machine Learning con redes virtuales (VNet)
 
 Proteja los entornos de proceso y los recursos del área de trabajo de Azure Machine Learning mediante redes virtuales (VNet) aisladas. En este artículo se usa un escenario de ejemplo para mostrar cómo configurar una red virtual completa.
 
-Este artículo forma parte de una serie de cinco capítulos que le guía a través de la protección de un flujo de trabajo de Azure Machine Learning. Se recomienda encarecidamente leer este artículo de información general para comprender los conceptos en primer lugar. 
-
-Los demás artículos de esta serie son:
-
-**1. Introducción a las redes virtuales** > [2. Protección del área de trabajo](how-to-secure-workspace-vnet.md) > [3. Protección del entorno de entrenamiento](how-to-secure-training-vnet.md) > [4. Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md) > [5. Habilitación de la funcionalidad de Studio](how-to-enable-studio-virtual-network.md)
+> [!TIP]
+> Este artículo forma parte de una serie sobre la protección de un flujo de trabajo de Azure Machine Learning. Consulte los demás artículos de esta serie:
+>
+> * [Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)
+> * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
+> * [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
+> * [Habilitación de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md)
+> * [Uso de un DNS personalizado](how-to-custom-dns.md)
+> * [Uso de un firewall](how-to-access-azureml-behind-firewall.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que está familiarizado con los siguientes temas:
 + [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 + [Redes de IP](../virtual-network/public-ip-addresses.md)
-+ [Azure Private Link](how-to-configure-private-link.md)
++ [Área de trabajo de Azure Machine Learning con un punto de conexión privado](how-to-configure-private-link.md)
 + [Grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de red](../firewall/overview.md)
 ## <a name="example-scenario"></a>Escenario de ejemplo
 
 En esta sección, aprenderá cómo se configura un escenario de red común para proteger la comunicación de Azure Machine Learning con las direcciones IP privadas.
 
-En la tabla siguiente se compara el modo en que los servicios acceden a diferentes partes de una red de Azure Machine Learning con y sin una red virtual.
+En la tabla siguiente se compara el modo en que los servicios acceden a diferentes partes de una red de Azure Machine Learning con y sin una red virtual:
 
 | Escenario | Área de trabajo |  Recursos asociados | Entrenamiento del entorno de proceso | Inferencia del entorno de proceso |
 |-|-|-|-|-|-|
 |**Sin red virtual**| Dirección IP pública | Dirección IP pública | Dirección IP pública | Dirección IP pública |
 |**Protección de recursos en una red virtual**| IP privada (punto de conexión privado) | IP pública (punto de conexión de servicio) <br> **- o -** <br> IP privada (punto de conexión privado) | Dirección IP privada | Dirección IP privada  | 
 
-* **Área de trabajo**: cree un punto de conexión privado desde la red virtual para conectarse a Private Link en el área de trabajo. El punto de conexión privado conecta el área de trabajo a la red virtual a través de varias direcciones IP privadas.
+* **Área de trabajo**: creación de un punto de conexión privado para su área de trabajo. El punto de conexión privado conecta el área de trabajo a la red virtual a través de varias direcciones IP privadas.
 * **Recurso asociado**: use puntos de conexión de servicio o puntos de conexión privados para conectarse a recursos del área de trabajo como Azure Storage, Azure Key Vault y Azure Container Services.
     * Los **puntos de conexión de servicio** proporcionan la identidad de la red virtual al servicio de Azure. Una vez que habilita puntos de conexión de servicio en su red virtual, puede agregar una regla de red virtual para proteger los recursos de los servicios de Azure en la red virtual. Los puntos de conexión de servicio usan direcciones IP públicas.
     * Los **puntos de conexión privados** son interfaces de red que le permiten conectarse de forma segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual, y coloca el servicio de manera eficaz en su red virtual.
@@ -56,7 +60,7 @@ En la tabla siguiente se compara el modo en que los servicios acceden a diferent
 * **Acceso al proceso de inferencia**: acceda a los clústeres de proceso de Azure Kubernetes Services (AKS) con direcciones IP privadas.
 
 
-En las cinco secciones siguientes se muestra cómo proteger el escenario de red descrito anteriormente. Para proteger la red, debe hacer lo siguiente:
+En las secciones siguientes se muestra cómo proteger el escenario de red descrito anteriormente. Para proteger la red, debe hacer lo siguiente:
 
 1. Proteger el [**área de trabajo y los recursos asociados**](#secure-the-workspace-and-associated-resources).
 1. Proteger el [**entorno de entrenamiento**](#secure-the-training-environment).
@@ -85,7 +89,7 @@ Para obtener instrucciones detalladas sobre cómo completar estos pasos, consult
 ### <a name="limitations"></a>Limitaciones
 
 La protección del área de trabajo y los recursos asociados en una red virtual presenta las siguientes limitaciones:
-- El uso de un área de trabajo Azure Machine Learning con un vínculo privado no está disponible en las regiones de Azure Government ni Azure China 21Vianet.
+- El uso de un área de trabajo de Azure Machine Learning con un punto de conexión privado no está disponible en las regiones de Azure Government ni Azure China 21Vianet.
 - Todos los recursos deben estar detrás de la misma red virtual. Sin embargo, se permiten subredes en la misma red virtual.
 
 ## <a name="secure-the-training-environment"></a>Protección del entorno de entrenamiento
@@ -95,7 +99,7 @@ En esta sección, aprenderá a proteger el entorno de entrenamiento en Azure Mac
 Para proteger el entorno de entrenamiento, siga estos pasos:
 
 1. Cree una [instancia de proceso y un clúster de proceso](how-to-secure-training-vnet.md#compute-instance) de Azure Machine Learning en la red virtual para ejecutar el trabajo de entrenamiento.
-1. [Permita la comunicación entrante desde el servicio de Azure Batch](how-to-secure-training-vnet.md#mlcports) para que el servicio de Batch pueda enviar trabajos a los recursos de proceso. 
+1. [Permita la comunicación entrante](how-to-secure-training-vnet.md#required-public-internet-access) para que los servicios de administración puedan enviar trabajos a los recursos de proceso. 
 
 ![Diagrama de arquitectura que muestra cómo proteger las instancias y los clústeres de proceso administrados](./media/how-to-network-security-overview/secure-training-environment.png)
 
@@ -109,7 +113,7 @@ En esta sección, aprenderá cómo Azure Machine Learning se comunica de forma s
 
 1. El cliente envía un trabajo de entrenamiento al área de trabajo de Azure Machine Learning a través del punto de conexión privado.
 
-1. El servicio de Azure Batch recibe el trabajo del área de trabajo y envía el trabajo de entrenamiento al entorno de proceso a través del equilibrador de carga público que se aprovisiona con el recurso de proceso. 
+1. El servicio Azure Batch recibe el trabajo del área de trabajo. Después, envía el trabajo de entrenamiento al entorno de proceso mediante el equilibrador de carga público para el recurso de proceso. 
 
 1. El recurso de proceso recibe el trabajo e inicia el entrenamiento. El recurso de proceso accede a cuentas de almacenamiento seguras para descargar archivos de entrenamiento y cargar la salida.
 
@@ -143,16 +147,16 @@ En el diagrama de red siguiente se muestra un área de trabajo de Azure Machine 
 
 Puede proteger el área de trabajo detrás de una red virtual mediante un punto de conexión privado y seguir permitiendo el acceso a través de la red pública de Internet. La configuración inicial equivale a [proteger el área de trabajo y los recursos asociados](#secure-the-workspace-and-associated-resources). 
 
-Después de proteger el área de trabajo con un vínculo privado, [habilitar el acceso público](how-to-configure-private-link.md#enable-public-access). Después de esto, puede tener acceso al área de trabajo desde la red pública de Internet y la red virtual.
+Después de proteger el área de trabajo con un punto de conexión privado, [Habilitar el acceso público](how-to-configure-private-link.md#enable-public-access). Después de esto, puede tener acceso al área de trabajo desde la red pública de Internet y la red virtual.
 
 ### <a name="limitations"></a>Limitaciones
 
-- Si usa Estudio de Azure Machine Learning a través de la red pública de Internet, es posible que algunas características como el diseñador no tengan acceso a sus datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage.
+- Si usa Estudio de Azure Machine Learning a través de la red pública de Internet, es posible que algunas características como el diseñador no tengan acceso a sus datos. Esto se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage.
 ## <a name="optional-enable-studio-functionality"></a>Opcional: habilitación de la funcionalidad de Studio
 
 [Proteger el área de trabajo](#secure-the-workspace-and-associated-resources) > [Proteger el entorno de entrenamiento](#secure-the-training-environment) > [Proteger el entorno de inferencia](#secure-the-inferencing-environment) > **Habilitar la funcionalidad de Studio** > [Configurar el firewall](#configure-firewall-settings)
 
-Si el almacenamiento se encuentra en una red virtual, primero debe realizar pasos de configuración adicionales para habilitar la funcionalidad completa en [Studio](overview-what-is-machine-learning-studio.md). De forma predeterminada, la característica siguiente está deshabilitada:
+Si el almacenamiento se encuentra en una red virtual, debe realizar pasos de configuración adicionales para habilitar la funcionalidad completa en Studio. De forma predeterminada, las características siguientes están deshabilitadas:
 
 * Vista previa de los datos en Studio.
 * Visualización de los datos en el diseñador.
@@ -160,15 +164,18 @@ Si el almacenamiento se encuentra en una red virtual, primero debe realizar paso
 * Envío de un experimento de AutoML.
 * Inicio de un proyecto de etiquetado.
 
-Para habilitar la funcionalidad de Studio completa desde una red virtual, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Studio admite cuentas de almacenamiento que usan puntos de conexión de servicio o puntos de conexión privados.
+Para habilitar la funcionalidad de Studio completa, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md).
 
 ### <a name="limitations"></a>Limitaciones
 
-[El etiquetado de datos asistido por ML](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) no es compatible con las cuentas de almacenamiento predeterminadas que están protegidas en una red virtual. Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos por ML. No obstante, la cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 
+El [etiquetado de datos asistido por ML](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) no es compatible con las cuentas de almacenamiento predeterminadas en una red virtual. En su lugar, use una cuenta de almacenamiento que no sea la predeterminada para el etiquetado de datos asistido por ML. 
+
+> [!TIP]
+> Siempre que no sea la cuenta de almacenamiento predeterminada, la cuenta usada por el etiquetado de datos se puede proteger en la red virtual. 
 
 ## <a name="configure-firewall-settings"></a>Configuración del firewall
 
-Configure el firewall para controlar el acceso a los recursos del área de trabajo de Azure Machine Learning y a la red pública de Internet. Aunque se recomienda Azure Firewall, debería poder usar otros productos de firewall para proteger la red. Si tiene alguna pregunta sobre cómo permitir la comunicación a través del firewall, consulte la documentación del firewall que usa.
+Configure el firewall para controlar el tráfico entre los recursos del área de trabajo de Azure Machine Learning y la red pública de Internet. Aunque se recomienda usar Azure Firewall, también puede usar otros productos de firewall. 
 
 Para obtener más información sobre la configuración del firewall, consulte [Uso de áreas de trabajo detrás de un firewall](how-to-access-azureml-behind-firewall.md).
 
@@ -180,11 +187,11 @@ Para obtener más información sobre los nombres de dominio y las direcciones IP
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo es la primera parte de una serie de cinco capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
+Este artículo forma parte de una serie sobre la protección de un flujo de trabajo de Azure Machine Learning. Consulte los demás artículos de esta serie:
 
-* [Parte 2: Introducción a las redes virtuales](how-to-secure-workspace-vnet.md)
-* [Parte 3: Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-* [Parte 4: Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
-* [Parte 5: Habilitación de la funcionalidad de Studio](how-to-enable-studio-virtual-network.md)
-
-Consulte también el artículo sobre el uso de [DNS personalizado](how-to-custom-dns.md) para la resolución de nombres.
+* [Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)
+* [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
+* [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
+* [Habilitación de la función de Studio](how-to-enable-studio-virtual-network.md)
+* [Uso de un DNS personalizado](how-to-custom-dns.md)
+* [Uso de un firewall](how-to-access-azureml-behind-firewall.md)

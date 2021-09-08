@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 832cc1d4f9ec3cec4ada6e964e3ab2f6f023dd41
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 95f69f04ec1aa0fb0c5588647709d8d938ad2a53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554322"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441370"
 ---
 ### <a name="neural-and-standard-voices"></a>Voces neuronales y estándar
 
@@ -33,7 +33,7 @@ Utilice esta tabla para determinar la **disponibilidad de voces neuronales y est
 | Norte de Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Centro-sur de EE. UU. | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Sudeste de Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Sur de Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Sur de Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Centro-Oeste de EE. UU. | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Oeste de Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -64,7 +64,7 @@ Si ha creado una fuente de voz personalizada, use el punto de conexión que ha c
 | Norte de Europa | `https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Centro-sur de EE. UU. | `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Sudeste de Asia | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Sur de Reino Unido | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Sur de Reino Unido 2 | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Oeste de Europa | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Oeste de EE. UU. | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Oeste de EE. UU. 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
@@ -77,8 +77,8 @@ En la tabla siguiente se describe la compatibilidad regional con las caracterís
 |---|---|
 | Hospedaje de modelos de voz | Este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Este de Australia |
 | Caracteres en tiempo real | Este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Este de Australia |
-| Caracteres de audio largos | Este de EE. UU., Oeste de Europa, Sur de Reino Unido, Sudeste Asiático, Centro de la India |
-| Entrenamiento neuronal personalizado | Este de EE. UU., Sur de Reino Unido |
+| Caracteres de audio largos | Este de EE. UU., Oeste de Europa, Sudeste Asiático, Sur de Reino Unido, Centro de la India |
+| Entrenamiento neuronal personalizado | Este de EE. UU., Sudeste Asiático, Sur de Reino Unido |
 
 ### <a name="long-audio-api"></a>Long audio API
 
@@ -89,5 +89,5 @@ Long Audio API está disponible en varias regiones con puntos de conexión únic
 | Este de EE. UU. | `https://eastus.customvoice.api.speech.microsoft.com` |
 | India central | `https://centralindia.customvoice.api.speech.microsoft.com` |
 | Sudeste de Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
-| Sur de Reino Unido | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| Sur de Reino Unido 2 | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | Oeste de Europa | `https://westeurope.customvoice.api.speech.microsoft.com` |

@@ -2,25 +2,25 @@
 title: Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory
 description: Aprenda a administrar las solicitudes de consentimiento cuando el consentimiento del usuario está deshabilitado o restringido, y a evaluar una solicitud de consentimiento del administrador para todo el inquilino a una aplicación en Azure Active Directory.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: 4b533c7e12cf62ac633b4988774d7cff71b3e677
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7893a73650e90411aa45f35d014b394eab0ad67d
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079272"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568521"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento
 
-Microsoft [recomienda](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations) deshabilitar el consentimiento del usuario final a las aplicaciones. De esta forma el proceso de toma de decisiones se centraliza en el equipo administrador de identidades y seguridad de la organización.
+Microsoft recomienda [restringir el consentimiento del usuario](../../active-directory/manage-apps/configure-user-consent.md) para permitir que los usuarios solo den su consentimiento para las aplicaciones de publicadores comprobados y únicamente para los permisos que usted seleccione. En el caso de las aplicaciones que no cumplan esta directiva, el proceso de toma de decisiones se centralizará en el equipo administrador de identidades y seguridad de la organización.
 
 Después de deshabilitar o restringir el consentimiento del usuario final, hay varias consideraciones importantes que se deben tener en cuenta para asegurarse de que la organización se mantiene segura y, al mismo tiempo, se permite el uso de aplicaciones críticas para la empresa. Estos pasos son cruciales para minimizar el impacto en el equipo de soporte técnico y los administradores de TI de la organización, a la vez que se evita el uso de cuentas no administradas en aplicaciones de terceros.
 
@@ -94,28 +94,34 @@ En la siguiente lista se proporcionan algunas recomendaciones que tener en cuent
 ## <a name="granting-consent-as-an-administrator"></a>Concesión del consentimiento como administrador
 
 ### <a name="granting-tenant-wide-admin-consent"></a>Concesión del consentimiento del administrador para todo el inquilino
+
 Consulte [Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md) para obtener instrucciones paso a paso de esta operación desde Azure Portal, mediante Azure AD PowerShell o desde la propia petición de consentimiento.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Concesión de consentimiento en nombre de un usuario específico
+
 En lugar de conceder el consentimiento para toda la organización, un administrador también puede usar [Microsoft Graph API](/graph/use-the-api) para conceder consentimiento a los permisos delegados en nombre de un solo usuario. Para más información, consulte [Obtener acceso en nombre de un usuario](/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitación del acceso de los usuarios a las aplicaciones
+
 Aunque se haya concedido consentimiento del administrador para todo el inquilino, todavía puede limitarse el acceso de los usuarios a las aplicaciones. Para más información sobre cómo requerir la asignación de usuarios a una aplicación, consulte los [métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
 
 Para una visión general más amplia sobre cómo tratar otros escenarios complejos, consulte cómo [usar Azure AD para la administración del acceso a las aplicaciones](what-is-access-management.md).
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Deshabilitación de todas las operaciones de consentimiento de usuario futuras para todas las aplicaciones
+
 Deshabilitar el consentimiento del usuario para todo el directorio impide que los usuarios finales den consentimiento a cualquier aplicación. A pesar de ello, los administradores podrán seguir dando el consentimiento en nombre de los usuarios. Para más información sobre el consentimiento de aplicación y los motivos por los que es posible que quiera o no quiera hacer esto, lea el artículo [Descripción del consentimiento de usuario y administrador](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 Para deshabilitar todas las operaciones de consentimiento de usuario futuras en todo el directorio, siga estos pasos:
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
-4.  Seleccione **Usuarios y grupos** en el menú de navegación.
-5.  Seleccione **Configuración de usuario**.
-6.  Deshabilite todas las operaciones de consentimiento de usuario futuras estableciendo la opción **Los usuarios pueden permitir que las aplicaciones accedan a sus datos** en **No**. Después, haga clic en el botón **Guardar**.
+
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+4. Seleccione **Usuarios y grupos** en el menú de navegación.
+5. Seleccione **Configuración de usuario**.
+6. Deshabilite todas las operaciones de consentimiento de usuario futuras estableciendo la opción **Los usuarios pueden permitir que las aplicaciones accedan a sus datos** en **No**. Después, haga clic en el botón **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
 * [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
 * [Configuración del consentimiento de los usuarios finales a las aplicaciones](configure-user-consent.md)

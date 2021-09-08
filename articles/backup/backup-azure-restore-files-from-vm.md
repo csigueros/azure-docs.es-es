@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 76d81aa92643002bc5cd2b8859941af8e7440c87
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: dd1a5ff9fbf85fbce4c4ae7a79b745589b3596e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421875"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728932"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -133,13 +133,13 @@ Además, asegúrese de que tiene la [máquina correcta para ejecutar el script d
 
 Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a los siguientes recursos:
 
-- Etiquetas de servicio `download.microsoft.com` o `AzureFrontDoor.FirstParty` en NSG
-- Direcciones URL del servicio de recuperación (GEO-NAME hace referencia a la región donde reside el almacén de Recovery Services)
+- Etiquetas de servicio `download.microsoft.com` o `AzureFrontDoor.FirstParty` en NSG en el puerto 443 (saliente)
+- Direcciones URL del servicio de recuperación (GEO-NAME hace referencia a la región donde reside el almacén de Recovery Services) en el puerto 3260 (saliente)
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (para regiones públicas de Azure) o la etiqueta de servicio `AzureBackup` en el grupo de seguridad de red
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (para Azure China 21Vianet) o la etiqueta de servicio `AzureBackup` en el grupo de seguridad de red
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (para Azure US Government) o la etiqueta de servicio `AzureBackup` en el grupo de seguridad de red
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (para Azure Alemania) o la etiqueta de servicio `AzureBackup` en el grupo de seguridad de red
-- Puertos de salida 53 (DNS), 443, 3260
+- Resolución de DNS público en el puerto 53 (saliente)
 
 > [!NOTE]
 >
@@ -159,6 +159,12 @@ El acceso a `download.microsoft.com` es necesario para descargar los componentes
 Además, asegúrese de que tiene la [máquina correcta para ejecutar el script de ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) y de que cumple los [requisitos del sistema operativo](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## <a name="step-5-running-the-script-and-identifying-volumes"></a>Paso 5: Ejecución del script e identificar volúmenes
+
+> [!NOTE]
+>
+> El script solo se genera en inglés y no se localiza. Por lo tanto, puede que sea necesario que la configuración regional del sistema esté en inglés para que el script se ejecute correctamente.
+> 
+
 
 ### <a name="for-windows"></a>Para Windows
 

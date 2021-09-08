@@ -9,12 +9,12 @@ ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e85974968e523903282cdd8a577dee13ab32bf4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 485968e6fa9a68781de85648f0ad008586c2c15b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668135"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734586"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
 
@@ -84,6 +84,12 @@ Con la clave pública implementada en la VM de Azure y la clave privada en su si
 ```bash
 ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
+
+Si nunca se ha conectado a esta máquina virtual, se le pedirá que verifique la huella digital de los hosts. Puede ser tentador aceptar simplemente la huella digital que se presenta, pero esto le expone a posibles ataques de intermediarios. Debe validar siempre la huella digital del host. Solo debe hacerlo la primera vez que se conecte desde un cliente. Para obtener la huella digital del host a través del portal, use "Ejecutar comando" con lo siguiente: `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+
+:::image type="content" source="media/ssh-from-windows/run-command-validate-host-fingerprint.png" alt-text="Captura de pantalla que muestra el uso de la característica &quot;Ejecutar comando&quot; para validar la huella digital del host.":::
+
+Para ejecutar el comando mediante la CLI, use el comando [`az vm run-command invoke` ](/cli/azure/vm/run-command).
 
 Si configuró una frase de contraseña cuando creó el par de claves, escríbala cuando se le solicite.
 

@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394565c857320c8fd94d72a0ca15358c83b0d09d
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 32b848f6a34fbd25322c53cd35dc0db600743c88
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714393"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730215"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD
 
@@ -30,6 +30,9 @@ ms.locfileid: "109714393"
 Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catálogo cuando quiera agrupar recursos relacionados y paquetes de acceso. Quien cree el catálogo se convertirá en su primer propietario. El propietario de un catálogo puede agregar otros propietarios.
 
 **Requisitos previos de rol:** administrador global, administrador de Identity Governance, administrador de usuarios o creador de catálogos
+
+> [!NOTE]
+> Los usuarios a los que se les haya asignado el rol Administrador de usuarios ya no podrán crear catálogos ni administrar paquetes de acceso en un catálogo que no sea de su propiedad. Si a los usuarios de la organización se les asignó el rol Administrador de usuarios para configurar catálogos, paquetes de acceso o directivas en la administración de derechos, en su lugar debe asignarles a estos usuarios el rol **Administrador de Identity Governance**.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
@@ -51,13 +54,28 @@ Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catá
 
 1. Haga clic en **Crear** para crear el catálogo.
 
-### <a name="creating-a-catalog-programmatically"></a>Creación de un catálogo mediante programación
+## <a name="create-a-catalog-programmatically"></a>Creación de un catálogo mediante programación
+### <a name="create-a-catalog-with-microsoft-graph"></a>Creación de un catálogo con Microsoft Graph
 
-También puede crear un catálogo mediante Microsoft Graph.  Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para [crear un elemento accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
+También puede crear un catálogo mediante Microsoft Graph.  Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All`, o una aplicación con ese permiso de aplicación, puede llamar a la API para [crear un elemento accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
+
+### <a name="create-a-catalog--with-powershell"></a>Creación de un catálogo con PowerShell
+
+Puede crear un catálogo en PowerShell con el cmdlet `New-MgEntitlementManagementAccessPackageCatalog` de los [cmdlets de Microsoft Graph PowerShell para el módulo Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) versión 1.6.0 o posterior.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketing"
+```
 
 ## <a name="add-resources-to-a-catalog"></a>Adición de recursos a un catálogo
 
-Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los tipos de recursos que puede agregar son grupos, aplicaciones y sitios de SharePoint Online. Los grupos pueden ser grupos de Microsoft 365 creados en la nube o grupos de seguridad de Azure AD creados en la nube. Las aplicaciones pueden ser aplicaciones empresariales de Azure AD, incluidas las aplicaciones SaaS y sus propias aplicaciones federadas con Azure AD. Los sitios pueden ser sitios de SharePoint Online o colecciones de sitios de SharePoint Online.
+Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los tipos de recursos que puede agregar son grupos, aplicaciones y sitios de SharePoint Online.
+
+* Los grupos pueden ser grupos de Microsoft 365 creados en la nube o grupos de seguridad de Azure AD creados en la nube.  Los grupos que se originan en una instancia local de Active Directory no pueden asignarse como recursos porque su propietario o los atributos de miembro no se pueden cambiar en Azure AD.   Los grupos que se originan en Exchange Online como grupos de distribución tampoco se pueden modificar en Azure AD.
+* Las aplicaciones pueden ser aplicaciones empresariales de Azure AD, incluidas las aplicaciones SaaS y sus propias aplicaciones integradas en Azure AD. Para obtener más información sobre cómo seleccionar los recursos adecuados para las aplicaciones con varios roles, consulte [Adición de roles de recursos](entitlement-management-access-package-resources.md#add-resource-roles).
+* Los sitios pueden ser sitios de SharePoint Online o colecciones de sitios de SharePoint Online.
 
 **Rol necesario:** vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -81,17 +99,17 @@ Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los 
 
     Ahora, estos recursos se pueden incluir en paquetes de acceso del catálogo.
 
-### <a name="add-a-multi-geo-sharepoint-site-preview"></a>Incorporación de un sitio de SharePoint con varias ubicaciones geográficas (versión preliminar)
+### <a name="add-a-multi-geo-sharepoint-site"></a>Incorporación de un sitio de SharePoint con varias ubicaciones geográficas
 
 1. Si tiene habilitado [Multi-Geo](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) para SharePoint, seleccione el entorno desde el que quiere seleccionar sitios.
     
-    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Paquete de acceso - Agregar roles de recursos - Seleccionar sitios Multi-Geo de SharePoint":::
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multi-geo-select.png" alt-text="Paquete de acceso - Agregar roles de recursos - Seleccionar sitios Multi-Geo de SharePoint":::
 
 1. A continuación, seleccione los sitios que quiere que se agreguen al catálogo. 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Adición de un recurso a un catálogo mediante programación
 
-También puede agregar un recurso a un catálogo mediante Microsoft Graph.  Un usuario de un rol adecuado, o un propietario de catálogo y recurso, con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para [crear un elemento accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&preserve-view=true).
+También puede agregar un recurso a un catálogo mediante Microsoft Graph.  Un usuario de un rol adecuado, o un propietario de catálogo y recurso, con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para [crear un elemento accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&preserve-view=true).  Pero una aplicación con permisos de aplicación todavía no puede agregar un recurso mediante programación sin un contexto de usuario en el momento de la solicitud.
 
 ## <a name="remove-resources-from-a-catalog"></a>Eliminación de recursos de un catálogo
 

@@ -13,21 +13,18 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2020
+ms.date: 06/29/2021
 ms.author: yelevin
-ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5aa912e89fbbb1c219c15df8cbf3fed25868ff1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94660736"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747144"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Mejora en la administración de SOC con métricas de incidentes
 
-> [!IMPORTANT]
-> Las características de las métricas de incidentes se encuentran actualmente en versión preliminar pública.
-> Estas características se ofrecen sin Acuerdo de Nivel de Servicio y no es recomendable usarlas para cargas de trabajo de producción.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Los administradores del Centro de operaciones de seguridad (SOC) deben tener medidas y métricas de eficiencia generales a su alcance para calibrar el rendimiento de su equipo. Querrá ver las operaciones de los incidentes a lo largo del tiempo clasificadas por muchos criterios diferentes, como la gravedad, las tácticas de MITRE, el tiempo medio para la evaluación de prioridades, el tiempo medio de resolución, etc. Ahora, Azure Sentinel pone todos estos datos a su disposición con las nuevas tablas y esquemas **SecurityIncident** de Log Analytics y el libro **Security operations efficiency** (Eficiencia de las operaciones de seguridad) que se incluye. Podrá visualizar el rendimiento del equipo a lo largo del tiempo y usar esta información para mejorar su eficacia. También puede escribir y usar sus propias consultas de KQL en la tabla de incidentes para crear libros personalizados que se ajusten a sus necesidades específicas de auditoría y a los indicadores clave de rendimiento.
 
@@ -41,12 +38,24 @@ Cada vez que se crea o se actualiza un incidente, se agregará una nueva entrada
 
 Por ejemplo, si deseara devolver una lista de todos los incidentes ordenados por número de incidente, pero solo deseara devolver el registro más reciente por incidente, podría hacerlo mediante el [operador summarize](/azure/data-explorer/kusto/query/summarizeoperator) de KQL con la `arg_max()` [función aggregation](/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
-
 ```Kusto
 SecurityIncident
 | summarize arg_max(LastModifiedTime, *) by IncidentNumber
 ```
 ### <a name="more-sample-queries"></a>Más consultas de ejemplo
+
+Estado del incidente: todos los incidentes por estado y gravedad en un periodo de tiempo determinado:
+
+```Kusto
+let startTime = ago(14d);
+let endTime = now();
+SecurityIncident
+| where TimeGenerated >= startTime
+| summarize arg_max(TimeGenerated, *) by IncidentNumber
+| where LastModifiedTime  between (startTime .. endTime)
+| where Status in  ('New', 'Active', 'Closed')
+| where Severity in ('High','Medium','Low', 'Informational')
+```
 
 Tiempo medio para la clausura:
 ```Kusto
@@ -95,4 +104,4 @@ Puede usar la plantilla para crear sus propios libros personalizados adaptados a
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para empezar a trabajar con Azure Sentinel, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
-- Aprenda a [incorporar los datos en Azure Sentinel](quickstart-onboard.md), [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](quickstart-get-visibility.md).
+- Aprenda a [incorporar los datos en Azure Sentinel](quickstart-onboard.md), [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](get-visibility.md).

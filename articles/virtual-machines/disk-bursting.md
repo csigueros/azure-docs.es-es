@@ -1,19 +1,19 @@
 ---
 title: Seguridad de disco administrado
 description: Obtenga información sobre la expansión de disco para discos de Azure y para máquinas virtuales de Azure
-author: albecker1
-ms.author: albecker
-ms.date: 06/03/2021
+author: roygara
+ms.author: rogarana
+ms.date: 06/29/2021
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f9fd7d892eea43edf71da212fdba8cc1ac11c798
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 6af3d66afe107bae470f4081407f2293fe04f0fb
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528333"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356963"
 ---
 # <a name="managed-disk-bursting"></a>Seguridad de disco administrado
 
@@ -31,8 +31,8 @@ Los siguientes escenarios pueden beneficiarse en gran medida de la expansión:
 
 Actualmente, hay dos tipos de discos administrados que pueden expandirse: los [SSD prémium](disks-types.md#premium-ssd) y los [SSD estándar](disks-types.md#standard-ssd). La expansión no se aplica a otros tipos de disco actualmente. Hay dos modelos de expansión para los discos:
 
-- Un modelo de expansión a petición (versión preliminar), en el que el disco se expande cada vez que sus necesidades superan su capacidad actual. Este modelo incurre en cargos adicionales cada vez que el disco se expande. La expansión sin crédito solo está disponible en discos con un tamaño superior a 512 GiB.
-- Un modelo basado en el crédito, en el que el disco solo se expandirá si tiene créditos de expansión acumulados en su cubo de crédito. Este modelo no incurrirá en cargos adicionales cuando el disco se expanda. La expansión basada en el crédito solo está disponible en los discos de 512 GiB, y menores.
+- Un modelo de expansión a petición (versión preliminar), en el que el disco se expande cada vez que sus necesidades superan su capacidad actual. Este modelo incurre en cargos adicionales cada vez que el disco se expande. La expansión bajo demanda solo está disponible para los SSD premium de más de 512 GiB.
+- Un modelo basado en el crédito, en el que el disco solo se expandirá si tiene créditos de expansión acumulados en su cubo de crédito. Este modelo no incurrirá en cargos adicionales cuando el disco se expanda. La expansión basada en crédito solo está disponible para los SSD premium y estándar de 512 GiB e inferior.
 
 Los discos [SSD prémium](disks-types.md#premium-ssd) de Azure pueden usar cualquier modelo de expansión, pero los de tipo [SSD estándar](disks-types.md#standard-ssd) solo ofrecen la expansión basada en crédito actualmente.
 
@@ -42,12 +42,13 @@ Además, el [nivel de rendimiento de los discos administrados puede cambiar](dis
 |---------|---------|---------|---------|
 | **Escenarios**|Ideal para el escalado a corto plazo (30 minutos o menos).|Ideal para el escalado a corto plazo (sin restricción de tiempo).|Ideal si la carga de trabajo se ejecutaría continuamente en la expansión.|
 |**Costee**     |Gratuito         |El costo es variable; para más información, consulte la sección de [facturación](#billing).        |El costo de cada nivel de rendimiento es fijo, para más información, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).         |
-|**Disponibilidad**     |Solo está disponible para SSD Prémium con un tamaño de 512 GiB, y menores.         |Solo está disponible para SSD Prémium de más dé que 512 GiB.         |Disponible para todos los tamaños de SSD Prémium.         |
+|**Disponibilidad**     |Solo está disponible para SSD premium y estándar con un tamaño de 512 GiB, y menores.         |Solo está disponible para SSD Prémium de más dé que 512 GiB.         |Disponible para todos los tamaños de SSD Prémium.         |
 |**Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure**     |Habilitado de forma predeterminada en los discos aptos.         |Debe habilitarlo el usuario.         |El usuario debe cambiar su nivel de forma manual.         |
 
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting-2.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para habilitar la expansión a petición, consulte [Habilitación de la expansión a petición](disks-enable-bursting.md).
-Para aprender a obtener información sobre los recursos de expansión, consulte [Métricas de expansión de disco](disks-metrics.md).
+- Para habilitar la expansión a petición, consulte [Habilitación de la expansión a petición](disks-enable-bursting.md).
+- Para aprender a obtener información sobre los recursos de expansión, consulte [Métricas de expansión de disco](disks-metrics.md).
+- Para ver exactamente cuál es la ráfaga de cada tamaño de disco aplicable, vea [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales](disks-scalability-targets.md).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 8/11/2020
+ms.date: 07/06/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2b391c5a435c2dd2f19a3f170bf7c84edd7143f2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 18a9d2efa3093dd342e05f1c9038fa7f460d97bd
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063039"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358928"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -37,18 +37,18 @@ Microsoft Translator está disponible en varias ubicaciones de centros de datos.
 * **Asia Pacífico:** Sur de Corea del Sur, Este de Japón, Sudeste de Asia y Este de Australia
 * **Europa:** Norte de Europa y Oeste de Europa
 
-En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator se administran en el centro de datos que está más próximo a la ubicación donde se originó la solicitud. En caso de que se produzca un error en un centro de datos, la solicitud puede enrutarse fuera de la geografía de Azure.
+En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator se administran en el centro de datos que está más próximo a la ubicación donde se originó la solicitud. Si se produce un error en un centro de datos, la solicitud podría enrutarse fuera de la geografía.
 
-Para hacer que la solicitud se controle en una geografía de Azure específica, cambie el punto de conexión Global en la solicitud de API por el punto de conexión geográfico que desee:
+Para hacer que la solicitud se controle en una geografía específica, cambie el punto de conexión Global en la solicitud de API por el punto de conexión geográfico que quiera:
 
-|Descripción|Geografía de Azure|URL base (punto de conexión geográfico)|
-|:--|:--|:--|
-|Azure|Global (no regional)|   api.cognitive.microsofttranslator.com|
-|Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
-|Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
-|Azure|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|
+|Geography|URL base (punto de conexión geográfico)|
+|:--|:--|
+|Global (no regional)|    api.cognitive.microsofttranslator.com|
+|Estados Unidos|    api-nam.cognitive.microsofttranslator.com|
+|Europa|    api-eur.cognitive.microsofttranslator.com|
+|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
-<sup>1</sup> Los clientes con un recurso ubicado en las regiones Norte de Suiza u Oeste de Suiza pueden estar seguro de que sus solicitudes de Text API se atienden en Suiza. Para asegurarse de que las solicitudes se controlan en Suiza, cree el recurso de Traductor en la "región de recursos" "Norte de Suiza" u "Oeste de Suiza" y, a continuación, use el punto de conexión personalizado del recurso en las solicitudes de API. Por ejemplo: si crea un recurso de Traductor en Azure Portal con una "región de recursos" como "Norte de Suiza" y el nombre de. recurso es "my-ch-n", el punto de conexión personalizado será "https://my-ch-n.cognitiveservices.azure.com". Y una solicitud de ejemplo para traducir sería:
+<sup>1</sup> Los clientes con un recurso ubicado en las regiones Norte de Suiza u Oeste de Suiza pueden estar seguro de que sus solicitudes de Text API se atienden en Suiza. Para asegurarse de que las solicitudes se controlan en Suiza, cree el recurso de Traductor en la "región de recursos" "Norte de Suiza" u "Oeste de Suiza" y, a continuación, use el punto de conexión personalizado del recurso en las solicitudes de API. Por ejemplo, si crea un recurso de Translator en Azure Portal con una "región de recursos" como "Norte de Suiza" y el nombre de recurso es "my-ch-n", el punto de conexión personalizado será "https://my-ch-n.cognitiveservices.azure.com". Y una solicitud de ejemplo para traducir sería:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -158,7 +158,7 @@ Un token de autenticación tiene una validez de 10 minutos. El token debe volver
 
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales
 
-El servicio Traductor ahora está disponible con las funcionalidades de Virtual Network (VNET) en todas las regiones de la nube pública de Azure. Para habilitar la red virtual, consulte [Configuración de las redes virtuales de Azure Cognitive Services](../../cognitive-services-virtual-networks.md?tabs=portal). 
+El servicio Traductor ahora está disponible con las funcionalidades de Virtual Network (VNET) en todas las regiones de la nube pública de Azure. Para habilitar la red virtual, *consulte* [Configuración de redes virtuales de Azure Cognitive Services](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Una vez que se activa esta funcionalidad, se debe usar el punto de conexión personalizado para llamar a Translator. No se puede usar el punto de conexión de traductor global ("api.cognitive.microsofttranslator.com") y no se puede autenticar con un token de acceso.
 
@@ -197,6 +197,7 @@ Por ejemplo, un cliente con una suscripción de prueba gratuita recibiría el er
     }
 }
 ```
+
 El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. Los códigos de error comunes son:
 
 | Código | Descripción |
@@ -238,7 +239,7 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 415000| Falta el encabezado Content-Type o no es válido.|
 | 429000, 429001, 429002| El servidor rechazó la solicitud porque el cliente superó los límites de solicitudes.|
 | 500000| Se ha producido un error inesperado. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
-| 503000| El servicio no está disponible temporalmente. Inténtelo de nuevo. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
+| 503000| El servicio no está disponible temporalmente. Reintentar. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 
 ## <a name="metrics"></a>Métricas 
 Las métricas le permiten ver la información de uso y disponibilidad del traductor en Azure Portal, en la sección de métricas, tal como se muestra en la captura de pantalla siguiente. Para obtener más información, vea [Métricas de datos y plataforma](../../../azure-monitor/essentials/data-platform-metrics.md).

@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7aca099b4396237a80255a24149d9977c96b87cd
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: aed7e341cf190e6daac237b87f17254c5c65bbab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794109"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723045"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 
@@ -43,14 +43,13 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 
 ## <a name="requirements-and-restrictions"></a>Requisitos y restricciones
 
-* La característica Copia de seguridad y restauración requiere que el plan de App Service tenga el nivel **Estándar**, **Premium** o **Aislado**. Para obtener más información sobre cómo escalar el plan de App Service para usar un nivel superior, vea [Escalación de una aplicación web en Azure App Service](manage-scale-up.md). Los niveles **Premium** y **Aislado** permiten realizar un mayor número de copias de seguridad diarias que el nivel **Estándar**.
+* La característica Copia de seguridad y restauración requiere que el plan de App Service tenga el nivel **Estándar**, **Prémium** o **Aislado**. Para obtener más información sobre cómo escalar el plan de App Service para usar un nivel superior, vea [Escalación de una aplicación web en Azure App Service](manage-scale-up.md). Los niveles **Premium** y **Aislado** permiten realizar un mayor número de copias de seguridad diarias que el nivel **Estándar**.
 * Necesita una cuenta de almacenamiento de Azure y un contenedor en la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Para más información sobre las cuentas de almacenamiento de Azure, consulte [Azure storage account overview](../storage/common/storage-account-overview.md) (Introducción a la cuenta de almacenamiento de Azure).
 * Puede realizar copias de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Si el tamaño de la copia de seguridad supera este límite, obtendrá un error.
 * No se admiten las copias de seguridad de instancias de Azure Database for MySQL habilitadas para TLS. Si se configura una copia de seguridad, se producirán errores de copia de seguridad.
 * No se admiten las copias de seguridad de instancias de Azure Database for PostgreSQL habilitadas para TLS. Si se configura una copia de seguridad, se producirán errores de copia de seguridad.
 * Se hace una copia de datos automáticamente de las bases de datos MySQL en la aplicación sin ninguna configuración. Si realiza manualmente la configuración para las bases de datos MySQL en la aplicación, como agregar cadenas de conexión, es posible que las copias de seguridad no funcionen correctamente.
 * No se admite el uso de una cuenta de almacenamiento habilitada para firewall como destino para las copias de seguridad. Si se configura una copia de seguridad, se producirán errores de copia de seguridad.
-* Actualmente, no se puede usar la característica Copia de seguridad y restauración con la característica Integración con red virtual de Azure App Service. 
 * En la actualidad, no puede usar la característica Copia de seguridad y restauración con cuentas de Azure Storage configuradas para usar el punto de conexión privado.
 
 <a name="manualbackup"></a>
@@ -161,6 +160,24 @@ La copia de seguridad de la base de datos para la aplicación se almacena en la 
 
 > [!WARNING]
 > La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+La página **Backups** (Copias de seguridad) muestra el estado de cada copia de seguridad. Si hace clic en una copia de seguridad con errores, puede obtener los detalles del registro relacionados con el error. Use la siguiente tabla para obtener ayuda solucionar los problemas que pueden aparecer en la copia de seguridad. Si el error no está documentado en la tabla, abra una incidencia de soporte técnico.
+
+| Error | Corrección |
+| - | - |
+| Error al acceder a Storage. | Elimine la programación de las copias de seguridad y vuelva a configurarla. O bien, vuelva a configurar el almacenamiento de copia de seguridad. |
+| El tamaño de la unión de sitio web y base de datos supera el límite de {0} GB para las copias de seguridad. El tamaño del contenido es {1} GB. | [Excluya algunos archivos](#configure-partial-backups) de la copia de seguridad o quite la parte de base de datos de la copia de seguridad y use copias de seguridad ofrecidas externamente en su lugar. |
+| Error occurred while connecting to the database {0} on server {1}: Authentication to host '{1}' for user '\<username>' using method 'mysql_native_password' failed with message: Unknown database '\<db-name>' (Error al conectarse a la base de datos {0} en el servidor {1}: Error de autenticación para hospedar "{1}" para el usuario "\<username>" mediante el método "mysql_native_password" con el mensaje: Base de datos desconocida "\<db-name>") | Actualice la cadena de conexión de base de datos. |
+| Cannot resolve {0}. {1} (CannotResolveStorageAccount) [No puede resolver. (CannotResolveStorageAccount)] | Elimine la programación de las copias de seguridad y vuelva a configurarla. |
+| Error de inicio de sesión del usuario "{0}". | Actualice la cadena de conexión de base de datos. |
+| Create Database copy of {0} ({1}) threw an exception. Could not create Database copy (La creación de la copia de la base de datos de generó una excepción. No se pudo crear la copia de la base de datos). | Utilice un usuario administrativo en la cadena de conexión. |
+| La entidad de seguridad "\<name>" no puede acceder a la base de datos "maestra" en el contexto de seguridad actual. No se puede abrir la base de datos maestra solicitada por el inicio de sesión. Error de inicio de sesión. Login failed for user '\<name>'. (Error de inicio de sesión del usuario "\<name>") | Utilice un usuario administrativo en la cadena de conexión. |
+| Se ha producido un error relacionado con la red o específico de la instancia al establecer una conexión en SQL Server. No se encontró el servidor o no era accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (proveedor: Proveedor de canalizaciones con nombre; error: 40 - No se pudo abrir una conexión a SQL Server). | Compruebe que la cadena de conexión es válida. Permita las [direcciones IP de salida](overview-inbound-outbound-ips.md) de la aplicación en la configuración del servidor de bases de datos. |
+| No se puede abrir el servidor "\<name>" solicitado por el inicio de sesión. Error de inicio de sesión. | Compruebe que la cadena de conexión es válida. |
+| Missing mandatory parameters for valid Shared Access Signature (Faltan parámetros obligatorios de Firma de acceso compartido). | Elimine la programación de las copias de seguridad y vuelva a configurarla. |
+| SSL connection is required. Please specify SSL options and retry. when trying to connect (Se requiere una conexión SSL al intentar conectar. Especifique las opciones de SSL y reinténtelo). | En su lugar, use la característica de copia de seguridad integrada en Azure MySQL o Azure Postgressql. |
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 

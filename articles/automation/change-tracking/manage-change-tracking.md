@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d67acd025e453cee41a2461276d2f5df3066a141
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572653"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112518463"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Administración de Change Tracking e Inventario
 
@@ -161,7 +161,7 @@ Puede realizar varias búsquedas en los registros de Azure Monitor para consulta
 
 |Consultar  |Descripción  |
 |---------|---------|
-|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Muestra los registros de inventario más recientes para los servicios de Microsoft que se establecieron en Automático, pero se han notificado como Detenidos. Los resultados se limitan al registro más reciente para el equipo y el nombre del software especificados.    |
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Muestra los registros de inventario más recientes para los servicios de Windows que se han establecido en Automático, pero se han notificado como Detenidos. Los resultados se limitan al registro más reciente para el equipo y el nombre del software especificados.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Muestra los registros de cambios del software eliminado.|
 
 ## <a name="next-steps"></a>Pasos siguientes

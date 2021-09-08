@@ -2,13 +2,13 @@
 title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 8fca05f8718fc5e44da33b19447895f5daafc905
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.date: 06/23/2021
+ms.openlocfilehash: 532ca138a9f003f38dac9245f4478b81e2d827f7
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107716762"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541669"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -91,6 +91,17 @@ El consumo de almacenamiento, el objetivo de tiempo de recuperación (RTO) y el 
 - Para las copias de seguridad incrementales, en el segundo mes los bloques A2, A3, A4 y A9 se marcan como modificados y se transfieren. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere.
 
 ![Imagen que muestra las comparaciones de métodos de copia de seguridad](./media/backup-architecture/backup-method-comparison.png)
+
+## <a name="sap-hana-backup-types"></a>Tipos de copia de seguridad de SAP HANA
+
+En la tabla siguiente se explican los distintos tipos de copias de seguridad que se utilizan para las bases de datos de SAP HANA y con qué frecuencia se usan:
+
+| Tipo de copia de seguridad | Detalles | Uso |
+| --- | --- | --- |
+| **Copia de seguridad completa** | una copia de seguridad completa de la base de datos realiza una copia de seguridad de toda la base de datos. Este tipo de copia de seguridad se puede usar de forma independiente para realizar la restauración a un punto específico. | A lo sumo, puede programar una copia de seguridad completa al día. <br><br> Puede elegir programar una copia de seguridad completa en un intervalo diario o semanal. |
+| **Copia de seguridad diferencial**: | la copia de seguridad diferencial se basa en la copia de seguridad de datos completa anterior más reciente. <br><br> Captura solo los datos que han cambiado desde la copia de seguridad completa anterior. | A lo sumo, puede programar una copia de seguridad diferencial al día.  <br><br> No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día. |
+| **Copia de seguridad incremental** | Una copia de seguridad incremental se basa en la copia de seguridad completa, diferencial o incremental más reciente. <br><br> Captura solo los datos que han cambiado desde esta copia de seguridad de datos anterior. | A lo sumo, puede programar una única copia de seguridad incremental al día. <br><br> No se pueden programar copias de seguridad diferenciales e incrementales en una base de datos, solo se puede programar un tipo de copia de seguridad diferencial. <br><br> No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día. |k
+| **Copia de seguridad del registro de transacciones**: | una copia de seguridad de registros permite realizar la restauración a un momento dado con una precisión de un segundo. | A lo sumo, puede configurar las copias de seguridad del registro de transacciones cada 15 minutos. |
 
 ## <a name="backup-features"></a>Características de copia de seguridad
 

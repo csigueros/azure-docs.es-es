@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 03/10/2021
-ms.openlocfilehash: 325a2feb0cf29a03a88249e2d0ac3a22f685d498
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2a725512f3fa18a9af43d2725cda4ce1248e796a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694553"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737104"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL Database
 
@@ -30,6 +30,14 @@ Una copia de base de datos es una instantánea coherente con las transacciones d
 
 > [!NOTE]
 > La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente en versión preliminar pública en la región Sur de Brasil y con carácter general en la región Sudeste de Asia de Azure. En la versión preliminar, si la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de copia de seguridad de zona, no se admitirá la copia de una base de datos en un servidor de una región de Azure distinta. 
+
+## <a name="database-copy-for-azure-sql-hyperscale"></a>Copia de base de datos para Hiperescala de Azure SQL
+
+Para Hiperescala de Azure SQL, la base de datos de destino determina si la copia será una copia rápida o una copia del tamaño de los datos.
+
+Copia rápida: cuando la copia se realice en la misma región que el origen, se creará a partir de las instantáneas de blobs. Esta copia es una operación rápida independientemente del tamaño de la base de datos.
+
+Copia del tamaño de los datos: si la base de datos de destino se encuentra en una región diferente a la del origen, o si la redundancia del almacenamiento de copia de seguridad de base de datos (local, zonal o geográfica) del destino difiere de la redundancia de la base de datos de origen, la operación de copia será una operación del tamaño de los datos. El tiempo de copia no será directamente proporcional al tamaño, ya que los blobs del servidor de páginas se copian en paralelo.
 
 ## <a name="logins-in-the-database-copy"></a>Inicios de sesión en la copia de la base de datos
 
@@ -86,7 +94,11 @@ Inicie la copia de la base de datos de origen con la instrucción [CREATE DATABA
 
 > [!NOTE]
 > La finalización de la instrucción T-SQL no finaliza la operación de copia de la base de datos. Para finalizar la operación, quite la base de datos de destino.
->
+> [!NOTE]
+> No se admite la copia de la base de datos cuando los servidores de origen o de destino tienen configurado un punto de conexión privado y el acceso a la red pública está deshabilitado. Si el punto de conexión privado está configurado, pero se permite el acceso a la red pública, las copias de base de datos que se inicien cuando se está conectado al servidor de destino desde una dirección IP pública se realizarán correctamente.
+Para determinar la dirección IP de origen de la conexión actual, ejecute `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`.
+ 
+
 
 > [!IMPORTANT]
 > Aún no se admite la selección de redundancia de almacenamiento de copia de seguridad al usar el comando T-SQL CREATE DATABASE... AS COPY OF. 

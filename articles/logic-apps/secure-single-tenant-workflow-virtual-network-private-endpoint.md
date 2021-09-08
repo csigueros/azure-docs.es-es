@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 28d602f5edebaa122ec873338d99e31a4f755d14
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/25/2021
+ms.openlocfilehash: 4726df91efb18b2d9beec77606db449bd4aee3fa
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372470"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652654"
 ---
 # <a name="secure-traffic-between-virtual-networks-and-single-tenant-workflows-in-azure-logic-apps-using-private-endpoints"></a>Protección del tráfico entre redes virtuales y flujos de trabajo de inquilino único en Azure Logic Apps mediante puntos de conexión privados
 
@@ -153,7 +153,7 @@ En la configuración de la aplicación lógica, establezca `AzureWebJobsStorage`
 
 ### <a name="considerations-for-private-endpoints-on-storage-accounts"></a>Consideraciones sobre los puntos de conexión privados en cuentas de almacenamiento
 
-- Cree distintos puntos de conexión privados para cada uno de los servicios Table, Queue y Blob Storage.
+- Cree distintos puntos de conexión privados para cada uno de los servicios Table, Queue, Blob y File Storage.
 
 - Enrute todo el tráfico saliente mediante la red virtual con esta configuración:
 

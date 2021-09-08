@@ -3,12 +3,12 @@ title: Escalabilidad - Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo escalar Azure Event Hubs mediante el uso de particiones y unidades de procesamiento.
 ms.topic: article
 ms.date: 05/26/2021
-ms.openlocfilehash: ef894e0f14c140691b43da121a1983017ab03150
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: ced3d366c87d05fc1d7e8370c6e7db793dfe2535
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616468"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583669"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalado con Event Hubs
 
@@ -25,7 +25,7 @@ La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rend
 
 Si supera la capacidad de las unidades de rendimiento adquiridas, la entrada se limitará y se devolverá una excepción [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). La salida no produce excepciones de limitación, pero sigue estando limitada a la capacidad de las unidades de rendimiento adquiridas. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de rendimiento adquirió para el espacio de nombres. Puede administrar las unidades de procesamiento en la hoja **Escala** de los espacios de nombres en [Azure Portal](https://portal.azure.com). También puede administrar unidades de procesamiento mediante programación con las [API de Event Hubs](./event-hubs-samples.md).
 
-Las unidades de procesamiento se adquieren previamente y se facturan por hora. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres de Event Hubs y compartir entre todos los centros de eventos del espacio de nombres.
+Las unidades de procesamiento se adquieren previamente y se facturan por hora. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden comprar hasta 40 unidades de procesamiento para un espacio de nombres de Event Hubs y compartir entre todos los centros de eventos del espacio de nombres.
 
 La característica de **inflado automático** de Event Hubs escala verticalmente y de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de utilización. Al aumentar las unidades de rendimiento, se evitan escenarios de limitación en los que nos encontramos con:
 
@@ -48,7 +48,7 @@ Para saber cómo configurar las unidades de procesamiento para un espacio de nom
 > Para más información sobre las cuotas y los límites, consulte [Cuotas y límites de Azure Event Hubs](event-hubs-quotas.md).
 
 ## <a name="partitions"></a>Particiones
-[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+[!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 

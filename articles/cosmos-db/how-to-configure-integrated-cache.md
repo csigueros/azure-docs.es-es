@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: ddfdd4897a0cd194465828bba4bea0c002a4e434
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b8c2e27b7023a106815b34538f1cd3dba85354b3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110797680"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667661"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Cómo configurar la caché integrada de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,6 +59,11 @@ En este artículo se describe cómo aprovisionar una puerta de enlace dedicada, 
 
 3. Si usa el SDK de .NET o Java, establezca el modo de conexión en el [modo de puerta de enlace](sql-sdk-connection-modes.md#available-connectivity-modes). Este paso no es necesario para los SDK de Python y Node.js, ya que no tienen opciones adicionales de conexión aparte del modo de puerta de enlace.
 
+> [!NOTE]
+> Si usa la versión más reciente del SDK de .NET o Java, el modo de conexión predeterminado es el modo directo. Para usar la memoria caché integrada, debe invalidar este valor predeterminado.
+
+Si usa el SDK de Java, también debe establecer manualmente [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true) en `true` dentro de `CosmosClientBuilder`. Si usa cualquier otro SDK, este valor ya tiene `true` como valor predeterminado, por lo que no es necesario realizar ningún cambio.
+
 ## <a name="adjust-request-consistency"></a>Ajuste de la coherencia de la solicitud
 
 Debe ajustar la coherencia de la solicitud para que tenga un estado de evento. Si no lo hace, la solicitud siempre omitirá la caché integrada. La manera más fácil de configurar la coherencia de los eventos para todas las operaciones de lectura, es [establecerla en el nivel de cuenta](consistency-levels.md#configure-the-default-consistency-level). También puede configurar la coherencia en el [nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level); esto se recomienda si solo quiere que un subconjunto de las lecturas use la memoria caché integrada.
@@ -85,7 +90,7 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 ```
 
 > [!NOTE]
-> Actualmente, solo puede ajustar MaxIntegratedCacheStaleness mediante los SDK de versión preliminar de .NET y Java más recientes.
+> Actualmente, solo puede ajustar MaxIntegratedCacheStaleness mediante los SDK de versión preliminar de [.NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) y [Java](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.16.0-beta.1) más recientes.
 
 ## <a name="verify-cache-hits"></a>Comprobación de los resultados de la caché
 
@@ -96,6 +101,10 @@ Para que una solicitud de lectura (esto es, una lectura o consulta de punto) use
 -   El cliente debe conectarse al punto de conexión de la puerta de enlace dedicada.
 -  El cliente usa el modo de puerta de enlace (los SDK de Python y Node.js siempre usan el modo de puerta de enlace).
 -   La coherencia de la solicitud debe establecerse en un estado de evento.
+
+> [!NOTE]
+> ¿Tiene comentarios sobre la caché integrada? Queremos conocerlos. No dude en compartir sus comentarios directamente con el equipo de ingeniería de Azure Cosmos DB: cosmoscachefeedback@microsoft.com.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 968377ed09996b9a717e0739a3de8355d1c8d88d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02ea434b74e92e2bdd126a98d33e9e68adb811d0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677142"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468987"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
 
 Las imágenes de pago por uso (PAYG) de Red Hat Enterprise Linux (RHEL) vienen preconfiguradas para acceder a RHUI de Azure. No se necesita ninguna configuración adicional. Para obtener las actualizaciones más recientes, ejecute `sudo yum update` después de que la instancia RHEL esté lista. Este servicio se incluye como parte de las tarifas de software de PAYG de RHEL.
 
-Hay disponible información adicional sobre las imágenes de RHEL de Azure, incluidas las directivas de publicación y retención, [aquí](./redhat-images.md).
+Encontrará información adicional sobre las imágenes de RHEL de Azure, incluidas las directivas de publicación y retención, en [Introducción a las imágenes de Red Hat Enterprise Linux en Azure](./redhat-images.md).
 
 Puede encontrar información sobre las directivas de soporte técnico de Red Hat para todas las versiones de RHEL en la página [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo de vida de Red Hat Enterprise Linux).
 
@@ -79,7 +79,7 @@ RedHat:RHEL:7.6:7.6.2019062116
 Los repositorios de compatibilidad de actualización extendida (EUS) están disponibles para aquellos clientes que es posible que quieran bloquear sus máquinas virtuales de RHEL en una determinada versión inferior de RHEL después de aprovisionar la máquina virtual. Puede bloquear la versión de una máquina virtual de RHEL a una determinada versión secundaria mediante la actualización de los repositorios para que apunten a los repositorios de Extended Update Support. También puede deshacer la operación de bloqueo de versión de EUS.
 
 >[!NOTE]
-> EUS no es compatible con RHEL Extras. Esto significa que si va a instalar un paquete que está disponible normalmente en el canal de RHEL Extras, no podrá hacerlo mientras se encuentre en EUS. [Aquí](https://access.redhat.com/support/policy/updates/extras/) se detalla el ciclo de vida del producto Red Hat Extras.
+> EUS no es compatible con RHEL Extras. Esto significa que si va a instalar un paquete que está disponible normalmente en el canal de RHEL Extras, no podrá hacerlo mientras se encuentre en EUS. El ciclo de vida del producto Extras de Red Hat está detallado en la página [Ciclo de vida del producto Red Hat Enterprise Linux Extras: portal de cliente de Red Hat](https://access.redhat.com/support/policy/updates/extras/).
 
 En el momento de redactar este artículo, ha finalizado el soporte técnico de EUS para RHEL < = 7.4. Para más información, consulte la sección "Mantenimiento extendido de Red Hat Enterprise Linux" en la [documentación de Red Hat](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 * El soporte técnico de RHEL 7.4 EUS finaliza el 31 de agosto de 2019
@@ -231,7 +231,7 @@ Si va a usar la configuración de red para restringir aún más el acceso desde 
 >Las nuevas imágenes de Azure US Government, a partir de enero de 2020, utilizarán la dirección IP pública mencionada en el encabezado global de Azure anterior.
 
 >[!NOTE]
->Además, tenga en cuenta que Azure Alemania está en desuso en favor de las regiones de Alemania públicas. Una recomendación para los clientes de Azure Alemania es empezar a apuntar a RHUI público mediante los pasos descritos [aquí](#manual-update-procedure-to-use-the-azure-rhui-servers).
+>Además, tenga en cuenta que Azure Alemania está en desuso en favor de las regiones de Alemania públicas. Una recomendación para los clientes de Azure Alemania es empezar a apuntar a RHUI público mediante los pasos descritos en la página [Red Hat Update Infrastructure](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
 ## <a name="azure-rhui-infrastructure"></a>Infraestructura de RHUI en Azure
 

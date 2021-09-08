@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 25e737afb524cb8c6f45ac8e99f46a8064ae7855
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: f0f943475fc397acf61c51fc3dc34cc9efdb1cfb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598846"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450573"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -50,7 +50,7 @@ Para editar la notificación NameID (valor de identificador de nombre):
 
 Si la solicitud SAML contiene el elemento NameIDPolicy con un formato específico, la Plataforma de identidad de Microsoft respetará el formato en la solicitud.
 
-Si la solicitud SAML no contiene ningún elemento para NameIDPolicy, la Plataforma de identidad de Microsoft emitirá la notificación NameID con el formato que especifique. Si no se especifica ningún formato, la Plataforma de identidad de Microsoft usará el formato de origen predeterminado asociado con el origen de notificación seleccionado.
+Si la solicitud SAML no contiene ningún elemento para NameIDPolicy, la Plataforma de identidad de Microsoft emitirá la notificación NameID con el formato que especifique. Si no se especifica ningún formato, la Plataforma de identidad de Microsoft usará el formato de origen predeterminado asociado con el origen de notificación seleccionado. Si una transformación da como resultado un valor nulo o no válido, Azure AD enviará un identificador en pares persistente en nameIdentifier. 
 
 En el menú desplegable **Elija el formato del identificador de nombre**, puede seleccionar una de las opciones siguientes.
 
@@ -98,7 +98,6 @@ También puede usar las funciones de transformaciones de notificaciones.
 | Función | Descripción |
 |----------|-------------|
 | **ExtractMailPrefix()** | Quita el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario. De este modo se extrae solo la primera parte del nombre de usuario por la que se pasa (por ejemplo, "joe_smith" en lugar de joe_smith@contoso.com). |
-| **Join()** | Combina un atributo con un dominio comprobado. Si el valor de identificador de usuario seleccionado tiene un dominio, extraerá el nombre de usuario para anexar el dominio comprobado seleccionado. Por ejemplo, si selecciona el correo electrónico (joe_smith@contoso.com) como valor de identificador de usuario y selecciona contoso.onmicrosoft.com como dominio comprobado, el resultado será joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Convierte los caracteres del atributo seleccionado en caracteres en minúscula. |
 | **ToUpper()** | Convierte los caracteres del atributo seleccionado en caracteres en mayúscula. |
 
@@ -125,7 +124,7 @@ Puede utilizar las siguientes funciones para transformar notificaciones.
 | Función | Descripción |
 |----------|-------------|
 | **ExtractMailPrefix()** | Quita el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario. De este modo se extrae solo la primera parte del nombre de usuario por la que se pasa (por ejemplo, "joe_smith" en lugar de joe_smith@contoso.com). |
-| **Join()** | Crea un nuevo valor al combinar dos atributos. Si quiere, puede usar un separador entre los dos atributos. Para la transformación de notificaciones NameID, la combinación está restringida a un dominio comprobado. Si el valor de identificador de usuario seleccionado tiene un dominio, extraerá el nombre de usuario para anexar el dominio comprobado seleccionado. Por ejemplo, si selecciona el correo electrónico (joe_smith@contoso.com) como valor de identificador de usuario y selecciona contoso.onmicrosoft.com como dominio comprobado, el resultado será joe_smith@contoso.onmicrosoft.com. |
+| **Join()** | Crea un nuevo valor al combinar dos atributos. Si quiere, puede usar un separador entre los dos atributos. |
 | **ToLowercase()** | Convierte los caracteres del atributo seleccionado en caracteres en minúscula. |
 | **ToUppercase()** | Convierte los caracteres del atributo seleccionado en caracteres en mayúscula. |
 | **Contains()** | Genera un atributo o una constante si la entrada coincide con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor es la dirección de correo electrónico del usuario si contiene el dominio "@contoso.com"; en caso contrario, quiere obtener el nombre principal de usuario. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.email<br/>*Valor*: "@contoso.com"<br/>Parámetro 2 (salida): user.email<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.userprincipalname |
@@ -142,6 +141,13 @@ Puede utilizar las siguientes funciones para transformar notificaciones.
 | **IfNotEmpty()** | Genera un atributo o una constante si la entrada no es nula ni está vacía.<br/>Por ejemplo, si quiere generar un atributo almacenado en un extensionattribute si el Id. de empleado para un usuario determinado no está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1 (entrada): user.employeeid<br/>Parámetro 2 (salida): user.extensionattribute1 |
 
 Si necesita transformaciones adicionales, envíe su idea al [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599), en la categoría *Aplicación SaaS*.
+
+## <a name="add-the-upn-claim-to-saml-tokens"></a>Adhesión de notificaciones de UPN a tokens SAML
+
+La notificación `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` forma parte del [conjunto de notificaciones restringidas de SAML](reference-claims-mapping-policy-type.md#table-2-saml-restricted-claim-set) y no se puede agregar en la sección **Atributos y notificaciones de usuario**.  Como solución alternativa, puede agregarla como una [notificación opcional](active-directory-optional-claims.md) mediante **Registros de aplicaciones** en Azure Portal. 
+
+Abra la aplicación en **Registros de aplicaciones** y seleccione **Configuración del token** y, después, **Agregar notificación opcional**. Seleccione el tipo de token **SAML**, elija **upn** en la lista y haga clic en **Agregar** para obtener la notificación en el token.
+
 
 ## <a name="emitting-claims-based-on-conditions"></a>Emisión de notificaciones basadas en condiciones
 

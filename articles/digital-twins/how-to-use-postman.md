@@ -1,19 +1,20 @@
 ---
-title: Realización de solicitudes con Postman
+title: Realización de solicitudes de API con Postman
 titleSuffix: Azure Digital Twins
-description: Aprenda a configurar y usar Postman para probar las API de Azure Digital Twins.
+description: Aprenda a configurar y usar Postman para llamar a las API de Azure Digital Twins.
 ms.author: baanders
 author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 11/10/2020
-ms.openlocfilehash: 839ce4df4a79b34890a19d3beb470b77fef1f19d
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.date: 6/16/2021
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: 3974b080c2a763db4ffa0f344ef18ce129959a53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617662"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459459"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Uso de Postman para enviar solicitudes a las API de Azure Digital Twins
 
@@ -27,7 +28,7 @@ En este artículo se describe cómo configurar el [cliente REST de Postman](http
     1. [Crear su propia colección desde cero](#create-your-own-collection).
 1. [Agregar solicitudes a la colección configurada](#add-an-individual-request) y enviarlas a Azure Digital Twins API.
 
-Azure Digital Twins tiene dos conjuntos de API con los que puede trabajar: el **plano de datos** y el **plano de control**. Para obtener más información sobre la diferencia entre estos conjuntos de API, consulte [Conceptos: API y SDK de Azure Digital Twins](concepts-apis-sdks.md). Este artículo contiene información de ambos conjuntos de API.
+Azure Digital Twins tiene dos conjuntos de API con los que puede trabajar: el **plano de datos** y el **plano de control**. Para obtener más información sobre la diferencia entre estos conjuntos de API, consulte [API y SDK de Azure Digital Twins](concepts-apis-sdks.md). Este artículo contiene información de ambos conjuntos de API.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -78,7 +79,7 @@ De lo contrario, puede abrir una ventana de [Azure Cloud Shell](https://shell.az
     ---
 
     >[!NOTE]
-    > Si necesita acceder a la instancia de Azure Digital Twins mediante una entidad de servicio o una cuenta de usuario que pertenezca a un inquilino distinto de Azure Active Directory de la instancia, necesitará solicitar un **token** del inquilino "principal" de la instancia de Azure Digital Twins. Para obtener más información sobre este proceso, consulte [Procedimiento: Escritura de código de autenticación de aplicación.](how-to-authenticate-client.md#authenticate-across-tenants) 
+    > Si necesita acceder a la instancia de Azure Digital Twins mediante una entidad de servicio o una cuenta de usuario que pertenezca a un inquilino distinto de Azure Active Directory de la instancia, necesitará solicitar un **token** del inquilino "principal" de la instancia de Azure Digital Twins. Para obtener más información sobre este proceso, consulte [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md#authenticate-across-tenants).
 
 3. Copie el valor de `accessToken` en el resultado y guárdelo para usarlo en la siguiente sección. Este es el **valor del token** que proporcionará a Postman para autenticar las solicitudes.
 
@@ -288,7 +289,7 @@ Para continuar con una consulta de ejemplo, en este artículo se usará Query AP
 
    :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Captura de pantalla de los detalles de la nueva solicitud en Postman, en la pestaña Cuerpo. Contiene un cuerpo JSON sin formato con una consulta de &quot;SELECT * FROM DIGITALTWINS&quot;." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
-   Para más información sobre cómo crear consultas de Azure Digital Twins, consulte [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md).
+   Para obtener más información sobre cómo crear consultas de Azure Digital Twins, consulte [Consulta del grafo de gemelos](how-to-query-graph.md).
 
 1. Consulte en la documentación de referencia otros campos que pueden ser necesarios para su tipo de solicitud. En el caso de Query API, ahora se han cumplido todos los requisitos en la solicitud de Postman, por lo que este paso ha finalizado.
 1. Use el botón **Send** (Enviar) para enviar la solicitud completada.
@@ -302,4 +303,4 @@ También puede comparar la respuesta con los datos de respuesta esperados que se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre las API de Digital Twins, lea [Conceptos: API y SDK de Azure Digital Twins](concepts-apis-sdks.md) o consulte la [documentación de referencia de las API de REST](/rest/api/azure-digitaltwins/).
+Para obtener más información sobre las API de Digital Twins, lea [API y SDK de Azure Digital Twins](concepts-apis-sdks.md) o consulte la [documentación de referencia de las API REST](/rest/api/azure-digitaltwins/).

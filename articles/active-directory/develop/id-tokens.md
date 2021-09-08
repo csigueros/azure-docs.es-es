@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom:
 - aaddev
 - identityplatformtop40
 - fasttrack-edit
-ms.openlocfilehash: 920589c3c0582387a83d5f7d85c660f0692a761b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c1e125127cf4376eb96e267c11e35085a4a27f18
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471285"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458905"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
@@ -36,7 +36,7 @@ El siguiente artículo le resultará útil antes de seguir este artículo:
 
 ## <a name="claims-in-an-id-token"></a>Notificaciones de un token de identificador.
 
-Los tokens de identificador son [tokens web JSON (JWT)](https://jwt.io/introduction/). Estos tokens de identificador constan de un encabezado, una carga útil y una firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga útil contiene la información sobre el usuario solicitado por el cliente. Los token de identificador v1.0 y v2.0 presentan diferencias en la información que contienen. La versión se basa en el punto de conexión desde donde se solicitó. Aunque es probable que las aplicaciones existentes utilicen el punto de conexión de Azure AD (v1.0), las nuevas aplicaciones deben usar el punto de conexión "Plataforma de identidad de Microsoft" (v2.0).
+Los tokens de identificador son [tokens web JSON (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). Estos tokens de identificador constan de un encabezado, una carga útil y una firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga útil contiene la información sobre el usuario solicitado por el cliente. Los token de identificador v1.0 y v2.0 presentan diferencias en la información que contienen. La versión se basa en el punto de conexión desde donde se solicitó. Aunque es probable que las aplicaciones existentes utilicen el punto de conexión de Azure AD (v1.0), las nuevas aplicaciones deben usar el punto de conexión "Plataforma de identidad de Microsoft" (v2.0).
 
 * v1.0: punto de conexión de Azure AD `https://login.microsoftonline.com/common/oauth2/authorize`
 * v2.0: punto de conexión de la Plataforma de identidad de Microsoft `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
@@ -67,8 +67,8 @@ En la tabla siguiente se muestran las notificaciones de encabezado presentes en 
 |-----|--------|-------------|
 |`typ` | Cadena: siempre "JWT" | Indica que se trata de un token JWT.|
 |`alg` | String | Indica el algoritmo que se usó para firmar el token. Ejemplo: "RS256" |
-|`kid` | String | Huella digital de la clave pública utilizada para verificar este token. Se emite en los `id_tokens` de las versiones 1.0 y 2.0. |
-|`x5t` | String | Es igual (en uso y valor) a `kid`. Sin embargo, esta es una notificación heredada emitida solo en los `id_tokens` de la versión 1.0 para fines de compatibilidad. |
+| `kid` | String | Especifica la huella digital de la clave pública que se puede usar para validar la firma de este token. Se emite en los tokens de identificador de las versiones 1.0 y 2.0. |
+| `x5t` | String | Funciona igual (en uso y valor) que `kid`. `x5t` es una notificación heredada que se emite solo en los tokens de identificador de la versión 1.0 con fines de compatibilidad. |
 
 ### <a name="payload-claims"></a>Notificaciones de carga
 
@@ -93,7 +93,7 @@ En esta lista se muestran las notificaciones que se encuentran en la mayoría de
 |`roles`| Matriz de cadenas | El conjunto de roles que se asignaron al usuario que ha iniciado sesión. |
 |`rh` | Cadena opaca |Una notificación interna que Azure usa para volver a validar los tokens. Se debe omitir. |
 |`sub` | String | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. El firmante es un identificador en pares: es único para un identificador de aplicación determinado. Si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferentes, esas aplicaciones recibirán dos valores diferentes para la notificación de firmante. Esto puede ser o no deseable en función de los requisitos de arquitectura y privacidad. |
-|`tid` | Cadena, un identificador GUID | Un GUID que representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
+|`tid` | Cadena, un identificador GUID | Representa el inquilino en el que el usuario inicia sesión. En el caso de las cuentas profesionales y educativas, el GUID es el identificador de inquilino inmutable de la organización en la que el usuario inicia sesión. Para los inicios de sesión en el inquilino de la cuenta Microsoft personal (servicios como Xbox, Outlook o Teams for Life), el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. Para recibir esta notificación, la aplicación debe solicitar el ámbito `profile`. |
 |`unique_name` | String | Proporciona un valor en lenguaje natural que identifica al firmante del token. Este valor es único en un momento dado, pero dado que los mensajes de correo electrónico y otros identificadores pueden reutilizarse, puede aparecer de nuevo en otras cuentas. Por lo tanto, el valor solo debe usarse con fines de visualización. Solo se emite en los `id_tokens` de la versión 1.0. |
 |`uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Se debe omitir. |
 |`ver` | Cadena, 1.0 o 2.0 | Indica la versión del id_token. |
@@ -104,12 +104,12 @@ En esta lista se muestran las notificaciones que se encuentran en la mayoría de
 
 Al identificar a un usuario (por ejemplo, buscarlo en una base de datos o decidir qué permisos tiene), es fundamental usar información que permanecerá constante y única a lo largo del tiempo. Las aplicaciones heredadas a veces usan campos, como la dirección de correo electrónico, un número de teléfono o el UPN.  Todos ellos pueden cambiar con el tiempo y también se pueden reutilizar. Por ejemplo, si un empleado cambia de nombre, o a un empleado se le asigna una dirección de correo electrónico que coincide con la de un empleado anterior que ya no está presente. Por lo tanto, es **crítico** que la aplicación no use datos legibles para identificar a un usuario; legible normalmente significa que alguien lo leerá y querrá cambiarlo. En su lugar, use las notificaciones proporcionadas por el estándar OIDC o las notificaciones de extensión proporcionadas por Microsoft: las notificaciones `sub` y `oid`.
 
-Para almacenar correctamente la información por usuario, use solo `sub` o `oid` (que son únicos como los GUID), y use `tid` para el enrutamiento o el particionamiento si es necesario.  Si necesita compartir datos entre servicios, `oid`+`tid` es lo mejor cuando todas las aplicaciones obtienen las mismas notificaciones `oid` y `tid` para un usuario determinado.  La notificación `sub` en la plataforma de identidad de Microsoft es "por pares"; es única en función de una combinación del destinatario del token, el inquilino y el usuario.  Por lo tanto, dos aplicaciones que solicitan tokens de identificador para un usuario determinado recibirán diferentes notificaciones `sub`, pero las mismas notificaciones `oid` para ese usuario.
+Para almacenar correctamente la información por usuario, use solo `sub` o `oid` (que son únicos como los GUID), y use `tid` para el enrutamiento o el particionamiento si es necesario.  Si necesita compartir datos entre servicios, `oid`+`tid` es lo mejor cuando todas las aplicaciones obtienen las mismas notificaciones `oid` y `tid` para un usuario determinado que actúa en un inquilino específico.  La notificación `sub` en la plataforma de identidad de Microsoft es "por pares"; es única en función de una combinación del destinatario del token, el inquilino y el usuario.  Por lo tanto, dos aplicaciones que solicitan tokens de identificador para un usuario determinado recibirán diferentes notificaciones `sub`, pero las mismas notificaciones `oid` para ese usuario.
 
 >[!NOTE]
 > No utilice la notificación `idp` para almacenar información sobre un usuario en un intento de correlacionar a los usuarios entre inquilinos.  No funcionará, ya que las notificaciones `oid` y `sub` para un usuario cambian entre los inquilinos, por diseño, para asegurarse de que las aplicaciones no puedan realizar el seguimiento de los usuarios entre inquilinos.  
 >
-> Los escenarios de invitado, en los que un usuario se hospeda en un inquilino y se autentica en otro, deben tratar al usuario como si fuera un usuario completamente nuevo en el servicio.  Los documentos y privilegios del inquilino de Contoso no deben aplicarse en el inquilino de Fabrikam. Esto es importante para evitar la filtración accidental de datos entre los inquilinos.
+> Los escenarios de invitado, en los que un usuario se hospeda en un inquilino y se autentica en otro, deben tratar al usuario como si fuera un usuario completamente nuevo en el servicio.  Los documentos y privilegios del inquilino de Contoso no deben aplicarse en el inquilino de Fabrikam. Esto es importante para impedir la pérdida accidental de datos entre inquilinos y para el cumplimiento de los ciclos de vida de los datos.  Si se expulsa a un invitado de un inquilino, también se debe eliminar su acceso a los datos que creó en dicho inquilino. 
 
 ### <a name="groups-overage-claim"></a>Notificación de grupos por encima del límite
 Para garantizar que el tamaño del token no supera los límites de tamaño del encabezado HTTP, Azure AD limita el número de identificadores de objeto que se incluyen en la notificación `groups`. Si un usuario es miembro de más grupos que el límite de uso por encima del límite (150 para los tokens SAML, 200 para los tokens JWT), Azure AD no emite la notificaciones de grupos en el token. En su lugar, incluye una demanda de uso por encima del límite en el token que indica a la aplicación que consulte la Microsoft Graph API para recuperar la pertenencia a grupos del usuario.
@@ -149,5 +149,6 @@ Para validar manualmente el token, consulte los pasos detallados en [Validación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Revise el flujo de [OpenID Connect](v2-protocols-oidc.md), que define los protocolos que emiten un token de identificador. 
 * Más información sobre los [tokens de acceso](access-tokens.md)
 * Personalice las notificaciones de JWT del token de identificación mediante las [notificaciones opcionales](active-directory-optional-claims.md).

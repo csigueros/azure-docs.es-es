@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 04/09/2021
-ms.openlocfilehash: fbbd345e6b2832d8b992ea42a8a2c1fb33615af7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 473aa81bf28dd867bf30acef7a5b407b0e4b67a2
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689950"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964759"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra de DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -166,14 +166,26 @@ Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases d
 
 ### <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 
-En la tabla siguiente se describen las propiedades de las bases de datos agrupadas.
+Para cada grupo elástico, opcionalmente puede especificar DTU mínimas y máximas por base de datos para modificar los patrones de consumo de recursos dentro del grupo. Los valores mínimos y máximos especificados se aplican a todas las bases de datos del grupo. No se admite la personalización de DTU mínimas y máximas para bases de datos individuales del grupo. 
+
+También puede establecer el almacenamiento máximo por base de datos, por ejemplo, para impedir que una base de datos consuma todo el almacenamiento del grupo. Esta opción se puede configurar de forma independiente para cada base de datos.
+
+En la tabla siguiente se describen las propiedades por base de datos de las bases de datos agrupadas. 
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Cantidad máxima de eDTU por base de datos |Cantidad máxima de eDTU que puede utilizar cualquier base de datos del grupo, si está disponible según el uso que hacen otras bases de datos del grupo. La cantidad máxima de eDTU por base de datos no garantiza la disponibilidad de recursos. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. Establezca una cantidad máxima de eDTU por base de datos lo suficientemente alta como para gestionar los picos de uso de la base de datos. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de uso no tienen lugar en todas las bases de datos a la vez. Por ejemplo, supongamos que el pico de uso de cada base de datos es 20 eDTU y solo tiene lugar en el 20 % de las 100 bases de datos del grupo a la vez. Si la cantidad máxima de eDTU por base de datos se establece en 20, puede asignar al grupo una cantidad 5 veces mayor y establecer las eDTU por grupo en 400. |
-| Cantidad mínima de eDTU por base de datos |Cantidad mínima de eDTU que se garantiza en cualquier base de datos del grupo. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. La cantidad mínima de eDTU por base de datos se puede establecer en 0, y también se trata del valor predeterminado. Esta propiedad se establece en cualquier valor entre 0 y el uso medio de eDTU por base de datos. El resultado de multiplicar la cantidad de bases de datos del grupo y la cantidad mínima de eDTU por base de datos no puede superar el número de eDTU por grupo. Por ejemplo, si un grupo tiene 20 bases de datos y la cantidad mínima de eDTU por base de datos establecida es 10, el número de eDTU por grupo debe ser de, al menos, 200. |
-| Almacenamiento máximo por base de datos |El tamaño máximo de base de datos establecido por el usuario para una base de datos de un grupo. Sin embargo, las bases de datos agrupadas comparten almacenamiento en grupo asignado. Aunque el almacenamiento total máximo *por base de datos* se establezca en un valor mayor que el *espacio del grupo* de almacenamiento total disponible, el espacio total que realmente usan todas las bases de datos no podrá superar el límite de grupo disponible. El tamaño máximo de la base de datos hace referencia al tamaño máximo de los archivos de datos, y no incluye el espacio utilizado por los archivos de registro. |
+| DTU máximas por base de datos |Cantidad máxima de DTU que puede usar cualquier base de datos del grupo, si está disponible según el uso que hacen otras bases de datos del grupo. La cantidad máxima de DTU por base de datos no garantiza la disponibilidad de recursos. Si la carga de trabajo de cada base de datos no necesita que todos los recursos del grupo disponibles funcionen correctamente, considere la posibilidad de establecer una cantidad máxima de DTU por base de datos para impedir que una sola base de datos monopolice los recursos del grupo. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de uso no tienen lugar en todas las bases de datos a la vez. |
+| DTU mínimas por base de datos |Cantidad mínima de DTU reservadas para cualquier base de datos del grupo. Considere la posibilidad de establecer una cantidad mínima de DTU por base de datos cuando quiera garantizar la disponibilidad de los recursos para cada base de datos, independientemente del consumo de recursos por parte de otras bases de datos del grupo. La cantidad mínima de DTU por base de datos se puede establecer en 0, y también se trata del valor predeterminado. Esta propiedad se establece en cualquier valor entre 0 y el uso medio de DTU por base de datos.|
+| Almacenamiento máximo por base de datos |El tamaño máximo de base de datos establecido por el usuario para una base de datos de un grupo. Las bases de datos agrupadas comparten el almacenamiento del grupo asignado, de modo que el tamaño que puede alcanzar una base de datos se limita a la menor cantidad de almacenamiento restante del grupo y el tamaño máximo de la base de datos. El tamaño máximo de la base de datos hace referencia al tamaño máximo de los archivos de datos, y no incluye el espacio utilizado por el archivo de registro. |
 |||
+
+> [!IMPORTANT]
+> Dado que los recursos de un grupo elástico son finitos, el hecho de establecer las DTU mínimas por base de datos en un valor mayor que 0 limita implícitamente el uso de recursos por cada base de datos. Si, en un momento dado, la mayoría de las bases de datos de un grupo están inactivas, los recursos reservados para satisfacer la garantía de DTU mínimas no estarán disponibles para las bases de datos activas en ese momento.
+>
+> Además, al establecer DTU mínimas por base de datos en un valor mayor que 0, se limita implícitamente el número de bases de datos que se pueden agregar al grupo. Por ejemplo, si establece en 100 las DTU mínimas de un grupo de 400 DTU, significa que no podrá agregar más de 4 bases de datos al grupo, ya que se reservan 100 DTU para cada base de datos.
+> 
+
+Aunque las propiedades por base de datos se expresan en DTU, también rigen el consumo de otros tipos de recursos, como la E/S de datos, la E/S de registros y los subprocesos de trabajo. A medida que se ajusten los valores de DTU mínimas y máximas por base de datos, las reservas y los límites de todos los tipos de recursos se adaptarán proporcionalmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

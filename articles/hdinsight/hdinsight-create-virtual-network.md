@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/12/2021
-ms.openlocfilehash: 28d2cc40d1272fdf29b6df3f08469418ecbc36da
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 642ec1908298c331777776f886e005e715a727f2
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559401"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730647"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Creación de redes virtuales para clústeres de Azure HDInsight
 
@@ -34,9 +34,9 @@ Otros requisitos previos de los ejemplos de este artículo son los elementos sig
 
 En los ejemplos de esta sección se muestra cómo crear reglas de grupo de seguridad de red. Las reglas permiten que HDInsight se comunique con los servicios de administración de Azure. Antes de usar los ejemplos, ajuste las direcciones IP para que coincidan con las de la región de Azure que esté usando. Puede encontrar esta información en [Direcciones IP de administración de HDInsight](hdinsight-management-ip-addresses.md).
 
-### <a name="azure-resource-management-template"></a>Plantilla de administración de recursos de Azure
+### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 
-La siguiente plantilla de administración de recursos crea una red virtual que restringe el tráfico de entrada pero permite el tráfico desde las direcciones IP requeridas por HDInsight. Esta plantilla crea también un clúster de HDInsight en la red virtual.
+La siguiente plantilla de Resource Manager crea una red virtual que restringe el tráfico de entrada pero permite el tráfico desde las direcciones IP necesarias para HDInsight. Esta plantilla crea también un clúster de HDInsight en la red virtual.
 
 * [Implementar una instancia segura de Azure Virtual Network y un clúster de Hadoop de HDInsight](https://azure.microsoft.com/resources/templates/hdinsight-secure-vnet/)
 

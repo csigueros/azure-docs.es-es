@@ -4,14 +4,14 @@ description: Aprenda a configurar el control de acceso basado en roles con Azure
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/21/2021
 ms.author: thweiss
-ms.openlocfilehash: 246f21bb0cd4718b08c8d8a872b1707a1fea5994
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b1b4b9fbb3914ca3389f57d680d2298c00d64a9b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958917"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444775"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ El control de acceso basado en roles del plano de datos de Azure Cosmos DB se b
 > - [Scripts de Azure PowerShell](manage-with-powershell.md)
 > - [Scripts de la CLI de Azure](manage-with-cli.md)
 > - Bibliotecas de administración de Azure disponibles en
->   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 
@@ -278,7 +278,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 
-Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/createupdatesqlroledefinition) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear definiciones de roles.
+Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear definiciones de roles.
 
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> Creación de asignaciones de roles
 
@@ -333,7 +333,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 
-Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/createupdatesqlroleassignment) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear asignaciones de roles.
+Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear asignaciones de roles.
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Inicialización del SDK con Azure AD
 
@@ -349,7 +349,7 @@ En los ejemplos siguientes se usa una entidad de servicio con una instancia de `
 
 ### <a name="in-net"></a>En .NET
 
-La característica RBAC de Azure Cosmos DB se admite actualmente en la versión `preview` del [SDK de .NET V3](sql-api-sdk-dotnet-standard.md).
+RBAC de Azure Cosmos DB se admite actualmente en el [SDK V3 de .NET](sql-api-sdk-dotnet-standard.md).
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -393,7 +393,7 @@ const client = new CosmosClient({
 
 ## <a name="authenticate-requests-on-the-rest-api"></a>Autenticación de solicitudes en la API de REST
 
-El rol RBAC de Azure Cosmos DB actualmente es compatible con la versión `2021-03-15` de la API de REST. Al construir el [encabezado de autorización](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), establezca el parámetro **type** en **aad** y la firma de hash **(sig)** en el **token de Oauth** como se muestra en el ejemplo siguiente:
+Al construir el [encabezado de autorización de API REST](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), establezca el parámetro **type** en **aad** y la firma de hash **(sig)** en el **token de oauth** como se muestra en el ejemplo siguiente:
 
 `type=aad&ver=1.0&sig=<token-from-oauth>`
 
@@ -415,6 +415,28 @@ Esta información adicional fluye en la categoría de registro **DataPlaneReques
 
 - `aadPrincipalId_g` muestra el identificador de la entidad de seguridad de la identidad de AAD que se usó para autenticar la solicitud.
 - `aadAppliedRoleAssignmentId_g` muestra la [asignación de roles](#role-assignments) que se ha respetado al autorizar la solicitud.
+
+## <a name="enforcing-rbac-as-the-only-authentication-method"></a><a id="disable-local-auth"></a> Aplicación de RBAC como único método de autenticación
+
+En situaciones en las que quiera forzar a los clientes a conectarse a Azure Cosmos DB exclusivamente por medio de RBAC, tiene la opción de deshabilitar las claves principales y secundarias de la cuenta. Al hacerlo, se rechazará de forma activa cualquier solicitud entrante que use una clave principal o secundaria, o un token de recurso.
+
+### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
+
+Al crear o actualizar la cuenta de Azure Cosmos DB mediante plantillas de Azure Resource Manager, establezca la propiedad `disableLocalAuth` en `true`:
+
+```json
+"resources": [
+    {
+        "type": " Microsoft.DocumentDB/databaseAccounts",
+        "properties": {
+            "disableLocalAuth": true,
+            // ...
+        },
+        // ...
+    },
+    // ...
+ ]
+```
 
 ## <a name="limits"></a>Límites
 
@@ -443,7 +465,7 @@ Sí.
 
 ### <a name="is-it-possible-to-disable-the-usage-of-the-account-primarysecondary-keys-when-using-rbac"></a>¿Es posible deshabilitar el uso de las claves principal o secundaria de la cuenta al usar el control de acceso basado en roles?
 
-Actualmente no es posible deshabilitar las claves principal o secundaria de la cuenta.
+Sí, vea [Aplicación de RBAC como único método de autenticación](#disable-local-auth).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

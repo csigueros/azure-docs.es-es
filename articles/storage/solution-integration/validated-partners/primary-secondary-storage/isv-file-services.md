@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/24/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: a880e64a710638561eb171b2d7bb14973ef58224
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8b49504fdda0b065b28b90f946dd203716933745
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969760"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446142"
 ---
 # <a name="running-isv-file-services-in-azure"></a>Ejecución de servicios de archivos ISV en Azure
 
@@ -74,8 +74,8 @@ En este artículo se comparan varias soluciones de ISV que proporcionan servicio
 | -------- | ----------- | ----------------- |
 | **Nasuni** | **UniFS** es un servicio de archivos empresarial con una alternativa en la nube más sencilla y de bajo costo basada en Microsoft Azure. | - Almacenamiento de archivos principal <br> - Recursos compartidos de archivos de departamento <br> - Administración centralizada de archivos <br> - Colaboración entre varios sitios con bloqueo de archivos global <br> - Windows Virtual Desktop <br> - Recursos compartidos de archivos de trabajo remoto o VDI |
 | **NetApp** | **Cloud Volumes ONTAP** optimiza los costos de almacenamiento en la nube y el rendimiento, a la vez que mejora la protección de datos, la seguridad y el cumplimiento. Incluye una opción de administración de datos de nivel empresarial, disponibilidad y durabilidad. | - Aplicaciones empresariales <br> - Bases de datos relacionales y de NoSQL <br> - Macrodatos y análisis <br> - Datos persistentes para contenedores <br> - Canalizaciones de CI/CD <br> - Recuperación ante desastres para soluciones de NetApp locales |
-| **Panzura**| **CloudFS** es un sistema de archivos global de empresa híbrida que permite acceder al mismo conjunto de datos local o en la nube. | - Reemplazo de NAS empresarial <br> - Colaboración global <br> - Acceso nativo en la nube a datos no estructurados para Analytics, IA/ML. |
-| **Tiger Technology** | **Tiger Bridge** es una solución de software de administración de datos. Proporciona niveles entre un sistema de archivos NTFS y Azure Blob Storage o los discos administrados de Azure. Asimismo, crea un espacio de nombres único con bloqueo de archivos local. | - Analytics <br> - Archivo en la nube <br> - Protección continua de datos (CDP) <br> - Recuperación ante desastres para Windows servers <br> - Sincronización y colaboración de sincronización múltiple <br> - Flujos de trabajo remotos (VDI) |
+| **Panzura**| **CloudFS** es un sistema de archivos global de empresa con resistencia agregada y alto rendimiento. Ofrece protección contra ransomware. | - Sustitución de almacenamiento heredado simplificado <br> - Copia de seguridad y recuperación ante desastres, con capacidad de recuperación granular <br> - Acceso nativo en la nube a datos no estructurados para Analytics, IA/ML. <br> - Colaboración de archivos de sitios múltiples, con bloqueo automático de archivos y coherencia global de archivos en tiempo real <br> - Trabajo remoto global con VDI en la nube <br> - Migración acelerada en la nube para cargas de trabajo heredadas |
+| **Tiger Technology** | **Tiger Bridge** es una solución de software de administración de datos. Proporciona niveles entre un sistema de archivos NTFS y Azure Blob Storage o los discos administrados de Azure. Asimismo, crea un espacio de nombres único con bloqueo de archivos local. | - Archivo en la nube<br> - Protección continua de datos (CDP) <br> - Recuperación ante desastres para Windows servers <br> - Sincronización y colaboración de sitio múltiple <br> - Flujos de trabajo remotos (VDI)<br> - Acceso nativo a datos en la nube para Analytics, IA, ML |
 | **XenData** | **Cloud File Gateway** crea un sistema de archivos global altamente escalable mediante servidores de archivos de Windows. | - Uso compartido global de archivos científicos y de ingeniería <br> - Edición de vídeo colaborativa |
 
 ## <a name="isv-solutions-comparison"></a>Comparación de soluciones de ISV
@@ -133,7 +133,7 @@ En este artículo se comparan varias soluciones de ISV que proporcionan servicio
 |-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|
 | **Soporte técnico de Azure AD**                                | Sí (a través de ADDS)       | Sí (a través de ADDS)                 | Sí (a través de ADDS)            | Sí (a través de ADDS)        | Sí (a través de ADDS)        |
 | **Compatibilidad con Active Directory**                        | Sí                  | Sí                            | Sí                       | Sí                   | Sí                   |
-| **Compatibilidad con LDAP**                                    | Sí                  | Sí                            | No                        | No                    | Sí                   |
+| **Compatibilidad con LDAP**                                    | Sí                  | Sí                            | No                        | Sí                   | Sí                   |
 
 ### <a name="management"></a>Administración
 
@@ -190,7 +190,6 @@ En este artículo se comparan varias soluciones de ISV que proporcionan servicio
 - Opción para aplicar cambios de nombre al destino en la nube
 - Escritura parcial en objetos
 - Protección contra ransomware
-- Sincronización y colaboración de varios sitios
 
 **XenData**
 - El servicio Cosmos DB proporciona una sincronización rápida de varias puertas de enlace, incluidos los archivos de propietario específicos de la aplicación para la colaboración global. 

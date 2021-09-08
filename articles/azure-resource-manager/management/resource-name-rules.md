@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: a7d0d934549d1dd06099bc02105cf2dcfdaa0109
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/08/2021
+ms.openlocfilehash: a068f28ada85f73aed339956e242c959d6dcb4d3
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202864"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113688314"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -171,6 +171,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
+> | cloudservices | resource group | 1-15 <br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
 > | diskEncryptionSets | resource group | 1-80 | Caracteres alfanuméricos y de subrayado. |
 > | disks | resource group | 1-80 | Caracteres alfanuméricos, de subrayado y guiones. |
 > | galleries | resource group | 1-80 | Caracteres alfanuméricos y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
@@ -192,6 +193,13 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | communicationServices | global | 1-63 | Caracteres alfanuméricos, de subrayado y guiones. |
+
+## <a name="microsoftconsumption"></a>Microsoft.Consumption
+
+> [!div class="mx-tableFixed"]
+> | Entidad | Ámbito | Length | Caracteres válidos |
+> | --- | --- | --- | --- |
+> | budgets | suscripción o grupo de recursos | 1-63 | Caracteres alfanuméricos, de subrayado y guiones. |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
@@ -261,7 +269,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | workspaces | resource group | 3-30 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | workspaces | resource group | 3-64 | Caracteres alfanuméricos, de subrayado y guiones. |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -405,7 +413,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | No puede usar:<br>`/&%\?` <br><br>No puede terminar con un espacio ni punto.  |
+> | actionGroups | resource group | 1-260 | No puede usar:<br>`:<>+/&%\?` <br><br>No puede terminar con un espacio ni punto.  |
 > | components | resource group | 1-260 | No puede usar:<br>`%&\?/` <br><br>No puede terminar con un espacio ni punto.  |
 > | scheduledQueryRules | resource group | 1-260 | No puede usar:<br>`*<>%{}&:\\?/#` <br><br>No puede terminar con un espacio ni punto.  |
 > | metricAlerts | resource group | 1-260 | No puede usar:<br>`*#&+:<>?@%{}\/` <br><br>No puede terminar con un espacio ni punto.  |

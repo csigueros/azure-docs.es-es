@@ -1,21 +1,21 @@
 ---
 title: Autenticación de la salida de Blob con identidad administrada para Azure Stream Analytics
 description: En este artículo se describe cómo usar las identidades administradas para autenticar su trabajo de Azure Stream Analytics en la salida de Azure Blob Storage.
-author: kim-ale
-ms.author: kimal
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/15/2020
-ms.openlocfilehash: 98a78d9d769300fc4963869fbc4fa2607b800fad
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 07/07/2021
+ms.openlocfilehash: 708871f620614f893a641f20098f6ed58af464f5
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591123"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486110"
 ---
-# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Uso de la identidad administrada (versión preliminar) para autenticar su trabajo de Azure Stream Analytics en Azure Blob Storage
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Uso de identidad administrada para autenticar su trabajo de Azure Stream Analytics en Azure Blob Storage
 
-[Autenticación de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (versión preliminar) para la salida a Azure Blob Storage proporciona a los trabajos de Stream Analytics acceso directo a una cuenta de almacenamiento en lugar de tener que usar una cadena de conexión. Además de mejorar la seguridad, esta característica también le permite escribir datos en una cuenta de almacenamiento de una red virtual (VNET) en Azure.
+[Autenticación de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para la salida a Azure Blob Storage proporciona a los trabajos de Stream Analytics acceso directo a una cuenta de almacenamiento en lugar de tener que usar una cadena de conexión. Además de mejorar la seguridad, esta característica también le permite escribir datos en una cuenta de almacenamiento de una red virtual (VNET) en Azure.
 
 En este artículo se muestra cómo habilitar la identidad administrada para las salidas del blob de un trabajo de Stream Analytics a través de Azure Portal y a través de una implementación de Azure Resource Manager.
 

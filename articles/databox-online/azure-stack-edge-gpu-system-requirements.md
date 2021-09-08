@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/26/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e9bf7d7d61ad05726ca8dcaad06d63902273f6f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d30ce268c7e117e5673af51ee32bea3b8923576b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085067"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740765"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos del sistema de Azure Stack Edge Pro con GPU 
 
@@ -115,9 +115,9 @@ Agregue los siguientes patrones de dirección URL para Azure Monitor si utiliza 
 
 | Patrón de URL | Port | Componente o funcionalidad |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.com | 443 | Ingesta de datos |
-| http://\*.oms.opinsights.azure.com | 443 | Incorporación de Operations Management Suite (OMS) |
-| http://\*.dc.services.visualstudio.com | 443 | La telemetría del agente que usa Application Insights en la nube pública de Azure. |
+| https://\*ods.opinsights.azure.com | 443 | Ingesta de datos |
+| https://\*.oms.opinsights.azure.com | 443 | Incorporación de Operations Management Suite (OMS) |
+| https://\*.dc.services.visualstudio.com | 443 | La telemetría del agente que usa Application Insights en la nube pública de Azure. |
 
 Para más información, consulte [Requisitos de firewall de red](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
 
@@ -139,9 +139,9 @@ Agregue los siguientes patrones de dirección URL para Azure Monitor si utiliza 
 
 | Patrón de URL | Port | Componente o funcionalidad |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.us | 443 | Ingesta de datos |
-| http://\*.oms.opinsights.azure.us | 443 | Incorporación de Operations Management Suite (OMS) |
-| http://\*.dc.services.visualstudio.com | 443 | La telemetría del agente que usa Application Insights en la nube pública de Azure. |
+| https://\*ods.opinsights.azure.us | 443 | Ingesta de datos |
+| https://\*.oms.opinsights.azure.us | 443 | Incorporación de Operations Management Suite (OMS) |
+| https://\*.dc.services.visualstudio.com | 443 | La telemetría del agente que usa Application Insights en la nube pública de Azure. |
 
 
 ## <a name="internet-bandwidth"></a>Ancho de banda de Internet

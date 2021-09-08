@@ -1,6 +1,6 @@
 ---
 title: Invalidación de la información de SKU sobre CSCFG/CSDEF para Azure Cloud Services (soporte extendido)
-description: Invalidación de la información de SKU sobre CSCFG/CSDEF para Azure Cloud Services (soporte extendido)
+description: En este artículo se describe cómo invalidar la información de SKU en los archivos .cscfg y .csdef para Azure Cloud Services (soporte extendido).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -8,30 +8,31 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/05/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fc973f024ea93b986793a8daff8e0db8caf56e22
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 31ff47cd4e110e62769678836bdd803b71369e0b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696217"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437885"
 ---
-# <a name="override-sku-information-over-cscfgcsdef-in-cloud-services-extended-support"></a>Invalidación de la información de SKU sobre CSCFG/CSDEF en Cloud Services (soporte extendido) 
+# <a name="override-sku-settings-in-cscfg-and-csdef-files-for-cloud-services-extended-support"></a>Invalidación de la configuración de SKU en los archivos .cscfg y .csdef para Cloud Services (soporte extendido)
 
-Esta característica permite al usuario actualizar el tamaño de rol y el recuento de instancias en su instancia de Cloud Services mediante la propiedad **allowModelOverride** sin tener que actualizar los archivos de configuración de servicio y de definición del servicio, lo que permite que el servicio en la nube se escale y reduzca vertical y horizontalmente, y lo haga sin necesidad de volver a empaquetar e implementar.
+En este artículo se describe cómo actualizar el tamaño de rol y el recuento de instancias en Azure Cloud Services mediante la propiedad **allowModelOverride**. Cuando se usa esta propiedad, no es necesario actualizar los archivos de configuración del servicio (.cscfg) y de definición del servicio (.csdef). Por lo tanto, puede escalar y reducir vertical u horizontalmente el servicio en la nube sin necesidad de volver a empaquetarlo e implementarlo.
 
-## <a name="set-allowmodeloverride-property"></a>Definición de la propiedad allowModelOverride
-La propiedad allowModelOverride se puede establecer de las maneras siguientes:
-* Cuando allowModelOverride = true, la llamada API actualizará el tamaño de rol y el recuento de instancias para el servicio en la nube sin validar los valores con los archivos csdef y cscfg. 
-> [!Note]
-> El archivo cscfg se actualizará para reflejar el recuento de instancias de rol, pero el archivo csdef (dentro de cspkg) conservará los valores anteriores.
-* Cuando allowModelOverride = false, la llamada API produciría un error cuando los valores de tamaño de rol y recuento de instancias no coincidan con los de los archivos csdef y cscfg, respectivamente.
+## <a name="set-the-allowmodeloverride-property"></a>Establecimiento de la propiedad allowModelOverride
+Puede establecer la propiedad **allowModelOverride** en `true` o `false`. 
+* Cuando **allowModelOverride** se establece en `true`, una llamada API actualizará el tamaño de rol y el recuento de instancias para el servicio en la nube sin validar los valores con los archivos .csdef y .cscfg. 
+   > [!Note]
+   > El archivo .cscfg se actualizará para reflejar el recuento de instancias de rol. El archivo .csdef (insertado en .cspkg) conservará los valores anteriores.
 
-El valor predeterminado está establecido en false. Si la propiedad se restablece en false luego haber estado definida en true, se volverían a comprobar los archivos csdef y cscfg con fines de validación.
+* Cuando **allowModelOverride** se establece en `false`, una llamada API producirá un error si los valores de tamaño de rol y recuento de instancias no coinciden con los valores de los archivos .csdef y .cscfg, respectivamente.
 
-Consulte los ejemplos siguientes para aplicar la propiedad en PowerShell, la plantilla y el SDK.
+El valor predeterminado es `false`. Si la propiedad se restablece en `false` después de establecerse en `true`, los archivos .csdef y .cscfg se volverán a validar.
 
-### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
-Si la propiedad "allowModelOverride" se establece en true, se actualizará el servicio en la nube con las propiedades de rol definidas en la sección roleProfile.
+En los ejemplos siguientes se muestra cómo establecer la propiedad **allowModelOverride** mediante una plantilla de Azure Resource Manager (ARM), PowerShell o el SDK.
+
+### <a name="arm-template"></a>Plantilla ARM
+Si la propiedad **allowModelOverride** se establece en `true`, se actualizará el servicio en la nube con las propiedades de rol definidas en la sección `roleProfile`:
 ```json
 "properties": {
         "packageUrl": "[parameters('packageSasUri')]",
@@ -59,12 +60,12 @@ Si la propiedad "allowModelOverride" se establece en true, se actualizará el se
 
 ```
 ### <a name="powershell"></a>PowerShell
-Si se establece el modificador "AllowModelOverride" en el nuevo cmdlet New-AzCloudService, se actualizará el servicio en la nube con las propiedades del SKU definidas en RoleProfile.
+Si el modificador `AllowModelOverride` se establece en el nuevo cmdlet `New-AzCloudService`, se actualizará el servicio en la nube con las propiedades de SKU definidas en el perfil de rol:
 ```powershell
 New-AzCloudService ` 
--Name “ContosoCS” ` 
--ResourceGroupName “ContosOrg” ` 
--Location “East US” `
+-Name "ContosoCS" ` 
+-ResourceGroupName "ContosOrg" ` 
+-Location "East US" `
 -AllowModelOverride  ` 
 -PackageUrl $cspkgUrl ` 
 -ConfigurationUrl $cscfgUrl ` 
@@ -76,7 +77,7 @@ New-AzCloudService `
 -Tag $tag
 ```
 ### <a name="sdk"></a>SDK
-Si la variable AllowModelOverride se establece en true, se actualizará el servicio en la nube con las propiedades del SKU definidas en RoleProfile.
+Si la variable `AllowModelOverride` se establece en `true`, se actualizará el servicio en la nube con las propiedades de SKU definidas en el perfil de rol:
 
 ```csharp
 CloudService cloudService = new CloudService
@@ -94,12 +95,12 @@ CloudService cloudService = new CloudService
             },
                 Location = m_location
             };
-CloudService createOrUpdateResponse = m_CrpClient.CloudServices.CreateOrUpdate(“ContosOrg”, “ContosoCS”, cloudService);
+CloudService createOrUpdateResponse = m_CrpClient.CloudServices.CreateOrUpdate("ContosOrg", "ContosoCS", cloudService);
 ```
-### <a name="azure-portal"></a>Azure Portal
-El portal no permite que la propiedad anterior invalide el tamaño de rol y el recuento de instancias en csdef y cscfg. 
+### <a name="azure-portal"></a>Azure portal
+Azure Portal no permite usar la propiedad **allowModelOverride** para invalidar el tamaño de rol y el recuento de instancias en los archivos .csdef y .cscfg. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes 
-- Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).

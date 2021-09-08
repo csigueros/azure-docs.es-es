@@ -1,6 +1,6 @@
 ---
 title: Visualización de la configuración de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Visualización de la configuración de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 services: azure-arc
 ms.service: azure-arc
@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 12631adea948c6a59f935ba409dcc925268c6319
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 727c792daa20c392a87f7c57100b72ae79a971f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412266"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733500"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Visualización de la configuración de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -155,12 +155,12 @@ Use uno de los siguientes comandos.
 
    Cada uno de ellos se ejecuta en 3 nodos o pods: 1 nodo de coordinación y 2 nodos de trabajo.
 
-- **Con azdata:**
+- **Con la CLI de Azure (az):**
 
 Ejecute el siguiente comando. La salida muestra información similar a la que muestra kubectl:
 
-   ```console
-   azdata arc postgres server list
+   ```azurecli
+   az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
    `output
    Name        State    Workers
@@ -281,18 +281,18 @@ Vamos a explicar algunos puntos específicos de interés de la descripción del 
    >  State:              Ready
    > ```
 
-**Con azdata:**
+**Con la CLI de Azure (az):**
 
 El formato general del comando es:
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name>  --k8s-namespace <namespace> --use-k8s
 ```
 
 Por ejemplo:
 
-```console
-azdata arc postgres server show -n postgres02
+```azurecli
+az postgres arc-server show -n postgres02 --k8s-namespace <namespace> --use-k8s
 ```
 
 Devuelve la siguiente salida en un formato y contenido muy similar al devuelto por kubectl.

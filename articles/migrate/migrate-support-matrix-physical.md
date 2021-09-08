@@ -1,17 +1,17 @@
 ---
 title: Compatibilidad con la detección y la evaluación físicas en Azure Migrate
 description: 'Aprenda sobre la compatibilidad con la detección y la evaluación físicas con Azure Migrate: Discovery and assessment.'
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: aad800a710a1bc3942efc128f8350044a513d44f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 2d68a74332ef77694d44597e6f879858fa0051bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472030"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726227"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matriz de compatibilidad con la detección y la evaluación físicas de servidores 
 
@@ -38,10 +38,44 @@ Para evaluar los servidores físicos, creará un proyecto y le agregará la herr
 
 **Permisos:**
 
-- En el caso de servidores Windows, use una cuenta de dominio para los servidores que se hayan unido a un dominio y una cuenta local para los que no. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
+Configure una cuenta que el dispositivo pueda usar para acceder a los servidores físicos.
+
+**Servidores Windows**
+
+- En el caso de servidores Windows, use una cuenta de dominio para los servidores que se hayan unido a un dominio y una cuenta local para los que no. 
+- Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento. 
+- Si el grupo Usuarios de administración remota no está presente, agregue la cuenta de usuario al grupo: **WinRMRemoteWMIUsers_** .
+- La cuenta necesita estos permisos para que el dispositivo cree una conexión CIM con el servidor y extraiga los metadatos de configuración y rendimiento necesarios de las clases WMI enumeradas [aquí](migrate-appliance.md#collected-data---physical).
+- En algunos casos, es posible que agregar la cuenta a estos grupos no devuelva los datos necesarios de las clases WMI, ya que la cuenta podría estar filtrada por [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). Para superar el filtrado de UAC, la cuenta de usuario debe tener los permisos necesarios en el espacio de nombres CIMV2 y en los subespacios de nombres en el servidor de destino. Puede seguir [estos pasos](troubleshoot-appliance.md#access-is-denied-when-connecting-to-physical-servers-during-validation) para habilitar los permisos obligatorios.
+
     > [!Note]
-    > En Windows Server 2008 y 2008 R2, asegúrese de que WMF 3.0 esté instalado en los servidores y de que el dominio o la cuenta local usados para acceder a los servidores se haya agregado a estos grupos: Usuarios del monitor de rendimiento, Usuarios del registro de rendimiento y WinRMRemoteWMIUsers.
-- Para los servidores Linux, necesita una cuenta raíz en los servidores Linux que desee detectar. Como alternativa, puede establecer una cuenta que no sea raíz con las funcionalidades necesarias mediante los siguientes comandos:
+    > En el caso de Windows Server 2008 y 2008 R2, asegúrese de que WMF 3.0 esté instalado en los servidores.
+
+**Servidores Linux**
+
+- Necesita una cuenta raíz en los servidores que quiera detectar. Como alternativa, puede proporcionar permisos sudo a una cuenta de usuario.
+- La compatibilidad para agregar una cuenta de usuario con acceso sudo se proporciona de manera predeterminada con el nuevo script del instalador del dispositivo descargado del portal después del 20 de julio de 2021.
+- En el caso de dispositivos anteriores, puede seguir estos pasos para habilitar la funcionalidad:
+    1. En el servidor que ejecuta el dispositivo, abra el Editor del Registro.
+    1. Vaya a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+    1. Cree una clave del Registro "isSudo" con un valor de DWORD de 1.
+
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Captura de pantalla en la que se muestra cómo habilitar la compatibilidad con sudo.":::
+
+- Para detectar los metadatos de configuración y rendimiento del servidor de destino, debe habilitar el acceso sudo para los comandos enumerados [aquí](migrate-appliance.md#linux-server-metadata). Asegúrese de que ha habilitado "NOPASSWD" para que la cuenta ejecute los comandos necesarios sin solicitar una contraseña cada vez que se invoque el comando sudo.
+- Las siguientes distribuciones del sistema operativo Linux son compatibles con la detección de Azure Migrate mediante una cuenta con acceso sudo:
+
+    Sistema operativo | Versiones 
+    --- | ---
+    Red Hat Enterprise Linux | 6, 7, 8
+    Cent OS | 6.6, 8.2
+    Ubuntu | 14.04, 16.04, 18.04
+    SUSE Linux | 11.4, 12.4
+    Debian | 7, 10
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
+
+- Si no puede proporcionar acceso sudo a la cuenta raíz o a la cuenta de usuario, puede establecer la clave del Registro "isSudo" en el valor "0" en el Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance y proporcionar una cuenta no raíz con las funcionalidades necesarias mediante los siguientes comandos:
 
 **Comando** | **Propósito**
 --- | --- |

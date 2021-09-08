@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 06/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e95359d24cda6b0d23084010d8ab19566dd2197c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 415824041c8e721c96ad9a9d480d5e50436310e4
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409386"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964777"
 ---
 # <a name="how-application-provisioning-works-in-azure-active-directory"></a>Funcionamiento del aprovisionamiento de aplicaciones en Azure Active Directory
 
@@ -143,7 +143,7 @@ El servicio de aprovisionamiento sigue ejecutando ciclos incrementales opuestos 
 
 ### <a name="errors-and-retries"></a>Errores y reintentos
 
-Si un error en el sistema de destino evita que un usuario individual se agregue, actualice o elimine en el sistema, la operación se reintenta en el siguiente ciclo de sincronización. Si el error continúa, los reintentos comienzan a producirse según una frecuencia reducida y disminuyen gradualmente hasta un solo intento al día. Para resolver el error, los administradores deben comprobar los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) para determinar la causa principal y realizar la acción apropiada. Algunos errores comunes son:
+Si un error en el sistema de destino evita que un usuario individual se agregue, actualice o elimine en el sistema, la operación se reintenta en el siguiente ciclo de sincronización. Los errores se reintentan continuamente y la frecuencia de los reintentos se escala de forma gradual. Para resolver el error, los administradores deben comprobar los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) para determinar la causa principal y realizar la acción apropiada. Algunos errores comunes son:
 
 - Usuarios que no tienen relleno un atributo en el sistema de origen que es necesario en el sistema de destino
 - Usuarios que tienen un valor de atributo en el sistema de origen para el que existe una restricción única en el sistema de destino, y el mismo valor está presente en otro registro de usuario

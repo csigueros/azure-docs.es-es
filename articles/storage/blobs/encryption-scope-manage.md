@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1419dcba2dbf1732760848738c6f50c4168ac545
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a44666d8378b13f7ac8498ae4256507705ffc42b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664989"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723410"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Creación y administración de ámbitos de cifrado
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo crear un ámbito de cifrado. También se mues
 
 ## <a name="create-an-encryption-scope"></a>Creación de un ámbito de cifrado
 
-Puede crear un ámbito de cifrado que esté protegido con una clave administrada por Microsoft o con una clave administrada por el cliente que se almacena en Azure Key Vault o en el modelo de seguridad de hardware administrado (HSM) de Azure Key Vault (versión preliminar). Para crear un ámbito de cifrado con una clave administrada por el cliente, en primer lugar, debe crear un almacén de claves o un HSM administrado y agregar la clave que quiere usar para el ámbito. El almacén de claves o el HSM administrado deben tener la protección de purga habilitada y deben estar en la misma región que la cuenta de almacenamiento.
+Puede crear un ámbito de cifrado que esté protegido con una clave administrada por Microsoft o con una clave administrada por el cliente que se almacena en Azure Key Vault o en el modelo de seguridad de hardware (HSM) administrado de Azure Key Vault. Para crear un ámbito de cifrado con una clave administrada por el cliente, en primer lugar, debe crear un almacén de claves o un HSM administrado y agregar la clave que quiere usar para el ámbito. El almacén de claves o el HSM administrado deben tener la protección de purga habilitada y deben estar en la misma región que la cuenta de almacenamiento.
 
 Un ámbito de cifrado se habilita automáticamente al crearlo. Después de crearlo, puede especificarlo al crear un blob. También se puede especificar un ámbito de cifrado predeterminado al crear un contenedor, que se aplica automáticamente a todos los blobs del contenedor.
 
@@ -65,7 +65,7 @@ $accountName = "<storage-account>"
 $scopeName1 = "customer1scope"
 
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName1 `
     -StorageEncryption
 ```
@@ -105,7 +105,7 @@ No olvide reemplazar los valores del marcador de posición en el ejemplo por los
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName2 `
     -KeyUri $keyUri `
     -KeyvaultEncryption
@@ -181,7 +181,7 @@ az storage account encryption-scope create \
 Para obtener información sobre cómo configurar el cifrado de Azure Storage con claves administradas por el cliente en un almacén de claves o HSM administrado, consulte los siguientes artículos:
 
 - [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
-- [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+- [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault](../common/customer-managed-keys-configure-key-vault-hsm.md).
 
 Para más información sobre el cifrado de infraestructura, consulte [Creación de una cuenta de almacenamiento con el cifrado de infraestructura para realizar el cifrado doble de datos](../common/infrastructure-encryption-enable.md).
 

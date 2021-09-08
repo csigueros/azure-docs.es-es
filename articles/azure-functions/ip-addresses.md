@@ -3,12 +3,12 @@ title: Direcciones IP en Azure Functions
 description: Aprenda a buscar las direcciones IP entrantes y salientes de aplicaciones de función y descubra qué es lo que hace que cambien.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 30b45394ea620d05a89c3b2fd747573f1ea8017d
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a884edd23fa1538fcc2b00c80190eab6699e1e47
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205006"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414492"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -25,9 +25,21 @@ Las direcciones IP se asocian a aplicaciones de función, no a funciones individ
 
 Cada aplicación de función tiene una única dirección IP de entrada. Para encontrar dicha dirección IP:
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la aplicación de función.
 3. En **Configuración**, seleccione **Propiedades**. La dirección IP de entrada aparece en **Dirección IP virtual**.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
+
+Use la utilidad `nslookup` desde el equipo cliente local:
+
+```command
+nslookup <APP_NAME>.azurewebsites.net
+```
+
+---
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Direcciones IP de salida de una aplicación de función
 
@@ -35,22 +47,25 @@ Cada aplicación de función tiene un conjunto de direcciones IP de salida dispo
 
 Para buscar las direcciones IP de salida disponibles para una aplicación de función:
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
 1. Inicie sesión en [Azure Resource Explorer](https://resources.azure.com).
 2. Seleccione **suscriptions (suscripciones) > {su suscripción} > providers (proveedores) > Microsoft.Web > sites (sitios)** .
 3. En el panel JSON, busque el sitio con una propiedad `id` que acabe en el nombre de la aplicación de función.
 4. Vea `outboundIpAddresses` y `possibleOutboundIpAddresses`. 
 
-El conjunto de `outboundIpAddresses` está actualmente disponible para la aplicación de función. El conjunto de `possibleOutboundIpAddresses` incluye las direcciones IP que estarán disponibles solo si la aplicación de función [se escala a otros planes de tarifa](#outbound-ip-address-changes).
-
-Una forma alternativa de encontrar las direcciones IP de salida disponibles es mediante [Cloud Shell](../cloud-shell/quickstart.md):
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 
 ```azurecli-interactive
-az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
-az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
+az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query outboundIpAddresses --output tsv
+az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query possibleOutboundIpAddresses --output tsv
 ```
+---
+
+El conjunto de `outboundIpAddresses` está actualmente disponible para la aplicación de función. El conjunto de `possibleOutboundIpAddresses` incluye las direcciones IP que estarán disponibles solo si la aplicación de función [se escala a otros planes de tarifa](#outbound-ip-address-changes).
 
 > [!NOTE]
-> Cuando se escala una aplicación de función que se ejecuta en el [plan de consumo](consumption-plan.md) o el [plan premium](functions-premium-plan.md), puede asignarse un nuevo intervalo de direcciones IP de salida. Cuando se ejecuta en uno de estos planes, es posible que deba agregar el centro de datos completo a la lista de permitidos.
+> Cuando se escala una aplicación de función que se ejecuta en el [plan de consumo](consumption-plan.md) o el [plan premium](functions-premium-plan.md), puede asignarse un nuevo intervalo de direcciones IP de salida. Cuando la ejecución se realiza en cualquiera de estos planes, no puede confiar en las direcciones IP salientes notificadas para crear una lista de permitidos definitiva. Para poder incluir todas las direcciones salientes posibles que se usan durante el escalado dinámico, tendrá agregar el centro de datos completo a la lista de permitidos.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Direcciones IP de salida del centro de datos
 
@@ -98,7 +113,7 @@ La estabilidad relativa de la dirección IP de salida depende del plan de hosped
 
 Debido a los comportamientos de escalado automático, la dirección IP de salida puede cambiar en cualquier momento cuando se ejecute en un [Plan de consumo](consumption-plan.md) o en un [Plan prémium](functions-premium-plan.md). 
 
-Si necesita controlar la dirección IP de salida de la aplicación de funciones, por ejemplo, cuando necesite agregarla a una lista de permitidos, puede implementar una [puerta de enlace NAT de red virtual](#virtual-network-nat-gateway-for-outbound-static-ip) en el plan prémium.
+Si tiene que controlar la dirección IP de salida de la aplicación de funciones, por ejemplo, cuando necesite agregarla a una lista de permitidos, puede implementar una [puerta de enlace NAT de red virtual](#virtual-network-nat-gateway-for-outbound-static-ip) en el plan de hospedaje Premium. También puede hacerlo si se ejecuta en un plan Dedicado (App Service).
 
 ### <a name="dedicated-plans"></a>Planes dedicados
 
@@ -127,7 +142,7 @@ Hay varias estrategias que puede examinar cuando la aplicación de funciones req
 
 ### <a name="virtual-network-nat-gateway-for-outbound-static-ip"></a>Instancia de NAT Gateway de red virtual para IP estática de salida
 
-Para controlar la dirección IP del tráfico de salida desde las funciones, puede usar una instancia de NAT Gateway de red virtual, a fin de dirigir el tráfico a través de una dirección IP pública estática. Puede usar esta topología cuando realiza la ejecución en un [plan Premium](functions-premium-plan.md). Para más información, consulte [Tutorial: Control de la IP de salida de Azure Functions mediante un servicio NAT Gateway de Azure Virtual Network](functions-how-to-use-nat-gateway.md).
+Para controlar la dirección IP del tráfico de salida desde las funciones, puede usar una instancia de NAT Gateway de red virtual, a fin de dirigir el tráfico a través de una dirección IP pública estática. Puede usar esta topología cuando realiza la ejecución en un [plan Premium](functions-premium-plan.md) o en un [plan Dedicado (App Service)](dedicated-plan.md). Para más información, consulte [Tutorial: Control de la IP de salida de Azure Functions mediante un servicio NAT Gateway de Azure Virtual Network](functions-how-to-use-nat-gateway.md).
 
 ### <a name="app-service-environments"></a>Entornos de App Service
 
@@ -135,16 +150,20 @@ Para tener un control total sobre las direcciones IP, tanto de entrada como de s
 
 Para averiguar si una aplicación de función se ejecuta en App Service Environment:
 
+# <a name="azure-porta"></a>[Azure Portal](#tab/portal)
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la aplicación de función.
 3. Seleccione la pestaña **Información general**.
 4. El nivel del plan de App Service aparece en **Plan de App Service/plan de tarifa**. El plan de tarifa de App Service Environment es **Aislado**.
- 
-Como alternativa, puede usar [Cloud Shell](../cloud-shell/quickstart.md):
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
+
+---
 
 El App Service Environment `sku` es `Isolated`.
 

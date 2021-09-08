@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a0089d246169ad4215075662500794e7143940e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81819fa99db4ff0171e96e5b2ba0ce3fc4604769
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90601816"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459545"
 ---
 # <a name="conditional-access-session"></a>Acceso condicional: Sesión
 
@@ -42,8 +42,8 @@ Control de aplicaciones de acceso condicional permite supervisar y controlar las
 - Impedir la filtración de datos: puede bloquear la descarga, cortar, copiar e imprimir documentos confidenciales en, por ejemplo, dispositivos no administrados.
 - Proteger en la descarga: en lugar de bloquear la descarga de documentos confidenciales, puede requerir que los documentos estén etiquetados y protegidos con Azure Information Protection. Esta acción garantiza que el documento está protegido y el acceso de usuario está restringido en una sesión de riesgo potencial.
 - Impedir la carga de archivos sin etiqueta: antes de cargar, distribuir y usar un archivo confidencial, es importante asegurarse de que el archivo tiene la etiqueta y la protección adecuadas. Puede asegurarse de que los archivos sin etiqueta con contenido confidencial se bloqueen para que no se carguen hasta que el usuario clasifique el contenido.
-- Supervisar el cumplimiento de las sesiones de usuario: los usuarios de riesgo se supervisan cuando inician sesión en las aplicaciones y sus acciones se registran desde dentro de la sesión. Puede investigar y analizar el comportamiento del usuario para saber dónde se deben aplicar las directivas de sesión en el futuro, y en qué condiciones.
-- Bloquear acceso: puede bloquear granularmente el acceso para aplicaciones y usuarios específicos en función de varios factores de riesgo. Por ejemplo, puede bloquearlos si usan certificados de cliente como forma de administración de dispositivos.
+- Supervisar el cumplimiento de las sesiones de usuario (versión preliminar): los usuarios de riesgo se supervisan cuando inician sesión en las aplicaciones y sus acciones se registran desde dentro de la sesión. Puede investigar y analizar el comportamiento del usuario para saber dónde se deben aplicar las directivas de sesión en el futuro, y en qué condiciones.
+- Bloquear acceso (versión preliminar): puede bloquear de forma pormenorizada el acceso para aplicaciones y usuarios específicos en función de varios factores de riesgo. Por ejemplo, puede bloquearlos si usan certificados de cliente como forma de administración de dispositivos.
 - Bloquear actividades personalizadas: algunas aplicaciones tienen escenarios únicos que conllevan riesgo, por ejemplo, el envío de mensajes con contenido confidencial en aplicaciones como Microsoft Teams o Slack. En estos tipos de escenarios, puede examinar los mensajes para detectar el contenido confidencial y bloquearlos en tiempo real.
 
 Para obtener más información, consulte el artículo [Implementación del Control de aplicaciones de acceso condicional para aplicaciones destacadas](/cloud-app-security/proxy-deployment-aad).

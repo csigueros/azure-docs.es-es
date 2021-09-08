@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aedc6e92b02cf81003ecf4b40a5096bf80c7448
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91445494"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441052"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Reescritura de direcciones URL (ruta de acceso de reenvío personalizada)
 Azure Front Door admite la reescritura de direcciones URL mediante la configuración de una **ruta de acceso de reenvío personalizada** opcional que se usará al construir la solicitud de reenvío al back-end. De forma predeterminada, si no se proporciona una ruta de reenvío personalizada, Front Door copia la ruta de acceso de la dirección URL entrante en la dirección URL de la solicitud reenviada. El encabezado host usado en la solicitud reenviada se configura para el back-end seleccionado. Lea [Encabezado de host de back-end](front-door-backend-pool.md#hostheader) para más información sobre lo que hace y cómo configurarlo.
@@ -48,6 +48,10 @@ Por ejemplo, si leemos en la segunda fila, dice que para la solicitud entrante `
 | www\.contoso.com/foo         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
 | www\.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
 | www\.contoso.com/foo/**bar** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
+
+> [!NOTE]
+> Azure Front Door solo admite la reescritura de direcciones URL de una ruta de acceso estática a otra. La conservación de la ruta de acceso sin coincidencia se admite en la SKU estándar o prémium de Azure Front Door. Consulte [Conservar la ruta de acceso sin coincidencia](standard-premium/concept-rule-set-url-redirect-and-rewrite.md#preserve-unmatched-path) para obtener más detalles.
+> 
 
 ## <a name="optional-settings"></a>Configuración opcional
 Hay valores opcionales adicionales que también puede especificar para cualquier configuración de regla de enrutamiento:

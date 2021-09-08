@@ -7,12 +7,12 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 87f188b414791636e147a19202b6fcf314d6f307
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 0c087838029a5e7863359564682a6843238421c5
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683662"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964597"
 ---
 # <a name="transform-data-for-iot-central"></a>Transformación de datos para IoT Central
 
@@ -35,7 +35,7 @@ En la tabla siguiente se muestran tres tipos de transformaciones de ejemplo:
 |------------------------|-------------|----------|-------|
 | Formato de los mensajes         | Convierta o manipule mensajes JSON. | CSV a JSON  | En la entrada. IoT Central solo acepta mensajes JSON de valor. Para más información, consulte [Cargas de telemetría, propiedades y comandos](concepts-telemetry-properties-commands.md). |
 | Cálculos           | Funciones matemáticas que puede ejecutar [Azure Functions](../../azure-functions/index.yml). | Conversión de unidades de Fahrenheit a Celsius.  | Realice la transformación mediante el patrón de salida para aprovechar las ventajas de la entrada de dispositivo escalable a través de la conexión directa a IoT Central. La transformación de los datos le permite usar las características de IoT Central como visualizaciones y trabajos. |
-| Enriquecimiento de mensajes     | Los enriquecimientos de orígenes de datos externos no se encuentran en las propiedades o la telemetría del dispositivo. Para obtener más información sobre los enriquecimientos internos, consulte [Exportación de datos de IoT a destinos en la nube mediante la exportación de datos](howto-export-data.md). | Agregue información meteorológica a los mensajes mediante los datos de ubicación de los dispositivos. | Realice la transformación mediante el patrón de salida para aprovechar las ventajas de la entrada de dispositivo escalable a través de la conexión directa a IoT Central. |
+| Enriquecimiento de mensajes     | Los enriquecimientos de orígenes de datos externos no se encuentran en las propiedades o la telemetría del dispositivo. Para obtener más información sobre los enriquecimientos internos, consulte [Exportación de datos de IoT a destinos en la nube mediante la exportación de datos](howto-export-data.md). | Agregue información meteorológica a los mensajes mediante los [datos de ubicación](howto-use-location-data.md) de los dispositivos. | Realice la transformación mediante el patrón de salida para aprovechar las ventajas de la entrada de dispositivo escalable a través de la conexión directa a IoT Central. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -200,7 +200,7 @@ Para registrar un dispositivo de bajada en IoT Central:
 
 Para mayor comodidad, en este artículo se usan máquinas virtuales de Azure para ejecutar la puerta de enlace y los dispositivos de bajada. Para crear las dos máquinas virtuales de Azure, seleccione el botón **Implementar en Azure** a continuación, y use la información de la siguiente tabla para completar el formulario de **Implementación personalizada**:
 
-| Campo | Value |
+| Campo | Valor |
 | ----- | ----- |
 | Grupo de recursos | `ingress-scenario` |
 | Puerta de enlace de prefijo de etiqueta DNS | Un nombre DNS único para esta máquina, como `<your name>edgegateway`. |
@@ -423,7 +423,7 @@ Antes de configurar este escenario, debe obtener algunas configuraciones de cone
 
 En este escenario se usa la misma implementación de Azure Functions que el puente de dispositivos de IoT Central. Para implementar el puente de dispositivos, seleccione el botón **Implementar en Azure** y, a continuación, use la información de la siguiente tabla para completar el formulario de **Implementación personalizada**:
 
-| Campo | Value |
+| Campo | Valor |
 | ----- | ----- |
 | Grupo de recursos | Cree un nuevo grupo de recursos denominado `egress-scenario`. |
 | Region | Seleccione la región más cercana a la suya. |

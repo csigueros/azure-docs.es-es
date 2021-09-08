@@ -5,29 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 06/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 083dcc0dc5d6ffdf25f6d6f631a8e6f5788ce8b1
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85554926"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303047"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos unidos a Azure AD
 
-Durante más de una década, muchas organizaciones han usado la unión a un dominio en su instancia de Active Directory local para permitir:
+Las organizaciones con implementaciones de Active Directory existentes pueden beneficiarse de algunas de las funcionalidades proporcionadas por Azure Active Directory (Azure AD) mediante la implementación de dispositivos unidos a Azure AD híbridos. Estos dispositivos se han unido al entorno local de Active Directory y se han registrado en Azure Active Directory.
 
-- A los departamentos de TI administrar los dispositivos de empresa desde una ubicación central.
-- A los usuarios iniciar sesión en sus dispositivos con sus cuentas profesionales o educativas de Active Directory.
-
-Normalmente, las organizaciones con un uso local confían en los métodos de creación de imágenes para aprovisionar los dispositivos y suelen usar **Configuration Manager** o la **directiva de grupo** para administrarlos.
-
-Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Estos dispositivos se han unido al entorno local de Active Directory y se han registrado en Azure Active Directory.
+Los dispositivos Azure AD híbridos requieren una línea de visión de red a los controladores de dominio locales periódicamente. Sin esta conexión, los dispositivos se vuelven inutilizables. Si este requisito es un problema, considere la posibilidad de [conectar Azure AD](concept-azure-ad-join.md) a sus dispositivos.
 
 | Unión a Azure AD híbrido | Descripción |
 | --- | --- |
@@ -57,10 +52,10 @@ Si su entorno tiene un uso local de AD y también desea aprovechar las funcional
 
 Use dispositivos híbridos unidos a Azure AD si:
 
-- Tiene aplicaciones Win32 implementadas en estos dispositivos que se basan en la autenticación de máquina de Active Directory.
+- Admite dispositivo de menor nivel que ejecuten Windows 7 y 8.1.
 - Quiere seguir usando la directiva de grupo para administrar la configuración del dispositivo.
 - Quiere seguir usando las soluciones existentes de creación de imágenes para implementar y configurar dispositivos.
-- Además de Windows 10, debe admitir dispositivos de Windows 7 y 8.1 de nivel inferior.
+- Tiene aplicaciones Win32 implementadas en estos dispositivos que se basan en la autenticación de máquina de Active Directory.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

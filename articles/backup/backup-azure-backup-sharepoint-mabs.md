@@ -2,13 +2,13 @@
 title: Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 description: Uso del Azure Backup Server para hacer copia de seguridad de los datos de SharePoint y restaurarlos. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
-ms.date: 04/26/2020
-ms.openlocfilehash: dd0c6ede50151114994152ed2375cf53f708c620
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 07/30/2021
+ms.openlocfilehash: 2c52ace2515fbb1423c2ca3be75dfde837e6dd5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769370"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734011"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 
@@ -253,7 +253,26 @@ El siguiente procedimiento usa el ejemplo de una granja de servidores con dos se
 
    Se iniciará una comprobación de coherencia.
 
-1. Si realizó el paso 6, ahora puede quitar el volumen del grupo de protección.
+1. Si completó el paso 6, ahora puede quitar el volumen del grupo de protección.
+
+## <a name="remove-a-database-from-a-sharepoint-farm"></a>Eliminación de una base de datos de una granja de SharePoint
+
+Cuando se quita una base de datos de una granja de SharePoint, MABS omite la copia de seguridad de esa base de datos, continúa haciendo copias de seguridad de otras bases de datos de la granja de servidores de SharePoint y alerta al administrador de copias de seguridad.
+
+### <a name="mabs-alert---farm-configuration-changed"></a>Alerta de MABS: la configuración de la granja se ha modificado
+
+Se trata de una alerta de advertencia que se genera en Microsoft Azure Backup Server (MABS) cuando se produce un error en la protección automática de una base de datos de SharePoint. Vea el panel **Detalles** de alerta para obtener más información sobre la causa de esta alerta.
+
+Para resolver esta alerta, siga estos pasos:
+
+1. Compruebe con el administrador de SharePoint si la base de datos se ha quitado realmente de la granja. Si la base de datos se ha quitado de la granja, debe quitarse de la protección activa en MABS.
+1. Para quitar la base de datos de la protección activa:
+   1. En la **Consola de administrador de MABS**, haga clic en **Protección** en la barra de navegación.
+   1. En el panel **Mostrar**, haga clic con el botón derecho en el grupo de protección de la granja SharePoint y, luego, haga clic en **Stop Protection of member** (Detener protección del miembro).
+   1. En el cuadro de diálogo **Detener protección**, haga clic en **Conservar datos protegidos**.
+   1. Haga clic en **Detener protección**.
+
+Puede volver a agregar la granja de SharePoint para protegerla mediante el Asistente para **modificar grupo de protección**. Durante la reprotección, seleccione el servidor front-end de SharePoint y haga clic en **Actualizar** para actualizar la caché de base de datos de SharePoint. Luego, seleccione la granja de SharePoint y continúe.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

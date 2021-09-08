@@ -5,12 +5,12 @@ author: shijatsu
 ms.author: shijain
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 44c838fcb0728797aa3781da0ad98b37cc2c25a5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b86e90298bc753cdea5c0fb5f255e88fcc26dc5c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317980"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440762"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guía de transición del diseñador de vistas de Azure Monitor en Workbooks
 El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Se ha realizado su transición a Libros para proporcionar un lienzo flexible para el análisis de datos y la creación de informes visuales completos en Azure Portal. Este artículo le ayuda a realizar la transición desde el diseñador de vistas a los libros. 
@@ -60,9 +60,7 @@ Una vez seleccionado, se muestra una galería con todos los libros y las plantil
 Para iniciar un nuevo libro, puede seleccionar la plantilla **Vacío** en **Inicio rápido** o el icono **Nuevo** de la barra de navegación superior. Para ver las plantillas o volver a los libros guardados, seleccione el elemento en la galería o busque por nombre en la barra de búsqueda.
 
 Para guardar un libro, tiene que guardar el informe con un título, una suscripción, un grupo de recursos y una ubicación específicos.
-El libro se rellena con la misma configuración que el área de trabajo de LA, con la misma suscripción y grupo de recursos, aunque los usuarios pueden cambiar esta configuración de informe. Los libros se guardan de forma predeterminada en *Mis informes*, donde solo puede acceder el usuario individual. También se pueden guardar directamente en informes compartidos o compartirse más adelante.
-
-![Guardado de libros](media/view-designer-conversion-overview/workbooks-save.png)
+El libro se rellena con la misma configuración que el área de trabajo de LA, con la misma suscripción y grupo de recursos, aunque los usuarios pueden cambiar esta configuración de informe. Los libros son recursos compartidos que requieren acceso de escritura al grupo de recursos primario que se va a guardar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

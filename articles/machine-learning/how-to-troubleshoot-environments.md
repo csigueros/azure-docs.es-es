@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: saachigopal
 ms.author: sagopal
-ms.date: 12/3/2020
+ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8f5a286a835da7fb74f969295090b0ecc0731a74
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519136"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728473"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Solución de problemas en las compilaciones de imágenes
 
@@ -23,7 +23,7 @@ Aprenda a solucionar problemas con las compilaciones de imágenes del entorno de
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Suscripción a Azure. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 * El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install).
 * La[CLI de Azure](/cli/azure/install-azure-cli).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -144,6 +144,25 @@ Error de subproceso de PIP:
    ```
 
 La instalación de PIP se puede bloquear en un bucle infinito si hay conflictos que no se pueden resolver en las dependencias. Si trabaja de forma local, cambie a una versión de PIP anterior a la 20.3. En un entorno de Conda creado a partir de un archivo YAML, solo verá este problema si conda-forge es el canal de prioridad más alta. Para mitigar el problema, especifique explícitamente una versión de PIP anterior a 20.3 (20.3 o 20.2.4 u otra versión) como dependencia de Conda en el archivo de especificación de Conda.
+
+### <a name="modulenotfounderror-no-module-named-distutilsdir_util"></a>ModuleNotFoundError: No hay ningún módulo denominado "distutils.dir_util"
+
+Al configurar el entorno, a veces se encontrará con el problema **ModuleNotFoundError: No module named 'distutils.dir_util'** (ModuleNotFoundError: No hay ningún módulo denominado "distutils.dir_util"). Para corregirlo, ejecute el siguiente comando:
+
+```bash
+apt-get install -y --no-install-recommends python3 python3-distutils && \
+ln -sf /usr/bin/python3 /usr/bin/python
+```
+
+Cuando trabaje con un Dockerfile, ejecútelo como parte de un comando RUN.
+
+```dockerfile
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends python3 python3-distutils && \
+  ln -sf /usr/bin/python3 /usr/bin/python
+```
+
+Al ejecutar este comando, se instalan las dependencias de módulo correctas para configurar el entorno. 
 
 ## <a name="service-side-failures"></a>Errores en el lado de servicio
 

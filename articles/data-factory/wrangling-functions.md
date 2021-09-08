@@ -4,14 +4,15 @@ description: Introducción a las funciones disponibles de limpieza y transformac
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: 5985db37e6b88dc39ce1ac166c4aaf9ba368240d
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: f75ae0030316fafcc734644d4def4ad94d04b0d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740846"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funciones de transformación en Power Query para la limpieza y transformación de datos
 
@@ -20,7 +21,7 @@ ms.locfileid: "109737712"
 La limpieza y transformación de datos en Azure Data Factory permite la ágil preparación, y limpieza y transformación de datos sin código a escala de nube mediante la traducción de scripts ```M``` de Power Query al script de Data Flow. ADF se integra en [Power Query online](/powerquery-m/power-query-m-reference) y pone las funciones ```M``` de Power Query a disposición para la limpieza y transformación de datos a través de la ejecución de Spark con la infraestructura de Spark de flujo de datos. 
 
 > [!NOTE]
-> Power Query en ADF está actualmente disponible en versión preliminar pública
+> Power Query en ADF está actualmente disponible en versión preliminar pública.
 
 Actualmente no se admiten todas las funciones de Power Query M para la limpieza y transformación de datos, a pesar de estar disponibles durante la creación. Al compilar las recopilaciones, aparecerá el siguiente mensaje de error si no se admite una función:
 

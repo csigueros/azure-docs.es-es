@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 07/22/2021
 ms.author: aahi
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8e2197d5eb84c3ae25dc0b4ebe61ca085badca9
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102040199"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603337"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalación y ejecución de contenedores de Docker para LUIS
 
@@ -37,13 +37,28 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para ejecutar el contenedor de LUIS, tenga en cuenta los siguientes requisitos previos:
 
-|Obligatorio|Propósito|
-|--|--|
-|Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
-|Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.|
-|Recurso de Azure `Cognitive Services` y archivo de [aplicación empaquetada](luis-how-to-start-new-app.md) de LUIS |Para poder usar el contenedor, debe tener:<br><br>* Un recurso de Azure _Cognitive Services_ y la clave de facturación asociada del URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de introducción y claves del recurso y son necesarios para iniciar el contenedor. <br>* Una aplicación entrenada o publicada como una entrada montada en el contenedor junto con su identificador de aplicación asociado. Puede obtener el archivo empaquetado en el portal de LUIS o las API de creación. Si va a obtener la aplicación empaquetada de LUIS desde las [API de creación](#authoring-apis-for-package-file), también necesitará su _clave de creación_.<br><br>Estos requisitos se usan para pasar argumentos de la línea de comandos a las siguientes variables:<br><br>**{AUTHORING_KEY}** : esta clave se usa para obtener la aplicación empaquetada del servicio LUIS en la nube y cargar los registros de consultas en la nube. El formato es `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}** : este identificador se usa para seleccionar la aplicación. El formato es `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}** : Esta clave se usa para iniciar el contenedor. Puede encontrar la clave de punto de conexión en dos lugares. El primero de ellos es Azure Portal, en la lista de claves del recurso de _Cognitive Services_. La clave de punto de conexión también está disponible en el portal de LUIS, en la página de configuración de puntos de conexión y claves. No utilice la clave de inicio.<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página Información general.<br><br>El propósito de la [clave de creación y la clave de punto de conexión](luis-limits.md#key-limits) es diferente. No deben utilizarse indistintamente. |
+* [Docker](https://docs.docker.com/) instalado en un equipo host. Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. 
+    * En Windows, Docker también debe estar configurado de forma que admita los contenedores de Linux.
+    * Debe estar familiarizado con los [conceptos de Docker](https://docs.docker.com/get-started/overview/). 
+* Un <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne"  title="Creación de un recurso de LUIS"  target="_blank">recurso de LUIS </a> con el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) gratis (F0) o estándar (S).
+* Una aplicación entrenada o publicada, empaquetada como una entrada montada en el contenedor junto con su identificador de aplicación asociado. Puede obtener el archivo empaquetado en el portal de LUIS o las API de creación. Si va a obtener la aplicación empaquetada de LUIS desde las [API de creación](#authoring-apis-for-package-file), también necesitará su _clave de creación_.
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
+
+### <a name="app-id-app_id"></a>Identificador de aplicación `{APP_ID}`
+
+Este identificador se usa para seleccionar la aplicación. Para encontrar el identificador de aplicación en el [portal de LUIS](https://www.luis.ai/), haga clic en **Administrar** en la parte superior de la pantalla de la aplicación y seleccione **Configuración**.
+
+:::image type="content" source="./media/luis-container-how-to/app-identification.png" alt-text="Pantalla para buscar el identificador de la aplicación." lightbox="./media/luis-container-how-to/app-identification.png":::
+
+### <a name="authoring-key-authoring_key"></a>Clave de creación `{AUTHORING_KEY}`
+
+esta clave se usa para obtener la aplicación empaquetada del servicio LUIS en la nube y cargar los registros de consultas en la nube. Necesitará la clave de creación si [exporta la aplicación mediante la API REST](#export-published-apps-package-from-api), como se describe más adelante en el artículo. 
+
+Para encontrar la clave de creación en el [portal de LUIS](https://www.luis.ai/), haga clic en **Administrar** en la parte superior de la pantalla de la aplicación y seleccione **Recursos de Azure**.
+
+:::image type="content" source="./media/luis-container-how-to/authoring-resource.png" alt-text="Pantalla para buscar la clave del recurso de creación." lightbox="./media/luis-container-how-to/authoring-resource.png":::
+
 
 ### <a name="authoring-apis-for-package-file"></a>API de creación del archivo de paquete
 
@@ -391,7 +406,7 @@ En este artículo, ha aprendido algunos conceptos y ha visto el flujo de trabajo
 
 * Revise [Configuración de contenedores](luis-container-configuration.md) para ver las opciones de configuración.
 * Consulte las [limitaciones de los contenedores de LUIS](luis-container-limitations.md) para conocer las restricciones de funcionalidad conocidas.
-* Consulte [Solución de problemas](troubleshooting.md) para resolver los problemas relacionados con la funcionalidad de LUIS.
+* Consulte [Solución de problemas](troubleshooting.yml) para resolver los problemas relacionados con la funcionalidad de LUIS.
 * Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)
 
 <!-- Links - external -->

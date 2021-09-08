@@ -2,13 +2,14 @@
 title: Autenticación de una aplicación para acceder a los recursos de Azure Event Hubs
 description: En este artículo se proporciona información sobre cómo autenticar una aplicación con Azure Active Directory para acceder a recursos de Azure Event Hubs.
 ms.topic: conceptual
-ms.date: 05/10/2021
-ms.openlocfilehash: 1db8ec57145f619cc71e2fb78d64ace23761073a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: f87866ece2699a457e00a4afba6855933118cf19
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378221"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112123089"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticación de una aplicación con Azure Active Directory para acceder a recursos de Event Hubs
 Microsoft Azure proporciona una administración integrada del control de acceso para recursos y aplicaciones basados en Azure Active Directory (Azure AD). Una ventaja clave de usar Azure AD con Azure Event Hubs es que ya no es necesario almacenar las credenciales en el código. En su lugar, puede solicitar un token de acceso de OAuth 2.0 desde la Plataforma de identidad de Microsoft. El nombre del recurso para solicitar un token es `https://eventhubs.azure.net/` y es el mismo para todas las nubes e inquilinos (en el caso de los clientes de Kafka, el recurso para solicitar un token es `https://<namespace>.servicebus.windows.net`). Azure AD autentica la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve un token de acceso a la aplicación y la aplicación puede entonces usar el token de acceso para autorizar una solicitud de los recursos de Azure Event Hubs.
@@ -68,27 +69,9 @@ La aplicación necesita un secreto de cliente para demostrar su identidad al sol
 
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Asignación de roles de Azure mediante Azure Portal  
-Después de registrar la aplicación, asigne la entidad de servicio de la aplicación a un rol de Azure AD de Event Hubs como se describe en la sección [Roles integrados de Azure Event Hubs](#built-in-roles-for-azure-event-hubs). 
+Asigne uno de los [roles de Event Hubs](#built-in-roles-for-azure-event-hubs) a la entidad de servicio de la aplicación en el ámbito deseado (espacio de nombres de Event Hubs, grupo de recursos, suscripción). Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-1. En [Azure Portal](https://portal.azure.com/), vaya al espacio de nombres de Event Hubs.
-2. En la página **Información general**, seleccione el centro de eventos para el que desea asignar un rol.
-
-    ![Selección del centro de eventos](./media/authenticate-application/select-event-hub.png)
-1. Seleccione **Access Control (IAM)** para mostrar la configuración del control de acceso del centro de eventos. 
-1. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles. Seleccione el botón **Agregar** de la barra de herramientas y luego seleccione **Agregar asignación de roles**. 
-
-    ![Botón Agregar de la barra de herramientas](./media/authenticate-application/role-assignments-add-button.png)
-1. En la página **Agregar asignación de roles**, siga estos pasos:
-    1. Seleccione el **rol Event Hubs** que quiere asignar. 
-    1. Realice una búsqueda para localizar la **entidad de seguridad** (usuario, grupo, entidad de servicio) a la que quiere asignar el rol. Seleccione la **aplicación registrada** en la lista. 
-    1. Seleccione **Guardar** para guardar la asignación de roles. 
-
-        ![Asignación de un rol a un usuario](./media/authenticate-application/assign-role-to-user.png)
-    4. Cambie a la pestaña **Asignaciones de roles** y confirme la asignación de roles. Por ejemplo, en la imagen siguiente se muestra que **mywebapp** está en el rol **Remitente de datos de Azure Event Hubs**. 
-        
-        ![Usuario en la lista](./media/authenticate-application/user-in-list.png)
-
-Puede realizar este mismo procedimiento para asignar un rol que tenga como ámbito un espacio de nombre de Event Hubs, un grupo de recursos o una suscripción. Una vez que defina el rol y su ámbito, puede probar este comportamiento con ejemplos [en esta ubicación de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). Para más información sobre cómo administrar el acceso a los recursos de Azure con Azure RBAC y Azure Portal, consulte [este artículo](..//role-based-access-control/role-assignments-portal.md). 
+Una vez que defina el rol y su ámbito, puede probar este comportamiento con ejemplos [en esta ubicación de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). Para más información sobre cómo administrar el acceso a los recursos de Azure con Azure RBAC y Azure Portal, consulte [este artículo](..//role-based-access-control/role-assignments-portal.md). 
 
 
 ### <a name="client-libraries-for-token-acquisition"></a>Bibliotecas cliente para la adquisición de tokens  

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e51cb6faf51484944fc3f8fa739b76d50411feac
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 92e9c22712fdbfae5ab13a23cf72e282a225288a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745350"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733240"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especificación de un modelo de reconocimiento facial
 
@@ -39,7 +39,7 @@ Debe estar familiarizado con los conceptos de identificación y detección de ca
 
 * [Conceptos relacionados con la detección de caras](../concepts/face-detection.md)
 * [Face recognition concepts](../concepts/face-recognition.md) (Conceptos del reconocimiento facial)
-* [Detección de caras en una imagen](HowtoDetectFacesinImage.md)
+* [Llamada a la API de detección](HowtoDetectFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Detección de caras con el modelo especificado
 
@@ -116,7 +116,7 @@ Si normalmente especifica un umbral de confianza (un valor entre cero y uno que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a especificar el modelo de reconocimiento que se debe usar con diferentes API del servicio Face. A continuación, siga un inicio rápido para empezar a usar la detección de caras.
+En este artículo, ha aprendido a especificar el modelo de reconocimiento que se debe usar con diferentes API del servicio Face. A continuación, siga un inicio rápido para empezar con la detección de caras.
 
 * [SDK de .NET para Face](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [SDK de Python para Face](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

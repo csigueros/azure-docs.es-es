@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: e616b21b1b94d141bf54a589ac134878d829ba8e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: a03031640bd116e2901ff123b5fec13d36151fd4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900564"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723428"
 ---
 # <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Requisitos detallados de SAP para la solución Azure Sentinel para SAP (versión preliminar pública)
 
@@ -43,9 +43,9 @@ En la tabla siguiente se describe el tamaño recomendado para la máquina virtua
 
 Las siguientes solicitudes de cambios de registro de SAP son obligatorias para la solución SAP, en función de la versión de SAP Basis:
 
-- **SAP Basis, versiones 7.50 y posteriores**, instale NPLK900131
-- **SAP Basis, versión 7.40**, instale NPLK900132
-- **Para crear un rol de SAP con las autorizaciones necesarias**, para cualquier versión de SAP Basis compatible, instale NPLK900114. Para más información, consulte [Configuración del sistema SAP](sap-deploy-solution.md#configure-your-sap-system) y [Autorizaciones de ABAP necesarias](#required-abap-authorizations).
+- **SAP Basis, versiones 7.50 y posteriores**: instale NPLK900144.
+- **Para versiones anteriores**: instale NPLK900146.
+- **Para crear un rol de SAP con las autorizaciones necesarias**, para cualquier versión de SAP Basis compatible, instale NPLK900140. Para más información, consulte [Configuración del sistema SAP](sap-deploy-solution.md#configure-your-sap-system) y [Autorizaciones de ABAP necesarias](#required-abap-authorizations).
 
 > [!NOTE]
 > Las solicitudes de cambios de registro de SAP obligatorias exponen las FM de RFC personalizadas necesarias para el conector y no cambian ningún objeto estándar o personalizado.
@@ -138,7 +138,8 @@ Las autorizaciones necesarias se enumeran por tipo de registro. Solo necesita la
 
 Para más información, consulte:
 
-- [Tutorial: Implementación de la solución Azure Sentinel para SAP](sap-deploy-solution.md)
-- [Implementación del conector de datos de SAP de Azure Sentinel en el entorno local](sap-solution-deploy-alternate.md)
+- [Implementación de la solución Azure Sentinel para SAP](sap-deploy-solution.md)
+- [Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl](sap-solution-deploy-alternate.md)
 - [Referencia sobre los registros de la solución Azure Sentinel para SAP](sap-solution-log-reference.md)
 - [Azure Sentinel para SAP: contenido de seguridad disponible](sap-solution-security-content.md)
+- [Solución de problemas de implementación de la solución SAP de Azure Sentinel](sap-deploy-troubleshoot.md)

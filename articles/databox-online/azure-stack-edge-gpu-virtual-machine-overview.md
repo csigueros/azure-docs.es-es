@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: how-to
-ms.date: 04/28/2021
+ms.topic: conceptual
+ms.date: 07/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 775cb6f7cfc19b0009fc92cc5afbd3ac383b3ea3
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 73cb44dd3564f56f8edd5304a344a50f1e4b5c9d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663865"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740761"
 ---
 # <a name="virtual-machines-on-your-azure-stack-edge-pro-gpu-device"></a>Máquinas virtuales del dispositivo Azure Stack Edge Pro con GPU
 
@@ -53,13 +53,14 @@ Para averiguar el tamaño y el número de máquinas virtuales que se pueden impl
 |Máquina virtual maestra|4 núcleos, 4 GB de RAM|
 |Máquina virtual de trabajo|12 núcleos, 32 GB de RAM|
 
-
 Para información sobre el proceso y la memoria utilizables en el dispositivo, consulte las [especificaciones de proceso y memoria](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) correspondiente al modelo de dispositivo. 
+
+Para una máquina virtual de GPU, debe usar un [tamaño de máquina virtual de la serie NCasT4-v3](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
 
 
 ### <a name="vm-limits"></a>Límites de máquina virtual
 
-Puede ejecutar hasta 24 máquinas virtuales en el dispositivo. Este es otro factor que se debe tener en cuenta al implementar la carga de trabajo.
+Puede ejecutar un máximo de 24 máquinas virtuales en el dispositivo. Este es otro factor que se debe tener en cuenta al implementar la carga de trabajo.
 
 ### <a name="operating-system-disks-and-images"></a>Imágenes y discos del sistema operativo
 

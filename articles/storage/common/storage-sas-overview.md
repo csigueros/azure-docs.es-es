@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: c7f8f46cf8d6195df7d47663cae809c7074129e4
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: a1b9c8f81de706fb53839a241115947d6cf8d0bc
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903948"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113726921"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -62,7 +62,7 @@ También puede delegar el acceso a lo siguiente:
 Para obtener más información sobre la SAS de cuenta, consulte [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas) (Creación de una SAS de cuenta [API REST]).
 
 > [!NOTE]
-> Microsoft recomienda usar credenciales de Azure AD cuando sea posible como procedimiento recomendado de seguridad, en lugar de usar la clave de cuenta, que se puede poner en peligro más fácilmente. Cuando el diseño de la aplicación requiera firmas de acceso compartido para el acceso a Blob Storage, utilice credenciales de Azure AD para crear una SAS de delegación de usuarios cuando sea posible para una seguridad superior. Para más información, vea [Autenticación del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
+> Microsoft recomienda usar credenciales de Azure AD cuando sea posible como procedimiento recomendado de seguridad, en lugar de usar la clave de cuenta, que se puede poner en peligro más fácilmente. Cuando el diseño de la aplicación requiera firmas de acceso compartido para el acceso a Blob Storage, utilice credenciales de Azure AD para crear una SAS de delegación de usuarios cuando sea posible para una seguridad superior. Para más información, consulte [Autorización del acceso a datos en Azure Storage](authorize-data-access.md).
 
 Una firma de acceso compartido puede presentar una de las dos formas siguientes:
 

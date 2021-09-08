@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: f8d0871f07168e0d7a2fbda90df4209ab7e5a28e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9f1fdfeadd56b070c942c023a7373b43363a1916
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748506"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734968"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -46,9 +46,9 @@ Actualmente no hay opciones de cumplimiento disponibles. El fin de los controles
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
-|Máquinas admitidas:|![Sí](./media/icons/yes-icon.png) Máquinas de Azure y que no son de Azure que ejecutan Windows y Linux<br>![Sí](./media/icons/yes-icon.png) Máquinas de [Azure Arc](../azure-arc/index.yml)|
+|Máquinas admitidas:|:::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas de Azure y que no son de Azure que ejecutan Windows y Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas de [Azure Arc](../azure-arc/index.yml)|
 |Roles y permisos necesarios:|Los roles **Lector de seguridad** y **Lector** pueden ver grupos y las listas de aplicaciones seguras conocidas.<br>Los roles **Colaborador** y **Administrador de seguridad** pueden editar grupos y las listas de aplicaciones seguras conocidas.|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 
@@ -61,7 +61,7 @@ Seleccione la recomendación o abra la página de controles de aplicaciones adap
 
 1. Abra el panel de Azure Defender y, en el área de protección avanzada, seleccione **Controles de aplicaciones adaptables**.
 
-    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Apertura de controles de aplicaciones adaptables desde el panel de Azure" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Apertura de controles de aplicaciones adaptables desde el panel de Azure." lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     Se abre la página **Controles de aplicaciones adaptables** con las máquinas virtuales agrupadas en las siguientes pestañas:
 
@@ -87,13 +87,13 @@ Seleccione la recomendación o abra la página de controles de aplicaciones adap
 
 1. Seleccione la pestaña **Recomendadas**. Aparecen los grupos de máquinas con listas de permitidos recomendados.
 
-   ![Pestaña Recomendadas](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
+   ![Pestaña Recomendadas.](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
 
 1. Seleccione un grupo. 
 
 1. Para configurar la nueva regla, revise las distintas secciones de la página **Configure application control rules** (Configurar reglas de control de aplicaciones) y el contenido, que será único para este grupo de máquinas específico:
 
-   ![Configuración de una nueva regla](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
+   ![Configuración de una nueva regla.](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
    1. **Seleccionar máquinas**: de forma predeterminada, se seleccionan todas las máquinas del grupo identificado. Para excluir alguna de ellas de esta regla, anule su selección.
    
@@ -127,7 +127,7 @@ Para editar las reglas de un grupo de máquinas:
 
    1. Seleccione **Agregar regla**.
 
-      ![Adición de una regla personalizada](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
+      ![Adición de una regla personalizada.](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
    1. Si va a definir una ruta de acceso segura conocida, cambie **Tipo de regla** a "Ruta de acceso" y escriba una ruta única. Puede incluir caracteres comodín en la ruta de acceso.
    
@@ -150,7 +150,7 @@ Para editar las reglas de un grupo de máquinas:
 
     En este panel se muestra el nombre del grupo (que se puede modificar), el tipo de sistema operativo, la ubicación y otros detalles pertinentes.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Página Configuración de grupo para controles de aplicaciones adaptables" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Página Configuración de grupo para controles de aplicaciones adaptables." lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
 1. Opcionalmente, puede modificar el nombre del grupo o los modos de protección de tipos de archivo.
 
@@ -183,13 +183,13 @@ Para corregir los problemas:
 
 1. Para investigar más, seleccione un grupo.
 
-   ![Alertas recientes](./media/security-center-adaptive-application/recent-alerts.png)
+   ![Alertas recientes.](./media/security-center-adaptive-application/recent-alerts.png)
 
 1. Para tener más detalles, junto con la lista de máquinas afectadas, seleccione una alerta.
 
     En la página de alertas se muestran los detalles adicionales de las alertas y se proporciona un vínculo **Realizar acción** con recomendaciones sobre cómo mitigar la amenaza.
 
-    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="La hora de inicio de las alertas de controles de aplicaciones adaptables":::
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="La hora de inicio de las alertas de controles de aplicaciones adaptables.":::
 
     > [!NOTE]
     > Los controles de aplicaciones adaptables calculan los eventos una vez cada doce horas. La "hora de inicio de la actividad" que se muestra en la página Alertas es la hora a la que los controles de aplicaciones adaptables crearon la alerta, **no** el tiempo que estuvo activo el proceso sospechoso.
@@ -238,12 +238,12 @@ Algunas de las funciones que están disponibles en la API REST:
 ## <a name="faq---adaptive-application-controls"></a>Preguntas frecuentes: controles de aplicaciones adaptables
 
 - [¿Hay alguna opción para aplicar los controles de aplicaciones?](#are-there-any-options-to-enforce-the-application-controls)
-- [¿Por qué veo una aplicación Qualys en mis aplicaciones recomendadas?](#why-do-i-see-a-qualys-app-in-my-recommendeded-applications)
+- [¿Por qué veo una aplicación Qualys en mis aplicaciones recomendadas?](#why-do-i-see-a-qualys-app-in-my-recommended-applications)
 
 ### <a name="are-there-any-options-to-enforce-the-application-controls"></a>¿Hay alguna opción para aplicar los controles de aplicaciones?
 Actualmente no hay ninguna opción disponible. El fin de los controles de aplicaciones adaptables es generar **alertas de seguridad** si alguna aplicación ejecuta elementos que no son los que se han definido como seguros. Tienen una serie de ventajas ([¿Cuáles son las ventajas de los controles de aplicación adaptables?](#what-are-the-benefits-of-adaptive-application-controls)) y son extremadamente personalizables, como se muestra en esta página.
 
-### <a name="why-do-i-see-a-qualys-app-in-my-recommendeded-applications"></a>¿Por qué veo una aplicación Qualys en mis aplicaciones recomendadas?
+### <a name="why-do-i-see-a-qualys-app-in-my-recommended-applications"></a>¿Por qué veo una aplicación Qualys en mis aplicaciones recomendadas?
 [Azure Defender para servidores](defender-for-servers-introduction.md) incluye el examen de vulnerabilidades de las máquinas sin costo adicional. No se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra sin problemas en Security Center. Para obtener detalles de este escáner e instrucciones sobre cómo implementarlo, consulte [Solución de evaluación de vulnerabilidades integrada de Defender](deploy-vulnerability-assessment-vm.md).
 
 Para asegurarse de que no se generan alertas al implementar Security Center el escáner, la lista de permitidos recomendados de controles de aplicaciones adaptables incluye el escáner para todas las máquinas. 

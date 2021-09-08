@@ -4,12 +4,12 @@ description: En este artículo se proporcionan detalles de la información de re
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c3b00a3d60db16c3b768494f8630587a16033d8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708890"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465805"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Detalles de configuración de la red de Azure Automation
 
@@ -36,7 +36,7 @@ Si los nodos se encuentran en una red privada, se necesitan el puerto y las dire
 
 Si usa recursos de DSC que se comunican entre nodos, como los [recursos WaitFor*](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), también debe permitir el tráfico entre nodos. Consulte la documentación de cada recurso de DSC para comprender estos requisitos de red.
 
-Para comprender los requisitos de cliente para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Para comprender los requisitos del cliente para TLS 1.2, consulte el artículo sobre [TLS 1.2 para Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
 
 ## <a name="update-management-and-change-tracking-and-inventory"></a>Update Management y Seguimiento de cambios e inventario
 

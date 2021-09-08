@@ -7,21 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 01/27/2021
+ms.openlocfilehash: 5643f9a8bb1caec8d264ba5dfba9913d5d13b2ec
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581611"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414852"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recopilación y análisis de datos de registro para Azure Cognitive Search
 
 Los registros operativos o de diagnóstico proporcionan una visión general de las operaciones detalladas de Azure Cognitive Search y son útiles para supervisar los procesos y el estado del servicio. Internamente, Microsoft preserva la información del sistema que se encuentra en el back-end durante un breve período (unos 30 días), tiempo suficiente para investigarla y analizarla si se presenta una solicitud de soporte técnico. Sin embargo, si quiere tener la propiedad sobre los datos operativos, debe realizar una configuración de diagnóstico para especificar dónde se recopila la información de registro.
 
-El registro de diagnóstico se habilita a través de la integración con [Azure Monitor](../azure-monitor/index.yml). 
-
-Al configurar el registro de diagnóstico, se le pedirá que especifique un mecanismo de almacenamiento. En la tabla siguiente se enumeran las opciones para recopilar y almacenar datos.
+El registro de diagnóstico se habilita por medio de la integración de back-end con [Azure Monitor](../azure-monitor/index.yml). Al configurar el registro de diagnóstico, se le pedirá que especifique un mecanismo de almacenamiento para conservar el registro. En la tabla siguiente se enumeran las opciones.
 
 | Recurso | Se usa para |
 |----------|----------|
@@ -55,9 +53,9 @@ La configuración de diagnóstico especifica cómo se recopilan los eventos y la
 
 1. Guarde la configuración.
 
-1. Una vez habilitado el registro, use el servicio de búsqueda para empezar a generar registros y métricas. Tardará un tiempo antes de que los eventos registrados y las métricas estén disponibles.
+1. Después de habilitar el registro, el servicio de búsqueda empezará a generar registros y métricas. Puede tardar un tiempo antes de que los eventos registrados y las métricas estén disponibles.
 
-En el caso de Log Analytics, puede tardar varios minutos antes de que los datos estén disponibles, después de lo cual se pueden ejecutar consultas de Kusto que devuelvan datos. Para más información, consulte [Supervisión de solicitudes de consulta](search-monitor-logs.md).
+En el caso de Log Analytics, espere varios minutos antes de que los datos estén disponibles; después, podrá ejecutar consultas de Kusto que devuelvan datos. Para más información, consulte [Supervisión de solicitudes de consulta](search-monitor-logs.md).
 
 En el caso de Blob Storage, transcurre una hora antes de que los contenedores aparezcan en Blob Storage. Hay un blob, por hora y por contenedor. Los contenedores solo se crean cuando hay una actividad para registrar o medir. Cuando los datos se copian en una cuenta de almacenamiento, adoptan el formato JSON y se colocan en dos contenedores:
 
@@ -70,7 +68,9 @@ Dos tablas contienen registros y métricas de Azure Cognitive Search: **AzureDia
 
 1. En **Supervisión**, seleccione **Registros**.
 
-1. Escriba **AzureMetrics** en la ventana de consulta. Ejecute esta sencilla consulta para familiarizarse con los datos recopilados en esta tabla. Desplácese por la tabla para ver las métricas y los valores. Observe el número de registros en la parte superior y, si el servicio ha estado recopilando métricas durante un tiempo, es posible que desee ajustar el intervalo de tiempo para obtener un conjunto de datos más manejable.
+1. En la ventana de consulta, escriba **AzureMetrics**, compruebe el ámbito (el servicio de búsqueda) y el intervalo de tiempo y, después, haga clic en **Ejecutar** para familiarizarse con los datos recopilados en esta tabla.
+
+   Desplácese por la tabla para ver las métricas y los valores. Observe el recuento de registros en la parte superior. Si el servicio ha recopilado métricas durante un tiempo, es posible que quiera ajustar el intervalo de tiempo para obtener un conjunto de datos más manejable.
 
    ![Tabla AzureMetrics](./media/search-monitor-usage/azuremetrics-table.png "Tabla AzureMetrics")
 
@@ -112,7 +112,7 @@ Pone en correlación una solicitud de consulta con operaciones de indexación y 
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')
-| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| summarize Count=count(), AvgLatency=avg(durationMs) by bin(TimeGenerated, 1h), OperationName
 | render timechart
 ```
 

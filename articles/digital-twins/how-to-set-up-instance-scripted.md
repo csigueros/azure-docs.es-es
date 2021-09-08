@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: f56d1c305f5d18d82ae79781a7b60fd6b429357b
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 6344e83593509b2828b41b8e9074211aa83fc2d3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613824"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440232"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
@@ -22,8 +22,8 @@ ms.locfileid: "110613824"
 En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 En esta versión de este artículo se completan estos pasos mediante la ejecución de un [script de implementación automatizada de ejemplo](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica el proceso. 
-* Para ver los pasos manuales de la CLI que el script se ejecuta en segundo plano, consulte la versión de la CLI de este artículo: [Procedimiento: Configuración de una instancia y autenticación (CLI)](how-to-set-up-instance-cli.md) .
-* Para ver los pasos manuales según Azure Portal, consulte la versión del portal de este artículo: [Procedimiento: Configuración de una instancia y autenticación (portal)](how-to-set-up-instance-portal.md) .
+* Para ver los pasos manuales de la CLI que el script ejecuta en segundo plano, consulte la versión de la CLI de este artículo: [Configuración de una instancia y autenticación (CLI)](how-to-set-up-instance-cli.md).
+* Para ver los pasos manuales según Azure Portal, consulte la versión del portal de este artículo: [Configuración de una instancia y autenticación (portal)](how-to-set-up-instance-portal.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -126,7 +126,7 @@ Si la comprobación no se ha realizado correctamente, también puede rehacer su 
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
 * [Referencia de az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [Conceptos: Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
+* [Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
 
 O bien consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
-* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)
+* [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

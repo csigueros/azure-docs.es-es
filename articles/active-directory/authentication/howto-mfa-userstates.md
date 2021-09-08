@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 07/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 749829f641119273813d3c8ca826daf8b4dc4d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e2212171f0be8d754ac1a86567641c2bad8a9a0
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742670"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602779"
 ---
 # <a name="enable-per-user-azure-ad-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitación de Azure AD Multi-Factor Authentication por usuario para proteger los eventos de inicio de sesión
 
@@ -27,7 +27,7 @@ En el caso de inquilinos gratuitos de Azure AD sin acceso condicional, puede [us
 
 En cambio, si es necesario, puede habilitar cada cuenta para Azure AD Multi-Factor Authentication por usuario. Cuando los usuarios están habilitados de forma individual, realizan la autenticación multifactor cada vez que inician sesión (con algunas excepciones, como cuando inician sesión desde direcciones IP de confianza o si la característica para _recordar MFA en dispositivos de confianza_) está activada.
 
-No se recomienda cambiar los estados del usuario a menos que las licencias de Azure AD no incluyan acceso condicional y no quiera usar los valores predeterminados de seguridad. Para más información sobre las distintas formas de habilitar MFA, consulte [Características y licencias de Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
+No se recomienda cambiar los [estados del usuario](#azure-ad-multi-factor-authentication-user-states) a menos que las licencias de Azure AD no incluyan acceso condicional y no quiera usar los valores predeterminados de seguridad. Para más información sobre las distintas formas de habilitar MFA, consulte [Características y licencias de Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
 
 > [!IMPORTANT]
 >
@@ -79,76 +79,15 @@ Para cambiar el estado de Azure AD Multi-Factor Authentication por usuario de u
 
 Después de habilitar los usuarios, notifíquelos por correo electrónico. Indique a los usuarios que aparecerá un mensaje para solicitarles que se registren la próxima vez que inicien sesión. Además, si su organización utiliza aplicaciones sin explorador que no son compatibles con la autenticación moderna, deben crear contraseñas de aplicación. Para más información, consulte la [guía del usuario final de Azure AD Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md) para ayudarle a empezar.
 
-## <a name="change-state-using-powershell"></a>Cambio del estado mediante PowerShell
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Convertir a los usuarios de MFA por usuario a MFA basado en el acceso condicional
 
-Para cambiar el estado del usuario mediante [PowerShell de Azure AD](/powershell/azure/), cambie el parámetro `$st.State` de una cuenta de usuario. Hay tres estados posibles para una cuenta de usuario:
+Si los usuarios se han habilitado con Azure AD Multi-Factor Authentication por usuario habilitado y aplicado, el siguiente comando de PowerShell puede ayudarle a realizar la conversión a Azure AD Multi-Factor Authentication basado en acceso condicional.
 
-* *Enabled*
-* *Aplicado*
-* *Deshabilitada*  
-
-En general, no mueva los usuarios directamente al estado *Enforced* (Aplicado) a menos que ya estén registrados para MFA. Si lo hace, las aplicaciones de autenticación heredadas dejarán de funcionar porque el usuario no ha pasado el proceso de registro de Azure AD Multi-Factor Authentication ni ha obtenido una [contraseña de aplicación](howto-mfa-app-passwords.md). En algunos casos, este comportamiento puede ser el deseado, pero afecta a la experiencia del usuario hasta que este se registra.
-
-Para empezar, instale el módulo *MSOnline* mediante [Install-Module](/powershell/module/powershellget/install-module) como se indica a continuación:
-
-```PowerShell
-Install-Module MSOnline
-```
-
-A continuación, conéctese mediante [Connect-MsolService](/powershell/module/msonline/connect-msolservice):
-
-```PowerShell
-Connect-MsolService
-```
-
-El siguiente ejemplo de script de PowerShell habilita MFA para un usuario individual llamado *bsimon@contoso.com* :
-
-```PowerShell
-$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-$st.RelyingParty = "*"
-$st.State = "Enabled"
-$sta = @($st)
-
-# Change the following UserPrincipalName to the user you wish to change state
-Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
-```
-
-El uso de PowerShell es una buena opción cuando necesite habilitar usuarios de forma masiva. El script siguiente recorre en bucle una lista de usuarios y habilita MFA en sus cuentas. Defina las cuentas de usuario y establézcalas en la primera línea para `$users`, como se indica a continuación:
-
-   ```PowerShell
-   # Define your list of users to update state in bulk
-   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-
-   foreach ($user in $users)
-   {
-       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-       $st.RelyingParty = "*"
-       $st.State = "Enabled"
-       $sta = @($st)
-       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-   }
-   ```
-
-Para deshabilitar MFA, en el ejemplo siguiente se obtiene un usuario con [Get-MsolUser](/powershell/module/msonline/get-msoluser) y, a continuación, se elimina cualquier elemento *StrongAuthenticationRequirements* establecido para el usuario definido mediante [Set-MsolUser](/powershell/module/msonline/set-msoluser):
-
-```PowerShell
-Get-MsolUser -UserPrincipalName bsimon@contoso.com | Set-MsolUser -StrongAuthenticationRequirements @()
-```
-
-También puede deshabilitar directamente MFA para un usuario con [Set-MsolUser](/powershell/module/msonline/set-msoluser) como se indica a continuación:
-
-```PowerShell
-Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements @()
-```
-
-## <a name="convert-users-from-per-user-mfa-to-conditional-access"></a>Conversión de los usuarios de MFA por usuario a acceso condicional
-
-El siguiente comando de PowerShell puede ayudarle a realizar la conversión a Azure AD Multi-Factor Authentication basado en el acceso condicional.
+Ejecútelo en una ventana de ISE o guárdelo como un archivo `.PS1` para ejecutarlo localmente. La operación solo se puede realizar mediante el [módulo MSOnline](/powershell/module/msonline/?view=azureadps-1.0#msonline). 
 
 ```PowerShell
 # Sets the MFA requirement state
 function Set-MfaState {
-
     [CmdletBinding()]
     param(
         [Parameter(ValueFromPipelineByPropertyName=$True)]
@@ -158,7 +97,6 @@ function Set-MfaState {
         [ValidateSet("Disabled","Enabled","Enforced")]
         $State
     )
-
     Process {
         Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
         $Requirements = @()
@@ -169,18 +107,13 @@ function Set-MfaState {
             $Requirement.State = $State
             $Requirements += $Requirement
         }
-
         Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
                      -StrongAuthenticationRequirements $Requirements
     }
 }
-
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
-
-> [!NOTE]
-> Si MFA se vuelve a habilitar en un usuario y este no se registra de nuevo, su estado de MFA no pasa de *Habilitado* a *Enforced* (Aplicado) en la interfaz de usuario de administración de MFA. En este caso, el administrador debe mover al usuario directamente a *Enforced* (Aplicado).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,12 +4,12 @@ description: Se resumen los requisitos y componentes compatibles para la recuper
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.openlocfilehash: b36711e9249764df5d170fa955b8d72d1a2656f1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 338bbf8fdaffb284aa4a34aea0ad20108d4e54fb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960854"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440864"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -24,6 +24,9 @@ En este artículo se resumen los ajustes y los componentes compatibles para la r
 --- | ---
 Hyper-V con Virtual Machine Manager <br> <br>| Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V administrados en el tejido de System Center Virtual Machine Manager.<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell.<br/><br/> Cuando Virtual Machine Manager administra los hosts de Hyper-V, también puede realizar la recuperación ante desastres en un sitio local secundario. Lea [este tutorial](hyper-v-vmm-disaster-recovery.md) para más información sobre este escenario.
 Hyper-V sin Virtual Machine Manager | Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V no administrados por Virtual Machine Manager.<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell.
+
+> [!NOTE]
+> La configuración de Azure Backup y Azure Site Recovery en el mismo host de Hyper-V puede causar problemas con la replicación y no se admite.
 
 ## <a name="on-premises-servers"></a>Servidores locales
 

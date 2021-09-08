@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.openlocfilehash: 6bce6f011086d9855c4da2739addbb34e661e2d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70d2401545c49bfb8bb1870f4881e51b7134ae59
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507490"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450901"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquitecturas de referencia para Oracle Database Enterprise Edition en Azure
 
@@ -207,12 +207,12 @@ Durante la solicitud inicial, el servidor de aplicaciones se conecta al director
 
 Al implementar las cargas de trabajo de Oracle en Azure, Microsoft se encarga de todas las aplicaciones de revisión de nivel de sistema operativo del host. Cualquier mantenimiento planeado de nivel de sistema operativo se comunica a los clientes con anterioridad para facilitar el mantenimiento planeado del cliente. Nunca se aplican revisiones a dos servidores de dos Availability Zones diferentes simultáneamente. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../availability.md) para obtener más detalles sobre el mantenimiento y la aplicación de revisión de VM. 
 
-La aplicación de revisiones al sistema operativo de una máquina virtual se puede automatizar mediante [Azure Automation Update Management](../../../automation/update-management/overview.md). La aplicación de revisiones y el mantenimiento de una base de datos de Oracle se pueden automatizar y programar mediante [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) o [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar el tiempo de inactividad. Consulte [Entrega continua e implementaciones de azul/verde](/azure/devops/learn/what-is-continuous-delivery) para entender cómo se puede usar en el contexto de las bases de datos de Oracle.
+La aplicación de revisiones al sistema operativo de una máquina virtual se puede automatizar mediante [Azure Automation Update Management](../../../automation/update-management/overview.md). La aplicación de revisiones y el mantenimiento de una base de datos de Oracle se pueden automatizar y programar mediante [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) o [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar el tiempo de inactividad. Consulte [Entrega continua e implementaciones de azul/verde](/devops/deliver/what-is-continuous-delivery) para entender cómo se puede usar en el contexto de las bases de datos de Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Consideraciones sobre la arquitectura y el diseño
 
 - Considere la posibilidad de usar una [máquina virtual con optimización para memoria](../../sizes-memory.md) de hiperproceso con [vCPU principales restringidas](../../../virtual-machines/constrained-vcpu.md) para VM de Oracle Database para ahorrar en los costos de licencia y maximizar el rendimiento. Use varios discos Premium o Ultra (Managed Disks) para el rendimiento y la disponibilidad.
-- Al usar Managed Disks, el nombre del disco o dispositivo puede cambiar en los reinicios. Se recomienda usar el UUID del dispositivo en lugar del nombre para asegurarse de que se conservan los montajes entre los reinicios. Puede encontrar más información [aquí](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
+- Al usar Managed Disks, el nombre del disco o dispositivo puede cambiar en los reinicios. Se recomienda usar el UUID del dispositivo en lugar del nombre para asegurarse de que se conservan los montajes entre los reinicios. Para obtener más información, consulte [Configuración del software RAID en una máquina virtual Linux](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
 - Use las zonas de disponibilidad para lograr una alta disponibilidad en la región.
 - Considere la posibilidad de usar discos Ultra (si están disponibles) o discos Premium para la base de datos de Oracle.
 - Considere la posibilidad de configurar una base de datos de Oracle en espera en otra región de Azure mediante Oracle Data Guard.

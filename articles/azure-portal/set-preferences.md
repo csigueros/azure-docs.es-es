@@ -1,179 +1,237 @@
 ---
 title: Administración de las preferencias y la configuración de Azure Portal
-description: Puede cambiar la configuración predeterminada de Azure Portal para que se ajuste a sus propias preferencias. La configuración incluye el tiempo de espera de la sesión inactiva, la vista predeterminada, el modo de menú, el contraste, el tema, las notificaciones y la configuración de los formatos regionales y de idioma
-keywords: tiempo de espera, idioma, regional
-ms.date: 03/15/2021
+description: Cambie la configuración de Azure Portal, como la suscripción o el directorio predeterminados, los tiempos de espera, el modo de menú, el contraste, el tema, las notificaciones, el idioma o la región, etc.
+ms.date: 08/10/2021
 ms.topic: how-to
-ms.openlocfilehash: 067b9808a91b8e5e22fb940095779b099bad0d58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 285afaaf51f28b0fa53a9df2a9fa232b01d3fe24
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775104"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741278"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Administración de las preferencias y la configuración de Azure Portal
 
-Puede cambiar la configuración predeterminada del Azure Portal para que se adapte a sus propias preferencias. La mayoría de los valores de configuración están disponibles en el menú **Configuración** del encabezado de página global.
+Puede cambiar la configuración predeterminada del Azure Portal para que se adapte a sus propias preferencias.
 
-![Haga una captura de pantalla que muestre los iconos globales del encabezado de página con la configuración resaltada](./media/set-preferences/header-settings.png)
+La mayoría de los valores están disponibles en el menú **Configuración** situado en la sección superior derecha del encabezado de página global.
 
+:::image type="content" source="media/set-preferences/settings-top-header.png" alt-text="Captura de pantalla en la que se muestra el icono de configuración en el encabezado de página global.":::
 
-## <a name="choose-your-default-subscription"></a>Elección de la suscripción predeterminada
+> [!NOTE]
+> Nos encontramos en proceso de trasladar todos los usuarios a la experiencia de configuración más reciente que se describe en este tema. Para obtener información sobre la experiencia anterior, vea [Administración de la configuración y las preferencias de Azure Portal (versión anterior)](original-preferences.md).
 
-Puede cambiar la suscripción que se abre de forma predeterminada cuando inicia sesión en Azure Portal. Esto resulta útil si tiene una suscripción principal con la que trabaja, pero utiliza otras de vez en cuando. 
+## <a name="directories--subscriptions"></a>Directorios y suscripciones
 
-:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filtre la lista de recursos por suscripción.":::
+La página **Directorios y suscripciones** permite administrar directorios y establecer filtros de suscripción.
 
-1. Seleccione el icono de filtro de suscripciones y directorios en el encabezado de página global.
+### <a name="switch-and-manage-directories"></a>Cambio y administración de directorios
 
-1. Seleccione las suscripciones que desee que sean las predeterminadas al iniciar el portal. 
+En la sección **Directorios**, verá el **Directorio actual** (en el que ha iniciado sesión actualmente).
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Seleccione las suscripciones que desee que sean las predeterminadas al iniciar el portal."::: 
+El **Directorio de inicio** muestra el directorio predeterminado al iniciar sesión en Azure Portal. Para elegir otro directorio de inicio, seleccione **Cambiar** para ir a la página [Apariencia y vistas de inicio](#appearance--startup-views), donde podrá cambiar esta opción.
 
+Para ver una lista completa de los directorios a los que tiene acceso, seleccione **Todos los directorios**.
 
-## <a name="choose-your-default-view"></a>Elija la vista predeterminada 
+Para marcar un directorio como favorito, seleccione el icono de estrella. Esos directorios se mostrarán en la sección **Favoritos**.
 
-Puede cambiar la página que se abre de forma predeterminada cuando inicia sesión en Azure Portal.
+Para cambiar a otro directorio, seleccione el directorio en el que quiere trabajar y, después, seleccione el botón **Cambiar** en su fila.
 
-![Haga una captura de pantalla que muestre la configuración de Azure Portal con la vista predeterminada resaltada](./media/set-preferences/default-view.png)
+:::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Captura de pantalla en la que se muestra el panel de configuración de directorios.":::
 
-- No se puede personalizar el **Inicio**.  Muestra accesos directos a los servicios populares de Azure y enumera los recursos usados recientemente. También proporcionamos vínculos útiles a recursos como Microsoft Learn y el mapa de ruta de Azure.
+### <a name="subscription-filters"></a>Filtros de suscripción
 
-- Los paneles se pueden personalizar para crear un área de trabajo diseñada solo para usted. Por ejemplo, puede crear un panel que sea proyecto, tarea o rol centrado. Si selecciona **Panel**, la vista predeterminada irá al panel usado más recientemente. Para obtener más información, consulte [Creación y uso compartido de paneles en Azure Portal](azure-portal-dashboards.md).
+Puede elegir las suscripciones que se filtran de manera predeterminada cuando inicia sesión en Azure Portal. Esto puede resulta útil si tiene una lista de suscripciones principal con la que trabaja, pero utiliza otras de vez en cuando.
 
-## <a name="choose-a-portal-menu-mode"></a>Elija un modo de menú del portal
+Para usar filtros personalizados, seleccione **Filtros avanzados**. Se le pedirá que confirme antes de continuar.
 
-El modo predeterminado del menú del portal controla cuánto espacio ocupa el menú del portal en la página.
+:::image type="content" source="media/set-preferences/settings-advanced-filters-enable.png" alt-text="Captura de pantalla en la que se muestra el cuadro de diálogo de confirmación de Filtros avanzados.":::
 
-![Captura de pantalla que muestra cómo establecer el modo predeterminado para el menú del portal.](./media/set-preferences/menu-mode.png)
+Esto habilitará la página **Filtros avanzados**, donde puede crear y administrar varios filtros de suscripción. Las suscripciones seleccionadas actualmente se guardarán como un filtro importado que puede usar otra vez. Si quiere dejar de usar filtros avanzados, vuelva a seleccionar el botón de alternancia para restaurar la vista de suscripción predeterminada. Los filtros personalizados que haya creado se guardarán y estarán disponibles para su uso si habilita **Filtros avanzados** en el futuro.
 
-- Cuando el menú del portal está en modo de control **flotante**, se oculta hasta que lo necesite. Seleccione el icono de menú para abrir o cerrar el menú.
+:::image type="content" source="media/set-preferences/settings-advanced-filters-disable.png" alt-text="Captura de pantalla en la que se muestra el cuadro de diálogo de confirmación para deshabilitar Filtros avanzados.":::
 
-- Si elige **modo de acoplado** en el menú del portal, siempre estará visible. Puede contraer el menú para proporcionar más espacio de trabajo.
+## <a name="advanced-filters"></a>Filtros avanzados
 
-## <a name="choose-a-theme-or-enable-high-contrast"></a>Selección de un tema o habilitación de contraste alto
+En la página **Filtros avanzados**, puede crear, modificar o eliminar filtros de suscripción.
 
-El tema que elija afectará a los colores de fondo y de fuente que aparecen en el Azure Portal. Puede seleccionar uno de los cuatro temas de color preestablecidos. Seleccione cada miniatura para buscar el tema que mejor se adapte a sus necesidades.
+:::image type="content" source="media/set-preferences/settings-advanced-filters.png" alt-text="Captura de pantalla en la que se muestra la pantalla Filtros avanzados":::.
 
-En su lugar, puede elegir uno de los temas de contraste alto. Los temas de contraste alto facilitan la lectura de Azure Portal para los usuarios con deficiencias visuales e invalidan todas las demás selecciones de temas.
+El filtro **Predeterminado** muestra todas las suscripciones a las que tiene acceso. Este filtro se usa si no hay ningún otro o cuando el filtro activo no puede incluir suscripciones.
 
-![Haga una captura de pantalla que muestre la configuración de Azure Portal con temas resaltados](./media/set-preferences/theme.png)
+También puede ver un filtro denominado **Filtro importado**, que incluye todas las suscripciones que se habían seleccionado anteriormente.
 
-## <a name="enable-or-disable-pop-up-notifications"></a>Habilitar o deshabilitar las notificaciones emergentes
+Para cambiar el filtro que está actualmente en uso, selecciónelo en el cuadro desplegable **Filtro avanzado**. También puede seleccionar **Modificar filtros avanzados** para ir a la página **Filtros avanzados**, donde puede crear, modificar y eliminar los filtros.
 
-Las notificaciones son mensajes del sistema relacionados con la sesión actual. Proporcionan información como el saldo de crédito actual, cuando los recursos que acaba de crear están disponibles o confirman la última acción, por ejemplo. Cuando se activan las notificaciones emergentes, los mensajes se muestran brevemente en la esquina superior de la pantalla. 
+### <a name="create-a-filter"></a>Crear un filtro
 
-Para habilitar las notificaciones emergentes, seleccione **Habilitar notificaciones emergentes** (o anule la selección para deshabilitarlas).
+Para crear un filtro, seleccione **Crear un filtro**. Puede crear hasta diez filtros.
 
-![Haga una captura de pantalla que muestre la configuración de Azure Portal con notificaciones emergentes resaltadas](./media/set-preferences/popup-notifications.png)
+Cada filtro debe tener un nombre único que tenga entre 8 y 50 caracteres y contenga solo letras, números y guiones.
 
-Para leer todas las notificaciones recibidas durante la sesión actual, seleccione **Notificaciones** en el encabezado global.
+:::image type="content" source="media/set-preferences/azure-portal-settings-filtering-create.png" alt-text="Captura de pantalla en la que se muestra las opciones de Crear un filtro":::.
 
-![Haga una captura de pantalla que muestre el encabezado global de Azure Portal con notificaciones resaltadas](./media/set-preferences/read-notifications.png)
+Después de asignar un nombre al filtro, especifique al menos una condición. En el campo **Tipo de filtro**, seleccione **Nombre de suscripción**, **Id. de suscripción** o **Estado de la suscripción**. Después, seleccione un operador y escriba un valor por el que filtrar.
 
-Si desea leer las notificaciones de sesiones anteriores, busque eventos en el registro de actividad. Para más información, consulte [Visualización del registro de actividad](../azure-monitor/essentials/activity-log.md#view-the-activity-log). 
+:::image type="content" source="media/set-preferences/azure-portal-settings-filtering-create-operators.png" alt-text="Captura de pantalla en la que se muestra la lista de operadores para la creación de filtros.":::
 
-## <a name="change-the-inactivity-timeout-setting"></a>Cambio de la configuración de tiempo de espera de inactividad
+Cuando haya terminado de agregar condiciones, seleccione **Crear**. Después, el filtro aparecerá en la lista en **Filtros activos**.
+
+### <a name="modify-or-delete-a-filter"></a>Modificación o eliminación de un filtro
+
+Puede modificar o cambiar el nombre de un filtro existente seleccionando el icono de lápiz de la fila de ese filtro. Realice los cambios y luego seleccione **Aplicar**.
+
+> [!NOTE]
+> Si modifica un filtro que está activo actualmente y los cambios dan como resultado 0 suscripciones, se activará el filtro **Predeterminado** en su lugar. No se puede activar un filtro que no incluya ninguna suscripción.
+
+Para eliminar un filtro, seleccione el icono de papelera de la fila de ese filtro. No se puede eliminar el filtro **Predeterminado** ni ninguno que esté activo actualmente.
+
+## <a name="appearance--startup-views"></a>Apariencia y vistas de inicio
+
+El panel **Apariencia y vistas de inicio** tiene dos secciones. La sección **Apariencia** permite elegir el comportamiento del menú, el tema de color y si se debe usar un tema de contraste alto, y la sección **Startup views** (Vistas de inicio) le permite establecer opciones para lo que ve cuando inicia sesión por primera vez en Azure Portal.
+
+:::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Captura de pantalla en la que se muestra la sección Apariencia del panel Apariencia y vistas de inicio.":::
+
+### <a name="set-menu-behavior"></a>Establecimiento del comportamiento del menú
+
+La sección **Comportamiento del menú** le permite elegir cómo se comporta el menú predeterminado de Azure Portal.
+
+- **Control flotante**: el menú se ocultará hasta que lo necesite. Puede seleccionar el icono de menú en la esquina superior izquierda para abrirlo o cerrarlo.
+- **Acoplado**: el menú siempre estará visible. Puede contraer el menú para proporcionar más espacio de trabajo.
+
+### <a name="choose-a-theme-or-enable-high-contrast"></a>Selección de un tema o habilitación de contraste alto
+
+El tema que elija afectará a los colores de fondo y de fuente que aparecen en el Azure Portal. Puede seleccionar uno de los cuatro temas de color preestablecidos en la sección **Tema**. Seleccione cada miniatura para buscar el tema que mejor se adapte a sus necesidades.
+
+También puede elegir un tema de la sección **Tema de contraste alto**. Estos temas pueden hacer que Azure Portal sea más fácil de leer, especialmente si tiene una discapacidad visual. Si selecciona el tema de contraste alto blanco o negro, se invalidarán las demás selecciones de tema.
+
+### <a name="startup-page"></a>Página de inicio
+
+Elija una de las opciones siguientes para la página que verá cuando inicie sesión por primera vez en Azure Portal.
+
+- **Inicio**: muestra la página principal, con accesos directos a servicios populares de Azure, una lista de recursos que ha usado más recientemente y vínculos útiles a herramientas, documentación y mucho más.
+- **Panel**: muestra el panel usado más recientemente. Los paneles se pueden personalizar para crear un área de trabajo diseñada solo para usted. Por ejemplo, puede crear un panel que sea proyecto, tarea o rol centrado. Para obtener más información, consulte [Creación y uso compartido de paneles en Azure Portal](azure-portal-dashboards.md).
+
+### <a name="startup-directory"></a>Directorio de inicio
+
+Elija una de las opciones siguientes para que el directorio funcione cuando inicie sesión por primera vez en Azure Portal.
+
+- **Iniciar sesión en el último directorio visitado**: al iniciar sesión en Azure Portal, comenzará en el directorio en el que haya trabajado la última vez.
+- **Seleccionar un directorio**: elija esta opción para seleccionar uno de los directorios. Comenzará en ese directorio cada vez que inicie sesión en Azure Portal, incluso si la última vez ha trabajado en otro directorio.
+
+:::image type="content" source="media/set-preferences/azure-portal-settings-startup-views.png" alt-text="Captura de pantalla en la que se muestra la sección Inicio del panel Apariencia y vistas de inicio.":::
+
+## <a name="language--region"></a>Idioma y región
+
+Elija el idioma y el formato regional que influirán en el modo en que los datos, como las fechas y la moneda, aparecerán en Azure Portal.
+
+:::image type="content" source="media/set-preferences/azure-portal-settings-language-region.png" alt-text="Captura de pantalla en la que se muestra el panel de configuración de Idioma y región":::.
+
+> [!NOTE]
+> Esta configuración regional y de idioma solo afecta al Azure Portal. Los vínculos de documentación que se abren en una pestaña o ventana nueva usan la configuración del explorador para determinar el idioma que se va a mostrar.
+
+### <a name="language"></a>Lenguaje
+
+Use la lista desplegable para seleccionar uno de la lista de idiomas disponibles. Esta configuración controla el idioma en el que se ve el texto en Azure Portal.
+
+### <a name="regional-format"></a>Formato regional
+
+Seleccione una opción para controlar la forma en que se muestran las fechas, la hora, los números y la moneda en Azure Portal.
+
+Las opciones que se muestran en la lista desplegable **Formato regional** cambian en función de la opción seleccionada para **Idioma**. Por ejemplo, si selecciona **Inglés** como idioma y luego **Inglés (Estados Unidos)** como el formato regional, la moneda se muestra en dólares estadounidenses. Si selecciona **Inglés** como idioma y luego **Inglés (Europa)** como el formato regional, se muestra la moneda en euros.
+
+Seleccione **Aplicar** para actualizar la configuración de idioma y el formato regional.
+
+## <a name="my-information"></a>Mi información
+
+La página **Mi información** le permite actualizar la dirección de correo electrónico que se usa para las actualizaciones de los servicios, la facturación, el soporte técnico o los problemas de seguridad de Azure. También puede optar por recibir correos electrónicos adicionales sobre Microsoft Azure, y otros productos y servicios, o no recibirlos.
+
+Cerca de la parte superior de la página **Mi información**, verá opciones para exportar, restaurar o eliminar la configuración.
+
+:::image type="content" source="media/set-preferences/settings-my-information.png" alt-text="Captura de pantalla de la página de configuración de Mi información.":::
+
+### <a name="export-user-settings"></a>Exportación de la configuración de usuario
+
+La información sobre la configuración personalizada se almacena en Azure. Puede exportar los siguientes datos de usuario:
+
+- Paneles privados de Azure Portal
+- Configuración del usuario, como suscripciones o directorios favoritos
+- Temas y otra configuración del portal personalizada
+
+Es una buena idea exportar y revisar la configuración si tiene previsto eliminarla. Volver a generar paneles o rehacer la configuración puede llevar mucho tiempo.
+
+Para exportar la configuración del portal, seleccione **Exportar configuración** en la parte superior del panel **Información general** de la configuración. Esto crea un archivo *.json* que contiene los datos de configuración del usuario.
+
+Debido a la naturaleza dinámica de la configuración de usuario y el riesgo de daños en los datos, no se puede importar la configuración desde el archivo *.json*.
+
+### <a name="restore-default-settings"></a>Restaurar la configuración predeterminada
+
+Si ha realizado cambios en la configuración de Azure Portal y quiere descartarlos, seleccione **Restaurar la configuración predeterminada** en la parte superior del panel **Información general** de la configuración. Se le pedirá que confirme esta acción. Al hacerlo, se perderán los cambios que haya realizado en la configuración de Azure Portal. Esta opción no afecta a las personalizaciones del panel.
+
+### <a name="delete-user-settings-and-dashboards"></a>Eliminación de la configuración de usuario y los paneles
+
+La información sobre la configuración personalizada se almacena en Azure. Puede eliminar los siguientes datos de usuario:
+
+- Paneles privados de Azure Portal
+- Configuración del usuario, como suscripciones o directorios favoritos
+- Temas y otra configuración del portal personalizada
+
+Es una buena idea exportar y revisar la configuración antes de eliminarla. Volver a generar [paneles](azure-portal-dashboards.md) o rehacer la configuración personalizada puede llevar mucho tiempo.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
+Para eliminar la configuración del portal, seleccione **Eliminar todas las opciones de configuración y los paneles privados** en la parte superior de la página **Mi información**. Se le pedirá que confirme la eliminación. Al hacerlo, todas las personalizaciones de configuración volverán a los valores predeterminados y se perderán todos los paneles privados.
+
+## <a name="signing-out--notifications"></a>Cierre de sesión y notificaciones
+
+Este panel le permite administrar las notificaciones emergentes y los tiempos de espera de sesión.
+
+:::image type="content" source="media/set-preferences/azure-portal-settings-sign-out-notifications.png" alt-text="Captura de pantalla en la que se muestra el panel Cierre de sesión y notificaciones":::.
+
+### <a name="signing-out"></a>Cierre de sesión
 
 La configuración de tiempo de espera de inactividad ayuda a proteger los recursos frente al acceso no autorizado si se olvida de proteger la estación de trabajo. Una vez que haya estado inactivo durante un tiempo, se cerrará automáticamente la sesión de Azure Portal. Como usuario individual, puede cambiar la configuración de tiempo de espera manualmente. Si es administrador, puede establecerlo en el nivel de directorio de todos los usuarios del directorio.
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Cambio de la configuración de tiempo de espera individual (usuario)
 
-Seleccione la lista desplegable en **Cerrar sesión cuando esté inactivo**. Elija la duración después de la cual se cerrará la sesión de Azure Portal si está inactivo.
+En el menú desplegable situado junto a **Cerrar la sesión cuando no haya actividad**, elija la duración después de la cual se cerrará la sesión de Azure Portal si está inactivo.
 
-![Haga una captura de pantalla que muestre la configuración del portal con la configuración de tiempo de espera inactiva](./media/set-preferences/inactive-signout-user.png)
+:::image type="content" source="media/set-preferences/azure-portal-settings-sign-out-inactive.png" alt-text="Captura de pantalla en la que se muestra la opción de configuración de tiempo de espera del usuario":::.
 
-El cambio se guarda automáticamente. Si está inactivo, la sesión de Azure Portal se cerrará después de la duración establecida.
+Seleccione **Aplicar** para guardar los cambios. Después de eso, si está inactivo durante la sesión del portal, Azure Portal cerrará la sesión cuando se supere la duración establecida.
 
-Si el administrador ha habilitado una directiva de tiempo de espera de inactividad, puede establecer la suya propia, siempre que sea menor que la configuración de nivel de directorio. Seleccione **Reemplazar directiva de tiempo de espera de inactividad del directorio** y, después, establezca un intervalo de tiempo.
+Si el administrador ha habilitado una directiva de tiempo de espera de inactividad, puede establecer la suya propia, siempre que sea menor que la configuración de nivel de directorio. Seleccione **Reemplazar directiva de tiempo de espera de inactividad del directorio** y, después, establezca un intervalo de tiempo para el **Valor de invalidación**.
 
-![Haga una captura de pantalla que muestre la configuración del portal con invalidar la configuración de directiva de tiempo de espera de inactividad de directorio](./media/set-preferences/inactive-signout-override.png)
+:::image type="content" source="media/set-preferences/azure-portal-settings-sign-out-inactive-user.png" alt-text="Captura de pantalla en la que se muestra la configuración de invalidación del tiempo de espera de inactividad del directorio":::.
 
 ### <a name="change-the-directory-timeout-setting-admin"></a>Cambio de la configuración de tiempo de espera del directorio (admin)
 
-Los administradores del [rol Administrador global](../active-directory/roles/permissions-reference.md#global-administrator) pueden exigir la aplicación de un tiempo de inactividad máximo antes de que se cierre una sesión. El tiempo de expiración de inactividad se aplica en el nivel de directorio. La configuración surte efecto para las nuevas sesiones. No se aplicará de forma inmediata a ningún usuario que ya haya iniciado sesión. Para más información sobre los directorios, vea [Introducción a Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Los administradores del [rol Administrador global](../active-directory/roles/permissions-reference.md#global-administrator) pueden aplicar el tiempo máximo de inactividad antes de que se haya cerrado una sesión. Esta configuración de tiempo de espera de inactividad se aplica en el nivel de directorio. La configuración surte efecto para las nuevas sesiones. No se aplicará de forma inmediata a ningún usuario que ya haya iniciado sesión. Para más información sobre los directorios, vea [Introducción a Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
-Si es un administrador global y quiere aplicar un valor de tiempo de expiración de inactividad para todos los usuarios de Azure Portal, siga estos pasos:
+Si es un Administrador global y quiere aplicar un valor de tiempo de espera de inactividad para todos los usuarios de Azure Portal, seleccione **Habilitar tiempo de espera de inactividad del nivel de directorio** para activar la configuración: Luego, escriba las **Horas** y los **Minutos** de tiempo máximo que un usuario puede estar inactivo antes de que su sesión se cierre de forma automática. Después de seleccionar **Aplicar**, esta configuración se aplicará a todos los usuarios del directorio.
 
-1. Seleccione el texto del vínculo **Configurar el tiempo de espera del nivel de directorio**.
+:::image type="content" source="media/set-preferences/azure-portal-settings-sign-out-inactive-admin.png" alt-text="Captura de pantalla en la que se muestran las opciones de tiempo de espera de inactividad de nivel de directorio":::.
 
-    ![Captura de pantalla en la que se muestra la configuración del portal con el texto del vínculo resaltado](./media/set-preferences/settings-admin.png)
+Para confirmar que la directiva de tiempo de espera de inactividad se ha establecido correctamente, seleccione **Notificaciones** en el encabezado de página global y compruebe que aparece una notificación correcta.
 
-1. En la página **Configurar el tiempo de espera de inactividad del nivel de directorio**, seleccione **Habilitar el tiempo de espera de inactividad del nivel de directorio para Azure Portal** para activar la opción.
+:::image type="content" source="media/set-preferences/confirmation.png" alt-text="Captura de pantalla en la que se muestra una notificación para la directiva de tiempo de espera de inactividad correcta.":::
 
-1. A continuación, escriba las **horas** y los **minutos** de tiempo máximo que un usuario puede estar inactivo antes de que su sesión se cierre de forma automática.
+### <a name="enable-or-disable-pop-up-notifications"></a>Habilitar o deshabilitar las notificaciones emergentes
 
-1. Seleccione **Aplicar**.
+Las notificaciones son mensajes del sistema relacionados con la sesión actual. Proporcionan información como, por ejemplo, mostrar el saldo de crédito actual, confirmar la última acción o permitirle saber cuándo se convierten los recursos que creó. Cuando se activan las notificaciones emergentes, los mensajes se muestran brevemente en la esquina superior de la pantalla.
 
-    ![Captura de pantalla en la que se muestra la página para establecer el tiempo de espera de inactividad del nivel de directorio](./media/set-preferences/configure.png)
+Para habilitar las notificaciones emergentes, seleccione **Habilitar notificaciones emergentes** (o anule la selección para deshabilitarlas).
 
-Para confirmar que la directiva de tiempo de expiración de inactividad se ha establecido correctamente, seleccione **Notificaciones** en el encabezado de página global. Compruebe que se muestra una notificación correcta.
+Para leer todas las notificaciones recibidas durante la sesión actual, seleccione **Notificaciones** en el encabezado global.
 
-![Captura de pantalla en la que se muestra el mensaje de notificación correcta para el tiempo de expiración de inactividad del nivel de directorio](./media/set-preferences/confirmation.png)
+:::image type="content" source="media/set-preferences/read-notifications.png" alt-text="Captura de pantalla en la que se muestra el icono Notificaciones en el encabezado global.":::
 
-## <a name="restore-default-settings"></a>Restaurar la configuración predeterminada
-
-Si ha realizado cambios en la configuración de Azure Portal y desea descartarlos, seleccione **Restaurar la configuración predeterminada**. Se perderán los cambios realizados en la configuración del portal. Esta opción no afecta a las personalizaciones del panel.
-
-![Captura de pantalla que muestra la restauración de la configuración predeterminada](./media/set-preferences/useful-links-restore-defaults.png)
-
-## <a name="export-user-settings"></a>Exportación de la configuración de usuario
-
-La información sobre la configuración personalizada se almacena en Azure. Puede exportar los siguientes datos de usuario:
-
-* Paneles privados de Azure Portal
-* Configuración del usuario, como suscripciones o directorios favoritos y último directorio de inicio de sesión
-* Temas y otra configuración del portal personalizada
-
-Es una buena idea exportar y revisar la configuración si tiene previsto eliminarla. Volver a generar paneles o rehacer la configuración puede llevar mucho tiempo.
-
-Para exportar la configuración del portal, seleccione **Exportar todas las opciones de configuración**.
-
-![Captura de pantalla que muestra la exportación de la configuración](./media/set-preferences/useful-links-export-settings.png)
-
-La exportación de la configuración crea un archivo *.json* que contiene la configuración de usuario, como el tema de color, los favoritos y los paneles privados. Debido a la naturaleza dinámica de la configuración de usuario y el riesgo de daños en los datos, no se puede importar la configuración desde el archivo *.json*.
-
-## <a name="delete-user-settings-and-dashboards"></a>Eliminación de la configuración de usuario y los paneles
-
-La información sobre la configuración personalizada se almacena en Azure. Puede eliminar los siguientes datos de usuario:
-
-* Paneles privados de Azure Portal
-* Configuración del usuario, como suscripciones o directorios favoritos y último directorio de inicio de sesión
-* Temas y otra configuración del portal personalizada
-
-Es una buena idea exportar y revisar la configuración antes de eliminarla. Volver a generar paneles o rehacer la configuración personalizada puede llevar mucho tiempo.
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
-
-Para eliminar la configuración del portal, seleccione **Eliminar todas las opciones de configuración y los paneles privados**.
-
-![Captura de pantalla que muestra la eliminación de la configuración](./media/set-preferences/useful-links-delete-settings.png)
-
-## <a name="change-language-and-regional-settings"></a>Cambiar la configuración regional y de idioma
-
-Hay dos configuraciones que controlan el modo en que aparece el texto en el Azure Portal: 
-- El valor **Idioma** controla el idioma que se ve para el texto en el Azure Portal. 
-
-- **El formato regional** controla la manera en que se muestran las fechas, la hora, los números y la moneda.
-
-Para cambiar el idioma que se usa en la Azure Portal, use la lista desplegable para seleccionar en la lista de idiomas disponibles.
-
-La selección de formato regional cambia para mostrar las opciones regionales solo para el idioma seleccionado. Para cambiar esa selección automática, utilice la lista desplegable para elegir el formato regional que desee.
-
-Por ejemplo, si selecciona inglés como idioma y, luego, selecciona Estados Unidos como el formato regional, la moneda se muestra en dólares estadounidenses. Si selecciona inglés como idioma y, después, selecciona Europa como el formato regional, se muestra la moneda en euros.
-
-Seleccione **Aplicar** para actualizar la configuración de idioma y el formato regional.
-
-   ![Haga captura de pantalla que muestre la configuración del idioma y el formato regional](./media/set-preferences/language.png)
-
->[!NOTE]
->Esta configuración regional y de idioma solo afecta al Azure Portal. Los vínculos de documentación que se abren en una nueva pestaña o ventana usan la configuración de idioma del explorador para determinar el idioma que se va a mostrar.
->
+Para ver las notificaciones de sesiones anteriores, busque eventos en el registro de actividad. Para más información, consulte [Visualización del registro de actividad](../azure-monitor/essentials/activity-log.md#view-the-activity-log).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Métodos abreviados de teclado de Azure Portal](azure-portal-keyboard-shortcuts.md)
-- [Exploradores y dispositivos compatibles](azure-portal-supported-browsers-devices.md)
+- [Obtener más información sobre métodos abreviados de teclado de Azure Portal](azure-portal-keyboard-shortcuts.md)
+- [Ver exploradores y dispositivos compatibles](azure-portal-supported-browsers-devices.md)
 - [Agregar, quitar y reorganizar favoritos](azure-portal-add-remove-sort-favorites.md)
 - [Creación y uso compartido de paneles personalizados](azure-portal-dashboards.md)
-- [Serie de vídeos de procedimientos de Azure Portal](azure-portal-video-series.md)
+- [Ver vídeos de procedimientos de Azure Portal](azure-portal-video-series.md)

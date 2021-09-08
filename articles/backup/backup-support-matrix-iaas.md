@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 08/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: be9db68720f8af1fa3c00e3919b1acd7a63969c0
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: af008e8f14e3df60f0ce48a23cb32d45716645d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410268"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728916"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -153,7 +153,8 @@ Copia de seguridad de máquinas virtuales de Azure con bloqueos | No se admite p
 [Máquinas virtuales de Spot](../virtual-machines/spot-vms.md) | No compatible. Azure Backup restaura las máquinas virtuales de Spot como máquinas virtuales de Azure convencionales.
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Compatible<br></br>Al restaurar una máquina virtual de Azure mediante la opción [Crear nuevo](backup-azure-arm-restore-vms.md#create-a-vm), aunque la restauración se realiza correctamente, la máquina virtual de Azure no se puede restaurar en el host dedicado. Para ello, se recomienda restaurar como discos. Al [restaurar como discos](backup-azure-arm-restore-vms.md#restore-disks) con la plantilla, cree una máquina virtual en un host dedicado y luego asocie los discos.<br></br>Esto no es aplicable en la región secundaria, mientras se realiza la [restauración entre regiones.](backup-azure-arm-restore-vms.md#cross-region-restore)
 Configuración de Espacios de almacenamiento de Windows de máquinas virtuales de Azure independientes | Compatible
-[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Compatible con los modelos de orquestación uniforme y flexible para realizar copias de seguridad de máquinas virtuales de Azure únicas y restaurarlas.
+[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Compatible con el modelo de orquestación flexible para realizar copias de seguridad de máquinas virtuales de Azure únicas y restaurarlas.
+Restauración con identidades administradas | Compatible con máquinas virtuales de Azure administradas y no compatible con máquinas virtuales de Azure clásicas y no administradas.  <br><br> La restauración entre regiones no se admite con identidades administradas. <br><br> Actualmente, está disponible en todas las regiones de nube pública y nacional de Azure.   <br><br> [Más información](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 
 ## <a name="vm-storage-support"></a>Compatibilidad con almacenamiento de máquina virtual
 
@@ -164,7 +165,7 @@ Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 3
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Compatible.
 Discos cifrados | Compatible.<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
-Discos con el Acelerador de escritura habilitado | A partir del 23 de noviembre de 2020, solo se admite en las regiones Centro de Corea del Sur (KRC) y Norte de Sudáfrica (SAN) para un número limitado de suscripciones (versión preliminar limitada). Para esas suscripciones admitidas, Azure Backup realizará una copia de seguridad de las máquinas virtuales que tienen discos que tienen habilitada la escritura acelerada (WA) durante la copia de seguridad.<br><br>En el caso de las regiones no compatibles, se requiere conectividad a Internet en la máquina virtual para tomar instantáneas de las máquinas virtuales con la escritura acelerada habilitada.<br><br> **Nota importante**: En esas regiones no admitidas, las máquinas virtuales con discos de escritura acelerada necesitan conectividad a Internet para una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
+Discos con el Acelerador de escritura habilitado | Actualmente, la máquina virtual de Azure con copia de seguridad de disco WA está en versión preliminar en todas las regiones públicas de Azure. <br><br> (Se supera la cuota y no se puede realizar ningún cambio adicional en la lista aprobada hasta que haya disponibilidad general). <br><br> Las instantáneas no incluyen instantáneas de disco WA para suscripciones no admitidas, ya que se excluirá el disco de WA. <br><br>**Importante** <br> Las máquinas virtuales con discos WA necesitan conectividad a Internet para realizar una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
 Copia de seguridad y restauración de discos y máquinas virtuales desduplicados | Azure Backup no admite la desduplicación. Para más información, consulte este [artículo](./backup-support-matrix.md#disk-deduplication-support). <br/> <br/>  - Azure Backup no se desduplica entre máquinas virtuales en el almacén de Recovery Services <br/> <br/>  - Si hay máquinas virtuales en estado de desduplicación durante la restauración, los archivos no se pueden restaurar porque el almacén no entiende el formato. Sin embargo, puede realizar correctamente la restauración de una máquina virtual completa.
 Agregar disco a una máquina virtual protegida | Compatible.
 Cambiar tamaño de disco de una máquina virtual protegida | Compatible.

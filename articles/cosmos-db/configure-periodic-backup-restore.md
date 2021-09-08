@@ -4,15 +4,15 @@ description: En este artículo se explica cómo configurar cuentas de Azure Cosm
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/21/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 69677ed419fa9bac2cbcb06c394c92f68d0b7777
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 7cb5c8fe924a2634627533203ed8f11969f0b432
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930936"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733191"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configuración de una cuenta de Azure Cosmos DB con copia de seguridad periódica
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -32,7 +32,7 @@ Azure Cosmos DB crea automáticamente copias de seguridad de los datos a interva
 * Las copias de seguridad se crean sin afectar el rendimiento ni la disponibilidad de la aplicación. Azure Cosmos DB realiza la copia de seguridad de datos en segundo plano sin consumir ningún rendimiento aprovisionado (RU) adicional ni afectar al rendimiento y la disponibilidad de la base de datos.
 
 > [!Note]
-> No se admiten las cuentas con Synapse Link habilitado.
+> En las cuentas habilitadas para Azure Synapse Link, los datos del almacén analítico no se incluyen en las copias de seguridad y restauraciones. Cuando Synapse Link esté habilitado, Azure Cosmos DB seguirá haciendo copias de seguridad automáticamente de los datos del almacén de transacciones en el intervalo programado de copias de seguridad. En este momento, no se admite la copia de seguridad ni la restauración automáticas de los datos del almacén analítico.
 
 ## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>Redundancia del almacenamiento de copia de seguridad
 
@@ -176,5 +176,7 @@ Se recomienda eliminar el contenedor o la base de datos inmediatamente después 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para efectuar una solicitud de restauración, póngase en contacto con Soporte técnico de Azure y [rellene un vale en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-* Configure y administre la copia de seguridad continua mediante [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), la [CLI](continuous-backup-restore-command-line.md) o [Azure Resource Manager](continuous-backup-restore-template.md).
+* Aprovisione la copia de seguridad continua mediante [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), la [CLI](provision-account-continuous-backup.md#provision-cli) o [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restaure la cuenta de copia de seguridad continua mediante [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), la [CLI](restore-account-continuous-backup.md#restore-account-cli) o [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Realice la migración a una cuenta desde una copia de seguridad periódica a una copia de seguridad continua](migrate-continuous-backup.md).
 * [Administre los permisos](continuous-backup-restore-permissions.md) necesarios para restaurar datos con el modo de copia de seguridad continua.

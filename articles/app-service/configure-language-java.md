@@ -11,18 +11,18 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 4d66b766e1fb3996194b34f88abb4245398f70d2
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 75ee1ca92fb687975dabe0011ce8a95b8c03172b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017074"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723088"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
 Azure App Service permite a los desarrolladores de Java compilar, implementar y escalar rápidamente sus aplicaciones web de Java SE, Tomcat y JBoss EAP en un servicio totalmente administrado. Implemente aplicaciones con complementos de Maven desde la línea de comandos o en editores, como IntelliJ, Eclipse o Visual Studio Code.
 
-Esta guía incluye conceptos clave e instrucciones para los desarrolladores de Java que usan App Service. Si nunca ha usado Azure App Service, debe leer primero la [Guía de inicio rápido de Java](quickstart-java.md). Encontrará respuestas a las preguntas generales sobre el uso de App Service que no son específicas del desarrollo de Java en [Preguntas más frecuentes sobre Azure App Service](faq-configuration-and-management.md).
+Esta guía incluye conceptos clave e instrucciones para los desarrolladores de Java que usan App Service. Si nunca ha usado Azure App Service, debe leer primero la [Guía de inicio rápido de Java](quickstart-java.md). Encontrará respuestas a las preguntas generales sobre el uso de App Service que no son específicas del desarrollo de Java en [Preguntas más frecuentes sobre Azure App Service](faq-configuration-and-management.yml).
 
 ## <a name="show-java-version"></a>Visualización de la versión de Java
 
@@ -69,7 +69,7 @@ De lo contrario, el método de implementación dependerá del tipo de archivo:
 Para implementar archivos .jar en Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#rest). 
 
 > [!NOTE]
->  La aplicación .jar debe tener el nombre `app.jar` para App Service y así poder identificar y ejecutar la aplicación. El complemento Maven (mencionado anteriormente) cambiará automáticamente el nombre de la aplicación durante la implementación. Si no quiere cambiar el nombre de archivo JAR a *app.jar*, puede cargar un script de shell con el comando para ejecutar la aplicación .jar. A continuación, pegue la ruta de acceso absoluta a este script en el cuadro de texto[Archivo de inicio](faq-app-service-linux.md#built-in-images) de la sección Configuración del portal. El script de inicio no se ejecuta desde el directorio en el que se encuentra. Por lo tanto, use siempre rutas de acceso absolutas para hacer referencia a los archivos del script de inicio (por ejemplo: `java -jar /home/myapp/myapp.jar`).
+>  La aplicación .jar debe tener el nombre `app.jar` para App Service y así poder identificar y ejecutar la aplicación. El complemento Maven (mencionado anteriormente) cambiará automáticamente el nombre de la aplicación durante la implementación. Si no quiere cambiar el nombre de archivo JAR a *app.jar*, puede cargar un script de shell con el comando para ejecutar la aplicación .jar. Pegue la ruta de acceso absoluta a este script en el cuadro de texto[Archivo de inicio](/azure/app-service/faq-app-service-linux#built-in-images) de la sección Configuración del portal. El script de inicio no se ejecuta desde el directorio en el que se encuentra. Por lo tanto, use siempre rutas de acceso absolutas para hacer referencia a los archivos del script de inicio (por ejemplo: `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -81,7 +81,7 @@ Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wa
 
 Para implementar archivos .war en JBoss, use el punto de conexión `/api/wardeploy/` para realizar la instrucción POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-war-file).
 
-Para implementar archivos .ear, [use FTP](deploy-ftp.md).
+Para implementar archivos .ear, [use FTP](deploy-ftp.md). La aplicación .ear se implementará en la raíz de contexto definida en la configuración de la aplicación. Por ejemplo, si la raíz de contexto de la aplicación es `<context-root>myapp</context-root>`, puede examinar el sitio en la ruta de acceso `/myapp`: `http://my-app-name.azurewebsites.net/myapp`. Si desea que se atienda a la aplicación web en la ruta de acceso raíz, asegúrese de que la aplicación establece la raíz del contexto en la ruta de acceso raíz: `<context-root>/</context-root>`. Para obtener más información, vea [Establecimiento del contexto raíz de una aplicación web](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
@@ -126,7 +126,7 @@ Todos los entornos de ejecución de Java en App Service que usan JVM de Azul inc
 
 #### <a name="timed-recording"></a>Grabación temporizada
 
-Para realizar una grabación temporizada, necesitará el PID (identificador de proceso) de la aplicación Java. Para encontrar el PID, abra el sitio de SCM de su aplicación web en un explorador: https://<nombre-de-su-sitio>.scm.azurewebsites.net/ProcessExplorer/. En esta página se muestran los procesos en ejecución en la aplicación web. Busque el proceso denominado "Java" en la tabla y copie el PID (identificador de proceso) correspondiente.
+Para realizar una grabación temporizada, necesitará el PID (identificador de proceso) de la aplicación Java. Para buscar el PID, abra un explorador en el sitio de SCM de la aplicación web en `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. En esta página se muestran los procesos en ejecución en la aplicación web. Busque el proceso denominado "Java" en la tabla y copie el PID (identificador de proceso) correspondiente.
 
 A continuación, abra la **Consola de depuración** en la barra de herramientas superior del sitio de SCM y ejecute el siguiente comando. Reemplace `<pid>` por el identificador de proceso que ha copiado anteriormente. Este comando iniciará una grabación de 30 segundos del generador de perfiles de su aplicación Java y generará un archivo denominado `timed_recording_example.jfr` en el directorio `D:\home`.
 
@@ -156,7 +156,7 @@ Durante el intervalo de 30 segundos puede validar que la grabación se lleva a c
 
 #### <a name="continuous-recording"></a>Grabación continua
 
-Puede usar Zulu Flight Recorder para generar un perfil continuamente de una aplicación Java con un impacto mínimo en el rendimiento del runtime ([origen](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Para ello, ejecute el siguiente comando de la CLI de Azure para crear una configuración de aplicación denominada JAVA_OPTS con la configuración necesaria. El contenido de la configuración de la aplicación de JAVA_OPTS se pasa al comando `java` cuando se inicia la aplicación.
+Puede usar Zulu Flight Recorder para generar un perfil continuamente de una aplicación Java con un impacto mínimo en el rendimiento del entorno de ejecución. Para ello, ejecute el siguiente comando de la CLI de Azure para crear una configuración de aplicación denominada JAVA_OPTS con la configuración necesaria. El contenido de la configuración de la aplicación de JAVA_OPTS se pasa al comando `java` cuando se inicia la aplicación.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -189,7 +189,7 @@ El registro de Azure Blob Storage para instancias de App Services basadas en Lin
 
 ::: zone-end
 
-Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](../azure-monitor/app/java-trace-logs.md).
+Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](../azure-monitor/app/java-2x-trace-logs.md).
 
 ## <a name="customization-and-tuning"></a>Personalización y optimización
 
@@ -197,7 +197,7 @@ Azure App Service para Linux admite la optimización y la personalización de se
 
 - [Configuración de aplicaciones](configure-common.md#configure-app-settings)
 - [Configuración de un dominio personalizado](app-service-web-tutorial-custom-domain.md)
-- [Configuración de enlaces SSL](configure-ssl-bindings.md)
+- [Configuración de enlaces TLS/SSL](configure-ssl-bindings.md)
 - [Adición de una red CDN](../cdn/cdn-add-to-web-app.md)
 - [Configuración del sitio de Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
@@ -206,7 +206,7 @@ Azure App Service para Linux admite la optimización y la personalización de se
 
 Para establecer la memoria asignada u otras opciones de runtime de JVM, cree una [configuración de la aplicación](configure-common.md#configure-app-settings) denominada `JAVA_OPTS` con las opciones. App Service pasa esta configuración como variable de entorno para Java Runtime cuando se inicia.
 
-En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un nuevo valor de la aplicación denominado `JAVA_OPTS` que incluya valores de configuración adicionales, como `-Xms512m -Xmx1204m`.
+En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un valor de la aplicación denominado `JAVA_OPTS` para Java SE o `CATALINA_OPTS` para Tomcat que incluya valores de configuración adicionales, como `-Xms512m -Xmx1204m`.
 
 Para definir la configuración de la aplicación desde el complemento MavenLinux, agregue las etiquetas setting/value a la sección de complementos de Azure. En el ejemplo siguiente se establece un tamaño del montón de Java mínimo y máximo específico:
 
@@ -269,7 +269,7 @@ Las aplicaciones de Java que se ejecutan en App Service presentan el mismo conj
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticación de usuarios (autenticación sencilla)
 
-Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único. Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](configure-authentication-provider-aad.md) y los artículos relacionados de otros proveedores de identidades. Si tiene que habilitar varios proveedores de inicio de sesión, siga las instrucciones del artículo sobre la [personalización de la autenticación en App Service](app-service-authentication-how-to.md).
+Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único. Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](configure-authentication-provider-aad.md) y los artículos relacionados de otros proveedores de identidades. Si tiene que habilitar varios proveedores de inicio de sesión, siga las instrucciones del artículo sobre la [personalización de inicios y cierres de sesión](configure-authentication-customize-sign-in-out.md).
 
 #### <a name="java-se"></a>Java SE
 
@@ -297,7 +297,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Para cerrar la sesión de los usuarios, utilice la ruta de acceso `/.auth/ext/logout`. Para realizar otras acciones, consulte la documentación acerca del [uso de la autenticación y de la autorización de App Service](./app-service-authentication-how-to.md). También hay documentación oficial acerca de la [interfaz HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) y sus métodos. Los siguientes métodos de servlet también se hidrata métodos según la configuración de App Service:
+Para cerrar la sesión de los usuarios, utilice la ruta de acceso `/.auth/ext/logout`. Para realizar otras acciones, consulte la documentación sobre la [personalización de inicios y cierres de sesión](configure-authentication-customize-sign-in-out.md). También hay documentación oficial acerca de la [interfaz HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) y sus métodos. Los siguientes métodos de servlet también se hidrata métodos según la configuración de App Service:
 
 ```java
 public boolean isSecure()
@@ -311,7 +311,7 @@ Para deshabilitar esta característica, cree una configuración de aplicación d
 
 ### <a name="configure-tlsssl"></a>Configuración de TLS/SSL
 
-Siga las instrucciones de [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md) para cargar un certificado SSL y enlazarlo al nombre de dominio de la aplicación. De forma predeterminada, la aplicación seguirá permitiendo que las conexiones HTTP sigan los pasos específicos del tutorial para aplicar SSL y TLS.
+Siga las instrucciones de [Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service](configure-ssl-bindings.md) para cargar un certificado TLS/SSL y enlazarlo al nombre de dominio de la aplicación. De forma predeterminada, la aplicación seguirá permitiendo que las conexiones HTTP sigan los pasos específicos del tutorial para aplicar TLS/SSL.
 
 ### <a name="use-keyvault-references"></a>Uso de referencias de KeyVault
 
@@ -337,7 +337,7 @@ Puede ser necesaria una configuración adicional para el cifrado de la conexión
 
 #### <a name="initialize-the-java-key-store"></a>Inicialización del almacén de claves de Java
 
-Para inicializar el objeto `import java.security.KeyStore`, cargue el archivo de almacén de claves con la contraseña. La contraseña predeterminada para ambos almacenes de claves es "changeit".
+Para inicializar el objeto `import java.security.KeyStore`, cargue el archivo de almacén de claves con la contraseña. La contraseña predeterminada para ambos almacenes de claves es `changeit`.
 
 ```java
 KeyStore keyStore = KeyStore.getInstance("jks");
@@ -361,7 +361,54 @@ Puede depurar o interactuar con la herramienta de claves de Java si [abre una co
 
 ## <a name="configure-apm-platforms"></a>Configuración de plataformas APM
 
-En esta sección se muestra cómo conectar aplicaciones Java implementadas en Azure App Service en Linux con las plataformas de supervisión de aplicaciones (APM) NewRelic y AppDynamics.
+En esta sección se muestra cómo conectar aplicaciones Java implementadas en Azure App Service con las plataformas de supervisión de aplicaciones (APM) Azure Monitor Application Insights, NewRelic y AppDynamics.
+
+### <a name="configure-application-insights"></a>Configuración de Application Insights
+
+Azure Monitor Application Insights es un servicio de supervisión de aplicaciones nativo de la nube que permite a los clientes observar errores, cuellos de botella y patrones de uso para mejorar el rendimiento de la aplicación y reducir el tiempo medio de resolución (MTTR). Con unos pocos clics o comandos de la CLI, puede habilitar la supervisión de las aplicaciones Node.js o Java y recopilar automáticamente registros, métricas y seguimientos distribuidos, lo que elimina la necesidad de incluir un SDK en la aplicación.
+
+#### <a name="azure-portal"></a>Azure portal
+
+Para habilitar Application Insights desde Azure Portal, vaya a **Application Insights** en el menú de la izquierda y seleccione **Activar Application Insights**. De forma predeterminada, se usará un nuevo recurso de Application Insights con el mismo nombre que la aplicación web. Puede optar por usar un recurso de Application Insights existente o cambiar el nombre. Haga clic en **Aplicar** en la parte inferior.
+
+#### <a name="azure-cli"></a>Azure CLI
+
+Para habilitarlo a través de la CLI de Azure, deberá crear un recurso de Application Insights y establecer un par de configuraciones de aplicación en Azure Portal para conectar Application Insights a la aplicación web.
+
+1. Habilitación de la extensión de Applications Insights
+
+    ```bash
+    az extension add -n application-insights
+    ```
+
+2. Cree un recurso de Application Insights mediante el siguiente comando de la CLI. Reemplace los marcadores de posición por el nombre de recurso y el grupo deseados.
+
+    ```bash
+    az monitor app-insights component create --app <resource-name> -g <resource-group> --location westus2  --kind web --application-type web
+    ```
+
+    Anote los valores de `connectionString` y `instrumentationKey`, los necesitará en el siguiente paso.
+
+    > Para recuperar una lista de otras ubicaciones, ejecute `az account list-locations`.
+
+::: zone pivot="platform-windows"
+    
+3. Establezca la clave de instrumentación, la cadena de conexión y la versión del agente de supervisión como configuración de la aplicación en la aplicación web. Sustituya `<instrumentationKey>` y `<connectionString>` por los valores del paso anterior.
+
+    ```bash
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
+    ```
+
+::: zone-end
+::: zone pivot="platform-linux"
+    
+3. Establezca la clave de instrumentación, la cadena de conexión y la versión del agente de supervisión como configuración de la aplicación en la aplicación web. Sustituya `<instrumentationKey>` y `<connectionString>` por los valores del paso anterior.
+
+    ```bash
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
+    ```
+
+::: zone-end
 
 ### <a name="configure-new-relic"></a>Configuración de New Relic
 
@@ -511,6 +558,8 @@ Puede usar un script de inicio para realizar acciones antes de que se inicie una
 2. Copie Tomcat localmente.
 3. Realice los cambios de configuración necesarios.
 4. Indique que la configuración se completó correctamente.
+
+Para sitios de Windows, cree un archivo denominado `startup.cmd` o `startup.ps1` en el directorio `wwwroot`. Se ejecutará automáticamente antes de que se inicie el servidor de Tomcat.
 
 Este es un script de PowerShell que completa estos pasos:
 
@@ -809,7 +858,7 @@ A continuación, determine si el origen de datos debe estar disponible para una 
 
 #### <a name="shared-server-level-resources"></a>Recursos de nivel de servidor compartidos
 
-Para agregar un origen de datos compartido de nivel de servidor, será necesario editar el archivo server.xml de Tomcat. En primer lugar, cargue un [script de inicio](faq-app-service-linux.md#built-in-images) y establezca la ruta de acceso al script en **Configuración** > **Comando de inicio**. Puede cargar el script de inicio mediante [FTP](deploy-ftp.md).
+Para agregar un origen de datos compartido de nivel de servidor, será necesario editar el archivo server.xml de Tomcat. En primer lugar, cargue un [script de inicio](/azure/app-service/faq-app-service-linux#built-in-images) y establezca la ruta de acceso al script en **Configuración** > **Comando de inicio**. Puede cargar el script de inicio mediante [FTP](deploy-ftp.md).
 
 El script de inicio realizará una [transformación XSL](https://www.w3schools.com/xml/xsl_intro.asp) al archivo server.xml y generará el archivo XML resultante en `/usr/local/tomcat/conf/server.xml`. El script de inicio debe instalar libxslt a través de APK. El archivo XSL y el script de inicio se pueden cargar a través de FTP. A continuación se muestra un script de inicio de ejemplo.
 
@@ -946,7 +995,7 @@ Al [registrar un origen de datos en JBoss EAP](https://access.redhat.com/documen
     ```
 
 1. Mediante el cliente FTP de su elección, cargue el controlador JDBC, `jboss-cli-commands.cli`, `startup_script.sh` y la definición del módulo en `/site/deployments/tools/`.
-2. Configure el sitio para que ejecute `startup_script.sh` cuando se inicie el contenedor. En Azure portal, vaya a **Configuración** > **Configuración general** > **Comando de inicio**. Establezca el campo de comando de inicio en `/home/site/deployments/tools/startup_script.sh`. Guarde los cambios mediante **Guardar**.
+2. Configure el sitio para que ejecute `startup_script.sh` cuando se inicie el contenedor. En Azure Portal, vaya a **Configuración** > **Configuración general** > **Comando de inicio**. Establezca el campo de comando de inicio en `/home/site/deployments/tools/startup_script.sh`. Guarde los cambios mediante **Guardar**.
 
 Para confirmar que el origen de datos se agregó al servidor JBoss, conéctese a su aplicación web mediante SSH y ejecute `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Cuando esté conectado a JBoss, ejecute `/subsystem=datasources:read-resource` para imprimir una lista de los orígenes de datos.
 
@@ -956,23 +1005,28 @@ Para confirmar que el origen de datos se agregó al servidor JBoss, conéctese a
 
 ## <a name="choosing-a-java-runtime-version"></a>Selección de la versión del entorno de ejecución de Java
 
-App Service permite a los usuarios elegir la versión principal de JVM (por ejemplo, Java 8 o Java 11), así como la versión secundaria (por ejemplo, 1.8.0_232 o 11.0.5). También puede elegir que la versión secundaria se actualice automáticamente a medida que estén disponibles otras nuevas. En la mayoría de los casos, los sitios de producción deben usar versiones secundarias de JVM ancladas. De esta forma, se evitan interrupciones imprevistas durante la actualización automática de una versión secundaria.
+App Service permite a los usuarios elegir la versión principal de JVM (por ejemplo, Java 8 o Java 11), así como la versión secundaria (por ejemplo, 1.8.0_232 o 11.0.5). También puede elegir que la versión secundaria se actualice automáticamente a medida que estén disponibles otras nuevas. En la mayoría de los casos, los sitios de producción deben usar versiones secundarias de JVM ancladas. De esta forma, se evitan interrupciones imprevistas durante la actualización automática de una versión secundaria. Todas las aplicaciones web de Java usan JMS de 64 bits, lo que no es configurable.
 
 Si elige anclar la versión secundaria, tendrá que actualizar periódicamente la versión secundaria de JVM en el sitio. Para asegurarse de que la aplicación se ejecuta en la versión secundaria más reciente, cree un espacio de ensayo e incremente en él la versión secundaria. Cuando haya confirmado que la aplicación se ejecuta correctamente en la nueva versión secundaria, puede intercambiar los espacios de ensayo y de producción.
 
-## <a name="jboss-eap-hardware-options"></a>Opciones de hardware de JBoss EAP
+::: zone pivot="platform-linux"
 
-JBoss EAP solo está disponible en las opciones de hardware Premium y Aislado. Los clientes que crearon un sitio de JBoss EAP en un nivel Gratis, Compartido, Básico o Estándar durante la versión preliminar pública deben escalar verticalmente a un nivel de hardware Premium o Aislado para evitar un comportamiento inesperado.
+## <a name="jboss-eap-app-service-plans"></a>Planes de App Service de JBoss EAP
+<a id="jboss-eap-hardware-options"></a>
+
+JBoss EAP solo está disponible en los tipos de plan Premium v3 y Aislado v2 de App Service. Los clientes que crearon un sitio de JBoss EAP en un nivel diferente durante la versión preliminar pública deben escalar verticalmente a un nivel de hardware Premium o Aislado para evitar un comportamiento inesperado.
+
+::: zone-end
 
 ## <a name="java-runtime-statement-of-support"></a>Instrucción de compatibilidad de Java Runtime
 
 ### <a name="jdk-versions-and-maintenance"></a>Mantenimiento y versiones de JDK
 
-El JDK (Java Development Kit) compatible con Azure es [Zulu](https://www.azul.com/downloads/azure-only/zulu/) y se distribuye a través de [Azul Systems](https://www.azul.com/). Las compilaciones del OpenJDK de Azul Zulu Enterprise son una distribución gratuita, multiplataforma y lista para producción del OpenJDK para Azure y Azure Stack respaldado por Microsoft y Azul Systems. Contienen todos los componentes para la creación y ejecución de aplicaciones de Java SE. El JDK se puede instalar desde [Instalación del JDK de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+El JDK (Java Development Kit) compatible con Azure es [Zulu](https://www.azul.com/downloads/azure-only/zulu/) y se distribuye a través de [Azul Systems](https://www.azul.com/). Las compilaciones del OpenJDK de Azul Zulu Enterprise son una distribución gratuita, multiplataforma y lista para producción del OpenJDK para Azure y Azure Stack respaldado por Microsoft y Azul Systems. Contienen todos los componentes para la creación y ejecución de aplicaciones de Java SE. El JDK se puede instalar desde [Instalación del JDK de Java](/azure/developer/java/fundamentals/java-support-on-azure).
 
 Las actualizaciones de versión principal se proporcionarán por medio de nuevas opciones de entorno de ejecución en Azure App Service. Para actualizar a estas versiones más recientes, los clientes deben configurar su implementación de App Service. Asimismo, son responsables de probar y garantizar que la actualización principal satisface sus necesidades.
 
-Los JDK compatibles se revisarán trimestralmente de manera automática en enero, abril, julio y octubre de cada año. Para obtener más información sobre Java en Azure, consulte [este documento de soporte técnico](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Los JDK compatibles se revisarán trimestralmente de manera automática en enero, abril, julio y octubre de cada año. Para obtener más información sobre Java en Azure, consulte [este documento de soporte técnico](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### <a name="security-updates"></a>Actualizaciones de seguridad
 
@@ -997,4 +1051,5 @@ El soporte técnico para el JDK de [Azul Zulu compatible con Azure](https://www.
 
 Visite el centro de [Azure para desarrolladores de Java](/java/azure/) para encontrar guías de inicio rápido de Azure, tutoriales y documentación de referencia de Java.
 
-Encontrará respuestas a las preguntas generales sobre el uso de App Service para Linux que no son específicas del desarrollo de Java en las [Preguntas más frecuentes sobre Azure App Service en Linux](faq-app-service-linux.md).
+- [P+F sobre App Service en Linux](faq-app-service-linux.yml)
+- [Referencia sobre las variables de entorno y la configuración de la aplicación](reference-app-settings.md)

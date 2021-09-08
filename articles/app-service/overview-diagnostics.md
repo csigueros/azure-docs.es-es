@@ -2,17 +2,15 @@
 title: Herramienta de diagnóstico y solución de problemas
 description: Aprenda a solucionar problemas de cualquier aplicación en Azure App Service con la herramienta de diagnóstico y solución de problemas de Azure Portal.
 keywords: app service, azure app service, diagnósticos, compatibilidad, aplicación web, solución de problemas, autoayuda
-author: jen7714
 ms.topic: article
 ms.date: 10/18/2019
-ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf044baf233c159ff271221522f0f9faf15cc1ed
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962815"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451594"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Introducción a los diagnósticos de Azure App Service
 
@@ -28,7 +26,7 @@ Para acceder al diagnóstico de App Service, vaya a la aplicación web de App Se
 
 Para Azure Functions, vaya a la aplicación de la función y, en el panel de navegación superior, haga clic en **Características de la plataforma** y seleccione **Diagnosticar y solucionar problemas** en la sección **Administración de recursos**.
 
-En la página principal de diagnóstico de App Service, puede elegir la categoría que mejor describa el problema con la aplicación. Para ello, use las palabras clave de cada icono de la página principal. Además, en esta página encontrará las **Herramientas de diagnóstico** para aplicaciones de Windows. Consulte [Herramientas de diagnóstico (solo para la aplicación de Windows)](#diagnostic-tools-only-for-windows-app).
+En la página principal de diagnóstico de App Service, puede elegir la categoría que mejor describa el problema con la aplicación. Para ello, use las palabras clave de cada icono de la página principal. Además, en esta página encontrará las **Herramientas de diagnóstico**. Vea [Herramientas de diagnóstico](#diagnostic-tools).
 
 ![Página principal](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
@@ -83,21 +81,23 @@ Si se detecta un problema de una categoría determinada en las últimas 24 hora
 
 ![Application Insights y Solución de problemas y siguientes pasos](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
-## <a name="diagnostic-tools-only-for-windows-app"></a>Herramientas de diagnóstico (solo para la aplicación de Windows)
+## <a name="diagnostic-tools"></a>Herramientas de diagnóstico 
 
 Las Herramientas de diagnóstico incluyen herramientas de diagnóstico más avanzadas que le ayudan a investigar los problemas del código de la aplicación, la lentitud, las cadenas de conexión, así como herramientas proactivas que le permiten mitigar los problemas relacionados con el uso de la CPU, las solicitudes y la memoria.
 
-### <a name="proactive-cpu-monitoring"></a>Supervisión de CPU proactiva
+### <a name="proactive-cpu-monitoring-only-for-windows-app"></a>Supervisión de CPU proactiva (solo para aplicación de Windows)
 
 La supervisión de CPU proactiva proporciona una manera fácil y proactiva de realizar una acción cuando la aplicación o el proceso secundario de la aplicación consumen recursos elevados de la CPU. Puede establecer sus propias reglas de umbral de la CPU para mitigar temporalmente un problema de uso elevado de la CPU hasta que se detecte la causa real del problema. Para más información, consulte [Mitigate your CPU problems before they happen](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html) (Mitigar los problemas de CPU antes de que ocurran).
 
 ![Supervisión de CPU proactiva](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### <a name="auto-healing-and-proactive-auto-healing"></a>Recuperación automática y recuperación automática proactiva
+### <a name="auto-healing"></a>Recuperación automática 
 
-La recuperación automática es una acción de mitigación que puede realizar cuando la aplicación se comporta de manera inesperada. Puede establecer sus propias reglas basadas en número de solicitudes, una solicitud lenta, el límite de memoria y el código de estado HTTP para desencadenar acciones de mitigación. Use la herramienta para mitigar temporalmente un comportamiento inesperado hasta que encuentre la causa principal. Para más información, consulte [Anuncio de la nueva experiencia de recuperación automática en los diagnósticos de App Service](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+La recuperación automática es una acción de mitigación que puede realizar cuando la aplicación se comporta de manera inesperada. Puede establecer sus propias reglas basadas en número de solicitudes, una solicitud lenta, el límite de memoria y el código de estado HTTP para desencadenar acciones de mitigación. Use la herramienta para mitigar temporalmente un comportamiento inesperado hasta que encuentre la causa principal. La herramienta está disponible actualmente para Windows Web Apps, Linux Web Apps y contenedores personalizados de Linux. Las condiciones y la mitigación admitidas varían en función del tipo de aplicación web. Para obtener más información, consulte [Anuncio de la nueva experiencia de recuperación automática en los diagnósticos de App Service](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html) y [Anuncio de recuperación automática para Linux](https://azure.github.io/AppService/2021/04/21/Announcing-Autoheal-for-Azure-App-Service-Linux.html).
 
 ![Recuperación automática](./media/app-service-diagnostics/auto-healing-10.png)
+
+### <a name="proactive-auto-healing-only-for-windows-app"></a>Recuperación automática proactiva (solo para aplicación de Windows)
 
 Al igual que la supervisión de CPU proactiva, la recuperación automática proactiva es una solución completa para mitigar un comportamiento inesperado de la aplicación. La recuperación automática proactiva reinicia la aplicación cuando App Service determina que esta se encuentra en un estado irrecuperable. Para más información, consulte [Introducing Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html) (Introducción a la reparación automática proactiva).
 

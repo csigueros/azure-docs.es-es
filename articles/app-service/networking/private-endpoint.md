@@ -4,22 +4,22 @@ description: Conexión privada a una aplicación web mediante un punto de conexi
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 07/01/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 6bb8343ae6281120d8bfef549946f47d8658cbba
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: da26939d6973792c237c84777daf2254ae27699d
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890166"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105640"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso de puntos de conexión privados para una aplicación web de Azure
 
 > [!IMPORTANT]
-> El punto de conexión privado está disponible para la aplicación web de Windows y Linux en un contenedor (o no), y que esté hospedada en estos planes de App Service: **Aislado**, **PremiumV2**, **PremiumV3**, **Functions Premium** (a veces se conoce como plan Elástico Premium). 
+> El punto de conexión privado está disponible para la aplicación web de Windows y Linux, en contenedores o no, hospedado en los planes de App Service siguientes: **PremiumV2**, **PremiumV3**, **Functions Premium** (también referido como plan Elástico Premium). 
 
 Puede usar el punto de conexión privado para la aplicación web de Azure a fin de permitir que los clientes ubicados en la red privada accedan de forma segura a la aplicación a través de un vínculo privado. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual de Azure. El tráfico de red entre un cliente en la red privada y la aplicación web atraviesa la red virtual y un servicio Private Link en la red troncal de Microsoft, lo que elimina la exposición desde la red pública de Internet.
 
@@ -38,6 +38,8 @@ Para obtener más información, consulte [Puntos de conexión de servicio][servi
 Un punto de conexión privado es una interfaz de red (NIC) especial para la aplicación web de Azure en una subred dentro de la red virtual (Vnet).
 Cuando se crea un punto de conexión privado para la aplicación web, se proporciona una conectividad segura entre los clientes de la red privada y la aplicación web. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual.
 La conexión entre el punto de conexión privado y la aplicación web usa una instancia de [Private Link][privatelink] segura. El punto de conexión privado solo se usa para los flujos entrantes en la aplicación web. Los flujos salientes no usarán este punto de conexión privado, pero puede insertar flujos salientes en la red de una subred diferente mediante la [característica de integración de red virtual][vnetintegrationfeature].
+
+Cada ranura de una aplicación se configura por separado. Se pueden conectar hasta 100 puntos de conexión privados por ranura. No se puede compartir un punto de conexión privado entre ranuras.
 
 La subred en la que se conecta el punto de conexión privado puede tener otros recursos, no necesita una subred vacía dedicada.
 También puede implementar el punto de conexión privado en una región distinta a la de la aplicación web. 
@@ -60,6 +62,7 @@ En los registros HTTP web de la aplicación web, encontrará la dirección IP d
 
   > [!div class="mx-imgBorder"]
   > ![Información general global del punto de conexión privado de aplicación web](media/private-endpoint/global-schema-web-app.png)
+
 
 ## <a name="dns"></a>DNS
 
@@ -121,8 +124,6 @@ Puede conectar hasta 100 puntos de conexión privados a una aplicación web en 
 La funcionalidad de depuración remota no está disponible cuando se habilita el punto de conexión privado para la aplicación web. Le recomendamos implementar el código en una ranura y depurarlo de forma remota en la misma.
 
 El acceso FTP se proporciona a través de la dirección IP pública de entrada. El punto de conexión privado no admite el acceso FTP a la aplicación web.
-
-Hay una limitación conocida que afecta a los puntos de conexión privados y al enrutamiento del tráfico con ranuras (la [característica Probar en producción][TiP]). A partir de abril de 2021, el enrutamiento automático y manual de solicitudes entre ranuras provocará el mensaje "403 Acceso denegado". Esta limitación se eliminará en una próxima versión.
 
 Estamos mejorando la característica Private Link y el punto de conexión privado periódicamente. Consulte [este artículo][pllimitations] para información actualizada sobre las limitaciones.
 

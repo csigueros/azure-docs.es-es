@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: security-recommendations
-ms.openlocfilehash: db0e033adf553c25c6b7b401f8d0df1a2cd5995f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 260f8682766187ba9cedb3b5bf951e06548c0048
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97592167"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727947"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendaciones de seguridad para Queue Storage
 
@@ -37,7 +37,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
-| Usar Azure Active Directory (Azure AD) para autorizar el acceso a los datos de la cola | Azure AD proporciona seguridad superior y facilidad de uso sobre la autorización de clave compartida para autorizar solicitudes en Queue Storage. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md). | - |
+| Usar Azure Active Directory (Azure AD) para autorizar el acceso a los datos de la cola | Azure AD proporciona seguridad superior y facilidad de uso sobre la autorización de clave compartida para autorizar solicitudes en Queue Storage. Para más información, consulte [Autorización del acceso a datos en Azure Storage](../common/authorize-data-access.md). | - |
 | Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una entidad de seguridad de Azure AD a través de Azure RBAC | Al asignar un rol a un usuario, grupo o aplicación, conceda a esa entidad de seguridad exclusivamente los permisos necesarios para que pueda realizar sus tareas. Limitar el acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
 | Proteger las claves de acceso de su cuenta con Azure Key Vault | Microsoft recomienda usar Azure AD para autorizar las solicitudes que se realicen a Azure Storage. Sin embargo, si debe usar la autorización de clave compartida, proteja sus claves de cuenta con Azure Key Vault. Puede recuperar las claves del almacén de claves en tiempo de ejecución, en lugar de guardarlas con la aplicación. | - |
 | Regenerar la claves de cuenta periódicamente | El cambio periódico de las claves de una cuenta reduce el riesgo de exponer los datos a actores malintencionados. | - |

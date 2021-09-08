@@ -2,18 +2,20 @@
 title: Configuración de alertas y trabajo con métricas en Azure VMware Solution
 description: Aprenda a usar alertas para recibir notificaciones. Conozca también cómo trabajar con métricas para obtener información más detallada sobre la nube privada de Azure VMware Solution.
 ms.topic: how-to
-ms.date: 04/02/2021
-ms.openlocfilehash: 2e7a04a11b5a569c6e12e7a8315f13ea740a812c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 07/23/2021
+ms.openlocfilehash: 718838d5335ff10200fc41029a6431a96552894b
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126291"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653582"
 ---
 # <a name="configure-azure-alerts-in-azure-vmware-solution"></a>Configuración de alertas de Azure en Azure VMware Solution 
 
 En este artículo va a aprender a configurar [grupos de acciones de Azure](../azure-monitor/alerts/action-groups.md) en [alertas de Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) para recibir notificaciones de eventos desencadenados que defina. También va a aprender a usar [métricas de Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md) para obtener información más detallada sobre la nube privada de Azure VMware Solution.
 
+>[!NOTE]
+>Los incidentes que afectan a la disponibilidad de un host de Azure VMware Solution y su restauración correspondiente se envían automáticamente al administrador de cuenta, al administrador de servicios (permisos clásicos), a los coadministradores (permisos clásicos) y a los propietarios (rol RBAC) de las suscripciones que contienen nubes privadas de Azure VMware Solution.
 
 ## <a name="supported-metrics-and-activities"></a>Métricas y actividades admitidas
 
@@ -45,7 +47,7 @@ Las siguientes métricas son visibles por medio de métricas de Azure Monitor.
    - Configurar el grupo de acciones
    - Definir los detalles de la regla de alerta
     
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-alert-rule-details.png" alt-text="Captura de pantalla que muestra la ventana Crear regla de alerta." lightbox="media/configure-alerts-for-azure-vmware-solution/create-alert-rule-details.png":::
+   :::image type="content" source="../devtest-labs/media/activity-logs/create-alert-rule-done.png" alt-text="Captura de pantalla que muestra la ventana Crear regla de alertas." lightbox="../devtest-labs/media/activity-logs/create-alert-rule-done.png":::
 
 1. En **Ámbito**, seleccione el recurso de destino que quiere supervisar. De manera predeterminada, se ha definido la nube privada de Azure VMware Solution desde la que se ha abierto el menú Alertas.
 
@@ -53,27 +55,17 @@ Las siguientes métricas son visibles por medio de métricas de Azure Monitor.
 
    En el ejemplo se ha seleccionado **Porcentaje de disco del almacén de datos empleado**, que es relevante desde una perspectiva del [Acuerdo de Nivel de Servicio de Azure VMware Solution](https://aka.ms/avs/sla). 
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/configure-signal-logic-options.png" alt-text="Captura de pantalla que muestra la ventana Configurar lógica de señal con nombres de señal predefinidos."::: 
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/configure-signal-logic-options.png" alt-text="Captura de pantalla que muestra la ventana de configuración de la lógica de señal con indicaciones para crearla para la regla de alertas."::: 
 
 1. Defina la lógica que va a desencadenar la alerta y seleccione **Listo**. 
 
    En el ejemplo solo se han ajustado el **Umbral** y la **Frecuencia de evaluación**. 
    
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/define-alert-logic-threshold.png" alt-text="Captura de pantalla que muestra la información de la lógica de señal seleccionada."::: 
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/define-alert-logic-threshold.png" alt-text="Captura de pantalla que muestra el umbral, el operador, el tipo de agregación y la granularidad, el valor del umbral y la frecuencia de evaluación de la lógica de alerta de señal."::: 
 
 1. En **Acciones**, seleccione **Agregar grupos de acciones**. El grupo de acciones define *cómo* se recibe la notificación y *quién* la recibe.   Puede recibir notificaciones por correo electrónico, SMS, [notificaciones de inserción de Azure Mobile App](https://azure.microsoft.com/features/azure-portal/mobile-app/) o mensajes de voz.
- 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-action-group.png" alt-text="Captura de pantalla que muestra los grupos de acciones existentes y dónde crear uno nuevo.":::
 
-1. En la ventana que se abre, seleccione **Crear grupo de acciones**.
-
-   >[!TIP]
-   > También puede usar un grupo de acciones existente.
-
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/select-action-group-for-alert-rule.png" alt-text="Captura de pantalla que muestra los grupos de acciones que se van a seleccionar para la alerta."::: 
-
- 
-
+1. Puede seleccionar un grupo de acciones existente o seleccionar **Crear grupo de acciones** para crear uno nuevo.
  
 1. En la ventana que se abre, en la pestaña **Aspectos básicos**, asigne un nombre y un nombre para mostrar al grupo de acciones.
 
@@ -81,28 +73,30 @@ Las siguientes métricas son visibles por medio de métricas de Azure Monitor.
 
    El ejemplo se basa en la notificación por correo electrónico.
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-action-group-notification-settings.png" alt-text="Captura de pantalla que muestra las opciones de correo electrónico, mensaje SMS, inserción y voz para la alerta." lightbox="media/configure-alerts-for-azure-vmware-solution/create-action-group-notification-settings.png":::     
+   :::image type="content" source="../azure-monitor/alerts/media/action-groups/action-group-2-notifications.png" alt-text="Captura de pantalla que muestra las opciones de correo electrónico, mensaje SMS, inserción y voz para la alerta." lightbox="../azure-monitor/alerts/media/action-groups/action-group-2-notifications.png":::    
 
 1. (Opcional) Configure las **Acciones** si quiere tomar medidas proactivas y recibir notificaciones sobre el evento. Seleccione un **Tipo de acción** disponible y luego **Revisar y crear**. 
-   - Runbooks de Automation
-   - Azure Functions: para la ejecución personalizada de código sin servidor controlada por eventos
-   - ITSM: para la integración con un proveedor de servicios como ServiceNow a fin de crear un vale
-   - Aplicación lógica: para una orquestación de flujo de trabajo más compleja
-   - Webhooks: para desencadenar un proceso en otro servicio
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-action-group-action-type.png" alt-text="Captura de pantalla que muestra la ventana Crear grupo de acciones con el foco en el menú desplegable Tipo de acción." lightbox="media/configure-alerts-for-azure-vmware-solution/create-action-group-action-type.png":::     
+   - **Runbooks de Automation**: para automatizar tareas basadas en alertas.
+
+   - **Azure Functions**: para la ejecución personalizada de código sin servidor controlado por eventos
+
+   - **ITSM**: para la integración con un proveedor de servicios como ServiceNow a fin de crear un vale
+
+   - **Aplicación lógica**: para una orquestación de flujo de trabajo más compleja
+
+   - **Webhooks**: para desencadenar un proceso en otro servicio
+
 
 1. En **Detalles de la regla de alertas**, proporcione un nombre, una descripción, un grupo de recursos para almacenar la regla de alerta y la gravedad. Luego seleccione **Crear regla de alertas**.
    
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/alert-rule-details.png" alt-text="Captura de pantalla que muestra los detalles de la regla de alerta."::: 
- 
    La regla de alerta es visible y se puede administrar desde Azure Portal.
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/existing-alert-rule.png" alt-text="Captura de pantalla que muestra la nueva regla de alerta en la ventana Reglas." lightbox="media/configure-alerts-for-azure-vmware-solution/existing-alert-rule.png":::     
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/existing-alert-rule.png" alt-text="Captura de pantalla que muestra la nueva regla de alerta en la ventana Reglas." lightbox="media/configure-alerts-for-azure-vmware-solution/existing-alert-rule.png":::      
 
    En cuanto una métrica alcanza el umbral definido en una regla de alerta, el menú **Alertas** se actualiza y se hace visible.
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png" alt-text="Captura de pantalla que muestra la alerta después de alcanzar el umbral definido." lightbox="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png":::     
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png" alt-text="Captura de pantalla que muestra la alerta después de alcanzar el umbral definido en la regla de alertas." lightbox="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png":::     
 
    En función del grupo de acciones configurado, se recibe una notificación por el medio configurado. En el ejemplo se ha configurado el correo electrónico.
     

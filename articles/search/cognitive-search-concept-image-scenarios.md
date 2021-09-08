@@ -2,23 +2,22 @@
 title: Extracción de texto de las imágenes
 titleSuffix: Azure Cognitive Search
 description: Procese y extraiga el texto y otra información de imágenes en canalizaciones de Azure Cognitive Search.
-manager: nitinme
-author: LuisCabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68186c5294c0a3a2f376a93ef1902307780f48bb
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 2591e3468999bfb48fc125bd6edfe17da8eecefd
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538296"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728150"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de enriquecimiento con IA
 
-Azure Cognitive Search tiene varias funcionalidades para trabajar con imágenes y archivos de imagen. Durante la averiguación de documentos, se puede utilizar el parámetro *imageAction* para extraer el texto de fotografías o imágenes que contengan texto alfanumérico, como la palabra "STOP" en una señal de parada. Otros escenarios incluyen generar una representación en texto de una imagen, por ejemplo, "diente de león" para una foto de un diente de león o el color "amarillo". También puede extraer metadatos sobre la imagen, como su tamaño.
+Azure Cognitive Search tiene varias funcionalidades para trabajar con imágenes y archivos de imagen. Durante el [descifrado de documentos](search-indexer-overview.md#document-cracking), se puede utilizar el parámetro *imageAction* para extraer el texto de fotografías o imágenes que contengan texto alfanumérico, como la palabra "STOP" en una señal de parada. Otros escenarios incluyen generar una representación en texto de una imagen, por ejemplo, "diente de león" para una foto de un diente de león o el color "amarillo". También puede extraer metadatos sobre la imagen, como su tamaño.
 
 En este artículo se trata con más detalle el procesamiento de imágenes y se proporcionan instrucciones para trabajar con imágenes en una canalización de enriquecimiento con IA.
 

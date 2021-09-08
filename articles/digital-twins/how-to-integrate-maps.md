@@ -8,12 +8,12 @@ ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 69a02db3eafa9c75808eece69ce8ed676adf0ab2
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: dd161468cda08a0046f2f46a79a973e4bbf8b49a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615821"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735298"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Uso de Azure Digital Twins para actualizar un plano interior de Azure Maps
 
@@ -27,9 +27,9 @@ En estas instrucciones se tratará lo siguiente:
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-* Siga el [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md).
+* Siga Azure Digital Twins en [Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md).
     * En él ampliará este gemelo con un punto de conexión y una ruta adicionales. En dicho tutorial también agregará otra función a la aplicación de funciones. 
-* Siga el [Tutorial de Azure Maps: Uso de Creator para crear planos interiores](../azure-maps/tutorial-creator-indoor-maps.md) a fin de crear un plano interior de Azure Maps con un *conjunto de estados de características*.
+* Siga Azure Maps en [Uso de Creator para crear mapas de interiores](../azure-maps/tutorial-creator-indoor-maps.md) a fin de crear un mapa de interiores de Azure Maps con un *conjunto de estados de características*.
     * Los [conjuntos de estados de características](../azure-maps/creator-indoor-maps.md#feature-statesets) son colecciones de propiedades dinámicas (estados) asignadas a las características del conjunto de datos, como salas o equipamiento. En el tutorial anterior de Azure Maps, el conjunto de estados de las características almacena el estado de la sala que se mostrará en un plano.
     * Necesitará el *id. de conjunto de estados* de las características y la *clave de suscripción* de Azure Maps.
 
@@ -45,7 +45,7 @@ En primer lugar, creará una ruta en Azure Digital Twins para reenviar todos los
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creación de una ruta y un filtro para las notificaciones de actualización de gemelos
 
-Las instancias de Azure Digital Twins pueden emitir eventos de actualización de gemelos cada vez que se actualiza el estado de uno de estos elementos. El [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md) vinculado anteriormente le guiará a través de un escenario en el que se usa un termómetro para actualizar un atributo de temperatura conectado al gemelo de una sala. Ampliará esa solución mediante la suscripción a las notificaciones de actualización de gemelos y el uso de dicha información para actualizar los planos.
+Las instancias de Azure Digital Twins pueden emitir eventos de actualización de gemelos cada vez que se actualiza el estado de uno de estos elementos. El tutorial de Azure Digital Twins [Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md) vinculado anteriormente le guiará a través de un escenario en el que se usa un termómetro para actualizar un atributo de temperatura conectado al gemelo de una sala. Ampliará esa solución mediante la suscripción a las notificaciones de actualización de gemelos y el uso de dicha información para actualizar los planos.
 
 Este patrón realiza la lectura directamente desde el gemelo de la sala, en lugar de desde el dispositivo IoT, lo que ofrece la flexibilidad de cambiar el origen de datos subyacente para la temperatura sin necesidad de actualizar la lógica de asignación. Por ejemplo, puede agregar varios termómetros o establecer que esta sala comparta un termómetro con otra, todo ello sin necesidad de actualizar la lógica de asignación.
 
@@ -72,7 +72,7 @@ Este patrón realiza la lectura directamente desde el gemelo de la sala, en luga
 
 ## <a name="create-a-function-to-update-maps"></a>Creación de una función para actualizar planos
 
-Va a crear una **función desencadenada por Event Grid** en la aplicación de funciones siguiendo el tutorial de un extremo a otro ([Tutorial: Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala.
+Va a crear una **función desencadenada por Event Grid** en la aplicación de funciones desde el tutorial de un extremo a otro ([Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala.
 
 Vea el documento siguiente para obtener información de referencia: [Desencadenador de Azure Event Grid para Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md).
 
@@ -83,17 +83,17 @@ Reemplace el código de la función por el siguiente. Solo filtrará las actuali
 Tendrá que establecer dos variables de entorno en la aplicación de funciones. Una es la [clave de suscripción principal de Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), y la otra, el [id. del conjunto de estados de Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <your-App-Service-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
-az functionapp config appsettings set --name <your-App-Service-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
+az functionapp config appsettings set --name <your-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### <a name="view-live-updates-on-your-map"></a>Consulta de actualizaciones directas en el plano
 
 Para ver las actualizaciones directas de la temperatura, siga estos pasos:
 
-1. Comience a enviar datos de IoT simulados mediante la ejecución del proyecto **DeviceSimulator** desde el [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md). Las instrucciones se encuentran en la sección [Configuración y ejecución de la simulación](././tutorial-end-to-end.md#configure-and-run-the-simulation).
+1. Comience a enviar datos de IoT simulados ejecutando el proyecto **DeviceSimulator** desde el tutorial de Azure Digital Twins [Conexión de una solución de un extremo a otro](tutorial-end-to-end.md). Las instrucciones se encuentran en la sección [Configuración y ejecución de la simulación](././tutorial-end-to-end.md#configure-and-run-the-simulation).
 2. Use [el módulo Indoor de Azure Maps](../azure-maps/how-to-use-indoor-module.md) para representar los mapas de interiores creados en Azure Maps Creator.
-    1. Copie el HTML de la sección [Ejemplo: Uso del módulo de planos interiores](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) del [Tutorial: Uso del módulo de mapas de Azure Maps Indoor](../azure-maps/how-to-use-indoor-module.md) en un archivo local.
+    1. Copie el HTML de la sección [Ejemplo: Uso del módulo Indoor Maps](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) del mapa de interiores en [Uso del módulo de mapas de Azure Maps Indoor](../azure-maps/how-to-use-indoor-module.md) en un archivo local.
     1. Reemplace la *clave de suscripción* y los elementos *tilesetId* y *statesetID* en el archivo HTML local por sus valores.
     1. Abra ese archivo en el explorador.
 
@@ -113,5 +113,5 @@ En función de la configuración de la topología, podrá almacenar estos tres a
 
 Para obtener más información sobre cómo administrar, actualizar y recuperar información del grafo de gemelos, vea las referencias siguientes:
 
-* [Procedimiento: Administración de Digital Twins](./how-to-manage-twin.md)
-* [Procedimiento: Consulta del grafo de gemelos](./how-to-query-graph.md)
+* [Administración de Digital Twins](./how-to-manage-twin.md)
+* [Consulta del grafo de gemelos](./how-to-query-graph.md)

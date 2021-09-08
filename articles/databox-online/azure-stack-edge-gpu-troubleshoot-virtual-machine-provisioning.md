@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/04/2021
+ms.date: 08/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 9913fc2e3780d9d6ab91be19913238f8002f281a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: e04d3a0a5b7c48117af1f597606658a878a3a6ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983284"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740769"
 ---
 # <a name="troubleshoot-vm-deployment-in-azure-stack-edge-pro-gpu"></a>Solución de problemas de implementación de máquinas virtuales en Azure Stack Edge Pro con GPU
 
@@ -21,7 +21,7 @@ ms.locfileid: "111983284"
 
 En este artículo se describe cómo solucionar errores comunes al implementar máquinas virtuales en un dispositivo GPU de Azure Stack Edge. En el artículo se proporcionan instrucciones para investigar los problemas más comunes que provocan tiempos de espera y errores de aprovisionamiento de máquinas virtuales durante la creación de la interfaz de red y la máquina virtual.
 
-Para diagnosticar cualquier error de aprovisionamiento de máquinas virtuales, revisará los registros de invitado de la máquina virtual con errores. <!--For steps to collect VM guest logs and include them in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).-->
+Para diagnosticar cualquier error de aprovisionamiento de máquinas virtuales, revisará los registros de invitado de la máquina virtual con errores. Para consultar los pasos necesarios para recopilar los registros de invitado de las máquinas virtuales en un paquete de registros, vea [Recopilación de registros de invitado de VM en Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
 
 Para obtener instrucciones sobre los problemas que impiden la carga correcta de una imagen de máquina virtual antes de la implementación de la máquina virtual, consulte [Solución de problemas de cargas de imágenes de máquina virtual en Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).
 
@@ -32,7 +32,7 @@ En esta sección se proporciona la solución de problemas de las causas más com
 
 Cuando se haya agotado el tiempo de espera de aprovisionamiento de máquinas virtuales, verá el siguiente error: 
 
-![Captura de pantalla del error de Azure Portal que se muestra cuando se ha agotado el tiempo de espera de aprovisionamiento de máquinas virtuales.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
+![Captura de pantalla del error que se muestra en Azure Portal cuando se agota el tiempo de espera del aprovisionamiento de máquinas virtuales en Azure Stack Edge.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
 Los problemas siguientes son las principales causas de los tiempos de espera de aprovisionamiento de máquinas virtuales:
 - La dirección IP que asignó a la máquina virtual ya está en uso. [Más información](#vm-provisioning-timeout)
@@ -90,7 +90,7 @@ Para comprobar que se puede acceder a la puerta de enlace y al servidor DNS pred
 
    Para averiguar las direcciones IP de la puerta de enlace y los servidores DNS predeterminados, vaya a la interfaz de usuario local del dispositivo. Seleccione el puerto que le interesa y vea la configuración de red.
 
-   ![Captura de pantalla de la configuración predeterminada de la puerta de enlace y del servidor DNS para un puerto de un dispositivo GPU de Azure Stack Edge Pro.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
+   ![Captura de pantalla de la página Red de un dispositivo de Azure Stack Edge con la configuración de Red del puerto 2 mostrada.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
 
 
 ### <a name="cloud-init-issues-linux-vms"></a>Problemas de `cloud init` (máquinas virtuales Linux)
@@ -121,7 +121,7 @@ Para comprobar algunos de los problemas más comunes que impiden que `cloud init
 
    Cuando el origen de datos se establece en *Azure*, la entrada de los registros de *cloud-init* es similar a la siguiente.
 
-   ![Imagen de una entrada de registro de cloud-init para una imagen de máquina virtual con el origen de datos establecido en Azure.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
+   ![Ilustración de una entrada de registro de cloud-init para una imagen de máquina virtual con el origen de datos establecido en Azure. El texto de identificación aparece resaltado.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png)
 
    Si el origen de datos no está establecido en Azure, es posible que tenga que revisar el script de `cloud init`. Para más información, consulte [Profundización en cloud-init](../virtual-machines/linux/cloud-init-deep-dive.md).
 
@@ -153,7 +153,7 @@ Para comprobar si la interfaz de red se creó correctamente, siga estos pasos:
 
 1. Si no se creó correctamente una interfaz de red, verá el siguiente error.
 
-   ![Captura de pantalla del error que se muestra en el portal cuando no se puede crear la interfaz de red.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
+   ![Captura de pantalla del error mostrado en Azure Portal cuando se produce un error en la creación de la interfaz de red durante la implementación de máquinas virtuales en un dispositivo de Azure Stack Edge.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
 
 **Solución sugerida:** vuelva a crear la máquina virtual y asígnele una dirección IP estática.
 
@@ -166,7 +166,7 @@ En esta sección se tratan los problemas comunes que se producen durante la crea
 
 **Descripción del error:** cuando no se puede crear la máquina virtual porque no hay memoria suficiente, verá el siguiente error.
  
-![Captura de pantalla del error que se muestra en el portal cuando no se puede crear la máquina virtual.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
+![Captura de pantalla del error mostrado en Azure Portal cuando se produce un error en la creación de máquinas virtuales en un dispositivo de Azure Stack Edge.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
 
 **Solución sugerida:** compruebe la memoria disponible en el dispositivo y elija el tamaño de la máquina virtual en consecuencia. Para más información, consulte [Tamaños de máquina virtual admitidos en Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
 
@@ -188,16 +188,15 @@ La memoria disponible para la implementación de una máquina virtual está supe
 
 Si intenta implementar una máquina virtual en un dispositivo GPU que ya tiene habilitado Kubernetes, no habrá ninguna GPU disponible y no se podrá realizar el aprovisionamiento de la máquina virtual. Aparece este error:
 
-![Captura de pantalla del error que se muestra en el portal cuando no se puede crear una máquina virtual con GPU debido a que no hay GPU disponibles.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
+![Captura de pantalla del error mostrado en Azure Portal cuando se produce un error en la creación de máquinas virtuales de GPU porque no hay GPU disponibles en el dispositivo de Azure Stack Edge.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
 
 **Causas posibles:** si Kubernetes está habilitado antes de crear la máquina virtual, usará todas las GPU disponibles y no podrá crear ninguna máquina virtual del tamaño de la GPU. Puede crear tantas máquinas virtuales del tamaño de la GPU como GPU haya disponibles. El dispositivo de Azure Stack Edge puede incluir 1 o 2 GPU.
 
-**Solución sugerida:** para ver las opciones de implementación de máquinas virtuales en un dispositivo de 1 o 2 GPU con Kubernetes configurado, consulte [Máquinas virtuales con GPU y Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#gpu-vms-and-kubernetes).
+**Solución sugerida:** para ver las opciones de implementación de máquinas virtuales en un dispositivo de 1 o 2 GPU con Kubernetes configurado, consulte [Máquinas virtuales con GPU y Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-<!-- Remove link while cmdlet issue is fixed. - * [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
-* [Solución de problemas de errores de instalación de extensiones de GPU](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
-* [Solución de problemas con Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)
-
+- [Recopilación de paquetes de registros que incluyen registros de invitado para máquinas virtuales con errores](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)<!--Does a failed VM have a guest log? Does it have GPU and memory metrics?-->
+- [Solución de problemas de errores de instalación de extensiones de GPU](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
+- [Solución de problemas con Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)

@@ -2,13 +2,13 @@
 title: 'Recuperación ante desastres geográfica: Azure Event Hubs| Microsoft Docs'
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Event Hubs
 ms.topic: article
-ms.date: 04/14/2021
-ms.openlocfilehash: b2cf2b0ebef2b460b626e45d6b52309c9281d6ce
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 06/21/2021
+ms.openlocfilehash: 42057f88d76fb0822207ecaf0ece340101c6ec6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739249"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733905"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -23,7 +23,8 @@ La característica de recuperación ante desastres geográfica de Event Hubs est
 La característica de recuperación ante desastres geográfica garantiza que toda la configuración de un espacio de nombres (Event Hubs, grupos de consumidores y parámetros) se replique continuamente de un espacio de nombres principal a uno secundario cuando se emparejan. Además, permite iniciar un movimiento de conmutación por error solo una vez del espacio de nombres principal al secundario en cualquier momento. El movimiento de conmutación por error volverá a apuntar el nombre de alias elegido para el espacio de nombres al espacio de nombres secundario y, luego, interrumpirá el emparejamiento. La conmutación por error es casi instantánea una vez que se ha iniciado. 
 
 > [!IMPORTANT]
-> La característica permite la continuidad instantánea de las operaciones con la misma configuración, pero **no replica los datos de eventos**. A menos que el desastre ocasione la pérdida de todas las zonas, los datos de eventos que se conservan en el centro de eventos principal después de la conmutación por error podrán recuperarse y se podrán obtener los eventos históricos de ahí una vez restaurado el acceso. Para replicar los datos de eventos y operar los espacios de nombres correspondientes en configuraciones de tipo activo/activo a fin de hacer frente a interrupciones y desastres, no se incline por este conjunto de características de recuperación ante desastres geográfica. En su lugar, siga la [guía de replicación](event-hubs-federation-overview.md).  
+> - La característica permite la continuidad instantánea de las operaciones con la misma configuración, pero **no replica los datos de eventos**. A menos que el desastre ocasione la pérdida de todas las zonas, los datos de eventos que se conservan en el centro de eventos principal después de la conmutación por error podrán recuperarse y se podrán obtener los eventos históricos de ahí una vez restaurado el acceso. Para replicar los datos de eventos y operar los espacios de nombres correspondientes en configuraciones de tipo activo/activo a fin de hacer frente a interrupciones y desastres, no se incline por este conjunto de características de recuperación ante desastres geográfica. En su lugar, siga la [guía de replicación](event-hubs-federation-overview.md).  
+> - Las asignaciones de control de acceso basado en rol (RBAC) de Azure Active Directory (Azure AD) a entidades en el espacio de nombres principal no se replican en el espacio de nombres secundario. Cree asignaciones de roles manualmente en el espacio de nombres secundario para proteger el acceso a estas. 
 
 ## <a name="outages-and-disasters"></a>Interrupciones y desastres
 
@@ -37,7 +38,7 @@ La característica de recuperación ante desastres con localización geográfica
 
 La característica de recuperación ante desastres implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios. 
 
-La característica de recuperación ante desastres geográfica solo está disponible para las [SKU estándar y dedicadas](https://azure.microsoft.com/pricing/details/event-hubs/). No es necesario realizar ningún cambio de la cadena de conexión, ya que la conexión se realiza a través de un alias.
+La característica de recuperación ante desastres geográfica solo está disponible para las [SKU estándar, prémium y dedicadas](https://azure.microsoft.com/pricing/details/event-hubs/). No es necesario realizar ningún cambio de la cadena de conexión, ya que la conexión se realiza a través de un alias.
 
 Los siguientes términos se utilizan en este artículo:
 
@@ -50,12 +51,11 @@ Los siguientes términos se utilizan en este artículo:
 ## <a name="supported-namespace-pairs"></a>Pares de espacios de nombres admitidos
 Se admiten las siguientes combinaciones de espacios de nombres principales y secundarios:  
 
-| Espacio de nombres principal | Espacio de nombres secundario | Compatible | 
-| ----------------- | -------------------- | ---------- |
-| Estándar | Estándar | Sí | 
-| Estándar | Dedicado | Sí | 
-| Dedicado | Dedicado | Sí | 
-| Dedicado | Estándar | No | 
+| Nivel de espacio de nombres principal | Nivel de espacio de nombres secundario permitido |
+| ----------------- | -------------------- |
+| Estándar | Estándar, dedicado | 
+| Premium | Premium | 
+| Dedicado | Dedicado | 
 
 > [!NOTE]
 > No se pueden emparejar espacios de nombres que se encuentran en el mismo clúster dedicado. Puede emparejar espacios de nombres que se encuentran en clústeres independientes. 
@@ -64,7 +64,8 @@ Se admiten las siguientes combinaciones de espacios de nombres principales y sec
 
 La siguiente sección contiene información general del proceso de conmutación por error y explica cómo configurar la conmutación por error inicial. 
 
-![1][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo1.png" alt-text="Imagen en la que se muestra un resumen del proceso de conmutación por error ":::
+
 
 ### <a name="setup"></a>Configurar
 
@@ -112,7 +113,7 @@ Si inicia la conmutación por error, se requieren dos pasos:
 > [!NOTE]
 > Se admite solo la semántica de conmutación de reenvío. En este escenario, se realiza la conmutación por error y, a continuación, se vuelve a emparejar con un nuevo espacio de nombres. No se admite la conmutación por recuperación, por ejemplo en un clúster de SQL. 
 
-![2][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Imagen en la que se muestra el flujo de conmutación por error":::
 
 ## <a name="management"></a>Administración
 
@@ -137,17 +138,11 @@ Tenga en cuenta y recuerde las siguientes consideraciones:
 5. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto.
 
 ## <a name="availability-zones"></a>Zonas de disponibilidad 
+Event Hubs es compatible con [zonas de disponibilidad](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de una región de Azure. Laas zonas de disponibilidad solo están disponibles en [regiones de Azure con zonas de disponibilidad](../availability-zones/az-region.md#azure-regions-with-availability-zones). Tanto los metadatos como los datos (eventos) se replican entre centros de datos en la zona de disponibilidad. 
 
-La SKU de Event Hubs estándar es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de una región de Azure. 
+Cuando cree un espacio de nombres, verá el siguiente mensaje resaltado al seleccionar una región que tiene zonas de disponibilidad. 
 
-> [!NOTE]
-> La compatibilidad de Availability Zones con Azure Event Hubs estándar solo está disponible en aquellas [regiones de Azure](../availability-zones/az-region.md) en las que hay zonas de disponibilidad.
-
-Solo puede habilitar Availability Zones en los espacios de nombres nuevos mediante Azure Portal. Event Hubs no admite la migración de espacios de nombres existentes. No se puede deshabilitar la redundancia de zona después de habilitarla en el espacio de nombres.
-
-Al utilizar zonas de disponibilidad, tanto los metadatos como los datos (eventos) se replican entre centros de datos en la zona de disponibilidad. 
-
-![3][]
+:::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="Imagen en la que se muestra la página Crear espacio de nombres con una región que tiene zonas de disponibilidad":::
 
 ## <a name="private-endpoints"></a>Puntos de conexión privados
 En esta sección se proporcionan más aspectos que hay que tener en cuenta cuando se usa la recuperación ante desastres geográfica con espacios de nombres que emplean puntos de conexión privados. Para obtener información sobre el uso de puntos de conexión privados con Event Hubs en general, consulte [Configuración de puntos de conexión privados](private-link-service.md).
@@ -184,6 +179,9 @@ La ventaja de este enfoque es que la conmutación por error puede producirse en 
 
 > [!NOTE]
 > Para obtener instrucciones sobre la recuperación ante desastres con localización geográfica de una red virtual, consulte [Virtual Network: continuidad del negocio](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
+## <a name="role-based-access-control"></a>Control de acceso basado en rol
+Las asignaciones de control de acceso basado en rol (RBAC) de Azure Active Directory (Azure AD) a entidades en el espacio de nombres principal no se replican en el espacio de nombres secundario. Cree asignaciones de roles manualmente en el espacio de nombres secundario para proteger el acceso a estas.
  
 ## <a name="next-steps"></a>Pasos siguientes
 Revise los ejemplos siguientes o la documentación de referencia. 
@@ -194,10 +192,8 @@ Revise los ejemplos siguientes o la documentación de referencia.
 - [Java: Ejemplos de azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Java: Ejemplos de azure-eventhubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
 - [Ejemplos de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
-- [Ejemplos de JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
-- [Ejemplos de TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [Ejemplos de JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/javascript)
+- [Ejemplos de TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)
 - [Referencia de API de REST](/rest/api/eventhub/)
 
-[1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
-[3]: ./media/event-hubs-geo-dr/eh-az.png

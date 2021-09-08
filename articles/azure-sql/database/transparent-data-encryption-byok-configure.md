@@ -11,21 +11,24 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 03/12/2019
-ms.openlocfilehash: df531a38d7a38141ee07a88ddce77a2e85c2cd98
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/23/2021
+ms.openlocfilehash: 56ac53d8c7b1361e01a5ca72478c68f6db15873f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413598"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090302"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y la CLI de Azure: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrado de datos transparente (TDE) en una instancia de Azure SQL Database o Azure Synapse Analytics. Para obtener más información sobre TDE con la integración de Azure Key Vault - compatibilidad con Traiga su propia clave (BYOK), visite [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md) (TDE con claves administradas por el cliente de Azure Key Vault).
+En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrado de datos transparente (TDE) en una instancia de Azure SQL Database o Azure Synapse Analytics. Para obtener más información sobre TDE con la integración de Azure Key Vault - compatibilidad con Traiga su propia clave (BYOK), visite [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md) (TDE con claves administradas por el cliente de Azure Key Vault). 
 
 > [!NOTE] 
 > Azure SQL admite ahora el uso de una clave RSA almacenada en un HSM administrado como protector de TDE. Esta característica está en **versión preliminar pública**. HSM administrado de Azure Key Vault es un servicio en la nube totalmente administrado, de alta disponibilidad y de un solo inquilino que cumple los estándares y que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de FIPS 140-2, nivel 3. Obtenga más información sobre [HSM administrados](../../key-vault/managed-hsm/index.yml).
+
+> [!NOTE]
+> Este artículo se aplica a Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics (grupos de SQL dedicados [anteriormente SQL DW]). Para obtener documentación sobre el Cifrado de datos transparente para grupos de SQL dedicados en áreas de trabajo de Synapse, consulte [Cifrado de Azure Synapse Analytics](../../synapse-analytics/security/workspaces-encryption.md).
 
 ## <a name="prerequisites-for-powershell"></a>Requisitos previos para PowerShell
 
@@ -91,7 +94,7 @@ Para agregar permisos al servidor en un HSM administrado, agregue el rol de RBAC
 > La longitud combinada para el nombre del almacén de claves y el nombre de la clave no puede superar los 94 caracteres.
 
 > [!TIP]
-> KeyId de ejemplo desde Key Vault: <br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> KeyId de ejemplo desde Key Vault: `https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h`
 >
 > KeyId de ejemplo desde HSM administrado:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
@@ -159,7 +162,7 @@ az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group 
 ```
 
 > [!TIP]
-> Mantenga el URI de clave o el valor de keyID de la nueva clave para el próximo paso; por ejemplo: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h.
+> Mantenga el URI de clave o el valor de keyID de la nueva clave para el próximo paso; por ejemplo: `https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h`.
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Agregar la clave de Key Vault al servidor y establecer el protector de TDE
 

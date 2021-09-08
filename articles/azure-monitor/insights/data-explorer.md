@@ -1,24 +1,24 @@
 ---
-title: Azure Data Explorer Insights (versión preliminar de ADX Insights)| Microsoft Docs
+title: Azure Data Explorer Insights (ADX Insights) | Microsoft Docs
 description: En este artículo se describe Azure Data Explorer Insights (ADX Insights)
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 274d907c4fd8d09e444b938447365a4df64af3e4
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 872c1e29b6c85f24c4e9841dca359a9429b92321
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061639"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458126"
 ---
-# <a name="azure-data-explorer-insights-preview"></a>Azure Data Explorer Insights (versión preliminar)
+# <a name="azure-data-explorer-insights"></a>Azure Data Explorer Insights
 
-Azure Data Explorer Insights (versión preliminar) proporciona una supervisión completa de los clústeres, ya que ofrece una vista unificada de su rendimiento, operaciones, uso y errores.
-Este artículo le ayuda a saber cómo incorporar y usar Azure Data Explorer Insights (versión preliminar).
+Azure Data Explorer Insights proporciona una supervisión completa de los clústeres, ya que ofrece una vista unificada de su rendimiento, operaciones, uso y errores.
+Este artículo le ayuda a saber cómo incorporar y usar Azure Data Explorer Insights.
 
-## <a name="introduction-to-azure-data-explorer-insights-preview"></a>Introducción a Azure Data Explorer Insights (versión preliminar)
+## <a name="introduction-to-azure-data-explorer-insights"></a>Introducción a Azure Data Explorer Insights
 
 Antes de saltar a la experiencia, debe entender cómo se presenta y se visualiza la información.
 -    **Perspectiva a gran escala**, que muestra una instantánea de las métricas principales de los clústeres, con el fin de realizar un seguimiento sencillo del rendimiento de las consultas, la ingesta y las operaciones de exportación.
@@ -33,7 +33,7 @@ Para ver el rendimiento de los clústeres en todas las suscripciones, realice lo
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Seleccione **Supervisión** en el panel izquierdo de Azure Portal y, en la sección, Insights Hub (Centro de conclusiones), seleccione **Azure Data Explorer Clusters (preview)** (Clústeres de Azure Data Explorer [versión preliminar]).
+2. Seleccione **Supervisión** en el panel izquierdo de Azure Portal y, en la sección Insights Hub (Centro de conclusiones), seleccione **Azure Data Explorer Clusters** (Clústeres de Azure Data Explorer).
 
 ![Captura de pantalla de la experiencia de información general con varios gráficos](./media/data-explorer/insights-hub.png)
 
@@ -77,7 +77,7 @@ Para acceder a Azure Data Explorer Insights directamente desde un clúster de Az
 
 1. En Azure Portal, seleccione **Clústeres de Azure Data Explorer**.
 
-2. En la lista, elija un clúster de Azure Data Explorer. En la sección de supervisión, seleccione **Conclusiones (versión preliminar)** .
+2. En la lista, elija un clúster de Azure Data Explorer. En la sección de supervisión, seleccione **Insights**.
 
 También se puede acceder a estas vistas seleccionando el nombre del recurso de un clúster de Azure Data Explorer desde la vista de conclusiones de Azure Monitor.
 
@@ -114,7 +114,7 @@ La pestaña **Uso** permite a los usuarios profundizar en el rendimiento de los 
 
 En la pestaña **Tablas** se muestran las propiedades históricas y más recientes de las tablas del clúster. Puede ver qué tablas consumen más espacio, realizar un seguimiento del historial de crecimiento por tamaño de tabla, los datos de acceso frecuente y el número de filas a lo largo del tiempo.
 
-La pestaña **Caché** permite a los usuarios analizar los patrones de la ventana de recuperación de las consultas reales y compararlos con la directiva de caché configurada (para cada tabla). Puede identificar las tablas que usan la mayoría de las consultas y aquellas que no se consultan nunca, y adaptar la directiva de caché en consecuencia. Puede obtener recomendaciones específicas de la directiva de caché sobre tablas concretas de Azure Advisor (actualmente, las recomendaciones de caché solo están disponibles en el [panel principal de Azure Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)) basadas en la ventana de recuperación de las consultas reales en los últimos 30 días y una directiva de caché no optimizada para al menos el 95 % de las consultas. Existen recomendaciones de reducción de la caché en Azure Advisor para los clústeres que están "enlazados por datos" (lo que significa que el clúster tiene un uso bajo de CPU y de ingesta, pero que, debido a su elevada capacidad de datos, no ha podido escalarse ni reducirse verticalmente).
+La pestaña **Caché** permite a los usuarios analizar los patrones de la ventana de recuperación de las consultas reales y compararlos con la directiva de caché configurada (para cada tabla). Puede identificar las tablas que usan la mayoría de las consultas y aquellas que no se consultan nunca, y adaptar la directiva de caché en consecuencia. Puede obtener recomendaciones específicas de la directiva de caché sobre tablas concretas de Azure Advisor (actualmente, las recomendaciones de caché solo están disponibles en el [panel principal de Azure Advisor](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)) basadas en la ventana de recuperación de las consultas reales en los últimos 30 días y una directiva de caché no optimizada para al menos el 95 % de las consultas. Existen recomendaciones de reducción de la caché en Azure Advisor para los clústeres que están "enlazados por datos" (lo que significa que el clúster tiene un uso bajo de CPU y de ingesta, pero que, debido a su elevada capacidad de datos, no ha podido escalarse ni reducirse verticalmente).
 
 [![Captura de pantalla de detalles de la caché](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -123,9 +123,9 @@ La pestaña **cluster boundaries** (límites del clúster) muestra los límites 
 > [!div class="mx-imgBorder"]
 > [![Captura de pantalla de los límites del clúster.](./media/data-explorer/cluster-boundaries.png)](./media/data-explorer/cluster-boundaries.png#lightbox)
 
-## <a name="pin-to-azure-dashboard&quot;></a>Anclar al panel de Azure
+## <a name="pin-to-azure-dashboard"></a>Anclar al panel de Azure
 
-Cualquiera de las secciones de métricas (de la perspectiva &quot; a gran escala") se puede anclar a un panel de Azure; para ello, seleccione el icono de chincheta que se encuentra en la parte superior derecha de la sección.
+Cualquiera de las secciones de métricas (de la perspectiva " a gran escala") se puede anclar a un panel de Azure; para ello, seleccione el icono de chincheta que se encuentra en la parte superior derecha de la sección.
 
 ![Captura de pantalla del icono de chincheta seleccionado](./media/data-explorer/pin.png)
 
@@ -148,7 +148,7 @@ Las personalizaciones se guardan en un libro personalizado para evitar sobrescri
 
 Para obtener instrucciones generales para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
 
-Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse en la aplicación al usar Azure Data Explorer Insights (versión preliminar). Utilice la siguiente lista para buscar la información relacionada con el problema específico.
+Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse al usar Azure Data Explorer Insights. Utilice la siguiente lista para buscar la información relacionada con el problema específico.
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>¿Por qué veo todas mis suscripciones en el selector de suscripciones?
 

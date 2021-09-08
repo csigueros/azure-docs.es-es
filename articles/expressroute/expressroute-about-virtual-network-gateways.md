@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/23/2021
 ms.author: duau
-ms.openlocfilehash: 62f51922399a300b9ed803c3ee2d380dcab615b8
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 672fac2b33ef1d8fd9be1948d0c7da332f8ce43b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987531"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733859"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Acerca de las puertas de enlace de red virtual de ExpressRoute
 
@@ -31,23 +31,50 @@ Cada red virtual tiene una única puerta de enlace de red virtual por cada tipo 
 ## <a name="gateway-skus"></a><a name="gwsku"></a>SKU de puerta de enlace
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Si desea actualizar la puerta de enlace a una SKU de puerta de enlace más eficaz, en la mayoría de los casos puede usar el cmdlet de PowerShell "Resize-AzVirtualNetworkGateway". Esto funcionará para las actualizaciones de SKU Standard y HighPerformance. Sin embargo, para actualizar a la SKU UltraPerformance, debe volver a crear la puerta de enlace. Volver a crear una puerta de enlace provoca un tiempo de inactividad.
+Si desea actualizar la puerta de enlace a una SKU de puerta de enlace más eficaz, en la mayoría de los casos puede usar el cmdlet de PowerShell "Resize-AzVirtualNetworkGateway". Esto funcionará para las actualizaciones de SKU Standard y HighPerformance. Pero, para actualizar una puerta de enlace que no es de zona de disponibilidad (AZ) a la SKU UltraPerformance, debe volver a crear la puerta de enlace. Volver a crear una puerta de enlace provoca un tiempo de inactividad. No es necesario eliminar y volver a crear la puerta de enlace para actualizar una SKU habilitada para AZ.
+### <a name="feature-support-by-gateway-sku"></a><a name="gatewayfeaturesupport"></a>Compatibilidad con características por SKU de puerta de enlace
+En la tabla siguiente se muestran las características que se admiten en cada tipo de puerta de enlace.
+
+|**SKU de puerta de enlace**|**Coexistencia de VPN Gateway y ExpressRoute**|**FastPath**|**Número máximo de conexiones de circuito**|
+| --- | --- | --- | --- |
+|**SKU estándar/ERGw1Az**|Sí|No|4|
+|**SKU de alto rendimiento/ERGw2Az**|Sí|No|8
+|**SKU de ultrarrendimiento/ErGw3AZ**|Sí|Sí|16
 
 ### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>Rendimientos estimados por SKU de puerta de enlace
-En la tabla siguiente se muestran los tipos de puerta de enlace y los rendimientos estimados. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
+En la tabla siguiente se muestran los tipos de puerta de enlace y las cifras estimadas de la escala de rendimiento. Estas cifras se derivan de las siguientes condiciones de prueba y representan los límites máximos de compatibilidad. El rendimiento real puede variar en función de la exactitud con la que el tráfico replique las condiciones de prueba.
+
+### <a name="testing-conditions"></a>Condiciones de prueba
+##### <a name="standardergw1az"></a>**Standard/ERGw1Az** #####
+
+- Ancho de banda del circuito: 1 Gbps
+- Número de rutas anunciadas por la puerta de enlace: 500
+- Número de rutas aprendidas: 4000
+##### <a name="high-performanceergw2az"></a>**Alto rendimiento/ERGw2Az** #####
+
+- Ancho de banda del circuito: 1 Gbps
+- Número de rutas anunciadas por la puerta de enlace: 500
+- Número de rutas aprendidas: 9500
+##### <a name="ultra-performanceergw3az"></a>**Ultrarrendimiento/ErGw3Az** #####
+
+- Ancho de banda del circuito: 1 Gbps
+- Número de rutas anunciadas por la puerta de enlace: 500
+- Número de rutas aprendidas: 9500
+
+ Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
+ 
+|**SKU de puerta de enlace**|**Conexiones por segundo**|**Megabits por segundo**|**Paquetes por segundo**|**Número de máquinas virtuales admitidas en la red virtual**|
+| --- | --- | --- | --- | --- |
+|**Standard/ERGw1Az**|7000|1,000|100 000|2\.000|
+|**Alto rendimiento/ERGw2Az**|14 000|2\.000|250 000|4500|
+|**Ultrarrendimiento/ErGw3Az**|16 000|10 000|1 000 000|11 000|
 
 > [!IMPORTANT]
 > El rendimiento de la aplicación depende de varios factores, como la latencia de extremo a extremo y el número de flujos de tráfico que abre la aplicación. Los números de la tabla representan el límite superior que teóricamente la aplicación puede alcanzar en un entorno ideal.
->
->
 
-> [!NOTE]
+>[!NOTE]
 > El número máximo de circuitos ExpressRoute desde la misma ubicación de emparejamiento que se puede conectar a la misma red virtual es 4 para todas las puertas de enlace.
 >
->
-
-[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
-
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>Subred de puerta de enlace
 

@@ -7,16 +7,17 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 64d5f46d167b0707c2257f29c5d5cb1950aaa046
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 7b1c270f83565e2968e6677f07b81968dcf61ac7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029215"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734584"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de máquina virtual Windows con discos no administrados en discos administrados
 
-Si ya dispone de máquinas virtuales Windows que usan discos no administrados, puede convertirlas para usar discos administrados mediante el servicio [Azure Managed Disks](../managed-disks-overview.md). Este proceso convierte el disco del SO y los discos de datos conectados.
+Si ya dispone de máquinas virtuales Windows que usan discos no administrados, puede convertirlas para usar discos administrados mediante el servicio [Azure Managed Disks](../managed-disks-overview.md). Este proceso convierte el disco del sistema operativo (SO) y los discos de datos conectados.
+
 
  
 
@@ -88,8 +89,11 @@ Si las VM que desea convertir en discos administrados se encuentran en un conjun
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si se produce un error durante la conversión, o si una máquina virtual presenta un estado de error debido a errores en una conversión anterior, ejecute el cmdlet `ConvertTo-AzVMManagedDisk` de nuevo. Normalmente, un simple reintento desbloquea la situación.
-Antes de realizar la conversión, asegúrese de que todas las extensiones de máquina virtual se encuentran en el estado de "Aprovisionamiento realizado correctamente". De lo contrario, se producirá un error de conversión con el código de error 409.
+- Antes de realizar la conversión, asegúrese de que todas las extensiones de máquina virtual se encuentran en el estado de "Aprovisionamiento realizado correctamente". De lo contrario, se producirá un error de conversión con el código de error 409.
+- Si se produce un error durante la conversión, o si una máquina virtual presenta un estado de error debido a errores en una conversión anterior, ejecute el cmdlet `ConvertTo-AzVMManagedDisk` de nuevo. Normalmente, un simple reintento desbloquea la situación.
+- Si va a convertir una máquina virtual de Linux en discos administrados, use la versión más reciente del agente Linux de Azure. Es probable que se produzca un error en las operaciones que usan las versiones del agente Linux de Azure "2.2.0" y versiones anteriores. Tampoco se admite la ejecución de la conversión en una máquina virtual generalizada o en una máquina virtual que pertenezca a un conjunto de disponibilidad clásico.
+- Si se produce el error "SnapshotCountExceeded" durante la conversión, elimine algunas instantáneas e intente realizar la operación de nuevo.
+
 
 ## <a name="convert-using-the-azure-portal"></a>Conversión mediante Azure Portal
 

@@ -3,13 +3,13 @@ title: Definiciones del esquema de alertas en Azure Monitor
 description: Información sobre las definiciones del esquema de alertas comunes para Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
-ms.date: 04/12/2021
-ms.openlocfilehash: a026fa846901d4db7cb56196de50508f077e4fc6
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.date: 07/20/2021
+ms.openlocfilehash: 165753b293d73d89865710074ad11869c6e1aa6b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018266"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440711"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
@@ -33,6 +33,9 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
       "monitoringService": "Platform",
       "alertTargetIDs": [
         "/subscriptions/<subscription ID>/resourcegroups/pipelinealertrg/providers/microsoft.compute/virtualmachines/wcus-r2-gen2"
+      ],
+      "configurationItems": [
+        "wcus-r2-gen2"
       ],
       "originAlertId": "3f2d4487-b0fc-4125-8bd5-7ad17384221e_PipeLineAlertRG_microsoft.insights_metricAlerts_WCUS-R2-Gen2_-117781227",
       "firedDateTime": "2019-03-22T13:58:24.3713213Z",
@@ -79,6 +82,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 | monitorCondition | Cuando se desencadena una alerta, la condición de supervisión de la alerta se establece en **Desencadenada**. Cuando desaparece la condición subyacente que provocó que se desencadenara la alerta, la condición de supervisión se establece en **Resuelta**.   |
 | monitoringService | El servicio o solución de supervisión que generó la alerta. El servicio de supervisión dicta los campos para el contexto de alerta. |
 | alertTargetIds | Lista de los identificadores de Azure Resource Manager que son los destinos afectados de una alerta. Para una alerta de registro definida en un área de trabajo de Log Analytics o una instancia de Application Insights, es el área de trabajo o la aplicación correspondiente. |
+| configurationItems | Lista de recursos afectados de una alerta. Los elementos de configuración pueden ser diferentes de los destinos de alerta en algunos casos, como en las alertas de registro o de métricas para registros definidas en un área de trabajo de Log Analytics, donde los elementos de configuración son los recursos reales que envían la telemetría, y no el área de trabajo. Este campo lo usan los sistemas ITSM para correlacionar las alertas con los recursos de una CMDB. |
 | originAlertId | Id. de la instancia de alerta que generó el servicio de supervisión encargado. |
 | firedDateTime | Fecha y hora de activación de la instancia de alerta en la hora universal coordinada (UTC). |
 | resolvedDateTime | Fecha y hora del momento en que la condición de supervisión de la instancia de alerta se estableció como **Resuelta** en UTC. Actualmente solo es aplicable a las alertas de métricas.|
@@ -110,7 +114,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 
 ## <a name="alert-context"></a>Contexto de alerta
 
-### <a name="metric-alerts-excluding-availability-tests"></a>Alertas de métricas (excepto pruebas de disponibilidad)
+### <a name="metric-alerts---static-threshold"></a>Alertas de métricas: umbral estático
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -145,7 +149,43 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 }
 ```
 
-### <a name="metric-alerts-availability-tests"></a>Alertas de métricas (pruebas de disponibilidad)
+### <a name="metric-alerts---dynamic-threshold"></a>Alertas de métricas: umbral dinámico
+
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
+
+**Valores de ejemplo**
+```json
+{
+  "alertContext": {
+      "properties": null,
+      "conditionType": "DynamicThresholdCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "alertSensitivity": "High",
+            "failingPeriods": {
+              "numberOfEvaluationPeriods": 1,
+              "minFailingPeriodsToAlert": 1
+            },
+            "ignoreDataBefore": null,
+            "metricName": "Egress",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "operator": "GreaterThan",
+            "threshold": "47658",
+            "timeAggregation": "Total",
+            "dimensions": [],
+            "metricValue": 50101
+          }
+        ],
+        "windowStartTime": "2021-07-20T05:07:26.363Z",
+        "windowEndTime": "2021-07-20T05:12:26.363Z"
+      }
+    }
+}
+```
+
+### <a name="metric-alerts---availability-tests"></a>Alertas de métricas: pruebas de disponibilidad
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -179,7 +219,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 ### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Esto significa que, si quiere que se defina una carga de JSON personalizada, el webhook no puede usar el esquema de alertas común. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludeSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar `LinkToFilteredSearchResultsAPI` o `LinkToSearchResultsAPI` para acceder a los resultados de la búsqueda con la [API de Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
+> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Esto significa que, si quiere que se defina una carga de JSON personalizada, el webhook no puede usar el esquema de alertas común. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludedSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar `LinkToFilteredSearchResultsAPI` o `LinkToSearchResultsAPI` para acceder a los resultados de la búsqueda con la [API de Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -251,7 +291,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
         ]
       }
     ],
-  "IncludeSearchResults": "True",
+  "IncludedSearchResults": "True",
   "AlertType": "Metric measurement"
   }
 }
@@ -323,13 +363,16 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
         }
       ]
     },
-    "IncludeSearchResults": "True",
+    "IncludedSearchResults": "True",
     "AlertType": "Metric measurement"
   }
 }
 ```
 
 #### <a name="monitoringservice--log-alerts-v2"></a>`monitoringService` = `Log Alerts V2`
+
+> [!NOTE]
+> Las reglas de alertas de registro de la versión de API 2020-05-01 usan este tipo de carga, que solo admite un esquema común. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro cuando se usa esta versión. Debe usar [dimensiones](./alerts-unified-log.md#split-by-alert-dimensions) para proporcionar contexto a las alertas desencadenadas. También puede usar `LinkToFilteredSearchResultsAPI` o `LinkToSearchResultsAPI` para acceder a los resultados de la consulta con la [API de Log Analytics](/rest/api/loganalytics/dataaccess/query/get). Si necesita insertar los resultados, use una aplicación lógica con los vínculos proporcionados para generar una carga personalizada.
 
 **Valores de ejemplo**
 ```json

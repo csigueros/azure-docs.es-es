@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): Exportación y eliminación de sus datos: Azure'
-description: Los datos integrados almacenados por Azure Machine Learning Studio (clásico) están disponibles para su exportación y eliminación en Azure Portal y también mediante las API REST autenticadas. Se puede acceder a los datos de telemetría en el Portal de privacidad de Azure. Este artículo le muestra cómo.
+description: Los datos integrados almacenados por Machine Learning Studio (clásico) están disponibles para su exportación y eliminación en Azure Portal y también mediante API REST autenticadas. Se puede acceder a los datos de telemetría en el Portal de privacidad de Azure. Este artículo le muestra cómo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: b2d797cc6cb45a76a61a235e7c4c66ac6f243580
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47ca53ac4fa6aa30ae67fdaf9be3cf6eb3f489bb
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519871"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581510"
 ---
-# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar y eliminar datos de usuario integrados de Machine Learning Studio (clásico)
+# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio-classic"></a>Exportación y eliminación de datos de usuario integrados desde Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
 
-Puede eliminar o exportar los datos integrados almacenados por Azure Machine Learning Studio (clásico) mediante Azure Portal, la interfaz de Studio (clásico), PowerShell y las API REST autenticadas. En este artículo se indica cómo hacerlo. 
+Puede eliminar o exportar los datos integrados almacenados por Machine Learning Studio (clásico) mediante Azure Portal, la interfaz de Studio (clásico), PowerShell y las API REST autenticadas. En este artículo se indica cómo hacerlo. 
 
 Se puede acceder a los datos de telemetría mediante el portal de privacidad de Azure. 
 
@@ -74,8 +74,8 @@ Los usuarios también pueden eliminar todo el área de trabajo:
 ![Eliminación de un área de trabajo gratuita en Machine Learning Studio (clásico)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-classic-data-with-powershell"></a>Exportación de datos de Studio (clásico) con PowerShell
-Use PowerShell para exportar toda la información a un formato portátil desde Azure Machine Learning Studio (clásico) mediante comandos. Para más información, consulte el artículo [módulo de PowerShell para Azure Machine Learning Studio (clásico)](powershell-module.md).
+Use PowerShell para exportar toda la información a un formato portátil desde Machine Learning Studio (clásico) mediante comandos. Para obtener información, vea el artículo [Módulo de PowerShell para Machine Learning Studio (clásico)](powershell-module.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para documentación sobre los servicios web y el plan de compromiso de facturación, consulte [Referencia de la API REST de Azure Machine Learning Studio (clásico)](/rest/api/machinelearning/).
+Para obtener documentación sobre los servicios web y el plan de compromiso de facturación, vea [Referencia de la API REST de Machine Learning Studio (clásico)](/rest/api/machinelearning/).

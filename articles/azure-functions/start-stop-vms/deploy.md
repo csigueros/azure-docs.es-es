@@ -3,19 +3,27 @@ title: Implementación de Start/Stop VMs v2 (versión preliminar)
 description: En este artículo se indica cómo implementar la característica Start/Stop VMs v2 (versión preliminar) para las máquinas virtuales de Azure de su suscripción de Azure.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/29/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 726af0d36c543936076d1fa529e5527d166d5bbc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c0b3984629376f11692b727bb28b34c15708c596
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073241"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733479"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>Implementación de Start/Stop VMs v2 (versión preliminar)
 
 Siga la secuencia de pasos que aparecen en este tema para instalar la característica Start/Stop VMs v2 (versión preliminar). Después de completar el proceso de instalación, configure las programaciones para personalizar esta característica según sus necesidades.
 
+> [!NOTE]
+> Si tiene problemas durante la implementación, se produce un problema al usar Start/Stop VMs v2 (versión preliminar), o bien si tiene una pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). La apertura de una incidencia de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 
+
+## <a name="permissions-considerations"></a>Consideraciones sobre permisos
+Tenga en cuenta lo siguiente antes y durante la implementación:
++   La solución permite a los usuarios con los permisos de control de acceso basado en rol (RBAC) adecuados en la implementación de Start/Stop v2 agregar, quitar y administrar programaciones para máquinas virtuales en el ámbito de Start/Stop v2. Este comportamiento es así por diseño. En la práctica, esto significa que un usuario que no tiene permisos directos de RBAC en una máquina virtual podría crear operaciones de inicio, detención y detención automática en esa máquina virtual cuando tengan permisos de RBAC para modificar la solución Start/Stop v2 que la administra.
++ Cualquier usuario con acceso a la solución Start/Stop v2 podría descubrir el costo, los ahorros, el historial de operaciones y otros datos almacenados en la instancia de Application Insights usada por la aplicación Start/Stop v2.
++ Al administrar una solución Start/Stop v2, debe tener en cuenta los permisos de los usuarios para la solución Start/Stop v2, especialmente cuando no tiene permiso para modificar directamente las máquinas virtuales de destino.
 ## <a name="deploy-feature"></a>Implementación de la característica
 
 La implementación se inicia desde la organización de GitHub Start/Stop VMs v2 [aquí](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). Si bien esta característica está pensada para administrar todas las máquinas virtuales de su suscripción en todos los grupos de recursos desde una implementación única dentro de la suscripción, puede instalar otra instancia de ella en función del modelo de operaciones o de los requisitos de su organización. También se puede configurar para administrar de forma centralizada las máquinas virtuales de varias suscripciones.
@@ -49,6 +57,12 @@ Para administrar su administración y eliminación, se recomienda implementar la
 1. Seleccione **Ir al grupo de recursos** desde el panel de notificación. Debería ver una pantalla parecida a:
 
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Lista de recursos de implementación de plantillas de Start/Stop VMs":::
+
+> [!NOTE]
+> El formato de nomenclatura de la aplicación de funciones y la cuenta de almacenamiento ha cambiado. Para garantizar la unicidad global, ahora se anexa una cadena aleatoria y única a los nombres de estos recursos.
+
+> [!NOTE]
+> Recopilamos datos de telemetría de operaciones y latidos para ofrecerle una asistencia mayor cuando se ponga en contacto con el equipo de soporte técnico para solucionar problemas. También recopilamos el historial de eventos de la máquina virtual para comprobar cuándo ha actuado el servicio en una máquina virtual y cuánto tiempo se ha pospuesto una máquina virtual para determinar la eficacia del servicio.
 
 ## <a name="enable-multiple-subscriptions"></a>Habilitación de varias suscripciones
 

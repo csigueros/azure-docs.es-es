@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c356ea88d23bf431df2b7785003ef23d28b5c598
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: bcf66b905b1944a160a19c35ff8d8e00c9a52e67
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572440"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446040"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de AMD para Windows
 
 En este artículo se proporciona información general sobre la extensión de máquina virtual para implementar controladores de GPU de AMD en máquinas virtuales de la serie [NVv4](../nvv4-series.md) que ejecutan Windows. Al instalar controladores de AMD mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de AMD](https://amd.com/radeonsoftwarems). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
 
-Puede consultar [aquí](../windows/n-series-amd-driver-setup.md) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
+Hay instrucciones disponibles sobre la instalación manual de los controladores y las versiones que son compatibles actualmente. Para obtener más información, vea [Instalación de controladores de GPU de AMD de la serie N de Azure para Windows](../windows/n-series-amd-driver-setup.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 

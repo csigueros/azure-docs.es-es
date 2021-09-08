@@ -8,13 +8,13 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp, subject-rbac-steps
+ms.openlocfilehash: ef49c6ebd356c97466b9b5a744cc58584c42bcb7
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97722970"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126039"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticación y autorización en Azure Spatial Anchors
 
@@ -97,20 +97,14 @@ En el caso de las aplicaciones que tienen como destino los usuarios de Azure Ac
 **En Azure Portal**
 1.    Registre la aplicación en Azure AD como una aplicación nativa. Como parte del registro, deberá determinar si la aplicación debe ser multiinquilino. También debe proporcionar las direcciones URL de redireccionamiento permitidas en la aplicación.
 1.  Vaya a la pestaña **Permisos de API**.
-2.  Seleccione **Agregar un permiso**.
+1.  Seleccione **Agregar un permiso**.
     1.  Seleccione **Mixed Reality Resource Provider** (Proveedor de recursos de realidad mixta) en la pestaña **API usadas en mi organización**.
     2.  Seleccione **Permisos delegados**.
     3.  Seleccione **mixedreality.signin** en **mixedreality**.
     4.  Seleccione **Agregar permisos**.
-3.  Seleccione **Conceder consentimiento de administrador**.
+1.  Seleccione **Conceder consentimiento de administrador**.
 
-2. Conceda acceso a la aplicación o a los usuarios para el recurso:
-   1.    Vaya al recurso de Spatial Anchors en Azure Portal.
-   2.    Vaya a la pestaña **Control de acceso (IAM)** .
-   3.    Seleccione **Agregar asignación de roles**.
-   1.    [Seleccione un rol](#azure-role-based-access-control).
-   2.    En el campo **Seleccionar**, escriba el nombre de los usuarios, grupos o aplicaciones a los que quiere asignar el acceso.
-   3.    Seleccione **Guardar**.
+1. Asigne un [rol RBAC de ASA](#azure-role-based-access-control) a la aplicación o a los usuarios a los que quiera conceder acceso al recurso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de ASA, registre varias aplicaciones en Azure AD y asigne un rol independiente a cada una. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios. Para obtener los pasos de asignación de roles detallados, vea [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 **En el código**
 1.    Asegúrese de usar el id. de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de **Id. de cliente** y **RedirectUri** de MSAL.
@@ -177,18 +171,8 @@ El token de acceso de Azure AD se recupera mediante [MSAL](../../active-directo
         1.    En Azure Portal, seleccione **Azure Active Directory** y, a continuación, **Registros de aplicaciones**.
         2.    Seleccione **Nuevo registro**.
         3.    Escriba el nombre de la aplicación, seleccione **Aplicación web o API** como tipo de aplicación y escriba la dirección URL de autenticación para el servicio. Seleccione **Crear**.
-2.    En la aplicación, seleccione **Configuración** y, a continuación, seleccione la pestaña **Certificates and secrets** (Certificados y secretos). Cree un nuevo secreto de cliente, seleccione una duración y presione **Agregar**. Asegúrese de guardar el valor del secreto. Deberá incluirlo en el código del servicio web.
-3.    Conceda acceso a la aplicación o a los usuarios para el recurso:
-        1.    Vaya al recurso de Spatial Anchors en Azure Portal.
-        2.    Vaya a la pestaña **Control de acceso (IAM)** .
-        3.    Seleccione **Agregar asignación de roles**.
-        4.    [Seleccione un rol](#azure-role-based-access-control).
-        5.    En el campo **Seleccionar**, escriba los nombres de las aplicaciones a las que quiere asignar el acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.
-
-              > [!NOTE]
-              > En el panel **Agregar asignación de roles** de la opción **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
-
-        6.    Seleccione **Guardar**.
+1.    En la aplicación, seleccione **Configuración** y, a continuación, seleccione la pestaña **Certificates and secrets** (Certificados y secretos). Cree un nuevo secreto de cliente, seleccione una duración y presione **Agregar**. Asegúrese de guardar el valor del secreto. Deberá incluirlo en el código del servicio web.
+1. Asigne un [rol RBAC de ASA](#azure-role-based-access-control) a la aplicación o a los usuarios a los que quiera conceder acceso al recurso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de ASA, registre varias aplicaciones en Azure AD y asigne un rol independiente a cada una. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios. Para obtener los pasos de asignación de roles detallados, vea [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 **En el código**
 

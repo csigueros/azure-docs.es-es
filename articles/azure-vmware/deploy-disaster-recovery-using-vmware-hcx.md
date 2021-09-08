@@ -3,12 +3,12 @@ title: Implementación de la recuperación ante desastres mediante VMware HCX
 description: Aprenda a implementar la recuperación ante desastres de las máquinas virtuales con la recuperación ante desastres de VMware HCX. Obtenga información también sobre cómo usar Azure VMware Solution como sitio de recuperación o de destino.
 ms.topic: how-to
 ms.date: 06/10/2021
-ms.openlocfilehash: 51ca0b13286b32cf208ad9c5ee1e4c25b26a966b
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: f08f1c1ccff0387c5750a355f83de02e1dcd8e09
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021616"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430995"
 ---
 # <a name="deploy-disaster-recovery-using-vmware-hcx"></a>Implementación de la recuperación ante desastres mediante VMware HCX
 
@@ -43,15 +43,15 @@ En esta guía se cubren los siguientes escenarios de replicación:
 
 1. Iniciar sesión en el **cliente de vSphere** en el sitio de origen y acceda al **complemento de HCX**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Opción HCX en vSphere" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Captura de pantalla en la que se muestra la opción HCX en el cliente web de vSphere." border="true":::
 
 1. Entre en el área **Recuperación ante desastres** y haga clic en **PROTEGER LAS VM**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="seleccionar proteger VM" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="Captura de pantalla en la que se muestra el panel de recuperación ante desastres en el cliente web de vSphere." border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
 1. Seleccione el origen y los sitios remotos. En este caso, el sitio remoto debe ser la nube privada de Azure VMware Solution.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Ventana proteger VM" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Captura de pantalla en la que se muestra la ventana HCX: Máquinas virtuales protegidas." border="true":::
 
 1. Si fuese necesario, seleccione las opciones de **replicación predeterminadas**:
 
@@ -71,21 +71,21 @@ En esta guía se cubren los siguientes escenarios de replicación:
 
    - **Número de instantáneas:** Número total de instantáneas en el intervalo de instantánea configurado.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="Opciones de protección de máquinas virtuales" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="Captura de pantalla en la que se muestran las opciones de replicación de Proteger máquinas virtuales." border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
 
 1. Seleccione una o varias máquinas virtuales de la lista y configure las opciones de replicación según sea necesario.
 
    De forma predeterminada, las VM heredarán la directiva de configuración global establecida en las opciones de replicación predeterminadas. Para cada interfaz de red de la VM seleccionada, configure el **Grupo de puertos de red** remoto y seleccione **Finalizar** para iniciar el proceso de protección.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="Opciones de la interfaz de red" border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="Captura de pantalla en la que se muestran las opciones de la interfaz de red de Proteger máquinas virtuales." border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
 
 1. Supervise el proceso de cada una de las máquinas virtuales seleccionadas en el mismo área de recuperación ante desastres.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="Supervisión del progreso de protección" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="Captura de pantalla en la que se muestra el progreso de la protección del monitor de Proteger máquinas virtuales." border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
 
 1. Una vez que la VM se ha protegido, las distintas instantáneas se pueden visualizar en la pestaña **Instantáneas**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="Lista de instantáneas" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="Captura de pantalla en la que se muestra la lista de instantáneas de Proteger máquinas virtuales." border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
    El triángulo amarillo significa que las instantáneas y las máquinas virtuales no se han probado en una operación de recuperación de prueba.
 
@@ -96,21 +96,21 @@ En esta guía se cubren los siguientes escenarios de replicación:
 1. Inicie sesión en el **cliente de vSphere** en el sitio remoto, que es la nube privada de Azure VMware Solution. 
 1. En el **complemento de HCX**, en el área recuperación ante desastres, seleccione los puntos suspensivos verticales en cualquier VM para mostrar el menú operaciones y, luego, seleccione **Probar recuperar VM**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Selección de Probar recuperar VM" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Captura de pantalla en la que se muestra la opción de menú Probar recuperación de máquina virtual." border="true":::
 
 1. Seleccione las opciones de la prueba y la instantánea que quiere usar para probar los distintos estados de la máquina virtual.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="Elección de una instantánea y selección de Probar" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="Captura de pantalla en la que se muestra la instancia de instantánea de réplica que se va a probar." border="true":::
 
 1. Después de seleccionar **Probar**, comienza la operación de recuperación.
 
 1. Cuando termine, puede comprobar la nueva máquina virtual en el vCenter de la nube privada de Azure VMware Solution.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="Comprobación de la operación de recuperación" border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="Captura de pantalla en la que se muestra el resumen de la operación de recuperación de comprobación." border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
 
 1. Después de realizar las pruebas en la VM o en cualquier aplicación que se ejecute en ella, se hace una limpieza para eliminar la instancia de prueba.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="Limpieza de la instancia de prueba" border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="Captura de pantalla en la que se muestra la instancia de prueba de limpieza." border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
 
 ## <a name="recover-vms"></a>Recuperación de máquinas virtuales
 
@@ -120,11 +120,11 @@ En esta guía se cubren los siguientes escenarios de replicación:
 
 1. Seleccione la VM que se va a recuperar de la lista, abra el menú **ACCIONES** y seleccione **Recuperar VM**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="Recuperación de máquinas virtuales" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="Captura de pantalla en la que se muestra la opción de menú Recuperar máquinas virtuales." border="true":::
 
 1. Configure las opciones de recuperación de cada instancia y haga clic en **Recuperar** para iniciar la operación de recuperación.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="Confirmación de recuperación de máquinas virtuales" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="Captura de pantalla en la que se muestra la confirmación para recuperar máquinas virtuales en el sitio de destino." border="true":::
 
 1. Una vez completada la operación de recuperación, las nuevas VM aparecerán en el inventario de vCenter Server remoto.
 
@@ -138,11 +138,11 @@ En esta guía se cubren los siguientes escenarios de replicación:
 1. En la lista, seleccione las VM que se van a volver a replicar en el sitio de origen de la lista, abra el menú **ACCIONES** y seleccione **Invertir**. 
 1. Seleccione **Inversa** para iniciar la replicación.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Seleccione acción inversa en proteger operaciones" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Captura de pantalla en la que se muestra la opción de menú Inversa." border="true":::
 
 1. Supervise la sección de detalles de cada máquina virtual.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="revisar los resultados de la acción inversa" border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="Captura de pantalla en la que se muestran los resultados de la acción Inversa." border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
 
 ## <a name="disaster-recovery-plan-automation"></a>Automatización de un plan de recuperación ante desastres
 

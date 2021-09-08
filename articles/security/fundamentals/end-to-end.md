@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/07/2021
 ms.author: terrylan
-ms.openlocfilehash: 7612732f01075759d76c2bce5e8c710afc676642
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9e68df70afdc0f8e35ec862d9f9570dd13306191
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132870"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114466061"
 ---
 # <a name="end-to-end-security-in-azure"></a>Seguridad integral en Azure
 Una de las mejores razones para usar Azure en sus aplicaciones y servicios es poder aprovechar su amplia gama de funcionalidades y herramientas de seguridad. Estas herramientas y funcionalidades permiten crear soluciones seguras en la plataforma Azure segura. Microsoft Azure proporciona confidencialidad, integridad y disponibilidad para los datos del cliente, al mismo tiempo que hace posible una responsabilidad transparente.
@@ -64,7 +64,7 @@ El programa [Azure Security Benchmark](../benchmarks/introduction.md) incluye un
 | [Azure Front Door](../../frontdoor/front-door-overview.md) | Un punto de entrada global y escalable que usa la red perimetral global de Microsoft para crear aplicaciones web rápidas, seguras y muy escalables. |
 | [Azure Firewall](../../firewall/overview.md) | Se trata de un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad a la nube sin restricciones. |
 | [Azure Key Vault](../../key-vault/general/overview.md) | Un almacén de secretos seguro para tokens, contraseñas, certificados, claves de API y otros secretos. Key Vault también se puede usar para crear y controlar las claves de cifrado utilizadas para cifrar los datos. |
-| [HSM administrado por Key Vault (versión preliminar)](../../key-vault/managed-hsm/overview.md) | Un servicio en la nube que cumple los estándares, totalmente administrado, de alta disponibilidad y de un solo inquilino que le permite proteger las claves criptográficas de las aplicaciones de nube mediante dispositivos HSM validados de FIPS 140-2 nivel 3. |
+| [HSM administrado por Key Vault](../../key-vault/managed-hsm/overview.md) | Un servicio en la nube que cumple los estándares, totalmente administrado, de alta disponibilidad y de un solo inquilino que le permite proteger las claves criptográficas de las aplicaciones de nube mediante dispositivos HSM validados de FIPS 140-2 nivel 3. |
 | [Azure Private Link](../../private-link/private-link-overview.md) | Permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un punto de conexión privado de la red virtual. |
 | [Azure Application Gateway](../../application-gateway/overview.md) | Un equilibrador de carga avanzado para administrar el tráfico a las aplicaciones web. Application Gateway puede tomar decisiones de enrutamiento basadas en atributos adicionales de una solicitud HTTP, por ejemplo los encabezados de host o la ruta de acceso del URI. |
 | [Azure Service Bus](../../service-bus-messaging/service-bus-messaging-overview.md) | Un agente de mensajes empresarial totalmente administrado que incluye colas de mensajes y temas que se pueden publicar y a los que es posible suscribirse. Service Bus se usa para desacoplar aplicaciones de servicios. |

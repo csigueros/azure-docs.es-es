@@ -6,15 +6,15 @@ author: tomaschladek
 manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 5e53f9e89dd9718111da4f8016bc3e5a7f791627
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 452fffa58d9845c1655c8b643dcde54f0b6a7d90
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496582"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459268"
 ---
 # <a name="identity-model"></a>Modelo de identidad
 
@@ -86,3 +86,4 @@ Si almacena en caché los tokens de acceso en una memoria auxiliar, se recomiend
 * Para una introducción a la administración de tokens de acceso, consulte [Creación y administración de tokens de acceso](../quickstarts/access-tokens.md).
 * Para una introducción a la autenticación, consulte [Autenticación en Azure Communication Services](./authentication.md).
 * Para una introducción a la residencia y la privacidad de los datos, consulte [Disponibilidad de regiones y residencia de datos](./privacy.md).
+* Para obtener información sobre cómo crear rápidamente identidades para pruebas, consulte el [inicio rápido para crear identidades rápidamente](../quickstarts/identity/quick-create-identity.md).

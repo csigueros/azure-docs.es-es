@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: acae7a6121587a1a58c6f19b0b09287b3d93cc84
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 5b1fc91868f420b2f156fbb4d219d08cf5ad2ab6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992168"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726060"
 ---
 # <a name="azure-sentinel-entity-types-reference"></a>Referencia de los tipos de entidad de Azure Sentinel
 
 ## <a name="entity-types-and-identifiers"></a>Tipos de entidad e identificadores
 
-En la tabla siguiente se muestran los **tipos de entidad** disponibles actualmente para la asignación en Azure Sentinel y los **atributos** disponibles como **identificadores** para cada tipo de entidad, que aparecen en la lista desplegable **Identificadores** en la sección [Asignación de entidades](map-data-fields-to-entities.md) del [Asistente para reglas de análisis](tutorial-detect-threats-custom.md).
+En la tabla siguiente se muestran los **tipos de entidad** disponibles actualmente para la asignación en Azure Sentinel y los **atributos** disponibles como **identificadores** para cada tipo de entidad, que aparecen en la lista desplegable **Identificadores** en la sección [Asignación de entidades](map-data-fields-to-entities.md) del [Asistente para reglas de análisis](detect-threats-custom.md).
 
 Cada uno de los identificadores de la columna **Identificadores necesarios** es mínimamente necesario para identificar su entidad. Sin embargo, es posible que un identificador necesario, por sí solo, no sea suficiente para proporcionar una identificación *única*. Cuanto más identificadores se usan, mayor es la probabilidad de una identificación única. Puede usar hasta tres identificadores para una asignación de entidad única.
 
@@ -139,7 +139,7 @@ Identificadores no seguros de una entidad de host:
 | ----- | ---- | ----------- |
 | Tipo | String | ‘ip’ |
 | Dirección | String | Dirección IP en forma de cadena, como 127.0.0.1 (ya sea IPv4 o IPv6). |
-| Ubicación | GeoLocation | Contexto de ubicación geográfica asociado a la entidad IP. |
+| Ubicación | GeoLocation | Contexto de ubicación geográfica asociado a la entidad IP. <br><br>Para obtener más información, consulte también [Enriquecimiento de entidades en Azure Sentinel con datos de geolocalización mediante la API REST (versión preliminar pública)](geolocation-data-api.md). |
 |
 
 Identificadores seguros de una entidad IP:

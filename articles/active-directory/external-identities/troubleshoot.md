@@ -5,28 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 05/27/2021
+ms.date: 07/13/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
-ms.reviewer: mal
 ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c971c93d873bb8326b986cfd771ef96b615f2131
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 7068ff38338e92843a957f50f63309412b63b31c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110612772"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759789"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solución de problemas de colaboración B2B de Azure Active Directory
 
 Estos son algunos de los recursos para solucionar problemas comunes relacionados con la colaboración B2B de Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Gmail de Google no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   >
+   > - **A partir del 12 de julio de 2021**, si los clientes de Azure AD B2B configuran nuevas integraciones de Google para usarlas con registro de autoservicio para sus aplicaciones personalizadas o de línea de negocio, la autenticación con identidades de Google no funcionará hasta que las autenticaciones se trasladen a las vistas web del sistema. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **A partir del 30 de septiembre de 2021,** Google [retira la compatibilidad con el inicio de sesión en la vista web insertada](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si sus aplicaciones autentican a los usuarios con una vista web insertada y va a usar la federación de Google con [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) o Azure AD B2B para las [invitaciones de usuarios externos](google-federation.md) o el [registro de autoservicio](identity-providers.md), los usuarios de Google Gmail no podrán autenticarse. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, animamos a los clientes a participar en la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md), que ahora está disponible con carácter general.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>He agregado un usuario externo, pero no lo veo en mi libreta de direcciones global o en el selector de personas
@@ -66,6 +67,10 @@ Si va a usar la autenticación de federación y el usuario no existe en Azure Ac
 
 Para resolver este problema, el administrador del usuario externo debe sincronizar la cuenta del usuario con Azure Active Directory.
 
+### <a name="external-user-has-a-proxyaddress-that-conflicts-with-a-proxyaddress-of-an-existing-local-user"></a>El usuario externo tiene una dirección proxy que entra en conflicto con la dirección proxy de un usuario local existente
+
+Cuando comprobamos si se puede invitar a un usuario a su inquilino, una de las cosas que miramos es si se producirá una colisión en la dirección proxy. Esto incluye cualquier dirección proxy para el usuario en su propio inquilino principal, así como cualquier dirección proxy para los usuarios locales en el inquilino de usted. En el caso de los usuarios externos, agregaremos el correo electrónico a la dirección proxy del usuario B2B existente. En el caso de los usuarios locales, puede pedirles que inicien sesión con la cuenta que ya tienen.
+
 ## <a name="i-cant-invite-an-email-address-because-of-a-conflict-in-proxyaddresses"></a>No puedo invitar a una dirección de correo electrónico debido a un conflicto en las direcciones proxy
 
 Esto sucede cuando otro objeto del directorio tiene la misma dirección de correo electrónico invitada que una de sus direcciones proxy. Para corregir este conflicto, quite el correo electrónico del objeto de [usuario](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) y elimine también el objeto de [contacto](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) asociado antes de intentar invitar a este correo electrónico de nuevo.
@@ -87,7 +92,9 @@ Los usuarios externos pueden agregarse únicamente a los grupos "Seguridad" o "A
 El invitado debe ponerse en contacto con su ISP o comprobar su filtro de correo no deseado para asegurarse de que se permite la siguiente dirección: Invites@microsoft.com
 
 > [!NOTE]
-> Para el servicio de Azure operado por 21Vianet en China, la dirección del remitente es Invites@oe.21vianet.com.
+>
+> - Para el servicio de Azure operado por 21Vianet en China, la dirección del remitente es Invites@oe.21vianet.com.
+> - Para la nube de Azure AD para el gobierno, la dirección del remitente es invites@azuread.us.
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Tenga en cuenta que, en ocasiones, el mensaje personalizado no se incluye en los mensajes de invitación
 
@@ -135,6 +142,15 @@ Si ha eliminado la aplicación `aad-extensions-app` accidentalmente, tiene 30 d
 1. Ejecute el comando de PowerShell `Restore-AzureADDeletedApplication -ObjectId {id}`. Reemplace la parte `{id}` del comando por el valor de `ObjectId` del paso anterior.
 
 Ahora debería ver la aplicación restaurada en Azure Portal.
+
+## <a name="a-guest-user-was-invited-successfully-but-the-email-attribute-is-not-populating"></a>Se ha invitado correctamente a un usuario, pero el atributo de correo electrónico no se rellena
+
+Supongamos que ha invitado accidentalmente a un usuario con una dirección de correo electrónico que coincide con un objeto de usuario que ya está en el directorio. Se ha creado el objeto de usuario invitado, pero la dirección de correo electrónico se ha agregado a la propiedad `otherMail`, en lugar de a las propiedades `mail` o `proxyAddresses`. Para evitar este problema, puede buscar objetos de usuario en conflicto en el directorio de Azure AD mediante estos pasos de PowerShell:
+
+1. Abra el módulo de PowerShell de Azure AD y ejecute `Connect-AzureAD`.
+1. Inicie sesión como administrador global del inquilino de Azure AD en el que quiere comprobar los objetos de contacto duplicados.
+1. Ejecute el comando de PowerShell `Get-AzureADContact -All $true | ? {$_.ProxyAddresses -match 'user@domain.com'}`.
+1. Ejecute el comando de PowerShell `Get-AzureADContact -All $true | ? {$_.Mail -match 'user@domain.com'}`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

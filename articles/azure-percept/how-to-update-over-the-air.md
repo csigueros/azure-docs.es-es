@@ -1,5 +1,5 @@
 ---
-title: Actualización de Azure Percept DK de forma inalámbrica (OTA)
+title: Actualización de Azure Percept DK mediante actualizaciones inalámbricas (OTA)
 description: Aprenda a recibir las actualizaciones de forma inalámbrica de Azure Percept DK
 author: mimcco
 ms.author: mimcco
@@ -7,14 +7,14 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: fc8e3e42e75eacd1c5bc3312b7adf6c8a8150f3c
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: c5045aed59be4c8903672691241b68f69e353e13
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684350"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733353"
 ---
-# <a name="update-your-azure-percept-dk-over-the-air-ota"></a>Actualización de Azure Percept DK de forma inalámbrica (OTA)
+# <a name="update-your-azure-percept-dk-using-over-the-air-ota-updates"></a>Actualización de Azure Percept DK mediante actualizaciones inalámbricas (OTA)
 
 Siga esta guía para obtener información sobre cómo actualizar la placa base de Azure Percept DK de forma inalámbrica con Device Update para IoT Hub.
 

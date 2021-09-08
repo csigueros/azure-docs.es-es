@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: Azure Lighthouse habilita y mejora las experiencias entre inquilinos en muchos servicios de Azure.
-ms.date: 05/11/2021
+ms.date: 07/20/2021
 ms.topic: conceptual
-ms.openlocfilehash: f482c4738fd0bec8f32eaeb540b2d0ef2e0d4b15
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: c57afabe5f3aaf49ef1f1868c04c60af4298381d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790440"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440916"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -99,7 +99,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Ver las alertas de las suscripciones delegadas, con la capacidad de ver y actualizar alertas en todas las suscripciones
 - Ver los detalles del registro de actividad para las suscripciones delegadas
 - [Log Analytics](../../azure-monitor/logs/service-providers.md): consulte datos de áreas de trabajo remotas situadas en varios inquilinos (tenga en cuenta que las cuentas de Automation que se usan para acceder a datos desde áreas de trabajo que se encuentran en inquilinos de cliente deben crearse en el mismo inquilino).
-- [Cree, vea y administre las alertas del registro de actividad](../../azure-monitor/alerts/alerts-activity-log.md) en los inquilinos del cliente
+- Cree, vea y administre [alertas de métricas](../../azure-monitor/alerts/alerts-metric.md), [alertas de registro](../../azure-monitor/alerts/alerts-log.md) y [alertas de registros de actividad](../../azure-monitor/alerts/alerts-activity-log.md) en los inquilinos del cliente.
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino que realiza la administración a través de webhooks
 - Creación de una [configuración de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).

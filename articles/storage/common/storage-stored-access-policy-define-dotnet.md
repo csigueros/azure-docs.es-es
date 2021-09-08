@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/12/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a68697d6dffad6aad857bb59d66beeb42dec62d2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8c1b6aa0d6bdd98a66a638a216f93a6d81bd6b93
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475402"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113726867"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Creación de una directiva de acceso almacenada con .NET
 
@@ -38,7 +38,7 @@ Para obtener más información sobre las directivas de acceso almacenadas, consu
 
 ## <a name="create-a-stored-access-policy"></a>Crear una directiva de acceso almacenada
 
-La operación de REST subyacente para crear una directiva de acceso almacenada es [Set Container ACL](/rest/api/storageservices/set-container-acl). Debe autorizar la operación para crear una directiva de acceso almacenada a través de la clave compartida mediante las claves de acceso de la cuenta en una cadena de conexión. No se admite la autorización de la operación **Set Container ACL** con credenciales de Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos de blobs y colas](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+La operación de REST subyacente para crear una directiva de acceso almacenada es [Set Container ACL](/rest/api/storageservices/set-container-acl). Debe autorizar la operación para crear una directiva de acceso almacenada a través de la clave compartida mediante las claves de acceso de la cuenta en una cadena de conexión. No se admite la autorización de la operación **Set Container ACL** con credenciales de Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 Los ejemplos de código siguientes crean una directiva de acceso almacenada en un contenedor. Puede usar la directiva de acceso para especificar restricciones para una SAS de servicio en el contenedor o sus blobs.
 

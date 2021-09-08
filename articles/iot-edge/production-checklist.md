@@ -2,7 +2,6 @@
 title: 'Preparación para implementar una solución en producción: Azure IoT Edge'
 description: Obtenga más información sobre cómo llevar su solución Azure IoT Edge desde el desarrollo hasta la producción, incluida la configuración de sus dispositivos con los certificados apropiados y la realización de un plan de implementación para futuras actualizaciones de código.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -11,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 711b4f6577b17e84a5d30774fa7be4c9033d4340
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 964c3f0bb346b3c2606af1227b558d06071bfe20
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031144"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728822"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -144,33 +143,9 @@ Al pasar de escenarios de prueba a escenarios de producción, recuerde quitar la
 ## <a name="container-management"></a>Administración de contenedores
 
 * **Importante**
-  * Administrar el acceso al registro de contenedor
   * Usar etiquetas para administrar versiones
 * **Útil**
   * Almacenar los contenedores del entorno de ejecución en el registro privado
-
-### <a name="manage-access-to-your-container-registry"></a>Administrar el acceso al registro de contenedor
-
-Antes de implementar módulos en dispositivos de producción IoT Edge, asegúrese de controlar el acceso al registro de contenedor para que las personas ajenas no puedan acceder a las imágenes de contenedor o realizar cambios en ellas. Utilice un registro de contenedores privado, no público, para administrar las imágenes de contenedor.
-
-En los tutoriales y otra documentación, le indicamos que utilice las mismas credenciales de registro de contenedor en el dispositivo IoT Edge que en la máquina de desarrollo. Estas instrucciones solo pretenden ayudarle a configurar entornos de pruebas y desarrollo con mayor facilidad, y no deben seguirse en un escenario de producción.
-
-Para obtener un acceso más seguro al registro, tiene una selección de [opciones de autenticación](../container-registry/container-registry-authentication.md). Un método de autenticación conocido y recomendado consiste en usar una entidad de servicio de Active Directory que sea adecuada para que las aplicaciones o los servicios extraigan imágenes de contenedor de forma automática o cualquier otra forma desatendida (sin supervisión directa), como lo hacen los dispositivos IoT Edge.
-
-Para crear una entidad de servicio, ejecute los dos scripts como se describe en [Creación de una entidad de servicio](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Estos scripts realizan las siguientes tareas:
-
-* El primer script crea la entidad de servicio. Devuelve el id. de entidad de servicio y la contraseña de la entidad de servicio. Almacene estos valores de forma segura en los registros.
-
-* El segundo script crea asignaciones de roles para concederlos a la entidad de servicio, que se puede ejecutar posteriormente si es necesario. Se recomienda aplicar el rol de usuario **acrPull** para el parámetro `role`. Para obtener una lista de roles, consulte [Roles y permisos de Azure Container Registry](../container-registry/container-registry-roles.md).
-
-Para autenticarse con una entidad de servicio, proporcione el id y la contraseña de la entidad de servicio que obtuvo del primer script. Especifique estas credenciales en el manifiesto de implementación.
-
-* Como nombre de usuario o id. de cliente, especifique el identificador de la entidad de servicio.
-
-* Como contraseña o secreto de cliente, especifique la contraseña de la entidad de servicio.
-
-> [!NOTE]
-> Después de implementar una autenticación de seguridad mejorada, deshabilite el valor **Usuario administrador** para que el acceso de nombre de usuario y contraseña predeterminados deje de estar disponible. En el registro de contenedor en Azure Portal, seleccione del menú del panel izquierdo, dentro de **Configuración**, la opción **Claves de acceso**.
 
 ### <a name="use-tags-to-manage-versions"></a>Usar etiquetas para administrar versiones
 
@@ -257,6 +232,7 @@ Si sus dispositivos se van a implementar en una red que utiliza un servidor prox
 
 * **Útil**
   * Configurar los registros y diagnósticos
+  * Colocar límites en el tamaño de registro
   * Considerar la posibilidad de pruebas y canalizaciones de CI/CD
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurar los registros y diagnósticos
@@ -373,6 +349,43 @@ Puede hacerlo en el elemento **createOptions** de cada módulo. Por ejemplo:
 ### <a name="consider-tests-and-cicd-pipelines"></a>Considerar la posibilidad de pruebas y canalizaciones de CI/CD
 
 Para el escenario de implementación más eficiente de IoT Edge, considere la posibilidad de integrar la implementación de producción en las canalizaciones de pruebas y de CI/CD. Azure IoT Edge admite varias plataformas de CI/CD, incluida Azure DevOps. Para más información, consulte [Integración continua e implementación continua en Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
+
+## <a name="security-considerations"></a>Consideraciones sobre la seguridad
+
+* **Importante**
+  * Administrar el acceso al registro de contenedor
+  * Limitar el acceso del contenedor a los recursos de host
+
+### <a name="manage-access-to-your-container-registry"></a>Administrar el acceso al registro de contenedor
+
+Antes de implementar módulos en dispositivos de producción IoT Edge, asegúrese de controlar el acceso al registro de contenedor para que las personas ajenas no puedan acceder a las imágenes de contenedor o realizar cambios en ellas. Use un registro de contenedores privado para administrar las imágenes de contenedor.
+
+En los tutoriales y otra documentación, le indicamos que utilice las mismas credenciales de registro de contenedor en el dispositivo IoT Edge que en la máquina de desarrollo. Estas instrucciones solo pretenden ayudarle a configurar entornos de pruebas y desarrollo con mayor facilidad, y no deben seguirse en un escenario de producción.
+
+Para obtener un acceso más seguro al registro, tiene una selección de [opciones de autenticación](../container-registry/container-registry-authentication.md). Un método de autenticación conocido y recomendado consiste en usar una entidad de servicio de Active Directory que sea adecuada para que las aplicaciones o los servicios extraigan imágenes de contenedor de forma automática o cualquier otra forma desatendida (sin supervisión directa), como lo hacen los dispositivos IoT Edge.
+
+Para crear una entidad de servicio, ejecute los dos scripts como se describe en [Creación de una entidad de servicio](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Estos scripts realizan las siguientes tareas:
+
+* El primer script crea la entidad de servicio. Devuelve el id. de entidad de servicio y la contraseña de la entidad de servicio. Almacene estos valores de forma segura en los registros.
+
+* El segundo script crea asignaciones de roles para concederlos a la entidad de servicio, que se puede ejecutar posteriormente si es necesario. Se recomienda aplicar el rol de usuario **acrPull** para el parámetro `role`. Para obtener una lista de roles, consulte [Roles y permisos de Azure Container Registry](../container-registry/container-registry-roles.md).
+
+Para autenticarse con una entidad de servicio, proporcione el id y la contraseña de la entidad de servicio que obtuvo del primer script. Especifique estas credenciales en el manifiesto de implementación.
+
+* Como nombre de usuario o id. de cliente, especifique el identificador de la entidad de servicio.
+
+* Como contraseña o secreto de cliente, especifique la contraseña de la entidad de servicio.
+
+> [!NOTE]
+> Después de implementar una autenticación de seguridad mejorada, deshabilite el valor **Usuario administrador** para que el acceso de nombre de usuario y contraseña predeterminados deje de estar disponible. En el registro de contenedor en Azure Portal, seleccione del menú del panel izquierdo, dentro de **Configuración**, la opción **Claves de acceso**.
+
+### <a name="limit-container-access-to-host-resources"></a>Limitación del acceso del contenedor a los recursos de host
+
+Para equilibrar los recursos de host compartidos entre los módulos, se recomienda establecer límites en el consumo de recursos por módulo. Estos límites garantizan que un módulo no pueda consumir demasiada memoria o uso de CPU e impiden que otros procesos se ejecuten en el dispositivo. La plataforma IoT Edge no limita los recursos de los módulos de forma predeterminada, ya que para saber cuántos recursos necesita un módulo determinado para ejecutarse de forma óptima es necesario realizar pruebas.
+
+Docker proporciona algunas restricciones que se pueden usar para limitar recursos como la memoria y el uso de CPU. Para obtener más información, vea [Opciones del entorno de ejecución con memoria, CPU y GPU](https://docs.docker.com/config/containers/resource_constraints/).
+
+Estas restricciones se pueden aplicar a módulos individuales mediante el uso de opciones de creación en manifiestos de implementación. Para más información, consulte [Configuración de las opciones de creación de contenedores para módulos de IoT Edge](how-to-use-create-options.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

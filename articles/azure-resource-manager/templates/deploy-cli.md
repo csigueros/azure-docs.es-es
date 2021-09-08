@@ -2,13 +2,13 @@
 title: Implementación de recursos con una plantilla y la CLI de Azure
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 05/07/2021
-ms.openlocfilehash: 4507fe743674ac8c7ee45b53adb1e4cc543289d5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/15/2021
+ms.openlocfilehash: 8ecb8bb2e6b24571d91e97157ff91ba931b0719d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951158"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296779"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
 
@@ -235,6 +235,19 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 ```
 
 Use comillas dobles alrededor del código JSON que desee pasar al objeto.
+
+Puede usar una variable para contener los valores de parámetro. En Bash, establezca la variable en todos los valores de parámetro y agréguela al comando de implementación.
+
+```azurecli-interactive
+params="prefix=start suffix=end"
+
+az deployment group create \
+  --resource-group testgroup \
+  --template-file <path-to-template> \
+  --parameters $params
+``` 
+
+Si usa la CLI de Azure con el símbolo del sistema (CMD) de Windows o PowerShell, establezca la variable en una cadena JSON. Incluya las comillas: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
 ### <a name="parameter-files"></a>Archivos de parámetros
 

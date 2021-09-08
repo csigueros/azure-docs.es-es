@@ -7,12 +7,12 @@ ms.service: certification
 ms.topic: how-to
 ms.date: 05/04/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0041299031934bd76e4ef0700d2e75e2d61516cd
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 494ff350866d8de1386a5fd98539f0e3e5ff2c3f
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745477"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126309"
 ---
 # <a name="add-components-on-the-portal"></a>Incorporación de componentes en el portal
 
@@ -65,7 +65,7 @@ Es posible que tenga dudas sobre el número de componentes que se van a incluir 
 | Producto finalizado                                   | 1          | Producto preparado para el cliente, discreto | N/D                                              |
 | Producto finalizado con **periféricos que se pueden desconectar** | 2 o más  | Producto preparado para el cliente, discreto | Periférico/Discreto o integrado              |
 | Producto finalizado con **componentes integrados**  | 2 o más  | Producto preparado para el cliente, discreto | Seleccionar tipo apropiado, discreto o integrado |
-| Kit de desarrollo preparado para la solución                             | 2 o más  | Producto preparado para el cliente, discreto | Seleccionar tipo apropiado, discreto o integrado |
+| Kit de desarrollo preparado para la solución                             | 1 o más  | Producto preparado para el cliente o Placa de desarrollo, Discreta o Integrada| Seleccionar tipo apropiado, discreto o integrado |
 
 ## <a name="example-component-usage"></a>Ejemplo de uso de componentes
 

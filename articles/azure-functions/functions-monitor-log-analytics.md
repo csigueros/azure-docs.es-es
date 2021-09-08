@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: b6ce9e77421df0563810fd7f8255720c1fd2d0c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 194154f192cfcc91138b13bd37b37d80d38097d2
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591083"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126795"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Supervisión de Azure Functions con registros de Azure Monitor
 
@@ -22,7 +22,7 @@ Los registros de Azure Monitor le ofrecen la posibilidad de consolidar registros
 Azure Monitor utiliza una versión del [lenguaje de consulta Kusto](/azure/kusto/query/) utilizado por Azure Data Explorer, que es adecuado para realizar búsquedas de registros simples, pero también dispone de funciones avanzadas, como agregaciones, combinaciones y análisis inteligentes. Puede aprender rápidamente el lenguaje de consulta con [diversas lecciones](../azure-monitor/logs/get-started-queries.md).
 
 > [!NOTE]
-> La integración con los registros de Azure Monitor se encuentra actualmente en su versión preliminar pública para las versiones 2 y 3 correspondientes a las aplicaciones de funciones que se ejecutan en planes de hospedaje de consumo, Premium y dedicados de Windows.
+> La integración con registros de Azure Monitor está actualmente en versión preliminar pública. No es compatible para aplicaciones de funciones que se ejecuten en la [versión 1.x](functions-versions.md).
 
 ## <a name="setting-up"></a>Instalación
 

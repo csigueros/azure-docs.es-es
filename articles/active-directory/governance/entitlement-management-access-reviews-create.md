@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf34223e44ddfb59a72f98d31f0df5d9a882e0eb
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 0f2497e47078f91c1649db107dd105227e219ae2
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713601"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565731"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Creación de una revisión de acceso de un paquete de acceso de administración de derechos de Azure AD
 
@@ -53,16 +53,22 @@ Esta configuración determina la frecuencia con que se producirán las revisione
 
 1. Establezca la opción **Duración** para definir cuántos días estará abierta cada revisión de la serie periódica para recibir comentarios de los revisores. Por ejemplo, puede programar una revisión anual que comienza el 1 de enero y está abierta para su revisión durante 30 días, de modo que los revisores tengan hasta el final del mes para responder.
 
-1. Junto a **Revisores**, seleccione **Autorrevisión** si quiere que los usuarios realicen su propia revisión de acceso o seleccione **Revisores específicos** si quiere designar un revisor.
+1. Junto a **Revisores**, seleccione **Autorrevisión** si quiere que los usuarios realicen su propia revisión de acceso o seleccione **Revisores específicos** si quiere designar un revisor. También puede seleccionar **Administrador** si quiere designar al administrador del revisor para que sea el revisor. Si selecciona esta opción, tendrá que agregar una **reserva** para reenviar la revisión a en caso de que no se pueda encontrar el administrador en el sistema.
 
-    ![Seleccione de Agregar revisores](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
+1. Si ha seleccionado **Revisores específicos**, especifique qué usuarios realizarán la revisión de acceso: ![Seleccione Agregar revisores](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
-1. Si seleccionó **revisores específicos**, especifique qué usuarios realizarán la revisión de acceso:
     1. Seleccione **Agregar revisores**.
     1. En el panel **Seleccionar revisores**, busque y seleccione los usuarios que desea que sean revisores.
     1. Cuando haya seleccionado los revisores, haga clic en el botón **Seleccionar**.
 
     ![Especificación de los revisores](./media/entitlement-management-access-reviews/access-reviews-select-reviewer.png)
+
+1. Si ha seleccionado  **Administrador**, especifique el revisor de reserva: 
+    1. Seleccione  **Agregar revisores de reserva**.
+    1. En el panel Seleccionar revisores de reserva, busque y seleccione los usuarios que quiera que sean revisores de reserva para el administrador del revisor.
+    1. Cuando haya seleccionado los revisores de reserva, haga clic en el botón  **Seleccionar** . 
+
+    ![Adición de los revisores de reserva](./media/entitlement-management-access-reviews/access-reviews-select-manager.png)
 
 1. En la parte inferior de la página, haga clic en **Revisar y crear** si va a crear un paquete de acceso o en **Actualizar** si va a editar un paquete de acceso.
 

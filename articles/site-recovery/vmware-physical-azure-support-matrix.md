@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres de VMware/f
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 30c214e4268f12bad59755ffe92e22686e16e115
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5ecd5d345244d97e1040205a12d101e9477078a5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784804"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734781"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -111,17 +111,19 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 16.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.4.0-21-generic a 4.4.0-194-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-123-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1098-azure|
 16.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.4.0-21-generic a 4.4.0-190-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-118-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1096-azure|
 |||
-18.04 LTS |[9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.15.0-20-generic a 4.15.0-140-generic </br> De 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-generic a 5.0.0-65-generic </br> 5.3.0-19-generic a 5.3.0-72-generic </br> 5.4.0-37-generic a 5.4.0-70-generic </br> 4.15.0-1009-azure a 4.15.0-1111-azure </br> De 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-azure a 5.0.0-1036-azure </br> 5.3.0-1007-azure a 5.3.0-1035-azure </br> 5.4.0-1020-azure a 5.4.0-1043-azure|
+18.04 LTS |[9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.15.0-20-generic a 4.15.0-140-generic </br> De 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-generic a 5.0.0-65-generic </br> 5.3.0-19-generic a 5.3.0-72-generic </br> 5.4.0-37-generic a 5.4.0-70-generic </br> 4.15.0-1009-azure a 4.15.0-1111-azure </br> De 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-azure a 5.0.0-1036-azure </br> 5.3.0-1007-azure a 5.3.0-1035-azure </br> 5.4.0-1020-azure a 5.4.0-1043-azure </br> 4.15.0-1114-azure </br> 4.15.0-143-generic </br> 5.4.0-1047-azure </br> 5.4.0-73-generic </br> 4.15.0-1115-azure </br> 4.15.0-144-generic </br> 5.4.0-1048-azure </br> 5.4.0-74-generic |
 18.04 LTS | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.15.0-20-generic a 4.15.0-135-generic </br> De 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-generic a 5.0.0-65-generic </br> 5.3.0-19-generic a 5.3.0-70-generic </br> 5.4.0-37-generic a 5.4.0-59-generic</br> 5.4.0-60-generic a 5.4.0-65-generic </br> 4.15.0-1009-azure a 4.15.0-1106-azure </br> De 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-azure a 5.0.0-1036-azure </br> 5.3.0-1007-azure a 5.3.0-1035-azure </br> 5.4.0-1020-azure a 5.4.0-1039-azure|
 18.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.15.0-20-generic a 4.15.0-129-generic </br> De 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-generic a 5.0.0-63-generic, </br> 5.3.0-19-generic a 5.3.0-69-generic, </br> 5.4.0-37-generic a 5.4.0-59-generic</br> 4.15.0-1009-azure a 4.15.0-1103-azure </br> De 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-azure a 5.0.0-1036-azure </br> 5.3.0-1007-azure a 5.3.0-1035-azure </br> 5.4.0-1020-azure a 5.4.0-1035-azure|
 18.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.15.0-20-generic a 4.15.0-123-generic, </br> De 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-generic a 5.0.0-63-generic, </br> 5.3.0-19-generic a 5.3.0-69-generic, </br> 5.4.0-37-generic a 5.4.0-53-generic,</br> 4.15.0-1009-azure a 4.15.0-1099-azure, </br> De 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-azure a 5.0.0-1036-azure </br> 5.3.0-1007-azure a 5.3.0-1035-azure </br> 5.4.0-1020-azure a 5.4.0-1031-azure|
 18.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-generic a 4.15.0-118-generic </br> De 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-generic a 5.0.0-61-generic </br> 5.3.0-19-generic a 5.3.0-67-generic </br> 5.4.0-37-generic a 5.4.0-48-generic</br> 4.15.0-1009-azure a 4.15.0-1096-azure </br> De 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-azure a 5.0.0-1036-azure </br> 5.3.0-1007-azure a 5.3.0-1035-azure </br> 5.4.0-1020-azure a 5.4.0-1026-azure|
 |||
-20.04 LTS |[9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)| 5.4.0-26-generic a 5.4.0-60-generic </br> -generic 5.4.0-1010-azure a 5.4.0-1043-azure </br> 5.8.0-29-generic a 5.8.0-48-generic|
-20.04 LTS |[9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)| 5.4.0-26-generic a 5.4.0-65 </br> -generic 5.4.0-1010-azure a 5.4.0-1039-azure </br> 5.8.0-29-generic a 5.8.0-43-generic </br>
-20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-generic a 5.4.0-59 </br> -generic 5.4.0-1010-azure a 5.4.0-1035-azure </br> 5.8.0-29-generic a 5.8.0-34-generic|
+20.04 LTS |[9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)| 5.4.0-26-generic a 5.4.0-60-generic </br> -generic 5.4.0-1010-azure a 5.4.0-1043-azure </br> 5.4.0-1047-azure </br> 5.4.0-73-generic </br> 5.4.0-1048-azure </br> 5.4.0-74-generic |
+20.04 LTS |[9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)| 5.4.0-26-generic a 5.4.0-65 </br> -generic 5.4.0-1010-azure a 5.4.0-1039-azure |
+20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-generic a 5.4.0-59 </br> -generic 5.4.0-1010-azure a 5.4.0-1035-azure |
 20.04 LTS |[9.39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-generic a 5.4.0-53 </br> -generic, 5.4.0-1010-azure a 5.4.0-1031-azure
 20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-generic a 5.4.0-48 </br> -generic 5.4.0-1010-azure a 5.4.0-1026-azure
+
+**Nota: Para Ubuntu 20.04, inicialmente se había implementado la compatibilidad con los kernels 5.8.* , pero desde entonces hemos detectado problemas con dicha compatibilidad, por lo que hemos eliminado estos kernels de nuestra declaración de compatibilidad por el momento. 
 
 ### <a name="debian-kernel-versions"></a>Versiones de kernel de Debian
 
@@ -146,7 +148,7 @@ Debian 10 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-f
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.47-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.56-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.44-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.38-azure|
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.34-azure |
@@ -156,7 +158,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.38](https://suppo
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.38-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.47-azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.35-azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.29-azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.47-azure, </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.21-azure
@@ -239,7 +241,7 @@ NFS de invitado/servidor | No
 Invitado/servidor iSCSI | Para migración: sí<br/>Para recuperación ante desastres: no, iSCSI realiza la conmutación por recuperación como un disco conectado a la máquina virtual
 SMB 3.0 de invitado/servidor | No
 RDM de invitado/servidor | Sí<br/><br/> N/D para servidores físicos
-Disco de invitado/servidor > 1 TB | Sí, el disco debe ser de un tamaño superior a 1024 MB.<br/><br/>Hasta 8192 GB al replicar en discos administrados (versión 9.26 en adelante)<br></br> Hasta 4095 GB al replicar en cuentas de almacenamiento
+Disco de invitado/servidor > 1 TB | Sí, el disco debe ser de un tamaño superior a 1024 MB.<br/><br/>Hasta 32 767 GB al replicar en discos administrados (versión 9.41 en adelante)<br></br> Hasta 4095 GB al replicar en cuentas de almacenamiento
 Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | No
 Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | No
 Volumen de invitado/servidor con disco seccionado > 4 TB | Sí
@@ -302,6 +304,7 @@ Tamaño del disco del sistema operativo | Hasta 2048 GB para máquinas de gener
 Número de discos del sistema operativo | 1 </br> El arranque y la partición del sistema en discos diferentes no se admiten. | Se produce un error en la comprobación si no es compatible.
 Número de discos de datos | 64 o menos | Se produce un error en la comprobación si no es compatible.
 Tamaño del disco de datos | Hasta 32 767 GB al replicar en discos administrados (versión 9.41 en adelante)<br> Hasta 4095 GB al replicar en cuentas de almacenamiento </br> Requisito de tamaño mínimo de disco: al menos 1024 MB| Se produce un error en la comprobación si no es compatible.
+RAM | El controlador de ASR consume un 6 % de RAM.
 Adaptadores de red | Se admiten varios adaptadores. |
 VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible.
 Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible.

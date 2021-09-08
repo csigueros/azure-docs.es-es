@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 935d0149a4a6b33c5272e57aab5f1cc9c3bb2924
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85b905019d822d20873c241cc887d7b5cf723fb3
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519854"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581419"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Comparta y descubra recursos en la Galería de Azure AI.
 
-**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:** ![esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico) ![Esta es una X, lo que significa que este artículo no se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -30,7 +30,7 @@ La Galería contiene una variedad de recursos que puede usar para desarrollar su
 
 Azure AI Gallery contiene una serie de diferentes recursos aportados por Microsoft y miembros de la comunidad de ciencia de datos. Entre ellas se incluyen las siguientes:
 
-* **Experimentos** la galería contiene una gran variedad de experimentos que se han desarrollado en Azure Machine Learning Studio (clásico). Estos van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
+* **Experimentos**: la galería contiene una gran variedad de experimentos que se han desarrollado en Machine Learning Studio (clásico). Estos van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
 * **Tutoriales**: hay disponibles tutoriales que le guiarán por los conceptos y las tecnologías del aprendizaje automático, o que describen métodos avanzados para solucionar diversos problemas de aprendizaje automático.
 * **Colecciones**: una colección permite agrupar experimentos, API y otros recursos de la galería que se refieren a una solución o un concepto específico.
 * **Módulos personalizados**: puede descargar módulos personalizados en el área de trabajo de Studio (clásico) para usarlos en sus propios experimentos.

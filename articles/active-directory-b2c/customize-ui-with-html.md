@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8f9f6dc1abd08c5e53f3d44a8f6ec1b3e20786ed
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 76832f02f1c1337a705f33d26de97b0b5823c2c1
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717448"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981116"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario con plantillas HTML en Azure Active Directory B2C
 
@@ -91,6 +91,10 @@ Al utilizar sus propios archivos HTML y CSS para personalizar la interfaz de usu
 ## <a name="localize-content"></a>Localización del contenido
 
 Puede localizar el contenido HTML si habilita la [personalización de idioma](language-customization.md) en su inquilino de Azure AD B2C. Al habilitar esta característica, Azure AD B2C puede reenviar el parámetro `ui_locales` de OpenID Connect al punto de conexión. El servidor de contenido puede usar este parámetro para proporcionar páginas HTML específicas del idioma.
+
+> [!NOTE]
+> Azure AD B2C no pasa parámetros de OpenID Connect, como `ui_locales` a las [páginas de excepción](page-layout.md#exception-page-globalexception).
+
 
 Como alternativa, puede extraer contenido de distintos lugares, según la configuración regional que use. En el punto de conexión habilitado para CORS, puede configurar una estructura de carpetas para hospedar contenido de idiomas concretos. Se llamará al adecuado si usa el valor de carácter comodín `{Culture:RFC5646}`.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 695aa760d554946883f72692f0bed1babad933b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a448c5b7ecb69c79c05c28c03593058e4c5ab87a
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568807"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541003"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Creación de informes interactivos de VM Insights con libros
 
@@ -23,22 +23,30 @@ Los libros son útiles en escenarios como los siguientes:
 * Compartir los resultados de un experimento de cambio de tamaño de la máquina virtual con otros miembros del equipo. Puede explicar los objetivos del experimento con texto y luego mostrar cada métrica de utilización y las consultas de análisis que se usan para evaluar el experimento, junto con indicadores claros sobre si cada métrica está por encima o por debajo del objetivo.
 * Notificar el impacto de una interrupción del servicio en la utilización de la máquina virtual, con la combinación de datos, explicación del texto y análisis de los pasos siguientes para evitar más interrupciones en el futuro.
 
-En la tabla siguiente se resumen los libros que incluye VM Insights para ayudarle a empezar.
+## <a name="vm-insights-workbooks"></a>Libro de Información de máquinas virtuales
+Información de máquinas virtuales incluye los siguientes libros. Puede usar estos libros o utilizarlos como punto de partida para crear libros personalizados a fin de abordar requisitos concretos.
 
-| Libro | Descripción | Ámbito |
-|----------|-------------|-------|
-| Rendimiento | Proporciona una versión personalizable de la vista de la Lista y Gráficos de N principales en un único libro que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado.| Varias VM |
-| Contadores de rendimiento | Una vista de Gráfico de N principales entre un amplio conjunto de contadores de rendimiento. | Varias VM |
-| Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales supervisadas. | Varias VM |
-| Puertos activos | Proporciona una lista de los procesos que se han enlazado a los puertos en las máquinas virtuales supervisadas y su actividad en el periodo de tiempo seleccionado. | Varias VM |
-| Open Ports (Abrir puertos) | Proporciona el número de puertos abiertos en las máquinas virtuales supervisadas, así como los detalles de estos puertos. | Varias VM |
-| Conexiones con errores | Muestra el número de conexiones con errores en las máquinas virtuales supervisadas, la tendencia de errores y si el porcentaje de errores aumenta con el tiempo. | Varias VM |
-| Seguridad y auditoría | Un análisis del tráfico TCP/IP que informa sobre las conexiones generales, las conexiones malintencionadas, en las que se encuentran los puntos de conexión IP de forma global.  Para habilitar todas las características, deberá habilitar la Detección de seguridad. | Varias VM |
-| Tráfico TCP | Un informe de clasificación de las máquinas virtuales supervisadas y del tráfico enviado, recibido y el total, en una cuadrícula que se muestra como una línea de tendencia. | Varias VM |
-| Comparación de tráfico | Este libro le permite comparar las tendencias en el tráfico de red para solo una máquina o para un grupo. | Varias VM |
-| Rendimiento | Proporciona una versión personalizable de la Vista de rendimiento que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado. | Máquina virtual única | 
-| Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales. | Máquina virtual única |
- 
+### <a name="single-virtual-machine"></a>una sola máquina virtual
+
+| Libro | Descripción |
+|----------|-------------|
+| Rendimiento | Proporciona una versión personalizable de la vista Rendimiento que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado. | 
+| Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales. | 
+
+### <a name="multiple-virtual-machines"></a>Múltiples máquinas virtuales
+
+| Libro | Descripción |
+|----------|-------------|
+| Rendimiento | Proporciona una versión personalizable de la vista Lista de N principales y gráficos en un único libro que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado.|
+| Contadores de rendimiento | Una vista de Gráfico de N principales entre un amplio conjunto de contadores de rendimiento. |
+| Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales supervisadas. |
+| Puertos activos | Proporciona una lista de los procesos que se han enlazado a los puertos en las máquinas virtuales supervisadas y su actividad en el periodo de tiempo seleccionado. |
+| Open Ports (Abrir puertos) | Proporciona el número de puertos abiertos en las máquinas virtuales supervisadas, así como los detalles de estos puertos. |
+| Conexiones con errores | Muestra el número de conexiones con errores en las máquinas virtuales supervisadas, la tendencia de errores y si el porcentaje de errores aumenta con el tiempo. |
+| Seguridad y auditoría | Un análisis del tráfico TCP/IP que informa sobre las conexiones generales, las conexiones malintencionadas, en las que se encuentran los puntos de conexión IP de forma global.  Para habilitar todas las características, deberá habilitar la Detección de seguridad. |
+| Tráfico TCP | Un informe de clasificación de las máquinas virtuales supervisadas y del tráfico enviado, recibido y el total, en una cuadrícula que se muestra como una línea de tendencia. |
+| Comparación de tráfico | Este libro le permite comparar las tendencias en el tráfico de red para solo una máquina o para un grupo. |
+
 ## <a name="creating-a-new-workbook"></a>Creación de un libro
 
 Un libro se compone de secciones que constan de tablas, texto, controles de entrada y gráficos que se pueden editar de forma independientemente. Para entender mejor los libros, empecemos por abrir una plantilla para recorrer la creación de un libro personalizado. 

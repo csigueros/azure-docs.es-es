@@ -1,26 +1,23 @@
 ---
-title: Implementación y configuración de la versión preliminar de Azure Firewall Prémium
+title: Implementación y configuración de Azure Firewall Prémium
 description: Aprenda a implementar y configurar Azure Firewall Prémium.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: 7984cff6b6cf0f70fc50493fd680d7203e09a81b
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 9358852dd8b16f495d5123b59ea3ae0f4c29b00f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110585860"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441154"
 ---
-# <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Implementación y configuración de la versión preliminar de Azure Firewall Prémium
+# <a name="deploy-and-configure-azure-firewall-premium"></a>Implementación y configuración de Azure Firewall Prémium
 
-> [!IMPORTANT]
-> Azure Firewall Prémium se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
- La versión preliminar de Azure Firewall Prémium es un firewall de próxima generación con funcionalidades que son necesarias en entornos de alta confidencialidad y regulados. Contiene las características siguientes:
+ Azure Firewall Premium es un firewall de próxima generación con funcionalidades que son necesarias en entornos de alta confidencialidad y regulados. Contiene las características siguientes:
 
 - **Inspección de TLS**: descifra el tráfico saliente, procesa los datos y, luego, los cifra y los envía al destino.
 - **IDPS**: sistema de detección y prevención de intrusiones en la red (IDPS) que permite supervisar la actividad malintencionada de la red, registrar información sobre esta actividad, notificarla y, opcionalmente, intentar bloquearla.
@@ -75,7 +72,7 @@ Para recopilar registros de firewall, debe agregar la configuración de diagnós
 
 ### <a name="idps-tests"></a>Pruebas de IDPS
 
-Para probar IDPS, deberá implementar su propio servidor web interno con un certificado de servidor adecuado. Para más información sobre los requisitos de certificado de la versión preliminar de Azure Firewall Prémium, consulte [Certificados de la versión preliminar de Azure Firewall Prémium](premium-certificates.md).
+Para probar IDPS, deberá implementar su propio servidor web interno con un certificado de servidor adecuado. Para obtener más información sobre los requisitos de certificado de Azure Firewall Premium, consulte [Certificados de Azure Firewall Premium](premium-certificates.md).
 
 Puede usar `curl` para controlar varios encabezados HTTP y simular el tráfico malintencionado.
 
@@ -94,7 +91,7 @@ Puede usar `curl` para controlar varios encabezados HTTP y simular el tráfico m
    > Los datos pueden tardar algún tiempo en comenzar a mostrarse en los registros. Espere al menos 20 minutos a que los registros empiecen a mostrar los datos.
 5. Agregue una regla de firma para la firma 2008983:
 
-   1. Seleccione **DemoFirewallPolicy** y, en **Configuración**, seleccione **IDPS(preview)** (IDPS [versión preliminar]).
+   1. Seleccione **DemoFirewallPolicy** y, en **Configuración**, seleccione **IDPS**.
    1. Seleccione la pestaña **Signature rules** (Reglas de firma).
    1. En **Signature ID** (Id. de firma), en el cuadro de texto abierto, escriba *2008983*.
    1. En **Modo**, seleccione **Denegar**.
@@ -131,7 +128,7 @@ Debería ver los mismos resultados que tenía con las pruebas HTTP.
 
 Siga estos pasos para probar la inspección de TLS con el filtrado de direcciones URL.
 
-1. Edite las reglas de aplicación de la directiva de firewall y agregue una nueva regla denominada `AllowURL` a la colección de reglas `AllowWeb`. Configure la dirección URL de destino `www.nytimes.com/section/world`, la dirección IP de origen **\* *, el tipo de destino* URL (versión preliminar)** , seleccione **TLS inspection (preview)** (Inspección de TLS [versión preliminar]) y los protocolos **http, https**.
+1. Edite las reglas de aplicación de la directiva de firewall y agregue una nueva regla denominada `AllowURL` a la colección de reglas `AllowWeb`. Configure la dirección URL de destino `www.nytimes.com/section/world`, la dirección IP de origen **\* *, el tipo de destino* URL**, seleccione **TLS inspection** (Inspección de TLS) y los protocolos **http, https**.
 
 3. Una vez finalizada la implementación, abra un explorador en WorkerVM, vaya a `https://www.nytimes.com/section/world` y valide que la respuesta HTML se muestra como se espera en el explorador.
 4. En Azure Portal, puede ver la dirección URL completa en los registros de supervisión de reglas de aplicación:
@@ -153,7 +150,7 @@ Vamos a crear una regla de aplicación que permita el acceso a sitios web de dep
 1. En el portal, abra el grupo de recursos y seleccione **DemoFirewallPolicy**.
 2. Seleccione **Reglas de aplicación** y, luego, **Agregar una colección de reglas**.
 3. En **Nombre**, escriba *GeneralWeb*, en **Prioridad** seleccione *103* y en **Rule collection group** (Grupo de colección de reglas), seleccione **DefaultApplicationRuleCollectionGroup**.
-4. En **Reglas**, en **Nombre**, escriba *AllowSports*, en **Origen** *\** en **Protocolo**, *http, https*, seleccione **TLS inspection** (Inspección de TLS), en **Tipo de destino**, seleccione *Web categories (preview)* (Categorías web [versión preliminar]) y, en **Destino**, seleccione *Deportes*.
+4. En **Reglas**, en **Nombre**, escriba *AllowSports*, en **Origen** *\** en **Protocolo**, *http, https*, seleccione **TLS inspection** (Inspección de TLS), en **Tipo de destino**, seleccione *Web categories* (Categorías web) y, en **Destino**, seleccione *Deportes*.
 5. Seleccione **Agregar**.
 
       :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="Categoría web de deportes":::
@@ -163,4 +160,4 @@ Vamos a crear una regla de aplicación que permita el acceso a sitios web de dep
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Versión preliminar de Azure Firewall Prémium en Azure Portal](premium-portal.md)
+- [Azure Firewall Premium en Azure Portal](premium-portal.md)

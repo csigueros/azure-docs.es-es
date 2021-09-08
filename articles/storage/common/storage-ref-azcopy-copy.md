@@ -8,12 +8,12 @@ ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 7c1e265f473c1c6fb70fd97416722e7b863c429b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 4f31567068b3b0cf1d11764ce8f609a5889c2e51
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503565"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462597"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -288,6 +288,8 @@ Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos d
 **--content-type** string Especifica el tipo de contenido del archivo. Implica el uso de no-guess-mime-type. Devuelto al descargar.
 
 **--decompress** Descomprime automáticamente los archivos al realizar la descarga, si el encabezado content-encoding indica que están comprimidos. Los valores de content-encoding admitidos son `gzip` y `deflate`. Las extensiones de archivo de `.gz`,/`.gzip` o `.zz` no son necesarias, pero se quitarán si existen.
+
+**--disable-auto-decoding** En "False" (desactivado) de manera predeterminada para habilitar la decodificación automática de caracteres no admitidos en Windows. Se puede establecer en `true` para deshabilitar la decodificación automática.
 
 **--exclude-attributes** string (solo Windows) Excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
 

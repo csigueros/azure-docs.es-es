@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 07/26/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d0dd081e3e1a681ba55e3457b79a548d6b2bb7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c5d5e34ee5013a6f4ad28779e92536ff2d8ef868
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530388"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730774"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticación en Azure Active Directory: tokens OATH 
 
@@ -31,7 +31,7 @@ Algunos tokens de hardware TOTP de OATH son programables, es decir, no incluyen 
 
 ## <a name="oath-hardware-tokens-preview"></a>Tokens de hardware OATH (versión preliminar)
 
-Azure AD admite el uso de tokens TOTP SHA-1 de OATH, que actualizan los códigos cada 30 o 60 segundos. Los clientes pueden adquirir estos tokens a través del proveedor de su elección.
+Azure AD admite el uso de tokens TOTP SHA-1 de OATH, que actualizan los códigos cada 30 o 60 segundos. Los clientes pueden adquirir estos tokens a través del proveedor de su elección. 
 
 Los tokens de hardware TOTP de OATH suelen incluir una clave secreta, o valor de inicialización, programada previamente en el token. Estas claves se deben introducir en Azure AD según se describe en los pasos siguientes. Las claves secretas se limitan a 128 caracteres lo que puede no ser compatible con todos los tokens. La clave secreta solo puede contener los caracteres *a-z* o *A-Z* y los dígitos *2-7*, y debe estar codificada en *base 32*.
 
@@ -62,3 +62,4 @@ Los usuarios pueden tener una combinación de hasta cinco tokens de hardware OAT
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre la configuración de métodos de autenticación con la [API REST de Microsoft Graph](/graph/api/resources/authenticationmethods-overview).
+Obtenga información sobre los [proveedores de claves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-key-providers) que son compatibles con la autenticación sin contraseña.

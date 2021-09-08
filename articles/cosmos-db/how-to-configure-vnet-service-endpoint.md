@@ -1,18 +1,18 @@
 ---
 title: Configuración del acceso basado en red virtual para la cuenta de Azure Cosmos
 description: En este documento se describen los pasos necesarios para configurar un punto de conexión de servicio de red virtual en Azure Cosmos DB.
-author: markjbrown
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
-ms.author: mjbrown
+ms.date: 07/07/2021
+ms.author: thweiss
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 39b134b77fbb98c79fe163b7a36f087ab8a27116
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 42e38162409c5762f43807f483b091fbb88638af
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681784"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113493286"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Configuración del acceso a Azure Cosmos DB desde redes virtuales (VNet)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -47,6 +47,9 @@ En las secciones siguientes se describe cómo configurar un punto de conexión d
 1. Seleccione la **suscripción** en la que quiere agregar una red virtual de Azure. Seleccione las **redes virtuales** y las **subredes** de Azure a las que desea conceder acceso a la cuenta de Azure Cosmos DB. A continuación, seleccione **Habilitar** para habilitar las redes seleccionadas con los puntos de conexión de servicio para "Microsoft.AzureCosmosDB". Cuando haya finalizado, seleccione **Agregar**.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Selección de la red virtual y la subred":::
+
+   > [!NOTE]
+   > La configuración de un punto de conexión de servicio de VNet puede tardar hasta 15 minutos en propagarse, y el punto de conexión puede presentar un comportamiento incoherente durante este período.
 
 1. Después de que la cuenta de Azure Cosmos DB esté habilitada para obtener acceso desde una red virtual, solo permitirá el tráfico desde esta subred seleccionada. La red virtual y subred que agregó deben aparecer como se muestra en la captura de pantalla siguiente:
 

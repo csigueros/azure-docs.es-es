@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275b1c43f8a7c5526209f943e48a1d943eca149
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 389bf4438fa31b0c1174441cd62f814f18b271d2
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713691"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729522"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -109,7 +109,7 @@ Para obtener más información, consulte [Comparar grupos](/office365/admin/crea
 
 ## <a name="add-an-application-resource-role"></a>Agregar un rol de recursos de la aplicación
 
-Puede hacer que Azure AD asigne automáticamente a los usuarios acceso a una aplicación empresarial de Azure AD, incluidas tanto las aplicaciones SaaS como las aplicaciones de su organización federadas con Azure AD, cuando se asigne a un usuario un paquete de acceso. Para las aplicaciones que se integran con Azure AD a través de un inicio de sesión único federado, Azure AD emitirá los tokens de federación para los usuarios asignados a la aplicación.
+Puede hacer que Azure AD asigne automáticamente a los usuarios acceso a una aplicación empresarial de Azure AD, incluidas tanto las aplicaciones SaaS como las aplicaciones de su organización integradas con Azure AD, cuando se asigne a un usuario un paquete de acceso. Para las aplicaciones que se integran con Azure AD a través de un inicio de sesión único federado, Azure AD emitirá los tokens de federación para los usuarios asignados a la aplicación.
 
 Las aplicaciones pueden tener varios roles. Al agregar una aplicación a un paquete de acceso, si esa aplicación tiene más de un rol, deberá especificar el rol adecuado para esos usuarios. Si va a desarrollar aplicaciones, puede consultar más información acerca de cómo se agregan estos roles a las aplicaciones en [Procedimientos para: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales](../develop/active-directory-enterprise-app-role-management.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Métodos de migración de la guía para la migración de una instancia local de MySQL a Azure Database for MySQL
+title: 'Migración de una instancia local de MySQL a Azure Database for MySQL: métodos de migración'
 description: Para mover los datos del origen al destino y llevar a cabo la migración, será necesario el uso de herramientas o características de MySQL.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: be44dd31b5a038414a10a7dac47e53a12573449e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 6a4b0e2dc084168e1bffa539924ad897ac93961e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082966"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085009"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-migration-methods"></a>Métodos de migración de la guía para la migración de una instancia local de MySQL a Azure Database for MySQL
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-migration-methods"></a>Migración de una instancia local de MySQL a Azure Database for MySQL: métodos de migración
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -102,9 +104,9 @@ Hay muchas opciones que WWI puede usar para migrar sus cargas de trabajo de MySQ
 
 | Objetivos | Descripción | Herramienta | Prerrequisitos | Ventajas | Inconvenientes |
 |-----------|-------------|------|---------------|------------|---------------|
-| **Migración más rápida posible** | Estrategia en paralelo | mydumper y myloader | Linux | Muy paralelizada | Limitación en el destino |
-| **Migración en línea** | Mantiene el origen activo el máximo tiempo posible | binlog | Ninguno | Fluidez | Almacenamiento y procesamiento extra  |
-| **Migración sin conexión** | Mantiene el origen activo el máximo tiempo posible | Database Migration Service (DMS) | Ninguno | Proceso repetible  | Limitada solo a datos; admite todas las versiones de MySQL |
+| **Migración más rápida posible** | Estrategia en paralelo| mydumper y myloader | Linux | Muy paralelizada | Limitación en el destino |
+| **Migración en línea** | Mantiene el origen activo el máximo tiempo posible | binlog | Ninguno | Fluidez | Almacenamiento y procesamiento extra |
+| **Migración sin conexión** | Mantiene el origen activo el máximo tiempo posible | Database Migration Service (DMS)| Ninguno | Proceso repetible | Limitada solo a datos; admite todas las versiones de MySQL |
 | **Migración sin conexión muy personalizada** | Exportación selectiva de objetos | mysqldump | Ninguno | Muy personalizable | Manual |
 | **Migración sin conexión semiautomatizada** | Exportación e importación basadas en la interfaz de usuario | MySQL Workbench | Descarga e instalación | Semiautomatizada | Solo se admiten los conjuntos de modificadores más comunes |
 
@@ -120,6 +122,8 @@ WWI eligió su base de datos de conferencias como la primera carga de trabajo pa
 
   - Comprobar siempre si la carga de trabajo de datos admite el método en cuestión.  
 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Test Plans](./06-test-plans.md)

@@ -3,7 +3,7 @@ title: Revisión del acceso de un paquete de acceso de administración de derech
 description: Aprenda a llevar a cabo una revisión de acceso de los paquetes de acceso de administración de derechos en las revisiones de acceso de Azure Active Directory (versión preliminar).
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: amsliu
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
-ms.author: ajburnle
+ms.date: 07/22/2021
+ms.author: amsliu
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a3a146b2622963fb20deeb2a8915eadb028ac3
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: a1d034d3e64e6c74b076ba636822bbd6e04ad1f5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714411"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440229"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Revisión del acceso de un paquete de acceso de administración de derechos de Azure AD
 
@@ -29,11 +29,14 @@ La administración de derechos de Azure AD simplifica el modo en que las empres
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para revisar las asignaciones de paquete de acceso activas de los usuarios, debe cumplir los requisitos previos para realizar una revisión de acceso:
+Para revisar las asignaciones de paquetes de acceso activas de los usuarios, el creador de una revisión debe cumplir estos requisitos previos:
 - Azure AD Premium P2
 - Administrador global, Administrador de Identity Governance, Administrador de usuarios, Propietario del catálogo o Administrador de paquetes de acceso.
 
 Para obtener más información, consulte [Requisitos de licencia](entitlement-management-overview.md#license-requirements).
+
+>[!NOTE]
+>El revisor puede ser cualquier usuario que decida el creador de una revisión (propietario del grupo, administrador de usuarios, el propio usuario o cualquier usuario o grupo seleccionado).
 
 
 ## <a name="open-the-access-review"></a>Abrir la revisión de acceso
@@ -86,7 +89,7 @@ Una vez que abra la revisión de acceso, verá los nombres de los usuarios cuyo 
 Si hay varios revisores, se registra la última respuesta enviada. Considere un ejemplo donde un administrador designa dos revisores: Alice y Bob. Alice abre primero la revisión y aprueba el acceso. Antes de que finalice la revisión, Bob abre la revisión y deniega el acceso. En este caso, se registra la última decisión de denegación de acceso.
 
 >[!NOTE]
->Si a un usuario se le deniega el acceso, no se le quita inmediatamente del paquete de acceso. El usuario se quitará del paquete de acceso cuando finalice la revisión o un administrador la finalice.
+>Si a un usuario se le deniega el acceso, no se le quita inmediatamente del paquete de acceso. El usuario se quitará del paquete de acceso cuando finalice la revisión o un administrador la finalice. Si se aprueba su acceso, la aprobación será instantánea y se concederá incluso si el período de revisión sigue abierto.
 
 ### <a name="approve-or-deny-access-using-the-system-generated-recommendations"></a>Aprobación o denegación del acceso con las recomendaciones generadas por el sistema
 

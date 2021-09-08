@@ -1,6 +1,6 @@
 ---
-title: Creación de un disco administrado a partir de la versión de una imagen
-description: Cree un disco administrado a partir de la versión de una imagen en una instancia de Shared Image Gallery.
+title: Exportación de una versión de imagen a un disco administrado
+description: Exportar una versión de imagen desde una galería de imágenes compartidas a un disco administrado.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,16 +10,16 @@ ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb09c3332f41f5b4fe8f02e2e38940f4085b08fd
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d4a3d1e8b1eb1c3a959e9f48e0c46379d6162644
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672825"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653050"
 ---
-# <a name="create-a-managed-disk-from-an-image-version"></a>Creación de un disco administrado a partir de la versión de una imagen
+# <a name="export-an-image-version-to-a-managed-disk"></a>Exportación de una versión de imagen a un disco administrado
 
-Si fuera necesario, puede exportar el sistema operativo o un disco de datos individual desde una versión de la imagen como un disco administrado o desde una versión de la imagen almacenada en Shared Image Gallery.
+Puede exportar el sistema operativo o un disco de datos individual desde una versión de la imagen como un disco administrado o desde una versión de la imagen almacenada en Shared Image Gallery.
 
 
 ## <a name="cli"></a>CLI

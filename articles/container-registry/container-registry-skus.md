@@ -2,13 +2,13 @@
 title: Niveles y características del servicio de registro
 description: Obtenga información sobre las características y los límites (cuotas) de los niveles de servicio (SKU) Básico, Estándar y Premium de Azure Container Registry.
 ms.topic: article
-ms.date: 05/18/2020
-ms.openlocfilehash: 323d36fe022d8b8e9618b8beb1facae93d22df4e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/24/2021
+ms.openlocfilehash: 8c27426cae6d80e31aef3d7ef9b75d28a14bd923
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781260"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437547"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Niveles del servicio Azure Container Registry
 
@@ -27,6 +27,41 @@ Los niveles de servicio Básico, Estándar y Premium ofrecen las mismas funciona
 En la tabla siguiente se detallan las características y los límites de registro de los niveles de servicio Básico, Estándar y Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
+
+## <a name="registry-throughput-and-throttling"></a>Rendimiento y limitación del registro
+
+### <a name="throughput"></a>Rendimiento 
+
+Cuando genere una alta tasa de operaciones del registro, use los límites del nivel de servicio para las operaciones de lectura y escritura y el ancho de banda como orientación para conocer el rendimiento máximo esperado. Estos límites afectan a las operaciones del plano de datos, como enumerar, eliminar, insertar y extraer imágenes y otros artefactos.
+
+Para calcular el rendimiento concretamente de las extracciones e inserciones de imágenes, tenga en cuenta los límites del registro y los siguientes factores: 
+
+* Número y tamaño de las capas de imagen
+* Reutilización de las capas o las imágenes base entre las imágenes
+* Llamadas API adicionales que podrían ser necesarias para cada extracción o inserción
+
+Para obtener más información, consulte la documentación de [HTTP API V2 de Docker](https://docs.docker.com/registry/spec/api/).
+
+Al evaluar el rendimiento del registro o solucionar problemas, tenga en cuenta también la configuración del entorno de cliente:
+
+* La configuración del demonio de Docker para operaciones simultáneas
+* La conexión de red al punto de conexión de datos del registro (o puntos de conexión, si el registro tiene [replicación geográfica](container-registry-geo-replication.md)).
+
+Si experimenta problemas relacionados con el rendimiento del registro, consulte [Solución de problemas de rendimiento del registro](container-registry-troubleshoot-performance.md). 
+
+#### <a name="example"></a>Ejemplo
+
+Para insertar una sola imagen `nginx:latest` de 133 MB en un registro de contenedor de Azure, se requieren varias operaciones de lectura y escritura para las cinco capas de la imagen: 
+
+* Operaciones de lectura para leer el manifiesto de imagen, si existe en el registro
+* Operaciones de escritura para escribir el blob de configuración de la imagen
+* Operaciones de escritura para escribir el manifiesto de imagen
+
+### <a name="throttling"></a>Limitaciones
+
+Puede experimentar una limitación de las operaciones de extracción o inserción cuando el registro determina que la tasa de solicitudes supera los límites permitidos para el nivel de servicio del registro. Podría ver un error HTTP 429 similar a `Too many requests`.
+
+Es posible que se produzca una limitación de forma temporal cuando se genere una ráfaga de operaciones de extracción o inserción de imágenes durante un período muy corto, incluso si la tasa media de operaciones de lectura y escritura está dentro de los límites del registro. Podría tener que implementar lógica de reintento con algún tipo de retroceso en el código o reducir la tasa máxima de solicitudes al registro.
 
 ## <a name="changing-tiers"></a>Cambio de niveles de servicio
 

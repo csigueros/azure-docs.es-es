@@ -4,12 +4,12 @@ description: Aprenda a visualizar la información de solución de problemas en l
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 355c665db2627fe04595a8b519b16bd475ebcadf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20296d100d5a6bcd2cffbc93f29bfd71f56099c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735155"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733579"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obtención de registros de kubelet desde nodos de clúster de Azure Kubernetes Service (AKS)
 
@@ -27,11 +27,14 @@ En primer lugar, cree una conexión SSH con el nodo en el que necesita ver los r
 
 ## <a name="get-kubelet-logs"></a>Obtención de registros de kubelet
 
-Una vez que se ha conectado al nodo, ejecute el siguiente comando para extraer los registros de *kubelet*:
+Una vez que se ha conectado al nodo mediante `kubectl debug`, ejecute el siguiente comando para extraer los registros de *kubelet*:
 
 ```console
-sudo journalctl -u kubelet -o cat
+chroot /host
+journalctl -u kubelet -o cat
 ```
+> [!NOTE]
+> No es necesario usar porque `sudo journalctl` ya tiene el valor `root` en el nodo.
 
 > [!NOTE]
 > En el caso de los nodos de Windows, los datos de registro están en `C:\k` y se pueden ver con el comando *more*:
@@ -71,8 +74,8 @@ Si necesita información adicional desde el maestro de Kubernetes, consulte [Hab
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
-[aks-master-logs]: ./view-control-plane-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[aks-master-logs]: ./view-control-plane-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

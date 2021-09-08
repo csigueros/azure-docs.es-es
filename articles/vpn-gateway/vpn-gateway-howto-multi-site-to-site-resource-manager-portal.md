@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: d65367b561ed94c4872ce86edede2043f99cced4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 304d96e9f7566ab80ac71d176fc52ccf3c852b49
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292691"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729530"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>Adición de conexiones S2S adicionales a una red virtual: Azure portal
 
@@ -31,7 +31,7 @@ Este artículo se aplica a redes virtuales de Resource Manager que tienen una pu
 Compruebe los siguientes aspectos:
 
 * No va a configurar una configuración de ExpressRoute y VPN Gateway coexistente nueva.
-* Tiene una red virtual que se ha creado con el modelo de implementación de Resource Manager con una conexión existente.
+* Tiene una red virtual que se ha creado con el [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md) con una conexión existente.
 * La puerta de enlace de red virtual para su red virtual es RouteBased. Si tiene una VPN Gateway PolicyBased, necesita eliminar la puerta de enlace de red virtual y crear una VPN Gateway nueva como RouteBased.
 * Ninguno de los intervalos de direcciones se superpone con ninguna de las redes virtuales a la que se está conectando esta red virtual.
 * Tiene un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md). Si no conoce la configuración de su dispositivo VPN o los intervalos de direcciones IP ubicados en la configuración de la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles.

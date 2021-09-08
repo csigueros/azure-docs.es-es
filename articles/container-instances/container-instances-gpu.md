@@ -3,12 +3,12 @@ title: Implementación de una instancia de contenedor habilitada para GPU
 description: Aprenda a implementar instancias de contenedor de Azure para ejecutar aplicaciones de contenedor de uso intensivo de proceso utilizando recursos de GPU.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 6ffe4840d024c1e1f551966d05673c4ba83e1259
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: cff887f434230fbc24dfbe27b1f14a463d00cf5d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764070"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728909"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementación de instancias de contenedor que usan recursos de GPU
 
@@ -63,9 +63,12 @@ Al implementar recursos de GPU, establezca los recursos de CPU y memoria apropia
 
 * **Controladores de CUDA**: las instancias de contenedor con los recursos de GPU se aprovisionan previamente con controladores de NVIDIA CUDA y tiempos de ejecución de contenedor, por lo que puede usar imágenes de contenedor desarrolladas para cargas de trabajo de CUDA.
 
-  Solo se admite CUDA 9.0 en esta fase. Por ejemplo, puede usar las imágenes base siguientes para su archivo de Docker:
+  Solo se admite CUDA 9.0 en esta fase. Por ejemplo, puede usar las imágenes base siguientes para su Dockerfile:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+
+  > [!NOTE]
+  > Para mejorar la confiabilidad al usar una imagen de contenedor pública de Docker Hub, importe y administre la imagen en un registro de contenedor privado de Azure y actualice el Dockerfile para usar la imagen base administrada de forma privada. [Más información sobre cómo trabajar con imágenes públicas](../container-registry/buffer-gate-public-content.md).
     
 ## <a name="yaml-example"></a>Ejemplo de YAML
 
