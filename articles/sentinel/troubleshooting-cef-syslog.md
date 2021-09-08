@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-ms.openlocfilehash: 18166bc22f34fe8bd4757ffd3a0d468c6a75b23c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 141d26871db37375968e86be9374d41383d0d236
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122868534"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430025"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>Solución de problemas del conector de datos CEF o Syslog
 
@@ -299,7 +299,7 @@ El servidor de Syslog, rsyslog o syslog-ng, reenvía los datos definidos en el a
 
 Asegúrese de agregar detalles sobre las instalaciones y los niveles de registro de gravedad que quiere ingerir en Azure Sentinel. El proceso de configuración puede tardar unos 20 minutos en procesarse.
 
-Para obtener más información, vea [Explicación del script de implementación](connect-cef-agent.md#deployment-script-explained) y [Configuración de Syslog en Azure Portal](/azure/azure-monitor/agents/data-sources-syslog.md).
+Para obtener más información, vea [Explicación del script de implementación](connect-cef-agent.md#deployment-script-explained) y [Configuración de Syslog en Azure Portal](/azure/azure-monitor/agents/data-sources-syslog).
 
 
 **Por ejemplo, para un servidor rsyslog**, ejecute el siguiente comando para mostrar la configuración actual del reenvío de Syslog y revise los cambios en el archivo de configuración:

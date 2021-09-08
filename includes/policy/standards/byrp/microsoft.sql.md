@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0c9322c0f80020e062939d39aac633d3956562be
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 7f519a8a5defbc79074d5ebd25d88e491304d105
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108659"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470928"
 ---
 ## <a name="australian-government-ism-protected"></a>Australian Government ISM PROTECTED
 
