@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure API Management
 description: En este artículo se enumeran los controles de cumplimiento normativo de Azure Policy disponibles para Azure API Management. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 author: dlepow
 ms.author: apimpm
 ms.service: api-management
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e3308359ffb130bbf52248fbebee64ed302d1472
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 73559161ea74b0582c60bf9d2eb4efd4a826f5ec
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111587"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480480"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-management"></a>Controles de cumplimiento normativo de Azure Policy para Azure API Management
 

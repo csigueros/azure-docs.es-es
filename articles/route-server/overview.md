@@ -1,27 +1,22 @@
 ---
-title: ¿Qué es Azure Route Server (versión preliminar)?
+title: ¿Qué es Azure Route Server?
 description: Obtenga información sobre cómo puede simplificar Azure Route Server el enrutamiento entre la aplicación virtual de red (NVA) y la red virtual.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f2c4a31f4c1c0ec53e76ffaf6f4670d9179e9505
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437168"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436795"
 ---
-# <a name="what-is-azure-route-server-preview"></a>¿Qué es Azure Route Server (versión preliminar)? 
+# <a name="what-is-azure-route-server"></a>¿Qué es Azure Route Server? 
 
 Azure Route Server simplifica el enrutamiento dinámico entre la aplicación virtual de red (NVA) y la red virtual. Permite intercambiar información de enrutamiento directamente mediante el protocolo de enrutamiento BGP (Protocolo de puerta de enlace de borde) entre cualquier NVA que admita el protocolo de enrutamiento BGP y la red definida por software (SDN) de Azure en la red virtual de Azure (VNET) sin necesidad de configurar ni mantener manualmente las tablas de rutas. Azure Route Server es un servicio totalmente administrado y está configurado con alta disponibilidad.
-
-> [!IMPORTANT]
-> Azure Route Server (versión preliminar) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 

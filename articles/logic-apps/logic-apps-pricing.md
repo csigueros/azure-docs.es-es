@@ -1,69 +1,63 @@
 ---
-title: Modelos de facturación y precios
-description: Información general sobre cómo funcionan los modelos de precios y facturación para Azure Logic Apps
+title: Medición, facturación y precios de uso
+description: Aprenda cómo funcionan los modelos de medición, facturación y precios de uso en Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/10/2021
-ms.openlocfilehash: 3b627abdf27907a5c0739e6dd7920932a3035ee7
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 08/09/2021
+ms.openlocfilehash: 63c7a2c79ca5f0d241ddc3727d006bb2befb8163
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111981704"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860814"
 ---
-# <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelos de precios y facturación en Azure Logic Apps
+# <a name="usage-metering-billing-and-pricing-models-for-azure-logic-apps"></a>Modelos medición, facturación y precios de uso de Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ayuda a crear y ejecutar flujos de trabajo de integración automatizados en la nube. En este artículo se describe cómo funcionan los modelos de facturación y precios para el servicio Azure Logic Apps y los recursos relacionados. Para tarifas de precios específicas, consulte [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps). Para obtener información sobre cómo planear, administrar y supervisar los costos, consulte [Planificación y administración de costos para Azure Logic Apps](plan-manage-costs.md).
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ayuda a crear y ejecutar flujos de trabajo de integración automatizados en la nube. En este artículo se describe cómo funcionan los modelos de medición, facturación y precios de Azure Logic Apps y los recursos relacionados. Si necesita información sobre precios específicos, planeamiento de costos o diferentes entornos de hospedaje, por ejemplo, revise el siguiente contenido:
+
+* [Precios de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps)
+* [Planeamiento y administración de los costos de Azure Logic Apps](plan-manage-costs.md)
+* [Entorno de servicio de integración de un solo inquilino o de tipo multiinquilino](single-tenant-overview-compare.md)
 
 <a name="consumption-pricing"></a>
 
-## <a name="consumption-pricing-multi-tenant"></a>Precios de consumo (multiinquilino)
+## <a name="consumption-multi-tenant"></a>Consumo (multiinquilino)
 
-Se aplica un modelo de precios de consumo de pago por uso a las aplicaciones lógicas que se ejecutan en el entorno de Azure Logic Apps multiinquilino, público y "global". Puede crear estas aplicaciones lógicas mediante varias opciones, por ejemplo:
+En las instancias de Azure Logic Apps multiinquilino, una aplicación lógica y su flujo de trabajo siguen los precios y la facturación del plan de [**consumo**](https://azure.microsoft.com/pricing/details/logic-apps). Estas aplicaciones lógicas se crean de varias maneras, por ejemplo, al elegir el tipo de recurso **Logic App (Consumption)** (Aplicación lógica [consumo]), cuando se usa la extensión **Azure Logic Apps (Consumption)** (Azure Logic Apps [consumo]) en Visual Studio Code o cuando se crean [tareas de automatización](create-automation-tasks-azure-resources.md).
 
-* Tipo de recurso de aplicación lógica (consumo) en Azure Portal
-* Extensión de Azure Logic Apps (consumo) en Visual Studio Code
-* Extensión de Herramientas de Azure Logic Apps en Visual Studio
-* Plantilla de Azure Resource Manager. (plantilla de ARM) con el tipo de recurso `Microsoft.Logic`
-* CLI de Azure para Azure Logic Apps mediante los comandos `az logic`
-* Azure PowerShell para Azure Logic Apps con el módulo `Az.LogicApp`
-* API REST para Azure Logic Apps
-* [Tareas de Automation](create-automation-tasks-azure-resources.md) en Azure Portal
+En la tabla siguiente se resume cómo el modelo de consumo controla la medición y la facturación de los siguientes componentes cuando se usa con una aplicación lógica y un flujo de trabajo en Azure Logic Apps multiinquilino:
 
-La medición y facturación se basan en las ejecuciones del desencadenador y la acción en un flujo de trabajo de la aplicación lógica. Estas ejecuciones se miden y facturan, independientemente de si el flujo de trabajo se ejecuta correctamente o de si se crea una instancia del flujo de trabajo. Por ejemplo, suponga que la tarea de automatización usa un desencadenador de sondeo que realiza regularmente una llamada saliente a un punto de conexión. Esta solicitud de salida se mide y factura como una ejecución, independientemente de si el desencadenador se activa o se omite, lo que afecta a si se crea una instancia de flujo de trabajo.
-
-| Elementos | Descripción |
-|-------|-------------|
-| Acciones y desencadenadores [integrados](../connectors/built-in.md) | Se ejecutan de forma nativa en el servicio Logic Apps y se miden con el [precio de **Acciones**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Por ejemplo, el desencadenador HTTP y el desencadenador de solicitud son desencadenadores integrados, mientras que la acción de respuesta y la acción HTTP son acciones integradas. Las operaciones de datos, las operaciones por lotes, las operaciones de variables y las [acciones de control de flujo de trabajo](../connectors/built-in.md), como bucles, condiciones, conmutadores, ramas paralelas, etc., también son acciones integradas. <p><p>**Nota:** Como bonificación mensual, el plan de consumo incluye varios miles de ejecuciones integradas de forma gratuita. |
-| Desencadenadores y acciones de [conector estándar](../connectors/managed.md) <p><p>Desencadenadores y acciones de [conector personalizado](../connectors/apis-list.md#custom-apis-and-connectors) | Se miden con el [precio de conector estándar](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| Desencadenadores y acciones de [conector empresarial](../connectors/managed.md) | Se miden con el [precio de conector empresarial](https://azure.microsoft.com/pricing/details/logic-apps/). Sin embargo, durante la versión preliminar del conector, los conectores empresariales se miden con el [precio de conector *estándar*](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| Acciones dentro de [bucles](logic-apps-control-flow-loops.md) | Cada acción que se ejecuta en un bucle se mide para cada ciclo de bucle que se ejecuta. <p><p>Por ejemplo, supongamos que tiene un bucle "para cada uno" que incluye acciones que procesan una lista. El servicio Logic Apps mide una acción de ese bucle multiplicando el número de elementos de lista por el número de acciones del bucle, y agrega la acción que inicia el bucle. Por lo tanto, el cálculo de una lista de 10 elementos es (10x1)+1, lo que da como resultado 11 ejecuciones de acción. |
-| Número de reintentos | Para controlar las excepciones y errores más básicos, puede configurar una [directiva de reintentos](logic-apps-exception-handling.md#retry-policies) sobre desencadenadores y acciones si se admite. Estos reintentos junto con la solicitud original se cobran según tarifas basadas en si el desencadenador o la acción tiene un tipo integrado, estándar o empresarial. Por ejemplo, una acción que se ejecuta con 2 reintentos se cobra por 3 ejecuciones de acción. |
-| [Retención de datos y uso de almacenamiento](#data-retention) | Se mide con el precio de retención de datos, que puede encontrar en la [página de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), en la tabla **Detalles de precios**. |
+| Componente | Medición y facturación |
+| ----------|----------------------|
+| Operaciones de desencadenador y acción | El modelo de consumo incluye un *número inicial* de operaciones integradas gratuitas, por suscripción de Azure, que puede ejecutar un flujo de trabajo. Por encima de este número, la medición se aplica a *cada ejecución* y la facturación sigue los precios de [*Acciones* del plan de consumo](https://azure.microsoft.com/pricing/details/logic-apps). En el caso de otros tipos de operaciones, como los conectores administrados, la facturación sigue los precios del conector [*estándar* o *empresarial* del plan de consumo](https://azure.microsoft.com/pricing/details/logic-apps). Para más información, consulte [Operaciones de desencadenador y acción en el modelo de consumo](#consumption-operations). |
+| Operaciones de almacenamiento | La medición se aplica *solo al consumo de almacenamiento relacionado con la retención de datos*, como el almacenamiento de entradas y salidas del historial de ejecución del flujo de trabajo. La facturación sigue los [precios de retención de datos del plan de consumo](https://azure.microsoft.com/pricing/details/logic-apps/). Para más información, consulte [Operaciones de almacenamiento](#storage-operations). |
+| Cuentas de integración | La medición se aplica en función del tipo de cuenta de integración que cree y use con la aplicación lógica. La facturación sigue los precios de la [*cuenta de integración*](https://azure.microsoft.com/pricing/details/logic-apps/), a menos que la aplicación lógica se implemente y hospede en un [entorno de servicio de integración (ISE)](#ise-pricing). Para más información, consulte [Cuentas de integración](#integration-accounts). |
 |||
 
-Para más información, revise la siguiente documentación:
+<a name="consumption-operations"></a>
 
-* [Visualización de las métricas de las ejecuciones y el uso de almacenamiento](plan-manage-costs.md#monitor-billing-metrics)
-* [Límites de Azure Logic Apps](logic-apps-limits-and-config.md)
+### <a name="trigger-and-action-operations-in-the-consumption-model"></a>Operaciones de desencadenador y acción en el modelo de consumo
 
-### <a name="not-metered"></a>Sin medir
+Excepto por el número inicial de ejecuciones de operaciones integradas gratuitas, por suscripción de Azure, que puede ejecutar un flujo de trabajo, el modelo de consumo mide y factura una operación en función de *cada ejecución*, con independencia de si el flujo de trabajo global se ejecuta correctamente, finaliza o incluso se crea una instancia de él. Normalmente, una operación realiza una única ejecución [a menos que tenga habilitados los reintentos](#other-operation-behavior). A su vez, una ejecución normalmente realiza una sola llamada [a menos que la operación admita y permita la fragmentación o paginación para obtener grandes cantidades de datos](logic-apps-handle-large-messages.md). Si está habilitada la fragmentación o paginación, es posible que una ejecución de la operación tenga que realizar varias llamadas. El modelo de consumo mide y factura una operación *por ejecución, no por llamada*.
 
-* Desencadenadores que se omiten debido a condiciones no satisfechas
-* Acciones que no se ejecutaron porque la aplicación lógica se detuvo antes de finalizar
-* [Aplicaciones lógicas deshabilitadas](#disabled-apps)
+Por ejemplo, suponga que un flujo de trabajo comienza con un desencadenador de sondeo que obtiene registros mediante la realización regular de llamadas salientes a un punto de conexión. La llamada saliente se mide y se factura como una sola ejecución, independientemente de si el desencadenador se activa o se omite. El estado del desencadenador controla si la instancia de flujo de trabajo se crea y ejecuta. Ahora, supongamos que la operación también admite, y tiene habilitada, la fragmentación o la paginación. Si la operación tiene que realizar 10 llamadas para terminar de obtener todos los datos, la operación todavía se mide y se factura como una *sola ejecución*, a pesar de realizar varias llamadas.
 
-### <a name="other-related-resources"></a>Otros recursos relacionados
+En la tabla siguiente se resume cómo el modelo de consumo controla la medición y la facturación de los siguientes tipos de operación cuando se usa con una aplicación lógica y un flujo de trabajo en Azure Logic Apps multiinquilino:
 
-Logic apps funciona con otros recursos relacionados, como cuentas de integración, puertas de enlace de datos locales y entornos de servicio de integración (ISE). Para obtener información sobre los precios de esos recursos, revise estas secciones más adelante en este tema:
+| Tipo de operación | Descripción | Medición y facturación |
+|----------------|-------------|----------------------|
+| [*Integrada*](../connectors/built-in.md) | Estas operaciones se ejecutan de forma directa y nativa con el entorno de ejecución de Azure Logic Apps. En el diseñador, puede encontrar estas operaciones en la etiqueta **Integrado**. <p>Por ejemplo, el desencadenador HTTP y el desencadenador de solicitud son desencadenadores integrados. La acción HTTP y la acción de respuesta son acciones integradas. Otras operaciones integradas incluyen acciones de control de flujo de trabajo, como bucles y condiciones, operaciones de datos, operaciones por lotes, etc. | El modelo de consumo incluye un *número inicial de operaciones integradas gratuitas*, por suscripción de Azure, que puede ejecutar un flujo de trabajo. Por encima de este número, las ejecuciones de operaciones integradas siguen los precios de [*Acciones*](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Nota**: Algunas operaciones de conectores administrados *también* están disponibles como operaciones integradas, que se incluyen en las operaciones gratuitas iniciales. Por encima de las operaciones inicialmente gratuitas, la facturación sigue los precios de [*Acciones*](https://azure.microsoft.com/pricing/details/logic-apps/), no los precios de los conectores [*estándar* o *empresarial*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| [*Conector administrado*](../connectors/managed.md) | Estas operaciones se ejecutan de forma independiente en Azure. En el diseñador, puede encontrar estas operaciones bajo la etiqueta **Estándar** o **Empresarial**. | Estas ejecuciones de operación siguen los precios del conector [*estándar* o *empresarial*](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Nota**: Las ejecuciones de operación del conector empresarial en versión preliminar siguen los precios del conector [estándar *del plan de consumo*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| [*Conector personalizado*](../connectors/apis-list.md#custom-apis-and-connectors) | Estas operaciones se ejecutan de forma independiente en Azure. En el diseñador, puede encontrar estas operaciones en la etiqueta **Personalizado**. Para ver los límites de número de conectores, rendimiento y tiempo de espera, revise [Límites de los conectores personalizados en Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). | Estas ejecuciones de operación siguen los precios del conector [*estándar*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+||||
 
-* [Puerta de enlace de datos local](#data-gateway)
-* [Modelo de precios de la cuenta de integración](#integration-accounts)
-* [Modelo de precios ISE](#fixed-pricing)
+Para más información sobre cómo funciona el modelo de consumo con operaciones que se ejecutan dentro de otras operaciones, como bucles, procesamiento de varios elementos (por ejemplo, matrices) y directivas de reintento, consulte [Comportamiento de otras operaciones](#other-operation-behavior).
 
-### <a name="tips-for-estimating-consumption-costs"></a>Sugerencias para la estimación de los costos de consumo
+<a name="consumption-cost-estimation-tips"></a>
+
+### <a name="cost-estimation-tips-for-the-consumption-model"></a>Sugerencias de estimación de costos para el modelo de consumo
 
 Para ayudarle a estimar de manera más precisa los costos de consumo, revise estas sugerencias:
 
@@ -75,148 +69,185 @@ Para ayudarle a estimar de manera más precisa los costos de consumo, revise est
 
 <a name="standard-pricing"></a>
 
-## <a name="standard-pricing-single-tenant"></a>Precios estándar (un solo inquilino)
+## <a name="standard-single-tenant"></a>Estándar (inquilino único)
 
-Se aplica un plan de hospedaje y un modelo de precios basado en planes de tarifa a las aplicaciones lógicas que se ejecutan en el entorno de Azure Logic Apps de inquilino único. Este precio se aplica al tipo de recurso **Aplicación lógica (estándar)** en Azure Portal o a las aplicaciones lógicas con las que trabaja mediante la extensión **Azure Logic Apps (estándar)** para Visual Studio Code. Al crear o implementar una aplicación lógica de este tipo, debe elegir un plan de hospedaje y un plan de tarifa que determine las tarifas de precios que se usarán para la medición y facturación al ejecutar los flujos de trabajo.
+En Azure Logic Apps de inquilino único, una aplicación lógica y su flujo de trabajo siguen los precios y la facturación del plan [**estándar**](https://azure.microsoft.com/pricing/details/logic-apps/). Estas aplicaciones lógicas se crean de varias maneras, por ejemplo, cuando se elige el tipo de recurso **Logic App (Standard)** (Aplicación lógica [estándar]) o se usa la extensión **Azure Logic Apps (Standard)** (Azure Logic Apps [estándar]) en Visual Studio Code. Este modelo de precios requiere que las aplicaciones lógicas usen un plan de hospedaje y un plan de tarifa, lo que difiere del plan de consumo, ya que se le factura por la capacidad reservada y los recursos dedicados, tanto si los usa como si no.
 
-> [!NOTE]
-> Para las nuevas aplicaciones lógicas que cree con el tipo de recurso **Logic App (Standard)** (Aplicación lógica [estándar]), debe usar el plan de hospedaje **Workflow Standard** (Flujo de trabajo estándar). El plan de Service App y App Service Environment no están disponibles para las nuevas aplicaciones lógicas.
+> [!IMPORTANT]
+> Al crear o implementar nuevas aplicaciones lógicas basadas en el tipo de recurso **Logic App (Standard)** (Aplicación lógica [estándar]), puede usar el plan de hospedaje Workflow Standard (Flujo de trabajo estándar) en todas las regiones de Azure, o bien puede usar el plan de hospedaje App Service, pero solo cuando seleccione la región **App Service Environment v3** en la pestaña **Aspectos básicos**.
+>
+> Aunque el tipo de recurso **Logic App (Standard)** (Aplicación lógica [estándar]) en versión preliminar le permite usar el plan de App Service, el plan Premium de Functions, App Service Environment v1 y App Service Environment v2, estas opciones ya no están disponibles ni se admiten para la versión pública de este tipo de recurso de Azure Logic Apps.
 
-<a name="hosting-plans"></a>
+En la tabla siguiente se resume cómo el modelo estándar controla la medición y la facturación de los siguientes componentes cuando se usa con una aplicación lógica y un flujo de trabajo en Azure Logic Apps de inquilino único:
 
-### <a name="pricing-tiers-and-billing-rates"></a>Planes de tarifas y tasas de facturación
+| Componente | Medición y facturación |
+|-----------|----------------------|
+| CPU virtual (vCPU) y memoria | El modelo estándar *requiere* que la aplicación lógica use el plan de hospedaje **Workflow Standard** (Flujo de trabajo estándar) y un plan de tarifa, que determina los niveles de recursos y las tarifas de precios que se aplican a la capacidad de proceso y memoria. Para más información, consulte [Planes de tarifa en el modelo estándar](#standard-pricing-tiers). |
+| Operaciones de desencadenador y acción | El modelo estándar incluye un *número ilimitado* de operaciones integradas gratuitas que el flujo de trabajo puede ejecutar. <p>Si el flujo de trabajo usa operaciones de conectores administrados, la medición de esas operaciones se aplica a *cada llamada*, mientras que la facturación sigue los mismos [precios del conector *estándar* o *empresarial* que el plan de consumo](https://azure.microsoft.com/pricing/details/logic-apps). Para más información, consulte [Operaciones de desencadenador y acción en el modelo de estándar](#standard-operations). |
+| Operaciones de almacenamiento | La medición se aplica a las operaciones de almacenamiento ejecutadas por Azure Logic Apps. Por ejemplo, las operaciones de almacenamiento se ejecutan cuando el servicio guarda las entradas y salidas del historial de ejecución del flujo de trabajo. La facturación sigue el [plan de tarifa](#standard-pricing-tiers) elegido. Para más información, consulte [Operaciones de almacenamiento](#storage-operations). |
+| Cuentas de integración | Si crea una cuenta de integración para que la use la aplicación lógica, la medición se basa en el tipo de cuenta de integración que cree. La facturación sigue los precios de la [*cuenta de integración*](https://azure.microsoft.com/pricing/details/logic-apps/). Para más información, consulte [Cuentas de integración](#integration-accounts). |
+|||
 
-Cada plan de tarifa de un plan de hospedaje incluye una cantidad específica de recursos de proceso, memoria y almacenamiento. Para ver las tarifas por hora por recurso y región, revise la [página de precios de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+<a name="standard-pricing-tiers"></a>
 
-Para comprender mejor cómo funcionan los precios, en este ejemplo se proporcionan estimaciones de ejemplo para la *región Este de EE. UU. 2*.
+### <a name="pricing-tiers-in-the-standard-model"></a>Planes de tarifa del modelo estándar
 
-* En la [página de precios Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), seleccione la región **Este de EE. UU. 2** para ver las tarifas por hora o revise la tabla siguiente:
+l plan de tarifa que elija para la medición y la facturación de la aplicación lógica incluye cantidades específicas de proceso en recursos de CPU virtual (vCPU) y memoria. Actualmente, solo el plan de hospedaje **Workflow Standard** (Flujo de trabajo estándar) está disponible para el tipo de recurso **Logic App (Standard)** (Aplicación lógica [estándar]) y ofrece los siguientes planes:
 
-  | Recurso | USD por hora (Este de EE. UU. 2) |
-  |----------|------------------------|
-  | **CPU virtual (vCPU)** | 0,192 USD |
-  | **Memoria** | 0,0137 USD por GB |
-  |||
+| Plan de tarifa | CPU virtual (vCPU) | Memoria (GB) |
+|--------------|--------------------|-------------|
+| **WS1** | 1 | 3,5 |
+| **WS2** | 2 | 7 |
+| **WS3** | 4 | 14 |
+||||
 
-* En función de la información anterior, en esta tabla se muestra la tarifa mensual estimada para cada plan de tarifa y los recursos incluidos en ese plan de tarifa:
+> [!IMPORTANT]
+>
+> El ejemplo siguiente es solo ilustrativo y proporciona estimaciones de ejemplo para mostrar cómo funciona en general un plan de tarifa. 
+> Para ver los precios específicos de vCPU y memoria en función de las regiones concretas en las que Azure Logic Apps está disponible, revise el [plan estándar para una región seleccionada en la página de precios de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+>
+> Supongamos que, en una región de ejemplo, los siguientes recursos tienen estas tarifas por hora:
+>
+> | Resource | Tarifa por hora (región de ejemplo) |
+> |----------|-----------------------------|
+> | **vCPU** | 0,192 USD por vCPU |
+> | **Memoria** | 0,0137 USD por GB |
+> |||
+>
+> El cálculo siguiente proporciona una estimación de la tarifa mensual:
+>
+> <*monthly-rate*> = 730 horas (al mes) * [(<*number-vCPU*> * <*hourly-rate-vCPU*>) + (<*number-GB-memory*> * <*hourly-rate-GB-memory*>)]
+>
+> En función de la información anterior, en esta tabla se muestran las tarifas mensuales estimadas para cada plan de tarifa y los recursos incluidos en él:
+>
+> | Plan de tarifa | CPU virtual (vCPU) | Memoria (GB) | Tarifa mensual (región de ejemplo) |
+> |--------------|--------------------|-------------|------------------------------|
+> | **WS1** | 1 | 3,5 | 175,16 USD |
+> | **WS2** | 2 | 7 | 350,33 UDS |
+> | **WS3** | 4 | 14 | 700,65 USD |
+> |||||
 
-  | Plan de tarifa | USD mensuales (Este de EE. UU. 2) | CPU virtual (vCPU) | Memoria (GB) | Almacenamiento (GB) |
-  |--------------|-------------------------|--------------------|-------------|--------------|
-  | **WS1** | 175,20 USD | 1 | 3,5 | 250 |
-  | **WS2** | 350,40 USD | 2 | 7 | 250 |
-  | **WS3** | 700,80 USD | 4 | 14 | 250 |
-  ||||||
+<a name="standard-operations"></a>
 
-* En función de la información anterior, en esta tabla se enumera cada recurso y la tarifa mensual estimada si elige el plan de precios **WS1**:
+### <a name="trigger-and-action-operations-in-the-standard-model"></a>Operaciones de desencadenador y acción en el modelo estándar
 
-  | Recurso | Amount | USD mensuales (Este de EE. UU. 2) |
-  |----------|--------|-------------------------|
-  | **CPU virtual (vCPU)** | 1 | 140,16 USD |
-  | **Memoria** | 3,5 GB | 35,04 USD |
-  ||||
+Excepto por las operaciones integradas gratuitas ilimitadas que puede ejecutar un flujo de trabajo, el modelo estándar mide y factura una operación en función de *cada llamada*, con independencia de si el flujo de trabajo global se ejecuta correctamente, finaliza o incluso se crea una instancia de él. Normalmente, una operación realiza una única ejecución [a menos que tenga habilitados los reintentos](#other-operation-behavior). A su vez, una ejecución normalmente realiza una sola llamada [a menos que la operación admita y permita la fragmentación o paginación para obtener grandes cantidades de datos](logic-apps-handle-large-messages.md). Si está habilitada la fragmentación o paginación, es posible que una ejecución de la operación tenga que realizar varias llamadas. El modelo estándar mide y factura una operación *por llamada, no por ejecución*.
 
-<a name="storage-transactions"></a>
+Por ejemplo, suponga que un flujo de trabajo comienza con un desencadenador de sondeo que obtiene registros mediante la realización regular de llamadas salientes a un punto de conexión. La llamada saliente se mide y se factura, independientemente de si el desencadenador se activa o se omite. El estado del desencadenador controla si la instancia de flujo de trabajo se crea y ejecuta. Ahora, supongamos que la operación también admite, y tiene habilitada, la fragmentación o la paginación. Si la operación tiene que realizar 10 llamadas para terminar de obtener todos los datos, la operación se mide y se factura *por llamada*.
 
-### <a name="storage-transactions"></a>Transacciones de almacenamiento
+En la tabla siguiente se resume cómo el modelo estándar controla la medición y la facturación de los tipos de operación cuando se usa con una aplicación lógica y un flujo de trabajo en Azure Logic Apps de inquilino único:
 
-Azure Logic Apps usa [Azure Storage](../storage/index.yml) para las operaciones de almacenamiento. Con Azure Logic Apps multiinquilino, el uso y los costos de almacenamiento se asocian a la aplicación lógica. Con Azure Logic Apps de un solo inquilino, puede usar su propia [cuenta de almacenamiento](../azure-functions/storage-considerations.md#storage-account-requirements) de Azure. Esta funcionalidad proporciona más control y flexibilidad con los datos de Logic Apps.
+| Tipo de operación | Descripción | Medición y facturación |
+|----------------|-------------|----------------------|
+| [*Integrada*](../connectors/built-in.md) | Estas operaciones se ejecutan de forma directa y nativa con el entorno de ejecución de Azure Logic Apps. En el diseñador, puede encontrar estas operaciones en la etiqueta **Integrado**. <p>Por ejemplo, el desencadenador HTTP y el desencadenador de solicitud son desencadenadores integrados. La acción HTTP y la acción de respuesta son acciones integradas. Otras operaciones integradas incluyen acciones de control de flujo de trabajo, como bucles y condiciones, operaciones de datos, operaciones por lotes, etc. | El modelo estándar incluye operaciones integradas gratuitas ilimitadas. <p><p>**Nota**: Algunas operaciones de conectores administrados *también* están disponibles como operaciones integradas. Aunque las operaciones integradas son gratuitas, el modelo estándar todavía mide y factura las operaciones de conectores administrados con los [mismos precios del conector *estándar* o *empresarial* que el modelo de consumo](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| [*Conector administrado*](../connectors/managed.md) | Estas operaciones se ejecutan de forma independiente en Azure. En el diseñador, puede encontrar estas operaciones en la etiqueta **Azure** combinada. | El modelo estándar mide y factura las operaciones de conectores administrados con los [mismos precios de conector *estándar* o *empresarial* que el modelo de consumo](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Nota**: Las operaciones de conector empresarial en versión preliminar siguen los precios del conector [estándar *del plan de consumo*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| [*Conector personalizado*](../connectors/apis-list.md#custom-apis-and-connectors) | Actualmente, solo puede crear y usar [operaciones de conector integradas personalizadas](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272) en flujos de trabajo de aplicaciones lógicas basadas en un único inquilino. | El modelo estándar incluye operaciones integradas gratuitas ilimitadas. Para ver los límites de rendimiento y tiempo de espera, consulte [Límites de los conectores personalizados en Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). |
+||||
 
-Cuando los flujos de trabajo *con estado* ejecutan sus operaciones, Azure Logic Apps realiza transacciones de almacenamiento en tiempo de ejecución. Por ejemplo, las colas se utilizan para la programación, mientras que las tablas y blobs se utilizan para almacenar los estados de los flujos de trabajo. Los costos de almacenamiento cambian en función del contenido del flujo de trabajo. Los distintos desencadenadores, acciones y cargas tienen como resultado diferentes operaciones y necesidades de almacenamiento. Las transacciones de almacenamiento siguen el [modelo de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Los costos de almacenamiento se enumeran por separado en la factura de Azure.
+Para más información sobre cómo funciona el modelo estándar con operaciones que se ejecutan dentro de otras operaciones, como bucles, procesamiento de varios elementos (por ejemplo, matrices) y directivas de reintento, consulte [Comportamiento de otras operaciones](#other-operation-behavior).
 
-### <a name="tips-for-estimating-storage-needs-and-costs"></a>Sugerencias para calcular los costos y las necesidades de almacenamiento
+<a name="ise-pricing"></a>
 
-En el caso de Azure Logic Apps de un solo inquilino, puede hacerse una idea del número de operaciones de almacenamiento que un flujo de trabajo podría ejecutar y su costo con la [calculadora de almacenamiento de Logic Apps](https://logicapps.azure.com/calculator). Puede seleccionar un flujo de trabajo de ejemplo o usar una definición de flujo de trabajo existente. El primer cálculo estima el número de operaciones de almacenamiento en el flujo de trabajo. Luego, puede usar estos números para calcular los posibles costos mediante la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
+## <a name="integration-service-environment-ise"></a>Entorno del servicio de integración (ISE)
 
-Para más información, revise la siguiente documentación:
+Al crear una aplicación lógica mediante el tipo de recurso **Logic App (Consumption)** (Aplicación lógica [consumo]), si la implementa en un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) dedicado, la aplicación lógica y su flujo de trabajo siguen los precios y la facturación del [plan del entorno de servicio de integración](https://azure.microsoft.com/pricing/details/logic-apps). Este modelo de precio depende del [nivel de ISE o de la *SKU*](connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) y se diferencia del plan de consumo en que se le factura por la capacidad reservada y los recursos dedicados, tanto si los usa como si no.
 
-* [Estimación de las necesidades de almacenamiento y los costos de los flujos de trabajo de Azure Logic Apps de un solo inquilino](estimate-storage-costs.md).
-* [Detalles de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
+En la tabla siguiente se resume cómo el modelo ISE controla la medición y la facturación de la capacidad y otros recursos dedicados en función de su nivel de ISE o SKU:
 
-<a name="fixed-pricing"></a>
-
-## <a name="ise-pricing-dedicated"></a>Precios de ISE (dedicado)
-
-Se aplica un modelo de precios fijos a las aplicaciones lógicas que se ejecutan en un [*entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) dedicado. Un ISE se factura con el [precio del Entorno del servicio de integración](https://azure.microsoft.com/pricing/details/logic-apps), que depende del [nivel de ISE o *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) que cree. Este precio difiere del precio de multiinquilino ya que se paga por la capacidad reservada y los recursos dedicados, tanto si se usan como si no.
-
-| SKU de ISE | Descripción |
-|---------|-------------|
+| SKU de ISE | Medición y facturación |
+|---------|----------------------|
 | **Premium** | La unidad base tiene una [capacidad fija](logic-apps-limits-and-config.md#integration-service-environment-ise) y se [factura según una tarifa por hora para el SKU prémium](https://azure.microsoft.com/pricing/details/logic-apps). Si necesita más rendimiento, puede [agregar más unidades de escalado](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) durante o después de crear el ISE. Cada unidad de escalado se factura según una [tarifa por hora, que es aproximadamente la mitad de la tarifa de unidad base](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Para información sobre los límites y la capacidad, consulte [Límites de ISE en Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
 | **Developer** | La unidad base tiene una [capacidad fija](logic-apps-limits-and-config.md#integration-service-environment-ise) y se [factura según una tarifa por hora para el SKU de desarrollador](https://azure.microsoft.com/pricing/details/logic-apps). Sin embargo, este SKU no tiene ningún Acuerdo de Nivel de Servicio (SLA), funcionalidad de escalado vertical ni redundancia durante el reciclaje, lo que significa que puede experimentar retrasos o tiempo de inactividad. Las actualizaciones de back-end pueden interrumpir el servicio de forma intermitente. <p><p>**Importante**: Use este SKU solo para la exploración, los experimentos, el desarrollo y las pruebas, no para pruebas de rendimiento ni en producción. <p><p>Para información sobre los límites y la capacidad, consulte [Límites de ISE en Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
 |||
 
-### <a name="included-at-no-extra-cost"></a>Incluido sin costo adicional
+En la tabla siguiente se resume cómo el modelo ISE controla los siguientes componentes cuando se usa con una aplicación lógica y un flujo de trabajo en un ISE:
 
-| Elementos | Descripción |
-|-------|-------------|
-| Acciones y desencadenadores [integrados](../connectors/built-in.md) | Se muestra la etiqueta **Núcleo** y se ejecuta en el mismo ISE que las aplicaciones lógicas. |
-| [Conectores estándar](../connectors/managed.md) <p><p>[Conectores de empresa](../connectors/managed.md#enterprise-connectors) | - Los conectores administrados en los que se muestra la etiqueta **ISE** están diseñados especialmente para funcionar en la puerta de enlace de datos local y ejecutarse en el mismo ISE que las aplicaciones lógicas. Los precios de ISE incluyen tantas conexiones empresariales como desee. <p><p>- Los conectores en los que no se muestra la etiqueta ISE se ejecutan en el servicio Azure Logic Apps de un solo inquilino. Sin embargo, en el precio de ISE se incluyen estas ejecuciones para aplicaciones lógicas que se ejecutan en un ISE. |
-| Acciones dentro de [bucles](logic-apps-control-flow-loops.md) | En el precio de ISE se incluye todas las acciones que se ejecutan en un bucle se mide para cada ciclo de bucle que se ejecuta. <p><p>Por ejemplo, supongamos que tiene un bucle "para cada uno" que incluye acciones que procesan una lista. Para obtener el número total de ejecuciones de acciones, multiplique el número de elementos de lista por el número de acciones del bucle, y agregue la acción que inicia el bucle. Por lo tanto, el cálculo de una lista de 10 elementos es (10x1)+1, lo que da como resultado 11 ejecuciones de acción. |
-| Número de reintentos | Para controlar las excepciones y errores más básicos, puede configurar una [directiva de reintentos](logic-apps-exception-handling.md#retry-policies) sobre desencadenadores y acciones si se admite. Los precios de ISE incluyen reintentos junto con la solicitud original. |
-| [Retención de datos y uso de almacenamiento](#data-retention) | Logic Apps en un ISE no genera costos de retención de datos ni uso de almacenamiento. |
-| [Cuentas de integración](#integration-accounts) | Incluye el uso de un solo nivel de cuenta de integración, basado en el SKU de ISE, sin costo adicional. |
+| Componente | Descripción |
+|-----------|-------------|
+| Operaciones de desencadenador y acción | El modelo ISE incluye operaciones de conector administrado y personalizado que puede ejecutar el flujo de trabajo, pero están sujetas a los [límites del ISE de Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise) y a los [límites del conector personalizado de Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). Para más información, consulte [Operaciones de desencadenador y acción en el modelo ISE](#integration-service-environment-operations). |
+| Operaciones de almacenamiento | El modelo ISE incluye el consumo de almacenamiento gratuito, como la retención de datos. Para más información, consulte [Operaciones de almacenamiento](#storage-operations). |
+| Cuentas de integración | El modelo ISE incluye un único plan de cuenta de integración gratuito, en función de la SKU de ISE seleccionada. Por un [costo adicional](https://azure.microsoft.com/pricing/details/logic-apps/), puede crear más cuentas de integración para su ISE hasta el [límite total del ISE](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Para más información, consulte [Cuentas de integración](#integration-accounts). |
 |||
 
-Para información sobre los límites, consulte [Límites de ISE en Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+<a name="integration-service-environment-operations"></a>
 
-<a name="integration-accounts"></a>
+### <a name="trigger-and-action-operations-in-the-ise-model"></a>Operaciones de desencadenador y acción en el modelo ISE
 
-## <a name="integration-accounts"></a>Cuentas de integración
+En la tabla siguiente se resume cómo el modelo ISE controla los siguientes tipos de operación cuando se usa con una aplicación lógica y un flujo de trabajo en un ISE:
 
-Una [cuenta de integración](../logic-apps/logic-apps-pricing.md#integration-accounts) es un recurso independiente que se crea y se vincula a una aplicación lógica para que pueda explorar, compilar y probar soluciones de integración B2B que usen [EDI](logic-apps-enterprise-integration-b2b.md) y funcionalidades de [procesamiento de XML](logic-apps-enterprise-integration-xml.md).
-
-Azure Logic Apps ofrece estos niveles de cuenta de integración que [varían en el modelo de facturación](https://azure.microsoft.com/pricing/details/logic-apps/) y [precios](logic-apps-pricing.md#integration-accounts) en función de si la aplicación lógica se ejecuta en Azure Logic Apps (multiinquilino o inquilino único) o en un ISE.
-
-| Nivel | Descripción |
-|------|-------------|
-| **Basic** | Para los escenarios en los que quiere utilizar solo el control de mensajes o actuar como un asociado de pequeña empresa que tiene una relación empresarial con una entidad empresarial mayor. <p><p>Compatible con el Acuerdo de Nivel de Servicio de Logic Apps. |
-| **Estándar** | Para los escenarios en los que se tienen relaciones B2B más complejas y un número mayor de entidades que debe administrar. <p><p>Compatible con el Acuerdo de Nivel de Servicio de Logic Apps. |
-| **Gratis** | Para escenarios de exploración, no en escenarios de producción. Este nivel tiene límites en cuanto a disponibilidad, rendimiento y uso de regiones. Por ejemplo, el nivel Gratis solo está disponible para las regiones públicas en Azure, como Oeste de EE. UU. o Sudeste Asiático, pero no para [Azure China 21Vianet](/azure/china/overview-operations) o [Azure Government](../azure-government/documentation-government-welcome.md). <p><p>**Nota**: No compatible con el Acuerdo de Nivel de Servicio de Logic Apps. |
-|||
-
-Para información sobre los límites de las cuentas de integración, consulte [Límites y configuración de Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits), como:
-
-* [Límites en las cuentas de integración por suscripción de Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
-
-* [Límites en varios artefactos por cuenta de integración](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). Los artefactos incluyen entidades, contratos, mapas, esquemas, conjuntos, certificados y configuraciones de lote, etc.
-
-### <a name="multi-tenant-or-single-tenant-based-logic-apps"></a>Aplicaciones lógicas multiinquilino o basadas en un solo inquilino
-
-Las cuentas de integración se facturan mediante un [precio fijo de cuenta de integración](https://azure.microsoft.com/pricing/details/logic-apps/) que se basa en el nivel de cuenta que se usa.
-
-### <a name="ise-based-logic-apps"></a>Aplicaciones lógicas basadas en ISE
-
-El ISE incluye, sin costo adicional, una sola cuenta de integración, basada en el SKU de ISE. Por un costo adicional, puede crear más cuentas de integración para usar hasta el [límite total del ISE](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Obtenga más información sobre el [modelo de precios de ISE](#fixed-pricing) anteriormente en este tema.
-
-| SKU de ISE | Cuenta de integración incluida | Sin costo adicional |
-|---------|------------------------------|-----------------|
-| **Premium** | Una sola cuenta de integración [estándar](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) | hasta 19 cuentas Estándar más. No se permiten cuentas Gratis ni Básicas. |
-| **Developer** | Una sola cuenta de integración [Gratis](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) | Hasta 19 cuentas Estándar más si ya tiene una cuenta Gratuita, o bien 20 cuentas Estándar en total si no dispone de una cuenta Gratuita. No se permiten cuentas Básicas. |
+| Tipo de operación | Descripción | Medición y facturación |
+|----------------|-------------|----------------------|
+| [*Integrada*](../connectors/built-in.md) | Estas operaciones se ejecutan de forma directa y nativa con el entorno de ejecución de Azure Logic Apps y en el mismo ISE que el flujo de trabajo de la aplicación lógica. En el diseñador, puede encontrar estas operaciones en la etiqueta **Integrado**, pero cada operación también muestra la etiqueta **PRINCIPAL**. <p>Por ejemplo, el desencadenador HTTP y el desencadenador de solicitud son desencadenadores integrados. La acción HTTP y la acción de respuesta son acciones integradas. Otras operaciones integradas incluyen acciones de control de flujo de trabajo, como bucles y condiciones, operaciones de datos, operaciones por lotes, etc. | El modelo ISE incluye estas operaciones *de forma gratuita*, pero están sujetas a los [límites del ISE de Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| [*Conector administrado*](../connectors/managed.md) | Tanto en el modelo *estándar* como *empresarial*, las operaciones de conectores administrados se ejecutan en el ISE o en Azure multiinquilino, según si la operación o el conector se muestra en la etiqueta **ISE**. <p><p>Etiqueta - **ISE**: estas operaciones se ejecutan en el mismo ISE que la aplicación lógica y funcionan sin necesidad de la [puerta de enlace de datos local](#data-gateway). <p><p>-Sin etiqueta **ISE**: estas operaciones se ejecutan en Azure multiinquilino. | El modelo ISE incluye tanto operaciones con etiqueta **ISE** como sin etiqueta **ISE** *de forma gratuita*, pero están sujetas a los [límites de ISE de Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| [*Conector personalizado*](../connectors/apis-list.md#custom-apis-and-connectors) | En el diseñador, puede encontrar estas operaciones en la etiqueta **Personalizado**. | El modelo ISE incluye estas operaciones *de forma gratuita*, pero están sujetas a los [límites del conector personalizado de Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). |
 ||||
 
-<a name="data-retention"></a>
+Para más información sobre cómo funciona el modelo ISE con operaciones que se ejecutan dentro de otras operaciones, como bucles, procesamiento de varios elementos (por ejemplo, matrices) y directivas de reintento, consulte [Comportamiento de otras operaciones](#other-operation-behavior).
 
-## <a name="data-retention-and-storage-usage"></a>Retención de datos y uso de almacenamiento
+<a name="other-operation-behavior"></a>
 
-Azure Logic Apps usa [Azure Storage](../storage/index.yml) en las operaciones de almacenamiento. Las entradas y salidas del historial de ejecución del flujo de trabajo se almacenan y miden, en función del [límite de retención del historial de ejecución](logic-apps-limits-and-config.md#run-duration-retention-limits) de la aplicación lógica. Para supervisar el uso del almacenamiento, consulte [Visualización de métricas para ejecuciones y uso de almacenamiento](plan-manage-costs.md#monitor-billing-metrics).
+## <a name="other-operation-behavior"></a>Comportamiento de otras operaciones
 
-| Entorno | Notas |
-|-------------|-------|
-| **Multiinquilino** | El uso y la retención del almacenamiento se facturan con una tarifa fija, que puede encontrar en la [página de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps), en la tabla **Detalles de precios**. |
-| **Inquilino único** | El uso y la retención del almacenamiento se facturan mediante el [modelo de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Los costos de almacenamiento se enumeran por separado en la factura de Azure. Para obtener más información, consulte [Transacciones de almacenamiento (inquilino único)](#storage-transactions). |
-| **ISE** | El uso y la retención del almacenamiento no incurren en cargos. |
-|||
+En la tabla siguiente se resume cómo los modelos de consumo, estándar e ISE controlan las operaciones que se ejecutan dentro de otras operaciones, como bucles, procesamiento de varios elementos (por ejemplo, matrices) y directivas de reintento:
+
+| Operación | Descripción | Consumo | Estándar | ISE |
+|-----------|-------------|-------------|----------|-----|
+| [Acciones de bucle](logic-apps-control-flow-loops.md) | Una acción de bucle, como el bucle **For each** o **Until**, puede incluir otras acciones que se ejecutan durante cada ciclo del bucle. | Excepto por el número inicial de operaciones integradas incluidas, la acción de bucle y cada acción en el bucle se miden cada vez que se ejecuta el ciclo del bucle. Si una acción procesa elementos de una colección, como una lista o una matriz, el número de elementos también se usa en el cálculo de medición. <p><p>Por ejemplo, supongamos que tiene un bucle **For each** con acciones que procesan una lista. El servicio multiplica el número de elementos de la lista por el número de acciones del bucle, y agrega la acción que inicia el bucle. Por lo tanto, el cálculo de una lista de 10 elementos es (10x1)+1, lo que da como resultado 11 ejecuciones de acción. <p><p>Los precios dependen de si los tipos de operación son integradas, estándar o empresariales. | Excepto por las operaciones integradas incluidas, es igual que el modelo de consumo. | No se mide ni se factura. |
+| [Directivas de reintentos](logic-apps-exception-handling.md#retry-policies) | En operaciones admitidas, puede implementar el control básico de excepciones y errores mediante la configuración de una [directiva de reintentos](logic-apps-exception-handling.md#retry-policies). | Excepto por el número inicial de operaciones integradas, se mide la ejecución original más cada ejecución reintentada. Por ejemplo, una acción que se ejecuta con 5 reintentos se mide y se factura como 6 ejecuciones. <p><p>Los precios dependen de si los tipos de operación son integradas, estándar o empresariales. | Excepto por las operaciones integradas incluidas, es igual que el modelo de consumo. | No se mide ni se factura. |
+||||||
+
+<a name="storage-operations"></a>
+
+## <a name="storage-operations"></a>Operaciones de almacenamiento
+
+Azure Logic Apps usa [Azure Storage](../storage/index.yml) para las transacciones de almacenamiento necesarias, como el uso de colas para programar operaciones de desencadenador o el uso de tablas y blobs para almacenar estados de flujo de trabajo. En función de las operaciones del flujo de trabajo, los costos de almacenamiento varían porque diferentes desencadenadores, acciones y cargas tienen como resultado diferentes operaciones y necesidades de almacenamiento. El servicio también guarda y almacena entradas y salidas del historial de ejecución del flujo de trabajo, en función del [límite de retención del historial de ejecución](logic-apps-limits-and-config.md#run-duration-retention-limits) del recurso de aplicación lógica. Este límite de retención se puede administrar en el nivel de recurso de aplicación lógica, pero no en el nivel de flujo de trabajo.
+
+En la tabla siguiente se resume cómo los modelos de consumo, estándar e ISE controlan la medición y la facturación de las operaciones de almacenamiento:
+
+| Modelo | Descripción | Medición y facturación |
+|-------|-------------|----------------------|
+| Consumo (multiinquilino) | Los recursos y el uso de almacenamiento están asociados al recurso de aplicación lógica. | La medición y la facturación *solo se aplican al consumo de almacenamiento relacionado con la retención de datos* y siguen los [precios de retención de datos del plan de consumo](https://azure.microsoft.com/pricing/details/logic-apps). |
+| Estándar (inquilino único) | Puede usar su propia [cuenta de almacenamiento](../azure-functions/storage-considerations.md#storage-account-requirements) de Azure, lo que le proporciona más control y flexibilidad sobre los datos del flujo de trabajo. |  La medición y la facturación siguen el [modelo de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Los costos de almacenamiento se enumeran por separado en la factura de Azure. <p><p>**Sugerencia**: Para comprender mejor el número de operaciones de almacenamiento que podría ejecutar un flujo de trabajo y su costo, pruebe la [calculadora de almacenamiento de Logic Apps](https://logicapps.azure.com/calculator). Seleccione un flujo de trabajo de ejemplo o use una definición de flujo de trabajo existente. El primer cálculo estima el número de operaciones de almacenamiento en el flujo de trabajo. Luego, puede usar estos números para calcular los posibles costos mediante la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/). Para más información, revise [Estimación de las necesidades de almacenamiento y los costos de los flujos de trabajo de Azure Logic Apps de inquilino único](estimate-storage-costs.md). |
+| Entorno del servicio de integración (ISE) | Los recursos y el uso de almacenamiento están asociados al recurso de aplicación lógica. | No se mide ni se factura. |
+||||
+
+Para más información, revise la siguiente documentación:
+
+* [Visualización de las métricas de las ejecuciones y el uso de almacenamiento](plan-manage-costs.md#monitor-billing-metrics)
+* [Límites de Azure Logic Apps](logic-apps-limits-and-config.md)
 
 <a name="data-gateway"></a>
 
 ## <a name="on-premises-data-gateway"></a>Puerta de enlace de datos local
 
-Una [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) es un recurso independiente que se crea para que los flujos de trabajo de las aplicaciones lógicas puedan acceder a los datos locales mediante conectores específicos compatibles con la puerta de enlace. Las operaciones de conectores que se ejecutan a través de la puerta de enlace generan cargos, pero la propia puerta de enlace no genera cargos.
+Una [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) es un recurso de Azure independiente que se crea para que los flujos de trabajo de las aplicaciones lógicas puedan acceder a los datos locales mediante conectores específicos compatibles con la puerta de enlace. El recurso de puerta de enlace en sí no genera cargos, pero sí lo hacen las operaciones que se ejecutan a través de la puerta de enlace, según el modelo de precios y facturación que usa la aplicación lógica.
 
-<a name="disabled-apps"></a>
+<a name="integration-accounts"></a>
 
-## <a name="disabled-logic-apps-or-workflows"></a>Deshabilitación de aplicaciones lógicas o flujos de trabajo
+## <a name="integration-accounts"></a>Cuentas de integración
 
-Las aplicaciones lógicas (multiinquilino) o los flujos de trabajo (inquilino único) deshabilitados no generan cargos porque no pueden crear nuevas instancias mientras están deshabilitados.
+Una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) es un recurso de Azure independiente que se crea como contenedor para definir y almacenar artefactos de empresa a empresa (B2B), como socios comerciales, acuerdos, esquemas, mapas, etc. Después de crear esta cuenta y definir estos artefactos, vincule la cuenta a la aplicación lógica para que pueda usar estos artefactos y varias operaciones B2B en los flujos de trabajo para explorar, compilar y probar soluciones de integración que usan funcionalidades de [intercambio electrónico de datos](logic-apps-enterprise-integration-b2b.md) y [procesamiento de XML](logic-apps-enterprise-integration-xml.md).
+
+En la tabla siguiente se resume cómo los modelos de consumo, estándar e ISE controlan la medición y la facturación de las cuentas de integración:
+
+| Modelo | Medición y facturación |
+|-------|----------------------|
+| Consumo (multiinquilino) | Para la medición y la facturación se usan los [precios de la cuenta de integración](https://azure.microsoft.com/pricing/details/logic-apps/), en función del nivel de cuenta que se use. |
+| Estándar (inquilino único) | Para la medición y la facturación se usan los [precios de la cuenta de integración](https://azure.microsoft.com/pricing/details/logic-apps/), en función del nivel de cuenta que se use. |
+| ISE | Este modelo incluye una sola cuenta de integración, basada en la SKU del ISE. Por un [costo adicional](https://azure.microsoft.com/pricing/details/logic-apps/), puede crear más cuentas de integración para su ISE hasta el [límite total del ISE](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). |
+|||
+
+Para más información, revise la siguiente documentación:
+
+* [Creación y administración de cuentas de integración](logic-apps-enterprise-integration-create-integration-account.md)
+* [Límites de la cuenta de integración en Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
+
+## <a name="other-items-not-metered-or-billed"></a>Otros elementos que no se miden ni se facturan
+
+En todos los modelos de precios, los siguientes elementos no se miden ni se facturan:
+
+* Acciones que no se ejecutaron porque el flujo de trabajo se detuvo antes de finalizar.
+* Aplicaciones lógicas o flujos de trabajo deshabilitados, ya que, al estar inactivos, no pueden crear más instancias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

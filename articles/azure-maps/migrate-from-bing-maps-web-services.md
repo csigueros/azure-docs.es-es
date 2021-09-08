@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Migración de servicios web de Mapas de Bing a Microsoft Azure Maps.'
 description: Tutorial sobre cómo migrar servicios web desde Mapas de Bing a Microsoft Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 605d30a6e209b8da9e772a95f6318a4aa679c704
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: d4dae509d65ef2d090439fe1f532f6878a2139b4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112578944"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439477"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutorial: Migración de servicios web desde Mapas de Bing
 
@@ -280,8 +280,8 @@ En la siguiente tabla se contrastan los parámetros de API de Mapas de Bing con 
 |----------------------------|---------------------------------------------------------------------|
 | `points`                   | `supportingPoints`: pase estos puntos al cuerpo de la solicitud POST.  |
 | `interpolate`              | N/D                                                                 |
-| `includeSpeedLimit`        | N/D                                                                 |
-| `includeTruckSpeedLimit`   | N/D                                                                 |
+| `includeSpeedLimit`        | N/A                                                                 |
+| `includeTruckSpeedLimit`   | N/A                                                                 |
 | `speedUnit`                | N/D                                                                 |
 | `travelMode`               | `travelMode`                                                        |
 | `key`                      | `subscription-key` (vea también la documentación de [autenticación con Azure Maps](./azure-maps-authentication.md)) |
@@ -342,7 +342,7 @@ En la siguiente tabla se contrastan los parámetros de API de Mapas de Bing con 
 | `mapLayer` (`ml`)        | N/D                                            |
 | `mapSize` (`ms`)         | `width` y `height` (puede tener un tamaño máximo de 8192 x 8192) |
 | `declutterPins` (`dcl`)  | N/D                                            |
-| `dpi`                    | N/D                                            |
+| `dpi`                    | N/A                                            |
 | `drawCurve`              | `path`                                         |
 | `mapMetadata`            | N/D                                            |
 | `pitch`                  | N/D: no se admite Streetside.                |

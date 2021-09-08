@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: d9e7595a6f3d84628df0c1d79f7936bbf09ea5ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c7c9bcfa405abe21b335156862b0ee6d19e0a9ac
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742627"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438451"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps
 
@@ -485,7 +484,7 @@ En la página web de ejemplo siguiente se describe cómo usar el control de mapa
 
 <br/>
 
-<iframe height="500" style="width:100%;" scrolling="no" title="Obtención de la elevación en una posición" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Obtención de la elevación en una posición" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el pen <a href='https://codepen.io/azuremaps/pen/c840b510e113ba7cb32809591d5f96a2'>Obtención de la elevación en una posición</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -495,7 +494,7 @@ En la página web de ejemplo siguiente se describe cómo usar el control de mapa
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Elevaciones por rectángulo delimitador" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Elevaciones por rectángulo delimitador" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el pen <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>Elevaciones por rectángulo delimitador</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -505,7 +504,7 @@ En la página web de ejemplo siguiente se describe cómo usar el control de mapa
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Gradiente del trazado de elevación" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Gradiente del trazado de elevación" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el pen <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14ca'>Gradiente del trazado de elevación</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

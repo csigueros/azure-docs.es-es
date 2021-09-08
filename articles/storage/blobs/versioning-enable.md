@@ -10,20 +10,18 @@ ms.date: 06/07/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 3437d7711aa2959754fcce84a0bbe30ac384898b
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: bcf69aba20a53e101cf85cf8ad9e249ca72d3a93
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378554"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470497"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Habilitación y administración del control de versiones de blob
 
 Puede habilitar el control de versiones de Blob Storage para conservar automáticamente las versiones anteriores de un blob cuando se modifica o elimina. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
 
 En este artículo se muestra cómo habilitar o deshabilitar el control de versiones de blobs para la cuenta de almacenamiento mediante Azure Portal o una plantilla de Azure Resource Manager. Para más información sobre el control de versiones de blobs, consulte [Control de versiones de blobs](versioning-overview.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>Habilitación del control de versiones de blob
 

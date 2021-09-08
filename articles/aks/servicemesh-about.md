@@ -5,12 +5,12 @@ author: pgibson
 ms.topic: article
 ms.date: 07/29/2021
 ms.author: pgibson
-ms.openlocfilehash: b77ee6fb25f45b365003850627276c0ecd47c7b5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f1821bd9af9c09da1c5fb3ae80145dba3cc38b09
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741637"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434311"
 ---
 # <a name="about-service-meshes"></a>Acerca de las mallas de servicio
 
@@ -74,4 +74,4 @@ También puede explorar los distintos esfuerzos de normalización de mallas de s
 [smp]: https://github.com/service-mesh-performance/service-mesh-performance
 
 <!-- LINKS - internal -->
-[osm-about]: ./servicemesh-osm-about.md
+[osm-about]: ./open-service-mesh-about.md

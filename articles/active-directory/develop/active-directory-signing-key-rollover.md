@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 8/16/2021
+ms.date: 09/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7277f3751abd528862021a72e77a631f4bb0d5da
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f6073ac0da9163756be353c2ed695dfb20430160
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253076"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469399"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Sustitución de claves de firma en la Plataforma de identidad de Microsoft
 En este artículo se habla de lo que se necesita saber sobre las claves públicas que se usan en la Plataforma de identidad de Microsoft para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan la Plataforma de identidad de Microsoft deben poder controlar el proceso de sustitución de claves mediante programación. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.
@@ -44,7 +44,6 @@ La forma que tiene la aplicación de controlar la sustitución de claves depende
 * [Aplicaciones Web de protección de recursos y creadas con Visual Studio 2013](#vs2013)
 * API web de protección de recursos y creadas con Visual Studio 2013
 * [Aplicaciones web de protección de recursos y creadas con Visual Studio 2012](#vs2012)
-* [Aplicaciones web de protección de recursos y creadas con Visual Studio 2010, 2008 o mediante Windows Identity Foundation](#vs2010)
 * [Aplicaciones y API web de protección de recursos que usan cualquier otra biblioteca o que implementan manualmente cualquiera de los protocolos admitidos](#other)
 
 Esta guía **no** es aplicable para:
@@ -287,20 +286,6 @@ Siga los pasos que figuran a continuación para comprobar que la lógica de sust
    ```
 2. En la tabla **\<add thumbprint="">** , cambie el valor de la huella digital reemplazando cualquier carácter por otro diferente. Guarde el archivo **Web.config** .
 3. Compile la aplicación y, después, ejecútela. Si puede completar el proceso de inicio de sesión, la aplicación actualizará correctamente la clave descargando la información necesaria del documento de metadatos de federación de su directorio. Si tiene problemas para iniciar sesión, asegúrese de que los cambios en la aplicación sean correctos; para ello, consulte el artículo sobre [Incorporación del inicio de sesión único en aplicaciones web mediante la Plataforma de identidad de Microsoft](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect), o descargue e inspeccione el siguiente ejemplo de código: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Aplicación multiinquilino en la nube para Azure Active Directory).
-
-### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Aplicaciones web de protección de recursos y creadas con Visual Studio 2008 o 2010 y Windows Identity Foundation (WIF) v1.0 para .NET 3.5
-Si ha compilado una aplicación en la versión 1.0 de WIF, no habrá ningún mecanismo para actualizar automáticamente la configuración de la aplicación con el fin de usar una nueva clave.
-
-* *manera más sencilla* es usar las herramientas de FedUtil incluidas en el SDK de WIF, que pueden recuperar el documento de metadatos más reciente y actualizar la configuración.
-* Actualice la aplicación a .NET 4.5, que incluye la versión más reciente de WIF ubicada en el espacio de nombres del sistema. Después, podrá utilizar el [registro de nombres de emisor de validación (VINR)](/previous-versions/dotnet/framework/windows-identity-foundation/validating-issuer-name-registry) para realizar las actualizaciones automáticas de la configuración de la aplicación.
-* Realice una sustitución manual de acuerdo con las instrucciones al final de este documento de orientación.
-
-Instrucciones para usar FedUtil para actualizar la configuración:
-
-1. Compruebe que tiene instalado el SDK de la versión 1.0 de WIF en la máquina de desarrollo de Visual Studio 2008 o 2010. También puede [descargarlo desde aquí](https://www.microsoft.com/download/details.aspx?id=17331) si aún no lo ha instalado.
-2. En Visual Studio, abra la solución, haga clic con el botón derecho en el proyecto correspondiente y seleccione **Update federation metadata**(Actualizar metadatos de federación). Si esta opción no está disponible, significa que no se ha instalado FedUtil o el SDK de la versión 1.0 de WIF.
-3. En el símbolo del sistema, seleccione **Actualizar** para iniciar la actualización de los metadatos de federación. Si tiene acceso al entorno de servidor donde está hospedada la aplicación, puede utilizar el [Programador de actualización automática de metadatos](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))de FedUtil.
-4. Haga clic en **Finalizar** para completar el proceso de actualización.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplicaciones y API web de protección de recursos que usan cualquier otra biblioteca o que implementan manualmente cualquiera de los protocolos admitidos
 Si está utilizando otra biblioteca o implementa manualmente cualquiera de los protocolos admitidos, debe revisar la biblioteca o la implementación para asegurarse de que se está recuperando la clave desde el documento de detección OpenID Connect o el documento de metadatos de federación. Una forma de comprobarlo es realizar una búsqueda en el código o en el de la biblioteca de las llamadas al documento de detección OpenID o al documento de metadatos de federación.

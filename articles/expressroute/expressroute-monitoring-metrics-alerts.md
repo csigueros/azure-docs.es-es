@@ -1,18 +1,17 @@
 ---
 title: 'Azure ExpressRoute: Supervisión, métricas y alertas'
 description: Obtenga información sobre la supervisión, las métricas y las alertas de Azure ExpressRoute con Azure Monitor, la ventanilla única para todas las métricas, alertas y registros de diagnóstico en Azure.
-services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.author: duau
-ms.openlocfilehash: 44ddf54aac61ab00009e7e2cc820b38074c5e8c3
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: abcec496f6bf3fdcd42dcffa66ecfb67533c7052
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725789"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449502"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervisión, métricas y alertas de ExpressRoute
 
@@ -42,22 +41,22 @@ El Explorador de métricas admite SUM, MAX, MIN, AVG y COUNT como [tipos de agre
 
 |**Métrica**|**Categoría**|**Dimensiones**|**Características**|
 | --- | --- | --- | --- |
-|Disponibilidad de ARP|Disponibilidad|<ui><li>Par (enrutador de ExpressRoute principal y secundario)</ui></li><ui><li> Tipo de emparejamiento (privado, público o Microsoft)</ui></li>|ExpressRoute|
-|Disponibilidad de BGP|Disponibilidad|<ui><li> Par (enrutador de ExpressRoute principal y secundario)</ui></li><ui><li> Tipo de emparejamiento</ui></li>|ExpressRoute|
-|BitsInPerSecond|Tráfico|<ui><li> Tipo de emparejamiento (ExpressRoute)</ui></li><ui><li>Vínculo (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ui><li>Conexión de puerta de enlace de ExpressRoute</ui></li>|
-|BitsOutPerSecond|Tráfico| <ui><li>Tipo de emparejamiento (ExpressRoute)</ui></li><ui><li> Vínculo (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li><ui><li>Conexión de puerta de enlace de ExpressRoute</ui></li>|
-|Uso de CPU|Rendimiento| <ui><li>Instancia</ui></li>|Puerta de enlace de red virtual de ExpressRoute|
-|Paquetes por segundo|Rendimiento| <ui><li>Instancia</ui></li>|Puerta de enlace de red virtual de ExpressRoute.|
-|Recuento de rutas anunciadas al par |Disponibilidad| <ui><li>Instancia</ui></li>|Puerta de enlace de red virtual de ExpressRoute.|
-|Recuento de rutas aprendidas del par |Disponibilidad| <ui><li>Instancia</ui></li>|Puerta de enlace de red virtual de ExpressRoute.|
-|Frecuencia de cambio de rutas |Disponibilidad| <ui><li>Instancia</ui></li>|Puerta de enlace de red virtual de ExpressRoute.|
+|Disponibilidad de ARP|Disponibilidad|<ul><li>Par (enrutador de ExpressRoute principal y secundario)</li><li> Tipo de emparejamiento (privado, público o Microsoft)</li></ul>|ExpressRoute|
+|Disponibilidad de BGP|Disponibilidad|<ul><li> Par (enrutador de ExpressRoute principal y secundario)</li><li> Tipo de emparejamiento</li></ul>|ExpressRoute|
+|BitsInPerSecond|Tráfico|<ul><li> Tipo de emparejamiento (ExpressRoute)</li><li>Vínculo (ExpressRoute Direct)</li></ul>|<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>Conexión de puerta de enlace de ExpressRoute</li></ul>|
+|BitsOutPerSecond|Tráfico| <ul><li>Tipo de emparejamiento (ExpressRoute)</li><li> Vínculo (ExpressRoute Direct)</li></ul> |<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>Conexión de puerta de enlace de ExpressRoute</li></ul>|
+|Uso de CPU|Rendimiento| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute|
+|Paquetes por segundo|Rendimiento| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute.|
+|Recuento de rutas anunciadas al par |Disponibilidad| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute.|
+|Recuento de rutas aprendidas del par |Disponibilidad| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute.|
+|Frecuencia de cambio de rutas |Disponibilidad| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute.|
 |Número de máquinas virtuales en la red virtual |Disponibilidad| N/D |Puerta de enlace de red virtual de ExpressRoute.|
-|GlobalReachBitsInPerSecond|Tráfico|<ui><li>Skey de circuito emparejado (clave de servicio)</ui></li>|Global Reach|
-|GlobalReachBitsOutPerSecond|Tráfico|<ui><li>Skey de circuito emparejado (clave de servicio)</ui></li>|Global Reach|
+|GlobalReachBitsInPerSecond|Tráfico|<ul><li>Skey de circuito emparejado (clave de servicio)</li></ul>|Global Reach|
+|GlobalReachBitsOutPerSecond|Tráfico|<ul><li>Skey de circuito emparejado (clave de servicio)</li></ul>|Global Reach|
 |AdminState|Conectividad física|Vínculo|ExpressRoute Direct|
 |LineProtocol|Conectividad física|Vínculo|ExpressRoute Direct|
-|RxLightLevel|Conectividad física|<ui><li>Vínculo</ui></li><ui><li>Carril</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Conectividad física|<ui><li>Vínculo</ui></li><ui><li>Carril</ui></li>|ExpressRoute Direct|
+|RxLightLevel|Conectividad física|<ul><li>Vínculo</li><li>Carril</li></ul>|ExpressRoute Direct|
+|TxLightLevel|Conectividad física|<ul><li>Vínculo</li><li>Carril</li></ul>|ExpressRoute Direct|
 >[!NOTE]
 >El uso de *GlobalGlobalReachBitsInPerSecond* y *GlobalGlobalReachBitsOutPerSecond* solo será visible si se ha establecido al menos una conexión Global Reach.
 >

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a720eec0c112b54fab0a1651c388b6e0514128c3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b77eadcbd46c4cac442ed26af94d5781d225806a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094949"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475789"
 ---
 # <a name="azure-cognitive-services-security"></a>Seguridad de Azure Cognitive Services
 
@@ -209,9 +209,6 @@ En cuanto a los siguientes servicios, los ingenieros de Microsoft no obtendrán 
 * Caras
 * Content Moderator
 * Personalizer
-
-> [!IMPORTANT]
-> En el caso de **Form Recognizer**, los ingenieros de Microsoft no tendrán acceso a los datos de los clientes en los recursos creados después del 10 de julio de 2020.
 
 Para solicitar la capacidad de usar la SKU de E0, rellene y envíe este  [formulario de solicitud](https://aka.ms/cogsvc-cmk). Tardará de tres a cinco días hábiles aproximadamente en recibir una respuesta sobre el estado de la solicitud. En función de la demanda, es posible que se coloque en una cola y se apruebe a medida que haya espacio disponible. Una vez aprobado el uso de E0 SKU con LUIS, deberá crear un nuevo recurso desde Azure Portal y seleccionar E0 como el plan de tarifa. Los usuarios no podrán realizar la actualización de F0 a la nueva SKU de E0.
 

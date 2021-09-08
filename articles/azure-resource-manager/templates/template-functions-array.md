@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: matrices'
 description: Se describen las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con matrices.
 ms.topic: conceptual
 ms.date: 05/11/2021
-ms.openlocfilehash: 62704fc3ac6b4198e35d09f9951b9239bd95ce5a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 12349a52f192305a47913d57bcd760242ea32a70
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959738"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451477"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funciones de matriz para plantillas de Resource Manager
 
@@ -50,7 +50,7 @@ Matriz .
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la función de matriz con diferentes tipos.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) siguiente se muestra cómo utilizar la función de matriz con diferentes tipos.
 
 ```json
 {
@@ -293,7 +293,7 @@ Matriz . Cuando no se proporciona ningún parámetro, devuelve una matriz vacía
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar createArray con diferentes tipos:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) siguiente se muestra cómo utilizar createArray con diferentes tipos:
 
 ```json
 {
@@ -801,7 +801,7 @@ Una matriz de enteros.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la función range:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) siguiente se muestra cómo usar la función range:
 
 ```json
 {

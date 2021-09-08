@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: f50685a2e25d33f7caa614480817ea0040191cf8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c870767c63c265c13e18f527d20954f8e72abae5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747705"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437713"
 ---
 # <a name="connect-to-a-wfs-service"></a>Conexión a un servicio WFS
 
@@ -40,7 +39,7 @@ El código siguiente consulta un servicio WFS y representa las características 
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Ejemplo de WFS simple' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el lápiz <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>Ejemplo de WFS simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Ejemplo de WFS simple' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consulte el lápiz <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>Ejemplo de WFS simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="supported-filters"></a>Filtros admitidos
@@ -82,7 +81,7 @@ En el código siguiente se muestra el uso de distintos filtros con el cliente de
 
 <br/>
 
-<iframe height='500' scrolling='no' title= 'Ejemplos de filtros de WFS' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>Ejemplos de filtros de WFS</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title= 'Ejemplos de filtros de WFS' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>Ejemplos de filtros de WFS</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="wfs-service-explorer"></a>Explorador de servicios WFS
@@ -91,7 +90,7 @@ En el código siguiente se usa el cliente de WFS para explorar los servicios WFS
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= 'Explorador de servicios WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>Explorador de servicios WFS</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title= 'Explorador de servicios WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>Explorador de servicios WFS</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Para acceder a los servicios de WFS hospedados en puntos de conexión habilitados sin CORS, se puede pasar un servicio de proxy habilitado con CORS a la opción `proxyService` del cliente de WFS, como se muestra a continuación. 

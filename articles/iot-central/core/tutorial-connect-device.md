@@ -3,7 +3,7 @@ title: 'Tutorial: Conexión de una aplicación cliente genérica a Azure IoT Cen
 description: En este tutorial se muestra cómo puede conectar un dispositivo que ejecuta una aplicación cliente de C, C#, Java, JavaScript o Python a la aplicación de Azure IoT Central. La plantilla de dispositivo generada automáticamente se modifica mediante la adición de vistas que permiten a un operador interactuar con un dispositivo conectado.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/24/2020
+ms.date: 08/31/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 0e6f4ac3cd95873c8b735a1843438499f2405bef
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7be12549d6e4afaa981a3d3dc83ad817ff5d9c9d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750030"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471325"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Creación y conexión de un aplicación cliente a la aplicación de Azure IoT Central
 

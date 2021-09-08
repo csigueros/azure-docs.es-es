@@ -5,12 +5,12 @@ ms.service: container-service
 ms.custom: subject-monitoring
 ms.date: 07/29/2021
 ms.topic: reference
-ms.openlocfilehash: 4dfbe6ba3e8bb64e2fdf41a06932f84fb1b7be94
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: d2c945d975b158131abb99b421622d5dd9d58477
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253564"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472423"
 ---
 # <a name="monitoring-aks-data-reference"></a>Supervisión de la referencia de datos de AKS
 
@@ -57,7 +57,7 @@ Como referencia, vea una lista de [todos los tipos de categorías de registros d
 
 | Category                | Descripción |
 |:---|:---|
-| cluster-autoscale       | Comprenda por qué el clúster de AKS se está escalando o reduciendo verticalmente, lo que puede que no sea lo esperado. Esta información también es útil para poner en correlación los intervalos de tiempo en los que puede haber ocurrido algo interesante en el clúster. |
+| cluster-autoscaler       | Comprenda por qué el clúster de AKS se está escalando o reduciendo verticalmente, lo que puede que no sea lo esperado. Esta información también es útil para poner en correlación los intervalos de tiempo en los que puede haber ocurrido algo interesante en el clúster. |
 | guard                   | Auditorías del control de acceso basado en roles de Azure y Azure Active Directory administrado. Para Azure AD administrado, esto incluye el token dentro y la información de usuario fuera. Para Azure RBAC, esto incluye las revisiones de acceso dentro y fuera. |
 | kube-apiserver          | Registros del servidor de API. |
 | kube-audit              | Datos del registro de auditoría para cada evento de auditoría, incluidos get, list, create, update, delete, patch y post. |

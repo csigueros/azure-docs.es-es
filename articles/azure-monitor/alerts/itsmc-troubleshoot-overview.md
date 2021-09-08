@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 16b6675a7b9796405376540b87efbaaa2a991890
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d6e41cd80e27fe673d04592c61e590c09645619e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081125"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430367"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Solución de problemas en Conector de Administración de servicios de TI
 
@@ -100,7 +100,7 @@ En las secciones siguientes se identifican los síntomas comunes, las causas pos
 **Causa**: Puede haber varios motivos para este síntoma:
 
 * Las plantillas no se muestran como parte de la lista desplegable de definiciones de acción y aparece un mensaje de error que dice que no se puede recuperar la configuración de la plantilla, que consulte los registros del conector para más información.
-* Los valores no se muestran en las listas desplegables de los campos predeterminados como parte de la definición de acción y aparece un mensaje de error que dice que no se encontraron valores para los campos siguientes: <field names>.
+* Los valores no se muestran en las listas desplegables de los campos predeterminados como parte de la definición de acción y aparece un mensaje de error que dice que no se encontraron valores para los campos siguientes: \<field names\>.
 * No se crean incidentes o eventos en ServiceNow.
 
 **Solución:** 

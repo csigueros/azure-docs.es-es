@@ -4,13 +4,13 @@ description: En este inicio rápido se muestra cómo enviar mensajes a temas de 
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/29/2021
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 8a53a8099df37ec3f24489cccaf91af2d53c97ce
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: 05772a7e4fbb2717dd34cbdaf82ae47162d4f149
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747122"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451734"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-its-subscriptions-net"></a>Envío de mensajes a un tema de Azure Service Bus y recepción de mensajes de sus suscripciones (.NET)
 En este artículo de inicio rápido se muestra cómo enviar mensajes a un tema de Service Bus y recibir mensajes de una suscripción a ese tema mediante la biblioteca [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) de .NET.
@@ -45,7 +45,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 ### <a name="add-the-service-bus-nuget-package"></a>Agregar el paquete NuGet de Service Bus
 
 1. Seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes** en el menú. 
-1. Ejecute el siguiente comando para instalar el paquete NuGet **Azure.Messaging.ServiceBus**:
+1. Ejecute el siguiente comando para instalar el paquete NuGet [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/):
 
     ```cmd
     Install-Package Azure.Messaging.ServiceBus
@@ -55,12 +55,13 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 
 1. Reemplace el código del archivo **Program.cs** por el código siguiente. Estos son los pasos importantes del código.  
     1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión al espacio de nombres. 
-    1. Invoca al método `CreateSender` en el objeto `ServiceBusClient` para crear un objeto [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) para el tema específico de Service Bus.     
-    1. Crea un objeto `ServiceBusMessageBatch` con el método `ServiceBusSender.CreateMessageBatchAsync`.
-    1. Agrega mensajes al lote mediante el método `ServiceBusMessageBatch.TryAddMessage`. 
-    1. Envía el lote de mensajes al tema de Service Bus mediante el método `ServiceBusSender.SendMessagesAsync`.
+    1. Invoca al método [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) en el objeto `ServiceBusClient` para crear un objeto [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) para el tema específico de Service Bus.     
+    1. Crea un objeto [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) mediante [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
+    1. Agrega mensajes al lote mediante [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
+    1. Envía el lote de mensajes al tema de Service Bus mediante el método [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync).
     
         Para más información, consulte los comentarios del código.
+
         ```csharp
         using System;
         using System.Threading.Tasks;
@@ -172,10 +173,10 @@ En esta sección, creará una aplicación de consola de .NET Core que recibe men
 1. Reemplace el código del archivo **Program.cs** por el código siguiente. Estos son los pasos importantes del código.
     Estos son los pasos importantes del código:
     1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión al espacio de nombres. 
-    1. Invoca al método `CreateProcessor` en el objeto `ServiceBusClient` para crear un objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) para la cola de Service Bus especificada. 
-    1. Especifica los controladores para los eventos `ProcessMessageAsync` y `ProcessErrorAsync` del objeto `ServiceBusProcessor`. 
-    1. Inicia el procesamiento de mensajes; para ello, invoca el método `StartProcessingAsync` en el objeto `ServiceBusProcessor`. 
-    1. Cuando el usuario presiona una tecla para finalizar el procesamiento, invoca el método `StopProcessingAsync` en el objeto `ServiceBusProcessor`. 
+    1. Invoca al método [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) en el objeto `ServiceBusClient` para crear un objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) para la cola de Service Bus especificada. 
+    1. Especifica los controladores para los eventos [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) y [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) del objeto `ServiceBusProcessor`. 
+    1. Inicia el procesamiento de mensajes; para ello, invoca el método [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) en el objeto `ServiceBusProcessor`. 
+    1. Cuando el usuario presiona una tecla para finalizar el procesamiento, invoca el método [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) en el objeto `ServiceBusProcessor`. 
 
         Para más información, consulte los comentarios del código.
 

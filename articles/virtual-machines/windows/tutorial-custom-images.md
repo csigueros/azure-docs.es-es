@@ -9,14 +9,15 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: d323fd5a3faf5811e88fd924ab767ec20568b917
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: fe7698a0a2a7c0059db6e5f96e3f86445bc5871f
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113435477"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449465"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Creación de imágenes de máquina virtual Windows con Azure PowerShell
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Se pueden usar imágenes personalizadas en el arranque de las implementaciones y para garantizar la coherencia entre varias máquinas virtuales. En este tutorial, creará su propia imagen especializada de una máquina virtual de Azure mediante PowerShell y la almacenará en una instancia de Shared Image Gallery. Aprenderá a:
 
@@ -43,7 +44,7 @@ Shared Image Gallery le permite compartir sus imágenes de máquina virtual pers
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell

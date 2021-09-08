@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperf-fy21q1
-ms.openlocfilehash: 09e39f658d0504dc8539f24c79853e03c5555f1b
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 85293f72525426cecebc75495f87044c7546d092
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231105"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471757"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy
 
@@ -137,7 +137,7 @@ Escriba el texto siguiente, pero reemplace **\<proxy URL>** por la dirección de
 
 ```ini
 [Service]
-Environment="https_proxy=<proxy URL>"
+Environment=https_proxy=<proxy URL>
 ```
 
 Actualice el administrador de servicios para que incluya la nueva configuración de IoT Edge.
@@ -173,7 +173,7 @@ Escriba el texto siguiente, pero reemplace **\<proxy URL>** por la dirección de
 
 ```ini
 [Service]
-Environment="https_proxy=<proxy URL>"
+Environment=https_proxy=<proxy URL>
 ```
 
 A partir de la versión 1.2, IoT Edge usa el servicio de identidad de IoT para controlar el aprovisionamiento de dispositivos con IoT Hub o IoT Hub Device Provisioning Service. Abra un editor en el terminal para configurar el demonio del servicio de identidad de IoT.
@@ -186,7 +186,7 @@ Escriba el texto siguiente, pero reemplace **\<proxy URL>** por la dirección de
 
 ```ini
 [Service]
-Environment="https_proxy=<proxy URL>"
+Environment=https_proxy=<proxy URL>
 ```
 
 Actualice el administrador de servicios para que incluya las nuevas configuraciones.

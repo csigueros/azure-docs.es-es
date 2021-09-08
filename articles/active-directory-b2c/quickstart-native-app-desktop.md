@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/12/2019
+ms.date: 08/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbdd0dc8914847c5502dc79635293fd685d071f9
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: e2e1ce1e2935f97176e238c899a929019b26ba6d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613447"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475357"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guía de inicio rápido: Configuración del inicio de sesión en una aplicación de escritorio mediante Azure Active Directory B2C
 
@@ -38,7 +38,8 @@ Azure Active Directory B2C (Azure AD B2C) proporciona administración de id
 ## <a name="run-the-application-in-visual-studio"></a>Ejecución de la aplicación en Visual Studio
 
 1. En la carpeta de proyecto de la aplicación de ejemplo, abra la solución **active-directory-b2c-wpf.sln** en Visual Studio.
-2. Presione **F5** para depurar la aplicación.
+2. [Restaure los paquetes NuGet](/nuget/consume-packages/package-restore).
+3. Presione **F5** para depurar la aplicación.
 
 ## <a name="sign-in-using-your-account"></a>Inicio de sesión mediante su cuenta
 

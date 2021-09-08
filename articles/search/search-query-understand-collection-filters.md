@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 88387bbe51d71a2530d25608fee962e926cd6511
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88932923"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449160"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Uso de los filtros de colección de OData en Azure Cognitive Search
 
@@ -108,9 +108,6 @@ Cómo se almacena `Rooms/Description` para la búsqueda de texto completo:
 | ver | 1 |
 
 Por tanto, a diferencia del filtro anterior, que básicamente dice "comparar los documentos donde para una habitación `Type` es igual a "Deluxe Room" (habitación deluxe) y **esa misma habitación** tiene un valor `BaseRate` menor que 100", la consulta de búsqueda dice "comparar documentos donde `Rooms/Type` tiene el término "deluxe" y `Rooms/Description` tiene la frase "city view". En el último caso no hay ningún concepto de habitación individual cuyos campos se puedan poner en correlación.
-
-> [!NOTE]
-> Si quiere que se agregue compatibilidad con la búsqueda correlacionada a Azure Cognitive Search, vote por [este elemento en User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
 
 ## <a name="inverted-indexes-and-collections"></a>Colecciones e índices invertidos
 

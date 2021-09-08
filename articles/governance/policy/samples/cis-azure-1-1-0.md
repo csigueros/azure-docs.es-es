@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.1.0
 description: Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.1.0. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 4eca33f77a4415e13773a51057bb7495857df043
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 3b2d7a49eb67fb2905ddf5c5fa98c3973f1e2e82
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112194"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472675"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.1.0.
 
@@ -216,7 +216,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[No se debe permitir el acceso público a la cuenta de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |El acceso de lectura público anónimo a contenedores y blobs de Azure Storage es una manera cómoda de compartir datos, pero también puede plantear riesgos para la seguridad. Para evitar las infracciones de datos producidas por el acceso anónimo no deseado, Microsoft recomienda impedir el acceso público a una cuenta de almacenamiento a menos que su escenario lo requiera. |audit, deny, disabled |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|[No se debe permitir el acceso público a la cuenta de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |El acceso de lectura público anónimo a contenedores y blobs de Azure Storage es una manera cómoda de compartir datos, pero también puede plantear riesgos para la seguridad. Para evitar las infracciones de datos producidas por el acceso anónimo no deseado, Microsoft recomienda impedir el acceso público a una cuenta de almacenamiento a menos que su escenario lo requiera. |audit, deny, disabled |[3.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Asegúrese de que la regla de acceso de red predeterminada para las cuentas de almacenamiento esté configurada para denegar.
 
@@ -382,7 +382,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[No se debe permitir el acceso público a la cuenta de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |El acceso de lectura público anónimo a contenedores y blobs de Azure Storage es una manera cómoda de compartir datos, pero también puede plantear riesgos para la seguridad. Para evitar las infracciones de datos producidas por el acceso anónimo no deseado, Microsoft recomienda impedir el acceso público a una cuenta de almacenamiento a menos que su escenario lo requiera. |audit, deny, disabled |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|[No se debe permitir el acceso público a la cuenta de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |El acceso de lectura público anónimo a contenedores y blobs de Azure Storage es una manera cómoda de compartir datos, pero también puede plantear riesgos para la seguridad. Para evitar las infracciones de datos producidas por el acceso anónimo no deseado, Microsoft recomienda impedir el acceso público a una cuenta de almacenamiento a menos que su escenario lo requiera. |audit, deny, disabled |[3.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Asegúrese de que la cuenta de almacenamiento que contiene el contenedor con los registros de actividad está cifrada con BYOK (use su propia clave).
 
@@ -557,7 +557,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Las claves de Key Vault deben tener una fecha de expiración](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |Las claves criptográficas deben tener una fecha de expiración definida y no ser permanentes. Las claves que no expiran proporcionan a los posibles atacantes más tiempo para hacerse con ellas. Por ello, se recomienda como práctica de seguridad establecer fechas de expiración en las claves criptográficas. |Audit, Deny, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
+|[Las claves de Key Vault deben tener una fecha de expiración](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |Las claves criptográficas deben tener una fecha de expiración definida y no ser permanentes. Las claves que no expiran proporcionan a los posibles atacantes más tiempo para hacerse con ellas. Por ello, se recomienda como práctica de seguridad establecer fechas de expiración en las claves criptográficas. |Audit, Deny, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
 
 ### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Asegúrese de que la fecha de expiración se haya establecido en todos los secretos
 
@@ -565,7 +565,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Los secretos de Key Vault deben tener una fecha de expiración](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |Los secretos deben tener una fecha de expiración definida y no ser permanentes. Los secretos que no expiran proporcionan a un posible atacante más tiempo para ponerlos en peligro. Por ello, se recomienda como práctica de seguridad establecer fechas de expiración en los secretos. |Audit, Deny, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
+|[Los secretos de Key Vault deben tener una fecha de expiración](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |Los secretos deben tener una fecha de expiración definida y no ser permanentes. Los secretos que no expiran proporcionan a un posible atacante más tiempo para ponerlos en peligro. Por ello, se recomienda como práctica de seguridad establecer fechas de expiración en los secretos. |Audit, Deny, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Asegúrese de que el almacén de claves se puede recuperar.
 

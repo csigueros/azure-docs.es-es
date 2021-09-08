@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Migrate
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Migrate. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: reference
 ms.service: azure-migrate
 author: rayne-wiselman
 ms.author: raynew
 ms.custom: subject-policy-reference
-ms.openlocfilehash: af170855a160ba09adcd34f7317d90ffc0c715cf
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 015cfb99dddcef8af5dd97635d207f319008d519
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123097524"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478705"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Definiciones integradas de Azure Policy para Azure Migrate
 

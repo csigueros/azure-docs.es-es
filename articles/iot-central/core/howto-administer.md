@@ -3,17 +3,17 @@ title: Cambiar la configuración de la aplicación de Azure IoT Central | Micros
 description: 'Aprenda a administrar su aplicación de Azure IoT Central: cambie el nombre de la aplicación o la dirección URL, cargue una imagen y elimine una aplicación.'
 author: viv-liu
 ms.author: viviali
-ms.date: 12/19/2020
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7b72fd3c47e6f3013c0f9eb39707a1e55c78cac0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 02c7058e51ac1d1fc19d6d38183695e885d8da47
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789014"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480793"
 ---
 # <a name="change-iot-central-application-settings"></a>Cambiar la configuración de la aplicación de IoT Central
 

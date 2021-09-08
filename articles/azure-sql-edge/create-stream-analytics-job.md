@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f5059352793adf7cd3e8635d270ba85a3014758
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656349"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434221"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creación de un trabajo de streaming de datos en Azure SQL Edge 
 
@@ -104,7 +104,7 @@ En el ejemplo siguiente se crea un objeto de transmisión externa en la base de 
 3. Cree un origen de datos externo con CREATE EXTERNAL DATA SOURCE. En el ejemplo siguiente:
 
     * Se crea un origen de datos externo denominado *LocalSQLOutput*.
-    * Se identifica el origen de datos externo (LOCATION = '<vendor>://<server>[:<port>]'). En el ejemplo, se apunta a una instancia local de Azure SQL Edge.
+    * Se identifica el origen de datos externo (`LOCATION = '<vendor>://<server>[:<port>]'`). En el ejemplo, se apunta a una instancia local de Azure SQL Edge.
     * Se usa la credencial creada antes.
 
     ```sql

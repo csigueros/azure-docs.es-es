@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 1fbf548436842f16516554558b74391567a761e0
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: fd30e8f7489d320a307e2797f7488da828f32827
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181378"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472261"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Compatibilidad con idiomas naturales para Azure Cognitive Services
 
@@ -31,13 +31,11 @@ Estas instancias de Cognitive Services son independientes del idioma y no tienen
 ## <a name="vision"></a>Visión
 
 * [Computer Vision](./computer-vision/language-support.md)
-* [Form Recognizer (versión preliminar)](./form-recognizer/language-support.md)
 * [Ink Recognizer (versión preliminar)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>Idioma
 
-* [Lector inmersivo](../applied-ai-services/immersive-reader/language-support.md)
 * [Language Understanding (LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
 * [Text Analytics](./text-analytics/language-support.md)

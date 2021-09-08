@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de imagen a un mapa de Android | Microsoft Azure Maps
 description: Aprenda a agregar imágenes a un mapa. Vea cómo usar Android SDK de Azure Maps para personalizar las capas de imagen y superponer imágenes en conjuntos fijos de coordenadas.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 4c11a1275b94eebba33819ae6c9ffeb313a3ce0b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d90771a639cbd904c3c61412b511d764d2d37ae8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463110"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432745"
 ---
 # <a name="add-an-image-layer-to-a-map-android-sdk"></a>Adición de una capa de imagen a un mapa (Android SDK)
 

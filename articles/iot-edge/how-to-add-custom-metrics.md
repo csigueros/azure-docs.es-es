@@ -2,19 +2,18 @@
 title: 'Cómo agregar métricas personalizadas: Azure IoT Edge'
 description: Aumento de las métricas integradas con métricas específicas del escenario a partir de módulos personalizados
 author: veyalla
-manager: philmea
 ms.author: veyalla
-ms.date: 06/08/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12defc783be6fb1a87b815284b1fbf019d8c8817
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 8e9c5b74b19af00228f03b26450b987d87283376
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904576"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015490"
 ---
 # <a name="add-custom-metrics-preview"></a>Adición de métricas personalizadas (versión preliminar)
 
@@ -32,7 +31,7 @@ Consulte los [procedimientos recomendados](https://prometheus.io/docs/practices/
 
 * Incluya el nombre del módulo al principio del nombre de la métrica para dejar claro qué módulo ha emitido la métrica.
 
-* Incluya el nombre del centro de IoT, el id. de dispositivo de IoT Edge y el id. del módulo como etiquetas (también denominadas *dimensiones de*/*etiquetas*) en cada métrica. Esta información está disponible como variables de entorno para todos los módulos que haya iniciado el agente de IoT Edge. El enfoque se [muestra](https://github.com/Azure-Samples/iotedge-module-prom-custom-metrics/blob/b6b8501adb484521b76e6f317fefee57128834a6/csharp/Program.cs#L49) en el ejemplo del repositorio de ejemplos. Sin este contexto, es imposible asociar un valor de métrica determinado a un dispositivo determinado.
+* Incluya el nombre del centro de IoT o de la aplicación de IoT Central, el Id. de dispositivo de IoT Edge y el Id. del módulo como etiquetas (también denominadas *dimensiones de*/*etiquetas*) en cada métrica. Esta información está disponible como variables de entorno para todos los módulos que haya iniciado el agente de IoT Edge. El enfoque se [muestra](https://github.com/Azure-Samples/iotedge-module-prom-custom-metrics/blob/b6b8501adb484521b76e6f317fefee57128834a6/csharp/Program.cs#L49) en el ejemplo del repositorio de ejemplos. Sin este contexto, es imposible asociar un valor de métrica determinado a un dispositivo determinado.
 
 * Incluya un id. de instancia en las etiquetas. Un id. de instancia puede ser cualquier identificador único, como un [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que se genera durante el inicio del módulo. La información del id. de instancia puede ayudarle a conciliar los reinicios del módulo, ya que procesa las métricas de un módulo en el back-end.
 
@@ -57,7 +56,7 @@ sudo docker exec replace-with-metrics-collector-module-name curl http://replace-
 
 Una vez que reciba métricas personalizadas en Log Analytics, puede crear visualizaciones y alertas personalizadas. Los libros de supervisión se pueden aumentar para agregar visualizaciones con respaldo de consulta.
 
-Cada métrica está asociada al id. de recurso de IoT Hub. Por este motivo, puede comprobar si las métricas personalizadas se ingieren correctamente desde la página **Registros** del centro de IoT asociado, en lugar del área de trabajo de Log Analytics de respaldo. Use esta consulta básica de KQL para comprobar lo siguiente:
+Cada métrica está asociada al Id. de recurso del centro de IoT o la aplicación de IoT Central. Por este motivo, puede comprobar si las métricas personalizadas se ingieren correctamente desde la página **Registros** de la aplicación de IoT Central o el centro de IoT asociados, en lugar del área de trabajo de Log Analytics de respaldo. Use esta consulta básica de KQL para comprobar lo siguiente:
 
 ```KQL
 InsightsMetrics
