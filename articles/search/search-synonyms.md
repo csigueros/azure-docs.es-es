@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: ea92a5e196c809535801278631cbfdfdc5013199
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251631"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288224"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos de Azure Cognitive Search
 
-Con los mapas de sinónimos, puede asociar términos equivalentes que expanden el ámbito de una consulta, sin que el usuario tenga que proporcionar realmente el término. Por ejemplo, suponiendo que "perro", "can" y "cachorro" son sinónimos, una consulta sobre "can" coincidirá con un documento que contenga "perro".
+Dentro de un servicio de búsqueda, los mapas de sinónimos son un recurso global que asocia términos equivalentes, lo que amplía el ámbito de una consulta sin que el usuario tenga que proporcionar realmente el término. Por ejemplo, suponiendo que "perro", "can" y "cachorro" son sinónimos de un mismo mapa, una consulta sobre "can" coincidirá con un documento que contenga "perro".
 
 ## <a name="create-synonyms"></a>Creación de sinónimos
 
@@ -38,7 +38,13 @@ POST /synonymmaps?api-version=2020-06-30
 }
 ```
 
-Para crear un mapa de sinónimos, use [Create Synonym Map (API REST)](/rest/api/searchservice/create-synonym-map) o un SDK de Azure. Para los desarrolladores de C#, se recomienda empezar con [Adición de sinónimos para Azure Cognitive Search en C#](search-synonyms-tutorial-sdk.md).
+Para crear un mapa de sinónimos, hágalo mediante programación (el portal no admite definiciones de mapas de sinónimos):
+
++ [Creación de un mapa de sinónimos (API de REST)](/rest/api/searchservice/create-synonym-map) Esta referencia es la más descriptiva.
++ [Clase SynonymMap (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) y [Agregar sinónimos mediante C#](search-synonyms-tutorial-sdk.md)
++ [Clase SynonymMap (Python)](/python/api/azure-search-documents/azure.search.documents.indexes.models.synonymmap)
++ [Interfaz SynonymMap (JavaScript)](/javascript/api/@azure/search-documents/synonymmap)
++ [Clase SynonymMap (Java)](/java/api/com.azure.search.documents.indexes.models.synonymmap)
 
 ## <a name="define-rules"></a>Definición de reglas
 
@@ -85,7 +91,14 @@ En el caso explícito, una consulta para `Washington`, `Wash.` o `WA` se volver�
 
 ### <a name="escaping-special-characters"></a>Escape de caracteres especiales
 
-Los sinónimos se analizan durante el procesamiento de consultas. Si necesita definir sinónimos que contengan comas u otros caracteres especiales, puede usar una barra diagonal inversa como carácter de escape, como en este ejemplo:
+En la búsqueda de texto completo, los sinónimos se analizan durante el procesamiento de consultas como cualquier otro término de consulta, lo que significa que las reglas en torno a los caracteres reservados y especiales se aplican a los términos del mapa de sinónimos. La lista de caracteres que requiere escape varía entre la sintaxis simple y la sintaxis completa:
+
++ [sintaxis simple](query-simple-syntax.md)  `+ | " ( ) ' \`
++ [sintaxis completa](query-lucene-syntax.md)  `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`
+
+Recuerde que si necesita conservar los caracteres que de otro modo el analizador predeterminado descartaría durante la indexación, debe sustituir un analizador que los conserve. Algunas opciones incluyen [analizadores de lenguaje](index-add-language-analyzers.md) natural de Microsoft, que conserva palabras con guiones o un analizador personalizado para patrones más complejos. Para más información, vea [Términos parciales, patrones y caracteres especiales](search-query-partial-matching.md).
+
+En el siguiente ejemplo se muestra cómo agregar a un carácter una barra diagonal inversa como carácter de escape:
 
 ```json
 {

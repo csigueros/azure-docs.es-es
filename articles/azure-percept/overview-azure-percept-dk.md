@@ -1,20 +1,20 @@
 ---
-title: Introducción a Azure Percept DK
-description: Más información sobre Azure Percept DK.
-author: mimcco
-ms.author: mimcco
+title: Introducción a Azure Percept DK y Vision
+description: Obtenga más información sobre Azure Percept DK y Azure Percept Vision
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 5c510bbe6717b37664ac67ea7d10c79d1af74d78
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a51f05fe29a4a0d3dda9057ca0eb7c4d3de494fb
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128368"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222000"
 ---
-# <a name="azure-percept-dk-overview"></a>Introducción a Azure Percept DK
+# <a name="azure-percept-dk-and-vision-device-overview"></a>Introducción a Azure Percept DK y Vision
 
 Azure Percept DK es un kit de desarrollo de inteligencia artificial y perimetral diseñado para las soluciones de inteligencia artificial para visión y audio con [Azure Percept Studio](./overview-azure-percept-studio.md). Azure Percept DK se puede adquirir en la [tienda en línea de Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 

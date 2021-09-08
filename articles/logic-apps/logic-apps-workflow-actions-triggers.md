@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 07/19/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 95f2e47d3cf0b967f42b988b565da3643796534d
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: d45d17d8978134024cd41f49675fbe37b1a0dfe6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490767"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440147"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -302,7 +302,7 @@ Este desencadenador envía una solicitud al punto de conexión HTTP o HTTPS espe
 
 *Obligatorio*
 
-| Propiedad | Value | Tipo | Descripción |
+| Propiedad | Valor | Tipo | Descripción |
 |----------|-------|------|-------------|
 | `method` | <*method-type*> | String | El método que se usará para enviar la solicitud saliente: "GET", "PUT", "POST", "PATCH" o "DELETE" |
 | `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | La dirección URL del punto de conexión HTTP o HTTPS a la que quiere enviar la solicitud saliente. Tamaño máximo de la cadena: 2 KB <p>Para un servicio o recurso de Azure, esta sintaxis de URI incluye el identificador de recurso y la ruta de acceso al recurso al que quiere acceder. |
@@ -312,7 +312,7 @@ Este desencadenador envía una solicitud al punto de conexión HTTP o HTTPS espe
 
 *Opcional*
 
-| Propiedad | Value | Tipo | Descripción |
+| Propiedad | Valor | Tipo | Descripción |
 |----------|-------|------|-------------|
 | `headers` | <*header-content*> | Objeto JSON | Los encabezados que haya que incluir con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | `queries` | <*query-parameters*> | Objeto JSON | Los parámetros de consulta que tenga que usar en la solicitud <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la solicitud. |
@@ -1224,7 +1224,7 @@ Esta acción envía una solicitud al punto de conexión especificado y comprueba
 
 *Obligatorio*
 
-| Propiedad | Value | Tipo | Descripción |
+| Propiedad | Valor | Tipo | Descripción |
 |----------|-------|------|-------------|
 | `method` | <*method-type*> | String | El método que se usará para enviar la solicitud saliente: "GET", "PUT", "POST", "PATCH" o "DELETE" |
 | `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | La dirección URL del punto de conexión HTTP o HTTPS a la que quiere enviar la solicitud saliente. Tamaño máximo de la cadena: 2 KB <p>Para un servicio o recurso de Azure, esta sintaxis de URI incluye el identificador de recurso y la ruta de acceso al recurso al que quiere acceder. |
@@ -1232,7 +1232,7 @@ Esta acción envía una solicitud al punto de conexión especificado y comprueba
 
 *Opcional*
 
-| Propiedad | Value | Tipo | Descripción |
+| Propiedad | Valor | Tipo | Descripción |
 |----------|-------|------|-------------|
 | `headers` | <*header-content*> | Objeto JSON | Los encabezados que haya que incluir con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | `queries` | <*query-parameters*> | Objeto JSON | Los parámetros de consulta que tenga que usar en la solicitud <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. |
@@ -2403,6 +2403,8 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 | `IncludeAuthorizationHeadersInOutputs` | String | En el caso de las aplicaciones lógicas que [permiten la autenticación abierta de Azure Active Directory (OAuth de Azure AD)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) para autorizar el acceso a las llamadas entrantes a un punto de conexión de desencadenador basado en solicitudes, incluya el encabezado `Authorization` del token de acceso de OAuth en las salidas del desencadenador. Para más información, consulte [Inclusión del encabezado "Authorization" en las salidas del desencadenador de solicitudes](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Desencadenadores: <p>[Solicitud](#request-trigger), <br>[Webhook HTTP](#http-webhook-trigger) | 
 | `Sequential` | String | Ejecuta iteraciones de bucles "for each" una a una, en lugar de todas al mismo tiempo en paralelo. <p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.repetitions` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p><p>Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each).| Acción: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Ejecuta secuencialmente el desencadenador de cada instancia de aplicación lógica y espera a que termine la ejecución anteriormente activa antes de desencadenar la siguiente instancia de aplicación lógica. <p><p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.runs` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p>Para establecer esta opción, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
+| `SuppressWorkflowHeaders` | String | No envíe encabezados de metadatos `x-ms-*` en las solicitudes salientes. De forma predeterminada, el servicio de Azure Logic Apps incluye encabezados de metadatos adicionales con el prefijo `x-ms-` en el nombre del encabezado como parte de las solicitudes salientes. Sin embargo, algunos servicios heredados no aceptarán solicitudes con encabezados desconocidos adicionales, lo que dará lugar a solicitudes erróneas. | Acciones: <p>[HTTP](#http-action), <br>[Función](#function-action), <br>APIManagement | 
+| `SuppressWorkflowHeadersOnResponse` | String | No envíe encabezados de metadatos `x-ms-*` en respuestas a solicitudes de desencadenador de entrada. De forma predeterminada, el servicio de Azure Logic Apps envía respuestas a solicitudes entrantes que incluyen encabezados de metadatos adicionales con el prefijo `x-ms-` en el nombre del encabezado. Sin embargo, algunos servicios heredados no aceptarán solicitudes o respuestas con encabezados desconocidos adicionales, lo que dará lugar a solicitudes erróneas. | Desencadenadores: <p>[Solicitud](#request-trigger), <br>[Webhook HTTP](#http-webhook-trigger) | 
 ||||
 
 <a name="change-trigger-concurrency"></a>

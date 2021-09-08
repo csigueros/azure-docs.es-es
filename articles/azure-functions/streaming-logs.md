@@ -1,15 +1,15 @@
 ---
 title: Registros de ejecución de secuencias en Azure Functions
-description: De 115 a 145 caracteres, incluidos los espacios. Este resumen se muestra en el resultado de la búsqueda.
+description: Obtenga información sobre cómo puede transmitir registros de funciones casi en tiempo real.
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-azurepowershell
-ms.openlocfilehash: cc12af12fa41d5556f2c5a0fc000abbc9c13a0d8
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6abf93be2d63434996fa2de7f400c742f9962575
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076930"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668465"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Habilitación de los registros de ejecución de secuencias en Azure Functions
 

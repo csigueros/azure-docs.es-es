@@ -3,13 +3,13 @@ title: 'Cuotas y limitaciones de Azure Video Analyzer: Azure'
 description: En este artículo se describen las cuotas y limitaciones de Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: d4bc488411319832b59540fb1392b5d3259cef69
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.date: 06/01/2021
+ms.openlocfilehash: a94ebd36728519b7ae73d9cc48c82097dcfdbb21
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652193"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602091"
 ---
 # <a name="video-analyzer-quotas-and-limitations"></a>Cuotas y limitaciones de Azure Video Analyzer
 
@@ -60,7 +60,9 @@ A continuación se indican las limitaciones sobre cómo se pueden conectar nodos
 ### <a name="supported-cameras"></a>Cámaras compatibles
 Solo puede usar cámaras IP que admitan el protocolo RTSP. Puede encontrar cámaras IP compatibles con RTSP en la página de [productos compatibles con ONVIF](https://www.onvif.org/conformant-products). Busque dispositivos que cumplan con los perfiles G, S o T.
 
-Además, debe configurar estas cámaras para usar vídeo H.264 y audio AAC. Actualmente no se admiten otros códecs.
+Debe configurar estas cámaras para usar vídeo H.264 y audio AAC. Actualmente no se admiten otros códecs.
+
+Video Analyzer solo admite RTSP con [secuencias RTP intercaladas]( https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). En este modo, el tráfico RTP se tuneliza a través de la conexión TCP de RTSP. No se admite el tráfico RTP a través de UDP.
 
 ### <a name="support-for-video-ai"></a>Compatibilidad con IA de vídeo
 Los procesadores de extensión HTTP o gRPC solo admiten el envío de datos de fotogramas de imagen o vídeo con un módulo de IA externo. Por lo tanto, no se admite la ejecución de la inferencia en datos de audio. Como resultado, los nodos de procesador de las topologías de canalización que tienen un nodo de origen RTSP como uno de los elementos `inputs` también usan la propiedad `outputSelectors` para asegurarse de que solo se pasa vídeo al procesador. Consulte esta [topología](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) como ejemplo.

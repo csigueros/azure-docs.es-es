@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 03/17/2021
-ms.openlocfilehash: 586d2f8a887f6da39111d2e3f01744952cd9a1c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 07/13/2021
+ms.openlocfilehash: 3d2048f643da5f9cdd77b95f2a992efef74a77e9
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133320"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114388085"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Comprobación del estado de la venta conjunta de una oferta del marketplace comercial
 
@@ -33,11 +33,11 @@ En la tabla siguiente se muestran todos los posibles estados de la venta conjunt
 | ------------ | ------------- |
 | No listo para la venta conjunta | No se cumplen los [requisitos mínimos para el estado Listo para la venta conjunta](co-sell-requirements.md#requirements-for-co-sell-ready-status). |
 | Listo para la venta conjunta | Se cumplen todos los [requisitos para el estado Listo para la venta conjunta](co-sell-requirements.md#requirements-for-co-sell-ready-status). |
-| Venta conjunta con incentivos de IP de Azure | Se cumplen los requisitos de venta conjunta, además de [estos requisitos adicionales](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status). |
-| Venta conjunta con incentivos de Business Applications | Este estado se aplica a las ofertas de Dynamics 365 y Power Apps del [Programa Connect para ISV](business-applications-isv-program.md) e indica que se cumplen todos los [requisitos de este estado](co-sell-requirements.md#requirements-for-business-applications-co-sell-incentivized-status). |
+| Incentivo de venta conjunta de Azure IP | Se cumplen los requisitos de venta conjunta, además de [estos requisitos adicionales](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentive-status). |
+| Incentivo de venta conjunta de Business Applications | Este estado se aplica a las ofertas de Dynamics 365 y Power Apps del [Programa Connect para ISV](business-applications-isv-program.md) e indica que se cumplen todos los [requisitos de este estado](co-sell-requirements.md#requirements-for-business-applications-co-sell-incentive-status). |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre los requisitos de venta conjunta, consulte [Requisitos de venta conjunta](co-sell-requirements.md).
-- Para configurar una oferta para la venta conjunta, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md).
+- Para configurar una oferta para la venta conjunta, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](co-sell-configure.md).

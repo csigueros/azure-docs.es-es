@@ -8,17 +8,17 @@ ms.author: ishansri
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.openlocfilehash: 3e7a33d9213d7af44d2cfc50baa847534618f7e5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9142f03f5f23e843018f7d9b702ef8da3d650758
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608703"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578691"
 ---
 # <a name="text-normalization-for-case-insensitive-filtering-faceting-and-sorting"></a>Normalización de texto para filtrado, aplicación de facetas y ordenación sin distinción de mayúsculas y minúsculas
 
- > [!IMPORTANT]
- > Normalizador está en versión preliminar pública, disponible solo a través de la **API REST 2020-06-30-preview**. Las características en vista previa (GB) se ofrecen tal cual, en Términos de uso complementarios.
+> [!IMPORTANT] 
+> Esta característica se encuentra en versión preliminar pública en los [Términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API REST de versión preliminar](/rest/api/searchservice/index-preview) admite esta característica.
 
 Para buscar y recuperar documentos de un índice de Azure Cognitive Search, es necesario que la consulta coincida con el contenido del documento. El contenido se puede analizar a fin de generar tokens para buscar coincidencias, como cuando se usa el parámetro `search`, o se puede usar tal cual para buscar coincidencias estrictas de palabras clave, como con `$filter`, `facets` y `$orderby`. Este enfoque "todo o nada" abarca la mayoría de los escenarios, pero es insuficiente donde se requiere un procesamiento previo sencillo, como con el uso de mayúsculas y minúsculas, la eliminación de acentos, el plegado de ASCII, entre otros, sin tener que pasar por toda la cadena de análisis.
 

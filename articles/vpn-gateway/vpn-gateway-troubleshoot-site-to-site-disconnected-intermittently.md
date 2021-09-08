@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 47a6649c154ed3fed5ba444a58bae93ac0398bbc
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867260"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676841"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solución de problemas: la VPN de sitio a sitio de Azure se desconecta intermitentemente
 
@@ -56,7 +56,7 @@ La puerta de enlace de red virtual basada en directivas tiene un límite de 200 
 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Paso 6: Comprobación de la dirección de la interfaz externa del dispositivo VPN local
 
-Si la dirección IP accesible desde Internet del dispositivo VPN está incluida en la definición de **Puerta de enlace de red local** en Azure, es posible que experimente desconexiones esporádicas.
+Si la dirección IP accesible desde Internet del dispositivo VPN está incluida en la definición de **Espacio de direcciones de la puerta de enlace de red local** en Azure, es posible que sufra desconexiones esporádicas.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Paso 7: Comprobación de si el dispositivo VPN local cuenta con la característica Confidencialidad directa perfecta habilitada
 

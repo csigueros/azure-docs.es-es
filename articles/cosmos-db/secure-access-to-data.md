@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 696d8c1a775f67271a7c7b4fa81789e7b0775bb1
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: a7b43f52fee66579beb0c91f0b76d313cd4bcdaa
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110654285"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112522216"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Protección del acceso a los datos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB proporciona tres maneras de controlar el acceso a los datos.
 | Tipo de control de acceso | Características |
 |---|---|
 | [Claves principales](#primary-keys) | Secreto compartido que permite cualquier operación de administración o de datos. Se incluye en las variantes de lectura y escritura y de solo lectura. |
-| [Control de acceso basado en rol](#rbac) | Modelo de permisos específico basado en roles mediante identidades de Azure Active Directory (AAD) para la autenticación. |
+| [Control de acceso basado en roles](#rbac) | Modelo de permisos específico basado en roles mediante identidades de Azure Active Directory (AAD) para la autenticación. |
 | [Tokens de recursos](#resource-tokens)| Modelo de permisos específico basado en permisos y usuarios nativos de Azure Cosmos DB. |
 
 ## <a name="primary-keys"></a>Claves principales <a id="primary-keys"></a>
@@ -128,7 +128,7 @@ User user = await database.CreateUserAsync("User 1");
 
 ### <a name="permissions"></a>Permisos<a id="permissions"></a>
 
-Un recurso de permiso está asociado a un usuario y está asignado en el contenedor, así como en el nivel de clave de partición. Cada usuario puede contener cero o más permisos. Un recurso de permiso proporciona acceso a un token de seguridad que el usuario necesita al intentar acceder a un contenedor específico o a los datos de una clave de partición específica. Hay dos niveles de acceso disponibles que puede proporcionar un recurso de permiso:
+Un recurso de permiso está asociado a un usuario y se asigna a un recurso específico. Cada usuario puede contener cero o más permisos. Un recurso de permiso proporciona acceso a un token de seguridad que el usuario necesita al intentar acceder a un contenedor específico o a los datos de una clave de partición específica. Hay dos niveles de acceso disponibles que puede proporcionar un recurso de permiso:
 
 - Todo: el usuario tiene pleno permiso en el recurso.
 - Lectura: el usuario solo puede leer el contenido del recurso, pero no realizar operaciones de escritura, actualización o eliminación en este.
@@ -153,7 +153,7 @@ user.CreatePermissionAsync(
     new PermissionProperties(
         id: "permissionUser1Orders",
         permissionMode: PermissionMode.All,
-        container: benchmark.container,
+        container: container,
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 

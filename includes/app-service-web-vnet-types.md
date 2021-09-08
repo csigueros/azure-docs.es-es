@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 0b93111357cf0d6e57eeb5495d50bd18a15dca77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c3542332fbdad13d56a141d677e91b68f7e99d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97812767"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728080"
 ---
 * Los sistemas multiinquilino que admiten todos los planes de precios, excepto Aislado.
 * App Service Environment, que se implementa en la VNet y admite aplicaciones de planes de precios aislados.
@@ -30,7 +30,7 @@ Integración con red virtual tiene las siguientes características:
 Hay algunos aspectos que Integración con red virtual no admite, como los siguientes:
 
 * Montar una unidad.
-* Integración con Active Directory.
+* Integración de Windows Server Active Directory.
 * NetBIOS.
 
 Cuando Integración con red virtual necesita una puerta de enlace, solo proporciona acceso a los recursos de la VNet de destino o de las redes conectadas a esta que tienen emparejamiento o redes privadas virtuales. Integración con red virtual con requisito de puerta de enlace no permite acceder a los recursos disponibles en las conexiones de Azure ExpressRoute ni trabajar con puntos de conexión de servicio.

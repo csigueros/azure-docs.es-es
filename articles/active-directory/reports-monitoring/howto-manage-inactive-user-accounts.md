@@ -17,12 +17,12 @@ ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce8adf65eba2586440d490860f13a6c5aa1f626
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 032a8fddb836146a5e902b168ab5aea9763bdc31
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088181"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376617"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Instrucciones: Administración de cuentas de usuario inactivas en Azure AD
 
@@ -44,7 +44,7 @@ El último inicio de sesión correcto ofrece información potencial sobre la nec
     
 ## <a name="how-to-detect-inactive-user-accounts"></a>Cómo detectar cuentas de usuario inactivas
 
-Las cuentas inactivas se detectan mediante la evaluación de la propiedad **lastSignInDateTime** expuesta por el tipo de recurso **signInActivity** de **Microsoft Graph** API. Con esta propiedad, puede implementar una solución para los escenarios siguientes:
+Las cuentas inactivas se detectan mediante la evaluación de la propiedad **lastSignInDateTime** expuesta por el tipo de recurso **signInActivity** de **Microsoft Graph** API. La propiedad **lastSignInDateTime** muestra la última vez que un usuario inició sesión de forma interactiva y correcta en Azure AD. Con esta propiedad, puede implementar una solución para los escenarios siguientes:
 
 - **Usuarios por nombre**: en este escenario, busca un usuario específico por nombre, lo que le permite evaluar el valor de lastSignInDateTime: `https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 

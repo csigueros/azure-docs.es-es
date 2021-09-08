@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b34194c0b9afa622d6ae751752092ed3f750f0b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 3603bd100fe5d9b471d67896c98de4c0547c8ebb
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285761"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551261"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Solución de problemas: Protección con contraseña de Azure AD local
 
@@ -326,7 +326,7 @@ El cmdlet Test-AzureADPasswordProtectionDCAgentHealth admite varias pruebas de e
 
 ### <a name="basic-dc-agent-health-tests"></a>Pruebas de mantenimiento básicas del agente del controlador de dominio
 
-Las siguientes pruebas se pueden ejecutar individualmente y no aceptarse. Breve descripción
+Las siguientes pruebas se pueden ejecutar individualmente y no aceptan parámetros. En la siguiente tabla se muestra una breve descripción de cada prueba.
 
 |Prueba de estado del agente del controlador de dominio|Descripción|
 | --- | :---: |

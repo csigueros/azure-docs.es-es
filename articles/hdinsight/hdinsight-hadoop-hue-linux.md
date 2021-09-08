@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: 97a8dd2476642e693b589b4046f612c5569b9c0b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8f0346a3e9a2d21dc5959df51d894daef8a5a23f
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865135"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284210"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Hue en clústeres de Hadoop para HDInsight
 
@@ -126,4 +126,4 @@ Solo puede tener una cuenta de usuario con matiz en clústeres normales. Para el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Instalación de R en clústeres de HDInsight](./r-server/r-server-overview.md). Use la personalización del clúster para instalar R en clústeres de Hadoop para HDInsight. R es un entorno y lenguaje de código abierto para computación estadística. Proporciona cientos de de funciones estadísticas integradas y su propio lenguaje de programación que combina aspectos de la programación funcional y orientada a objetos. También proporciona amplias capacidades gráficas.
+[Personalización de clústeres de HDInsight con acciones de script](hdinsight-hadoop-customize-cluster-linux.md) 

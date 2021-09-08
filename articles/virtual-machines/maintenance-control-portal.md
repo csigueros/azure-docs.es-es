@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: bcd0992347033fa355db1f952e775a5077fecabe
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: f50e0320405ecab8139657aafb8194e25957bce4
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554558"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369508"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Control de las actualizaciones con el control de mantenimiento y Azure Portal
 
@@ -87,7 +87,7 @@ También puede comprobar un host específico mediante **Virtual Machines** o las
 
 ## <a name="apply-updates"></a>Aplicación de actualizaciones
 
-Las actualizaciones pendientes se pueden aplicar a petición mediante **Virtual Machines**. En los detalles de la máquina virtual, haga clic en **Mantenimiento** y, después, en **Aplicar mantenimiento ahora**.
+Las actualizaciones pendientes se pueden aplicar a petición. En los detalles de la máquina virtual o del host dedicado de Azure, haga clic en **Mantenimiento** y, después, en **Aplicar mantenimiento ahora**. La aplicación de llamadas de actualización puede tardar hasta 2 horas en completarse.
 
 ![Captura de pantalla en la que se muestra cómo aplicar las actualizaciones pendientes](media/virtual-machines-maintenance-control-portal/maintenance-configurations-apply-updates-now.png)
 

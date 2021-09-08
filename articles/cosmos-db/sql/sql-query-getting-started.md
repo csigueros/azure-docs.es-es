@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 2fa13f931801c08fd450e889744b1eb49638ca80
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: af71ff52ead86c0cdeea307e736c36ac27536bfa
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122206754"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029946"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introducción a las consultas SQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -194,3 +194,6 @@ Los ejemplos anteriores muestran varios aspectos del lenguaje de consulta de Cos
 - [Introducción a Azure Cosmos DB](../introduction.md)
 - [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Cláusula SELECT](sql-query-select.md)
+- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](../estimate-ru-with-capacity-planner.md).

@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5ba7c9505e49b8d0b35ee592bb0c3bafafad416a
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 077b247b4d8f40cc84b491ba26d78cd614ce15bf
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319402"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105424"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roles, permisos y seguridad en Azure Monitor
 
@@ -24,7 +24,7 @@ Los roles integrados en Azure Monitor están diseñados para ayudar a limitar el
 ### <a name="monitoring-reader"></a>Lector de supervisión
 Las personas asignadas al rol Lector de supervisión pueden ver todos los datos de supervisión en una suscripción, pero no pueden modificar cualquier recurso o editar cualquier configuración relacionada con la supervisión de recursos. Este rol es adecuado para los usuarios de una organización, como los ingenieros de soporte técnico u operaciones que necesitan tener la capacidad de:
 
-* Ver paneles de supervisión en el portal y crear sus propios paneles de supervisión privados.
+* Ver los paneles de supervisión del portal.
 * Ver las reglas de alerta definidas en [Alertas de Azure](alerts/alerts-overview.md)
 * Consultar métricas con la [API de REST de Azure Monitor](/rest/api/monitor/metrics), los [cmdlets de PowerShell](powershell-samples.md) o la [CLI multiplataforma](cli-samples.md).
 * Consultar el registro de actividades a través del portal, la API de REST de Azure Monitor, los cmdlets de PowerShell o la CLI multiplataforma.
@@ -48,7 +48,7 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 ### <a name="monitoring-contributor"></a>Colaborador de supervisión
 Las personas asignadas al rol Colaborador de supervisión pueden ver todos los datos de supervisión en una suscripción y crear o modificar la configuración de supervisión, pero no pueden modificar los demás recursos. Este rol es un superconjunto del rol Lector de supervisión y es adecuado para los miembros del equipo de supervisión de una administración o los proveedores de servicios administrados que, además de los permisos anteriores, también necesitan tener la capacidad de:
 
-* Publicar paneles de supervisión como un panel compartido.
+* Ver paneles de supervisión en el portal y crear sus propios paneles de supervisión privados.
 * Determinar la [configuración de diagnóstico](essentials/diagnostic-settings.md) de un recurso.\*
 * Establecer el [perfil de registro](essentials/activity-log.md#legacy-collection-methods) de una suscripción.\*
 * Establecer la configuración y la actividad de las reglas de alertas a través de [Alertas de Azure](alerts/alerts-overview.md).

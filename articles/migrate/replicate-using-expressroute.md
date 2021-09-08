@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: e26434ae1ff2f9d8829d3665807f7d9916233833
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: c16b4a91f297621fa96e0e18f816d77e9f3b4e2a
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792244"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322411"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Replicación de datos a través de ExpressRoute con Azure Migrate: Server Migration
 
@@ -170,48 +170,67 @@ Si la resolución DNS es incorrecta, siga estos pasos:
 - Si usa un DNS personalizado, revise la configuración personalizada de DNS y compruebe que esta sea correcta. Para más información, consulte [Introducción al punto de conexión privado: Configuración de DNS](../private-link/private-endpoint-overview.md#dns-configuration). 
 - Si usa servidores DNS proporcionados por Azure, use esta guía como referencia para [solucionar problemas adicionales](./troubleshoot-network-connectivity.md#validate-the-private-dns-zone).   
 
+### <a name="configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-expressroute-private-peering-connectivity"></a>Configuración de reglas de omisión de proxy en dispositivos de Azure Migrate (para la conectividad de emparejamiento privado de ExpressRoute) 
+Si quiere omitir el proxy, puede agregar una regla de omisión de proxy para la cuenta de almacenamiento en caché como se muestra a continuación. 
+- _nombredecuentadealmacenamiento_.blob.core.windows.net.
+
+> [!Important]
+>  No omita *.blob.core.windows.net, ya que Azure Migrate usa otra cuenta de almacenamiento, que necesita acceso a Internet. Esta cuenta de almacenamiento, la cuenta de almacenamiento de puerta de enlace, solo se usa para almacenar información del estado de las máquinas virtuales que se replican. Para encontrar la cuenta de almacenamiento de puerta de enlace, busque el prefijo _**gwsa**_ en el nombre de la cuenta de almacenamiento en el grupo de recursos del proyecto de Azure Migrate. 
+
 ## <a name="replicate-data-by-using-an-expressroute-circuit-with-microsoft-peering"></a>Replicación de datos mediante un circuito ExpressRoute con emparejamiento de Microsoft
 
 Puede usar el emparejamiento de Microsoft o un dominio de emparejamiento público existente (en desuso para las nuevas conexiones de ExpressRoute) para enrutar el tráfico de replicación a través de un circuito ExpressRoute.
 
 ![Diagrama que muestra la replicación con el emparejamiento de Microsoft.](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
-Incluso con los datos de replicación que cruzan el circuito emparejado de Microsoft, la conectividad a Internet desde el sitio local sigue siendo necesaria para llevar a cabo otras comunicaciones (plano de control) con Azure Migrate. Hay algunas direcciones URL a las que no se puede acceder a través de ExpressRoute. El dispositivo de replicación o el host de Hyper-V necesitan acceso a las direcciones URL para orquestar el proceso de replicación. Revise los requisitos de direcciones URL en función del escenario de migración, ya sean [migraciones sin agente de VMware](./migrate-appliance.md#public-cloud-urls) o [migraciones basadas en agentes](./migrate-replication-appliance.md).
+Incluso si los datos de replicación pasan por el circuito emparejado de Microsoft, sigue necesitando conectividad a Internet desde el sitio local para el tráfico del plano de control y otras direcciones URL que no son accesibles a través de ExpressRoute. El dispositivo de replicación o el host de Hyper-V necesitan acceso a las direcciones URL para orquestar el proceso de replicación. Revise los requisitos de direcciones URL en función del escenario de migración, ya sean [migraciones sin agente de VMware](./migrate-appliance.md#public-cloud-urls) o [migraciones basadas en agentes](./migrate-replication-appliance.md). 
 
-Si usa un proxy en el sitio local y quiere usar ExpressRoute para el tráfico de replicación, configure una omisión de proxy para las direcciones URL correspondientes en el dispositivo local.
-
-### <a name="configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-vmware-agentless-migrations"></a>Configuración de reglas de omisión de proxy en el dispositivo de Azure Migrate (para migraciones sin agente de VMware)
-
-1. Inicie sesión mediante Escritorio remoto en el dispositivo Azure Migrate.
-1. Abra el archivo *C:/ProgramData/MicrosoftAzure/Config/appliance.json* con el bloc de notas.
-1. En el archivo, cambie la línea que dice `"EnableProxyBypassList": "false"` para que diga `"EnableProxyBypassList": "true"`. Guarde los cambios y reinicie el dispositivo.
-1. Después de reiniciar, cuando abra el administrador de configuración del dispositivo,verá la opción de omisión de proxy en la interfaz de usuario de la aplicación web. Agregue las siguientes direcciones URL a la lista de omisión de proxy:
-
-    - .*.vault.azure.net
-    - .*.servicebus.windows.net
-    - .*.discoverysrv.windowsazure.com
-    - .*.migration.windowsazure.com
-    - .*.hypervrecoverymanager.windowsazure.com
-    - .*.blob.core.windows.net
-
-### <a name="configure-proxy-bypass-rules-on-the-replication-appliance-for-agent-based-migrations"></a>Configuración de reglas de omisión de proxy en el dispositivo de replicación (para migraciones basadas en agentes)
-
-Para configurar la lista de omisión de proxy en el servidor de configuración y los servidores de procesos:
-
-1. Descargue la [herramienta PsExec](/sysinternals/downloads/psexec) para acceder al contexto de usuario del sistema.
-1. Abra Internet Explorer en el contexto de usuario del sistema ejecutando la línea de comandos siguiente: `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
-1. Agregue la configuración de proxy en Internet Explorer.
-1. En la lista de omisión, agregue las direcciones URL: *.blob.core.windows.net, *.hypervrecoverymanager.windowsazure.com y *.backup.windowsazure.com. 
-
-Las reglas de omisión anteriores garantizarán que el tráfico de replicación puede fluir a través de ExpressRoute, mientras que la comunicación de administración puede cruzar el proxy de Internet.
-
-Además, debe anunciar las rutas en el filtro de ruta para las siguientes comunidades de BGP para que el tráfico de replicación de Azure Migrate pase por un circuito ExpressRoute en lugar de Internet:
+ Para la transferencia de datos de replicación mediante emparejamiento de Microsoft, configure filtros de ruta para anunciar rutas para los puntos de conexión de Azure Storage. Se trataría de las comunidades de BGP regionales para la región de Azure de destino (región para la migración). Para enrutar el tráfico del plano de control mediante emparejamiento de Microsoft, configure filtros de ruta para anunciar rutas para otros puntos de conexión públicos según sea necesario.  
 
 - Comunidad de BGP regional para la región de Azure de origen (región del proyecto de Azure Migrate)
 - Comunidad de BGP regional para la región de Azure de destino (región para la migración)
 - Comunidad de BGP para Azure Active Directory (12076:5060)
 
 Obtenga más información sobre los [filtros de ruta](../expressroute/how-to-routefilter-portal.md) y la lista de [comunidades de BGP para ExpressRoute](../expressroute/expressroute-routing.md#bgp).
+
+### <a name="proxy-configuration-for-expressroute-microsoft-peering"></a>Configuración de proxy para el emparejamiento de Microsoft de ExpressRoute
+
+Si el dispositivo usa un proxy para la conectividad a Internet, es posible que deba configurar la omisión del proxy para determinadas direcciones URL y enrutarlas por el circuito de emparejamiento de Microsoft. 
+
+#### <a name="configure-proxy-bypass-rules-for-expressroute-microsoft-peering-on-the-azure-migrate-appliance-for-vmware-agentless-migrations"></a>Configuración de reglas de omisión de proxy para el emparejamiento de Microsoft para ExpressRoute en el dispositivo de Azure Migrate (para migraciones sin agente de VMware)
+
+1. Inicie sesión mediante Escritorio remoto en el dispositivo Azure Migrate.
+2.  Abra el archivo *C:/ProgramData/MicrosoftAzure/Config/appliance.json* con el bloc de notas.
+3. En el archivo, cambie la línea que dice `"EnableProxyBypassList": "false"` para que diga `"EnableProxyBypassList": "true"`. Guarde los cambios y reinicie el dispositivo.
+4. Después de reiniciar, cuando abra el administrador de configuración del dispositivo,verá la opción de omisión de proxy en la interfaz de usuario de la aplicación web. 
+5. Para el tráfico de replicación, puede configurar una regla de omisión de proxy para ".*.blob.core.windows.net". Puede configurar reglas de omisión de proxy para otros puntos de conexión del plano de control según sea necesario. Entre estos puntos de conexión se incluyen los siguientes: 
+
+    - .*.vault.azure.net
+    - .*.servicebus.windows.net
+    - .*.discoverysrv.windowsazure.com
+    - .*.migration.windowsazure.com
+    - .*.hypervrecoverymanager.windowsazure.com
+
+> [!Note]
+> Las siguientes direcciones URL no son accesibles a través de ExpressRoute y requieren conectividad a Internet: *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com (opcional), aka.ms/* (opcional), download.microsoft.com/download.
+
+
+#### <a name="configure-proxy-bypass-rules-expressroute-microsoft-peering-on-the-replication-appliance-for-agent-based-migrations"></a>Configuración de reglas de omisión de proxy para el emparejamiento de Microsoft para ExpressRoute en el dispositivo de replicación (para migraciones basadas en agentes)
+
+Para configurar la lista de omisión de proxy en el servidor de configuración y los servidores de procesos:
+
+1. Descargue la [herramienta PsExec](/sysinternals/downloads/psexec) para acceder al contexto de usuario del sistema.
+2. Abra Internet Explorer en el contexto de usuario del sistema ejecutando la línea de comandos siguiente: `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
+3. Agregue la configuración de proxy en Internet Explorer.
+4. Para el tráfico de replicación, puede configurar una regla de omisión de proxy para ".*.blob.core.windows.net". Puede configurar reglas de omisión de proxy para otros puntos de conexión del plano de control según sea necesario. Entre estos puntos de conexión se incluyen los siguientes: 
+
+    - .*.backup.windowsazure.com
+    - .*.hypervrecoverymanager.windowsazure.com
+
+Las reglas de omisión para el punto de conexión de Azure Storage garantizarán que el tráfico de replicación puede fluir a través de ExpressRoute, mientras que la comunicación del plano de control puede pasar por el proxy para acceder a Internet. 
+
+> [!Note]
+> Las siguientes direcciones URL no son accesibles a través de ExpressRoute y requieren conectividad a Internet: *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com (opcional), aka.ms/* (opcional), download.microsoft.com/download, dev.mysql.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

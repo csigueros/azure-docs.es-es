@@ -8,12 +8,12 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: 63bc821648348c2936d437fef7fdd89314fad3c5
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 4ca42c259e10742e61fbd7f36b73f332cba5a8db
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783232"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445836"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Profundizar en cloud-init
 Para obtener más información acerca de [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) o solucionar problemas en un nivel más profundo, debe entender cómo funciona. En este documento se resaltan las partes importantes y se explican las características específicas de Azure.
@@ -22,7 +22,7 @@ Cuando cloud-init se incluye en una imagen generalizada y se crea una VM a parti
 
 
 ## <a name="understand-cloud-init-configuration"></a>Descripción de la configuración de cloud-init
-La configuración de una VM para que se ejecute en una plataforma significa que cloud-init debe aplicar varias configuraciones, como un consumidor de imágenes, las principales configuraciones con las que va a interactuar son `User data` (customData), que admite varios formatos, estos se documentan [aquí](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). También tiene la posibilidad de agregar y ejecutar scripts (/var/lib/cloud/scripts) para una configuración adicional. A continuación se describe con más detalle.
+La configuración de una máquina virtual para que se ejecute en una plataforma significa que cloud-init debe aplicar varias configuraciones. Como consumidor de imágenes, las principales configuraciones con las que va a interactuar son `User data` (customData), que admite varios formatos. Para obtener más información, consulte la [documentación sobre los formatos de datos de usuario y cloud-init 21.2](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). También tiene la posibilidad de agregar y ejecutar scripts (/var/lib/cloud/scripts) para una configuración adicional. A continuación se describe con más detalle.
 
 Algunas configuraciones ya están simuladas mediante "bake" en las imágenes de Azure Marketplace que se incluyen en cloud-init, como:
 

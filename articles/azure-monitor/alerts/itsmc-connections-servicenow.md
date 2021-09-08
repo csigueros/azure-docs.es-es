@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 51d16ae53e34dacfc41e3d31b01115f9c55ca9f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 441ed0072eee17ee6250bb7de39442ecfd669cf3
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102039553"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687792"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Conexión de ServiceNow al Conector de Administración de servicios de TI
 
@@ -28,20 +28,15 @@ Para obtener información acerca de cómo instalar ITSMC, consulte [Adición del
 
 ### <a name="oauth-setup"></a>Configuración de OAuth
 
-Entre las versiones admitidas de ServiceNow se incluyen París, Orlando, Nueva York, Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki y Ginebra.
+Entre las versiones admitidas de ServiceNow se incluyen Quebec, París, Orlando, Nueva York, Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki y Ginebra.
 
 Los administradores de ServiceNow deben generar un id. de cliente y un secreto de cliente para su instancia de ServiceNow. Consulte la siguiente información según sea necesario:
 
+- [Configuración de OAuth para Quebec](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configuración de OAuth para París](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configuración de OAuth para Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configuración de OAuth para Nueva York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Configuración de OAuth para Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configuración de OAuth para Londres](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Configuración de OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Configuración de OAuth para Yakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Configuración de OAuth para Estambul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Configuración de OAuth para Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Configuración de OAuth para Ginebra](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 Como parte de la configuración de OAuth, se recomienda:
 

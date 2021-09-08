@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.author: b-juche
-ms.openlocfilehash: f62c22c5615b1494ad8c1ebb966db9f1c25a8df7
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 445920e1846e668f0baa3567111f169fd6dd7508
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111442125"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113232527"
 ---
 # <a name="linux-nfs-mount-options-best-practices-for-azure-netapp-files"></a>Procedimientos recomendados en las opciones de montaje de NFS de Linux para Azure NetApp Files
 
@@ -90,7 +90,7 @@ sudo vi /etc/fstab
 10.23.1.4:/HN1-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
 ```
  
-En otro ejemplo, SAS Viya recomienda un tamaño de lectura y escritura de 256 KiB, y [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740) limita el valor de `r/wsize` a 64 KiB, a la vez que aumenta el rendimiento de lectura con mayor lectura por adelantado para los montajes de NFS.  <!-- For more information on readahead, see the article “NFS Readahead”. --> 
+En otro ejemplo, SAS Viya recomienda un tamaño de lectura y escritura de 256 KiB, y [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740) limita el valor de `r/wsize` a 64 KiB, a la vez que aumenta el rendimiento de lectura con mayor lectura por adelantado para los montajes de NFS. Consulte más información en [Procedimientos recomendados de lectura anticipada de NFS de Linux para Azure NetApp Files](performance-linux-nfs-read-ahead.md).
 
 Las siguientes consideraciones son válidas para el uso de `rsize` y `wsize`:
 
@@ -138,5 +138,9 @@ Si no se usa la coherencia casi abierta (`nocto`), el cliente confiará en la ac
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
+* [Procedimientos recomendados de E/S directa de Linux para Azure NetApp Files](performance-linux-direct-io.md)
+* [Procedimientos recomendados de caché del sistema de archivos de Linux para Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Procedimientos recomendados de simultaneidad de Linux para Azure NetApp Files](performance-linux-concurrency-session-slots.md)
+* [Procedimientos recomendados de lectura anticipada de NFS de Linux](performance-linux-nfs-read-ahead.md)
+* [Procedimientos recomendados de SKU de máquinas virtuales de Azure](performance-virtual-machine-sku.md) 
 * [Bancos de pruebas de rendimiento para Linux](performance-benchmarks-linux.md) 

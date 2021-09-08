@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): Administración de servicios web: Azure'
-description: Administre los servicios web nuevos y clásicos de Machine Learning mediante el portal de servicios web de Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
+description: Administre los servicios web de Machine Learning Studio (clásico) mediante el portal de servicios web de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,27 +9,27 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: d3aea23c816b9d8b32b0563d3116cdc2b92e080f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19ee8f56fffe3fcaf8d344f8aa4832ef63d346bb
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101094301"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581275"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio (clásico)
+# <a name="manage-a-web-service-using-the-machine-learning-studio-classic-web-services-portal"></a>Administración de un servicio web desde el portal de servicios web de Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
+Los servicios web de Machine Learning Studio (clásico) se pueden administrar mediante el portal de servicios web de Machine Learning. 
 
 En el portal Servicios web Machine Learning, puede realizar las siguientes acciones:
 
 * Supervisar el uso del servicio web.
 * Configurar la descripción, actualizar las claves del servicio web (solo en los nuevos), actualizar la clave de la cuenta de almacenamiento (solo en los nuevos), habilitar el registro y habilitar o deshabilitar datos de ejemplo
 * Eliminar el servicio web.
-* Crear, eliminar o actualizar planes de facturación (solo en los nuevos)
-* Agregar y eliminar puntos de conexión (solo en los clásicos)
+* Crear, eliminar o actualizar planes de facturación: solo [Azure Machine Learning](../index.yml).
+* Agregar y eliminar puntos de conexión: solo ML Studio (clásico).
 
 >[!NOTE]
 >También puede administrar los servicios web clásicos en [Machine Learning Studio (clásico)](https://studio.azureml.net), en la pestaña de **servicios web**.
@@ -38,11 +38,11 @@ En el portal Servicios web Machine Learning, puede realizar las siguientes accio
 
 Los nuevos servicios web se implementan como recursos de Azure. Por lo tanto, debe tener los permisos correctos para implementar y administrar nuevos servicios web.  Para implementar o administrar nuevos servicios web, es preciso que se le haya asignado un rol de colaborador o administrador en la suscripción en la que se implementa el servicio web. Si invita a otro usuario a un área de trabajo de Machine Learning, debe asignarle un rol de colaborador o administrador en la suscripción para que pueda implementar o administrar servicios web. 
 
-Si el usuario no tiene los permisos correctos para acceder a recursos en el portal de servicios web Machine Learning de Azure, verá el siguiente error al tratar de implementar un servicio web:
+Si el usuario no tiene los permisos correctos para acceder a los recursos en el portal de servicios web de Machine Learning, aparecerá el siguiente error al tratar de implementar un servicio web:
 
 *Error de implementación de servicio web. Esta cuenta no tiene suficientes derechos de acceso a la suscripción de Azure que contiene el área de trabajo. Para implementar un servicio web en Azure, la misma cuenta debe estar invitada al área de trabajo y tener acceso a la suscripción de Azure que contiene el área de trabajo*.
 
-Para más información sobre cómo crear un área de trabajo, consulte cómo [crear y compartir un área de trabajo de Azure Machine Learning Studio (clásico)](create-workspace.md).
+Para más información sobre cómo crear un área de trabajo, consulte [Creación y uso compartido de un área de trabajo de Machine Learning Studio (clásico)](create-workspace.md).
 
 Para más información sobre la configuración de los permisos de acceso, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -50,7 +50,7 @@ Para más información sobre la configuración de los permisos de acceso, consul
 ## <a name="manage-new-web-services"></a>Administración de servicios web nuevos
 Instrucciones para la administración de servicios web nuevos:
 
-1. Inicie sesión en el portal [Servicios web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) con su cuenta de Microsoft Azure (use la que está asociada a la suscripción de Azure).
+1. Inicie sesión en el portal de [servicios web de Machine Learning](https://services.azureml.net/quickstart) mediante su cuenta de Microsoft Azure (use la que está asociada a la suscripción de Azure).
 2. En el menú, haga clic en **Servicios web**.
 
 Se mostrará una lista de los servicios web implementados de la suscripción. 
@@ -111,13 +111,13 @@ El panel de planes proporciona la siguiente información:
 
 ## <a name="manage-classic-web-services"></a>Administración de servicios web clásicos
 > [!NOTE]
-> Los procedimientos de esta sección son pertinentes para la administración de los servicios web clásicos a través del portal Servicios web Azure Machine Learning. Para más información sobre cómo administrar servicios web clásicos mediante Machine Learning Studio (clásico) y Azure Portal, consulte [Administración de un área de trabajo de Azure Machine Learning Studio (clásico)](manage-workspace.md).
+> Los procedimientos de esta sección son pertinentes para la administración de los servicios web clásicos a través del portal de servicios web de Machine Learning. Para más información sobre cómo administrar servicios web clásicos mediante Machine Learning Studio (clásico) y Azure Portal, consulte [Administración de un área de trabajo de Machine Learning Studio (clásico)](manage-workspace.md).
 > 
 > 
 
 Instrucciones para administrar los servicios web clásicos:
 
-1. Inicie sesión en el portal [Servicios web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) con su cuenta de Microsoft Azure (use la que está asociada a la suscripción de Azure).
+1. Inicie sesión en el portal de [servicios web de Machine Learning](https://services.azureml.net/quickstart) mediante su cuenta de Microsoft Azure (use la que está asociada a la suscripción de Azure).
 2. En el menú, haga clic en **Classic Web Services** (Servicios web clásicos).
 
 Para administrar un servicio web clásico, haga clic en **Classic Web Services** (Servicios web clásicos). Desde la página Classic Web Services (Servicios web clásicos), puede llevar a cabo estas acciones:

@@ -7,12 +7,12 @@ ms.date: 03/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 73ef942b42858a3219502fe09c3b9281be81f964
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 540137495e06bb05fbf5e96e3b930e0c8cda4b10
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776805"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461236"
 ---
 # <a name="how-to-authenticate-and-authorize-iot-central-rest-api-calls"></a>Autenticación y autorización de llamadas API de REST en IoT Central
 
@@ -24,9 +24,11 @@ En este artículo se describen los tipos de token que puede usar en el encabezad
 
 ## <a name="token-types"></a>Tipos de token
 
+Es recomendable usar el token de portador del usuario cuando haga algunas llamadas de automatización, pruebas o API. Se recomienda usar el token de portador de SPN al automatizar o crear scripts en el entorno de desarrollo (es decir, DevOps). El token de API se puede usar en ambos casos, pero tiene riesgo de expiración y de pérdidas, por lo que se recomienda usar el de portador siempre que sea posible. ¿Tiene sentido? 
+
 Para acceder a la aplicación de IoT Central con la API de REST, puede usar lo siguiente:
 
-- _Token de portador de Azure Active Directory_. Un token de portador se asocia a una cuenta de usuario de Azure Active Directory. El token concede al autor de la llamada los mismos permisos que el usuario tiene en la aplicación de IoT Central.
+- _Token de portador de Azure Active Directory_. Un token de portador se asocia a una cuenta de usuario o una entidad de servicio de Azure Active Directory. El token concede al autor de la llamada los mismos permisos que tiene el usuario o la entidad de servicio en la aplicación de IoT Central.
 - Token de API de IoT Central. Un token de API está asociado a un rol en la aplicación de IoT Central.
 
 Para obtener más información sobre los usuarios y roles de IoT Central, vea [Administrar usuarios y roles en la aplicación de IoT Central](howto-manage-users-roles.md).
@@ -56,6 +58,8 @@ La salida JSON del comando anterior es similar al ejemplo siguiente:
 ```
 
 El token de portador es válido durante una hora aproximadamente, pero después debe crear otro.
+
+Para obtener un token de portador para una entidad de servicio, consulte [Autenticación de entidad de servicio](/rest/api/iotcentral/authentication#service-principal-authentication).
 
 ## <a name="get-an-api-token"></a>Obtención de un token de API
 

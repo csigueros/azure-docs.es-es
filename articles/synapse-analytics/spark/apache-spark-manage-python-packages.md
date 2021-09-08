@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: d440940d98b33ae5906fe5a4a112939682196e57
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: db2b2c413803e9c2c9952e0b75e30e9a74939871
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467418"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461574"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas de Python para Apache Spark en Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Hay dos maneras principales de instalar una biblioteca en un clúster:
 > [!IMPORTANT]
 > - Si el paquete que va a instalar es de gran tamaño o tarda mucho tiempo en instalarse, afectará al tiempo de inicio de la instancia de Spark.
 > - No se admite la modificación de la versión de PySpark, Python, Scala/Java, .NET o Spark.
-> - La instalación de paquetes de repositorios externos como PyPI, Conda-Forge o los canales Conda predeterminados no se admiten en áreas de trabajo habilitadas para DEP.
+> - La instalación de paquetes de repositorios externos como PyPI, Conda-Forge o los canales Conda predeterminados no se admiten en áreas de trabajo habilitadas para la protección de la filtración de datos.
 
 ### <a name="install-python-packages"></a>Instalación de paquetes de Python
 Los paquetes de Python se pueden instalar desde repositorios como PyPI y Conda-Forge proporcionando un archivo de especificación de entorno. 
@@ -52,7 +52,7 @@ Los paquetes de Python se pueden instalar desde repositorios como PyPI y Conda-F
 ##### <a name="pip-requirementstxt"></a>requirements.txt de PIP
 Se puede usar un archivo *requirements.txt* (salida del comando `pip freeze`) para actualizar el entorno. Cuando se actualiza un grupo, los paquetes enumerados en este archivo se descargan desde PyPI. Después, las dependencias completas se almacenan en caché y se guardan para reutilizar el grupo más adelante. 
 
-En el fragmento de código siguiente se muestra el formato del archivo de requisitos. Se enumera el nombre del paquete PyPI, junto con una versión exacta. Este archivo sigue el formato descrito en la documentación de referencia de [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/). 
+En el fragmento de código siguiente se muestra el formato del archivo de requisitos. Se enumera el nombre del paquete PyPI, junto con una versión exacta. Este archivo sigue el formato descrito en la documentación de referencia de [pip freeze](https://pip.pypa.io/en/stable/cli/pip_freeze/). 
 
 Este ejemplo fija una versión específica. 
 ```
@@ -85,7 +85,7 @@ Una vez que haya identificado el archivo de especificación de entorno o el conj
 Después de guardar los cambios, un trabajo de Spark ejecutará la instalación y almacenará en caché el entorno resultante para reutilizarlo más adelante. Una vez completado el trabajo, los nuevos trabajos o sesiones de cuaderno de Spark usarán las bibliotecas de grupos actualizadas. 
 
 ##### <a name="manage-packages-from-synapse-studio-or-azure-portal"></a>Administración de paquetes desde Synapse Studio o Azure Portal
-Las bibliotecas de grupos de Spark se pueden administrar desde Synapse Studio o Azure Portal. 
+Las bibliotecas de grupos de Spark se pueden administrar desde Synapse Studio o Azure Portal. 
 
 Para actualizar o agregar bibliotecas a un grupo de Spark:
 1. Navegue hasta el área de trabajo de Azure Synapse Analytics desde Azure Portal.

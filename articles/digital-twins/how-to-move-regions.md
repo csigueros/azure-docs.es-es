@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 9b4d896edea86d85b650325ac5efb7f3cf439b17
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9617fc3cc7668d8449a9ec3b46e6c82228783e9d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953943"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447155"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Migración de una instancia de Azure Digital Twins a otra región de Azure
 
@@ -79,7 +79,7 @@ A continuación, completará el "movimiento" de la instancia. Para ello, creará
 
 ### <a name="create-a-new-instance"></a>Creación de una instancia
 
-En primer lugar, crear una instancia de Azure Digital Twins en la región de destino. Siga los pasos que se describen en [Procedimientos: configuración de una instancia y autenticación](how-to-set-up-instance-portal.md). Tenga en cuenta los siguientes puntos:
+En primer lugar, crear una instancia de Azure Digital Twins en la región de destino. Siga los pasos que se describen en [Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md). Tenga en cuenta los siguientes puntos:
 
 * Puede usar el mismo nombre para la nueva instancia *si* está en otro grupo de recursos. Si necesita usar el mismo grupo de recursos que contiene la instancia original, la nueva instancia necesitará su propio nombre distintivo.
 * Cuando se le solicite una ubicación, escriba la nueva región de destino.
@@ -110,7 +110,7 @@ Estas vistas confirman que los modelos, los gemelos y el grafo se han vuelto a c
 
 Si tiene puntos de conexión o rutas en la instancia original, deberá volver a crearlos en la nueva instancia. Si no tiene ningún punto de conexión o ruta en la instancia original o no quiere moverlos a la nueva instancia, puede ir directamente a la [siguiente sección](#relink-connected-resources).
 
-De lo contrario, siga los pasos que se describen en [Procedimiento: administración de puntos de conexión y rutas](how-to-manage-routes-portal.md) mediante la nueva instancia. Tenga en cuenta los siguientes puntos:
+De lo contrario, siga los pasos que se indican en [Administración de puntos de conexión y rutas](how-to-manage-routes.md) mediante la nueva instancia. Tenga en cuenta los siguientes puntos:
 
 * *No* necesita volver a crear el recurso Event Grid, Event Hubs o Service Bus que usa para el punto de conexión. Para más información, consulte la sección sobre requisitos previos en las instrucciones del punto de conexión. Solo tiene que volver a crear el punto de conexión en la instancia de Azure Digital Twins.
 * Los nombres tanto de punto de conexión como de ruta se pueden volver a utilizar, ya que tienen sus ámbitos son diferentes.
@@ -132,7 +132,7 @@ Los recursos exactos que necesite editar dependen del escenario, pero estos son 
 * Time Series Insights.
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
-* Aplicaciones personales o empresariales fuera de Azure, como la aplicación cliente creada en el [Tutorial: Programación de una aplicación cliente](tutorial-code.md), que se conecta a la instancia y llama a las API de Azure Digital Twins.
+* Aplicaciones personales o empresariales fuera de Azure, como la aplicación cliente que se creó en [Programación de una aplicación cliente](tutorial-code.md), que se conecta a la instancia y llama a las API de Azure Digital Twins
 * *No* es preciso volver a crear los registros de aplicaciones de Azure AD. Si usa un [registro de aplicaciones](./how-to-create-app-registration-portal.md) para conectarse a las API de Azure Digital Twins, puede volver a usar el mismo registro de aplicaciones con la nueva instancia.
 
 Una vez que finalice este paso, la nueva instancia de la región de destino debe ser una copia de la instancia original.

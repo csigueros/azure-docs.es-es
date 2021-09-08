@@ -3,16 +3,16 @@ title: Salidas en Bicep
 description: Se describe cómo definir variables de salida en Bicep.
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 95366013ed972e0251c99732ea4b344b5b94e743
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 25691bb31fbec0b00144619b97db019e13295661
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027221"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201093"
 ---
 # <a name="outputs-in-bicep"></a>Salidas en Bicep
 
-En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM) y en un archivo Bicep. Las salidas se usan cuando es necesario devolver valores de los recursos implementados.
+En este artículo, se describe cómo definir valores de salida en un archivo de Bicep. Las salidas se usan cuando es necesario devolver valores de los recursos implementados.
 
 El formato de cada valor de salida debe resolverse como uno de los [tipos de datos](data-types.md).
 

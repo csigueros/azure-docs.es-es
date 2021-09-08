@@ -12,15 +12,15 @@ ms.subservice: security
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/23/2018
+ms.date: 05/30/2021
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a0eca49f600855e3fa092ed45e2ee314284ec474
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 39ef6e17e07833fede323ace8d06fd8b767eafac
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079776"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435495"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Consideraciones de seguridad para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,9 +29,29 @@ En este tema se incluyen instrucciones de seguridad generales que ayudan a estab
 
 Azure cumple diversos reglamentos y estándares del sector que permiten compilar una solución compatible con SQL Server que se ejecuta en una máquina virtual. Para obtener información acerca del cumplimiento normativo de Azure, consulte [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/).
 
+Además de los procedimientos descritos en este tema, le recomendamos que revise e implemente los procedimientos recomendados de seguridad, entre los que destacamos tanto los tradicionales que se relacionan con la seguridad local como los de seguridad de las máquinas virtuales. 
+
+## <a name="azure-defender-for-sql"></a>Azure Defender para SQL 
+
+[Azure Defender para SQL](../../../security-center/defender-for-sql-introduction.md) habilita las características de seguridad de Azure Security Center, como las evaluaciones de vulnerabilidades y las alertas de seguridad. Consulte [Habilitación de Azure Defender para SQL](../../../security-center/defender-for-sql-usage.md) para más información. 
+
+## <a name="portal-management"></a>Administración de portal
+
+Después de [registrar la máquina virtual con SQL Server con la extensión IaaS de SQL](sql-agent-extension-manually-register-single-vm.md), puede configurar una serie de opciones de seguridad mediante el [recurso de máquinas virtuales de SQL](manage-sql-vm-portal.md) en Azure Portal como, por ejemplo, habilitar la integración de Azure Key Vault o la autenticación de SQL. 
+
+Además, después de haber habilitado [Azure Defender para SQL](../../../security-center/defender-for-sql-usage.md) puede ver las características de Security Center directamente en el [recurso de máquinas virtuales de SQL](manage-sql-vm-portal.md) de Azure Portal, características como, por ejemplo, la evaluación de vulnerabilidades y las alertas de seguridad. 
+
+Consulte [Administración de una máquina virtual con SQL en el portal](manage-sql-vm-portal.md) para más información. 
+
+## <a name="azure-key-vault-integration"></a>Integración de Azure Key Vault 
+
+SQL Server tiene varias características de cifrado, como el cifrado de datos transparente (TDE), el cifrado de nivel de columna (CLE) y el cifrado de copia de seguridad. Estas formas de cifrado requieren administrar y almacenar las claves criptográficas que se usan para el cifrado. El servicio Azure Key Vault está diseñado para mejorar la seguridad y la administración de estas claves en una ubicación segura y con gran disponibilidad. El Conector de SQL Server permite que SQL Server use estas claves desde Azure Key Vault.
 Para obtener detalles completos, consulte otros artículos de esta serie: [Lista de comprobación](performance-guidelines-best-practices-checklist.md), [Tamaño de VM](performance-guidelines-best-practices-vm-size.md), [Almacenamiento](performance-guidelines-best-practices-storage.md), [Configuración de HADR](hadr-cluster-best-practices.md) y [Recopilación de la base de referencia](performance-guidelines-best-practices-collect-baseline.md). 
 
-## <a name="control-access-to-the-sql-virtual-machine"></a>Control del acceso a la máquina virtual de SQL
+Consulte [Integración de Azure Key Vault](azure-key-vault-integration-configure.md) para más información.
+
+
+## <a name="access-control"></a>Control de acceso 
 
 Cuando se crea la máquina virtual de SQL Server, tenga en cuenta cómo controlar con cuidado quién tiene acceso a la máquina y a SQL Server. En general, siempre debe seguir estos pasos:
 
@@ -62,15 +82,13 @@ Por último, considere la posibilidad de habilitar conexiones cifradas para la i
 
 Los discos administrados ofrecen cifrado del lado servidor y Azure Disk Encryption. El [cifrado del lado servidor](../../../virtual-machines/disk-encryption.md) proporciona cifrado en reposo y protege los datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa la tecnología BitLocker o DM-Crypt y se integra con Azure Key Vault para cifrar los discos de datos y del sistema operativo. 
 
-## <a name="use-a-non-default-port"></a>Usar un puerto no predeterminado
+## <a name="non-default-port"></a>Puerto no predeterminado
 
 De forma predeterminada, SQL Server escucha en un puerto conocido, 1433. Para aumentar la seguridad, configure SQL Server para que escuche en un puerto no predeterminado, como 1401. Si se aprovisiona una imagen de la galería de SQL Server en Azure Portal, puede especificar este puerto en la hoja **Configuración de SQL Server**.
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
 Para configurar esto después del aprovisionamiento, tiene dos opciones:
 
-- Para las máquinas virtuales de Resource Manager, puede seleccionar **Seguridad** en el [recurso máquinas virtuales SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Esto proporciona una opción para cambiar el puerto.
+- Para las máquinas virtuales de Resource Manager, puede seleccionar **Seguridad** en el [recurso máquinas virtuales SQL](manage-sql-vm-portal.md#access-the-resource). Esto proporciona una opción para cambiar el puerto.
 
   ![Cambiar el puerto TCP en el portal](./media/security-considerations-best-practices/sql-vm-change-tcp-port.png)
 
@@ -98,16 +116,14 @@ No querrá que los atacantes adivinen fácilmente los nombres de las cuentas o l
 
   - Si tiene que usar el inicio de sesión de **SA**, habilite el inicio de sesión después del aprovisionamiento y asigne una nueva contraseña segura.
 
-## <a name="additional-best-practices"></a>Procedimientos recomendados adicionales
-
-Además de los procedimientos descritos en este tema, le recomendamos que revise e implemente los procedimientos recomendados de seguridad, entre los que destacamos tanto los tradicionales que se relacionan con la seguridad local como los de seguridad de las máquinas virtuales. 
-
-Para obtener más información sobre los procedimientos de seguridad locales, consulte [Consideraciones de seguridad para una instalación de SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) y [Centro de seguridad](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
-
-Para obtener más información sobre la seguridad de las máquinas virtuales, consulte la [información general sobre la seguridad de las máquinas virtuales](../../../security/fundamentals/virtual-machines-overview.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Si también está interesado en los procedimientos recomendados de rendimiento, consulte [Directrices de rendimiento para SQL Server en Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
+
+Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [Información general sobre SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).
+
 
 Para obtener más información, vea los demás artículos de esta serie:
 
@@ -118,5 +134,4 @@ Para obtener más información, vea los demás artículos de esta serie:
 - [Configuración de HADR](hadr-cluster-best-practices.md)
 - [Recopilación de la línea base](performance-guidelines-best-practices-collect-baseline.md)
 
-Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [Información general sobre SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).
 

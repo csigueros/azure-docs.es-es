@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): SQL Server local (Azure)'
-description: Use datos de una base de datos de SQL Server para realizar análisis avanzados con Azure Machine Learning Studio (clásico).
+description: Use datos de una base de datos de SQL Server para realizar análisis avanzados con Estudio de Machine Learning (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,24 +9,24 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 8cdf1029371e0e11c38616e7800652ca9debbba7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b47a8e50245df652db1c0c43aa0dddd6f8a5a0c8
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517406"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580771"
 ---
-# <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Análisis mediante Azure Machine Learning Studio (clásico) con una base de datos de SQL Server
+# <a name="perform-analytics-with-machine-learning-studio-classic-using-a-sql-server-database"></a>Análisis mediante Estudio de Machine Learning (clásico) con una base de datos de SQL Server
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Azure Machine Learning Studio (clásico) admite la lectura de los datos de una base de datos de SQL Server, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo de **importación de datos** de Azure Machine Learning Studio (clásico) ahora puede leer directamente los trabajos de entrenamiento y puntuación en la base de datos de SQL Server.
+Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Estudio de Machine Learning (clásico) admite la lectura de los datos de una base de datos de SQL Server, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo de **importación de datos** de Estudio de Machine Learning (clásico) ahora puede leer directamente los trabajos de entrenamiento y puntuación en la base de datos de SQL Server.
 
-En este artículo se proporciona información general sobre cómo introducir datos de SQL Server en Azure Machine Learning Studio (clásico). Se da por supuesto que conoce conceptos de Studio (clásico), como áreas de trabajo, módulos, conjuntos de datos, experimentos, *etc.*
+En este artículo se proporciona información general sobre cómo introducir datos de SQL Server en Estudio de Machine Learning (clásico). Se da por supuesto que conoce conceptos de Studio (clásico), como áreas de trabajo, módulos, conjuntos de datos, experimentos, *etc.*
 
 > [!NOTE]
-> Esta característica no está disponible para las áreas de trabajo gratuitas. Para más información acerca de los niveles y los precios de Machine Learning, consulte [Precios de Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+> Esta característica no está disponible para las áreas de trabajo gratuitas. Para más información acerca de los niveles y los precios de Machine Learning, consulte [Precios de Machine Learning Studio (clásico)](https://azure.microsoft.com/pricing/details/machine-learning-studio/).
 >
 >
 
@@ -35,7 +35,7 @@ En este artículo se proporciona información general sobre cómo introducir dat
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Instalación del entorno de ejecución de integración autohospedado de Data Factory
-Para acceder a una base de datos de SQL Server en Azure Machine Learning Studio (clásico), debe descargar e instalar el entorno de ejecución de integración autohospedado de Data Factory, conocido anteriormente como Data Management Gateway. Al configurar la conexión en Machine Learning Studio (clásico), tiene la oportunidad de descargar e instalar el entorno de ejecución de integración (IR) con el cuadro de diálogo **Descarga y registro de la puerta de enlace de datos** que se describe a continuación.
+Para acceder a una base de datos de SQL Server en Estudio de Machine Learning (clásico), debe descargar e instalar el entorno de ejecución de integración autohospedado de Data Factory, conocido anteriormente como Data Management Gateway. Al configurar la conexión en Machine Learning Studio (clásico), tiene la oportunidad de descargar e instalar el entorno de ejecución de integración (IR) con el cuadro de diálogo **Descarga y registro de la puerta de enlace de datos** que se describe a continuación.
 
 
 También puede instalar el entorno con antelación descargando y ejecutando el paquete de instalación MSI desde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). El archivo MSI también puede usarse para actualizar una instancia del entorno existente a una versión más reciente, conservando toda la configuración.
@@ -56,17 +56,17 @@ Tenga en cuenta lo siguiente al configurar y usar el entorno de ejecución de in
 * Un entorno se configura para una única área de trabajo cada vez. Actualmente, los entornos de ejecución de integración no se pueden compartir entre áreas de trabajo.
 * Puede configurar varios para una sola área de trabajo. Por ejemplo, podría usar uno que esté conectado a los orígenes de datos de prueba durante el desarrollo y otro de producción cuando esté preparado para ponerlo en funcionamiento.
 * El entorno no tiene por qué estar en la misma máquina que el origen de datos. Sin embargo, si está más cerca del origen de datos, se reduce el tiempo que necesita la puerta de enlace para conectarse a este. Se recomienda que instale el entorno de ejecución de integración en una máquina diferente de la que hospeda el origen de datos local para que la puerta de enlace y el origen de datos no compitan por los recursos.
-* Si ya tiene un entorno de integración instalado en el equipo que atiende los escenarios de Power BI o Azure Data Factory, instale uno distinto para Azure Machine Learning Studio (clásico) en otro equipo.
+* Si ya tiene un entorno de integración instalado en el equipo que atiende los escenarios de Power BI o Azure Data Factory, instale uno distinto para Estudio de Machine Learning (clásico) en otro equipo.
 
   > [!NOTE]
   > No se puede ejecutar en el mismo equipo el entorno de ejecución de integración autohospedado de Data Factory y Power BI Gateway.
   >
   >
-* Debe usar dicho entorno para Azure Machine Learning Studio (clásico) incluso si utiliza Azure ExpressRoute para otros datos. Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice ExpressRoute. Use el entorno de ejecución de integración autohospedado de Data Factory para establecer la conectividad entre Machine Learning y el origen de datos.
+* Debe usar dicho entorno para Estudio de Machine Learning (clásico) incluso si utiliza Azure ExpressRoute para otros datos. Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice ExpressRoute. Use el entorno de ejecución de integración autohospedado de Data Factory para establecer la conectividad entre Machine Learning y el origen de datos.
 
 Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en el artículo [Entorno de ejecución de integración en Data Factory](../../data-factory/concepts-integration-runtime.md).
 
-## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-id_toc450838866-classanchorspanspaningress-data-from-your-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Entrada de datos de la base de datos de SQL Server en Azure Machine Learning
+## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-id_toc450838866-classanchorspanspaningress-data-from-your-sql-server-database-into-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Entrada de datos de la base de datos de SQL Server en Machine Learning
 En este tutorial, instalará una instancia de Azure Data Factory Integration Runtime en un área de trabajo de Azure Machine Learning, la configurará y después leerá datos de una base de datos de SQL Server.
 
 > [!TIP]
@@ -78,7 +78,7 @@ En este tutorial, instalará una instancia de Azure Data Factory Integration 
 ### <a name="step-1-create-a-gateway"></a>Paso 1: Crear una puerta de enlace
 El primer paso consiste en crear y configurar la puerta de enlace para acceder a la base de datos SQL.
 
-1. Inicie sesión en [Azure Machine Learning Studio (clásico)](https://studio.azureml.net/Home/) y seleccione el área de trabajo en la que desee trabajar.
+1. Inicie sesión en [Estudio de Machine Learning (clásico)](https://studio.azureml.net/Home/) y seleccione el área de trabajo en la que desee trabajar.
 2. Haga clic en la hoja **SETTINGS** (Configuración) de la izquierda y en la pestaña **DATA GATEWAYS** (Puertas de enlace de datos) de la parte superior.
 3. Haga clic en **NEW DATA GATEWAY** (Nueva puerta de enlace de datos) de la parte inferior de la pantalla.
 
@@ -104,7 +104,7 @@ El primer paso consiste en crear y configurar la puerta de enlace para acceder a
 
       ![Administrador de Data Management Gateway](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
-      También se actualiza Azure Machine Learning Studio (clásico) cuando el registro se ha completado.
+        También se actualiza Estudio de Machine Learning (clásico) cuando el registro se ha completado.
 
     ![Registro de puerta de enlace correcto](./media/use-data-from-an-on-premises-sql-server/gateway-registered.png)
 11. En el cuadro de diálogo **Download and register data gateway** (Descargar y registrar puerta de enlace), haga clic en la marca de verificación para completar la instalación. En la página **Settings** (Configuración), se muestra el estado de la puerta de enlace como "Online" (En línea). En el panel derecho, encontrará el estado y otra información útil.
@@ -117,17 +117,17 @@ El primer paso consiste en crear y configurar la puerta de enlace para acceder a
 
     ![Habilitación del registro detallado](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
-Así finaliza el proceso de configuración de la puerta de enlace en Azure Machine Learning Studio (clásico).
+Así finaliza el proceso de configuración de la puerta de enlace en Estudio de Machine Learning (clásico).
 Ya está listo para usar los datos locales.
 
-Puede crear y configurar varias puertas de enlace en Estudio (clásico) para cada área de trabajo. Por ejemplo, puede conectar una puerta de enlace a los orígenes de datos de prueba durante el desarrollo, y una puerta de enlace diferente para los orígenes de datos de producción. Azure Machine Learning Studio (clásico) ofrece la flexibilidad de configurar varias puertas de enlace en función del entorno corporativo. Actualmente no se puede compartir una puerta de enlace entre áreas de trabajo y solamente se puede instalar una única puerta de enlace en un equipo. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
+Puede crear y configurar varias puertas de enlace en Estudio (clásico) para cada área de trabajo. Por ejemplo, puede conectar una puerta de enlace a los orígenes de datos de prueba durante el desarrollo, y una puerta de enlace diferente para los orígenes de datos de producción. Estudio de Machine Learning (clásico) ofrece la flexibilidad necesaria para configurar varias puertas de enlace en función del entorno corporativo. Actualmente no se puede compartir una puerta de enlace entre áreas de trabajo y solamente se puede instalar una única puerta de enlace en un equipo. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Paso 2: Uso de la puerta de enlace para leer datos de un origen de datos local
 Después de configurar la puerta de enlace, puede agregar un módulo **Importar datos** a un experimento que introduce los datos de la base de datos de SQL Server.
 
 1. En Machine Learning Studio (clásico), seleccione la pestaña **EXPERIMENTOS**, haga clic en la pestaña **+ NUEVO** de la esquina inferior izquierda y seleccione **Blank Experiment** (Experimento en blanco). También puede seleccionar uno de los varios experimentos de ejemplo disponibles.
 2. Busque y arrastre el módulo **Importar datos** al lienzo del experimento.
-3. Haga clic en **Save as** (Guardar como) bajo el lienzo. Escriba "Tutorial de SQL Server local en Azure Machine Learning Studio (clásico)" como nombre del experimento, seleccione el área de trabajo y haga clic en la marca de verificación de **Aceptar**.
+3. Haga clic en **Save as** (Guardar como) bajo el lienzo. Escriba "Tutorial de SQL Server local en Estudio de Machine Learning (clásico)" como nombre del experimento, seleccione el área de trabajo y haga clic en la marca de verificación de **Aceptar**.
 
    ![Guardado de un experimento con un nuevo nombre](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
 4. Haga clic en el módulo **Importar datos** para seleccionarlo y, en el panel **Properties** (Propiedades) de la derecha del lienzo, seleccione "SQL Database local" en la lista desplegable **Data source** (Origen de datos).
@@ -139,7 +139,7 @@ Después de configurar la puerta de enlace, puede agregar un módulo **Importar 
 
    ![Especificación de las credenciales de la base de datos](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   El mensaje "values required" (valores necesarios) cambiará a "values set" (valores establecidos) con una marca de verificación verde. Basta con que escriba las credenciales una vez, a menos que la información de la base de datos o la contraseña cambien. Azure Machine Learning Studio (clásico) usa el certificado que proporcionó al instalar la puerta de enlace para cifrar las credenciales en la nube. Azure nunca almacena credenciales locales sin cifrado.
+   El mensaje "values required" (valores necesarios) cambiará a "values set" (valores establecidos) con una marca de verificación verde. Basta con que escriba las credenciales una vez, a menos que la información de la base de datos o la contraseña cambien. Estudio de Machine Learning (clásico) usa el certificado que proporcionó al instalar la puerta de enlace para cifrar las credenciales en la nube. Azure nunca almacena credenciales locales sin cifrado.
 
    ![Propiedades del módulo de importación de datos](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Haga clic en **RUN** (Ejecutar) para ejecutar el experimento.

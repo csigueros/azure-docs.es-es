@@ -3,12 +3,12 @@ title: Habilitación automática de la copia de seguridad al crear máquinas vir
 description: Un artículo en el que se describe cómo usar Azure Policy para habilitar automáticamente la copia de seguridad de todas las máquinas virtuales creadas en un ámbito determinado
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe70ba544bb75cee7faf3a4eb3aa2f5ef440909e
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707309"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300617"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy
 
@@ -20,13 +20,13 @@ En la actualidad, Azure Backup proporciona una variedad de directivas integradas
 
 Si su organización tiene un equipo central de copia de seguridad que administra las copias de seguridad en todos los equipos de la aplicación, puede usar esta directiva para configurar la copia de seguridad en un almacén de Recovery Services central existente en la misma suscripción y ubicación que las máquinas virtuales que se controlan. Puede optar por **excluir** máquinas virtuales que contengan una determinada etiqueta del ámbito de esta directiva.
 
-## <a name="policy-2---preview-configure-backup-on-vms-with-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Directiva 2: [versión preliminar] Configuración de la copia de seguridad en las VM con una etiqueta dada en un almacén de Recovery Services existente en la misma ubicación
+## <a name="policy-2---configure-backup-on-vms-with-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Directiva 2: Configuración de la copia de seguridad en las VM con una etiqueta dada en un almacén de Recovery Services existente en la misma ubicación
 Esta directiva funciona igual que la directiva 1 anterior, con la única diferencia de que puede usar esta directiva para **incluir** máquinas virtuales que contengan una etiqueta determinada en el ámbito de esta directiva. 
 
-## <a name="policy-3---preview-configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Directiva 3: [versión preliminar] Configuración de la copia de seguridad en las VM sin una etiqueta dada en un nuevo almacén de Recovery Services con una directiva predeterminada
+## <a name="policy-3---configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Directiva 3: Configuración de la copia de seguridad en las VM sin una etiqueta dada en un nuevo almacén de Recovery Services con una directiva predeterminada
 Si organiza aplicaciones en grupos de recursos dedicados y desea que las copias de seguridad se realicen en el mismo almacén, esta directiva le permite administrar automáticamente esta acción. Puede optar por **excluir** máquinas virtuales que contengan una determinada etiqueta del ámbito de esta directiva.
 
-## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Directiva 4: [versión preliminar] Configuración de la copia de seguridad en las VM con una etiqueta dada en un nuevo almacén de Recovery Services con una directiva predeterminada
+## <a name="policy-4---configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Directiva 4: Configuración de la copia de seguridad en las VM con una etiqueta dada en un nuevo almacén de Recovery Services con una directiva predeterminada
 Esta directiva funciona igual que la directiva 3 anterior, con la única diferencia de que puede usar esta directiva para **incluir** máquinas virtuales que contengan una etiqueta determinada en el ámbito de esta directiva. 
 
 Además de lo anterior, Azure Backup también proporciona una directiva de [ solo auditoría](../governance/policy/concepts/effects.md#audit): **Azure Backup debe estar habilitado para máquinas virtuales**. Esta directiva identifica las máquinas virtuales que no tienen habilitada la copia de seguridad, pero no configura automáticamente las copias de seguridad de estas máquinas virtuales. Esto resulta útil cuando solo está pensando en evaluar el cumplimiento general de las máquinas virtuales, pero no desea tomar medidas inmediatamente.
@@ -40,8 +40,6 @@ Además de lo anterior, Azure Backup también proporciona una directiva de [ sol
 * En el caso de las directivas 1 y 2, actualmente no se admite el ámbito del grupo de administración.
 
 * Para las directivas 1 y 2, el almacén especificado y las máquinas virtuales configuradas para la copia de seguridad pueden pertenecer a distintos grupos de recursos.
-
-* Las directivas 1, 2, 3 y 4 no están disponibles actualmente en nubes nacionales.
 
 * Las directivas 3 y 4 se pueden asignar a una sola suscripción a la vez (o a un grupo de recursos dentro de una suscripción).
 

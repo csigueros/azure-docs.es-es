@@ -1,5 +1,5 @@
 ---
-title: Registros de aprovisionamiento en Azure Active Directory (versión preliminar) | Microsoft Docs
+title: Registros de aprovisionamiento en Azure Active Directory | Microsoft Docs
 description: Información general de los registros de aprovisionamiento en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,20 +17,20 @@ ms.date: 4/25/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42a1ea52c9de3332c2b73b5c03e203f6d6694c49
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: d110abaf9621b638d698bef08d579a5ab2c4285f
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017398"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113362078"
 ---
-# <a name="provisioning-logs-in-azure-active-directory-preview"></a>Registros de aprovisionamiento en Azure Active Directory (versión preliminar)
+# <a name="provisioning-logs-in-azure-active-directory"></a>Registros de aprovisionamiento en Azure Active Directory
 
 Como administrador de TI, quiere saber cómo funciona el entorno de TI. La información sobre el estado del sistema le permite evaluar si es necesario responder a posibles problemas y cómo hacerlo. 
 
 Para ayudarle a conseguir este objetivo, el portal de Azure Active Directory le proporciona acceso a tres registros de actividad:
 
-- **[Inicios de sesión](concept-sign-ins.md)** : información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
+- **[Inicios de sesión](concept-sign-ins.md)** : Información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
 - **[Auditoría](concept-audit-logs.md)** : información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos o las actualizaciones aplicadas a los recursos del inquilino.
 - **[Aprovisionamiento](concept-provisioning-logs.md)** : actividades realizadas por el servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado de Workday.
 
@@ -82,7 +82,7 @@ Para acceder a los datos de registro, tiene las siguientes opciones:
 
 ## <a name="where-can-you-find-it-in-the-azure-portal"></a>¿Dónde se puede encontrar en Azure Portal?
 
-Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú de Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
+Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
 
 ![Apertura de registros de aprovisionamiento](./media/concept-sign-ins/sign-ins-logs-menu.png)
 

@@ -1,21 +1,22 @@
 ---
-title: Creación de una versión de imagen a partir de otra ya existente con Azure Image Builder
-description: Cree una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder en Windows.
-author: cynthn
-ms.author: cynthn
+title: Creación de una versión de una imagen de máquina virtual Windows a partir de otra existente mediante Azure Image Builder
+description: Creación de una versión de una imagen de máquina virtual Windows a partir de otra existente mediante Azure Image Builder.
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.collection: windows
-ms.openlocfilehash: 619821c87c4897c93e6a0344a98335cf4f95a53b
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 08cc123df4d0b4af0d5a0e94d5ef0e4826b0681c
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112070838"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594812"
 ---
-# <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder en Windows
+# <a name="create-a-new-windows-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Creación de una versión de una imagen de máquina virtual Windows a partir de otra existente mediante Azure Image Builder
 
 En este artículo se muestra cómo tomar una versión de imagen existente en una [galería de imágenes compartidas](../shared-image-galleries.md), actualizarla y publicarla como una nueva versión de imagen en la galería.
 
@@ -123,6 +124,7 @@ Envíe la configuración de la imagen al servicio de generador de imágenes de m
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
+    --location $location \
     --properties @helloImageTemplateforSIGfromWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \

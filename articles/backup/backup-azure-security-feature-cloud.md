@@ -4,12 +4,12 @@ description: Aprenda a usar las características de seguridad de Azure Backup pa
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 29a441db597de5d71ec71dde3f13e0630fabc05e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2ba21b9e7fd864b70ad2916de2053530677438c5
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681291"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113304217"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminación temporal de Azure Backup
 
@@ -28,7 +28,9 @@ En este diagrama de flujo se explican los diferentes pasos y estados de un eleme
 
 ## <a name="enabling-and-disabling-soft-delete"></a>Habilitación y deshabilitación de la eliminación temporal
 
-La eliminación temporal se habilita de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para realizar la acción de eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Solo el propietario del almacén puede deshabilitar esta característica. Si se deshabilita, todas las eliminaciones posteriores de elementos protegidos se convertirán en eliminaciones inmediatas, sin la posibilidad de restaurar. Los datos de copia de seguridad que se encuentren en estado de eliminación temporal antes de deshabilitar esta característica permanecerán en ese estado durante el período de 14 días. Si quiere eliminarlos permanentemente de inmediato, debe recuperarlos y eliminarlos de nuevo para eliminarlos de forma permanente.
+La eliminación temporal se habilita de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para realizar la acción de eliminar y volver a proteger (por ejemplo, en un entorno de prueba).
+
+Para deshabilitar la eliminación temporal en un almacén, debe tener el rol Colaborador de copia de seguridad para ese almacén (debe tener permisos para realizar la operación Microsoft.RecoveryServices/Vaults/backupconfig/write en el almacén). Si se deshabilita, todas las eliminaciones posteriores de elementos protegidos se convertirán en eliminaciones inmediatas, sin la posibilidad de restaurar. Los datos de copia de seguridad que se encuentren en estado de eliminación temporal antes de deshabilitar esta característica permanecerán en ese estado durante el período de 14 días. Si quiere eliminarlos permanentemente de inmediato, debe recuperarlos y eliminarlos de nuevo para eliminarlos de forma permanente.
 
 Es importante recordar que una vez deshabilitada la eliminación temporal, la característica se deshabilita para todos los tipos de cargas de trabajo. Por ejemplo, no es posible deshabilitar la eliminación temporal solo en servidores SQL Server o bases de SAP HANA si está habilitada al mismo tiempo en máquinas virtuales del mismo almacén. Puede crear almacenes independientes para llevar a cabo un control granular.
 

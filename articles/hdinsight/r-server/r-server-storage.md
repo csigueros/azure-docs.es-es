@@ -2,17 +2,19 @@
 title: 'Soluciones de Azure Storage para ML Services en HDInsight: Azure'
 description: Obtenga información sobre las distintas opciones de almacenamiento disponibles con ML Service en HDInsight.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: ddc48025de164ff68fb539a293e06bae09171742
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2ed4e27fb680c14ed5bbae0585d89152c1999b97
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943899"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295874"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluciones de Azure Storage para ML Services en Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 ML Services en HDInsight puede usar diversas soluciones para almacenar datos, código u objetos que contienen resultados de análisis. Entre estas soluciones se incluyen las siguientes opciones:
 

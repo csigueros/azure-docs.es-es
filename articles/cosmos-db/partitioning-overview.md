@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 099c65143f29f4fdf341b52e5d80731f1bdb0808
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.date: 07/12/2021
+ms.openlocfilehash: b461b424a8b0d52533da824353abc2b24ec465a6
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031008"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666274"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Creación de particiones y escalado horizontal en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -71,7 +71,7 @@ Cada partición física se compone de un [*conjunto de réplicas*](global-dist-u
 
 Normalmente, los contenedores pequeños solo necesitan una partición física, pero siguen teniendo al menos cuatro réplicas.
 
-La siguiente imagen muestra cómo se asignan particiones lógicas a particiones físicas distribuidas globalmente:
+La siguiente imagen muestra cómo se asignan particiones lógicas a particiones físicas distribuidas globalmente. El [conjunto de particiones](global-dist-under-the-hood.md#partition-sets) de la imagen hace referencia a un grupo de particiones físicas que administran las mismas claves de partición lógica en varias regiones:
 
 :::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Una imagen que muestra las particiones de Azure Cosmos DB" border="false":::
 
@@ -135,3 +135,4 @@ Algunos aspectos que se deben tener en cuenta al seleccionar el *id. de elemento
 * Información sobre la [distribución global en Azure Cosmos DB](distribute-data-globally.md).
 * Obtenga más información sobre el [aprovisionamiento del rendimiento de un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).
 * Obtenga más información sobre el [aprovisionamiento del rendimiento de una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
+* Consulte el módulo de Learn [Modelado y partición de los datos en Azure Cosmos DB](/learn/modules/model-partition-data-azure-cosmos-db/).

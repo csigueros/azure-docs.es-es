@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 050b4011dbc46b6b6567965ed94847dbaf3560c6
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94616899"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982319"
 ---
 # <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 
@@ -29,13 +29,12 @@ Azure RBAC se puede asignar a un recurso de Custom Vision. Para conceder acceso 
    > [!NOTE]
    > También puede configurar Azure RBAC para grupos de recursos completos, suscripciones o grupos de administración. Para ello, seleccione el nivel de ámbito que quiera y navegue hasta el elemento deseado (por ejemplo, seleccione **Grupos de recursos** y, a continuación, haga clic en el grupo de recursos que quiera).
 1. Seleccione **Control de acceso (IAM)** en el panel de navegación izquierdo.
-1. Seleccione la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 1. Seleccione **Agregar** -> **Agregar asignación de roles**.
-1. En la lista desplegable **Rol**, seleccione el rol que quiere agregar.
-1. En la lista **Seleccionar**, seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro Seleccionar para buscar nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
-1. Seleccione **Guardar** para asignar el rol.
+1. En la pestaña **Rol** de la siguiente pantalla, seleccione el rol que desea agregar.
+1. En la pestaña **Miembros**, seleccione un usuario, grupo, entidad de servicio o identidad administrada.
+1. En la pestaña **Revisión y asignación**, seleccione **Revisión y asignación** para asignar el rol.
 
-En cuestión de minutos, al destino se le asignará el rol seleccionado en el ámbito seleccionado.
+En cuestión de minutos, al destino se le asignará el rol seleccionado en el ámbito seleccionado. Para obtener ayuda con estos pasos, consulte [Asignación de roles de Azure mediante Azure Portal](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ## <a name="custom-vision-role-types"></a>Tipos de rol de Custom Vision
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 27bb3f163dc8f1a2f50e39ca5bbb5708419cb171
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: afadabb0503cde997858fce1ff9d1e82ac6d2f89
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073907"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679527"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configuración de las restricciones de acceso de Azure App Service
 
@@ -95,7 +95,7 @@ No puede usar puntos de conexión de servicio para restringir el acceso a las ap
 Con puntos de conexión de servicio, la aplicación se puede configurar con puertas de enlace de aplicación u otros dispositivos de firewall de aplicaciones web (WAF). También se pueden configurar aplicaciones de varios niveles con back-ends seguros. Para más información, lea [Características de redes de App Service](networking-features.md) e [Integración de Application Gateway con puntos de conexión de servicio](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> - Actualmente no se admiten puntos de conexión de servicio para las aplicaciones web que usan IP virtual (VIP) con Capa de sockets seguros (SSL) de IP.
+> - Actualmente no se admiten puntos de conexión de servicio para las aplicaciones web que usan enlaces TLS/SSL basados en IP con una dirección IP virtual (VIP).
 >
 #### <a name="set-a-service-tag-based-rule"></a>Establecimiento de una regla basada en una etiqueta de servicio
 

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: 3445ca559dc54e693912e1d796caeb1f940ab23e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d9de6322ac84a86902b5ef218df9abe8528b95a9
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474898"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231492"
 ---
 # <a name="buy-a-reservation"></a>Adquisición de una reserva
 
@@ -37,7 +37,7 @@ Tiene tres opciones para limitar el ámbito de una reserva, según sus necesidad
 
 - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
 - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
-- **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación.
+- **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Si una suscripción se movió a un contexto de facturación diferente, la ventaja ya no se aplicará a esta suscripción y se seguirá aplicando a otras suscripciones en el contexto de facturación.
     - Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. El ámbito compartido de la reserva incluiría varios inquilinos de Active Directory en una inscripción.
     - En el caso de los clientes con contrato Microsoft Customer Agreement, el ámbito de facturación es el perfil de facturación.
     - En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.

@@ -1,28 +1,27 @@
 ---
 title: Guía para el ajuste de tamaño
-description: Planee el tamaño de una implementación de los servicios de datos habilitados para Azure Arc.
+description: Planee el tamaño de una implementación de los servicios de datos habilitados para Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bbd778eabf150b734b04e004006dfeea2254ec4
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 6ac2397823dffd2c31cbe534c8fea1886e84558d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077489"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733494"
 ---
 # <a name="sizing-guidance"></a>Guía para el ajuste de tamaño
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="overview-of-sizing-guidance"></a>Introducción a la guía para el ajuste de tamaño
 
-Al planear la implementación de los servicios de datos de Azure Arc, debe planear la cantidad correcta de recursos de proceso, memoria y almacenamiento que se necesitan para ejecutar el controlador de datos de Azure Arc y para la cantidad de instancias administradas de SQL y grupos de servidores de Hiperescala de PostgreSQL.  Como los servicios de datos habilitados para Azure Arc se implementan en Kubernetes, tiene la flexibilidad de agregar capacidad adicional al clúster de Kubernetes a lo largo del tiempo mediante la incorporación de almacenamiento o nodos de ejecución adicionales.  En esta guía se proporcionan instrucciones sobre los requisitos mínimos, además de instrucciones sobre los tamaños recomendados para algunos requisitos comunes.
+Al planear la implementación de los servicios de datos de Azure Arc, debe planear la cantidad correcta de recursos de proceso, memoria y almacenamiento que se necesitan para ejecutar el controlador de datos de Azure Arc y para la cantidad de instancias administradas de SQL y grupos de servidores de Hiperescala de PostgreSQL.  Como los servicios de datos habilitados para Azure Arc se implementan en Kubernetes, tiene la flexibilidad de agregar capacidad adicional al clúster de Kubernetes a lo largo del tiempo mediante la incorporación de almacenamiento o nodos de ejecución adicionales.  En esta guía se proporcionan instrucciones sobre los requisitos mínimos, además de instrucciones sobre los tamaños recomendados para algunos requisitos comunes.
 
 ## <a name="general-sizing-requirements"></a>Requisitos generales de tamaño
 
@@ -31,7 +30,7 @@ Al planear la implementación de los servicios de datos de Azure Arc, debe plan
 
 El número de núcleos debe ser un valor entero mayor o igual que uno.
 
-Al usar azdata para la implementación, se deben especificar los valores de memoria en una potencia de dos números; es decir, con los sufijos: Ki, Mi o Gi.
+Al usar la CLI de Azure (az) para la implementación, se deben especificar los valores de memoria como una potencia de dos; es decir, con los sufijos: Ki, Mi o Gi.
 
 Los valores límite siempre deben ser mayores que el valor de la solicitud, si se especifica.
 
@@ -39,7 +38,7 @@ Los valores límite de los núcleos son la métrica facturable en la instancia a
 
 ## <a name="minimum-deployment-requirements"></a>Requisitos mínimos de implementación
 
-Una implementación de servicios de datos habilitados para Azure Arc de tamaño mínimo se debe considerar como el controlador de datos de Azure Arc más una instancia administrada de SQL más un grupo de servidores de Hiperescala de PostgreSQL con dos nodos de trabajo.  En el caso de esta configuración, necesita al menos 16 GB de RAM y 4 núcleos de capacidad _disponible_ en el clúster de Kubernetes.  Debe asegurarse de que tiene un tamaño mínimo de nodo de Kubernetes de 8 GB de memoria RAM y 4 núcleos y una capacidad total de 16 GB de RAM disponible entre todos los nodos de Kubernetes.  Por ejemplo, podría tener 1 nodo con 32 GB de memoria RAM y 4 núcleos o bien tener 2 nodos con 16 GB de memoria RAM y 4 núcleos cada uno.
+Una implementación de servicios de datos habilitados para Azure Arc de tamaño mínimo se debe considerar como el controlador de datos de Azure Arc más una instancia administrada de SQL más un grupo de servidores Hiperescala de PostgreSQL con dos nodos de trabajo.  En el caso de esta configuración, necesita al menos 16 GB de RAM y 4 núcleos de capacidad _disponible_ en el clúster de Kubernetes.  Debe asegurarse de que tiene un tamaño mínimo de nodo de Kubernetes de 8 GB de memoria RAM y 4 núcleos y una capacidad total de 16 GB de RAM disponible entre todos los nodos de Kubernetes.  Por ejemplo, podría tener 1 nodo con 32 GB de memoria RAM y 4 núcleos o bien tener 2 nodos con 16 GB de memoria RAM y 4 núcleos cada uno.
 
 Para detalles sobre el ajuste de tamaño, consulte el artículo [storage-configuration](storage-configuration.md).
 
@@ -52,13 +51,11 @@ El controlador de datos es una colección de pods que se implementan en el clús
 |**bootstrapper**|100 m|100 Mi|200 m|200 Mi||
 |**control**|400 m|2 Gi|1800 m|2 Gi||
 |**controldb**|200 m|3 Gi|800 m|6 Gi||
-|**controlwd**|10 m|100 Mi|100 m|200 Mi||
 |**logsdb**|200 m|1600 Mi|2|1600 Mi||
 |**logsui**|100 m|500 Mi|2|2 Gi||
 |**metricsdb**|200 m|800 Mi|400 m|2 Gi||
 |**metricsdc**|100 m|200 Mi|200 m|300 Mi|Metricsdc es un DaemonSet que se crea en cada uno de los nodos de Kubernetes del clúster.  En esta tabla, los números son _por nodo_. Si establece allowNodeMetricsCollection = false en el archivo del perfil de implementación antes de crear el controlador de datos, no se creará el DaemonSet metricsdc.|
 |**metricsui**|20 m|200 Mi|500 m|200 Mi||
-|**mgmtproxy**|200 m|250 Mi|500 m|500 Mi||
 
 Puede invalidad la configuración predeterminada de los pods controldb y control en el archivo de perfil de implementación o en el archivo YAML de datacontroller.  Ejemplo:
 
@@ -84,9 +81,14 @@ Para detalles sobre el ajuste de tamaño, consulte el artículo [storage-configu
 
 ## <a name="sql-managed-instance-sizing-details"></a>Detalles de ajuste de tamaño de la instancia administrada de SQL
 
-Cada instancia administrada de SQL debe tener estas solicitudes de recursos mínimas:
-- Memoria: 2 Gi
-- Núcleos: 1
+Cada instancia administrada de SQL debe tener las siguientes solicitudes y límites de recursos mínimos:
+
+|Nivel de servicio|Uso general|Crítico para la empresa (versión preliminar)|
+|---|---|---|
+|Solicitud de CPU|Mínimo: 1; Máximo: 24; Valor predeterminado: 2|Mínimo: 1; Máximo: ilimitado; Valor predeterminado: 4|
+|Límite de CPU|Mínimo: 1; Máximo: 24; Valor predeterminado: 2|Mínimo: 1; Máximo: ilimitado; Valor predeterminado: 4|
+|Solicitud de memoria|Mínimo: 2 Gi; Máximo: 128 Gi; Valor predeterminado: 4 Gi|Mínimo: 2 Gi; Máximo: ilimitado; Valor predeterminado: 4 Gi|
+|Límite de memoria|Mínimo: 2 Gi; Máximo: 128 Gi; Valor predeterminado: 4 Gi|Mínimo: 2 Gi; Máximo: ilimitado; Valor predeterminado: 4 Gi|
 
 Cada pod de instancia administrada de SQL que se crea tiene tres contenedores:
 
@@ -114,9 +116,9 @@ Cada pod de trabajo o de coordinación del grupo de servidores de Hiperescala de
 
 ## <a name="cumulative-sizing"></a>Ajuste de tamaño acumulado
 
-El tamaño total de un entorno necesario para los servicios de datos habilitados para Azure Arc es principalmente una función del número y el tamaño de las instancias de base de datos que se van a crear.  Puede ser difícil predecir con anticipación el tamaño total sabiendo que el número de instancias crecerá y disminuirá y que la cantidad de recursos necesarios para cada instancia de base de datos cambiará.
+El tamaño total necesario de un entorno para los servicios de datos habilitados para Azure Arc es principalmente una función del número y el tamaño de las instancias de base de datos que se van a crear.  Puede ser difícil predecir con anticipación el tamaño total sabiendo que el número de instancias crecerá y disminuirá y que la cantidad de recursos necesarios para cada instancia de base de datos cambiará.
 
-El tamaño de línea de base de un entorno de servicios de datos habilitados para Azure Arc es el tamaño del controlador de datos, que requiere 4 núcleos y 16 GB de RAM.  Desde ahí, puede agregar el total acumulado de núcleos y memoria que se requieren para las instancias de base de datos.  En el caso de la instancia administrada de SQL, la cantidad de pods es igual al número de instancias administradas de SQL que se crean.  En el caso de los grupos de servidores de Hiperescala de PostgreSQL, la cantidad de pods es igual al número de nodos de trabajo más uno para el nodo de coordinación.  Por ejemplo, si tiene un grupo de servidores de PostgreSQL con 3 nodos de trabajo, el número total de pods será 4.
+El tamaño de línea base de un entorno de servicios de datos habilitados para Azure Arc determinado es el tamaño del controlador de datos, que requiere 4 núcleos y 16 GB de RAM.  Desde ahí, puede agregar el total acumulado de núcleos y memoria que se requieren para las instancias de base de datos.  En el caso de la instancia administrada de SQL, la cantidad de pods es igual al número de instancias administradas de SQL que se crean.  En el caso de los grupos de servidores de Hiperescala de PostgreSQL, la cantidad de pods es igual al número de nodos de trabajo más uno para el nodo de coordinación.  Por ejemplo, si tiene un grupo de servidores de PostgreSQL con 3 nodos de trabajo, el número total de pods será 4.
 
 Además de los núcleos y la memoria que solicita para cada instancia de base de datos, debe sumar 250 m de núcleos y 250 Mi de RAM para los contenedores del agente.
 
@@ -146,9 +148,9 @@ Para detalles sobre el ajuste de tamaño, consulte el artículo [storage-configu
 
 Tenga en cuenta que la solicitud de tamaño de una instancia de base de datos determinada para núcleos o RAM no puede superar la capacidad disponible de los nodos de Kubernetes en el clúster.  Por ejemplo, si el nodo de Kubernetes más grande que tiene en el clúster de Kubernetes tiene 256 GB de RAM y 24 núcleos, no podrá crear una instancia de base de datos con una solicitud de 512 GB de RAM y 48 núcleos.  
 
-Se recomienda mantener al menos el 25 % de la capacidad disponible en todos los nodos de Kubernetes para permitir que Kubernetes programe de manera eficaz los pods que se van a crear y para permitir el escalado elástico y el crecimiento a largo plazo a petición.  
+Se recomienda mantener al menos el 25 % de la capacidad disponible en todos los nodos de Kubernetes para permitir que Kubernetes programe de manera eficaz los pods que se van a crear y para permitir el escalado elástico, las actualizaciones graduales de los nodos de Kubernetes y el crecimiento a largo plazo a petición.
 
-En los cálculos de ajuste de tamaño, no olvide sumar los requisitos de recursos de los pods del sistema de Kubernetes y cualquier otra carga de trabajo que pueda estar compartiendo capacidad con los servicios de datos habilitados para Azure Arc en el mismo clúster de Kubernetes.
+En los cálculos de dimensionamiento, no olvide sumar los requisitos de recursos de los pods del sistema de Kubernetes y cualquier otra carga de trabajo que pueda estar compartiendo capacidad con los servicios de datos habilitados para Azure Arc en el mismo clúster de Kubernetes.
 
 Para mantener la alta disponibilidad durante el mantenimiento planeado y la continuidad ante desastres, debe planear que al menos uno de los nodos de Kubernetes en el clúster no estará disponible en un momento determinado.  Kubernetes intentará volver a programar los pods que se ejecutaban en un nodo determinado que se retiró para realizar mantenimiento o debido a un error.  Si no hay ninguna capacidad disponible en el resto de los nodos, estos pods no se volverán a programar para su creación hasta que haya capacidad disponible de nuevo.  Tenga especial cuidado con las instancias de base de datos de gran tamaño.  Por ejemplo, si solo hay un nodo de Kubernetes lo suficientemente grande como para cumplir con los requisitos de recursos de una instancia de base de datos de gran tamaño y ese nodo presenta un error, Kubernetes no podrá programar el pod de dicha instancia de base de datos en otro nodo de Kubernetes.
 

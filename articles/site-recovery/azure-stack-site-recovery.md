@@ -3,12 +3,12 @@ title: Replicar máquinas virtuales de Azure Stack en Azure con Azure Site Recov
 description: Aprenda a configurar la recuperación ante desastres en Azure para máquinas virtuales de Azure Stack con el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 300b239de74c7d21e03eb0c3b059663b5074964c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 386eae05ea06b59aac290d5f1f51d643d7952b6a
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728392"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580429"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -82,7 +82,7 @@ Asegúrese de que las máquinas virtuales ejecuten uno de los sistemas operativo
 
 **Sistema operativo** | **Detalles**
 --- | ---
-**Windows de 64 bits** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (desde SP1)
+**Windows de 64 bits** | Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (desde SP1)
 **CentOS** | Desde 5.2 hasta 5.11, desde 6.1 hasta 6.9 y desde 7.0 hasta 7.3
 **Ubuntu** | Servidor 14.04 LTS, servidor 16.04 LTS. Revise los [kernels compatibles](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions).
 

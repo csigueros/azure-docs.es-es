@@ -1,5 +1,5 @@
 ---
-title: Migración de datos de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+title: 'Migración de una instancia local de MySQL a Azure Database for MySQL: migración de datos'
 description: Como paso prudente antes de actualizar o migrar datos, exporte la base de datos mediante MySQL Workbench o manualmente mediante el comando mysqldump.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 44b2c8aa22944cdf31c9f111a32856e5095d369d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 9e53243424f4cb0b289c0ebba9c82cb9fb4853cc
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082943"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084953"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-data-migration"></a>Migración de datos de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-data-migration"></a>Migración de una instancia local de MySQL a Azure Database for MySQL: migración de datos
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -321,6 +323,8 @@ Ahora que tiene los componentes de migración básicos en su lugar, puede contin
 
   - Asegúrese de que todas las tareas están documentadas y desactivadas a medida que se ejecuta la migración.  
 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Migración de datos con MySQL Workbench](./09-data-migration-with-mySQL-workbench.md)

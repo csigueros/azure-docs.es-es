@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 9184a3f429804ac383f137de49c5391e2e1db80f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6071420216a4c3e365ca5c35e1bf59713974e679
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439245"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360549"
 ---
 # <a name="certificate-requirements"></a>Requisitos de certificados
 
@@ -34,7 +34,11 @@ Los requisitos de emisión de certificados son los siguientes:
 
 ## <a name="certificate-algorithms"></a>Algoritmos de certificados
 
-Los algoritmos de certificados deben tener los siguientes requisitos:
+Los certificados Rivest–Shamir–Adleman (RSA) son los únicos que se admiten en su dispositivo. No se admiten los certificados Elliptic Curve Digital Signature Algorithm (ECDSA).
+
+Los certificados que contienen una clave pública RSA se conocen como certificados RSA. Los certificados que contienen una clave pública criptográfica de curva elíptica (ECC) se conocen como certificados ECDSA (algoritmo de firma digital de curva elíptica).
+
+Estos son los requisitos del algoritmo de certificados:
 
 * Los certificados no deben usar el algoritmo de claves RSA.
 
@@ -46,7 +50,7 @@ Los algoritmos de certificados deben tener los siguientes requisitos:
 
 ## <a name="certificate-subject-name-and-subject-alternative-name"></a>Nombre del firmante y nombre alternativo del firmante del certificado
 
-Los certificados deben tener los siguientes requisitos de nombre del firmante y nombre alternativo del firmante:
+Los certificados deben cumplir los siguientes requisitos de nombre del firmante y nombre alternativo del firmante:
 
 * Puede usar un único certificado que abarque todos los espacios de nombres en los campos de nombre alternativo del firmante (SAN) del certificado. O bien, como alternativa, puede usar certificados individuales para cada uno de los espacios de nombres. Para ambos enfoques hay que usar caracteres comodín para los puntos de conexión donde sean necesarios, como un objeto binario grande (blob).
 
@@ -87,14 +91,12 @@ Los certificados PFX instalados en el dispositivo Azure Stack Edge Pro deben cum
 
 * Use solamente certificados RSA con proveedor de servicios criptográficos RSA/Schannel de Microsoft.
 
-Para obtener más información, consulte [Exportación de certificados PFX con una clave privada](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
+Para obtener más información, consulte [Exportación de certificados PFX con una clave privada](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Uso de certificados con Azure Stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md)
+- Creación de certificados para un dispositivo.
 
-[Creación de certificados para Azure Stack Edge Pro con la herramienta Azure Stack Hub Readiness Checker](azure-stack-edge-gpu-create-certificates-tool.md)
+    - Mediante [cmdlets de Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md).
+    - Mediante la [herramienta Azure Stack Hub Readiness Checker](azure-stack-edge-gpu-create-certificates-tool.md).
 
-[Exportación de certificados PFX con una clave privada](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
-
-[Solución de problemas de certificados](azure-stack-edge-gpu-certificate-troubleshooting.md)

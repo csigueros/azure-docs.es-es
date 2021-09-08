@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 99349654bb01f368a2a3a84c4ecc01f248b25175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffe772677e8de28c3ea0de31092f1aca693feccf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552769"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734574"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Optimización del rendimiento en las máquinas virtuales Linux de la serie Lsv2
 
@@ -32,7 +32,7 @@ El diseño de las máquinas virtuales de la serie Lsv2 maximiza el procesador A
 
 En este artículo se proporcionan consejos y sugerencias para asegurarse de que las cargas de trabajo y las aplicaciones alcanzan el máximo rendimiento diseñado en las máquinas virtuales. La información de esta página se actualizará continuamente a medida que se agreguen más imágenes optimizadas de Lsv2 a Azure Marketplace.
 
-## <a name="amd-eypc-chipset-architecture"></a>Arquitectura del conjunto de chips AMD EYPC™
+## <a name="amd-epyc-chipset-architecture"></a>Arquitectura del conjunto de chips AMD EPYC™
 
 Las máquinas virtuales de la serie Lsv2 usan procesadores de servidor AMD EYPC™ basados en la microarquitectura Zen. AMD desarrolló Infinity Fabric (IF) para EYPC™ como interconexión escalable para su modelo NUMA que podría usarse para las comunicaciones en la placa, en el paquete y en comunicaciones de varios paquetes. En comparación con QPI (Quick-Path Interconnect) y UPI (Ultra-Path Interconnect), que se usan en los procesadores de placa monolítica moderna de Intel, la arquitectura de muchas placas pequeñas de NUMA de AMD aporta beneficios de rendimiento, por un lado, y diferentes retos por el otro. La repercusión real de las restricciones de ancho de banda y latencia de memoria puede variar según el tipo de cargas de trabajo.
 

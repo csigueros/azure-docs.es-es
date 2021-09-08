@@ -1,28 +1,25 @@
 ---
-title: Uso de identidades administradas para acceder a Event Hubs desde un trabajo de Azure Stream Analytics (versión preliminar)
+title: Uso de identidades administradas para acceder a Event Hubs desde un trabajo de Azure Stream Analytics
 description: En este artículo se describe cómo usar identidades administradas para autenticar su trabajo de Azure Stream Analytics en la entrada y la salida de Azure Event Hubs.
-author: sidramadoss
-ms.author: sidram
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/07/2021
-ms.openlocfilehash: c0f81c5abdffe307550d2b0b3e1f86f67f867f5a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 07/07/2021
+ms.openlocfilehash: 4b470ff5336807fd92ae14af2548cd3a4305c6ed
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591303"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113485912"
 ---
-# <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Event Hubs desde un trabajo de Azure Stream Analytics (versión preliminar)
+# <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job"></a>Uso de identidades administradas para acceder a Event Hubs desde un trabajo de Azure Stream Analytics
 
 Azure Stream Analytics admite la autenticación de identidad administrada tanto para la entrada como para la salida de Azure Event Hubs. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en el usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña o la expiración de tokens de usuario que se produce cada 90 días. Cuando se elimina la necesidad de autenticarse manualmente, las implementaciones de Stream Analytics se pueden automatizar completamente.  
 
 Una identidad administrada es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado. La aplicación administrada se usa para autenticarse en un recurso de destino, incluido los centros de eventos que están detrás de un firewall o una red virtual (VNet). Para más información sobre cómo pasar por alto los firewalls, consulte [Permiso para acceder a los espacios de nombres de Azure Event Hubs a través de puntos de conexión privados](../event-hubs/private-link-service.md#trusted-microsoft-services).
 
 En este artículo se muestra cómo habilitar la identidad administrada para la salida o entrada de Event Hubs de un trabajo de Stream Analytics a través de Azure Portal. Antes de habilitar la identidad administrada, primero debe tener un trabajo de Stream Analytics y un recurso de centro de eventos.
-
-### <a name="limitation"></a>Limitación
-En la versión preliminar, el muestreo de la entrada desde Event Hubs en Azure Portal no funcionará si se usa el modo de autenticación de identidad administrada.
 
 ## <a name="create-a-managedidentity"></a>Creación de una entidad administrada  
 

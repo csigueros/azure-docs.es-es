@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8b2378949e0ead4d05651fc28919aceecd4c542
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 9e58650a98539b815173040cf0e47c200045b2bb
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785032"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728505"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de aprovisionamiento automático de usuarios en Azure Active Directory
 
@@ -44,7 +44,7 @@ Las ventajas principales de habilitar el aprovisionamiento automático de usuari
 
 ### <a name="licensing"></a>Licencias
 
-Azure AD ofrece la integración de autoservicio de cualquier aplicación mediante las plantillas que se proporcionan en el menú de la galería de aplicaciones. Para una lista completa de los requisitos de licencia, consulte la [página de licencias de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD ofrece la integración de autoservicio de cualquier aplicación mediante las plantillas que se proporcionan en el menú de la galería de aplicaciones. Para ver una lista completa de los requisitos de licencia, consulte la [página de precios de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 #### <a name="application-licensing"></a>Licencias de aplicaciones
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.author: v-erkel
-ms.openlocfilehash: 36e0135102fbede5505e96fb1aa255588b2f2ae2
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 84d5948cd4d3fbf69c3e8e983dedc280f1f7d950
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259920"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585742"
 ---
 # <a name="is-your-job-a-good-fit-for-azure-hpc-cache"></a>¿Azure HPC Cache es una opción adecuada para su trabajo?
 
@@ -19,7 +19,7 @@ Azure HPC Cache puede acelerar el acceso a los datos para los trabajos de inform
 
 En el artículo de [Información general](hpc-cache-overview.md) también se ofrece un breve resumen de cuándo usar Azure HPC Cache y algunos ejemplos de casos de uso.
 
-Consulte también [este artículo](nfs-blob-considerations.md) acerca de cómo usar de manera eficaz el [almacenamiento de blobs montado en NFS](../storage/blobs/network-file-system-protocol-support.md), que se encuentra en versión preliminar.
+Consulte también [este artículo](nfs-blob-considerations.md) acerca de cómo usar de manera eficaz el [almacenamiento de blobs montado en NFS](../storage/blobs/network-file-system-protocol-support.md).
 
 ## <a name="nfs-version-30-applications"></a>Aplicaciones NFS versión 3.0
 
@@ -54,4 +54,4 @@ Al usar Azure HPC Cache, no es necesario rediseñar la canalización de trabajo 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre cómo planear y configurar una caché en los artículos de [Información general](hpc-cache-overview.md) y [Requisitos previos](hpc-cache-prerequisites.md)
-* Consulte las consideraciones sobre el uso de [Blob Storage habilitado para NFS](nfs-blob-considerations.md) (VERSIÓN PRELIMINAR) con Azure HPC Cache
+* Consulte las consideraciones sobre el uso de [Blob Storage habilitado para NFS](nfs-blob-considerations.md) con Azure HPC Cache

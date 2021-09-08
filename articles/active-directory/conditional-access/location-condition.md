@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 06/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, olhuan
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: e417ec70c39ff17a62237361a68dde5bb633dcdf
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 46e256aaac608d65211aa4575fc14faa9824a4bb
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845418"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112574073"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso la condición de ubicación en una directiva de acceso condicional 
 
@@ -84,7 +84,12 @@ Si selecciona **Determine location by GPS coordinates (Preview)** [Determinar ub
 
 La primera vez que se requiera que el usuario comparta su ubicación desde la aplicación Microsoft Authenticator, el usuario recibirá una notificación en la aplicación. El usuario tendrá que abrir la aplicación y conceder permisos de ubicación. 
 
-En las 24 horas siguientes, si el usuario sigue accediendo al recurso y ha concedido a la aplicación permiso para ejecutarse en segundo plano, la ubicación se compartirá de forma silenciosa una vez por hora desde el dispositivo, por lo que el usuario no tendrá que seguir sacando su dispositivo móvil. Después de 24 horas, el usuario tendrá que abrir la aplicación y aprobar manualmente la notificación.
+Durante las siguientes 24 horas, el usuario sigue con acceso al recurso y se le concede el permiso de aplicación para la ejecución en segundo plano; la ubicación del dispositivo se comparte de forma silenciosa una vez cada hora. Después de 24 horas, el usuario debe abrir la aplicación y aprobar la notificación. Cada vez que el usuario comparte su ubicación GPS, la aplicación realiza la detección de jailbreak (con la misma lógica que el SDK de MAM de Intune). Si el dispositivo excede los límites de jailbreak, la ubicación no se considera válida y no se concede acceso al usuario. 
+
+Una directiva de acceso condicional con ubicaciones con nombre basadas en GPS en modo de solo informe solicita a los usuarios que compartan su ubicación GPS, aunque no se les bloquee el inicio de sesión.
+
+> [!IMPORTANT]
+> Los usuarios pueden recibir mensajes cada hora que les permiten saber que Azure AD está comprobando su ubicación en la aplicación Authenticator. La versión preliminar solo se debe usar para proteger aplicaciones muy confidenciales cuando este comportamiento sea aceptable o cuando el acceso se deba restringir a un país o región específicos.
 
 #### <a name="include-unknown-countriesregions"></a>Inclusión de países o regiones desconocidos
 

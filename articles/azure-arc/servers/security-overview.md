@@ -2,13 +2,13 @@
 title: Introducción a la seguridad
 description: Información de seguridad sobre los servidores habilitados para Azure Arc.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: aa8653b783e7eb3e211b7514831604dd5642cfbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: 113eaaf779409cd77e66b253074146dfaa0ff0ab
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98117034"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390225"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>Introducción a la seguridad de Azure Arc para servidores
 
@@ -16,7 +16,7 @@ En este artículo se describen la configuración y consideraciones de seguridad 
 
 ## <a name="identity-and-access-control"></a>Control de identidades y acceso
 
-Cada servidor habilitado para Azure Arc tiene una identidad administrada como parte de un grupo de recursos dentro de una suscripción a Azure. Esta identidad representa al servidor que se ejecuta en el entorno local o en otro entorno de nube. El acceso a este recurso se controla mediante el [control de acceso basado en roles de Azure](../../role-based-access-control/overview.md) estándar. En la página [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) de Azure Portal, puede comprobar quién tiene acceso a su servidor habilitado para Azure Arc.
+Cada servidor habilitado para Azure Arc tiene una identidad administrada como parte de un grupo de recursos dentro de una suscripción a Azure. Esta identidad representa al servidor que se ejecuta en el entorno local o en otro entorno de nube. El acceso a este recurso se controla mediante el [control de acceso basado en roles de Azure](../../role-based-access-control/overview.md) estándar. En la página [**Access Control (IAM)** ](../../role-based-access-control/role-assignments-portal.md) de Azure Portal, puede comprobar quién tiene acceso a su servidor habilitado para Azure Arc.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Control de acceso del servidor habilitado para Azure Arc" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
@@ -56,4 +56,6 @@ El agente de Azure Connected Machine usa la autenticación de clave pública par
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Antes de evaluar o habilitar los servidores habilitados para Arc en varias máquinas híbridas, consulte el artículo [Información general del agente de Connected Machine](agent-overview.md) a fin de conocer los requisitos, los detalles técnicos del agente y los métodos de implementación.
+* Antes de evaluar o habilitar los servidores habilitados para Arc en varias máquinas híbridas, consulte la [introducción al agente de Connected Machine](agent-overview.md) para conocer los requisitos y detalles técnicos del agente y los métodos de implementación.
+
+* Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.

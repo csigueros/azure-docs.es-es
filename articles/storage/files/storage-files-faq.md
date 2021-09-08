@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ff5d891b4374a61c8806666a48505a2ee4682a67
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 47400f8e359f8f5f7a05119eb91106b318a0e798
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094481"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729585"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -200,7 +200,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
     - Azure File Sync conserva y replica todas las ACL discrecionales, o DACL, locales o basadas en Active Directory en todos los puntos de conexión de servidor con los que se sincroniza. 
     
-    Puede hacer referencia al artículo [Autorización de acceso a Azure Storage](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener una representación completa de todos los protocolos admitidos en los servicios de Azure Storage. 
+    Puede hacer referencia al artículo [Autorización de acceso a Azure Storage](../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener una representación completa de todos los protocolos admitidos en los servicios de Azure Storage. 
     
 * <a id="encryption-at-rest"></a>
  **¿Cómo se puede garantizar que el recurso compartido de archivos de Azure está cifrado en reposo?**  
@@ -330,7 +330,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="when-to-use-nfs"></a>
  **¿Cuándo debo usar NFS en Azure Files?**
 
-    Consulte [Recursos compartidos NFS (versión preliminar)](storage-files-compare-protocols.md#nfs-shares-preview).
+    Consulte [Recursos compartidos NFS (versión preliminar)](files-nfs-protocol.md).
 
 * <a id="backup-nfs-data"></a>
  **¿Cómo hago una copia de seguridad de los datos almacenados en recursos compartidos NFS?**
@@ -451,7 +451,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="need-larger-share"></a>
  **¿Qué tamaños están disponibles para los recursos compartidos de archivos de Azure?**  
-    Los tamaños de recursos compartidos de archivos de Azure (Premium y estándar) pueden escalar hasta 100 TiB. Consulte la sección [Incorporación de recursos compartidos de archivos de mayor tamaño (nivel estándar)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) de la Guía de planeación para obtener instrucciones de incorporación para los recursos compartidos de archivos más grandes para el nivel estándar.
+    Los tamaños de recursos compartidos de archivos de Azure (Premium y estándar) pueden escalar hasta 100 TiB. Para más información, consulte [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
 
 * <a id="lfs-performance-impact"></a>
  **¿Expandir mi cuota de recursos compartidos de archivos afecta mis cargas de trabajo o a Azure File Sync?**

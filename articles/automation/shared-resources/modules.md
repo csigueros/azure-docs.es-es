@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48888f9ca840888310aebcc82d38d2af351a8611
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 9fc7a8d5b27da251f13f2c9dfeffa03f7cdbd149
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277901"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114452565"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Administración de módulos en Azure Automation
 
@@ -38,6 +38,9 @@ El espacio aislado de nube admite 48 llamadas del sistema como máximo y, por mo
 Debido al número de módulos y cmdlets incluidos, es difícil saber de antemano cuál de los cmdlets realizará llamadas no admitidas. Por lo general, se han detectado problemas con cmdlets que requieren acceso con privilegios elevados, que requieren una credencial como parámetro o con cmdlets relacionados con redes. Los cmdlets que realizan operaciones de red de pila completa no se admiten en el espacio aislado, lo que incluye [Connect-AipService](/powershell/module/aipservice/connect-aipservice) del módulo AIPService de PowerShell y [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) del módulo DNSClient.
 
 Estas son limitaciones conocidas del espacio aislado. La solución recomendada es implementar una instancia de [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) o usar [Azure Functions](../../azure-functions/functions-overview.md).
+
+> [!IMPORTANT] 
+> No incluya la palabra clave "AzureRm" en ningún script diseñado para ejecutarse con el módulo Az. La inclusión de la palabra clave, incluso en un comentario, puede hacer que AzureRm se cargue y, a continuación, entre en conflicto con el módulo Az.
 
 ## <a name="default-modules"></a>Módulos predeterminados
 

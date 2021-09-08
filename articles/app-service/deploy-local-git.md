@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 02/16/2021
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3196233728bb7f6493bbc06234c62d261ac99254
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 90acf43471e0213b801e4d147fe4e8a8abbd0394
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832400"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723072"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en Azure App Service
 
 En esta guía se muestra cómo implementar la aplicación en [Azure App Service](overview.md) desde un repositorio Git en la máquina local.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos de esta guía:
 
@@ -121,7 +121,7 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
     > [!NOTE]
     > Si ha [creado una aplicación habilitada para Git en PowerShell mediante New-AzWebApp](#create-a-git-enabled-app), el repositorio remoto ya se ha creado.
    
-1. Acceda a la instancia remota de Azure con `git push azure master`. 
+1. Envíe los cambios a la instancia remota de Azure con `git push azure master` (consulte [Cambiar la rama de implementación](#change-deployment-branch)). 
    
 1. En la ventana **Administrador de credenciales de Git**, escriba las [credenciales de ámbito de usuario o ámbito de aplicación](#configure-a-deployment-user), no las credenciales de inicio de sesión de Azure.
 
@@ -131,16 +131,33 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
    
 1. Busque su aplicación en Azure Portal para comprobar que el contenido esté implementado.
 
+## <a name="change-deployment-branch"></a>Cambiar la rama de implementación
+
+Al insertar confirmaciones en el repositorio de App Service, App Service implementa los archivos de la rama `master` de forma predeterminada. Dado que muchos repositorios de Git van a pasar de `master` a `main`, debe asegurarse de que realiza la inserción en la rama correcta del repositorio de App Service de una de estas dos maneras:
+
+- Implemente en `master` explícitamente con un comando como:
+
+    ```bash
+    git push azure main:master
+    ```
+
+- Cambie la rama de implementación estableciendo la configuración de la aplicación `DEPLOYMENT_BRANCH` y, a continuación, inserte las confirmaciones en la rama personalizada. Para hacerlo con la CLI de Azure:
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <group-name> --settings DEPLOYMENT_BRANCH='main'
+    git push azure main
+    ```
+
 ## <a name="troubleshoot-deployment"></a>Solución de problemas de implementación
 
 Puede ver los siguientes mensajes de error comunes cuando usa Git para publicar en una aplicación de App Service en Azure:
 
-|Message|Causa|Solución
+|Message|Causa|Resolución
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|La aplicación no está funcionando.|inicie la aplicación en Azure Portal. La implementación de GIT no está disponible cuando la aplicación web está detenida.|
 |`Couldn't resolve host 'hostname'`|La información de dirección del repositorio remoto de "azure" es incorrecta.|use el comando `git remote -v` para obtener un listado de todos los remotos, junto con la dirección URL asociada. Compruebe que la URL para el repositorio correcto "azure" es correcta. Si lo necesita, suprima y vuelva a crear este repositorio remoto utilizando la URL correcta.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|No especificó una rama durante `git push`, o no ha establecido el valor `push.default` en `.gitconfig`.|Vuelva a ejecutar `git push` y especifique la rama principal: `git push azure main`.|
-|`Error - Changes committed to remote repository but deployment to website failed.`|Insertó una rama local que no coincide con la rama de implementación de la aplicación en "azure".|Compruebe que la rama actual sea `master`. Para cambiar la rama predeterminada, use la configuración de aplicación `DEPLOYMENT_BRANCH`.|
+|`Error - Changes committed to remote repository but deployment to website failed.`|Insertó una rama local que no coincide con la rama de implementación de la aplicación en "azure".|Compruebe que la rama actual sea `master`. Para cambiar la rama predeterminada, use la configuración de aplicación `DEPLOYMENT_BRANCH` (consulte [Cambiar la rama de implementación](#change-deployment-branch)). |
 |`src refspec [branchname] does not match any.`|Ha intentado agregar una rama que no es la principal en el repositorio remoto "azure".|Vuelva a ejecutar `git push` y especifique la rama principal: `git push azure main`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|este error puede producirse si se trata de insertar un repositorio Git de gran tamaño a través de HTTPS.|Cambie la configuración de Git en la máquina local para aumentar el tamaño de `postBuffer`. Por ejemplo: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Implementó una aplicación Node.js con un archivo _package.json_ que especifica los módulos adicionales requeridos.|Revise los mensajes de error `npm ERR!` anteriores a este error para obtener más contexto sobre el error. A continuación se indican las causas conocidas de este error y los mensajes `npm ERR!`:<br /><br />**El archivo package.json tiene una estructura incorrecta**: `npm ERR! Couldn't read dependencies.`<br /><br />**Módulo nativo que no tiene una distribución binaria para Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|

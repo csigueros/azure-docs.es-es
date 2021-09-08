@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c5b35e84d0e16b70b4abba8f784ba9c779c0169
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95494716"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380129"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opciones de soporte técnico de Azure Spatial Anchors
 
@@ -23,18 +23,18 @@ Para abrir una incidencia de soporte técnico dentro de Azure Portal para Azure 
 
 1. Con [Azure Portal](https://azure.microsoft.com/account/) abierto, seleccione el icono de ayuda en la barra de menús superior y, luego, seleccione **Ayuda y soporte técnico**.
 
-![Ayuda de Azure Portal y soporte técnico](./media/spatial-anchor-support.png)
+   ![Ayuda de Azure Portal y soporte técnico](./media/spatial-anchor-support.png)
 
 1. Con la página Ayuda y soporte técnico abierta, seleccione **+ Nueva solicitud de soporte técnico**.
 
-![Nueva solicitud de soporte técnico de Azure Portal](./media/spatial-anchor-support2.png)
+   ![Nueva solicitud de soporte técnico de Azure Portal](./media/spatial-anchor-support2.png)
 
 1. Al completar los campos de la incidencia de soporte técnico:
 
-- Tipo de problema: Requisitos previos técnicos
-- Servicio: Anclajes espaciales
+   - Tipo de problema: Requisitos previos técnicos
+   - Servicio: Anclajes espaciales
 
-![Campos de la incidencia de soporte técnico de Azure Portal](./media/spatial-anchor-support3.png)
+   ![Campos de la incidencia de soporte técnico de Azure Portal](./media/spatial-anchor-support3.png)
 
 ## <a name="community-support"></a>Soporte técnico de la comunidad
 
@@ -50,4 +50,4 @@ Para proporcionar comentarios, comparta una idea o sugerencia para el servicio A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver las preguntas más frecuentes sobre Azure Spatial Anchors, consulte la página [Preguntas frecuentes](spatial-anchor-faq.md).
+Para ver las preguntas más frecuentes sobre Azure Spatial Anchors, consulte la página [Preguntas frecuentes](spatial-anchor-faq.yml).

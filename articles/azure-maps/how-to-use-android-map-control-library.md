@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: a60ee8faf8d19afba59e46c52aaba9395c3a5292
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 237888e1ee635a68a4603bfa63f5bfe4618c018a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604454"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093506"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
@@ -28,7 +28,7 @@ Asegúrese de completar los pasos descritos en el documento [Inicio rápido: Cre
 
 El Android SDK Azure Maps proporciona tres formas diferentes de establecer el idioma y la vista regional del mapa. En el código siguiente se muestra cómo establecer el idioma en francés ("fr-FR") y la vista regional en "Auto".
 
-La primera opción es pasar el lenguaje y ver la información regional en la clase `AzureMaps` mediante los métodos `setLanguage` y `setView` estáticos globalmente. Así se establecerá el idioma y la vista regional predeterminados en todos los controles de Azure Maps cargados en la aplicación.
+La primera opción es pasar el lenguaje y ver la información regional en la clase `AzureMaps` mediante los métodos `setLanguage` y `setView` estáticos globalmente. Este código establecerá el idioma y la vista regional predeterminados en todos los controles de Azure Maps cargados en la aplicación.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -75,16 +75,16 @@ companion object {
 La segunda opción es usar la información de idioma y de la vista en el XML del control de mapa.
 
 ```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="Auto"
+    app:azure_maps_language="fr-FR"
+    app:azure_maps_view="Auto"
     />
 ```
 
-La tercera opción consiste en establecer mediante programación el idioma y la vista regional del mapa mediante el método `setStyle` de Maps. Esta opción puede realizarse en cualquier momento para cambiar el idioma y la vista regional del mapa.
+La tercera opción consiste en establecer mediante programación el idioma y la vista regional del mapa mediante el método `setStyle` de Maps. Este método de cambiar el idioma y la vista regional del mapa se puede realizar en cualquier momento.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -118,7 +118,7 @@ Este es un ejemplo de Azure Maps con el idioma establecido en "fr-FR" y la vista
 
 [Aquí](supported-languages.md) encontrará una lista completa de los idiomas y vistas regionales admitidos.
 
-## <a name="navigating-the-map&quot;></a>Navegación por el mapa
+## <a name="navigating-the-map"></a>Navegación por el mapa
 
 Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa. A continuación se detallan todas las formas de navegar por el mapa.
 
@@ -141,7 +141,7 @@ Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa.
 
 * Toque el mapa con dos dedos y arrástrelos hacia arriba o hacia abajo.
 
-## <a name=&quot;azure-government-cloud-support&quot;></a>Compatibilidad con la nube de Azure Government
+## <a name="azure-government-cloud-support"></a>Compatibilidad con la nube de Azure Government
 
 Android SDK de Azure Maps es compatible con la nube de Azure Government. Se accede a Android SDK de Azure Maps desde el mismo repositorio de Maven. Se deben realizar las siguientes tareas para conectarse a la versión en la nube de Azure Government de la plataforma de Azure Maps.
 
@@ -150,7 +150,7 @@ En el mismo lugar donde se especifican los detalles de autenticación de Azure M
 ::: zone pivot="programming-language-java-android"
 
 ```java
-AzureMaps.setDomain(&quot;atlas.azure.us");
+AzureMaps.setDomain("atlas.azure.us");
 ```
 
 ::: zone-end
@@ -164,6 +164,44 @@ AzureMaps.setDomain("atlas.azure.us")
 ::: zone-end
 
 No olvide usar los detalles de autenticación de Azure Maps de la plataforma en la nube de Azure Government cuando autentique el mapa y los servicios.
+
+## <a name="migrating-from-a-preview-version"></a>Migración desde una versión preliminar
+
+Con el paso de la versión preliminar a la disponibilidad general, se introdujeron algunos cambios importantes en Android SDK de Azure Maps. Estos son los detalles clave:
+
+* El identificador de Maven ha cambiado de `"com.microsoft.azure.maps:mapcontrol:0.7"` a `"com.azure.android:azure-maps-control:1.0.0"`. El espacio de nombres y el número de versión principal han cambiado.
+* El espacio de nombres importado ha cambiado de `com.microsoft.azure.maps.mapcontrol` a `com.azure.android.maps.control`.
+* Se ha reemplazado el texto `mapcontrol_` por `azure_maps_` en los nombres de recurso para las opciones XML, los recursos de color y los recursos de imagen.
+
+    **Antes:**
+
+    ```xml
+    <com.microsoft.azure.maps.mapcontrol.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mapcontrol_language="fr-FR"
+        app:mapcontrol_view="Auto"
+        app:mapcontrol_centerLat="47.602806"
+        app:mapcontrol_centerLng="-122.329330"
+        app:mapcontrol_zoom="12"
+    />
+    ```
+
+    **Después:**
+
+    ```xml
+    <com.azure.android.maps.control.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:azure_maps_language="fr-FR"
+        app:azure_maps_view="Auto"
+        app:azure_maps_centerLat="47.602806"
+        app:azure_maps_centerLng="-122.329330"
+        app:azure_maps_zoom="12"
+    />
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 03ed6d53908b1daf8e027ee0143cc06d803a24cd
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2efd5fdc49f5ae6724b9d1dc3b45d54329f17a61
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257830"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223957"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integración de Trusona con Azure Active Directory B2C
 
@@ -148,15 +148,17 @@ Ahora debería ver Trusona como un **nuevo proveedor de identidades de OpenID Co
 
 ### <a name="test-the-policy"></a>Prueba de la directiva
 
-1. Seleccione la directiva que acaba de crear.
+1. Seleccione la directiva que ha creado.
 
-2. Seleccione **Ejecutar flujo de usuario**.
+1. Seleccione **Ejecutar flujo de usuario** y, después, elija la configuración:
 
-3. En el formulario, escriba la dirección URL de respuesta.
+   1. **Aplicación**: seleccione la aplicación registrada.
+ 
+   1. **URL de respuesta**: seleccione la dirección URL de redireccionamiento.
+   
+1. Seleccione **Ejecutar flujo de usuario**. Debe redirigirse a la puerta de enlace de OIDC de Trusona. En la puerta de enlace de Trusona, digitalice el código QR seguro que se muestra con la aplicación Trusona o con una aplicación personalizada mediante el SDK de Trusona móvil.
 
-4. Seleccione **Ejecutar flujo de usuario**. Debe redirigirse a la puerta de enlace de OIDC de Trusona. En la puerta de enlace de Trusona, digitalice el código QR seguro que se muestra con la aplicación Trusona o con una aplicación personalizada mediante el SDK de Trusona móvil.
-
-5. Después de digitalizar el código QR seguro, debe redirigirse a la URL de respuesta que definió en el paso 3.
+1. Después de leer el código QR seguro, debería ser redirigido a la URL de respuesta que definió.
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

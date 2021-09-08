@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d115495f56a9e64672682a92d5837db48dbf052d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e167abee5bd98e5dcef702ae4629cd886cb75967
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099818"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465736"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Configuración de la persistencia de datos en la instancia prémium de Azure Cache for Redis
 
@@ -157,7 +157,7 @@ El intervalo de frecuencia de copia de seguridad de la persistencia de RDB no se
 
 ### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>¿Qué ocurre con las copias de seguridad de RDB antiguas cuando se realiza una nueva copia de seguridad?
 
-Todas las copias de seguridad de persistencia de RDB excepto la más reciente se eliminan automáticamente. Es posible que esta eliminación no se produzca inmediatamente, pero las copias de seguridad anteriores no se guardan de manera indefinida.
+Todas las copias de seguridad de persistencia de RDB excepto la más reciente se eliminan automáticamente. Es posible que esta eliminación no se produzca inmediatamente, pero las copias de seguridad anteriores no se guardan de manera indefinida. Tenga en cuenta que si la eliminación temporal está activada para la cuenta de almacenamiento, se aplica la configuración de la eliminación temporal y las copias de seguridad existentes siguen residiendo en el estado de eliminación temporal.
 
 ### <a name="when-should-i-use-a-second-storage-account"></a>¿Cuándo debo usar una segunda cuenta de almacenamiento?
 
@@ -194,7 +194,7 @@ Los datos almacenados en archivos AOF se dividen en varios blobs en páginas por
 
 Cuando la agrupación en clústeres está habilitada, cada partición de la memoria caché tiene su propio conjunto de blobs en páginas, como se ha indicado en la tabla anterior. Por ejemplo, una caché P2 con tres particiones distribuye su archivo AOF entre 24 blobs en páginas (ocho blobs por partición, con tres particiones).
 
-Después de una reescritura, hay dos conjuntos de archivos AOF en el almacenamiento. Las reescrituras se producen en segundo plano y se asocian al primer conjunto de archivos. Las operaciones establecidas, enviadas a la caché durante la reescritura, se anexan al segundo conjunto. Una copia de seguridad se almacena temporalmente durante las reescrituras si se produce un error. La copia de seguridad se elimina rápidamente una vez que finaliza una reescritura.
+Después de una reescritura, hay dos conjuntos de archivos AOF en el almacenamiento. Las reescrituras se producen en segundo plano y se asocian al primer conjunto de archivos. Las operaciones establecidas, enviadas a la caché durante la reescritura, se anexan al segundo conjunto. Una copia de seguridad se almacena temporalmente durante las reescrituras si se produce un error. La copia de seguridad se elimina rápidamente una vez que finaliza una reescritura. Tenga en cuenta que si la eliminación temporal está activada para la cuenta de almacenamiento, se aplica la configuración de la eliminación temporal y las copias de seguridad existentes siguen residiendo en el estado de eliminación temporal.
 
 ### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>¿Se me cobrará por el almacenamiento que se usa en la persistencia de datos?
 

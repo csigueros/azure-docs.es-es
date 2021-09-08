@@ -7,14 +7,13 @@ ms.date: 06/14/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philMea
 zone_pivot_groups: facility-ontology-schema
-ms.openlocfilehash: 63e9702f8bebb449518002e18a824c65d81fab80
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c08faefc795fd65c71163bd9f8c24a1f8cd939f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076463"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725612"
 ---
 # <a name="facility-ontology"></a>Ontología de instalaciones
 
@@ -62,7 +61,7 @@ La clase de característica `unit` define un área física y no superpuesta que 
 
 :::zone pivot="facility-ontology-v1"
 
-| Propiedad           | Tipo                        | Requerido | Descripción                                                  |
+| Propiedad           | Tipo                        | Obligatorio | Descripción                                                  |
 |--------------------|-----------------------------|----------|--------------------------------------------------------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -85,7 +84,7 @@ La clase de característica `unit` define un área física y no superpuesta que 
 
 :::zone pivot="facility-ontology-v2"
 
-| Propiedad           | Tipo                        | Requerido | Descripción                                                  |
+| Propiedad           | Tipo                        | Obligatorio | Descripción                                                  |
 |--------------------|-----------------------------|----------|--------------------------------------------------------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -111,7 +110,7 @@ La clase de característica `structure` define un área física y no superpuesta
 
 **Tipo de geometría**: polígono
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -130,7 +129,7 @@ La clase de característica `zone` define un área virtual, como una zona Wi-Fi 
 
 **Tipo de geometría**: polígono
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -148,7 +147,7 @@ La característica de clase `level` define un área de un edificio en una elevac
 
 **Tipo de geometría**: MultiPolygon
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -168,14 +167,13 @@ La clase de característica `facility` define el área del sitio, la superficie 
 
 **Tipo de geometría**: MultiPolygon
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
 |`categoryId`        | [category.Id](#category)      |true      | Identificador de una característica [`category`](#category).|
 |`occupants`         | Matriz de [directoryInfo.Id](#directoryinfo) |    false |    Identificadores de las características [directoryInfo](#directoryinfo). Se usa para representar uno o varios ocupantes de la característica. |
 |`addressId`         | [directoryInfo.Id](#directoryinfo)  | true     | Identificador de una característica [directoryInfo](#directoryinfo). Se usa para representar la dirección de la característica.|
-|`addressRoomNumber`         |  [directoryInfo.Id](#directoryinfo)| true     | Número de habitación/unidad/apartamento/suite de la unidad.|
 |`name` |    string |    false |    Nombre de la característica en el idioma local. La longitud máxima permitida es de 1000 caracteres. |
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc. La longitud máxima permitida es de 1000 caracteres. |
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica.  La longitud máxima permitida es de 1000 caracteres.|
@@ -191,7 +189,7 @@ La característica de clase `verticalPenetration` define un área que, cuando se
 
 :::zone pivot="facility-ontology-v1"
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -210,7 +208,7 @@ La característica de clase `verticalPenetration` define un área que, cuando se
 
 :::zone pivot="facility-ontology-v2"
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -233,7 +231,7 @@ La característica de clase `opening` define un límite que se puede recorrer en
 
 :::zone pivot="facility-ontology-v1"
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -250,7 +248,7 @@ La característica de clase `opening` define un límite que se puede recorrer en
 
 :::zone pivot="facility-ontology-v2"
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -266,7 +264,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 
 **Tipo de geometría**: ninguno
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -278,7 +276,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 |`name` |    string |    false |    Nombre de la característica en el idioma local.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc. La longitud máxima permitida es de 1000 caracteres. |
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica. La longitud máxima permitida es de 1000 caracteres. |
-|`phoneNumber` |    string |    false |    Número de teléfono. |
+|`phoneNumber` |    string |    false |    Número de teléfono. La longitud máxima permitida es de 1000 caracteres. |
 |`website` |    string |    false |  URL del sitio web. La longitud máxima permitida es de 1000 caracteres. |
 |`hoursOfOperation` |    string |    false |   Horas de funcionamiento como texto, siguiendo la [especificación Open Street Map](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification). La longitud máxima permitida es de 1000 caracteres. |
 
@@ -288,7 +286,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 
 **Tipo de geometría**: MultiPolygon
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -305,7 +303,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 
 **Tipo de geometría**: LinearMultiString
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -324,7 +322,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 
 **Tipo de geometría**: MultiPolygon
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -345,7 +343,7 @@ La característica de clase `category` define los nombres de categoría. Por eje
 
 :::zone pivot="facility-ontology-v1"
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador original de la categoría derivado de los datos del cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la categoría a otra categoría de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -357,7 +355,7 @@ La característica de clase `category` define los nombres de categoría. Por eje
 
 :::zone pivot="facility-ontology-v2"
 
-| Propiedad  | Tipo | Requerido | Descripción |
+| Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador original de la categoría derivado de los datos del cliente.  La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la categoría a otra categoría de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/13/2021
+ms.date: 06/18/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 55e63e232a804519baeeeeee3ebef84777ee1d38
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 902d9251c7393d3f6e693ba37c587398136493e6
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060785"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112368955"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de acceso condicional en una directiva personalizada de Azure Active Directory B2C
 
@@ -73,8 +73,8 @@ El elemento **OutputClaims** contiene una lista de las notificaciones que Condit
 
 | ClaimReferenceId | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | ----------- |----------- |
-| Desafíos | Sí |stringCollection | Lista de acciones para corregir la amenaza identificada. Valores posibles: `block` |
-| MultiConditionalAccessStatus | Sí | stringCollection |  |
+| Desafíos | Sí |stringCollection | Lista de acciones para corregir la amenaza identificada. Valores posibles: `block`, `mfa` y `chg_pwd`. |
+| MultiConditionalAccessStatus | Sí | stringCollection | El estado de la evaluación de acceso condicional.  |
 
 El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 

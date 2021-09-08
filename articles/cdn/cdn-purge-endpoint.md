@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/17/2019
+ms.date: 06/30/2021
 ms.author: allensu
-ms.openlocfilehash: 4fe4b99f9635ff254f1a75e03f13d7e6ffcb3c49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d54b181ee55d841f8739008a2fb6657f7885cb96
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100366524"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126453"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de Azure CDN
 ## <a name="overview"></a>Información general
@@ -57,13 +57,16 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
     3. **Purga de dominio raíz**: purgue la raíz del punto de conexión con "/" en la ruta de acceso.
    
    > [!TIP]
-   > Las rutas de acceso que se van a purgar deben especificarse y ser una URL relativa que se ajuste a la siguiente [expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Purgar todo** y la **purga con carácter comodín** no son compatibles en estos momentos con **Azure CDN de Akamai**.
-   > > Purga con una sola URL `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Cadena de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
-   > > Purga con carácter comodín `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";` 
+   > 1. Las rutas de acceso que se van a purgar deben especificarse y ser una URL relativa que se ajuste a la siguiente [expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Purgar todo** y la **purga con carácter comodín** no se admiten actualmente en **Azure CDN de Akamai**.
+   >
+   >    1. Purga con una sola URL `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
+   >    1. Cadena de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   >    1. Purga con carácter comodín `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";` 
    > 
-   > Aparecerán más cuadros de texto de **Ruta de acceso** después de escribir texto para permitirle crear una lista de varios activos.  Puede eliminar activos en la lista haciendo clic en el botón de puntos suspensivos (...).
+   >    Aparecerán más cuadros de texto de **Ruta de acceso** después de escribir texto para permitirle crear una lista de varios activos.  Puede eliminar activos en la lista haciendo clic en el botón de puntos suspensivos (...).
    > 
+   > 1. En Azure CDN de Microsoft, no se tienen en cuenta las cadenas de consulta de la ruta de acceso de la dirección URL de purga. Si la ruta de acceso para purgar se proporciona como `/TestCDN?myname=max`, solo se tiene en cuenta `/TestCDN`. Se omite la cadena de consulta `myname=max`. Se purgarán tanto `TestCDN?myname=max` como `TestCDN?myname=clark`.
+
 5. Haga clic en el botón **Purgar** .
    
     ![Botón Purgar](./media/cdn-purge-endpoint/cdn-purge-button.png)

@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 169a90c12b30e0d083ce5c53ab7c6dd2495c4c23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 01/26/2021
+ms.openlocfilehash: 67ada228d3b4ed95b1247b221f0ad90bbbc74ba0
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592385"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416972"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Supervisión de solicitudes de consulta en Azure Cognitive Search
 
 En este artículo se explica cómo medir el rendimiento y el volumen de las consultas mediante métricas y el registro de recursos. También se explica cómo recopilar los términos de entrada que se usan en las consultas: información necesaria cuando se necesita evaluar la utilidad y la eficacia de los corpus de búsqueda.
 
-Los datos históricos que se incluyen en las métricas se conservan durante 30 días. Para una retención más larga o para informar sobre datos operativos y cadenas de consulta, asegúrese de habilitar una [configuración de diagnóstico](search-monitor-logs.md) que especifique una opción de almacenamiento para conservar los eventos y métricas registrados.
+Azure Portal muestra métricas básicas sobre la latencia de consulta, la carga de consultas (QPS) y la limitación. Los datos históricos que se incluyen en estas métricas se conservan durante 30 días. Para una retención más larga o para informar sobre datos operativos y cadenas de consulta, debe habilitar una [configuración de diagnóstico](search-monitor-logs.md) que especifique una opción de almacenamiento para conservar los eventos y métricas registrados.
 
 Entre las condiciones que maximizan la integridad de la medición de datos se incluyen:
 
@@ -116,7 +116,7 @@ Para un análisis en profundidad, abra el explorador de métricas en el menú **
 
 1. Acerque cualquier área de su interés en el gráfico de líneas. Coloque el puntero del mouse al principio del área, haga clic y mantenga presionado el botón izquierdo, arrastre al otro lado del área y suelte el botón. El gráfico acercará el intervalo de tiempo.
 
-## <a name="identify-strings-used-in-queries"></a>Identificación de las cadenas utilizadas en las consultas
+## <a name="return-query-strings-entered-by-users"></a>Devolución de cadenas de consulta introducidas por los usuarios
 
 Cuando habilita el registro de recursos, el sistema captura las solicitudes de consulta en la tabla **AzureDiagnostics**. Como requisito previo, debe tener habilitado el [registro de recursos](search-monitor-logs.md). Para ello, especifique un área de trabajo de Log Analytics u otra opción de almacenamiento.
 
@@ -124,8 +124,8 @@ Cuando habilita el registro de recursos, el sistema captura las solicitudes de c
 
 1. Ejecute la siguiente expresión para buscar operaciones Query.Search que devuelvan un conjunto de resultados tabular que conste de nombre de la operación, cadena de consulta, el índice consultado y el número de documentos que se encontró. Las dos últimas instrucciones excluyen las cadenas de consulta que consisten en una búsqueda vacía o no específica, en un índice de búsqueda, lo cual reduce el ruido en los resultados.
 
-   ```
-   AzureDiagnostics
+   ```kusto
+      AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
    | where Query_s != "?api-version=2020-06-30&search=*"
@@ -144,9 +144,9 @@ Agregue la columna de duración para obtener las cifras de todas las consultas, 
 
 1. En la sección Supervisión, seleccione **Registros** para consultar la información sobre registros.
 
-1. Ejecute la siguiente consulta para que devuelva las consultas ordenadas según la duración en milisegundos. Las consultas de mayor duración se encuentran en la parte superior.
+1. Ejecute la siguiente consulta básica para que devuelva las consultas, ordenadas según la duración en milisegundos. Las consultas de mayor duración se encuentran en la parte superior.
 
-   ```
+   ```Kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search"
@@ -182,10 +182,6 @@ A la hora de disponer los límites de una configuración de réplica o partició
    ![Detalles de alerta](./media/search-monitor-usage/alert-details.png "Detalles de alertas")
 
 Si ha especificado el envío de una notificación por correo electrónico, recibirá un correo de "Microsoft Azure" con la línea de asunto "Azure: Gravedad activada: 3 `<your rule name>`".
-
-<!-- ## Report query data
-
-Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## <a name="next-steps"></a>Pasos siguientes
 

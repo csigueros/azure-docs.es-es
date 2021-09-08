@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4eda6eaf69fad6f8600651660ae4ac6223fe8f8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 233afd9b103a250633c5e49776fc0dfda55a0389
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438070"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112254"
 ---
 # <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>Uso de un módulo IoT Edge para ejecutar una aplicación sin estado de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU
 
@@ -56,7 +56,7 @@ Siga estos pasos para agregar un módulo de aplicaciones de servidor web al disp
 1. En **Agregar módulo IoT Edge**:
 
     1. Especifique un **nombre** para el módulo de aplicaciones del servidor web que quiera implementar.
-    2. En la pestaña **Configuración del módulo**, proporcione un **URI de la imagen** para la imagen del módulo. Se recuperará un módulo que coincide con el nombre proporcionado y las etiquetas. En ese caso, `nginx:stable` extraerá una imagen nginx estable (etiquetada como estable) del [repositorio público de Docker](https://hub.docker.com/_/nginx/).
+    2. En la pestaña **Configuración del módulo**, proporcione un **URI de la imagen** para la imagen del módulo. Se recuperará un módulo que coincide con el nombre proporcionado y las etiquetas. En este caso, `mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine` extrae una imagen nginx (etiquetada como 1.15.5-alpine) del registro `mcr.microsoft.com` público.
 
         ![Agregar módulo IoT Edge](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/set-module-settings-1.png)    
 

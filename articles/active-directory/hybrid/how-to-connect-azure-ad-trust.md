@@ -1,7 +1,6 @@
 ---
 title: 'Azure AD Connect: administración de confianza de AD FS con Azure AD mediante Azure AD Connect | Microsoft Docs'
 description: Detalles de funcionamiento del control de la confianza de Azure AD por Azure AD Connect.
-keywords: AD FS, ADFS, administración de AD FS, AAD Connect, Connect, Azure AD, confianza, AAD, notificación, notificación, reglas de notificación, emisión, transformación, reglas, copia de seguridad, restauración
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
@@ -18,22 +17,23 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8fea0133b7aa93b16a7e65e9e573723e7e21bae
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85360102"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460295"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Administración de la confianza de AD FS con Azure AD mediante Azure AD Connect
 
 ## <a name="overview"></a>Información general
 
-Azure AD Connect puede administrar la federación entre los Servicios de federación de Active Directory (AD FS) locales y Azure AD. En este artículo se proporciona información general de:
+Al federar un entorno local con Azure AD, establece una relación de confianza entre el proveedor de identidades local y Azure AD.  Azure AD Connect puede administrar la federación entre los Servicios de federación de Active Directory (AD FS) locales y Azure AD. En este artículo se proporciona información general de:
 
 * Las distintas configuraciones de la confianza de Azure AD Connect
 * Las reglas de transformación de emisión (reglas de notificación) establecidas por Azure AD Connect
 * Cómo realizar una copia de seguridad de las reglas de notificación, y restaurarlas, entre actualizaciones y actualizaciones de configuración. 
+* Procedimiento recomendado para proteger y supervisar la confianza de AD FS con Azure AD
 
 ## <a name="settings-controlled-by-azure-ad-connect"></a>Configuración controlada por Azure AD Connect
 
@@ -118,6 +118,11 @@ Puede restaurar las reglas de transformación de emisión mediante los siguiente
 
 > [!NOTE]
 > Asegúrese de que las reglas adicionales no entren en conflicto con las reglas configuradas por Azure AD Connect.
+
+## <a name="best-practice-for-securing-and-monitoring-the-ad-fs-trust-with-azure-ad"></a>Procedimiento recomendado para proteger y supervisar la confianza de AD FS con Azure AD
+Al federar AD FS con Azure AD, es fundamental que la configuración de la federación (relación de confianza configurada entre AD FS y Azure AD) se supervise de forma estrecha y que se capture cualquier actividad inusual o sospechosa. Para ello, se recomienda configurar alertas y recibir notificaciones cada vez que se realicen cambios en la configuración de la federación. Para aprender a configurar alertas, consulte [Supervisión de cambios en la configuración de la federación](how-to-connect-monitor-federation-changes.md). 
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administre y personalice Servicios de federación de Active Directory con Azure AD Connect](how-to-connect-fed-management.md)

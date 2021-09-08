@@ -3,12 +3,12 @@ title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsof
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 0c1c053378c8c2dec1f769fe489eb823ea81390f
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: d786b3d0e9afbf7ab4e895c6788209644d9f921f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438745"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092762"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -52,7 +52,7 @@ AMQP llama a los programas de comunicación *contenedores*, que contienen *nodos
 
 Por lo tanto, la conexión de red está anclada en el contenedor. El contenedor la inicia en el rol de cliente, realizando una conexión de socket TCP saliente a un contenedor en el rol de receptor, que escucha y acepta las conexiones TCP entrantes. El protocolo de enlace de conexión incluye negociar la versión del protocolo, declarar o negociar el uso de la seguridad de nivel de transporte (TLS/SSL) y un protocolo de enlace de autenticación y autorización en el ámbito de la conexión que se basa en SASL.
 
-Azure Service Bus requiere el uso de TLS en todo momento. Admite conexiones a través del puerto TCP 5671, donde la conexión TCP primero se superpone con TLS antes de entrar en el protocolo de enlace del protocolo AMQP y también admite conexiones a través del puerto TCP 5672, donde el servidor ofrece inmediatamente una actualización obligatoria de la conexión a TLS con el modelo prescrito por AMQP. El enlace de WebSockets de AMQP crea un túnel a través del puerto TCP 443 que es equivalente a las conexiones 5671 de AMQP.
+Azure Service Bus y Azure Event Hubs requieren el uso de TLS en todo momento. Admite conexiones a través del puerto TCP 5671, donde la conexión TCP primero se superpone con TLS antes de entrar en el protocolo de enlace del protocolo AMQP y también admite conexiones a través del puerto TCP 5672, donde el servidor ofrece inmediatamente una actualización obligatoria de la conexión a TLS con el modelo prescrito por AMQP. El enlace de WebSockets de AMQP crea un túnel a través del puerto TCP 443 que es equivalente a las conexiones 5671 de AMQP.
 
 Después de configurar la conexión y TLS, Service Bus ofrece dos opciones de mecanismo SASL:
 

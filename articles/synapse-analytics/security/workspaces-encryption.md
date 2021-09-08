@@ -5,15 +5,15 @@ author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 11/19/2020
+ms.date: 07/14/2021
 ms.author: nanditav
-ms.reviewer: jrasnick
-ms.openlocfilehash: 71249534c6a088088213659b5a45e042229721c7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: cc57f4af28aad79b9348cbbb4e939825daba06ea
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813189"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203568"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Cifrado en las áreas de trabajo de Azure Synapse Analytics
 
@@ -44,12 +44,12 @@ Los datos de los siguientes componentes de Synapse se cifran con la clave admini
 
 ## <a name="workspace-encryption-configuration"></a>Configuración del cifrado de áreas de trabajo
 
-Las áreas de trabajo se pueden configurar para habilitar el cifrado doble con una clave administrada por el cliente en el momento de su creación. Seleccione la opción "Enable double encryption using a customer-managed key" (Habilitar el cifrado doble mediante una clave administrada por el cliente) al crear el área de trabajo. Puede elegir especificar el URI de un identificador de clave o seleccionarlo en una lista de almacenes de claves en la **misma región** que el área de trabajo. La propia instancia de Key Vault debe tener **habilitada la protección de purga**.
+Las áreas de trabajo se pueden configurar para habilitar el cifrado doble con una clave administrada por el cliente en el momento de su creación. Seleccione la opción "Enable double encryption using a customer-managed key" (Habilitar el cifrado doble mediante una clave administrada por el cliente) de la pestaña "Security" (Seguridad) al crear el área de trabajo. Puede elegir especificar el URI de un identificador de clave o seleccionarlo en una lista de almacenes de claves en la **misma región** que el área de trabajo. La propia instancia de Key Vault debe tener **habilitada la protección de purga**.
 
 > [!IMPORTANT]
 > Después de crear el área de trabajo, no se puede cambiar el valor de configuración del cifrado doble.
 
-:::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="En este diagrama se muestra la opción que se debe seleccionar para permitir el cifrado doble en un área de trabajo con una clave administrada por el cliente.":::
+:::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="En este diagrama se muestra la opción que se debe seleccionar para permitir el cifrado doble en un área de trabajo con una clave administrada por el cliente." lightbox="./media/workspaces-encryption/workspaces-encryption.png":::
 
 ### <a name="key-access-and-workspace-activation"></a>Acceso de clave y activación del área de trabajo
 
@@ -68,14 +68,14 @@ Para cifrar o descifrar los datos en reposo, la identidad administrada del área
 
 Después de crear el área de trabajo (con el cifrado doble habilitado), permanecerá en estado "pendiente" hasta que la activación se realice correctamente. El área de trabajo debe estar activada para poder usar completamente toda la funcionalidad. Por ejemplo, solo puede crear un grupo de SQL dedicado una vez que se logra la activación. Conceda a la identidad administrada del área de trabajo acceso al almacén de claves y haga clic en el vínculo de activación en el mensaje emergente de Azure Portal del área de trabajo. Una vez que la activación finaliza correctamente, el área de trabajo está lista para usarse con la garantía de que todos los datos que contiene están protegidos con la clave administrada por el cliente. Como se indicó anteriormente, el almacén de claves debe tener habilitada la protección de purga para que la activación se lleve a cabo correctamente.
 
-:::image type="content" source="./media/workspaces-encryption/workspace-activation.png" alt-text="En este diagrama se muestra el mensaje emergente con el vínculo de activación del área de trabajo.":::
+:::image type="content" source="./media/workspaces-encryption/workspace-activation.png" alt-text="En este diagrama se muestra el mensaje emergente con el vínculo de activación del área de trabajo." lightbox="./media/workspaces-encryption/workspace-activation.png":::
 
 
 ### <a name="manage-the-workspace-customer-managed-key"></a>Administración de la clave administrada por el cliente del área de trabajo 
 
 Puede cambiar la clave administrada por el cliente que se usa para cifrar los datos en la página **Cifrado** de Azure Portal. Aquí también puede elegir una nueva clave con un identificador de clave o seleccionar entre los almacenes de claves a los que tiene acceso en la misma región que el área de trabajo. Si elige una clave de un almacén de claves diferente de los usados anteriormente, conceda a la identidad administrada del área de trabajo los permisos "Obtener", "Encapsular" y "Desencapsular" en el nuevo almacén de claves. El área de trabajo validará su acceso al nuevo almacén de claves y todos los datos del área de trabajo se volverán a cifrar con la nueva clave.
 
-:::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="En este diagrama se muestra la sección Cifrado del área de trabajo en Azure Portal.":::
+:::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="En este diagrama se muestra la sección Cifrado del área de trabajo en Azure Portal." lightbox="./media/workspaces-encryption/workspace-encryption-management.png":::
 
 >[!IMPORTANT]
 >Al cambiar la clave de cifrado de un área de trabajo, conserve la clave hasta que la reemplace en el área de trabajo por una nueva. Esto se hace para permitir el descifrado de los datos con la clave antigua antes de cifrarlos de nuevo con la nueva.

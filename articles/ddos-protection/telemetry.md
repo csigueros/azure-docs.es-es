@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a04c6c58f8bfa5370a6529b81a5a85090413a2a
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6dc086aae55f3b35dbb7dc787df6a65b7ade108f
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107540"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674220"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Visualización y configuración de DDoS Protection
 
@@ -30,6 +30,12 @@ En este tutorial, aprenderá a:
 > * Validar y probar la telemetría de protección contra DDoS
 
 ### <a name="metrics"></a>Métricas
+
+Los nombres de las métricas presentan distintos tipos de paquetes y bytes frente a paquetes, con una construcción básica de nombres de etiqueta en cada métrica, como se muestra aquí:
+
+- **Nombre de etiqueta de eliminado** (por ejemplo, **Paquetes de entrada quitados por DDoS**): El número de paquetes que el sistema de protección contra DDoS elimina o limpia.
+- **Nombre de etiqueta de reenviado** (por ejemplo, **Paquetes de entrada reenviados por DDoS**): el número de paquetes que reenvía el sistema DDoS a la dirección IP virtual de destino (tráfico que no se filtró).
+- **Sin nombre de etiqueta** (por ejemplo **DDoS de paquetes de entrada**): el número total de paquetes que han llegado al sistema de limpieza (representa la suma de los paquetes eliminados y los reenviados).
 
 > [!NOTE]
 > Aunque se muestran varias opciones de **agregación** en Azure Portal, solo se admiten para cada métrica los tipos de agregación que se enumeran en la tabla siguiente. Lamentamos esta confusión; estamos trabajando para resolverlo.
@@ -70,26 +76,35 @@ Las siguientes [métricas](../azure-monitor/essentials/metrics-supported.md#micr
 
 ## <a name="view-ddos-protection-telemetry"></a>Ver la telemetría de protección contra DDoS
 
-La telemetría para un ataque se proporciona a través de Azure Monitor en tiempo real. La telemetría solo está disponible cuando una dirección IP pública se ha solucionado. 
+La telemetría para un ataque se proporciona a través de Azure Monitor en tiempo real. Aunque los [desencadenadores de mitigación](#view-ddos-mitigation-policies) para TCP SYN, TCP Y UDP están disponibles en tiempos de calma, otros datos de telemetría solo están disponibles cuando una dirección IP pública está en proceso de mitigación. 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya al plan de DDoS Protection.
+Puede ver los datos de telemetría de DDoS de una dirección IP pública protegida mediante tres tipos de recursos diferentes: plan de protección contra DDoS, red virtual y dirección IP pública.
+
+### <a name="ddos-protection-plan"></a>Plan de protección contra DDoS
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya al plan de protección contra DDoS.
+2. En **Supervisión**, seleccione **Métricas**.
+3. Seleccione **Ámbito**. Seleccione la **suscripción** que contiene la dirección IP pública que quiere registrar, elija **Dirección IP pública** en **Tipo de recurso**, seleccione la dirección IP pública específica para la que quiere registrar las métricas y, a continuación, elija **Aplicar**.
+4. En **Agregación**, seleccione el tipo **Máximo**. 
+
+### <a name="virtual-network"></a>Red virtual
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a la red virtual que tiene la protección contra DDoS habilitada.
 2. En **Supervisión**, seleccione **Métricas**.
 3. Seleccione **Ámbito**. Seleccione la **suscripción** que contiene la dirección IP pública que quiere registrar, elija **Dirección IP pública** en **Tipo de recurso**, seleccione la dirección IP pública específica para la que quiere registrar las métricas y, a continuación, elija **Aplicar**.
 4. En **Agregación**, seleccione el tipo **Máximo**.
+5. Seleccione **Agregar filtro**. En **Propiedad**, seleccione **Dirección IP protegida** y el operador se debe establecer en **=** . En **Valores**, verá una lista desplegable de direcciones IP públicas, asociadas a la red virtual, que están protegidas con la protección contra DDoS habilitada. 
 
-Los nombres de las métricas presentan distintos tipos de paquetes y bytes frente a paquetes, con una construcción básica de nombres de etiqueta en cada métrica, como se muestra aquí:
+![Configuración de diagnóstico de DDoS](./media/ddos-attack-telemetry/vnet-ddos-metrics.png)
 
-- **Nombre de etiqueta de eliminado** (por ejemplo, **Paquetes de entrada quitados por DDoS**): El número de paquetes que el sistema de protección contra DDoS elimina o limpia.
-- **Nombre de etiqueta de reenviado** (por ejemplo, **Paquetes de entrada reenviados por DDoS**): el número de paquetes que reenvía el sistema DDoS a la dirección IP virtual de destino (tráfico que no se filtró).
-- **Sin nombre de etiqueta** (por ejemplo **DDoS de paquetes de entrada**): el número total de paquetes que han llegado al sistema de limpieza (representa la suma de los paquetes eliminados y los reenviados).
+### <a name="public-ip-address"></a>Dirección IP pública
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a la dirección IP pública.
+2. En **Supervisión**, seleccione **Métricas**.
+3. En **Agregación**, seleccione el tipo **Máximo**.
 
 ## <a name="view-ddos-mitigation-policies"></a>Visualización de las directivas de mitigación de DDoS
 
-DDoS Protection Standard aplica tres directivas de mitigación de ajuste automático (TCP SYN, TCP y UDP) a cada dirección IP pública del recurso protegido, en la red virtual que tiene habilitado DDoS. Puede ver los umbrales de directiva si selecciona las métricas **Paquetes entrantes TCP para desencadenar la mitigación de DDoS** y **Paquetes entrantes UDP para desencadenar la mitigación de DDoS** con el tipo de **agregación** como "Máximo", tal como se muestra en la siguiente imagen:
+DDoS Protection Standard aplica tres directivas de mitigación de ajuste automático (TCP SYN, TCP y UDP) a cada dirección IP pública del recurso protegido, en la red virtual que tiene la protección contra DDoS habilitada. Puede ver los umbrales de directiva si selecciona las métricas **Paquetes entrantes TCP para desencadenar la mitigación de DDoS** y **Paquetes entrantes UDP para desencadenar la mitigación de DDoS** con el tipo de **agregación** como "Máximo", tal como se muestra en la siguiente imagen:
 
 ![Vista de directivas de mitigación](./media/manage-ddos-protection/view-mitigation-policies.png)
-
-Los umbrales de las directivas se configuran automáticamente con nuestro sistema de generación de perfiles de tráfico de red basado en aprendizaje automático de Azure. Solo cuando se supera el umbral de la directiva, la mitigación de DDoS se produce para la dirección IP que está siendo atacada.
 
 ## <a name="validate-and-test"></a>Validación y prueba
 

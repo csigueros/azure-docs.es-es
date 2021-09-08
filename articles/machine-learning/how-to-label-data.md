@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: 3fa2276163b054c72ec27901fb28315b648c47c3
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 491ee8134d17eac9e0abb54780f2aa39e1323e6c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296519"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446261"
 ---
 # <a name="labeling-images-and-text-documents"></a>Etiquetado de imágenes y documentos de texto
 
@@ -79,6 +79,19 @@ Aquí, hemos elegido un diseño de dos por dos y vamos a aplicar la etiqueta "Ma
 Azure habilita el botón **Enviar** una vez etiquetadas todas las imágenes de la página. Seleccione **Submit** (Enviar) para guardar el trabajo.
 
 Una vez que haya enviado etiquetas para los datos con los que está trabajando, Azure actualizará la página con un nuevo conjunto de imágenes de la cola de trabajo.
+
+## <a name="medical-image-tasks"></a>Tareas de imágenes médicas
+
+> [!IMPORTANT]
+> La capacidad de etiquetar DICOM o tipos de imágenes similares no está prevista ni está disponible para su uso como dispositivo médico, soporte clínico, herramienta de diagnóstico u otra tecnología que se pretenda usar en el diagnóstico, la cura, la mitigación, el tratamiento o la prevención de la enfermedad u otras condiciones, y Microsoft no concede ninguna licencia o derecho para usar esta funcionalidad con este fin. Esta funcionalidad no está diseñada o prevista para implementarse como un sustituto del asesoramiento médico profesional o la opinión de la atención sanitaria, el diagnóstico, el tratamiento o la opinión clínica de un profesional sanitario y no debe usarse como tal. El cliente es el único responsable de cualquier uso del etiquetado de datos para DICOM o tipos de imágenes similares.
+
+Los proyectos de imágenes admiten el formato de imagen DICOM para imágenes de archivos de rayos X.
+
+:::image type="content" source="media/how-to-label-data/x-ray-image.png" alt-text="Imagen DICOM de rayos X que se va a etiquetar.":::
+
+Aunque las imágenes médicas se etiquetan con las mismas herramientas que cualquier otra imagen, hay una herramienta adicional para las imágenes DICOM.  Seleccione la herramienta **Window and level** (Ventana y nivel) para cambiar la intensidad de la imagen. Esta herramienta solo está disponible para imágenes DICOM.
+
+:::image type="content" source="media/how-to-label-data/window-level-tool.png" alt-text="Herramienta Window and level (Ventana y nivel) para imágenes DICOM.":::
 
 ## <a name="tag-images-for-multi-class-classification"></a>Etiquetado de imágenes para la clasificación en varias clases
 

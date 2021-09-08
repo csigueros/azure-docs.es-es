@@ -2,13 +2,13 @@
 title: Introducción a Azure Disk Backup
 description: Obtenga información sobre la solución Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 04/09/2021
-ms.openlocfilehash: 42f37c1f500be719e0bd79bad41226ab3ab2d911
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 05/27/2021
+ms.openlocfilehash: f1c27241e0b61cc4ae491f7bf4a4281d24cd09b6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285146"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728908"
 ---
 # <a name="overview-of-azure-disk-backup"></a>Introducción a la Azure Disk Backup
 
@@ -48,13 +48,13 @@ Considere la posibilidad de usar Azure Disk Backup en estos casos:
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Cómo funciona el proceso de restauración y de copia de seguridad
 
-- El primer paso para configurar la copia de seguridad de discos administrados de Azure es crear un [almacén de Backup](backup-vault-overview.md). El almacén proporciona una vista consolidada de las copias de seguridad configuradas en diferentes cargas de trabajo.
+- El primer paso para configurar la copia de seguridad de Azure Managed Disks es crear un [almacén de Azure Backup](backup-vault-overview.md). El almacén proporciona una vista consolidada de las copias de seguridad configuradas en diferentes cargas de trabajo. La copia de seguridad de discos de Azure solo admite la copia de seguridad del nivel operativo. No se admite la copia de copias de seguridad en el nivel de acceso del almacén. Por consiguiente, el valor de redundancia de almacenamiento del almacén de Azure Backup (LRS/GRS) no se aplica a las copias de seguridad almacenadas en el nivel operativo.
 
 - A continuación, cree una directiva de copia de seguridad que le permita configurar la frecuencia de las copias de seguridad y la duración de la retención.
 
 - Para configurar una copia de seguridad, vaya al almacén de Backup, asigne una directiva de copia de seguridad, seleccione el disco administrado del que se debe realizar la copia de seguridad y proporcione el grupo de recursos en el que se almacenarán y administrarán las instantáneas. Azure Backup desencadena automáticamente los trabajos de copia de seguridad programados que crean una instantánea incremental del disco según la frecuencia de copia de seguridad. Las instantáneas más antiguas se eliminarán según la duración de retención especificada en la directiva de copia de seguridad.
 
-- Azure Backup usa [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) del disco administrado. Las instantáneas incrementales son una forma rentable de realizar copias de seguridad en un momento dado de los discos administrados que se facturan en función de los cambios diferenciales que se realizaron en el disco desde la última instantánea. Siempre se almacenan en el almacenamiento HDD estándar más rentable, independientemente del tipo de almacenamiento de los discos principales. La primera instantánea del disco ocupará el tamaño que use el disco, y las instantáneas incrementales consecutivas almacenarán cambios diferenciales en el disco desde la última instantánea.
+- Azure Backup usa [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) del disco administrado. Las instantáneas incrementales son una forma rentable de realizar copias de seguridad en un momento dado de los discos administrados que se facturan en función de los cambios diferenciales que se realizaron en el disco desde la última instantánea. Siempre se almacenan en el almacenamiento HDD estándar más rentable, independientemente del tipo de almacenamiento de los discos principales. La primera instantánea del disco ocupará el tamaño que use el disco, y las instantáneas incrementales consecutivas almacenarán cambios diferenciales en el disco desde la última instantánea. Azure Backup asigna automáticamente una etiqueta a las instantáneas que crea para identificarlas de forma única. 
 
 - Una vez configurada la copia de seguridad de un disco administrado, se creará una instancia de copia de seguridad en el almacén de Backup. Con la instancia de copia de seguridad puede buscar el estado de las operaciones de copia de seguridad, desencadenar copias de seguridad a petición y realizar operaciones de restauración. Asimismo, también puede ver el estado de las copias de seguridad en varios almacenes e instancias de copia de seguridad mediante el Centro de copia de seguridad, que proporciona un único panel de visualización sencilla.
 
@@ -66,7 +66,19 @@ Considere la posibilidad de usar Azure Disk Backup en estos casos:
 
 ## <a name="pricing"></a>Precios
 
-Azure Backup ofrece una solución de administración del ciclo de vida de las instantáneas para proteger los discos de Azure. Las instantáneas de disco que haya creado Azure Backup se almacenan en el grupo de recursos de la suscripción de Azure; recuerde que se aplicarán cargos en el **almacenamiento de instantáneas**. Puede consultar los [precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) para obtener más detalles sobre los precios de las instantáneas.<br></br>Dado que las instantáneas no se copian en el almacén de Backup, Azure Backup no cobra una cuota por **instancia protegida** y no se aplica el costo del **almacenamiento de copia de seguridad**. Además, las instantáneas incrementales ocupan los cambios diferenciales como la última instantánea y siempre se guardan en el almacenamiento estándar, independientemente del tipo de almacenamiento de los discos administrados por el elemento principal, y se cobran según los precios del almacenamiento estándar. Esto hace que Azure Disk Backup sea una solución rentable.
+Azure Backup usa [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md) del disco administrado. Las instantáneas incrementales se cobran por GiB del almacenamiento ocupado por los cambios diferenciales desde la última instantánea. Por ejemplo, si usa un disco administrado con un tamaño aprovisionado de 128 GiB, con 100 GiB usados, la primera instantánea incremental se factura solo por el tamaño usado de 100 GiB. Se agregan 20 GiB de datos en el disco antes de crear la segunda instantánea. Ahora, la segunda instantánea incremental se factura por solo 20 GiB. 
+
+Las instantáneas incrementales siempre se guardan en el almacenamiento estándar, independientemente del tipo de almacenamiento de los discos administrados por el elemento principal, y se cobran en función de los precios del almacenamiento estándar. Por ejemplo, las instantáneas incrementales de un SSD prémium-disco administrado se almacenan en el almacenamiento estándar. De forma predeterminada, se almacenan en ZRS en aquellas regiones que admiten ZRS. De lo contrario, se usa el almacenamiento con redundancia local (LRS). El precio por GiB de ambas opciones, LRS y ZRS, es el mismo. 
+
+Las instantáneas que crea Azure Backup se almacenan en el grupo de recursos en la suscripción de Azure y se aplican cargos por almacenamiento de instantáneas. Para más información sobre los precios de las instantáneas, consulte los [precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/). Dado que las instantáneas no se copian en el almacén de Backup, Azure Backup no cobra una cuota por instancia protegida y no se aplica el costo del almacenamiento de copia de seguridad. 
+
+Durante una operación de copia de seguridad, el servicio Azure Backup crea una cuenta de almacenamiento en el grupo de recursos de instantáneas, donde se almacenan las instantáneas. Las instantáneas incrementales del disco administrado son recursos de Azure Resource Manager creados en el grupo de recursos, no en una cuenta de almacenamiento. 
+
+La cuenta de almacenamiento se usa para almacenar metadatos para cada punto de recuperación. El servicio Azure Backup crea un contenedor de blobs por cada instancia de copia de seguridad de disco. En cada punto de recuperación, se crea un blob en bloques para almacenar información de metadatos que describe el punto de recuperación, como la suscripción, el identificador de disco, los atributos de disco, etc., que ocupa un espacio pequeño (en unos pocos KiB). 
+
+La cuenta de almacenamiento se crea como almacenamiento con redundancia de zona geográfica del Agente de reconfiguración si la región admite la redundancia zonal. Si la región no la admite, la cuenta de almacenamiento se crea como almacenamiento con redundancia de zona geográfica del Agente de reconfiguración. Si la directiva existente impide la creación de cuentas de almacenamiento en la suscripción o el grupo de recursos con redundancia de GRS, la cuenta de almacenamiento se crea como LRS. La cuenta de almacenamiento creada es De uso general v2, donde los blobs en bloques se almacenan en el nivel de acceso frecuente del contenedor de blobs. Se le cobrará por la cuenta de almacenamiento en función de la redundancia de la cuenta de almacenamiento. Estos cargos se cobran por el tamaño de los blobs en bloques. Sin embargo, será una cantidad mínima, ya que solo almacena metadatos, que son unos pocos KiB por punto de recuperación. 
+
+El número de puntos de recuperación viene determinado por la directiva de copia de seguridad que se usa para configurar las copias de seguridad de las instancias de copia de seguridad del disco. Los blobs en bloques antiguos se eliminan de acuerdo con el proceso de recolección de elementos no utilizados, ya que se suprimen los puntos de recuperación más antiguos correspondientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

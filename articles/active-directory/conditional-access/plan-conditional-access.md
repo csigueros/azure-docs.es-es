@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13460fad0ed106f5c0590df961ceca54cb04cd7b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 17b69d4473529f585d6a0c997bafca42516e91a2
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102427188"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203168"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
@@ -50,7 +50,7 @@ Las ventajas de implementar el acceso condicional son:
 
 Consulte los [requisitos de licencia de acceso condicional](overview.md).
 
-Si se necesitan otras características, también necesitará las licencias asociadas. Para más información, consulte los [precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Si se necesitan otras características, también necesitará las licencias asociadas. Para más información, consulte los [precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -316,7 +316,7 @@ Con las directivas de acceso condicional se pueden implementar respuestas automa
 
 * [Exigir a todos los usuarios que se registren en MFA](howto-conditional-access-policy-risk.md)
 
-* [Exigir un cambio de contraseña para los usuarios que son de alto riesgo](howto-conditional-access-policy-risk.md)
+* [Exigir un cambio de contraseña para los usuarios que son de alto riesgo](howto-conditional-access-policy-risk-user.md)
 
 * [Exigir MFA para los usuarios con un riesgo de inicio de sesión medio o alto](howto-conditional-access-policy-risk.md)
 

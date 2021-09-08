@@ -3,22 +3,26 @@ title: Desencadenadores y acciones integrados para Azure Logic Apps
 description: Use desencadenadores y acciones integrados para crear flujos de trabajo automatizados que integren aplicaciones, datos, servicios y sistemas, y así poder controlar flujos de trabajo y para administrar datos mediante Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: a718e7c7b771f66ed8337e53fec49e5939ab0442
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 06/16/2021
+ms.openlocfilehash: c98263500651447ddc4a9962f2e1ac10d9927502
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315766"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664942"
 ---
 # <a name="built-in-triggers-and-actions-for-logic-apps"></a>Desencadenadores y acciones integrados para Logic Apps
 
+Los [desencadenadores y las acciones integrados](apis-list.md) proporcionan [maneras de controlar la programación y la estructura del flujo de trabajo](#control-workflow), [ejecutar su propio código](#run-code-from-workflows), [administrar o manipular datos](#manage-or-manipulate-data) y completar otras tareas en los flujos de trabajo. A diferencia de los [conectores administrados](managed.md), muchas operaciones integradas no están vinculadas a un servicio, sistema o protocolo específicos. Por ejemplo, puede iniciar casi cualquier flujo de trabajo según una programación mediante el desencadenador Periodicidad. O bien, puede hacer que el flujo de trabajo espere hasta que se llame mediante el desencadenador Solicitud. Todas las operaciones integradas se ejecutan de forma nativa en el servicio Logic Apps, y la mayoría no requieren que cree una conexión antes de usarlas.
 
-Los [desencadenadores y las acciones integrados](apis-list.md) proporcionan [maneras de controlar la programación y la estructura del flujo de trabajo](#control-workflow), [ejecutar su propio código](#run-code-from-workflows), [administrar o manipular datos](#manage-or-manipulate-data) y completar otras tareas en los flujos de trabajo. A diferencia de los [conectores administrados](managed.md), muchas operaciones integradas no están vinculadas a un servicio, sistema o protocolo específicos. Por ejemplo, puede iniciar casi cualquier flujo de trabajo según una programación mediante el desencadenador Periodicidad. O bien, puede hacer que el flujo de trabajo espere hasta que se llame mediante el desencadenador Solicitud. Todas las operaciones integradas se ejecutan de forma nativa en el servicio Logic Apps, y la mayoría no requieren que cree una conexión antes de usarlas. 
+Para un menor número de servicios, sistemas y protocolos, como Azure Service Bus, Azure Functions, Azure Blob, Azure App Services, Azure API Management, SQL y AS2, entre otros, Logic Apps también proporciona operaciones integradas. El número y el intervalo varían en función de si crea una aplicación lógica multiinquilino o una aplicación lógica de un solo inquilino. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Por ejemplo, para [intercambiar mensajes B2B mediante el protocolo AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), seleccione la versión integrada a menos que necesite usar funcionalidades de seguimiento, puesto que solo están disponibles en la versión del conector administrado (en desuso).
 
-Logic Apps también proporciona operaciones integradas para una menor cantidad de servicios, sistemas y protocolos, como Azure Functions, Azure App Services, Azure API Management y AS2, entre otros. Esta selección varía en función de si crea una aplicación lógica multiinquilino o una aplicación lógica de un solo inquilino. Por ejemplo, si crea una aplicación lógica de un solo inquilino, las operaciones integradas están disponibles para Azure Service Bus, Azure Event Hubs, SQL Server y MQ. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Por ejemplo, para [intercambiar mensajes B2B mediante el protocolo AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), seleccione la versión integrada a menos que necesite usar funcionalidades de seguimiento, puesto que solo están disponibles en la versión del conector administrado (en desuso).
+El número y el intervalo varían en función de si crea una aplicación lógica multiinquilino o una aplicación lógica de un solo inquilino. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Por ejemplo, para [intercambiar mensajes B2B mediante el protocolo AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), seleccione la versión integrada a menos que necesite usar funcionalidades de seguimiento, puesto que solo están disponibles en la versión del conector administrado (en desuso).
+
+
+Por ejemplo, si crea una aplicación lógica de un solo inquilino, las operaciones integradas están disponibles para Azure Service Bus, Azure Event Hubs, SQL Server y MQ. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Por ejemplo, para [intercambiar mensajes B2B mediante el protocolo AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), seleccione la versión integrada a menos que necesite usar funcionalidades de seguimiento, puesto que solo están disponibles en la versión del conector administrado (en desuso).
 
 En la siguiente lista solo se describen algunas de las tareas que puede realizar con [desencadenadores y acciones integrados](#understand-triggers-and-actions):
 
@@ -53,18 +57,6 @@ Logic Apps proporciona los siguientes desencadenadores y acciones integrados:
         [**Retrasar hasta**][schedule-delay-until-doc]: permite pausar el flujo de trabajo hasta la fecha y hora especificadas.
     :::column-end:::
     :::column:::
-        [![Icono de Batch en Logic Apps][batch-icon]][batch-doc]
-        \
-        \
-        [**Batch**][batch-doc]
-        \
-        \
-        [**Mensajes por lotes:**][batch-doc] permite desencadenar un flujo de trabajo que procese los mensajes en lotes.
-        \
-        \
-        [**Enviar mensajes al lote:**][batch-doc] permite llamar a un flujo de trabajo existente que se inicia actualmente con un **desencadenador de mensajes de Batch**.
-    :::column-end:::
-    :::column:::
         [![Icono de HTTP en Logic Apps][http-icon]][http-doc]
         \
         \
@@ -89,6 +81,18 @@ Logic Apps proporciona los siguientes desencadenadores y acciones integrados:
         \
         \
         [**Respuesta:**][http-request-doc] permite responder a una solicitud que recibe el desencadenador denominado **Cuando se recibe una solicitud HTTP** en el mismo flujo de trabajo.
+    :::column-end:::
+    :::column:::
+        [![Icono de Batch en Logic Apps][batch-icon]][batch-doc]
+        \
+        \
+        [**Batch**][batch-doc]
+        \
+        \
+        [**Mensajes por lotes:**][batch-doc] permite desencadenar un flujo de trabajo que procese los mensajes en lotes.
+        \
+        \
+        [**Enviar mensajes al lote:**][batch-doc] permite llamar a un flujo de trabajo existente que se inicia actualmente con un **desencadenador de mensajes de Batch**.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,6 +127,12 @@ Logic Apps proporciona los siguientes desencadenadores y acciones integrados:
         Llame a otros flujos de trabajo que comiencen con el desencadenador se solicitud denominado **Cuando se recibe una solicitud HTTP**.
     :::column-end:::
     :::column:::
+        [![Icono de SQL Server en Logic Apps][sql-server-icon]][sql-server-doc]
+        \
+        \
+        [**SQL Server**][sql-server-doc] <br>(*Solo inquilino único*)     \
+        \
+        Conéctese a SQL Server en el entorno local o a una base de datos de Azure SQL Database en la nube para poder administrar los registros, ejecutar procedimientos almacenados o realizar consultas. <p>**Nota**: Azure Logic Apps de un solo inquilino proporciona operaciones de conectores SQL integrados y administrados, mientras que Azure Logic Apps multiinquilino proporciona solo operaciones de conectores administrados. <p>Para más información, consulte [Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
     :::column-end:::
 :::row-end:::
 
@@ -320,9 +330,10 @@ Logic Apps proporciona acciones integradas para trabajar con salidas de datos y 
 > [!div class="nextstepaction"]
 > [Creación de API personalizadas que se pueden llamar desde Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
-<!-- Built-ins icons -->
+<!-- Built-in icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
+[azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
 [batch-icon]: ./media/apis-list/batch.png
@@ -338,18 +349,20 @@ Logic Apps proporciona acciones integradas para trabajar con salidas de datos y 
 [inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
+[sql-server-icon]: ./media/apis-list/sql.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png
 [until-icon]: ./media/apis-list/until.png
 [variables-icon]: ./media/apis-list/variables.png
 
-
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Creación de una instancia del servicio Azure API Management para administrar y publicar sus API"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrar aplicaciones lógicas con App Service API Apps"
+[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integración de aplicaciones lógicas con Azure Functions"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Procesamiento de mensajes en grupos o lotes"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluar una condición y ejecutar acciones diferentes según si la condición es true o false"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Realizar operaciones de datos como el filtrado de matrices o la creación de tablas CSV y HTML"
 [for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Realizar las mismas acciones en todos los elementos de una matriz"
 [http-doc]: ./connectors-native-http.md "Llamar a puntos de conexión HTTP o HTTPS desde las aplicaciones lógicas"
 [http-request-doc]: ./connectors-native-reqres.md "Recibir solicitudes HTTP en las aplicaciones lógicas"
@@ -365,8 +378,8 @@ Logic Apps proporciona acciones integradas para trabajar con salidas de datos y 
 [schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Ejecutar aplicaciones lógicas según una programación periódica"
 [schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Ejecutar aplicaciones lógicas que necesitan manipular datos en fragmentos contiguos"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organizar las acciones en grupos, que obtienen su propio estado después de que las acciones del grupo terminen de ejecutarse"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Conectar con Azure SQL Database o SQL Server. Crear, actualizar, obtener y eliminar entradas en una tabla de base de datos SQL"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organizar las acciones en los casos, a los que se asignan valores únicos. Ejecutar solo el caso cuyo valor asignado coincida con el resultado de una expresión, objeto o token. Si no hay coincidencias, ejecutar el caso predeterminado"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Detener o cancelar un flujo de trabajo que se está ejecutando activamente para la aplicación lógica"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repetir las acciones hasta que la condición especificada sea true o cambie algún estado"
-[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Realizar operaciones de datos como el filtrado de matrices o la creación de tablas CSV y HTML"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Realizar operaciones con variables, por ejemplo, inicializar, establecer, incrementar, reducir y anexar a la variable de cadena o matriz"

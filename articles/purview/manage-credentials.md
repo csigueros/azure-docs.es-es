@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 61f10707231e88130cffbfffa1c06f33084bfbbd
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 14b11cca3eca6f3d0b89889a4eb1abf3f04f5715
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792150"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487658"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciales para la autenticación de origen en Azure Purview
 
@@ -77,7 +77,7 @@ Antes de asignar acceso a la identidad administrada de Purview, identifique el m
 
 :::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Modelo de permisos de Azure Key Vault"::: 
 
-### <a name="option-1---assign-access-using-using-key-vault-access-policy"></a>Opción 1: Asignación de acceso mediante la directiva de acceso de Key Vault  
+### <a name="option-1---assign-access-using-key-vault-access-policy"></a>Opción 1: asignación de acceso mediante la directiva de acceso de Key Vault  
 
 Siga estos pasos solo si el modelo de permisos del recurso de Azure Key Vault está establecido en **Directiva de acceso de Vault**:
 

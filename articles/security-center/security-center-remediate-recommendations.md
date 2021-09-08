@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: dc279ea48472ac86dd9502e37788e8b2aad4f37c
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: f0caaea2296a8981df4717497cb641676b43dea1
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906825"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237082"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendaciones de corrección en Azure Security Center
 

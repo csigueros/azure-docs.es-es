@@ -1,14 +1,14 @@
 ---
 title: Solución de problemas de conexión del agente de los servidores habilitados para Azure Arc
 description: En este artículo se explica cómo solucionar problemas relacionados con el agente de Connected Machine que surgen con los servidores habilitados para Azure Arc al intentar conectarse al servicio.
-ms.date: 04/12/2021
+ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ae26b599a72129b5ed7f47d76d10353be5c0e8ac
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 8547e66ee8915c356b345bceb3cc52bde63713b0
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498006"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390173"
 ---
 # <a name="troubleshoot-azure-arc-enabled-servers-agent-connection-issues"></a>Solución de problemas de conexión del agente de los servidores habilitados para Azure Arc
 

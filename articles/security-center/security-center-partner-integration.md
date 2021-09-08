@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: ff23a1fa4b631fc10163f22d94ccdbd8cbe657c2
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3d7bed3847465c48914453a3fd167384e1c180b6
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099257"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435834"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -40,7 +40,7 @@ Security Center también ofrece análisis de vulnerabilidades para:
 ## <a name="how-security-solutions-are-integrated"></a>Integración de soluciones de seguridad
 Las soluciones de seguridad de Azure que se implementan desde Security Center se conectan automáticamente. También se pueden conectar otros orígenes de datos de seguridad, como equipos que se ejecutan en el entorno local o en otras nubes.
 
-[![Integración de soluciones de asociados](./media/security-center-partner-integration/security-solutions-page.png)](./media/security-center-partner-integration/security-solutions-page.png#lightbox)
+:::image type="content" source="./media/security-center-partner-integration/security-solutions-page.png" alt-text="Integración de soluciones para asociados." lightbox="./media/security-center-partner-integration/security-solutions-page.png":::
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Administración de soluciones de seguridad de Azure integradas y otros orígenes de datos
 
@@ -54,7 +54,7 @@ En la página **Soluciones de seguridad**, puede ver el mantenimiento de las sol
 
 La sección **Soluciones conectadas** incluye soluciones de seguridad que están conectadas actualmente a Security Center. También muestra el estado de mantenimiento de cada solución.  
 
-![Soluciones conectadas](./media/security-center-partner-integration/connected-solutions.png)
+![Soluciones conectadas.](./media/security-center-partner-integration/connected-solutions.png)
 
 El estado de una solución de asociado puede ser:
 
@@ -75,7 +75,7 @@ Seleccione **Ver** para más información y opciones adicionales, entre las que 
    - **Eliminar solución**
    - **Configuración**
 
-   ![Detalle de solución de asociado](./media/security-center-partner-integration/partner-solutions-detail.png)
+   ![Detalle de solución de asociado.](./media/security-center-partner-integration/partner-solutions-detail.png)
 
 
 ### <a name="discovered-solutions"></a>Soluciones detectadas
@@ -91,7 +91,7 @@ Seleccione **Conectar** en una solución para integrarla con Security Center y r
 
 La sección **Agregar orígenes de datos** incluye otros orígenes de datos disponibles que se pueden conectar. Para obtener instrucciones acerca de cómo agregar datos desde cualquiera de estos orígenes, haga clic en **ADD**.
 
-![Orígenes de datos](./media/security-center-partner-integration/add-data-sources.png)
+![Orígenes de datos.](./media/security-center-partner-integration/add-data-sources.png)
 
 
 

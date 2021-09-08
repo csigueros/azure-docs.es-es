@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: be12a9054fd67b243530ff671c10fa53acafc308
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 0ec16b16c8e71d764fb0fe21520eb407493ed8d7
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366358"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105370"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migración a Connection Monitor desde Network Performance Monitor
 
@@ -51,7 +51,7 @@ La migración ayuda a generar los siguientes resultados:
 
 Para migrar las pruebas de Network Performance Monitor a Connection Monitor, haga lo siguiente:
 
-1. En Network Watcher, seleccione **Connection Monitor** y, luego, la pestaña **Migrate tests from NPM** (Migrar pruebas desde NPM). 
+1. En Network Watcher, seleccione **Connection Monitor** y, a continuación, seleccione la pestaña **Import tests from NPM** (Importar pruebas desde NPM). 
 
     :::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Migración de pruebas de Network Performance Monitor a Connection Monitor" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
     
@@ -77,6 +77,23 @@ Después de la migración:
 * Deshabilite manualmente las pruebas en NPM. Hasta que lo haga, se le seguirá cobrando. 
 * Al deshabilitar NPM, vuelva a crear las alertas en las tablas NWConnectionMonitorTestResult y NWConnectionMonitorPathResult, o bien use las métricas. 
 * Migre cualquier integración externa a las tablas NWConnectionMonitorTestResult y NWConnectionMonitorPathResult. Algunos ejemplos de integración externa son los paneles de Power BI y Grafana, y las integraciones con sistemas de Administración de eventos e información de seguridad (SIEM).
+
+## <a name="common-errors-encountered"></a>Errores comunes detectados
+
+A continuación, se muestran algunos errores comunes que se producen durante la migración: 
+
+| Error  |    Motivo   |
+|---|---|
+| No se encontró ninguna configuración de NPM válida. Vaya a la interfaz de usuario de NPM para comprobar la configuración.     |     Este error se produce cuando el usuario selecciona Import Tests from NPM (Importar pruebas desde NPM) para migrar las pruebas, pero NPM no está habilitado en el área de trabajo.   |
+|El área de trabajo seleccionada no tiene la configuración "Monitor de conectividad de servicio".    |       Este error se produce cuando el usuario migra pruebas desde el monitor de conectividad de servicio de NPM a Connection Monitor, pero no hay ninguna prueba configurada en el monitor de conectividad de servicio. |
+|El área de trabajo seleccionada no tiene la configuración "Supervisión de ExpressRoute".    |     Este error se produce cuando el usuario migra pruebas del monitor de ExpressRoute de NPM a Connection Monitor pero no hay ninguna prueba configurada en el monitor de ExpressRoute.  |
+|El área de trabajo seleccionada no tiene la configuración "Monitor de rendimiento".    |      Este error se produce cuando el usuario migra pruebas del monitor de rendimiento de NPM a Connection Monitor pero no hay ninguna prueba configurada en el monitor de rendimiento. |
+|El área de trabajo seleccionada no tiene pruebas "{0}'' válidas.    |      Este error se produce cuando el usuario migra pruebas de NPM a Connection Monitor pero no hay pruebas válidas presentes en la característica elegida por el usuario para migrar.  |
+|Antes de intentar migrar, habilite la extensión de Network Watcher en la suscripción de la selección y la ubicación del área de trabajo de LA seleccionada.      |      Este error se produce cuando el usuario migra pruebas de NPM a Connection Monitor y la extensión de Network Watcher no está habilitada en el área de trabajo de LA seleccionada. El usuario debe habilitar la extensión de NW antes de migrar las pruebas. |
+|Algunas pruebas {1} contienen agentes que ya no están activos. Lista de agentes inactivos: {0}. Estos agentes pueden estar ejecutándose en el pasado, pero se apagan o ya no se ejecutan. Habilite los agentes y migre a Connection Monitor. Haga clic en Continuar para migrar las pruebas que no contienen agentes que no están activos.       |    Este error se produce cuando el usuario migra pruebas de NPM a Connection Monitor y algunas pruebas seleccionadas contienen agentes de Network Watcher inactivos o dichos agentes de NW ya no están activos, pero solían estar activos en el pasado y se han apagado. El usuario puede anular la selección de estas pruebas y continuar seleccionando y migrando las pruebas que no contienen estos agentes inactivos.  |
+|Las pruebas {1} contienen agentes que ya no están activos. Lista de agentes inactivos: {0}. Estos agentes pueden estar ejecutándose en el pasado, pero se apagan o ya no se ejecutan. Habilite los agentes y migre a Connection Monitor.     | Este error se produce cuando el usuario migra pruebas de NPM a Connection Monitor y las pruebas seleccionadas contienen agentes de Network Watcher inactivos o dichos agentes de NW ya no están activos, pero solían estar activos en el pasado y se han apagado. El usuario debe habilitar los agentes y, a continuación, seguir migrando estas pruebas a Connection Monitor.    |
+|Se produjo un error al importar las pruebas en Connection Monitor.     |    Este error se produce cuando el usuario intenta migrar pruebas de NPM a CM, pero debido a errores, la migración no se realiza correctamente. |
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

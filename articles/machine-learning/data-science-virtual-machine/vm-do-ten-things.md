@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 9df1304cd127f15d948fba3e498f6fbfbce30557
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e4e4a7169d7550523fb2e712560d1bdf86197558
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701013"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679141"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciencia de datos con una instancia de Data Science Virtual Machine para Windows
 
@@ -49,7 +49,7 @@ En este artículo, aprenderá a usar DSVM para realizar tareas de ciencia de dat
 
 
 ## <a name="use-jupyter-notebooks"></a>Uso de Jupyter Notebooks
-Jupyter Notebook proporciona un IDE basado en el explorador para explorar y modelar datos. En un cuaderno de Jupyter Notebook se pueden usar Python 2, Python 3 o R (tanto de código abierto como de Microsoft R Server).
+Jupyter Notebook proporciona un IDE basado en el explorador para explorar y modelar datos. En un cuaderno de Jupyter Notebook se pueden usar Python 2, Python 3 o R.
 
 Para iniciar el cuaderno de Jupyter Notebook, seleccione el icono **Jupyter Notebook** en el menú **Inicio** o en el escritorio. En el símbolo del sistema de DSVM, también puede ejecutar el comando ```jupyter notebook``` desde el directorio donde tiene cuadernos existentes o donde quiere crear cuadernos.  
 
@@ -68,6 +68,10 @@ Después de iniciar Jupyter, vaya al directorio `/notebooks` para ver los cuader
 Cuando esté en el cuaderno, podrá explorar los datos, así como compilar y probar el modelo con las bibliotecas que elija.
 
 ## <a name="explore-data-and-develop-models-with-microsoft-machine-learning-server"></a>Exploración de datos y desarrollo de modelos con Microsoft Machine Learning Server
+
+> [!NOTE]
+> El soporte técnico para Machine Learning Server independiente finalizó el 1 de julio de 2021. Como consecuencia, después del 30 de junio se eliminó de las imágenes de DSVM. Las implementaciones existentes seguirán teniendo acceso al software, pero debido a que se ha alcanzado la fecha de finalización del soporte técnico, no habrá soporte técnico para él después del 1 de julio de 2021.
+
 Puede utilizar lenguajes como R y Python para realizar el análisis de datos directamente en DSVM.
 
 Para R, puede usar un IDE como RStudio que se puede encontrar en el menú Inicio o en el escritorio. O bien puede usar Herramientas de R para Visual Studio. Microsoft ha aportado bibliotecas adicionales además de la de CRAN R de código abierto para habilitar el análisis escalable y la capacidad de analizar datos mayores que el tamaño de memoria permitido en el análisis de fragmentos en paralelo. 
@@ -254,7 +258,7 @@ Los datos se leen como una trama de datos:
 ### <a name="azure-synapse-analytics-and-databases"></a>Azure Synapse Analytics y bases de datos
 Azure Synapse Analytics es un almacén de datos elástico que funciona como un servicio con una experiencia de SQL Server de clase empresarial.
 
-Puede aprovisionar Azure Synapse Analytics siguiendo las instrucciones de [este artículo](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Después de aprovisionar Azure Synapse Analytics, puede usar [este tutorial](../team-data-science-process/sqldw-walkthrough.md) para cargar, examinar y modelar los datos mediante datos de Azure Synapse Analytics.
+Puede aprovisionar Azure Synapse Analytics siguiendo las instrucciones de [este artículo](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Después de aprovisionar Azure Synapse Analytics, puede usar [este tutorial](/azure/architecture/data-science-process/sqldw-walkthrough) para cargar, examinar y modelar los datos mediante datos de Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB es una base de datos NoSQL en la nube. Puede usarlo para trabajar con documentos como JSON, así como para almacenar y consultar dichos documentos.

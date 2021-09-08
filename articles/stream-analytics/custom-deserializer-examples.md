@@ -5,16 +5,16 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/12/2021
+ms.date: 6/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17dd8ec7a7fcd14d9f72a016a2208e7e37be2f36
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d66879a4f3aac37bb08cfcf916c0cb44027c3729
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949990"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295460"
 ---
-# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lectura de entradas en cualquier formato mediante deserializadores personalizados
+# <a name="read-input-in-any-format-using-net-custom-deserializers-preview"></a>Lectura de entradas en cualquier formato mediante deserializadores personalizados de .NET (versión preliminar)
 
 Los deserializadores de .NET personalizados permiten que el trabajo de Azure Stream Analytics lea los datos en formatos distintos de los tres [formatos de datos integrados](stream-analytics-parsing-json.md). En este artículo se explica el formato de serialización y las interfaces que definen los deserializadores de .NET personalizados para trabajos perimetrales y en la nube de Azure Stream Analytics. También hay deserializadores de ejemplo para el búfer de protocolo y el formato CSV.
 

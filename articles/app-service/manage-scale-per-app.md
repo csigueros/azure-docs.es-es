@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 756117a2a231fcb406fd3e3102a16c318c621aa0
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 77f8ff8cf7e3e9a83b207f8d98ef570437b27b47
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832615"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111166"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hospedaje de alta densidad en Azure App Service con escalado por aplicación
 
@@ -23,7 +23,7 @@ Al usar App Service, puede escalar sus aplicaciones si escala el [plan de App Se
 El *escalado por aplicación* puede habilitarse en el nivel del plan de App Service para permitir el escalado de una aplicación independientemente del plan de App Service que la hospeda. De esta manera, se puede escalar un plan de App Service a 10 instancias, pero se puede configurar una aplicación para usar solo cinco.
 
 > [!NOTE]
-> El escalado por aplicación solo está disponible para los planes de tarifa **Estándar**, **Premium**, **Premium V2** y **Aislado**.
+> El escalado por aplicación solo está disponible para los planes de tarifa **Estándar**, **Prémium**, **Prémium V2**, **Prémium V3** y **Aislado**.
 >
 
 A las aplicaciones se les asigna un plan de App Service disponible de la mejor manera posible para lograr una distribución uniforme entre las instancias. Aunque no es posible garantizar una distribución uniforme, la plataforma sí se asegurará de que dos instancias de la misma aplicación no se hospeden en la misma instancia del plan de App Service.

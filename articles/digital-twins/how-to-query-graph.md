@@ -8,18 +8,18 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f279ea2011b37c01b1ef9ec67a2b5642f7e640b8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9d8a72f4457c6759dc93fcdeae03abd1d4c8b168
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078101"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729837"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
-En este artículo se ofrecen ejemplos de consultas e instrucciones sobre el uso del **lenguaje de consultas de Azure Digital Twins** para consultar un [grafo de gemelos](concepts-twins-graph.md) para obtener información. (Para obtener una introducción al lenguaje de consulta, consulte [Conceptos: lenguaje de consulta](concepts-query-language.md)).
+En este artículo se ofrecen ejemplos de consultas e instrucciones sobre el uso del **lenguaje de consultas de Azure Digital Twins** para consultar un [grafo de gemelos](concepts-twins-graph.md) para obtener información. (Para obtener una introducción al lenguaje de consulta, consulte [Acerca del lenguaje de consulta para Azure Digital Twins](concepts-query-language.md)).
 
-Contiene consultas de ejemplo que muestran la estructura del lenguaje de consulta y las operaciones de consulta habituales para los gemelos digitales. También describe cómo ejecutar las consultas una vez escritas, mediante [Query API](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins o un [SDK](concepts-apis-sdks.md#overview-data-plane-apis).
+El artículo contiene consultas de ejemplo que muestran la estructura del lenguaje de consulta y las operaciones de consulta habituales para los gemelos digitales. También describe cómo ejecutar las consultas una vez escritas, mediante [Query API](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins o un [SDK](concepts-apis-sdks.md#overview-data-plane-apis).
 
 > [!NOTE]
 > Si ejecuta las consultas de ejemplo siguientes con la llamada a una API o un SDK, deberá condensar el texto de la consulta en una sola línea.
@@ -28,7 +28,7 @@ Contiene consultas de ejemplo que muestran la estructura del lenguaje de consult
 
 ## <a name="show-all-digital-twins"></a>Mostrar todos los gemelos digitales
 
-Esta es la consulta básica que devolverá una lista de todos los gemelos digitales de la instancia:
+Esta es una consulta básica que devolverá una lista de todos los gemelos digitales de la instancia:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
@@ -43,15 +43,15 @@ Como se muestra en la consulta anterior, el identificador de un gemelo digital s
 >[!TIP]
 > Cuando se usa Cloud Shell para ejecutar una consulta con campos de metadatos que comienzan por `$`, se debe usar un acento grave como carácter de escape para que Cloud Shell sepa que no es una variable y se debe consumir como literal en el texto de la consulta.
 
-También puede obtener instancias de Digital Twins en función de **si una propiedad determinada está definida**. Esta es una consulta que obtiene instancias de Digital Twins que tienen una propiedad *Location* definida:
+También puede obtener instancias de Digital Twins en función de **si una propiedad determinada está definida**. Esta es una consulta que obtiene los gemelos digitales que tienen la propiedad *Location* definida:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty2":::
 
-Esto le puede ayudar a obtener instancias de Digital Twins por sus propiedades de *etiqueta*, como se describe en [Incorporación de etiquetas a gemelos digitales](how-to-use-tags.md). Esta es una consulta que obtiene todas las instancias de Digital Twins etiquetadas con *red*:
+Esta consulta puede ayudar a obtener gemelos digitales por sus propiedades de *etiqueta*, como se describe en [Incorporación de etiquetas a gemelos digitales](how-to-use-tags.md). Esta es una consulta que obtiene todos los gemelos digitales con la etiqueta *red*:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
-También puede obtener instancias de Digital Twins en función del **tipo de una propiedad**. Esta es una consulta que obtiene instancias de Digital Twins cuya propiedad *Temperature* es un número:
+También puede obtener instancias de Digital Twins en función del **tipo de una propiedad**. Esta es una consulta que obtiene los gemelos digitales cuya propiedad *Temperature* es un número:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty3":::
 
@@ -77,7 +77,7 @@ A continuación, se muestra un ejemplo de consulta que pasa un valor en este par
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByModel1":::
 
-Para especificar una colección gemela para buscar cuando hay más de uno (como cuando se usa `JOIN`), agregue el parámetro `twinCollection`: `IS_OF_MODEL(twinCollection, twinTypeName)`.
+Para especificar una colección de gemelos para buscar cuando hay más de uno (como cuando se usa `JOIN`), agregue el parámetro `twinCollection`: `IS_OF_MODEL(twinCollection, twinTypeName)`.
 A continuación, se muestra un ejemplo de consulta que agrega un valor en este parámetro:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByModel2":::
@@ -96,18 +96,20 @@ A continuación, se muestra un ejemplo de consulta que especifica un valor para 
 
 Al realizar consultas basadas en **relaciones** de Digital Twins, el lenguaje de consultas de Azure Digital Twins tiene una sintaxis especial.
 
-Las relaciones se extraen en el ámbito de la consulta en la cláusula `FROM`. A diferencia de los lenguajes de tipo SQL "clásico", cada expresión de esta cláusula `FROM` no es una tabla; en su lugar, la cláusula `FROM` expresa un recorrido de relación entre entidades. Para recorrer las relaciones, Azure Digital Twins usa una versión personalizada de `JOIN`.
+Las relaciones se extraen en el ámbito de la consulta en la cláusula `FROM`. A diferencia de los lenguajes de tipo SQL "clásico", cada expresión de la cláusula `FROM` no es una tabla; en su lugar, la cláusula `FROM` expresa un recorrido de relación entre entidades. Para recorrer las relaciones, Azure Digital Twins usa una versión personalizada de `JOIN`.
 
-Recuerde que, con las funcionalidades del [modelo](concepts-models.md) de Azure Digital Twins, las relaciones no existen de forma independiente de los gemelos. Esto implica que las relaciones no se pueden consultar de forma independiente y deben estar vinculadas a un gemelo.
-Para controlar esto, la palabra clave `RELATED` se usa en la cláusula `JOIN` para extraer el conjunto de un tipo determinado de relación procedente de la colección de gemelos. A continuación, la consulta debe filtrar en la cláusula `WHERE` qué gemelos específicos se usarán en la consulta de relación (mediante los valores `$dtId` de los gemelos).
+Recuerde que, con las funcionalidades del [modelo](concepts-models.md) de Azure Digital Twins, las relaciones no existen independientemente de los gemelos, lo que significa que las relaciones aquí no se pueden consultar de forma independiente y deben estar vinculadas a un gemelo.
+Para reflejar este hecho, se usa la palabra clave `RELATED` en la cláusula `JOIN` para extraer el conjunto de un tipo determinado de relación procedente de la colección de gemelos. A continuación, la consulta debe filtrar en la cláusula `WHERE` para indicar qué gemelos específicos se usarán en la consulta de relación (mediante los valores de `$dtId` de los gemelos).
 
 En las siguientes secciones se proporcionan ejemplos de su aspecto.
 
 ### <a name="basic-relationship-query"></a>Consulta de relación básica
 
-A continuación se muestra un ejemplo de consulta basada en relaciones. Este fragmento de código selecciona todos los gemelos digitales con una propiedad *ID* "ABC" y todos los gemelos digitales relacionados con estos gemelos digitales a través de una relación *contains*.
+A continuación, se muestra un ejemplo de consulta basada en relaciones. Este fragmento de código selecciona todos los gemelos digitales con una propiedad *ID* "ABC" y todos los gemelos digitales relacionados con estos gemelos digitales a través de una relación *contains*.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship1":::
+
+El tipo de la relación (`contains` en el ejemplo anterior) se indica mediante el campo **name** de la relación a partir de su [definición DTDL](concepts-models.md#basic-relationship-example).
 
 > [!NOTE]
 > El desarrollador no necesita poner en correlación esta operación `JOIN` con un valor de clave en la cláusula `WHERE` (ni especificar un valor de clave insertado con la definición de `JOIN`). El sistema calcula esta correlación automáticamente, ya que las propias propiedades de la relación identifican la entidad de destino.
@@ -116,7 +118,7 @@ A continuación se muestra un ejemplo de consulta basada en relaciones. Este fra
 
 Puede usar la estructura de consulta de la relación para identificar un gemelo digital que sea el origen o destino de una relación.
 
-Por ejemplo, puede empezar con un gemelo de origen y seguir sus relaciones para buscar los gemelos de destino de las relaciones. Este es un ejemplo de una consulta que busca los gemelos de destino de las relaciones de *fuentes* que proceden del gemelo source-twin.
+Por ejemplo, puede empezar con un gemelo de origen y seguir sus relaciones para buscar los gemelos de destino de las relaciones. Este es un ejemplo de una consulta que busca los gemelos de destino de las relaciones *feeds* que proceden del gemelo source-twin.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationshipSource":::
 
@@ -137,7 +139,7 @@ En el ejemplo anterior, observe cómo *reportedCondition* es una propiedad de la
 
 ### <a name="query-with-multiple-joins"></a>Consulta con varias combinaciones JOIN
 
-En una sola consulta se admiten hasta cinco elementos `JOIN`. Esto le permite atravesar varios niveles de relaciones a la vez. 
+Se admiten hasta cinco cláusulas `JOIN` en una sola consulta, lo que permite el recorrido de varios niveles de relaciones a la vez. 
 
 Para consultar varios niveles de relaciones, use una única instrucción `FROM` seguida de N instrucciones `JOIN`, donde las instrucciones `JOIN` expresan relaciones en el resultado de una instrucción `FROM` o `JOIN` anterior.
 
@@ -187,7 +189,7 @@ La siguiente consulta realiza las mismas operaciones que el ejemplo anterior, pe
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections4":::
 
-Esta es una consulta similar que consulta el mismo conjunto que en el caso anterior, pero solo proyecta la propiedad *Consumer.name* como `consumerName` y proyecta la Fábrica completa como gemela.
+Esta es una consulta similar que consulta el mismo conjunto que en el caso anterior, pero solo proyecta la propiedad *Consumer.name* como `consumerName` y proyecta la Fábrica completa como un gemelo.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections5":::
 
@@ -215,7 +217,7 @@ Por ejemplo, considere un escenario en el que Buildings contenga a Floors y Floo
 
 ## <a name="other-compound-query-examples"></a>Otros ejemplos de consultas compuestas
 
-Puede **combinar** cualquiera de los tipos de consulta anteriores mediante operadores de combinación con el fin de incluir más detalles en una sola consulta. A continuación se muestran algunos ejemplos adicionales de consultas compuestas que realizan consultas para más de un tipo de descriptor de instancia de Digital Twins a la vez.
+Puede **combinar** cualquiera de los tipos de consulta anteriores mediante operadores de combinación con el fin de incluir más detalles en una sola consulta. A continuación, se muestran otros ejemplos de consultas compuestas que realizan consultas para más de un tipo de descriptor de gemelo a la vez.
 
 * De entre los dispositivos que tiene Room 123, se devuelven los dispositivos MxChip que tienen el rol de operador.
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples1":::
@@ -226,7 +228,7 @@ Puede **combinar** cualquiera de los tipos de consulta anteriores mediante opera
 
 ## <a name="run-queries-with-the-api"></a>Ejecución de consultas con la API
 
-Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a la [API de consulta](/rest/api/digital-twins/dataplane/query).
+Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a [Query API](/rest/api/digital-twins/dataplane/query).
 
 Puede llamar a la API directamente, o bien usar uno de los [SDK](concepts-apis-sdks.md#overview-data-plane-apis) disponibles para Azure Digital Twins.
 
@@ -237,11 +239,11 @@ En el fragmento de código siguiente se muestra la llamada al [SDK de .NET (C#)]
 La consulta utilizada en esta llamada devuelve una lista de gemelos digitales, que el ejemplo anterior representa con objetos [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true). El tipo de valor devuelto de los datos para cada consulta dependerá de los términos que especifique con la instrucción `SELECT`:
 * Las consultas que comienzan por `SELECT * FROM ...` devolverán una lista de gemelos digitales (que se pueden serializar como objetos `BasicDigitalTwin` u otros tipos de gemelos digitales personalizados que haya creado).
 * Las consultas que comienzan con el formato `SELECT <A>, <B>, <C> FROM ...` devolverán un diccionario con las claves `<A>`, `<B>` y `<C>`.
-* Se pueden diseñar otros formatos de instrucciones `SELECT` para devolver datos personalizados. Considere la posibilidad de crear sus propias clases para administrar conjuntos de resultados muy personalizados. 
+* Se pueden diseñar otros formatos de instrucciones `SELECT` para devolver datos personalizados. Considere la posibilidad de crear sus propias clases para administrar conjuntos de resultados personalizados. 
 
 ### <a name="query-with-paging"></a>Consulta con paginación
 
-Las llamadas de consulta admiten la paginación. Este es un ejemplo completo donde se usa `BasicDigitalTwin` como tipo de resultado de la consulta con control de errores y paginación:
+Las llamadas de consulta admiten la paginación. Este es un ejemplo completo del uso de `BasicDigitalTwin` como tipo de resultado de la consulta con control de errores y paginación:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
 

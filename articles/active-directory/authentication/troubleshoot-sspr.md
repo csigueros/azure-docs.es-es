@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/26/2020
+ms.date: 06/28/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76b4469b9b0e6fcb23f9c12fa648a8204b06eb79
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103600869"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004959"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Solución de problemas del autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -49,6 +49,16 @@ Para más información, consulte [Introducción a Azure AD Connect](../hybrid/h
 ## <a name="sspr-reporting"></a>Informes de SSPR
 
 Si tiene problemas con los informes de SSPR en Azure Portal, revise los siguientes pasos de resolución:
+
+### <a name="i-see-an-authentication-method-that-i-have-disabled-in-the-add-method-option-in-combined-registration"></a>Veo un método de autenticación que he deshabilitado en la opción Agregar método del registro combinado.
+
+El registro combinado tiene en cuenta tres directivas para determinar los métodos que se muestran en **Agregar método**: 
+
+- [Restablecimiento de la contraseña de autoservicio](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+- [MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)
+- [Métodos de autenticación](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AdminAuthMethods)
+
+Si deshabilita las notificaciones de aplicaciones en SSPR pero las habilita en la directiva de MFA, esa opción aparece en el registro combinado. Otro ejemplo sería que un usuario deshabilita el **teléfono del trabajo** en SSPR, sigue apareciendo como opción si el usuario tiene la propiedad de teléfono **personal/de trabajo** configurada. 
 
 ### <a name="i-dont-see-any-password-management-activity-types-in-the-self-service-password-management-audit-event-category"></a>No veo ningún tipo de actividad de administración de contraseñas en la categoría de evento de auditoría **Self-Service Password Management** (Administración de autoservicio de contraseñas).
 
@@ -98,6 +108,7 @@ Si usted o sus usuarios tienen problemas con el uso de SSPR, revise los siguient
 | He configurado una directiva para restablecer la contraseña, pero, cuando una cuenta de administrador usa el restablecimiento de contraseña, esa directiva no se aplica. | Microsoft administra y controla la directiva de restablecimiento de contraseña de administrador para garantizar el nivel de seguridad más alto. |
 | Se impide que el usuario trate de restablecer la contraseña demasiadas veces al día. | Se usa un mecanismo de limitación automática para evitar que los usuarios intenten restablecer sus contraseñas demasiadas veces en un breve período. La limitación se produce en los siguientes escenarios: <br><ul><li>Un usuario intenta validar un número de teléfono cinco veces en una hora.</li><li>Un usuario intenta utilizar la puerta de preguntas de seguridad cinco veces en una hora.</li><li>Un usuario intenta restablecer la contraseña de la misma cuenta de usuario cinco veces en una hora.</li></ul>Si un usuario experimenta este problema, debe esperar 24 horas después del último intento. El usuario puede entonces restablecer su contraseña. |
 | El usuario experimenta un error al validar su número de teléfono. | Este error se produce cuando el número de teléfono especificado no coincide con el número de teléfono archivado. Asegúrese de que el usuario escribe el número de teléfono completo, incluidos el código de área y el país, al intentar utilizar un método basado en teléfono para restablecer la contraseña. |
+| El usuario ve un error al usar su dirección de correo electrónico. | Si el nombre principal de usuario difiere de la dirección ProxyAddress/SMTPAddress principal del usuario, el valor [Sign-in to Azure AD with email as an alternate login ID](howto-authentication-use-email-signin.md) (Inicio de sesión en Azure AD mediante el correo electrónico como Id. de inicio de sesión alternativo) debe estar habilitado para el inquilino. |
 | Se produce un error al procesar la solicitud. | Aunque los errores genéricos de registro de SSPR pueden tener varias causas, en general este error se debe a una interrupción del servicio o a un problema de configuración. Si sigue viendo este error genérico al reintentar el proceso de registro de SSPR, [póngase en contacto con el servicio de soporte técnico de Microsoft](#contact-microsoft-support) para obtener ayuda adicional. |
 | Infracción de la directiva local | La contraseña no cumple la directiva de contraseñas de Active Directory local. El usuario debe definir una contraseña que cumpla los requisitos de complejidad o seguridad. |
 | La contraseña no cumple la directiva aproximada | La contraseña que se ha usado aparece en la [lista de contraseñas prohibidas](./concept-password-ban-bad.md#how-are-passwords-evaluated) y no puede usarse. El usuario debe definir una contraseña que cumpla, o supere, la directiva de la lista de contraseñas prohibidas. |

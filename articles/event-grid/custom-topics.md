@@ -2,13 +2,13 @@
 title: Temas personalizados en Azure Event Grid
 description: Describe los temas personalizados en Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: c211e529e5382fd655fca6d78ab32409cbff4453
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 07/27/2021
+ms.openlocfilehash: 54d331d2080d8adf96bf39c9250e7d6888723c1d
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736653"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727758"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Temas personalizados en Azure Event Grid
 En un tema de Event Grid se proporciona un punto de conexión al que el origen envía los eventos. El publicador crea el tema de Event Grid y decide si un origen de evento necesita un tema o más de un tema. Un tema se usa para una colección de eventos relacionados. Para responder a determinados tipos de eventos, los suscriptores deciden los temas a los que se suscriben.
@@ -67,6 +67,9 @@ En las secciones siguientes se proporcionan vínculos a tutoriales para crear te
 |---------|---------|
 | [Plantilla de Resource Manager: tema personalizado y punto de conexión del webhook](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid) | Plantilla de Resource Manager que crea un tema personalizado y una suscripción a ese tema personalizado. Envía eventos a un webhook. |
 | [Plantilla de Resource Manager: tema personalizado y punto de conexión a Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| Plantilla de Resource Manager que crea una suscripción a un tema personalizado. Envía eventos a una instancia de Azure Event Hubs. |
+
+> [!NOTE]
+> Azure Digital Twins puede enrutar las notificaciones de eventos a los temas personalizados que cree con Event Grid. Para más información, consulte [Administración de puntos de conexión y rutas en Azure Digital Twins](../digital-twins/how-to-manage-routes.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes: 

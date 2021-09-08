@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 3e6c4b73e8aeb26c6ac4025ef3c07fb4f8d48eaf
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d5e405447a93f23f4845a018a74229aacbbad09c
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308649"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302129"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configuración de contenedores OCR de Read en Docker
 
@@ -41,6 +41,9 @@ El contenedor también tiene los siguientes valores de configuración específic
 |No|Storage:ObjectStore:AzureBlob:ConnectionString| Solo contenedores con la versión 3.x. Cadena de conexión de Azure Blob Storage. |
 |No|Storage:TimeToLiveInDays| Solo contenedores con la versión 3.x. Período de expiración del resultado en días. Este valor especifica cuándo debe borrar el sistema los resultados de reconocimiento. El valor predeterminado es 2 días (48 horas), lo que significa que no se garantiza que los resultados que permanezcan por encima de ese período se recuperen correctamente. |
 |No|Task:MaxRunningTimeSpanInMinutes| Solo contenedores con la versión 3.x. Tiempo de ejecución máximo de una única solicitud. El valor predeterminado es 60 minutos. |
+|No|EnableSyncNTPServer| Solo contenedores con la versión 3.x. Habilita el mecanismo de sincronización del servidor NTP, que garantiza la sincronización entre la hora del sistema y el tiempo de ejecución de tareas esperado. Tenga en cuenta que esto requiere tráfico de red externo. El valor predeterminado es `true`. |
+|No|NTPServerAddress| Solo contenedores con la versión 3.x. Servidor NTP para la sincronización de la hora. El valor predeterminado es `time.windows.com`. |
+|No|Mounts::Shared| Solo contenedores con la versión 3.x. Carpeta local para almacenar el resultado del reconocimiento. De manera predeterminada, es `/share`. Para ejecutar un contenedor sin usar Azure Blob Storage, se recomienda montar un volumen en esta carpeta para asegurarse de que tiene suficiente espacio para los resultados del reconocimiento. |
 
 ## <a name="apikey-configuration-setting"></a>Opción de configuración ApiKey
 

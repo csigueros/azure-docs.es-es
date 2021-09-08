@@ -8,12 +8,12 @@ ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 914fd683c45415db4af1f932404bc2cc2cf35716
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 0435fece7394c0a1494e51581bce263cbf1e068a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814556"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461185"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
@@ -31,7 +31,7 @@ Por ejemplo, puede:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para usar las características de exportación de datos, debe tener una [aplicación V3](howto-get-app-info.md) y permisos de [exportación de datos](howto-manage-users-roles.md).
+Para usar las características de exportación de datos, debe tener una [aplicación V3](howto-faq.yml#how-do-i-get-information-about-my-application-) y permisos de [exportación de datos](howto-manage-users-roles.md).
 
 Si tiene una aplicación V2, consulte [Migración de la aplicación de IoT Central V2 a V3](howto-migrate.md).
 
@@ -174,7 +174,7 @@ Además de ver el estado de las exportaciones en IoT Central, puede usar [Azure
 - Número de mensajes exportados correctamente a destinos
 - Número máximo de errores detectados
 
-Para más información, vea [Supervisión del estado general de una aplicación de IoT Central](howto-monitor-application-health.md).
+Para más información, consulte [Supervisión del estado de la aplicación](howto-manage-iot-central-from-portal.md#monitor-application-health).
 
 ## <a name="destinations"></a>Destinations
 
@@ -209,7 +209,7 @@ Cada mensaje exportado contiene un formato normalizado del mensaje completo que 
 - `enqueuedTime`: la hora a la que IoT Central recibió este mensaje.
 - `enrichments`: cualquier enriquecimiento configurado en la exportación.
 - `module`: el módulo IoT Edge que envió este mensaje. Este campo solo aparece si el mensaje provino de un módulo IoT Edge.
-- `component`: el componente que envió este mensaje. Este campo solo aparece si las funcionalidades enviadas en el mensaje se modelaron como un [componente en la plantilla de dispositivo](howto-set-up-template.md#create-a-component).
+- `component`: el componente que envió este mensaje. Este campo solo aparece si las funcionalidades enviadas en el mensaje se modelaron como un componente en la plantilla de dispositivo.
 - `messageProperties`: propiedades adicionales que el dispositivo envió con el mensaje. A veces, estas propiedades se denominan *propiedades de la aplicación*. [Puede encontrar más información en la documentación de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 En el caso de Event Hubs y Service Bus, IoT Central exporta un mensaje nuevo rápidamente después de recibir el mensaje de un dispositivo. En las propiedades de usuario (también conocidas como propiedades de la aplicación) de cada mensaje, `iotcentral-device-id`, `iotcentral-application-id` e `iotcentral-message-source` se incluyen automáticamente.
@@ -349,7 +349,7 @@ En el fragmento de código siguiente se muestra esta propiedad en el mensaje exp
 
 ## <a name="property-changes-format"></a>Formato de cambios de propiedades
 
-Cada mensaje o registro representa un cambio en una propiedad de la nube o del dispositivo. En el caso de las propiedades del dispositivo, solo los cambios en el valor notificado se exportan como un mensaje independiente. La información del mensaje exportado incluye:
+Cada mensaje o registro representa los cambios en las propiedades del dispositivo y de la nube. La información del mensaje exportado incluye:
 
 - `applicationId`: el identificador de la aplicación IoT Central.
 - `messageSource`: el origen del mensaje (`properties`).
@@ -358,8 +358,9 @@ Cada mensaje o registro representa un cambio en una propiedad de la nube o del d
 - `schema`: el nombre y la versión del esquema de carga.
 - `enqueuedTime`: la hora a la que IoT Central detectó este cambio.
 - `templateId`: el identificador de la plantilla de dispositivo asociada al dispositivo.
+- `properties`: una matriz de propiedades que han cambiado que incluye los nombres de las propiedades y los valores que han cambiado. La información del componente y del módulo se incluye si la propiedad se modela dentro de un componente o un módulo de IoT Edge.
 - `enrichments`: cualquier enriquecimiento configurado en la exportación.
-
+- 
 En Event Hubs y Service Bus, IoT Central exporta los nuevos datos de los mensajes al centro de eventos o a la cola o el tema de Service Bus casi en tiempo real. En las propiedades de usuario (también conocidas como propiedades de la aplicación) de cada mensaje, `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source` e `iotcentral-message-type` se incluyen automáticamente.
 
 Para Blob Storage, los mensajes se procesan por lotes y se exportan una vez por minuto.
@@ -377,13 +378,13 @@ En el ejemplo siguiente, se muestra un mensaje de cambio de propiedad exportado 
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
         "name": "MachineSerialNumber",
-        "value": "abc"
+        "value": "abc",
+        "module": "VitalsModule",
+        "component": "DeviceComponent"
     }],
     "enrichments": {
         "userSpecifiedKey" : "sampleValue"
-    },
-    "module": "VitalsModule",
-    "component": "DeviceComponent"
+    }
 }
 ```
 ## <a name="device-connectivity-changes-format"></a>Formato de los cambios de conectividad de dispositivos

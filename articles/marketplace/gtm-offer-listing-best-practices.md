@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 06/03/2021
-ms.openlocfilehash: 856a72be8e1bb69f86c2a96b8e7b57e964d26dfa
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 12c3641597168ee7e76acf4a16984f4419d40555
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410250"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298842"
 ---
 # <a name="offer-listing-best-practices"></a>Procedimientos recomendados para la publicación de ofertas
 
-En este artículo se ofrecen sugerencias para crear ofertas de marketplace comercial de Microsoft y participar en ellas. En las tablas siguientes se describen los procedimientos recomendados para completar la información de la oferta en el Centro de partners. Para obtener un análisis del rendimiento de las ofertas, vaya al [Panel de información de Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) en el Centro de partners. 
+En este artículo se ofrecen sugerencias para crear ofertas de marketplace comercial de Microsoft y participar en ellas. En las tablas siguientes se describen los procedimientos recomendados para completar la información de la oferta en el Centro de partners. Para obtener un análisis del rendimiento de las ofertas, vaya al [Panel de información de Marketplace](https://go.microsoft.com/fwlink/?linkid=2165936) en el Centro de partners.
 
 ## <a name="online-store-offer-details"></a>Detalles de oferta de tienda en línea
 
@@ -139,10 +139,10 @@ Al vincular el distintivo de AppSource o de Azure Marketplace del sitio web a la
 
 La siguiente dirección URL de ejemplo contiene los dos parámetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-Al agregar estos parámetros a la dirección URL de AppSource, puede revisar la eficacia de la campaña en el panel de análisis del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/).
+Al agregar estos parámetros a la dirección URL de AppSource, puede revisar la eficacia de la campaña en el [panel de análisis](https://go.microsoft.com/fwlink/?linkid=2165765) del Centro de partners.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información acerca de las [ventajas de Marketplace comercial](./gtm-your-marketplace-benefits.md).
 
-Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear y configurar la oferta.
+Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290) para crear y configurar la oferta. Si todavía no se ha inscrito en el Centro de partners, [cree una cuenta](create-account.md).

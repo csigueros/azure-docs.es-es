@@ -4,14 +4,14 @@ description: Obtenga información sobre los usos avanzados del Explorador de mé
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 06/30/2020
 ms.author: vitalyg
-ms.openlocfilehash: 8564f96ad311a07ccf4582f274e44e6ebd1e0c85
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bd0fef05913c66f767cb81e3c999fda4edaa8c21
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758538"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456530"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
@@ -113,7 +113,9 @@ Por ejemplo, supongamos que un gráfico muestra la métrica *Tiempo de respuesta
 - Si la granularidad de tiempo se establece en 30 minutos, el gráfico se elabora a partir de 48 puntos de datos agregados. Es decir, el gráfico de líneas conecta 48 puntos en el área de trazado del gráfico (24 horas x 2 puntos de datos por hora). Cada punto de datos representa la *media* de todos los tiempos de respuesta capturados para las solicitudes de servidor que se produjeron durante cada uno de los períodos de tiempo de 30 minutos correspondientes.
 - Si cambia la granularidad de tiempo a 15 minutos, obtendrá 96 puntos de datos agregados.  Es decir, obtiene 24 horas x 4 puntos de datos por hora.
 
-El Explorador de métricas tiene cinco tipos de agregación estadística básicos: suma, recuento, mínima, máxima y promedio. A veces se llama a la agregación *suma* agregación *total*. En el caso de muchas métricas, el Explorador de métricas oculta las agregaciones que no son pertinentes y no se pueden usar.
+El Explorador de métricas tiene cinco tipos de agregación estadística básicos: suma, recuento, mínima, máxima y promedio. A veces se llama a la agregación *suma* agregación *total*. En el caso de muchas métricas, el Explorador de métricas oculta las agregaciones que no son pertinentes y no se pueden usar. 
+
+Para obtener una explicación más detallada de cómo funciona la agregación de métricas, consulte [Explicación de la visualización y agregación de métricas de Azure Monitor](metrics-aggregation-explained.md).
 
 * **Suma**: la suma de todos los valores capturados durante el intervalo de agregación.
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 5/17/2021
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d48a3787f3dd54b5713ad0c9358e329e74aecc
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b4a2e346983e3d258fde4a5deaa6dc51601cff13
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786346"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376367"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Proceso de solicitud y notificaciones por correo electrónico en la administración de derechos de Azure AD
 
@@ -61,13 +61,13 @@ En el diagrama siguiente se muestra la experiencia de los aprobadores, así como
 
 ![Flujo del proceso del solicitante](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
-### <a name="2-stage-approval"></a>Aprobación en 2 fases
+### <a name="multi-stage-approval"></a>Aprobación de varias fases
 En el diagrama siguiente se muestra la experiencia de los aprobadores de fase 1 y fase 2, así como las notificaciones por correo electrónico que reciben durante el proceso de solicitud:
 
 ![Flujo del proceso de aprobación en 2 fases](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
 
 ### <a name="email-notifications-table"></a>Tabla de notificaciones por correo electrónico
-En la tabla siguiente se proporcionan más detalles sobre cada una de estas notificaciones por correo electrónico. Para administrar estos mensajes de correo electrónico, puede usar reglas. En Outlook, por ejemplo, puede crear reglas para trasladar los correos electrónicos a una carpeta si el asunto contiene palabras de esta tabla:
+En la tabla siguiente se proporcionan más detalles sobre cada una de estas notificaciones por correo electrónico. Para administrar estos mensajes de correo electrónico, puede usar reglas. En Outlook, por ejemplo, puede crear reglas para trasladar los correos electrónicos a una carpeta si el asunto contiene palabras de esta tabla.  Tenga en cuenta que las palabras se basarán en la configuración de idioma predeterminado del inquilino en el que el usuario solicita acceso.
 
 | # | Asunto del correo electrónico | Cuándo se envía | Se envía a |
 | --- | --- | --- | --- |
@@ -78,9 +78,9 @@ En la tabla siguiente se proporcionan más detalles sobre cada una de estas noti
 | 5 | Recordatorio de acción requerida: Aprobar o denegar la solicitud por *[fecha]* para *[solicitante]* | Este correo electrónico de recordatorio se enviará al primer aprobador, si la escalación está habilitada. El correo electrónico le pide que realice alguna acción si no lo ha hecho. | Primer aprobador |
 | 6 | La solicitud expiró para *[access_package]* | Este correo electrónico se enviará al primer aprobador y a los aprobadores alternativos de la fase 1 después de que la solicitud ha expirado. | Primer aprobador, aprobadores alternativos de la fase 1 |
 | 7 | Solicitud aprobada para el *[solicitante]* para *[access_package]* | Este correo electrónico se enviará al primer aprobador y a los aprobadores alternativos de la fase 1 al completarse la solicitud. | Primer aprobador, aprobadores alternativos de la fase 1 |
-| 8 | Solicitud aprobada para el *[solicitante]* para *[access_package]* | Este correo electrónico se enviará al primer aprobador y a los aprobadores alternativos de la fase 1, de una solicitud en 2 fases, cuando la solicitud de la fase 1 esté aprobada. | Primer aprobador, aprobadores alternativos de la fase 1 |
+| 8 | Solicitud aprobada para el *[solicitante]* para *[access_package]* | Este correo electrónico se enviará al primer aprobador y a los aprobadores alternativos de la fase 1, de una solicitud en varias fases, cuando la solicitud de la fase 1 esté aprobada. | Primer aprobador, aprobadores alternativos de la fase 1 |
 | 9 | Se denegó la solicitud a *[access_package]* | Este correo electrónico se enviará al solicitante cuando se deniegue su solicitud. | Solicitante |
-| 10 | Expiró su solicitud a *[access_package]* | Este correo electrónico se enviará al solicitante al final de una solicitud en 1 o 2 fases. El correo electrónico notifica al solicitante que la solicitud ha expirado. | Solicitante |
+| 10 | Expiró su solicitud a *[access_package]* | Este correo electrónico se enviará al solicitante al final de una solicitud de una o varias fases. El correo electrónico notifica al solicitante que la solicitud ha expirado. | Solicitante |
 | 11 | Acción requerida: Aprobar o denegar la solicitud por *[fecha]* | Este correo electrónico se enviará al segundo aprobador, si la escalación está deshabilitada, para realizar una acción. | Segundo aprobador |
 | 12 | Recordatorio de acción requerida: Aprobar o denegar la solicitud por *[fecha]* | Este correo electrónico de recordatorio se enviará al segundo aprobador, si la escalación está deshabilitada. La notificación le pide que realice alguna acción si no lo ha hecho. | Segundo aprobador |
 | 13 | Acción requerida: Aprobar o denegar la solicitud por *[fecha]* para *[solicitante]* | Este correo electrónico se enviará al segundo aprobador, si la escalación está habilitada, para realizar una acción. | Segundo aprobador |
@@ -96,7 +96,7 @@ En la tabla siguiente se proporcionan más detalles sobre cada una de estas noti
 
 Cuando un solicitante envía una solicitud de acceso para un paquete de acceso que está configurado para requerir aprobación, todos los aprobadores agregados a la directiva reciben una notificación por correo electrónico con los detalles de la solicitud. Los detalles del correo electrónico incluyen: organización del nombre del solicitante y justificación empresarial; y la fecha de inicio y finalización de acceso solicitada (si se proporcionan). Los detalles también incluirán cuándo se envió la solicitud y cuándo expirará.
 
-El correo electrónico incluye un vínculo a Mi acceso donde los aprobadores pueden aprobar o denegar la solicitud de acceso. Esta es una notificación de correo electrónico de ejemplo que se envía al primer aprobador o al segundo aprobador (si está habilitada la aprobación en 2 fases) para completar una solicitud de acceso:
+El correo electrónico incluye un vínculo a Mi acceso donde los aprobadores pueden aprobar o denegar la solicitud de acceso. Esta es una notificación por correo electrónico de ejemplo que se envía a un aprobador para completar una solicitud de acceso:
 
 ![Correo electrónico de solicitud de aprobación para un paquete de acceso](./media/entitlement-management-shared/approver-request-email.png)
 
@@ -126,13 +126,11 @@ Cuando se deniega una solicitud de acceso, se envía una notificación por corre
 
 ![Correo electrónico de solicitud denegada al solicitante](./media/entitlement-management-process/requestor-email-denied.png)
 
-### <a name="2-stage-approval-access-request-emails"></a>Correos electrónicos de solicitud de acceso de aprobación en 2 fases
+### <a name="multi-stage-approval-access-request-emails"></a>Correos electrónicos de solicitud de acceso de aprobación en varias fases
 
-Si la aprobación en 2 fases está habilitada, al menos dos aprobadores deben aprobar la solicitud, uno de cada fase, antes de que el solicitante pueda recibir acceso.
+Si la aprobación en varias fases está habilitada, al menos un aprobador de cada fase debe aprobar la solicitud, antes de que el solicitante pueda recibir acceso.
 
-Durante la fase 1, el primer aprobador recibirá el correo electrónico de solicitud de acceso y tomará una decisión. Si aprueba la solicitud, todos los primeros aprobadores y aprobadores alternativos de la fase 1 (si está habilitada la escalación) recibirán una notificación de que se ha completado la fase 1. Este es un correo electrónico de ejemplo de la notificación que se envía cuando se completa la fase 1:
-
-![Correo electrónico de solicitud de acceso en 2 fases](./media/entitlement-management-process/approver-request-email-2stage.png)
+Durante la fase 1, el primer aprobador recibirá el correo electrónico de solicitud de acceso y tomará una decisión.
 
 Una vez que el primer aprobador o los aprobadores alternativos aprueban la solicitud en la fase 1, comienza la fase 2. Durante la fase 2, el segundo aprobador recibirá el correo electrónico de notificación de solicitud de acceso. Después de que el segundo aprobador o los aprobadores alternativos en la fase 2 (si está habilitada la escalación) decidan aprobar o denegar la solicitud, los correos electrónicos de notificación se envían al primer y segundo aprobadores, y a todos los aprobadores alternativos de la fase 1 y la fase 2, así como el solicitante.
 
@@ -140,9 +138,7 @@ Una vez que el primer aprobador o los aprobadores alternativos aprueban la solic
 
 Las solicitudes de acceso pueden expirar si ningún aprobador ha aprobado o denegado la solicitud. 
 
-La solicitud expira cuando se llega la fecha de expiración configurada; los aprobadores ya no la pueden aprobar ni rechazar. Este es un ejemplo de correo electrónico de la notificación que se envía a todos los aprobadores, primero, segundo y alternativos (si la aprobación en 2 fases está habilitada):
-
-![Mensaje de correo electrónico de solicitud de acceso expirada para los aprobadores](./media/entitlement-management-process/approver-request-email-expired.png)
+La solicitud expira cuando se llega la fecha de expiración configurada; los aprobadores ya no la pueden aprobar ni rechazar.
 
 Se envía al solicitante una notificación por correo electrónico que le indica que su solicitud de acceso ha expirado y que debe volver a enviarla. En el diagrama siguiente se muestra la experiencia del solicitante y las notificaciones por correo electrónico que recibe cuando solicita ampliar el acceso:
 

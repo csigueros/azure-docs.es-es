@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bd46e7b2f0713da67842def47dfeadc837027d8f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6868739d5b2350d5ac29e12f48278348ee7204a8
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027975"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437453"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tareas de administrador de cuenta en Azure Portal
 
@@ -25,6 +25,11 @@ En este artículo se explica cómo realizar las siguientes tareas en Azure Porta
 - Agregar créditos a una suscripción de Azure bajo licencia Open
 
 Debe ser el administrador de cuenta para realizar cualquiera de estas tareas.
+
+## <a name="accounts-portal-is-retiring"></a>El portal de cuentas se está retirando
+
+El portal de cuentas se retirará y los clientes se redirigirán a Azure Portal antes del 31 de diciembre de 2021. Las características admitidas en el portal de cuentas se migrarán a Azure Portal. En este artículo se explica cómo realizar algunas de las operaciones más comunes en Azure Portal.
+
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Ir a los métodos de pago de la suscripción
 

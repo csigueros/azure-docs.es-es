@@ -1,5 +1,5 @@
 ---
-title: Base de referencia de rendimiento de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+title: 'Migración de MySQL en el entorno local a Azure Database for MySQL: líneas base de rendimiento'
 description: El conocimiento de la carga de trabajo de MySQL existente es una de las mejores inversiones que se pueden realizar para garantizar una migración correcta.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 9948eef759ff44468c8a9b70e790c8376b40ff16
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 2077ef62ddabf7910d5a634c07262c9d29905cf4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082950"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084973"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-performance-baselines"></a>Base de referencia de rendimiento de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-performance-baselines"></a>Migración de MySQL en el entorno local a Azure Database for MySQL: líneas base de rendimiento
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -96,6 +98,8 @@ Además, revise los parámetros que afectarán a los valores máximos:
 WWI ha revisado la carga de trabajo de la base de datos Conference y ha determinado que tiene una carga muy pequeña. Aunque un servidor de nivel básico funcionaría para ellos, no quieren realizar el trabajo más adelante de migrar a otro nivel de servicio. El servidor que se implemente hospedará finalmente las demás cargas de trabajo de datos de MySQL y, por tanto, han elegido el nivel `General Performance`.
 
 Al revisar la base de datos de MySQL, el servidor de MySQL 5.5 se ejecuta con los parámetros del servidor predeterminados que se establecen durante la instalación inicial.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Migración de datos](./08-data-migration.md)

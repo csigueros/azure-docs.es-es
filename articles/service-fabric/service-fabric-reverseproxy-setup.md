@@ -4,12 +4,12 @@ description: Aprenda a iniciar y configurar el servicio de proxy inverso para un
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 1d8f290bf1cad13597376d1d7c27cfaa695f9511
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 78ea7b0ec33fe56ca7a3032f98ad272ce622dc2c
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956639"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113094046"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instalación y configuración del proxy inverso en Azure Service Fabric
 El proxy inverso es un servicio opcional de Azure Service Fabric que ayuda a los microservicios que se ejecutan en un clúster de Service Fabric a detectar otros servicios que tienen puntos de conexión HTTP y a comunicarse con ellos. Para más información, consulte [Proxy inverso en Azure Service Fabric](service-fabric-reverseproxy.md). Este artículo muestra cómo instalar y configurar el proxy inverso en el clúster. 
@@ -74,7 +74,7 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
         ...
     }
     ```
-3. Para configurar certificados TLS o SSL en el puerto del proxy inverso, agregue el certificado a la propiedad **reverseProxyCertificate** de la sección [Tipo de recurso](../azure-resource-manager/templates/syntax.md) de *Microsoft.ServiceFabric/clusters** .
+3. Para configurar certificados TLS o SSL en el puerto del proxy inverso, agregue el certificado al objeto ***reverseProxyCertificate** _ de la plantilla _ *Microsoft.ServiceFabric/clusters** [resource](/azure/templates/microsoft.servicefabric/clusters?tabs=json#clusterproperties-object).
 
     ```json
     {
@@ -96,6 +96,8 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
         }
     }
     ```
+
+    También puede especificar un [nombre común para los certificados del proxy inverso](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) mediante el objeto **reverseProxyCertificateCommonNames** en la plantilla de recursos de clústeres.
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Compatibilidad de un certificado de proxy inverso distinto del certificado de clúster
  Si el certificado de proxy inverso es distinto del certificado que protege el clúster, el certificado especificado anteriormente debe instalarse en la máquina virtual y agregarse a la lista de control de acceso (ACL) para que Service Fabric pueda acceder a él. Esto puede hacerse en la [**sección del** tipo de recurso](/azure/templates/microsoft.compute/virtualmachinescalesets) [Microsoft. Compute/virtualMachineScaleSets](../azure-resource-manager/templates/syntax.md). Para la instalación, agregue el certificado a osProfile. La sección de extensión de la plantilla puede actualizar el certificado en la ACL.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 25feef60e6b417d835f06be9641207ce56aa53a6
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 5f70febb77d61e9d797c618faa82c8275f37bfef
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536432"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431391"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planeamiento de una plantilla de solución para una oferta de Aplicación de Azure
 
@@ -26,7 +26,7 @@ El tipo de plan de plantilla de solución requiere una [plantilla de Azure Resou
 | Requisitos | Detalles |
 | ------------ | ------------- |
 | Facturación y medición | Aunque no se pueden realizar transacciones con los planes de plantilla de solución, se pueden usar para implementar ofertas de máquina virtual de pago que se facturan mediante el marketplace comercial de Microsoft. Los recursos que implementa la plantilla de ARM de la solución se configuran en la suscripción de Azure del cliente. Las transacciones de máquinas virtuales de pago por uso se realizan con el cliente mediante Microsoft y se facturan con la suscripción de Azure del cliente. <br><br> En el caso de la facturación denominada "traiga su propia licencia" (BYOL), aunque Microsoft factura los costos de infraestructura derivados de la suscripción del cliente, usted realizará la transacción de las tarifas de licencia de software directamente con el cliente. |
-| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para más información, consulte:<ul><li>[Creación de un recurso técnico de máquina virtual de Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para discos duros virtuales de Windows)</li><li>[Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) (para discos duros virtuales de Linux).</li></ul> |
+| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para más información, consulte:<ul><li>[Creación de un recurso técnico de máquina virtual de Azure](./azure-vm-create-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para discos duros virtuales de Windows)</li><li>[Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) (para discos duros virtuales de Linux).</li></ul> |
 | Atribución de uso del cliente | Se requiere habilitar la atribución de uso del cliente en todas las plantillas de solución que se publican en Azure Marketplace. Para obtener más información sobre la atribución de uso del cliente y cómo habilitarla, consulte [Atribución de uso del cliente para asociados de Azure](azure-partner-customer-usage-attribution.md). |
 | Uso de discos administrados | Los [discos administrados](../virtual-machines/managed-disks-overview.md) son la opción predeterminada para los discos persistentes de VM de infraestructura como servicio (IaaS) en Azure. Debe usar discos administrados en las plantillas de solución.<ul><li>Para actualizar las plantillas de solución, siga las instrucciones de [Uso de discos administrados en plantillas de Azure Resource Manager](../virtual-machines/using-managed-disks-template-deployments.md) y use [las muestras](https://github.com/Azure/azure-quickstart-templates) proporcionadas.</li><li>Para publicar el disco duro virtual como una imagen en Azure Marketplace, importe el disco duro virtual subyacente de los discos administrados en una cuenta de almacenamiento mediante [Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) o la [CLI de Azure](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd).</ul> |
 | Paquete de implementación | Necesitará un paquete de implementación que permita a los clientes implementar el plan. Si crea varios planes que requieren la misma configuración técnica, puede usar el mismo paquete de plan. Para más información, consulte la siguiente sección: Paquete de implementación. |
@@ -38,7 +38,7 @@ El paquete de implementación contiene todos los archivos de plantilla necesario
 
 Todas las aplicaciones de Azure deben incluir estos dos archivos en la carpeta raíz de un archivo .zip:
 
-- Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Esta plantilla define los recursos que se van a implementar en la suscripción de Azure del cliente. Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o el repositorio [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
+- Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Esta plantilla define los recursos que se van a implementar en la suscripción de Azure del cliente. Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) o el repositorio [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
 - Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
 
 Los tamaños de archivo máximos admitidos son:

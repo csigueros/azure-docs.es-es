@@ -7,23 +7,22 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c953c31792b8d01199d409cbd91124138a6ebb15
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 118c91ec204a2e207b28343fe0535c67b89b03b7
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92927454"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433353"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment
 
-Azure App Service Environment es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet).
-
 > [!NOTE]
-> Cada instancia de App Service Environment tiene una IP virtual (VIP) que puede usarse para ponerse en contacto con App Service Environment.
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados.
+> 
 
-Hay dos maneras de implementar una instancia de App Service Environment (ASE):
+Azure App Service Environment es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet). Hay dos maneras de implementar una instancia de App Service Environment (ASE):
 
-- Con una dirección VIP en una dirección IP externa, a la que se suele hacer referencia como instancia externa de ASE.
+- Con una dirección VIP en una dirección IP orientada al público externa, a la que se suele hacer referencia como instancia externa de ASE.
 - Con la dirección VIP en una dirección IP interna, llamada a menudo instancia de ASE con un ILB porque el punto de conexión interno es un equilibrador de carga interno (ILB).
 
 En este artículo se muestra cómo crear un ASE externo. Para información general sobre el ASE, consulte [Introducción a App Service Environment][Intro]. Para información sobre cómo crear una instancia de ASE con un ILB, consulte [Creación y uso de una instancia de ASE con un ILB][MakeILBASE].
@@ -33,7 +32,7 @@ En este artículo se muestra cómo crear un ASE externo. Para información gener
 Después de crear la instancia de ASE, no puede cambiar los siguientes parámetros:
 
 - Location
-- Subscription
+- Suscripción
 - Resource group
 - Red virtual usada
 - La subred usada

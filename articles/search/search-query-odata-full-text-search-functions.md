@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a3c563c25283c300942f1fb58072e8c61847ba1
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935796"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831454"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funciones de búsqueda de texto completo de OData en Azure Cognitive Search: `search.ismatch` y `search.ismatchscoring`
 
@@ -126,6 +126,12 @@ Busque documentos donde los términos "hotel" y "airport" no estén separados po
 
 ```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
+
+Busque documentos que tengan una palabra que comience por las letras "lux" en el campo Descripción. Esta consulta usa [búsqueda de prefijo](query-simple-syntax.md#prefix-queries) en combinación con `search.ismatch`.
+
+```odata-filter-expr
+    search.ismatch('lux*', 'Description')
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes  

@@ -3,12 +3,12 @@ title: Supervisión de los servicios y aplicaciones de Azure mediante Grafana
 description: Enrute los datos de Azure Monitor y Application Insights para que puedan verse en Grafana.
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: decd0353bcb2cf048fd5591ea8c895cf22944809
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1bfb3322dda2b6702eb3e18eb44cc0cb2cd942ec
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048665"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666868"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Ahora, los servicios y las aplicaciones de Azure se pueden supervisar desde [Grafana](https://grafana.com/) gracias al [complemento de origen de datos de Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). El complemento recopila datos de rendimiento de aplicación recabados por Azure Monitor, incluidos varios registros y métricas. De este modo, podrá ver estos datos en el panel de Grafana.
@@ -40,6 +40,9 @@ Para configurar un servidor local de Grafana, [descargue e instale Grafana en su
 7. Obtenga la dirección IP pública del servidor de Grafana; vuelva a la lista de recursos y seleccione **Dirección IP pública**.
 
 ## <a name="sign-in-to-grafana"></a>Inicio de sesión en Grafana
+
+> [!IMPORTANT]
+> El explorador Internet Explorer y los exploradores Microsoft Edge más antiguos no son compatibles con Grafana, debe usar un explorador basado en Chromium, incluido Microsoft Edge. Consulte [Exploradores compatibles con Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
 1. Con la dirección IP del servidor, abra la página de inicio de sesión en *http://\<IP address\>:3000* o *\<DNSName>\:3000* en el explorador. Aunque 3000 es el puerto predeterminado, tenga en cuenta que es posible que haya seleccionado un puerto diferente durante la instalación. Debería aparecer una página de inicio de sesión del servidor de Grafana que creó.
 

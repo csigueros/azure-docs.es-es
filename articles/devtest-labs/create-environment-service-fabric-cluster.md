@@ -5,18 +5,18 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e85e4dd34a63500b569b75bb953a4c6061aefe5e
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85484016"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586012"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Creación de un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs
 En este artículo se proporciona información sobre cómo crear un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs. 
 
 ## <a name="overview"></a>Información general
-DevTest Labs puede crear entornos de prueba independientes, tal como definen las plantillas de administración de recursos de Azure. Estos entornos incluyen tanto recursos de IaaS, como máquinas virtuales, como recursos de PaaS, como Service Fabric. DevTest Labs le permite administrar máquinas virtuales en un entorno proporcionando comandos para controlarlas. Estos comandos le permiten iniciar o detener una máquina virtual según una programación. De forma similar, DevTest Labs también puede ayudarle a administrar clústeres de Service Fabric en un entorno. Puede iniciar o detener un clúster de Service Fabric en un entorno manualmente o a través de una programación.
+DevTest Labs puede crear entornos de prueba independientes, tal como definen las plantillas de Azure Resource Manager. Estos entornos incluyen tanto recursos de IaaS, como máquinas virtuales, como recursos de PaaS, como Service Fabric. DevTest Labs le permite administrar máquinas virtuales en un entorno proporcionando comandos para controlarlas. Estos comandos le permiten iniciar o detener una máquina virtual según una programación. De forma similar, DevTest Labs también puede ayudarle a administrar clústeres de Service Fabric en un entorno. Puede iniciar o detener un clúster de Service Fabric en un entorno manualmente o a través de una programación.
 
 ## <a name="create-a-service-fabric-cluster"></a>Creación de un clúster de Service Fabric
 Los clústeres de Service Fabric se crean mediante entornos en DevTest Labs. Una plantilla de Azure Resource Manager se encarga de definir cada entorno en un repositorio de Git. El [repositorio de Git público](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) de DevTest Labs incluye la plantilla de Resource Manager para crear un clúster de Service Fabric en la carpeta [ServiceFabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). 

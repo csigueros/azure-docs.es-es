@@ -11,14 +11,66 @@ ms.topic: conceptual
 ms.date: 05/15/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: ed268a601afd9ad7c4bcd48752e9c1840f5b3dc8
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a3991645c747bf229acd5f320282663c41b03fe3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950997"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724524"
 ---
 # <a name="speech-service-release-notes"></a>Notas de la versión del servicio Voz
+
+## <a name="text-to-speech-2021-july-release"></a>Versión de julio de 2021 de Texto a voz
+
+**Actualizaciones de TTS neuronales**
+- Se han reducido los errores de pronunciación en hebreo en un 20 %.
+
+**Actualizaciones de Speech Studio**
+- **Voz neuronal personalizada**: se ha actualizado la canalización de entrenamiento a UniTTSv3, con lo que se mejora la calidad del modelo, mientras que el tiempo de entrenamiento se reduce en un 50 % para los modelos acústicos. 
+- **Creación de contenido de audio**: se ha corregido el problema de rendimiento al "Exportar" y el error en la selección de voz personalizada.  
+
+## <a name="speech-sdk-1180-2021-july-release"></a>SDK de Voz 1.18.0: versión de julio de 2021
+
+[Nota](speech-sdk.md#get-the-speech-sdk): Empiece a usar el SDK de Voz **aquí**.
+
+**Resumen de los aspectos destacados**
+- Ubuntu 16.04 alcanzó el final del ciclo de vida en abril de 2021. Junto con Azure DevOps y GitHub, se quitará la compatibilidad con la versión 16.04 en septiembre de 2021.  Migre los flujos de trabajo de ubuntu-16.04 a ubuntu-18.04 o posterior antes de ese momento. 
+
+#### <a name="new-features"></a>Nuevas características
+
+- **C++** : la coincidencia de patrones de lenguaje simple con el reconocedor de intenciones ahora facilita la [implementación de escenarios de reconocimiento de intenciones simples](./get-started-intent-recognition.md?pivots=programming-language-cpp).
+- **C++/C#/Java**: hemos agregado la nueva API `GetActivationPhrasesAsync()` a la clase `VoiceProfileClient` para recibir una lista de frases de activación válidas en la fase de inscripción de Speaker Recognition para escenarios de reconocimiento independientes. 
+    - **Importante**: la característica Speaker Recognition está en versión preliminar. Todos los perfiles de voz creados en la versión preliminar se interrumpirán 90 días después de que la característica Speaker Recognition se haya movido de la versión preliminar a disponibilidad general. En ese momento, los perfiles de voz de la versión preliminar dejarán de funcionar.
+- **Python**: se ha agregado [compatibilidad con la identificación continua del lenguaje (LID)](./how-to-automatic-language-detection.md?pivots=programming-language-python) en los objetos `SpeechRecognizer` y `TranslationRecognizer` existentes. 
+- **Python**: se ha agregado un [nuevo objeto de Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer?view=azure-python) llamado `SourceLanguageRecognizer` para realizar una operación de LID única o continua (sin reconocimiento ni traducción). 
+- **JavaScript**: se ha agregado la API `getActivationPhrasesAsync` a la clase `VoiceProfileClient` para recibir una lista de frases de activación válidas en la fase de inscripción de Speaker Recognition para escenarios de reconocimiento independientes. 
+- **JavaScript**: la API `enrollProfileAsync` de `VoiceProfileClient` ahora se puede esperar asincrónicamente. Consulte [este código de identificación independiente](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/speaker-recognition/identification/independent-identification.js) para ver un ejemplo de uso.
+
+#### <a name="improvements"></a>Mejoras
+
+- **Java**: se ha agregado compatibilidad con **AutoCloseable** a muchos objetos de Java. Ahora se admite el modelo try-with-resources para liberar recursos. Consulte [este ejemplo que usa try-with-resources](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java#L28). Consulte también el tutorial de la documentación de Java de Oracle sobre la [instrucción try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) para obtener información sobre este patrón.
+- Se ha reducido significativamente la **superficie de disco** para muchas plataformas y arquitecturas. Ejemplos del archivo binario `Microsoft.CognitiveServices.Speech.core`: en Linux x64 es 475 KB más pequeño (reducción del 8,0 %), en Windows UWP ARM64 es 464 KB más pequeño (reducción del 11,5 %), en Windows x86 es 343 KB más pequeño (reducción del 17,5 %) y en Windows x64 es 451 KB más pequeño (reducción del 19,4 %).
+
+#### <a name="bug-fixes"></a>Corrección de errores
+
+- **Java**: se ha corregido un error de síntesis cuando el texto de síntesis contiene caracteres suplentes. Consulte los detalles [aquí](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1118). 
+- **JavaScript**: el procesamiento de audio del micrófono del explorador ahora usa `AudioWorkletNode` en lugar de `ScriptProcessorNode` (en desuso). Consulte los detalles [aquí](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/391).
+- **JavaScript**: se mantienen correctamente las conversaciones activas durante escenarios de traducción de conversación de larga duración. Consulte los detalles [aquí](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/389).
+- **JavaScript**: se ha corregido un problema con la reconexión del reconocedor a una secuencia multimedia en el reconocimiento continuo. Consulte los detalles [aquí](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/385).
+- **JavaScript**: se ha corregido un problema con la reconexión del reconocedor a un elemento pushStream en el reconocimiento continuo. Consulte los detalles [aquí](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/399).
+- **JavaScript**: se ha corregido el cálculo de desplazamiento de nivel de palabra en los resultados detallados del reconocimiento. Consulte los detalles [aquí](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/394).
+
+#### <a name="samples"></a>Ejemplos
+
+- Puede encontrar ejemplos de inicios rápidos de Java actualizados [aquí](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java).
+- Ejemplos de reconocimiento del hablante de JavaScript actualizados para mostrar el nuevo uso de `enrollProfileAsync()`. Consulte los ejemplos [aquí](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/node).
+
+## <a name="text-to-speech-2021-june-release"></a>Versión de junio de 2021 de Texto a voz
+
+**Actualizaciones de Speech Studio**
+
+- **Voz neuronal personalizada**: se ha extendido el entrenamiento de Voz neuronal personalizada para admitir el Sudeste de Asia. Se han publicado nuevas características para admitir la comprobación del estado de carga de los datos. 
+- **Creación de contenido de audio**: se ha publicado una nueva característica para admitir léxico personalizado. Con esta característica, los usuarios pueden crear fácilmente sus archivos de léxico y definir la pronunciación personalizada para su salida de audio. 
 
 ## <a name="text-to-speech-2021-may-release"></a>Texto a voz: versión de mayo de 2021
 
@@ -53,7 +105,7 @@ ms.locfileid: "111950997"
 - **C++/C#/Java/Python/Objective-C/Go**: ahora se expone la latencia y el tiempo en ejecución en `SpeechSynthesisResult` para ayudarle a supervisar y diagnosticar los problemas de latencia de la síntesis de voz. Consulte los detalles para [C++](/cpp/cognitive-services/speech/speechsynthesisresult), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesisresult) y [Go](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go#readme-reference).
 - **C++/C#/Java/Python/Objective-C**: Texto a voz [ahora usa voces neuronales](text-to-speech.md#core-features) de forma predeterminada si no especifica la voz que desea utilizar. Esto proporciona una salida de mayor fidelidad de forma predeterminada, pero también [aumenta el precio predeterminado](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/#pricing). Puede especificar cualquiera de nuestras [más de 70 voces estándar](language-support.md#standard-voices) o [más de 130 voces neuronales](language-support.md#neural-voices) para cambiar el valor predeterminado.
 - **C++/C#/Java/Python/Objective-C/Go**: hemos agregado una propiedad Gender a la información de síntesis de voz para facilitar la selección de voces en función del sexo. Así se soluciona el [problema n.º 1055 de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1055).
-- **C++, C#, Java, JavaScript**: ahora se admiten `retrieveEnrollmentResultAsync`, `getAuthorizationPhrasesAsync` y `getAllProfilesAsync()` en Speaker Recognition para facilitar la administración de usuarios de todos los perfiles de voz de una cuenta dada. Consulte la documentación de [C++](/cpp/cognitive-services/speech/voiceprofileclient), [C#](/dotnet/api/microsoft.cognitiveservices.speech.voiceprofileclient), [Java](/java/api/com.microsoft.cognitiveservices.speech.voiceprofileclient), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient). Así se soluciona el [problema n.º 338 de GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/338).
+- **C++, C#, Java, JavaScript**: ahora se admiten `retrieveEnrollmentResultAsync`, `getAuthorizationPhrasesAsync` y `getAllProfilesAsync()` en Speaker Recognition para facilitar la administración de usuarios de todos los perfiles de voz de una cuenta dada. Consulte la documentación de [C++](/cpp/cognitive-services/speech/speaker-voiceprofileclient), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speaker.voiceprofileclient), [Java](/java/api/com.microsoft.cognitiveservices.speech.voiceprofileclient), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient). Así se soluciona el [problema n.º 338 de GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/338).
 - **JavaScript**: se han agregado reintentos para errores de conexión que harán que las aplicaciones de voz basadas en JavaScript sean más sólidas.
 
 #### <a name="improvements"></a>Mejoras
@@ -144,7 +196,7 @@ El [elemento marcador](speech-synthesis-markup.md#bookmark-element) permite inse
 - **C++/C#/Java/JavaScript/Objective-C/Python**: evento `BookmarkReached` agregado para TTS. Puede establecer marcadores en el SSML de entrada y obtener los desplazamientos de audio de cada marcador. Consulte la documentación [aquí](./speech-synthesis-markup.md#bookmark-element).
 - **Java**: se ha agregado compatibilidad con las API de reconocimiento del hablante. Consulte los detalles [aquí](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer).
 - **C++/C#/Java/JavaScript/Objective-C/Python**: se han agregado dos nuevos formatos de audio de salida con el contenedor WebM para TTS (Webm16Khz16BitMonoOpus y Webm24Khz16BitMonoOpus). Se trata de formatos mejores para el streaming de audio con el códec Opus. Detalles de [C++](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesisoutputformat), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat).
-- **C++/C#/Java**: se ha agregado compatibilidad para recuperar el perfil de voz para el escenario de reconocimiento del hablante. Detalles de [C++](/cpp/cognitive-services/speech/speakerrecognizer), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speakerrecognizer) y [Java](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer).
+- **C++/C#/Java**: se ha agregado compatibilidad para recuperar el perfil de voz para el escenario de reconocimiento del hablante. Detalles de [C++](/cpp/cognitive-services/speech/speaker-speakerrecognizer), [C#](/en-us/dotnet/api/microsoft.cognitiveservices.speech.speaker.speakerrecognizer) y [Java](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer).
 - **C++/C#/Java/Objective-C/Python**: se ha agregado compatibilidad con una biblioteca compartida independiente para el micrófono de audio y el control de altavoces, lo que permite usar el SDK en entornos que no tienen dependencias de la biblioteca de audio necesarias.
 - **Objective-C/Swift**: se ha agregado compatibilidad con el marco de módulos con encabezado umbrella. Esto permite importar el SDK de Speech como un módulo en las aplicaciones de Objective-C/Swift de iOS/Mac. Esto soluciona el [problema de GitHub n.º 452](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/452).
 - **Python**: se ha agregado compatibilidad con [Python 3.9](./quickstarts/setup-platform.md?pivots=programming-language-python) y la compatibilidad anulada con Python 3.5 por [final de ciclo de vida de Python para 3.5](https://devguide.python.org/devcycle/#end-of-life-branches).

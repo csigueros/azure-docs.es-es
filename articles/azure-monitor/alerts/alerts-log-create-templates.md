@@ -4,13 +4,13 @@ description: Aprenda a usar una plantilla de Resource Manager para crear una ale
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: f31371c3d33354c4d8e6c849c9739eb9001c7641
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/12/2021
+ms.openlocfilehash: d3414b0de4a173b08815fc274e06e67814f6c887
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961780"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687522"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Creación de una alerta de registro con una plantilla de Resource Manager
 
@@ -200,7 +200,7 @@ Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/sch
 
 Este JSON se puede guardar e implementar mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="template-for-all-resource-types-from-api-version-2020-05-01-preview"></a>Plantilla para todos los tipos de recursos (a partir de la versión de API 2020-05-01-preview)
+## <a name="template-for-all-resource-types-from-api-version-2021-02-01-preview"></a>Plantilla para todos los tipos de recursos (a partir de la versión de API 2021-02-01-preview)
 
 Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/createorupdate) para todos los tipos de recursos (conjuntos de datos de ejemplo como variables):
 
@@ -249,6 +249,20 @@ Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/sch
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -360,7 +374,7 @@ Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/sch
         },
         "muteActionsDuration": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -389,7 +403,7 @@ Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/sch
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -416,11 +430,15 @@ Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/sch
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

@@ -2,13 +2,13 @@
 title: Copia de seguridad de máquinas virtuales de Hyper-V con MABS
 description: Este artículo contiene los procedimientos para realizar copias de seguridad y recuperar máquinas virtuales mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: b4de791269161b477fc07d6539feaa975fdd72ad
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 07/09/2021
+ms.openlocfilehash: e10bab2af14cdf540b5c5ec9c670e6ccb2c8807a
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107740005"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585445"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de Hyper-V con Azure Backup Server
 
@@ -62,7 +62,7 @@ Estos son los requisitos previos para realizar copias de seguridad de máquinas 
 
 |Requisito previo|Detalles|
 |------------|-------|
-|Requisitos previos de MABS|- Si quiere realizar la recuperación de nivel de elemento de las máquinas virtuales (recuperar archivos, carpetas o volúmenes), tendrá que instalar el rol de Hyper-V en el servidor MABS.  Si solo quiere recuperar la máquina virtual y no el nivel de elemento, el rol no es necesario.<br />- Puede proteger hasta 800 máquinas virtuales de 100 GB cada una en un servidor MABS y permitir varios servidores MABS que admitan clústeres más grandes.<br />- MABS excluye el archivo de paginación de las copias de seguridad incrementales para mejorar el rendimiento de las copias de seguridad de máquinas virtuales.<br />- MABS puede realizar una copia de seguridad de un servidor o clúster de Hyper-V en el mismo dominio que el servidor MABS, o bien en un dominio secundario o de confianza. Si quiere realizar una copia de seguridad de Hyper-V en un grupo de trabajo o en un dominio que no sea de confianza, tendrá que configurar la autenticación. Para un solo servidor de Hyper-V, puede usar la autenticación NTLM o de certificado. Para un clúster, solo puede usar la autenticación de certificado.<br />- No se admite el uso de copias de seguridad de nivel de host para realizar copias de seguridad de datos de máquinas virtuales en discos de acceso directo. En este escenario, se recomienda usar la copia de seguridad de nivel de host para los archivos de disco duro virtual y la copia de seguridad de nivel de invitado para otros datos que no sean visibles en el host.<br />   \- Puede realizar copias de seguridad de máquinas virtuales almacenadas en volúmenes desduplicados.|
+|Requisitos previos de MABS|- Si desea realizar una recuperación de nivel de elemento para máquinas virtuales (recuperar archivos, carpetas y volúmenes), deberá tener habilitado el rol de Hyper-V en el servidor de MABS (el rol de Hyper-V se instala de forma predeterminada durante la instalación de MABS). Si solo quiere recuperar la máquina virtual y no el nivel de elemento, el rol no es necesario.<br />- Puede proteger hasta 800 máquinas virtuales de 100 GB cada una en un servidor MABS y permitir varios servidores MABS que admitan clústeres más grandes.<br />- MABS excluye el archivo de paginación de las copias de seguridad incrementales para mejorar el rendimiento de las copias de seguridad de máquinas virtuales.<br />- MABS puede realizar una copia de seguridad de un servidor o clúster de Hyper-V en el mismo dominio que el servidor MABS, o bien en un dominio secundario o de confianza. Si quiere realizar una copia de seguridad de Hyper-V en un grupo de trabajo o en un dominio que no sea de confianza, tendrá que configurar la autenticación. Para un solo servidor de Hyper-V, puede usar la autenticación NTLM o de certificado. Para un clúster, solo puede usar la autenticación de certificado.<br />- No se admite el uso de copias de seguridad de nivel de host para realizar copias de seguridad de datos de máquinas virtuales en discos de acceso directo. En este escenario, se recomienda usar la copia de seguridad de nivel de host para los archivos de disco duro virtual y la copia de seguridad de nivel de invitado para otros datos que no sean visibles en el host.<br />   \- Puede realizar copias de seguridad de máquinas virtuales almacenadas en volúmenes desduplicados.|
 |Requisitos previos de máquinas virtuales de Hyper-V|- La versión de los componentes de integración que se ejecuta en la máquina virtual debe ser la misma que la del host de Hyper-V. <br />- Para cada copia de seguridad de máquina virtual, necesitará espacio libre en el volumen en el que se hospedan los archivos de disco duro virtual para permitir que Hyper-V tenga espacio suficiente para los discos de diferenciación (AVHD) durante la copia de seguridad. El espacio debe ser al menos igual al cálculo **Tamaño de disco inicial\*Tasa de renovación\*Hora del periodo de copia de seguridad**. Si ejecuta varias copias de seguridad en un clúster, necesitará capacidad de almacenamiento suficiente para acomodar los AVHD de cada una de las máquinas virtuales en las que se use este cálculo.<br />- Para realizar copias de seguridad de máquinas virtuales ubicadas en servidores host de Hyper-V que ejecutan Windows Server 2012 R2, la máquina virtual debe tener un controlador SCSI especificado, incluso si no está conectado a nada. (En la copia de seguridad de Windows Server 2012 R2, el host de Hyper-V monta un nuevo disco duro virtual en la máquina virtual y después lo desmonta. Solo el controlador SCSI puede admitir esto y, por tanto, es necesario para la copia de seguridad en línea de la máquina virtual.  Sin esta configuración, se emitirá el identificador de evento 10103 al intentar realizar una copia de seguridad de la máquina virtual).|
 |Requisitos previos de Linux|- Puede realizar copias de seguridad de las máquinas virtuales Linux con MABS. Solo se admiten instantáneas coherentes con archivos.|
 |Copia de seguridad de máquinas virtuales con almacenamiento CSV|- Para el almacenamiento CSV, instale el proveedor de hardware de servicios de instantáneas de volumen (VSS) en el servidor de Hyper-V. Póngase en contacto con el proveedor de red de área de almacenamiento (SAN) para obtener el proveedor de hardware de VSS.<br />- Si un único nodo se cierra de forma inesperada en un clúster de CSV, MABS realizará una comprobación de coherencia en las máquinas virtuales que se ejecutaban en ese nodo.<br />- Si tiene que reiniciar un servidor de Hyper-V con el Cifrado de unidad BitLocker habilitado en el clúster CSV, tendrá que ejecutar una comprobación de coherencia para las máquinas virtuales de Hyper-V.|
@@ -155,6 +155,39 @@ Cuando se puede recuperar una máquina virtual con copia de seguridad, se usa el
 6. En la pantalla Resumen, asegúrese de que todos los detalles sean correctos. Si los detalles no son correctos o si quiere realizar un cambio, seleccione **Atrás**. Si está satisfecho con la configuración, seleccione **Recuperar** para iniciar el proceso de recuperación.
 
 7. En la pantalla **Estado de la recuperación** se proporciona información sobre el trabajo de recuperación.
+
+## <a name="restore-an-individual-file-from-a-hyper-v-vm"></a>Restauración de un archivo individual desde una máquina virtual de Hyper-V 
+
+Puede restaurar archivos individuales desde un punto de recuperación de una máquina virtual de Hyper-V protegida. Esta característica solo está disponible en máquinas virtuales de Windows Server. Restaurar archivos individuales es similar a restaurar toda la máquina virtual, excepto en que se explora el VMDK y busque los archivos que desea, antes de iniciar el proceso de recuperación. Para recuperar un archivo individual o seleccionar archivos de una máquina virtual Windows Server: 
+
+>[!Note]
+>La restauración de un archivo individual desde una máquina virtual de Hyper-V solo está disponible para los puntos de recuperación de discos y máquina virtual Windows. 
+
+1. En la Consola de administrador de MABS, seleccione la vista **Recovery** (Recuperación). 
+
+1. Mediante el panel **Examinar**, busque o filtre para encontrar la máquina virtual que quiera recuperar. Una vez que seleccione una máquina virtual de Hyper-V o una carpeta, el panel **Recovery points for** (Puntos de recuperación para) muestra los puntos de recuperación disponibles. 
+
+    ![Panel "Recovery points for (Puntos de recuperación para)" para recuperar archivos de una máquina virtual de Hyper-V](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk.png)
+
+1. En el panel **Recovery points for** (Puntos de recuperación para), use el calendario para seleccionar la fecha que contenga los puntos de recuperación que quiera. En función de cómo esté configurada la directiva de copia de seguridad, es posible que las fechas tengan más de un punto de recuperación. Una vez que haya seleccionado el día en que se tomó el punto de recuperación, asegúrese de elegir la **Hora de recuperación** adecuada. Si la fecha seleccionada tiene varios puntos de recuperación, elija el punto de recuperación seleccionándolo en el menú desplegable Hora de recuperación. Una vez elegido el punto de recuperación, la lista de elementos recuperables aparecerá en el panel Path (Ruta de acceso). 
+
+1. Para encontrar los archivos que quiere recuperar, en el panel **Path** (Ruta de acceso), haga doble clic en el elemento en la columna Recoverable item (Elemento recuperable) para abrirlo. Seleccione el archivo, los archivos o las carpetas que desea recuperar. Para seleccionar varios elementos, presione la tecla **Ctrl** mientras selecciona cada elemento. Use el panel **Path** (Ruta de acceso) para buscar en la lista de archivos o carpetas que se muestra en la columna **Recoverable Item** (Elemento recuperable). **Lista de búsqueda a continuación** no busca en subcarpetas. Para buscar en las subcarpetas, haga doble clic en la carpeta. Use el botón Up (Subir) para pasar de una carpeta secundaria a la carpeta principal. Se pueden seleccionar varios elementos (archivos y carpetas), pero deben estar en la misma carpeta principal. No se pueden recuperar elementos de varias carpetas en el mismo trabajo de recuperación. 
+
+    ![Revisión de la selección de recuperación en una máquina virtual de Hyper-V](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk-ilr-2.png) 
+
+1. Una vez seleccionados los elementos que se van a recuperar, en la cinta de opciones de la Consola de administrador, seleccione **Recuperar** para abrir el **Asistente de recuperación**. En el Asistente para recuperación, la pantalla **Revisar selección de recuperación** muestra los elementos seleccionados que se van a recuperar. 
+
+1. En la pantalla **Especificar opciones recuperación**, seleccione **Modificar** si quiere habilitar el límite de ancho de banda de red. Para dejar el límite de ancho de banda de red deshabilitado, seleccione **Siguiente**. No hay ninguna otra opción en esta pantalla del asistente que esté disponible para las máquinas virtuales VMware. Si elige modificar el límite de ancho de banda de red, en el cuadro de diálogo Límite, seleccione **Habilitar el límite de uso del ancho de banda de red** para activarlo. Una vez habilitada, configure las opciones **Configuración** y **Programación de trabajos**. 
+
+1. En la pantalla **Seleccionar tipo de recuperación**, seleccione **Siguiente**. Solo puede recuperar los archivos o las carpetas en una carpeta de red. 
+
+1. En la pantalla **Especificar destino**, seleccione **Examinar** para buscar una ubicación de red para los archivos o carpetas. MABS crea una carpeta donde se copian todos los elementos recuperados. El nombre de la carpeta tiene el prefijo MABS_día-mes-año. Al seleccionar una ubicación para los archivos o carpetas recuperados, se facilitan los detalles de esa ubicación (como el destino, la ruta de acceso del destino y el espacio disponible). 
+
+    ![Especificación de la ubicación para recuperar archivos de una máquina virtual de Hyper-V](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-specify-destination.png) 
+
+1. En la pantalla **Especificar opciones de recuperación**, elija la configuración de seguridad que quiera aplicar. Puede optar por modificar el límite de uso del ancho de banda de red, pero este límite está deshabilitado de forma predeterminada. Las opciones **Recuperación de SAN** y **Notificación** tampoco están habilitadas. 
+
+1. En la pantalla **Resumen**, revise la configuración y seleccione **Recuperar** para iniciar el proceso de recuperación. La pantalla **Estado de la recuperación** muestra el progreso de la operación de recuperación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

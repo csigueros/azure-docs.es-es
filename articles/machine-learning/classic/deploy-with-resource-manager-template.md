@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): Implementación de áreas de trabajo con Azure Resource Manager: Azure'
-description: Implementación de un área de trabajo de Azure Machine Learning Studio (clásico) mediante una plantilla de Azure Resource Manager
+description: Implementación de un área de trabajo para Estudio de Machine Learning (clásico) mediante una plantilla de Azure Resource Manager
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-azurepowershell
 ms.date: 02/05/2018
-ms.openlocfilehash: 6c81397fb7729e6ce55da6fa7c8121de43c96130
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9a915a3e5df97da522c8e566a857e04d7491c471
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956049"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581599"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implementación del área de trabajo de Azure Machine Learning Studio (clásico) mediante Azure Resource Manager
+# <a name="deploy-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implementación de un área de trabajo de Estudio de Machine Learning (clásico) mediante Azure Resource Manager
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-El uso de una plantilla de implementación de Azure Resource Manager le permite ahorrar tiempo proporcionándole una manera escalable de implementar componentes interconectados con un mecanismo de validación y reintento. Para configurar áreas de trabajo de Azure Machine Learning Studio (clásico), por ejemplo, debe configurar primero una cuenta de Azure Storage y, a continuación, implementar el área de trabajo. Imagine que tiene que hacer esto manualmente para cientos de áreas de trabajo. Una alternativa más sencilla es utilizar una plantilla de Azure Resource Manager para implementar un área de trabajo de Studio (clásico) y todas sus dependencias. Este artículo le guiará por este proceso paso a paso. Para ver una introducción excelente sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+El uso de una plantilla de implementación de Azure Resource Manager le permite ahorrar tiempo proporcionándole una manera escalable de implementar componentes interconectados con un mecanismo de validación y reintento. Para configurar áreas de trabajo de Estudio de Machine Learning (clásico), por ejemplo, debe configurar primero una cuenta de Azure Storage y, a continuación, implementar el área de trabajo. Imagine que tiene que hacer esto manualmente para cientos de áreas de trabajo. Una alternativa más sencilla es utilizar una plantilla de Azure Resource Manager para implementar un área de trabajo de Studio (clásico) y todas sus dependencias. Este artículo le guiará por este proceso paso a paso. Para ver una introducción excelente sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Paso a paso: Creación de un área de trabajo de Machine Learning
-Crearemos un grupo de recursos de Azure e implementaremos una nueva cuenta de almacenamiento de Azure y una nueva área de trabajo de Azure Machine Learning Studio (clásico) mediante una plantilla de Resource Manager. Una vez completada la implementación, se imprimirá información importante acerca de las áreas de trabajo que se crearon (la clave principal, el identificador y la dirección URL del área de trabajo).
+Crearemos un grupo de recursos de Azure e implementaremos una nueva cuenta de almacenamiento de Azure y una nueva área de trabajo de Estudio de Machine Learning (clásico) mediante una plantilla de Resource Manager. Una vez completada la implementación, se imprimirá información importante acerca de las áreas de trabajo que se crearon (la clave principal, el identificador y la dirección URL del área de trabajo).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
 
@@ -128,7 +128,7 @@ $rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworks
 Una vez completada la implementación, resulta sencillo tener acceso a las propiedades del área de trabajo que implementó. Por ejemplo, puede tener acceso al token de clave principal.
 
 ```powershell
-# Access Azure Machine Learning Studio Workspace Token after its deployment.
+# Access Machine Learning Studio (classic) Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
@@ -138,7 +138,7 @@ Otra manera de recuperar los tokens del área de trabajo existente es usar el co
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-Una vez aprovisionada el área de trabajo, también puede automatizar muchas tareas de Microsoft Azure Machine Learning Studio (clásico) mediante el [módulo de PowerShell para Azure Machine Learning Studio (clásico)](https://aka.ms/amlps).
+Una vez aprovisionada el área de trabajo, también puede automatizar muchas tareas de Estudio de Machine Learning (clásico) mediante el [módulo de PowerShell para Estudio de Machine Learning (clásico)](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

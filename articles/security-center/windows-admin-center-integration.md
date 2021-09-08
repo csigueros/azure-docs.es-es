@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: fc4207547a1f34fca1ef302626f1365572a236b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f0a6c62145f5e8c94462a33fe446c595a7e2109e
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101314"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236812"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Protección de los recursos de Windows Admin Center con Security Center
 
@@ -67,4 +67,4 @@ Desde Azure Security Center:
 
 * Para ver las alertas de seguridad de todos los servidores de Windows Admin Center, abra la opción de **alertas de seguridad**. Haga clic en **Filtrar** y asegúrese de que **solo** esté seleccionada la opción "No es de Azure":
 
-    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrar las alertas de seguridad de los servidores administrados de Windows Admin Center" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrar las alertas de seguridad de los servidores administrados de Windows Admin Center." lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 65ab3d1e6229d3d6fad752b1bc336d0ad749b597
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: e4207bbc045f451b45f8b5da42fba08b406caeca
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788002"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237557"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 
@@ -39,7 +39,7 @@ Puede revisar y administrar suscripciones en varios inquilinos del mismo modo qu
 
 En la barra de menús superior, haga clic en el icono de filtro y seleccione las suscripciones, del directorio de cada inquilino, que quiere ver.
 
-  ![Filtrado de inquilinos](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
+  ![Filtrado de inquilinos.](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
 Las vistas y acciones son básicamente las mismas. Estos son algunos ejemplos:
 

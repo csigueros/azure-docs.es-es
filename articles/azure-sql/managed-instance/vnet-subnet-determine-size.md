@@ -10,77 +10,78 @@ ms.devlang: ''
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova
-ms.date: 02/22/2019
-ms.openlocfilehash: 18592f282cb2f06b5a305f2186aa6285bc50fcf3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.reviewer: mathoma, bonova, srbozovi, wiassaf
+ms.date: 06/14/2021
+ms.openlocfilehash: e3c789ec59e66189753c8515235b2375aa20e5f1
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689345"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687414"
 ---
-# <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinación del tamaño e intervalo de subred necesarios para Instancia administrada de Azure SQL
+# <a name="determine-required-subnet-size-and-range-for-azure-sql-managed-instance"></a>Determinación del tamaño e intervalo de subred necesarios para Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Instancia administrada de Azure SQL tiene que implementarse dentro de una [red virtual (VNet)](../../virtual-network/virtual-networks-overview.md) de Azure.
+Instancia administrada de Azure SQL debe implementarse dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md) de Azure. El número de instancias administradas que se puede implementar en la subred de una red virtual depende del tamaño de la subred (intervalo de subred).
 
-El número de instancias administradas que se puede implementar en la subred de una red virtual depende del tamaño de la subred (intervalo de subred).
+Cuando se crea una instancia administrada, Azure asigna un número de máquinas virtuales en función del nivel que seleccione durante el aprovisionamiento. Debido a que estas máquinas virtuales están asociadas a la subred, requieren direcciones IP. Para garantizar la alta disponibilidad durante las operaciones normales y el mantenimiento del servicio, Azure puede asignar más máquinas virtuales. El número de direcciones IP necesarias en una subred, por tanto, es mayor que el número de instancias administradas de esa subred.
 
-Cuando se crea una instancia administrada, Azure asigna un número de máquinas virtuales en función del nivel que seleccione durante el aprovisionamiento. Debido a que estas máquinas virtuales están asociadas a la subred, requieren direcciones IP. Para garantizar la alta disponibilidad durante las operaciones normales y el mantenimiento del servicio, Azure puede asignar máquinas virtuales adicionales. Como resultado, el número de direcciones IP necesarias en una subred es mayor que el número de instancias administradas en esa subred.
+Por definición, una instancia administrada necesita un mínimo de 32 direcciones IP en una subred. Como resultado, puede usar una máscara de subred mínima de /27 al definir los intervalos IP de la subred. Recomendamos una planeación cuidadosa del tamaño de la subred para las implementaciones de instancia administrada. Tenga en cuenta las siguientes entradas durante el planeamiento:
 
-Por definición, una instancia administrada necesita un mínimo de 32 direcciones IP en una subred. Como resultado, puede usar una máscara de subred mínima de /27 al definir los intervalos IP de la subred. Se recomienda una planeación cuidadosa del tamaño de la subred para las implementaciones de instancia administrada. Las entradas que se deben tener en cuenta durante la planeación son las siguientes:
-
-- Número de instancias administradas que incluyen los siguientes parámetros de instancia:
+- Número de instancias administradas, incluidos los siguientes parámetros de instancia:
   - Nivel de servicio
   - Generación de hardware
   - Número de núcleos virtuales
+  - [Ventana de mantenimiento](../database/maintenance-window.md)
 - Planes para escalar o reducir verticalmente, o cambiar el nivel de servicio
 
 > [!IMPORTANT]
-> Un tamaño de subred con 16 direcciones IP (máscara de subred /28) permitirá implementar la instancia administrada en ella, pero solo se debe usar para implementar una única instancia utilizada para la evaluación o en escenarios de desarrollo y pruebas, en los que no se realizarán operaciones de escalado.
+> Un tamaño de subred de 16 direcciones IP (máscara de subred /28) permite la implementación de una única instancia administrada dentro de ella. Solo se debe usar para la evaluación o para escenarios de desarrollo y pruebas en los que no se realizarán operaciones de escalado. 
 
 ## <a name="determine-subnet-size"></a>Determinación del tamaño de la subred
 
 Ajuste el tamaño de la subred según las necesidades futuras de implementación y escalado de instancias. Los parámetros siguientes pueden ayudarle a realizar un cálculo:
 
-- Azure utiliza cinco direcciones IP de la subred para sus propias necesidades
-- Cada clúster virtual asigna un número adicional de direcciones 
-- Cada instancia administrada usa el número de direcciones que depende del plan de tarifa y la generación de hardware
+- Azure utiliza cinco direcciones IP de la subred para sus propias necesidades.
+- Cada clúster virtual asigna un número adicional de direcciones. 
+- Cada instancia administrada usa un número de direcciones que depende del plan de tarifa y la generación de hardware.
+- Cada solicitud de escalado asigna temporalmente un número adicional de direcciones.
 
 > [!IMPORTANT]
-> No se puede cambiar el intervalo de direcciones de subred si existe algún recurso en la subred. Tampoco se pueden trasladar instancias administradas de una subred a otra. Siempre que sea posible, considere la posibilidad de usar subredes más grandes en lugar de más pequeñas para evitar problemas en el futuro.
+> No se puede cambiar el intervalo de direcciones de la subred si existe algún recurso en la subred. Tampoco se pueden trasladar instancias administradas de una subred a otra. Considere la posibilidad de usar subredes más grandes en lugar de más pequeñas para evitar problemas en el futuro.
 
 GP = de uso general; BC = crítico para la empresa; VC = clúster virtual
 
-| **Generación del hardware** | **Plan de tarifa** | **Uso de Azure** | **Uso de clústeres virtuales** | **Uso de instancias** | **Total*** |
+| **Generación de hardware** | **Plan de tarifa** | **Uso de Azure** | **Uso de clústeres virtuales** | **Uso de instancias** | **Total** |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \* El total de columnas muestra el número de direcciones que se usarán al implementar una instancia en la subred. Cada instancia adicional en la subred agrega el número de direcciones representadas con la columna Uso de instancias. Las direcciones representadas con la columna Uso de Azure se comparten entre varios clústeres virtuales, mientras que las representadas con la columna Uso de clústeres virtuales se comparten entre las instancias colocadas en ese clúster virtual.
+En la tabla anterior:
 
-Para la operación de actualización normalmente es necesario cambiar el tamaño del clúster virtual. En algunos casos, para la operación de actualización será necesario crear clústeres virtuales (para obtener más detalles, consulte el [artículo sobre operaciones de administración](sql-managed-instance-paas-overview.md#management-operations)). En el caso de la creación de un clúster virtual, el número de direcciones adicionales necesario es igual al número de direcciones representado por la columna Uso de clústeres virtuales sumado con las direcciones necesarias para las instancias colocadas en el clúster virtual (columna Uso de instancias).
+- La columna **Total** muestra el número total de direcciones que usa una sola instancia implementada en la subred. 
+- Al agregar más instancias a la subred, aumenta el número de direcciones usadas por la instancia. Por lo tanto, el número total de direcciones también aumenta. Por ejemplo, la adición de otra instancia administrada GP Gen4 aumentaría el valor de **Uso de instancias** a 10 y aumentaría el valor **Total** de las direcciones usadas a 16. 
+- Las direcciones representadas en la columna **Uso de Azure** se comparten entre varios clústeres virtuales.  
+- Las direcciones representadas en la columna **Uso de clústeres virtuales** se comparten entre las instancias ubicadas en ese clúster virtual.
 
-**Ejemplo 1**: planea tener una instancia administrada de uso general (hardware de Gen4) y una instancia administrada crítica para la empresa (hardware de Gen5). Esto significa que necesita un mínimo de 5 + 1 + 1 * 5 + 6 + 1 * 5 = 22 direcciones IP para poder realizar la implementación. Como los intervalos IP se definen como potencias de 2, la subred requiere un intervalo IP mínimo de 32 (2^5) para esta implementación.<br><br>
-Como se ha mencionado antes, en algunas circunstancias, para la operación de actualización será necesario crear un clúster virtual. Esto significa que, por ejemplo, en el caso de una actualización de la instancia administrada crítica para la empresa Gen5 que requiere la creación de un clúster virtual, necesitará disponer de 6 + 5 = 11 direcciones IP adicionales. Como ya usa 22 de las 32 direcciones, no hay ninguna dirección disponible para esta operación. Por tanto, tendrá que reservar la subred con la máscara de subred de /26 (64 direcciones).
+Tenga en cuenta también la [característica de ventana de mantenimiento](../database/maintenance-window.md) al determinar el tamaño de la subred, especialmente cuando se van a implementar varias instancias dentro de la misma subred. Especificar una ventana de mantenimiento para una instancia administrada durante su creación o después significa que se debe colocar en un clúster virtual con la ventana de mantenimiento correspondiente. Si no hay ningún clúster virtual en la subred, primero se debe crear uno para acomodar la instancia.
 
-**Ejemplo 2**: planea tener tres instancias administradas de uso general (hardware de Gen5) y dos críticas para la empresa (hardware de Gen5) colocadas en la misma subred. Esto significa que necesita 5 + 6 + 3 * 3 + 2 * 5 = 30 direcciones IP. Por tanto, tendrá que reservar la subred con la máscara de subred de /26. La selección de una máscara de subred de /27 haría que el número restante de direcciones fuera 2 (32 – 30), lo que impediría las operaciones de actualización para todas las instancias, ya que se necesitan direcciones adicionales en la subred para realizar el escalado de las instancias.
+Para una operación de actualización, normalmente es necesario [cambiar el tamaño del clúster virtual](management-operations-overview.md). Cuando llega una nueva solicitud de creación o actualización, el servicio SQL Managed Instance se comunica con la plataforma de proceso con una solicitud para la adición de nodos nuevos. En función de la respuesta de la plataforma de proceso, el sistema de implementación expande el clúster virtual existente o crea uno nuevo. Aunque en la mayoría de los casos la operación se completa dentro del mismo clúster virtual, se podría crear uno nuevo en el lado de la plataforma de proceso. 
 
-**Ejemplo 3**: planea tener una instancia administrada de uso general (hardware de Gen5) y realizar la operación de actualización de núcleos virtuales de forma ocasional. Esto significa que necesita 5 + 6 * 1 * 3 + 3 = 17 direcciones IP. Como los intervalos de IP se definen en potencias de 2, necesita el intervalo de IP de 32 (2 ^ 5) direcciones IP. Por lo tanto, tiene que reservar la subred con la máscara de subred de /27.
 
-### <a name="address-requirements-for-update-scenarios"></a>Requisitos de direcciones para escenarios de actualización
+## <a name="update-scenarios"></a>Escenarios de actualización
 
-Durante la operación de escalado, las instancias necesitan capacidad de IP adicional temporal, que depende del plan de tarifa y la generación del hardware
+Durante una operación de escalado, las instancias necesitan temporalmente una capacidad de direcciones IP adicional que depende del plan de tarifa y la generación de hardware:
 
-| **Generación del hardware** | **Plan de tarifa** | **Escenario** | **Direcciones adicionales*** |
+| **Generación de hardware** | **Plan de tarifa** | **Escenario** | **Direcciones adicionales**  |
 | --- | --- | --- | --- |
-| Gen4 | GP o BC | Escalado de núcleos virtuales | 5 |
-| Gen4 | GP o BC | Escalado de almacenamiento | 5 |
+| Gen4<sup>1</sup> | GP o BC | Escalado de núcleos virtuales | 5 |
+| Gen4<sup>1</sup> | GP o BC | Escalado de almacenamiento | 5 |
 | Gen4 | GP o BC | Cambio de GP a BC o de BC a GP | 5 |
-| Gen4 | GP | Cambio a Gen5* | 9 |
-| Gen4 | BC | Cambio a Gen5* | 11 |
+| Gen4 | GP | Cambio a Gen5 | 9 |
+| Gen4 | BC | Cambio a Gen5 | 11 |
 | Gen5 | GP | Escalado de núcleos virtuales | 3 |
 | Gen5 | GP | Escalado de almacenamiento | 0 |
 | Gen5 | GP | Cambio a BC | 5 |
@@ -88,11 +89,35 @@ Durante la operación de escalado, las instancias necesitan capacidad de IP adic
 | Gen5 | BC | Escalado de almacenamiento | 5 |
 | Gen5 | BC | Cambio a GP | 3 |
 
-  \* El hardware de Gen4 está en proceso de eliminación gradual y ya no está disponible para implementaciones nuevas. Actualice la generación del hardware de Gen4 a Gen5 para aprovechar las funciones específicas de la generación de hardware de Gen5.
+<sup>1</sup> El hardware Gen4 está en proceso de eliminación gradual y ya no está disponible para implementaciones nuevas. Actualice la generación de hardware de Gen4 a Gen5 para aprovechar las funcionalidades específicas de la generación de hardware Gen5.
+  
+## <a name="calculate-the-number-of-ip-addresses"></a>Cálculo del número de direcciones IP
+
+Se recomienda la siguiente fórmula para calcular el número total de direcciones IP. Esta fórmula tiene en cuenta la posible creación de un nuevo clúster virtual durante una posterior solicitud de creación o actualización de la instancia. También tiene en cuenta los requisitos de la ventana de mantenimiento de los clústeres virtuales.
+
+**Fórmula: 5 + (a * 12) + (b * 16) + (c * 16)**
+
+- a = número de instancias GP
+- b = número de instancias BC
+- c = número de las diferentes configuraciones de ventana de mantenimiento
+
+Explicación:
+- 5 = número de direcciones IP reservadas por Azure
+- 12 direcciones por instancia GP = 6 para el clúster virtual, 3 para la instancia administrada y 3 adicionales para la operación de escalado
+- 16 direcciones por instancia BC = 6 para el clúster virtual, 5 para la instancia administrada y 5 adicionales para la operación de escalado
+- 16 direcciones como reserva = escenario en el que se crea un nuevo clúster virtual
+
+Ejemplo: 
+- Planea tener tres instancias administradas de propósito general y dos del nivel crítico para la empresa implementadas en la misma subred. Todas las instancias tendrán configurada la misma ventana de mantenimiento. Esto significa que necesita 5 + (3 * 12) + (2 * 16) + (1 * 16) = 89 direcciones IP. 
+
+  Como los intervalos IP se definen como potencias de 2, la subred requiere un intervalo IP mínimo de 128 (2^7) para esta implementación. Tiene que reservar la subred con una máscara de subred de /25.
+
+> [!NOTE]
+> Aunque es posible implementar instancias administradas en una subred con un número de direcciones IP que sea menor que la salida de la fórmula de la subred, considere siempre la posibilidad de usar subredes más grandes en su lugar. El uso de una subred más grande puede ayudar a evitar problemas futuros derivados de la falta de direcciones IP, como la incapacidad de crear instancias adicionales dentro de la subred o escalar las instancias existentes. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general, vea [¿Qué es Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Más información sobre la [arquitectura de conectividad para SQL Managed Instance](connectivity-architecture-overview.md).
-- Vea cómo [crear la red virtual en la que implementará SQL Managed Instance](virtual-network-subnet-create-arm-template.md).
-- Para incidencias de DNS, vea [Configuración de un DNS personalizado](custom-dns-configure.md).
+- Consulte cómo [crear una red virtual en la que va a implementar SQL Managed Instance](virtual-network-subnet-create-arm-template.md).
+- Para problemas de DNS, consulte [Configuración de un DNS personalizado](custom-dns-configure.md).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8738f34ea9d038bbc5a0bc3d9f13be11db2b9e00
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 4f9f9c9688340a153efab189cc24ace13fc4da6e
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681716"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113589216"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -301,7 +301,7 @@ La rotación de la clave administrada por el cliente que usa la cuenta de Azure�
     $account | Set-AzResource -Force
     ```
 
-La versión de la clave o la clave anterior pueden deshabilitarse después de 24 horas, o bien después de que los [registros de auditoría de Azure Key Vault](../key-vault/general/logging.md) no muestren actividad de Azure Cosmos DB en esa versión.
+La versión de la clave o la clave anterior pueden deshabilitarse después de que los [registros de auditoría de Azure Key Vault](../key-vault/general/logging.md) no muestren actividad de Azure Cosmos DB en esa clave o versión. No debe haber más actividad en la versión de clave o clave anterior transcurridas 24 horas desde la rotación de claves.
     
 ## <a name="error-handling"></a>Control de errores
 
@@ -341,7 +341,7 @@ Esta característica solo está disponible actualmente para las cuentas nuevas.
 
 ### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>¿Es posible usar claves administradas por el cliente junto con el [almacén analítico](analytical-store-introduction.md) de Azure Cosmos DB?
 
-Sí, pero debe [usar la identidad administrada de la cuenta de Azure Cosmos DB](#using-managed-identity) en la directiva de acceso de Azure Key Vault antes de habilitar el almacén analítico.
+Sí, Azure Synapse Link solamente admite la configuración de claves administradas por el cliente mediante la identidad administrada de la cuenta de Azure Cosmos DB. Debe [usar la identidad administrada de la cuenta de Azure Cosmos DB](#using-managed-identity) en la directiva de acceso de Azure Key Vault antes de [habilitar Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) en la cuenta.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>¿Existe un plan para admitir una granularidad más fina que las claves de nivel de cuenta?
 

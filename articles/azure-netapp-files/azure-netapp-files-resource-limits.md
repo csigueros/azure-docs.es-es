@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 07/28/2021
 ms.author: b-juche
-ms.openlocfilehash: b5abb26a5a96b73f06f25661c62061f664069ee3
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 06be68fb1de224bbbcad13e71e7f4069e44f8309
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903495"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725561"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -31,6 +31,7 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 
 |  Resource  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
 |----------------|---------------------|--------------------------------------|
+|  [Cuota de capacidad regional por suscripción](#regional-capacity-quota)   |  25 TiB  |  Sí  |
 |  Número de cuentas de NetApp por región de Azure por suscripción  |  10    |  Sí   |
 |  Número de grupos de capacidad por cuenta de NetApp   |    25     |   Sí   |
 |  Número de volúmenes por suscripción   |    500     |   Sí   |
@@ -93,9 +94,39 @@ Si ya ha asignado al menos 4 TiB de cuota para un volumen, puede iniciar una [s
 
 Puede aumentar el límite de maxfiles a 500 millones si la cuota del volumen es de al menos 20 TiB. <!-- ANF-11854 --> 
 
+## <a name="regional-capacity-quota"></a>Cuota de capacidad regional
+
+Azure NetApp Files dispone de un límite regional basado en la capacidad. El límite de capacidad estándar para cada suscripción es de 25 TiB por región, en todos los niveles de servicio.   
+
+Puede solicitar un aumento de capacidad mediante el envío de una incidencia de soporte técnico específica de **límites de servicio y suscripción (cuotas)** como se muestra a continuación:
+
+1. Vaya a **Soporte técnico y solución de problemas** en el portal para iniciar el proceso de solicitud de soporte técnico:  
+
+    ![Captura de pantalla que muestra el menú de solución de problemas de soporte técnico.](../media/azure-netapp-files/support-troubleshoot-menu.png)   
+
+2.  Seleccione el tipo de incidencia **Límites de servicio y suscripción (cuotas)** y escriba todos los detalles pertinentes:
+
+    ![Captura de pantalla que muestra el menú Límites de servicio y suscripción.](../media/azure-netapp-files/service-subscription-limits-menu.png)   
+
+3. Haga clic en el vínculo **Especificar detalles** en la pestaña Detalles y seleccione el tipo de cuota **TiB por suscripción**:   
+
+    ![Captura de pantalla que muestra el vínculo Especificar detalles en la pestaña Detalles.](../media/azure-netapp-files/support-details.png)   
+
+    ![Captura de pantalla que muestra la ventana de detalles de cuota.](../media/azure-netapp-files/support-quota-details.png)   
+
+4.  En la página Método de soporte técnico, asegúrese de seleccionar **Nivel de gravedad B – Impacto moderado**:  
+
+    ![Captura de pantalla que muestra la ventana Método de soporte técnico.](../media/azure-netapp-files/support-method-severity.png)   
+
+5. Complete el proceso de solicitud para emitir la solicitud. 
+ 
+Una vez enviado el vale, la solicitud se enviará al equipo de administración de capacidad de Azure para su procesamiento. Recibirá una respuesta normalmente en un plazo de 2 días laborables. El equipo de administración de capacidad de Azure podría ponerse en contacto con usted para controlar las solicitudes de gran tamaño.
+ 
+Un aumento de la cuota de capacidad regional no incurre en un aumento de facturación. La facturación se seguirá basando en los grupos de capacidad aprovisionados.
+
 ## <a name="request-limit-increase"></a>Solicitud de aumento del límite<a name="limit_increase"></a> 
 
-Puede crear una solicitud de soporte técnico de Azure para aumentar los límites ajustables de la tabla anterior. 
+Puede crear una solicitud de soporte técnico de Azure para aumentar los límites ajustables de la tabla [Límites de recursos](#resource-limits). 
 
 Desde el plano de navegación de Azure Portal: 
 

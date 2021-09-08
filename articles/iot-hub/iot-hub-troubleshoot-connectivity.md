@@ -15,22 +15,28 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 19094b6d2c10a77e5e99b698f2e7f5170677110b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 22c1658740af7ef7eccbeca02c6f98485ec11222
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061390"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378311"
 ---
-# <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Supervisión, diagnóstico y solución de problemas de desconexión con Azure IoT Hub
+# <a name="monitor-diagnose-and-troubleshoot-azure-iot-hub-disconnects"></a>Supervisión, diagnóstico y solución de problemas de desconexión de Azure IoT Hub 
 
 Los problemas de conectividad de los dispositivos IoT pueden ser difíciles de solucionar porque existen varios puntos de error posibles. La lógica de aplicación, las redes físicas, los protocolos, el hardware, IoT Hub y otros servicio en la nube pueden causar problemas. La capacidad de detectar e identificar el origen de un problema es fundamental. Sin embargo, una solución de IoT a gran escala puede tener miles de dispositivos, por lo que no es práctico comprobar manualmente cada dispositivo. IoT Hub se integra con dos servicios de Azure para ayudarle:
 
-* **Azure Monitor** Para que le sea más fácil detectar, diagnosticar y solucionar estos problemas a gran escala, use las funcionalidades de supervisión que proporciona IoT Hub mediante Azure Monitor. Esto incluye la configuración de alertas para desencadenar notificaciones y acciones cuando se producen desconexiones y la configuración de los registros, que puede usar para detectar las condiciones que provocaron las desconexiones.
+* **Azure Monitor** Azure Monitor permite recopilar, analizar y actuar sobre los datos de telemetría de IoT Hub. Para que le sea más fácil detectar, diagnosticar y solucionar estos problemas a gran escala, use las funcionalidades de supervisión que IoT Hub proporciona mediante Azure Monitor. Esto incluye la configuración de alertas para desencadenar notificaciones y acciones cuando se producen desconexiones y la configuración de los registros, que puede usar para detectar las condiciones que provocaron las desconexiones.
 
-* **Azure Event Grid** Para la infraestructura crítica y las desconexiones por dispositivo, use Azure Event Grid para suscribirse a los eventos de conexión y desconexión de dispositivos emitidos por IoT Hub.
+* **Azure Event Grid** Para la infraestructura crítica y las desconexiones por dispositivo, use Azure Event Grid para suscribirse a los eventos de conexión y desconexión de dispositivos emitidos por IoT Hub. Azure Event Grid permite usar cualquiera de los siguientes controladores de eventos:
 
-En ambos casos, estas funcionalidades se limitan a lo que observa IoT Hub, por lo que también se recomienda seguir los procedimientos recomendados de supervisión para los dispositivos y otros servicios de Azure.
+  - Azure Functions
+  - Logic Apps
+  - Azure Automation
+  - WebHooks
+  - Queue Storage
+  - conexiones híbridas
+  - Event Hubs
 
 ## <a name="event-grid-vs-azure-monitor"></a>Event Grid frente a Azure Monitor
 
@@ -44,11 +50,9 @@ Tenga en cuenta lo siguiente a la hora de decidir si usar Event Grid o Azure Mon
 
 * Configuración ligera: las alertas de métricas de Azure Monitor proporcionan una experiencia de configuración ligera que no requiere la integración con otros servicios para ofrecer notificaciones por correo electrónico, SMS, voz y otras notificaciones.  Con Event Grid, debe realizar una integración con otros servicios de Azure para entregar notificaciones. Ambos servicios se pueden integrar con otros servicios para desencadenar acciones más complejas.
 
-Debido a sus funcionalidades por dispositivo y de baja latencia, para entornos de producción se recomienda usar Event Grid para supervisar las conexiones. Por supuesto, la elección no es exclusiva, puede usar las alertas de métricas de Azure Monitor y Event Grid. Independientemente de su elección para el seguimiento de las desconexiones, es probable que use los registros de recursos de Azure Monitor para ayudar a solucionar los motivos de las desconexiones inesperadas de los dispositivos. En las siguientes secciones se describe cada uno de estas opciones con más detalle.
+## <a name="event-grid-monitor-connect-and-disconnect-events"></a>Event Grid: supervisión de los eventos de conexión y desconexión
 
-## <a name="event-grid-monitor-device-connect-and-disconnect-events"></a>Event Grid: supervisión de los eventos de conexión y desconexión de los dispositivos
-
-Para supervisar los eventos de conexión y desconexión en producción, se recomienda suscribirse a los [eventos **DeviceConnected** y **DeviceDisconnected**](iot-hub-event-grid.md#event-types) en Event Grid para desencadenar alertas y supervisar el estado de conexión de los dispositivos. Event Grid proporciona una latencia de eventos mucho menor que la de Azure Monitor y se puede supervisar por dispositivo, en lugar de por el número total de dispositivos conectados. Estos factores hacen de Event Grid el método preferido para supervisar la infraestructura y los dispositivos críticos.
+Para supervisar los eventos de conexión y desconexión en producción, se recomienda suscribirse a los [eventos **DeviceConnected** y **DeviceDisconnected**](iot-hub-event-grid.md#event-types) en Event Grid para desencadenar alertas y supervisar el estado de conexión de los dispositivos. Event Grid proporciona una latencia de eventos mucho menor que Azure Monitor y se puede supervisar dispositivo a dispositivo. Estos factores hacen de Event Grid el método preferido para supervisar la infraestructura y los dispositivos críticos.
 
 Al usar Event Grid para supervisar o desencadenar alertas en las desconexiones de dispositivos, asegúrese de que crea una manera de filtrar las desconexiones periódicas debido a la renovación de tokens de SAS en los dispositivos que usan los SDK de Azure IoT. Para más información, consulte [Comportamiento de desconexión de los dispositivos MQTT con los SDK de Azure IoT](#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
 
@@ -72,7 +76,7 @@ Se recomienda crear una configuración de diagnóstico tan pronto como sea posib
 
 Para más información sobre el enrutamiento de los registros a un destino, consulte [Recopilación y enrutamiento](monitor-iot-hub.md#collection-and-routing). Para obtener instrucciones detalladas para crear una configuración de diagnóstico, consulte [Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub](tutorial-use-metrics-and-diags.md).
 
-## <a name="azure-monitor-set-up-metric-alerts-for-device-disconnect-at-scale"></a>Azure Monitor: configuración de alertas de métricas para la desconexión de dispositivos a gran escala
+## <a name="azure-monitor-set-up-metric-alerts-for-device-disconnects"></a>Azure Monitor: configuración de alertas de métricas para la desconexión de dispositivos
 
 Puede configurar alertas basadas en las métricas de la plataforma emitidas por IoT Hub. Con las alertas de métricas, puede notificar a los usuarios que se ha producido una condición de interés y también desencadenar acciones que pueden responder a esa condición automáticamente.
 
@@ -80,13 +84,13 @@ La métrica [*Dispositivos conectados (versión preliminar)*](monitor-iot-hub-re
 
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/configure-alert-logic.png" alt-text="Configuración de la lógica de alertas para la métrica de dispositivos conectados.":::
 
-Puede usar reglas de alertas de métricas para supervisar las anomalías de desconexión de los dispositivo a gran escala. Es decir, cuando un número significativo de dispositivos se desconecta inesperadamente. Cuando se detecta este tipo de repetición, puede consultar los registros para ayudar a solucionar el problema. Sin embargo, para supervisar las conexiones y desconexiones por dispositivo para los dispositivos críticos debe usar Event Grid. Event Grid también proporciona una experiencia más en tiempo real que las métricas de Azure.
+Puede usar reglas de alertas de métricas para supervisar las anomalías de desconexión de los dispositivo a gran escala. Es decir, use alertas para determinar cuando se desconecta inesperadamente un número significativo de dispositivos. Cuando se detecta, puede examinar los registros para ayudar a solucionar el problema. Sin embargo, para supervisar las desconexiones por dispositivo y las desconexiones de dispositivos críticos casi en tiempo real, debe usar Event Grid.
 
 Para más información sobre las alertas con IoT Hub, consulte la sección Alertas de [Supervisión de Azure IoT Hub](monitor-iot-hub.md#alerts). Para ver un tutorial sobre la creación de alertas en IoT Hub, consulte [Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub](tutorial-use-metrics-and-diags.md). Para obtener información general más detallada sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) en la documentación de Azure Monitor.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Azure Monitor: uso de los registros para resolver errores de conectividad
 
-Cuando se detectan desconexiones de dispositivos, ya sea con las alertas de métricas de Azure Monitor o con Event Grid, puede usar los registros para ayudar a solucionar el motivo. En esta sección se describe cómo buscar problemas comunes en los registros de Azure Monitor. En los pasos siguientes se supone que ya ha creado una [configuración de diagnóstico](#azure-monitor-route-connection-events-to-logs) para enviar los registros de conexiones de IoT Hub a un área de trabajo de Log Analytics.
+Cuando se detectan desconexiones de dispositivos mediante alertas de métricas de Azure Monitor o Event Grid, puede usar los registros para ayudar a solucionar el motivo. En esta sección se describe cómo buscar problemas comunes en los registros de Azure Monitor. En los pasos siguientes se supone que ya ha creado una [configuración de diagnóstico](#azure-monitor-route-connection-events-to-logs) para enviar los registros de conexiones de IoT Hub a un área de trabajo de Log Analytics.
 
 Después de crear una configuración de diagnóstico para enrutar los registros de recursos de IoT Hub a los registros de Azure Monitor, siga estos pasos para ver los registros en Azure Portal.
 
@@ -101,11 +105,11 @@ Después de crear una configuración de diagnóstico para enrutar los registros 
     | where ( ResourceType == "IOTHUBS" and Category == "Connections" and Level == "Error")
     ```
 
-1. Si hay resultados, busque `OperationName`, `ResultType` (código de error) y `ResultDescription` (mensaje de error) para obtener más detalles sobre el error.
+1. Si hay resultados, busque `OperationName`, `ResultType` (código de error) y `ResultDescription` (mensaje de error) para obtener más detalles.
 
    ![Ejemplo de registro de errores](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
-Una vez que haya identificado el error, siga las guías de resolución de problemas para obtener ayuda con los errores más comunes:
+Use las siguientes guías de resolución de problemas para lograr ayuda con los errores más comunes:
 
 * [400027 ConnectionForcefullyClosedOnNewConnection](iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md)
 
@@ -127,10 +131,10 @@ De forma predeterminada, la duración del token es de 60 minutos para todos los
 
 | SDK | Duración del token | Renovación de tokens | Comportamiento de renovación |
 |-----|----------|---------------------|---------|
-| .NET | 60 minutos, configurable | 85 % de la duración, configurable | El SDK se conecta y desconecta cuando se agota la duración del token, más un período de gracia de 10 minutos. Se generan eventos informativos y errores en los registros. |
-| Java | 60 minutos, configurable | 85 % de la duración, no configurable | El SDK se conecta y desconecta cuando se agota la duración del token, más un período de gracia de 10 minutos. Se generan eventos informativos y errores en los registros. |
-| Node.js | 60 minutos, configurable | Configurable | El SDK se conecta y desconecta al renovar el token. Solo se generan eventos informativos en los registros. |
-| Python | 60 minutos, no configurable | -- | El SDK se conecta y desconecta al agotarse la duración del token. |
+| .NET | 60 minutos, configurable | 85 % de la duración, configurable | El SDK se desconecta y se vuelve a conectar cuando se agota la duración del token, más un período de gracia de 10 minutos. Se generan eventos informativos y errores en los registros. |
+| Java | 60 minutos, configurable | 85 % de la duración, no configurable | El SDK se desconecta y se vuelve a conectar cuando se agota la duración del token, más un período de gracia de 10 minutos. Se generan eventos informativos y errores en los registros. |
+| Node.js | 60 minutos, configurable | Configurable | El SDK se desconecta y vuelve a conectar al renovar el token. Solo se generan eventos informativos en los registros. |
+| Python | 60 minutos, configurable | 120 segundos antes de la expiración | El SDK se desconecta y vuelve a conectar en la duración del token. |
 
 Las capturas de pantallas siguientes muestran el comportamiento de renovación de tokens en los registros de Azure Monitor para los diferentes SDK. La duración del token y el umbral de renovación se han cambiado con respecto a sus valores predeterminados, tal como se indicó.
 
@@ -146,7 +150,7 @@ Las capturas de pantallas siguientes muestran el comportamiento de renovación d
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/node-mqtt.png" alt-text="Comportamiento de error para la renovación de tokens sobre MQTT en los registros de Azure Monitor con el SDK para Node.":::
 
-Se ha utilizado la consulta siguiente para recopilar los resultados. La consulta extrae el nombre y la versión del SDK del contenedor de propiedades. Para más información, consulte [Versión del SDK en registros de IoT Hub](monitor-iot-hub.md#sdk-version-in-iot-hub-logs).
+Se ha utilizado la consulta siguiente para recopilar los resultados. La consulta extrae el nombre y la versión del SDK del contenedor de propiedades. Para más información, consulte [Versión del SDK en los registros de IoT Hub](monitor-iot-hub.md#sdk-version-in-iot-hub-logs).
 
 ```kusto
 AzureDiagnostics
@@ -160,7 +164,7 @@ AzureDiagnostics
 
 Como desarrollador u operador de soluciones IoT, debe tener en cuenta este comportamiento con el fin de interpretar los eventos de conexión y desconexión y los errores relacionados en los registros. Si desea cambiar la duración del token o el comportamiento de renovación de los dispositivos, compruebe si el dispositivo implementa una configuración de dispositivo gemelo o un método de dispositivo que lo haga posible.
 
-Si va a supervisar las conexiones de los dispositivos con Event Hubs, asegúrese de que crea una manera de filtrar las desconexiones periódicas debidas a la renovación de tokens de SAS; por ejemplo, para no desencadenar acciones basadas en las desconexiones, siempre y cuando el evento de desconexión vaya seguido de un evento de conexión dentro de un intervalo de tiempo determinado.
+Si va a supervisar conexiones de dispositivos con Event Hubs, asegúrese de que crea una forma de filtrar las desconexiones periódicas debido a la renovación de tokens de SAS. Por ejemplo, no desencadene acciones basadas en desconexiones, siempre que al evento de desconexión lo siga un evento de conexión dentro de un intervalo de tiempo determinado.
 
 > [!NOTE]
 > IoT Hub solo admite una conexión MQTT activa por dispositivo. Todas las conexiones MQTT nuevas en nombre del mismo identificador de dispositivo provocarán que IoT Hub cierre la existente.

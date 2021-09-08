@@ -6,12 +6,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
 ms.date: 05/25/2021
-ms.openlocfilehash: 5bbdcd8032fbb4d20af2e681bf703c3d62985fe0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b6e23d008a0171e8b71c032349943b809b4bfc92
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971623"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113667102"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Planeamiento y administración de los costos de Azure Logic Apps
 
@@ -45,13 +45,13 @@ El servicio Azure Logic Apps aplica distintos modelos de precios, en función de
 
 * Los recursos de aplicaciones lógicas creados y ejecutados en el servicio Azure Logic Apps de inquilino único usan un [modelo de precios de plan de hospedaje](../logic-apps/logic-apps-pricing.md#standard-pricing).
 
-* Los recursos de aplicaciones lógicas creados y ejecutados en un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) usan un [modelo de precios fijos](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+* Los recursos de aplicaciones lógicas creados y ejecutados en un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) usan el [modelo de precios de ISE](../logic-apps/logic-apps-pricing.md#ise-pricing).
 
 Estos son otros recursos que incurren en costos cuando se crean para usarlos con aplicaciones lógicas:
 
 * Una [cuenta de integración](../logic-apps/logic-apps-pricing.md#integration-accounts) es un recurso independiente que se crea y se vincula a aplicaciones lógicas para crear integraciones de B2B. Las cuentas de integración usan un [modelo de precios fijos](../logic-apps/logic-apps-pricing.md#integration-accounts) en el que la tarifa se basa en el tipo de cuenta de integración o el *nivel* que utilice.
 
-* Un [ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing) es un recurso independiente que se crea como una ubicación de implementación para aplicaciones lógicas que necesitan acceso directo a los recursos de una red virtual. Los ISE usan un [modelo de precios fijos](../logic-apps/logic-apps-pricing.md#fixed-pricing) donde la tarifa se basa en la SKU de ISE creada y en otras opciones. Sin embargo, la retención de datos y el consumo de almacenamiento no generan costos.
+* Un [ISE](../logic-apps/logic-apps-pricing.md#ise-pricing) es un recurso independiente que se crea como una ubicación de implementación para aplicaciones lógicas que necesitan acceso directo a los recursos de una red virtual. Los ISE usan el [modelo de precios de ISE](../logic-apps/logic-apps-pricing.md#ise-pricing), en el que la tarifa se basa en la SKU de ISE creada y en otras opciones. Sin embargo, la retención de datos y el consumo de almacenamiento no generan costos.
 
 * Un [conector personalizado](../logic-apps/logic-apps-pricing.md#consumption-pricing) es un recurso independiente que se crea para una API de REST que no tiene ningún conector precompilado para utilizarlo en las aplicaciones lógicas. Las ejecuciones de conectores personalizados usan un [modelo de precios de consumo](../logic-apps/logic-apps-pricing.md#consumption-pricing), excepto cuando se usan en un ISE.
 
@@ -59,7 +59,7 @@ Estos son otros recursos que incurren en costos cuando se crean para usarlos con
 
 #### <a name="storage-operations-and-costs"></a>Operaciones y costos de almacenamiento
 
-Azure Logic Apps usa [Azure Storage](../storage/index.yml) en las operaciones de almacenamiento. Con Azure Logic Apps multiinquilino, el uso y los costos de almacenamiento se asocian a la aplicación lógica. [La retención de datos y los costos de almacenamiento](../logic-apps/logic-apps-pricing.md#data-retention) acumulan costos mediante un [modelo de precio fijo](../logic-apps/logic-apps-pricing.md#fixed-pricing). Por ejemplo, las entradas y salidas del historial de ejecución se mantienen en el almacenamiento en segundo plano, que difiere de los recursos de almacenamiento creados, administrados y a los que se accede de forma independiente desde la aplicación lógica.
+Azure Logic Apps usa [Azure Storage](../storage/index.yml) en las operaciones de almacenamiento. Con Azure Logic Apps multiinquilino, el uso y los costos de almacenamiento se asocian a la aplicación lógica. [La retención de datos y los costos de almacenamiento](../logic-apps/logic-apps-pricing.md#storage-operations) acumulan costos mediante un [modelo de precio fijo](../logic-apps/logic-apps-pricing.md#storage-operations). Por ejemplo, las entradas y salidas del historial de ejecución se mantienen en el almacenamiento en segundo plano, que difiere de los recursos de almacenamiento creados, administrados y a los que se accede de forma independiente desde la aplicación lógica.
 
 Con Azure Logic Apps de inquilino único, puede usar su propia [cuenta de almacenamiento](../azure-functions/storage-considerations.md#storage-account-requirements) de Azure. Esta funcionalidad proporciona más control y flexibilidad con los datos de Logic Apps. Cuando los flujos de trabajo *con estado* ejecutan sus operaciones, Azure Logic Apps realiza transacciones de almacenamiento en tiempo de ejecución. Por ejemplo, las colas se utilizan para la programación, mientras que las tablas y blobs se utilizan para almacenar los estados de los flujos de trabajo. Los costos de almacenamiento cambian en función del contenido del flujo de trabajo. Los distintos desencadenadores, acciones y cargas tienen como resultado diferentes operaciones y necesidades de almacenamiento. Las transacciones de almacenamiento siguen el [modelo de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Los costos de almacenamiento se enumeran por separado en la factura de Azure.
 

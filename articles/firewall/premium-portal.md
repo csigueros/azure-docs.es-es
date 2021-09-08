@@ -1,26 +1,23 @@
 ---
-title: Versión preliminar de Azure Firewall Prémium en Azure Portal
-description: Aprenda sobre la versión preliminar de Azure Firewall Prémium en Azure Portal.
+title: Azure Firewall Premium en Azure Portal
+description: Obtenga información sobre Azure Firewall Premium en Azure Portal.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: 3d56fc73faeb0d48ba7e5b21449c61d6213afa40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfb9f76751bbf5966b4aaa29e382a0946bf7cfd6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100549485"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440436"
 ---
-# <a name="azure-firewall-premium-preview-in-the-azure-portal"></a>Versión preliminar de Azure Firewall Prémium en Azure Portal
+# <a name="azure-firewall-premium-in-the-azure-portal"></a>Azure Firewall Premium en Azure Portal
 
-> [!IMPORTANT]
-> Azure Firewall Prémium se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
- La versión preliminar de Azure Firewall Prémium es un firewall de próxima generación con funcionalidades que son necesarias en entornos de alta confidencialidad y regulados. Contiene las características siguientes:
+ Azure Firewall Premium es un firewall de próxima generación con funcionalidades que son necesarias en entornos de alta confidencialidad y regulados. Contiene las características siguientes:
 
 - **Inspección de TLS**: descifra el tráfico saliente, procesa los datos y, luego, los cifra y los envía al destino.
 - **IDPS**: sistema de detección y prevención de intrusiones en la red (IDPS) que permite supervisar la actividad malintencionada de la red, registrar información sobre esta actividad, notificarla y, opcionalmente, intentar bloquearla.
@@ -31,11 +28,11 @@ Para más información, consulte [Características de Azure Firewall Prémium](p
 
 ## <a name="deploy-the-firewall"></a>Implementación del firewall
 
-La implementación de una versión preliminar de Azure Firewall Prémium es similar a la implementación de la versión estándar de Azure Firewall:
+La implementación de una instancia de Azure Firewall Premium es similar a la implementación de la versión estándar de Azure Firewall:
 
 :::image type="content" source="media/premium-portal/premium-portal.png" alt-text="Implementación en el portal":::
 
-En **Firewall tier** (Nivel de firewall), seleccione **Premium (preview)** (Prémium [versión preliminar]) y, en **Directiva de firewall**, seleccione una directiva prémium existente o cree una.
+En **Firewall tier** (Nivel de firewall), seleccione **Premium** y, en **Firewall policy** (Directiva de firewall), seleccione una directiva Premium existente o cree una nueva.
 
 ## <a name="configure-the-premium-policy"></a>Configuración de la directiva prémium
 
@@ -51,4 +48,4 @@ Al configurar reglas de aplicación en una directiva prémium, puede configurar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver en acción las características en versión preliminar de Azure Firewall Prémium, consulte [Implementación y configuración de la versión preliminar de Azure Firewall Prémium](premium-deploy.md).
+Para ver en acción las características de Azure Firewall Premium, consulte [Implementación y configuración de Azure Firewall Premium](premium-deploy.md).

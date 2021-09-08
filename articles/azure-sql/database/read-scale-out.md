@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 01/20/2021
-ms.openlocfilehash: a6f9debd9b4daec96fdb2f00f81bcbeb5073e4c7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/06/2021
+ms.openlocfilehash: f5822a3d5594388627858be22ca9bbc0a43c1739
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691723"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113361088"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,10 +45,12 @@ Si desea asegurarse de que la aplicación se conecta a la réplica principal sin
 
 ## <a name="data-consistency"></a>Coherencia de datos
 
-Una de las ventajas de las réplicas es que siempre se encuentran en estado de coherencia transaccional, pero es posible que en diferentes momentos pueda haber una pequeña latencia entre las distintas réplicas. El escalado horizontal de lectura admite la coherencia en el nivel de sesión. Esto significa que, si la sesión de solo lectura vuelve a conectarse después de un error de conexión provocado por la falta de disponibilidad de las réplicas, podría redirigirse a una réplica que no tuviera toda la información de la réplica de lectura y escritura. Del mismo modo, si una aplicación escribe datos en una sesión de lectura y escritura y los lee inmediatamente en una sesión de solo lectura, es posible que las actualizaciones más recientes no puedan verse inmediatamente en la réplica. La latencia se produce por una operación asincrónica que rehace el registro de transacciones.
+Los cambios de datos realizados en la réplica principal se propagan a las réplicas de solo lectura de forma asincrónica. En una sesión conectada a una réplica de solo lectura, las lecturas siempre son transaccionalmente coherentes. Sin embargo, como la latencia de propagación de los datos es variable, las diferentes réplicas pueden devolver datos en puntos ligeramente diferentes en el tiempo en relación con el principal y entre sí. Si una réplica de solo lectura deja de estar disponible y la sesión se vuelve a conectar, puede conectarse a una réplica que se encuentra en un momento que no es el mismo que el de la réplica original. Del mismo modo, si una aplicación cambia datos mediante una sesión de lectura y escritura, y los lee de inmediato mediante una sesión de solo lectura, es posible que los cambios más recientes no se puedan ver inmediatamente en la réplica de solo lectura.
+
+La latencia típica de propagación de datos entre la réplica principal y las réplicas de solo lectura varía en el intervalo entre decenas de milisegundos y segundos de un solo dígito. Sin embargo, no hay ningún límite superior fijo en la latencia de propagación de datos. Condiciones como el uso elevado de recursos de la réplica pueden aumentar considerablemente la latencia. Las aplicaciones que requieren una coherencia de datos garantizada entre sesiones o que requieren que los datos confirmados se puedan leer de inmediato deben usar la réplica principal.
 
 > [!NOTE]
-> Las latencias de replicación en la región son bajas y esta situación es poco frecuente. Para supervisar la latencia de replicación, consulte [Supervisión y solución de problemas de la réplica de solo lectura](#monitoring-and-troubleshooting-read-only-replicas).
+> Para supervisar la latencia de propagación de datos, consulte la sección [Supervisión y solución de problemas de la réplica de solo lectura](#monitoring-and-troubleshooting-read-only-replicas).
 
 ## <a name="connect-to-a-read-only-replica"></a>Conexión a una réplica de solo lectura
 
@@ -89,7 +91,7 @@ Las vistas que se usan con frecuencia son:
 |:---|:---|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Proporciona métricas de uso de recursos durante la última hora, incluida la CPU, la E/S de datos y el uso de la escritura de registros en relación con los límites de los objetivos de servicio.|
 |[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Proporciona estadísticas de espera agregadas para la instancia del motor de base de datos. |
-|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Proporciona estadísticas de sincronización y estado de mantenimiento de la réplica. La tasa y el tamaño de la cola de la fase de puesta al día sirven como indicadores de latencia de datos en la réplica de solo lectura. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Proporciona estadísticas de sincronización y estado de mantenimiento de la réplica. La tasa y el tamaño de la cola de la fase de puesta al día sirven como indicadores de la latencia de propagación de datos en la réplica de solo lectura. |
 |[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Proporciona contadores de rendimiento del motor de base de datos.|
 |[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Proporciona estadísticas de ejecución por consulta, como el número de ejecuciones, el tiempo de CPU usado, etc.|
 |[sys.dm_exec_query_plan()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Proporciona planes de consulta almacenados en caché. |
@@ -123,7 +125,7 @@ Si una consulta de ejecución prolongada en una réplica de solo lectura produce
 > Si recibe el error 3961, 1219 o 3947 al ejecutar consultas en una réplica de solo lectura, vuelva a intentar la consulta.
 
 > [!TIP]
-> En los niveles de servicio Premium y Crítico para la empresa, cuando se conecta a una réplica de solo lectura, se pueden usar las columnas `redo_queue_size` y `redo_rate` de las DMV [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) para supervisar el proceso de sincronización de datos, sirviendo como indicadores de latencia de datos en la réplica de solo lectura.
+> En los niveles de servicio Prémium y Crítico para la empresa, cuando se conecta a una réplica de solo lectura, las columnas `redo_queue_size` y `redo_rate` de la vista de administración dinámica [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) se pueden usar para supervisar el proceso de sincronización de datos, que sirven como indicadores de la latencia de propagación de datos en la réplica de solo lectura.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Habilitación y deshabilitación del escalado horizontal de lectura

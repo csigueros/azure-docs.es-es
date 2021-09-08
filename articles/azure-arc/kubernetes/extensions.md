@@ -2,17 +2,17 @@
 title: Extensiones de clústeres de Kubernetes habilitados para Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/25/2021
+ms.date: 06/18/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Implementación y administración del ciclo de vida de las extensiones en Kubernetes habilitado para Azure Arc
-ms.openlocfilehash: cd2d0915b173f3621502f22a2d47e25271f87400
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 28f82471b13ec798f7c75f6b17d88321dd4f79a9
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951685"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378077"
 ---
 # <a name="deploy-and-manage-azure-arc-enabled-kubernetes-cluster-extensions"></a>Implementación y administración de extensiones de clústeres de Kubernetes habilitados para Azure Arc
 
@@ -64,6 +64,7 @@ Puede encontrar información general y algunos conceptos sobre esta característ
 | [Azure App Service en Azure Arc](../../app-service/overview-arc-integration.md) | Permite aprovisionar un entorno de Kubernetes de App Service, además de clústeres de Kubernetes habilitados para Azure Arc. |
 | [Event Grid en Kubernetes](../../event-grid/kubernetes/overview.md) | Cree y administre recursos de Event Grid, como temas y suscripciones de eventos, además de clústeres de Kubernetes habilitados para Azure Arc. |
 | [Azure API Management en Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Implemente y administre la puerta de enlace de API Management en clústeres de Kubernetes habilitados para Azure Arc. |
+| [Aprendizaje automático habilitado para Azure Arc](../../machine-learning/how-to-attach-arc-kubernetes.md) | Implemente y ejecute Azure Machine Learning en clústeres de Kubernetes habilitados para Azure Arc. |
 
 ## <a name="usage-of-cluster-extensions"></a>Uso de las extensiones de clúster
 

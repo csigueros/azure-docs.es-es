@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 37196dafd094f997bc5fe2ea165cefb9099562a0
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6d9483ee7d6d131b28f58ce559f0313f3eddbb34
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784888"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231807"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope-in-azure-active-directory"></a>Omisión de la eliminación de cuentas de usuario que están fuera de ámbito en Azure Active Directory
 
@@ -76,7 +76,7 @@ En la dirección URL siguiente, reemplace [servicePrincipalId] por el valor de *
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
-Copie el texto actualizado del paso 3 en "Request Body" y establezca el encabezado "Content-Type" en "application/json" en "Request Headers". 
+Copie el texto actualizado del paso 3 en "Cuerpo de la solicitud". 
 
    ![Solicitud PUT](./media/skip-out-of-scope-deletions/skip-05.png)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4b3a06d2d441c918c4c109d9dc624ebfa1cd4c97
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 44205bc628a839dd28cd574dbd19a22e9856d999
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120833"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114719413"
 ---
 # <a name="media-reserved-units"></a>Unidades reservadas de multimedia
 
@@ -43,7 +43,7 @@ Con esta tabla será más fácil tomar la decisión de elegir entre distintas ve
 
 ## <a name="considerations"></a>Consideraciones
 
-* Para los trabajos de análisis de audio y vídeo desencadenados por Media Services v3 o Video Indexer, se recomienda encarecidamente aprovisionar la cuenta con diez MRU S3. Si necesita más de 10 MRU S3, abra una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com/).
+* En los trabajos de análisis de audio y vídeo desencadenados por Media Services v3 o Azure Video Analyzer for Media se recomienda encarecidamente aprovisionar la cuenta con diez unidades S3. Si necesita más de 10 MRU S3, abra una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com/).
 * En el caso de las tareas de codificación que no tienen MRU, no hay ningún límite superior con respecto al tiempo que las tareas pueden pasar en estado en cola y, como máximo, solo una tarea se ejecutará a la vez.
 
 ## <a name="billing"></a>Facturación

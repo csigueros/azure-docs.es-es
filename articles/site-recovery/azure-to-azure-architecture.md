@@ -5,12 +5,12 @@ services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
-ms.openlocfilehash: 38bf9d41f81a76c4263952a94b5526984db0705f
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: a59760378eef7412a963f661e80debc6a7af56d5
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580931"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486560"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -51,9 +51,8 @@ Al habilitar la replicación para una máquina virtual, Site Recovery ofrece la 
 
 Puede administrar los recursos de destino como sigue:
 
-- Puede modificar la configuración de destino al habilitar la replicación.
-- Puede modificar la configuración de destino con la replicación en curso. Tenga en cuenta que la SKU predeterminada para la VM de la región de destino es la misma que la SKU de la VM de origen (o la mejor SKU siguiente disponible en comparación con la SKU de la VM de origen). Al igual que otros recursos, como el grupo de recursos de destino y el nombre de destino, entre otros, la SKU de VM de la región de destino también puede actualizarse una vez que la replicación está en curso. Un recurso que no se puede actualizar es el tipo de disponibilidad (instancia, conjunto o zona únicos). Para cambiar esta configuración debe deshabilitar la replicación, modificar la configuración y volver a habilitarla. 
-
+- Puede modificar la configuración de destino al habilitar la replicación. Tenga en cuenta que la SKU predeterminada para la VM de la región de destino es la misma que la SKU de la VM de origen (o la mejor SKU siguiente disponible en comparación con la SKU de la VM de origen). La lista desplegable solo muestra las SKU pertinentes de la misma familia que la máquina virtual de origen (Gen 1 o Gen 2).
+- Puede modificar la configuración de destino con la replicación en curso. Al igual que otros recursos, como el grupo de recursos de destino y el nombre de destino, entre otros, la SKU de VM de la región de destino también puede actualizarse una vez que la replicación está en curso. Un recurso que no se puede actualizar es el tipo de disponibilidad (instancia, conjunto o zona únicos). Para cambiar esta configuración debe deshabilitar la replicación, modificar la configuración y volver a habilitarla. 
 
 ## <a name="replication-policy"></a>Directiva de replicación 
 

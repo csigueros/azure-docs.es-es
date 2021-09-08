@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bf469b79fa532978e904a54f32c80280706ee7cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 866eb949d124e8d705785c6552672730fe67ece1
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174587"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464171"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidad de Microsoft y credenciales de contraseña de propietario de recursos de OAuth 2.0
 
@@ -27,14 +27,17 @@ La Plataforma de identidad de Microsoft admite la [concesión de credenciales de
 > [!WARNING]
 > Microsoft recomienda que _no_ use el flujo de ROPC. En la mayoría de los escenarios, hay alternativas más seguras y recomendables. Este flujo requiere un alto grado de confianza en la aplicación y conlleva riesgos que no están presentes en otros flujos. Solo debe usar este flujo cuando no se puedan usar otros más seguros.
 
+
 > [!IMPORTANT]
 >
 > * La Plataforma de identidad de Microsoft solo admite ROPC para inquilinos de Azure AD, no cuentas personales. Esto significa que debe usar un punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`) o el punto de conexión `organizations`.
 > * Las cuentas personales que se invitan a un inquilino de Azure AD no pueden usar ROPC.
-> * Las cuentas sin contraseña no pueden iniciar sesión a través de ROPC. En este escenario, se recomienda usar en su lugar un flujo distinto para la aplicación.
+> * Las cuentas que no tienen contraseñas no pueden iniciar sesión con ROPC, lo que significa que características como el inicio de sesión por SMS, FIDO y la aplicación Authenticator no funcionarán con ese flujo. Use un flujo que no sea ROPC si la aplicación o los usuarios requieren estas características.
 > * Si los usuarios deben usar la [autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md) para iniciar sesión en la aplicación, se les bloqueará.
 > * ROPC no se admite en escenarios de [federación de identidades híbridas](../hybrid/whatis-fed.md) (por ejemplo, Azure AD y ADFS que se usan para autenticar cuentas locales). Si los usuarios se redirigen a página completa a proveedores de identidades locales, Azure AD no puede probar el nombre de usuario y la contraseña en el proveedor de identidades. Sin embargo, la [autenticación de paso a través](../hybrid/how-to-connect-pta.md) se admite con ROPC.
 > * Una excepción a un escenario de federación de identidades híbrida sería la siguiente: la directiva de detección del dominio principal con el valor de AllowCloudPasswordValidation establecido en TRUE permitirá que el flujo de ROPC funcione para los usuarios federados cuando la contraseña local se sincronice con la nube. Para más información, consulte [Habilitación de la autenticación de ROPC directa de los usuarios federados para aplicaciones heredadas](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -44,12 +47,7 @@ En el diagrama siguiente se muestra el flujo de ROPC.
 
 ## <a name="authorization-request"></a>Solicitud de autorización
 
-El flujo de ROPC es una solicitud única que envía la identificación del cliente y las credenciales del usuario al punto de distribución de emisión (IDP) y después, a cambio, recibe tokens. El cliente debe solicitar la dirección de correo electrónico (UPN) y la contraseña del usuario antes de hacerlo. Inmediatamente después de que una solicitud se realice correctamente, el cliente deberá liberar de manera segura las credenciales del usuario de la memoria. Nunca debe guardarlas.
-
-> [!TIP]
-> Pruebe a ejecutar esta solicitud en Postman
-> [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
+El flujo de ROPC es una solicitud única que envía la identificación del cliente y las credenciales del usuario al punto de distribución de emisión (IDP) y después, a cambio, recibe tokens. El cliente debe solicitar la dirección de correo electrónico (UPN) y la contraseña del usuario antes de hacerlo. Inmediatamente después de que una solicitud se realice correctamente, el cliente deberá liberar de manera segura las credenciales del usuario de la memoria. Nunca deben guardarse.
 
 ```HTTP
 // Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
@@ -73,8 +71,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `username` | Obligatorio | La dirección de correo electrónico del usuario. |
 | `password` | Obligatorio | La contraseña del usuario. |
 | `scope` | Recomendado | Una lista de [ámbitos](v2-permissions-and-consent.md) o permisos separada por espacios que requiere la aplicación. En un flujo interactivo, el administrador o el usuario deben dar su consentimiento a estos ámbitos de antemano. |
-| `client_secret`| A veces es necesario | Si la aplicación es un cliente público, no se puede incluir el valor de `client_secret` o `client_assertion`.  Si la aplicación es un cliente confidencial, se debe incluir. |
+| `client_secret`| A veces es necesario | Si la aplicación es un cliente público, no se puede incluir el valor de `client_secret` o `client_assertion`.  Si la aplicación es un cliente confidencial, se debe incluir.|
 | `client_assertion` | A veces es necesario | Una forma diferente de `client_secret`, que se genera mediante un certificado.  Consulte [Credenciales de certificado](active-directory-certificate-credentials.md) para más información. |
+
+> [!WARNING]
+> Como parte de no recomendar este flujo para su uso, los SDK oficiales no admiten este flujo para clientes confidenciales, aquellos que usan un secreto o una aserción. Es posible que el SDK que quiera usar no le permita agregar un secreto cuando usa ROPC. 
 
 ### <a name="successful-authentication-response"></a>Respuesta de autenticación correcta
 
@@ -101,6 +102,8 @@ En el ejemplo siguiente se muestra una respuesta de token correcta:
 | `refresh_token` | Cadena opaca | Se emite si el parámetro `scope` original incluye `offline_access`. |
 
 Puede usar el token de actualización para adquirir nuevos tokens de acceso y tokens de actualización con el mismo flujo que se describe en la [Documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response"></a>Respuesta de error
 

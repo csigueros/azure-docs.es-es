@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 330a6e54ee88781f71c4a861051aab94f8eef81f
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.date: 07/23/2021
+ms.openlocfilehash: 6c51a118b0581759f456b243b6dde25890b36f39
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587908"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668482"
 ---
 # <a name="understanding-resource-sets"></a>Descripción de los conjuntos de recursos
 
@@ -27,7 +27,7 @@ Para abordar el reto de asignar un gran número de recursos de datos a un único
 
 ## <a name="how-azure-purview-detects-resource-sets"></a>Cómo detecta Azure Purview conjuntos de recursos
 
-Azure Purview admite la detección de conjuntos de recursos en Azure Blob Storage, ADLS Gen1 y ADLS Gen2.
+Azure Purview admite la detección de conjuntos de recursos en Azure Blob Storage, ADLS Gen1, ADLS Gen2, Azure Files y Amazon S3.
 
 Azure Purview detecta automáticamente los conjuntos de recursos cuando se examinan. Esta característica examina todos los datos que se ingieren a través de un examen y los compara con un conjunto de patrones definidos.
 

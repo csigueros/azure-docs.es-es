@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 08/06/2021
 ms.author: victorh
-ms.openlocfilehash: b8e10eef89df12807cabd96d64d9c7d659f91d6c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7b8dd13c5d2c3c080ca20115dfc41b23dd6e545e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109516"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725380"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Implementación de un proveedor de seguridad asociado
 
@@ -69,6 +69,9 @@ Recuerde que se debe implementar una puerta de enlace de VPN para convertir un c
 
 Para configurar túneles en VPN Gateway del centro de conectividad virtual, los proveedores de terceros necesitan derechos de acceso al centro. Para ello, asocie una entidad de servicio a la suscripción o grupo de recursos, y conceda derechos de acceso. A continuación, debe proporcionar estas credenciales a terceros mediante el portal.
 
+> [!NOTE]
+> Los proveedores de seguridad de terceros crean un sitio VPN en su nombre. Este sitio VPN no aparece en Azure Portal.
+
 ### <a name="create-and-authorize-a-service-principal"></a>Crear y autorizar una entidad de servicio
 
 1. Crear una entidad de servicio de Azure Active Directory (AD): Puede omitir la dirección URL de redireccionamiento. 
@@ -103,6 +106,8 @@ Para configurar túneles en VPN Gateway del centro de conectividad virtual, los 
 
    :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Configuración de seguridad":::
 5. Además, si su organización usa intervalos de direcciones IP públicas en redes virtuales y sucursales, debe especificar los prefijos IP explícitamente mediante **prefijos de tráfico privados**. Los prefijos de direcciones IP públicas se pueden especificar individualmente o como agregados.
+
+   Si usa direcciones que no son RFC1918 para los prefijos de tráfico privado, es posible que tenga que configurar directivas SNAT para el firewall para deshabilitar SNAT para el tráfico privado que no sea RFC1918. De manera predeterminada, Azure Firewall para por SNAT todo el tráfico que no sea RFC1918.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Tráfico de Internet de sucursales o VNet a través de un servicio de terceros
 

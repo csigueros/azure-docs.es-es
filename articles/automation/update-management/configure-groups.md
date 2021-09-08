@@ -3,14 +3,14 @@ title: Uso de grupos dinámicos con Update Management de Azure Automation
 description: En este artículo se explica cómo usar los grupos dinámicos con Update Management de Azure Automation.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 06/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 318b5498c826b1e29baa35850594cebca72c4f3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b09def53b32d9616ddab541b3448f863b6ec781a
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575920"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112520539"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Uso de grupos dinámicos con Update Management
 
@@ -46,6 +46,9 @@ Para obtener una vista previa de los resultados de un grupo dinámico, haga clic
 Un grupo dinámico para máquinas que no son de Azure usa búsquedas guardadas, que también se denominan grupos de equipos. Para aprender a crear una búsqueda guardada, consulte [Creación de un grupo de equipos](../../azure-monitor/logs/computer-groups.md#creating-a-computer-group). Una vez creada la búsqueda guardada, puede seleccionarla en la lista de búsquedas guardadas en **Update Management** en Azure Portal. Haga clic en **Vista previa** para obtener una vista previa de los equipos de la búsqueda guardada.
 
 ![Captura de pantalla que muestra la página Seleccionar grupos para No Azure (versión preliminar) y el panel de vista previa en el lado derecho.](./media/configure-groups/select-groups-2.png)
+
+> [!NOTE]
+> No se admite una búsqueda guardada [que consulta los datos almacenados en varias áreas](../../azure-monitor/logs/cross-workspace-query.md) de trabajo de Log Analytics.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

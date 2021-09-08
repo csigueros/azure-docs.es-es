@@ -7,33 +7,36 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: c55ca73d63fb380dece0350de482dcc9087bd315
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 1b50fbbdd38d1bb24c1732c465784c3ddb757e3f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744816"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454788"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
 > [!IMPORTANT]
-> La búsqueda semántica se encuentra en versión preliminar pública y solo está disponible mediante la API REST en versión preliminar y el portal. Las características en versión preliminar se ofrecen tal cual, según las [Condiciones de uso complementarias](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), y no se garantiza que tengan la misma implementación en la disponibilidad general. Estas características son facturables. Para más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
+> La búsqueda semántica está en versión preliminar pública en los [términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Está disponible a través de Azure Portal, la API REST en versión preliminar y los SDK en versión beta. Estas características son facturables. Para más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
 
-La búsqueda semántica es una colección de funcionalidades relacionadas con las consultas que agrega relevancia semántica y comprensión del lenguaje a los resultados de la búsqueda. Este artículo es una introducción general a la búsqueda semántica, con descripciones de cada característica y su funcionamiento colectivo. La tecnología se describe en el vídeo insertado y la disponibilidad y los precios aparece en la sección del final.
+La búsqueda semántica es una colección de funcionalidades relacionadas con las consultas que aporta relevancia semántica y comprensión del lenguaje a los resultados de la búsqueda. Este artículo es una introducción general a la búsqueda semántica, con descripciones de cada característica y su funcionamiento colectivo. La tecnología se describe en el vídeo insertado y la disponibilidad y los precios aparece en la sección del final.
 
 La búsqueda semántica es una característica Prémium. Si necesita información general, le recomendamos este artículo, pero si prefiere empezar a trabajar, siga estos pasos:
 
-1. [Compruebe los requisitos regionales y de nivel de servicio](#availability-and-pricing).
-1. [Regístrese para el programa de versión preliminar](https://aka.ms/SemanticSearchPreviewSignup). La solicitud puede tardar hasta dos días laborables en procesarse.
-1. Tras la aceptación, cree o modifique las consultas para devolver [títulos y resaltados semánticos](semantic-how-to-query-request.md).
-1. Agregue algunas propiedades más para devolver también [respuestas semánticas](semantic-answers.md).
-1. También puede incluir una propiedad de [corrección ortográfica](speller-how-to-add.md) para maximizar la precisión y la coincidencia.
+> [!div class="checklist"]
+> * [Compruebe los requisitos regionales y de nivel de servicio](#availability-and-pricing).
+> * [Regístrese para el programa de versión preliminar](https://aka.ms/SemanticSearchPreviewSignup). La solicitud puede tardar hasta dos días laborables en procesarse.
+> * Tras la aceptación, cree o modifique las consultas para [devolver subtítulos y resaltados semánticos](semantic-how-to-query-request.md).
+> * Agregue algunas propiedades más para devolver también [respuestas semánticas](semantic-answers.md).
+> * También puede invocar la [corrección ortográfica](speller-how-to-add.md) para maximizar la precisión y la coincidencia.
 
 ## <a name="what-is-semantic-search"></a>¿Qué es la búsqueda semántica?
 
-La búsqueda semántica es una capa opcional de inteligencia artificial relacionada con las consultas. Cuando se habilita en el servicio de búsqueda, extiende la canalización de ejecución de consultas tradicional de dos maneras. En primer lugar, agrega un modelo de clasificación semántica opcional; y, en segundo lugar, devuelve títulos y respuestas en la respuesta.
+La búsqueda semántica es una colección de características que mejoran la calidad de los resultados de la búsqueda. Cuando se habilita en el servicio de búsqueda, extiende la canalización de ejecución de consultas de dos maneras. En primer lugar, agrega una clasificación secundaria a un conjunto de resultados inicial, lo que promociona los resultados más pertinentes semánticamente a la parte superior de la lista. En segundo lugar, extrae y devuelve subtítulos y respuestas en la respuesta, que puede representar en una página de búsqueda para mejorar la experiencia de búsqueda del usuario.
+
+## <a name="how-semantic-ranking-works"></a>Funcionamiento de la clasificación semántica
 
 La *clasificación semántica* busca el contexto y la relación entre los términos, elevando las coincidencias que tienen más sentido en función de la consulta. Language Understanding busca resúmenes o *títulos* y *respuestas* en el contenido, y los incluye en la respuesta, que luego se puede representar en una página de resultados de búsqueda para una experiencia de búsqueda más productiva.
 
@@ -45,9 +48,9 @@ En el vídeo siguiente se proporciona información general de las funcionalidade
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
-## <a name="feature-description-and-workflow"></a>Descripción y flujo de trabajo de características
+## <a name="features-in-semantic-search"></a>Características de la búsqueda semántica
 
-La búsqueda semántica mejora la precisión y la coincidencia gracias a la adición de las siguientes funcionalidades:
+La búsqueda semántica mejora la precisión y la coincidencia a través de estas nuevas funcionalidades:
 
 | Característica | Descripción |
 |---------|-------------|
@@ -74,31 +77,31 @@ Para usar las funcionalidades semánticas en las consultas, deberá realizar peq
 
 ## <a name="semantic-capabilities-and-limitations"></a>Funcionalidades y limitaciones semánticas
 
-La búsqueda semántica es una tecnología novedosa, por lo que es importante establecer expectativas sobre lo que puede y no puede hacer.
+La búsqueda semántica es una tecnología novedosa, por lo que es importante establecer expectativas sobre lo que puede y no puede hacer. Mejora la calidad de los resultados de la búsqueda de dos maneras:
 
-Mejora la calidad de los resultados de la búsqueda de dos maneras. En primer lugar, la promoción de documentos que están semánticamente más cerca de la intención de la consulta original es una ventaja importante. En segundo lugar, los resultados son de uso más inmediato cuando los títulos, y posiblemente las respuestas, están presentes en la página. En todo momento, el motor está trabajando con contenido existente. Los modelos de lenguaje usados en la búsqueda semántica están diseñados para extraer una cadena intacta que parece una respuesta, pero no intentará crear una nueva cadena como respuesta a una consulta o como un título para un documento coincidente.
+* En primer lugar, promueve las coincidencias que están semánticamente más cerca de la intención de la consulta original.
 
-La búsqueda semántica no es un motor lógico y no deduce información de diferentes fragmentos de contenido del documento o corpus de documentos. Por ejemplo, dada una consulta sobre "complejos hoteleros en el desierto", que no tiene ninguna entrada geográfica, el motor no producirá coincidencias para hoteles ubicados en Arizona o Nevada, aunque ambos estados tengan desiertos. De igual manera, si la consulta incluye la cláusula "en los últimos 5 años", el motor no calculará un intervalo de tiempo basado en la fecha actual que se va a devolver.
+* En segundo lugar, facilita el uso de los resultados cuando hay subtítulos, y potencialmente respuestas, en la página.
 
-En Cognitive Search, los mecanismos que podrían ser útiles para los escenarios anteriores incluyen [mapas de sinónimos](search-synonyms.md) que le permiten crear asociaciones entre términos que son distintos externamente, o [filtros de fecha](search-query-odata-filter.md) especificados como una expresión de OData.
+La búsqueda semántica no es beneficiosa en todos los escenarios y, antes de avanzar, asegúrese de que tiene contenido que pueda utilizar sus funcionalidades. Los modelos de lenguaje de la búsqueda semántica funcionan mejor en contenido que permite búsquedas, que tiene gran cantidad de información y está estructurado como prosa. Por ejemplo, al evaluar el contenido de las respuestas, los modelos examinan y extraen una cadena textual que parece una respuesta, pero no crearán cadenas como respuestas a una consulta ni como subtítulos de un documento coincidente. Para responder a la pregunta "¿Qué automóvil es el que menos combustible consume?", un índice debe tener frases como "Los coches híbridos son los que menos consumen del mercado".
+
+La búsqueda semántica no puede poner en correlación ni inferir información de diferentes fragmentos de contenido del documento o corpus de documentos. Por ejemplo, dada una consulta sobre "complejos hoteleros en el desierto", que no tiene ninguna entrada geográfica, el motor no producirá coincidencias para hoteles ubicados en Arizona o Nevada, aunque ambos estados tengan desiertos. De igual manera, si la consulta incluye la cláusula "en los últimos 5 años", el motor no calculará un intervalo de tiempo basado en la fecha actual que se va a devolver. En Cognitive Search, los mecanismos que podrían ser útiles para los escenarios anteriores incluyen [mapas de sinónimos](search-synonyms.md) que le permiten crear asociaciones entre términos que son distintos externamente, o [filtros de fecha](search-query-odata-filter.md) especificados como una expresión de OData.
 
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
-La búsqueda semántica está disponible a través del [registro de suscripción](https://aka.ms/SemanticSearchPreviewSignup). Desde el lanzamiento de la versión preliminar del 2 de marzo hasta primeros de julio, las características semánticas se ofrecen de forma gratuita.
+La búsqueda semántica está disponible a través del [registro de suscripción](https://aka.ms/SemanticSearchPreviewSignup). Hay una sola suscripción para las características semánticas y la revisión ortográfica.
 
-| Característica | Nivel | Region (Región) | Suscripción | Precios proyectados |
+| Característica | Nivel | Region (Región) | Suscripción | Precios |
 |---------|------|--------|---------------------|-------------------|
-| Búsqueda semántica (títulos, resaltados, respuestas) | Nivel estándar (S1, S2, S3) | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | Desde principios de julio, el precio esperado de las primeras 250 000 consultas son 500 USD al mes y 2 USD por cada 1000 consultas adicionales.  |
+| Búsqueda semántica (títulos, resaltados, respuestas) | Nivel estándar (S1, S2, S3) | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | [Página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/)  |
 | Corrector ortográfico | Any | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | Ninguno (gratis) |
 
-Hay un [registro de suscripción](https://aka.ms/SemanticSearchPreviewSignup) para las características semánticas y la revisión ortográfica. 
+Puede usar la revisión ortográfica sin búsqueda semántica, de forma gratuita. Los cargos por la búsqueda semántica se aplican cuando las solicitudes de consulta incluyen `queryType=semantic` y la cadena de búsqueda no está vacía (por ejemplo, `search=pet friendly hotels in new york`. Las búsquedas vacías (consultas donde `search=*`) no se cobran, ni siquiera si queryType está establecido en `semantic`.
 
-Puede usar la revisión ortográfica sin búsqueda semántica, de forma gratuita. Los cargos por la búsqueda semántica se aplican cuando las solicitudes de consulta incluyen `queryType=semantic` y la cadena de búsqueda no está vacía (por ejemplo, `search=pet friendly hotels in new york`. Las búsquedas vacías (consultas donde `search=*`) no se cobran.
-
-La información de los precios finales se documentará en la [página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/) y en [Estimación y administración de los costos](search-sku-manage-costs.md).
+Si no desea la funcionalidad de búsqueda semántica en el servicio de búsqueda, puede [deshabilitar la búsqueda semántica](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) para evitar el uso accidental y los cargos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Regístrese](https://aka.ms/SemanticSearchPreviewSignup) para obtener la versión preliminar en un servicio de búsqueda que cumple con los requisitos regionales y de nivel indicados en la sección anterior.
 
-La solicitud puede tardar hasta dos días laborables en procesarse. Cuando el servicio esté listo, [cree una consulta semántica](semantic-how-to-query-request.md) para ver la clasificación semántica en acción.
+La solicitud puede tardar hasta dos días laborables en procesarse. Una vez que el servicio esté listo, [cree una consulta semántica](semantic-how-to-query-request.md) para evaluar su rendimiento en el contenido.

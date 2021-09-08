@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc80c208b5a48a45b8c47d640dc381f5559c3d4d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 324b37931fff91779b8d25c744ae63671bae315c
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304773"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224317"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
@@ -40,7 +40,8 @@ El asunto del correo electrónico sigue este patrón:
 Se usa un patrón similar a LinkedIn para la dirección De. Este patrón debe aclarar que, aunque el correo electrónico procede de invites@microsoft.com, la invitación viene de otra organización. El formato es: Microsoft Invitations <invites@microsoft.com> o invitaciones de Microsoft en nombre de &lt;tenantname&gt; <invites@microsoft.com>. 
 
 > [!NOTE]
-> Para el servicio de Azure operado por 21Vianet en China, la dirección del remitente es Invites@oe.21vianet.com.
+> Para el servicio de Azure operado por 21Vianet en China, la dirección del remitente es Invites@oe.21vianet.com.  
+> En el caso de Azure AD Government, la dirección del remitente es invites@azuread.us.
 
 ### <a name="reply-to"></a>Responder a
 

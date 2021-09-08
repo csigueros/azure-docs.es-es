@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: c57f66eca5d15024c6b10e8fad12ddb575b9f894
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a611daf290bda8d6511cb4217e411de2886ce822
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765906"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370858"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Control de las actualizaciones con el control de mantenimiento y la CLI de Azure
 
@@ -191,7 +191,7 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>Aplicación de actualizaciones
 
-Use `az maintenance apply update` para aplicar actualizaciones pendientes. Si se ejecuta correctamente, este comando devolverá el archivo JSON que contiene los detalles de la actualización.
+Use `az maintenance apply update` para aplicar actualizaciones pendientes. Si se ejecuta correctamente, este comando devolverá el archivo JSON que contiene los detalles de la actualización. La aplicación de llamadas de actualización puede tardar hasta 2 horas en completarse.
 
 ### <a name="isolated-vm"></a>Máquina virtual aislada
 

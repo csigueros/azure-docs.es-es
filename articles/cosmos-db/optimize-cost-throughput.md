@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0c95fc9e416399b5c8fe032e0d3af0c3b7f9cf6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6b1ee7be04083c887bbd37b799a274f988aaf158
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433580"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112517118"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,7 +35,7 @@ Las siguientes son algunas directrices para decidir una estrategia de rendimient
 
 1. Tiene algunas decenas de contenedores de Azure Cosmos y quiere compartir el rendimiento entre algunos o todos ellos. 
 
-2. Va a migrar desde una base de datos de inquilino único diseñada para ejecutarse en VM hospedadas por IaaS o en entornos locales, por ejemplo, NoSQL o bases de datos relacionales, a Azure Cosmos DB. Y si tiene muchas colecciones, tablas o grafos y no quiere hacer cambios en el modelo de datos. Tenga en cuenta que quizás deba renunciar a algunas de las ventajas que ofrece Azure Cosmos DB si no va a actualizar el modelo de datos al migrar desde una base de datos local. Se recomienda volver a acceder siempre al modelo de datos para sacar el máximo provecho en cuanto a rendimiento y también para optimizar los costos. 
+2. Va a migrar desde una base de datos de inquilino único diseñada para ejecutarse en VM hospedadas por IaaS o en entornos locales, por ejemplo, NoSQL o bases de datos relacionales, a Azure Cosmos DB. Y si tiene muchas colecciones, tablas o grafos y no quiere hacer cambios en el modelo de datos. Tenga en cuenta que quizás deba renunciar a algunas de las ventajas que ofrece Azure Cosmos DB si no va a actualizar el modelo de datos al migrar desde una base de datos local. Se recomienda volver a evaluar siempre el modelo de datos para sacar el máximo provecho en cuanto a rendimiento y también para optimizar los costos. 
 
 3. Quiere absorber los picos no planeados en cargas de trabajo en virtud de rendimiento agrupado en el nivel de base de datos sometido a un pico inesperado en la carga de trabajo. 
 

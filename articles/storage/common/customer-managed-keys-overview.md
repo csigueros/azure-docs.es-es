@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: cd2a265c5d4c339fa6e50338949cbf643314a3ee
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: cc0e6dc0e11809fb1e8cf046821231cc98f769f6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371328"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439865"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Claves administradas por el cliente para el cifrado de Azure Storage
 
@@ -24,14 +24,11 @@ Puede usar su propia clave de cifrado para proteger los datos de la cuenta de al
 Debe usar uno de los siguientes almacenes de claves de Azure para almacenar las claves administradas por el cliente:
 
 - [Azure Key Vault](../../key-vault/general/overview.md)
-- [Módulo de seguridad de hardware (HSM) administrado por Azure Key Vault (versión preliminar)](../../key-vault/managed-hsm/overview.md)
+- [Módulo de seguridad de hardware (HSM) administrado por Azure Key Vault](../../key-vault/managed-hsm/overview.md)
 
 Puede crear sus propias claves y almacenarlas en un almacén de claves o HSM administrado, o bien puede usar las API de Azure Key Vault para generarlas. La cuenta de almacenamiento y el almacén de claves o HSM administrado deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
 
-> [!IMPORTANT]
->
-> El cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault actualmente se encuentra en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
->
+> [!NOTE]
 > Azure Key Vault y HSM administrado de Azure Key Vault admiten las mismas API e interfaces de administración para la configuración.
 
 ## <a name="about-customer-managed-keys"></a>Acerca de las claves administradas por el cliente
@@ -76,7 +73,7 @@ Las claves administradas por el cliente solo se pueden habilitar en cuentas de a
 
 Puede cambiar entre las claves administradas por el cliente y las claves administradas por Microsoft en cualquier momento. Para obtener más información sobre las claves administradas por Microsoft, vea [Información sobre la administración de claves de cifrado](storage-service-encryption.md#about-encryption-key-management).
 
-Para obtener información sobre cómo configurar el cifrado de Azure Storage con las claves administradas por el cliente en un almacén de claves, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](customer-managed-keys-configure-key-vault.md). Para configurar las claves administradas por el cliente en un HSM administrado, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](customer-managed-keys-configure-key-vault-hsm.md).
+Para obtener información sobre cómo configurar el cifrado de Azure Storage con las claves administradas por el cliente en un almacén de claves, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](customer-managed-keys-configure-key-vault.md). Para configurar las claves administradas por el cliente en un HSM administrado, consulte [Configuración del cifrado con claves administradas por el cliente en HSM administrado de Azure Key Vault ](customer-managed-keys-configure-key-vault-hsm.md).
 
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure AD. Las identidades administradas no admiten actualmente escenarios entre directorios. Al configurar las claves administradas por el cliente en Azure Portal, se asigna automáticamente una identidad administrada a la cuenta de almacenamiento en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o la cuenta de almacenamiento de un directorio de Azure AD a otro, la identidad administrada asociada a la cuenta de almacenamiento no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para más información, vea **Transferencia de una suscripción entre directorios de Azure AD** en [Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
@@ -92,7 +89,7 @@ Al configurar el cifrado con claves administradas por el cliente, tiene dos opci
 - **Actualización automática de la versión de la clave:** para actualizar automáticamente una clave administrada por el cliente a una nueva versión disponible, omita la versión de la clave al habilitar el cifrado con las claves administradas por el cliente para la cuenta de almacenamiento. Si se omite la versión de la clave, Azure Storage comprueba el almacén de claves o HSM administrado diariamente para obtener una nueva versión de una clave administrada por el cliente. Azure Storage usa automáticamente la versión más reciente de la clave.
 - **Actualización manual de la versión de la clave:** para usar una versión determinada de una clave para el cifrado de Azure Storage, especifique la versión de la clave al habilitar el cifrado con las claves administradas por el cliente para la cuenta de almacenamiento. Si especifica la versión de la clave, Azure Storage usará esa versión para el cifrado hasta que actualice manualmente la versión de la clave.
 
-    Cuando se especifica la versión de la clave de manera explícita, debe actualizar manualmente la cuenta de almacenamiento para usar el nuevo URI de la versión de la clave cuando se crea una nueva versión. Para obtener más información sobre cómo actualizar la cuenta de almacenamiento para usar una nueva versión de la clave, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](customer-managed-keys-configure-key-vault.md) o [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](customer-managed-keys-configure-key-vault-hsm.md).
+    Cuando se especifica la versión de la clave de manera explícita, debe actualizar manualmente la cuenta de almacenamiento para usar el nuevo URI de la versión de la clave cuando se crea una nueva versión. Para obtener más información sobre cómo actualizar la cuenta de almacenamiento para usar una nueva versión de la clave, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](customer-managed-keys-configure-key-vault.md) o [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault](customer-managed-keys-configure-key-vault-hsm.md).
 
 Al actualizar la versión de la clave, la protección de la clave de cifrado raíz cambia, pero los datos de la cuenta de Azure Storage no se vuelven a cifrar. No es preciso que el usuario realice ninguna otra acción.
 
@@ -135,4 +132,4 @@ Las claves administradas por el cliente también están disponibles para adminis
 
 - [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
 - [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](customer-managed-keys-configure-key-vault.md)
-- [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](customer-managed-keys-configure-key-vault-hsm.md)
+- [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault](customer-managed-keys-configure-key-vault-hsm.md).

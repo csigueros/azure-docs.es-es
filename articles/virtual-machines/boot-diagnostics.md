@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: fbd3d9c3607a0326e7ad9403c8e69d20dafc952a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5b86fb3d1c84ce453c05c1d1f81528ca27543a56
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740310"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461664"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnósticos de arranque de Azure
 
@@ -104,7 +104,7 @@ Todas las versiones de API posteriores a 2020-06-01 admiten los diagnósticos de
 ## <a name="limitations"></a>Limitaciones
 - Los diagnósticos de arranque administrados solo están disponibles para máquinas virtuales de Azure Resource Manager. 
 - Los diagnósticos de arranque administrados no admiten máquinas virtuales con discos de sistema operativo no administrados.
-- Los diagnósticos de arranque no admiten cuentas de almacenamiento Premium. Si se usa una cuenta de almacenamiento Premium para los diagnósticos de arranque, los usuarios recibirán un error `StorageAccountTypeNotSupported` al iniciar la máquina virtual. 
+- Diagnósticos de arranque no es compatible con las cuentas de almacenamiento prémium ni los tipos de cuenta de almacenamiento con redundancia de zona. Si alguno de ellos se usa para los diagnósticos de arranque, los usuarios recibirán un error `StorageAccountTypeNotSupported` al iniciar la máquina virtual. 
 - Las cuentas de almacenamiento administradas se admiten en la API de Resource Manager versión "2020-06-01" y posteriores.
 - Actualmente, la consola serie de Azure no es compatible con una cuenta de almacenamiento administrada de los diagnósticos de arranque. Más información sobre la [consola serie de Azure](/troubleshoot/azure/virtual-machines/serial-console-overview).
 - El portal solo admite el uso de diagnósticos de arranque con una cuenta de almacenamiento administrada para máquinas virtuales de instancia única.

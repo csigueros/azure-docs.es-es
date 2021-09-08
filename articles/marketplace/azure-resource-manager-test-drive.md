@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0d9c849ce7454e2875c4f00e73cc3b3edc37ad7e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b1ca1b1caa1da1c38e0a7af8ec714c3734ca1191
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971574"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110302"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -26,7 +26,7 @@ Para obtener información sobre una versión de prueba **hospedada** o de **apli
 
 Una plantilla de implementación contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure. Establezca las siguientes propiedades en el Centro de partners:
 
-- **Regiones** (obligatorias): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. La habitual es que desee que su versión de prueba esté disponible en las regiones en que prevé un mayor número de clientes, con el fin de que puedan seleccionar la región más cercana para lograr el mejor rendimiento posible. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
+- **Regiones** (obligatorias): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. Para obtener un rendimiento óptimo, se recomienda elegir una región en la que se espera que se pueda encontrar el mayor número de clientes. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
 
 - **Instancias**: Seleccione el tipo (activo o inactivo) y el número de instancias disponibles, que se multiplicarán por el número de regiones en las que está disponible la oferta.
 
@@ -194,9 +194,9 @@ Puede encontrar información adicional sobre las reglas y restricciones de nomen
 
 ### <a name="deployment-location"></a>Ubicación de implementación
 
-Puede poner la versión de prueba a disposición de los usuarios en distintas regiones de Azure. La idea es permitir que un usuario elija la región más cercana, para ofrecer la mejor experiencia del usuario.
+Puede poner la versión de prueba a disposición de los usuarios en distintas regiones de Azure.
 
-Cuando la versión de prueba crea una instancia del laboratorio, siempre crea un grupo de recursos en la región elegida por un usuario y luego ejecuta la plantilla de implementación en el contexto de este grupo. Por lo tanto, la plantilla debe elegir la ubicación de implementación del grupo de recursos:
+Cuando la versión de prueba crea una instancia del laboratorio, siempre crea un grupo de recursos en una de las regiones seleccionadas y luego ejecuta la plantilla de implementación en el contexto de este grupo. Por lo tanto, la plantilla debe elegir la ubicación de implementación del grupo de recursos:
 
 ```JSON
 "variables": {

@@ -6,18 +6,18 @@ ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb18cca782b85e608c3c7ddb001ecb03b86055f6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a2d78b83ac7725f07060b3b61b01e57837fb053b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833533"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465908"
 ---
 # <a name="management-of-azure-automation-data"></a>Administración de datos de Azure Automation
 
 Este artículo contiene varios temas que explican cómo se protegen y aseguran los datos en un entorno de Azure Automation.
 
-## <a name="tls-12-enforcement-for-azure-automation"></a>Aplicación de TLS 1.2 para Azure Automation
+## <a name="tls-12-for-azure-automation"></a>TLS 1.2 para Azure Automation
 
 Para garantizar la seguridad de los datos en tránsito hacia Azure Automation, se recomienda encarecidamente configurar el uso de Seguridad de la capa de transporte (TLS) 1.2. A continuación se muestra una lista de métodos o clientes que se comunican a través de HTTPS con el servicio Automation:
 

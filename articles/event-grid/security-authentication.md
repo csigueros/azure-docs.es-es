@@ -2,31 +2,41 @@
 title: Autenticación de la entrega de eventos en los controladores de eventos (Azure Event Grid).
 description: En este artículo se describen diferentes formas de autenticar los controladores de eventos en Azure Event Grid.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: 7db258ee152e4b1c46362e74e0246b80513ca9f2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/28/2021
+ms.openlocfilehash: 01383809e6aab895ff4ed42763c57004a6ee02a8
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777264"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003240"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticación de la entrega de eventos en los controladores de eventos (Azure Event Grid).
-En este artículo se proporciona información sobre cómo autenticar la entrega de eventos a los controladores de eventos. También muestra como proteger los puntos de conexión de webhook que se usan para recibir eventos de Event Grid mediante Azure Active Directory (Azure AD) o un secreto compartido.
+En este artículo se proporciona información sobre cómo autenticar la entrega de eventos a los controladores de eventos. 
+
+## <a name="overview"></a>Información general
+Azure Event Grid utiliza diferentes métodos de autenticación para entregar eventos a controladores de eventos. `
+
+| Método de autenticación | Controladores admitidos | Descripción  |
+|--|--|--|
+Clave de acceso | <p>Event Hubs</p><p>Azure Service Bus</p><p>Colas de almacenamiento</p><p>Retransmisión de conexiones híbridas</p><p>Azure Functions</p><p>Storage Blobs (Deadletter)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> | Las claves de acceso se capturan con las credenciales de la entidad de servicio de Event Grid. Los permisos se conceden a Event Grid al registrar el proveedor de recursos de Event Grid en su suscripción de Azure. |  
+Identidad de sistema administrado <br/>&<br/> Control de acceso basado en rol | <p>Event Hubs</p><p>Azure Service Bus</p><p>Colas de almacenamiento</p><p>Storage Blobs (Deadletter)</p></li></ul> | Habilite la identidad del sistema administrado para el tema y agréguela al rol adecuado en el destino. Para obtener más información, consulte [Usar identidades asignadas por el sistema para la entrega de eventos](#use-system-assigned-identities-for-event-delivery).  |
+|Autenticación de token de portador con webhook protegido de Azure AD | webhook | Consulte la sección [Autenticación de la entrega de eventos a los puntos de conexión de webhook](#authenticate-event-delivery-to-webhook-endpoints) para obtener más información. |
+Secreto de cliente como parámetro de consulta | webhook | Consulte la sección [Uso del secreto de cliente como parámetro de consulta](#using-client-secret-as-a-query-parameter) para obtener más información. |
 
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Usar identidades asignadas por el sistema para la entrega de eventos.
 Puede habilitar una identidad administrada asignada por el sistema para un tema o dominio y usar la identidad para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
 
 He aquí los pasos: 
 
-1. Cree un tema o un dominio con una identidad asignada por el sistema, o bien actualice un tema o dominio existente para habilitar la identidad. 
-1. Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus).
-1. Al crear suscripciones de eventos, habilite el uso de la identidad para enviar eventos al destino. 
+1. Cree un tema o un dominio con una identidad asignada por el sistema, o bien actualice un tema o dominio existente para habilitar la identidad. Para obtener más información, consulte [Habilitación de la identidad administrada para un tema del sistema](enable-identity-system-topics.md) o [Habilitación de la identidad administrada para un tema personalizado o un dominio](enable-identity-custom-topics-domains.md)
+1. Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus). Para obtener más información, consulte [Otorgar a la identidad el acceso al destino de Event Grid](add-identity-roles.md)
+1. Al crear suscripciones de eventos, habilite el uso de la identidad para enviar eventos al destino. Para obtener más información, consulte [Creación de una suscripción de eventos que usa la identidad](managed-service-identity.md). 
 
 Para obtener instrucciones paso a paso detalladas, consulte [Entrega de eventos con una identidad administrada](managed-service-identity.md).
 
 
 ## <a name="authenticate-event-delivery-to-webhook-endpoints"></a>Autenticación de la entrega de eventos a los puntos de conexión de webhook
-En las secciones siguientes se describe cómo autenticar la entrega de eventos a los puntos de conexión de webhook. Debe usar un mecanismo de protocolo de enlace de validación con independencia del método que use. Consulte [Entrega de eventos de webhook](webhook-event-delivery.md) para detalles. 
+En las secciones siguientes se describe cómo autenticar la entrega de eventos a los puntos de conexión de webhook. Use un mecanismo de protocolo de enlace de validación con independencia del método que use. Consulte [Entrega de eventos de webhook](webhook-event-delivery.md) para detalles. 
 
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Uso de Azure Active Directory (Azure AD)

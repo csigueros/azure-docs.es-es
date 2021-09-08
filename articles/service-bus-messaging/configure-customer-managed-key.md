@@ -3,12 +3,12 @@ title: Configuración de su propia clave para cifrar datos en reposo de Azure Se
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Service Bus.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 0ebce2d9b5d02f12f9f2ab363b225519fcc838d7
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 586d8d477a27b44bf530ae52acbbe088eefe02c5
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854367"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031685"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal
 Azure Service Bus Premium proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Service Bus Premium usa Azure Storage para almacenar los datos. Todos los datos almacenados con Azure Storage se cifran con claves administradas por Microsoft. Si usa su propia clave (también conocida como Bring Your Own Key [BYOK] o clave administrada por el cliente), los datos se cifran mediante la clave administrada por Microsoft, pero además la clave administrada por Microsoft se cifrará mediante la clave administrada por el cliente. Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar claves administradas por Microsoft. La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
@@ -274,7 +274,7 @@ En este paso, actualizará el espacio de nombres de Service Bus con la informaci
              },
              "properties":{
                 "encryption":{
-                   "keySource":"Microsoft.KeyVault",
+                   "keySource":"Microsoft.KeyVault",             
                    "keyVaultProperties":[
                       {
                          "keyName":"[parameters('keyName')]",
@@ -322,6 +322,28 @@ En este paso, actualizará el espacio de nombres de Service Bus con la informaci
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
     ```
+
+#### <a name="enable-infrastructure-encryption-for-double-encryption-of-data-inazure-service-bus-data"></a>Habilitación del cifrado de infraestructura para el cifrado doble de datos en los datos de Azure Service Bus 
+Si necesita una mayor garantía de que los datos están protegidos, puede habilitar el cifrado de nivel de infraestructura, también conocido como cifrado doble. 
+
+Cuando se habilita el cifrado de infraestructura, los datos de Azure Service Bus se cifran dos veces, una vez en el nivel de servicio y otra en el nivel de infraestructura, con dos algoritmos de cifrado y dos claves diferentes. Por tanto, el cifrado de infraestructura de los datos de Azure Service Bus sirve de protección en caso de que uno de los algoritmos de cifrado o las claves puedan estar en peligro.
+
+Puede habilitar el cifrado de infraestructura mediante la actualización de la plantilla de ARM con la propiedad `requireInfrastructureEncryption` en el anterior archivo **UpdateServiceBusNamespaceWithEncryption.json**, como se muestra a continuación. 
+
+```json
+"properties":{
+   "encryption":{
+      "keySource":"Microsoft.KeyVault",    
+      "requireInfrastructureEncryption":true,         
+      "keyVaultProperties":[
+         {
+            "keyName":"[parameters('keyName')]",
+            "keyVaultUri":"[parameters('keyVaultUri')]"
+         }
+      ]
+   }
+}
+```
     
 
 ## <a name="next-steps"></a>Pasos siguientes

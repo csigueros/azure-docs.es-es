@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 02/21/2021
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 112c30fdd242c20f11c43f42ba54e3717e074bbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 092484b09af008770260c64cd6b7e0ea15265811
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706050"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121802842"
 ---
 Aquí se proporciona una lista de los tipos de cuentas de almacenamiento y almacenamientos compatibles con un dispositivo Data Box. Para una lista completa de todas las funcionalidades para todos los tipos de cuentas de almacenamiento, consulte [Tipos de cuentas de almacenamiento](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
@@ -49,3 +49,4 @@ En el caso de los pedidos de exportación, en la siguiente tabla se muestran las
 > - Los datos cargados en blobs en páginas deben tener 512 bytes alineados como discos duros virtuales.
 > - Se pueden exportar hasta 80 TB.
 > - El historial de archivos y las instantáneas de blobs no se exportan.
+> - Los blobs del nivel de acceso de archivo no se admiten para la exportación. Rehidrate los blobs del nivel de acceso de archivo antes de exportarlos. Para más información, consulte [Rehidratación de un blob de archivo a un nivel en línea](../articles/storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).

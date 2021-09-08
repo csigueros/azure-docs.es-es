@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 08/02/2017
-ms.openlocfilehash: a274435d6e0fc32bdf5b2ab04702ed971d7c5175
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: da94bc47a5d7796e0b13bcdaa0dc5e30db55722c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558991"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445870"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Actualización del agente Linux de Azure en una máquina virtual
 
@@ -377,7 +377,7 @@ Normalmente, esto es todo lo que necesita, pero si por alguna razón necesita in
 
 Instale wget (hay algunas distribuciones que no lo instalan de forma predeterminada, como Red Hat, CentOS y Oracle Linux 6.4 y 6.5) y escriba `sudo yum install wget` en la línea de comandos.
 
-### <a name="1-download-the-latest-version"></a>1. Descargar la versión más reciente
+### <a name="1-download-the-latest-version"></a>1. Descarga de la versión más reciente
 Abra [la versión del Agente de Linux de Azure en Github](https://github.com/Azure/WALinuxAgent/releases) en una página web y compruebe el número de versión más reciente. (Puede buscar la versión actual escribiendo `waagent --version`).
 
 Para la versión 2.2.x o posteriores, escriba:
@@ -397,7 +397,7 @@ cd WALinuxAgent-2.2.14
 
 ### <a name="2-install-the-azure-linux-agent"></a>2. Instalación del agente de Linux de Azure
 
-Para la versión 2.2.x, use: Es posible que necesite instalar primero el paquete. Consulte `setuptools` first--see [aquí](https://pypi.python.org/pypi/setuptools). A continuación, ejecute:
+En el caso de la versión 2.2.x, use: es posible que necesite instalar primero el paquete `setuptools`: consulte [setuptools](https://pypi.python.org/pypi/setuptools). A continuación, ejecute:
 
 ```bash
 sudo python setup.py install

@@ -1,24 +1,27 @@
 ---
-title: Guardado en la lista de IP seguras de las direcciones URL de Azure Portal en el servidor proxy o firewall
-description: Agregar estas direcciones URL a la omisión del servidor proxy para comunicarse con Azure Portal y sus servicios
-ms.date: 04/10/2020
+title: Permitir las direcciones URL de Azure Portal en el servidor proxy o firewall
+description: Para optimizar la conectividad entre la red y Azure Portal y sus servicios, se recomienda agregar estas direcciones URL a la lista de permitidos.
+ms.date: 06/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7d9c8222ee85c0c16ec1e1926335ac06e0389797
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70e2f55a381c38b0a4244f742b7b2c51e6ca81f6
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745883"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112516368"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Guardado en la lista de IP seguras de las direcciones URL de Azure Portal en el servidor proxy o firewall
+# <a name="allow-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Permitir las direcciones URL de Azure Portal en el servidor proxy o firewall
 
-Puede configurar dispositivos de seguridad locales para omitir las restricciones de seguridad de las direcciones URL de Azure Portal. Esta configuración puede mejorar el rendimiento y la conectividad entre la red de área local o de área extensa y la nube de Azure.
+Para optimizar la conectividad entre la red y Azure Portal y sus servicios, se recomienda agregar direcciones URL específicas de Azure Portal a la lista de permitidos. De este modo puede mejorar el rendimiento y la conectividad entre la red de área local o de área extensa y la nube de Azure.
 
-A menudo, los administradores de red implementan servidores proxy, firewalls u otros dispositivos. Estos dispositivos ayudan a proteger y proporcionan control sobre el modo en que los usuarios acceden a Internet. Las reglas diseñadas para proteger a los usuarios a veces pueden bloquear o ralentizar el tráfico de Internet empresarial legítimo. Este tráfico incluye comunicaciones entre el usuario y Azure. Para optimizar la conectividad entre la red y Azure Portal y sus servicios, se recomienda agregar las direcciones URL de Azure Portal a la lista de IP seguras.
+Con frecuencia, los administradores de red implementan servidores proxy, firewalls u otros dispositivos, que pueden ayudar con la seguridad y a tener control sobre cómo los usuarios acceden a Internet. Las reglas diseñadas para proteger a los usuarios a veces pueden bloquear o ralentizar el tráfico de Internet empresarial legítimo. Este tráfico incluye comunicaciones entre el usuario y Azure con las direcciones URL enumeradas aquí.
+
+> [!TIP]
+> Para obtener ayuda en el diagnóstico de problemas con las conexiones de red a estos dominios, consulte https://portal.azure.com/selfhelp.
 
 ## <a name="azure-portal-urls-for-proxy-bypass"></a>Direcciones URL de Azure Portal para la omisión del proxy
 
-Los puntos de conexión de URL a la lista de IP seguras de Azure Portal son específicos de la nube de Azure donde está implementada la organización. Para permitir el tráfico de red a estos puntos de conexión a fin de omitir restricciones, seleccione la nube. Luego agregue la lista de direcciones URL al servidor proxy o firewall.
+Los puntos de conexión de dirección URL que se pueden permitir para Azure Portal son específicos de la nube de Azure donde se implementa la organización. Para permitir que el tráfico de red a estos puntos de conexión omita las restricciones, seleccione la nube y agregue la lista de direcciones URL al servidor proxy o al firewall. No se recomienda agregar direcciones URL adicionales relacionadas con el portal aparte de las indicadas aquí, aunque es posible que desee agregar direcciones URL relacionadas con otros productos y servicios de Microsoft.
 
 #### <a name="public-cloud"></a>[Nube pública](#tab/public-cloud)
 
@@ -28,7 +31,6 @@ Los puntos de conexión de URL a la lista de IP seguras de Azure Portal son espe
 *.applicationinsights.io
 *.azure.com
 *.azure.net
-*.azurefd.net
 *.azure-api.net
 *.azuredatalakestore.net
 *.azureedge.net
@@ -73,5 +75,3 @@ Los puntos de conexión de URL a la lista de IP seguras de Azure Portal son espe
 
 > [!NOTE]
 > El tráfico a estos puntos de conexión usa puertos TCP estándar para HTTP (80) y HTTPS (443).
->
->

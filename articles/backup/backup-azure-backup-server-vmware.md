@@ -2,17 +2,20 @@
 title: Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 description: En este artículo, aprenderá a usar Azure Backup Server para realizar una copia de seguridad de las máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
-ms.date: 05/24/2020
-ms.openlocfilehash: 12374393d0f94c567a68f1e28b6479e0747f3d40
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/27/2021
+ms.openlocfilehash: d734b9852da54c13d498cfd4a60caf007735d2f6
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084599"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722574"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
 En este artículo se explica cómo realizar copias de seguridad de máquinas virtuales de VMware que se ejecutan en hosts de VMware ESXi o vCenter Server en Azure con Azure Backup Server (MABS).
+
+>[!Note]
+>Con la versión 2 del paquete acumulativo de actualizaciones de MABS v3, ahora también se pueden hacer copias de seguridad de las máquinas virtuales de VMware 7.0.
 
 En este artículo se explica lo siguiente:
 
@@ -33,6 +36,13 @@ MABS ofrece las características siguientes en el momento de crear copias de seg
 - MABS protege las máquinas virtuales almacenadas en un disco local, un sistema de archivos de red (NFS) o el almacenamiento de clúster.
 - MABS protege las máquinas virtuales que se migran para el equilibrio de carga: a medida que las máquinas virtuales se migran para el equilibrio de carga, MABS detecta automáticamente su protección y continúa con ella.
 - MABS puede recuperar archivos o carpetas de una máquina virtual Windows sin tener que recuperar toda la VM, lo que permite recuperar más rápido los archivos necesarios.
+
+## <a name="support-matrix"></a>Matrices compatibles
+
+| Versiones de MABS | Versiones de máquinas virtuales de VMware admitidas para la copia de seguridad |
+| --- | --- |
+| MABS v3 UR2 | VMware Server 7.0, 6.7, 6.5 o 6.0 (versión con licencia) |
+| MABS v3 UR1 | VMware Server 6.7, 6.5, 6.0 o 5.5 (versión con licencia) |
 
 ## <a name="prerequisites-and-limitations"></a>Requisitos previos y limitaciones
 
@@ -160,7 +170,7 @@ Azure Backup Server necesita una cuenta de usuario con permiso de acceso al host
 
 En la tabla siguiente se capturan los privilegios que debe asignar a la cuenta de usuario que cree:
 
-| Privilegios de las cuentas de usuario de vCenter 6.5                          | Privilegios de las cuentas de usuario de vCenter 6.7                            |
+| Privilegios de las cuentas de usuario de vCenter 6.5                          | Privilegios de la cuenta de usuario de vCenter 6.7 (y versiones posteriores)                            |
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | Datastore cluster.Configure a datastore cluster                           | Datastore cluster.Configure a datastore cluster                           |
 | Datastore.AllocateSpace                                                    | Datastore.AllocateSpace                                                    |
@@ -401,9 +411,9 @@ Agregue máquinas virtuales de VMware para la copia de seguridad. Los grupos de 
 ## <a name="vmware-parallel-backups"></a>Copias de seguridad paralelas de VMware
 
 >[!NOTE]
-> Esta característica es aplicable a MABS V3 UR1.
+> Esta característica se puede aplicar a MABS V3 UR1 (y a las versiones posteriores).
 
-Con las versiones anteriores de MABS, las copias de seguridad paralelas se realizaban solo entre grupos de protección. Con MABS V3 UR1, todas las copias de seguridad de máquinas virtuales VMware de un solo grupo de protección son paralelas, lo que agiliza las copias de seguridad de máquinas virtuales. Todos los trabajos de replicación diferencial de VMware se ejecutan en paralelo. De forma predeterminada, el número de trabajos que se ejecuta en paralelo está establecido en ocho.
+Con las versiones anteriores de MABS, las copias de seguridad paralelas se realizaban solo entre grupos de protección. Con MABS V3 UR1 (y las versiones posteriores), todas las copias de seguridad de máquinas virtuales VMware dentro de un solo grupo de protección se realizan en paralelo, lo que agiliza las copias de seguridad de máquinas virtuales. Todos los trabajos de replicación diferencial de VMware se ejecutan en paralelo. De forma predeterminada, el número de trabajos que se ejecuta en paralelo está establecido en ocho.
 
 Para modificar el número de trabajos, utilice la clave del Registro como se muestra a continuación (no está presente de forma predeterminada, por lo que es preciso agregarla):
 
@@ -413,9 +423,9 @@ Para modificar el número de trabajos, utilice la clave del Registro como se mue
 > [!NOTE]
 > Puede modificar el número de trabajos a un valor mayor. Si establece el número de trabajos en 1, los trabajos de replicación se ejecutan en serie. Para aumentar el número, debe tener en cuenta el rendimiento de VMware. Teniendo en cuenta el número de recursos que se utilizan y el uso adicional que se requiere en el servidor de VMWare vSphere, debe determinar el número de trabajos de replicación diferencial que se ejecutan en paralelo. Además, este cambio solo afectará a los grupos de protección recién creados. Para los grupos de protección existentes, debe agregar temporalmente otra máquina virtual al grupo de protección. De este modo, se debería actualizar la configuración del grupo de protección en consecuencia. Puede quitar esta máquina virtual del grupo de protección después de completar el procedimiento.
 
-## <a name="vmware-vsphere-67"></a>VMware vSphere 6.7
+## <a name="vmware-vsphere-67-and-70"></a>VMware vSphere 6.7 y 7.0
 
-Para realizar una copia de seguridad de vSphere 6.7, siga estos pasos:
+Para realizar una copia de seguridad de vSphere 6.7 y 7.0, siga estos pasos:
 
 - Habilitar TLS 1.2 en el servidor de MABS
 
@@ -447,9 +457,9 @@ Windows Registry Editor Version 5.00
 ## <a name="exclude-disk-from-vmware-vm-backup"></a>Exclusión del disco de la copia de seguridad de máquina virtual de VMware
 
 > [!NOTE]
-> Esta característica es aplicable a MABS V3 UR1.
+> Esta característica se puede aplicar a MABS V3 UR1 (y a las versiones posteriores).
 
-Con MABS V3 UR1, puede excluir discos específicos de una copia de seguridad de máquina virtual de VMware. El script de configuración **ExcludeDisk.ps1** se encuentra en la `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
+Con MABS V3 UR1 (y las versiones posteriores), puede excluir discos específicos de una copia de seguridad de máquina virtual de VMware. El script de configuración **ExcludeDisk.ps1** se encuentra en la `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
 
 Para configurar la exclusión de disco, siga estos pasos:
 

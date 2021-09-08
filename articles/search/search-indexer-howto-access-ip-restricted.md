@@ -8,14 +8,14 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 01a88be9c54a2701130daace26c44159ee364e4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0b73c1cc510156e0db7518c2d377a6a5cc9b921
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98757250"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112377303"
 ---
-# <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Configuración de reglas de firewall de IP para permitir conexiones de indexador (Azure Cognitive Search)
+# <a name="configure-ip-firewall-rules-to-allow-indexer-connections-in-azure-cognitive-search"></a>Configuración de reglas de firewall de IP para permitir conexiones de indexador en Azure Cognitive Search
 
 Las reglas de firewall de IP en recursos de Azure, como cuentas de almacenamiento, cuentas de Cosmos DB y servidores de Azure SQL, solo permiten que el tráfico procedente de intervalos IP específicos acceda a los datos.
 

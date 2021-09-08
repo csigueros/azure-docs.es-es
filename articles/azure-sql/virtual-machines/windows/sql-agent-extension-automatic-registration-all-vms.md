@@ -9,14 +9,14 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f40e3478a10a1a141e02510d88f4564062ff2ce5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 894d16e1a72243bee9aff1fff2778ec75c2af6ec
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752181"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227144"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -24,6 +24,9 @@ ms.locfileid: "121752181"
 Habilite la característica de registro automático en Azure Portal para registrar automáticamente todas las máquinas de Azure Virtual Machines con SQL Server pasadas y futuras con la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md) en modo ligero. 
 
 En este artículo se enseña a habilitar la característica de registro automático. Como alternativa, puede [registrar una única VM](sql-agent-extension-manually-register-single-vm.md) o [registrar las VM de forma masiva](sql-agent-extension-manually-register-vms-bulk.md) con la extensión Agente de IaaS de SQL. 
+
+> [!NOTE]
+> A partir de septiembre de 2021, ya no es necesario reiniciar el servicio SQL Server al registrarse con la extensión IaaS de SQL en modo completo. 
 
 ## <a name="overview"></a>Información general
 

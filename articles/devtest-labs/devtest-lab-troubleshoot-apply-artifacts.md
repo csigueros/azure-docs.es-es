@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo solucionar los problemas que s
 ms.topic: article
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d3f37a942010240835238648c48ad5671ec028d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6258c2e85b708ea9dac1371a40e83a8a6f8e1911
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692437"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031772"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Solución de problemas al aplicar artefactos en una máquina virtual de Azure DevTest Labs
 Se puede producir un error en la aplicación de artefactos en una máquina virtual por varias razones. Este artículo le guía en algunos de los métodos para ayudar a identificar las posibles causas.
@@ -53,7 +53,7 @@ Puede solucionar los problemas de las máquinas virtuales creadas mediante DevTe
 
 Parece que un artefacto deja de responder hasta que expira un período de tiempo de espera predefinido y el artefacto se marca como **Error**.
 
-Cuando parece que un artefacto deja de responder, lo primero es determinar dónde está bloqueado. Un artefacto puede estar bloqueado en cualquiera de los siguientes pasos durante la ejecución:
+Cuando parece que un artefacto deja de responder, lo primero es determinar dónde está el bloqueo. Un artefacto puede estar bloqueado en cualquiera de los siguientes pasos durante la ejecución:
 
 - **Durante la solicitud inicial**. DevTest Labs crea una plantilla de Azure Resource Manager para solicitar el uso de la Extensión de script personalizado (CSE). Por lo tanto, en segundo plano, se desencadena una implementación de grupo de recursos. Cuando se produce un error en este nivel, se pueden obtener detalles en los **registros de actividad** del grupo de recursos para la máquina virtual en cuestión.  
     - Puede acceder al registro de actividad desde la barra de navegación de la página de la máquina virtual del laboratorio. Al seleccionarla, verá una entrada para **Aplicar artefactos a la máquina virtual** (si la operación Aplicar artefactos se desencadenó directamente) o **Agregar o modificar máquinas virtuales** (si la operación de aplicación de artefactos formaba parte del proceso de creación de la máquina virtual).

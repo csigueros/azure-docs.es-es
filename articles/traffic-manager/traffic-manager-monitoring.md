@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2021
 ms.author: duau
-ms.openlocfilehash: 455eeb83ef5a9608c077de24b8d3d4722d26a822
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce4ff8cfa4bee895e17cd7ad22c54ff777d210ff
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98742716"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435189"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -29,6 +29,9 @@ Para configurar la supervisión de los puntos de conexión, debe especificar la 
 * **Port**. Elija el puerto que se usará para la solicitud.
 * **Path**. Esta opción de configuración solo es válida para los protocolos HTTP y HTTPS, para los que la configuración de la ruta de acceso especifica es necesaria. Si utiliza esta configuración para el protocolo de supervisión TCP se producirá un error. Para el protocolo HTTP y HTTPS, proporcione la ruta de acceso relativa y el nombre de la página web o el archivo a los que accederá la supervisión. Una barra diagonal (/) es una entrada válida para la ruta de acceso relativa. Este valor implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
 * **Configuración del encabezado personalizado**. Esta opción le ayuda a agregar encabezados HTTP específicos para las comprobaciones de estado que Traffic Manager envía a los puntos de conexión de un perfil. Los encabezados personalizados se pueden especificar a nivel de perfil para que se apliquen en todos los puntos de conexión del perfil o a nivel de punto de conexión para que solo se apliquen a este último. Puede usar encabezados personalizados para las comprobaciones de estado de los puntos de conexión en un entorno de varios inquilinos. De este modo, se puede enrutar correctamente a su destino especificando un encabezado host. Para usar esta configuración, también puede agregar encabezados únicos que se usarán para identificar las solicitudes HTTPS originadas por Traffic Manager y procesarlas de manera distinta. Puede especificar hasta ocho pares de valores de encabezado:valor separados por una coma. Por ejemplo, "encabezado1:valor1, encabezado2:valor2". 
+
+   > NOTA: No se admite el uso de caracteres de asterisco (\*) en encabezados `Host` personalizados.
+
 * **Intervalos de códigos de estado esperados**. Esta configuración permite especificar varios intervalos de código de correcto en el formato 200-299, 301-301. Si estos códigos de estado se reciben como respuesta desde un punto de conexión al iniciarse una comprobación de estado, Traffic Manager marca el punto de conexión como correcto. Se puede especificar un máximo de 8 intervalos de código de estado. Esta configuración es aplicable únicamente a los protocolos HTTP y HTTPS y a todos los puntos de conexión. Esta configuración se encuentra a nivel de perfil de Traffic Manager y, de forma predeterminada,se define el valor 200 como código de estado correcto.
 * **Intervalo de sondeo**. Este valor especifica la frecuencia con la que el agente de sondeo de Traffic Manager comprueba el estado de un punto de conexión. Puede especificar dos valores aquí: 30 segundos (sondeo normal) y 10 segundos (sondeo rápido). Si no se proporciona ningún valor, el perfil se establece en un valor predeterminado de 30 segundos. Visite la página [Precios de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) para más información sobre precios del sondeo rápido.
 * **Número tolerado de errores**. Este valor especifica cuántos errores tolera un agente de sondeo de Traffic Manager antes de marcar un punto de conexión como en mal estado. Su valor puede oscilar entre 0 y 9. Un valor de 0 significa que un único error de supervisión puede dar lugar a que ese punto de conexión se marque como en mal estado. Si no se especifica ningún valor, el valor predeterminado será 3.

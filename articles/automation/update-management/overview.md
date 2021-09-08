@@ -3,14 +3,14 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 576bc21791d088a736044a0111c25dc97c57b059
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 0190d5501b95c0c70606978586edf30ff3d39b79
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854817"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676615"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
@@ -149,6 +149,11 @@ Para clasificar las actualizaciones de la versión 6 de Red Hat Enterprise, deb
 Cuando se programa una actualización para que se ejecute en una máquina Linux que, por ejemplo, está configurada para instalar solo las actualizaciones que coincidan con la clasificación **Seguridad**, las actualizaciones instaladas podrían ser diferentes de las actualizaciones que coinciden con esa clasificación o constituir un subconjunto de estas. Cuando se realiza una evaluación de las actualizaciones del sistema operativo pendientes para la máquina Linux, Update Management utiliza los archivos [Open Vulnerability and Assessment Language ](https://oval.mitre.org/) (OVAL) proporcionados por el proveedor de distribución de Linux para la clasificación.
 
 La categorización se realiza para las actualizaciones de Linux en función de las clasificaciones **Seguridad** u **Otras**, según los archivos OVAL, y estas clasificaciones incluyen las actualizaciones que tratan problemas de seguridad o vulnerabilidades. Sin embargo, cuando se ejecuta la programación de actualización, lo hace en la máquina Linux mediante el administrador de paquetes adecuado, como YUM, APT o ZYPPER, para instalarlas. El administrador de paquetes para la distribución de Linux puede tener un mecanismo diferente para clasificar las actualizaciones, donde los resultados pueden diferir de los que se obtienen de los archivos OVAL mediante Update Management. Para comprobar manualmente la máquina y saber qué actualizaciones son de seguridad relevantes para el administrador de paquetes, consulte [Solución de problemas de implementación de actualizaciones de Linux](../troubleshoot/update-management.md#updates-linux-installed-different).
+
+>[!NOTE]
+> Es posible que la implementación de actualizaciones por clasificación de actualizaciones no funcione correctamente para las distribuciones de Linux compatibles con Update Management. Esto se debe a un problema identificado con el esquema de nomenclatura del archivo OVAL, que esto impide que Update Management establezca correctamente la coincidencia de las clasificaciones en función de las reglas de filtrado. Debido a la lógica diferente que se usa en las evaluaciones de las actualizaciones de seguridad, los resultados pueden diferir de las actualizaciones de seguridad que se aplican durante la implementación. Si ha establecido la clasificación como **Crítico** y **Seguridad**, la implementación de actualizaciones funcionará según lo previsto. Solo se ve afectada la *clasificación de las actualizaciones* durante una evaluación.
+>
+> Update Management para máquinas con Windows Server no se ve afectado; la clasificación de actualizaciones y las implementaciones no cambian.
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Integración de Update Management con Configuration Manager.
 

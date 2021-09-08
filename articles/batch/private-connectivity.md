@@ -2,14 +2,14 @@
 title: Uso de puntos de conexión privados con cuentas de Azure Batch
 description: Aprenda cómo conectarse de forma privada a una cuenta de Azure Batch mediante puntos de conexión privados.
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 08/03/2021
 ms.custom: references_regions
-ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad3a869f2eee259133c6ab5dd18e1e615825a718
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920010"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725546"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Uso de puntos de conexión privados con cuentas de Azure Batch
 
@@ -20,7 +20,7 @@ Al usar [Azure Private Link](../private-link/private-link-overview.md), puede co
 Private Link permite a los usuarios obtener acceso a una cuenta de Azure Batch desde dentro de la red virtual o cualquier red virtual emparejada. También se puede acceder a los recursos asignados a Private Link en el entorno local a través de un emparejamiento privado a través de VPN o [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Puede conectarse a una cuenta de Azure Bacth configurada con Private Link mediante el [método de aprobación automático o manual](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 > [!IMPORTANT]
-> Actualmente, la compatibilidad con la conectividad privada en Azure Batch está disponible para todas las regiones, excepto para Centro de Alemania, Nordeste de Alemania, Este de China, Este de China 2, Norte de China y Norte de China 2.
+> La compatibilidad con la conectividad privada en Azure Batch está disponible actualmente en todas las regiones, excepto Centro de Alemania y Nordeste de Alemania.
 
 En este artículo se describen los pasos para crear una cuenta de Batch privada y cómo acceder a ella mediante un punto de conexión privado.
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3d654a84b6e0e5cfb00c7b5d5dd5742649ec7a81
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: b6af5e7efa14c7a8b2243e908b52ed6cf50c8272
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900780"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727227"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Elección de la forma de autorizar el acceso a los datos de blob en Azure Portal
 
@@ -54,7 +54,7 @@ Para acceder a datos de blob desde Azure Portal con la cuenta de Azure AD, se de
 
 El rol **Lector** de Azure Resource Manager permite a los usuarios ver recursos de la cuenta de almacenamiento, pero no modificarlos. No proporciona permisos de lectura en los datos de Azure Storage, sino únicamente en los recursos de administración de la cuenta. El rol **Lector** es necesario para que los usuarios puedan navegar a contenedores de blobs en Azure Portal.
 
-Para más información sobre los roles integrados que admiten el acceso a los datos de blob, consulte [Roles de Azure para blobs](assign-azure-role-data-access.md#azure-roles-for-blobs).
+Para obtener información sobre los roles integrados que admiten el acceso a los datos de los blobs, consulte [Autorización del acceso a blobs mediante Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Los roles personalizados pueden admitir diferentes combinaciones de los mismos permisos que proporcionan los roles integrados. Para obtener más información sobre cómo crear roles RBAC de Azure personalizados, consulte el artículo sobre [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) y la [descripción de las definiciones de roles de recursos de Azure](../../role-based-access-control/role-definitions.md).
 
@@ -110,5 +110,5 @@ Para especificar cómo autorizar una operación de carga de blobs, siga estos pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Autenticar el acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md)
+- [Autorización del acceso a datos en Azure Storage](../common/authorize-data-access.md)
 - [Asignación de un rol de Azure el acceso a datos de blob](assign-azure-role-data-access.md).

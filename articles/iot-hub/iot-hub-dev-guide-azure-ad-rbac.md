@@ -7,15 +7,15 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 06/24/2021
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 196afc38c24254c4628173180205a858d1085eeb
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: b6ea56942580b3b8785dcf2b694b30ad64e8a258
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109490100"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894966"
 ---
 # <a name="control-access-to-iot-hub-using-azure-active-directory"></a>Control del acceso a IoT Hub mediante Azure Active Directory
 
@@ -80,7 +80,7 @@ En las tablas siguientes se describen los permisos disponibles para las API del 
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action | Envía un mensaje de la nube al dispositivo a cualquier dispositivo.  |
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/feedback/action | Recibe, completa o abandona la notificación de comentarios de mensajes de la nube al dispositivo. |
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action | Elimina todos los comandos pendientes de un dispositivo.  |
-| Microsoft.Devices/IotHubs/directMethods/invoke/action | Invoca un método directo en un dispositivo. |
+| Microsoft.Devices/IotHubs/directMethods/invoke/action | Invoca un método directo en cualquier dispositivo o módulo |
 | Microsoft.Devices/IotHubs/fileUpload/notifications/action  | Recibe, completa o abandona notificaciones de carga de archivos. |
 | Microsoft.Devices/IotHubs/statistics/read | Lee las estadísticas de dispositivos y servicios. |
 | Microsoft.Devices/IotHubs/configurations/read | Lee las configuraciones de administración de dispositivos. |
@@ -94,6 +94,9 @@ En las tablas siguientes se describen los permisos disponibles para las API del 
 > - La operación de [consulta de gemelo](/rest/api/iothub/service/query/gettwins) requiere `Microsoft.Devices/IotHubs/twins/read`.
 > - La operación de [obtener gemelo digital](/rest/api/iothub/service/digitaltwin/getdigitaltwin) requiere `Microsoft.Devices/IotHubs/twins/read`, mientras que la de [actualizar gemelo digital](/rest/api/iothub/service/digitaltwin/updatedigitaltwin) requiere `Microsoft.Devices/IotHubs/twins/write`.
 > - Para el [comando de invocar componente](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) como el [comando invocar nivel de raíz](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) requieren `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
+
+> [!NOTE]
+> Para obtener datos de IoT Hub mediante Azure AD, [configure el enrutamiento a un centro de eventos independiente](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint). Para acceder al [punto de conexión compatible integrado de Event Hub](iot-hub-devguide-messages-read-builtin.md), use el método de la cadena de conexión (clave de acceso compartido) como antes. 
 
 ## <a name="azure-ad-access-from-azure-portal"></a>Acceso de Azure AD desde Azure Portal
 
@@ -109,9 +112,15 @@ Para asegurarse de que una cuenta no tiene acceso fuera de los permisos asignado
 
 A continuación, asegúrese de que la cuenta no tiene ningún otro rol que tenga el permiso **Microsoft.Devices/iotHubs/listkeys/action**, como [Propietario](../role-based-access-control/built-in-roles.md#owner) o [Colaborador](../role-based-access-control/built-in-roles.md#contributor). Para permitir que la cuenta tenga acceso a los recursos y pueda navegar por el portal, asigne [Lector](../role-based-access-control/built-in-roles.md#reader).
 
-## <a name="built-in-event-hub-compatible-endpoint-doesnt-support-azure-ad-authentication"></a>El punto de conexión compatible con el centro de eventos integrado no admite la autenticación con Azure AD
+## <a name="azure-iot-extension-for-azure-cli"></a>Extensión de Azure IoT para la CLI de Azure
 
-El [punto de conexión integrado](iot-hub-devguide-messages-read-builtin.md) no admite la integración con Azure AD. No es posible acceder a él con una entidad de seguridad o una identidad administrada. Para acceder al punto de conexión integrado, use el método de la cadena de conexión (clave de acceso compartido) como antes.
+La mayoría de comandos de IoT Hub admiten autenticación de Azure AD. El tipo de autenticación que se usa para ejecutar comandos se puede controlar con el parámetro `--auth-type` que acepta la clave de valores o el inicio de sesión. El valor `key` se establece de forma predeterminada.
+
+- Cuando `--auth-type` tiene el valor de `key`, como antes de que la CLI detecte automáticamente una directiva adecuada al interactuar con IoT Hub.
+
+- Cuando `--auth-type` tiene el valor `login`, para la operación se utiliza un token de acceso de la entidad de seguridad que ha iniciado sesión en la CLI de Azure.
+
+Para obtener más información, consulte la [Extensión de Azure IoT para la página de la versión de la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.10.12).
 
 ## <a name="sdk-samples"></a>Ejemplos del SDK
 

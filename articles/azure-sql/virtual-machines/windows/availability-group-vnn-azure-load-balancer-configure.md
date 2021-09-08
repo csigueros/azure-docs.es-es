@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 06/14/2021
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6a31d32a4888e50cdfccf1bf609418fb31ef69e3
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 902704052524a396812e4d9d3848c754c3a7c4a3
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569604"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580897"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configuración del equilibrador de carga para el cliente de escucha de VNN para AG
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,6 +43,8 @@ Antes de completar los pasos de este artículo, ya debe tener:
 
 
 ## <a name="create-load-balancer"></a>Creación de un equilibrador de carga
+
+Puede crear un equilibrador de carga interno o externo. Un equilibrador de carga interno solo puede provenir de los recursos privados a los que se accede que son internos de la red.  Un equilibrador de carga externo puede enrutar el tráfico del público a los recursos internos. Al configurar un equilibrador de carga interno, use la misma dirección IP que el recurso del cliente de escucha del grupo de disponibilidad para la dirección IP de front-end cuando configure las reglas de equilibrio de carga. Al configurar un equilibrador de carga externo, no puede usar la misma dirección IP que el cliente de escucha del grupo de disponibilidad, ya que la dirección IP del cliente de escucha no puede ser una dirección IP pública. Por lo tanto, para usar un equilibrador de carga externo, asigne lógicamente una dirección IP en la misma subred que el grupo de disponibilidad que no entre en conflicto con ninguna otra dirección IP y use esta dirección como dirección IP de front-end para las reglas de equilibrio de carga. 
 
 Utilice [Azure Portal](https://portal.azure.com) para crear del equilibrador de carga:
 
@@ -77,7 +79,7 @@ Utilice [Azure Portal](https://portal.azure.com) para crear del equilibrador de 
 
 1. Asocie el grupo de back-end con el conjunto de disponibilidad que contiene las máquinas virtuales.
 
-1. En **Configuraciones IP de red de destino**, active **MÁQUINA VIRTUAL** y seleccione las máquinas virtuales que participarán como nodos de clúster. No olvide incluir todas las máquinas virtuales que hospedarán la FCI o el grupo de disponibilidad.
+1. En **Configuraciones IP de red de destino**, active **MÁQUINA VIRTUAL** y seleccione las máquinas virtuales que participarán como nodos de clúster. No olvide incluir todas las máquinas virtuales que hospedarán el grupo de disponibilidad.
 
 1. Seleccione **Aceptar** para crear el grupo de back-end.
 
@@ -99,6 +101,10 @@ Utilice [Azure Portal](https://portal.azure.com) para crear del equilibrador de 
 
 ## <a name="set-load-balancing-rules"></a>Establecimiento de reglas de equilibrio de carga
 
+Configure las reglas del equilibrador de carga para el equilibrador de carga. 
+
+# <a name="private-load-balancer"></a>[Equilibrador de carga privado](#tab/ilb)
+
 1. En el panel del equilibrador de carga, seleccione **Reglas de equilibrio de carga**.
 
 1. Seleccione **Agregar**.
@@ -106,7 +112,7 @@ Utilice [Azure Portal](https://portal.azure.com) para crear del equilibrador de 
 1. Establezca los parámetros de la regla de equilibrio de carga:
 
    - **Name**: nombre de las reglas de equilibrio de carga.
-   - **Dirección IP de front-end**: La dirección IP de las FCI de SQL Server o el recurso de red en clústeres del cliente de escucha de AG.
+   - **Dirección IP de front-end**: la dirección IP del recurso de red en clúster del cliente de escucha del grupo de disponibilidad.
    - **Puerto**: el puerto TCP de SQL Server. El puerto de la instancia predeterminado es 1433.
    - **Puerto back-end**: el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)** .
    - **Grupo de back-end**: el nombre del grupo de back-end que configuró anteriormente.
@@ -117,9 +123,33 @@ Utilice [Azure Portal](https://portal.azure.com) para crear del equilibrador de 
 
 1. Seleccione **Aceptar**.
 
+# <a name="public-load-balancer"></a>[Equilibrador de carga público](#tab/elb)
+
+1. En el panel del equilibrador de carga, seleccione **Reglas de equilibrio de carga**.
+
+1. Seleccione **Agregar**.
+
+1. Establezca los parámetros de la regla de equilibrio de carga:
+
+   - **Name**: nombre de las reglas de equilibrio de carga.
+   - **Dirección IP de front-end**: dirección IP pública que usan los clientes para conectarse al punto de conexión público. 
+   - **Puerto**: el puerto TCP de SQL Server. El puerto de la instancia predeterminado es 1433.
+   - **Puerto de back-end**: el mismo puerto utilizado por el cliente de escucha del grupo de disponibilidad. De forma predeterminada, es el puerto 1433. 
+   - **Grupo de back-end**: el nombre del grupo de back-end que configuró anteriormente.
+   - **Sondeo de mantenimiento**: el sondeo de estado que configuró anteriormente.
+   - **Persistencia de la sesión**: Ninguno.
+   - **Tiempo de espera de inactividad (minutos)** : 4.
+   - **IP flotante (Direct Server Return)** : deshabilitado.
+
+1. Seleccione **Aceptar**.
+
+---
+
 ## <a name="configure-cluster-probe"></a>Configuración del clúster de sondeo
 
 Establezca el parámetro del puerto de sondeo de clúster en PowerShell.
+
+# <a name="private-load-balancer"></a>[Equilibrador de carga privado](#tab/ilb)
 
 Para establecer el parámetro del puerto de sondeo de clúster, actualice las variables del siguiente script con los valores del entorno. Quite los corchetes angulares (`<` y `>`) del script.
 
@@ -140,8 +170,8 @@ En la tabla siguiente se describen los valores que debe actualizar:
 |**Valor**|**Descripción**|
 |---------|---------|
 |`Cluster Network Name`| el nombre del clúster de conmutación por error de Windows Server para la red. En **Administrador de clústeres de conmutación por error** > **Redes**, haga clic con el botón derecho en la red y después seleccione **Propiedades**. El valor correcto está debajo del campo **Nombre** en la pestaña **General**.|
-|`AG listener IP Address Resource Name`|El nombre del recurso para la dirección IP del cliente de escucha del grupo de disponibilidad o de la FCI de SQL Server. En **Administrador de clústeres de conmutación por error** > **Roles**, en el rol FCI de SQL Server, en **Nombre del servidor**, haga clic con el botón derecho en el recurso de la dirección IP y después seleccione **Propiedades**. El valor correcto está debajo del campo **Nombre** en la pestaña **General**.|
-|`ILBIP`|La dirección IP del equilibrador de carga interno (ILB). Esta dirección se configura en Azure Portal como la dirección front-end de ILB. También es la dirección IP de FCI de SQL Server. Puede encontrarla en **Administrador de clústeres de conmutación por error** en la misma página de propiedades donde encuentra `<AG listener IP Address Resource Name>`.|
+|`AG listener IP Address Resource Name`|Nombre del recurso para la dirección IP del cliente de escucha del grupo de disponibilidad. En **Administrador de clústeres de conmutación por error** > **Roles**, en el rol de grupo de disponibilidad, en **Nombre del servidor**, haga clic con el botón derecho en el recurso de la dirección IP y después seleccione **Propiedades**. El valor correcto está debajo del campo **Nombre** en la pestaña **General**.|
+|`ILBIP`|La dirección IP del equilibrador de carga interno (ILB). Esta dirección se configura en Azure Portal como la dirección front-end del ILB.  Es la misma dirección IP que la del cliente de escucha del grupo de disponibilidad. Puede encontrarla en **Administrador de clústeres de conmutación por error** en la misma página de propiedades donde encuentra `<AG listener IP Address Resource Name>`.|
 |`nnnnn`|El puerto de sondeo configurado en el sondeo de estado del equilibrador de carga. Cualquier puerto TCP no utilizado es válido.|
 |"SubnetMask"| Máscara de subred para el parámetro de clúster. Debe ser la dirección de difusión TCP IP: `255.255.255.255`.| 
 
@@ -151,6 +181,45 @@ Después de establecer el sondeo de clúster puede ver todos los parámetros del
 ```powershell
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
+
+# <a name="public-load-balancer"></a>[Equilibrador de carga público](#tab/elb)
+
+Para establecer el parámetro del puerto de sondeo de clúster, actualice las variables del siguiente script con los valores del entorno. Quite los corchetes angulares (`<` y `>`) del script.
+
+```powershell
+$ClusterNetworkName = "<Cluster Network Name>"
+$IPResourceName = "<Availability group Listener IP Address Resource Name>" 
+$ELBIP = "<n.n.n.n>" 
+[int]$ProbePort = <nnnnn>
+
+Import-Module FailoverClusters
+
+Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ELBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+```
+
+En la tabla siguiente se describen los valores que debe actualizar:
+
+
+|**Valor**|**Descripción**|
+|---------|---------|
+|`Cluster Network Name`| el nombre del clúster de conmutación por error de Windows Server para la red. En **Administrador de clústeres de conmutación por error** > **Redes**, haga clic con el botón derecho en la red y después seleccione **Propiedades**. El valor correcto está debajo del campo **Nombre** en la pestaña **General**.|
+|`AG listener IP Address Resource Name`|Nombre del recurso de dirección IP del cliente de escucha del grupo dirección IP. En **Administrador de clústeres de conmutación por error** > **Roles**, en el rol del grupo de disponibilidad, en **Nombre del servidor**, haga clic con el botón derecho en el recurso de la dirección IP y después seleccione **Propiedades**. El valor correcto está debajo del campo **Nombre** en la pestaña **General**.|
+|`ELBIP`|La dirección IP del equilibrador de carga externo (ELB). Esta dirección se configura en el Azure Portal como la dirección de front-end del ELB y se usa para conectarse al equilibrador de carga público desde recursos externos.|
+|`nnnnn`|El puerto de sondeo configurado en el sondeo de estado del equilibrador de carga. Cualquier puerto TCP no utilizado es válido.|
+|"SubnetMask"| Máscara de subred para el parámetro de clúster. Debe ser la dirección de difusión TCP IP: `255.255.255.255`.| 
+
+
+Después de establecer el sondeo de clúster puede ver todos los parámetros del clúster en PowerShell. Ejecute este script:
+
+```powershell
+Get-ClusterResource $IPResourceName | Get-ClusterParameter
+```
+
+> [!NOTE]
+> Puesto que no hay ninguna dirección IP privada para el equilibrador de carga externo, los usuarios no pueden usar directamente el nombre DNS de VNN, ya que resuelve la dirección IP dentro de la subred. Use la dirección IP pública del LB público o configure otra asignación DNS en el servidor DNS. 
+
+
+---
 
 ## <a name="modify-connection-string"></a>Modificación de la cadena de conexión 
 
@@ -166,6 +235,7 @@ Get-ClusterResource yourListenerName|Set-ClusterParameter HostRecordTTL 300
 ```
 
 Para obtener más información, consulte la documentación sobre el [tiempo de espera de la conexión de escucha](/troubleshoot/sql/availability-groups/listener-connection-times-out) de SQL Server. 
+
 
 > [!TIP]
 > - Establezca el parámetro MultiSubnetFailover en true en la cadena de conexión, incluso para las soluciones HADR que abarquen una única subred, para admitir la expansión futura de las subredes sin necesidad de actualizar las cadenas de conexión.  

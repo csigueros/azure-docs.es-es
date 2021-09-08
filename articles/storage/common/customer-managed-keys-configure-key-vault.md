@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 77a01a270f47ddacb71962188e7fedd0a0a9f6d0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7377f0e296f571640aba35639972e66a60c6dd0f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790444"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444655"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault
 
-Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede administrar sus propias claves. Las claves administradas por el cliente deben estar almacenadas en Azure Key Vault o en el modelo de seguridad de hardware (HSM) administrado de Azure Key Vault (versión preliminar).
+Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede administrar sus propias claves. Las claves administradas por el cliente deben estar almacenadas en Azure Key Vault o en el modelo de seguridad de hardware (HSM) administrado de Azure Key Vault.
 
-En este artículo se muestra cómo configurar el cifrado con claves administradas por el cliente almacenadas en un almacén de claves mediante Azure Portal, PowerShell o la CLI de Azure. Para obtener información sobre cómo configurar el cifrado con las claves administradas por el cliente almacenadas en un HSM administrado, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](customer-managed-keys-configure-key-vault-hsm.md).
+En este artículo se muestra cómo configurar el cifrado con claves administradas por el cliente almacenadas en un almacén de claves mediante Azure Portal, PowerShell o la CLI de Azure. Para obtener información sobre cómo configurar el cifrado con las claves administradas por el cliente almacenadas en un HSM administrado, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault](customer-managed-keys-configure-key-vault-hsm.md).
 
 > [!NOTE]
 > Azure Key Vault y HSM administrado de Azure Key Vault admiten las mismas API e interfaces de administración para la configuración.
@@ -390,4 +390,4 @@ az storage account update
 
 - [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
 - [Claves administradas por el cliente para el cifrado de Azure Storage](customer-managed-keys-overview.md)
-- [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](customer-managed-keys-configure-key-vault-hsm.md)
+- [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault](customer-managed-keys-configure-key-vault-hsm.md).

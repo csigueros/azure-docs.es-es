@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0fe61e5ef36064234b65da4d059f02beed18f9a6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ec462d04402f20d801c43cebd7f4561eb6177f1c
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745716"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707125"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configuración de la asociación de aplicaciones en formato .MSIX con Azure Portal
 
@@ -222,4 +222,4 @@ También puede dejar comentarios sobre Azure Virtual Desktop en el [Centro de op
 Estos son algunos otros artículos que pueden resultarle útiles:
 
 - [Glosario sobre la conexión de aplicaciones en formato MSIX](app-attach-glossary.md)
-- [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.md)
+- [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.yml)

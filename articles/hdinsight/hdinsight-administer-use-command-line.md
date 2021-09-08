@@ -1,20 +1,20 @@
 ---
 title: Administración de clústeres de Azure HDInsight mediante la CLI de Azure
-description: Obtenga información sobre cómo usar la CLI de Azure para administrar clústeres de Azure HDInsight. Los tipos de clúster incluyen Apache Hadoop, Spark, HBase, Storm, Kafka, Interactive Query y servicios de aprendizaje automático.
+description: Obtenga información sobre cómo usar la CLI de Azure para administrar clústeres de Azure HDInsight. Los tipos de clúster incluyen Apache Hadoop, Spark, HBase, Storm, Kafka e Interactive Query.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
 ms.date: 02/26/2020
-ms.openlocfilehash: 14b88700f3968e3bfdc788abb2fc9ce90634068e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 74f228c8c1d9ca29e3f9e60062891a90a3a4abf6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770352"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122652231"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Administración de clústeres de Azure HDInsight mediante la CLI de Azure
 
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
 Más información sobre cómo utilizar la [CLI de Azure](/cli/azure/) para administrar clústeres de Azure HDInsight. La interfaz de la línea de comandos (CLI) de Azure es la experiencia de línea de comandos multiplataforma de Microsoft para administrar los recursos de Azure.
 
@@ -87,7 +87,7 @@ az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --w
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para más información, vea los siguientes artículos:
+En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md)
 * [Administración de HDInsight con Azure PowerShell](hdinsight-administer-use-powershell.md)

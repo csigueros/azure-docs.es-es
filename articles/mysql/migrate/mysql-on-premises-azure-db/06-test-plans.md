@@ -1,5 +1,5 @@
 ---
-title: Test Plans de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+title: 'Migración de datos de un entorno local de MySQL a Azure Database for MySQL: Test Plans'
 description: WWI creó un plan de prueba que incluía un conjunto de tareas de IT y de negocio. Las migraciones correctas requieren que se ejecuten todas las pruebas.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: ad8a0ef111368f81075acaf68fec9e653534f7e4
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: d13a6b63b297aff9504b00449f660f3ba55b6591
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082951"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084991"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-test-plans"></a>Test Plans de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-test-plans"></a>Migración de datos de un entorno local de MySQL a Azure Database for MySQL: Test Plans
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -168,7 +170,7 @@ WHERE
 
 Las consultas anteriores proporcionan una lista de nombres de objetos y recuentos usados en una decisión de reversión. Los usuarios de la migración pueden realizar el primer paso de comprobación de objetos comprobando los recuentos de los objetos de origen y de destino. Una discrepancia en los recuentos de objetos no significa necesariamente que se requiera una reversión. La realización de una evaluación detallada podría indicar que la diferencia es leve y fácil de recuperar. La solución podría ser una migración manual de algunos objetos con errores. Por ejemplo, si se migraron todas las tablas y filas de datos y solo se omitieron algunas de las funciones, corrija esos objetos con errores y finalice la migración. Si la base de datos es relativamente pequeña, puede borrarse la instancia de Azure Database for MySQL y reiniciar la migración. Las bases de datos grandes pueden necesitar más tiempo del disponible en la ventana de migración para determinar los objetos que faltan. La migración debe detenerse y revertirse.
 
-La identificación de los objetos de la base de datos que faltan debe producirse rápidamente durante una ventana de migración. Cada minuto cuenta. Una opción podría ser exportar los nombres de objetos del entorno a un archivo y usar una herramienta de comparación de datos para identificar rápidamente los objetos que faltan. Otra opción podría ser exportar los nombres de objetos de la base de datos de origen e importar los datos a una tabla temporal del entorno de base de datos de destino. Compare los datos mediante una instrucción SQL **con script** y **probada**. La precisión y la velocidad de comprobación de los datos son fundamentales para el proceso de migración. No se dependa de leer y comprobar manualmente una larga lista de objetos de base de datos durante una ventana de migración. La posibilidad de errores humanos es demasiado grande. Sería mejor si administra por excepciones con herramientas.
+La identificación de los objetos de la base de datos que faltan debe producirse rápidamente durante una ventana de migración. Recuentos cada minuto. Una opción podría ser exportar los nombres de objetos del entorno a un archivo y usar una herramienta de comparación de datos para identificar rápidamente los objetos que faltan. Otra opción podría ser exportar los nombres de objetos de la base de datos de origen e importar los datos a una tabla temporal del entorno de base de datos de destino. Compare los datos mediante una instrucción SQL **con script** y **probada**. La precisión y la velocidad de comprobación de los datos son fundamentales para el proceso de migración. No se dependa de leer y comprobar manualmente una larga lista de objetos de base de datos durante una ventana de migración. La posibilidad de errores humanos es demasiado grande. Sería mejor si administra por excepciones con herramientas.
 
 ## <a name="wwi-scenario"></a>Escenario de WWI
 
@@ -186,6 +188,8 @@ La información del esquema de la base de datos de origen se usó para comprobar
 
   - Tenga una escala de tiempo bien definida de eventos para la migración.  
 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Líneas base de rendimiento](./07-performance-baselines.md)

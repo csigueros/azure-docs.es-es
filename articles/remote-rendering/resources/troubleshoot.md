@@ -5,25 +5,29 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8f0fb9ab5c53c3fd1bfb32ac7b112a116301cba7
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 2478ec3f0e8608e1dd868745fca2c323677fadce
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575350"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729855"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
 En esta página se enumeran los problemas comunes que interfieren con Azure Remote Rendering y las maneras de resolverlos.
 
+## <a name="client-cant-connect-to-server"></a>El cliente no se puede conectar al servidor
+
+Asegúrese de que los firewalls (en el dispositivo, dentro de los enrutadores, etc.) no bloqueen los puertos mencionados en los [Requisitos del sistema](../overview/system-requirements.md#network-firewall).
+
+## <a name="failed-to-load-model"></a>Error al cargar modelo
+
+Al cargar un modelo (por ejemplo, a través de un ejemplo de Unity), se produce un error aunque la configuración de blobs sea correcta, es probable que el almacenamiento de blobs no esté vinculado correctamente. Esto se explica en el capítulo sobre la [vinculación de una cuenta de almacenamiento](../how-tos/create-an-account.md#link-storage-accounts). Tenga en cuenta que tras una vinculación correcta, los cambios pueden tardar hasta 30 minutos en surtir efecto.
+
 ## <a name="cant-link-storage-account-to-arr-account"></a>No se puede vincular la cuenta de almacenamiento a la cuenta de ARR
 
 A veces, durante la [vinculación de una cuenta de almacenamiento](../how-tos/create-an-account.md#link-storage-accounts) la cuenta de Remote Rendering no aparece en la lista. Para corregir este problema, vaya a la cuenta de ARR en el Azure Portal y seleccione **Identidad** en el grupo de **Configuración** de la izquierda. Asegúrese de que **estado** se estableció **Encendido**.
 ![Depurador de fotograma de Unity](./media/troubleshoot-portal-identity.png)
-
-## <a name="client-cant-connect-to-server"></a>El cliente no se puede conectar al servidor
-
-Asegúrese de que los firewalls (en el dispositivo, dentro de los enrutadores, etc.) no bloqueen los puertos mencionados en los [Requisitos del sistema](../overview/system-requirements.md#network-firewall).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Error "`Disconnected: VideoFormatNotAvailable`"
 
@@ -161,6 +165,8 @@ Asegúrese de seguir el [Tutorial de Unity: Visualización de modelos remotos](.
 
 Los motivos de este problema podrían ser MSAA, HDR o la habilitación del procesamiento posterior. Asegúrese de que el perfil de baja calidad esté seleccionado y establecido como predeterminado en Unity. Para ello, vaya a *Editar > Configuración del proyecto... > Calidad*.
 
+Cuando se usa el complemento OpenXR en Unity 2020, hay versiones de la URP (Canalización de representación universal) que crean este destino de representación fuera de la pantalla adicional, independientemente de que se habilite el procesamiento posterior. Por consiguiente, es importante actualizar la versión de la URP manualmente como mínimo a la 10.5.1. Esto se describe en los [requisitos del sistema](../overview/system-requirements.md#unity-2020).
+
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>El código de Unity que usa la API de Remote Rendering no se compila
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Uso de Depurar al compilar para el Editor de Unity
@@ -183,9 +189,9 @@ Detectamos errores falsos al intentar compilar los ejemplos de Unity (quickstart
 
 ## <a name="native-c-based-application-does-not-compile"></a>Una aplicación basada en C++ nativo no se compila
 
-### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Error "biblioteca no encontrada" para la aplicación para UWP o Dll
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Error "Library not found" (No se encuentra la biblioteca) en la aplicación para UWP o DLL de UWP
 
-Dentro del paquete NuGet de C++, hay un archivo `microsoft.azure.remoterendering.Cpp.targets` que define qué tipo binario se va a usar. Para identificar `UWP`, las condiciones del archivo comprueban `ApplicationType == 'Windows Store'`. Por lo tanto, debe asegurarse de que este tipo esté establecido en el proyecto. Este caso se daría al crear una aplicación para UWP o Dll a través del asistente de proyectos de Visual Studio.
+Dentro del paquete NuGet de C++, hay un archivo `microsoft.azure.remoterendering.Cpp.targets` que define qué tipo binario se va a usar. Para identificar `UWP`, las condiciones del archivo comprueban `ApplicationType == 'Windows Store'`. Por lo tanto, debe asegurarse de que este tipo esté establecido en el proyecto. Eso sucedería al crear una aplicación o DLL de UWP a través del asistente para proyectos de Visual Studio.
 
 ## <a name="unstable-holograms"></a>Hologramas inestables
 

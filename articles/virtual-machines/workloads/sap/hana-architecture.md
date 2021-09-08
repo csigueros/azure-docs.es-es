@@ -11,28 +11,28 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2021
+ms.date: 07/21/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 547e48e9cecb672c5274bc001178b2ea2aaf47af
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: fee1aab009bdbf84acf1a73244d6686db50e4e3f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577657"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450712"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arquitectura de SAP HANA en Azure (instancias grandes)
 
 En este artículo, se describe la arquitectura para implementar SAP HANA en Azure (instancias grandes) (también conocida como BareMetal Infrastructure). 
 
-En un nivel genérico, la solución SAP HANA en Azure (instancias grandes) tiene la capa de aplicación de SAP en las máquinas virtuales (VM). La capa de base de datos se encuentra en la instancia grande de HANA certificada por SAP, que se encuentra en la misma región de Azure que las máquinas virtuales IaaS de Azure.
+En un nivel genérico, la solución SAP HANA en Azure (instancias grandes) tiene la capa de aplicación de SAP en las máquinas virtuales (VM). L capa de la base de datos está ubicada en HANA (instancia grande) (HLI) con certificación SAP. La HLI está ubicada en la misma región de Azure que las máquinas virtuales IaaS de Azure.
 
 > [!NOTE]
 > Implemente la capa de aplicación de SAP en la misma región de Azure que la capa del sistema de administración de bases de datos (DBMS) de SAP. Esta regla está bien documentada en la información publicada sobre cargas de trabajo de SAP en Azure. 
 
 ## <a name="architectural-overview"></a>Introducción a la arquitectura
 
-La arquitectura global de SAP HANA en Azure (instancias grandes) proporciona una configuración de hardware con certificación SAP TDI. El hardware es un servidor de alto rendimiento sin sistema operativo y sin virtualización para la base de datos de SAP HANA. También proporciona la flexibilidad de Azure para escalar los recursos de la capa de aplicación de SAP según sus necesidades.
+La arquitectura global de SAP HANA en Azure (instancias grandes) proporciona una configuración de hardware con certificación SAP TDI. El hardware es un servidor de alto rendimiento sin sistema operativo y sin virtualización para la base de datos de SAP HANA. Proporciona la flexibilidad para escalar los recursos de la capa de aplicación de SAP según sus necesidades.
 
 ![Introducción a la arquitectura de SAP HANA en Azure (Instancias grandes)](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -49,7 +49,7 @@ La arquitectura que se muestra se divide en tres secciones:
   -  [Uso de SAP en máquinas virtuales Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Uso de soluciones de SAP en Azure Virtual Machines](get-started.md)
 
-- **Izquierda**: muestra el hardware con certificación SAP HANA TDI en la demarcación de instancias grandes de Azure. Las unidades de HANA (instancias grandes) se conectan a las redes virtuales de la suscripción de Azure con la misma tecnología que la empleada para la conectividad entre la infraestructura local y la de Azure. A partir de mayo de 2019, se introdujo una optimización que permite la comunicación entre las unidades de HANA (instancias grandes) y las máquinas virtuales de Azure sin la puerta de enlace de ExpressRoute. Esta optimización, denominada FastPath de ExpressRoute, se muestra en el diagrama anterior mediante las líneas rojas.
+- **Izquierda**: muestra el hardware con certificación SAP HANA TDI en la demarcación de instancias grandes de Azure. Las unidades de HANA (instancias grandes) se conectan a las redes virtuales de la suscripción de Azure con la misma tecnología que la que emplean los servidores locales para conectarse a Azure. A partir de mayo de 2019, se introdujo una optimización que permite la comunicación entre las unidades de HANA (instancias grandes) y las máquinas virtuales de Azure sin la puerta de enlace de ExpressRoute. Esta optimización, denominada FastPath de ExpressRoute, se muestra en el diagrama anterior mediante las líneas rojas.
 
 ## <a name="components-of-the-azure-large-instance-stamp"></a>Componentes del stamp de Azure (instancias grandes)
 
@@ -61,7 +61,9 @@ El sello de instancias grandes de Azure en sí combina los componentes siguiente
 
 ## <a name="tenants"></a>Inquilinos
 
-Dentro de la infraestructura multiinquilino del sello de instancias grandes, los clientes se implementan como inquilinos aislados. En la implementación del inquilino, asigne un nombre a una suscripción de Azure dentro de la inscripción de Azure. HANA (instancias grandes) se factura a esta suscripción de Azure. Estos inquilinos mantienen una relación de 1:1 con la suscripción de Azure. Para una red, es posible acceder a una unidad de HANA (instancias grandes) implementada en un inquilino de una región de Azure desde redes virtuales diferentes que pertenecen a diferentes suscripciones de Azure. Esas suscripciones de Azure deben pertenecer a la misma inscripción de Azure.
+Dentro de la infraestructura multiinquilino del sello de instancias grandes, los clientes se implementan como inquilinos aislados. En la implementación del inquilino, asigne un nombre a una suscripción de Azure dentro de la inscripción de Azure. HANA (instancias grandes) se factura a esta suscripción de Azure. Estos inquilinos mantienen una relación de 1:1 con la suscripción de Azure. 
+
+Para una red, es posible acceder a una instancia grande de HANA implementada en un inquilino de una región de Azure desde redes virtuales diferentes que pertenecen a diferentes suscripciones de Azure. Esas suscripciones de Azure deben pertenecer a la misma inscripción de Azure.
 
 ## <a name="availability-across-regions"></a>Disponibilidad entre regiones
 

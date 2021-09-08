@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/02/2021
-ms.openlocfilehash: d528d75bd26bf17ca0da20447848d315e2dc9057
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/23/2021
+ms.openlocfilehash: 5e568e0e41b4273b94f12006d998a711229335c5
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111406884"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112893517"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Actualización de una base de datos de PostgreSQL mediante volcado y restauración
 
@@ -86,6 +86,9 @@ Puede optar por utilizar uno de los métodos descritos en esta sección para las
 - Si el servidor de PostgreSQL requiere conexiones TLS/SSL (que lo sucede de forma predeterminada en los servidores de Azure Database for PostgreSQL), establezca una variable de entorno `PGSSLMODE=require` para que la herramienta pg_restore se conecte con TLS. Sin TSL, el error podría ser `FATAL:  SSL connection is required. Please specify SSL options and retry.`
 
 - En la línea de comandos de Windows, ejecute el comando `SET PGSSLMODE=require` antes de ejecutar el comando pg_restore. En Linux o Bash, ejecute el comando `export PGSSLMODE=require` antes de ejecutar el comando pg_restore.
+
+>[!Important]
+> Se recomienda probar y validar los comandos en un entorno de prueba antes de usarlos en producción.
 
 ### <a name="method-1-migrate-using-dump-file"></a>Método 1: Migración mediante un archivo de volcado
 
@@ -171,4 +174,6 @@ Puede considerar este método si tiene pocas tablas de mayor tamaño en la base 
 
 - Una vez que esté satisfecho con la función de base de datos de destino, puede quitar el servidor de bases de datos anterior. 
 - En el caso de Azure Database for PostgreSQL: servidor único solo. Si quiere usar el mismo punto de conexión de base de datos que el servidor de origen, puede crear una réplica de lectura con el nombre de servidor de base de datos anterior después de eliminar el servidor de base de datos de origen anterior. Una vez alcanzado el estado de replicación estable, puede detener la réplica, lo que promoverá el servidor de réplicas para que sea un servidor independiente. Consulte [Replicación](./concepts-read-replicas.md) para obtener más detalles.
-- No olvide probar y validar estos comandos en un entorno de prueba antes de usarlos en producción.
+
+>[!Important] 
+> Se recomienda encarecidamente probar la nueva versión actualizada de PostgreSQL antes de usarla directamente para producción. Esto incluye la comparación de los parámetros de servidor entre el origen de la versión de origen anterior y el destino de la versión más reciente. Asegúrese de que son iguales y compruebe los parámetros nuevos que se hayan agregado en la nueva versión. [Aquí](https://www.postgresql.org/docs/release/) encontrará las diferencias entre las distintas versiones.

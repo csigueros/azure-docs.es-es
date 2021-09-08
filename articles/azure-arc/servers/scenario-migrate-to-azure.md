@@ -1,14 +1,14 @@
 ---
 title: Migración de servidores habilitados para Azure Arc a Azure
 description: Obtenga información sobre cómo migrar a Azure servidores habilitados para Azure Arc que se ejecutan en el entorno local u otro entorno en la nube.
-ms.date: 05/06/2021
+ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4c8a5ea1974e251ba147fb7ee09b9ac49c364876
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: 9dd7baa2466f4acd3e4106c3cec5a0d7e7afe05c
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109629499"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390242"
 ---
 # <a name="migrate-your-on-premises-or-other-cloud-arc-enabled-server-to-azure"></a>Migración de un servidor local o en la nube habilitado para Arc a Azure
 

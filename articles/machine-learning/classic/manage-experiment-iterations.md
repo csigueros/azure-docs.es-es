@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (clásico): Visualización y repetición de ejecuciones de experimentos: Azure'
-description: Administre las ejecuciones de experimentos en Azure Machine Learning Studio (clásico). Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores.
+description: Administración de las ejecuciones de experimentos en Machine Learning Studio (clásico). Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,14 +9,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 419a696da1244afab7aa03cd8c4521ea819a5298
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28fc0941c69d9cf874a5f17c4d714f96369a1eed
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100515961"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581293"
 ---
-# <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Administración de las ejecuciones de experimentos en Azure Machine Learning Studio (clásico)
+# <a name="manage-experiment-runs-in-machine-learning-studio-classic"></a>Administración de las ejecuciones de experimentos en Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 

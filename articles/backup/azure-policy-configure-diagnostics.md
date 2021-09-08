@@ -3,12 +3,12 @@ title: Configuración de los valores de diagnóstico del almacén a gran escala
 description: Configuración de diagnóstico de Log Analytics de diagnóstico para todos los almacenes de un ámbito determinado mediante Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34b0cac710833e1d1b29060aa37425d2e57ae828
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92171550"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303783"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuración de los valores de diagnóstico del almacén a gran escala
 
@@ -26,17 +26,15 @@ Para simplificar la creación de la configuración de diagnóstico a gran escala
 
 * Actualmente no se admite el ámbito del grupo de administración.
 
-* La directiva integrada no está disponible actualmente en nubes nacionales.
-
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>Asignación de la directiva integrada a un ámbito
 
 Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
 
-1. Inicie sesión en Azure Portal y vaya al panel **Directiva**.
-2. Seleccione **Definiciones** en el menú de la izquierda para obtener una lista de todas las directivas integradas en los recursos de Azure.
-3. Filtre la lista por **Categoría = Copia de seguridad**. Busque la directiva denominada **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource specific categories** ([Versión preliminar]: Implementación de la configuración de diagnóstico para el almacén de Recovery Services en el área de trabajo de Log Analytics para categorías de recursos específicas).
+1. Inicie sesión en Azure Portal y vaya al panel **Centro de copia de seguridad**.
+2. Seleccione **Directivas de Azure para copia de seguridad** en el menú de la izquierda para obtener una lista de todas las directivas integradas en los recursos de Azure.
+3. Busque la directiva llamada **Implementar la configuración de diagnóstico para el almacén de Recovery Services en el área de trabajo de Log Analytics para categorías de recursos específicas**.
 
     ![Panel de definición de directiva](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

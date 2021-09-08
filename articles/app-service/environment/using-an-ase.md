@@ -7,14 +7,17 @@ ms.topic: article
 ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a7fa9ece3728214fad31f0bae769e1e50206df7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f49bcba81594fa2992c07cad1efb2d6235b0270
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594045"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432939"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment
+> [!NOTE]
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados.
+> 
 
 Un entorno App Service Environment (ASE) es una implementación de Azure App Service en una subred de una instancia de Azure Virtual Network (VNet) de un cliente. Una instancia de ASE se compone de:
 
@@ -88,9 +91,9 @@ En ASE, un plan de App Service se puede escalar hasta en 100 instancias. Un ent
 
 ## <a name="ip-addresses"></a>Direcciones IP
 
-App Service puede asignar una dirección IP dedicada a una aplicación. Esta funcionalidad está disponible después de configurar un SSL basado en dirección IP, tal como se describe en [Enlace de un certificado TLS/SSL personalizado a Azure App Service][ConfigureSSL]. En las instancias de ASE con ILB, no se pueden agregar más direcciones IP para usarlas con un protocolo SSL basado en IP.
+App Service puede asignar una dirección IP dedicada a una aplicación. Esta funcionalidad está disponible después de configurar un enlace TLS/SSL basado en dirección IP, tal como se describe en [Incorporación de un certificado TLS/SSL en Azure App Service][ConfigureSSL]. En las instancias de ASE con ILB, no se pueden agregar más direcciones IP para usarlas en el enlace de TLS/SSL basado en IP.
 
-Con un entorno ASE externo, puede configurar un protocolo SSL basado en IP para la aplicación de la misma manera que en una instancia de App Service con varios inquilinos. En ASE siempre hay una dirección de reserva, hasta un máximo de treinta direcciones IP. Cada vez que usa una, se agrega otra, para que siempre haya una dirección disponible lista para su uso. Se requiere un retraso de tiempo para asignar otra dirección IP. Ese retraso evita la incorporación de direcciones IP en una sucesión rápida.
+Con un entorno ASE externo, puede configurar un enlace TLS/SSL basado en IP para la aplicación de la misma manera que en una instancia de App Service con varios inquilinos. En ASE siempre hay una dirección de reserva, hasta un máximo de treinta direcciones IP. Cada vez que usa una, se agrega otra, para que siempre haya una dirección disponible lista para su uso. Se requiere un retraso de tiempo para asignar otra dirección IP. Ese retraso evita la incorporación de direcciones IP en una sucesión rápida.
 
 ## <a name="front-end-scaling"></a>Escalado de front-end
 
@@ -141,7 +144,7 @@ Para configurar DNS en las zonas privadas de Azure DNS:
 
 La configuración de DNS para el sufijo de dominio predeterminado de ASE no restringe las aplicaciones para que solo puedan acceder a ellas esos nombres. Puede establecer un nombre de dominio personalizado sin ninguna validación en las aplicaciones de un ASE con un ILB. Si desea crear una zona denominada *contoso.net*, puede hacerlo y hacer que apunte a la dirección IP de ILB. El nombre de dominio personalizado funciona para las solicitudes de aplicación, pero no para el sitio SCM. El sitio SCM solo está disponible en *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
-La zona denominada *.&lt;asename&gt;.appserviceenvironment.net* es globalmente única. Antes de mayo de 2019, los clientes podían especificar el sufijo de dominio del ASE con ILB. Si quería usar *.contoso.com* como sufijo de dominio, podía hacerlo y eso incluiría el sitio SCM. Había problemas con ese modelo, entre los que se incluían la administración del certificado SSL predeterminado, la falta de inicio de sesión único con el sitio SCM y la obligatoriedad de usar un certificado comodín. El proceso de actualización de certificados predeterminados del ASE con ILB también se ha interrumpido y ha provocado el reinicio de la aplicación. Para solucionar estos problemas, el comportamiento del ASE con ILB se ha modificado para que use un sufijo de dominio basado en el nombre del ASE y un sufijo propiedad de Microsoft. El cambio en el comportamiento del ASE con ILB solo afecta a aquellos ASE creados después de mayo de 2019. Los ASE con ILB existentes anteriormente deben todavía administrar el certificado predeterminado del ASE y su configuración de DNS.
+La zona denominada *.&lt;asename&gt;.appserviceenvironment.net* es globalmente única. Antes de mayo de 2019, los clientes podían especificar el sufijo de dominio del ASE con ILB. Si quería usar *.contoso.com* como sufijo de dominio, podía hacerlo y eso incluiría el sitio SCM. Había problemas con ese modelo, entre los que se incluían la administración del certificado TLS/SSL predeterminado, la falta de inicio de sesión único con el sitio SCM y la obligatoriedad de usar un certificado comodín. El proceso de actualización de certificados predeterminados del ASE con ILB también se ha interrumpido y ha provocado el reinicio de la aplicación. Para solucionar estos problemas, el comportamiento del ASE con ILB se ha modificado para que use un sufijo de dominio basado en el nombre del ASE y un sufijo propiedad de Microsoft. El cambio en el comportamiento del ASE con ILB solo afecta a aquellos ASE creados después de mayo de 2019. Los ASE con ILB existentes anteriormente deben todavía administrar el certificado predeterminado del ASE y su configuración de DNS.
 
 ## <a name="publishing"></a>Publicación
 

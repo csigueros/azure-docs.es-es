@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: justinha
-ms.openlocfilehash: 285a972936bfdf4b173e2a20223143883cd8b7d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c883e3e5cb82107b22bf06176092ec9cfae46d23
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619562"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112516700"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Red Hat Enterprise Linux a un dominio administrado de Azure Active Directory Domain Services)
 
@@ -35,6 +35,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, el primer tutorial [crea y configura un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una cuenta de usuario que forme parte del dominio administrado.
+* Nombres de máquina virtual Linux únicos con un máximo de 15 caracteres para evitar nombres truncados que podrían causar conflictos en Active Directory.
 
 ## <a name="create-and-connect-to-a-rhel-linux-vm"></a>Creación y conexión a una máquina virtual RHEL Linux
 

@@ -10,12 +10,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 498c7bd16cc314316c67c202f55c7ce3dcac67c7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 67e84ce780f3013917edbce3e66c5a708509c194
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668152"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112518143"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Ejecución de scripts de shell en la máquina virtual Linux con Ejecutar comando
 
@@ -23,7 +23,7 @@ La función Ejecutar comando usa el agente de máquina virtual (VM) para ejecuta
 
 ## <a name="benefits"></a>Ventajas
 
-Puede acceder a las máquinas virtuales de varias maneras. Ejecutar comando puede ejecutar scripts en sus máquinas virtuales de forma remota con el agente de VM. La función Ejecutar comando se usa a través de Azure Portal, la [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o la [CLI de Azure ](/cli/azure/vm/run-command#az_vm_run_command_invoke) para las VM con Linux.
+Puede acceder a las máquinas virtuales de varias maneras. Ejecutar comando puede ejecutar scripts en sus máquinas virtuales de forma remota con el agente de VM. La función Ejecutar comando se usa a través de Azure Portal, la [API REST](/rest/api/compute/virtual-machines-run-commands/run-command) o la [CLI de Azure ](/cli/azure/vm/run-command#az_vm_run_command_invoke) para las VM con Linux.
 
 Esta funcionalidad es útil en todos los escenarios en los que quiera ejecutar un script en una máquina virtual. Es uno de los únicos métodos para solucionar problemas y corregir una máquina virtual que no tiene abierto el puerto RDP o SSH debido a una configuración incorrecta de red o de usuario administrativo.
 
@@ -69,7 +69,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Navegue hasta una máquina virtual en [Azure Portal](https://portal.azure.com) y seleccione **Ejecutar comando** en **OPERACIONES**. Se mostrará una lista de los comandos disponibles para ejecutarse en la máquina virtual.
+Navegue hasta una máquina virtual en [Azure Portal](https://portal.azure.com) y seleccione **Ejecutar comando** en el menú de la izquierda, en **Operaciones**. Se mostrará una lista de los comandos disponibles para ejecutarse en la máquina virtual.
 
 ![Lista de comandos](./media/run-command/run-command-list.png)
 

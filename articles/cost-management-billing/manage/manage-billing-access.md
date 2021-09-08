@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 06/27/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 1574149e0587701323cb9ae5ae0c5cfeaccf47c7
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 2aae9775c884f8ccedc1f3ce70025c5331030133
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096414"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112987858"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Administración del acceso a la información de facturación de Azure
 
@@ -42,7 +42,8 @@ Estos roles tienen acceso a la información de facturación en [Azure Portal](ht
 
 Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-** Si es cliente de EA, un propietario de la cuenta puede asignar el rol anterior a otros usuarios de su equipo. Pero para que estos usuarios puedan ver la información de facturación, el administrador de Enterprise debe permitir la visualización de cargos del PC en Enterprise Portal.
+> [!note]
+> Si es cliente de EA, un propietario de la cuenta puede asignar el rol anterior a otros usuarios de su equipo. Pero para que estos usuarios puedan ver la información de facturación, el administrador de Enterprise debe permitir la visualización de cargos del PC en Enterprise Portal.
 
 
 ### <a name="allow-users-to-download-invoices"></a><a name="opt-in"></a> Permitir que los usuarios descarguen facturas
@@ -57,11 +58,11 @@ Una vez que un administrador de cuenta ha asignado los roles correspondientes a 
 
 1. Seleccione **Suscripciones** en el panel izquierdo. Según el acceso, es posible que deba seleccionar un ámbito de facturación y, a continuación, seleccione **Suscripciones**.
 
-    ![Captura de pantalla que muestra la selección de las suscripciones](./media/manage-billing-access/billing-select-subscriptions.png)
+    ![Captura de pantalla que muestra la selección de las suscripciones.](./media/manage-billing-access/billing-select-subscriptions.png)
 
 1. Seleccione **Facturas** y, después, **Acceso a las facturas**.
 
-    ![Captura de pantalla muestra cómo delegar acceso a las facturas](./media/manage-billing-access/aa-optin01.png)
+    ![Captura de pantalla muestra cómo delegar el acceso a las facturas.](./media/manage-billing-access/aa-optin01.png)
 
 1. Seleccione **On** (Activar) y guarde.
 
@@ -75,39 +76,20 @@ Asigne el rol Lector de facturación a otro usuario que necesite tener acceso de
 
 La característica Lector de facturación está en versión preliminar y aún no admite nubes no globales.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de cuenta.
+- Asigne el rol Lector de facturación a un usuario en el ámbito de la suscripción.  
+     Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-1. Busque en **Administración de costos + facturación**.
-
-    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/manage-billing-access/billing-search-cost-management-billing.png)
-
-1. Seleccione **Suscripciones** en el panel izquierdo. Según el acceso, es posible que deba seleccionar un ámbito de facturación y, a continuación, seleccione **Suscripciones**.
-
-    ![Captura de pantalla que muestra la selección de las suscripciones](./media/manage-billing-access/billing-select-subscriptions.png)
-
-1. Seleccione **Access Control (IAM)** .
-1. Seleccione **Agregar** en la parte superior de la página.
-
-    ![Captura de pantalla que muestra cuando se hace clic en Agregar asignación de roles](./media/manage-billing-access/billing-click-add-role-assignment.png)
-
-1. En la lista desplegable **Rol**, elija **Lector de facturación**.
-1. En el cuadro de texto **Seleccionar**, escriba el nombre o el correo electrónico del usuario que quiere agregar.
-1. Seleccione el usuario.
-1. Seleccione **Guardar**.
-    ![Captura de pantalla que resalta el botón Guardar](./media/manage-billing-access/billing-save-role-assignment.png).
-
-1. Transcurridos unos instantes, al usuario se le asigna el rol Lector de facturación para la suscripción.
-
-** Si es un cliente de EA, un propietario de la cuenta o un administrador de departamento puede asignar el rol Lector de facturación a los miembros del equipo. Pero para que ese Lector de facturación vea la información de facturación correspondiente al departamento o la cuenta, el administrador de Enterprise debe habilitar las directivas **PC: ver los cargos** o **AD: ver los cargos** en Enterprise Portal.
+> [!NOTE]
+> Si es un cliente de EA, un propietario de la cuenta o un administrador de departamento puede asignar el rol Lector de facturación a los miembros del equipo. Pero para que ese Lector de facturación vea la información de facturación correspondiente al departamento o la cuenta, el administrador de Enterprise debe habilitar las directivas **PC: ver los cargos** o **AD: ver los cargos** en Enterprise Portal.
 
 ## <a name="check-the-type-of-your-billing-account"></a>Comprobación del tipo de la cuenta de facturación
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
+
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Los usuarios de otros roles, como Propietario o Colaborador, pueden tener acceso no solo a la información de facturación, sino también a los servicios de Azure. Para administrar estos roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 - Para más información acerca de los roles, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md).
-
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
-
-Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

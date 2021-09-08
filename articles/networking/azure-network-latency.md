@@ -5,14 +5,14 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 06/08/2021
 ms.author: kumud
-ms.openlocfilehash: bc2d7bb7ba17a4a47fecf2144157f79f5367fca7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e86f0e38c71265761e0faddbbf1cc783557cd5df
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98059180"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112297773"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Estadísticas de latencia de ida y vuelta de red de Azure
 
@@ -22,9 +22,9 @@ Azure supervisa continuamente la latencia (velocidad) de las áreas principales 
 
 Las medidas de latencia se recopilan de agentes de ThousandEyes hospedados en regiones en la nube de Azure de todo el mundo, que envían continuamente sondeos de red entre ellos, en intervalos de 1 minuto. Las estadísticas de latencia mensuales se derivan de calcular el promedio de las muestras recopiladas del mes.
 
-## <a name="december-2020-round-trip-latency-figures"></a>Cifras de latencia de recorrido de ida y vuelta de diciembre de 2020
+## <a name="may-2021-round-trip-latency-figures"></a>Cifras de latencia de recorrido de ida y vuelta de mayo de 2021
 
-A continuación se muestra el promedio mensual de los tiempos de ida y vuelta entre las regiones de Azure durante los últimos 30 días (con fin el 31 de diciembre de 2020). Las siguientes medidas cuentan con la tecnología de [ThousandEyes](https://thousandeyes.com).
+Aquí se muestra el promedio mensual de los tiempos de ida y vuelta entre las regiones de Azure durante los últimos 31 días (que terminan el 31 de mayo de 2021). Las siguientes medidas cuentan con la tecnología de [ThousandEyes](https://thousandeyes.com).
 
 [![Estadísticas de latencia interregionales de Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

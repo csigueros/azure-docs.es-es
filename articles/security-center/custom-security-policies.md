@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: ab99d4aec732d2bc6b42576d30b59b0f8c0067c3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 828dd2cc5b83737a313156876c54c290a2a67d73
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772048"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238837"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Creación de directivas e iniciativas de seguridad personalizadas
 
@@ -34,18 +34,18 @@ Como se explicó en la [documentación de Azure Policy](../governance/policy/con
 
 1. Seleccione una suscripción o un grupo de administración al que quiera agregar una iniciativa personalizada.
 
-    [![Seleccione la suscripción para la que se creará la directiva personalizada](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
+    [![Selección de la suscripción para la que se va a crear una directiva personalizada.](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
     > Debe agregar iniciativas personalizadas en el nivel de suscripción (o superior) para que se evalúen y se muestren en Security Center. Se recomienda seleccionar el ámbito más amplio disponible.
 
 1. En la página Directiva de seguridad, en Sus iniciativas personalizadas, haga clic en **Agregar una iniciativa personalizada**.
 
-    [![Haga clic en Agregar una iniciativa personalizada](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![Haga clic en Agregar una iniciativa personalizada.](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
-    Aparece la siguiente página:
+    Aparecerá la página siguiente:
 
-    ![Crear o agregar una directiva](media/custom-security-policies/create-or-add-custom-policy.png)
+    ![Crear o agregar una directiva.](media/custom-security-policies/create-or-add-custom-policy.png)
 
 1. En la página para agregar iniciativas personalizadas, revise la lista de directivas personalizadas ya creadas en la organización. Si ve una que quiera asignar a la suscripción, haga clic en **Agregar**. Si no hay una iniciativa en la lista que satisfaga sus necesidades, omita este paso.
 
@@ -70,7 +70,7 @@ Como se explicó en la [documentación de Azure Policy](../governance/policy/con
 
 1. Para ver las recomendaciones resultantes de la directiva, haga clic en **Recomendaciones** de la barra lateral para abrir la página recomendaciones. Las recomendaciones aparecerán con una etiqueta "Personalizada" y estarán disponibles en aproximadamente una hora.
 
-    [![Recomendaciones personalizadas](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+    [![Recomendaciones personalizadas.](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
 ::: zone-end
 

@@ -8,12 +8,12 @@ author: ejarvi
 ms.author: ejarvi
 ms.date: 03/19/2020
 ms.collection: linux
-ms.openlocfilehash: 7b383c4fdc0d1b5a04c100a574b814938ed83f2b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2b589f24c5338dde503d21a71fcbb9863f8da5b4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087785"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734581"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -136,6 +136,8 @@ Usar `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valores de propiedad
 
+Nota: Todos los valores de las propiedades distinguen mayúsculas de minúsculas.
+
 | Nombre | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
@@ -158,7 +160,7 @@ Usar `AADClientCertificate`:
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Para obtener un ejemplo de una implementación de plantilla basada en un esquema de la versión 1.1, vea la plantilla de inicio rápido de Azure [201-encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
+Para obtener un ejemplo de una implementación de plantilla basada en un esquema de la versión 1.1, vea la plantilla de inicio rápido de Azure [encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad).
 
 Para ver un ejemplo de una implementación de plantilla basada en un esquema de la versión 0.1, consulte la plantilla de inicio rápido de Azure [encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm).
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: feb6462fef89a73a8e7a1d0df6808f0c58817b35
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a959a7b424a855f47a2e128b5c77727d21a9e0aa
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982167"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449783"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps"></a>Configuración del desarrollo local para Azure Static Web Apps
 
-Cuando se publica en la nube, un sitio de Azure Static Web Apps tiene muchos servicios que funcionan juntos como si fueran la misma aplicación. Estos servicios incluyen:
+Cuando se publica en la nube, un sitio de Azure Static Web Apps reúne muchos servicios que funcionan juntos como si fueran la misma aplicación. Estos servicios incluyen:
 
 - La aplicación web estática
 - API de Azure Functions
@@ -63,6 +63,9 @@ En el gráfico siguiente se muestra cómo se administran las solicitudes localme
 - **Sitio existente de Azure Static Web Apps**: si no tiene una, empiece por la aplicación de inicio [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate).
 - **[Node.js](https://nodejs.org) con npm**: ejecute la versión [LTS de Node.js](https://nodejs.org), que incluye acceso a [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)** : se usa para depurar la aplicación de API, pero no es necesario para la CLI.
+
+> [!NOTE]
+> Para ejecutar `swa` con una [API de forma local](add-api.md#run-the-frontend-and-api-locally), se requiere Azure Functions Core Tools.
 
 ## <a name="get-started"></a>Introducción
 

@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 56ee24985da57c6da76638b659e5a07e68d0f516
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2e808ee2d36237a830877e7f043656ce9189bd89
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788953"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461285"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-control-devices"></a>Empleo de la API de REST de IoT Central para controlar dispositivos
 
@@ -33,9 +33,9 @@ Para obtener documentación de referencia sobre la API de REST de IoT Central, v
 
 ## <a name="components-and-modules"></a>Componentes y módulos
 
-Los componentes permiten agrupar y reutilizar capacidades de un dispositivo. Para obtener más información sobre los componentes y los modelos de dispositivo, vea [Guía de modelado de IoT Plug and Play](../../iot-pnp/concepts-modeling-guide.md).
+Los componentes permiten agrupar y reutilizar capacidades de un dispositivo. Para obtener más información sobre los componentes y los modelos de dispositivo, vea [Guía de modelado de IoT Plug and Play](../../iot-develop/concepts-modeling-guide.md).
 
-No todas las plantillas de dispositivo usan componentes. En la captura de pantalla siguiente se muestra la plantilla de dispositivo de un [termostato](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) simple donde todas las capacidades se definen en una sola interfaz denominada **Componente predeterminado**:
+No todas las plantillas de dispositivo usan componentes. En la captura de pantalla siguiente se muestra la plantilla de dispositivo de un [termostato](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) simple donde todas las capacidades se definen en una sola interfaz denominada **Componente raíz**:
 
 :::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="Captura de pantalla que muestra un dispositivo de termostato simple sin componentes.":::
 
@@ -485,4 +485,4 @@ GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a controlar dispositivos con la API de REST, un próximo paso sugerido es la [Administración de aplicaciones de IoT Central con la API de REST](/learn/modules/manage-iot-central-apps-with-rest-api/).
+Ahora que ha aprendido a controlar los dispositivos con la API REST, el siguiente paso que se sugiere es [Uso de la API REST de IoT Central para crear y administrar trabajos](howto-manage-jobs-with-rest-api.md).

@@ -7,20 +7,18 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b2552b9ee4ba37ad6062229958557d81e871fbe5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904761"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733410"
 ---
 # <a name="azure-maps-mobility-services-preview-coverage"></a>Cobertura de los servicios de Mobility de Azure Maps (versión preliminar)
 
 > [!IMPORTANT]
-> Los servicios de Mobility de Azure Maps se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+> La versión preliminar del servicio Mobility de Azure Maps se ha retirado y ya no estará disponible ni será compatible después del 5 de octubre de 2021. Todas las demás API y servicios de Azure Maps no se ven afectados por este anuncio de retirada.
+> Para más información, consulte [Retirada de la versión preliminar del servicio Mobility de Azure Maps](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/).
 
 Los [servicios de Mobility](/rest/api/maps/mobility) de Azure Maps mejoran el tiempo de desarrollo de las aplicaciones con características de transporte público, como el cálculo de rutas de transporte y la búsqueda de paradas cercanas. Los usuarios pueden recuperar información detallada sobre las paradas del transporte, las líneas y los horarios. Los servicios de Mobility también permiten a los usuarios recuperar las geometrías de paradas y líneas, las alertas de paradas, líneas y áreas de servicio, así como las llegadas de transporte público en tiempo real y las alertas del servicio. Además, los servicios de Mobility proporcionan funcionalidades de cálculo de ruta con opciones de planeamiento de trayectos mixtos. El planeamiento de trayectos mixtos incluye caminar, bicicleta y transporte público en el mismo viaje. Los usuarios pueden acceder a itinerarios paso a paso detallados y mixtos.
 

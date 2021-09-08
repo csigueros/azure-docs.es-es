@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 58c0d35178c2683bd2626ad0b9d9209c2819e463
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f9be1425ae614c266f17a95668faf7fb9d21d2f1
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789486"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492836"
 ---
 # <a name="azure-digital-twins-query-language-reference-where-clause"></a>Referencia del lenguaje de consulta de Azure Digital Twins: cláusula WHERE
 
@@ -44,10 +44,10 @@ Condición que se evalúa como un valor `Boolean`.
 
 ### <a name="examples"></a>Ejemplos
 
-Este es un ejemplo que usa propiedades y operadores. La siguiente consulta especifica en la cláusula WHERE que solo se debe devolver el gemelo cuyo valor de `$dtId` sea Room1.
+Este es un ejemplo del uso de propiedades y operadores. La siguiente consulta especifica en la cláusula WHERE que solo se debe devolver el gemelo cuyo valor de `$dtId` sea Room1.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereExample":::
 
-Este es un ejemplo que usa una función. La consulta siguiente usa la función `IS_OF_MODEL` para especificar en la cláusula WHERE que solo se deben devolver los gemelos con un modelo de `dtmi:sample:Room;1`. Para obtener más información sobre la función `IS_OF_MODEL`, consulte la [Referencia del lenguaje de consulta de Azure Digital Twins: Funciones](reference-query-functions.md#is_of_model).
+Este es un ejemplo del uso de una función. La consulta siguiente usa la función `IS_OF_MODEL` para especificar en la cláusula WHERE que solo se deben devolver los gemelos con un modelo de `dtmi:sample:Room;1`. Para obtener más información sobre la función `IS_OF_MODEL`, consulte la [Referencia del lenguaje de consulta de Azure Digital Twins: Funciones](reference-query-functions.md#is_of_model).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereFunctionExample":::

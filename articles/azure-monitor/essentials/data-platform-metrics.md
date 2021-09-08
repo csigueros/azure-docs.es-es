@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2021
 ms.author: bwren
-ms.openlocfilehash: 5c8256e453763d9cd2fdc18687df3064552dcf2b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 00014d4a7f2829ec6836473d03ae0b25f388a903
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289541"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286473"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Información general sobre las métricas en Microsoft Azure
 Las métricas en Azure Monitor son una característica de Azure Monitor que recopila datos numéricos de [recursos supervisados](../monitor-reference.md) en una base de datos de serie temporal. Las métricas son valores numéricos que se recopilan a intervalos regulares y describen algún aspecto de un sistema en un momento determinado. Las métricas en Azure Monitor son ligeras y capaces de admitir escenarios casi en tiempo real, lo que hace que sean especialmente útiles para las alertas y una detección rápida de problemas. Puede analizarlas de forma interactiva con el explorador de métricas, recibir una notificación de forma proactiva con una alerta cuando un valor cruza un umbral o visualizarlas en un libro o panel.
@@ -133,6 +133,9 @@ En la mayoría de los recursos de Azure, las métricas de plataforma se almacena
 > [!NOTE]
 > También puede [enviar métricas de plataforma para recursos de Azure Monitor a un área de trabajo de Log Analytics](./resource-logs.md#send-to-azure-storage) para tendencias a largo plazo.
 
+
+> [!NOTE]
+> Como se ha mencionado anteriormente, en la mayoría de los recursos de Azure, las métricas de plataforma se almacenan durante 93 días. Sin embargo, solo puede consultar datos (en el icono de Métricas) durante no más de 30 días en un único gráfico. Esta limitación no se aplica a las métricas basadas en registros. Si ve un gráfico en blanco o el gráfico solo muestra parte de los datos de métricas, compruebe que la diferencia entre las fechas de inicio y final en el selector de tiempo no supere el intervalo de 30 días. Una vez que haya seleccionado un intervalo de 30 días, puede [desplazarse de forma lateral](./metrics-charts.md#pan) por el gráfico para ver el período de retención completo.
 
 
 

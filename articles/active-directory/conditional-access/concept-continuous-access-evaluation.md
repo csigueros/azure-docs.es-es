@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c615c3b57d0c4ebfdbffdc1461f2289d4b8c4256
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 6b1aac64400c3c75aa48ac62e2edcc1656400e3f
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438277"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112893283"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -57,7 +57,7 @@ Este proceso habilita el escenario en el que los usuarios pierden el acceso a lo
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Evaluación de directivas de acceso condicional (versión preliminar)
 
-Exchange y SharePoint pueden sincronizar las directivas de acceso condicional principales para que se puedan evaluar dentro del propio servicio.
+Exchange Online, SharePoint Online, Teams y MS Graph pueden sincronizar las directivas de acceso condicional principales para que se puedan evaluar dentro del propio servicio.
 
 Este proceso habilita el escenario en el que los usuarios pierden el acceso a los archivos, el correo electrónico, el calendario o las tareas de la organización desde las aplicaciones cliente de Microsoft 365 o SharePoint Online inmediatamente después de un cambio de ubicación de red.
 
@@ -77,6 +77,12 @@ Este proceso habilita el escenario en el que los usuarios pierden el acceso a lo
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **SharePoint Online** | Compatible | Compatible | Compatible | Compatible | Compatible |
+
+| | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Servicio Teams** | Compatible | Compatible | Compatible | Compatible | Compatible |
+| **SharePoint Online** | Compatible | Compatible | Compatible | Compatible | Compatible |
+| **Exchange Online** | Compatible | Compatible | Compatible | Compatible | Compatible |
 
 ### <a name="client-side-claim-challenge"></a>Desafío de notificaciones del lado cliente
 

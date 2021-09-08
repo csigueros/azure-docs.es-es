@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/04/2021
 ms.author: phjensen
-ms.openlocfilehash: 857bcba07b281f58d7c7c044a56763b61b5d4456
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 6650554c92f42a8b5c25a26be5f4ea41947105e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810073"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733402"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool"></a>Sugerencias y trucos de uso de la herramienta Azure Application Consistent Snapshot
 
@@ -139,7 +139,7 @@ Se deben supervisar las siguientes condiciones para garantizar un sistema correc
 
 ## <a name="delete-a-snapshot"></a>Eliminación de una instantánea
 
-Para eliminar una instantánea, ejecute el comando `azacsnap -c delete`. No es posible eliminar instantáneas del nivel de sistema operativo. Debe usar el comando correcto (`azacsnap -c delete`) para eliminar las instantáneas de almacenamiento.
+Para eliminar una instantánea, use el comando `azacsnap -c delete`. No es posible eliminar instantáneas del nivel de sistema operativo. Debe usar el comando correcto (`azacsnap -c delete`) para eliminar las instantáneas de almacenamiento.
 
 > [!IMPORTANT]
 > Tenga cuidado al eliminar una instantánea. Una vez eliminadas, es **IMPOSIBLE** recuperar las instantáneas eliminadas.
@@ -162,30 +162,56 @@ Si decide realizar la conmutación por error de recuperación ante desastres, el
 > [!IMPORTANT]
 > Esta operación solo se aplica a Azure (instancias grandes).
 
-En algunos casos, los clientes ya tienen herramientas para proteger SAP HANA y solo quieren configurar instantáneas de volumen de "arranque".  En este caso, se simplifica la tarea y se deben realizar los siguientes pasos.
+En algunos casos, los clientes ya tienen herramientas para proteger SAP HANA y solo quieren configurar instantáneas de volumen de "arranque".  Si es así, solo es necesario completar los pasos siguientes.
 
 1. Complete los pasos del 1 al 4 de los requisitos previos para la instalación.
 1. Habilite la comunicación con el almacenamiento.
-1. Descargue la ejecución del instalador para instalar las herramientas de instantáneas.
+1. Descargue y ejecute el instalador para instalar las herramientas de instantánea.
 1. Complete la configuración de las herramientas de instantáneas.
-1. Cree otro archivo de configuración tal y como se indica a continuación. Los detalles del volumen de arranque deben estar en la estrofa OtherVolume (entradas de usuario en <span style="color:red">rojo</span>):
+1. Obtenga la lista de volúmenes que se van a agregar al archivo de configuración azacsnap; en este ejemplo, el nombre de usuario de Storage es `cl25h50backup` y la dirección IP de Storage es `10.1.1.10`. 
+    ```bash
+    ssh cl25h50backup@10.1.1.10 "volume show -volume *boot*"
+    ```
     ```output
-    > <span style="color:red">azacsnap -c configure --configuration new --configfile BootVolume.json</span>
+    Last login time: 7/20/2021 23:54:03
+    Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+    --------- ------------ ------------ ---------- ---- ---------- ---------- -----
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v51_vol aggr_n01_ssd online RW 150GB 57.24GB  61%
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v52_vol aggr_n01_ssd online RW 150GB 81.06GB  45%
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v53_vol aggr_n01_ssd online RW 150GB 79.56GB  46%
+    3 entries were displayed.
+    ```
+    > [!NOTE] 
+    > En este ejemplo, este host forma parte de un sistema de 3 nodos de escalabilidad horizontal y los tres volúmenes de arranque se pueden ver desde este host.  Esto significa que los tres volúmenes de arranque pueden ser instantáneas de este host y que los tres deben agregarse al archivo de configuración en el paso siguiente.
+
+1. Cree otro archivo de configuración tal y como se indica a continuación. Los detalles del volumen de arranque deben estar en la estrofa OtherVolume:
+    ```bash
+    azacsnap -c configure --configuration new --configfile BootVolume.json
+    ```
+    ```output
     Building new config file
-    Add comment to config file (blank entry to exit adding comments):<span style="color:red">Boot only config file.</span>
+    Add comment to config file (blank entry to exit adding comments): Boot only config file.
     Add comment to config file (blank entry to exit adding comments):
-    Add database to config? (y/n) [n]: <span style="color:red">y</span>
-    HANA SID (for example, H80): <span style="color:red">X</span>
-    HANA Instance Number (for example, 00): <span style="color:red">X</span>
-    HANA HDB User Store Key (for example, `hdbuserstore List`): <span style="color:red">X</span>
-    HANA Server's Address (hostname or IP address): <span style="color:red">X</span>
+    Add database to config? (y/n) [n]: y
+    HANA SID (for example, H80): X
+    HANA Instance Number (for example, 00): X
+    HANA HDB User Store Key (for example, `hdbuserstore List`): X
+    HANA Server's Address (hostname or IP address): X
     Add ANF Storage to database section? (y/n) [n]:
-    Add HLI Storage to database section? (y/n) [n]: <span style="color:red">y</span>
+    Add HLI Storage to database section? (y/n) [n]: y
     Add DATA Volume to HLI Storage section of Database section? (y/n) [n]:
-    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: <span style="color:red">y</span>
-    Storage User Name (for example, clbackup25): <span style="color:red">shoasnap</span>
-    Storage IP Address (for example, 192.168.1.30): <span style="color:red">10.1.1.10</span>
-    Storage Volume Name (for example, hana_data_soldub41_t250_vol): <span style="color:red">t210_sles_boot_azsollabbl20a31_vol</span>
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v51_vol
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v52_vol
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v53_vol
     Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]:
     Add HLI Storage to database section? (y/n) [n]:
     Add database to config? (y/n) [n]:
@@ -221,9 +247,19 @@ En algunos casos, los clientes ya tienen herramientas para proteger SAP HANA y s
                 "dataVolume": [],
                 "otherVolume": [
                   {
-                    "backupName": "shoasnap",
+                    "backupName": "cl25h50backup",
                     "ipAddress": "10.1.1.10",
-                    "volume&quot;: &quot;t210_sles_boot_azsollabbl20a31_vol"
+                    "volume&quot;: &quot;t250_sles_boot_sollabams07v51_vol"
+                  },
+                  {
+                    "backupName": "cl25h50backup",
+                    "ipAddress": "10.1.1.10",
+                    "volume&quot;: &quot;t250_sles_boot_sollabams07v52_vol"
+                  },
+                  {
+                    "backupName": "cl25h50backup",
+                    "ipAddress": "10.1.1.10",
+                    "volume&quot;: &quot;t250_sles_boot_sollabams07v53_vol"
                   }
                 ]
               }
@@ -251,11 +287,15 @@ En algunos casos, los clientes ya tienen herramientas para proteger SAP HANA y s
     ```output
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
-    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
-    , t210_sles_boot_azsollabbl20a31_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v51_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v51_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v52_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v52_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v53_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v53_vol, , , Size used by Snapshots, 1.31GB
     ```
 
-1. Configure la copia de seguridad automática de instantáneas.
+1. *Opcional* Configure la copia de seguridad automática de instantáneas con `crontab` o un programador adecuado capaz de ejecutar los comandos de copia de seguridad de `azacsnap`.
 
 > [!NOTE]
 > No es necesario configurar la comunicación con SAP HANA.

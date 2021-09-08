@@ -14,12 +14,12 @@ ms.date: 09/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29cc31121a4888c23ccbec1c549f2313d0c9e165
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92096358"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439328"
 ---
 # <a name="custom-installation-of-azure-active-directory-connect"></a>Instalación personalizada de Azure Active Directory Connect
 Se utiliza *Configuración personalizada* de Azure Active Directory (Azure AD) Connect cuando se desea contar con más opciones para la instalación. Utilice esta configuración, por ejemplo, si tiene varios bosques o si desea configurar características opcionales. Utilice esta configuración personalizada en todos aquellos casos en que la opción [Instalación rápida](how-to-connect-install-express.md) no satisfaga sus necesidades de implementación o topología.
@@ -42,7 +42,7 @@ En la página **Configuración rápida**, seleccione **Personalizar** para inici
 - [Sincronizar](#sync-pages)
 
 ### <a name="install-required-components"></a>Instalación de los componentes necesarios
-Al instalar los servicios de sincronización, puede dejar sin seleccionar la sección de configuración opcional. Azure AD Connect lo configura todo automáticamente. Configura una instancia de SQL Server 2012 Express LocalDB, crea los grupos apropiados y asigna permisos. Si desea cambiar los valores predeterminados, desactive las casillas correspondientes.  En la tabla siguiente se resumen estas opciones y se proporcionan vínculos a información adicional. 
+Al instalar los servicios de sincronización, puede dejar sin seleccionar la sección de configuración opcional. Azure AD Connect lo configura todo automáticamente. Configura una instancia de SQL Server 2019 Express LocalDB, crea los grupos apropiados y asigna permisos. Si desea cambiar los valores predeterminados, desactive las casillas correspondientes.  En la tabla siguiente se resumen estas opciones y se proporcionan vínculos a información adicional. 
 
 ![Captura de pantalla que muestra selecciones opcionales para los componentes de instalación necesarios en Azure AD Connect.](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
@@ -116,7 +116,7 @@ Los usuarios utilizan el atributo *userPrincipalName* al iniciar sesión en Azur
 
 Si el atributo userPrincipalName no es enrutable y no se puede comprobar, puede seleccionar otro atributo. Por ejemplo, puede seleccionar email como el atributo que contiene el id. de inicio de sesión. Cuando se usa un atributo distinto de userPrincipalName, se conoce como *identificador alternativo*. 
 
-El valor del atributo de identificador alternativo debe seguir el estándar RFC 822. Se puede utilizar un identificador alternativo con la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. En Active Directory, el atributo no se puede definir como de valores múltiples, aunque solo tenga un valor. Para obtener más información sobre el identificador alternativo, consulte [Autenticación de paso a través: Frequently asked questions](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes).
+El valor del atributo de identificador alternativo debe seguir el estándar RFC 822. Se puede utilizar un identificador alternativo con la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. En Active Directory, el atributo no se puede definir como de valores múltiples, aunque solo tenga un valor. Para obtener más información sobre el identificador alternativo, consulte [Autenticación de paso a través: Frequently asked questions](./how-to-connect-pta-faq.yml#does-pass-through-authentication-support--alternate-id--as-the-username--instead-of--userprincipalname--) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes).
 
 >[!NOTE]
 > Al habilitar la autenticación de paso a través, debe tener al menos un dominio verificado para continuar con el proceso de instalación personalizada.

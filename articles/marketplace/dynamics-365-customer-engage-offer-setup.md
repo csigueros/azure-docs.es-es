@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 060d24a331a7f15c4ee687c919fe8c2b7cdf2ca6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ea640bc4f5b191c3b01ed2a00ecb1d247f1a602d
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971459"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112240273"
 ---
 # <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement and Power Apps
 
@@ -61,7 +61,7 @@ En **¿Cómo quiere que los clientes potenciales interactúen con esta oferta?**
 - **Habilitar la administración de licencias de aplicaciones a través de Microsoft**: administre las licencias de aplicación por medio de Microsoft. Para permitir que los clientes ejecuten la funcionalidad base de la aplicación sin una licencia y usen características prémium después de haber adquirido una licencia, active la casilla **Permitir que los clientes instalen mi aplicación incluso si no se han asignado licencias**. Si activa esta segunda casilla, debe configurar el paquete de la solución para que no exija una licencia.
 
     > [!NOTE]
-    > No puede cambiar este valor después de publicar la oferta. Para obtener más información sobre este valor, vea [Administración de licencias de aplicaciones de terceros por medio de Microsoft](third-party-license.md).
+    > No puede cambiar este valor después de publicar la oferta. Para obtener más información sobre este valor, consulte [Administración de licencias de aplicaciones de ISV](isv-app-license.md).
 
 - **Obtener ahora (gratis)** : la oferta se muestra a los clientes de forma gratuita.
 - **Free trial (listing)** (Evaluación gratuita [descripción]): la oferta se muestra a los clientes con un vínculo a una evaluación gratuita. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.

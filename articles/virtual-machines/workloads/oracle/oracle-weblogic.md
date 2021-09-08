@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: rezar
-ms.openlocfilehash: 59bae8bfea29ee458288751209ffc860b5b9ce9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b84cb11211c3a51bd463ad7081963298f8ec357e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956010"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450832"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>¿Cuáles son las soluciones para ejecutar Oracle WebLogic Server en máquinas virtuales de Azure?
 
@@ -31,7 +31,7 @@ Hay cuatro ofertas disponibles para satisfacer distintos escenarios: [un solo no
 
 _Estas ofertas son de tipo "traiga su propia licencia"_ . Se supone que ya adquirió las licencias adecuadas con Oracle y que tiene licencias adecuadas para ejecutar ofertas en Azure.
 
-Las ofertas admiten una variedad de versiones de sistema operativo, Java y WLS a través de imágenes base (como WebLogic Server 14 y JDK 11 en Oracle Linux 7.6). Estas imágenes base también están disponibles en Azure por su cuenta. Las imágenes base resultan adecuadas para los clientes que requieren implementaciones de Azure complejas y personalizadas. El conjunto actual de imágenes base está disponible [aquí](https://azuremarketplace.microsoft.com/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
+Las ofertas admiten una variedad de versiones de sistema operativo, Java y WLS a través de imágenes base (como WebLogic Server 14 y JDK 11 en Oracle Linux 7.6). Estas imágenes base también están disponibles en Azure por su cuenta. Las imágenes base resultan adecuadas para los clientes que requieren implementaciones de Azure complejas y personalizadas. El conjunto actual de imágenes base está disponible en el \[Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
 _Si está interesado en trabajar estrechamente en los escenarios de migración con el equipo de ingeniería que desarrolla estas ofertas, seleccione el botón [PONERSE EN CONTACTO CONMIGO](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)_ en la [página de información general de la oferta de Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Los administradores de programas, los arquitectos y los ingenieros se pondrán en contacto con usted en breve para iniciar una colaboración estrecha. La oportunidad de colaborar en un escenario de migración es gratuita mientras las ofertas se encuentren en desarrollo activo.
 

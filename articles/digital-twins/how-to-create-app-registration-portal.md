@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 17f671a945c569d5492f84967a81931606d4cea1
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 55f8c0008a055f5703ffe563fe7925446246f134
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110989553"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114466173"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-portal"></a>Creación de un registro de aplicaciones para usar con Azure Digital Twins (portal)
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
-Al trabajar con una instancia de Azure Digital Twins, es habitual interactuar con ella mediante aplicaciones cliente, como una aplicación cliente personalizada que se compila en el artículo [Tutorial: Programación con las API de Azure Digital Twins](tutorial-code.md). Dichas aplicaciones deben autenticarse con Azure Digital Twins para interactuar con él, y algunos de los [mecanismos de autenticación](how-to-authenticate-client.md) que las aplicaciones pueden usar conllevan un **registro de aplicaciones** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
+Al trabajar con una instancia de Azure Digital Twins, es habitual interactuar con ella mediante aplicaciones cliente, como una aplicación cliente personalizada que se crea en el artículo [Tutorial: Programación con las API de Azure Digital Twins](tutorial-code.md). Dichas aplicaciones deben autenticarse con Azure Digital Twins para interactuar con él, y algunos de los [mecanismos de autenticación](how-to-authenticate-client.md) que las aplicaciones pueden usar conllevan un **registro de aplicaciones** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
 
 Esto no es necesario en todos los escenarios de autenticación. Sin embargo, si va a usar una estrategia de autenticación o un ejemplo de código que requiera un registro de aplicaciones, en este artículo se muestra cómo configurar uno mediante [Azure Portal](https://portal.azure.com). También se explica cómo [recopilar valores importantes](#collect-important-values) necesarios para usar el registro de aplicaciones para realizar la autenticación.
 
@@ -35,7 +35,7 @@ Este registro de la aplicación es donde se configuran los permisos de acceso a 
 
 Empiece por ir a [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) en Azure Portal (puede usar este vínculo o buscar en la barra de búsqueda del portal). Seleccione *Registros de aplicaciones* en el menú del servicio y, luego, *+ Nuevo registro*.
 
-:::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Captura de pantalla de página del servicio de Azure AD en Azure Portal, en la que se muestran los pasos necesarios para crear un registro en la página &quot;Registros de aplicaciones&quot;.":::
+:::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Captura de pantalla de la página del servicio de Azure AD en Azure Portal, en la que se muestran los pasos necesarios para crear un registro en la página &quot;Registros de aplicaciones&quot;.":::
 
 En la página *Registrar una aplicación* que sigue, rellene los valores solicitados:
 * **Name**: nombre para mostrar de una aplicación de Azure AD para asociar al registro.
@@ -139,7 +139,7 @@ Estas son algunas posibles actividades comunes que un propietario o administrado
     :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Captura de pantalla de Azure Portal que muestra el botón &quot;Conceder consentimiento del administrador&quot; en Permisos de API.":::
   - Si el consentimiento se concedió correctamente, la entrada de Azure Digital Twins debería mostrar un valor *Estado* de _Concedido para **(su empresa)**_
    
-    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Captura de pantalla de Azure Portal que muestra el consentimiento del administrador concedida en Permisos de API.":::
+    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Captura de pantalla de Azure Portal que muestra el consentimiento del administrador concedido en Permisos de API.":::
 * Activar el acceso de cliente público
 * Establecer direcciones URL de respuesta específicas para el acceso web y de escritorio
 * Permitir flujos de autenticación de OAuth2 implícitos
@@ -151,4 +151,4 @@ Para más información sobre el registro de aplicaciones y sus distintas opcione
 En este artículo, ha configurado un registro de aplicaciones de Azure AD que se puede usar para autenticar las aplicaciones cliente con las API de Azure Digital Twins.
 
 A continuación, lea sobre los mecanismos de autenticación, tanto los que usan registros de aplicaciones como los que no:
-* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)
+* [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

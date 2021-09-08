@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/21/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f344496bab8f2864c8ccbdff4f98b57e1d6f432
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: fe8f41c2ecf92034f81f2332aabee5a55df66a92
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613264"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439260"
 ---
 # <a name="harden-an-azure-active-directory-domain-services-managed-domain"></a>Reforzar un dominio administrado por Azure Active Directory Domain Services
 
@@ -50,6 +50,7 @@ Para completar este artículo, necesita los siguientes recursos:
 1. Haga clic en **Habilitar** o **Deshabilitar** en las siguientes opciones:
    - **Modo de solo TLS 1.2**
    - **Autenticación NTLM**
+   - **Sincronización de contraseñas desde el entorno local**
    - **Sincronización de contraseñas de NTLM desde el entorno local**
    - **Cifrado RC4**
    - **Protección de Kerberos**
@@ -64,6 +65,10 @@ Además de la **configuración de seguridad**, Microsoft Azure Policy tiene una 
 - Si la asignación es **Denegar**, el cumplimiento impedirá que se cree una instancia de Azure AD DS si no se requiere TLS 1.2 e impedirá las actualizaciones a dicha instancia hasta que se exija este protocolo.
 
 ![Captura de pantalla de la configuración de cumplimiento](media/secure-your-domain/policy-tls.png)
+
+## <a name="audit-ntlm-failures"></a>Auditoría de errores de NTLM
+
+Aunque deshabilitar la sincronización de contraseñas de NTLM mejorará la seguridad, muchas aplicaciones y servicios no están diseñados para funcionar sin ella. Por ejemplo, al conectarse a cualquier recurso mediante su dirección IP, como para la administración del servidor DNS o RDP, se producirá un error de acceso denegado. Si deshabilita la sincronización de contraseñas de NTLM y la aplicación o el servicio no funcionan según lo esperado, puede comprobar los errores de autenticación de NTLM; para ello, habilite la auditoría de seguridad para la categoría de eventos **Inicio y cierre de sesión** > **Auditar inicio de sesión**, en la que se especifica NTLM como el **Paquete de autenticación** en los detalles del evento. Para más información, consulte [Habilitación de auditorías de seguridad para Azure Active Directory Domain Services](security-audit-events.md).
 
 ## <a name="use-powershell-to-harden-your-domain"></a>Uso de PowerShell para reforzar el dominio
 

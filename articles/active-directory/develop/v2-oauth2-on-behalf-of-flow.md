@@ -9,26 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/7/2020
+ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74cbbf13b3ecb0b784138df69a8436930c2766ef
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ae74589dbbde2402d3acd916f2c5c1f58a7a5c7c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130906"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464137"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft
 
-
 El flujo con derechos delegados (OBO) de OAuth 2.0 se usa en los casos en que una aplicación invoca un servicio o una API web que a su vez debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de la plataforma de identidad de Microsoft en nombre del usuario.
 
-En este artículo se describe cómo programar directamente con el protocolo de la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
+En este momento, el flujo OBO solo funciona para las entidades de seguridad de usuario. Una entidad de servicio no puede solicitar un token de solo aplicación, enviarlo a una API y hacer que esa API lo intercambie por otro token que represente a esa entidad de servicio original. Además, el flujo OBO se centra en actuar en nombre de otra parte, lo que se conoce como escenario delegado, lo que significa que solo usa *ámbitos* delegados y no *roles* de aplicación para razonar sobre los permisos. Los *roles* permanecen asociados a la entidad de seguridad (el usuario) en el flujo, nunca a la aplicación que opera en nombre de los usuarios.
 
+En este artículo se describe cómo programar directamente con el protocolo de la aplicación. Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
 
 A partir de mayo de 2018, algún token `id_token` derivado del flujo implícito no se puede usar para el flujo OBO. Las aplicaciones de una sola página (SPA) deben pasar un token de **acceso** a un cliente confidencial de nivel intermedio para ejecutar flujos de OBO en su lugar. Para más información sobre los clientes que pueden realizar llamadas OBO, vea [Limitaciones](#client-limitations).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -81,8 +83,8 @@ Host: login.microsoftonline.com/<tenant>
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
-&client_id=2846f71b-a7a4-4987-bab3-760035b2f389
-&client_secret=BYyVnAt56JpLwUcyo47XODd
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&client_secret=sampleCredentia1s
 &assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiIyO{a lot of characters here}
 &scope=https://graph.microsoft.com/user.read+offline_access
 &requested_token_use=on_behalf_of
@@ -153,7 +155,7 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 
 El token de acceso anterior es un token con formato v1.0 para Microsoft Graph. Esto se debe a que el formato del token se basa en el **recurso** al que se accede y no está relacionado con los puntos de conexión usados para solicitarlo. Microsoft Graph se configura para aceptar tokens v1.0, por lo que la Plataforma de identidad de Microsoft genera tokens de acceso v1.0 cuando un cliente solicita tokens para Microsoft Graph. Otras aplicaciones pueden indicar que quieren tokens con formato v2.0, tokens con formato v1.0 o incluso formatos de tokens de propiedad o cifrados.  Los puntos de conexión v1.0 y v2.0 pueden emitir cualquier formato de token: de este modo, el recurso siempre puede obtener el formato correcto del token, independientemente de cómo o dónde el cliente solicitó el token. 
 
-Solo las aplicaciones deben revisar los tokens de acceso. Los clientes **no deben** inspeccionarlos. Al inspeccionar los tokens de acceso de otras aplicaciones en el código, la aplicación se interrumpirá inesperadamente cuando la aplicación cambie el formato de sus tokens o empiece a cifrarlos. 
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response-example"></a>Ejemplo de respuesta de error
 
@@ -162,7 +164,7 @@ El punto de conexión del token devuelve una respuesta de error al intentar adqu
 ```json
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multifactor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -202,7 +204,7 @@ Una solicitud de servicio a servicio para una aserción SAML contiene los siguie
 | Aserción |requerido | Valor del token de acceso usado en la solicitud.|
 | client_id |requerido | Identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador de la aplicación en Azure Portal, seleccione **Active Directory**, elija el directorio y, por último, seleccione el nombre de la aplicación. |
 | client_secret |requerido | La clave registrada para el servicio de llamada de Azure AD. Este valor debe haberse anotado en el momento del registro. |
-| resource |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Este es el recurso que será la audiencia del token SAML. Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
+| scope |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para obtener más información, vea [Ámbitos](v2-permissions-and-consent.md). Por ejemplo, "https://testapp.contoso.com/user_impersonation openid" |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | requested_token_type | requerido | Especifica el tipo de token solicitado. El valor puede ser **urn:ietf:params:oauth:token-type:saml2** o **urn:ietf:params:oauth:token-type:saml1**, en función de los requisitos del recurso al que se accede. |
 

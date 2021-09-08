@@ -9,19 +9,19 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: 0dc49265c0ea799e194e4ac7004b558d8a9d4dd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11f142c545bad707ec8595f13f80a95cc626674f
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519276"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582931"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Consumo de un servicio web de Azure Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Una vez que implemente un modelo predictivo de Azure Machine Learning Studio (clásico) como servicio web, puede usar una API REST para enviarle datos y obtener predicciones. Puede enviar los datos en tiempo real o por lotes.
+Una vez que implemente un modelo predictivo de Estudio de Machine Learning (clásico) como servicio web, puede usar una API REST para enviarle datos y obtener predicciones. Puede enviar los datos en tiempo real o por lotes.
 
 Puede encontrar más información sobre cómo crear e implementar un servicio web Machine Learning con Machine Learning Studio (clásico) aquí:
 
@@ -32,9 +32,9 @@ Puede encontrar más información sobre cómo crear e implementar un servicio we
 
 
 ## <a name="overview"></a>Información general
-Con el servicio web Azure Machine Learning, una aplicación externa se comunica con un modelo de puntuación de flujo de trabajo de Machine Learning en tiempo real. Una llamada al servicio web Machine Learning devuelve resultados de predicción a una aplicación externa. Para llamar a un servicio web Machine Learning, se pasa una clave de API que se crea cuando se implementa una predicción. El servicio web Machine Learning se basa en REST, una opción popular de arquitectura para proyectos de programación web.
+Con el servicio web de Machine Learning, una aplicación externa se comunica con un modelo de puntuación de flujo de trabajo de Machine Learning en tiempo real. Una llamada al servicio web Machine Learning devuelve resultados de predicción a una aplicación externa. Para llamar a un servicio web Machine Learning, se pasa una clave de API que se crea cuando se implementa una predicción. El servicio web Machine Learning se basa en REST, una opción popular de arquitectura para proyectos de programación web.
 
-Azure Machine Learning Studio (clásico) tiene dos tipos de servicios:
+Estudio de Machine Learning (clásico) tiene dos tipos de servicios:
 
 * Servicio de solicitud y respuesta (RRS): servicio de latencia baja altamente escalable que proporciona una interfaz con los modelos sin estado creados e implementados desde Machine Learning Studio (clásico).
 * Servicio de ejecución por lotes (BES): servicio asincrónico que puntúa un lote de registros de datos.
@@ -44,12 +44,12 @@ Para más información sobre los servicios web Machine Learning, consulte [Imple
 ## <a name="get-an-authorization-key"></a>Obtención de una clave de autorización
 Al implementar el experimento, se generan claves de API para el servicio web. Puede recuperar las claves de varias ubicaciones.
 
-### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>En el portal Servicios web Microsoft Azure Machine Learning
-Inicie sesión en el portal [Servicios web Microsoft Azure Machine Learning](https://services.azureml.net).
+### <a name="from-the-machine-learning-web-services-portal"></a>En el portal Servicios web Machine Learning
+Inicie sesión en el portal [Servicios web Machine Learning](https://services.azureml.net).
 
 Para recuperar la clave de API para un nuevo servicio web Machine Learning:
 
-1. En el portal de servicios web Azure Machine Learning, haga clic en la opción **Servicios web** del menú superior.
+1. En el portal Servicios web Machine Learning, haga clic en la opción **Servicios web** del menú superior.
 2. Haga clic en el servicio web del que quiere recuperar la clave.
 3. En el menú superior, haga clic en **Consume**(Consumo).
 4. Copie y guarde la **clave principal**.
@@ -82,7 +82,7 @@ La ayuda de la API de Machine Learning contiene información sobre un servicio w
 
 **Para ver la ayuda de la API de Machine Learning para un servicio web nuevo**
 
-En el [portal Servicios web de Azure Machine Learning](https://services.azureml.net/):
+En el portal [Servicios web Machine Learning](https://services.azureml.net/):
 
 1. Haga clic en la opción de menú **SERVICIOS WEB** del menú superior.
 2. Haga clic en el servicio web del que quiere recuperar la clave.

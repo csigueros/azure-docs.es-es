@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ed79831559802efdf7e3813f48b74c2fd3c63e87
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: bfcbdeb2755f76d5391de4a3c64a934b43e8f0f2
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581861"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982949"
 ---
 # <a name="monitor-indexer-status-and-results-in-azure-cognitive-search"></a>Supervisión del estado y los resultados del indizador en Azure Cognitive Search
 
@@ -48,7 +48,7 @@ Si se produjeron problemas específicos del documento durante la ejecución, se 
 
 Las advertencias son comunes con algunos tipos de indizadores y no siempre indican un problema. Por ejemplo, los indizadores que usan Cognitive Services pueden notificar advertencias cuando las imágenes o los archivos PDF no contienen texto para procesar. 
 
-Para obtener más información sobre cómo investigar los errores y las advertencias del indizador, vea [Solución de problemas comunes con el indizador en Azure Search](search-indexer-troubleshooting.md).
+Para más información sobre la investigación de los errores y advertencias del indexador, consulte [Instrucciones de solución de problemas del indexador](search-indexer-troubleshooting.md).
 
 ## <a name="monitor-using-get-indexer-status-rest-api"></a>Supervisión mediante Obtener estado del indexador (API REST)
 

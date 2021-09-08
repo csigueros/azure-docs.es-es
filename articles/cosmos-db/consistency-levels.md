@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 31c5be9ce48ffea8ebd23e893e2d77e6365d2327
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4d0197e76659e864ab0f5553317b64b2d74b867d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725469"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +34,7 @@ Los niveles de coherencia son independientes de la región y están garantizados
 
 ## <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveles de coherencia y API de Azure Cosmos DB
 
-Azure Cosmos DB también proporciona compatibilidad nativa con las API compatibles con el protocolo de conexión para bases de datos populares. Entre ellas se incluyen MongoDB, Apache Cassandra, Gremlin y Azure Table Storage. Al usar Gremlin API y Table API, se usa el nivel de coherencia predeterminado configurado en la cuenta de Azure Cosmos. Para más información sobre la asignación del nivel de coherencia entre Cassandra API o la API para MongoDB y los niveles de coherencia de Azure Cosmos DB, consulte [Asignación de coherencia de Cassandra API](cassandra-consistency.md) y [Asignación de coherencia de API para MongoDB](mongodb-consistency.md).
+Azure Cosmos DB también proporciona compatibilidad nativa con las API compatibles con el protocolo de conexión para bases de datos populares. Entre ellas se incluyen MongoDB, Apache Cassandra, Gremlin y Azure Table Storage. Al usar Gremlin API y Table API, se usa el nivel de coherencia predeterminado configurado en la cuenta de Azure Cosmos. Para más información sobre la asignación del nivel de coherencia entre Cassandra API o la API para MongoDB y los niveles de coherencia de Azure Cosmos DB, consulte [Asignación de coherencia de Cassandra API](cassandra/apache-cassandra-consistency-mapping.md) y [Asignación de coherencia de API para MongoDB](mongodb/consistency-mapping.md).
 
 ## <a name="scope-of-the-read-consistency"></a>Ámbito de la coherencia de lectura
 
@@ -43,6 +43,9 @@ La coherencia de lectura se aplica a una sola operación de lectura limitada a u
 ## <a name="configure-the-default-consistency-level"></a>Configuración del nivel de coherencia predeterminado
 
 Puede configurar el nivel de coherencia predeterminado de su cuenta de Azure Cosmos en cualquier momento. El nivel de coherencia predeterminado configurado en su cuenta se aplica a todas las bases de datos y contenedores de bases de datos de Azure Cosmos de esa cuenta. Todas las operaciones de lectura y consulta que se emitan con arreglo a un contenedor o una base de datos usan el nivel de coherencia especificado de forma predeterminada. Para más información, consulte cómo [configurar el nivel de coherencia predeterminado](how-to-manage-consistency.md#configure-the-default-consistency-level). También puede invalidar el nivel de coherencia predeterminado para una solicitud específica. Para obtener más información, consulte el artículo [Invalidación del nivel de coherencia predeterminado](how-to-manage-consistency.md?#override-the-default-consistency-level).
+
+> [!TIP]
+> La invalidación del nivel de coherencia predeterminado solo se aplica a las lecturas dentro del cliente del SDK. Una cuenta configurada para una coherencia fuerte de forma predeterminada seguirá escribiendo y replicando datos de forma sincrónica en todas las regiones de la cuenta. Cuando la instancia o solicitud del cliente del SDK invalida esta configuración con el valor De sesión o uno más débil, las lecturas se realizan con una única réplica. Para obtener más detalles, consulte [Rendimiento y niveles de coherencia](consistency-levels.md#consistency-levels-and-throughput).
 
 > [!IMPORTANT]
 > Es necesario volver a crear cualquier instancia de SDK después de cambiar el nivel de coherencia predeterminado. Para ello, reinicie la aplicación. Esto garantiza que el SDK usa el nuevo nivel de coherencia predeterminado.

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 3453d1a0d06fd9918f3f1ae49a519d676ab26785
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5921ad250934121223c35012d2278165b3dcc262
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468445"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237181"
 ---
 # <a name="review-your-security-recommendations"></a>Examen de las recomendaciones de seguridad
 
@@ -24,7 +24,7 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
 
 1. En el menú de Security Center, abra la página **Recomendaciones** para ver las recomendaciones aplicables a su entorno. Las recomendaciones se agrupan en controles de seguridad.
 
-    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recomendaciones agrupadas por control de seguridad" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recomendaciones agrupadas por control de seguridad." lightbox="./media/security-center-recommendations/view-recommendations.png":::
 
 1. Para encontrar recomendaciones específicas para el tipo de recurso, la gravedad, el entorno u otros criterios que sean importantes para usted, utilice los filtros opcionales que se encuentran encima de la lista de recomendaciones.
 
@@ -79,7 +79,7 @@ Aun así, deben corregirse siempre que sea posible, de tal forma que, cuando fin
 
 Un ejemplo de una recomendación en versión preliminar:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendación con la marca de versión preliminar":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendación con la marca de versión preliminar.":::
  
 ## <a name="next-steps"></a>Pasos siguientes
 

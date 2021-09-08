@@ -2,26 +2,24 @@
 title: Habilitación del cifrado de un extremo a otro mediante el cifrado en host con discos administrados - Azure Portal
 description: Use el cifrado en el host para habilitar el cifrado de un extremo a otro en los discos administrados de Azure mediante Azure Portal.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ad053a0e97a8efa50fbb01798e639fb33e769bef
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: bd1c2d9a9d428a765a9b621652aa23fdec94f212
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078784"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456433"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use Azure Portal para habilitar el cifrado de un extremo a otro mediante el cifrado en host
 
-Cuando se habilita el cifrado en el host, los datos almacenados en el host de máquina virtual se cifran en reposo y se transmiten cifrados al servido Storage. Para obtener información conceptual sobre el cifrado en el host, así como otros tipos de cifrado de disco administrado, vea:
+Cuando se habilita el cifrado en el host, los datos almacenados en el host de máquina virtual se cifran en reposo y se transmiten cifrados al servido Storage. Para obtener información conceptual sobre el cifrado en el host y otros tipos de cifrado de disco administrado, consulte la sección [Cifrado en el host: cifrado de un extremo a otro de los datos de la máquina virtual](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-* Linux: [cifrado en el host; cifrado de un extremo a otro de los datos de la máquina virtual](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-
-* Windows: [cifrado en el host; cifrado de un extremo a otro de los datos de la máquina virtual](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+Los discos temporales y los discos de SO efímeros se cifran en reposo con claves administradas por la plataforma al habilitar el cifrado de un extremo a otro. Las cachés del disco de datos y del sistema operativo se cifran en reposo con claves administradas por el cliente o por la plataforma, en función del tipo de cifrado de disco que se seleccione. Por ejemplo, si un disco se cifra con claves administradas por el cliente, la caché del disco se cifra con claves administradas por el cliente, y si un disco se cifra con claves administradas por la plataforma, la caché del disco se cifra con claves administradas por la plataforma.
 
 ## <a name="restrictions"></a>Restricciones
 
@@ -58,6 +56,28 @@ Inicie sesión en Azure Portal con el [vínculo proporcionado](https://aka.ms/di
 > [!IMPORTANT]
 > Debe usar el [vínculo proporcionado](https://aka.ms/diskencryptionupdates) para tener acceso a Azure Portal. El cifrado en el host no está visible actualmente en Azure Portal público sin usar el vínculo.
 
+## <a name="deploy-a-vm-with-platform-managed-keys"></a>Implementación de una máquina virtual con claves administradas por la plataforma
+
+1. Inicie sesión en [Azure Portal](https://aka.ms/diskencryptionupdates).
+1. Busque **Máquinas virtuales** y seleccione **+Agregar** para crear una VM.
+1. Cree una máquina virtual nueva, seleccione una región adecuada y un tamaño de máquina virtual compatible.
+1. Rellene los restantes valores del panel **Datos básicos** y vaya al panel **Discos**.
+
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Captura de pantalla del panel Datos básicos de creación de la máquina virtual en la que se resaltan los campos Región y Tamaño de la máquina virtual.":::
+
+1. En el panel **Discos**, seleccione **Encryption at host** (Cifrado en el host).
+1. Realice las selecciones restantes como desee.
+
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/host-based-encryption-platform-keys.png" alt-text="Captura de pantalla del panel Discos de la creación de máquinas virtuales en la que se resalta el cifrado en el host.":::
+
+1. Finalice el proceso de implementación de la máquina virtual y realice las selecciones que se adapten a su entorno.
+
+Ha implementado una máquina virtual con el cifrado en el host habilitado y la caché del disco se cifra mediante claves administradas por la plataforma.
+
+## <a name="deploy-a-vm-with-customer-managed-keys"></a>Implementación de una máquina virtual con claves administradas por el cliente
+
+Como alternativa, puede usar claves administradas por el cliente para cifrar las cachés de disco.
+
 ### <a name="create-an-azure-key-vault-and-disk-encryption-set"></a>Creación de un almacén de Azure Key Vault y conjunto de cifrado de disco
 
 Una vez habilitada la característica, deberá configurar un almacén de Azure Key Vault y un conjunto de cifrado de disco, si no lo ha hecho aún.
@@ -68,20 +88,32 @@ Una vez habilitada la característica, deberá configurar un almacén de Azure K
 
 Ahora que ha configurado una instancia de Azure Key Vault y un conjunto de cifrado de disco, puede implementar una máquina virtual y usará el cifrado en el host.
 
+1. Inicie sesión en [Azure Portal](https://aka.ms/diskencryptionupdates).
 1. Busque **Máquinas virtuales** y seleccione **+Agregar** para crear una VM.
 1. Cree una máquina virtual nueva, seleccione una región adecuada y un tamaño de máquina virtual compatible.
-1. Rellene los otros valores de la hoja **Básico** como desee y, luego, vaya a la hoja **Discos**.
+1. Rellene los restantes valores del panel **Datos básicos** y vaya al panel **Discos**.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Captura de pantalla de la hoja Básico de la creación de máquinas virtuales, se resaltan la región y el tamaño de la máquina virtual.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Captura de pantalla del panel Datos básicos de creación de la máquina virtual en la que se resaltan los campos Región y Tamaño de la máquina virtual.":::
 
-1. En la hoja **Discos**, seleccione **Sí** para **Cifrado en el host**.
+1. En el panel **Discos**, seleccione **Encryption at-rest for customer-managed key** (Cifrado en reposo con una clave administrada por el cliente) en **SSE encryption type** (Tipo de cifrado de SSE) y seleccione el conjunto de cifrado de disco.
+1. Seleccione **Encryption at host** (Cifrado en host).
 1. Realice las selecciones restantes como desee.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Captura de pantalla de la hoja Discos de la creación de máquinas virtuales, se resalta el cifrado en el host.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-host-based-encryption-customer-managed-keys.png" alt-text="Captura de pantalla del panel Discos de la creación de la máquina virtual en el que está resaltada la opción Encryption at host (Cifrado en host) y están seleccionadas las claves administradas por el cliente.":::
 
 1. Finalice el proceso de implementación de la máquina virtual y realice las selecciones que se adapten a su entorno.
 
-Ahora que ha implementado una máquina virtual con cifrado en el host habilitado, todos sus discos asociados se cifrarán con el cifrado en el host.
+Ha implementado una máquina virtual con el cifrado en host habilitado.
+
+## <a name="disable-host-based-encryption"></a>Deshabilitación del cifrado basado en host
+
+En primer lugar, asegúrese de que la máquina virtual está desasignada, ya que el cifrado en el host no puede deshabilitar hasta que la máquina virtual esté desasignada.
+
+1. Seleccione **Discos** y, después, seleccione **Configuración adicional**.
+
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-host-based-encryption-additional-settings.png" alt-text="Captura de pantalla del panel Discos en una máquina virtual en la que está resaltada la opción Configuración adicional.":::
+
+1. Seleccione **No**, en **Encryption at host** (Cifrado en host) y, después, seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: 6f0a0fd48e3717d14a714e42c5566cd7bcf090d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d48f1cf99b22c091f069e7e5f572941a234eaebe
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545394"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449871"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Uso del servicio Administrador de dispositivos de StorSimple para administrar contenedores de volúmenes de StorSimple
 
@@ -33,7 +33,7 @@ Los contenedores de volúmenes tienen los siguientes atributos:
 * **Volúmenes** : Los volúmenes de StorSimple en niveles o anclados localmente que se encuentran dentro del contenedor de volúmenes. 
 * **Cifrado**: una clave de cifrado que se puede definir para cada contenedor de volúmenes. Esta clave se utiliza para cifrar los datos que se envían desde un dispositivo de StorSimple a la nube. Se utiliza una clave de grado militar AES de 256 bits con la clave especificada por el usuario. Para proteger los datos, se recomienda habilitar siempre el cifrado de almacenamiento en la nube.
 * **Cuenta de almacenamiento** : cuenta de Azure Storage que se usa para almacenar los datos. Todos los volúmenes que se encuentran en un contenedor de volúmenes comparten esta cuenta de almacenamiento. Al crear el contenedor de volúmenes puede elegir una cuenta de almacenamiento de una lista existente, o bien crear una cuenta nueva y, a continuación, especificar las credenciales de acceso de dicha cuenta.
-* **Ancho de banda en la nube**: el ancho de banda utilizado por el dispositivo cuando los datos del dispositivo se envían a la nube. Puede aplicar un control del ancho de banda especificando un valor entre 1 y 1000 Mbps al definir este contenedor. Si quiere que el dispositivo use todo el ancho de banda, establezca este campo en **Ilimitado**. También puede crear y aplicar una plantilla de ancho de banda para asignar el ancho de banda según la programación.
+* **Ancho de banda en la nube**: el ancho de banda utilizado por el dispositivo cuando los datos del dispositivo se envían a la nube. Si quiere que el dispositivo use todo el ancho de banda, establezca este campo en **Ilimitado**. También puede crear y aplicar una plantilla de ancho de banda para asignar el ancho de banda según una programación.
 
 Los siguientes procedimientos explican cómo usar la hoja **Contenedores de volúmenes** de StorSimple para realizar las siguientes operaciones comunes:
 

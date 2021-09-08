@@ -7,21 +7,18 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 8ffedc18ba331733723a6293756b60b733cc32cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a64049ab544b2ec790d3625dad9137ae539f3020
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904727"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733408"
 ---
 # <a name="data-structures-in-azure-maps-mobility-services-preview"></a>Estructuras de datos de los servicios de Mobility de Azure Maps (versión preliminar) 
 
 > [!IMPORTANT]
-> Los servicios de Mobility de Azure Maps se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
+> La versión preliminar del servicio Mobility de Azure Maps se ha retirado y ya no estará disponible ni será compatible después del 5 de octubre de 2021. Todas las demás API y servicios de Azure Maps no se ven afectados por este anuncio de retirada.
+> Para más información, consulte [Retirada de la versión preliminar de Mobility de Azure Maps](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/).
 
 En este artículo se presenta el concepto de área metropolitana en los [servicios de Mobility de Azure Maps](/rest/api/maps/mobility). Se describen algunos de los campos comunes que se devuelven cuando se consultan las líneas y paradas de transporte público en este servicio. Antes de comenzar a desarrollar con las API de los servicios de Mobility, se recomienda leer este artículo.
 

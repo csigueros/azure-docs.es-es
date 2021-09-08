@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: f984eaa49539890b8ae4d5132f9a03594e2f19f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1c0a7768c0f5e30d9d5ab3b0fa32b0eb6f4946c3
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073799"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112428409"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Uso del mantenimiento planeado a fin de programar ventanas de mantenimiento para el clúster de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -49,6 +49,8 @@ az extension update --name aks-preview
 Para agregar una ventana de mantenimiento, puede usar el comando `az aks maintenanceconfiguration add`.
 
 > [!IMPORTANT]
+> En este momento, debe establecer `default` como valor de `--name`. El uso de cualquier otro nombre hará que la ventana de mantenimiento no se ejecute.
+>
 > Las ventanas de mantenimiento planeado se especifican en hora universal coordinada (UTC).
 
 ```azurecli-interactive

@@ -2,13 +2,13 @@
 title: Entrega de eventos mediante el servicio Private Link
 description: En este artículo se describe cómo solucionar la limitación de no poder enviar eventos mediante el servicio Private Link.
 ms.topic: how-to
-ms.date: 02/12/2021
-ms.openlocfilehash: 75ae8ff2c341048c39156e43da3615788e9d0f0a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 07/01/2021
+ms.openlocfilehash: 0672b2b93cf7413ac9a3d46e8d824354276ba89f
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309438"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286127"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Entrega de eventos mediante el servicio Private Link
 Actualmente, no es posible enviar eventos mediante [puntos de conexión privados](../private-link/private-endpoint-overview.md). Es decir, no hay compatibilidad si tiene requisitos de aislamiento de red estrictos por los que el tráfico de eventos entregados no debe abandonar el espacio de la IP privada. 
@@ -44,9 +44,9 @@ Para enviar eventos a Service Bus colas o temas del espacio de nombres de Servic
 Para enviar eventos a las colas de almacenamiento mediante identidad administrada, siga estos pasos:
 
 1. Habilite la identidad asignada por el sistema: [temas del sistema](enable-identity-system-topics.md), [temas y dominios personalizados](enable-identity-custom-topics-domains.md). 
-1. [Agregue la identidad al rol **Remitente de mensajes de datos de Queue Storage**](../storage/common/storage-auth-aad-rbac-portal.md) en la cola de Azure Storage.
-1. [Configure la suscripción de eventos](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que emplea una cola o tema de Service Bus como punto de conexión para usar la identidad asignada por el sistema.
+1. [Agregue la identidad al rol **Remitente de mensajes de datos de Queue Storage**](../storage/blobs/assign-azure-role-data-access.md) en la cola de Azure Storage.
+1. [Configure la suscripción de eventos](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que emplea una cola de Storage como punto de conexión para usar la identidad asignada por el sistema.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre la entrega de eventos mediante identidad administrada, consulte [Entrega de eventos con una identidad administrada](managed-service-identity.md). 
+Para más información sobre la entrega de eventos mediante identidad administrada, consulte [Entrega de eventos con una identidad administrada](managed-service-identity.md).

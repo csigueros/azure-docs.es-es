@@ -1,5 +1,5 @@
 ---
-title: Caso de uso representativo de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+title: 'Migración del en el entorno local de MySQL en Azure Database for MySQL: caso de uso representativo'
 description: El siguiente caso de uso se basa en un escenario de cliente real de una empresa que migró su carga de trabajo de MySQL a Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 9d1a6b4d5e4fa9f3c05219f40b2852eed44aaa37
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 508e27006c96003bd4c2825c9987761f83358f0d
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082854"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085081"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-representative-use-case"></a>Caso de uso representativo de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-representative-use-case"></a>Migración del en el entorno local de MySQL en Azure Database for MySQL: caso de uso representativo
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -37,7 +39,7 @@ Los objetivos principales para migrar sus bases de datos y las cargas de trabajo
 
   - Mejorar su nivel de seguridad general con datos en reposo y en tránsito.
 
-  - Mejorar las funcionalidades de alta disponibilidad y recuperación ante desastres (HADR).
+  - Mejorar las funcionalidades de alta disponibilidad y recuperación ante desastres (HA/DR).
 
   - Posicionar a la organización para que use funcionalidades y tecnologías nativas de la nube, como la restauración a un momento dado.
 
@@ -53,15 +55,17 @@ Estas fases incluyen:
 
 | Fase | Nombre | Actividades |
 |-------|------|------------|
-| 1 | Antes de la migración  | Evaluación, planeamiento, evaluación de métodos de migración, implicaciones de la aplicación, planes de pruebas y base de referencia de rendimiento |
-| 2 | Migración      | Ejecutar la migración y ejecutar planes de pruebas                                                                          |
-| 3 | Después de la migración | Continuidad empresarial, recuperación ante desastres, administración, seguridad, optimización del rendimiento y modernización de la plataforma |
+| 1 | Antes de la migración | Evaluación, planeamiento, evaluación de métodos de migración, implicaciones de la aplicación, planes de pruebas y base de referencia de rendimiento |
+| 2 | Migración     | Ejecutar la migración y ejecutar planes de pruebas                                                                          |
+| 3 | Después de la migración| Continuidad empresarial, recuperación ante desastres, administración, seguridad, optimización del rendimiento y modernización de la plataforma |
 
 WWI tiene varias instancias de MySQL que se ejecutan con distintas versiones que van de 5.5 a 5.7. Le gustaría mover sus instancias a la versión más reciente lo antes posible, pero quiere asegurarse de que sus aplicaciones pueden seguir funcionando si se mueven a las versiones más recientes. Le parece bien pasar a la misma versión en la nube y realizar la actualización posteriormente, pero prefiere esa ruta si puede realizar dos tareas a la vez.
 
 También le gustaría asegurarse de que sus cargas de trabajo de datos son seguras y están disponibles en varias regiones geográficas si se produce un error, así como ver las opciones de configuración disponibles.
 
 WWI quiere empezar con una aplicación sencilla para la primera migración y, a continuación, pasar a aplicaciones más críticas para la empresa en una fase posterior. Esto proporciona al equipo el conocimiento y la experiencia que necesita para preparar y planear esas migraciones futuras.  
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Valoración](./03-assessment.md)

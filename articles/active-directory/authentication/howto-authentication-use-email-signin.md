@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 5/3/2021
+ms.date: 07/07/2021
 ms.author: justinha
-author: justinha
+author: calui
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: ed77dcad9e9e6568cc38fd3510d9b5a9a0624c11
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0a4ad5d9aaa9bb851a651ddc77bd1acb773b6019
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963639"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113485714"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>Inicio de sesión en Azure AD mediante el correo electrónico como Id. de inicio de sesión alternativo (versión preliminar)
 
@@ -40,7 +40,8 @@ Esto es lo que necesita saber sobre el correo electrónico como Id. de inicio de
 
 * La característica está disponible en la edición Azure AD Free y superiores.
 * La característica habilita el inicio de sesión con *proxyAddresses* de dominio comprobadas de usuarios de Azure AD autenticados para la nube.
-* Cuando un usuario inicia sesión con un correo electrónico que no es UPN, las notificaciones `unique_name` y `preferred_username` (si están presentes) del [Token de identificador](../develop/id-tokens.md) tienen el valor del correo electrónico que no es UPN.
+* Cuando un usuario inicia sesión con un correo electrónico que no es UPN, las notificaciones `unique_name` y `preferred_username` (si están presentes) del [Token de identificador](../develop/id-tokens.md) devolverán el correo electrónico que no es UPN.
+* La característica admite la autenticación administrada con sincronización de hash de contraseñas (PHS) o autenticación transferida (PTA).
 * Hay dos opciones para configurar la característica:
     * [Directiva de detección del dominio de inicio (HRD)](#enable-user-sign-in-with-an-email-address): use esta opción para habilitar la característica para todo el inquilino. Se necesitan privilegios de administrador global.
     * [Directiva de lanzamiento preconfigurado](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address): use esta opción para probar la característica con grupos de Azure AD específicos. Se necesitan privilegios de administrador global.
@@ -49,31 +50,42 @@ Esto es lo que necesita saber sobre el correo electrónico como Id. de inicio de
 
 En el estado de versión preliminar actual, se aplican las siguientes limitaciones al correo electrónico como Id.de inicio de sesión alternativo:
 
-* Los usuarios pueden ver su UPN aunque hayan iniciado sesión con su correo electrónico que no es UPN. Se puede observar el siguiente comportamiento de ejemplo:
+* **Experiencia de usuario**: los usuarios pueden ver su UPN aunque hayan iniciado sesión con su correo electrónico que no es UPN. Se puede observar el siguiente comportamiento de ejemplo:
     * Al usuario se le solicita que inicie sesión con su UPN cuando se le dirige al inicio de sesión de Azure AD con `login_hint=<non-UPN email>`.
     * Cuando un usuario inicia sesión con un correo electrónico que no es UPN y escribe una contraseña incorrecta, la página *"Escriba la contraseña"* cambia para mostrar el UPN.
-    * En algunos sitios y aplicaciones de Microsoft, como Microsoft Office, el control **Administrador de cuentas** que normalmente se muestra en la esquina superior derecha puede mostrar el UPN del usuario en lugar del correo electrónico que no es UPN usado para iniciar sesión.
+    * En algunos sitios y aplicaciones de Microsoft, como Microsoft Office, el control *Administrador de cuentas* que normalmente se muestra en la esquina superior derecha puede mostrar el UPN del usuario en lugar del correo electrónico que no es UPN usado para iniciar sesión.
 
-* Actualmente, algunos flujos no son compatibles con los correos electrónicos que no son UPN, como los siguientes:
+* **Flujos no admitidos**: actualmente, algunos flujos no son compatibles con los correos electrónicos que no son UPN, como los siguientes:
     * Identity Protection no empareja los correos electrónicos que no son UPN con detección de riesgo *Credenciales filtradas*. Esta detección de riesgo usa el UPN para asociar las credenciales que se han filtrado. Para obtener más información, consulte [Detección y corrección de riesgos de Azure AD Identity Protection][identity-protection].
     * Las invitaciones B2B enviadas a un correo electrónico que no es UPN no son totalmente compatibles. Después de aceptar una invitación enviada a un correo electrónico que no es UPN, es posible que el inicio de sesión con el correo electrónico que no es UPN no funcione para el usuario invitado en el punto de conexión del inquilino del recurso.
     * Cuando un usuario ha iniciado sesión con un correo electrónico que no es UPN, no puede cambiar su contraseña. El autoservicio de restablecimiento de contraseña (SSPR) de Azure AD debe funcionar según lo previsto. Durante SSPR, el usuario puede ver su UPN si comprueba su identidad por medio de un correo electrónico alternativo.
 
-* Los siguientes escenarios no se admiten. Inicie sesión con un correo electrónico que no es UPN en:
-    * Dispositivos híbridos unidos a Azure AD
-    * Dispositivos unidos a Azure AD
+* **Escenarios no admitidos:** los siguientes escenarios no se admiten. Inicie sesión con un correo electrónico que no es UPN para:
+    * [Dispositivos híbridos unidos a Azure AD](../devices/concept-azure-ad-join-hybrid.md)
+    * [Dispositivos unidos a Azure AD](../devices/concept-azure-ad-join.md)
+    * [Dispositivos registrados en Azure AD](../devices/concept-azure-ad-register.md)
+    * [SSO de conexión directa](../hybrid/how-to-connect-sso.md)
+    * [Aplicaciones que usan credenciales de contraseña del propietario del recurso (ROPC)](../develop/v2-oauth-ropc.md)
+    * Aplicaciones que usan autenticación heredada, como POP3 y SMTP
     * Skype Empresarial
     * Microsoft Office en macOS
-    * OneDrive (cuando el flujo de inicio de sesión no implique autenticación multifactor)
     * Microsoft Teams en Internet
-    * Flujos de credenciales de contraseña del propietario del recurso (ROPC)
+    * OneDrive, cuando el flujo de inicio de sesión no implique autenticación multifactor
 
-* Los cambios realizados en la configuración de la característica en la directiva de HRD no se muestran de manera explícita en los registros de auditoría.
-* La directiva de lanzamiento preconfigurado no funciona según lo previsto con los usuarios que se han incluido en varias directivas de lanzamiento preconfigurado.
-* Dentro de un inquilino, el UPN de un usuario solo en la nube puede ser el mismo valor que la dirección proxy de otro usuario sincronizada desde el directorio local. En este escenario, con la característica habilitada, el usuario solo en la nube no puede iniciar sesión con su UPN. Hay más información sobre este problema en la sección [Solución de problemas](#troubleshoot).
+* **Aplicaciones no admitidas:** es posible que algunas aplicaciones de terceros no funcionen según lo previsto si asumen que las notificaciones `unique_name` o `preferred_username` son inmutables o siempre coincidirán con un atributo de usuario específico, como UPN.
+
+* **Registro:** los cambios realizados en la configuración de la característica en la directiva de HRD no se muestran de manera explícita en los registros de auditoría. Además, el campo *Tipo de identificador de inicio de sesión* en los registros de inicio de sesión puede no ser siempre preciso y no debe usarse para determinar si la característica se ha usado para el inicio de sesión.
+
+* **Directiva de lanzamiento preconfigurado**: las siguientes limitaciones solo se aplican cuando la característica está habilitada mediante la directiva de lanzamiento preconfigurado:
+    * La característica no funciona según lo previsto con los usuarios que se han incluido en otras directivas de lanzamiento preconfigurado.
+    * La directiva de lanzamiento preconfigurado admite un máximo de 10 grupos por característica.
+    * La directiva de lanzamiento preconfigurado no admite grupos anidados.
+    * La directiva de lanzamiento preconfigurado no admite grupos dinámicos.
+    * Los objetos de contacto dentro del grupo impedirán que se agregue el grupo a una directiva de lanzamiento preconfigurado.
+
+* **Valores duplicados**: dentro de un inquilino, el UPN de un usuario solo en la nube puede ser el mismo valor que la dirección proxy de otro usuario sincronizada desde el directorio local. En este escenario, con la característica habilitada, el usuario solo en la nube no puede iniciar sesión con su UPN. Hay más información sobre este problema en la sección [Solución de problemas](#troubleshoot).
 
 ## <a name="overview-of-alternate-login-id-options"></a>Información general sobre las opciones de Id. de inicio de sesión alternativo
-
 Para iniciar sesión en Azure AD, los usuarios escriben un valor que identifica su cuenta de forma única. Antes, solo se podía usar el UPN de Azure AD como identificador de inicio de sesión.
 
 En el caso de las organizaciones en las que el UPN local es el correo electrónico de inicio de sesión elegido por el usuario, este era un enfoque óptimo. Esas organizaciones configuraban el UPN de Azure AD con el mismo valor que el UPN local, y los usuarios tenían una experiencia de inicio de sesión coherente.
@@ -101,7 +113,7 @@ Un enfoque diferente consiste en sincronizar los UPN de Azure AD y AD local co
 
 La autenticación tradicional de Active Directory Domain Services (AD DS) o Servicios de federación de Active Directory (AD FS) se produce directamente en la red y se controla mediante la infraestructura de AD DS. Con la autenticación híbrida, los usuarios pueden iniciar sesión directamente en Azure AD.
 
-Para admitir este enfoque de autenticación híbrida, debe sincronizar el entorno de AD DS local con Azure AD mediante [Azure AD Connect][azure-ad-connect] y configurarlo para que use la sincronización de hash de contraseñas (PHS) o la autenticación de paso a través (PTA). Para más información, consulte [Selección del método de autenticación adecuado para la solución de identidad híbrida de Azure AD][hybrid-auth-methods].
+Para admitir este enfoque de autenticación híbrida, debe sincronizar el entorno de AD DS local con Azure AD mediante [Azure AD Connect][azure-ad-connect] y configurarlo para que use PHS o PTA. Para más información, consulte [Selección del método de autenticación adecuado para la solución de identidad híbrida de Azure AD][hybrid-auth-methods].
 
 En ambas opciones de configuración, el usuario envía su nombre de usuario y contraseña a Azure AD, que valida las credenciales y emite un vale. Cuando los usuarios inician sesión en Azure AD, se elimina la necesidad de que su organización albergue y administre una infraestructura de AD FS.
 

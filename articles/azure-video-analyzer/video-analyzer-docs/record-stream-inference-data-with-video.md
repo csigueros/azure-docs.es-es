@@ -3,13 +3,13 @@ title: 'Grabación y transmisión de metadatos de inferencia con vídeo: Azure V
 description: En este tutorial, aprenderá a usar Azure Video Analyzer para grabar metadatos de inferencia y vídeo en la nube y reproducir la grabación con los metadatos de inferencia visual.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/12/2021
-ms.openlocfilehash: 89aef5db89110ee7e12a313820f8f62d0b010faf
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/01/2021
+ms.openlocfilehash: 3122ea07fdab20c93ed4720d0c43f180cce5306d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755180"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780352"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutorial: Grabación y transmisión de metadatos de inferencia con vídeo
   
@@ -132,7 +132,7 @@ A continuación, vaya a la carpeta src/cloud-to-device-console-app. Aquí podrá
 1. Luego, en los nodos **livePipelineSet** y **pipelineTopologyDelete**, compruebe que el valor de **topologyName** coincide con el valor de la propiedad **name** de la topología de canalización anterior:
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. Abra la [topología de la canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) en un explorador y vea que videoName está codificado de forma rígida como `sample-cvr-with-inference-metadata`. Para los fines de este tutorial, este valor es aceptable. En producción, tendría que asegurarse de que cada cámara RTSP única se graba en un recurso de vídeo con un nombre único.  
+1. Abra la [topología de la canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-and-objectTracking/topology.json) en un explorador y vea que videoName está codificado de forma rígida como `sample-cvr-with-inference-metadata`. Para los fines de este tutorial, este valor es aceptable. En producción, tendría que asegurarse de que cada cámara RTSP única se graba en un recurso de vídeo con un nombre único.  
 
 1. Examine la configuración del nodo de extensión HTTP.
 
@@ -143,7 +143,8 @@ A continuación, vaya a la carpeta src/cloud-to-device-console-app. Aquí podrá
     }
   ```
 
-En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensión debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, al nodo de seguimiento de objetos del flujo descendente. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. Si el vídeo en directo se ejecuta a una velocidad de 30 fotogramas por segundo, significa que se deben enviar al menos dos fotogramas por segundo al servidor HTTP para la inferencia; por lo tanto, `maximumSamplesPerSecond` se establece en 2.
+En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensión debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, al nodo de seguimiento de objetos del flujo descendente. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. El modelo de IA tiene un valor de FPS máximo para el procesamiento, que es el valor más alto en el que se debe establecer `maximumSamplesPerSecond`.
+
 
 ## <a name="run-the-sample-program"></a>Ejecución del programa de ejemplo
 
@@ -384,12 +385,11 @@ Para examinar el recurso de vídeo de Video Analyzer que se ha creado con la can
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Captura de pantalla de la reproducción de vídeo":::
 
-> [!NOTE]
-> Puesto que el origen del vídeo era un contenedor que simula una fuente de cámara, las marcas de tiempo del vídeo son relativas a cuándo activó y desactivó la canalización en directo.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si va a probar los otros tutoriales, debe mantener los recursos creados. En caso contrario, vaya a Azure Portal, vaya a los grupos de recursos, seleccione el grupo de recursos en el que ejecutó este tutorial y elimine el grupo de recursos.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: dbd4e9c6e8a58738ac0a8db6c64133301d1aebe5
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 2baf8c99161d000b92aa10f02a26018bdb7264f4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950593"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093884"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -89,21 +89,30 @@ Hay varios roles integrados de Azure que pueden proporcionar los permisos necesa
 > [!NOTE]
 > Los roles de propietario, colaborador y colaborador de la cuenta de almacenamiento conceden acceso a la clave de cuenta.
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error: certificado autofirmado en la cadena de certificados (y errores similares)
+## <a name="ssl-certificate-issues"></a>Problemas de certificados SSL
 
-Los errores de certificado habitualmente se producen en una de las situaciones siguientes:
+### <a name="understanding-ssl-certificate-issues"></a>Descripción de los problemas de certificados SSL
 
-- La aplicación se conecta a través de un _proxy transparente_. Esto significa que un servidor (por ejemplo, el servidor de la empresa) intercepta el tráfico HTTPS, lo descifra y, después, lo cifra mediante un certificado autofirmado.
-- Ejecuta una aplicación que inserta un certificado TLS/SSL autofirmado en los mensajes HTTPS que recibe. Entre los ejemplos de aplicaciones que insertan certificados se incluyen los antivirus y el software de inspección del tráfico de red.
+Asegúrese de que ha leído la sección [Certificados SSL](./storage-explorer-network.md#ssl-certificates) de la documentación de redes del Explorador de Storage antes de continuar.
 
-Cuando el Explorador de Storage ve un certificado autofirmado o que no es de confianza, ya no sabe si se ha modificado el mensaje HTTPS recibido. Si tiene una copia del certificado autofirmado, puede indicar a Explorador de Storage que confíe en él. Para ello, debe seguir estos pasos:
+### <a name="use-system-proxy"></a>Usar proxy del sistema
+
+Si solo usa características que admiten la configuración **Usar proxy del sistema**, debe intentar usar esa configuración. Puede leer más sobre la configuración del **proxy del sistema** [aquí](./storage-explorer-network.md#use-system-proxy-preview).
+
+### <a name="importing-ssl-certificates"></a>Importación de certificados SSL
+
+Si tiene una copia de los certificados autofirmados, puede indicar al Explorador de Storage que confíe en ellos. Para ello, debe seguir estos pasos:
 
 1. Obtenga una copia X.509 codificado base 64 (.cer) del certificado.
 2. Vaya a **Editar** > **Certificados SSL** > **Importar certificados** y, luego, utilice el selector de archivos para encontrar, seleccionar y abrir el archivo .cer.
 
-Este problema también puede aparecer si hay varios certificados (raíz e intermedio). Para solucionar este error, deben agregarse ambos certificados.
+Este problema también puede aparecer si hay varios certificados (raíz e intermedio). Para corregir este error, se deben agregar todos los certificados.
 
-Si no está seguro de cuál es la procedencia del certificado, siga estos pasos para encontrarlo:
+### <a name="finding-ssl-certificates"></a>Búsqueda de certificados SSL
+
+Si no tiene una copia de los certificados autofirmados, intente ponerse en contacto con el administrador de TI para obtener ayuda.
+
+Puede intentar seguir estos pasos para encontrarlos:
 
 1. Instale OpenSSL.
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): cualquiera de las versiones ligeras debería ser suficiente.
@@ -111,18 +120,20 @@ Si no está seguro de cuál es la procedencia del certificado, siga estos pasos 
 2. Ejecute OpenSSL.
     * Windows: abra el directorio de instalación, seleccione **/bin/** y, luego, haga doble clic en **openssl.exe**.
     * Mac y Linux: Ejecute `openssl` desde un terminal.
-3. Ejecute `s_client -showcerts -connect microsoft.com:443`.
-4. Busque certificados autofirmados. Si no está seguro de qué certificados están autofirmados, tome nota de todos aquellos en los que el asunto `("s:")` y el emisor `("i:")` sean el mismo.
-5. Cuando encuentre certificados autofirmados, en cada uno de ellos, copie y pegue todo el contenido desde `-----BEGIN CERTIFICATE-----` a `-----END CERTIFICATE-----` (inclusive) a un archivo .cer nuevo.
+3. Ejecute este comando: `s_client -showcerts -connect <hostname>:443`, para cualquiera de los nombres de host de Microsoft o Azure detrás de los que estén los recursos de almacenamiento. Puede encontrar una lista de nombres de host a los que el Explorador de Storage accede con frecuencia aquí.
+4. Busque certificados autofirmados. Si el firmante `("s:")` y el emisor `("i:")` son iguales, lo más probable es que el certificado sea autofirmado.
+5. Cuando encuentre certificados autofirmados, en cada uno de ellos, copie y pegue todo el contenido desde `-----BEGIN CERTIFICATE-----` hasta `-----END CERTIFICATE-----` (inclusive) en un archivo .cer nuevo.
 6. Abra el Explorador de Storage y vaya a **Editar** > **Certificados SSL** > **Importar certificados**. Luego, use el selector de archivos para encontrar, seleccionar y abrir los archivos .cer que creó.
 
-Si no encuentra ningún certificado autofirmado con estos pasos, póngase en contacto con nosotros mediante la herramienta de comentarios. También puede abrir el Explorador de Storage desde la línea de comandos mediante la marca `--ignore-certificate-errors`. Cuando se abre con esta marca, el Explorador de Storage pasa por alto los errores de certificado.
+### <a name="disabling-ssl-certificate-validation"></a>Deshabilitación de la validación de certificados SSL
+
+Si no encuentra ningún certificado autofirmado con estos pasos, póngase en contacto con nosotros mediante la herramienta de comentarios. También puede abrir el Explorador de Storage desde la línea de comandos con la marca `--ignore-certificate-errors`. Cuando se abre con esta marca, el Explorador de Storage pasa por alto los errores de certificado. **No se recomienda esta marca.**
 
 ## <a name="sign-in-issues"></a>Problemas de inicio de sesión
 
 ### <a name="understanding-sign-in"></a>Información del inicio de sesión
 
-Asegúrese de que ha leído la documentación del [Inicio de sesión del Explorador de Storage](./storage-explorer-sign-in.md).
+Asegúrese de que ha leído la documentación del [inicio de sesión en el Explorador de Storage](./storage-explorer-sign-in.md) antes de continuar.
 
 ### <a name="frequently-having-to-reenter-credentials"></a>Tener que volver a escribir las credenciales con frecuencia
 
@@ -148,7 +159,7 @@ Si no puede realizar ninguna de esas opciones, también puede [cambiar dónde se
 
 ### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>No se puede adquirir el token, el inquilino está filtrado
 
-Si ve un mensaje de error que indica que no se puede adquirir un token porque un inquilino está filtrado, significa que está intentando acceder a un recurso que se encuentra en un inquilino que ya ha filtrado. Para quitar el filtro del inquilino, vaya al **Panel de cuentas** y asegúrese de que la casilla del inquilino especificado en el error está activada. Consulte [Administración de cuentas](./storage-explorer-sign-in.md#managing-accounts) para obtener más información sobre el filtrado de inquilinos en el Explorador de Storage.
+Si ve un mensaje de error que indica que no se puede adquirir un token porque un inquilino está filtrado, significa que está intentando acceder a un recurso que se encuentra en un inquilino que ha filtrado. Para quitar el filtro del inquilino, vaya al **Panel de cuentas** y asegúrese de que la casilla del inquilino especificado en el error esté activada. Consulte [Administración de cuentas](./storage-explorer-sign-in.md#managing-accounts) para obtener más información sobre el filtrado de inquilinos en el Explorador de Storage.
 
 ### <a name="authentication-library-failed-to-start-properly"></a>No se pudo iniciar correctamente la biblioteca de autenticación
 

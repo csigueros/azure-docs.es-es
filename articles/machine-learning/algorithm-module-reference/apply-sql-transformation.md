@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/12/2020
-ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/11/2021
+ms.openlocfilehash: 71f320c9144270b157b46a58e2107873439b2227
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94555607"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831346"
 ---
 # <a name="apply-sql-transformation"></a>Aplicación de transformaciones de SQL
 
@@ -61,6 +61,8 @@ Esta sección contiene detalles de implementación, sugerencias y respuestas a l
 -   Siempre se requiere una entrada en el puerto 1.  
   
 -   En el caso de los identificadores de columna que contienen un espacio u otros caracteres especiales, incluya siempre el identificador de columna entre corchetes o comillas dobles al hacer referencia a la columna en las cláusulas `SELECT` o `WHERE`.  
+
+-   Si ha usado **Editar metadatos** para especificar los metadatos de la columna (categorías o campos) antes de **Aplicar transformación de SQL**, las salidas de **Aplicar transformación de SQL** no contienen estos atributos. Tiene que usar **Editar metadatos** para editar la columna después de **Aplicar transformación de SQL**.
   
 ### <a name="unsupported-statements"></a>Instrucciones no admitidas  
 

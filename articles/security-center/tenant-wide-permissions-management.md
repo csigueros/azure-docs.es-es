@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 03/11/2021
-ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99e7e09ac1b73dfb24cea14fe1b407f491e4ade5
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617495"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236902"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Concesión y solicitud de visibilidad para todos los inquilinos
 
@@ -26,11 +26,11 @@ Para asignarse a uno mismo permisos de nivel de inquilino:
 
 1. Como usuario administrador global sin una asignación en el grupo de administración raíz del inquilino, abra la página **Información general** de Security Center y seleccione el vínculo de **visibilidad de todo el inquilino** en el mensaje emergente. 
 
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Habilitación de los permisos de nivel de inquilino en Azure Security Center":::
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Habilitación de los permisos de nivel de inquilino en Azure Security Center.":::
 
 1. Selección del nuevo rol de Azure que se va a asignar. 
 
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Formulario para definir los permisos de nivel de inquilino que se asignarán al usuario":::
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Formulario para definir los permisos de nivel de inquilino que se asignarán al usuario.":::
 
     > [!TIP]
     > Por lo general, el rol de Administrador de seguridad es necesario para aplicar directivas en el nivel raíz, mientras que el de Lector de seguridad será suficiente para proporcionar visibilidad en el nivel de inquilino. Para más información acerca de los permisos concedidos por estos roles, consulte la [descripción del rol integrado de Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin) o la [descripción del rol integrado de Lector de seguridad](../role-based-access-control/built-in-roles.md#security-reader).
@@ -71,13 +71,13 @@ Para solicitar permisos elevados al administrador global:
 
 1. En el formulario de solicitud detallado, seleccione el rol deseado y la justificación del motivo por el que necesita estos permisos.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Página de detalles para solicitar permisos para todo el inquilino al administrador global de Azure":::
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Página de detalles para solicitar permisos para todo el inquilino al administrador global de Azure.":::
 
 1. Seleccione **Solicitar acceso**.
 
     Se envía un correo electrónico al administrador global. El correo electrónico contiene un vínculo a Security Center donde pueden aprobar o rechazar la solicitud.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Correo electrónico al administrador global para los nuevos permisos":::
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Correo electrónico al administrador global para los nuevos permisos.":::
 
     Una vez que el administrador global selecciona **Revisar la solicitud** y completa el proceso, la decisión se envía por correo electrónico al usuario que realiza la solicitud. 
 

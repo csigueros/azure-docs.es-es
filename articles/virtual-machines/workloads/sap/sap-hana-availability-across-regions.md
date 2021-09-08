@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f925e72493a94bcdbde64bdfbcef6acf83977f52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bf4f1fbb5d984b052a9fdb84ed9d26da18db2f9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669726"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445819"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidad de SAP HANA entre regiones de Azure
 
@@ -67,7 +67,7 @@ En tales casos, puede configurar lo que en SAP se llama una [SAP HANA multitier 
 
 ![Diagrama de tres máquinas virtuales en dos regiones](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
 
-SAP introdujo la [replicación del sistema en varios destinos](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) con HANA 2.0 SPS3. La replicación del sistema en varios destinos aporta algunas ventajas en escenarios de actualización. Por ejemplo, el sitio de recuperación ante desastres (región 2) no se ve afectado cuando el sitio secundario de alta disponibilidad está inactivo por mantenimiento o actualizaciones. Puede encontrar más información acerca de la replicación del sistema en varios destinos de HANA [aquí](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+SAP introdujo la [replicación del sistema en varios destinos](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) con HANA 2.0 SPS3. La replicación del sistema en varios destinos aporta algunas ventajas en escenarios de actualización. Por ejemplo, el sitio de recuperación ante desastres (región 2) no se ve afectado cuando el sitio secundario de alta disponibilidad está inactivo por mantenimiento o actualizaciones. Puede encontrar más información acerca de la replicación del sistema en varios destinos de HANA en el [portal de ayuda de SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
 Una arquitectura posible con la replicación en varios destinos tendría el siguiente aspecto:
 
 ![Diagrama de tres máquinas virtuales en dos regiones de varios destinos](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)

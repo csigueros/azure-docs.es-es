@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 9eaad12e254150109498be0fac2f285f33a5965c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 491572ceaac3e4bc401d5bd6c3a5401966d0c528
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776612"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463650"
 ---
 # <a name="configure-routing-preference-for-a-kubernetes-cluster-using-azure-cli"></a>Configuración de preferencias de enrutamiento de un clúster de Kubernetes mediante la CLI de Azure
 
-En este artículo se muestra cómo configurar las preferencias de enrutamiento mediante la red del ISP (opción de **Internet**) para un clúster de Kubernetes mediante la CLI de Azure. La preferencia de enrutamiento se establece mediante la creación de una dirección IP pública de tipo preferencia de enrutamiento **Internet**** que se utiliza después al crear el clúster de AKS.
+En este artículo se muestra cómo configurar las preferencias de enrutamiento mediante la red del ISP (opción de **Internet**) para un clúster de Kubernetes mediante la CLI de Azure. La preferencia de enrutamiento se establece mediante la creación de una dirección IP pública de tipo preferencia de enrutamiento **Internet** que se utiliza después al crear el clúster de AKS.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

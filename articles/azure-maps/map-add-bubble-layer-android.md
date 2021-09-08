@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: f3c175f30c5c0e6206f4fee274e0f3f000e55a74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3f4dc33347a7e4397a2cd53ecc56d87ed155378
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100175"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093524"
 ---
 # <a name="add-a-bubble-layer-to-a-map-android-sdk"></a>Adición de una capa de burbujas a un mapa (Android SDK)
 
@@ -169,7 +169,7 @@ map.layers.add(
 
 ::: zone-end
 
-En la captura de pantalla siguiente se muestra el código anterior que representa un punto en una capa de burbujas y una etiqueta de texto para el punto con una capa de símbolos.
+En la captura de pantalla siguiente, se muestra el código anterior, que representa un punto en una capa de burbujas y una etiqueta de texto para el punto con una capa de símbolos.
 
 ![Mapa con un punto que se representa mediante una capa de burbujas y una etiqueta de texto con capa de símbolos](media/map-add-bubble-layer-android/android-bubble-symbol-layer.png)
 
@@ -179,6 +179,9 @@ Para obtener más ejemplos de código para agregar a los mapas:
 
 > [!div class="nextstepaction"]
 > [Creación de un origen de datos](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Datos de punto de clúster](clustering-point-data-android-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Adición de una capa de símbolo](how-to-add-symbol-to-android-map.md)

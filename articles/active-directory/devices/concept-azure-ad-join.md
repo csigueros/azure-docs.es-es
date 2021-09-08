@@ -1,26 +1,26 @@
 ---
 title: ¿Qué es un dispositivo unido a Azure AD?
-description: Obtenga información sobre los dispositivos unidos a Azure AD y cómo la administración de identidades de dispositivos puede ayudarle a administrar los dispositivos que acceden a los recursos de su entorno.
+description: Los dispositivos unidos a Azure AD pueden ayudarlo a administrar los dispositivos que acceden a los recursos de su entorno.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 06/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c39aac2abeb9d569690b056df1a2fb892b11d3c1
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90601459"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303065"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD
 
-La unión a Azure AD está pensaba para las organizaciones en las que la nube es prioritaria o exclusiva. Cualquier organización puede implementar dispositivos unidos a Azure AD, sin importar tamaño ni sector. La unión a Azure AD funciona incluso en un entorno híbrido y puede habilitar el acceso a aplicaciones y recursos de nube y locales.
+Cualquier organización puede implementar dispositivos unidos a Azure AD, sin importar tamaño ni sector. La unión a Azure AD funciona incluso en entornos híbridos y puede habilitar el acceso a aplicaciones y recursos de nube y locales.
 
 | Azure AD Join | Descripción |
 | --- | --- |
@@ -30,7 +30,7 @@ La unión a Azure AD está pensaba para las organizaciones en las que la nube e
 | **Propiedad del dispositivo** | Organización |
 | **Sistemas operativos** | Todos los dispositivos con Windows 10, excepto Windows 10 Home |
 |   | [Máquinas virtuales Windows Server 2019 que se ejecutan en Azure](howto-vm-sign-in-azure-ad-windows.md) (No se admite Server Core) |
-| **Aprovisionamiento** | Autoservicio: OOBE o Configuración de Windows |
+| **Aprovisionamiento** | Autoservicio: configuración rápida (OOBE) de Windows o Configuración |
 |   | Inscripción masiva |
 |   | Windows Autopilot |
 | **Opciones de inicio de sesión en el dispositivo** | Cuentas organizativas que usan: |
@@ -62,7 +62,7 @@ Aunque la unión a Azure AD esté pensada principalmente para aquellas organizac
 - Desea administrar un grupo de usuarios en Azure AD en lugar de en Active Directory. Este escenario se puede aplicar, por ejemplo, a los trabajadores temporales, contratistas o alumnos.
 - Desea proporcionar capacidades de unión a los trabajadores de sucursales remotas con infraestructura local limitada.
 
-Puede configurar dispositivos Unidos a Azure AD para todos los dispositivos con Windows 10, con la excepción de Windows 10 Home.
+Puede configurar dispositivos unidos a Azure AD para todos los dispositivos con Windows 10, con la excepción de Windows 10 Home.
 
 El objetivo de los dispositivos unidos a Azure AD es simplificar:
 

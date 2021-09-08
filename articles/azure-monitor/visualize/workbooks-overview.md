@@ -5,12 +5,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 3d75d7605ba082aac84973aef247de79d55b4c9c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c9a535e06278146f89f2c8f6a1844813c2417a1a
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482779"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114706912"
 ---
 # <a name="azure-monitor-workbooks"></a>Libros de Azure Monitor
 
@@ -19,6 +19,9 @@ Los libros proporcionan un lienzo flexible para el análisis de datos y la creac
 Este es un tutorial en vídeo sobre la creación de libros.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
+
+> [!NOTE]
+> Se han quitado los libros heredados y privados. Use la [herramienta de recuperación del libro](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/LegacyAI/DeprecatedWorkbookRetrievalTool.md) para recuperar el contenido del libro antiguo.
 
 ## <a name="data-sources"></a>Orígenes de datos
 
@@ -47,6 +50,8 @@ Los libros proporcionan un amplio conjunto de funciones para visualizar los dato
 * [Árboles](../visualize/workbooks-tree-visualizations.md)
 * [Gráficos](../visualize/workbooks-graph-visualizations.md)
 * [Barra compuesta](../visualize/workbooks-composite-bar.md)
+* [Panal](workbooks-honey-comb.md)
+* [Map](workbooks-map-visualizations.md)
 
 :::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Ejemplo de visualizaciones de libros" border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
@@ -54,7 +59,7 @@ Los libros proporcionan un amplio conjunto de funciones para visualizar los dato
 
 Los pasos de texto, consulta y métricas de un libro se pueden anclar mediante el botón de anclaje en esos elementos, mientras el libro está en modo de anclaje, o bien, si el autor del libro tiene habilitada la configuración para ese elemento con el fin de que el icono para anclar esté visible.
 
-Para acceder al modo de anclaje, haga clic en **editar** para entrar en el modo de edición, luego seleccione el icono para anclar azul en la barra superior. Luego aparecerá un icono de anclaje individual por encima de cada cuadro de *Editar* de la parte correspondiente del libro en el lado derecho de la pantalla.
+Para acceder al modo de anclaje, seleccione **Editar** para entrar en el modo de edición, luego seleccione el icono para anclar azul en la barra superior. Luego aparecerá un icono de anclaje individual por encima de cada cuadro de *Editar* de la parte correspondiente del libro en el lado derecho de la pantalla.
 
 :::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Captura de pantalla de la experiencia de anclado." border="false":::
 
@@ -146,6 +151,7 @@ Si un paso anclado tiene un intervalo de tiempo establecido explícitamente (no 
 ## <a name="sharing-workbook-templates"></a>Compartir plantillas de libro
 
 Una vez que empiece a crear sus propias plantillas de libro, es posible que quiera compartirla con la comunidad. Para obtener más información y explorar otras plantillas que no forman parte de la vista predeterminada de la galería de Azure Monitor, visite nuestro [repositorio GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). Para examinar los libros existentes, visite la [biblioteca de libros](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) en GitHub.
+
 
 ## <a name="next-step"></a>Paso siguiente
 

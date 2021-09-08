@@ -4,12 +4,12 @@ description: Obtenga información sobre los pasos necesarios para habilitar los 
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0ae01212eaa73deeac4774f7e13f5b46976ee7e2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 21cf89c7d89e310f98fea4421076d298405b6fc3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075599"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464466"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Application Insights basados en áreas de trabajo
 
@@ -24,10 +24,10 @@ Esto también permite el control de acceso basado en roles de Azure (Azure RBAC)
 
 Application Insights basado en áreas de trabajo permite aprovechar las capacidades más recientes de Azure Monitor y Log Analytics, lo que incluye:
 
-* Las [claves administradas por el cliente (CMK)](../logs/customer-managed-keys.md) proporcionan cifrado en reposo de los datos mediante claves de cifrado a las que solo tiene acceso el usuario.
+* [Claves administradas por el cliente (CMK)](../logs/customer-managed-keys.md) proporciona cifrado en reposo para los datos con claves de cifrado a las que solo tiene acceso el usuario.
 * [Azure Private Link](../logs/private-link-security.md) le permite vincular de forma segura los servicios PaaS de Azure a la red virtual mediante puntos de conexión privados.
 * [Traiga su propio almacenamiento (BYOS) para Profiler y Snapshot Debugger](./profiler-bring-your-own-storage.md) le proporciona control total sobre la directiva de cifrado en reposo, la directiva de administración de la duración y el acceso a la red para todos los datos asociados a Application Insights Profiler y Snapshot Debugger. 
-* Los [niveles de reserva de capacidad](../logs/manage-cost-storage.md#pricing-model) permiten ahorrar hasta un 25 % en comparación con el precio de Pago por uso. 
+* Los [niveles de compromiso](../logs/manage-cost-storage.md#pricing-model) permiten ahorrar hasta un 30 %, en comparación con el precio de Pago por uso. 
 * Ingesta de datos más rápida gracias a la ingesta de streaming de Log Analytics.
 
 ## <a name="create-workspace-based-resource"></a>Creación de un recurso basado en áreas de trabajo

@@ -3,18 +3,32 @@ title: Solución de problemas de identidades administradas de Azure Automation (
 description: En este artículo se explica cómo solucionar problemas al usar una identidad administrada con una cuenta de Automation.
 services: automation
 ms.subservice: ''
-ms.date: 04/28/2021
+ms.date: 06/28/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 719b20190194779b834eb3de996c0920d50ad313
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 89d3785ef527eebc822eefbbae2c887dd40108ee
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787360"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687504"
 ---
 # <a name="troubleshoot-azure-automation-managed-identity-issues-preview"></a>Solución de problemas de identidades administradas de Azure Automation (versión preliminar)
 
 En este artículo se describen soluciones para los problemas que pueden surgir al usar una identidad administrada con la cuenta de Automation. Para información general sobre el uso de identidades administradas con cuentas de Automation, consulte [Introducción a la autenticación de cuentas de Azure Automation](../automation-security-overview.md#managed-identities-preview).
+
+## <a name="scenario-fail-to-get-msi-token-for-account"></a>Escenario: no se puede obtener el token de MSI para la cuenta
+
+### <a name="issue"></a>Problema
+
+Al trabajar con una identidad administrada asignada por el usuario en la cuenta de Automation, recibe un error similar al siguiente: `Failed to get MSI token for account a123456b-1234-12a3-123a-aa123456aa0b`.
+
+### <a name="cause"></a>Causa
+
+Usar una identidad administrada asignada por el usuario antes de habilitar una identidad administrada asignada por el sistema para la cuenta de Automation.
+
+### <a name="resolution"></a>Resolución
+
+Habilite una identidad administrada asignada por el sistema para la cuenta de Automation. A continuación, utilice la identidad administrada asignada por el usuario.  
 
 ## <a name="scenario-attempt-to-use-managed-identity-with-automation-account-fails"></a>Escenario: Se produce un error al intentar usar la identidad administrada con la cuenta de Automation
 

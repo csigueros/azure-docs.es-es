@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dd14da92eedc14a3da8e9eb0a29b08d96acd204
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 26373d9bfb0c946f412358c16b97f882e2cfba53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790789"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439130"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 
@@ -61,9 +61,12 @@ En algunos casos, las aplicaciones empresariales creadas desde la galería de ap
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Para asignar un propietario a una aplicación empresarial
 
 1. Inicie sesión en su [organización de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con una cuenta que sea válida para el administrador de aplicaciones o el administrador de aplicaciones en la nube de la organización.
-1. En la [página Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) de la organización, seleccione una aplicación para abrir su página Información general.
+1. En la [página Aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) de la organización, seleccione una aplicación para abrir su página Información general.
 1. Seleccione **Propietarios** para ver la lista de los propietarios de la aplicación.
 1. Seleccione **Agregar** para seleccionar uno o varios propietarios para agregar a la aplicación.
+
+> [!NOTE]
+> Si la opción de configuración del usuario [Restringir el acceso al portal de administración de Azure AD](../fundamentals/users-default-permissions.md) está establecida en Sí, los usuarios que no sean administradores no podrán usar Azure Portal para administrar las aplicaciones de su propiedad.
 
 > [!IMPORTANT]
 > Los usuarios y las entidades de servicio pueden ser propietarios de registros de aplicaciones. Solo los usuarios pueden ser propietarios de aplicaciones empresariales. No se pueden asignar grupos como propietarios en ninguno de los dos casos.
@@ -96,7 +99,7 @@ Esta separación le permite crear una definición de roles única y, a continuac
 
 Sugerencias para crear y usar roles personalizados para delegar la administración de aplicaciones:
 - Los roles personalizados solo conceden acceso en las hojas de registro de aplicaciones más actuales de Azure Portal. No conceden acceso a las hojas de registros de aplicaciones heredadas.
-- Los roles personalizados no conceden acceso a Azure Portal si la opción de usuario "Restringir el acceso al portal de administración de Azure AD" está establecida en Sí.
+- Los roles personalizados no conceden acceso a Azure Portal si la opción de usuario [Restringir el acceso al portal de administración de Azure AD](../fundamentals/users-default-permissions.md) está establecida en Sí.
 - Los registros de aplicaciones a los que el usuario tiene acceso mediante las asignaciones de roles solo aparecen en la pestaña "Todas las aplicaciones" de la página Registro de aplicación. No aparecen en la pestaña "Aplicaciones propias".
 
 Para más información sobre los aspectos básicos de los roles personalizados, consulte la [introducción sobre los roles personalizados](custom-overview.md), y también cómo [crear un rol personalizado](custom-create.md) y cómo [asignar un rol](custom-assign-powershell.md).

@@ -2,14 +2,14 @@
 title: Compilar imagen con Cloud Native Buildpack
 description: Use el comando az acr pack build para compilar una imagen de contenedor desde una aplicación e insertarla en Azure Container Registry, sin usar ningún documento Dockerfile.
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 06/24/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 1700c8fda8ac91e7d447d35c0989da2d5fc3aefe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 28630c46ea56bd4df1a43e5e377b3051f9cdd966
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780936"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913969"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilación e inserción de una imagen desde una aplicación mediante una instancia de Cloud Native Buildpacks
 
@@ -29,19 +29,19 @@ Como mínimo, especifique lo siguiente cuando ejecute `az acr pack build`:
 * Un registro de contenedor de Azure en el que ejecutar el comando
 * Un nombre de imagen y una etiqueta para la imagen resultante
 * Una de las [ubicaciones de contexto compatibles](container-registry-tasks-overview.md#context-locations) con ACR Tasks, como un directorio local, un repositorio de GitHub o un tarball remoto
-* El nombre de una imagen de compilador de buildpacks adecuada para la aplicación. Azure Container Registry copia en caché imágenes del compilador, como `cloudfoundry/cnb:0.0.34-cflinuxfs3`, para agilizar las compilaciones.  
+* El nombre de una imagen de compilador de buildpacks adecuada para la aplicación. Si no se almacena en Azure Container Registry, la imagen del generador se debe sacar mediante el parámetro `--pull`.  
 
 El comando `az acr pack build` admite otras características de los comandos de ACR Tasks, incluidas las [variables de ejecución](container-registry-tasks-reference-yaml.md#run-variables) y los [registros de ejecución de tareas](container-registry-tasks-logs.md) que se transmiten y también se guardan para poderse recuperar posteriormente.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Ejemplo: Compilación de la imagen de Node.js con el compilador de Cloud Foundry
 
-En el ejemplo siguiente se crea una imagen de contenedor a partir de la aplicación Node.js en el repositorio [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world), con el compilador `cloudfoundry/cnb:0.0.34-cflinuxfs3`. Azure Container Registry copia en caché este compilador, por lo que no se requiere un parámetro `--pull`:
+En el ejemplo siguiente se crea una imagen de contenedor a partir de la aplicación Node.js en el repositorio [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world), con el compilador `cloudfoundry/cnb:cflinuxfs3`.
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
-    --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
+    --image node-app:1.0 \
+    --pull --builder cloudfoundry/cnb:cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
@@ -65,7 +65,7 @@ Vaya a `localhost:1337` en su explorador favorito para ver la aplicación web de
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>Ejemplo: Compilación de una imagen de Java con el compilador de Heroku
 
-En el ejemplo siguiente se crea una imagen de contenedor desde la aplicación Java en el repositorio [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app), mediante el compilador `heroku/buildpacks:18`. El parámetro `--pull` especifica que el comando debe extraer la última imagen del compilador. 
+En el ejemplo siguiente se crea una imagen de contenedor desde la aplicación Java en el repositorio [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app), mediante el compilador `heroku/buildpacks:18`. 
 
 ```azurecli
 az acr pack build \

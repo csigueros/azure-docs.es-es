@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 50bf5f3188728db41f74b6fefe5946ef2127efe3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7e0f3e2ab306c46851e4c2ffcb6acf5824326282
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062315"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564381"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -513,11 +513,12 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 
 | ID | Valor predeterminado |
 | -- | ------------- |
-|UserMessageIfMaxRetryAttempted |La comprobación proporcionada de la contraseña única ha superado el número máximo de intentos. |
-|UserMessageIfSessionDoesNotExist |La sesión de comprobación de contraseña única ha expirado. |
-|UserMessageIfSessionConflict |La sesión de comprobación de contraseña única presenta un conflicto. |
-|UserMessageIfInvalidCode |La contraseña única que se proporcionó para la comprobación no es correcta. |
-|UserMessageIfVerificationFailedRetryAllowed |Este código no es correcto. Inténtelo de nuevo. | 
+| UserMessageIfSessionDoesNotExist | No | Mensaje que se mostrará al usuario si la sesión de verificación de código ha expirado. Es posible que el código haya expirado o que nunca se haya generado para un identificador determinado. |
+| UserMessageIfMaxRetryAttempted | No | Mensaje que se mostrará al usuario si ha superado el número máximo de intentos de verificación permitidos. |
+| UserMessageIfMaxNumberOfCodeGenerated | No | Mensaje que se mostrará al usuario si la generación de código ha superado el número máximo de intentos permitidos. |
+| UserMessageIfInvalidCode | No | Mensaje que se mostrará al usuario si ha proporcionado un código no válido. |
+| UserMessageIfVerificationFailedRetryAllowed | No | Mensaje que se mostrará al usuario si ha proporcionado un código no válido y tiene permitido proporcionar el correcto.  |
+|UserMessageIfSessionConflict|No| Mensaje que se mostrará al usuario si no se puede comprobar el código.|
 
 ### <a name="one-time-password-example"></a>Ejemplo de contraseña de un solo uso
 
@@ -526,9 +527,10 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```

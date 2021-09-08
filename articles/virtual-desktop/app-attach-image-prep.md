@@ -6,16 +6,18 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f80d123a96a24ef9e9402cc2b142e94448468ea1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b3e33fecc1df930cf4fb01808b2a8400a210fce8
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745644"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707148"
 ---
 # <a name="prepare-an-msix-image-for-azure-virtual-desktop"></a>Preparación de una imagen de MSIX para Azure Virtual Desktop
 
 La conexión de aplicaciones MSIX es una solución de aplicaciones en capas que le permite conectar dinámicamente las aplicaciones de un paquete MSIX a una sesión de usuario. El sistema de paquetes MSIX separa las aplicaciones del sistema operativo, lo que facilita la creación de imágenes para las máquinas virtuales. Los paquetes MSIX también proporcionan un mayor control sobre las aplicaciones a las que los usuarios pueden acceder en sus máquinas virtuales. Incluso puede separar las aplicaciones de la imagen maestra y proporcionarlas a los usuarios posteriormente.
+
+Las instrucciones sobre cómo convertir un instalador de escritorio (como MSI, EXE, ClickOnce, App-V o Script) a MSIX están disponibles en [Creación de un paquete MSIX desde cualquier instalador de escritorio (MSI, EXE, ClickOnce o App-V)](/windows/msix/packaging-tool/create-app-package).
 
 ## <a name="create-a-vhd-or-vhdx-package-for-msix"></a>Creación de un paquete VHD o VHDX para MSIX
 
@@ -106,4 +108,4 @@ También puede dejar comentarios sobre Azure Virtual Desktop en el [Centro de op
 Estos son algunos otros artículos que pueden resultarle útiles:
 
 - [Glosario sobre la conexión de aplicaciones en formato MSIX](app-attach-glossary.md)
-- [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.md)
+- [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.yml)

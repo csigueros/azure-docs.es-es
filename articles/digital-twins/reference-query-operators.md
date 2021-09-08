@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/22/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 924f7248733ee573cc68b137fccb829b2a79af31
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 06945efc6be8700955b1a475d00d21951102c214
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296470"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492800"
 ---
 # <a name="azure-digital-twins-query-language-reference-operators"></a>Referencia del lenguaje de consulta de Azure Digital Twins: operadores
 
@@ -28,15 +28,15 @@ Se admiten los siguientes operadores de la familia de operadores de comparación
 
 ### <a name="example"></a>Ejemplo
 
-Este es un ejemplo que usa el operador `=`. La siguiente consulta devuelve gemelos cuyo valor de Temperature es igual a 80.
+A continuación, se proporciona un ejemplo del uso de `=`. La siguiente consulta devuelve gemelos cuyo valor de Temperature es igual a 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="EqualityExample":::
 
-Este es un ejemplo que usa el operador `<`. La siguiente consulta devuelve gemelos cuyo valor de Temperature es menor que 80.
+A continuación, se proporciona un ejemplo del uso de `<`. La siguiente consulta devuelve gemelos cuyo valor de Temperature es menor que 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="ComparisonExample":::
 
-Este es un ejemplo que usa el operador `<=`. La siguiente consulta devuelve gemelos cuyo valor de Temperature es menor o igual que 80.
+A continuación, se proporciona un ejemplo del uso de `<=`. La siguiente consulta devuelve gemelos cuyo valor de Temperature es menor o igual que 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="OrderedComparisonExample":::
 
@@ -49,7 +49,7 @@ Se admiten los siguientes operadores de la familia de operadores de contenido.
 
 ### <a name="example"></a>Ejemplo
 
-Este es un ejemplo que usa el operador `IN`. La consulta siguiente devuelve gemelos cuya propiedad `owner` es una de varias opciones de una lista.
+A continuación, se proporciona un ejemplo del uso de `IN`. La consulta siguiente devuelve gemelos cuya propiedad `owner` es una de varias opciones de una lista.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="InExample":::
 
@@ -62,15 +62,15 @@ Se admiten los siguientes operadores de la familia de operadores lógicos:
 
 ### <a name="example"></a>Ejemplo
 
-Este es un ejemplo que usa el operador `AND`. La consulta siguiente devuelve gemelos que cumplen ambas condiciones: un valor de Temperature inferior a 80 y un valor de Humidity inferior a 50.
+A continuación, se proporciona un ejemplo del uso de `AND`. La consulta siguiente devuelve gemelos que cumplen ambas condiciones: un valor de Temperature inferior a 80 y un valor de Humidity inferior a 50.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="AndExample":::
 
-Este es un ejemplo que usa el operador `OR`. La consulta siguiente devuelve gemelos que cumplen al menos una de las condiciones: un valor de Temperature inferior a 80 y un valor de Humidity inferior a 50.
+A continuación, se proporciona un ejemplo del uso de `OR`. La consulta siguiente devuelve gemelos que cumplen al menos una de las condiciones: un valor de Temperature inferior a 80 y un valor de Humidity inferior a 50.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="OrExample":::
 
-Este es un ejemplo que usa el operador `NOT`. La consulta siguiente devuelve gemelos que no cumplen las condiciones de un valor de Temperature inferior a 80.
+A continuación, se proporciona un ejemplo del uso de `NOT`. La consulta siguiente devuelve gemelos que no cumplen las condiciones de un valor de Temperature inferior a 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="NotExample":::
 

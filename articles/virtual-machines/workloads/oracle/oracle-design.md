@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
-ms.openlocfilehash: 6e59d0065dfa74979bf3bbc72458bda516e3b641
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28c4e7ce7b6910ec1950350ee301e16fa54d4c02
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669977"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461612"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -154,7 +154,7 @@ En función de los requisitos de ancho de banda de red, puede elegir diferentes 
 - Use una instancia de Virtual Machines con las [redes aceleradas](../../../virtual-network/create-vm-accelerated-networking-cli.md) para mejorar el rendimiento de la red.
 - En cuanto a ciertas distribuciones de Linux, habilite la [compatibilidad con TRIM/UNMAP](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Instale [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) en una máquina virtual individual.
-- Las páginas de gran tamaño no están habilitadas en Linux de forma predeterminada. Habilite las páginas de gran tamaño y establezca `use_large_pages = ONLY` en Oracle DB. Esto puede ayudarle a mejorar el rendimiento. Puede encontrar más información [aquí](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Las páginas de gran tamaño no están habilitadas en Linux de forma predeterminada. Habilite las páginas de gran tamaño y establezca `use_large_pages = ONLY` en Oracle DB. Esto puede ayudarle a mejorar el rendimiento. Para obtener más información, consulte [USE_LARGE_PAGES](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipos y configuraciones de disco
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: pafarley
-ms.openlocfilehash: 195beaaae2925ce9cc6e7cc70bd0415ded49f155
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: d5a1da6bbe251e6200cd3a64117748e9ebbfae2a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166710"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298122"
 ---
 # <a name="call-the-read-api"></a>Llamada a la API Read
 
@@ -24,6 +24,8 @@ En esta guía, aprenderá a llamar a Read API para extraer texto de imágenes. C
 En esta guía se da por supuesto que ya se ha <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="creado un recurso Computer Vision"  target="_blank">create a Computer Vision resource</a> y se ha obtenido una clave de suscripción y una dirección URL del punto de conexión. Si no lo ha hecho, para empezar consulte un [inicio rápido](../quickstarts-sdk/client-library.md).
 
 ## <a name="submit-data-to-the-service"></a>Envío de datos al servicio
+
+Envíe una imagen local o una imagen remota a Read API. Si la imagen es local, coloque los datos binarios de la imagen en el cuerpo de la solicitud HTTP. Si la imagen es remota, especifique la dirección URL de la misma asignando al cuerpo de la solicitud un formato como el siguiente: `{"url":"http://example.com/images/test.jpg"}`.
 
 La [llamada a Read](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) de Read API toma como entrada una imagen o un documento PDF y extrae texto de forma asincrónica.
 

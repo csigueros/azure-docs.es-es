@@ -6,12 +6,13 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d3f7f4e1cdd56675d6084448abc810c9a41992f9
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 5ad119017f4fe1dda0703547480c7444978d1878
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520146"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113129072"
 ---
 # <a name="device-update-for-iot-hub-resource-management"></a>Administración de recursos de Device Update para IoT Hub
 
@@ -28,11 +29,11 @@ Para empezar a trabajar con Device Update, deberá crear una cuenta en este serv
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
-2. Haga clic en Crear un recurso y busque "Device Update para IoT Hub".
+2. Haga clic en **Crear un recurso** y busque "Device Update for IoT Hub".
 
    :::image type="content" source="media/create-device-update-account/device-update-marketplace.png" alt-text="Captura de pantalla del recurso de Device Update para IoT Hub." lightbox="media/create-device-update-account/device-update-marketplace.png":::
 
-3. Haga clic en Crear -> Device Update para IoT Hub.
+3. Haga clic en **Crear** -> **Device Update for IoT Hub**.
 
 4. Especifique la suscripción de Azure que se asociará con la cuenta de Device Update y el grupo de recursos.
 
@@ -43,15 +44,17 @@ Para empezar a trabajar con Device Update, deberá crear una cuenta en este serv
  > [!NOTE]
  > Puede ir a la [página de productos de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub) para consultar en qué regiones está disponible Device Update para IoT Hub. Si Device Update para IoT Hub no está disponible en su región, puede optar por crear una cuenta en una región disponible próxima. 
 
-6. Haga clic en "Siguiente: Revisar y crear".
+6. Opcionalmente, puede seleccionar la casilla para asignarse el rol Administrador de Device Update a sí mismo. También puede usar los pasos enumerados en la sección "Configuración de los roles de control de acceso" para proporcionar una combinación de roles a usuarios y aplicaciones para el nivel de acceso correcto.
+
+8. Haga clic en **Siguiente: Revisar y crear**.
 
    :::image type="content" source="media/create-device-update-account/account-review.png" alt-text="Captura de pantalla de revisión de los detalles de cuente." lightbox="media/create-device-update-account/account-review.png":::
 
-7. Revise los detalles y seleccione "Crear". Verá la implementación en curso. 
+7. Revise los valores y, luego, seleccione **Crear**. Verá la implementación en curso. 
 
    :::image type="content" source="media/create-device-update-account/account-deployment-inprogress.png" alt-text="Captura de pantalla de la implementación de la cuenta en curso." lightbox="media/create-device-update-account/account-deployment-inprogress.png":::
 
-8. Verá que el estado de la implementación cambia a "Finalizado" en unos minutos. Haga clic en "Ir al recurso".
+8. Verá que el estado de la implementación cambia a "Finalizado" en unos minutos. Haga clic en **Ir al recurso**.
 
    :::image type="content" source="media/create-device-update-account/account-complete.png" alt-text="Captura de pantalla de la implementación de la cuenta finalizada." lightbox="media/create-device-update-account/account-complete.png":::
 
@@ -61,18 +64,18 @@ Una instancia de Device Update se asocia con un único centro de IoT. Seleccione
 
 Para crear una instancia de Device Update una vez creada una cuenta.
 
-1. Una vez que se encuentre en el recurso de la cuenta recién creada, vaya a la hoja "Instancias" de Instance Management (Administración de instancias).
+1. Una vez que se encuentre en el recurso de la cuenta recién creada, vaya a la hoja **Instancias** de Administración de instancias.
 
    :::image type="content" source="media/create-device-update-account/instance-blade.png" alt-text="Captura de pantalla de la administración de instancias en la cuenta." lightbox="media/create-device-update-account/instance-blade.png":::
 
-2. Haga clic en "Crear", especifique un nombre de instancia y seleccione el centro de IoT.
+2. Haga clic en **Crear**, especifique un nombre de instancia y seleccione el centro de IoT.
 
    :::image type="content" source="media/create-device-update-account/instance-details.png" alt-text="Captura de pantalla de detalles de la instancia." lightbox="media/create-device-update-account/instance-details.png":::
 
    > [!NOTE] 
    > El centro de IoT que vincule al recurso de Device Update no tiene que estar en la misma región que la cuenta de Device Update. Sin embargo, para mejorar el rendimiento, se recomienda que esté en la misma región o en una región cercana. 
 
-3. Haga clic en "Crear". Verá la instancia con el estado "Creando". 
+3. Haga clic en **Crear**. Verá la instancia con el estado "Creando". 
 
    :::image type="content" source="media/create-device-update-account/instance-creating.png" alt-text="Captura de pantalla de la creación de la instancia." lightbox="media/create-device-update-account/instance-creating.png":::
 
@@ -86,15 +89,15 @@ Para que Device Update puede recibir notificaciones de cambios de IoT Hub, debe 
 
 Para configurar IoT Hub
 
-1. Una vez que el valor de "Estado de aprovisionamiento" de la instancia se convierta en "Correcto", seleccione la instancia en la hoja Instance Management (Administración de instancias). Haga clic en "Configure IoT Hub" (Configurar IoT Hub).
+1. Una vez que el valor de "Estado de aprovisionamiento" de la instancia se convierta en "Correcto", seleccione la instancia en la hoja Instance Management (Administración de instancias). Haga clic en **Configure IoT Hub** (Configurar IoT Hub).
 
    :::image type="content" source="media/create-device-update-account/instance-configure.png" alt-text="Captura de pantalla de configuración de IoT Hub para una instancia." lightbox="media/create-device-update-account/instance-configure.png":::
 
-2. Seleccione "I agree to make these changes" (Acepto realizar estos cambios).
+2. Seleccione **I agree to make these changes** (Acepto realizar estos cambios).
 
    :::image type="content" source="media/create-device-update-account/instance-configure-selected.png" alt-text="Captura de pantalla donde se acepta la configuración de IoT Hub para una instancia." lightbox="media/create-device-update-account/instance-configure-selected.png":::
 
-3. Haga clic en "Actualizar".
+3. Haga clic en **Update** (Actualizar).
 
    > [!NOTE] 
    > Si utiliza un nivel Gratis de Azure IoT Hub, el número permitido de rutas de mensajes se limita a 5. Device Update for IoT Hub debe configurar 4 rutas de mensajes para que funcionen según lo previsto. 
@@ -104,15 +107,15 @@ Para configurar IoT Hub
 
 ## <a name="configure-access-control-roles"></a>Configuración de roles de control de acceso
 
-Para que otros usuarios puedan tener acceso a Device Update, se les debe conceder acceso a este recurso. 
+Para que otros usuarios puedan tener acceso a Device Update, se les debe conceder acceso a este recurso. Puede omitir este paso si se asignó el rol Administrador de Device Update durante la creación de la cuenta y no tiene que proporcionar acceso a usuarios o aplicaciones adicionales. 
 
 1. Vaya a Control de acceso (IAM) dentro de la cuenta de Device Update.
 
    :::image type="content" source="media/create-device-update-account/account-access-control.png" alt-text="Captura de pantalla del control de acceso en la cuenta de Device Update." lightbox="media/create-device-update-account/account-access-control.png":::
 
-2. Haga clic en "Add role assignments" (Agregar asignaciones de roles).
+2. Haga clic en **Add role assignments** (Agregar asignaciones de roles).
 
-3. En "Seleccionar un rol", seleccione un rol de Device Update entre las opciones especificadas.
+3. En la pestaña Role (Rol), seleccione un rol de Device Update entre las opciones especificadas.
      - Device Update Administrator (Administrador de Device Update)
      - Device Update Reader (Lector de Device Update)
      - Device Update Content Administrator (Administrador de contenido de Device Update)
@@ -124,9 +127,15 @@ Para que otros usuarios puedan tener acceso a Device Update, se les debe concede
     
     [Más información sobre el control de acceso basado en roles en Device Update para IoT Hub](device-update-control-access.md) 
     
-4. Asignación de acceso a un usuario o grupo de Azure AD
-5. Haga clic en Guardar
-6. Ahora está listo para usar la experiencia de Device Update desde el centro de IoT.
+4. Haga clic en **Siguiente**.
+5. Asignación de acceso a un usuario o grupo de Azure AD
+6. Selección de miembros
+   
+   :::image type="content" source="media/create-device-update-account/role-assignment-2.png" alt-text="Captura de pantalla de la selección de miembros del control de acceso dentro de la cuenta de Device Update." lightbox="media/create-device-update-account/role-assignment-2.png":::
+
+6. Haga clic en **Review + assign** (Revisar y asignar).
+7. Revise las nuevas asignaciones de roles y vuelva a hacer clic en **Review + assign** (Revisar y asignar).
+8. Ahora está listo para usar la experiencia de Device Update desde el centro de IoT.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

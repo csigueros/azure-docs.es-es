@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/09/2021
 ms.author: justinha
 author: justinha
 manager: daveba
-ms.reviewer: rateller
+ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ee91482ac17ac5e91715f5dfe6191c6ed4007a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 3505f53c9ddeb4f3605554799c029a8195a9ab65
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982711"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004995"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory 
 
 Para simplificar y proteger el inicio de sesión en aplicaciones y servicios, Azure Active Directory (Azure AD) proporciona varias opciones de autenticación. La autenticación basada en SMS permite a los usuarios iniciar sesión sin proporcionar, o inclusive sin saber, su nombre de usuario y contraseña. Después de que un administrador de identidades cree su cuenta, puede escribir su número de teléfono en la solicitud de inicio de sesión. Reciben un código de autenticación a través de un mensaje de texto que pueden proporcionar para completar el inicio de sesión. Este método de autenticación simplifica el acceso a las aplicaciones y los servicios, sobre todo para los trabajadores que están en primera línea.
 
-En este artículo se muestra cómo habilitar la autenticación basada en SMS para usuarios o grupos seleccionados en Azure AD.
+En este artículo se muestra cómo habilitar la autenticación basada en SMS para usuarios o grupos seleccionados en Azure AD. Para ver una lista de las aplicaciones que admiten el uso del inicio de sesión basado en SMS, consulte [Compatibilidad con aplicaciones para la autenticación basada en SMS](how-to-authentication-sms-supported-apps.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -34,8 +34,8 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Necesita privilegios de *administrador global* en el inquilino de Azure AD para permitir la autenticación basada en SMS.
 * Cada usuario que esté habilitado en la directiva de métodos de autenticación de mensaje de texto debe tener licencia, aunque no la usen. Cada usuario habilitado debe tener una de las siguientes licencias de Azure AD, EMS o Microsoft 365:
-    * [Microsoft 365 (M365) F1 o F3][m365-firstline-workers-licensing]
-    * [Enterprise Mobility + Security (EMS) E3 o E5][ems-licensing] o [Microsoft 365 (M365) E3 o E5][m365-licensing]
+    * [Microsoft 365 F1 o F3][m365-firstline-workers-licensing]
+    * [Enterprise Mobility + Security (EMS) E3 o E5][ems-licensing] o [Microsoft 365 E3 o E5][m365-licensing]
     * [Office 365 F3][o365-f3]
 
 ## <a name="known-issues"></a>Problemas conocidos
@@ -124,9 +124,11 @@ Para probar la cuenta de usuario que ahora está habilitada para el inicio de se
 
 1. El usuario ya ha iniciado sesión sin necesidad de proporcionar un nombre de usuario o una contraseña.
 
+
 ## <a name="troubleshoot-sms-based-sign-in"></a>Solución de problemas de inicio de sesión basado en SMS
 
-Los siguientes escenarios y pasos de solución de problemas pueden usarse si tiene problemas para habilitar y usar el inicio de sesión basado en SMS.
+Los siguientes escenarios y pasos de solución de problemas pueden usarse si tiene problemas para habilitar y usar el inicio de sesión basado en SMS. Para ver una lista de las aplicaciones que admiten el uso del inicio de sesión basado en SMS, consulte [Compatibilidad con aplicaciones para la autenticación basada en SMS](how-to-authentication-sms-supported-apps.md).
+
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>Número de teléfono ya establecido para una cuenta de usuario
 
@@ -148,9 +150,10 @@ Si recibe un error al intentar establecer un número de teléfono para una cuent
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede encontrar más formas de iniciar sesión en Azure AD sin una contraseña, como las claves de seguridad de la aplicación Microsoft Authenticator o FIDO2, en [Opciones de autenticación sin contraseñas de Azure AD][concepts-passwordless].
+- Para ver una lista de las aplicaciones que admiten el uso del inicio de sesión basado en SMS, consulte [Compatibilidad con aplicaciones para la autenticación basada en SMS](how-to-authentication-sms-supported-apps.md).
+- Puede encontrar más formas de iniciar sesión en Azure AD sin una contraseña, como las claves de seguridad de la aplicación Microsoft Authenticator o FIDO2, en [Opciones de autenticación sin contraseñas de Azure AD][concepts-passwordless].
+- También puede utilizar Microsoft Graph API REST para [habilitar][rest-enable] o [deshabilitar][rest-disable] el inicio de sesión basado en SMS.
 
-También puede utilizar Microsoft Graph API REST para [habilitar][rest-enable] o [deshabilitar][rest-disable] el inicio de sesión basado en SMS.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md

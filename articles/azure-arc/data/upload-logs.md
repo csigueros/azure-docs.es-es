@@ -7,24 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: f3f29ae1ab868a96e6f70ed964f79c47bc591c4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 812b6add11ac032eb6dffea7de54111574393cf9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92374166"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733491"
 ---
 # <a name="upload-logs-to-azure-monitor"></a>Carga de registros a Azure Monitor
 
 Puede exportar los registros de forma periódica y, a continuación, cargarlos en Azure. La exportación y la carga de los registros también crea y actualiza los recursos del controlador de datos, la instancia administrada de SQL y el grupo de servidores Hiperescala de PostgreSQL en Azure.
-
-> [!NOTE] 
-> Durante el período de versión preliminar, los servicios de datos habilitados para Azure Arc no suponen ningún costo.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -124,7 +119,6 @@ SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-```
 ::: zone-end
 
 
@@ -216,24 +210,27 @@ Con las variables de entorno establecidas, puede cargar los registros en el áre
 
  Para cargar los registros de las instancias administradas de SQL habilitadas para Azure Arc y los grupos de servidores Hiperescala de PostgreSQL habilitada para Azure Arc, ejecute los siguientes comandos de la CLI:
 
-1. Inicie sesión en el controlador de datos de Azure Arc con [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
+1. Inicie sesión en el controlador de datos de Azure Arc con la CLI de Azure (`az`) con la extensión `arcdata`.
 
-   ```console
-   azdata login
+   ```azurecli
+   az arcdata login
    ```
 
    Siga las indicaciones para establecer el espacio de nombres, el nombre de usuario del administrador y la contraseña. 
 
 1. Se exportan todos los registros al archivo especificado:
 
-   ```console
-   azdata arc dc export --type logs --path logs.json
+> [!NOTE]
+> La exportación de información de uso/facturación, métricas y registros mediante el comando `az arcdata dc export` requiere omitir la comprobación de SSL por ahora.  Se le pedirá que omita la comprobación de SSL o puede establecer la variable de entorno `AZDATA_VERIFY_SSL=no` para evitar que se le solicite.  Actualmente no hay ninguna manera de configurar un certificado SSL para la API de exportación del controlador de datos.
+
+   ```azurecli
+   az arcdata dc export --type logs --path logs.json
    ```
 
 2. Cargue los registros en un área de trabajo de Log Analytics en Azure Monitor:
 
-   ```console
-   azdata arc dc upload --path logs.json
+   ```azurecli
+   az arcdata dc upload --path logs.json
    ```
 
 ## <a name="view-your-logs-in-azure-portal"></a>Visualización de los registros en Azure Portal
@@ -256,9 +253,9 @@ Si quiere cargar métricas y registros de forma programada, puede crear un scrip
 
 En el editor de código o texto que prefiera, agregue el siguiente script al archivo y guárdelo como un archivo ejecutable de script como .sh (Linux o Mac), o bien .cmd, .bat, .ps1.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type logs --path logs.json --force
+az arcdata dc upload --path logs.json
 ```
 
 Conversión del archivo de script en ejecutable

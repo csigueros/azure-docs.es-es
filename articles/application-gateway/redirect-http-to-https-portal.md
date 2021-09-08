@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 92805b4f6c46a32718d755d19c9053705112fa48
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5192a740667217741b20d6bd335ca5662f3fc6aa
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321346"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690600"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure Portal
 
@@ -137,7 +137,7 @@ En este ejemplo, creará un conjunto de escalado de máquinas virtuales para pro
 3. En el cuadro de búsqueda, escriba *conjunto de escalado* y presione ENTRAR.
 4. Seleccione **Conjunto de escalado de máquinas virtuales** y, a continuación, seleccione **Crear**.
 5. En **Nombre del conjunto de escalado de máquinas virtuales**, escriba *myvmss*.
-6. Para la imagen del disco del sistema operativo, ** asegúrese de que **Windows Server 2016 Datacenter** está seleccionado.
+6. Para la **imagen del disco del sistema operativo**, asegúrese de que **Windows Server 2016 Datacenter** está seleccionado.
 7. Para **Grupo de recursos**, seleccione **myResourceGroupAG**.
 8. En **Nombre de usuario**, escriba *azureuser*.
 9. En **Contraseña**, escriba *Azure123456!* y confirme la contraseña.

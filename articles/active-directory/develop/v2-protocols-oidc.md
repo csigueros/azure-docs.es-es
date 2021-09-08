@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 07/19/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a01566341a1c5aa1700b68938410ee0c08c17ddd
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a23fd4f764773dfa29e1abd20f4952cc86049c42
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747552"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464084"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 
@@ -26,6 +26,7 @@ OpenID Connect (OIDC) es un protocolo de autenticación basado en OAuth 2.0 que
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. También presenta el [Punto de conexión de UserInfo](userinfo.md), una API que devuelve información sobre el usuario. 
 
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Inicio de sesión
 
@@ -118,7 +119,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parámetro | Condición | Descripción |
 | --- | --- | --- |
-| `tenant` | Obligatorio | Puede usar el valor `{tenant}` en la ruta de acceso de la solicitud para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). |
+| `tenant` | Obligatorio | Puede usar el valor `{tenant}` en la ruta de acceso de la solicitud para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). En el caso de los escenarios de invitado en los que se inicia la sesión de un usuario de un inquilino a otro inquilino, se *debe* proporcionar el identificador del inquilino para iniciar la sesión correctamente en el inquilino de recursos.|
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
 | `response_type` | Obligatorio | Debe incluir `id_token` para el inicio de sesión en OpenID Connect. También puede incluir otros valores `response_type`, como `code`. |
 | `redirect_uri` | Recomendado | El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que registró en el portal, con la excepción de que debe estar codificado como URL. Si no existe, el punto de conexión seleccionará al azar un valor de redirect_uri registrado para volver a enviar al usuario. |
@@ -127,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | Recomendado | Especifica el método que se debe usar para enviar el código de autorización resultante de nuevo a la aplicación. Puede ser `form_post` o `fragment`. En el caso de las aplicaciones web, se recomienda usar `response_mode=form_post` para asegurar la transferencia más segura de tokens a la aplicación. |
 | `state` | Recomendado | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se usa normalmente un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, como la página o la vista en la que estaba el usuario. |
 | `prompt` | Opcional | Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son `login`, `none`, `consent` y `select_account`. La notificación `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, lo que niega el inicio de sesión único. El parámetro `prompt=none` es lo contrario y se debe emparejar con `login_hint` para indicar qué usuario debe haber iniciado sesión. Estos parámetros garantizan que al usuario no se le presente ninguna solicitud interactiva. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único (porque ningún usuario inició sesión, el usuario sugerido no inició sesión o porque varios usuarios iniciaron sesión y no se proporcionó ninguna sugerencia), la plataforma de identidad de Microsoft devuelve un error. La notificación `prompt=consent` desencadena el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión. El cuadro de diálogo le pide al usuario que conceda permisos a la aplicación. Por último, `select_account` muestra al usuario un selector de cuenta, lo que niega un SSO silencioso pero permite al cliente elegir con qué cuenta quiere iniciar sesión, sin necesidad de ingresar ninguna credencial. No es posible utilizar `login_hint` y `select_account` juntos.|
-| `login_hint` | Opcional | Puede usar este parámetro para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe el nombre de usuario con anticipación. A menudo, las aplicaciones usan este parámetro durante la reautenticación, una vez que ya se extrajo el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
+| `login_hint` | Opcional | Puede usar este parámetro para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe el nombre de usuario con anticipación. A menudo, las aplicaciones usan este parámetro durante la reautenticación, una vez que se ha extraído la `login_hint` [notificación opcional](active-directory-optional-claims.md) de un inicio de sesión anterior. |
 | `domain_hint` | Opcional | El dominio del usuario en un directorio federado.  Se omite el proceso de detección basado en correo electrónico por el que pasa el usuario de la página de inicio de sesión, para obtener una experiencia de usuario ligeramente más sencilla. En el caso de los inquilinos que se federan mediante un directorio local como AD FS, con frecuencia se produce un inicio de sesión completo debido a la sesión de inicio de sesión existente. |
 
 En este punto, se le pide al usuario que escriba sus credenciales y que complete la autenticación. La plataforma de identidad de Microsoft comprueba que el usuario ha dado su consentimiento a los permisos indicados en el parámetro de consulta `scope`. Si el usuario no dio su consentimiento a ninguno de estos permisos, la plataforma de identidad de Microsoft solicitará al usuario que dé su consentimiento a los permisos requeridos. Puede leer más información sobre los [permisos, el consentimiento y las aplicaciones multiinquilino](v2-permissions-and-consent.md).
@@ -255,6 +256,8 @@ Los parámetros de respuesta significan lo mismo, independientemente del flujo u
 | `scope` | Permisos concedidos en el token de acceso.  Tenga en cuenta que, dado que el punto de conexión UserInfo se hospeda en MS Graph, puede haber otros ámbitos de gráfico aquí (por ejemplo, user.read) si se concedieron previamente a la aplicación.  Esto se debe a que un token de un recurso determinado siempre incluye todos los permisos concedidos actualmente al cliente.  |
 | `id_token` | El token de identificador que la aplicación solicitó. Puede usar el token de identificador para comprobar la identidad del usuario y comenzar una sesión con el usuario. Encontrará más detalles sobre los tokens de identificador y su contenido en la [`id_tokens` referencia](id-tokens.md). |
 | `state` | Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response"></a>Respuesta de error
 

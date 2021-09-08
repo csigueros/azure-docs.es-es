@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42326cd4080fe6737fd14f8dc2c5a2028c20077f
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 890bf61eb98218df53a6aa66c9e8562881b8d2df
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854547"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895605"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>Inicios de sesión de AD FS en Azure AD con Connect Health (versión preliminar)
 
@@ -102,6 +102,9 @@ El agente de Azure AD Connect Health para AD FS correlaciona los identificadore
 
 ***¿Por qué veo NotSet o NotApplicable en el nombre o el identificador de la aplicación para algunos inicios de sesión AD FS?***
 El informe de inicios de sesión de AD FS mostrará identificadores de OAuth en el campo Id. de aplicación para inicios de sesión de OAuth. En los escenarios de inicio de sesión de WS-Fed y WS-Trust, el identificador de aplicación será NotSet o NotApplicable y los identificadores de recurso y de persona de confianza estarán presentes en el campo Id. de recurso.
+
+***¿Por qué veo los campos Identificador de recurso y Nombre de recurso como "No establecido"?***
+Los campos Identificador de recurso y Nombre de recurso tendrán el valor "NotSet" en algunos casos de error, como "Nombre de usuario y contraseña incorrectos" y en los inicios de sesión con error basados en WSTrust.
 
 ***¿Hay más problemas conocidos con el informe de la versión preliminar?***
 El informe tiene un problema conocido que consiste en que el campo "Requisito de autenticación" de la pestaña "Información básica" se rellena como un valor de autenticación de un solo factor para los inicios de sesión de AD FS con independencia del inicio de sesión. Además, la pestaña detalles de autenticación muestra "Principal o secundaria" en el campo Requisito, y hay una corrección en curso para diferenciar los tipos de autenticación principal o secundaria.

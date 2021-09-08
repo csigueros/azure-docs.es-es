@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4eba226fbbe3ef6d9791f2f098a24fdf217debaa
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 84cb22956b682a9acb23f4f391faf046eccc47a7
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110575380"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378149"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Escenario: Enrutamiento del tráfico a través de NVA mediante una configuración personalizada
 
@@ -177,6 +177,7 @@ Para configurar el enrutamiento mediante la NVA, tenga en cuenta los pasos sigui
    > * Los usuarios del portal deben habilitar la propagación a la ruta predeterminada en las conexiones (VPN/ER/P2S/VNet) para que la ruta 0.0.0.0/0 surta efecto.
    > * Los usuarios de PS/CLI/REST deben establecer la marca "enableinternetsecurity" en true para que la ruta 0.0.0.0/0 surta efecto.
    > * La Conexión de Virtual Network no es compatible con la dirección IP de próximo salto "múltiple o única" para la aplicación virtual de red "igual" en una VNet de radio "si" una de las rutas con IP de próximo salto se indica como dirección IP pública o 0.0.0.0/0 (Internet)
+   > * Cuando 0.0.0.0/0 se configura como una ruta estática en una conexión de red virtual, la ruta se aplica a todo el tráfico, incluidos los recursos dentro del propio radio. Esto significa que todo el tráfico se reenviará a la dirección IP del próximo salto de la ruta estática (IP privada de NVA). Por consiguiente, en implementaciones con una ruta 0.0.0.0/0 en las que la dirección IP de NVA de próximo salto está configurada en una conexión de red virtual de radio, para acceder directamente a las cargas de trabajo que están la misma red virtual que NVA (es decir, para que el tráfico no pase a través de NVA), especifique una ruta /32 en la conexión de red virtual de radio. Por ejemplo, si desea acceder directamente a 10.1.3.1, especifique el próximo salto 10.1.3.1/32 10.1.3.1 en la conexión de red virtual de radio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1ce4dcb4f180d952004d592e35bc64c5ba93dfa
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b985ec9e88f4285da326fcf41e19141e61a0dd10
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754590"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564201"
 ---
 # <a name="use-azure-monitor-for-azure-virtual-desktop-to-monitor-your-deployment"></a>Uso de Azure Monitor para Azure Virtual Desktop para supervisar implementaciones
 
@@ -195,3 +195,4 @@ Ahora que ha configurado Azure Monitor para el entorno de Azure Virtual Desktop,
 - Consulte nuestro [glosario](azure-monitor-glossary.md) para obtener más información sobre los términos y conceptos relacionados con Azure Monitor para Azure Virtual Desktop.
 - Para calcular, medir y administrar los costos de almacenamiento de datos, consulte este artículo sobre el [cálculo de costos en Azure Monitor](azure-monitor-costs.md).
 - Si encuentra algún problema, consulte nuestra [guía de solución de problemas](troubleshoot-azure-monitor.md) para obtener ayuda y ver los problemas conocidos.
+- Para ver las novedades de cada actualización de versión, consulte [Novedades de Azure Monitor para Azure Virtual Desktop.](whats-new-azure-monitor.md)

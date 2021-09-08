@@ -1,6 +1,6 @@
 ---
-title: Registros de información de inicio de sesión en Azure Active Directory | Microsoft Docs
-description: Información general de los registros de información de inicio de sesión en Azure Active Directory, incluidas características nuevas en versión preliminar.
+title: 'Registros de información de inicio de sesión en Azure Active Directory: versión preliminar | Microsoft Docs'
+description: Información general de los registros de información de inicio de sesión en Azure Active Directory, lo que incluye características nuevas que están en versión preliminar.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2021
+ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e25fc61fe99a5c7df19b7c0ecb8265f4dcc681cc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9fbd65204534e978446109c99ca7286c0af00d68
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137028"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580393"
 ---
-# <a name="sign-ins-logs-in-azure-active-directory---preview"></a>Registros de información de inicio de sesión en Azure Active Directory
+# <a name="sign-in-logs-in-azure-active-directory---preview"></a>Registros de información de inicio de sesión en Azure Active Directory: versión preliminar
 
 Como administrador de TI, quiere saber cómo funciona el entorno de TI. La información sobre el estado del sistema le permite evaluar si es necesario responder a posibles problemas y cómo hacerlo. 
 
 Para ayudarle a conseguir este objetivo, el portal de Azure Active Directory le proporciona acceso a tres registros de actividad:
 
-- **[Inicios de sesión](concept-sign-ins.md)** : Información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
+- **[Inicios de sesión](concept-sign-ins.md)** : Información sobre los inicios de sesión y sobre la forma en que los usuarios emplean los recursos.
 - **[Auditoría](concept-audit-logs.md)** : información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos o las actualizaciones aplicadas a los recursos del inquilino.
 - **[Aprovisionamiento](concept-provisioning-logs.md)** : actividades realizadas por el servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado de Workday.
 
 
-El informe de inicios de sesión clásico de Azure Active Directory proporciona información general sobre los inicios de sesión de usuario interactivos. Además, ahora tiene acceso a tres registros de información de inicio de sesión adicionales que están en versión preliminar:
+El registro de la información de inicio de sesión clásico de Azure Active Directory proporciona información general sobre los inicios de sesión de usuario interactivos. Además, ahora tiene acceso a tres registros de información de inicio de sesión adicionales que están en versión preliminar:
 
 - Inicios de sesión de usuario no interactivos
 
@@ -49,7 +49,7 @@ En este artículo se ofrece información general sobre el informe de actividad d
 
 ## <a name="what-can-you-do-with-it"></a>¿Para qué sirven el informe?
 
-El informe de inicios de sesión proporciona respuestas a preguntas como las siguientes:
+El registro de la información de inicio de sesión proporciona respuestas a preguntas como las siguientes:
 
 - ¿Cuál es el patrón de inicio de sesión de un usuario, una aplicación o un servicio?
 
@@ -77,11 +77,11 @@ El inquilino debe tener una licencia de Azure AD Premium asociada para ver las 
 
 Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
 
-![Apertura de registros de inicios de sesión](./media/concept-sign-ins/sign-ins-logs-menu.png)
+![Apertura de los registros de inicios de sesión](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-Además, puede acceder directamente a los registros de información de inicio de sesión mediante este vínculo: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+Además, puede acceder directamente al registro de la información de inicio de sesión mediante este vínculo: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
-En la hoja del informe de inicios de sesión, puede cambiar entre:
+En la página de inicios de sesión, puede cambiar entre:
 
 - **Inicios de sesión de usuario interactivos**: inicios de sesión en los que un usuario proporciona un factor de autenticación, como una contraseña, una respuesta mediante una aplicación de MFA, un factor biométrico o un código QR.
 
@@ -92,11 +92,11 @@ En la hoja del informe de inicios de sesión, puede cambiar entre:
 - **Inicios de sesión de identidades administradas para recursos de Azure**: inicios de sesión realizados por recursos de Azure que tienen secretos administrados por Azure. Para obtener más información, consulte [¿Qué son las identidades administradas para recursos de Azure?](../managed-identities-azure-resources/overview.md) 
 
 
-![Tipos de informes de inicios de sesión](./media/concept-all-sign-ins/sign-ins-report-types.png)
+![Tipos de registro de información de inicio de sesión](./media/concept-all-sign-ins/sign-ins-report-types.png)
 
 
 
-Cada pestaña de la hoja de inicios de sesión muestra las columnas predeterminadas que aparecen a continuación. Algunas pestañas tienen columnas adicionales:
+Cada pestaña de la página de inicios de sesión muestra las columnas predeterminadas que aparecen a continuación. Algunas pestañas tienen columnas adicionales:
 
 - Fecha de inicio de sesión
 
@@ -118,12 +118,12 @@ Cada pestaña de la hoja de inicios de sesión muestra las columnas predetermina
 Los inicios de sesión de usuario interactivos son inicios de sesión en los que un usuario proporciona un factor de autenticación para Azure AD o interactúa directamente con Azure AD o una aplicación auxiliar, como la aplicación Microsoft Authenticator. Los factores que los usuarios proporcionan incluyen las contraseñas, las respuestas a los desafíos de MFA, los factores biométricos o los códigos QR que un usuario proporciona a Azure AD o a una aplicación auxiliar.
 
 > [!NOTE]
-> Este informe también incluye los inicios de sesión federados de proveedores de identidades que están federados con Azure AD.  
+> Este registro también incluye los inicios de sesión federados de proveedores de identidades que están federados con Azure AD.  
 
 
 
 > [!NOTE] 
-> El informe de inicios de sesión de usuario interactivo se usa para incluir algunos inicios de sesión no interactivos de los clientes de Microsoft Exchange. Aunque esos inicios de sesión no son interactivos, se han incluido en el informe de inicios de sesión de usuarios interactivos para obtener mayor visibilidad. Una vez que el informe de inicios de sesión de usuarios no interactivos se introdujo en la versión preliminar pública en noviembre de 2020, los registros de eventos de inicio de sesión no interactivos se movieron al informe de inicio de sesión de usuario no interactivo para aumentar la precisión. 
+> El registro de la información de inicio de sesión de usuario interactivo se usa para incluir algunos inicios de sesión no interactivos de los clientes de Microsoft Exchange. Aunque esos inicios de sesión no son interactivos, se han incluido en el registro de información de inicio de sesión de usuarios interactivos para obtener mayor visibilidad. Una vez que el registro de la información de inicio de sesión de usuarios no interactivos se introdujo en la versión preliminar pública en noviembre de 2020, los registros de la información de inicio de sesión no interactivos se movieron al informe de inicio de sesión de usuario no interactivo para aumentar la precisión. 
 
 
 **Tamaño del informe:** pequeño <br> 
@@ -138,7 +138,7 @@ Los inicios de sesión de usuario interactivos son inicios de sesión en los que
 - Un usuario que está federado con Azure AD con una aserción de SAML de AD FS.
 
 
-Además de los campos predeterminados, el informe de inicios de sesión interactivos también muestra: 
+Además de los campos predeterminados, el registro de la información de inicio de sesión interactiva también muestra: 
 
 - La ubicación de inicio de sesión
 
@@ -184,7 +184,7 @@ Los inicios de sesión de usuario no interactivos son inicios de sesión que se 
 
 
 
-Además de los campos predeterminados, el informe de inicios de sesión no interactivos también muestra: 
+Además de los campos predeterminados, el registro de la información de inicio de sesión no interactiva también muestra: 
 
 - Id. de recurso
 
@@ -226,7 +226,7 @@ Puede:
 
 ## <a name="service-principal-sign-ins"></a>Inicios de sesión de entidad de servicio
 
-A diferencia de los inicios de sesión de usuario interactivos y no interactivos, los inicios de sesión de entidad de servicio no implican a un usuario. En su lugar, son inicios de sesión realizados por una cuenta que no es de usuario, como las aplicaciones o las entidades de servicio (excepto el inicio de sesión de identidad administrada, que se incluye solo en el informe de inicios de sesión de identidad administrada). En estos inicios de sesión, la aplicación o el servicio proporcionan su propia credencial, como un certificado o un secreto, para autenticarse o acceder a los recursos.
+A diferencia de los inicios de sesión de usuario interactivos y no interactivos, los inicios de sesión de entidad de servicio no implican a un usuario. En su lugar, son inicios de sesión realizados por cualquier cuenta que no sea de usuario, como las aplicaciones o las entidades de servicio (excepto el inicio de sesión de identidad administrada, que se incluyen solo en el registro de información de inicio de sesión de identidad administrada). En estos inicios de sesión, la aplicación o el servicio proporcionan su propia credencial, como un certificado o un secreto, para autenticarse o acceder a los recursos.
 
 
 **Tamaño del informe:** grande <br>
@@ -311,8 +311,6 @@ Para que sea más fácil sintetizar los datos, se agrupan los eventos no interac
 - Nombre o identificador de la identidad administrada
 
 - Status
-
-- Dirección IP
 
 - Nombre o identificador del recurso
 
@@ -435,7 +433,27 @@ Cada descarga en formato JSON consta de cuatro archivos diferentes:
 ![Descarga de archivos](./media/concept-all-sign-ins/download-files.png "Descarga de archivos")
 
 
+## <a name="return-log-data-with-microsoft-graph"></a>Devolución de datos de registro con Microsoft Graph
 
+Además de usar Azure Portal, puede consultar los registros de la información de inicio de sesión mediante Microsoft Graph API para devolver distintos tipos de información de inicio de sesión. Para evitar posibles problemas de rendimiento, el ámbito de la consulta debe ser solo los datos que le importen. 
+
+En el ejemplo siguiente, el ámbito de la consulta se realiza por los registros de número, por un período concreto y por tipo de evento de inicio de sesión:
+
+```msgraph-interactive
+GET https://graph.microsoft.com/beta/auditLogs/signIns?$top=100&$filter=createdDateTime ge 2020-09-10T06:00:00Z and createdDateTime le 2020-09-17T06:00:00Z and signInEventTypes/any(t: t eq 'nonInteractiveUser')
+```
+
+Los parámetros de consulta del ejemplo proporcionan los siguientes resultados:
+
+- El parámetro [$top](/graph/query-parameters#top-parameter) devuelve los cien primeros resultados.
+- El parámetro [$filter](/graph/query-parameters#filter-parameter) limita el período de tiempo para devolver los resultados y usa la propiedad signInEventTypes para devolver solo inicios de sesión de usuario no interactivos.
+
+Los siguientes valores están disponibles para filtrar por diferentes tipos de inicio de sesión: 
+
+- interactiveUser
+- nonInteractiveUser
+- servicePrincipal 
+- managedIdentity
 
 ## <a name="next-steps"></a>Pasos siguientes
 

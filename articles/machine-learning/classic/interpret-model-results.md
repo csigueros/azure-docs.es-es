@@ -8,20 +8,20 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: f824cf6e30ed795ef0fe4468542ae16c801bd61b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c824c231c1edfb9dda5df2f668fc4440a50f4e0
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100516131"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581491"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar los resultados del modelo en Azure Machine Learning Studio (clásico)
+# <a name="interpret-model-results-in-machine-learning-studio-classic"></a>Interpretación de los resultados de un modelo en Estudio de Machine Learning (clásico)
 
-**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:** ![Esta es una marca de comprobación, lo que significa que este artículo se aplica a Estudio de Machine Learning (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Estudio de Machine Learning (clásico) ![Esta es una X, lo que significa que este artículo no se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio (clásico). Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
+En este tema, se explica cómo ver e interpretar los resultados de la predicción en Estudio de Azure Machine Learning (clásico). Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
 
-Hay cuatro tipos de modelos de Machine Learning principales en Azure Machine Learning Studio (clásico):
+Hay cuatro tipos principales de modelos de Machine Learning en Estudio de Machine Learning (clásico):
 
 * clasificación
 * Agrupación en clústeres
@@ -46,12 +46,12 @@ Existen dos subcategorías de problemas de clasificación:
 * Problemas con solo dos clases (clasificación de dos clases o binaria)
 * Problemas con más de dos clases (clasificación multiclase)
 
-Azure Machine Learning Studio (clásico) tiene diversos módulos para tratar con cada uno de estos tipos de clasificación, pero los métodos para interpretar sus resultados de predicción son similares.
+Estudio de Machine Learning (clásico) tiene diversos módulos para tratar con cada uno de estos tipos de clasificación, pero los métodos para interpretar sus resultados de predicción son similares.
 
 ### <a name="two-class-classification"></a>Clasificación multiclase
 **Experimento de ejemplo**
 
-Un ejemplo de un problema de clasificación de dos clases es la clasificación de flores de iris. La tarea consiste en clasificar flores de iris en función de sus características. El conjunto de datos de Iris proporcionado en Azure Machine Learning Studio (clásico) es un subconjunto del [conjunto de datos de Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo dos especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
+Un ejemplo de un problema de clasificación de dos clases es la clasificación de flores de iris. La tarea consiste en clasificar flores de iris en función de sus características. El conjunto de datos de Iris proporcionado en Estudio de Machine Learning (clásico) es un subconjunto del [conjunto de datos de Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo dos especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
 
 ![Captura de pantalla del experimento de iris](./media/interpret-model-results/1.png)
 
@@ -225,7 +225,7 @@ Para los sistemas de recomendación, puede usar el problema de la recomendación
 * Datos de características de los clientes
 * Datos de características de restaurantes
 
-Hay varias tareas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] de Azure Machine Learning Studio (clásico):
+Hay varias tareas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] de Estudio de Machine Learning (clásico):
 
 * predecir las valoraciones para un usuario determinado y un elemento;
 * recomendar elementos a un usuario determinado;
@@ -236,7 +236,7 @@ Puede elegir lo que quiere hacer mediante la selección de las cuatro opciones e
 
 ![Recomendador Matchbox](./media/interpret-model-results/19_1.png)
 
-Un experimento de Azure Machine Learning Studio (clásico) típico para un sistema de recomendación es similar al de la figura 20. Para información sobre cómo usar los módulos del sistema de recomendación, vea la página de ayuda [Train Matchbox Recommender][train-matchbox-recommender] y [Score Matchbox Recommender][score-matchbox-recommender].
+Un experimento de Estudio de Machine Learning (clásico) típico para un sistema de recomendación es similar al de la figura 20. Para información sobre cómo usar los módulos del sistema de recomendación, vea la página de ayuda [Train Matchbox Recommender][train-matchbox-recommender] y [Score Matchbox Recommender][score-matchbox-recommender].
 
 ![Experimento del sistema de recomendación](./media/interpret-model-results/20.png)
 

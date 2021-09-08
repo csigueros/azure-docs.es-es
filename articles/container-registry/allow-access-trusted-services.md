@@ -2,17 +2,17 @@
 title: Acceso al registro con restricción de red con el servicio de confianza de Azure
 description: Habilitación de una instancia de servicio de Azure de confianza para acceder de forma segura a un registro de contenedor con restricción de red para extraer o insertar imágenes
 ms.topic: article
-ms.date: 01/29/2021
-ms.openlocfilehash: 77ea904e73df1b423c99e6039c4e0756fcade34e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 05/19/2021
+ms.openlocfilehash: f99215059308c6a2db1e7bce6b9f03580d2b53a4
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474994"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286268"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricción de red (versión preliminar)
 
-Azure Container Registry puede permitir seleccionar servicios de confianza de Azure para que accedan a un registro configurado con reglas de acceso a la red. Cuando se permiten los servicios de confianza, una instancia de servicio de confianza puede omitir de forma segura las reglas de red del registro y realizar operaciones como extraer o insertar imágenes. La identidad administrada de la instancia de servicio se usa para el acceso, y se le debe asignar un rol de Azure y autenticarse con el registro.
+Azure Container Registry puede permitir seleccionar servicios de confianza de Azure para que accedan a un registro configurado con reglas de acceso a la red. Cuando se permiten los servicios de confianza, una instancia de servicio de confianza puede omitir de forma segura las reglas de red del registro y realizar operaciones como extraer o insertar imágenes. En este artículo se explica cómo habilitar y usar servicios de confianza con un registro de contenedor de Azure restringido por la red.
 
 Use Azure Cloud Shell o una instalación local de la CLI de Azure para ejecutar los ejemplos de comando de este artículo. Si quiere usarla de forma local, necesitará la versión 2.18 u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -20,7 +20,7 @@ Permitir que los servicios de confianza de Azure accedan al registro es una cara
 
 ## <a name="limitations"></a>Limitaciones
 
-* Debe usar una identidad administrada asignada por el sistema habilitada en un [servicio de confianza](#trusted-services) para acceder a un registro de contenedor con restricción de red. Las identidades administradas asignadas por el usuario no se admiten actualmente.
+* En los escenarios de acceso al registro que necesitan una identidad administrada, solo se puede usar una identidad asignada por el sistema. Las identidades administradas asignadas por el usuario no se admiten actualmente.
 * La habilitación de servicios de confianza no se aplica a un registro de contenedor configurado con un [punto de conexión de servicio](container-registry-vnet.md). La característica solo afecta a los registros que están restringidos con un [punto de conexión privado](container-registry-private-link.md) o que tienen aplicadas [reglas de acceso con direcciones IP públicas](container-registry-access-selected-networks.md). 
 
 ## <a name="about-trusted-services"></a>Acerca de los servicios de confianza
@@ -30,22 +30,25 @@ Azure Container Registry tiene un modelo de seguridad por niveles, que admite va
 * [Punto de conexión privado con Azure Private Link](container-registry-private-link.md). Cuando se configura, a un punto de conexión privado del registro solo pueden acceder los recursos de la red virtual mediante direcciones IP privadas.  
 * [Reglas de firewall de registro](container-registry-access-selected-networks.md), que permiten acceder al punto de conexión público del registro solo desde intervalos de direcciones o direcciones IP públicas específicas. También puede usar el firewall para bloquear todo el acceso al punto de conexión público al usar puntos de conexión privados.
 
-Cuando se implementa en una red virtual o se configura con reglas de firewall, un registro deniega el acceso de forma predeterminada a los usuarios o servicios desde fuera de esos orígenes. 
+Cuando se implementa en una red virtual o se configura con reglas de firewall, un registro deniega el acceso a los usuarios o servicios desde fuera de esos orígenes. 
 
-Varios servicios de Azure multiinquilino funcionan desde redes que no se pueden incluir en esta configuración de red del registro, lo que impide que se extraigan o inserten imágenes en el registro. Al designar determinadas instancias de servicio como "de confianza", un propietario del registro puede permitir seleccionar recursos de Azure para que ignoren de forma segura la configuración de red del registro para extraer o insertar imágenes. 
+Varios servicios de Azure multiinquilino funcionan desde redes que no se pueden incluir en esta configuración de red del registro, lo que impide que realicen operaciones como extraer imágenes del registro o insertarlas en él. Al designar determinadas instancias de servicio como "de confianza", un propietario del registro puede permitir seleccionar recursos de Azure para que ignoren de forma segura la configuración de red del registro para realizar operaciones en el registro. 
 
 ### <a name="trusted-services"></a>Servicios de confianza
 
 Las instancias de los siguientes servicios pueden acceder a un registro de contenedor con restricción de red si la opción **allow trusted services** (Permitir servicios de confianza) del registro está habilitada (opción predeterminada). Se agregarán más servicios con el tiempo.
 
-|Servicio de confianza  |Escenarios de uso admitidos  |
-|---------|---------|
-|ACR Tasks     | [Acceder a otro registro desde una tarea de ACR](container-registry-tasks-cross-registry-authentication.md)       |
-|Machine Learning | [Implementar](../machine-learning/how-to-deploy-custom-docker-image.md) o [entrenar](../machine-learning/how-to-train-with-custom-image.md) un modelo en un área de trabajo de Machine Learning mediante una imagen de contenedor personalizada de Docker |
-|Azure Container Registry | [Importar imágenes desde otro registro de contenedor de Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
+Cuando se indica, el acceso por parte del servicio de confianza requiere una configuración adicional de una identidad administrada en una instancia de servicio, la asignación de un [rol RBAC](container-registry-roles.md) y la autenticación con el registro. Para ver pasos de ejemplo, consulte [Flujo de trabajo de servicios de confianza](#trusted-services-workflow) en este mismo artículo.
+
+|Servicio de confianza  |Escenarios de uso admitidos  | Configuración de la identidad administrada con el rol RBAC
+|---------|---------|------|
+| Azure Security Center | Examen de vulnerabilidades por parte de [Azure Defender para registros de contenedor](scan-images-defender.md) | No |
+|ACR Tasks     | [Acceso al registro primario o a otro registro desde una tarea de ACR](container-registry-tasks-cross-registry-authentication.md)       | Sí |
+|Machine Learning | [Implementar](../machine-learning/how-to-deploy-custom-container.md) o [entrenar](../machine-learning/how-to-train-with-custom-image.md) un modelo en un área de trabajo de Machine Learning mediante una imagen de contenedor personalizada de Docker | Sí |
+|Azure Container Registry | [Importar imágenes desde otro registro de contenedor de Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | No |
 
 > [!NOTE]
-> Actualmente, al habilitar la configuración para permitir servicios de confianza, no se permiten instancias de otros servicios de Azure administrados, como App Service, Azure Container Instances y Azure Security Center, para acceder a un registro de contenedor con restricción de red.
+> Actualmente, la habilitación del valor permitir servicios de confianza no se aplica a otros servicios administrados de Azure, incluidos App Service y Azure Container Instances.
 
 ## <a name="allow-trusted-services---cli"></a>Permitir servicios de confianza (CLI)
 
@@ -79,7 +82,7 @@ Para deshabilitar o volver a habilitar la configuración en el portal:
 
 ## <a name="trusted-services-workflow"></a>Flujo de trabajo de los servicios de confianza
 
-Este es un flujo de trabajo típico para permitir que una instancia de un servicio de confianza acceda a un registro de contenedor con restricción de red.
+Este es un flujo de trabajo típico para permitir que una instancia de un servicio de confianza acceda a un registro de contenedor con restricción de red. Este flujo de trabajo es necesario cuando se usa la identidad administrada de una instancia de servicio para omitir las reglas de red del registro.
 
 1. Habilite una [identidad administrada asignada por el sistema para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) en una instancia de uno de los [servicios de confianza](#trusted-services) para Azure Container Registry.
 1. Asigne la identidad de un [rol de Azure](container-registry-roles.md) al registro. Por ejemplo, asigne el rol ACRPull para extraer las imágenes del contenedor.
@@ -91,17 +94,19 @@ Este es un flujo de trabajo típico para permitir que una instancia de un servic
 
 En el ejemplo siguiente se muestra cómo usar las tareas de ACR como un servicio de confianza. Vea [Autenticación entre registros en una tarea de ACR mediante una identidad administrada por Azure](container-registry-tasks-cross-registry-authentication.md) para obtener más información sobre la tarea.
 
-1. Cree o actualice un registro de contenedor de Azure e [inserte una imagen base de ejemplo](container-registry-tasks-cross-registry-authentication.md#prepare-base-registry) en el registro. Este registro es el *registro base* para el escenario.
-1. En un segundo registro de contenedor de Azure, [defina](container-registry-tasks-cross-registry-authentication.md#define-task-steps-in-yaml-file) y [cree](container-registry-tasks-cross-registry-authentication.md#option-2-create-task-with-system-assigned-identity) una tarea de ACR para extraer una imagen del registro base. Habilite una identidad administrada asignada por el sistema al crear la tarea.
-1. Asigne a la identidad de la tarea [un rol de Azure para acceder al registro base](container-registry-tasks-authentication-managed-identity.md#3-grant-the-identity-permissions-to-access-other-azure-resources). Por ejemplo, asigne el rol AcrPull, que tiene permisos para extraer imágenes.
-1. [Agregue las credenciales de identidad administrada](container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task) a la tarea.
-1. Para confirmar que la tarea omite las restricciones de red, [deshabilite el acceso público](container-registry-access-selected-networks.md#disable-public-network-access) en el registro base.
-1. Ejecute la tarea. Si el registro base y la tarea están configurados correctamente, la tarea se ejecuta correctamente, ya que el registro base permite el acceso.
+1. Cree o actualice una instancia de Azure Container Registry.
+[Cree](container-registry-tasks-cross-registry-authentication.md#option-2-create-task-with-system-assigned-identity) una tarea de ACR. 
+    * Habilite una identidad administrada asignada por el sistema al crear la tarea.
+    * Deshabilite el modo de autenticación predeterminado (`--auth-mode None`) de la tarea.
+1. Asigne a la identidad de la tarea [un rol de Azure para acceder al registro](container-registry-tasks-authentication-managed-identity.md#3-grant-the-identity-permissions-to-access-other-azure-resources). Por ejemplo, asigne el rol AcrPush, que tiene permisos para extraer e insertar imágenes.
+2. [Agregue credenciales de identidad administrada](container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task) a la tarea.
+3. Para confirmar que la tarea omite las restricciones de red, [deshabilite el acceso público](container-registry-access-selected-networks.md#disable-public-network-access) en el registro.
+4. Ejecute la tarea. Si el registro y la tarea están configurados correctamente, la tarea se ejecuta correctamente, ya que el registro permite el acceso.
 
 Para probar la deshabilitación del acceso de los servicios de confianza:
 
-1. En el registro base, deshabilite la opción para permitir el acceso de los servicios de confianza.
-1. Vuelva a ejecutar la tarea. En este caso, se produce un error en la ejecución de la tarea, ya que el registro base ya no permite el acceso de la tarea.
+1. Deshabilite el valor para permitir el acceso de los servicios de confianza.
+1. Vuelva a ejecutar la tarea. En este caso, se produce un error en la ejecución de la tarea, ya que el registro ya no permite el acceso de la tarea.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

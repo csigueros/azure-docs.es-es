@@ -1,6 +1,6 @@
 ---
 title: Conceptos para la distribución de datos y el escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Conceptos para la distribución de datos del grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
 services: azure-arc
 ms.service: azure-arc
@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 4698826a78afe816029288f2d5eda14834124904
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 69405ac6386587e6621c67532a8bd7f41450370e
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407814"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729945"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Conceptos para la distribución de datos del grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
 

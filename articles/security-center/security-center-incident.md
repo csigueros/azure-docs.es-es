@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e385dec04db44e88ef5759cf8e2391b19b77dccc
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652113"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237517"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Administración de incidentes de seguridad en Azure Security Center
 
@@ -31,7 +31,7 @@ En Security Center, un incidente de seguridad es la suma de todas las alertas de
 
 1. En la página de alertas de Security Center, use el botón **Agregar filtro** para filtrar por nombre de alerta en el nombre de alerta **Incidente de seguridad detectado en varios recursos**. 
 
-    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Búsqueda de incidentes en la página de alertas de Azure Security Center":::
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Búsqueda de incidentes en la página de alertas de Azure Security Center.":::
 
     La lista está ahora filtrada para que muestre solo los incidentes. Tenga en cuenta que los incidentes de seguridad tienen un icono diferente a las alertas de seguridad.
 
@@ -39,7 +39,7 @@ En Security Center, un incidente de seguridad es la suma de todas las alertas de
 
 1. Para ver los detalles de un incidente, seleccione uno de la lista. Aparece un panel lateral con más detalles sobre el incidente.
 
-    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="Panel lateral que muestra los detalles del incidente":::
+    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="Panel lateral que muestra los detalles del incidente.":::
 
 1. Para ver más detalles, seleccione **Ver detalles completos**.
 

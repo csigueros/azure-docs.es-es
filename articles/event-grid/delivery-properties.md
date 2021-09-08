@@ -3,12 +3,12 @@ title: 'Azure Event Grid: Establecimiento de encabezados personalizados en event
 description: Describe el establecimiento de encabezados personalizados (o propiedades de entrega) en eventos entregados.
 ms.topic: conceptual
 ms.date: 08/13/2021
-ms.openlocfilehash: de16c3b4981dc02a54a68269d4eef743d9f48c4b
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 3600d74d91ad218f3fcab99002762d605fba3139
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122069501"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831355"
 ---
 # <a name="custom-delivery-properties"></a>Propiedades de entrega personalizadas
 Las suscripciones a eventos permiten configurar encabezados HTTP que se incluyen en los eventos entregados. Esta capacidad permite establecer encabezados personalizados que un destino requiere. Puede configurar hasta 10 encabezados al crear una suscripción de eventos. Cada valor de encabezado no debe ser mayor que 4 096 (4 K) bytes.
@@ -62,11 +62,8 @@ Establezca un valor en un encabezado de autorización para identificar la solici
 Ahora, las solicitudes salientes deben contener el encabezado establecido en la suscripción a eventos:
 
 ```console
-GET /home.html HTTP/1.1
-
+POST /home.html HTTP/1.1
 Host: acme.com
-
-User-Agent: <user-agent goes here>
 
 Authorization: BEARER SlAV32hkKG...
 ```
@@ -75,20 +72,31 @@ Authorization: BEARER SlAV32hkKG...
 > La definición de los encabezados de autorización es una opción razonable cuando el destino es un webhook. No debe usarse para las [funciones suscritas con un identificador de recurso](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs y Conexiones híbridas ya que esos destinos admiten sus propios esquemas de autenticación cuando se usan con Event Grid.
 
 ### <a name="service-bus-example"></a>Ejemplo de Service Bus
-Azure Service Bus admite el uso de un [encabezado HTTP BrokerProperties](/rest/api/servicebus/message-headers-and-properties#message-headers) para definir las propiedades del mensaje al enviar mensajes individuales. El valor del encabezado `BrokerProperties` debe proporcionarse en formato JSON. Por ejemplo, si necesita establecer propiedades de mensaje al enviar un solo mensaje a Service Bus, establezca el encabezado de la siguiente manera:
+Azure Service Bus permite el uso de las propiedades de mensaje siguientes al enviar mensajes individuales. 
 
-| Nombre de encabezado | Tipo de encabezado | Valor de encabezado |
-| :-- | :-- | :-- |
-|`BrokerProperties` | estática     | `BrokerProperties:  { "MessageId": "{701332E1-B37B-4D29-AA0A-E367906C206E}", "TimeToLive" : 90}` |
+| Nombre de encabezado | Tipo de encabezado |
+| :-- | :-- |
+| `MessageId` | Dinámica |  
+| `PartitionKey` | Estático o dinámico |
+| `SessionId` | Estático o dinámico |
+| `CorrelationId` | Estático o dinámico |
+| `Label` | Estático o dinámico |
+| `ReplyTo` | Estático o dinámico | 
+| `ReplyToSessionId` | Estático o dinámico |
+| `To` |Estático o dinámico |
+| `ViaPartitionKey` | Estático o dinámico |
 
+> [!NOTE]
+> - El valor predeterminado de `MessageId` es el identificador interno del evento de Event Grid. Puede invalidarlo. Por ejemplo, `data.field`.
+> - Solo puede establecer `SessionId` o `MessageId`. 
 
 ### <a name="event-hubs-example"></a>Ejemplo de Event Hubs
 
-Si necesita publicar eventos en una partición concreta de un centro de eventos, defina un [encabezado HTTP BrokerProperties](/rest/api/eventhub/event-hubs-runtime-rest#common-headers) en la suscripción a eventos para especificar la clave de partición que identifica la partición del centro de eventos de destino.
+Si necesita publicar eventos en una partición concreta de un centro de eventos, establezca la propiedad `ParitionKey` en la suscripción a eventos para especificar la clave de partición que identifica la partición del centro de eventos de destino.
 
-| Nombre de encabezado | Tipo de encabezado | Valor de encabezado                                  |
-| :-- | :-- | :-- |
-|`BrokerProperties` | estática | `BrokerProperties: {"PartitionKey": "0000000000-0000-0000-0000-000000000000000"}`  |
+| Nombre de encabezado | Tipo de encabezado |
+| :-- | :-- |
+|`PartitionKey` | estática |
 
 
 ### <a name="configure-time-to-live-on-outgoing-events-to-azure-storage-queues"></a>Configuración del período de vida de los eventos salientes de las colas de Azure Storage

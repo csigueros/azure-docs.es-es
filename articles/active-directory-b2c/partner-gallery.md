@@ -11,16 +11,18 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9703ef0caa5df967033001cbeb241d1649eb2a11
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: fa59db40f88824bdbec6fbaae8cf3664ae825846
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930286"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727786"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
-Nuestra red de asociados ISV amplía las capacidades de la solución para ayudarle a crear experiencias directas para el usuario final. Con Azure AD B2C, puede integrarse con los asociados de ISV para habilitar los métodos de autenticación multifactor (MFA), realizar el control de acceso basado en rol, habilitar la verificación y revisión de identidades, mejorar la seguridad con la detección de bots y la protección contra el fraude y cumplir los requisitos de autenticación de cliente segura (SCA) de la directiva de servicios de pago (PSD2). Use nuestros tutoriales de ejemplo detallados para aprender a integrar aplicaciones con los asociados de ISV.
+Nuestra red de asociados ISV amplía las capacidades de la solución para ayudarle a crear experiencias directas para el usuario final. Con Azure AD B2C, puede integrarse con los asociados de ISV para habilitar los métodos de autenticación multifactor (MFA), realizar el control de acceso basado en rol, habilitar la verificación y revisión de identidades, mejorar la seguridad con la detección de bots y la protección contra el fraude y cumplir los requisitos de autenticación de cliente segura (SCA) de la directiva de servicios de pago 2 (PSD2). Use nuestros tutoriales de ejemplo detallados para aprender a integrar aplicaciones con los asociados de ISV. 
+
+Para que se tenga en cuenta en esta documentación de ejemplo, envíe la solicitud de aplicación en el [portal de redes de aplicaciones de Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx). Si tiene alguna pregunta adicional, envíe un correo electrónico a [SaaSApplicationIntegrations@service.microsoft.com](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 >[!NOTE]
 >El [sitio de la comunidad de Azure Active Directory B2C en GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) también proporciona directivas personalizadas de ejemplo de la comunidad.
@@ -43,10 +45,12 @@ Microsoft se asocia con los siguientes ISV para la autenticación MFA y sin cont
 
 | Asociado ISV | Descripción y tutoriales de integración |
 |:-------------------------|:--------------|
+| ![Screenshot de un logotipo de BlokSec](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) es una solución de autenticación sin contraseña y autenticación multifactor sin token, que proporciona servicios basados en consentimientos en tiempo real y que protege a los clientes frente a ciberataques centrados en la identidad, como el relleno de contraseñas, la suplantación de identidad y los ataques de tipo "Man in the middle". |
 | ![Captura de pantalla de un logotipo de Hypr.](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) es un proveedor de autenticación sin contraseña, que reemplaza las contraseñas por cifrados de clave pública, lo que elimina el fraude, la suplantación de identidad y la reutilización de credenciales. |
 | ![Captura de pantalla de un logotipo de itsme.](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) es una solución de identificación digital compatible con los servicios de identificación electrónica, autenticación y confianza (eiDAS) que permite a los usuarios iniciar sesión de forma segura sin lectores de tarjetas, contraseñas, autenticación en dos fases y códigos PIN múltiples. |
 |![Captura de pantalla de un logotipo de Keyless.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) es un proveedor de autenticación sin contraseñas que ofrece autenticación en forma de exámenes biométricos faciales y elimina los fraudes, la suplantación de identidad (phishing) y la reutilización de credenciales.
 | ![Captura de pantalla de un logotipo de Nevis.](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) permite la autenticación sin contraseña y proporciona una experiencia de usuario final de marca completa, con prioridad para los dispositivos móviles con la aplicación Nevis Access, que ofrece la autenticación sólida de clientes y el cumplimiento de los requisitos de transacciones de PSD2. |
+| ![Captura de pantalla de un logotipo de Nok Nok](./media/partner-gallery/nok-nok-logo.png) | [Nok Nok](./partner-nok-nok.md) proporciona autenticación sin contraseña y habilita la autenticación multifactor certificada por FIDO, como FIDO UAF, FIDO U2F, WebAuthn y FIDO2 para aplicaciones móviles y web. El uso de clientes Nok Nok puede mejorar su posición de seguridad al mismo tiempo que la experiencia del usuario.
 | ![Captura de pantalla de un logotipo de Trusona](./media/partner-gallery/trusona-logo.png) | La integración de [Trusona](./partner-trusona.md) le ayuda a iniciar sesión de forma segura y permite la autenticación sin contraseñas, la autenticación multifactor y el examen de licencias digitales. |
 | ![Captura de pantalla de un logotipo de Twilio](./media/partner-gallery/twilio-logo.png) | La [aplicación Twilio Verify](./partner-twilio.md) proporciona varias soluciones que permiten MFA mediante la contraseña de un solo uso (OTP) de SMS, la contraseña de un solo uso y duración definida (TOTP) y las notificaciones push, así como el cumplimiento de los requisitos de SCA para PSD2. |
 | ![Captura de pantalla de un logotipo de TypingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) permite una sólida autenticación del cliente mediante el análisis del patrón de escritura de un usuario. Ayuda a las empresas a permitir una autenticación MFA silenciosa y a cumplir con los requisitos de SCA para PSD2. |
@@ -67,6 +71,7 @@ Microsoft se asocia con los siguientes ISV para proporcionar acceso híbrido seg
 
 | Asociado ISV | Descripción y tutoriales de integración |
 |:-------------------------|:--------------|
+| ![Captura de pantalla de un logotipo de Datawiza](./media/partner-gallery/datawiza-logo.png) | [Datawiza](./partner-datawiza.md) habilita el inicio de sesión único y el control de acceso detallado de las aplicaciones y extiende Azure AD B2C para proteger las aplicaciones heredadas locales.  |
 | ![Captura de pantalla de un logotipo de Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) habilita el acceso híbrido seguro a las aplicaciones heredadas locales en varias nubes. |
 | ![Captura de pantalla de un logotipo de Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) proporciona acceso híbrido seguro a las aplicaciones locales al exigir directivas de acceso coherentes, mantener las identidades sincronizadas y simplificar la transición de aplicaciones de los sistemas de identidades heredados a la autenticación basada en estándares y el control de acceso que proporciona Azure AD B2C. |
 | ![Captura de pantalla de un logotipo de Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) ofrece acceso seguro basado en directivas a aplicaciones y recursos privados sin el costo, los inconvenientes o los riesgos de seguridad de una VPN. |
@@ -87,7 +92,8 @@ Microsoft se asocia con los siguientes ISV para Web Application Firewall (WAF).
 
 | Asociado ISV | Descripción y tutoriales de integración |
 |:-------------------------|:--------------|
-| ![Captura de pantalla del logotipo de Cloudflare](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) es un proveedor de WAF que ayuda a su organización a protegerse contra ataques malintencionados que tienen como objetivo explotar vulnerabilidades como SQL y XSS. |
+|  ![Captura de pantalla del logotipo de Akamai](./media/partner-gallery/akamai-logo.png) | El [firewall de aplicaciones web de Akamai](./partner-akamai.md) permite la manipulación detallada del tráfico para proteger la infraestructura de identidad frente a ataques malintencionados.  |
+![Captura de pantalla del logotipo de Cloudflare](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) es un proveedor de WAF que ayuda a su organización a protegerse contra ataques malintencionados que tienen como objetivo explotar vulnerabilidades como SQL y XSS. |
 
 
 ## <a name="additional-information"></a>Información adicional

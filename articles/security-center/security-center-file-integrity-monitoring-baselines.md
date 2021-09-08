@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b5f4314afa17f245c36417916bc9af59aa7493a
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634713"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237546"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparación de las líneas de base mediante la supervisión de la integridad de los archivos (FIM)
 
@@ -36,7 +36,7 @@ De hecho, muchos estándares de cumplimiento normativo, como PCI-DSS e ISO 17799
 
 Los valores predeterminados del súbarbol del registro de FIM permiten supervisar de manera práctica los cambios recursivos dentro de las áreas de seguridad comunes.  Por ejemplo, un adversario puede configurar un script para ejecutarlo en el contexto LOCAL_SYSTEM mediante la configuración de una ejecución en el inicio o el apagado.  Para supervisar los cambios de este tipo, habilite la comprobación integrada.  
 
-![Registro](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![Registro.](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > Las comprobaciones recursivas solo se aplican a los subárboles de seguridad recomendados, no a las rutas de acceso al registro personalizadas.  

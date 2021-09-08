@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/26/2021
 ms.author: tisande
-ms.openlocfilehash: f0a0556ce2a46f922e387d96d20b6425ab362580
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2642f1e85e12ce0251e9b7bfff84b5d468a342d2
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386447"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113361412"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Caché integrada de Azure Cosmos DB: información general (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,6 +25,9 @@ Una caché integrada se configura automáticamente dentro de la puerta de enlace
 * Una caché de consulta para consultas
 
 La caché integrada es una caché de lectura y escritura a través con una directiva de expulsión de menos usados recientemente (LRU). La caché de elementos y la caché de consulta comparten la misma capacidad dentro de la caché integrada y la directiva de expulsión de LRU se aplica a ambas. En otras palabras, los datos se expulsan de la memoria caché estrictamente en función de los menos usados recientemente, independientemente de si se trata de una consulta o una lectura puntual.
+
+> [!NOTE]
+> ¿Tiene comentarios sobre la caché integrada? Queremos conocerlos. No dude en compartir sus comentarios directamente con el equipo de ingeniería de Azure Cosmos DB: cosmoscachefeedback@microsoft.com.
 
 ## <a name="workloads-that-benefit-from-the-integrated-cache"></a>Cargas de trabajo que se benefician de la memoria caché integrada
 
@@ -39,7 +42,7 @@ Las cargas de trabajo que se ajusten a las siguientes características deben eva
 -   Muchas consultas de RU elevadas repetidas
 -   Clave de partición activa para lecturas
 
-El factor más importante en el ahorro esperado es el grado en que las lecturas se repiten. Si la carga de trabajo ejecuta de forma coherente las mismas lecturas puntuales o consultas en un breve período de tiempo, es una excelente candidata para la caché integrada. Cuando se usa la memoria caché integrada para lecturas repetidas, solo se usan RU para la primera lectura. Las lecturas posteriores enrutadas a través del mismo nodo de puerta de enlace dedicado (dentro de la ventana `MaxIntegratedCacheStaleness` y siempre que no se hayan expulsado los datos) no usarán el rendimiento.
+El factor más importante en el ahorro esperado es el grado en que las lecturas se repiten. Si la carga de trabajo ejecuta de forma coherente las mismas lecturas puntuales o consultas en un breve período de tiempo, es una excelente candidata para la caché integrada. Cuando se usa la memoria caché integrada para lecturas repetidas, solo se usan RU para la primera lectura. Las lecturas posteriores enrutadas a través del mismo nodo de puerta de enlace dedicado (dentro de la ventana `MaxIntegratedCacheStaleness` y si no se han expulsado los datos) no usarán el rendimiento.
 
 Algunas cargas de trabajo no deben tener en cuenta la memoria caché integrada, entre las que se incluyen:
 
@@ -78,7 +81,7 @@ La caché de consulta se puede usar para almacenar en caché las consultas. La c
 
 No necesita código especial al trabajar con la caché de consulta, incluso si las consultas tienen varias páginas de resultados. Los procedimientos recomendados y el código para la paginación de consultas son los mismos, tanto si la consulta alcanza la caché integrada como si se ejecuta en el motor de consulta back-end.
 
-La caché de consulta almacenará en caché automáticamente los tokens de continuación de consultas, si procede. Si tiene una consulta con varias páginas de resultados, las páginas almacenadas en la caché integrada tendrán un cargo de RU de 0. Si las páginas posteriores de los resultados de la consulta requieren la ejecución de back-end, tendrán un token de continuación de la página anterior para que puedan evitar duplicar el trabajo anterior.
+La caché de consulta almacenará en caché automáticamente los tokens de continuación de consultas, si procede. Si tiene una consulta con varias páginas de resultados, las páginas almacenadas en la caché integrada tendrán un cargo de RU de 0. Si las páginas posteriores de los resultados de la consulta requieren la ejecución del back-end, tendrán un token de continuación de la página anterior para que puedan evitar duplicar el trabajo anterior.
 
 > [!NOTE]
 > Las instancias de caché integradas dentro de distintos nodos de puerta de enlace dedicados tienen cachés independientes entre sí. Si los datos se almacenan en caché dentro de un nodo, no necesariamente se almacenan en caché en los demás.
@@ -89,26 +92,57 @@ La caché integrada solo admite la [coherencia](consistency-levels.md) final. Si
 
 La manera más fácil de configurar la coherencia final para todas las lecturas es [establecerla en el nivel de cuenta](consistency-levels.md#configure-the-default-consistency-level). Sin embargo, si solo desea que algunas de las lecturas tengan coherencia final, también puede configurar la coherencia en el [nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level).
 
-## <a name="integrated-cache-retention-time"></a>Tiempo de retención en la caché integrada
+## <a name="maxintegratedcachestaleness"></a>MaxIntegratedCacheStaleness
 
-El tiempo de retención en caché es la retención máxima de los datos almacenados en caché. Durante la versión preliminar, `MaxIntegratedCacheStaleness` siempre se establece en 5 minutos y no es posible personalizarlo.
+`MaxIntegratedCacheStaleness` es el máximo estancamiento aceptable para las lecturas y consultas puntuales almacenadas en caché. `MaxIntegratedCacheStaleness` se puede configurar en el nivel de solicitud. Por ejemplo, si establece un `MaxIntegratedCacheStaleness` de 2 horas, la solicitud solo devolverá datos en caché si los datos tienen menos de 2 horas de antigüedad. Para aumentar la probabilidad de que las lecturas repetidas utilicen la caché integrada, debe establecer el `MaxIntegratedCacheStaleness` a la altura máxima que permitan los requisitos empresariales.
+
+Es importante saber que `MaxIntegratedCacheStaleness`, cuando se configura en una solicitud que acaba rellenando la caché, no afecta al tiempo que esa solicitud se almacenará en caché. `MaxIntegratedCacheStaleness` aplica coherencia al intentar usar datos en caché. No hay ningún valor de retención de caché o TTL global, por lo que los datos solo se expulsarán de la caché si la caché integrada está llena o se ejecuta una nueva lectura con una `MaxIntegratedCacheStaleness` inferior a la antigüedad de la entrada almacenada en caché actual.
+
+Se trata de una mejora con respecto al funcionamiento de la mayoría de las memorias caché y permite la siguiente personalización adicional:
+
+- Puede establecer distintos requisitos de estancamiento para cada lectura o consulta puntuales.
+- Los diferentes clientes, incluso si ejecutan la misma lectura o consulta puntual, pueden configurar valores `MaxIntegratedCacheStaleness` diferentes.
+- Si deseara modificar la coherencia de lectura al usar datos en caché, el cambio de `MaxIntegratedCacheStaleness` tendrá un efecto inmediato en la coherencia de lectura.
+
+> [!NOTE]
+> Cuando no se configura explícitamente, el valor predeterminado de MaxIntegratedCacheStaleness es 5 minutos.
+
+Para conocer mejor el parámetro `MaxIntegratedCacheStaleness`, considere el ejemplo siguiente:
+
+| Time       | Solicitud                                         | Response                                                     |
+| ---------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| t = 0 s  | Ejecutar Consulta A con MaxIntegratedCacheStaleness = 30 segundos | Devolver resultados de una base de datos de back-end (cargos de RU normales) y llenar la caché     |
+| t = 0 s  | Ejecutar Consulta B con MaxIntegratedCacheStaleness = 60 segundos | Devolver resultados de una base de datos de back-end (cargos de RU normales) y llenar la caché     |
+| t = 20 s | Ejecutar Consulta A con MaxIntegratedCacheStaleness = 30 segundos | Devolver resultados de la caché integrada (cargo de 0 RU)           |
+| t = 20 s | Ejecutar Consulta B con MaxIntegratedCacheStaleness = 60 segundos | Devolver resultados de la caché integrada (cargo de 0 RU)           |
+| t = 40 s | Ejecutar Consulta A con MaxIntegratedCacheStaleness = 30 segundos | Devolver resultados de una base de datos de back-end (cargos de RU normales) y actualizar la caché |
+| t = 40 s | Ejecutar Consulta B con MaxIntegratedCacheStaleness = 60 segundos | Devolver resultados de la caché integrada (cargo de 0 RU)           |
+| t = 50 s | Ejecutar Consulta B con MaxIntegratedCacheStaleness = 20 segundos | Devolver resultados de una base de datos de back-end (cargos de RU normales) y actualizar la caché |
+
+> [!NOTE]
+> La personalización de `MaxIntegratedCacheStaleness` solo se admite en los SDK de versión preliminar de .NET y Java más recientes.
+
+[Aprenda a configurar `MaxIntegratedCacheStaleness`.](how-to-configure-integrated-cache.md#adjust-maxintegratedcachestaleness)
 
 ## <a name="metrics"></a>Métricas
 
-Al usar la memoria caché integrada, resulta útil supervisar algunas métricas clave. Las métricas de la caché integrada incluyen:
+Al usar la caché integrada, resulta útil supervisar algunas métricas clave. Las métricas de la caché integrada incluyen:
 
-- `DedicatedGatewayCpuUsage`: uso de CPU por cada nodo de puerta de enlace dedicado
-- `DedicatedGatewayMemoryUsage`: uso de memoria por cada nodo de puerta de enlace dedicado para las solicitudes de enrutamiento y el almacenamiento en caché
-- `DedicatedGatewayRequests`: número de solicitudes enrutadas a través de cada nodo de puerta de enlace dedicado
-- `IntegratedCacheEvictedEntriesSize`: cantidad de datos expulsada de la memoria caché integrada
-- `IntegratedCacheTTLExpirationCount`: número de entradas expulsadas de la memoria caché integrada específicamente debido a que los datos en caché superan el tiempo de `MaxIntegratedCacheStaleness`.
-- `IntegratedCacheHitRate`: proporción de consultas y lecturas puntuales que usaban la caché integrada (de todas las solicitudes de puerta de enlace dedicadas que intentaron usar la caché integrada).
+- `DedicatedGatewayAverageCpuUsage`: uso medio de CPU en nodos de puerta de enlace dedicada.
+- `DedicatedGatewayMaxCpuUsage`: uso máximo de CPU en nodos de puerta de enlace dedicada.
+- `DedicatedGatewayAverageMemoryUsage`: uso medio de la memoria en los nodos de puerta de enlace dedicada, que se usan tanto para las solicitudes de enrutamiento como para los datos de almacenamiento en caché.
+- `DedicatedGatewayRequests`: número total de solicitudes de puerta de enlace dedicada en todas las instancias de puerta de enlace dedicada.
+- `IntegratedCacheEvictedEntriesSize`: la cantidad media de datos expulsados debido a la LRU de la caché integrada en los nodos de puerta de enlace dedicada. Este valor no incluye los datos que hayan expiraron debido a que se superó el tiempo de `MaxIntegratedCacheStaleness`.
+- `IntegratedCacheItemExpirationCount`: el número de elementos que se expulsan de la caché integrada debido a que las lecturas puntuales almacenadas en caché superan el tiempo `MaxIntegratedCacheStaleness`. Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
+- `IntegratedCacheQueryExpirationCount`: el número de consultas que se expulsan de la caché integrada debido a que las consultas almacenadas en caché superan el tiempo `MaxIntegratedCacheStaleness`. Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
+- `IntegratedCacheItemHitRate`: la proporción de lecturas puntuales que usaban la caché (de todas las lecturas puntuales enrutadas a través de la puerta de enlace dedicada con coherencia final). Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
+- `IntegratedCacheQueryHitRate`: la proporción de consultas que usaban la caché (de todas las consultas enrutadas a través de la puerta de enlace dedicada con coherencia final). Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
 
 Todas las métricas existentes están disponibles, de manera predeterminada, en la hoja **Métricas** (no en la hoja de métricas clásica):
 
    :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="Imagen que muestra la ubicación de las métricas de la caché integrada" border="false":::
 
-Todas las métricas se exponen como promedio en todos los nodos de puerta de enlace dedicados. Por ejemplo, si aprovisiona un clúster de puerta de enlace dedicado con cinco nodos, las métricas reflejan el valor medio en los cinco nodos.
+Las métricas son un promedio, el máximo o la suma en todos los nodos de puerta de enlace dedicada. Por ejemplo, si aprovisiona un clúster de puerta de enlace dedicada con cinco nodos, las métricas reflejan el valor agregado en los cinco nodos. No es posible determinar los valores de métrica de cada nodo individual.
 
 ## <a name="troubleshooting-common-issues"></a>Solucionar los problemas comunes
 
@@ -116,25 +150,27 @@ En los ejemplos siguientes, se muestra cómo depurar algunos escenarios comunes:
 
 ### <a name="i-cant-tell-if-my-application-is-using-the-dedicated-gateway"></a>No sé si mi aplicación usa la puerta de enlace dedicada
 
-Active `DedicatedGatewayRequests`. Esta métrica incluye todas las solicitudes que usan la puerta de enlace dedicada, independientemente de si han alcanzado la caché integrada. Si la aplicación usa la puerta de enlace estándar o el modo directo con la cadena de conexión original, no verá un mensaje de error, pero `DedicatedGatewayRequests` será cero.
+Active `DedicatedGatewayRequests`. Esta métrica incluye todas las solicitudes que usan la puerta de enlace dedicada, independientemente de si han alcanzado la caché integrada. Si la aplicación usa la puerta de enlace estándar o el modo directo con la cadena de conexión original, no verá un mensaje de error, pero el valor de `DedicatedGatewayRequests` será cero.
 
 ### <a name="i-cant-tell-if-my-requests-are-hitting-the-integrated-cache"></a>No sé si mis solicitudes alcanzan la memoria caché integrada
 
-Active `IntegratedCacheHitRate`. Si este valor es cero, las solicitudes no alcanzan la memoria caché integrada. Compruebe que usa la cadena de conexión de puerta de enlace dedicada, que se conecta con el modo de puerta de enlace, y que ha establecido la coherencia final.
+Compruebe `IntegratedCacheItemHitRate` y `IntegratedCacheQueryHitRate`. Si ambos valores son cero, las solicitudes no alcanzan la caché integrada. Compruebe que usa la cadena de conexión de puerta de enlace dedicada, que [se conecta con el modo de puerta de enlace](sql-sdk-connection-modes.md) y que [ha establecido la coherencia final](consistency-levels.md#configure-the-default-consistency-level).
 
 ### <a name="i-want-to-understand-if-my-dedicated-gateway-is-too-small"></a>Quiero saber si mi puerta de enlace dedicada es demasiado pequeña
 
-Active `IntegratedCacheHitRate`. Si este valor es alto (por ejemplo, por encima de 0,5-0,6), esto es una buena señal de que la puerta de enlace dedicada es lo suficientemente grande.
+Compruebe `IntegratedCacheItemHitRate` y `IntegratedCacheQueryHitRate`. Si estos valores son altos (por ejemplo, por encima de 0,7-0,8), esto es una buena señal de que la puerta de enlace dedicada es suficientemente grande.
 
-Si `IntegratedCacheHitRate` es bajo, observe `IntegratedCacheEvictedEntriesSize`. Si `IntegratedCacheEvictedEntriesSize` es alto, puede significar que un mayor tamaño de puerta de enlace dedicada sería beneficioso.
+Si `IntegratedCacheItemHitRate` o `IntegratedCacheEvictedEntriesSize` son bajos, observe `IntegratedCacheQueryHitRate`. Si `IntegratedCacheEvictedEntriesSize` es alto, puede significar que un mayor tamaño de puerta de enlace dedicada sería beneficioso. Puede experimentar aumentando el tamaño de la puerta de enlace dedicada y comparando los nuevos `IntegratedCacheItemHitRate` y `IntegratedCacheQueryHitRate`. Si una puerta de enlace dedicada mayor no mejora `IntegratedCacheItemHitRate` o `IntegratedCacheQueryHitRate`, es posible que las lecturas simplemente no se repitan lo suficiente como para que la caché integrada resulte afectada.
 
 ### <a name="i-want-to-understand-if-my-dedicated-gateway-is-too-large"></a>Quiero saber si mi puerta de enlace dedicada es demasiado grande
 
-Esto es más difícil de medir. En general, debe empezar por valores pequeños y aumentar lentamente el tamaño de la puerta de enlace dedicada hasta que `IntegratedCacheHitRate` deje de mejorar.
+Es más difícil medir si una puerta de enlace dedicada es demasiado grande que medir si una puerta de enlace dedicada es demasiado pequeña. En general, debe empezar por valores pequeños y aumentar lentamente el tamaño de la puerta de enlace dedicada hasta que `IntegratedCacheItemHitRate` y `IntegratedCacheQueryHitRate` dejen de mejorar. En algunos casos, solo una de las dos métricas de aciertos de caché serán importantes, no ambas. Por ejemplo, si la carga de trabajo es principalmente consultas, en lugar de lecturas puntuales, `IntegratedCacheQueryHitRate` es mucho más importante que `IntegratedCacheItemHitRate`.
 
-Si la mayoría de los datos se expulsa de la memoria caché debido a que se supera `MaxIntegratedCacheStaleness`, en lugar de LRU, la memoria caché podría ser mayor de lo necesario. Compruebe si `IntegratedCacheTTLExpirationCount` es casi tan grande como `IntegratedCacheEvictedEntriesSize`. Si es así, puede experimentar con un tamaño de puerta de enlace dedicado más pequeño y comparar el rendimiento.
+Si la mayoría de los datos se expulsa de la memoria caché debido a que se supera `MaxIntegratedCacheStaleness`, en lugar de LRU, la memoria caché podría ser mayor de lo necesario. Si la combinación de `IntegratedCacheItemExpirationCount` y `IntegratedCacheQueryExpirationCount` es casi tan grande como `IntegratedCacheEvictedEntriesSize`, puede experimentar con un tamaño de puerta de enlace dedicada menor y comparar el rendimiento.
 
-Compruebe `DedicatedGatewayMemoryUsage` y compárelo con el tamaño de la puerta de enlace dedicada. Si `DedicatedGatewayMemoryUsage` es menor que el tamaño de puerta de enlace dedicado, debe probar un tamaño de puerta de enlace dedicado más pequeño.
+### <a name="i-want-to-understand-if-i-need-to-add-more-dedicated-gateway-nodes"></a>Quiero saber si necesito agregar más nodos de puerta de enlace dedicada
+
+En algunos casos, si la latencia es inesperadamente alta, puede que necesite más nodos de puerta de enlace dedicada, en lugar de nodos mayores. Consulte que `DedicatedGatewayMaxCpuUsage` y `DedicatedGatewayAverageMemoryUsage` para determinar si agregar más nodos de puerta de enlace dedicada reduciría la latencia. Es bueno tener en cuenta que, dado que todas las instancias de la caché integrada son independientes entre sí, la incorporación de más nodos de puerta de enlace dedicada no reducirá `IntegratedCacheEvictedEntriesSize`. Sin embargo, la incorporación de más nodos mejorará el volumen de solicitudes que puede controlar el clúster de puerta de enlace dedicado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

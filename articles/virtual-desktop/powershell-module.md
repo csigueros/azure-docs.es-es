@@ -3,16 +3,16 @@ title: 'Módulo de PowerShell para Azure Virtual Desktop: Azure'
 description: Procedimientos de instalación y configuración del módulo de PowerShell para Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/20/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 029034cd4c4e118cca532509208f08843ca8b7fd
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 916ce455d2d053746afb37b6b6dcc84168083b61
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753132"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464571"
 ---
 # <a name="set-up-the-powershell-module-for-azure-virtual-desktop"></a>Configuración del módulo de PowerShell para Azure Virtual Desktop
 
@@ -47,6 +47,12 @@ Connect-AzAccount
 > 
 > ```powershell
 > Connect-AzAccount -EnvironmentName AzureUSGovernment
+> ```
+> 
+> Para conectarse al portal de Azure China, ejecute este cmdlet:
+> 
+> ```powershell
+> Connect-AzAccount -EnvironmentName AzureChinaCloud
 > ```
 
 Si va a iniciar sesión en su cuenta de Azure, necesitará un código que se genera al ejecutar el cmdlet Connect. Para iniciar sesión, vaya a <https://microsoft.com/devicelogin>, escriba el código y, a continuación, utilice sus credenciales de administrador de Azure.

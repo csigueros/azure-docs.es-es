@@ -2,18 +2,18 @@
 title: Habilitación del cifrado de un extremo a otro mediante el cifrado en el host - CLI de Azure - discos administrados
 description: Use el cifrado en el host para habilitar el cifrado de un extremo a otro en los discos administrados de Azure.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 10fe02b0deb505fcedc6fc3119150709b6613b04
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 752fef23b0acd2fe4722fb89720d6312699e49cf
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673029"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358352"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use la CLI de Azure para habilitar el cifrado de un extremo a otro mediante el cifrado en host
 
@@ -124,6 +124,20 @@ az vm show -n $vmName \
 --query [securityProfile.encryptionAtHost] -o tsv
 ```
 
+
+### <a name="update-a-vm-to-disable-encryption-at-host"></a>Actualización de una máquina virtual para deshabilitar el cifrado en el host. 
+
+Debe desasignar la máquina virtual para poder deshabilitar el cifrado en el host.
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+
+az vm update -n $vmName \
+-g $rgName \
+--set securityProfile.encryptionAtHost=false
+```
+
 ### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Cree un conjunto de escalado de máquinas virtuales con cifrado en el host habilitado con claves administradas por el cliente. 
 
 Cree un conjunto de escalado de máquinas virtuales con discos administrados mediante el identificador URI del recurso de DiskEncryptionSet creado anteriormente para cifrar la caché de los discos de datos y del sistema operativo con claves administradas por el cliente. Los discos temporales se cifran con claves administradas por la plataforma. 
@@ -191,6 +205,19 @@ vmssName=yourVMName
 az vmss show -n $vmssName \
 -g $rgName \
 --query [virtualMachineProfile.securityProfile.encryptionAtHost] -o tsv
+```
+
+### <a name="update-a-virtual-machine-scale-set-to-disable-encryption-at-host"></a>Actualice un conjunto de escalado de máquinas virtuales para deshabilitar el cifrado en el host. 
+
+Puede deshabilitar el cifrado en el host en el conjunto de escalado de máquinas virtuales, pero esto solo afectará a las máquinas virtuales creadas después de deshabilitar el cifrado en el host. En el caso de las máquinas virtuales existentes, debe desasignar la máquina virtual, [deshabilitar el cifrado en el host en esa máquina virtual individual](#update-a-vm-to-disable-encryption-at-host) y volver a asignar la máquina virtual.
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMName
+
+az vmss update -n $vmssName \
+-g $rgName \
+--set virtualMachineProfile.securityProfile.encryptionAtHost=false
 ```
 
 ## <a name="finding-supported-vm-sizes"></a>Búsqueda de tamaños de máquinas virtuales admitidos

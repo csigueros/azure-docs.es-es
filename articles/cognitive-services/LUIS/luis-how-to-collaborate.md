@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2021
-ms.openlocfilehash: bb56ce1b5be30cd36b8368e8ad7b886e81296f43
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5a320d6368d4fdecaf4001fc9255c4c0ff3b276c
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083663"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285583"
 ---
 # <a name="add-contributors-to-your-app"></a>Adición de colaboradores a su aplicación
 
@@ -26,18 +26,7 @@ Un propietario de la aplicación puede agregar colaboradores a las aplicaciones.
 
 Ha migrado si su experiencia de creación de LUIS está asociada a un recurso de creación en la página **Administrar -> Recursos de Azure** del portal de LUIS.
 
-1. En Azure Portal, busque el recurso de creación de Language Understanding (LUIS). Dispone del tipo `LUIS.Authoring`.
-1. En la página **Control de acceso (IAM)**, seleccione **+Agregar** y, a continuación, **Agregar asignación de roles**.
-
-    ![En Azure Portal, agregue la asignación de roles en el recurso de creación.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
-
-1. En la ventana **Agregar asignación de roles**, seleccione el **rol** de colaborador. En la opción **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**. En la opción **Seleccionar**, escriba la dirección de correo electrónico del usuario. Si se conoce al usuario por más de una dirección de correo electrónico para el mismo dominio, asegúrese de que se escribe la cuenta de correo electrónico _principal_.
-
-    ![Adición del correo electrónico del usuario al rol de colaborador para Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
-
-    Cuando se encuentre el correo electrónico del usuario, seleccione la cuenta y **Guardar**.
-
-    Si tiene problemas con esta asignación de roles, revise [Asignaciones de roles de Azure](../../role-based-access-control/role-assignments-portal.md) y [Solución de problemas del control de acceso de Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
+En Azure Portal, busque el recurso de creación de Language Understanding (LUIS). Dispone del tipo `LUIS.Authoring`. En la página de **Access Control (IAM)** del recurso, agregue el rol de **colaborador** al usuario al que desea contribuir. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="view-the-app-as-a-contributor"></a>Visualización de la aplicación como colaborador
 

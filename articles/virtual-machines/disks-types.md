@@ -3,17 +3,17 @@ title: 'Selección de un tipo de disco para máquinas virtuales IaaS de Azure: d
 description: Obtenga información sobre los tipos de disco de Azure disponibles para las máquinas virtuales, incluidos los discos ultra, SSD Premium, SSD estándar y HDD estándar.
 author: roygara
 ms.author: rogarana
-ms.date: 05/12/2021
+ms.date: 06/29/2021
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 782d4d18e9b6ffc16c1d95a995cef806adc42904
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5c8e9a7d2d9989ef3080741753f604b9eb5d4289
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083429"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113362186"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
 
@@ -78,13 +78,11 @@ Para más información sobre los tipos y tamaños de máquinas virtuales individ
 ### <a name="disk-size"></a>Tamaño del disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los discos SSD Premium están diseñados para proporcionar bajas latencias inferiores a 10 milisegundos y un IOPS y rendimiento que se describen en la tabla anterior como del 99,9 % del tiempo.
+Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los SSD Premium están diseñados para proporcionar bajas latencias inferiores a 10 milisegundos y un IOPS y rendimiento que se describen en la tabla anterior como del 99,9 % del tiempo.
 
 ## <a name="bursting"></a>Creación de ráfagas
 
-Los tamaños de SSD Premium más pequeños que P30 ahora ofrecen una expansión de disco y pueden aumentar los IOPS por disco en hasta 3500 y el ancho de banda en hasta 170 MB/s. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. Los créditos se acumulan automáticamente en un depósito de ráfagas cuando el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado y los créditos se consumen automáticamente cuando el tráfico supera el destino, hasta el límite máximo de ráfagas. El límite máximo de ráfagas define el límite superior de IOPS y Bandwidth del disco, incluso si tiene créditos de ráfagas para consumir. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos.    
-
-La compatibilidad con ráfagas de discos se habilitará en las nuevas implementaciones de los tamaños de disco aplicables de forma predeterminada, sin necesidad de que intervenga el usuario. En el caso de los discos existentes de tamaños aplicables, puede habilitar la ráfaga con cualquiera de estas dos opciones: desasociar y volver a adjuntar el disco, o detener y reiniciar la VM conectada. Todos los tamaños de disco aplicables de la ráfaga comenzarán con un cubo de crédito de ráfaga completo cuando el disco esté conectado a una máquina virtual que admita una duración máxima en el límite máximo de ráfaga de 30 minutos. Para obtener más información sobre el aumento del trabajo de ráfagas en discos de Azure, consulte [Creación de ráfagas SSD Premium](./disk-bursting.md). 
+Los SSD prémium ofrecen expansión de disco. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos. Para más información sobre el funcionamiento de la expansión de disco de discos de Azure, consulte [Expansión a nivel de disco](disk-bursting.md#disk-level-bursting).
 
 ### <a name="transactions"></a>Transacciones
 
@@ -102,6 +100,10 @@ Los discos SSD estándar están diseñados para proporcionar latencias de menos 
 ### <a name="transactions"></a>Transacciones
 
 Para los discos SSD estándar, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran varias operaciones de E/S con un tamaño de 256 KiB. Estas transacciones tienen un impacto en la facturación.
+
+### <a name="bursting"></a>Creación de ráfagas
+
+Los SSD estándar ofrecen expansión de disco. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos. Para más información sobre el funcionamiento de la expansión de disco de discos de Azure, consulte [Expansión a nivel de disco](disk-bursting.md#disk-level-bursting).
 
 ## <a name="standard-hdd"></a>HDD estándar
 

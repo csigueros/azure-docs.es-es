@@ -1,18 +1,18 @@
 ---
 title: Acceso de Azure Spring Cloud a una aplicación en una red virtual
 description: Acceda a una aplicación en Azure Spring Cloud en una red virtual.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 593065b200ab0dc98e5fa97299c137aedfd1be63
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 68cac51ba9d54abc6514cf493077740339ac56c5
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129322"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015574"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Acceso a una aplicación en una red privada
 
@@ -26,9 +26,12 @@ En el procedimiento siguiente se crea una zona DNS privada para una aplicación 
 
 1. Abra Azure Portal. En el cuadro de búsqueda, busque **Zonas DNS privadas** y seleccione **Zonas DNS privadas** en el resultado.
 
-2. En la página **Zonas DNS privadas**, seleccione **+ Agregar**.
+2. En la página **Zonas DNS privadas**, seleccione **Agregar**.
 
 3. Rellene el formulario en la página **Crear zona DNS privada**. Escriba **<span>private.azuremicroservices.io</span>** como **Nombre** de la zona.
+
+    >[!NOTE]
+    > Si usa Azure China, reemplace `private.azuremicroservices.io` por `private.microservices.azure.cn` en toda la documentación. ([Más información](/azure/china/resources-developer-guide#check-endpoints-in-azure))
 
 4. Seleccione **Revisar + crear**.
 
@@ -40,7 +43,7 @@ La creación de la zona puede tardar unos minutos.
 
 Para vincular la zona DNS privada a una red virtual, debe crear un vínculo de red virtual.
 
-1. Seleccione el recurso de zona DNS privada creado anteriormente: **<span>private.azuremicroservices.io</span>** . 
+1. Seleccione el recurso de zona DNS privada creado anteriormente: **<span>private.azuremicroservices.io</span>** .
 
 2. En el panel izquierdo, selecciona **Virtual network links** (Vínculos de red virtual).
 
@@ -52,7 +55,7 @@ Para vincular la zona DNS privada a una red virtual, debe crear un vínculo de r
 
     ![Agregar el vínculo de red virtual](media/spring-cloud-access-app-vnet/add-virtual-network-link.png)
 
-6. Haga clic en **OK**.
+6. Seleccione **Aceptar**.
 
 ## <a name="create-dns-record"></a>Crear un registro DNS
 
@@ -81,7 +84,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 4. Seleccione el recurso de zona DNS privada creado anteriormente: **<span>private.azuremicroservices.io</span>** .
 
-5. Seleccione **+ Conjunto de registros**.
+5. Seleccione **Conjunto de registros**.
 
 6. En **Agregar conjunto de registros**, escriba o seleccione esta información:
 

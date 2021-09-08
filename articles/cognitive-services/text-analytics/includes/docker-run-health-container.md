@@ -7,42 +7,35 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/12/2020
+ms.date: 06/18/2021
 ms.author: aahi
-ms.openlocfilehash: 2deb67f5a569ed6283bfe4a99bef795ffbf13bac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 47a7059e21f1c9b9d6d72644bc08c62b66afc772
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110164513"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339419"
 ---
 ## <a name="install-the-container"></a>Instalación del contenedor
 
 Hay varias maneras de instalar y ejecutar el contenedor de Text Analytics for Health. 
 
 - Utilice [Azure Portal](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare) para crear un recurso de Text Analytics y Docker para obtener su contenedor.
+- Use una máquina virtual de Azure con Docker para ejecutar el contenedor. Consulte [Docker en Azure](../../../docker/index.yml).
 - Use los siguientes scripts de PowerShell y la CLI de Azure para automatizar la implementación de recursos y la configuración del contenedor.
 
 ### <a name="run-the-container-locally"></a>Ejecute el contenedor localmente
 
-Para ejecutar el contenedor en su propio entorno después de descargar la imagen de contenedor, busque el identificador de la imagen:
- 
-```bash
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
-
-Ejecute el comando `docker run` siguiente. Reemplace los marcadores de posición por sus propios valores:
+Para ejecutar el contenedor en su propio entorno después de descargar la imagen de contenedor, ejecute el siguiente comando `docker run`. Reemplace los marcadores de posición por sus propios valores:
 
 | Marcador de posición | Value | Formato o ejemplo |
 |-------------|-------|---|
 | **{CLAVE_API}** | Clave del recurso de Text Analytics. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{URI_PUNTODECONEXIÓN}** | Punto de conexión para acceder a Text Analytics API. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| **{IMAGE_ID}** | Identificador de la imagen del contenedor. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | Directorio de entrada del contenedor. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
---mount type=bind,src={INPUT_DIR},target=/output {IMAGE_ID} \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
@@ -52,8 +45,7 @@ Logging:Disk:Format=json
 
 Este comando:
 
-- Supone que el directorio de entrada existe en el equipo host.
-- Ejecuta un contenedor de Text Analytics for Health desde la imagen del contenedor.
+- Ejecuta un contenedor de *Text Analytics for Health* desde la imagen del contenedor.
 - Asigna un núcleo de 6 CPU y 12 gigabytes (GB) de memoria.
 - Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 - Acepta el contrato de licencia para el usuario final (CLUF) y los términos de AI (RAI) responsables.
@@ -73,7 +65,7 @@ http://<serverURL>:5000/demo
 Use la siguiente solicitud de dirección de URL como ejemplo para enviar una consulta al contenedor que ha implementado reemplazando la variable `serverURL` por el valor adecuado.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 

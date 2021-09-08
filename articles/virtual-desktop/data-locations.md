@@ -4,15 +4,15 @@ description: Una breve introducción a las ubicaciones en las que se almacenan l
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ef72214cf0a5a5d0d65cc13dba88a4776b4240ad
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: bc356e828adbe9b2d93a202f6b58673dd4ec5efc
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745302"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113125913"
 ---
 # <a name="data-locations-for-azure-virtual-desktop"></a>Ubicaciones de datos para Azure Virtual Desktop
 
@@ -49,7 +49,8 @@ Por el momento, se admite el almacenamiento de los datos mencionados anteriormen
 
 - Estados Unidos (EE. UU.) (disponible con carácter general)
 - Europa (UE) (disponible con carácter general)
-- Reino Unido (RU) (versión preliminar pública)
+- Reino Unido (RU) (disponible con carácter general)
+- Canadá (CA) (disponible con carácter general)
 
 A medida que el servicio crezca, se agregarán más geografías. Los metadatos almacenados se cifran en reposo y los reflejos con redundancia geográfica se mantienen en la geografía. Los datos del cliente, como la configuración de la aplicación y los datos de usuario, residen en la ubicación que el cliente elige y no los administra el servicio.
 

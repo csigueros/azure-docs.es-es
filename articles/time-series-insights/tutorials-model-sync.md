@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.custom: dpalled
-ms.openlocfilehash: 5e8e5367daa532fa0cc36a18cd28b382e7cd8f78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e7c38001578caa5e23b6c0458f70171d8dcf630
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98682909"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564507"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronización de modelos entre Azure Digital Twins y Time Series Insights Gen2
 
@@ -82,10 +82,10 @@ En el fragmento de código siguiente se muestra cómo la aplicación cliente pud
 
 > [!Note]
 >
-> En este ejemplo de fragmento de código se da por supuesto que los lectores están familiarizados con la [parte 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) del tutorial y este cambio de código se realizó dentro de la función "ProcessHubToDTEvents&quot;.
+> En este ejemplo de fragmento de código se da por supuesto que los lectores están familiarizados con la [parte 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) del tutorial y este cambio de código se realizó dentro de la función "ProcessHubToDTEvents".
 
 ```csharp
-if (propertyPath.Equals(&quot;/Flow"))
+if (propertyPath.Equals("/Flow"))
 {
 //Update the flow value property of the flow meter
 await AdtUtilities.UpdateTwinProperty(client, twinId, "replace",

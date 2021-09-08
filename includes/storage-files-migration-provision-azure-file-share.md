@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: storage
 author: fauhse
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 532ac3b60f90a3d587a57ad8ea9663a6cfad3d90
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: c1fda4eb853e97b7a5b85beebe162ab3869e4a68
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109644919"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "113799166"
 ---
 Un recurso compartido de archivos de Azure en la nube en una cuenta de almacenamiento de Azure.
 Aquí se aplica otro nivel de consideraciones relativas al rendimiento.
@@ -34,7 +34,7 @@ Asegúrese de que la región de cada una de las cuentas de almacenamiento sea la
 > [!CAUTION]
 > Si crea un recurso compartido de archivos de Azure con un límite de 100 TiB, ese recurso compartido puede usar solo las opciones de redundancia de almacenamiento con redundancia local o de zona. Tenga en cuenta sus necesidades de redundancia de almacenamiento antes de usar recursos compartidos de archivos de 100 TiB.
 
-Los recursos compartidos de archivos de Azure todavía se crean con un límite de 5 TiB de forma predeterminada. Dado que va a crear nuevas cuentas de almacenamiento, asegúrese de seguir las [instrucciones para crear cuentas de almacenamiento que permitan recursos compartidos de archivos de Azure con límites de 100 TiB](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
+Los recursos compartidos de archivos de Azure todavía se crean con un límite de 5 TiB de forma predeterminada. Para crear un recurso compartido de archivos grande, siga los pasos de [Creación de un recurso compartido de archivos de Azure](../articles/storage/files/storage-how-to-create-file-share.md).
 
 Otra consideración a la hora de implementar una cuenta de almacenamiento es la redundancia de Azure Storage. Consulte las [Opciones de redundancia de Azure Storage](../articles/storage/common/storage-redundancy.md).
 

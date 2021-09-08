@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento para Kubernetes.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6f369b16755c09468dbdae2076cc7828a53c8a17
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 45c5b420ddd4eab70e381f31e7c46eeeb380b2b5
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752172"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113087097"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Solución de errores mediante Azure Policy
 
@@ -142,6 +142,20 @@ La regla de definición de directiva tiene una o varias condiciones que los tipo
 #### <a name="resolution"></a>Solución
 
 Si se usa un alias, asegúrese de que este se evalúe solo con respecto al tipo de recurso al que pertenece agregando una condición de tipo delante. Una alternativa es dividir la definición de directiva en varias definiciones para evitar incluir varios tipos de recursos.
+
+### <a name="scenario-subscription-limit-exceeded"></a>Escenario: se superó el límite de suscripción
+
+#### <a name="issue"></a>Problema
+
+Se muestra un mensaje de error en la página de cumplimiento de Azure Portal al recuperar el cumplimiento de las asignaciones de directivas.
+
+#### <a name="cause"></a>Causa
+
+El número de suscripciones en los ámbitos seleccionados en la solicitud ha superado el límite de 5000 suscripciones. Los resultados del cumplimiento pueden mostrarse parcialmente.
+
+#### <a name="resolution"></a>Resolución
+
+Para ver los resultados completos, seleccione un ámbito más granular con menos suscripciones secundarias.
 
 ## <a name="template-errors"></a>Errores de plantilla
 

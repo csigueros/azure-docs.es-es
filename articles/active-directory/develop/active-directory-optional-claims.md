@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/06/2021
+ms.date: 7/19/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3f92e5b0a526745ca2d9f87e76a0fcf77ed65e7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104287"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450556"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -51,24 +51,25 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 
 | Nombre                       |  Descripción   | Tipo de token | Tipo de usuario | Notas  |
 |----------------------------|----------------|------------|-----------|--------|
+| `acct`                | Estado de la cuenta de los usuarios de un inquilino | JWT, SAML | | Si el usuario es miembro del inquilino, el valor es `0`. Si es un invitado, el valor es `1`. |
 | `auth_time`                | Momento de la última autenticación del usuario. Consulte las especificaciones de Open ID Connect| JWT        |           |  |
-| `tenant_region_scope`      | Región del inquilino de los recursos | JWT        |           | |
+| `ctry`                     | País o región del usuario | JWT |  | Azure AD devuelve la notificación opcional `ctry` si existe, y el valor del campo es un código de país o región estándar de dos letras, como FR, JP, SZ, etc. |
+| `email`                    | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | MSA, Azure AD | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, únicamente en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).|
+| `fwd`                      | Dirección IP.| JWT    |   | Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual) |
+| `groups`| Formato opcional de las notificaciones de grupo |JWT, SAML| |Se usa con la opción de configuración GroupMembershipClaims en el [manifiesto de la aplicación](reference-app-manifest.md), que se debe establecer también. Para más información, vea las [notificaciones de grupo](#configuring-groups-optional-claims) abajo. Para más información sobre las notificaciones de grupo, vea [Cómo configurar notificaciones de grupo](../hybrid/how-to-connect-fed-group-claims.md)
+| `idtyp`                    | Tipo de token   | Tokens de acceso de JWT | Especial: únicamente en tokens de acceso de solo aplicación |  El valor es `app` cuando el token es un token de solo aplicación. Esta es la forma más precisa para que una API determine si un token es un token de aplicación o un token de usuario + aplicación.|
+| `login_hint`               | Sugerencia de inicio de sesión   | JWT | MSA, Azure AD | Una notificación de sugerencia de inicio de sesión opaca y de confianza.  Esta notificación es el mejor valor que se puede usar para el parámetro `login_hint` de OAuth en todos los flujos para el inicio de sesión único.  También se puede pasar entre aplicaciones para ayudar en el inicio de sesión único en modo silencioso: la aplicación A puede iniciar la sesión de un usuario, leer la notificación `login_hint` y, a continuación, enviar la notificación y el contexto del inquilino actual a la aplicación B en la cadena o fragmento de la cadena de consulta cuando el usuario hace clic en un vínculo que le lleva a la aplicación B. Para evitar problemas de confiabilidad y condiciones de carrera, la notificación `login_hint` *no* incluye el inquilino actual del usuario y tiene como valor predeterminado el inquilino principal del usuario cuando se usa.  Si trabaja en un escenario de invitado, en el que el usuario es de otro inquilino, debe proporcionar un identificador de inquilino en la solicitud de inicio de sesión y pasar lo mismo a las aplicaciones con las que esté asociado. Sin embargo, esta notificación está pensada para su uso con la funcionalidad `login_hint` existente del SDK, como se ha expuesto. |
 | `sid`                      | Identificador de sesión que se usa para el cierre de cada sesión de usuario. | JWT        |  Cuentas personal y de Azure AD.   |         |
+| `tenant_ctry`              | País del inquilino de los recursos | JWT | | Igual que `ctry`, salvo que un administrador lo establezca en un nivel de inquilino.  También debe ser un valor estándar de dos letras. |
+| `tenant_region_scope`      | Región del inquilino de los recursos | JWT        |           | |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados Debe usar la notificación `login_hint` para el uso de `login_hint`: los identificadores legibles como el UPN no son de confianza.|
 | `verified_primary_email`   | Procede del valor PrimaryAuthoritativeEmail del usuario.      | JWT        |           |         |
 | `verified_secondary_email` | Procede del valor SecondaryAuthoritativeEmail del usuario.   | JWT        |           |        |
 | `vnet`                     | Información del especificador de la red virtual | JWT        |           |      |
-| `fwd`                      | Dirección IP.| JWT    |   | Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual) |
-| `ctry`                     | País o región del usuario | JWT |  | Azure AD devuelve la notificación opcional `ctry` si existe, y el valor del campo es un código de país o región estándar de dos letras, como FR, JP, SZ, etc. |
-| `tenant_ctry`              | País del inquilino de los recursos | JWT | | Igual que `ctry`, salvo que un administrador lo establezca en un nivel de inquilino.  También debe ser un valor estándar de dos letras. |
 | `xms_pdl`             | Ubicación de datos preferida   | JWT | | En los inquilinos multigeográficos, la ubicación de datos preferida es el código de tres letras que muestra la región geográfica en la que se encuentra el usuario. Para más información, vea la [documentación de Azure AD Connect acerca de la ubicación de datos preferida](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Por ejemplo: `APC` para Asia Pacífico. |
 | `xms_pl`                   | Idioma preferido del usuario  | JWT ||Idioma preferido del usuario, si se establece. Se origina desde su inquilino principal, en escenarios de acceso de invitado. Con formato LL-CC ("en-us"). |
 | `xms_tpl`                  | Idioma preferido del inquilino| JWT | | Idioma preferido del inquilino de recursos, si se establece. Con formato LL ("en"). |
 | `ztdid`                    | Identificador de implementación sin interacción | JWT | | La identidad del dispositivo usada en [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot). |
-| `email`                    | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | MSA, Azure AD | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, únicamente en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).|
-| `acct`                | Estado de la cuenta de los usuarios de un inquilino | JWT, SAML | | Si el usuario es miembro del inquilino, el valor es `0`. Si es un invitado, el valor es `1`. |
-| `groups`| Formato opcional de las notificaciones de grupo |JWT, SAML| |Se usa con la opción de configuración GroupMembershipClaims en el [manifiesto de la aplicación](reference-app-manifest.md), que se debe establecer también. Para más información, vea las [notificaciones de grupo](#configuring-groups-optional-claims) abajo. Para más información sobre las notificaciones de grupo, vea [Cómo configurar notificaciones de grupo](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados  |
-| `idtyp`                    | Tipo de token   | Tokens de acceso de JWT | Especial: únicamente en tokens de acceso de solo aplicación |  El valor es `app` cuando el token es un token de solo aplicación. Esta es la forma más precisa para que una API determine si un token es un token de aplicación o un token de usuario + aplicación.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Conjunto de notificaciones opcionales específicas de la versión 2.0
 

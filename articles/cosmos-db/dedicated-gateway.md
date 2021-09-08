@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: 436ad1da3e1b212e03113132d4aff9f48a3d80da
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7cc6acc29cf8019bf65d3495cfd8a00a87da11bc
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386504"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112914254"
 ---
 # <a name="azure-cosmos-db-dedicated-gateway---overview-preview"></a>Puerta de enlace dedicada de Azure Cosmos DB: información general (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,6 +26,9 @@ Puede aprovisionar una puerta de enlace dedicada para mejorar el rendimiento a g
 La puerta de enlace dedicada está integrada en Azure Cosmos DB. Al [aprovisionar una puerta de enlace dedicada](how-to-configure-integrated-cache.md), tiene un nodo totalmente administrado que enruta las solicitudes a las particiones de back-end. La conexión a Azure Cosmos DB con la puerta de enlace dedicada proporciona una latencia menor y más predecible que la conexión a Azure Cosmos DB con la puerta de enlace estándar. Incluso los errores de caché observarán mejoras de latencia al comparar la puerta de enlace dedicada y la puerta de enlace estándar.
 
 Solo se requieren cambios mínimos en el código para que la aplicación use una puerta de enlace dedicada. Tanto las cuentas de Azure Cosmos DB nuevas como las existentes pueden aprovisionar una puerta de enlace dedicada para mejorar el rendimiento de lectura.
+
+> [!NOTE]
+> ¿Tiene comentarios sobre la puerta de enlace dedicada? Queremos conocerlos. No dude en compartir comentarios directamente con el equipo de ingeniería de Azure Cosmos DB: cosmoscachefeedback@microsoft.com.
 
 ## <a name="connection-modes"></a>Modos de conexión
 

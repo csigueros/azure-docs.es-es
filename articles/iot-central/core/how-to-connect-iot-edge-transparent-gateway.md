@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 2703e5f92ad0756ece8088c4948170ea13fa0e06
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: c0e63d0aee60ae81c14fa8971369c3a50f9b2bde
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683450"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461406"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>Cómo conectar dispositivos a través de una puerta de enlace IoT Edge transparente
 
@@ -70,7 +70,7 @@ En la captura de pantalla siguiente se muestra la página **Relaciones** de un d
 
 :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/device-template-relationship.png" alt-text="Captura de pantalla que muestra la relación de la plantilla de dispositivo de puerta de enlace IoT Edge con una plantilla de dispositivo de nivel inferior de termostato.":::
 
-En la captura de pantalla anterior se muestra una plantilla de dispositivo de puerta de enlace IoT Edge sin módulos definidos. Una puerta de enlace transparente no requiere ningún módulo, porque el entorno de ejecución de Azure IoT Edge reenvía los mensajes desde los dispositivos de nivel inferior a IoT Central. Si la puerta de enlace misma necesita enviar telemetría, sincronizar propiedades o controlar comandos, es posible definir estas funcionalidades en el componente predeterminado o en un módulo.
+En la captura de pantalla anterior se muestra una plantilla de dispositivo de puerta de enlace IoT Edge sin módulos definidos. Una puerta de enlace transparente no requiere ningún módulo, porque el entorno de ejecución de Azure IoT Edge reenvía los mensajes desde los dispositivos de nivel inferior a IoT Central. Si la puerta de enlace misma necesita enviar telemetría, sincronizar propiedades o administrar comandos, es posible definir estas funcionalidades en el componente raíz o en un módulo.
 
 Agregue las vistas y propiedades de la nube que sean necesarias antes de publicar las plantillas de dispositivo de puerta de enlace y de nivel inferior.
 

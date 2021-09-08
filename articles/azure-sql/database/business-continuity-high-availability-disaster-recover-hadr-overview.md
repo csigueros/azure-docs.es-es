@@ -13,14 +13,14 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 06/25/2019
-ms.openlocfilehash: 2e246d6b67ad1457deb9057e771e5e95d4987809
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c4a7228662d1070f001b5cbe9d2199639362bccb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708900"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465648"
 ---
-# <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
+# <a name="overview-of-business-continuity-with-azure-sql-database--azure-sql-managed-instance"></a>Introducción a la continuidad empresarial con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 En Azure SQL Database e Instancia administrada de SQL, **continuidad empresarial** hace referencia a los mecanismos, directivas y procedimientos que permiten a la empresa seguir funcionando en caso de interrupciones, especialmente en su infraestructura de computación. En la mayoría de los casos, Azure SQL Database e Instancia administrada de SQL controlarán los eventos de interrupción que pudieran ocurrir en el entorno de nube y permitirán que las aplicaciones y los procesos empresariales se sigan ejecutando. No obstante, hay algunos eventos de interrupción que no se pueden controlar mediante SQL Database automáticamente, por ejemplo:

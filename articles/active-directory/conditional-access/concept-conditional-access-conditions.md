@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 07/08/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e0aaac1c52a2def624f8bc8736219685458ad42
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5a332b43da59c3e7c766d8fd911f0426fa346d8b
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070299"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564993"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -117,7 +117,9 @@ Esta configuración funciona con todos los exploradores. Sin embargo, para satis
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| macOS | Microsoft Edge, Chrome, Safari |
+
+Estos exploradores admiten la autenticación de dispositivo, lo que permite identificar y validar el dispositivo con respecto a una directiva. Se produce un error en la comprobación del dispositivo si el explorador se ejecuta en modo privado o si las cookies están deshabilitadas.
 
 > [!NOTE]
 > Edge 85+ requiere que el usuario inicie sesión en el explorador para pasar correctamente la identidad del dispositivo. De lo contrario, se comporta como Chrome sin la extensión de cuentas. Este inicio de sesión podría no producirse automáticamente en un escenario de Unión a Azure AD híbrido. Safari es compatible con el acceso condicional basado en dispositivos, pero no puede satisfacer las condiciones **Requerir aplicación cliente aprobada** o **Requerir la directiva de protección de aplicaciones**. Un navegador administrado como Microsoft Edge cumple ambos requisitos.
@@ -143,8 +145,6 @@ Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clav
 - Nombre 1
 - Tipo REG_SZ (cadena)
 - Datos {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
-
-Estos exploradores admiten la autenticación de dispositivo, lo que permite identificar y validar el dispositivo con respecto a una directiva. Se produce un error en la comprobación del dispositivo si el explorador se ejecuta en modo privado.
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Clientes de escritorio y aplicaciones móviles compatibles
 

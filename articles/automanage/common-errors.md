@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 1625c4a73252f202a45dbdefba1576776ea843a0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 7acca746acf17a6ef6dd837907a159cddb20be10
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209557"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004203"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Solución de errores de incorporación de Automanage habituales
 Es posible que Automanage no pueda incorporar una máquina en el servicio. En este documento se explica cómo solucionar errores de implementación, se comparten algunos motivos comunes por los que se puede producir un error en las implementaciones y se describen los siguientes pasos posibles en la mitigación.
@@ -23,14 +23,14 @@ La incorporación de una máquina a Automanage dará lugar a la creación de una
 
 :::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Control flotante de detalles del error de Automanage.":::
 
-### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-vm"></a>Compruebe las implementaciones para el grupo de recursos que contiene la máquina virtual con errores
+### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-machine"></a>Compruebe las implementaciones en el grupo de recursos que contiene la máquina con errores
 El control flotante del error contendrá un vínculo a las implementaciones del grupo de recursos que contiene la máquina que generó el error durante la incorporación. El control flotante también contendrá un nombre de prefijo que se puede usar para filtrar las implementaciones. Al hacer clic en el vínculo de implementación, tendrá acceso a la hoja Implementaciones, donde puede filtrar las implementaciones para ver las implementaciones de Automanage en la máquina. Si va a realizar la implementación en varias regiones, asegúrese de hacer clic en la implementación en la región correcta.
 
-### <a name="check-the-deployments-for-the-subscription-containing-the-failed-vm"></a>Compruebe las implementaciones para la suscripción que contiene la máquina virtual con errores
-Si no ve ningún error en la implementación del grupo de recursos, el paso siguiente sería consultar las implementaciones de la suscripción que contienen la máquina virtual en la que se produjo un error de incorporación. Haga clic en el vínculo **Deployments for subscription** (Implementaciones de suscripción) en el control flotante del error y filtre las implementaciones mediante el filtro **Automanage-DefaultResourceGroup**. Use el nombre del grupo de recursos de la hoja Error para filtrar las implementaciones. El nombre de la implementación tendrá como sufijo el nombre de una región. Si va a realizar la implementación en varias regiones, asegúrese de hacer clic en la implementación en la región correcta.
+### <a name="check-the-deployments-for-the-subscription-containing-the-failed-machine"></a>Compruebe las implementaciones en la suscripción que contiene la máquina con errores
+Si no ve ningún error en la implementación del grupo de recursos, el siguiente paso sería examinar las implementaciones de la suscripción que contienen la máquina virtual en la que se produjo un error de incorporación. Haga clic en el vínculo **Deployments for subscription** (Implementaciones de suscripción) en el control flotante del error y filtre las implementaciones mediante el filtro **Automanage-DefaultResourceGroup**. Use el nombre del grupo de recursos de la hoja Error para filtrar las implementaciones. El nombre de la implementación tendrá como sufijo el nombre de una región. Si va a realizar la implementación en varias regiones, asegúrese de hacer clic en la implementación en la región correcta.
 
 ### <a name="check-deployments-in-a-subscription-linked-to-a-log-analytics-workspace"></a>Comprobación de las implementaciones en una suscripción vinculada a un área de trabajo de Log Analytics
-Si no ve ninguna implementación con errores en el grupo de recursos o la suscripción que contiene la máquina virtual con errores, y si la máquina virtual con errores está conectada a un área de trabajo de Log Analytics en una suscripción diferente, vaya a la suscripción vinculada a su área de trabajo de Log Analytics y compruebe si hay implementaciones con errores.
+Si no ve ninguna implementación con errores en el grupo de recursos o la suscripción que contienen la máquina con errores, y si esta máquina está conectada a un área de trabajo de Log Analytics en una suscripción diferente, vaya a la suscripción vinculada a su área de trabajo de Log Analytics y compruebe si hay implementaciones con errores.
 
 ## <a name="common-deployment-errors"></a>Errores de implementación frecuentes
 
@@ -51,4 +51,4 @@ Se produjo un error en la implementación de la plantilla debido a la infracció
 * [Más información sobre Azure Automanage](./automanage-virtual-machines.md)
 
 > [!div class="nextstepaction"]
-> [Habilitación de Automanage para máquinas virtuales en Azure Portal](quick-create-virtual-machines-portal.md)
+> [Habilitar Automanage para máquinas en Azure Portal](quick-create-virtual-machines-portal.md)
