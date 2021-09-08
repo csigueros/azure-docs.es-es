@@ -3,20 +3,20 @@ title: 'Referencia de Speech to Text API (REST): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar speech-to-text API REST. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2c97213b9163d6371bcee875d34dfc95cab3badc
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: f9e16037c1fc0b2addc825718e4fecb13a270129
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122067080"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541574"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -236,7 +236,7 @@ Los resultados se proporcionan como JSON. El formato `simple` incluye los siguie
 
 El campo `RecognitionStatus` puede contener estos valores:
 
-| Status | Descripción |
+| Estado | Descripción |
 |--------|-------------|
 | `Success` | El reconocimiento es correcto y el campo `DisplayText` está presente. |
 | `NoMatch` | Se detectó voz en la secuencia de audio, pero no se encontraron coincidencias de palabras en el idioma de destino. Normalmente significa que el idioma de reconocimiento es un idioma distinto al que habla el usuario. |

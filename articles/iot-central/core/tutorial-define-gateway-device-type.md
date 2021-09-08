@@ -3,18 +3,18 @@ title: 'Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlac
 description: Este tutorial le muestra, como desarrollador, cómo definir un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central.
 author: rangv
 ms.author: rangv
-ms.date: 10/22/2019
+ms.date: 08/18/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 75b818382102642ecc8380b257c9c31382b8283d
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 44a659b5b10e1f97293e2cd2636d5774baaebd40
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588424"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426215"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 

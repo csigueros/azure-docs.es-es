@@ -10,12 +10,12 @@ ms.subservice: azure-video-analyzer-media
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 3be899a7be2d007f52eb895bd26befcbb12e316d
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 9203c666e88ba3f050bf0acda9116c9dd8dd4421
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115238"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429305"
 ---
 # <a name="embed-video-analyzer-for-media-widgets-in-your-apps"></a>Inserción de widgets de Video Analyzer for Media en las aplicaciones
 
@@ -227,8 +227,8 @@ Si usa un reproductor de vídeo que no sea Azure Media Player, tiene que manipul
         function jumpTo(evt) {
           var origin = evt.origin || evt.originalEvent.origin;
         
-          // Validate that the event comes from the videobreakdown domain.
-          if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+          // Validate that the event comes from the videoindexer domain.
+          if ((origin === "https://www.videoindexer.ai") && evt.data.time !== undefined){
                 
             // Call your player's "jumpTo" implementation.
             playerInstance.currentTime = evt.data.time;

@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9ee0108e4567199b7bbf1b52222c1ab14e2837be
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: f4ae68478bf1e964fe2539f25e11ed27645f7a62
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113005337"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541934"
 ---
 # <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Uso de la propiedad IDENTITY para crear claves suplentes mediante un grupo de SQL dedicado en AzureSynapse Analytics
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Actualmente no se puede usar `CREATE TABLE AS SELECT` al cargar datos en una tabla con una columna IDENTITY.
 >
 
-Para obtener más información sobre la carga de datos, consulte [Diseño de un proceso de extracción, carga y transformación (ELT) para el grupo de SQL dedicado](design-elt-data-loading.md) y [Procedimientos recomendados para la carga de datos](guidance-for-loading-data.md).
+Para obtener más información sobre la carga de datos, consulte [Diseño de un proceso de extracción, carga y transformación (ELT) para el grupo de SQL dedicado](design-elt-data-loading.md) y [Procedimientos recomendados para la carga de datos](../sql/data-loading-best-practices.md).
 
 ## <a name="system-views"></a>Vistas del sistema
 

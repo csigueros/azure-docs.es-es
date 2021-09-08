@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para servicios de redes de Azure
 description: En este artículo se enumeran las definiciones de directivas integradas de Azure Policy para los servicios de redes de Azure. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 280a919c707a64260562d4a52c04b59e5fd206f5
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 8c18997f73b691e7c4ce952f75b55e7b737be859
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102305"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479832"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Definiciones integradas de Azure Policy para los servicios de redes de Azure
 

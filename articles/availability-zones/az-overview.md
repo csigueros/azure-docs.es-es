@@ -8,12 +8,12 @@ ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: a15a94694f3c0623830650a8b5bbb00dc4c4cb6b
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 8d2198c4c2c2dd100d7bbf88eebc4e521d6ace04
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285520"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747779"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiones y Availability Zones en Azure
 
@@ -38,7 +38,7 @@ Para conocer mejor las regiones y Availability Zones en Azure, le resultará má
 
 ## <a name="regions"></a>Regions
 
-Una región es un conjunto de centros de datos implementados dentro de un perímetro definido por la latencia y conectados a través de una red regional dedicada de baja latencia. Azure ofrece la flexibilidad de implementar aplicaciones donde sea necesario, incluso en varias regiones para ofrecer una resistencia entre regiones. Para más información, vea [Información general sobre el pilar de resistencia](/azure/architecture/framework/resiliency/overview).
+Una región es un conjunto de centros de datos implementados dentro de un perímetro definido por la latencia y conectados a través de una red regional dedicada de baja latencia. Azure ofrece la flexibilidad de implementar aplicaciones donde sea necesario, incluso en varias regiones para ofrecer una resistencia entre regiones. Para más información, vea [Información general sobre el pilar de resistencia](/azure/architecture/framework/resiliency/principles).
 
 ## <a name="availability-zones"></a>Zonas de disponibilidad
 
@@ -50,6 +50,9 @@ Coloque sus recursos de proceso, almacenamiento, red y datos dentro de una zona 
 
 - **Servicios de zona**: donde un recurso se ancla a una zona específica (por ejemplo, máquinas virtuales, discos administrados o direcciones IP estándar) o
 - **Servicios con redundancia de zona**: cuando la plataforma de Azure se replica automáticamente entre zonas (por ejemplo, almacenamiento con redundancia de zona y SQL Database).
+
+> [!NOTE]
+> Los tipos de recurso de dirección IP pública de SKU estándar y prefijo de dirección IP pública también tienen una opción "sin zona".  De este modo, los clientes pueden usar IP públicas de SKU estándar (y asociarlas a recursos que solo permiten SKU estándar), pero sin una garantía de redundancia.  (Todas las direcciones IP públicas que [se actualicen](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) de una SKU básica a otra estándar serán de tipo "sin zona").
 
 Para lograr una continuidad del negocio integral en Azure, cree la arquitectura de aplicación mediante la combinación de zonas de disponibilidad y pares de regiones de Azure. Puede replicar de forma sincrónica las aplicaciones y los datos mediante zonas de disponibilidad dentro de una región de Azure para conseguir alta disponibilidad, y replicar de forma asincrónica entre regiones de Azure para la protección de recuperación ante desastres.
  

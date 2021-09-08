@@ -3,21 +3,21 @@ title: 'Introducción a la traducción de voz: servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: La traducción de voz le permite incorporar en sus aplicaciones, herramientas y dispositivos una traducción de voz completa, en varios idiomas y en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto. En este artículo encontrará información general sobre las ventajas y las funcionalidades del servicio de traducción de voz.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traducción de voz
-ms.openlocfilehash: 75dc95239533df96c2864d0cb08b06ebfac389e5
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 0d58185b5df333ca8066648294f43a81209fbf2e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122072609"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537452"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 

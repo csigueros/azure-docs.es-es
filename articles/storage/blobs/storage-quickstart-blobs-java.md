@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b6d42cf26bc128257aa5d0cd7ef01e8fe8749a51
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c951071b7746e426edfd6a9c9f4851236c12159d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280639"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469633"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Java v12
 
@@ -26,14 +26,12 @@ Recursos adicionales:
 * [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
 * [Muestras](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
 - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Instalación
 
@@ -126,7 +124,7 @@ Abra el archivo *pom.xml* en el editor de texto. Agregue el siguiente elemento d
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
-    <version>12.6.0</version>
+    <version>12.13.0</version>
 </dependency>
 ```
 

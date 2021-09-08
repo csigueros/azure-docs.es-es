@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: b60fc4b1fc20c455c2c409f544a8af16f1dbf8d1
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9870ff7f2033372e63de80138b2f37b3896eb4e6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107509009"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427613"
 ---
 # <a name="optimize-the-performance-of-azcopy-with-azure-storage"></a>Optimización del rendimiento de AzCopy con Azure Storage
 
@@ -83,7 +83,7 @@ Los exámenes de archivos en algunos sistemas Linux no se ejecutan lo suficiente
 
 Puede aumentar el rendimiento si establece la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Esta variable especifica el número de solicitudes simultáneas que pueden producirse.  
 
-Si el equipo tiene menos de cinco CPU, el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `3000`, pero puede establecerlo manualmente en un valor superior o inferior. 
+Si el equipo tiene menos de cinco CPU, el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `300`, pero puede establecerlo manualmente en un valor superior o inferior. 
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|

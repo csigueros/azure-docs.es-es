@@ -1,19 +1,19 @@
 ---
 title: Eventos de la herramienta de dibujo | Microsoft Azure Maps
 description: En este artículo aprenderá a agregar una barra de herramientas de dibujo a un mapa mediante el SDK web de Microsoft Azure Maps
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: edb3b0bdcd5d8e9f80493267cad3ccbfa07a576f
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: ebafc4ac95afd4c9b6d414966d616ee7315414c1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665216"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437785"
 ---
 # <a name="drawing-tool-events"></a>Eventos de la herramienta de dibujo
 
@@ -32,7 +32,7 @@ En el código siguiente se muestra cómo funcionan los eventos del módulo Herra
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Eventos de las herramientas de dibujo" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Eventos de las herramientas de dibujo" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>Eventos de las herramientas de dibujo</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -48,7 +48,7 @@ Este código muestra cómo supervisar un evento de formas de dibujo de un usuari
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Selección de datos en el área de polígono dibujada" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Selección de datos en el área de polígono dibujada" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Selección de datos en el área de polígono dibujada</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -60,7 +60,7 @@ Este código busca puntos de interés dentro del área de una forma después de 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Dibujo y búsqueda en el área de polígono" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Dibujo y búsqueda en el área de polígono" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Dibujo y búsqueda en el área de polígono</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -72,7 +72,7 @@ En el código siguiente se muestra cómo se pueden usar los eventos de dibujo pa
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Herramienta de medición" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Herramienta de medición" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Herramienta de medición</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

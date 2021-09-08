@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 08/15/2021
-ms.openlocfilehash: f8e860cb93930c8e412fe102cf52fbf0c8b78e41
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: b2b02e37c07baf51c7dc0405cd1c689ec5fd01e4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418344"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429161"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilidad de las características en la nube para clientes de la Administración Pública de Estados Unidos
 
@@ -307,7 +307,7 @@ En la tabla siguiente se muestra la disponibilidad actual de características de
 | [Actualizaciones automáticas de inteligencia sobre amenazas](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **Unificación de la seguridad de TI y OT con SIEM, SOAR y XDR** |  |  |
 | - [Reenvío de la información de las alertas](../../defender-for-iot/how-to-forward-alert-information-to-partners.md) | GA | GA |
-| - [Configuración de Sentinel con Azure Defender para IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | No disponible |
+| - [Configuración de Sentinel con Azure Defender para IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Versión preliminar pública | No disponible |
 | - [Sistemas SOC](../../defender-for-iot/integration-splunk.md) | GA | GA |
 | - [Sistema de vales y CMDB (ServiceNow)](../../defender-for-iot/integration-servicenow.md) | GA | GA |
 | - [Aprovisionamiento de sensores](../../defender-for-iot/how-to-manage-sensors-on-the-cloud.md) | GA | GA |
