@@ -7,13 +7,13 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/12/2021
-ms.openlocfilehash: 72543d6b3c2f342bf7546810777cac7aa3a5ba5d
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.date: 08/26/2021
+ms.openlocfilehash: a93fcf2605f2b94b9e921b63318cb09d36349a9c
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113666361"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029252"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelado de datos en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -447,3 +447,7 @@ Como no hay ninguna manera única de representar un elemento de datos en una pan
 * Para aprender a modelar y crear particiones de datos en Azure Cosmos DB con un ejemplo del mundo real, consulte [Procedimientos para modelar y crear particiones de datos mediante un ejemplo real](how-to-model-partition-example.md).
 
 * Consulte el módulo de Learn [Modelado y partición de los datos en Azure Cosmos DB](/learn/modules/model-partition-data-azure-cosmos-db/).
+
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

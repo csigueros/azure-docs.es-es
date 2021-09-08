@@ -3,12 +3,12 @@ title: Lenguajes admitidos en Azure Functions
 description: Obtenga información sobre los lenguajes admitidos (GA) y los que se encuentran en versión preliminar, y las maneras de ampliar el desarrollo de Functions a otros lenguajes.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02a416fa669cd71702e991c79677575bd4563bfb
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98108558"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113493247"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Lenguajes admitidos en Azure Functions
 
@@ -26,6 +26,14 @@ Hay dos niveles de compatibilidad:
 Hay disponibles [tres versiones del entorno en tiempo de ejecución de Azure Functions](functions-versions.md). En la tabla siguiente se indica qué lenguajes se admiten en cada versión del sistema de tiempo de ejecución.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+### <a name="language-major-version-support"></a>Compatibilidad con la versión principal del lenguaje
+
+Azure Functions garantiza la compatibilidad con las versiones principales de los lenguajes de programación admitidos. En la mayoría de los lenguajes, se publican versiones secundarias o revisiones para actualizar una versión principal compatible. Algunos ejemplos de versiones secundarias o revisiones son Python 3.9.1 y Node 14.17. Una vez que estén disponibles nuevas versiones secundarias de los lenguajes admitidos, las versiones secundarias empleadas por las aplicaciones de Functions se actualizarán automáticamente a estas versiones secundarias o revisiones más recientes. 
+
+> [!NOTE]
+>Dado que Azure Functions puede eliminar la compatibilidad con versiones secundarias anteriores en cualquier momento después de que esté disponible una nueva versión secundaria, no debe vincular las aplicaciones de Functions a una versión secundaria o revisión específica de un lenguaje de programación.  
+>
 
 ## <a name="custom-handlers"></a>Controladores personalizados
 

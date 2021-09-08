@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/26/2021
 ms.author: v-doeris
-ms.openlocfilehash: 0fbcd0437488631d8bd4b34d67a28bda81f2a6e9
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 4b23538ed02bd737764c24a8511986966473c7ed
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539902"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114402394"
 ---
 # <a name="how-to-migrate-a-nodejs-app-from-adal-to-msal"></a>Migración de una aplicación Node.js de ADAL a MSAL
 
@@ -141,6 +141,101 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 Como diferencia importante, MSAL no tiene una marca para deshabilitar la validación de autoridad, y las autoridades siempre se validan de forma predeterminada. MSAL compara la autoridad solicitada con una lista de autoridades conocidas por Microsoft o una lista de autoridades que se ha especificado en la configuración. Para obtener más información, consulte [Opciones de configuración](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md).
 
+## <a name="switch-to-msal-api"></a>Cambio a la API de MSAL
+
+La mayoría de los métodos públicos del nodo ADAL tienen equivalentes en el nodo MSAL:
+
+| ADAL                                | MSAL                              | Notas                             |
+|-------------------------------------|-----------------------------------|-----------------------------------|
+| `acquireToken`                      | `acquireTokenSilent`              | Se ha cambiado el nombre y ahora espera un objeto de [cuenta](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#accountinfo). |
+| `acquireTokenWithAuthorizationCode` | `acquireTokenByCode`              |                                   |
+| `acquireTokenWithClientCredentials` | `acquireTokenByClientCredential` |                                   |
+| `acquireTokenWithRefreshToken`      | `acquireTokenByRefreshToken`      | Útil para migrar [tokens de actualización](#remove-logic-around-refresh-tokens) válidos.              |
+| `acquireTokenWithDeviceCode`        | `acquireTokenByDeviceCode`        | Ahora abstrae la adquisición de código de usuario (véase a continuación). |
+| `acquireTokenWithUsernamePassword`  | `acquireTokenByUsernamePassword`  |                                   |
+
+Sin embargo, algunos métodos del nodo ADAL están en desuso, mientras que el nodo MSAL ofrece nuevos métodos:
+
+| ADAL                              | MSAL                            | Notas                             |
+|-----------------------------------|---------------------------------|-----------------------------------|
+| `acquireUserCode`                   | N/D                             | Se ha combinado con `acquireTokeByDeviceCode` (véase más arriba).|
+| N/D                               | `acquireTokenOnBehalfOf`          | Nuevo método que abstrae el [flujo OBO](./v2-oauth2-on-behalf-of-flow.md). |
+| `acquireTokenWithClientCertificate` | N/D                             | Ya no es necesario, dado que ahora los certificados se asignan durante la inicialización (consulte las [opciones de configuración](#configure-msal)). |
+| N/D                               | `getAuthCodeUrl`                  | Nuevo método que abstrae la construcción de URL de [puntos de conexión de autorización](./active-directory-v2-protocols.md#endpoints). |
+
+## <a name="use-scopes-instead-of-resources"></a>Uso de ámbitos en lugar de recursos
+
+Una diferencia importante entre los puntos de conexión v1.0 y v2.0 es cómo se accede a los recursos. En el nodo ADAL, primero registraría un permiso en el portal de registro de aplicaciones y, a continuación, solicitaría un token de acceso para un recurso (como Microsoft Graph), como se muestra a continuación:
+
+```javascript
+authenticationContext.acquireTokenWithAuthorizationCode(
+    req.query.code,
+    redirectUri,
+    resource, // e.g. 'https://graph.microsoft.com'
+    clientId,
+    clientSecret,
+    function (err, response) {
+        // do something with the authentication response
+    }
+);
+```
+
+El nodo MSAL admite los puntos de conexión **v1.0** y **v2.0**. El punto de conexión v2.0 emplea un modelo *centrado en el ámbito* para acceder a los recursos. Por lo tanto, cuando solicite un token de acceso para un recurso, también debe especificar el ámbito de ese recurso:
+
+```javascript
+const tokenRequest = {
+    code: req.query.code,
+    scopes: ["https://graph.microsoft.com/User.Read"],
+    redirectUri: REDIRECT_URI,
+};
+
+pca.acquireTokenByCode(tokenRequest).then((response) => {
+    // do something with the authentication response
+}).catch((error) => {
+    console.log(error);
+});
+```
+
+Una ventaja del modelo centrado en el ámbito es la posibilidad de usar *ámbitos dinámicos*. Al compilar aplicaciones con v1.0, era necesario registrar el conjunto completo de permisos (llamados *ámbitos estáticos*) que requería la aplicación para que el usuario diera su consentimiento en el momento del inicio de sesión. En v2.0, puede usar el parámetro de ámbito para solicitar los permisos en el momento en que lo desee (por eso se llaman *ámbitos dinámicos*). Esto permite que el usuario dé su **consentimiento incremental** a los ámbitos. Por lo tanto, si al inicio solo quería que el usuario iniciara sesión en la aplicación y no necesita ningún tipo de acceso, puede hacerlo. Si posteriormente necesita poder leer el calendario del usuario, podrá solicitar el ámbito de calendario en los métodos acquireToken y obtener el consentimiento del usuario. Para obtener más información, consulte [Recursos y ámbitos](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md).
+
+## <a name="use-promises-instead-of-callbacks"></a>Uso de promesas en lugar de devoluciones de llamada
+
+En el nodo ADAL, las devoluciones de llamada se usan para cualquier operación después de que la autenticación se realice correctamente y se obtenga una respuesta:
+
+```javascript
+var context = new AuthenticationContext(authorityUrl, validateAuthority);
+
+context.acquireTokenWithClientCredentials(resource, clientId, clientSecret, function(err, response) {
+    if (err) {
+        console.log(err);
+    } else {
+        // do something with the authentication response
+    }
+});
+```
+
+En el nodo MSAL, se usan promesas:
+
+```javascript
+    const cca = new msal.ConfidentialClientApplication(msalConfig);
+
+    cca.acquireTokenByClientCredential(tokenRequest).then((response) => {
+        // do something with the authentication response
+    }).catch((error) => {
+        console.log(error);
+    });
+```
+
+También puede usar la sintaxis **async/await** que se incluye con ES8:
+
+```javascript
+    try {
+        const authResponse = await cca.acquireTokenByCode(tokenRequest);
+    } catch (error) {
+        console.log(error);
+    }
+```
+
 ## <a name="enable-logging"></a>Habilitar registro
 
 En el nodo ADAL, configure el registro por separado en cualquier lugar del código:
@@ -188,101 +283,6 @@ const msalConfig = {
 const cca = new msal.ConfidentialClientApplication(msalConfig);
 ```
 
-## <a name="use-scopes-instead-of-resources"></a>Uso de ámbitos en lugar de recursos
-
-Una diferencia importante entre los puntos de conexión v1.0 y v2.0 es cómo se accede a los recursos. En el nodo ADAL, primero registraría un permiso en el portal de registro de aplicaciones y, a continuación, solicitaría un token de acceso para un recurso (como Microsoft Graph), como se muestra a continuación:
-
-```javascript
-authenticationContext.acquireTokenWithAuthorizationCode(
-    req.query.code,
-    redirectUri,
-    resource, // e.g. 'https://graph.microsoft.com'
-    clientId,
-    clientSecret,
-    function (err, response) {
-        // do something with the authentication response
-    }
-);
-```
-
-El nodo MSAL admite los puntos de conexión **v1.0** y **v2.0**. El punto de conexión v2.0 emplea un modelo *centrado en el ámbito* para acceder a los recursos. Por lo tanto, cuando solicite un token de acceso para un recurso, también debe especificar el ámbito de ese recurso:
-
-```javascript
-const tokenRequest = {
-    code: req.query.code,
-    scopes: ["https://graph.microsoft.com/User.Read"],
-    redirectUri: REDIRECT_URI,
-};
-
-pca.acquireTokenByCode(tokenRequest).then((response) => {
-    // do something with the authentication response
-}).catch((error) => {
-    console.log(error);
-});
-```
-
-Una ventaja del modelo centrado en el ámbito es la posibilidad de usar *ámbitos dinámicos*. Al compilar aplicaciones con v1.0, era necesario registrar el conjunto completo de permisos (llamados *ámbitos estáticos*) que requería la aplicación para que el usuario diera su consentimiento en el momento del inicio de sesión. En v2.0, puede usar el parámetro de ámbito para solicitar los permisos en el momento en que lo desee (por eso se llaman *ámbitos dinámicos*). Esto permite que el usuario dé su **consentimiento incremental** a los ámbitos. Por lo tanto, si al inicio solo quería que el usuario iniciara sesión en la aplicación y no necesita ningún tipo de acceso, puede hacerlo. Si posteriormente necesita poder leer el calendario del usuario, podrá solicitar el ámbito de calendario en los métodos acquireToken y obtener el consentimiento del usuario. Para obtener más información, consulte [Recursos y ámbitos](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md).
-
-## <a name="switch-to-msal-api"></a>Cambio a la API de MSAL
-
-La mayoría de los métodos públicos del nodo ADAL tienen equivalentes en el nodo MSAL:
-
-| ADAL                                | MSAL                              | Notas                             |
-|-------------------------------------|-----------------------------------|-----------------------------------|
-| `acquireToken`                      | `acquireTokenSilent`              | Se ha cambiado el nombre y ahora espera un objeto de [cuenta](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#accountinfo). |
-| `acquireTokenWithAuthorizationCode` | `acquireByAuthorizationCode`      |                                   |
-| `acquireTokenWithClientCredentials` | `acquireTokenByClientCredential` |                                   |
-| `acquireTokenWithRefreshToken`      | `acquireTokenByRefreshToken`      |                                   |
-| `acquireTokenWithDeviceCode`        | `acquireTokenByDeviceCode`        | Ahora abstrae la adquisición de código de usuario (véase a continuación). |
-| `acquireTokenWithUsernamePassword`  | `acquireTokenByUsernamePassword`  |                                   |
-
-Sin embargo, algunos métodos del nodo ADAL están en desuso, mientras que el nodo MSAL ofrece nuevos métodos:
-
-| ADAL                              | MSAL                            | Notas                             |
-|-----------------------------------|---------------------------------|-----------------------------------|
-| `acquireUserCode`                   | N/D                             | Se ha combinado con `acquireTokeByDeviceCode` (véase más arriba).|
-| N/D                               | `acquireTokenOnBehalfOf`          | Nuevo método que abstrae el [flujo OBO](./v2-oauth2-on-behalf-of-flow.md). |
-| `acquireTokenWithClientCertificate` | N/D                             | Ya no es necesario, dado que ahora los certificados se asignan durante la inicialización (consulte las [opciones de configuración](#configure-msal)). |
-| N/D                               | `getAuthCodeUrl`                  | Nuevo método que abstrae la construcción de URL de [puntos de conexión de autorización](./active-directory-v2-protocols.md#endpoints). |
-
-## <a name="use-promises-instead-of-callbacks"></a>Uso de promesas en lugar de devoluciones de llamada
-
-En el nodo ADAL, las devoluciones de llamada se usan para cualquier operación después de que la autenticación se realice correctamente y se obtenga una respuesta:
-
-```javascript
-var context = new AuthenticationContext(authorityUrl, validateAuthority);
-
-context.acquireTokenWithClientCredentials(resource, clientId, clientSecret, function(err, response) {
-    if (err) {
-        console.log(err);
-    } else {
-        // do something with the authentication response
-    }
-});
-```
-
-En el nodo MSAL, se usan promesas:
-
-```javascript
-    const cca = new msal.ConfidentialClientApplication(msalConfig);
-
-    cca.acquireTokenByClientCredential(tokenRequest).then((response) => {
-        // do something with the authentication response
-    }).catch((error) => {
-        console.log(error);
-    });
-```
-
-También puede usar la sintaxis **async/await** que se incluye con ES8:
-
-```javascript
-    try {
-        const authResponse = await cca.acquireTokenByCode(tokenRequest);
-    } catch (error) {
-        console.log(error);
-    }
-```
-
 ## <a name="enable-token-caching"></a>Habilitación del almacenamiento en caché de tokens
 
 En el nodo ADAL, tenía la opción de importar una caché de tokens en memoria. La caché de tokens se usa como parámetro al inicializar un objeto `AuthenticationContext`:
@@ -296,11 +296,13 @@ var authorityURI = "https://login.microsoftonline.com/common";
 var context = new AuthenticationContext(authorityURI, true, cache);
 ```
 
-El nodo MSAL usa una caché de tokens en memoria de forma predeterminada. No es necesario importarla explícitamente; se expone como parte de los objetos `ConfidentialClientApplication` y `PublicClientApplication`.
+El nodo MSAL usa una caché de tokens en memoria de forma predeterminada. No es necesario importarla explícitamente; se expone como parte de las clases `ConfidentialClientApplication` y `PublicClientApplication`.
 
 ```javascript
 const msalTokenCache = publicClientApplication.getTokenCache();
 ```
+
+Lo importante es que la caché de tokens anterior con el nodo ADAL no será transferible al nodo MSAL, ya que los esquemas de caché son incompatibles. Aun así, puede usar los tokens de actualización válidos que la aplicación obtuvo anteriormente con el nodo ADAL en el nodo MSAL. Consulte la sección sobre [tokens de actualización](#remove-logic-around-refresh-tokens) para obtener más información.
 
 También puede escribir la caché en el disco proporcionando su propio **complemento de caché**. El complemento de caché debe implementar la interfaz [ICachePlugin](https://azuread.github.io/microsoft-authentication-library-for-js/ref/interfaces/_azure_msal_common.icacheplugin.html). Al igual que el registro, el almacenamiento en caché forma parte de las opciones de configuración y se crea con la inicialización de la instancia del nodo MSAL:
 
@@ -357,7 +359,41 @@ En el nodo ADAL, los tokens de actualización (RT) se han expuesto, lo que permi
 - Servicios de larga duración que realizan acciones, como la actualización de paneles en nombre de los usuarios cuando estos ya no están conectados.
 - Escenarios de WebFarm que permiten al cliente llevar el RT al servicio web (el almacenamiento en caché se realiza en el lado cliente, con la cookie cifrada, y no en el del servidor).
 
-Por motivos de seguridad, el nodo MSAL no expone tokens de actualización. En su lugar, MSAL controla la actualización de tokens automáticamente. Por lo tanto, ya no es necesario crear lógica para esto. Aun así, si necesita usar los tokens de actualización adquiridos previamente y migrarlos, el nodo MSAL ofrece `acquireTokenByRefreshToken`, que es equivalente al método `acquireTokenWithRefreshToken` del nodo ADAL.
+Por motivos de seguridad, el nodo MSAL, así como otras MSAL, no exponen tokens de actualización. En su lugar, MSAL controla la actualización de tokens automáticamente. Por lo tanto, ya no es necesario crear lógica para esto. Aun así, **puede** usar los tokens de actualización adquiridos previamente (y todavía válidos) de la memoria caché del nodo ADAL para obtener un nuevo conjunto de tokens con el nodo MSAL. Para ello, el nodo MSAL ofrece `acquireTokenByRefreshToken`, que es equivalente al método `acquireTokenWithRefreshToken` del nodo ADAL:
+
+```javascript
+var msal = require('@azure/msal-node');
+
+const config = {
+    auth: {
+        clientId: "ENTER_CLIENT_ID",
+        authority: "https://login.microsoftonline.com/ENTER_TENANT_ID",
+        clientSecret: "ENTER_CLIENT_SECRET"
+    }
+};
+
+const cca = new msal.ConfidentialClientApplication(config);
+
+const refreshTokenRequest = {
+    refreshToken: "", // your previous refresh token here
+    scopes: ["user.read"],
+};
+
+cca.acquireTokenByRefreshToken(refreshTokenRequest).then((response) => {
+    console.log(JSON.stringify(response));
+}).catch((error) => {
+    console.log(JSON.stringify(error));
+});
+```
+
+> [!NOTE]
+> Se recomienda destruir la caché de tokens del nodo ADAL anterior una vez que use los tokens de actualización todavía válidos para obtener un nuevo conjunto de tokens mediante el método `acquireTokenByRefreshToken` del nodo MSAL, como se indicó anteriormente.
+
+## <a name="handle-errors-and-exceptions"></a>Control de errores y excepciones
+
+Al usar el nodo MSAL, el tipo de error más común al que podría enfrentarse es el error `interaction_required`. Para resolverlo, en general basta con iniciar un símbolo del sistema de adquisición de tokens interactivo. Por ejemplo, cuando se usa `acquireTokenSilent`, si no hay tokens de actualización almacenados en caché, el nodo MSAL no podrá adquirir un token de acceso de forma silenciosa. De forma similar, la API web a la que intenta acceder podría tener una directiva de [acceso condicional](../conditional-access/overview.md), que requiere que el usuario realice la [autenticación multifactor](../authentication/concept-mfa-howitworks.md) (MFA). En tales casos, el control del error `interaction_required` mediante el desencadenamiento de `acquireTokenByCode` solicitará al usuario que realice la autenticación multifactor, lo que le permitirá completarla.
+
+Otro error común al que podría enfrentarse es `consent_required`, que se produce cuando el usuario no da su consentimiento a los permisos necesarios para obtener un token de acceso para un recurso protegido. Al igual que en el caso de `interaction_required`, la solución del error `consent_required` suele consistir en iniciar un símbolo del sistema de adquisición de tokens interactivo mediante el método `acquireTokenByCode`.
 
 ## <a name="run-the-app"></a>Ejecución la aplicación
 
@@ -367,7 +403,7 @@ Una vez realizados los cambios, ejecute la aplicación y pruebe el escenario de 
 npm start
 ```
 
-## <a name="example-securing-web-apps-with-adal-node-vs-msal-node"></a>Ejemplo: Diferencias en la protección de aplicaciones web con el nodo ADAL y con el nodo MSAL
+## <a name="example-acquiring-tokens-with-adal-node-vs-msal-node"></a>Ejemplo: adquisición de tokens con el nodo ADAL en vez de con el nodo MSAL
 
 En el fragmento de código siguiente se muestra una aplicación web cliente confidencial en el marco Express.js. Realiza un inicio de sesión cuando un usuario alcanza la ruta de autenticación `/auth`, adquiere un token de acceso para Microsoft Graph mediante la ruta `/redirect` y, a continuación, muestra el contenido de dicho token.
 

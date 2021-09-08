@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: victorh
-ms.openlocfilehash: b0ab3cbd2891ef1677c0d4ba7a00821d67714b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d42a62c6251456d11dff7b2276936db7df5259af
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708958"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222701"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -176,6 +176,9 @@ En la pestaña **Configuración**, conecte el grupo de front-end y back-end que 
 
 > [!NOTE]
 > No es necesario agregar una regla de ruta de acceso */* * personalizada para controlar los casos predeterminados. Lo controla automáticamente el grupo de back-end predeterminado.
+
+> [!NOTE]
+> El delimitador de caracteres comodín **\*** solo se respeta al final de la regla. Para más información y ejemplos de reglas basadas en rutas de acceso admitidas, consulte [Introducción al enrutamiento basado en rutas de dirección URL](url-route-overview.md#pathpattern).
 
 ### <a name="review--create-tab"></a>Pestaña Revisar y crear
 

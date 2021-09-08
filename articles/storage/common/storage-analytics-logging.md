@@ -9,12 +9,12 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d48ab6223485807400b6749bcf72691261405495
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c536e8749ce41f51f161d9659beca3ab0ccd30ae
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134562"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032259"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
@@ -59,6 +59,9 @@ También puede habilitar los registros de Storage Analytics mediante programaci�
 - Solicitudes GET erróneas con el código de error 304 (No modificado)
 
   El resto de solicitudes anónimas erróneas no se registran. Puede encontrar una lista completa de los datos registrados en los temas [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
+  
+> [!NOTE]
+> Storage Analytics registra todas las llamadas internas al plano de datos. También se registran las llamadas del proveedor de recursos de Azure Storage. Para identificar estas solicitudes, busque la cadena de consulta `<sk=system-1>` en la dirección URL de la solicitud.
 
 ## <a name="how-logs-are-stored"></a>Cómo se almacenan los registros
 

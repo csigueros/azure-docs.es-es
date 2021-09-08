@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 08/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 006d30839e16ea303b684fb0ee1be7f40dcbdfb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34b18de633d586b6b32bc11b4eb6cb1a65928550
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736986"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222633"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Concur
 
@@ -38,7 +38,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Concur admite el inicio de sesión único iniciado por **SP**.
-* Concur admite el aprovisionamiento de usuarios **Just-In-Time**
+* Concur admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Concur admite el [aprovisionamiento de usuarios automático](concur-provisioning-tutorial.md).
 
 ## <a name="adding-concur-from-the-gallery"></a>Agregar Concur desde la galería
 
@@ -134,6 +135,8 @@ Para configurar el inicio de sesión único en **Concur**, es preciso enviar el 
 ### <a name="create-concur-test-user"></a>Creación de un usuario de prueba de Concur
 
 En esta sección, se crea un usuario llamado B. Simon en Concur. Concur admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en Concur, se crea uno nuevo después de la autenticación.
+
+Concur también admite el aprovisionamiento automático de usuarios. [Aquí](./concur-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

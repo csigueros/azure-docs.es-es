@@ -10,14 +10,16 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 67e84ce780f3013917edbce3e66c5a708509c194
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 2d4c640695395963a83629fbeea87c96b4a31aad
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112518143"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688219"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Ejecución de scripts de shell en la máquina virtual Linux con Ejecutar comando
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 La función Ejecutar comando usa el agente de máquina virtual (VM) para ejecutar los scripts de shell de una VM Linux de Azure. Puede usar estos scripts para la administración general de máquinas o aplicaciones. Pueden ayudarle a diagnosticar y corregir rápidamente el acceso a la máquina virtual y los problemas de red, así como a revertir la máquina virtual a un buen estado.
 

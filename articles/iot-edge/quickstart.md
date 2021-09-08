@@ -11,12 +11,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: dc0e8b0affcb89058e95bc7ce1c3cafb5882921f
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 3f0e2baa7ac30e0e75167dc603de73fdd1df8d73
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552839"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215372"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Windows
 
@@ -185,6 +185,9 @@ Siga estos pasos para implementar el primer módulo desde Azure Marketplace.
 
 1. Seleccione el identificador del dispositivo de destino en la lista de dispositivos.
 
+   Al crear un nuevo dispositivo IoT Edge, se mostrará el código de estado `417 -- The device's deployment configuration is not set` en Azure Portal. Este estado es normal y significa que el dispositivo está listo para recibir una implementación de módulo.
+
+
 1. En la barra superior, seleccione **Establecer módulos**.
 
    ![Captura de pantalla que muestra la selección de Establecer módulos.](./media/quickstart/select-set-modules.png)
@@ -291,7 +294,7 @@ Utilice la extensión del panel en Windows Admin Center a fin de desinstalar Azu
 
 En esta guía de inicio rápido, ha creado un dispositivo IoT Edge y ha usado la interfaz en la nube de Azure IoT Edge para implementar el código en el dispositivo. Ahora tiene un dispositivo de prueba que genera datos sin procesar acerca de su entorno.
 
-A continuación, configure el entorno de desarrollo local para que pueda empezar a crear módulos IoT Edge que ejecutan su lógica de negocios.
+En el siguiente tutorial, aprenderá a supervisar la actividad y el estado del dispositivo desde Azure Portal.
 
 > [!div class="nextstepaction"]
-> [Empezar a desarrollar módulos de IoT Edge](tutorial-develop-for-linux.md)
+> [Supervisión de los dispositivos IoT Edge](tutorial-monitor-with-workbooks.md)

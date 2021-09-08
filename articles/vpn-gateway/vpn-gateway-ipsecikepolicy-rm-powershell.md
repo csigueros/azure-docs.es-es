@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe50cc3b8387b8cf377a1dce7cdcd69d174bd6ef
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6bbea74f635375785f325f48a2babb01af7c8228
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671880"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463197"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
@@ -63,7 +63,7 @@ En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles d
 | Integridad de IKEv2  | SHA384, SHA256, SHA1, MD5  |
 | Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, No |
 | Cifrado IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, No    |
-| Integridad de IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
+| Integridad de IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | Grupo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, No 
 | Vigencia de SA QM   | (**Opcional**: Se usan los valores predeterminados si no se especifica ningún valor)<br>Segundos (entero; **mín. 300**/predeterminado 27000 segundos)<br>KBytes (entero; **mín. 1024**/predeterminado 102400000 KBytes)   |
 | Selector de tráfico | UsePolicyBasedTrafficSelectors** ($True/$False; **Opcional**, valor predeterminado $False si no se especifica)    |
@@ -84,8 +84,8 @@ En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles d
 > 3. En la tabla anterior:
 >    * IKEv2 corresponde al modo principal o fase 1
 >    * IPsec corresponde al modo rápido o fase 2
->    * El Grupo DH especifica el grupo Diffie-Hellmen utilizado en el modo principal o fase 1
->    * El grupo PFS especifica el grupo Diffie-Hellmen utilizado en el modo rápido o fase 2
+>    * El Grupo DH especifica el grupo Diffie-Hellman utilizado en el modo principal o fase 1.
+>    * El grupo PFS especifica el grupo Diffie-Hellman utilizado en el modo rápido o fase 2.
 > 4. La vigencia de SA del modo principal de IKEv2 se fija en 28 800 segundos en las puertas de enlace de VPN de Azure
 > 5. Si establece "UsePolicyBasedTrafficSelectors" en $True en una conexión, configurará la puerta de enlace de VPN de Azure de modo que se conecte al firewall VPN basado en directivas de forma local. Si habilita PolicyBasedTrafficSelectors, debe asegurarse de que el dispositivo VPN tiene los selectores de tráfico coincidentes definidos con todas las combinaciones de sus prefijos de red local (puerta de enlace de red local) a o desde los prefijos de red virtual de Azure, en lugar de cualquiera a cualquiera. Por ejemplo, si sus prefijos de red local son 10.1.0.0/16 y 10.2.0.0/16, y sus prefijos de red virtual son 192.168.0.0/16 y 172.16.0.0/16, debe especificar los siguientes selectores de tráfico:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16

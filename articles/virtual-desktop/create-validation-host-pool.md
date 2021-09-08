@@ -3,16 +3,16 @@ title: 'Actualizaciones de servicio para los grupos de host de Azure Virtual Des
 description: Cómo crear un grupo host de validación para supervisar actualizaciones de servicio antes de implementar las actualizaciones en producción.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 07/23/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 2c944d1068ae74a97c8a6315e98a1348f9378b8c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 13d340d427d2478d226b966e17bf98bcf2561004
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749136"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110169"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
 
@@ -31,17 +31,29 @@ Puede depurar incidencias en el grupo host de validación con [la característic
 >[!IMPORTANT]
 >Azure Virtual Desktop con la integración de Administración de recursos de Azure actualmente tiene problemas para habilitar y deshabilitar los entornos de validación. Este artículo se actualizará cuando se haya resuelto el problema.
 
-## <a name="prerequisites"></a>Prerrequisitos
-
-Antes de comenzar, siga las instrucciones que se indican en [Configuración del módulo de PowerShell para Azure Virtual Desktop](powershell-module.md) para configurar el módulo de PowerShell e iniciar sesión en Azure.
-
 ## <a name="create-your-host-pool"></a>Creación del grupo host
 
 Puede crear un grupo host siguiendo las instrucciones de cualquiera de estos artículos:
-- [Tutorial: Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Creación de un grupo host con PowerShell](create-host-pools-powershell.md)
+- [Tutorial: Creación de un grupo de hosts con Azure Marketplace o la CLI de Azure](create-host-pools-azure-marketplace.md)
+- [Creación de un grupo de hosts mediante PowerShell o la CLI de Azure](create-host-pools-powershell.md)
 
 ## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Definición del grupo host como grupo host de validación
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Para usar Azure Portal para configurar un grupo de hosts de validación:
+
+1. Inicie sesión en Azure Portal en <https://portal.azure.com>.
+2. Busque y seleccione **Azure Virtual Desktop**.
+3. En la página de Azure Virtual Desktop, seleccione **Grupos de hosts**.
+4. Seleccione el nombre del grupo de hosts que quiera editar.
+5. Seleccione **Propiedades**.
+6. En el campo del entorno de validación, seleccione **Sí** para habilitar el entorno de validación.
+7. Seleccione **Guardar**. De esta forma se aplicará la nueva configuración.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Si aún no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell para Azure Virtual Desktop](powershell-module.md) para configurar el módulo de PowerShell e inicie sesión en Azure.
 
 Ejecute los siguientes cmdlets de PowerShell para definir el nuevo grupo host como grupo host de validación. Reemplace los valores entre corchetes por los valores pertinentes para su sesión:
 
@@ -68,19 +80,27 @@ Los resultados del cmdlet deben ser similares a estos:
     ValidationEnvironment : True
 ```
 
-## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Habilitación de un entorno de validación con Azure Portal
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para habilitar un entorno de validación también se puede usar Azure Portal.
+Si aún no lo ha hecho, prepare el entorno para la CLI de Azure e inicie sesión.
 
-Para usar Azure Portal para configurar un grupo de hosts de validación:
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. Inicie sesión en Azure Portal en <https://portal.azure.com>.
-2. Busque y seleccione **Azure Virtual Desktop**.
-3. En la página de Azure Virtual Desktop, seleccione **Grupos de hosts**.
-4. Seleccione el nombre del grupo de hosts que quiera editar.
-5. Seleccione **Propiedades**.
-6. En el campo del entorno de validación, seleccione **Sí** para habilitar el entorno de validación.
-7. Seleccione **Guardar**. De esta forma se aplicará la nueva configuración.
+Para definir el nuevo grupo de hosts como el grupo de hosts de validación, use el comando [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_update):
+
+```azurecli
+az desktopvirtualization hostpool update --name "MyHostPool" \
+    --resource-group "MyResourceGroup" \
+    --validation-environment true
+```
+
+Use el siguiente comando para confirmar que se ha establecido la propiedad de validación.
+
+```azurecli
+az desktopvirtualization hostpool show --name "MyHostPool" \
+    --resource-group "MyResourceGroup" 
+```
+---
 
 ## <a name="update-schedule"></a>Programación de actualizaciones
 

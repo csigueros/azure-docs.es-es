@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.openlocfilehash: 70d2401545c49bfb8bb1870f4881e51b7134ae59
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a8171d29dfe88ea34d02d7f48567aeb2df46a8a7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450901"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694140"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquitecturas de referencia para Oracle Database Enterprise Edition en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 En esta guía se detalla la información sobre la implementación de una base de datos de alta disponibilidad de Oracle en Azure. Además, en esta guía se profundiza en las consideraciones sobre la recuperación ante desastres. Estas arquitecturas se han creado en función de las implementaciones de los clientes. Esta guía solo se aplica a Oracle Database Enterprise Edition.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: f380a2807ad4efa6c2da2df8aabf3b521918d64c
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 1ce5a7e2532fd150b5445e3b243c841d797b4157
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112516820"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226860"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión y obtención de un token de acceso en una SPA de React mediante el flujo de código de autorización
 
@@ -187,7 +187,7 @@ npm install @azure/msal-browser @azure/msal-react
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea una guía paso a paso detallada sobre la compilación de la aplicación del flujo de código de autenticación mediante Vanilla JavaScript, consulte el siguiente tutorial:
+A continuación, pruebe un tutorial paso a paso para aprender a crear una SPA de React desde cero que inicia la sesión de los usuarios y llama a Microsoft Graph API para obtener datos de perfil de usuario:
 
 > [!div class="nextstepaction"]
-> [Tutorial para iniciar sesión y llamar a MS Graph](./tutorial-v2-javascript-auth-code.md)
+> [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph](tutorial-v2-react.md)

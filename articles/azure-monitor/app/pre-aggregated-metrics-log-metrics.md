@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4ce337c97aa7eca601e72122568c3205ca21457f
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 3b26cd01c125b18727ec3176b6c1ea932083be86
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372390"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318548"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas agregadas previamente y basadas en registros en Application Insights
 
@@ -77,6 +77,13 @@ Todas las métricas que envíe con las llamadas API [trackMetric](./api-custom-e
 
 ![Uso y costos estimados](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
+## <a name="quotas"></a>Cuotas
+
+Las métricas agregadas previamente se almacenan como una serie temporal en Azure Monitor y se aplican las [cuotas de Azure Monitor sobre las métricas personalizadas](../essentials/metrics-custom-overview.md#quotas-and-limits).
+
+> [!NOTE]
+> Superar la cuota podría tener consecuencias imprevistas. Azure Monitor puede dejar de ser confiable en su suscripción o región. Para obtener información sobre cómo evitar superar la cuota, consulte [Limitaciones y consideraciones de diseño)](../essentials/metrics-custom-overview.md#design-limitations-and-considerations).
+  
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>¿Por qué la recopilación de dimensiones de métricas personalizadas está desactivada de forma predeterminada?
 
 La recopilación de dimensiones de métricas personalizadas se ha desactivado de forma predeterminada porque, en el futuro, el almacenamiento de métricas personalizadas con dimensiones se facturará por separado de Application Insights, mientras que el almacenamiento de métricas personalizadas no dimensionales seguirá siendo gratuita (hasta una cuota). Para más información sobre los próximos cambios en los modelos de precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) oficial.

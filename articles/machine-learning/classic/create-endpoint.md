@@ -9,20 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: a050425cec6062bdf4d62c6ace3c61d84eaede5d
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: c4cfe742789576a4aaf61cd3194af64ede849aa7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582823"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695015"
 ---
 # <a name="create-endpoints-for-deployed-machine-learning-studio-classic-web-services"></a>Creación de puntos de conexión para los servicios web de Machine Learning Studio (clásico) implementados
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-
-> [!NOTE]
-> En este tema se describen técnicas que se aplican a un servicio web de Machine Learning **Clásico**.
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Cuando se implementa un servicio web, se crea un punto de conexión predeterminado para ese servicio. El punto de conexión predeterminado puede llamarse mediante su clave de API. Puede agregar más puntos de conexión con sus propias claves desde el portal de servicios web.
 Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente. Cada punto de conexión es una dirección URL única con una clave de autorización que puede distribuir a sus clientes.

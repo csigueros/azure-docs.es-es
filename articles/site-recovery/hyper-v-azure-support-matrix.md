@@ -4,12 +4,14 @@ description: Se resumen los requisitos y componentes compatibles para la recuper
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.openlocfilehash: 338bbf8fdaffb284aa4a34aea0ad20108d4e54fb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+author: Sharmistha-Rai
+ms.author: sharrai
+ms.openlocfilehash: 7c64aee5177adf7ee1d5f5d47ba80c5e25a53002
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440864"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444801"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -95,7 +97,7 @@ Redes aceleradas | No | No
 ## <a name="hyper-v-host-storage"></a>Almacenamiento de host de Hyper-V
 
 **Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
---- | --- | --- 
+--- | --- | ---
 NFS | N/D | N/D
 SMB 3.0 | Sí | Sí
 SAN (ISCSI) | Sí | Sí
@@ -151,6 +153,7 @@ Opción de transferencia segura | Sí | Sí
 **Característica** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | ---
 Conjuntos de disponibilidad | Sí | Sí
+Zonas de disponibilidad | No | No
 CONCENTRADOR | Sí | Sí  
 Discos administrados | Sí, para la conmutación por error.<br/><br/> No se admite la conmutación por recuperación de los discos administrados. | Sí, para la conmutación por error.<br/><br/> No se admite la conmutación por recuperación de los discos administrados.
 
@@ -190,7 +193,7 @@ Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos 
 Para garantizar que la implementación sea compatible con la configuración que se muestra en este artículo, asegúrese de ejecutar las versiones más recientes de proveedor y agente.
 
 **Nombre** | **Descripción** | **Detalles**
---- | --- | --- 
+--- | --- | ---
 Proveedor de Azure Site Recovery | Coordina las comunicaciones entre los servidores locales y Azure <br/><br/> Hyper-V con Virtual Machine Manager: Se instala en servidores de Virtual Machine Manager<br/><br/> Hyper-V sin Virtual Machine Manager: Se instala en hosts de Hyper-V| [Características y correcciones más recientes](./site-recovery-whats-new.md)
 Agente de Microsoft Azure Recovery Services | Coordina la replicación entre máquinas virtuales de Hyper-V y Azure<br/><br/> Se instala en servidores de Hyper-V locales (con o sin Virtual Machine Manager) | Agente más reciente disponible en el portal
 

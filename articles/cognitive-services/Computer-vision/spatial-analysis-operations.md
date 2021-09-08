@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 814bd3d143be5eb295fe8e354537de8fc1d2934b
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: f408a9182727d8e4395972f8d9f7025f8342b4eb
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113005947"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635153"
 ---
 # <a name="spatial-analysis-operations"></a>Operaciones de análisis espacial
 
@@ -187,7 +187,7 @@ Consulte [Salida de la operación de análisis espacial](#spatial-analysis-opera
 | Nombre del campo ZonePlacementInfo | Tipo| Descripción|
 |---------|---------|---------|
 | `optimalZonePolygon` | object| Un polígono en la imagen de la cámara donde se pueden colocar líneas o zonas para las operaciones, con el fin de obtener resultados óptimos. <br/> Cada par de valores representa la x e y de los vértices de un polígono. El polígono representa las áreas en las que se hace un seguimiento o un recuento de las personas y los puntos de polígono se basan en coordenadas normalizadas (0-1), donde la esquina superior izquierda es (0.0, 0.0) y la esquina inferior derecha es (1.0, 1.0).|
-| `fairZonePolygon` | object| Un polígono en la imagen de la cámara donde se pueden colocar líneas o zonas para las operaciones, con el fin de obtener resultados buenos, pero posiblemente no óptimos. <br/> Consulte `optimalZonePolygon` arriba para obtener una explicación detallada del contenido. |
+| `fairZonePolygon` | objeto| Un polígono en la imagen de la cámara donde se pueden colocar líneas o zonas para las operaciones, con el fin de obtener resultados buenos, pero posiblemente no óptimos. <br/> Consulte `optimalZonePolygon` arriba para obtener una explicación detallada del contenido. |
 | `uniformlySpacedPersonBoundingBoxes` | list | Una lista de rectángulos delimitadores de personas dentro de la imagen de cámara distribuidos uniformemente en un espacio real. Los valores se basan en coordenadas normalizadas (0-1).|
 | `personBoundingBoxGroundPoints` | list | Lista de coordenadas en el plano del suelo con respecto a la cámara. Cada coordenada corresponde a la parte inferior derecha del rectángulo delimitador de `uniformlySpacedPersonBoundingBoxes` con el mismo índice. <br/> Para más información sobre cómo se calculan las coordenadas en el plano del suelo, consulte el campo `centerGroundPoint` de la sección [Formato JSON para Conclusiones de IA de cognitiveservices.vision.spatialanalysis-persondistance](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights). |
 
@@ -361,7 +361,7 @@ Este es un ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG 
 | `name` | string| Nombre descriptivo de esta zona.|
 | `polygon` | list| Cada par de valores representa la x e y de los vértices del polígono. El polígono representa las áreas en las que se cuentan las personas y se mide la distancia entre ellas. Los valores flotantes representan la posición del vértice relativa a la esquina superior izquierda. Para calcular los valores x, y absolutos, debe multiplicar estos valores por el tamaño del fotograma. 
 | `threshold` | FLOAT| Los eventos se generan cuando la persona tiene un tamaño mayor que este número de píxeles dentro de la zona. |
-| `type` | string| Para **cognitiveservices.vision.spatialanalysis-persondistance**, debe ser `people_distance`.|
+| `type` | string| Para **cognitiveservices.vision.spatialanalysis-persondistance**, debe ser `persondistance`.|
 | `trigger` | string| Tipo de desencadenador para enviar un evento. Los valores admitidos son `event` para enviar eventos cuando el recuento cambia o `interval` para enviar eventos de manera periódica, independientemente de si el recuento ha cambiado o no.
 | `output_frequency` | int | Velocidad a la que se generan los eventos. Cuando `output_frequency` = X, se genera cada X evento, por ejemplo, `output_frequency` = 2 significa que se genera evento por medio. `output_frequency` se aplica a `event` y `interval`.|
 | `minimum_distance_threshold` | FLOAT| Distancia en pies que desencadenará un evento "TooClose" cuando las personas estén más cerca de esa distancia entre sí.|

@@ -1,20 +1,20 @@
 ---
 title: Agrupación en clústeres de datos de punto en Android SDK | Microsoft Azure Maps
 description: Información sobre cómo agrupar datos de puntos en los mapas Vea cómo usar Android SDK de Azure Maps para agrupar datos en clústeres, reaccionar a eventos de mouse de clúster y mostrar agregados de clústeres.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 81de84dd517babecf696bd2e4c906074f95f41a4
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: a6b9de675c32c893e872d23835c856a0fe6c49d3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113095309"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429827"
 ---
 # <a name="clustering-point-data-in-the-android-sdk"></a>Agrupación en clústeres de datos de punto en Android SDK
 

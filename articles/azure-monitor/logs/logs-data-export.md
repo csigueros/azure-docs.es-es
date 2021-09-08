@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: b9efc6c8f568d054662f9084d63b83de7b39e776
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 741f2cc4176914417b02bacc9911988a41c5827d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735785"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427307"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -538,7 +538,7 @@ N/D
 ## <a name="unsupported-tables"></a>Tablas no admitidas
 Si la regla de exportación de datos incluye una tabla no admitida, la configuración se realizará correctamente, pero no se exportará ningún dato de esa tabla. Si la tabla se admite posteriormente, sus datos se exportarán en ese momento.
 
-Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error que indicará que la "tabla <tableName> no existe en el área de trabajo".
+Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error que indicará que la "tabla \<tableName\> no existe en el área de trabajo".
 
 
 ## <a name="supported-tables"></a>Tablas admitidas
@@ -634,11 +634,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | DatabricksSQLPermissions |  |
 | DatabricksSSH |  |
 | DatabricksWorkspace |  |
-| DeviceFileEvents |  |
-| DeviceNetworkEvents |  |
 | DeviceNetworkInfo |  |
-| DeviceProcessEvents |  |
-| DeviceRegistryEvents |  |
 | DnsEvents |  |
 | DnsInventory |  |
 | DummyHydrationFact |  |

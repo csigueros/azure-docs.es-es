@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Utilice RBAC de Azure para comprobaciones de autorización en los clústeres de Kubernetes habilitados para Azure Arc.
-ms.openlocfilehash: b4c8d6f4f7abcd9090a0b4aaa69038b75a4aa1b1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 2607f82e0935ead0b6013bae963e22616c340b80
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479605"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105045"
 ---
 # <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Integración de Azure Active Directory con clústeres de Kubernetes habilitado para Azure Arc
 
@@ -52,27 +52,29 @@ Puede encontrar información general y algunos conceptos sobre esta característ
 1. Cree una aplicación de Azure AD y obtenga su valor `appId`. Este valor se usa en pasos posteriores como `serverApplicationId`.
 
     ```azurecli
-    az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
+    CLUSTERNAME="<clusterName>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Server" --identifier-uris "https://${CLUSTERNAME}Server" --query appId -o tsv)
+    echo $SERVER_APP_ID
     ```
 
 1. Actualice las notificaciones de pertenencia a grupos de aplicaciones:
 
     ```azurecli
-    az ad app update --id <serverApplicationId> --set groupMembershipClaims=All
+    az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
     ```
 
 1. Cree una entidad de servicio y obtenga el valor de su campo `password`. Este valor es necesario más adelante como `serverApplicationSecret` al habilitar esta característica en el clúster.
 
     ```azurecli
-    az ad sp create --id <serverApplicationId>
-    az ad sp credential reset --name <serverApplicationId> --credential-description "ArcSecret" --query password -o tsv
+    az ad sp create --id "${SERVER_APP_ID}"
+    SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
     ```
 
-1. Conceda permisos de API a la aplicación:
+1. Conceda los permisos de API "Iniciar sesión y leer perfil de usuario" a la aplicación:
 
     ```azurecli
-    az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-    az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
+    az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+    az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000
     ```
 
     > [!NOTE]
@@ -85,26 +87,27 @@ Puede encontrar información general y algunos conceptos sobre esta característ
 1. Cree una aplicación de Azure AD y obtenga su valor `appId`. Este valor se usa en pasos posteriores como `clientApplicationId`.
 
     ```azurecli
-    az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
+    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Client" --native-app --reply-urls "https://${CLUSTERNAME}Client" --query appId -o tsv)
+    echo $CLIENT_APP_ID
     ```
 
 2. Cree una entidad de servicio para esta aplicación cliente:
 
     ```azurecli
-    az ad sp create --id <clientApplicationId>
+    az ad sp create --id "${CLIENT_APP_ID}"
     ```
 
 3. Obtenga el valor de `oAuthPermissionId` para la aplicación de servidor:
 
     ```azurecli
-    az ad app show --id <serverApplicationId> --query "oauth2Permissions[0].id" -o tsv
+    az ad app show --id "${SERVER_APP_ID}" --query "oauth2Permissions[0].id" -o tsv
     ```
 
 4. Conceda los permisos necesarios para la aplicación cliente:
 
     ```azurecli
-    az ad app permission add --id <clientApplicationId> --api <serverApplicationId> --api-permissions <oAuthPermissionId>=Scope
-    az ad app permission grant --id <clientApplicationId> --api <serverApplicationId>
+    az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
+    az ad app permission grant --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}"
     ```
 
 ## <a name="create-a-role-assignment-for-the-server-application"></a>Creación de una asignación de roles para la aplicación de servidor
@@ -133,15 +136,13 @@ La aplicación de servidor necesita los permisos `Microsoft.Authorization/*/read
 2. Ejecute el siguiente comando para crear el nuevo rol personalizado:
 
     ```azurecli
-    az role definition create --role-definition ./accessCheck.json
+    ROLE_ID=$(az role definition create --role-definition ./accessCheck.json --query id -o tsv)
     ```
 
-3. Desde la salida del comando anterior, almacene el valor del campo `id`. Este campo se usará en pasos posteriores como `roleId`.
-
-4. Cree una asignación de roles en la aplicación de servidor como `assignee` mediante el rol que ha creado:
+3. Cree una asignación de roles en la aplicación de servidor como `assignee` mediante el rol que ha creado:
 
     ```azurecli
-    az role assignment create --role <roleId> --assignee <serverApplicationId> --scope /subscriptions/<subscription-id>
+    az role assignment create --role "${ROLE_ID}" --assignee "${SERVER_APP_ID}" --scope /subscriptions/<subscription-id>
     ```
 
 ## <a name="enable-azure-rbac-on-the-cluster"></a>Habilitación de RBAC de Azure en el clúster
@@ -149,7 +150,7 @@ La aplicación de servidor necesita los permisos `Microsoft.Authorization/*/read
 Ejecute el siguiente comando para habilitar el control de acceso basado en rol (RBAC) de Azure en el clúster de Kubernetes habilitado para Arc:
 
 ```console
-az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id <serverApplicationId> --app-secret <serverApplicationSecret>
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
     
 > [!NOTE]

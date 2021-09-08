@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5c8e9a7d2d9989ef3080741753f604b9eb5d4289
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: ea55522714beea9274f27bec36232d9e50c90332
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113362186"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688053"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Actualmente, Azure Managed Disks ofrece cuatro tipos de discos. Cada uno estos tipos está pensado para escenarios de clientes específicos.
 
@@ -29,7 +31,7 @@ En la tabla siguiente se proporciona una comparación entre los discos Ultra, la
 |Escenario   |Cargas de trabajo de uso intensivo de E/S, como [SAP HANA](workloads/sap/hana-vm-operations-storage.md), bases de datos de nivel superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones.   |Cargas de trabajo confidenciales de producción y rendimiento   |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas   |Copia de seguridad, no crítico, acceso poco frecuente   |
 |Tamaño máximo del disco   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
 |Rendimiento máx.   |2000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
-|IOPS máx.   |160 000    |20 000   |6,000   |2\.000   |
+|IOPS máx.   |160 000    |20.000   |6,000   |2\.000   |
 
 ## <a name="ultra-disk"></a>Disco Ultra
 

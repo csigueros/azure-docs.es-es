@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 08/26/2021
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 23401885580a3883dc49eccc97c17bbedd9080ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e58e0911911035578c70ebe218af8f7e8c25bcf5
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96187330"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032535"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -92,3 +92,6 @@ La elección del [modelo de coherencia](consistency-levels.md) también afecta a
 - Obtenga información sobre cómo [optimizar el costo de lecturas y escrituras en Azure Cosmos DB](optimize-cost-reads-writes.md).
 - Obtenga información sobre cómo [optimizar el costo de consultar en Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Obtenga información sobre cómo [usar métricas para supervisar el rendimiento](use-metrics.md).
+- ¿Intenta planear la capacidad para una migración a Azure Cosmos DB?
+    - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, obtenga información sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

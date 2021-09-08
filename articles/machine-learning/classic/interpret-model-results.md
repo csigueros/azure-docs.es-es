@@ -8,16 +8,18 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: 4c824c231c1edfb9dda5df2f668fc4440a50f4e0
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 882939a08a3a90cffd0b4eb25711d71159a91eb9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581491"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689687"
 ---
-# <a name="interpret-model-results-in-machine-learning-studio-classic"></a>Interpretación de los resultados de un modelo en Estudio de Machine Learning (clásico)
+# <a name="interpret-model-results-in-machine-learning-studio-classic"></a>Interpretación de los resultados de un modelo en Machine Learning Studio (clásico)
 
-**SE APLICA A:** ![Esta es una marca de comprobación, lo que significa que este artículo se aplica a Estudio de Machine Learning (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Estudio de Machine Learning (clásico) ![Esta es una X, lo que significa que este artículo no se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 En este tema, se explica cómo ver e interpretar los resultados de la predicción en Estudio de Azure Machine Learning (clásico). Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
 

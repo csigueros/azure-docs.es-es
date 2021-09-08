@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa934ea2dc29004057ffbd3bad7c5f7b5afe935
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 91ed308ecbeeb839dfddb78c0151e2c8aafd0d3b
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593353"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123122556"
 ---
 En este artículo de inicio rápido aprenderá a iniciar una llamada de vídeo 1:1 con el SDK de llamada de Azure Communication Services para Windows.
 
@@ -161,8 +161,7 @@ private async void InitCallAgentAndDeviceManager()
     deviceManager = await callClient.GetDeviceManager();
 
     CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
-    callClient = new CallClient();
-
+    
     CallAgentOptions callAgentOptions = new CallAgentOptions()
     {
         DisplayName = "<DISPLAY_NAME>"
@@ -334,5 +333,7 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 Puede compilar y ejecutar el código en Visual Studio. Tenga en cuenta que para las plataformas de soluciones, se admiten `ARM64`, `x64` y `x86`. 
 
 Para hacer una llamada de vídeo saliente, proporcione un id. de usuario en el campo de texto y haga clic en el botón `Start Call`. 
+
+Nota: Al llamar a `8:echo123` se detendrá la secuencia de vídeo porque el bot de eco no admite el streaming de vídeo. 
 
 Para más información sobre los identificadores de usuario, consulte la guía [Tokens de acceso de usuario](../../../access-tokens.md). 

@@ -9,14 +9,16 @@ ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485968e6fa9a68781de85648f0ad008586c2c15b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 49357c5098a4e9a9dc35e3abd910a33efe6411ca
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734586"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691043"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles
 
 Este artículo está destinado a los usuarios de Windows que desean [crear](#create-an-ssh-key-pair) y usar claves de *shell seguro (SSH)* para [conectar](#connect-to-your-vm) con máquinas virtuales Linux en Azure. También puede [generar y almacenar claves SSH en Azure Portal](../ssh-keys-portal.md) que se van a usar al crear máquinas virtuales en el portal.
 

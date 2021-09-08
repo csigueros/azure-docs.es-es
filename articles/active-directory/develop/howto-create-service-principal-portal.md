@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
-ms.openlocfilehash: b4589f451894e328a27b67ac19be4ea91374bee5
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 2b8e8c73286eb058f5fcd183ac43998801a0ebe8
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579961"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038436"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
+# <a name="use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
 En este artículo se muestra cómo crear una nueva entidad de servicio y aplicación de Azure Active Directory (Azure AD) que puede usar con el control de acceso basado en rol. Cuando haya aplicaciones, servicios hospedados o herramientas automatizadas que deban tener acceso a ciertos recursos o modificarlos, puede crear una identidad para la aplicación. Esta identidad se conoce como una entidad de servicio. El acceso a los recursos está restringido por los roles asignados a la entidad de servicio, lo que permite controlar a qué recursos pueden tener acceso y en qué nivel. Por motivos de seguridad, se recomienda usar siempre entidades de servicio con las herramientas automatizadas, en lugar de permitirles iniciar sesión con una identidad de usuario.
 

@@ -1,16 +1,19 @@
 ---
 title: 'Modo de aprendiz: Personalizer'
 description: Aprenda a usar el modo de aprendiz para obtener confianza en un modelo sin cambiar ningún código.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: d61c6be050c07de46613efae66cb32f2fa0d395f
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: aabda26cd2a1dea7205c8432f11af35e3f20b0e1
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107206"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830878"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Uso del modo de aprendiz para el entrenamiento de Personalizer sin que ello afecte a la aplicación existente
 

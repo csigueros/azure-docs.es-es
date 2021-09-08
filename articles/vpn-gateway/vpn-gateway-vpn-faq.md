@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 07/26/2021
 ms.author: yushwang
-ms.openlocfilehash: 56f10ec6178281deaa529e5c94f1cd4b565a381c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0551cf435b732b621ad5493914251afd67f18882
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746616"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707139"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -60,7 +60,7 @@ Puede configurar la red virtual para utilizar las conexiones de sitio a sitio y 
 
 ## <a name="privacy"></a><a name="privacy"></a>Privacidad
 
-### <a name="does-the-vpn-service-store-customer-data"></a>¿Almacena el servicio VPN datos de los clientes?
+### <a name="does-the-vpn-service-store-or-process-customer-data"></a>¿El servicio VPN almacena o procesa datos de los clientes?
 
 No.
 
@@ -77,6 +77,10 @@ Las puertas de enlace basadas en directivas implementan VPN basadas en directiva
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>¿Qué es una puerta de enlace basada en enrutamiento (de enrutamiento dinámico)?
 
 Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutamiento. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o los selectores de tráfico para las VPN basadas en enrutamiento se configuran como conectividad de tipo cualquiera a cualquiera (o caracteres comodín).
+
+### <a name="can-i-specify-my-own-policy-based-traffic-selectors"></a>¿Puedo especificar mis propios selectores de tráfico basados en directivas?
+
+Sí, los selectores de tráfico se pueden definir mediante el atributo *trafficSelectorPolicies* en una conexión con el comando [New-AzIpsecTrafficSelectorPolicy](/powershell/module/az.network/new-azipsectrafficselectorpolicy) de PowerShell. Para que el selector de tráfico tenga efecto, asegúrese de activar la opción [Use Policy Based Traffic Selectors](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) (Usar selectores de tráfico basados en directivas).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>¿Puedo actualizar mi puerta de enlace VPN basada en directivas a una basada en el enrutamiento?
 
@@ -245,6 +249,10 @@ Sí, se admite, Para más información, consulte [Configurar conexiones VPN Expr
 ### <a name="can-i-configure-forced-tunneling"></a>¿Puedo configurar una tunelización forzada?
 
 Sí. Consulte [Configurar una tunelización forzada](vpn-gateway-about-forced-tunneling.md).
+
+## <a name="nat"></a><a name="nat"></a>NAT
+
+[!INCLUDE [vpn-gateway-faq-nat-include](../../includes/vpn-gateway-faq-nat-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>Conectividad entre locales y máquinas virtuales
 

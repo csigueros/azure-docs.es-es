@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6af3d66afe107bae470f4081407f2293fe04f0fb
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 7cd3c1d4a0da5ca0741f6d7f05a1cf082d2e922e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356963"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696544"
 ---
 # <a name="managed-disk-bursting"></a>Seguridad de disco administrado
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Azure ofrece la posibilidad de aumentar las IOPS de almacenamiento en disco y el rendimiento de MB/s, que se conoce como "expansión", tanto en las máquinas virtuales como en los discos. Puede usar la expansión de máquinas virtuales y discos para mejorar el rendimiento de la expansión tanto de las máquinas virtuales como de los discos.
 

@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: f50e0320405ecab8139657aafb8194e25957bce4
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: 0db6f8d43a2492b59b407e43eee016d130915c77
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112369508"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687746"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Control de las actualizaciones con el control de mantenimiento y Azure Portal
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 El control de mantenimiento permite decidir cuándo se aplican las actualizaciones tanto a las máquinas virtuales aisladas como a los hosts dedicados de Azure. En este tema se tratan las opciones de Azure Portal para el control de mantenimiento. Para más información sobre las ventajas de usar el control de mantenimiento, sus limitaciones y otras opciones de administración, consulte el artículo acerca de la [administración de las actualizaciones de las distintas plataformas con control de mantenimiento](maintenance-control.md).
 

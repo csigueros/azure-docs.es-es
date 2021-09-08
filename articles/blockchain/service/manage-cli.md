@@ -4,17 +4,18 @@ description: Administración de Azure Blockchain Service con la CLI de Azure
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 55df56274aa5baa946b60c27cf49723d59c928a1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 6920458795a84e44c19164d1342de1b9a33052d0
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865934"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122651844"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Administrar una instancia de Azure Blockchain Service con la CLI de Azure
 
 Además de Azure Portal, puede usar la CLI de Azure para administrar los miembros de la cadena de bloques y los nodos de transacción para Azure Blockchain Service.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
 Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta.

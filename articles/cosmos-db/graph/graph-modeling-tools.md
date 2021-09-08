@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.reviewer: sngun
-ms.openlocfilehash: eacebb55cbf4d6254d6688a95dba8ae638838cf3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d603de7ae8f011ac2ae2ed96d61efb571bdcf64
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780018"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662360"
 ---
 # <a name="third-party-data-modeling-tools-for-azure-cosmos-db-graph-data"></a>Herramientas de modelado de datos de terceros para datos de grafos de Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Es importante diseñar el modelo de datos y, además, es importante mantenerlo. 
 
 Hackolade es una herramienta de modelado de datos y diseño de esquemas para bases de datos NoSQL. Tiene un estudio de modelado de datos, que ayuda en la administración de esquemas para datos en reposo y datos en movimiento.
 
-### <a name="how-it-works"></a>Funcionamiento
+### <a name="how-it-works"></a>Cómo funciona
 Esta herramienta proporciona el modelado de datos de vértices y bordes, y sus propiedades respectivas.  Admite varios casos de uso, algunos de ellos son:
 -   Comience desde una página en blanco y piense en las distintas opciones para crear gráficamente el modelo de Gremlin de Cosmos DB.  A continuación, avance el diseño del modelo a la instancia de Azure para evaluar el resultado y continuar con la evolución.  Todo esto sin escribir una sola línea de código.
 -   Cree un diseño inverso de un grafo existente en Azure para comprender claramente su estructura, de modo que también pueda consultar el gráfico de forma eficaz.  A continuación, enriquezca el modelo de datos con descripciones, metadatos y restricciones para generar documentación. Admite formato HTML, Markdown o PDF, y alimenta sistemas de diccionario o de gobernanza de datos corporativos.
@@ -40,7 +40,7 @@ Esta herramienta proporciona el modelado de datos de vértices y bordes, y sus p
 
 La animación de la figura 2 proporciona una demostración de ingeniería inversa, extracción de entidades del RDBMS y, a continuación, Hackolade detectará relaciones a partir de relaciones de clave externa y, después, modificaciones.
 
-DDL de ejemplo para un origen como SQL Server disponible [aquí](https://github.com/Azure-Samples/northwind-ddl-sample/nw.sql)   
+DDL de ejemplo para un origen como SQL Server disponible [aquí](https://github.com/Azure-Samples/northwind-ddl-sample/blob/main/nw.sql)   
 
 
 :::image type="content" source="./media/graph-modeling-tools/hackolade-screenshot.jpg" alt-text="Diagrama del grafo":::
@@ -58,4 +58,4 @@ En la imagen siguiente, se muestra la ingeniería inversa de RDBMS y Hackolade e
 -  [Documentación de Hackolade](https://hackolade.com/help/CosmosDBGremlin.html)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Visualización de los datos](/graph-visualization)
+- [Visualización de los datos](/azure/cosmos-db/graph/graph-visualization-partners)

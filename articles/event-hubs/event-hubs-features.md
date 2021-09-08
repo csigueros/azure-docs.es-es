@@ -2,13 +2,13 @@
 title: Información general de las características de Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: overview
-ms.date: 08/03/2021
-ms.openlocfilehash: 79773db042aacc6805bb2c4081815248bc6cb076
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/27/2021
+ms.openlocfilehash: b06ce04a7b2fd4fbb55cbe1b3ac8c2510305e781
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733906"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226335"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -25,7 +25,7 @@ Este artículo se basa en el contenido del [artículo de información general](.
 
 
 ## <a name="namespace"></a>Espacio de nombres
-Un espacio de nombres de Event Hubs es un contenedor de administración de centros de eventos (o temas, en la terminología de Kafka). Proporciona puntos de conexión de red integrados de DNS y una variedad de características de administración de control de acceso e integración de red, como [filtrado de IP](event-hubs-ip-filtering.md), [punto de conexión de servicio de red virtual](event-hubs-service-endpoints.md) y [Private Link](private-link-service.md). 
+Un espacio de nombres de Event Hubs es un contenedor de administración de centros de eventos (o temas, en la terminología de Kafka). Proporciona puntos de conexión de red integrados de DNS y una variedad de características de administración de control de acceso e integración de red, como [filtrado de IP](event-hubs-ip-filtering.md), [punto de conexión de servicio de red virtual](event-hubs-service-endpoints.md) y [Private Link](private-link-service.md).
 
 :::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Imagen que muestra un espacio de nombres de Event Hubs":::
 
@@ -58,7 +58,7 @@ Los eventos publicados se quitan de un centro de eventos en función de una dire
 
 Event Hubs retiene los eventos durante el tiempo de retención configurado, que se aplica a todas las particiones. Los eventos se eliminan automáticamente cuando se alcanza el período de retención. Si especifica un período de retención de un día, el evento dejará de estar disponible exactamente 24 horas después de que se haya aceptado. No se pueden eliminar eventos explícitamente. 
 
-Si necesita archivar eventos más allá del período de retención permitido, puede hacer que se [almacenen automáticamente en Azure Storage o Azure Data Lake mediante la activación de la característica Capture de Event Hubs](event-hubs-capture-overview.md) y, si necesita buscar o analizar estos archivos, puede [importarlos fácilmente en Azure Synapse](store-captured-data-data-warehouse.md) u otros almacenes y plataformas de análisis similares. 
+Si necesita archivar eventos más allá del período de retención permitido, puede hacer que se almacenen automáticamente en Azure Storage o Azure Data Lake activando la [característica Event Hubs Capture](event-hubs-capture-overview.md). Si necesita buscar o analizar estos archivos profundos, puede importarlos fácilmente a [Azure Synapse](store-captured-data-data-warehouse.md) o a otros almacenes y plataformas de análisis similares. 
 
 La razón del límite de Event Hubs en la retención de datos basada en el tiempo es evitar que grandes volúmenes de datos históricos del cliente se mantengan en un almacén que solo está indexado por una marca de tiempo y solo permite el acceso secuencial. La filosofía arquitectónica aquí es que los datos históricos necesitan una indexación más enriquecida y un acceso más directo que la interfaz de eventos en tiempo real que proporcionan Event Hubs o Kafka. Los motores de flujos de eventos no son adecuados para desempeñar el papel de los lagos de datos o los archivos a largo plazo para la creación de orígenes de eventos. 
  
@@ -85,7 +85,7 @@ No tiene que crear nombres de publicador con antelación, pero deben coincidir c
 
 ## <a name="capture"></a>Capturar
 
-[Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de transmisión de Event Hubs y guardarlos en una cuenta de Blob Storage o en una cuenta de servicio de Azure Data Lake. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. Event Hubs Capture permite especificar una cuenta y un contenedor propios de Azure Blob Storage, o una cuenta de servicio de Azure Data Lake, uno de los cuales se usa para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
+[Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de transmisión de Event Hubs y guardarlos en una cuenta de Blob Storage o en una cuenta de Azure Data Lake Storage. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. Event Hubs Capture permite especificar una cuenta y un contenedor propios de Azure Blob Storage, o una cuenta de Azure Data Lake Storage, uno de los cuales se usa para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
 
 :::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Imagen que muestra la captura de datos de Event Hubs en Azure Storage o Azure Data Lake Storage":::
 
@@ -136,7 +136,7 @@ Un *desplazamiento* es la posición de un evento dentro de una partición. Puede
 
 *Puntos de control* es un proceso en el que los lectores marcan o confirman su posición dentro de la secuencia de eventos de una partición. La creación de puntos de comprobación es responsabilidad del consumidor y se realiza por partición dentro de un grupo de consumidores. Esta responsaibilidad significa que por cada grupo de consumidores, cada lector de la partición debe realizar un seguimiento de su posición actual en el flujo del evento y puede informar al servicio cuando considere que el flujo de datos se ha completado.
 
-Si se desconecta un lector de una partición, cuando se vuelve a conectar comienza a leer en el punto de comprobación que envió previamente el último lector de esa partición en ese grupo de consumidores. Cuando se conecta el lector, pasa este desplazamiento al centro de eventos para especificar la ubicación en la que se va a empezar a leer. De este modo, puede usar puntos de comprobación para marcar eventos como "completados" por las aplicaciones de bajada y para ofrecer resistencia en caso de que se produzca una conmutación por error entre lectores que se ejecutan en máquinas distintas. Es posible volver a los datos más antiguos especificando un desplazamiento inferior desde este proceso de puntos de comprobación. Mediante este mecanismo, los puntos de comprobación permiten una resistencia a la conmutación por error y una reproducción del flujo de eventos.
+Si se desconecta un lector de una partición, cuando se vuelve a conectar comienza a leer en el punto de comprobación que envió previamente el último lector de esa partición en ese grupo de consumidores. Cuando se conecta el lector, pasa este desplazamiento al centro de eventos para especificar la ubicación en la que se va a empezar a leer. De este modo, puede usar puntos de comprobación para marcar eventos como "completados" por las aplicaciones de bajada y para ofrecer resistencia en caso de que se produzca una conmutación por error entre lectores que se ejecutan en máquinas distintas. Es posible volver a los datos más antiguos especificando un desplazamiento inferior desde este proceso de puntos de control. Mediante este mecanismo, los puntos de comprobación permiten una resistencia a la conmutación por error y una reproducción del flujo de eventos.
 
 > [!IMPORTANT]
 > El servicio Event Hubs proporciona desplazamientos. Es responsabilidad del consumidor crear puntos de comprobación a medida que se procesan los eventos.

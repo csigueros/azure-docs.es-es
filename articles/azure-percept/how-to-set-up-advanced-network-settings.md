@@ -1,18 +1,18 @@
 ---
 title: Configuración de los valores avanzados de red en Azure Percept DK
 description: En este artículo se le guía al usuario por la Configuración avanzada de red durante la experiencia de configuración de Azure Percept DK.
-author: mimcco
-ms.author: mimcco
+author: WendyAnn0079
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 7/19/2021
 ms.custom: template-how-to
-ms.openlocfilehash: bc680025e37ded3fd91b840d00ba075772cbb656
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ac06d331bcd587c1294c21388faac75cc6f8cfd6
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727203"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219631"
 ---
 # <a name="set-up-advanced-network-settings-on-the-azure-percept-dk"></a>Configuración de los valores avanzados de red en Azure Percept DK
 

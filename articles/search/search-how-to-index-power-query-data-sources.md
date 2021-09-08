@@ -2,26 +2,25 @@
 title: Indexación de datos mediante conectores de Power Query (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Importe datos de distintos orígenes de datos mediante los conectores de Power Query.
-manager: luisca
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: d2e82dd33235db2722118fb11d650862ce00c8a3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e943452a285f943c05982a558c92315428e9829c
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483180"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729539"
 ---
 # <a name="index-data-using-power-query-connectors-preview"></a>Indexación de datos mediante conectores de Power Query (versión preliminar)
 
 > [!IMPORTANT] 
 > La compatibilidad con los conectores de Power Query se encuentra actualmente en **versión preliminar pública validada**. [Regístrese](https://aka.ms/azure-cognitive-search/indexer-preview) para solicitar acceso.
 
-Si usa un indizador para rastrear orígenes de datos externos para la indexación, ahora puede usar conectores de [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) específicos para la conexión del origen de datos en Azure Cognitive Search.
+Si usa un indizador para rastrear orígenes de datos externos para la indexación, ahora puede usar conectores de [Power Query](/power-query/power-query-what-is-power-query) específicos para la conexión del origen de datos en Azure Cognitive Search.
 
 Los conectores de Power Query pueden acceder a una gama más amplia de orígenes de datos, incluidos los de otros proveedores de nube. Los nuevos orígenes de datos admitidos en esta versión preliminar incluyen:
 
@@ -48,11 +47,15 @@ Antes de empezar a extraer datos de uno de los orígenes de datos admitidos, deb
 + Servicio Azure Cognitive Search
     + El servicio Azure Cognitive Search configurado en una [región admitida](search-how-to-index-power-query-data-sources.md#regional-availability).
     + Asegúrese de que el equipo de Azure Cognitive Search haya habilitado el servicio de búsqueda para la versión preliminar. También puede registrarse para obtener la versión preliminar, rellenando [este formulario](https://aka.ms/azure-cognitive-search/indexer-preview). 
-+ Cuenta de Almacenamiento de blobs de Azure
-    + Se requiere una cuenta de Blob Storage para que la versión preliminar se utilice como intermediaria para los datos. Los datos fluirán desde el origen de datos, luego a Blob Storage y, a continuación, al índice. Este requisito solo existe con la versión preliminar validada inicial.
++ Cuenta de Azure Blob Storage
+    + Se requiere una cuenta de Blob Storage para que la versión preliminar se utilice como intermediaria para los datos. Los datos fluirán desde el origen de datos, luego a Blob Storage y, después, al índice. Este requisito solo existe con la versión preliminar validada inicial.
 
 ## <a name="getting-started-using-the-azure-portal"></a>Introducción al uso de Azure Portal
 Azure Portal proporciona compatibilidad con los conectores de Power Query. Mediante el muestre de datos y la lectura de metadatos en el contenedor, el asistente Importar datos de Azure Cognitive Search puede crear un índice predeterminado, asignar campos de origen a campos de índice de destino y cargar el índice en una sola operación. Según el tamaño y la complejidad del origen de datos, puede tener un índice de búsqueda de texto completo y operativo en cuestión de minutos.
+
+ En el vídeo siguiente se muestra cómo configurar un conector Power Query en Azure Cognitive Search.
+ 
+> [!VIDEO https://www.youtube.com/embed/uy-l4xFX1EE]
 
 ### <a name="step-1--prepare-source-data"></a>Paso 1: preparación de los datos de origen
 Asegúrese de que el origen de datos contenga datos. El Asistente para importar datos lee los metadatos y realiza el muestreo de datos para inferir un esquema de índice, pero también carga los datos del origen de datos. Si faltan los datos, el asistente se detendrá y devolverá un error. 
@@ -72,9 +75,9 @@ Una vez que haya seleccionado el origen de datos, seleccione **Siguiente: Config
 ### <a name="step-4--configure-your-data"></a>Paso 4: configuración de los datos
 Una vez que haya seleccionado el origen de datos, configurará la conexión. Cada origen de datos requerirá información diferente. Para algunos orígenes de datos, la documentación de Power Query proporciona detalles adicionales sobre cómo conectarse a los datos. 
 
-+ [PostgreSQL](https://docs.microsoft.com/power-query/connectors/postgresql)
-+ [Objetos de Salesforce](https://docs.microsoft.com/power-query/connectors/salesforceobjects)
-+ [Informes de Salesforce](https://docs.microsoft.com/power-query/connectors/salesforcereports)
++ [PostgreSQL](/power-query/connectors/postgresql)
++ [Objetos de Salesforce](/power-query/connectors/salesforceobjects)
++ [Informes de Salesforce](/power-query/connectors/salesforcereports)
 
 Una vez que haya proporcionado las credenciales de conexión, seleccione **Siguiente**.
 
@@ -92,7 +95,7 @@ No es necesario transformar los datos antes de importarlos en Azure Cognitive Se
 
 ![Transformación de los datos](./media/search-power-query-connectors/power-query-transform-your-data.png "Transformación de los datos") 
 
-Para obtener más información sobre cómo transformar datos con Power Query, consulte [Uso de Power Query en Power BI Desktop](https://docs.microsoft.com/power-query/power-query-quickstart-using-power-bi). 
+Para obtener más información sobre cómo transformar datos con Power Query, consulte [Uso de Power Query en Power BI Desktop](/power-query/power-query-quickstart-using-power-bi). 
 
 Cuando haya terminado de transformar los datos, seleccione **Siguiente**.
 

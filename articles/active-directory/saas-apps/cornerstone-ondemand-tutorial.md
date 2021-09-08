@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 23abb7c3d917084d0cc9989bf19dbb76adf0a266
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 8740f7e8b02002e4f55a833074cf34057cddc056
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112967355"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cornerstone
 
@@ -41,6 +41,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Cornerstone admite el inicio de sesión único iniciado por **SP**.
+
+* Cornerstone admite el [aprovisionamiento de usuarios automático](cornerstone-ondemand-provisioning-tutorial.md).
 
 * Si va a integrar uno o varios productos de esta lista en particular, debe usar la aplicación Cornerstone Single Sign-On de la galería.
 
@@ -140,6 +142,7 @@ Para configurar el inicio de sesión único en Cornerstone, tendrá que ponerse 
 
 En esta sección, creará un usuario llamado Britta Simon en Cornerstone. Trabaje con el equipo del proyecto de implementación de Cornerstone para agregar los usuarios a Cornerstone. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+El inicio de sesión único de Cornerstone también admite el aprovisionamiento automático de usuarios. [Aquí](./cornerstone-ondemand-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

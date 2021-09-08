@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2478ec3f0e8608e1dd868745fca2c323677fadce
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: bef6439ae51c6e15f7be997758acbbd3722ae4ff
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729855"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223255"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -253,7 +253,7 @@ Las superficies coplanarias pueden tener varias causas:
 
 ## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefactos gráficos que usan la representación estéreo de múltiples pasadas en aplicaciones de C++ nativas
 
-En algunos casos, las aplicaciones de C++ nativas personalizadas que usan un modo de representación estéreo de varias pasadas para el contenido local (que se representan en el ojo izquierdo y derecho en pasadas independientes), después de llamar a [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image), pueden desencadenar un error de controlador. El error provoca problemas de rasterización no deterministas, lo que provoca que triángulos individuales o partes de los triángulos del contenido local desaparezcan de forma aleatoria. Por motivos de rendimiento, se recomienda representar el contenido local con una técnica de representación estéreo de pasada única más moderno, por ejemplo, con **SV_RenderTargetArrayIndex**.
+En algunos casos, las aplicaciones de C++ nativas personalizadas que usan un modo de representación estéreo de varias pasadas para el contenido local (que se representan en el ojo izquierdo y derecho en pasadas independientes), después de llamar a [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image-openxr), pueden desencadenar un error de controlador. El error provoca problemas de rasterización no deterministas, lo que provoca que triángulos individuales o partes de los triángulos del contenido local desaparezcan de forma aleatoria. Por motivos de rendimiento, se recomienda representar el contenido local con una técnica de representación estéreo de pasada única más moderno, por ejemplo, con **SV_RenderTargetArrayIndex**.
 
 ## <a name="conversion-file-download-errors"></a>Errores de descarga del archivo de conversión
 

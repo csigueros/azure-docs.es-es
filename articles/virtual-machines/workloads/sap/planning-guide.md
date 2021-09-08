@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4e01f431ab9074286c701a6661e2bf58db125e56
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a5a989d60e98b36906bd53cc79c3e5e2010ba25d
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446023"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777671"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -1606,7 +1606,7 @@ La configuración de las impresoras de red basadas en TCP/IP locales en una VM d
 > ![Logotipo de Linux.][Logo_Linux] Linux
 >
 > * Como en Windows, solo tiene que seguir el procedimiento estándar para la instalación de una impresora de red.
-> * Solo siga las guías de Linux públicas de [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) o [Red Hat y Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) sobre cómo agregar una impresora.
+> * Solo siga las guías de Linux públicas de [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) o [Red Hat y Oracle Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) sobre cómo agregar una impresora.
 >
 >
 

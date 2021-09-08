@@ -1,24 +1,27 @@
 ---
 title: Formato Excel en Azure Data Factory
-description: En este tema se describe cómo tratar el formato Excel en Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: En este tema se describe cómo administrar el formato Excel en Azure Data Factory y Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 73831a22974513cfc8e8a281099fc652fce4176f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7a1a0331276169bb81dcf86c74aab1a16855b25c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090146"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255852"
 ---
-# <a name="excel-format-in-azure-data-factory"></a>Formato Excel en Azure Data Factory
+# <a name="excel-file-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Formato Excel en Azure Data Factory y Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artículo cuando desee **analizar los archivos de Excel**. Azure Data Factory admite ".xls" and ".xlsx".
+Siga este artículo cuando desee **analizar los archivos de Excel**. El servicio admite ".xls" y ".xlsx".
 
-El formato Excel es compatible con los siguientes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) y [SFTP](connector-sftp.md). Se admite como origen, pero no como receptor. 
+El formato Excel se admite para los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [blob de Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [sistema de archivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) y [SFTP](connector-sftp.md). Se admite como origen, pero no como receptor. 
 
 >[!NOTE]
 >No se admite el formato ".xls" al usar [HTTP](connector-http.md).

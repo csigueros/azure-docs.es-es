@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: e7ff59c3c6ba75321c63db81d34ea4c7d46a841a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: db2eb3bf906ffebe67489ab83cb7e13595b601d5
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748623"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112761"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de AKS con nodos de computación confidencial mediante la CLI de Azure
 
@@ -145,6 +145,9 @@ Si la salida coincide con el código anterior, el clúster de AKS ya está listo
 Ahora está listo para implementar una aplicación de prueba. 
 
 Cree un archivo llamado *hello-world-enclave.yaml* y pegue el siguiente manifiesto YAML. Puede encontrar este código de aplicación de ejemplo en [Proyecto Open Enclave](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). En esta implementación se da por supuesto que ha implementado el complemento *confcom*.
+
+> [!NOTE]
+> En el ejemplo siguiente se extrae una imagen de contenedor público de Docker Hub. Se recomienda configurar un secreto de extracción para autenticarse mediante una cuenta de Docker Hub en lugar de realizar una solicitud de extracción anónima. Para mejorar la confiabilidad al trabajar con contenido público, importe y administre la imagen en un registro de contenedor privado de Azure. [Más información sobre cómo trabajar con imágenes públicas.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: batch/v1

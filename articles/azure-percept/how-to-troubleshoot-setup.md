@@ -1,20 +1,20 @@
 ---
-title: Solución de problemas durante la experiencia de configuración de Azure Percept DK
+title: Solución de los problemas en la instalación de Azure Percept DK
 description: Obtenga sugerencias para la solución de algunos de los problemas más comunes que pueden surgir durante la experiencia de configuración
-author: mimcco
-ms.author: mimcco
+author: SillyKeith
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: troubleshooting
 ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: df99c356ad82704f7fbd5e40ef6c382e429ad5b4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 40b7289b3c6fd841a0af9b9a61f66906e0dfa028
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725525"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226848"
 ---
-# <a name="azure-percept-dk-setup-experience-troubleshooting-guide"></a>Guía de solución de problemas de la experiencia de configuración de Azure Percept DK
+# <a name="troubleshoot-the-azure-percept-dk-setup-experience"></a>Solución de los problemas en la instalación de Azure Percept DK
 
 Vea la tabla siguiente para obtener soluciones alternativas a los problemas comunes detectados durante la [experiencia de configuración de Azure Percept DK](./quickstart-percept-dk-set-up.md). Si el problema persiste, póngase en contacto con el servicio de asistencia al cliente de Azure.
 

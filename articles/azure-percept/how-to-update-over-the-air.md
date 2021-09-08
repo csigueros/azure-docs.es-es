@@ -1,20 +1,20 @@
 ---
-title: Actualización de Azure Percept DK mediante actualizaciones inalámbricas (OTA)
+title: Actualización de Azure Percept DK de forma inalámbrica
 description: Aprenda a recibir las actualizaciones de forma inalámbrica de Azure Percept DK
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c5045aed59be4c8903672691241b68f69e353e13
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b3dd8e10379e28a7bd988ec37dcd1943fcac2d3
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733353"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222250"
 ---
-# <a name="update-your-azure-percept-dk-using-over-the-air-ota-updates"></a>Actualización de Azure Percept DK mediante actualizaciones inalámbricas (OTA)
+# <a name="update-azure-percept-dk-over-the-air"></a>Actualización de Azure Percept DK de forma inalámbrica
 
 Siga esta guía para obtener información sobre cómo actualizar la placa base de Azure Percept DK de forma inalámbrica con Device Update para IoT Hub.
 
@@ -68,12 +68,10 @@ Requisitos de la etiqueta de grupo:
 - Un dispositivo solo puede pertenecer a un único grupo.
 
 1. Agregue una etiqueta al dispositivo o dispositivos:
-
     1. En **IoT Edge** en el panel de navegación izquierdo, busque Azure Percept DK y vaya a su **Dispositivo gemelo**.
-
     1. Agregue una etiqueta **Device Update for IoT Hub** nueva tal como se muestra a continuación (```<CustomTagValue>``` consulta el nombre o valor de su etiqueta, por ejemplo, AzurePerceptGroup1). Más información sobre [etiquetas de documento JSON](../iot-hub/iot-hub-devguide-device-twins.md#device-twins) de dispositivos gemelos.
 
-        ```
+        ```json
         "tags": {
         "ADUGroup": "<CustomTagValue>"
         },
@@ -84,15 +82,10 @@ Requisitos de la etiqueta de grupo:
 1. Cree un grupo seleccionando una etiqueta de Azure IoT Hub existente:
 
     1. Vaya de nuevo a la página de Azure IoT Hub.
-
     1. Seleccione **Actualizaciones de dispositivos** en **Administración de dispositivos automática** en el panel de menú izquierdo.
-
     1. Seleccione la pestaña **Grupos** . En esta página se mostrará el número de dispositivos sin agrupar conectados a Device Update.
-
     1. Seleccione **+ Agregar** para crear un nuevo grupo.
-
     1. Seleccione una etiqueta de IoT Hub de la lista y haga clic en **Enviar**.
-
     1. Una vez creado el grupo, se actualizará la lista de grupos y gráficos de cumplimiento de las actualizaciones. El gráfico muestra el número de dispositivos en distintos estados de cumplimiento: **On latest update** (Actualización más reciente), **Nuevas actualizaciones disponibles**, **Actualizaciones en curso** y **Aún sin agrupar**.
 
 ## <a name="deploy-an-update"></a>Implementación de una actualización

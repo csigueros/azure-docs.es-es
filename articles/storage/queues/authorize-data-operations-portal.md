@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 35f4e76a437c5ea5926a95b199e433c6e5b1eb76
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: da6dfb018885ce55323e4a05e738501692c68a58
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901266"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727983"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Elección de la forma de autorizar el acceso a los datos de cola en Azure Portal
 
@@ -52,7 +52,7 @@ Para acceder a datos de cola desde Azure Portal con la cuenta de Azure AD, se d
 
 El rol **Lector** de Azure Resource Manager permite a los usuarios ver recursos de la cuenta de almacenamiento, pero no modificarlos. No proporciona permisos de lectura en los datos de Azure Storage, sino únicamente en los recursos de administración de la cuenta. El rol **Lector** es necesario para que los usuarios puedan navegar a colas en Azure Portal.
 
-Para más información sobre los roles integrados que admiten el acceso a los datos de cola, vea [Roles de Azure para colas](assign-azure-role-data-access.md#azure-roles-for-queues).
+Para obtener información sobre los roles integrados que admiten el acceso a los datos de cola, consulte [Autorización del acceso a colas mediante Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Los roles personalizados pueden admitir diferentes combinaciones de los mismos permisos que proporcionan los roles integrados. Para obtener más información sobre cómo crear roles RBAC de Azure personalizados, consulte el artículo sobre [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) y la [descripción de las definiciones de roles de recursos de Azure](../../role-based-access-control/role-definitions.md).
 
@@ -93,5 +93,5 @@ Las colas no aparecen en el portal si no tiene acceso a las claves de cuenta. Ha
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Autenticar el acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md)
+- [Autorización del acceso a datos en Azure Storage](../common/authorize-data-access.md)
 - [Asignación de un rol de Azure para acceder a datos de cola](assign-azure-role-data-access.md)

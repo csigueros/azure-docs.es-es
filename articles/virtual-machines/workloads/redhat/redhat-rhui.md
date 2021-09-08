@@ -9,14 +9,17 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 02ea434b74e92e2bdd126a98d33e9e68adb811d0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9e40c1085458140204a1632824e9ac550caae27d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468987"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696758"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
+
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
 
 Las imágenes de pago por uso (PAYG) de Red Hat Enterprise Linux (RHEL) vienen preconfiguradas para acceder a RHUI de Azure. No se necesita ninguna configuración adicional. Para obtener las actualizaciones más recientes, ejecute `sudo yum update` después de que la instancia RHEL esté lista. Este servicio se incluye como parte de las tarifas de software de PAYG de RHEL.
@@ -287,16 +290,14 @@ Este procedimiento se proporciona solo como referencia. Las imágenes de RHEL PA
 - Para RHEL 8:
     1. Cree un archivo de configuración:
         ```bash
-        vi rhel8.config
-        ```
-    1. Agregue el siguiente contenido al archivo de configuración:
-        ```bash
+        cat <<EOF > rhel8.config
         [rhui-microsoft-azure-rhel8]
         name=Microsoft Azure RPMs for Red Hat Enterprise Linux 8
         baseurl=https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-2.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-3.microsoft.com/pulp/repos/microsoft-azure-rhel8
         enabled=1
         gpgcheck=1
         gpgkey=https://rhelimage.blob.core.windows.net/repositories/RPM-GPG-KEY-microsoft-azure-release sslverify=1
+        EOF
         ```
     1. Guarde el archivo y ejecute el comando siguiente:
         ```bash

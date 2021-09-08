@@ -12,14 +12,14 @@ ms.date: 7/19/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: b3f92e5b0a526745ca2d9f87e76a0fcf77ed65e7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 91dfb7c7a4a25ba741d7b2dc21b42705a9b79c34
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450556"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034277"
 ---
-# <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
+# <a name="provide-optional-claims-to-your-app"></a>Proporcionar notificaciones opcionales a la aplicación
 
 Los desarrolladores de aplicaciones pueden usar notificaciones opcionales en sus aplicaciones de Azure AD para especificar qué notificaciones desean incluir en los tokens que se envían a las aplicaciones.
 
@@ -60,7 +60,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `idtyp`                    | Tipo de token   | Tokens de acceso de JWT | Especial: únicamente en tokens de acceso de solo aplicación |  El valor es `app` cuando el token es un token de solo aplicación. Esta es la forma más precisa para que una API determine si un token es un token de aplicación o un token de usuario + aplicación.|
 | `login_hint`               | Sugerencia de inicio de sesión   | JWT | MSA, Azure AD | Una notificación de sugerencia de inicio de sesión opaca y de confianza.  Esta notificación es el mejor valor que se puede usar para el parámetro `login_hint` de OAuth en todos los flujos para el inicio de sesión único.  También se puede pasar entre aplicaciones para ayudar en el inicio de sesión único en modo silencioso: la aplicación A puede iniciar la sesión de un usuario, leer la notificación `login_hint` y, a continuación, enviar la notificación y el contexto del inquilino actual a la aplicación B en la cadena o fragmento de la cadena de consulta cuando el usuario hace clic en un vínculo que le lleva a la aplicación B. Para evitar problemas de confiabilidad y condiciones de carrera, la notificación `login_hint` *no* incluye el inquilino actual del usuario y tiene como valor predeterminado el inquilino principal del usuario cuando se usa.  Si trabaja en un escenario de invitado, en el que el usuario es de otro inquilino, debe proporcionar un identificador de inquilino en la solicitud de inicio de sesión y pasar lo mismo a las aplicaciones con las que esté asociado. Sin embargo, esta notificación está pensada para su uso con la funcionalidad `login_hint` existente del SDK, como se ha expuesto. |
 | `sid`                      | Identificador de sesión que se usa para el cierre de cada sesión de usuario. | JWT        |  Cuentas personal y de Azure AD.   |         |
-| `tenant_ctry`              | País del inquilino de los recursos | JWT | | Igual que `ctry`, salvo que un administrador lo establezca en un nivel de inquilino.  También debe ser un valor estándar de dos letras. |
+| `tenant_ctry`              | País o región del inquilino de recursos | JWT | | Igual que `ctry`, salvo que un administrador lo establezca en un nivel de inquilino.  También debe ser un valor estándar de dos letras. |
 | `tenant_region_scope`      | Región del inquilino de los recursos | JWT        |           | |
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados Debe usar la notificación `login_hint` para el uso de `login_hint`: los identificadores legibles como el UPN no son de confianza.|
 | `verified_primary_email`   | Procede del valor PrimaryAuthoritativeEmail del usuario.      | JWT        |           |         |

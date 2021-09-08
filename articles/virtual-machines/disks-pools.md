@@ -8,12 +8,12 @@ ms.date: 07/23/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b0dfb510ecf1722f1b8df9289a864ecd519be055
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: ea06b3c4fdf9be626df99f4a06f4190ce86df4b3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653153"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433285"
 ---
 # <a name="azure-disk-pools-preview"></a>Grupos de discos de Azure (versión preliminar)
 
@@ -32,7 +32,7 @@ Al agregar un disco administrado al grupo de discos, el disco se asocia a contro
 En la versión preliminar, los grupos de discos tienen las siguientes restricciones:
 
 - Solo se pueden agregar discos Ultra o SSD Premium a un grupo de discos.
-- Actualmente no se admiten los discos que usan [almacenamiento con redundancia de zona (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview). 
+- Actualmente no se admiten los discos que usan [almacenamiento con redundancia de zona (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks). 
 
 ### <a name="regional-availability"></a>Disponibilidad regional
 

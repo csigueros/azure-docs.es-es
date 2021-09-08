@@ -1,7 +1,6 @@
 ---
 title: 'Optimización del rendimiento en máquinas virtuales de la serie Lsv2 de Azure: Almacenamiento'
 description: Aprenda a optimizar el rendimiento de la solución en las máquinas virtuales de la serie Lsv2 mediante un ejemplo de Linux.
-services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines
 ms-subservice: vm-sizes-storage
@@ -11,14 +10,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: ffe772677e8de28c3ea0de31092f1aca693feccf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5dd1e506b2eafff1d197a108dfa521dc89499925
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734574"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691025"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Optimización del rendimiento en las máquinas virtuales Linux de la serie Lsv2
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Las máquinas virtuales de la serie Lsv2 admiten una variedad de cargas de trabajo que necesitan una elevada cantidad de E/S y rendimiento en el almacenamiento local en una amplia gama de sectores y aplicaciones.  La serie Lsv2 es ideal para macrodatos, SQL, bases de datos NoSQL, almacenamiento de datos y bases de datos transaccionales de gran tamaño, como Cassandra, MongoDB, Cloudera y Redis.
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre las novedades de Azure Blockchain Servic
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea44366dd88ae1b98865727c9a3d3e038c924120
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94335033"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122652053"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Novedades de Azure Blockchain Service
 
@@ -22,6 +22,10 @@ Azure Blockchain Service recibe las mejoras de manera continua. Para mantenerse 
 - Problemas conocidos
 
 ---
+
+## <a name="may-2021"></a>Mayo de 2021
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 ## <a name="june-2020"></a>Junio de 2020
 
@@ -73,9 +77,9 @@ En Quorum v2.6.0, las llamadas a la función *eth.estimateGas* sin proporcionar 
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>La minería de datos se detiene si hay menos de cuatro nodos de validador
 
-Las redes de producción deben tener al menos cuatro nodos de validador. Quorum recomienda que se requieran al menos cuatro nodos de validador para cumplir la tolerancia a errores del bloqueo de IBFT (3F+1). Debe tener al menos dos nodos de nivel *Estándar* de Azure Blockchain Service para obtener cuatro nodos de validador. Un nodo estándar se aprovisiona con dos nodos de validador.  
+Las redes de producción deben tener al menos cuatro nodos de validador. Quorum recomienda que se requieran al menos cuatro nodos de validador para cumplir la tolerancia a errores del bloqueo de IBFT (3F+1). Debe tener al menos dos nodos de nivel *Estándar* de Azure Blockchain Service para obtener cuatro nodos de validador. Un nodo estándar se aprovisiona con dos nodos de validador.
 
-Si la red Blockchain en Azure Blockchain Service no tiene cuatro nodos de validador, la minería de datos podría detenerse en la red. Puede detectar que la minería de datos se ha detenido si establece una alerta en los bloques procesados. En una red en buen estado, el bloque procesado será de 60 bloques por nodo en cinco minutos.
+Si la red de cadena de bloques de Azure Blockchain Service no tiene cuatro nodos de validación, la minería de datos podría detenerse en la red. Puede detectar que la minería de datos se ha detenido si establece una alerta en los bloques procesados. En una red en buen estado, el bloque procesado será de 60 bloques por nodo en cinco minutos.
 
 Como mitigación, el equipo de Azure Blockchain Service tiene que reiniciar el nodo. Los clientes deben abrir una solicitud de soporte técnico para reiniciar el nodo. El equipo de Azure Blockchain Service está trabajando para detectar y corregir los problemas de minería de datos automáticamente.
 
@@ -97,7 +101,7 @@ Para identificar los bloqueos de geth, puede consultar los registros en busca de
 
 Para mitigar el problema, envíe transacciones firmadas en lugar de transacciones sin firmar con un comando para desbloquear la cuenta. En el caso de las transacciones que ya están firmadas externamente, no es necesario desbloquear la cuenta.
 
-Si desea enviar transacciones sin firmar, desbloquee la cuenta durante un tiempo infinito mediante el envío de 0 como parámetro de hora en el comando de desbloqueo. Puede volver a bloquear la cuenta después de enviar todas las transacciones.  
+Si desea enviar transacciones sin firmar, desbloquee la cuenta durante un tiempo infinito mediante el envío de 0 como parámetro de hora en el comando de desbloqueo. Puede volver a bloquear la cuenta después de enviar todas las transacciones.
 
 A continuación se muestran los parámetros de geth que Azure Blockchain Service usa. Puede ajustarlos.
 

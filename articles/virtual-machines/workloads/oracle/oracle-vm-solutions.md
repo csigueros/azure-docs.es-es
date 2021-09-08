@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: b81356c0a17315bbb614b4def5db90e4dbae9af3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9b847b1f4d3e4c47a5b353a2b0e9ad7a47b77330
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450866"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692804"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imágenes de máquinas virtuales de Oracle y su implementación en Microsoft Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 En este artículo se incluye información sobre soluciones de Oracle basadas en las imágenes de máquinas virtuales que publica Oracle en Azure Marketplace. Si está interesado en soluciones de aplicaciones entre nubes con Oracle Cloud Infrastructure, vea [Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure](oracle-oci-overview.md).
 

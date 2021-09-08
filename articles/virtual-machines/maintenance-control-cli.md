@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: a611daf290bda8d6511cb4217e411de2886ce822
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: 95054a4da3bc11e92cc140e7fb6689773b0343ac
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112370858"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698831"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Control de las actualizaciones con el control de mantenimiento y la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 El control de mantenimiento permite decidir cuándo aplicar las actualizaciones de plataforma a la infraestructura de host de las máquinas virtuales aisladas y los hosts dedicados de Azure. En este tema se tratan las opciones de la CLI de Azure para el control de mantenimiento. Para más información sobre las ventajas de usar el control de mantenimiento, sus limitaciones y otras opciones de administración, consulte el artículo sobre la [administración de las actualizaciones de las distintas plataformas con control de mantenimiento](maintenance-control.md).
 

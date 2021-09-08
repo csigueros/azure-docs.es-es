@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Tutorial para crear soluciones de Azure Digital Twins de un extremo a otro controladas por los datos de los dispositivos.
 author: baanders
 ms.author: baanders
-ms.date: 4/15/2020
+ms.date: 8/23/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 641a2f902cd0cf0540cd4cd217f720beaa70a7d2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: cdd4554485a7c04f2d768f7a3bf7265d6342af96
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460995"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227216"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -36,7 +36,7 @@ En este tutorial:
 
 ## <a name="get-started-with-the-building-scenario"></a>Primeros pasos con el escenario de compilación
 
-El proyecto de ejemplo que se usa en este tutorial representa un **escenario de un edificio** real, que contiene una planta, una habitación y un dispositivo de termostato. Estos componentes se representarán digitalmente en una instancia de Azure Digital Twins, que posteriormente se conectará a [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md) y dos instancias de [Azure Functions](../azure-functions/functions-overview.md) para facilitar el movimiento de los datos.
+El proyecto de ejemplo que se usa en este tutorial representa un **escenario de un edificio** real, que contiene una planta, una habitación y un dispositivo de termostato. Estos componentes se representarán digitalmente en una instancia de Azure Digital Twins, que posteriormente se conectará a [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md) y dos instancias de [Azure Functions](../azure-functions/functions-overview.md) para permitir el movimiento de los datos.
 
 El siguiente diagrama representa todo el escenario. 
 
@@ -44,7 +44,7 @@ En primer lugar, creará la instancia de Azure Digital Twins (la **sección A** 
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagrama del escenario de creación completo, que muestra el flujo de datos desde un dispositivo hacia el servicio Azure Digital Twins y fuera de este a través de varios servicios de Azure.":::
 
-Para recorrer el escenario, interactuará con los componentes de la aplicación escrita previamente que descargó antes.
+Para recorrer el escenario, interactuará con los componentes de la aplicación de ejemplo previamente escrita que descargó antes.
 
 Estos son los complementos que implementa la aplicación de ejemplo *AdtSampleApp* del escenario del edificio:
 * Autenticación de dispositivos 
@@ -91,7 +91,7 @@ Query
 > 
 > :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
-Después puede dejar de ejecutar el proyecto. No obstante, mantenga la solución abierta en Visual Studio, ya que la usará más veces en el tutorial.
+Ahora puede dejar de ejecutar el proyecto. No obstante, mantenga la solución abierta en Visual Studio, ya que la usará más veces en el tutorial.
 
 ## <a name="set-up-the-sample-function-app"></a>Configuración de la aplicación de funciones de ejemplo
 
@@ -111,7 +111,7 @@ En el panel *Explorador de soluciones*, expanda _**SampleFunctionsApp** > Depend
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Captura de pantalla de Visual Studio que muestra el botón de menú &quot;Administrar paquetes NuGet&quot; para el proyecto SampleFunctionsApp." border="false":::
 
-Se abrirá el Administrador de paquetes NuGet. Seleccione la pestaña *Actualizaciones* y, si hay paquetes que actualizar, active la casilla *Seleccionar todos los paquetes*. Después, seleccione *Actualizar*.
+Al hacerlo, se abrirá el administrador de paquetes NuGet. Seleccione la pestaña *Actualizaciones* y, si hay paquetes que actualizar, active la casilla *Seleccionar todos los paquetes*. Después, seleccione *Actualizar*.
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Captura de pantalla de Visual Studio que muestra cómo seleccionar las opciones para actualizar todos los paquetes en el Administrador de paquetes NuGet.":::
 
@@ -145,7 +145,7 @@ Para publicar la aplicación de funciones en Azure, primero debe crear una cuent
 
     1. Cree un archivo .zip de los archivos publicados que se encuentran en el directorio *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish*. 
         
-        Si usa PowerShell, puede hacerlo copiando la ruta de acceso completa a ese directorio *\publish* y pegándola en el siguiente comando:
+        Si usa PowerShell, puede crear el archivo zip copiando la ruta de acceso completa a ese directorio *\publish* y pegándola en el siguiente comando:
     
         ```powershell
         Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
@@ -182,11 +182,11 @@ Para publicar la aplicación de funciones en Azure, primero debe crear una cuent
 
 Ahora ha publicado las funciones en una aplicación de funciones en Azure.
 
-Para que la aplicación de funciones pueda acceder a Azure Digital Twins, deberá tener permiso para acceder a la instancia de Azure Digital Twins. Configurará este acceso en la sección siguiente.
+A continuación, la aplicación de funciones deberá tener el permiso correcto para acceder a la instancia de Azure Digital Twins. Configurará este acceso en la sección siguiente.
 
 ### <a name="configure-permissions-for-the-function-app"></a>Configuración de los permisos de la aplicación de funciones
 
-Hay dos opciones de configuración que deben establecerse para que la aplicación de funciones pueda acceder a la instancia de Azure Digital Twins. Ambas se pueden realizar mediante la CLI de Azure. 
+Hay dos configuraciones que deben establecerse para que la aplicación de funciones acceda a la instancia de Azure Digital Twins, ambas se pueden realizar mediante la CLI de Azure. 
 
 #### <a name="assign-access-role"></a>Asignación de roles de acceso
 
@@ -195,14 +195,14 @@ La primera configuración proporciona a la aplicación de funciones el rol de **
 1. Use el siguiente comando para ver los detalles de la identidad administrada por el sistema de la función. Anote el valor del campo **principalId** de la salida.
 
     ```azurecli-interactive 
-    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name> 
+    az functionapp identity show --resource-group <your-resource-group> --name <your-function-app-name> 
     ```
 
     >[!NOTE]
     > Si el resultado está vacío en lugar de mostrar los detalles de una identidad, cree una nueva identidad administrada por el sistema para la función mediante este comando:
     > 
     >```azurecli-interactive    
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>  
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>  
     >```
     >
     > La salida mostrará los detalles de la identidad, incluido el valor de **principalId** requerido para el siguiente paso. 
@@ -217,12 +217,12 @@ El resultado de este comando es la información de salida acerca de la asignaci�
 
 #### <a name="configure-application-settings"></a>Configuración de la aplicación
 
-El segundo valor crea una **variable de entorno** para la función con la dirección URL de la instancia de Azure Digital Twins. El código de la función la usará para hacer referencia a la instancia. Para más información sobre las variables de entorno, consulte [Administración de la aplicación de funciones](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+El segundo valor crea una **variable de entorno** para la función con la dirección URL de la instancia de Azure Digital Twins. El código de la función usará el valor de esta variable para hacer referencia a la instancia. Para más información sobre las variables de entorno, consulte [Administración de la aplicación de funciones](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 Para ejecutar el siguiente comando, rellene los marcadores de posición con los detalles de los recursos.
 
 ```azurecli-interactive
-az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 La salida es la lista de valores de la función de Azure, que ahora debe contener una entrada denominada **ADT_SERVICE_URL**.
@@ -234,7 +234,7 @@ Los grafos de Azure Digital Twins los controlan los datos de telemetría de los 
 
 En este paso, conectará un dispositivo termostato simulado registrado en [IoT Hub](../iot-hub/about-iot-hub.md) al gemelo digital que lo representa en Azure Digital Twins. Cuando el dispositivo simulado emita datos de telemetría, los datos pasarán por la función de Azure *ProcessHubToDTEvents*, que desencadenará la correspondiente actualización en el gemelo digital. De esta forma, el gemelo digital permanece actualizado con los datos del dispositivo real. En Azure Digital Twins, el proceso de dirigir datos de eventos de un lugar a otro se denomina [enrutamiento de eventos](concepts-route-events.md).
 
-Esto sucede en esta parte del escenario de un extremo a otro (**flecha B**):
+El proceso de la telemetría simulada se produce en esta parte del escenario completo (**flecha B**):
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Diagrama que muestra un extracto del diagrama del escenario de creación completo. Se muestra resaltada la sección que ilustra los elementos antes de Azure Digital Twins.":::
 
@@ -257,7 +257,7 @@ az iot hub create --name <name-for-your-IoT-hub> --resource-group <your-resource
 
 La salida de este comando es información sobre el centro de IoT que se ha creado.
 
-Guarde el **nombre** que asignó al centro de IoT. Lo usará más adelante.
+Guarde el **nombre** que asignó al centro de IoT. La usará más adelante.
 
 ### <a name="connect-the-iot-hub-to-the-azure-function"></a>Conexión del centro de IoT a la función de Azure
 
@@ -269,24 +269,24 @@ En [Azure Portal](https://portal.azure.com/), vaya al centro de IoT recién crea
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Captura de pantalla de Azure Portal que muestra la suscripción de eventos de IoT Hub.":::
 
-Aparecerá la página *Crear suscripción de eventos*.
+Al seleccionar esta opción, aparecerá la página *Crear suscripción de eventos*.
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Captura de pantalla de Azure Portal que muestra cómo crear una suscripción de eventos.":::
 
-Rellene los campos como se indica a continuación (no se mencionan los campos rellenos de forma predeterminada):
+Rellene los campos como se indica a continuación (no se mencionan los campos rellenados de forma predeterminada):
 * *DETALLES DE SUSCRIPCIONES DE EVENTOS* > **Nombre**: asigne un nombre a su suscripción de eventos.
 * *DETALLES DEL TEMA* > **Nombre del tema del sistema**: asigne un nombre que se utilizará para el tema del sistema. 
 * *TIPOS DE EVENTO* > **Filtro para tipos de evento**: Seleccione *Telemetría de dispositivo* en las opciones de menú.
 * *DETALLES DE PUNTO DE CONEXIÓN* > **Tipo de punto de conexión**: Seleccione *Función de Azure* en las opciones del menú.
-* *DETALLES DE PUNTO DE CONEXIÓN* > **Punto de conexión**: seleccione el vínculo *Seleccionar un punto de conexión*. Se abrirá una ventana *Seleccionar la función de Azure*: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Captura de pantalla de la suscripción de eventos en Azure Portal que muestra la ventana para seleccionar una función de Azure." border="false":::
-    - Rellene los campos **Suscripción**, **Grupo de recursos**, **Aplicación de funciones** y **Función** (*ProcessHubToDTEvents*). Algunos de estos campos es posible que se rellenen automáticamente después de seleccionar la suscripción.
+* *DETALLES DE PUNTO DE CONEXIÓN* > **Punto de conexión**: seleccione el vínculo *Seleccionar un extremo* que abrirá una ventana *Seleccionar la función de Azure*: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Captura de pantalla de la suscripción de eventos de Azure Portal que muestra la ventana para seleccionar una función de Azure." border="false":::
+    - Rellene los campos **Suscripción**, **Grupo de recursos**, **Aplicación de funciones** y **Función** (*ProcessHubToDTEvents*). Es posible que algunos de estos valores se rellenen automáticamente después de seleccionar la suscripción.
     - Seleccione **Confirm Selection** (Confirmar selección).
 
 De nuevo en la página *Crear suscripción de eventos*, seleccione **Crear**.
 
 ### <a name="register-the-simulated-device-with-iot-hub"></a>Registro del dispositivo simulado en el centro de IoT 
 
-En esta sección se crea una representación de un dispositivo en IoT Hub con el identificador thermostat67. El dispositivo simulado se conectará a ella y así es como los eventos de telemetría pasan del dispositivo a IoT Hub, donde la función de Azure suscrita del paso anterior está escuchando, lista para seleccionar los eventos y continuar el procesamiento.
+En esta sección se crea una representación de un dispositivo en IoT Hub con el identificador thermostat67. El dispositivo simulado se conectará a esta representación, que es la forma en que los eventos de telemetría pasarán del dispositivo al IoT Hub. El centro de IoT es donde la función de Azure suscrita del paso anterior escucha, lista para seleccionar los eventos y continuar el procesamiento.
 
 En Azure Cloud Shell, cree un dispositivo en IoT Hub con el siguiente comando:
 
@@ -332,7 +332,7 @@ Ahora, para ver los resultados de la simulación de datos que ha configurado, ej
 
 :::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Captura de pantalla del botón de inicio de Visual Studio con el proyecto DeviceSimulator abierto.":::
 
-Se abrirá una ventana de la consola y se mostrarán los mensajes de los datos de telemetría de temperatura simulados. Estos se envían a IoT Hub, donde la función de Azure los recoge y procesa.
+Se abrirá una ventana de la consola y se mostrarán los mensajes de los datos de telemetría de temperatura simulados. Estos mensajes se envían a IoT Hub, donde la función de Azure los recoge y procesa.
 
 :::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Captura de pantalla de la salida de la consola del simulador de dispositivos que muestra los datos de telemetría de temperatura que se enviarán.":::
 
@@ -357,80 +357,29 @@ Verá que las temperaturas se actualizan en directo *desde la instancia de Azure
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Captura de pantalla de la salida de la consola que muestra el registro de mensajes de temperatura del gemelo digital thermostat67.":::
 
-Una vez que haya comprobado el correcto funcionamiento, puede dejar de ejecutar ambos proyectos. Mantenga abierta la ventana de Visual Studio, ya que se utilizará durante el resto del tutorial.
+Una vez que haya comprobado el correcto funcionamiento del registro de temperaturas activo, puede dejar de ejecutar ambos proyectos. Mantenga abierta la ventana de Visual Studio, ya que se utilizará durante el resto del tutorial.
 
 ## <a name="propagate-azure-digital-twins-events-through-the-graph"></a>Propagación de eventos de Azure Digital Twins a través del grafo
 
 Hasta ahora, en este tutorial ha visto cómo se puede actualizar Azure Digital Twins a partir de datos de dispositivos externos. A continuación, verá cómo se pueden propagar los cambios que se realicen en un gemelo digital mediante el grafo de Azure Digital Twins (es decir, cómo actualizar los gemelos a partir de los datos internos del servicio).
 
-Para ello, usará la función de Azure *ProcessDTRoutedData* para actualizar un gemelo Room cuando el gemelo Thermostat conectado esté actualizado. Esto sucede en esta parte del escenario de un extremo a otro (**flecha C**):
+Para hacerlo, usará la función de Azure *ProcessDTRoutedData* para actualizar un gemelo Room cuando el gemelo Thermostat conectado se actualice. La funcionalidad de actualización se produce en esta parte del escenario completo (**flecha C**):
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Diagrama que muestra un extracto del diagrama del escenario de creación completo. Se muestra resaltada la sección que ilustra los elementos después de Azure Digital Twins.":::
 
-Estas son las acciones que se deben realizar para configurar este flujo de datos:
-1. Crear un punto de conexión de Event Grid en Azure Digital Twins que conecte la instancia a Event Grid.
-2. Configurar una ruta en Azure Digital Twins para enviar eventos de cambio de propiedades de los gemelos al punto de conexión.
-3. Implementar una aplicación de Azure Functions que realice escuchas (a través de [Event Grid](../event-grid/overview.md)) en el punto de conexión y actualice otros gemelos como corresponda.
-4. Ejecutar el dispositivo simulado y consultar Azure Digital Twins para ver los resultados en directo.
+Estas son las acciones que realizará para configurar este flujo de datos:
+1. [Creación de un tema de Event Grid](#create-the-event-grid-topic) para permitir el movimiento de datos entre servicios de Azure
+1. [Creación de un punto de conexión](#create-the-endpoint) en Azure Digital Twins que conecte la instancia al tema de Event Grid.
+1. [Configuración de una ruta](#create-the-route) en Azure Digital Twins que envíe los eventos de cambio de propiedades de los gemelos al punto de conexión.
+1. [Configuración de una función de Azure](#connect-the-azure-function) que escuche en el tema de Event Grid en el punto de conexión, reciba los eventos de cambio de propiedad de los gemelos que se envían allí y actualice otros gemelos del gráfico en consecuencia.
 
-### <a name="set-up-endpoint"></a>Configuración del punto de conexión
+[!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
 
-[Event Grid](../event-grid/overview.md) es un servicio de Azure que ayuda a enrutar y enviar eventos procedentes de Azure Services a otros lugares de Azure. Puede crear un [tema de Event Grid](../event-grid/concepts.md) para recopilar determinados eventos de un origen y, después, los suscriptores pueden escuchar el tema para recibir los eventos a medida que llegan.
-
-En esta sección, creará un tema de Event Grid y, después, creará un punto de conexión en Azure Digital Twins que apuntará a ese tema (enviará eventos). 
-
-En Azure Cloud Shell, ejecute el comando siguiente para crear un tema de Event Grid:
-
-```azurecli-interactive
-az eventgrid topic create --resource-group <your-resource-group> --name <name-for-your-event-grid-topic> --location <region>
-```
-
-> [!TIP]
-> Para generar una lista de nombres de regiones de Azure que se pueden utilizar en los comandos de la CLI de Azure, ejecute este comando:
-> ```azurecli-interactive
-> az account list-locations --output table
-> ```
-
-La salida de este comando es información sobre el tema de Event Grid que ha creado.
-
-A continuación, cree en Azure Digital Twins un punto de conexión de Event Grid que conecte su instancia a su tema de Event Grid. Use el comando siguiente y rellene los campos de marcadores de posición cuando sea necesario:
-
-```azurecli-interactive
-az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
-```
-
-La salida de este comando es información sobre el punto de conexión que ha creado.
-
-También puede comprobar que la creación del punto de conexión se ha realizado correctamente ejecutando el siguiente comando para consultar en la instancia de Azure Digital Twins si existe este punto de conexión:
-
-```azurecli-interactive
-az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
-```
-
-Busque el campo `provisioningState` en la salida y compruebe que el valor es "Succeeded" (Correcto). El valor también puede ser "Provisioning" (En aprovisionamiento), lo que significa que el punto de conexión todavía se está creando. En este caso, espere unos segundos y vuelva a ejecutar el comando para comprobar que se ha completado correctamente.
-
-:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Captura de pantalla con el resultado de la consulta al punto de conexión en la instancia de Cloud Shell de Azure Portal que muestra dicho punto de conexión con un valor de Succeeded para el estado provisioningState.":::
-
-Guarde los nombres que dio tanto al **tema de Event Grid** como al **punto de conexión** de Event Grid en Azure Digital Twins, ya que los usará más adelante.
-
-### <a name="set-up-route"></a>Configuración de una ruta
-
-A continuación, cree una ruta de Azure Digital Twins que envíe eventos al punto de conexión de Event Grid que acaba de crear.
-
-```azurecli-interactive
-az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
-```
-
-La salida de este comando es información sobre la ruta que ha creado.
-
->[!NOTE]
->Los puntos de conexión (del paso anterior) deben finalizar el aprovisionamiento antes de poder configurar una ruta de eventos que los use. Si se produce un error en la creación de la ruta porque los puntos de conexión no están listos, espere unos minutos y vuelva a intentarlo.
-
-#### <a name="connect-the-function-to-event-grid"></a>Conexión de la función a Event Grid
+### <a name="connect-the-azure-function"></a>Conexión a la función de Azure
 
 A continuación, suscriba la función de Azure *ProcessDTRoutedData* al tema de Event Grid que creó anteriormente, con el fin de que los datos de telemetría puedan fluir desde el gemelo thermostat67 a través del tema de Event Grid hasta la función, que vuelve a Azure Digital Twins y actualiza el gemelo room21 en consecuencia.
 
-Para ello, creará una **suscripción a Event Grid** que envíe datos del **tema de Event Grid** que creó anteriormente a la función *ProcessDTRoutedData* de Azure.
+Para hacerlo, creará una **suscripción a Event Grid** que envíe datos del **tema de Event Grid** que creó anteriormente a la función *ProcessDTRoutedData* de Azure.
 
 En [Azure Portal](https://portal.azure.com/), busque el nombre de su tema de Event Grid en la barra de búsqueda superior para ir a él. Seleccione *+ Suscripción de eventos*.
 
@@ -438,18 +387,20 @@ En [Azure Portal](https://portal.azure.com/), busque el nombre de su tema de Eve
 
 Los pasos para crear esta suscripción de eventos son similares a los que dio cuando suscribió la primera función de Azure a IoT Hub en este mismo tutorial. Esta vez no es preciso especificar *Telemetría del dispositivo* como el tipo de evento que hay que escuchar y que se conectará a otra función de Azure.
 
-En la página *Crear suscripción de eventos*, rellene los campos como se indica a continuación (no se mencionan los campos rellenos de forma predeterminada):
+En la página *Crear suscripción de eventos*, rellene los campos como se indica a continuación (no se mencionan los campos rellenados de forma predeterminada):
 * *DETALLES DE SUSCRIPCIONES DE EVENTOS* > **Nombre**: asigne un nombre a su suscripción de eventos.
 * *DETALLES DE PUNTO DE CONEXIÓN* > **Tipo de punto de conexión**: Seleccione *Función de Azure* en las opciones del menú.
-* *DETALLES DE PUNTO DE CONEXIÓN* > **Punto de conexión**: seleccione el vínculo *Seleccionar un punto de conexión*. Se abrirá la ventana *Seleccionar la función de Azure*:
-    - Rellene los campos **Suscripción**, **Grupo de recursos**, **Aplicación de funciones** y **Función** (*ProcessDTRoutedData*). Algunos de estos campos es posible que se rellenen automáticamente después de seleccionar la suscripción.
+* *DETALLES DE PUNTO DE CONEXIÓN* > **Punto de conexión**: seleccione el vínculo *Seleccionar un extremo* que abrirá una ventana *Seleccionar la función de Azure*:
+    - Rellene los campos **Suscripción**, **Grupo de recursos**, **Aplicación de funciones** y **Función** (*ProcessDTRoutedData*). Es posible que algunos de estos valores se rellenen automáticamente después de seleccionar la suscripción.
     - Seleccione **Confirm Selection** (Confirmar selección).
 
 De nuevo en la página *Crear suscripción de eventos*, seleccione **Crear**.
 
-### <a name="run-the-simulation-and-see-the-results"></a>Ejecución de la simulación y visualización de los resultados
+## <a name="run-the-simulation-and-see-the-results"></a>Ejecución de la simulación y visualización de los resultados
 
-Ya puede ejecutar el simulador de dispositivos para iniciar el nuevo flujo de eventos que ha configurado. Vaya a la ventana de Visual Studio en que esté abierto el proyecto _**DeviceSimulator**_ y ejecútelo.
+Ahora, los eventos deben poder fluir desde el dispositivo simulado a Azure Digital Twins y a través del grafo de Azure Digital Twins para actualizar los gemelos según corresponda. En esta sección, volverá a ejecutar el simulador de dispositivos para iniciar el flujo de eventos completo que ha configurado y consultará Azure Digital Twins para ver los resultados en directo.
+
+Vaya a la ventana de Visual Studio en que esté abierto el proyecto _**DeviceSimulator**_ y ejecútelo.
 
 Igual que pasó cuando ejecutó el simulador de dispositivo, se abrirá una ventana de la consola y se mostrarán los mensajes de los datos de telemetría de temperatura simulados. Estos eventos atraviesan el flujo que configuró anteriormente para actualizar el gemelo thermostat67 y, después, atraviesan el flujo configurado recientemente para actualizar el gemelo room21 para que coincidan.
 
@@ -469,7 +420,7 @@ Verá que las temperaturas se actualizan en directo *desde la instancia de Azure
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Captura de pantalla de la salida de la consola que muestra el registro de mensajes de temperatura de un termostato y una habitación.":::
 
-Una vez que haya comprobado el correcto funcionamiento, puede dejar de ejecutar ambos proyectos. También puede cerrar las ventanas de Visual Studio, ya que ahora se ha completado el tutorial.
+Una vez que haya comprobado el correcto funcionamiento del registro de temperaturas activo de la instancia, puede dejar de ejecutar ambos proyectos. También puede cerrar las ventanas de Visual Studio, ya que ahora se ha completado el tutorial.
 
 ## <a name="review"></a>Revisar
 

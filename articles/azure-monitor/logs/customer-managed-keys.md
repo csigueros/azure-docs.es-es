@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d689d06536dd04532571190b8857c3be24278866
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 50200c4116dd8186a4ba51725f5880d25c753923
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729314"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272410"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -128,7 +128,7 @@ Los clústeres admiten la identidad administrada asignada por el sistema y la pr
   }
   ```
 
-Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](./logs-dedicated-clusters.md#creating-a-cluster). 
+Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](./logs-dedicated-clusters.md#create-a-dedicated-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Concesión de permisos a Key Vault
 
@@ -183,7 +183,7 @@ Content-type: application/json
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
   },
   "sku": {
@@ -214,7 +214,7 @@ Una respuesta a la solicitud GET debe ser similar a la siguiente cuando se compl
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
@@ -245,7 +245,7 @@ Una respuesta a la solicitud GET debe ser similar a la siguiente cuando se compl
 
 Debe tener permisos de "escritura" en el área de trabajo y en el clúster para realizar esta operación, que incluye `Microsoft.OperationalInsights/workspaces/write` y `Microsoft.OperationalInsights/clusters/write`.
 
-Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](./logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
 ## <a name="key-revocation"></a>Revocación de claves
 
@@ -414,7 +414,7 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
 - La caja de seguridad no está disponible actualmente en China. 
 
 - El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante el envío de una solicitud GET en el clúster y observando que el valor `isDoubleEncryptionEnabled` sea `true` para los clústeres con el cifrado doble habilitado. 
-  - Si crea un clúster y recibe un error que indica que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble si agrega `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
+  - Si crea un clúster y recibe un error que indica que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble agregando `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
   - La configuración de cifrado doble no se puede cambiar después de crear el clúster.
 
   - Al establecer la opción `identity` `type` del clúster en `None`, también se revoca el acceso a los datos, pero no se recomienda este enfoque, ya que no se puede revertir sin contactar con el soporte técnico. La forma recomendada de revocar el acceso a sus datos es la [revocación de la clave](#key-revocation).
@@ -454,8 +454,8 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
   -  400: El nombre del clúster no es válido. El nombre del clúster puede contener los caracteres a-z, A-Z, 0-9 y una longitud de 3 a 63.
   -  400: El cuerpo de la solicitud es NULL o tiene un formato incorrecto.
   -  400: El nombre de SKU no es válido. Establezca el nombre de SKU en capacityReservation.
-  -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de la SKU en capacityReservation.
-  -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 500, 1000, 2000 o 5000 GB/día.
+  -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de SKU en capacityReservation.
+  -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 500, 1000, 2000 o 5000 GB/día.
   -  400: Capacity está bloqueado durante 30 días. Se permite la reducción de la capacidad 30 días después de la actualización.
   -  400: No se estableció ninguna SKU. Establezca el nombre de la SKU en capacityReservation y el valor de Capacity en 500, 1000, 2000 o 5000 GB/día.
   -  400: Identity es NULL o está vacío. Establezca Identity en el tipo systemAssigned.

@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 04/20/2021
-ms.openlocfilehash: d3458d456793a3853fc2277bc1443c6fdfbc5865
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: c3b2672f8cda046cbd6276ebaa6cf8cf2ceb5e0f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122068337"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867035"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuración detallada de las versiones de prueba hospedadas
 
@@ -27,7 +27,7 @@ En este artículo se describe cómo configurar una versión de prueba hospedada 
 
     [![Activación de la casilla "Habilitar una versión de prueba".](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
 
-    - **Tipo de versión de prueba**: elija la opción **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)** [Hospedada en Microsoft (Dynamics 365 for Customer Engagement y PowerApps)]. Esto indica que Microsoft hospedará y mantendrá el servicio que realiza el aprovisionamiento y desaprovisionamiento de usuarios de la versión de prueba.
+    - **Tipo de versión de prueba**: elija la opción **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)** (Hospedada en Microsoft [Dynamics 365 for Customer Engagement y PowerApps]). Esto indica que Microsoft hospedará y mantendrá el servicio que realiza el aprovisionamiento y desaprovisionamiento de usuarios de la versión de prueba.
 
 5. Conceda permiso a Microsoft AppSource para aprovisionar y desaprovisionar los usuarios de la versión de prueba del inquilino mediante [estas instrucciones](./test-drive-azure-subscription-setup.md). En este paso, generará los valores **Azure AD App ID** (Identificador de aplicación de Azure AD) y **Azure AD App Key** (Clave de aplicación de Azure AD) que se mencionan a continuación.
 6. Rellene estos campos en la página **Test drive technical configuration** (Configuración técnica de la versión de prueba).

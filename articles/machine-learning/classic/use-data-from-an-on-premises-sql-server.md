@@ -9,17 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: b47a8e50245df652db1c0c43aa0dddd6f8a5a0c8
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: f038cf653b4efc15c70aa566fc76e484a47472f2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580771"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688432"
 ---
 # <a name="perform-analytics-with-machine-learning-studio-classic-using-a-sql-server-database"></a>Análisis mediante Estudio de Machine Learning (clásico) con una base de datos de SQL Server
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Estudio de Machine Learning (clásico) admite la lectura de los datos de una base de datos de SQL Server, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo de **importación de datos** de Estudio de Machine Learning (clásico) ahora puede leer directamente los trabajos de entrenamiento y puntuación en la base de datos de SQL Server.
 

@@ -1,18 +1,21 @@
 ---
 title: Solución de problemas de CI/CD, Azure DevOps y GitHub en ADF
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Use distintos métodos para solucionar problemas de CI/CD en ADF.
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
+ms.subservice: ci-cd
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 04/27/2021
-ms.openlocfilehash: 72f58258f427c5a9414bd7627d4d121c6a89c365
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 06/27/2021
+ms.openlocfilehash: 8f94e6b0e4afd06a68263efb0d78f3962bbd8560
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060865"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866413"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en ADF 
 
@@ -24,13 +27,13 @@ Si tiene preguntas o problemas en relación con el uso de las técnicas de DevOp
 
 - Consulte [Control de código fuente en ADF](source-control.md) para obtener información sobre cómo se lleva a cabo el control de código fuente en ADF. 
 - Consulte [CI/CD en ADF](continuous-integration-deployment.md) para obtener más información sobre cómo se lleva a cabo la integración continua/implementación continua de DevOps en ADF.
- 
+
 ## <a name="common-errors-and-messages"></a>Errores habituales y mensajes
 
 ### <a name="connect-to-git-repository-failed-due-to-different-tenant"></a>Error de conexión al repositorio de Git debido a un inquilino distinto
 
 #### <a name="issue"></a>Incidencia
-    
+
 A veces se producen problemas de autenticación, como el estado HTTP 401. Esto ocurre especialmente cuando tiene varios inquilinos con una cuenta de invitado, lo que puede complicar las cosas.
 
 #### <a name="cause"></a>Causa
@@ -65,7 +68,7 @@ Este error se produce porque a menudo se elimina un desencadenador que está par
 
 Error de la canalización de versión de CI/CD:
 
-`
+```output
 2020-07-06T09:50:50.8716614Z There were errors in your deployment. Error code: DeploymentFailed.
 2020-07-06T09:50:50.8760242Z ##[error]At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.
 2020-07-06T09:50:50.8771655Z ##[error]Details:
@@ -73,7 +76,7 @@ Error de la canalización de versión de CI/CD:
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
-`
+```
 
 #### <a name="cause"></a>Causa
 
@@ -81,10 +84,10 @@ Este error se debe a que en la fábrica de destino hay un entorno de ejecución 
 
 #### <a name="recommendation"></a>Recomendación
 
-- Consulte los siguientes procedimientos recomendados para CI/CD:
+- Tenga en cuenta los [procedimientos recomendados para CI/CD](continuous-integration-deployment.md#best-practices-for-cicd).
 
-    https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
 - Los entornos de ejecución de integración no cambian a menudo y son similares en todas las fases de CI/CD, por lo que Data Factory espera el mismo nombre y el mismo tipo de entorno de ejecución de integración en todas las fases de CI/CD. Si el nombre y los tipos y propiedades son diferentes, asegúrese de que las configuraciones del entorno de ejecución de integración de origen y de destino sean iguales y, a continuación, implemente la canalización de versión.
+
 - Si quiere compartir entornos de ejecución de integración en todas las fases, considere la posibilidad de usar una factoría ternaria solo para contener los entornos de ejecución de integración compartidos. Puede usar esta factoría compartida en todos los entornos como un tipo de entorno de ejecución de integración vinculado.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>Error al crear o actualizar documentos debido a una referencia no válida
@@ -157,17 +160,17 @@ Hasta hace poco, la única forma de publicar la canalización de ADF para implem
 
 #### <a name="resolution"></a>Solución
 
-Se ha mejorado el proceso de CI/CD. La característica **Publicación automatizada** toma, valida y exporta todas las características de plantilla de ARM de la experiencia de usuario de ADF. Hace que la lógica se consuma a través de un paquete NPM disponible públicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Este método le permite desencadenar mediante programación estas acciones en lugar de tener que ir a la interfaz de usuario de ADF y hacer clic en un botón. Este método proporciona a las canalizaciones de CI/CD una **verdadera** experiencia de integración continua. Siga las [mejoras de publicación de CI/CD de ADF](./continuous-integration-deployment-improvements.md) para obtener más información. 
+Se ha mejorado el proceso de CI/CD. La característica **Publicación automatizada** toma, valida y exporta todas las características de plantilla de ARM de la experiencia de usuario de ADF. Hace que la lógica se consuma a través de un paquete NPM disponible públicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Este método le permite desencadenar mediante programación estas acciones en lugar de tener que ir a la interfaz de usuario de ADF y hacer clic en un botón. Este método proporciona a las canalizaciones de CI/CD una **verdadera** experiencia de integración continua. Siga las [mejoras de publicación de CI/CD de ADF](./continuous-integration-deployment-improvements.md) para obtener información. 
 
 ###  <a name="cannot-publish-because-of-4-mb-arm-template-limit"></a>No se puede publicar debido a un límite de la plantilla de ARM de 4 MB.  
 
 #### <a name="issue"></a>Problema
 
-No se puede implementar porque se alcanzó el límite de tamaño total de 4 MB de la plantilla de Azure Resource Manager. Necesita una solución para implementar después de rebasar el límite. 
+No puede realizar la implementación porque se alcanzó el límite de tamaño total de 4 MB de la plantilla de Azure Resource Manager. Necesita una solución para implementar después de rebasar el límite. 
 
 #### <a name="cause"></a>Causa
 
-Azure Resource Manager restringe el tamaño de la plantilla a 4 MB. Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. Sin embargo, ha superado el límite. 
+Azure Resource Manager restringe el tamaño de la plantilla a 4 MB. Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. Sin embargo, ha superado el límite. 
 
 #### <a name="resolution"></a>Solución
 
@@ -182,11 +185,11 @@ No se puede conectar a GIT Enterprise debido a problemas de permisos. Puede ver 
 #### <a name="cause"></a>Causa
 
 * No ha configurado OAuth para ADF. 
-* La dirección URL está mal configurada.
+* La dirección URL está mal configurada. El valor RepoConfiguration debe ser de tipo [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true).
 
-##### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Solución 
 
-Conceda acceso de OAuth a ADF al principio. Después, tiene que usar la dirección URL correcta para conectarse a GIT Enterprise. La configuración debe establecerse en las organizaciones del cliente. Por ejemplo, ADF probará *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* al principio y se producirán errores. A continuación, probará *https://hostname/api/v3/orgs/<org>/<repo>...* y la operación se realizará correctamente. 
+Conceda acceso de OAuth a ADF al principio. Después, tiene que usar la dirección URL correcta para conectarse a GIT Enterprise. La configuración debe establecerse en las organizaciones del cliente. Por ejemplo, ADF probará *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* al principio y se producirán errores. A continuación, probará *https://hostname/api/v3/orgs/&lt;org&gt;/&lt; repo&gt;...* y la operación se realizará correctamente.  
  
 ### <a name="cannot-recover-from-a-deleted-data-factory"></a>No es posible la recuperación desde una factoría de datos eliminada.
 
@@ -247,20 +250,50 @@ Anule la selección de **Inclusión en la plantilla de Resource Manager** e impl
 ### <a name="extra--left--displayed-in-published-json-file"></a>Aparece un corchete izquierdo "[" adicional en el archivo JSON publicado
 
 #### <a name="issue"></a>Incidencia
-Al publicar ADF con DevOps, aparece otro "[". ADF agrega automáticamente un símbolo "[" izquierdo más en ARMTemplate en DevOps. 
+Al publicar ADF con DevOps, aparece otro "[". ADF agrega automáticamente un símbolo "[" izquierdo más en ARMTemplate en DevOps. Verá una expresión como "[[" en el archivo JSON.
 
 #### <a name="cause"></a>Causa
 Dado que "[" es un carácter reservado para ARM, se agrega un "[" adicional automáticamente para carácter "[" de escape.
 
 #### <a name="resolution"></a>Solución
 Este es el comportamiento normal durante el proceso de publicación de ADF para CI/CD.
+ 
+### <a name="perform-cicd-during--progressqueued-stage-of-pipeline-run"></a>Realización de **CI/CD** durante el progreso o la fase en cola de la ejecución de la canalización
+
+#### <a name="issue"></a>Problema
+Le recomendamos que realice CI/CD durante el progreso o la fase en cola de la ejecución de canalización.
+
+#### <a name="cause"></a>Causa
+Cuando la canalización está en curso o en cola, primero debe supervisar la canalización y las actividades. A continuación, puede decidir esperar hasta que finalice la canalización o puede cancelar la ejecución de canalización. 
+ 
+#### <a name="resolution"></a>Solución
+Puede supervisar la canalización mediante el **SDK**, **Azure Monitor** o el [monitor de ADF](./monitor-visually.md). A continuación, puede seguir los [procedimientos recomendados de CI/CD de ADF](./continuous-integration-deployment.md#best-practices-for-cicd) para obtener más instrucciones. 
+
+### <a name="perform-unit-testing-during-adf-development-and-deployment"></a>Realización de **PRUEBAS UNITARIAS** durante el desarrollo e implementación de ADF
+
+#### <a name="issue"></a>Problema
+Le recomendamos que realice pruebas unitarias durante el desarrollo y la implementación de canalizaciones de ADF.
+
+#### <a name="cause"></a>Causa
+Durante los ciclos de desarrollo e implementación, le recomendamos que realice una prueba unitaria de la canalización antes de publicarla de forma manual o automática. La automatización de pruebas permite ejecutar más pruebas, en menos tiempo, con capacidad de repetición garantizada. Volver a probar automáticamente todas las canalizaciones de ADF antes de la implementación le proporciona cierta protección contra errores de regresión. Las pruebas automatizadas son un componente clave de los enfoques de desarrollo de software de CI/CD: la inclusión de pruebas automatizadas en canalizaciones de implementación de CI/CD para Azure Data Factory puede mejorar significativamente la calidad. A largo plazo, los artefactos de canalización de ADF probados se reutilizan, lo que ahorra tiempo y costo.  
+ 
+#### <a name="resolution"></a>Solución
+Dado que los clientes pueden tener requisitos de pruebas unitarias diferentes con conjuntos de aptitudes distintos, la práctica habitual es seguir los pasos siguientes:
+
+1. Configure el proyecto de CI/CD de Azure DevOps o desarrolle una estrategia de pruebas controlada por el SDK de tipo .NET/PYTHON/REST.
+2. En el caso de CI/CD, cree un artefacto de compilación que contenga todos los scripts e implemente recursos en la canalización de versión. Para el enfoque basado en SDK, desarrolle unidades de prueba mediante PyTest en Python, C# **Nunit** mediante el SDK de .NET, etc.
+3. Ejecute pruebas unitarias como parte de la canalización de versión o de forma independiente con el SDK de Python/PowerShell/.NET/REST de ADF. 
+
+Por ejemplo, imagine que quiere eliminar duplicados en un archivo y, a continuación, almacenar el archivo seleccionado como tabla en una base de datos. Para probar la canalización, configure un proyecto de CI/CD mediante Azure DevOps.
+Configure una fase de canalización de PRUEBA en la que implemente la canalización desarrollada. Configure la fase de PRUEBA para ejecutar pruebas de Python y asegurarse de que los datos de la tabla son los esperados. Si no usa CI/CD, use **Nunit** para desencadenar canalizaciones implementadas con las pruebas que quiera. Una vez que esté satisfecho con los resultados, puede publicar la canalización en una factoría de datos de producción. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más ayuda para solucionar problemas, pruebe los siguientes recursos:
 
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Solicitud de características de Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)

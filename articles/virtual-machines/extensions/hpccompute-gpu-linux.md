@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 493ce6ea8bee59a98be75592f89c85980b6ce285
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 98ac0d72ee3bcb7e99030c0d6748cb359c148924
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673335"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446057"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensión del controlador de GPU de NVIDIA para Linux
 
@@ -29,7 +29,7 @@ ms.locfileid: "110673335"
 
 Esta extensión instala los controladores de GPU de NVIDIA en VMs de serie N de Linux. En función de la familia de VM, la extensión instala los controladores CUDA o GRID. Al instalar controladores de NVIDIA mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
 
-Puede consultar [aquí](../linux/n-series-driver-setup.md) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
+Hay instrucciones disponibles sobre la instalación manual de los controladores y las versiones que son compatibles actualmente. Para obtener más información, vea [Instalación de controladores de GPU de la serie N de Azure para Linux](../linux/n-series-driver-setup.md).
 También se dispone de una extensión para instalar controladores de GPU de NVIDIA en [MVs de la serie N para Windows](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Requisitos previos

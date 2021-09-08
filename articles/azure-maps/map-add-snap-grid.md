@@ -1,19 +1,17 @@
 ---
 title: Adición de una cuadrícula de ajuste al mapa | Microsoft Azure Maps
 description: Procedimiento para agregar una cuadricula de ajuste a un mapa mediante el SDK web de Azure Maps
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/20/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: cpendle
-ms.openlocfilehash: 0236128925362bf2736489f2dbf97ab936183c93
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 3202461de662e0f789b6c3a6187dcfbe2fa58764
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114670062"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439621"
 ---
 # <a name="add-a-snap-grid-to-the-map"></a>Incorporación de una cuadrícula de ajuste al mapa
 
@@ -29,7 +27,7 @@ En el ejemplo siguiente se ajusta un marcador HTML a una cuadrícula cuando se a
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Usar una cuadrícula de ajuste" src="https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Usar una cuadrícula de ajuste" src="https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Ver el Lápiz <a href="https://codepen.io/azuremaps/pen/rNmzvXO"> Use a snapping grid</a> (Usar una cuadrícula de ajuste) por Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>) en <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
@@ -40,7 +38,7 @@ En el siguiente ejemplo se muestran las distintas opciones de personalización d
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opciones de cuadrícula de ajuste" src="https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" scrolling="no" title="Opciones de cuadrícula de ajuste" src="https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el lápiz <a href="https://codepen.io/azuremaps/pen/RwVZJry">Snap grid options</a> (Opciones de cuadrícula de ajuste) de Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>) en <a href="https://codepen.io">CodePen</a>.
 </iframe>
 

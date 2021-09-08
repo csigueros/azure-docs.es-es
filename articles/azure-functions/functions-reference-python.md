@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601982058a333f23cf5895351db7bc6475617256
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aa48731248c9e51d680bc0e1b396115c54edbcd7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741382"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260851"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -267,7 +267,9 @@ Para más información sobre el registro, consulte [Supervisión de Azure Functi
 
 ### <a name="log-custom-telemetry"></a>Registro de la telemetría personalizada
 
-De forma predeterminada, Functions escribe las salidas como seguimientos en Application Insights. Para obtener más control, puede usar en su lugar las [extensiones de Python para OpenCensus](https://github.com/census-ecosystem/opencensus-python-extensions-azure) para enviar los datos de telemetría personalizados a la instancia de Application Insights. 
+La telemetría de registro se recopila de forma predeterminada para las aplicaciones de funciones a través del entorno de ejecución de Functions. Esta telemetría termina con seguimientos en Application Insights. La telemetría de solicitudes y dependencias para determinados servicios de Azure también se recopila de forma predeterminada a través de [enlaces de funciones](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings?tabs=csharp#supported-bindings). Para recopilar datos de telemetría personalizados de dependencias y solicitudes (no a través de enlaces), puede usar las [extensiones de Python de OpenCensus](https://github.com/census-ecosystem/opencensus-python-extensions-azure) a fin de enviar datos de telemetría personalizados a la instancia de Application Insights.
+
+Puede encontrar la lista de bibliotecas admitidas [aquí](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
 
 >[!NOTE]
 > Para usar las extensiones de Python para OpenCensus, debe habilitar las [Extensiones de Python](#python-worker-extensions); para ello, establezca `PYTHON_ENABLE_WORKER_EXTENSIONS` como `1` en `local.settings.json` y la configuración de la aplicación.
@@ -390,9 +392,16 @@ def main(req):
 
 ## <a name="environment-variables"></a>Variables de entorno
 
-En Functions, la [configuración de la aplicación](functions-app-settings.md), como las cadenas de conexión del servicio, se exponen como variables de entorno durante la ejecución. Puede acceder a esta configuración mediante la declaración de `import os` y el uso de `setting = os.environ["setting-name"]`.
+En Functions, la [configuración de la aplicación](functions-app-settings.md), como las cadenas de conexión del servicio, se exponen como variables de entorno durante la ejecución. Hay dos maneras principales de acceder a esta configuración en el código. 
 
-En el siguiente ejemplo se obtiene la [configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings), con la clave denominada `myAppSetting`:
+| Método | Descripción |
+| --- | --- |
+| **`os.environ["myAppSetting"]`** | Intenta obtener la configuración de la aplicación por nombre de clave. Genera un error cuando el proceso no se completa correctamente.  |
+| **`os.getenv("myAppSetting")`** | Intenta obtener la configuración de la aplicación por nombre de clave. Devuelve un valor NULL cuando el proceso no se realiza correctamente.  |
+
+Ambos métodos requieren que declare `import os`.
+
+En el ejemplo siguiente se usa `os.environ["myAppSetting"]` para obtener la [configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings), con la clave denominada `myAppSetting`:
 
 ```python
 import logging
@@ -702,7 +711,7 @@ El trabajo de Python en Functions requiere un conjunto específico de biblioteca
 > Si el archivo requirements.txt de la aplicación de funciones contiene una entrada `azure-functions-worker`, quítela. El trabajo de funciones se administra automáticamente mediante la plataforma de Azure Functions y se actualiza periódicamente con nuevas características y correcciones de errores. La instalación manual de una versión anterior del trabajo en el archivo requirements.txt puede producir problemas inesperados.
 
 > [!NOTE]
->  Si el paquete contiene determinadas bibliotecas que pueden entrar en conflicto con las dependencias del trabajo (por ejemplo, protobuf, tensorflow, grpcio), configure `PYTHON_ISOLATE_WORKER_DEPENDENCIES` como `1` en la configuración de la aplicación para evitar que la aplicación haga referencia a las dependencias del trabajo.
+>  Si el paquete contiene determinadas bibliotecas que pueden entrar en conflicto con las dependencias del trabajo (por ejemplo, Protobuf, TensorFlow, grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies-preview) como `1` en la configuración de la aplicación para evitar que la aplicación haga referencia a las dependencias del trabajo. Esta característica se encuentra en su versión preliminar.
 
 ### <a name="azure-functions-python-library"></a>Biblioteca de Python para Azure Functions
 

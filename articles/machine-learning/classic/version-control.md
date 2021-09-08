@@ -8,17 +8,18 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 16d5765d03c02ac733c3d3dc2dbc8ac117caea35
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: f9b3a48d1f63220c7b7cc5ace90ae9676b4efd84
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583453"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690024"
 ---
 # <a name="application-lifecycle-management-in-machine-learning-studio-classic"></a>Administración del ciclo de vida de las aplicaciones en Estudio de Machine Learning (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Estudio de Machine Learning (clásico) es una herramienta para desarrollar experimentos de aprendizaje automático que se operan en la plataforma en la nube de Azure. Es como IDE de Visual Studio y servicio en la nube escalable combinados en una sola plataforma. Es posible incorporar a Estudio de Machine Learning (clásico) procedimientos estándar de administración del ciclo de vida de las aplicaciones (ALM), desde el control de versiones de diversos recursos hasta la ejecución e implementación automatizadas. En este artículo se analizan algunas de las opciones y enfoques.
 

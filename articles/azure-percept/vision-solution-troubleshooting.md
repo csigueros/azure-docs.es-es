@@ -1,20 +1,20 @@
 ---
 title: Solución de problemas de Azure Percept Vision y de los módulos de visión
 description: Vea sugerencias para solucionar algunos de los problemas más comunes que se encuentran en las experiencias de creación de prototipos de inteligencia artificial de visión.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 79a9147fde164a672d310a7dea6fb6166ed3a1f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6bc06ed6850c247641423ef365a86dd9d8aec90a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751374"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225979"
 ---
-# <a name="vision-solution-troubleshooting"></a>Solución de problemas de las soluciones de visión
+# <a name="troubleshoot-azure-percept-vision-and-vision-modules"></a>Solución de problemas de Azure Percept Vision y de los módulos de visión
 
 En este artículo se proporciona información sobre cómo solucionar problemas de las soluciones de visión sin código en Azure Percept Studio.
 

@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c17fceb267018901975f942f7cfc804f450ead9
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95527333"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867647"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integración de un sitio web estático con Azure CDN
 
@@ -26,7 +26,7 @@ Puede habilitar Azure CDN para su sitio web estático directamente desde su cuen
 
 1. Busque la cuenta de almacenamiento en Azure Portal y muestre la información general de la cuenta.
 
-1. En el menú **Blob Service**, seleccione **Azure CDN** para abrir la página **Azure CDN**:
+1. En el menú **Seguridad y redes**, seleccione **Azure CDN** para abrir la página **Azure CDN**:
 
     ![Creación de un punto de conexión de CDN](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 

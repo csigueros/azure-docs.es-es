@@ -8,14 +8,16 @@ ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 9fc618480b4c00ab65f4300a66747acdc2a11f74
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 3417288a0ed765d1ff53c47282379ae6cbb85254
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359018"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694698"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Uso del módulo Azure PowerShell para habilitar el cifrado de un extremo a otro mediante cifrado en el host
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 Cuando se habilita el cifrado en el host, los datos almacenados en el host de máquina virtual se cifran en reposo y se transmiten cifrados al servido Storage. Para obtener información conceptual sobre el cifrado en el host, así como otros tipos de cifrado de disco administrado, consulte [Cifrado en host: cifrado de un extremo a otro para los datos de la VM](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 

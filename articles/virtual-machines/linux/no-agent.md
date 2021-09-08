@@ -10,14 +10,16 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: c7ca147f0a5b907ee0c5c66d53a219fe75ab2179
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95802a767521da81cc6fdd63aac8bb3db0628e68
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551715"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111534"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Creación de imágenes generalizadas sin un agente de aprovisionamiento
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Microsoft Azure proporciona agentes de aprovisionamiento para máquinas virtuales Linux en forma de [walinuxagent](https://github.com/Azure/WALinuxAgent) o [cloud-init](https://github.com/canonical/cloud-init) (recomendado). Sin embargo, podría haber un escenario en el que no quiera usar ninguna de estas aplicaciones para el agente de aprovisionamiento, como:
 
@@ -108,13 +110,15 @@ xml_el = ElementTree.fromstring(wireserver_goalstate)
 
 container_id = xml_el.findtext('Container/ContainerId')
 instance_id = xml_el.findtext('Container/RoleInstanceList/RoleInstance/InstanceId')
+incarnation = xml_el.findtext('Incarnation')
 print(f'ContainerId: {container_id}')
 print(f'InstanceId: {instance_id}')
+print(f'Incarnation: {incarnation}')
 
 # Construct the XML response we need to send to Wireserver to report ready.
 health = ElementTree.Element('Health')
 goalstate_incarnation = ElementTree.SubElement(health, 'GoalStateIncarnation')
-goalstate_incarnation.text = '1'
+goalstate_incarnation.text = incarnation
 container = ElementTree.SubElement(health, 'Container')
 container_id_el = ElementTree.SubElement(container, 'ContainerId')
 container_id_el.text = container_id
@@ -155,12 +159,12 @@ wireserver_conn.close()
 
 Si la máquina virtual no tiene Python instalado ni tampoco disponible, puede reproducir esta lógica de script anterior mediante programación con los pasos siguientes:
 
-1. Recupere el `ContainerId` y el `InstanceId` analizando la respuesta de WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
+1. Recupere los valores `ContainerId`, `InstanceId` y `Incarnation` mediante el análisis de la respuesta de WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
 
-2. Construya los siguientes datos XML, insertando el `ContainerId` y el `InstanceId` analizados del paso anterior:
+2. Inserte los valores `ContainerId`, `InstanceId` y `Incarnation` analizados en el paso anterior y construya los siguientes datos XML:
    ```xml
    <Health>
-     <GoalStateIncarnation>1</GoalStateIncarnation>
+     <GoalStateIncarnation>INCARNATION</GoalStateIncarnation>
      <Container>
        <ContainerId>CONTAINER_ID</ContainerId>
        <RoleInstanceList>

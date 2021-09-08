@@ -14,12 +14,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f3a9090ace9fce69b0b9a1a445b498fc662f7ba3
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8bfcd62558fd7e10bd4e4d80d3f0e8c04f5ba233
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079524"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220654"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de un servidor con SQL Server en una máquina virtual Windows con Azure PowerShell
 
@@ -153,29 +153,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para obtener las características de máquina virtual de SQL e integración del portal, debe registrar la [extensión del agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md).
 
-Para obtener toda la funcionalidad, debe registrarse con la extensión en modo completo. Sin embargo, si lo hace, se reinicia el servicio de SQL Server, por lo que el enfoque recomendado es registrarse en modo ligero y, a continuación, actualizar a modo completo durante una ventana de mantenimiento. 
-
-En primer lugar, registre la máquina virtual con SQL Server en modo ligero: 
-
-```powershell-interactive
-# Get the existing compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-        
-# Register SQL VM with 'Lightweight' SQL IaaS agent
-New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-  -LicenseType PAYG -SqlManagementType LightWeight
-```
-
-Después, durante una ventana de mantenimiento, actualice al modo completo: 
-
-```powershell-interactive
-# Get the existing Compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-      
-# Register with SQL IaaS Agent extension in full mode
-Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
-```
-
+Para obtener toda la funcionalidad, debe registrarse con la extensión en [modo completo](sql-agent-extension-manually-register-single-vm.md#full-mode). De lo contrario, regístrese en modo ligero. 
 
 
 ## <a name="remote-desktop-into-the-vm"></a>Escritorio remoto en la máquina virtual

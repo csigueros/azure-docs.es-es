@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 2642f1e85e12ce0251e9b7bfff84b5d468a342d2
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 29a97d3f68d9b097bfe5c67f0b5832271fa983e1
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361412"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031155"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Caché integrada de Azure Cosmos DB: información general (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -109,7 +109,7 @@ Se trata de una mejora con respecto al funcionamiento de la mayoría de las memo
 
 Para conocer mejor el parámetro `MaxIntegratedCacheStaleness`, considere el ejemplo siguiente:
 
-| Time       | Solicitud                                         | Response                                                     |
+| Hora       | Solicitud                                         | Response                                                     |
 | ---------- | ----------------------------------------------- | ------------------------------------------------------------ |
 | t = 0 s  | Ejecutar Consulta A con MaxIntegratedCacheStaleness = 30 segundos | Devolver resultados de una base de datos de back-end (cargos de RU normales) y llenar la caché     |
 | t = 0 s  | Ejecutar Consulta B con MaxIntegratedCacheStaleness = 60 segundos | Devolver resultados de una base de datos de back-end (cargos de RU normales) y llenar la caché     |
@@ -177,3 +177,6 @@ En algunos casos, si la latencia es inesperadamente alta, puede que necesite má
 - [Preguntas más frecuentes sobre caché integrada](integrated-cache-faq.md)
 - [Configuración de la memoria caché integrada](how-to-configure-integrated-cache.md)
 - [Puerta de enlace dedicada](dedicated-gateway.md)
+- ¿Intenta planear la capacidad para una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

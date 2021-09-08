@@ -13,14 +13,14 @@ ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f0f943475fc397acf61c51fc3dc34cc9efdb1cfb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f7d3b52f5f2cac470c8833a22a67f2324f7be705
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450573"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033867"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
+# <a name="customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
 Hoy en día, la Plataforma de identidad de Microsoft admite el inicio de sesión único (SSO) con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones preintegradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación mediante la Plataforma de identidad de Microsoft con el protocolo SAML 2.0, la Plataforma de identidad de Microsoft envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como *notificaciones*.
 

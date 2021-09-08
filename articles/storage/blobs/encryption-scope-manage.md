@@ -10,20 +10,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a44666d8378b13f7ac8498ae4256507705ffc42b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: adb5ac550ad998f807918d20f59048882c9a8565
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723410"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470587"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Creación y administración de ámbitos de cifrado
 
 Los ámbitos de cifrado permiten administrar el cifrado en un blob o contenedor individual. Se pueden usar ámbitos de cifrado para crear límites seguros entre los datos que residen en la misma cuenta de almacenamiento, pero que pertenecen a clientes distintos. Para obtener más información sobre los ámbitos de cifrado, vea [Ámbitos de cifrado para Blob Storage](encryption-scope-overview.md).
 
 En este artículo se muestra cómo crear un ámbito de cifrado. También se muestra cómo especificar un ámbito de cifrado al crear un blob o un contenedor.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>Creación de un ámbito de cifrado
 

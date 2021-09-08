@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a332b43da59c3e7c766d8fd911f0426fa346d8b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 1725c88ec2275d4b20303161680020512c13bc4a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564993"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226747"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -34,7 +34,7 @@ En el caso de clientes con acceso a [Identity Protection](../identity-protection
 
 ## <a name="user-risk"></a>Riesgo de usuario 
 
-En el caso de los clientes con acceso a [Identity Protection](../identity-protection/overview-identity-protection.md), el riesgo del usuario se puede evaluar como parte de una directiva de acceso condicional. Un riesgo de usuario representa la probabilidad de que una identidad o cuenta determinada esté en peligro. Puede encontrar más información sobre el riesgo del usuario en los artículos [¿Cuáles son los riesgos?](../identity-protection/concept-identity-protection-risks.md#user-risk) e [Instrucciones: Configuración y habilitación de directivas de riesgo](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+En el caso de los clientes con acceso a [Identity Protection](../identity-protection/overview-identity-protection.md), el riesgo del usuario se puede evaluar como parte de una directiva de acceso condicional. Un riesgo de usuario representa la probabilidad de que una identidad o cuenta determinada esté en peligro. Puede encontrar más información sobre el riesgo del usuario en los artículos [¿Cuáles son los riesgos?](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) e [Instrucciones: Configuración y habilitación de directivas de riesgo](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## <a name="device-platforms"></a>Plataformas de dispositivo
 

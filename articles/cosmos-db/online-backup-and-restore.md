@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/21/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2793cd0e3b2d43a2a227cd170d1173c536b41098
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9441cb178769b7d8cad6e60d0bf411c4c38710c5
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725415"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473467"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -24,7 +24,7 @@ Azure Cosmos DB crea automáticamente copias de seguridad de los datos a interva
 * **Modo de copia de seguridad continua**: elija este modo al crear la cuenta de Azure Cosmos DB. Este modo permite realizar la restauración en cualquier punto temporal de los últimos 30 días. Para más información, consulte [Introducción al modo de copia de seguridad continua](continuous-backup-restore-introduction.md) y aprovisione la copia de seguridad continua según los artículos de [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), la [CLI](provision-account-continuous-backup.md#provision-cli) y [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
 
   > [!NOTE]
-  > Si configura una cuenta nueva con el modo de copia de seguridad continua, puede realizar la restauración de autoservicio a través de Azure Portal, PowerShell o la CLI. Si la cuenta está configurada en modo continuo, no se puede volver a cambiar al modo periódico. Actualmente, las cuentas existentes con el modo de copia de seguridad periódica no se pueden cambiar al modo continuo.  
+  > Si configura una cuenta nueva con el modo de copia de seguridad continua, puede realizar la restauración de autoservicio a través de Azure Portal, PowerShell o la CLI. Si la cuenta está configurada en modo continuo, no se puede volver a cambiar al modo periódico.
 
 En las cuentas habilitadas para Azure Synapse Link, los datos del almacén analítico no se incluyen en las copias de seguridad y restauraciones. Cuando Synapse Link esté habilitado, Azure Cosmos DB seguirá haciendo copias de seguridad automáticamente de los datos del almacén de transacciones en el intervalo programado de copias de seguridad. En este momento, no se admite la copia de seguridad ni la restauración automáticas de los datos del almacén analítico.
 

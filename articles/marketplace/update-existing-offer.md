@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6931f33c303e1e42af75b34cb7a72d7a37c702cd
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: ae8cdb3b6f470d8dd9f1500d5dd0af51d594b8e8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598196"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432295"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Actualización de ofertas existentes en el Marketplace comercial
 
@@ -57,6 +57,9 @@ Siga estos pasos para realizar cambios en un plan para una oferta que ya haya pu
 1. Seleccione **Save draft** (Guardar borrador) después de realizar los cambios necesarios en el nombre, la descripción, el público o la disponibilidad del plan.
 1. Si está listo para publicar sus actualizaciones, seleccione **Review and publish** (Revisar y publicar). Se abrirá la página **[Revisar y publicar](review-publish-offer.md)** proporcionando un estado de finalización para las actualizaciones.
 1. Seleccione **Publicar** para publicar el plan actualizado. Le enviaremos un correo electrónico cuando haya alguna versión preliminar de la oferta actualizada disponible para su revisión y aprobación.
+
+> [!NOTE]
+> Si publica un plan privado, puede cambiar su visibilidad a público más adelante. Sin embargo, una vez que se publica un plan público, no se puede cambiar su visibilidad a privado.
 
 ## <a name="update-image-versions-for-an-existing-vm-offer"></a>Actualización de versiones de una imagen en una oferta de máquina virtual existente
 

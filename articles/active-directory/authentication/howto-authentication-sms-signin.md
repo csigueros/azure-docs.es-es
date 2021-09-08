@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 08/18/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3505f53c9ddeb4f3605554799c029a8195a9ab65
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 284a1c9d8b79a0d4e9c479afea9713a09c8c0fa4
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113004995"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429612"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory 
 
@@ -35,6 +35,7 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 * Necesita privilegios de *administrador global* en el inquilino de Azure AD para permitir la autenticación basada en SMS.
 * Cada usuario que esté habilitado en la directiva de métodos de autenticación de mensaje de texto debe tener licencia, aunque no la usen. Cada usuario habilitado debe tener una de las siguientes licencias de Azure AD, EMS o Microsoft 365:
     * [Microsoft 365 F1 o F3][m365-firstline-workers-licensing]
+    * [Azure Active Directory Premium P1 o P2][azure-ad-pricing]
     * [Enterprise Mobility + Security (EMS) E3 o E5][ems-licensing] o [Microsoft 365 E3 o E5][m365-licensing]
     * [Office 365 F3][o365-f3]
 
@@ -173,3 +174,4 @@ Si recibe un error al intentar establecer un número de teléfono para una cuent
 [m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans
 [o365-f1]: https://www.microsoft.com/microsoft-365/business/office-365-f1?market=af
 [o365-f3]: https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab
+[azure-ad-pricing]: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing

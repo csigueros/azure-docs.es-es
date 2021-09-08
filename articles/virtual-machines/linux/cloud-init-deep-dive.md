@@ -8,14 +8,17 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: 4ca42c259e10742e61fbd7f36b73f332cba5a8db
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 38e020cc7541c6005fe3bc1209d6a31191e49404
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445836"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692215"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Profundizar en cloud-init
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
+
 Para obtener más información acerca de [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) o solucionar problemas en un nivel más profundo, debe entender cómo funciona. En este documento se resaltan las partes importantes y se explican las características específicas de Azure.
 
 Cuando cloud-init se incluye en una imagen generalizada y se crea una VM a partir de esa imagen, procesará las configuraciones y se ejecutará en 5 fases durante el arranque inicial. Estas fases son importantes, ya que le muestran en qué punto cloud-init va a aplicar las configuraciones. 

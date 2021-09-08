@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 5fc4e858dbc39f13b3f07405c262086b2b789830
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4d15aa4801e55f583d8c77199105c207f1af8fe7
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732205"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224404"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET para Azure App Service
 
@@ -75,7 +75,7 @@ Si configura una opción de aplicación con el mismo nombre en App Service y en 
 
 ## <a name="deploy-multi-project-solutions"></a>Implementar soluciones de varios proyectos
 
-Cuando una solución de Visual Studio incluye varios proyectos, el proceso de publicación de Visual Studio ya incluye la selección del proyecto que se va a implementar. Al realizar la implementación en el motor de implementación de App Service, como con Git o con implementación de ZIP, [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation), el motor de implementación de App Service elige el primer sitio web o el proyecto de aplicación web que encuentra como aplicación de App Service. Para especificar el proyecto que App Service debe usar, especifique la configuración de la aplicación `PROJECT`. Por ejemplo, ejecute lo siguiente en [Cloud Shell](https://shell.azure.com):
+Cuando una solución de Visual Studio incluye varios proyectos, el proceso de publicación de Visual Studio ya incluye la selección del proyecto que se va a implementar. Al realizar la implementación en el motor de implementación de App Service, como con Git o con implementación de ZIP, [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation-for-zip-deploy), el motor de implementación de App Service elige el primer sitio web o el proyecto de aplicación web que encuentra como aplicación de App Service. Para especificar el proyecto que App Service debe usar, especifique la configuración de la aplicación `PROJECT`. Por ejemplo, ejecute lo siguiente en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -107,5 +107,5 @@ Trace.TraceInformation("GET /Home/Index"); // Information trace
 
 ## <a name="more-resources"></a>Más recursos
 
-- [Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 - [Referencia de variables de entorno y configuración de la aplicación](reference-app-settings.md)

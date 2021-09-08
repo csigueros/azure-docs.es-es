@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 75ee1ca92fb687975dabe0011ce8a95b8c03172b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e62937a4240448f85cc7ab147d642b29bb0a2a9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723088"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226069"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
@@ -66,20 +66,20 @@ De lo contrario, el método de implementación dependerá del tipo de archivo:
 
 ### <a name="java-se"></a>Java SE
 
-Para implementar archivos .jar en Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#rest). 
+Para implementar archivos .jar en Java SE, use el punto de conexión `/api/publish/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages). 
 
 > [!NOTE]
 >  La aplicación .jar debe tener el nombre `app.jar` para App Service y así poder identificar y ejecutar la aplicación. El complemento Maven (mencionado anteriormente) cambiará automáticamente el nombre de la aplicación durante la implementación. Si no quiere cambiar el nombre de archivo JAR a *app.jar*, puede cargar un script de shell con el comando para ejecutar la aplicación .jar. Pegue la ruta de acceso absoluta a este script en el cuadro de texto[Archivo de inicio](/azure/app-service/faq-app-service-linux#built-in-images) de la sección Configuración del portal. El script de inicio no se ejecuta desde el directorio en el que se encuentra. Por lo tanto, use siempre rutas de acceso absolutas para hacer referencia a los archivos del script de inicio (por ejemplo: `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="tomcat"></a>Tomcat
 
-Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-war-file).
+Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages).
 
 ::: zone pivot="platform-linux"
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-Para implementar archivos .war en JBoss, use el punto de conexión `/api/wardeploy/` para realizar la instrucción POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-war-file).
+Para implementar archivos .war en JBoss, use el punto de conexión `/api/wardeploy/` para realizar la instrucción POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages).
 
 Para implementar archivos .ear, [use FTP](deploy-ftp.md). La aplicación .ear se implementará en la raíz de contexto definida en la configuración de la aplicación. Por ejemplo, si la raíz de contexto de la aplicación es `<context-root>myapp</context-root>`, puede examinar el sitio en la ruta de acceso `/myapp`: `http://my-app-name.azurewebsites.net/myapp`. Si desea que se atienda a la aplicación web en la ruta de acceso raíz, asegúrese de que la aplicación establece la raíz del contexto en la ruta de acceso raíz: `<context-root>/</context-root>`. Para obtener más información, vea [Establecimiento del contexto raíz de una aplicación web](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 

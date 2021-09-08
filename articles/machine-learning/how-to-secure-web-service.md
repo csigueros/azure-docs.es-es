@@ -9,12 +9,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 10eb9d57b19968737077a595030bb2a986ec6c7b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: ca7a6e424125980f79ccb6521df0d7b87a9ce456
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564795"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694970"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Uso de TLS para proteger un servicio web con Azure Machine Learning
 
@@ -156,7 +156,7 @@ Para realizar una implementación de Azure Container Service con un certificado 
 > Cuando se usa un certificado de Microsoft para la implementación de Azure Container Service, no es preciso actualizar manualmente el valor de DNS para el clúster. El valor debe establecerse automáticamente.
 
 Para actualizar el registro DNS para el nombre de dominio personalizado puede seguir estos pasos:
-1. Obtenga la dirección IP del punto de conexión de puntuación del identificador URI del punto de conexión de puntuación, que normalmente tiene el formato *http://104.214.29.152:80/api/v1/service/<service-name>/score* . En este ejemplo, la dirección IP es 104.214.29.152.
+1. Obtenga la dirección IP del punto de conexión de puntuación del identificador URI del punto de conexión de puntuación, que normalmente tiene el formato `http://104.214.29.152:80/api/v1/service/<service-name>/score` . En este ejemplo, la dirección IP es 104.214.29.152.
 1. Use las herramientas del registrador de nombres de dominio para actualizar el registro de DNS de su nombre de dominio. El registro asigna el FQDN (por ejemplo, www\.contoso.com) a la dirección IP. El registro debe apuntar a la dirección IP del punto de conexión de puntuación.
 
     > [!TIP]

@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b3433031beba287d1412d0c2254941b7a3e9e118
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 4970ef21be1e5c440acc871f5ca5583da1916f52
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968420"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728522"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archivado de registros e informes sobre la administración de derechos de Azure AD en Azure Monitor
 
@@ -76,14 +76,15 @@ Use el procedimiento siguiente para ver los eventos:
 
 1. Seleccione el libro llamado *Actividad de acceso a paquetes*. 
 
-1. En ese libro, seleccione un intervalo de tiempo (cambie a **Todo** si no está seguro) y seleccione un identificador de paquete de acceso en la lista desplegable de todos los paquetes de acceso que tenían actividad durante ese intervalo de tiempo. Se mostrarán los eventos relacionados con el paquete de acceso que se produjeron durante el intervalo de tiempo seleccionado.  
+1. En ese libro, seleccione un intervalo de tiempo (cambie a **Todo** si no está seguro) y seleccione un identificador de paquete de acceso en la lista desplegable de todos los paquetes de acceso que tenían actividad durante ese intervalo de tiempo. Se mostrarán los eventos relacionados con el paquete de acceso que se produjeron durante el intervalo de tiempo seleccionado.
 
     ![Ver eventos de paquete de acceso](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
 
-    Cada fila incluye la hora, el identificador de paquete de acceso, el nombre de la operación, el identificador de objeto, el UPN y el nombre para mostrar del usuario que inició la operación.  Se incluyen detalles adicionales en JSON.   
+    Cada fila incluye la hora, el identificador de paquete de acceso, el nombre de la operación, el identificador de objeto, el UPN y el nombre para mostrar del usuario que inició la operación.  Se incluyen detalles adicionales en JSON.
 
-1. Si desea ver si ha habido cambios en las asignaciones de roles de aplicación para una aplicación cuya causa no fueron asignaciones de paquetes de acceso, como, por ejemplo, a través de un administrador global que asigna directamente un usuario a un rol de aplicación, puede seleccionar el libro denominado *Actividad de asignación de roles de aplicación*.
+1. Si quiere ver si ha habido cambios en las asignaciones de roles de aplicación para una aplicación cuya causa no fueron asignaciones de paquetes de acceso, como, por ejemplo, a través de un administrador global que asigna directamente un usuario a un rol de aplicación, puede seleccionar el libro denominado *Actividad de asignación de roles de aplicación*.
 
+    ![Visualización de asignaciones de roles de la aplicación](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Creación de consultas personalizadas de Azure Monitor mediante Azure Portal
 Puede crear sus propias consultas en eventos de auditoría de Azure AD, incluidos los eventos de administración de derechos.  

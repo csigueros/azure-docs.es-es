@@ -1,15 +1,15 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
-ms.openlocfilehash: ef54504f0299e9726de384f5bbf88bef72a83cf7
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.author: rifox
+ms.openlocfilehash: 86ab1bc1b9612c663076e5ed55ae5531317906f2
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339465"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078570"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -679,7 +679,7 @@ layout.addView(uiView);
 
 ## <a name="record-calls"></a>Registro de llamadas
 > [!WARNING]
-> Hasta la versión 1.1.0 y la versión beta 1.1.0-beta.1 de la llamada de ACS, Android SDK tiene `isRecordingActive` y `addOnIsRecordingActiveChangedListener` como parte del objeto `Call`. En el caso de las versiones beta nuevas, esas API se movieron como una característica extendida de `Call`, tal como se describe a continuación.
+> Hasta la versión 1.1.0 y la versión beta 1.1.0-beta.1 de la llamada de ACS, Android SDK tiene `isRecordingActive` y `addOnIsRecordingActiveChangedListener` como parte del objeto `Call`. En el caso de las versiones beta, esas API se movieron como una característica extendida de `Call`, tal como se describe a continuación.
 
 > [!NOTE]
 > Esta API se ofrece a los desarrolladores como versión preliminar y puede cambiar en función de los comentarios que recibamos. No utilice esta API en un entorno de producción. Para usar esta API, utilice la versión "beta" del Android SDK de llamada de ACS.
@@ -738,7 +738,7 @@ Cuando se detiene la grabación desde el servidor, se desencadenará el evento `
 
 ## <a name="call-transcription"></a>Transcripción de llamadas
 > [!WARNING]
-> Hasta la versión 1.1.0 y la versión beta 1.1.0-beta.1 de la llamada de ACS, Android SDK tiene `isTranscriptionActive` y `addOnIsTranscriptionActiveChangedListener` como parte del objeto `Call`. En el caso de las versiones beta nuevas, esas API se movieron como una característica extendida de `Call`, tal como se describe a continuación.
+> Hasta la versión 1.1.0 y la versión beta 1.1.0-beta.1 de la llamada de ACS, Android SDK tiene `isTranscriptionActive` y `addOnIsTranscriptionActiveChangedListener` como parte del objeto `Call`. En el caso de las versiones beta, esas API se movieron como una característica extendida de `Call`, tal como se describe a continuación.
     
 > [!NOTE]
 > Esta API se ofrece a los desarrolladores como versión preliminar y puede cambiar en función de los comentarios que recibamos. No utilice esta API en un entorno de producción. Para usar esta API, utilice la versión "beta" del Android SDK de llamada de ACS.

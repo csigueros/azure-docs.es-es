@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b7fce2e2ccb6f331e42e8052ef4fb75d35e831
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b79e8d07c2d7ed93be0a4cd77a07ae72454f78a
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729997"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652190"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que se puede utilizar para actualizar la instalación de Azure Active Directory (Azure AD) Connect a la versión más reciente.  Los pasos de la sección [Migración oscilante](#swing-migration) también se utilizan al realizar un cambio de configuración considerable.
@@ -57,10 +57,10 @@ Si se realizaron cambios en las reglas de sincronización originales, estas volv
 
 Durante la actualización en contexto, puede que se hayan introducido cambios que requieran que se ejecuten actividades específicas de sincronización (incluidos los pasos de importación completa y sincronización completa) una vez completada la actualización. Para aplazar estas actividades, consulte la sección [Aplazamiento de la sincronización completa después de la actualización](#how-to-defer-full-synchronization-after-upgrade).
 
-Si utiliza Azure AD Connect con un conector no estándar (por ejemplo, el conector LDAP genérico y el conector SQL genérico), debe actualizar la configuración del conector correspondiente en [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) después de la actualización local. Para obtener información sobre cómo actualizar la configuración del conector, consulte la sección del artículo [Historial de versiones de conectores: Solución de problemas](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Si no actualiza la configuración, los pasos de ejecución de importación y exportación no funcionarán correctamente para el conector. Recibirá el siguiente error en el registro de eventos de la aplicación con el mensaje *"Assembly version in AAD Connector configuration (&quot;X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"* (La versión de ensamblado en la configuración de AAD Connector ["X.X.XXX.X"] es anterior que la versión real ["X.X.XXX.X"] de "C:\Archivos de programa\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll).
+Si utiliza Azure AD Connect con un conector no estándar (por ejemplo, el conector LDAP genérico y el conector SQL genérico), debe actualizar la configuración del conector correspondiente en [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) después de la actualización local. Para obtener información sobre cómo actualizar la configuración del conector, consulte la sección del artículo [Historial de versiones de conectores: Solución de problemas](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Si no actualiza la configuración, los pasos de ejecución de importación y exportación no funcionarán correctamente para el conector. Recibirá el siguiente error en el registro de eventos de la aplicación con el mensaje *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"* (La versión de ensamblado en la configuración de AAD Connector ["X.X.XXX.X"] es anterior que la versión real ["X.X.XXX.X"] de "C:\Archivos de programa\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll).
 
 ## <a name="swing-migration"></a>Migración oscilante
-Si tiene una implementación compleja o muchos objetos, puede que no resulte práctico realizar una actualización local en el sistema activo. En el caso de algunos clientes, este proceso podría tardar varios días y durante este tiempo no se procesará ningún cambio delta. Este método también se puede utilizar cuando se planea realizar cambios sustanciales en la configuración y se desea probarlos antes de insertarlos en la nube.
+Si tiene una implementación compleja o muchos objetos, o si necesita actualizar el sistema operativo de Windows Server, puede que no sea práctico realizar una actualización local en el sistema activo. En el caso de algunos clientes, este proceso podría tardar varios días y durante este tiempo no se procesará ningún cambio delta. Este método también se puede utilizar cuando se planea realizar cambios sustanciales en la configuración y se desea probarlos antes de insertarlos en la nube.
 
 El método recomendado para estos escenarios es usar una migración oscilante. Se necesitan (al menos) dos servidores, uno activo y otro provisional. El primero (que se muestra con líneas azules continuas en la siguiente imagen) es el responsable de la carga de producción activa. El segundo (que se muestra con líneas discontinuas de color púrpura) está preparado con la nueva versión o configuración. Cuando esté totalmente preparado, se activa el servidor. El servidor activo anterior, que ahora tiene la versión o configuración anteriores instaladas, se convierte en el servidor provisional y se actualiza.
 
@@ -137,6 +137,10 @@ Puede que haya situaciones en las no quiere que estas invalidaciones se produzca
    > No olvide ejecutar lo antes posible los pasos de sincronización necesarios. Puede ejecutar estos pasos manualmente con el Synchronization Service Manager o volver a agregar las invalidaciones con el cmdlet Set-ADSyncSchedulerConnectorOverride.
 
 Para agregar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## <a name="upgrading-the-server-operating-system"></a>Actualización del sistema operativo del servidor
+
+Si necesita actualizar el sistema operativo del servidor Azure AD Connect, no use una actualización local del sistema operativo. En su lugar, prepare un nuevo servidor con el sistema operativo deseado y realice [una migración oscilante](#swing-migration).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 La siguiente sección contiene instrucciones de solución de problemas e información que puede usar si se produce un problema al actualizar Azure AD Connect.

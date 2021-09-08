@@ -8,14 +8,16 @@ ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bd1c2d9a9d428a765a9b621652aa23fdec94f212
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 1fd010e645370389a657f70aeb2e821b69477ef1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456433"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687574"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use Azure Portal para habilitar el cifrado de un extremo a otro mediante el cifrado en host
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows
 
 Cuando se habilita el cifrado en el host, los datos almacenados en el host de máquina virtual se cifran en reposo y se transmiten cifrados al servido Storage. Para obtener información conceptual sobre el cifrado en el host y otros tipos de cifrado de disco administrado, consulte la sección [Cifrado en el host: cifrado de un extremo a otro de los datos de la máquina virtual](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 

@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 8f5a286a835da7fb74f969295090b0ecc0731a74
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: e88637f67e8e9db01c46b6de5518c95ad4290ee9
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114728473"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419206"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Solución de problemas en las compilaciones de imágenes
 
@@ -207,9 +207,6 @@ Si usa imágenes de Docker predeterminadas y habilita las dependencias administr
 
  Para obtener más información, consulte [Habilitar redes virtuales](./how-to-network-security-overview.md).
 
-### <a name="you-need-to-create-an-icm"></a>Debe crear un ICM
-
-Al crear o asignar un ICM a MetaStore, incluya la incidencia de soporte de CSS para que podamos comprender mejor el problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

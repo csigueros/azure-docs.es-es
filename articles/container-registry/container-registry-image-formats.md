@@ -3,12 +3,12 @@ title: Formatos de contenido compatibles
 description: Obtenga información sobre los formatos de contenido que admite Azure Container Registry, como imágenes de contenedor compatibles con Docker, gráficos de Helm, e imágenes y artefactos OCI.
 ms.topic: article
 ms.date: 03/02/2021
-ms.openlocfilehash: 218d98f3f16e8d0ca76a24692afbb2b69606564b
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 1203bc8cbebfd59ef28f03d19e939b73d707a3f3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223071"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438888"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de contenido admitidos en Azure Container Registry
 
@@ -28,7 +28,10 @@ Azure Container Registry admite imágenes que cumplen la [especificación de for
 
 ## <a name="oci-artifacts"></a>Artefactos de OCI
 
-Azure Container Registry admite la [especificación de distribución OCI](https://github.com/opencontainers/distribution-spec), una especificación independiente de la nube y del proveedor para almacenar, compartir, proteger e implementar imágenes de contenedor y otros tipos de contenido (artefactos). La especificación permite que un registro almacene una amplia variedad de artefactos además de imágenes de contenedor. Use las herramientas adecuadas para el artefacto para insertar y extraer artefactos. Para ver un ejemplo, consulte [Inserción y extracción de un artefacto de OCI con un registro de contenedor de Azure](container-registry-oci-artifacts.md).
+Azure Container Registry admite la [especificación de distribución OCI](https://github.com/opencontainers/distribution-spec), una especificación independiente de la nube y del proveedor para almacenar, compartir, proteger e implementar imágenes de contenedor y otros tipos de contenido (artefactos). La especificación permite que un registro almacene una amplia variedad de artefactos además de imágenes de contenedor. Use las herramientas adecuadas para el artefacto para insertar y extraer artefactos. Vea los siguientes ejemplos:
+
+* [Inserción y extracción de un artefacto de OCI con un registro de contenedor de Azure](container-registry-oci-artifacts.md)
+* [Inserción y extracción de gráficos de Helm en Azure Container Registry](container-registry-helm-repos.md)
 
 Para más información sobre los artefactos de OCI, consulte los repositorios [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) y [OCI Artifacts](https://github.com/opencontainers/artifacts) en GitHub.
 

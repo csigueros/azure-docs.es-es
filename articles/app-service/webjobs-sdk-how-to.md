@@ -5,48 +5,49 @@ author: ggailey777
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 06/24/2021
 ms.author: glenga
-ms.openlocfilehash: 4bff929346a1f452ecd574eccccd1ba8c95788db
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 0b39e73f1920c653f653b686ac50aa1e4253c555
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226325"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "122652983"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
-En este artículo se proporciona orientación sobre cómo trabajar con el SDK de Azure WebJobs. Para comenzar a trabajar inmediatamente con WebJobs, consulte [Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos](webjobs-sdk-get-started.md). 
+En este artículo se proporciona orientación sobre cómo trabajar con el SDK de Azure WebJobs. Para comenzar a trabajar inmediatamente con WebJobs, consulte [Introducción al SDK de Azure WebJobs](webjobs-sdk-get-started.md). 
 
 ## <a name="webjobs-sdk-versions"></a>Versiones del SDK de WebJobs
 
 Estas son las principales diferencias entre la versión 3.*x* y la versión 2.*x* del SDK de WebJobs:
 
 * La versión 3.*x* agrega compatibilidad con .NET Core.
-* En la versión 3.*x*, es necesario instalar explícitamente la extensión de enlace de almacenamiento requerida por el SDK de WebJobs. En la versión 2.*x*, los enlaces de almacenamiento se incluyen en el SDK.
-* Las herramientas de Visual Studio para proyectos de .NET Core (3.*x*) se diferencian de las herramientas para proyectos de .NET Framework (2.*x*). Para más información, consulte [Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+* En la versión 3.*x*, deberá instalar explícitamente la extensión de enlace de almacenamiento que requiere el SDK de WebJobs. En la versión 2.*x*, los enlaces de almacenamiento se incluyen en el SDK.
+* Las herramientas de Visual Studio2019 para proyectos de .NET Core (3.*x*) se diferencian de las herramientas para proyectos de .NET Framework (2.*x*). Para más información, consulte [Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-Cuando sea posible, se proporcionan ejemplos para la versión 3.*x* y la versión 2.*x*.
+Varias descripciones de este artículo proporcionan ejemplos tanto para la versión 3.*x* como la 2.*x* de WebJobs.
 
-> [!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) se integra en el SDK de WebJobs, así que si quiere ver algún tema relacionado, en este artículo se proporcionan vínculos a la documentación de Azure Functions. Observe estas diferencias entre Functions y el SDK de WebJobs:
-> * La versión 2.*x* de Azure Functions corresponde a la versión 3.*x* del SDK de WebJobs, y Azure Functions 1.*x* corresponde al SDK de WebJobs 2.*x*. Los repositorios de código fuente siguen la numeración del SDK de WebJobs.
-> * El código de ejemplo de las bibliotecas de clases de C# de Azure Functions es como el código del SDK de WebJobs, salvo que no es necesario tener un atributo `FunctionName` en un proyecto de SDK de WebJobs.
-> * Algunos tipos de enlace solo se admiten en Functions, como HTTP (Webhooks) y Event Grid (que se basa en HTTP).
->
-> Para obtener más información, consulte [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) (Comparación del SDK de WebJobs con Azure Functions).
+[Azure Functions](../azure-functions/functions-overview.md) se basa en el SDK de WebJobs. 
+  
+ * La versión 2.*x* de Azure Functions se basa en la versión 3.*x* del SDK de WebJobs.
+ * La versión 1.*x* de Azure Functions se basa en la versión 2.*x* del SDK de WebJobs.
+  
+Los repositorios de código fuente para Azure Functions y el SDK de WebJobs usan la numeración del SDK de WebJobs. Varias secciones de este artículo de ayuda se vinculan con la documentación de Azure Functions. 
+
+Para obtener más información, consulte [Comparación del SDK de WebJobs con Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs). 
 
 ## <a name="webjobs-host"></a>Host de WebJobs
 
-El host es un contenedor en tiempo de ejecución de las funciones.  Realiza escuchas de desencadenadores y llamadas de función. En la versión 3.*x*, el host es una implementación de `IHost`. En la versión 2.*x*, se usa el objeto `JobHost`. Puede crear una instancia de host en su código y escribir código para personalizar su comportamiento.
+El host es un contenedor en tiempo de ejecución de las funciones. El host realiza escuchas de desencadenadores y llamadas de función. En la versión 3.*x*, el host es una implementación de `IHost`. En la versión 2.*x*, se usa el objeto `JobHost`. Puede crear una instancia de host en su código y escribir código para personalizar su comportamiento.
 
-Esta es una diferencia clave entre lo que supone usar directamente el SDK de WebJobs o usarlo de forma indirecta mediante Azure Functions. En Azure Functions, el servicio controla el host, y este no se puede personalizar mediante la escritura de código. Azure Functions le permite personalizar el comportamiento del host a través de la configuración del archivo host.json. Esos valores de configuración son cadenas y no código, lo que limita los tipos de personalizaciones que puede realizar.
+Esta es una diferencia clave entre lo que supone usar directamente el SDK de WebJobs o usarlo de forma indirecta mediante Azure Functions. En Azure Functions, el servicio controla el host, y este no se puede personalizar mediante la escritura de código. Azure Functions le permite personalizar el comportamiento del host a través de la configuración del archivo host.json. Esos valores de configuración son cadenas y no código y su uso limita los tipos de personalizaciones que puede realizar.
 
 ### <a name="host-connection-strings"></a>Cadenas de conexión del host
 
-El SDK de WebJobs busca cadenas de conexión de Azure Storage y Azure Service Bus en el archivo local.settings.json cuando se ejecuta de forma local, o en el entorno de WebJobs cuando se ejecuta en Azure. De forma predeterminada, se requiere un valor de cadena de conexión llamado `AzureWebJobsStorage`.  
+El SDK de WebJobs busca cadenas de conexión de Azure Storage y Azure Service Bus en el archivo local.settings.json cuando se ejecuta de forma local, o bien en el entorno de WebJobs cuando se ejecuta en Azure. De forma predeterminada, el SDK de WebJobs requiere una configuración de cadena de conexión de almacenamiento con el nombre `AzureWebJobsStorage`.  
 
-La versión 2.*x* del SDK le permite usar sus propios nombres para estas cadenas de conexión o almacenarlos en otra parte. Puede establecer los nombres en el código mediante [`JobHostConfiguration`], tal y como se muestra aquí:
+La versión 2.*x* del SDK no requiere un nombre específico. La versión 2.*x* le permite usar sus propios nombres para estas cadenas de conexión o almacenarlos en otra parte. Puede establecer los nombres en el código mediante [`JobHostConfiguration`], tal y como se muestra aquí:
 
 ```cs
 static void Main(string[] args)
@@ -71,7 +72,7 @@ static void Main(string[] args)
 
 ### <a name="host-development-settings"></a>Configuración de desarrollo del host
 
-Puede ejecutar el host en modo de desarrollo para aumentar la eficacia del desarrollo local. Estos son algunos de los valores de configuración que se cambian cuando se ejecuta en modo de desarrollo:
+Puede ejecutar el host en modo de desarrollo para aumentar la eficacia del desarrollo local. Estos son algunos de los valores de configuración que se cambian automáticamente cuando realiza la ejecución en modo de desarrollo:
 
 | Propiedad | Configuración de desarrollo |
 | ------------- | ------------- |
@@ -104,7 +105,7 @@ static async Task Main()
 
 #### <a name="version-2x"></a>Versión 2.*x*
 
-La clase `JobHostConfiguration` tiene un método `UseDevelopmentSettings` que permite el modo de desarrollo.  En el ejemplo siguiente se muestra cómo utilizar la configuración de desarrollo. Para hacer que `config.IsDevelopment` devuelva `true` cuando se ejecuta localmente, establezca una variable de entorno local denominada `AzureWebJobsEnv` con el valor `Development`.
+La clase `JobHostConfiguration` tiene un método `UseDevelopmentSettings` que permite el modo de desarrollo. En el ejemplo siguiente se muestra cómo utilizar la configuración de desarrollo. Para hacer que `config.IsDevelopment` devuelva `true` cuando se ejecuta localmente, establezca una variable de entorno local denominada `AzureWebJobsEnv` con el valor `Development`.
 
 ```cs
 static void Main()
@@ -129,7 +130,7 @@ En la versión 2.*x*, el número de conexiones simultáneas a un host se control
 
 Todas las solicitudes HTTP que realice desde una función mediante `HttpClient`, pasarán por `ServicePointManager`. Después de alcanzar el valor establecido en `DefaultConnectionLimit`, `ServicePointManager` inicia la puesta en cola de las solicitudes antes de enviarlas. Suponga que `DefaultConnectionLimit` se establece en 2 y que el código realiza 1000 solicitudes de HTTP. Inicialmente, solo se permiten dos solicitudes mediante el sistema operativo. Las otras 998 se ponen en cola hasta que haya espacio para ellas. Eso significa que `HttpClient` puede agotar el tiempo de espera porque aparentemente ha realizado la solicitud, pero en realidad el sistema operativo nunca la envió al servidor de destino. Por lo tanto, es posible que vea cierto comportamiento que no parezca tener sentido: el `HttpClient` local tarda 10 segundos en completar una solicitud, pero el servicio devuelve todas las solicitudes en 200 ms. 
 
-El valor predeterminado de las aplicaciones ASP.NET es `Int32.MaxValue`, y es probable que funcione bien en las instancias de WebJobs que se ejecuten en un plan de App Service de nivel básico o superior. WebJobs normalmente necesita la configuración de Always On que solo es compatible con los planes de App Service de nivel básico o superior.
+El valor predeterminado de las aplicaciones ASP.NET es `Int32.MaxValue`, y es probable que funcione bien en las instancias de WebJobs que se ejecuten en un plan de App Service de nivel básico o superior. WebJobs normalmente necesita la configuración de **Always On**, que solo es compatible con los planes de App Service de nivel básico o superior.
 
 Si WebJobs se ejecuta en un plan de App Service gratuito o compartido, un espacio aislado de App Service con un [límite de 300 conexiones](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits) se encargará de restringir la aplicación. Con un límite de conexiones independientes en `ServicePointManager`, es más probable que se alcance el umbral de conexión del espacio aislado y que el sitio se apague. En ese caso, reduzca el valor de `DefaultConnectionLimit` (use algo como 50 o 100) para evitar que esto suceda y permitir un nivel de rendimiento suficiente.
 
@@ -148,11 +149,13 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>Desencadenadores
 
+El SDK de WebJobs admite el mismo conjunto de desencadenadores y enlaces que usa [Azure Functions](../azure-functions/functions-triggers-bindings.md). Tenga en cuenta que, en el SDK de WebJobs, los desencadenadores son específicos de la función y no están relacionados con el tipo de implementación de WebJobs. Los trabajos de WebJobs con funciones desencadenadas por eventos creados con el SDK siempre deben publicarse como trabajos web _continuos_, con _Always on_ habilitado.   
+
 Las funciones deben ser métodos públicos y deben tener un atributo de desencadenador o el atributo [`NoAutomaticTrigger`](#manual-triggers).
 
 ### <a name="automatic-triggers"></a>Desencadenadores automáticos
 
-Los desencadenadores automáticos llaman a una función en respuesta a un evento. Considere este ejemplo de una función que se desencadena mediante un mensaje agregado a Azure Queue Storage. Para responder se lee un blob de Azure Blob Storage:
+Los desencadenadores automáticos llaman a una función en respuesta a un evento. Considere este ejemplo de una función que se desencadena mediante un mensaje agregado a Azure Queue Storage. Para responder, la función lee un blob de Azure Blob Storage:
 
 ```cs
 public static void Run(
@@ -164,7 +167,7 @@ public static void Run(
 }
 ```
 
-El atributo `QueueTrigger` indica al entorno de ejecución que llame a la función cada vez que aparece un mensaje de la cola en la cola `myqueue-items`. El atributo `Blob` indica al tiempo de ejecución que use el mensaje de la cola para leer un blob en el contenedor *sample-workitems*. El nombre del elemento de blob en el contenedor `samples-workitems` se obtiene directamente del desencadenador de cola como una expresión de enlace (`{queueTrigger}`).
+El atributo `QueueTrigger` indica al entorno de ejecución que llame a la función cada vez que aparece un mensaje de la cola en `myqueue-items`. El atributo `Blob` indica al tiempo de ejecución que use el mensaje de la cola para leer un blob en el contenedor *sample-workitems*. El nombre del elemento de blob en el contenedor `samples-workitems` se obtiene directamente del desencadenador de cola como una expresión de enlace (`{queueTrigger}`).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -229,7 +232,7 @@ Los enlaces de entrada proporcionan una forma declarativa de hacer que los datos
 
 Puede usar un valor devuelto del método para un enlace de salida mediante la aplicación del atributo al valor devuelto del método. Puede ver un ejemplo en [Uso del valor devuelto de una función de Azure](../azure-functions/functions-bindings-return-value.md).
 
-## <a name="binding-types"></a>Tipos de enlaces
+### <a name="binding-types"></a>Tipos de enlaces
 
 El proceso para instalar y administrar tipos de enlace depende de si usa la versión 3.*x* o la versión 2.*x* del SDK. Puede encontrar el paquete que desea instalar para un tipo de enlace concreto en la sección "Paquetes" del [artículo de referencia](#binding-reference-information) de ese tipo de enlace de Azure Functions. Como excepción, tenemos el desencadenador y el enlace de Files (para el sistema de archivos local), que no es compatible con Azure Functions.
 
@@ -273,7 +276,7 @@ static async Task Main()
 }
 ```
 
-Para usar el desencadenador Timer o el enlace Files, que forman parte de los servicios principales, llame a los métodos de extensión `AddTimers` o `AddFiles`, respectivamente.
+Para usar el desencadenador Timer o el enlace Files, que forman parte de los servicios principales, llame a los métodos de extensión `AddTimers` o `AddFiles`.
 
 #### <a name="version-2x"></a>Versión 2.*x*
 
@@ -353,7 +356,7 @@ class Program
 }
 ```
 
-## <a name="binding-configuration"></a>Configuración de enlace
+### <a name="binding-configuration"></a>Configuración de enlace
 
 Puede configurar el comportamiento de algunos enlaces y desencadenadores. El proceso para configurarlos depende de la versión del SDK.
 
@@ -370,7 +373,7 @@ Puede configurar los enlaces siguientes:
 * [Enlace de SendGrid](#sendgrid-binding-configuration-version-3x)
 * [Desencadenador de Service Bus](#service-bus-trigger-configuration-version-3x)
 
-### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Configuración del desencadenador de Azure CosmosDB (versión 3.*x*)
+#### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Configuración del desencadenador de Azure CosmosDB (versión 3.*x*)
 
 En este ejemplo se muestra cómo configurar el desencadenador de Azure Cosmos DB:
 
@@ -397,9 +400,9 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlaces de Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings).
+Para obtener más información, consulte el artículo [Enlaces de Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings).
 
-### <a name="event-hubs-trigger-configuration-version-3x"></a>Configuración de desencadenador de Event Hubs (versión 3.*x*)
+#### <a name="event-hubs-trigger-configuration-version-3x"></a>Configuración de desencadenador de Event Hubs (versión 3.*x*)
 
 En este ejemplo se muestra cómo configurar el desencadenador de Event Hubs:
 
@@ -425,11 +428,11 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlace de Event Hubs](../azure-functions/functions-bindings-event-hubs.md#host-json).
+Para obtener más información, consulte el artículo [Enlaces de Event Hubs](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
 
 ### <a name="queue-storage-trigger-configuration"></a>Configuración del desencadenador de Queue Storage
 
-Estos ejemplos muestran cómo configurar el desencadenador de Queue Storage:
+En los ejemplos siguientes se muestra cómo configurar el desencadenador de Queue Storage:
 
 #### <a name="version-3x"></a>Versión 3.*x*
 
@@ -455,7 +458,7 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlace de Queue Storage](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties).
+Para obtener más información, consulte el artículo [Enlace de Queue Storage](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties).
 
 #### <a name="version-2x"></a>Versión 2.*x*
 
@@ -472,7 +475,7 @@ static void Main(string[] args)
 }
 ```
 
-Para más información, consulte la [referencia de host.json v1.x](../azure-functions/functions-host-json-v1.md#queues).
+Para obtener más información, consulte la [referencia sobre host.json v1.x](../azure-functions/functions-host-json-v1.md#queues).
 
 ### <a name="sendgrid-binding-configuration-version-3x"></a>Configuración de enlace de SendGrid (versión 3. *x*)
 
@@ -499,7 +502,7 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlace de SendGrid](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
+Para obtener más información, consulte el artículo [Enlace de SendGrid](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
 
 ### <a name="service-bus-trigger-configuration-version-3x"></a>Configuración del desencadenador de Service Bus (versión 3. *x*)
 
@@ -530,7 +533,7 @@ Para más información, consulte el artículo [Enlace de Service Bus](../azure-f
 
 ### <a name="configuration-for-other-bindings"></a>Configuración de otros enlaces
 
-Algunos tipos de desencadenador y enlace definen su propio tipo de configuración personalizada. Por ejemplo, el desencadenador File le permite especificar la ruta de acceso raíz para supervisar, como en los ejemplos siguientes:
+Algunos tipos de desencadenador y enlace definen su propio tipo de configuración personalizada. Por ejemplo, el desencadenador File le permite especificar la ruta de acceso raíz que se debe supervisar, como en los ejemplos siguientes.
 
 #### <a name="version-3x"></a>Versión 3.*x*
 
@@ -567,7 +570,7 @@ static void Main()
 }
 ```
 
-## <a name="binding-expressions"></a>Expresiones de enlace
+### <a name="binding-expressions"></a>Expresiones de enlace
 
 En los parámetros de constructor del atributo, puede utilizar expresiones que dan como resultado valores procedentes de diversos orígenes. Por ejemplo, en el código siguiente, la ruta de acceso del atributo `BlobTrigger` crea una expresión con el nombre `filename`. Cuando se utiliza para el enlace de salida, `filename` se resuelve como el nombre del blob desencadenador.
 
@@ -658,7 +661,7 @@ Pase su clase `NameResolver` al objeto `JobHost`, como se muestra aquí:
 
 Azure Functions implementa `INameResolver` para obtener los valores de configuración de la aplicación, tal como se muestra en el ejemplo. Cuando se usa el SDK de WebJobs directamente, puede escribir una implementación personalizada que obtiene los valores de reemplazo del marcador de posición de cualquier origen que prefiera.
 
-## <a name="binding-at-runtime"></a>Enlace en tiempo de ejecución
+### <a name="binding-at-runtime"></a>Enlace en tiempo de ejecución
 
 Si necesita realizar algún trabajo en la función antes de usar un atributo de enlace como `Queue`, `Blob` o `Table`, puede usar la interfaz `IBinder`.
 
@@ -678,7 +681,7 @@ public static void CreateQueueMessage(
 
 Para obtener más información, consulte [Enlace en tiempo de ejecución](../azure-functions/functions-dotnet-class-library.md#binding-at-runtime) en la documentación de Azure Functions.
 
-## <a name="binding-reference-information"></a>Información de referencia de enlace
+### <a name="binding-reference-information"></a>Información de referencia de enlace
 
 En la documentación de Azure Functions se proporciona información de referencia sobre cada tipo de enlace. Encontrará la información siguiente en cada artículo de referencia de enlace. (Este ejemplo se basa en la cola de almacenamiento).
 
@@ -687,10 +690,16 @@ En la documentación de Azure Functions se proporciona información de referenci
 * [Atributos](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). Los atributos que se usarán para el tipo de enlace.
 * [Configuración](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Explicaciones de las propiedades de atributo y de los parámetros del constructor.
 * [Uso](../azure-functions/functions-bindings-storage-queue-trigger.md#usage) Los tipos con los que puede enlazar e información sobre cómo funciona el enlace. Por ejemplo: sondear algoritmos o procesar colas dudosas.
-  
-Para obtener una lista de artículos de referencia de enlace, consulte la sección "Enlaces admitidos" del artículo [Enlaces y desencadenadores](../azure-functions/functions-triggers-bindings.md#supported-bindings) de Azure Functions. En esa lista, solo Azure Functions admite los enlaces de HTTP, Webhooks y Event Grid; el SDK de WebJobs no los admite.
 
-## <a name="disable-attribute"></a>Atributo Disable 
+> [!NOTE]
+> Solo Azure Functions admite los enlaces de HTTP, Webhooks y Event Grid; el SDK de WebJobs no los admite.
+  
+Para obtener una lista completa de los enlaces admitidos en el entorno de ejecución de Azure Functions, vea [Enlaces admitidos](../azure-functions/functions-triggers-bindings.md#supported-bindings).  
+
+## <a name="attributes-for-disable-timeout-and-singleton"></a>Atributos para Disable, Timeout y Singleton
+Con estos atributos, puede controlar el desencadenamiento de funciones, cancelar funciones y asegurarse de que solo se ejecuta una instancia de una función.
+
+### <a name="disable-attribute"></a>Atributo Disable 
 
 El atributo [`Disable`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) le permite controlar si una función se puede desencadenar. 
 
@@ -708,7 +717,7 @@ Al cambiar los valores de configuración de aplicación en Azure Portal, se rein
 
 El atributo se puede declarar en el nivel de clase, método o parámetro. El nombre de la configuración también puede contener expresiones de enlace.
 
-## <a name="timeout-attribute"></a>Atributo Timeout
+### <a name="timeout-attribute"></a>Atributo Timeout
 
 El atributo [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) ocasiona que se cancele una función si no se completa dentro de un período de tiempo especificado. En el ejemplo siguiente, la función se ejecutaría durante un día sin el atributo de tiempo de expiración. El tiempo de expiración hace que la función se cancele al cabo de 15 segundos.
 
@@ -727,9 +736,9 @@ public static async Task TimeoutJob(
 
 Puede aplicar el atributo de tiempo de expiración en el nivel de clase o método; asimismo, puede especificar un tiempo de expiración global mediante `JobHostConfiguration.FunctionTimeout`. Los tiempos de expiración de nivel de clase o método invalidan el tiempo de expiración global.
 
-## <a name="singleton-attribute"></a>Atributo Singleton
+### <a name="singleton-attribute"></a>Atributo Singleton
 
-El atributo [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) garantiza que solo se ejecuta una instancia de una función, incluso cuando hay varias instancias de la aplicación web de host. Para ello, se usa el [bloqueo distribuido](#viewing-lease-blobs).
+El atributo [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) garantiza que solo se ejecuta una instancia de una función, incluso cuando hay varias instancias de la aplicación web de host. El atributo Singleton usa el [bloqueo distribuido](#viewing-lease-blobs) para asegurarse de que se ejecuta una instancia.
 
 En este ejemplo, solo una instancia de la función `ProcessImage` se ejecuta en un momento dado:
 
@@ -741,7 +750,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 }
 ```
 
-### <a name="singletonmodelistener"></a>SingletonMode.Listener
+#### <a name="singletonmodelistener"></a>SingletonMode.Listener
 
 Algunos de los desencadenadores tienen compatibilidad integrada para poder administrar la simultaneidad:
 
@@ -754,9 +763,9 @@ Puede usar esta configuración para asegurarse de que la función se ejecuta com
 > [!NOTE]
 > Consulte este [repositorio de GitHub](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) para más información sobre cómo funciona SingletonMode.Function.
 
-### <a name="scope-values"></a>Valores de ámbito
+#### <a name="scope-values"></a>Valores de ámbito
 
-Puede especificar una *expresión o valor de ámbito* en un singleton. La expresión o valor garantizan que se van a serializar todas las ejecuciones de la función en un ámbito específico. La implementación de un bloqueo más pormenorizado de esta manera puede permitir algún nivel de paralelismo de la función, mientras se serializan otras invocaciones según los requisitos. Por ejemplo, en el código de ejemplo, la expresión de ámbito se enlaza con el valor `Region` del mensaje entrante. Cuando la cola contiene tres mensajes en las regiones "Este", "Este" y "Oeste", respectivamente, los mensajes que tienen la región "Este" se ejecutarán en serie mientras que el mensaje con la región "Oeste" se ejecutará en paralelo con los de "Este".
+Puede especificar una *expresión o valor de ámbito* en un singleton. La expresión o valor garantizan que se van a serializar todas las ejecuciones de la función en un ámbito específico. La implementación de un bloqueo más pormenorizado de esta manera puede permitir algún nivel de paralelismo de la función, mientras se serializan otras invocaciones según los requisitos. Por ejemplo, en el código de ejemplo, la expresión de ámbito se enlaza con el valor `Region` del mensaje entrante. Cuando la cola contiene tres mensajes en las regiones Este y Oeste, los mensajes que incluyen la región Este se ejecutan en serie. El mensaje con la región Oeste se ejecuta en paralelo con los de la región Este.
 
 ```csharp
 [Singleton("{Region}")]
@@ -774,7 +783,7 @@ public class WorkItem
 }
 ```
 
-### <a name="singletonscopehost"></a>SingletonScope.Host
+#### <a name="singletonscopehost"></a>SingletonScope.Host
 
 El ámbito predeterminado de un bloqueo es `SingletonScope.Function`, lo que significa que el ámbito de bloqueo (la ruta de acceso de concesión del blob) está asociado al nombre de función completo. Para realizar bloqueos entre funciones, debe especificar `SingletonScope.Host` y usar un nombre de identificador de ámbito que sea el mismo en todas las funciones que no quiera ejecutar a la vez. En el ejemplo siguiente, solo una instancia de `AddItem` o de `RemoveItem` se ejecuta a la vez:
 
@@ -792,7 +801,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 }
 ```
 
-### <a name="viewing-lease-blobs"></a>Ver blobs de concesión
+## <a name="viewing-lease-blobs"></a>Ver blobs de concesión
 
 El SDK de WebJobs usa las [concesiones de blobs de Azure](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) en segundo plano para poder implementar el bloqueo distribuido. Los blobs de concesión que usa Singleton se pueden encontrar en el contenedor `azure-webjobs-host` de la cuenta de almacenamiento `AzureWebJobsStorage` en la ruta de acceso "bloqueos". Por ejemplo, la ruta de acceso del blob de concesión que se indicó en el primer ejemplo `ProcessImage` mostrado, puede ser `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Todas las rutas de acceso incluyen el identificador de JobHost, que en este caso es 061851c758f04938a4426aa9ab3869c0.
 
@@ -830,7 +839,7 @@ Cada registro que creó una instancia `ILogger` tiene asociados los valores `Cat
 |------------|---|
 |Seguimiento       | 0 |
 |Depurar       | 1 |
-|Information | 2 |
+|Información | 2 |
 |Advertencia     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |
@@ -897,7 +906,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### <a name="custom-telemetry-for-application-insights"></a>Telemetría personalizada de Application Insights​
 
-El proceso para implementar telemetría personalizada para [Application Insights](../azure-monitor/app/app-insights-overview.md) depende de la versión del SDK. Para saber cómo configurar Application Insights, consulte [Incorporación del registro de Application Insights](webjobs-sdk-get-started.md#add-application-insights-logging).
+El proceso para implementar telemetría personalizada para [Application Insights](../azure-monitor/app/app-insights-overview.md) depende de la versión del SDK. Para saber cómo configurar Application Insights, consulte [Incorporación del registro de Application Insights](webjobs-sdk-get-started.md#enable-application-insights-logging).
 
 #### <a name="version-3x"></a>Versión 3.*x*
 
