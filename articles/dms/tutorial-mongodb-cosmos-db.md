@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
-ms.date: 05/19/2021
-ms.openlocfilehash: 937fcc60e8be144fce10748345b71cc05703c04f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: 87f211976f74fef5ed2c0cef992d82099e141a29
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638515"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038178"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-api-for-mongodb-offline"></a>Tutorial: Migración de MongoDB a Azure Cosmos DB API para MongoDB sin conexión
 [!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
@@ -232,6 +232,12 @@ Después de finalizar la migración, podrá consultar la cuenta de Azure Cosmos�
 ## <a name="post-migration-optimization"></a>Optimización posterior a la migración
 
 Después de migrar los datos almacenados en la base de datos de MongoDB a Azure Cosmos DB API para MongoDB, puede conectarse a Azure Cosmos DB y administrar los datos. También puede realizar otros pasos de optimización posteriores a la migración, entre los que se podrían incluir la optimización de la directiva de indexación, la actualización del nivel de coherencia predeterminado o la configuración de la distribución global de la cuenta de Azure Cosmos DB. Para más información, consulte [Optimización posterior a la migración](../cosmos-db/mongodb-post-migration.md).
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../cosmos-db/convert-vcore-to-request-unit.md). 
+    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](../cosmos-db/mongodb/estimate-ru-capacity-planner.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

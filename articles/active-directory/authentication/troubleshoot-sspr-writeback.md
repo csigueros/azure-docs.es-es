@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/26/2020
+ms.date: 08/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b03b93c09ebe1c8361379dba018d7c756f409d4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ccc9b6dffd6fa18fc18a9d16bc702553d277193d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745158"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866603"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Solución de problemas de la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -49,6 +49,18 @@ En el caso de la versión *1.1.443.0* y superior de Azure AD Connect, se necesi
 * *\*.servicebus.usgovcloudapi.net*
 
 Si necesita más detalles, consulte la [lista de intervalos de dirección IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Esta lista se actualiza todos los miércoles y entra en vigor el lunes siguiente.
+
+Para determinar si el acceso a una dirección URL y un puerto están restringidos en un entorno, ejecute el siguiente cmdlet:
+
+```powershell
+Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -Port 443
+```
+
+También puede ejecutar lo siguiente:
+
+```powershell
+Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.servicebus.windows.net -Verbose
+```
 
 Para más información, consulte los [requisitos previos de conectividad para Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
@@ -185,6 +197,7 @@ Un procedimiento recomendado para solucionar problemas con la escritura diferida
 | 31017| AuthTokenSuccess| Este evento indica que se ha recuperado correctamente un token de autorización para el administrador global especificado durante la instalación de Azure AD Connect para iniciar el proceso de incorporación o externalización.|
 | 31018| KeyPairCreationSuccess| Este evento indica que se creó correctamente la clave de cifrado de contraseña. Esta clave se usa para que las contraseñas cifradas de la nube se envíen al entorno local.|
 | 31034| ServiceBusListenerError| Este evento indica que se ha producido un error al conectarse al cliente de escucha de Service Bus del inquilino. Si el mensaje de error incluye "El certificado remoto no es válido", asegúrese de que el servidor de Azure AD Connect tiene todas las CA raíz necesarias, como se describe en [Cambios en los certificados de Azure TLS](../../security/fundamentals/tls-certificate-changes.md). |
+| 31044| PasswordResetService| Este evento indica que la escritura diferida de contraseñas no funciona. El Service Bus escucha solicitudes en dos retransmisiones independientes en busca de redundancia. Cada conexión de retransmisión se administra mediante un host de servicios único. El cliente de escritura diferida devuelve un error si alguno de los host de servicios no se está ejecutando.|
 | 32000| UnknownError| Este evento indica que se produjo un error desconocido durante una operación de administración de contraseñas. Observe el texto de excepción en el evento para obtener más detalles. Si tiene problemas, pruebe a deshabilitar y volver a habilitar la escritura diferida de contraseñas. Si así no se soluciona el problema, incluya una copia del registro de eventos junto con el identificador de seguimiento especificado al abrir una solicitud de soporte técnico.|
 | 32001| ServiceError| Este evento indica que se ha producido un error al conectarse a la instancia de restablecimiento de contraseñas de la nube. Este error suele producirse cuando el servicio local no pudo conectarse al servicio web de restablecimiento de contraseña.|
 | 32002| ServiceBusError| Este evento indica que se ha producido un error al conectarse a la instancia de Service Bus del inquilino. Esto puede deberse a que está bloqueando las conexiones salientes en el entorno local. Compruebe el firewall para asegurarse de que permite conexiones a través del TCP 443 y a https://ssprdedicatedsbprodncu.servicebus.windows.net, y vuelva a intentarlo. Si sigue teniendo problemas, pruebe a deshabilitar y volver a habilitar la escritura diferida de contraseñas.|

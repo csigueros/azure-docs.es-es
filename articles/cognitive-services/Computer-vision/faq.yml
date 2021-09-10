@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-  ms.openlocfilehash: f03dd44b1ea37f5103ca9aa4eff26b3b7b080312
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  ms.openlocfilehash: 2509338fac06a182864777e2ff5825f1092f758c
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113311632"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122968835"
 title: Preguntas frecuentes sobre Computer Vision API
 summary: >
   > [!TIP]
@@ -27,9 +27,28 @@ sections:
 - name: Omitido
   questions:
   - question: >
+      ¿Cómo puedo aumentar las transacciones por segundo (TPS) que permite el servicio?
+    answer: >
+      El nivel gratis (S0) solo permite 20 transacciones por minuto. Actualice al nivel S1 para obtener hasta 10 transacciones por segundo. Si ve el código de error 429 y el mensaje de error "Demasiadas solicitudes", [envíe una vale de Soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/) para aumentar el TPS a 50 o superior con una breve justificación comercial. [Precios de Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+  - question: "El servicio genera un error porque mi archivo de imagen es demasiado grande. ¿Cómo puedo solucionarlo? \n"
+    answer: >
+      El límite de tamaño de archivo para la mayoría de las características de Computer Vision es de 4 MB, pero los SDK de la biblioteca cliente pueden gestionar archivos de hasta 6 MB. En el caso del reconocimiento óptico de caracteres (OCR) que controla documentos de varias páginas, el tamaño máximo de archivo es de 50 MB. Para obtener más información, consulte los [límites de entradas de análisis de imágenes](overview-image-analysis.md#image-requirements) y los [límites de entrada de OCR](overview-ocr.md#input-requirements).
+  - question: >
+      ¿Cómo puedo procesar documentos de varias páginas con OCR en una sola llamada?
+    answer: >
+      El reconocimiento óptico de caracteres, específicamente la operación de lectura, admite documentos de varias páginas como entrada de API. Si llama a la API con un documento de 10 páginas, se le facturarán 10 páginas, y cada página se contará como una transacción facturable. Tenga en cuenta que si tiene el nivel gratis (S0), solo puede procesar dos páginas a la vez.
+  - question: >
+      ¿Puedo enviar varias imágenes en una sola llamada API al servicio Computer Vision?
+    answer: >
+      Esta función no está disponible actualmente.
+  - question: >
+      ¿Cuántos idiomas se admiten para el análisis de imágenes y OCR?
+    answer: >
+      Consulte la página [Compatibilidad con idiomas](language-support.md) para obtener la lista de idiomas que cubren el análisis de imágenes y OCR.
+  - question: >
       ¿Puedo entrenar a Computer Vision API para usar etiquetas personalizadas?  Por ejemplo, me gustaría introducir imágenes de razas de gatos para "entrenar" a AI y luego recibir el valor de raza en una solicitud de AI.
     answer: >
-      Esta función no está disponible actualmente. Sin embargo, nuestros ingenieros están trabajando para incorporar esta funcionalidad a Computer Vision.
+      Esta función no está disponible actualmente. Puede usar [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/overview) para entrenar un modelo para detectar características visuales definidas por el usuario.
   - question: >
       ¿Puedo implementar la funcionalidad OCR (Read) en el entorno local?
     answer: >

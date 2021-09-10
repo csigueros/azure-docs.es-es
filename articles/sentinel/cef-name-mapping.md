@@ -7,19 +7,23 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 04/12/2021
-ms.openlocfilehash: 3d30bb733245c0519b73d66653b8d09cb9a4b4b9
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.date: 07/26/2021
+ms.openlocfilehash: f31aa44237e0312d08a43155db867192d83a57ef
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528187"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722012"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>Asignación de campos de CEF y CommonSecurityLog
 
 En las tablas siguientes se asignan nombres de campo de Common Event Format (CEF) a los nombres que usan en el CommonSecurityLog de Azure Sentinel y pueden resultar útiles cuando se trabaja con un origen de datos de CEF en Azure Sentinel.
 
 Para obtener más información, consulte [Conexión de la solución externa con el formato de evento común](connect-common-event-format.md).
+
+> [!NOTE]
+> Se requiere un área de trabajo de Azure Sentinel para [ingerir datos CEF](connect-common-event-format.md#prerequisites) en Log Analytics.
+>
 
 ## <a name="a---c"></a>A - C
 

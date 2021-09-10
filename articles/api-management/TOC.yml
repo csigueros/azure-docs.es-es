@@ -84,6 +84,8 @@
       href: automation-manage-api-management.md
     - name: Restricciones a la importación de API
       href: api-management-api-import-restrictions.md
+    - name: Introducción a las redes virtuales
+      href: virtual-network-concepts.md
     - name: Introducción a la puerta de enlace autohospedada
       href: self-hosted-gateway-overview.md
     - name: Observabilidad
@@ -92,6 +94,8 @@
       href: devops-api-development-templates.md
     - name: Eliminación temporal
       href: soft-delete.md
+    - name: Plataforma de Compute
+      href: compute-infrastructure.md
 - name: Guías paso a paso
   items:
     - name: Definición de API

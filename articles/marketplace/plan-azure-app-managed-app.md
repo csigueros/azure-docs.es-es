@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: a34bdfe55d2200176d6f6c7fde389c19dc26cfa5
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 4b06a8808826c5b11ecc2c54824db65f37d3b50f
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536474"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431409"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeamiento de una aplicación administrada de Azure para una oferta de Aplicación de Azure
 
-Un plan de _aplicación administrada_ de Azure es una manera de publicar una oferta de Aplicación de Azure en Azure Marketplace. Si aún no lo ha hecho, lea la sección [Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial](plan-azure-application-offer.md).
+Un plan de _aplicación administrada_ de Azure es una manera de publicar una oferta de Aplicación de Azure en Azure Marketplace. Si aún no lo ha hecho, lea la sección [Planeamiento de una oferta de Aplicación de Azure para el Marketplace comercial](plan-azure-application-offer.md).
 
 Las aplicaciones administradas son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace. La opción de publicación que el usuario ve es Obtener ahora.
 
@@ -32,7 +32,7 @@ Uso de una Aplicación de Azure: Plan de aplicación administrada en las siguien
 | ------------ | ------------- |
 | Una suscripción de Azure | Las aplicaciones administradas se deben implementar en la suscripción del cliente, pero las puede administrar un tercero. |
 | Facturación y medición | Los recursos se proporcionan en la suscripción de Azure de un cliente. Las transacciones de VM que usan el modelo de pago por uso se realizan con el cliente mediante Microsoft y se facturan con la suscripción de Azure del cliente. <br><br> En el caso de las VM con el modelo "traiga su propia licencia", Microsoft factura los costos de infraestructura derivados en la suscripción del cliente, mientras que usted realizará la transacción de las tarifas de licencia de software directamente con el cliente. |
-| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para más información, consulte:<br> • [Creación de un recurso técnico de máquina virtual de Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (discos duros virtuales de Windows).<br> • [Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) (para discos duros virtuales de Linux). |
+| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para más información, consulte:<br> * [Creación de un recurso técnico de máquina virtual de Azure](./azure-vm-create-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (discos duros virtuales de Windows).<br> *  [Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) (para discos duros virtuales de Linux). |
 | Atribución de uso del cliente | Todas las nuevas ofertas de la aplicación de Azure deben incluir un GUID de [atribución de uso del cliente para asociados de Azure](azure-partner-customer-usage-attribution.md). Para obtener más información sobre la atribución de uso del cliente y cómo habilitarla, consulte [Atribución de uso del cliente para asociados de Azure](azure-partner-customer-usage-attribution.md). |
 | Paquete de implementación | Necesitará un paquete de implementación que permita a los clientes implementar el plan. Si crea varios planes que requieren la misma configuración técnica, puede usar el mismo paquete. Para más información, consulte la siguiente sección: Paquete de implementación. |
 |||
@@ -46,7 +46,7 @@ El paquete de implementación contiene todos los archivos de plantilla necesario
 
 Todas las aplicaciones de Azure deben incluir estos dos archivos en la carpeta raíz de un archivo .zip:
 
-- Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Esta plantilla define los recursos que se van a implementar en la suscripción de Azure del cliente. Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o el repositorio de [GitHub correspondiente: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
+- Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Esta plantilla define los recursos que se van a implementar en la suscripción de Azure del cliente. Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) o el repositorio de [GitHub correspondiente: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
 - Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
 
 Los tamaños de archivo máximos admitidos son:

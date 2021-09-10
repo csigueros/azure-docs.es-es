@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: b0a912a3023ba6d8504d5856d5a45a93d0dc9488
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: a3eb35ada01612d3a3298b1899d3e9fb7101684b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809407"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735881"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Solución de problemas del lado servidor de Redis Cache
 
@@ -42,6 +42,7 @@ Hay varios cambios posibles que puede hacer para ayudar a mantener una utilizaci
 - Dividir los objetos grandes que están en la memoria caché en objetos relacionados más pequeños.
 - [Crear alertas](cache-how-to-monitor.md#alerts) en métricas como la memoria usada para recibir una notificación anticipada sobre los impactos potenciales.
 - [Escalar](cache-how-to-scale.md) a un tamaño mayor de caché con más capacidad de memoria.
+- [Escalar](cache-how-to-scale.md) a un tamaño mayor de caché con más capacidad de memoria. Para obtener más información, consulte [Preguntas frecuentes sobre Azure Cache for Redis](./cache-planning-faq.yml).
 
 ## <a name="high-cpu-usage-or-server-load"></a>Uso elevado de la CPU o carga del servidor
 
@@ -53,7 +54,7 @@ Hay varios cambios que puede hacer para mitigar la carga elevada en el servidor:
 
 - Investigar lo que provoca picos de la CPU tales como los [comandos de ejecución prolongada](#long-running-commands) que se indican a continuación o los errores de página debido a la presión de memoria alta.
 - [Crear alertas](cache-how-to-monitor.md#alerts) en métricas como la carga de la CPU o el servidor para recibir una notificación anticipada sobre los impactos potenciales.
-- [Escalar](cache-how-to-scale.md) a un tamaño mayor de caché con más capacidad de CPU.
+- [Escale horizontalmente](cache-how-to-scale.md) a más particiones para distribuir la carga entre varios procesos de Redis o escalar verticalmente a un tamaño de caché mayor con más núcleos de CPU. Para obtener más información, consulte [Rendimiento de Azure Cache for Redis](./cache-planning-faq.yml).
 
 ## <a name="long-running-commands"></a>Comandos de ejecución prolongada
 
@@ -71,12 +72,12 @@ Para mitigar las situaciones en las que la utilización de ancho de banda de red
 
 - Cambiar el comportamiento de la llamada de cliente para reducir la demanda de la red.
 - [Crear alertas](cache-how-to-monitor.md#alerts) en métricas como la lectura de caché o la escritura de caché para recibir una notificación anticipada sobre los impactos potenciales.
-- [Escalar](cache-how-to-scale.md) a un tamaño mayor de caché con más capacidad de ancho de banda de red.
+- [Escalar](cache-how-to-scale.md) a un tamaño mayor de caché con más capacidad de ancho de banda de red. Para obtener más información, consulte [Preguntas frecuentes sobre Azure Cache for Redis](./cache-planning-faq.yml).
 
 ## <a name="additional-information"></a>Información adicional
 
 - [Solución de problemas del lado cliente de Redis Cache](cache-troubleshoot-client.md)
 - [Elección del nivel correcto](cache-overview.md#choosing-the-right-tier)
-- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [Supervisión de Azure Cache for Redis](cache-how-to-monitor.md)
-- [¿Cómo puedo ejecutar comandos de Redis?](cache-development-faq.md#how-can-i-run-redis-commands)
+- [¿Cómo puedo ejecutar comandos de Redis?](cache-development-faq.yml#how-can-i-run-redis-commands-)

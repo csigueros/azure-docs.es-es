@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 06/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e4f54f736a47cc6b351ff02b8fb7f8bad1c5c56
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94952053"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552701"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicaciones que se pueden usar en Active Directory B2C
  
@@ -139,7 +139,7 @@ En este flujo, la aplicación ejecuta [directivas](user-flow-overview.md) y reci
 
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la presencia de un usuario también necesitan un modo de acceder a los recursos protegidos, como las API web. Estas aplicaciones pueden autenticar y obtener tokens con la identidad de la aplicación (en lugar de una identidad delegada del usuario) mediante el flujo de credenciales de cliente de OAuth 2.0. El flujo de credenciales de cliente no es igual al flujo en nombre de y este no se debe usar para la autenticación de servidor a servidor.
 
-Aunque actualmente el flujo de concesión de credenciales de cliente de OAuth 2.0 no es compatible directamente con el servicio de autenticación de Azure AD B2C, puede configurar el flujo de credenciales de cliente mediante Azure AD y el punto de conexión de token o la plataforma de identidad de Microsoft para una aplicación en su inquilino de Azure AD B2C. Un inquilino de Azure AD B2C comparte algunas funcionalidades con los inquilinos empresariales de Azure AD.
+Aunque actualmente el flujo de concesión de credenciales de cliente de OAuth 2.0 no es compatible directamente con el servicio de autenticación de Azure AD B2C, puede configurar el flujo de credenciales de cliente usando Azure AD y el punto de conexión de tokens o de la Plataforma de identidad de Microsoft (https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token) para una aplicación de su inquilino de Azure AD B2C. Un inquilino de Azure AD B2C comparte algunas funcionalidades con los inquilinos empresariales de Azure AD.
 
 Para configurar el flujo de credenciales de cliente, consulte [Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Una autenticación correcta genera la recepción de un token con formato para que Azure AD lo pueda usar tal como se describe en [Referencia de tokens de Azure AD](../active-directory/develop/id-tokens.md).
 
@@ -150,17 +150,6 @@ Para obtener instrucciones sobre cómo registrar una aplicación de administraci
 Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en los clientes nativos que tienen un back-end de API web y llama a un servicio de Microsoft Online, como Microsoft Graph API.
 
 Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador JWT de OAuth 2.0, también conocido como flujo "en nombre de".  Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C.
-
-### <a name="faulted-apps"></a>Aplicaciones con errores
-
-No edite las aplicaciones de Azure AD B2C de ninguna de estas maneras:
-
-- En otros portales de administración de aplicaciones, como el [Portal de registro de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
-- Con Graph API o PowerShell.
-
-Si edita la aplicación de Azure AD B2C fuera de Azure Portal, se convierte en una aplicación con errores y ya no se puede usar con Azure AD B2C. Elimine la aplicación y vuelva a crearla.
-
-Para eliminar la aplicación, vaya al [Portal de registro de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) y elimínela desde allí. Para que la aplicación esté visible, debe ser el propietario de la misma (y no solo un administrador del inquilino).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

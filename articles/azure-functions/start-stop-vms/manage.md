@@ -3,14 +3,14 @@ title: Administración de Start/Stop VMs v2 (versión preliminar)
 description: En este artículo se explica cómo supervisar el estado de las máquinas virtuales de Azure administradas por la característica Start/Stop VMs v2 (versión preliminar) y realizar otras tareas de administración.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/16/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: e9d6f7a93f2bd59b120be059d7f9c254d1bde56b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 40c3d2dba3d41c7651846d09d01dd7afdce15af9
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073169"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967068"
 ---
 # <a name="how-to-manage-startstop-vms-v2-preview"></a>Administración de Start/Stop VMs v2 (versión preliminar)
 
@@ -21,6 +21,9 @@ Start/Stop VMs v2 (versión preliminar) incluye un [panel](../../azure-monitor/v
 Los datos de registro que muestra cada icono en el panel se actualiza cada hora, con una opción de actualización manual a petición mediante un clic en el icono **Actualizar** en una visualización determinada o mediante la actualización del panel completo.
 
 Para más información sobre cómo trabajar con un panel basado en registros, consulte el siguiente [tutorial](../../azure-monitor/visualize/tutorial-logs-dashboards.md).
+
+> [!NOTE]
+> Si tiene problemas durante la implementación, encuentra dificultades al usar Start/Stop VMs v2 (versión preliminar) o tiene alguna pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). El envío de incidencias de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 
 
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 

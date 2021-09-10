@@ -2,16 +2,18 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/05/2019
+ms.date: 08/15/2021
 ms.author: glenga
-ms.openlocfilehash: 5e1a2622df0038141dd5cb05237f93d5e33e0bfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f2aa82388882c192213b168faedd4f61069ae64
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78190929"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829565"
 ---
-En un proyecto de biblioteca de clases de C#, los enlaces se definen como atributos de enlace en el método de función. Después se genera automáticamente el archivo *function.json*, que necesita Functions, en función de estos atributos.
+En un proyecto de C#, los enlaces se definen como atributos de enlace en el método de función. Las definiciones específicas dependen de si la aplicación se ejecuta dentro de proceso (biblioteca de clases de C#) o en un proceso aislado.  
+
+# <a name="in-process"></a>[En proceso](#tab/in-process)
 
 Abra el archivo de proyecto *HttpExample.cs* y agregue el parámetro siguiente a la definición del método `Run`:
 
@@ -22,3 +24,15 @@ El parámetro `msg` es de tipo `ICollector<T>`, que representa una colección de
 La definición del método Run debe ahora parecerse a la siguiente:  
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18":::
+
+# <a name="isolated-process"></a>[Proceso aislado](#tab/isolated-process)
+
+Abra el archivo de proyecto *HttpExample.cs* y agregue la siguiente clase `MultiResponse`:
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38":::
+
+La clase `MultiResponse` permite escribir en una cola de almacenamiento denominada `outqueue` y en un mensaje HTTP de operación correcta. Dado que el atributo `QueueOutput` se aplica a una matriz de cadenas, se podrían enviar varios mensajes a la cola. 
+
+La cadena de conexión de la cuenta de Storage se establece con la propiedad `Connection`. En este caso, puede omitir `Connection`, puesto que ya está usando la cuenta de almacenamiento predeterminada.
+
+---

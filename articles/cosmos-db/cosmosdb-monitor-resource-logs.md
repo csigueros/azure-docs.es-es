@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.author: sngun
-ms.openlocfilehash: 8c9303097a7b3b545d8fa106dd23f8d5662fc69d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 2f25cfa8f2c9c70b6cc97dc96d504b41078f5b5f
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964216"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667678"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Supervisión de datos de Azure Cosmos DB mediante la configuración de diagnóstico en Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,51 +26,57 @@ Las métricas de la plataforma y el registro de actividad se recopilan automáti
 - Cuenta de almacenamiento
   
 > [!NOTE]
-> En el caso de las cuentas de API de SQL, se recomienda crear la configuración de diagnóstico en modo específico del recurso [siguiendo nuestras instrucciones para crear la configuración de diagnóstico a través de la API REST](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting). Esta opción proporciona optimizaciones de costos adicionales con una vista mejorada para controlar los datos.
+> Se recomienda crear la configuración de diagnóstico en modo específico del recurso (para todas las API excepto Table API) [de acuerdo con nuestras instrucciones para crear la configuración de diagnóstico a través de la API REST](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting). Esta opción proporciona optimizaciones de costos adicionales con una vista mejorada para controlar los datos.
 
-## <a name="create-using-the-azure-portal"></a>Creación mediante Azure Portal
+## <a name="create-diagnostics-settings-via-the-azure-portal"></a><a id="create-setting-portal"></a> Creación de la configuración de diagnóstico a través de Azure Portal
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-1. Vaya a la cuenta de Azure Cosmos. Abra el panel **Configuración de diagnóstico** y, después, seleccione la opción **Agregar configuración de diagnóstico**.
+2. Vaya a la cuenta de Azure Cosmos. Abra el panel **Configuración de diagnóstico** en la **sección de supervisión** y, después, seleccione la opción **Agregar configuración de diagnóstico**.
 
-2. En el panel **Configuración de diagnóstico**, rellene el formulario con las categorías que prefiera.
+   :::image type="content" source="./media/monitor-cosmos-db/diagnostics-settings-selection.png" alt-text="Selección de diagnósticos":::
 
-### <a name="choosing-log-categories"></a>Selección de las categorías de registro
 
-|Categoría  |API   | Definición  | Propiedades clave   |
-|---------|---------|---------|---------|
-|DataPlaneRequests     |  Todas las API        |     Registra las solicitudes de back-end como operaciones del plano de datos, que son solicitudes ejecutadas para crear, actualizar, eliminar o recuperar datos dentro de la cuenta.   |   `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode`      |
-|MongoRequests     |    Mongo    |   Registra las solicitudes iniciadas por el usuario desde el servidor front-end con el fin de atender solicitudes de la API de Azure Cosmos DB para MongoDB. Al habilitar esta categoría, asegúrese de deshabilitar DataPlaneRequests.      |  `Requestcharge`, `opCode`, `retryCount`, `piiCommandText`      |
-|CassandraRequests     |   Cassandra      |    Registra las solicitudes iniciadas por el usuario desde el servidor front-end con el fin de atender solicitudes de la API de Azure Cosmos DB para Cassandra. Al habilitar esta categoría, asegúrese de deshabilitar DataPlaneRequests.     |     `operationName`, `requestCharge`, `piiCommandText`    |
-|GremlinRequests     |    Gremlin    |     Registra las solicitudes iniciadas por el usuario desde el servidor front-end con el fin de atender solicitudes de la API de Azure Cosmos DB para Gremlin. Al habilitar esta categoría, asegúrese de deshabilitar DataPlaneRequests.    |   `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting`       |
-|QueryRuntimeStatistics     |   SQL      |     En esta tabla se detallan las operaciones de consulta ejecutadas en una cuenta de API de SQL. De forma predeterminada, el texto de la consulta y sus parámetros se ofuscan para evitar el registro de datos PII con el registro de consultas de texto completo disponible por solicitud.    |    `databasename`, `partitionkeyrangeid`, `querytext`    |
-|PartitionKeyStatistics     |    Todas las API     |   Registra las estadísticas de las claves de partición lógicas representando el tamaño de almacenamiento (KB) de las claves de partición. Esta tabla es útil al solucionar problemas de sesgos de almacenamiento.      |   `subscriptionId`, `regionName`, `partitionKey`, `sizeKB`      |
-|PartitionKeyRUConsumption     |   API DE SQL    |     Registra el consumo agregado de RU por segundo de las claves de partición. Esta tabla es útil para solucionar problemas de particiones activas. Actualmente, Azure Cosmos DB solo informa de las claves de partición para las cuentas de la API de SQL y para las operaciones de lectura/escritura y de procedimientos almacenados.   |     `subscriptionId`, `regionName`, `partitionKey`, `requestCharge`, `partitionKeyRangeId`   |
-|ControlPlaneRequests     |   Todas las API       |    Registra detalles sobre las operaciones del panel de control, tales como la creación de una cuenta, la adición o eliminación de una región, la actualización de la configuración de replicación de la cuenta, etc.     |    `operationName`, `httpstatusCode`, `httpMethod`, `region`       |
-|TableApiRequests     |   Table API    |     Registra las solicitudes iniciadas por el usuario desde el servidor front-end con el fin de atender solicitudes de la API de Azure Cosmos DB para Table. Al habilitar esta categoría, asegúrese de deshabilitar DataPlaneRequests.       |    `operationName`, `requestCharge`, `piiCommandText`     |
+3. En el panel **Configuración de diagnóstico**, rellene el formulario con las categorías que prefiera.
 
+### <a name="choose-log-categories"></a>Elección de categorías del registro
+
+   |Categoría  |API   | Definición  | Propiedades clave   |
+   |---------|---------|---------|---------|
+   |DataPlaneRequests     |  Todas las API        |     Registra las solicitudes de back-end como operaciones del plano de datos, que son solicitudes ejecutadas para crear, actualizar, eliminar o recuperar datos dentro de la cuenta.   |   `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode`      |
+   |MongoRequests     |    Mongo    |   Registra las solicitudes iniciadas por el usuario desde el servidor front-end con el fin de atender solicitudes de la API de Azure Cosmos DB para MongoDB. Al habilitar esta categoría, asegúrese de deshabilitar DataPlaneRequests.      |  `Requestcharge`, `opCode`, `retryCount`, `piiCommandText`      |
+   |CassandraRequests     |   Cassandra      |    Registra las solicitudes iniciadas por el usuario desde el servidor front-end con el fin de atender solicitudes de la API de Azure Cosmos DB para Cassandra. Al habilitar esta categoría, asegúrese de deshabilitar DataPlaneRequests.     |     `operationName`, `requestCharge`, `piiCommandText`    |
+   |GremlinRequests     |    Gremlin    |     Registra las solicitudes iniciadas por el usuario desde el servidor front-end con el fin de atender solicitudes de la API de Azure Cosmos DB para Gremlin. Al habilitar esta categoría, asegúrese de deshabilitar DataPlaneRequests.    |   `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting`       |
+   |QueryRuntimeStatistics     |   SQL      |     En esta tabla se detallan las operaciones de consulta ejecutadas en una cuenta de API de SQL. De forma predeterminada, el texto de la consulta y sus parámetros se ofuscan para evitar el registro de datos personales con el registro de consultas de texto completo disponible por solicitud.    |    `databasename`, `partitionkeyrangeid`, `querytext`    |
+   |PartitionKeyStatistics     |    Todas las API     |   Registra las estadísticas de las claves de partición lógicas representando el tamaño de almacenamiento (KB) de las claves de partición. Esta tabla es útil al solucionar problemas de sesgos de almacenamiento. El registro PartitionKeyStatistics solo se emite si se cumplen las condiciones siguientes: <br/><ul><li> Al menos el 1 % de los documentos tienen la misma clave de partición lógica. </li><li> De todas las claves, el registro PartitionKeyStatistics captura las tres primeras con el mayor tamaño de almacenamiento. </li></ul> Si no se cumplen las condiciones anteriores, los datos estadísticos de las claves de partición no están disponibles. No importa si su cuenta no cumple las condiciones anteriores; esto suele indicar que no tiene asimetría de almacenamiento de las particiones lógicas. |   `subscriptionId`, `regionName`, `partitionKey`, `sizeKB`      |
+   |PartitionKeyRUConsumption     |   API DE SQL    |     Registra el consumo agregado de RU por segundo de las claves de partición. Esta tabla es útil para solucionar problemas de particiones activas. Actualmente, Azure Cosmos DB solo informa de las claves de partición para las cuentas de la API de SQL y para las operaciones de lectura/escritura y de procedimientos almacenados.   |     `subscriptionId`, `regionName`, `partitionKey`, `requestCharge`, `partitionKeyRangeId`   |
+   |ControlPlaneRequests     |   Todas las API       |    Registra detalles sobre las operaciones del panel de control, tales como la creación de una cuenta, la adición o eliminación de una región, la actualización de la configuración de replicación de la cuenta, etc.     |    `operationName`, `httpstatusCode`, `httpMethod`, `region`       |
+   |TableApiRequests     |   Table API    |     Registra las solicitudes iniciadas por el usuario desde el servidor front-end con el fin de atender solicitudes de la API de Azure Cosmos DB para Table. Al habilitar esta categoría, asegúrese de deshabilitar DataPlaneRequests.       |    `operationName`, `requestCharge`, `piiCommandText`     |
+
+4. Una vez que seleccione los **detalles de las categorías**, envíe los registros al destino que prefiera. Si va a enviar los registros a un **Área de trabajo de Log Analytics**, asegúrese de seleccionar **Específico del recurso** como tabla de destino.
+
+    :::image type="content" source="./media/monitor-cosmos-db/diagnostics-resource-specific.png" alt-text="Selección para habilitar la opción de específico del recurso":::
 
 ## <a name="create-diagnostic-setting-via-rest-api"></a><a id="create-diagnostic-setting"></a> Creación de una configuración de diagnóstico a través de la API REST
 Use la [API REST de Azure Monitor](/rest/api/monitor/diagnosticsettings/createorupdate) para crear una configuración de diagnóstico a través de la consola interactiva.
 > [!Note]
-> Si usa la API de SQL, se recomienda establecer la propiedad **logAnalyticsDestinationType** en **Dedicated** para habilitar tablas específicas de recursos.
+> Se recomienda establecer la propiedad **logAnalyticsDestinationType** en **Dedicated** para habilitar tablas específicas de recursos.
 
 ### <a name="request"></a>Solicitud
 
-```HTTP
-PUT
-https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
-```
+   ```HTTP
+   PUT
+   https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
+   ```
 
 ### <a name="headers"></a>encabezados
 
-|Parámetros y encabezados  | Valor y descripción  |
-|---------|---------|
-|name     |  El nombre de la configuración de diagnóstico.      |
-|resourceUri     |   subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}      |
-|api-version     |    2017-05-01-versión preliminar     |
-|Content-Type     |    application/json     |
+   |Parámetros y encabezados  | Valor y descripción  |
+   |---------|---------|
+   |name     |  El nombre de la configuración de diagnóstico.      |
+   |resourceUri     |   subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}      |
+   |api-version     |    2017-05-01-versión preliminar     |
+   |Content-Type     |    application/json     |
 
 ### <a name="body"></a>Cuerpo
 
@@ -147,12 +153,28 @@ Use el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagno
 > [!Note]
 > Si usa la API de SQL, se recomienda establecer la propiedad **export-to-resource-specific** en **true**.
 
-```azurecli-interactive
-az monitor diagnostic-settings create --resource /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/ --name {DIAGNOSTIC_SETTING_NAME} --export-to-resource-specific true --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' --workspace /subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
-```
+   ```azurecli-interactive
+   az monitor diagnostic-settings create --resource /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/ --name {DIAGNOSTIC_SETTING_NAME} --export-to-resource-specific true --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' --workspace /subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
+   ```
+## <a name="enable-full-text-query-for-logging-query-text"></a><a id="full-text-query"></a> Habilitación de la consulta de texto completo para registrar texto de consulta
+
+> [!Note]
+> La habilitación de esta característica puede dar lugar a costos de registro adicionales; para obtener más información sobre los precios, visite [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Se recomienda deshabilitar esta característica después de solucionar los problemas.
+
+Azure Cosmos DB proporciona un registro avanzado para una solución de problemas detallada. Al habilitar la consulta de texto, podrá ver la consulta desofuscada para todas las solicitudes en la cuenta de Azure Cosmos DB.  También concederá permiso para que Azure Cosmos DB acceda a estos datos y los presente en los registros. 
+
+1. Para habilitar esta característica, vaya a la hoja `Features` de la cuenta de Cosmos DB.
+   
+   :::image type="content" source="./media/monitor-cosmos-db/full-text-query-features.png" alt-text="Navegar a la hoja Features":::
+
+2. Seleccione `Enable`; esta configuración se aplicará en los próximos minutos. Todos los registros recién ingeridos tendrán el texto completo o PIICommand para cada solicitud.
+   
+    :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="Seleccione habilitar el texto completo":::
+
+Para obtener información sobre cómo realizar consultas con esta característica recién habilitada, visite las [consultas avanzadas](cosmos-db-advanced-queries.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre cómo consultar tablas específicas de recursos, vea [Solución de problemas mediante tablas específicas de recursos](cosmosdb-monitor-logs-basic-queries.md#resource-specific-queries).
+* Para obtener más información sobre cómo consultar tablas específicas de recursos, vea la [solución de problemas mediante tablas específicas de recursos](cosmosdb-monitor-logs-basic-queries.md#resource-specific-queries).
 
 * Para más información sobre cómo consultar tablas de AzureDiagnostics, vea [Solución de problemas con tablas de AzureDiagnostics](cosmosdb-monitor-logs-basic-queries.md#azure-diagnostics-queries).
 

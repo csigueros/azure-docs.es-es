@@ -1,19 +1,28 @@
 ---
-ms.openlocfilehash: 1dd9e377a88d8b35cc5ad43f3e8dd1c48dc35d7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 08/16/2021
+ms.author: glenga
+ms.openlocfilehash: bda70e418b86c44750e9c826144fce8bbc027cbb
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78201036"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830558"
 ---
 ::: zone pivot="programming-language-csharp"  
-## <a name="register-binding-extensions"></a>Registro de extensiones de enlace
 
 A excepción de los desencadenadores HTTP y el temporizador, los enlaces se implementan como paquetes de extensión. Ejecute el siguiente comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) en la ventana Terminal para agregar el paquete de extensión de Storage al proyecto.
 
+# <a name="in-process"></a>[En proceso](#tab/in-process) 
 ```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage 
 ```
-
+# <a name="isolated-process"></a>[Proceso aislado](#tab/isolated-process)
+```bash
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues --prerelease
+```
+---
 Ahora podrá agregar el enlace de salida de almacenamiento al proyecto.  
 ::: zone-end  

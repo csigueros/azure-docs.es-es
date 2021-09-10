@@ -4,13 +4,13 @@ description: Aquí se describe cómo utilizar la propiedad del ámbito al implem
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 59b6576dfb1bd5e0ac4f56e6a59b6ea4d5c4b5f4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/30/2021
+ms.openlocfilehash: dbc349b907e8141af30012271c22c9c99d5a0298
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027245"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722974"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Establecimiento del ámbito de los recursos de extensión en Bicep
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo establecer el ámbito de un tipo de recurso d
 
 Para aplicar un tipo de recurso de extensión en el ámbito de implementación de destino, agregue el recurso a la plantilla, tal como haría con cualquier tipo de recurso. Los ámbitos disponibles son el [grupo de recursos](deploy-to-resource-group.md), la [suscripción](deploy-to-subscription.md), el [grupo de administración](deploy-to-management-group.md) y el [inquilino](deploy-to-tenant.md). El ámbito de implementación debe admitir el tipo de recurso.
 
-En la plantilla siguiente se implementa un bloqueo.
+Cuando se implementa en un grupo de recursos, la plantilla siguiente agrega un bloqueo a ese grupo de recursos.
 
 ```bicep
 resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
@@ -39,7 +39,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-En el ejemplo siguiente se asigna un rol.
+En el ejemplo siguiente se asigna un rol a la suscripción en la que se implementa.
 
 ```bicep
 targetScope = 'subscription'
@@ -75,7 +75,7 @@ resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2020-04-01-previ
 
 ## <a name="apply-to-resource"></a>Aplicación al recurso
 
-Para aplicar un recurso de extensión a un recurso, use la propiedad `scope`. Establezca la propiedad de ámbito en el nombre del recurso al que va a agregar la extensión. La propiedad de ámbito es una propiedad raíz del tipo de recurso de extensión.
+Para aplicar un recurso de extensión a un recurso, use la propiedad `scope`. En la propiedad de ámbito, consulte el recurso al que agrega la extensión. Para consultar el recurso, proporcione el nombre simbólico del recurso. La propiedad de ámbito es una propiedad raíz del tipo de recurso de extensión.
 
 En el ejemplo siguiente se crea una cuenta de almacenamiento y se aplica un rol a la misma.
 
@@ -102,7 +102,7 @@ var role = {
 }
 var uniqueStorageName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageName 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2019-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -118,10 +118,27 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
     roleDefinitionId: role[builtInRoleType]
     principalId: principalId
   }
-  scope: storageName
+  scope: demoStorageAcct
   dependsOn: [
-    storageName
+    demoStorageAcct
   ]
+}
+```
+
+Puede aplicar un recurso de extensión a un recurso existente. En el ejemplo siguiente se agrega un bloqueo a una cuenta de almacenamiento existente.
+
+```bicep
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
+  name: 'examplestore'
+}
+
+resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
+  name: 'storeLock'
+  scope: demoStorageAcct
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Storage account should not be deleted.'
+  }
 }
 ```
 

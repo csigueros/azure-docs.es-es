@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/28/2021
+ms.date: 08/20/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f0f2e63a32c30c807f865a46154123643809de74
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: de0374f2ea26e3fa1dc7d25e7c837187f8914918
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442852"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254729"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>Tutorial: Creación de un almacenamiento de datos lógico con un grupo de SQL sin servidor
 
@@ -41,7 +41,7 @@ Como primer paso, debe configurar el origen de datos y especificar el formato de
 
 Los orígenes de datos representan información de la cadena de conexión que describe dónde se colocan los datos y cómo autenticarse en el origen de datos.
 
-En el ejemplo siguiente se muestra un ejemplo de definición de origen de datos que hace referencia al [conjunto de datos público de Azure del Centro europeo para la prevención y el control de enfermedades (ECDC) sobre la COVID 19](/azure/open-datasets/dataset-ecdc-covid-cases):
+En el ejemplo siguiente se muestra un ejemplo de definición de origen de datos que hace referencia al [conjunto de datos público de Azure del Centro europeo para la prevención y el control de enfermedades (ECDC) sobre la COVID 19](../../open-datasets/dataset-ecdc-covid-cases.md):
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -80,6 +80,17 @@ CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
+
+Cualquier usuario con el rol Administrador de Synapse puede usar estas credenciales para acceder al almacenamiento de Azure Data Lake o al almacenamiento analítico de Cosmos DB. Si tiene usuarios con pocos privilegios que no tienen el rol Administrador de Synapse, deberá concederles un permiso explícito para hacer referencia a estas credenciales con ámbito de base de datos:
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::WorkspaceIdentity TO <user>
+GO
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO <user>
+GO
+```
+
+Puede obtener más información en la página [Concesión de permisos de CREDENCIAL DE ÁMBITO DE BASE DE DATOS](/sql/t-sql/statements/grant-database-scoped-credential-transact-sql).
 
 ### <a name="define-external-file-formats"></a>Definición de formatos de archivo externos
 
@@ -202,7 +213,7 @@ GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
 GO
 GRANT SELECT ON OBJECT::ecdc_cosmosDB.cases TO [jovan@contoso.com]
 GO
-GRANT REFERENCES ON CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
 GO
 ```
 

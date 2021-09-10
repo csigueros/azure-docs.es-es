@@ -11,13 +11,13 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 03/12/2019
-ms.openlocfilehash: 9c43cb7bb60b758230664571fd7d7e592009fff2
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 06/23/2021
+ms.openlocfilehash: c14d209f5f4b846b51a99ac875e2304129b4e765
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667197"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090284"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Rotación del protector de Cifrado de datos transparente (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -32,6 +32,9 @@ En esta guía se describen dos opciones para rotar el protector de TDE en el ser
 
 > [!IMPORTANT]
 > No elimine las versiones anteriores de la clave después de una sustitución. Cuando las claves se sustituyen, algunos datos siguen cifrados con las claves anteriores como, por ejemplo, las copias de seguridad de base de datos más antiguas.
+
+> [!NOTE]
+> Este artículo se aplica a Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics [grupos de SQL dedicados (antes conocidos como SQL DW)]. Para obtener documentación sobre el Cifrado de datos transparente para grupos de SQL dedicados en áreas de trabajo de Synapse, consulte [Cifrado de Azure Synapse Analytics](../../synapse-analytics/security/workspaces-encryption.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

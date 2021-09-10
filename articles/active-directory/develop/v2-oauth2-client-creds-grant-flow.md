@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f55c5096f9205e75904a65724715104fe8bca849
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 301a386c9c9a21cf1f988ee62c19ca7cc60e7a39
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780494"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430007"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -58,7 +58,7 @@ Este tipo de autorización es común para las cuentas de servicio y los demonios
 
 Para habilitar este patrón de autorización basado en ACL, Azure AD no requiere que las aplicaciones estén autorizadas para obtener tokens para otra aplicación. Por lo tanto, los tokens de solo aplicación se pueden emitir sin una notificación `roles`. Las aplicaciones que exponen las API deben implementar comprobaciones de permisos para aceptar tokens.
 
-Si quiere impedir que las aplicaciones obtengan tokens de acceso de solo aplicación sin roles para la aplicación, [asegúrese de que los requisitos de asignación de usuario están habilitados para la aplicación](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Esto impedirá que los usuarios y las aplicaciones sin roles asignados puedan obtener un token para esta aplicación. 
+Si quiere impedir que las aplicaciones obtengan tokens de acceso de solo aplicación sin roles para la aplicación, [asegúrese de que los requisitos de asignación de usuario están habilitados para la aplicación](../manage-apps/add-application-portal-configure.md#configure-app-properties). Esto impedirá que los usuarios y las aplicaciones sin roles asignados puedan obtener un token para esta aplicación.
 
 ### <a name="application-permissions"></a>Permisos de aplicación
 
@@ -114,7 +114,7 @@ En este momento, Azure AD exige que solo un administrador de inquilino pueda in
 Si el administrador aprueba los permisos para la aplicación, la respuesta correcta tendrá un aspecto similar al siguiente:
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
 | Parámetro | Descripción |
@@ -165,7 +165,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Obligatorio | El inquilino del directorio en el que va a funcionar la aplicación, con el formato de GUID o de nombre de dominio. |
 | `client_id` | Obligatorio | El identificador de la aplicación que está asignado a la aplicación. Puede encontrar esta información en el portal donde registró la aplicación. |
 | `scope` | Obligatorio | El valor pasado del parámetro `scope` en esta solicitud debe ser el identificador de recurso (URI de identificador de aplicación) del recurso que desea, con el sufijo `.default`. Para el ejemplo de Microsoft Graph, el valor es `https://graph.microsoft.com/.default`. <br/>Este valor indica a la Plataforma de identidad de Microsoft que, de todos los permisos directos de la aplicación que ha configurado para la aplicación, debe emitir un token para los que están asociados con el recurso que quiere usar. Para más información sobre el ámbito `/.default`, consulte la [documentación de consent](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Obligatorio | El secreto de cliente que generó para la aplicación en el portal de registro de aplicaciones. El secreto de cliente debe codificarse como dirección URL antes de enviarse. |
+| `client_secret` | Obligatorio | El secreto de cliente que generó para la aplicación en el portal de registro de aplicaciones. El secreto de cliente debe codificarse como dirección URL antes de enviarse. También se admite el patrón de autenticación Básico de proporcionar credenciales en el encabezado de autorización, conforme a [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1). |
 | `grant_type` | Obligatorio | Se debe establecer en `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitud de token de acceso con un certificado

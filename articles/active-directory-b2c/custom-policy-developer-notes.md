@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 295dfa5a02ce3f46049805339a4f7918ce20361e
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 36e0b286cc073f5c6843f1bab59af5a811cbf281
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565201"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452933"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notas para desarrolladores sobre Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Los [flujos de usuario y las directivas personalizadas](user-flow-overview.md) d
 ## <a name="terms-for-features-in-public-preview"></a>Términos de características en versión preliminar pública
 
 - Se aconseja usar las características en versión preliminar pública solo con fines de evaluación.
-- Los Acuerdos de Nivel de Servicio (SLA) no se aplican a las características en versión preliminar pública.
+- Los [acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/active-directory-b2c) no se aplican a las características en versión preliminar pública.
 - Las solicitudes de soporte técnico referentes a las características en versión preliminar pública pueden enviarse a través de los canales de soporte técnico habituales.
 
 ## <a name="user-flows"></a>Flujos de usuario

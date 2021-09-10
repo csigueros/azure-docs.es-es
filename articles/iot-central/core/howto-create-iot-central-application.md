@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 956e84e8eb7281541fbb787a6ce7557a1f5fee03
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: c9f9dec23209d8bc401313a7213239dff52a1023
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586498"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586210"
 ---
 # <a name="create-an-iot-central-application"></a>Creación de una aplicación de IoT Central
 
@@ -50,8 +50,6 @@ En la tabla siguiente se resumen las diferencias entre los tres planes estándar
 | S1        | 2            | 5\.000          | Unos cuantos mensajes por hora |
 | S2        | 2            | 30,000         | Mensajes cada pocos minutos |
 
-Para más información, consulte [Administrar la factura en una aplicación de IoT Central](howto-view-bill.md).
-
 ### <a name="application-name"></a>Nombre de la aplicación
 
 El _nombre de la aplicación_ que elija aparece en la barra de título de cada página de la aplicación de IoT Central. También aparece en el icono de la aplicación en la página **Aplicaciones** del sitio de [Azure IoT Central](https://aka.ms/iotcentral).
@@ -87,16 +85,81 @@ Si selecciona **Crear aplicación**, puede proporcionar la información necesari
 La página **Aplicaciones** enumera todas las aplicaciones de IoT Central a las que tiene acceso. La lista incluye las aplicaciones que ha creado y las aplicaciones a las que se le ha concedido acceso.
 
 > [!TIP]
-> Todas las aplicaciones que cree mediante un plan de precios estándar en el sitio de Azure IoT Central usan el grupo de recursos **IOTC** de su suscripción. Los enfoques que se describen en la siguiente sección le permiten elegir un grupo de recursos para usarlo.
+> Todas las aplicaciones que cree mediante un plan de precios estándar en el sitio de Azure IoT Central usan el grupo de recursos **IOTC** de su suscripción. Los enfoques que se describen en la siguiente sección le permiten elegir un grupo de recursos.
+
+## <a name="copy-an-application"></a>Copia de una aplicación
+
+Puede crear una copia de cualquier aplicación, menos las instancias de dispositivo, el historial de datos del dispositivo y los datos de usuario. La copia usa un plan de tarifa estándar que se le facturará. No se puede crear una aplicación que use el plan de tarifa gratis mediante la copia de una aplicación.
+
+Seleccione **Copiar**. En el cuadro de diálogo, escriba los detalles de la nueva aplicación. Después, seleccione **Copiar** para confirmar que quiere continuar. Para obtener más información sobre los campos del formulario, consulte [Creación de una aplicación](howto-create-iot-central-application.md).
+
+:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Captura de pantalla que muestra la página de configuración de la aplicación.":::
+
+:::image type="content" source="media/howto-create-iot-central-application/app-copy-2.png" alt-text="Captura de pantalla que muestra la página de configuración &quot;Copiar aplicación&quot;":::.
+
+Una vez que la operación de copia de la aplicación se realiza correctamente, puede navegar a la nueva aplicación mediante el vínculo.
+
+Al copiar una aplicación, también se copia la definición de las reglas y la acción de correo electrónico. Algunas acciones, como Flow y Logic Apps, están asociadas a reglas específicas a través del identificador de regla. Cuando una regla se copia en otra aplicación, obtiene su propio identificador de regla. En este caso, los usuarios tendrán que crear una nueva acción y, a continuación, asociar la nueva regla a ella. En general, es recomendable comprobar las reglas y las acciones para garantizar que están actualizadas en la nueva aplicación.
+
+> [!WARNING]
+> Si un panel incluye iconos que muestran información acerca de dispositivos específicos, estos iconos muestran el mensaje **No se encontró el recurso solicitado** en la nueva aplicación. Debe volver a configurar estos iconos para mostrar información acerca de los dispositivos en la nueva aplicación.
+
+## <a name="create-and-use-a-custom-application-template"></a>Creación y uso de una plantilla de aplicación personalizada
+
+Cuando crea una aplicación de Azure IoT Central, tiene la posibilidad de usar plantillas de ejemplo integradas. También puede crear sus propias plantillas de aplicación a partir de las aplicaciones existentes de IoT Central. A continuación, puede usar sus propias plantillas de aplicación al crear nuevas aplicaciones.
+
+Cuando crea una plantilla de aplicación, esta incluye los siguientes elementos de su aplicación existente:
+
+- El panel de la aplicación predeterminado, incluidos el diseño del panel y todos los iconos que ha definido.
+- Las plantillas del dispositivo, incluidas las medidas, la configuración, las propiedades, los comandos y el panel.
+- Las reglas. Se incluyen todas las definiciones de las reglas. Sin embargo, no se incluyen las acciones, excepto las de correo electrónico.
+- Grupos de dispositivos, incluidas sus consultas.
+
+> [!WARNING]
+> Si un panel incluye iconos que muestran información acerca de dispositivos específicos, estos iconos muestran el mensaje **No se encontró el recurso solicitado** en la nueva aplicación. Debe volver a configurar estos iconos para mostrar información acerca de los dispositivos en la nueva aplicación.
+
+Cuando crea una plantilla de aplicación, no incluye los siguientes elementos:
+
+- Dispositivos
+- Usuarios
+- Definiciones de exportaciones de datos continuas
+
+Agregue estos elementos manualmente a cualquier aplicación creada a partir de una plantilla de aplicación.
+
+Para crear una plantilla de aplicación a partir de una aplicación existente de IoT Central:
+
+1. Vaya a la sección **Administración** en su aplicación.
+1. Seleccione **Application Template Export** (Exportación de la plantilla de aplicación).
+1. En la página **Application Template Export** (Exportación de la plantilla de aplicación), escriba un nombre y una descripción para la plantilla.
+1. Seleccione el botón **Exportar** para crear la plantilla de aplicación. Ahora puede copiar el **vínculo que se puede compartir** que permite que otras personas puedan crear una nueva aplicación a partir de la plantilla:
+
+:::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Captura de pantalla que muestra cómo crear una plantilla de aplicación.":::
+
+:::image type="content" source="media/howto-create-iot-central-application/create-template-2.png" alt-text="Captura de pantalla que muestra cómo exportar una plantilla de aplicación.":::
+
+### <a name="use-an-application-template"></a>Uso de una plantilla de aplicación
+
+Para usar una plantilla de aplicación para crear una nueva aplicación de IoT Central, necesita un **vínculo que se puede compartir** que haya creado anteriormente. Pegue el **vínculo que se puede compartir** en la barra de direcciones de su explorador. La página **Crear una aplicación**  se muestra con su plantilla de aplicación personalizada seleccionada:
+
+:::image type="content" source="media/howto-create-iot-central-application/create-app.png" alt-text="Captura de pantalla que muestra cómo crear una aplicación a partir de una plantilla.":::
+
+Seleccione el plan de tarifa y rellene los demás campos del formulario. A continuación, seleccione **Crear** para crear una nueva aplicación de IoT Central a partir de la plantilla de aplicación.
+
+### <a name="manage-application-templates"></a>Administración de las plantillas de aplicaciones
+
+En la página **Application Template Export** (Exportación de la plantilla de aplicación), puede eliminar o actualizar la plantilla de aplicación.
+
+Si elimina una plantilla de aplicación, ya no podrá usar el vínculo que se puede compartir generado anteriormente para crear nuevas aplicaciones.
+
+Para actualizar la plantilla de aplicación, cambie el nombre o la descripción de la plantilla en la página **Application Template Export** (Exportación de la plantilla de aplicación). A continuación, vuelva a seleccionar el botón **Exportar**. Esta acción genera un nuevo **vínculo que se puede compartir** e invalida cualquier URL anterior de **vínculo que se puede compartir vínculo**.
 
 ## <a name="other-approaches"></a>Otros enfoques
 
 También puede usar los siguientes enfoques para crear una aplicación de IoT Central:
 
 - [Creación de una aplicación de IoT Central desde Azure Portal](howto-manage-iot-central-from-portal.md#create-iot-central-applications)
-- [Creación de una aplicación de IoT Central mediante la CLI de Azure](howto-manage-iot-central-from-cli.md#create-an-application)
-- [Creación de una aplicación de IoT Central mediante PowerShell](howto-manage-iot-central-from-powershell.md#create-an-application)
-- [Creación de una aplicación de IoT Central mediante programación](howto-manage-iot-central-programmatically.md)
+- [Creación de una aplicación de IoT Central mediante la línea de comandos](howto-manage-iot-central-from-cli.md#create-an-application)
+- [Creación de una aplicación de IoT Central mediante programación](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

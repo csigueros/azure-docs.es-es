@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 08/24/2021
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 1d96bb01cde5edbe4bff06de43d66b785da9cd98
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6a5f21153936313a209bb5971c1a7c6bd7a9e973
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748395"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969385"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de una plantilla de Azure Resource Manager para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -49,7 +49,7 @@ La mayoría de estos parámetros tiene valores predeterminados. Los que terminan
 
 **subscriptionId**: este campo se establece en la suscripción en la que se va a implementar la plantilla. Este campo no está en el archivo de parámetros, ya que se establece automáticamente.
 
-**IoTHubName_in**: este campo es el nombre de IoT Hub base, que se concatena con randomValue para que sea globalmente único.
+**IoTHubName_in**: este campo es el nombre de IoT Hub base, que se concatena con randomValue para ser globalmente único.
 
 **location**: este campo es la región de Azure en la que se va a realizar la implementación, por ejemplo, "westus".
 

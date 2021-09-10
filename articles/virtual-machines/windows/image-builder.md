@@ -3,17 +3,18 @@ title: Creación de una máquina virtual Windows con Azure Image Builder
 description: Cree una máquina virtual Windows con Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 6eaa59521a864b3d93d4c79706ca8ec7ff100d70
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 2a847d44f1c178aa5756b81e54ebdf6e961ab1d8
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030978"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594686"
 ---
 # <a name="create-a-windows-vm-with-azure-image-builder"></a>Creación de una máquina virtual Windows con Azure Image Builder
 
@@ -125,7 +126,7 @@ az role definition create --role-definition ./aibRoleImageCreation.json
 # grant role definition to the user assigned identity
 az role assignment create \
     --assignee $imgBuilderCliId \
-    --role $imageRoleDefName \
+    --role "$imageRoleDefName" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
@@ -155,7 +156,7 @@ vi helloImageTemplateWin.json
 
 > [!NOTE]
 > Para la imagen de origen, siempre debe [especificar una versión](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version); no puede usar `latest`.
-> Si agrega o cambia el grupo de recursos adonde se distribuye la imagen, tiene que asegurarse de que los [permisos estén establecidos](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) en el grupo de recursos.
+> Si agrega o cambia el grupo de recursos donde se distribuye la imagen, tiene que asegurarse de que los [permisos estén establecidos](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) en el grupo de recursos.
  
 ## <a name="create-the-image"></a>Crear la imagen
 

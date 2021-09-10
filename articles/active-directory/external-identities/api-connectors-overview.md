@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a5563ff1f57f6b3684834a2488fc0665ac5eddd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ead99d955fbd82099b4ad577e99026e8e66aea5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102610049"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442420"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Uso de conectores de API para personalizar y extender el registro de autoservicio 
 
@@ -35,13 +35,13 @@ Un conector de API proporciona a Azure Active Directory la información necesari
 
 El conector de API se puede habilitar en dos lugares del flujo de usuario:
 
-- Después de iniciar sesión con un proveedor de identidades
+- Después de la federación con un proveedor de identidades durante el registro
 - Antes de crear el usuario
 
 > [!IMPORTANT]
 > En ambos casos, los conectores de la API se invocan durante el **registro** del usuario y no en el inicio de sesión.
 
-### <a name="after-signing-in-with-an-identity-provider"></a>Después de iniciar sesión con un proveedor de identidades
+### <a name="after-federating-with-an-identity-provider-during-sign-up"></a>Después de la federación con un proveedor de identidades durante el registro
 
 Inmediatamente después de que el usuario se autentique con un proveedor de identidades (como Google, Facebook o Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la ***página de recopilación de atributos***, que es el formulario que se muestra al usuario para recopilar los atributos de usuario. Este paso no se invoca si un usuario se registra con una cuenta local. A continuación, se muestran ejemplos de escenarios del conector de API que se pueden habilitar en este paso:
 

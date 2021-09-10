@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 94cbe0fa6669546cee8e989a6db2fcbb428cb9d0
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7d663345a5980d32a59d3185226e48dc75ef96c2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829447"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737243"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configuración de una aplicación de PHP para Azure App Service
 
@@ -119,11 +119,11 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-Confirme todos los cambios e implemente el código mediante Git o realice la implementación desde un archivo ZIP con la automatización de compilaciones habilitada. Composer ahora debería estar funcionando como parte de la automatización de la implementación.
+Confirme todos los cambios e implemente el código mediante Git o realice la implementación desde un archivo ZIP con la [automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation). Composer ahora debería estar funcionando como parte de la automatización de la implementación.
 
 ## <a name="run-gruntbowergulp"></a>Ejecutar Grunt, Bower o Gulp
 
-Si quiere que App Service ejecute herramientas de automatización populares en el momento de la implementación, como Grunt, Bower o Gulp, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service ejecuta este script cuando se implementa con Git o con la [implementación desde un archivo ZIP](deploy-zip.md) con la automatización de compilaciones habilitada. 
+Si quiere que App Service ejecute herramientas de automatización populares en el momento de la implementación, como Grunt, Bower o Gulp, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service ejecuta este script cuando se implementa con Git o con la [implementación desde un archivo ZIP](deploy-zip.md) con la [automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation). 
 
 Para habilitar que el repositorio ejecute estas herramientas, deberá agregarlas a las dependencias en el archivo *package.json.* Por ejemplo:
 
@@ -206,7 +206,7 @@ fi
 
 ## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-Si implementa la aplicación utilizando paquetes Git o zip con la automatización de compilaciones activada, la automatización de compilaciones de App Service se ejecutará en este orden:
+Si implementa la aplicación mediante paquetes Git o zip [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation), la automatización de compilaciones de App Service se ejecutará en este orden:
 
 1. Ejecute el script personalizado si lo especifica `PRE_BUILD_SCRIPT_PATH`.
 1. Ejecute `php composer.phar install`.
@@ -279,7 +279,7 @@ Si prefiere no usar la reescritura de *.htaccess*, puede implementar la aplicaci
 
 ## <a name="detect-https-session"></a>Detección de sesión de HTTPS
 
-En App Service, la [terminación de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
+En App Service, la [terminación de TLS/SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a la aplicación como solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
 
 ```php
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
@@ -495,6 +495,10 @@ Cuando una aplicación de PHP en funcionamiento se comporta de manera diferente 
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [P+F sobre App Service en Linux](faq-app-service-linux.md)
+> [P+F sobre App Service en Linux](faq-app-service-linux.yml)
 
 ::: zone-end
+
+O consulte estos recursos adicionales:
+
+[Referencia de variables de entorno y configuración de la aplicación](reference-app-settings.md)

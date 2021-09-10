@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
-ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99fe16fdc19d90a312b34a32f56229ef7f161ad1
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94363721"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297467"
 ---
-# <a name="configure-anomaly-detector-containers"></a>Configuración de los contenedores de Anomaly Detector
+# <a name="configure-anomaly-detector-univariate-containers"></a>Configuración de los contenedores univariantes de Anomaly Detector
 
 El entorno de tiempo de ejecución de los contenedores de **Anomaly Detector** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 

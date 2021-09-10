@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: f491681c8054c800e15c3c77516ff22e3c70dbac
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 917bcf74adaaec4e354662ec25816bcad471025d
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001509"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991917"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -96,10 +96,13 @@ Después, puede escribir una consulta en ambas áreas de trabajo empezando por `
 
 #### <a name="cross-workspace-analytics-rules"></a>Reglas de análisis entre áreas de trabajo<a name="scheduled-alerts"></a>
 <!-- Bookmark added for backward compatibility with old heading -->
-Las consultas entre áreas de trabajo ahora se pueden incluir en las reglas de análisis programadas, en función de las limitaciones siguientes:
+Ahora se pueden incluir consultas entre áreas de trabajo en las reglas de análisis programadas. Puede usar reglas de análisis entre áreas de trabajo en un SOC central y entre inquilinos (con Azure Lighthouse) como en el caso de un MSSP, sujeto a las siguientes limitaciones:
 
-- Se pueden incluir hasta 20 áreas de trabajo en una sola consulta.
-- Azure Sentinel debe implementarse en todas las áreas de trabajo a las que se hace referencia en la consulta.
+- Se pueden incluir **hasta 20 áreas de trabajo** en una sola consulta.
+- Azure Sentinel debe **implementarse en todas las áreas de trabajo** a las que se hace referencia en la consulta.
+- Las alertas generadas por una regla de análisis entre áreas de trabajo y los incidentes creados a partir de ellas existen **únicamente en el área de trabajo donde se definió la regla**. No se mostrarán en ninguna de las demás áreas de trabajo a las que se hace referencia en la consulta.
+
+Las alertas y los incidentes creados por reglas de análisis entre áreas de trabajo contendrán todas las entidades relacionadas, incluidas las de todas las áreas de trabajo a las que se hace referencia, así como el área de trabajo "principal" (donde se definió la regla). Esto permitirá a los analistas tener una visión completa de las alertas y los incidentes.
 
 > [!NOTE] 
 > La consulta de varias áreas de trabajo en la misma consulta puede afectar al rendimiento y, por lo tanto, solo se recomienda cuando la lógica requiere esta funcionalidad.

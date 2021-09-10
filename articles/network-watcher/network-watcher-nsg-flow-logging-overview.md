@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 4f46dc092776e73556a67fee705a98fa883dfbc6
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 23960e112dd03a711027c2364f648f60f23d0c8e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810703"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742021"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -66,7 +66,7 @@ Los registros de flujo son el origen único de toda la actividad de red del ento
 - - Las reglas de denegación de NSG son de terminación. El NSG que deniega el tráfico lo registrará en los registros de flujo, y el procesamiento, en este caso, se detendrá después de que NSG deniegue el tráfico. 
 - - Las reglas de permiso de NSG son de no terminación, lo que significa que, aunque un NSG lo permita, el procesamiento continuará hasta el siguiente NSG. El último NSG que permita el tráfico registrará el tráfico en los registros de flujo.
 - Los registros de flujo de NSG se escriben en cuentas de almacenamiento desde donde se puede acceder a ellos.
-- Puede exportar, procesar, analizar y visualizar registros de flujo mediante herramientas como TA, Splunk, Grafana, Stealthwatch, etc.
+- Puede exportar, procesar, analizar y visualizar registros de flujo mediante herramientas como Traffic Analytics, Splunk, Grafana, Stealthwatch, etc.
 
 ## <a name="log-format"></a>Formato de registro
 
@@ -374,6 +374,8 @@ Además, cuando se elimina un NSG, se elimina de forma predeterminada el recurso
 
 **Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
 
+**NSG en la subred de puerta de enlace de ExpressRoute**: no se recomienda registrar flujos en la subred de puerta de enlace de ExpressRoute porque el tráfico puede omitir la puerta de enlace de ExpressRoute (ejemplo:[ FastPath](../expressroute/about-fastpath.md)). Por lo tanto, si un NSG está vinculado a una subred de puerta de enlace de ExpressRoute y los registros de flujo de NSG están habilitados, es posible que los flujos salientes a las máquinas virtuales no se capturan. Estos flujos deben capturarse en la subred o NIC de la máquina virtual. 
+
 **Problema con el grupo de seguridad de red de la subred de Application Gateway V2**: El registro de flujo en el grupo de seguridad de red de la subred de Application Gateway V2 [no se admite](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actualmente. Este problema no afecta a Application Gateway V1.
 
 **Servicios incompatibles**: debido a las limitaciones actuales de la plataforma, los registros de flujo de NSG no admiten un pequeño conjunto de servicios de Azure. La lista actual de servicios incompatibles es:
@@ -415,7 +417,7 @@ En ocasiones, no verá registros porque las máquinas virtuales no están activa
 
 **Deseo automatizar los registros de flujo de NSG**
 
-Actualmente las plantillas de ARM no permiten automatizar los registros de flujo de NSG. Consulte el [anuncio de característica](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) para obtener más información.
+Actualmente las plantillas de ARM no permiten automatizar los registros de flujo de los grupos de seguridad de red. Consulte el [anuncio de característica](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) y el [inicio rápido del docimento de plantilla de ARM](quickstart-configure-network-security-group-flow-logs-from-arm-template.md) para obtener más información.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

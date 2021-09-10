@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 364072c44791cb9b74d385dbc3f2688a3725d76c
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 5acb23767f8c766de80961fb8e76297f4b31a5c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033517"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738083"
 ---
 # <a name="azure-firewall-features"></a>Características de Azure Firewall
 
@@ -35,7 +35,7 @@ Azure Firewall incluye las siguientes características:
 - Varias direcciones IP públicas
 - Registro de Azure Monitor
 - Tunelización forzada
-- Categorías web (versión preliminar)
+- Categorías web
 - Certificaciones
 
 ## <a name="built-in-high-availability"></a>Alta disponibilidad integrada
@@ -68,6 +68,8 @@ Puede limitar el tráfico HTTP/S o el tráfico de Azure SQL saliente a una lista
 ## <a name="network-traffic-filtering-rules"></a>Reglas de filtrado de tráfico de red
 
 Puede crear reglas de filtrado de red para *permitir* o *denegar* por dirección IP de origen y destino, puerto y protocolo. Azure Firewall tiene estado completo, de modo que puede distinguir los paquetes legítimos de diferentes tipos de conexiones. Las reglas se aplican y se registran en varias suscripciones y redes virtuales.
+
+Azure Firewall admite el filtrado con estado de los protocolos de red de nivel 3 y nivel 4. Los protocolos IP de nivel 3 se pueden filtrar seleccionando **cualquier** protocolo en la regla de red y seleccionando el comodín **\*** del puerto.
 
 ## <a name="fqdn-tags"></a>Etiquetas FQDN
 
@@ -114,9 +116,9 @@ El libro de Azure Firewall proporciona un lienzo flexible para el análisis de d
 
 Puede configurar Azure Firewall para enrutar todo el tráfico vinculado a Internet a un próximo salto designado, en lugar de ir directamente a Internet. Por ejemplo, puede tener un servidor perimetral local u otra aplicación virtual de red (NVA) para procesar el tráfico de red antes de que pase a Internet. Para más información, consulte [Tunelización forzada de Azure Firewall](forced-tunneling.md).
 
-## <a name="web-categories-preview"></a>Categorías web (versión preliminar)
+## <a name="web-categories"></a>Categorías web
 
-Las categorías web hacen que los administradores puedan permitir o denegar el acceso de los usuarios a categorías de sitios web como, por ejemplo, sitios web de apuestas, de redes sociales u otros. Las categorías web se incluyen en Azure Firewall Estándar, pero son más avanzadas en la versión preliminar de Azure Firewall Prémium. Frente a la funcionalidad de categorías web de la SKU Estándar que coincide con la categoría basada en un nombre de dominio completo, la SKU Prémium coincide con la categoría según la dirección URL completa tanto para el tráfico HTTP como para el HTTPS. Para más información sobre la versión preliminar de Azure Firewall Prémium, ve [Características en versión preliminar de Azure Firewall Prémium](premium-features.md).
+Las categorías web hacen que los administradores puedan permitir o denegar el acceso de los usuarios a categorías de sitios web como, por ejemplo, sitios web de apuestas, de redes sociales u otros. Las categorías web se incluyen en Azure Firewall Estándar, pero son más avanzadas en Azure Firewall Premium. Frente a la funcionalidad de categorías web de la SKU Estándar que coincide con la categoría basada en un nombre de dominio completo, la SKU Prémium coincide con la categoría según la dirección URL completa tanto para el tráfico HTTP como para el HTTPS. Para obtener más información sobre Azure Firewall Premium, consulte [Características de Azure Firewall Premium](premium-features.md).
 
 Por ejemplo, si Azure Firewall intercepta una solicitud HTTPS para `www.google.com/news`, se espera la siguiente categorización: 
 
@@ -125,18 +127,6 @@ Por ejemplo, si Azure Firewall intercepta una solicitud HTTPS para `www.google.c
 - Firewall Prémium: se examinará la dirección URL completa, por lo que se `www.google.com/news` clasificará como *Noticias*.
 
 Las categorías se organizan en función de la gravedad en **Responsabilidad**, **Ancho de banda alto**, **Uso empresarial**, **Pérdida de productividad**, **Navegación general** y **Sin categoría**.
-
-### <a name="categorization-change"></a>Cambio de categorización
-
-Puede solicitar un cambio de categorización si:
-
- - Cree que un FQDN o una dirección URL deben estar en otra categoría 
- 
-o bien 
-
-- Tiene una categoría sugerida para un FQDN o una dirección URL sin categoría
-
-Le agradecemos que envíe una solicitud en [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
 
 ### <a name="category-exceptions"></a>Excepciones de las categorías
 
@@ -150,4 +140,4 @@ Azure Firewall es compatible con la industria de tarjetas de pago (PCI), los con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Características de la versión preliminar de Azure Firewall Prémium](premium-features.md)
+- [Características de Azure Firewall Prémium](premium-features.md)

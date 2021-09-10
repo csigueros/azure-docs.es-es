@@ -1,14 +1,14 @@
 ---
 title: Inquilinos, usuarios y roles en escenarios de Azure Lighthouse
 description: Comprenda cómo pueden usarse los inquilinos, usuarios y roles de Azure Active Directory en escenarios de Azure Lighthouse.
-ms.date: 05/11/2021
+ms.date: 06/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: bcb3c250d0973174e7356bd489b84938238af6e7
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: cdf8c10d52e0add4513d42a99d2054e1af0ed796
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074834"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112542263"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Inquilinos, usuarios y roles en escenarios de Azure Lighthouse
 
@@ -47,6 +47,12 @@ Todos los [roles integrados](../../role-based-access-control/built-in-roles.md) 
 
 > [!NOTE]
 > Una vez que se agrega un nuevo rol integrado aplicable a Azure, se puede asignar al [incorporar clientes mediante las plantillas de Azure Resource Manager](../how-to/onboard-customer.md). Puede haber un retraso antes de que el rol recién agregado esté disponible en el Centro de partners cuando [se publique una oferta de servicio administrado](../how-to/publish-managed-services-offers.md).
+
+## <a name="transferring-delegated-subscriptions-between-azure-ad-tenants"></a>Transferencia de suscripciones delegadas entre inquilinos de Azure AD
+
+Si [se transfiere una suscripción a la cuenta de otro inquilino de Azure AD](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account), los [recursos de definición de registro y asignación de registro](architecture.md#delegation-resources-created-in-the-customer-tenant) creados con el [proceso de incorporación de Azure Lighthouse](../how-to/onboard-customer.md) se mantienen. Esto significa que el acceso concedido a través de Azure Lighthouse a inquilinos de administración permanece en vigor para esa suscripción (o para los grupos de recursos delegados de esa suscripción).
+
+La única excepción es si la suscripción se transfiere a un inquilino de Azure AD al que se le había delegado anteriormente. En este caso, se quitan los recursos de delegación para ese inquilino y el acceso concedido a través de Azure Lighthouse ya no se aplicará, porque la suscripción ahora pertenece directamente a ese inquilino (en lugar de delegársele a través de Azure Lighthouse). Sin embargo, si esa suscripción también se hubiera delegado a otros inquilinos de administración, esos otros inquilinos de administración conservarán el mismo acceso a la suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

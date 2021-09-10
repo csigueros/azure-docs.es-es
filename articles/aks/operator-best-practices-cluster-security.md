@@ -5,12 +5,12 @@ description: Obtenga información sobre los procedimientos recomendados del oper
 services: container-service
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 5cb103d843aafbb7f72c03d65b45fe3a84f8d1cd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7560e9aaabf8b21729e1e9d8e008c0b6a0e8cefb
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782988"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453329"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -279,38 +279,19 @@ A continuación, puede actualizar el clúster de AKS con el comando [az aks upgr
 
 Para obtener más información sobre las actualizaciones de AKS, consulte [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported-versions] y [Actualización de un clúster de AKS][aks-upgrade].
 
-## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Proceso de las actualizaciones y reinicios de nodos Linux con kured
+## <a name="process-linux-node-updates"></a>Procesamiento de las actualizaciones de los nodos de Linux
 
-> **Guía de procedimientos recomendados** 
-> 
-> Aunque AKS descarga e instala automáticamente correcciones de seguridad en cada uno de los nodos Linux, no se reinicia automáticamente. 
-> 1. Use `kured` para ver si hay reinicios pendientes.
-> 1. Acordone y purgue el nodo de forma segura para permitir que el nodo se reinicie.
-> 1. Aplique las actualizaciones.
-> 1. Mantenga la mayor seguridad posible con respecto al sistema operativo. 
+Cada noche, los nodos Linux de AKS obtienen las actualizaciones de seguridad a través de su canal de actualización de distribuciones. Este comportamiento se configura automáticamente cuando se implementan los nodos en un clúster de AKS. Para minimizar las interrupciones y el posible impacto sobre las cargas de trabajo en ejecución, los nodos no se reinician automáticamente si lo requiere una revisión de seguridad o una actualización de kernel. Para más información sobre cómo controlar los inicios del nodo, consulte [Aplicación de actualizaciones de kernel y de seguridad en los nodos en AKS][aks-kured].
 
-Para los nodos de Windows Server, realice periódicamente una operación de actualización de AKS para acordonar y drenar los pods de forma segura, e implemente los nodos actualizados.
+### <a name="node-image-upgrades"></a>Actualizaciones de imágenes de nodo
 
-Cada noche, los nodos Linux de AKS obtienen las actualizaciones de seguridad a través de su canal de actualización de distribuciones. Este comportamiento se configura automáticamente cuando se implementan los nodos en un clúster de AKS. Para minimizar las interrupciones y el posible impacto sobre las cargas de trabajo en ejecución, los nodos no se reinician automáticamente si lo requiere una revisión de seguridad o una actualización de kernel.
+Las actualizaciones desatendidas aplican actualizaciones al sistema operativo del nodo de Linux, pero la imagen que se usa para crear los nodos del clúster no se modifica. Si se agrega un nuevo nodo de Linux al clúster, se usa la imagen original para crear el nodo. Este nuevo nodo recibirá todas las actualizaciones de seguridad y del kernel que haya disponibles durante la comprobación automática cada noche, pero no se le aplicarán revisiones hasta que se completen todas las comprobaciones y los reinicios. Puede usar la actualización de imágenes de nodo para buscar y actualizar las imágenes de nodo que usa el clúster. Si desea obtener más información sobre la actualización de imágenes de nodo, consulte [Actualización de la imagen de nodos de Azure Kubernetes Service (AKS)][node-image-upgrade].
 
-El proyecto [kured (KUbernetes REboot Daemon)][kured] de código abierto de Weaveworks vigila los reinicios pendientes del nodo. Cuando un nodo Linux aplica actualizaciones que requieren un reinicio, el nodo se acordona y se drena de forma segura para mover y programar los pods en otros nodos del clúster. Una vez que se reinicia el nodo, se vuelve a agregar al clúster y Kubernetes vuelve a reanudar la programación de pods. Para minimizar las interrupciones, solo se permite que `kured` reinicie un único nodo a la vez.
+## <a name="process-windows-server-node-updates"></a>Procesamiento de las actualizaciones de los nodos de Windows Server
 
-![Proceso de reinicio del nodo de AKS con kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
-
-Si desea un control aún más estrecho sobre los reinicios, `kured` puede integrarse con Prometheus para evitar reinicios si hay otros eventos de mantenimiento o problemas de clúster en curso. Esta integración reduce las complicaciones al reiniciar los nodos mientras está solucionando activamente otros problemas.
-
-Para más información sobre cómo controlar los inicios del nodo, consulte [Aplicación de actualizaciones de kernel y de seguridad en los nodos en AKS][aks-kured].
-
-## <a name="next-steps"></a>Pasos siguientes
-
-En este artículo se indica cómo proteger el clúster de AKS. Para implementar algunas de estas áreas, consulte los artículos siguientes:
-
-* [Integración de Azure Active Directory con AKS][aks-aad]
-* [Actualización de un clúster AKS a la última versión de Kubernetes][aks-upgrade]
-* [Procesamiento de actualizaciones de seguridad y reinicios del nodo con kured][aks-kured]
+Para los nodos de Windows Server, realice periódicamente una operación de actualización de imágenes de nodo para acordonar y drenar los pods de forma segura, e implemente los nodos actualizados.
 
 <!-- EXTERNAL LINKS -->
-[kured]: https://github.com/weaveworks/kured
 [k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
 [seccomp]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -330,3 +311,4 @@ En este artículo se indica cómo proteger el clúster de AKS. Para implementar 
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
 [security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md
+[node-image-upgrade]: node-image-upgrade.md

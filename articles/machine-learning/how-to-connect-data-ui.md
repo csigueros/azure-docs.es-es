@@ -1,5 +1,5 @@
 ---
-title: Conexión a los datos de los servicios de almacenamiento en Azure
+title: Conexión al almacenamiento de datos con la interfaz de usuario de Studio
 titleSuffix: Azure Machine Learning
 description: Cree almacenes de datos y conjuntos de datos para conectarse de forma segura a los datos de los servicios de almacenamiento de Azure con Azure Machine Learning Studio.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 09/22/2020
+ms.date: 07/06/2021
 ms.custom: data4ml
-ms.openlocfilehash: b85be179fa12e29ef17fe9fa488b22c3d8a3c69b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8764f237d3e5304df95357cb770738e32d8395dd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785122"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441888"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conexión a los datos con Azure Machine Learning Studio
 
@@ -37,7 +37,7 @@ Para obtener una experiencia de Code First, consulte los artículos siguientes p
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
 
@@ -85,8 +85,11 @@ Para crear un conjunto de datos en el estudio:
 1. Seleccione **Tabular** o **Archivo** para el tipo de conjunto de datos.
 1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde desea mantener el conjunto de datos después de su creación, así como los archivos de datos que se usarán para el conjunto de datos.
     1. Habilite la omisión de la validación si los datos están en una red virtual. Obtenga más información acerca del [aislamiento de red virtual y la privacidad](how-to-enable-studio-virtual-network.md).
-    1. Para los conjuntos de datos tabulares, puede especificar un rasgo de "serie temporal" para permitir operaciones relacionadas con el tiempo en el conjunto datos. Aprenda a [agregar el rasgo de serie temporal al conjunto de datos](how-to-monitor-datasets.md#studio-dataset).
+
 1. Seleccione **Siguiente** para rellenar los formularios **Settings and preview** (Configuración y versión preliminar) y **Esquema**; se rellenan de forma inteligente en función del tipo de archivo y se puede configurar el conjunto de archivos antes de la creación en estos formularios. 
+    1.  En el formulario Configuración y de vista previa, puede indicar si sus datos contienen datos de varias líneas. 
+    1. En el formulario Esquema, puede especificar que su TabularDataset tiene un componente de tiempo seleccionando el tipo: **Marca de tiempo** para la columna de fecha u hora. 
+        1. Si los datos tienen formato de subconjuntos, por ejemplo, ventanas de tiempo, y desea usar esos subconjuntos para el entrenamiento, seleccione el tipo **Marca de tiempo de partición**. Al hacerlo, se habilitan las operaciones de series temporales en el conjunto de datos. Obtenga más información sobre cómo [aprovechar las particiones del conjunto de datos para el entrenamiento](how-to-monitor-datasets.md?tabs=azure-studio#create-target-dataset).
 1. Seleccione **Siguiente** para revisar el formulario **Confirmar detalles**. Compruebe sus selecciones y cree un perfil de datos opcional para el conjunto de datos. Más información acerca de la [generación de perfiles de datos](#profile).
 1. Seleccione **Crear** para completar la creación del conjunto de datos.
 

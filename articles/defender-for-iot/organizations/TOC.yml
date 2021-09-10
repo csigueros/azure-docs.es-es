@@ -23,6 +23,8 @@
 - name: Tutorial
   expanded: false
   items:
+    - name: Configuración de la evaluación gratuita de Azure Defender para IoT
+      href: tutorial-onboarding.md
     - name: Integración de Splunk
       href: tutorial-splunk.md
     - name: Integración de ServiceNow

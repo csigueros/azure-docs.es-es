@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/16/2020
+ms.date: 05/16/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c857de5c9182d49e2527c9cbf416d7012c46370
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 3bd7a7908b94794c60f351297a34309e94d21137
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713961"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964039"
 ---
-# <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de información de aprobación y del solicitante (versión preliminar) para un paquete de acceso de administración de derechos de Azure AD
+# <a name="change-approval-and-requestor-information-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de información de aprobación y del solicitante para un paquete de acceso de administración de derechos de Azure AD
 
 Como administrador de paquetes de acceso, puede cambiar la configuración de información de aprobación y del solicitante de un paquete de acceso en cualquier momento si edita una directiva existente o agrega una nueva directiva.
 
@@ -34,10 +34,9 @@ En este artículo, se explica cómo se puede modificar la configuración de info
 En la sección Aprobación, especifique si se requiere una aprobación cuando los usuarios soliciten este paquete de acceso. La configuración de aprobación funciona de la siguiente manera:
 
 - Una solicitud para una aprobación de una sola fase solo debe aprobarla uno de los aprobadores seleccionados o un aprobador de reserva. 
-- Una solicitud para una aprobación de dos fases solo debe aprobarla uno de los aprobadores seleccionados de cada fase.
-- El aprobador puede ser un administrador, un patrocinador interno o un patrocinador externo, dependiendo de quién rige el acceso a la directiva.
-- Para una aprobación de una sola fase o de dos fases no se necesita la aprobación de cada uno de los aprobadores seleccionados.
-- La decisión de aprobación se basa en el aprobador que revise primero la solicitud.
+- Solo uno de los aprobadores seleccionados de cada fase debe aprobar una solicitud de aprobación en varias fases para que la solicitud avance a la siguiente fase.
+- Si uno de los aprobadores seleccionados en una fase deniega una solicitud antes de que otro aprobador de esa fase la apruebe, o si nadie la aprueba, la solicitud termina y el usuario no obtiene acceso.
+- El aprobador puede ser un usuario o un miembro de un grupo especificado, el administrador, el patrocinador interno o el patrocinador externo del solicitante en función de para quién rige el acceso la directiva.
 
 Para ver una demostración de cómo agregar aprobadores a una directiva de solicitud, vea el vídeo siguiente:
 
@@ -68,7 +67,7 @@ Siga estos pasos para especificar la configuración de aprobación de las solici
 
 1. Para requerir que los usuarios proporcionen una justificación para solicitar el paquete de acceso, establezca la opción **R** en **Sí**.
     
-1. Ahora determine si las solicitudes requerirán la aprobación de una sola fase o de dos fases. Establezca el botón de alternancia **Número de fases** en **1** para una aprobación de una sola fase o en **2**, para la aprobación de dos fases.
+1. Ahora determine si las solicitudes requerirán la aprobación en una o en varias fases. En **Número de fases**, indique el número de fases de aprobación necesarias.
 
     ![Acceder a paquete - Solicitudes - Configuración de aprobación](./media/entitlement-management-access-package-approval-policy/approval.png)
 
@@ -101,9 +100,9 @@ Siga los pasos que se indican a continuación para agregar aprobadores después 
 
     La justificación es visible para otros aprobadores y el solicitante.
 
-### <a name="2-stage-approval"></a>Aprobación en 2 fases
+### <a name="multi-stage-approval"></a>Aprobación en varias fases
 
-Si seleccionó una aprobación de dos fases, deberá agregar otro aprobador.
+Si ha seleccionado la aprobación en varias fases, debe agregar un aprobador para cada fase adicional.
 
 1. Agregue el **Segundo aprobador**: 
     
@@ -121,16 +120,16 @@ Si seleccionó una aprobación de dos fases, deberá agregar otro aprobador.
 
 ### <a name="alternate-approvers"></a>Aprobadores alternativos
 
-Puede especificar aprobadores alternativos de manera similar a cómo se especifican el primer y el segundo aprobador que pueden aprobar solicitudes. Tener aprobadores alternativos lo ayudará a asegurarse de que las solicitudes se aprueban o deniegan antes de que expiren (tiempo de expiración). Puede enumerar como aprobadores alternativos el primer aprobador y el segundo aprobador para la aprobación de dos fases. 
+Puede especificar aprobadores alternativos, de forma similar a la especificación de los aprobadores principales que pueden aprobar solicitudes en cada fase. Tener aprobadores alternativos lo ayudará a asegurarse de que las solicitudes se aprueban o deniegan antes de que expiren (tiempo de expiración). Puede enumerar aprobadores alternativos junto con el aprobador principal en cada fase.
 
-Al especificar aprobadores alternativos, en caso de que el primer o el segundo aprobador no pueda aprobar ni rechazar la solicitud, la solicitud pendiente se reenvía a los aprobadores alternativos según la programación de reenvío que haya especificado durante la configuración de la directiva. Reciben un correo electrónico para aprobar o denegar la solicitud pendiente.
+Al especificar aprobadores alternativos en una fase, en el caso de que los aprobadores principales no puedan aprobar ni rechazar la solicitud, se reenvía a los aprobadores alternativos según la programación de reenvío que haya especificado durante la configuración de la directiva. Reciben un correo electrónico para aprobar o denegar la solicitud pendiente.
 
-Después de reenviar la solicitud a los aprobadores alternativos, el primer o el segundo aprobador puede seguir aprobando o denegando la solicitud. Los aprobadores alternativos usan el mismo sitio Mi acceso para aprobar o denegar la solicitud pendiente.
+Después de reenviar la solicitud a los aprobadores alternativos, los aprobadores principales pueden seguir aprobando o denegando la solicitud. Los aprobadores alternativos usan el mismo sitio Mi acceso para aprobar o denegar la solicitud pendiente.
 
-Podemos enumerar personas o grupos de personas como aprobadores y aprobadores alternativos. Asegúrese de que se muestran distintos conjuntos de personas como el primer aprobador, el segundo aprobador y los aprobadores alternativos.
-Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indique que Carol y Dave serán los aprobadores alternativos. Siga estos pasos para agregar aprobadores alternativos a un paquete de acceso:
+Puede designar personas o grupos como aprobadores y aprobadores alternativos. Asegúrese de que se muestran distintos conjuntos de personas como el primer aprobador, el segundo aprobador y los aprobadores alternativos.
+Por ejemplo, si ha designado a Alice y Bob como aprobadores en la primera fase, designe a Carol y Dave como aprobadores alternativos. Siga estos pasos para agregar aprobadores alternativos a un paquete de acceso:
 
-1. En el Primer aprobador, el Segundo aprobador o en ambos, haga clic en **Mostrar configuración de solicitud avanzada**.
+1. Debajo del aprobador de una fase, haga clic en **Mostrar configuración de solicitud avanzada**.
 
     :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Paquete de acceso - Directiva - Mostrar configuración de solicitud avanzada":::
 
@@ -158,7 +157,7 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
 1. Haga clic en **Next**.
 
-## <a name="collect-additional-requestor-information-for-approval-preview"></a>Recopilación de información del solicitante adicional para su aprobación (versión preliminar)
+## <a name="collect-additional-requestor-information-for-approval"></a>Recopilación de información adicional del solicitante para su aprobación
 
 Para asegurarse de que los usuarios obtienen acceso a los paquetes de acceso adecuados, puede requerir que los solicitantes respondan a preguntas del campo de texto personalizado o de tipo test en el momento de la solicitud. Existe un límite de 20 preguntas por directiva y un límite de 25 respuestas para preguntas de tipo test. A continuación, se mostrarán a las preguntas a los aprobadores para ayudarles a tomar una decisión.
 
@@ -177,12 +176,15 @@ Para asegurarse de que los usuarios obtienen acceso a los paquetes de acceso ade
 
 1. Seleccione el **formato de respuesta** en el que desea que los solicitantes respondan. Entre los formatos de respuesta se incluyen: *texto breve*, *opciones múltiples* y *texto largo*.
  
-    ![Paquete de acceso: Directiva Seleccionar ver y editar el formato de respuesta de opciones múltiples](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
+    ![Paquete de acceso - Directiva- Selección de Ver y editar en el formato de respuesta Tipo test](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  
-1. Si selecciona varias opciones, haga clic en el botón **Ver y editar** para configurar las opciones de respuesta.
-    1. Después de seleccionar Ver y editar, se abrirá el panel **View/edit question** (Ver y editar pregunta).
+1. Si selecciona Tipo test, haga clic en el botón **Ver y editar** para configurar las opciones de respuesta.
+    1. Al seleccionar la opción Ver y editar, se abre el panel **View/edit question** (Ver o editar pregunta).
     1. Escriba las opciones de respuesta que desea dar al solicitante al responder a la pregunta de los cuadros **Answer values** (Valores de respuesta).
-    1. Escriba tantas respuestas como sea necesario y haga clic en **Save** (Guardar).
+    1. Escriba tantas respuestas como sea necesario.
+    1. Si quiere agregar su propia traducción para las opciones de tipo test, seleccione el **código de idioma opcional** para el idioma al que desea traducir una opción específica.
+    1. En el idioma que ha configurado, escriba la opción en el cuadro Localized Text (Texto traducido).
+    1. Una vez que haya agregado todas las traducciones necesarias para cada opción de tipo test, haga clic en **Guardar**.
     
     ![Paquete de acceso: Directiva Escribir opciones múltiples](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
   
@@ -190,7 +192,7 @@ Para asegurarse de que los usuarios obtienen acceso a los paquetes de acceso ade
 
 1. Rellene las pestañas restantes (p. ej., Ciclo de vida) en función de sus necesidades.
 
-Después de haber configurado la información del solicitante en su directiva de paquete de acceso, puede ver las respuestas del solicitante a las preguntas. Para obtener instrucciones sobre cómo ver la información del solicitante, consulte [Visualización de las respuestas del solicitante a las preguntas (versión preliminar)](entitlement-management-request-approve.md#view-requestors-answers-to-questions-preview).
+Después de haber configurado la información del solicitante en su directiva de paquete de acceso, puede ver las respuestas del solicitante a las preguntas. Si desea obtener instrucciones para ver la información del solicitante, consulte [Visualización de las respuestas del solicitante a las preguntas (versión preliminar)](entitlement-management-request-approve.md#view-requestors-answers-to-questions).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Cambiar la configuración del ciclo de vida de un paquete de acceso](entitlement-management-access-package-lifecycle-policy.md)

@@ -1,17 +1,20 @@
 ---
 title: Solución de problemas de seguridad y control de acceso
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a solucionar problemas de seguridad y control de acceso en Azure Data Factory.
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/31/2021
+ms.date: 07/28/2021
 ms.author: lle
-ms.openlocfilehash: ff95f5c3f8d978d58146529825adee94f82eaf07
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a025e46914390d203537d0ddd0c9faf5f22488ab
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782899"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864160"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solución de problemas de seguridad y control de acceso de Azure Data Factory
 
@@ -189,6 +192,37 @@ ADF todavía puede usar IR de red virtual administrada, pero podría encontrar e
 - Habilite el punto de conexión privado en el origen y también el lado del receptor cuando se use IR de la red virtual administrada.
 - Si todavía quiere usar el punto de conexión público, puede cambiar a solo IR público en lugar de usar IR de red virtual administrada para el origen y el receptor. Incluso si cambia de nuevo a IR público, ADF todavía puede usar IR de red virtual administrada en caso de que siga presente.
 
+### <a name="internal-error-while-trying-to-delete-adf-with-customer-managed-key-cmk-and-user-assigned-managed-identity-ua-mi"></a>Error interno al intentar eliminar ADF con una clave administrada por el cliente (CMK) y una identidad administrada asignada por el usuario (UA-MI)
+
+#### <a name="symptoms"></a>Síntomas
+`{\"error\":{\"code\":\"InternalError\",\"message\":\"Internal error has occurred.\"}}`
+
+#### <a name="cause"></a>Causa
+
+Si está realizando alguna operación relacionada con CMK, primero debe llevar a cabo todas las operaciones relacionadas con ADF y luego las operaciones externas (como las operaciones de identidades administradas o de Key Vault). Por ejemplo, si quiere eliminar todos los recursos, primero debe eliminar la factoría y luego el almacén de claves; si lo hace en otro orden, se produce un error en la llamada a ADF, puesto que ya no puede leer objetos relacionados ni validar si la eliminación es posible o no. 
+
+#### <a name="solution"></a>Solución
+
+Hay tres formas posibles de solucionar el problema. Los pasos son los siguientes:
+
+* Ha revocado el acceso de ADF al almacén de claves donde estaba almacenada la clave de CMK. 
+Puede volver a asignar acceso a los siguientes permisos de la factoría de datos: **Obtener, Desencapsular clave y Encapsular clave**. Estos permisos son necesarios para habilitar las claves administradas por el cliente en Data Factory. Vea [Concesión a ADF de acceso](enable-customer-managed-key.md#grant-data-factory-access-to-azure-key-vault). Una vez que se ha proporcionado el permiso, se debería poder eliminar ADF.
+ 
+* El cliente ha eliminado Key Vault o CMK antes de eliminar ADF. CMK en ADF debe tener habilitadas la "eliminación temporal" y la "protección de purga", que tiene una directiva de retención predeterminada de 90 días. Puede restaurar la clave eliminada.  
+ Vea [Recuperación de clave eliminada](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) y [Valor de clave eliminado](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault).
+
+* La identidad administrada asignada por el usuario (UA-MI) se ha eliminado antes que ADF. Puede recuperarse de esto mediante llamadas API REST; puede hacerlo en un cliente http de su elección en cualquier lenguaje de programación. Si aún no tiene nada configurado para las llamadas API REST con autenticación de Azure, la manera más fácil de hacerlo sería mediante POSTMAN/Fiddler. Siga estos pasos.
+
+   1.  Realice una llamada GET a la factoría mediante el método: GET Url like   `https://management.azure.com/subscriptions/YourSubscription/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourFactoryName?api-version=2018-06-01`
+
+   2. Debe crear una nueva identidad administrada de usuario con otro nombre (el mismo nombre puede funcionar, pero es más seguro usar un nombre diferente al de la respuesta GET).
+
+   3. Modifique las propiedades encryption.identity e identity.userassignedidentities para que apunten a la identidad administrada recién creada. Quite clientId y principalId del objeto userAssignedIdentity. 
+
+   4.  Realice una llamada PUT a la misma dirección URL de la factoría con el nuevo cuerpo. Es muy importante que pase lo que haya obtenido en la respuesta GET y solo modifique la identidad. De lo contrario, se invalidarían otras configuraciones de forma involuntaria. 
+
+   5.  Una vez que la llamada se realiza correctamente, se pueden ver las entidades de nuevo y volver a intentar eliminar. 
+
 ## <a name="sharing-self-hosted-integration-runtime"></a>Uso compartido de IR autohospedado
 
 ### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>No se admite el uso compartido de un IR autohospedado desde un inquilino diferente 
@@ -201,13 +235,14 @@ Es posible que observe otras factorías de datos (en diferentes inquilinos) al i
 
 El IR autohospedado no puede compartirse entre inquilinos.
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más ayuda para solucionar problemas, pruebe los siguientes recursos:
 
 *  [Private Link para Data Factory](data-factory-private-link.md)
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Solicitud de características de Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-data-factory.html)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

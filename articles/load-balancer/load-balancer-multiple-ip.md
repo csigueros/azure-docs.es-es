@@ -1,196 +1,618 @@
 ---
-title: Equilibrio de carga en varias configuraciones de IP en Azure Portal
+title: 'Tutorial: equilibrio de carga en varias configuraciones de IP en Azure Portal'
 titleSuffix: Azure Load Balancer
-description: En este artículo, obtendrá información sobre el equilibrio de carga en las configuraciones de IP principales y secundarias mediante Azure Portal.
-services: load-balancer
-documentationcenter: na
+description: En este artículo, obtendrá información sobre el equilibrio de carga en las configuraciones de NIC principales y secundarias mediante Azure Portal.
 author: asudbring
-ms.service: load-balancer
-ms.devlang: na
-ms.topic: how-to
-ms.custom: se0dec18
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 844f7095d52e9e5779f0f0174ada9f0d3309564c
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.service: load-balancer
+ms.topic: tutorial
+ms.date: 08/08/2021
+ms.custom: template-tutorial
+ms.openlocfilehash: 1d84de13820b23b52c09d3333799f45fd342763f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297252"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260338"
 ---
-# <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrio de carga en varias configuraciones de IP mediante Azure Portal
+# <a name="tutorial-load-balance-multiple-ip-configurations-using-the-azure-portal"></a>Tutorial: equilibrio de carga en varias configuraciones de IP mediante Azure Portal 
 
-> [!div class="op_single_selector"]
-> * [Portal](load-balancer-multiple-ip.md)
-> * [PowerShell](load-balancer-multiple-ip-powershell.md)
-> * [CLI](load-balancer-multiple-ip-cli.md)
+Para hospedar varios sitios web, puede usar otra interfaz de red asociada a una máquina virtual. Azure Load Balancer admite la implementación de equilibrio de carga para admitir la alta disponibilidad de los sitios web.
 
-En este artículo, le mostraremos cómo usar Azure Load Balancer con varias direcciones IP en un controlador de interfaz de red secundario (NIC). En el siguiente diagrama se ilustra nuestro escenario:
+En este tutorial, aprenderá a:
 
-![Escenario del equilibrador de carga](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
-
-En nuestro escenario, usamos la siguiente configuración:
-
-- Dos máquinas virtuales (VM) que ejecutan Windows.
-- Cada máquina virtual tiene un NIC principal y otro secundario.
-- Cada NIC secundario tiene dos configuraciones IP.
-- Cada máquina virtual hospeda dos sitios web: contoso.com y fabrikam.com.
-- Cada uno de los sitios web está enlazado a una configuración de IP en el NIC secundario.
-- Azure Load Balancer se utiliza para exponer dos direcciones IP de servidor front-end, una para cada sitio web. Las direcciones de servidor front-end se utilizan para distribuir el tráfico a la configuración IP correspondiente para cada sitio web.
-- Se usa el mismo número de puerto para las direcciones IP de servidor front-end y las de grupo back-end.
+> [!div class="checklist"]
+> * Crear y configurar una red virtual, una subred y una puerta de enlace NAT
+> * Crear dos máquinas virtuales con Windows Server
+> * Crear una NIC secundaria y configuraciones de red para cada máquina virtual
+> * Crear dos sitios web de Internet Information Server (IIS) en cada máquina virtual
+> * Enlazar los sitios web a las configuraciones de red
+> * Crear y configurar una instancia de Azure Load Balancer
+> * Prueba del equilibrador de carga
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En nuestro ejemplo de escenario se da por supuesto que tiene un grupo de recursos denominado **contosofabrikam** con la siguiente configuración:
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- El grupo de recursos incluye una red virtual denominada **myVNet**.
-- La red **myVNet** incluye dos máquinas virtuales con el nombre **VM1** y **VM2**.
-- VM1 y VM2 están en el mismo conjunto de disponibilidad, denominado **myAvailset**. 
-- VM1 y VM2 tienen un NIC principal con los nombres **VM1NIC1** y **VM2NIC1**, respectivamente. 
-- VM1 y VM2 tienen un NIC secundaria con los nombres **VM1NIC2** y **VM2NIC2**, respectivamente.
+## <a name="create-virtual-network"></a>Creación de una red virtual
 
-Para más información sobre la creación de máquinas virtuales con varios NIC, vea [Creación de una máquina virtual con varios NIC mediante PowerShell](../virtual-machines/windows/multiple-nics.md).
+En esta sección creará una red virtual para el equilibrador de carga y las máquinas virtuales.
 
-## <a name="perform-load-balancing-on-multiple-ip-configurations"></a>Equilibrio de carga en varias configuraciones de IP
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-Complete los pasos siguientes para reproducir el escenario que se describe en este artículo.
+2. En el cuadro de búsqueda de la parte superior del portal, escriba **Red virtual**. En los resultados de la búsqueda, seleccione **Redes virtuales**.
 
-### <a name="step-1-configure-the-secondary-nics"></a>Paso 1: Configuración de los NIC secundarios
+3. En **Redes virtuales**, seleccione **+ Crear**.
 
-Para cada máquina virtual de la red virtual, agregue la configuración de IP para el NIC secundario:  
+4. En **Crear red virtual**, escriba o seleccione esta información en la pestaña **Conceptos básicos**:
 
-1. Vaya a Azure Portal: https://portal.azure.com. Inicie sesión con su cuenta de Azure.
+    | **Configuración**          | **Valor**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Detalles del proyecto**  |                                                                 |
+    | Subscription     | Selección de su suscripción a Azure                                  |
+    | Grupo de recursos   | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **TutorialLBIP-rg**. </br> Seleccione **Aceptar**. |
+    | **Detalles de instancia** |                                                                 |
+    | Nombre             | Escriba **myVNet**.                                    |
+    | Region           | Seleccione **(Europa) Oeste de Europa**. |
 
-2. En la parte superior izquierda de la pantalla, seleccione el icono **Grupo de recursos**. A continuación, seleccione el grupo de recursos donde se encuentran las máquinas virtuales (por ejemplo, **contosofabrikam**). En el panel **Grupos de recursos** se muestran todos los recursos y los NIC para las máquinas virtuales.
+5. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
-3. Agregue al NIC secundario de cada máquina virtual la configuración de IP:
+6. En la pestaña **Direcciones IP**, especifique esta información:
 
-    1. Seleccione el NIC secundario que desee configurar.
-    
-    2. Seleccione **Configuraciones IP**. En el siguiente panel, cerca de la parte superior, seleccione **Agregar**.
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
 
-    3. En **Agregar configuración IP**, agregue una segunda configuración de IP al NIC: 
+7. En **Nombre de subred**, seleccione la palabra **predeterminada**.
 
-        1. Escriba un nombre para la configuración de IP secundaria. (Por ejemplo, para VM1 y VM2, asigne a las configuraciones de IP los nombres **VM1NIC2-ipconfig2** y **VM2NIC2-ipconfig2** respectivamente).
+8. En **Editar subred**, especifique esta información:
 
-        2. Para **Dirección IP privada**, en la configuración **Asignación**, seleccione **Estática**.
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Nombre de subred | Escriba **myBackendSubnet**. |
+    | Intervalo de direcciones de subred | Escriba **10.1.0.0/24**. |
 
-        3. Seleccione **Aceptar**.
+9. Seleccione **Guardar**.
 
-Cuando haya finalizado la segunda configuración de IP para el NIC secundario, se muestra en **Configuraciones de IP** del NIC en cuestión.
+10. Seleccione la pestaña **Seguridad** .
 
-### <a name="step-2-create-the-load-balancer"></a>Paso 2: Creación del equilibrador de carga
+11. En **BastionHost**, seleccione **Habilitar**. Escriba esta información:
 
-Creación del equilibrador de carga para la configuración:
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Nombre del bastión | Escriba **myBastionHost**. |
+    | Espacio de direcciones de AzureBastionSubnet | Escriba **10.1.1.0/27**. |
+    | Dirección IP pública | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myBastionIP**. </br> Seleccione **Aceptar**. |
 
-1. Vaya a Azure Portal: https://portal.azure.com. Inicie sesión con su cuenta de Azure.
 
-2. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Load Balancer**. A continuación, seleccione **Crear**.
+12. Seleccione la pestaña **Revisar y crear** o el botón **Revisar y crear**.
 
-3. En **Crear equilibrador de carga**, escriba un nombre para el equilibrador de carga. En este escenario, usamos el nombre **mylb**.
+13. Seleccione **Crear**.
 
-4. En **Dirección IP pública**, cree una nueva dirección IP pública denominada **PublicIP1**.
+## <a name="create-nat-gateway"></a>Creación de una instancia de NAT Gateway
 
-5. En **Grupo de recursos**, seleccione el grupo de recursos existente de sus máquinas virtuales (por ejemplo, **contosofabrikam**). Seleccione la ubicación para implementar el equilibrador de carga y, luego, seleccione **Aceptar**.
+En esta sección, creará una puerta de enlace NAT para el acceso a Internet saliente para los recursos de la red virtual. 
 
-El equilibrador de carga comienza a realizar la implementación. La implementación puede tardar unos minutos en completarse. Una vez completada la implementación, el equilibrador de carga se muestra como un recurso en el grupo de recursos.
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Puerta de enlace NAT**. Seleccione **Puertas de enlace NAT** en los resultados de búsqueda.
 
-### <a name="step-3-configure-the-front-end-ip-pool"></a>Paso 3: Configuración del grupo de direcciones IP de servidor front-end
+2. En **Puertas de enlace NAT**, seleccione **+ Crear**.
 
-Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direcciones IP de servidor front-end en el equilibrador de carga:
+3. En **Crear puerta de enlace de traducción de direcciones de red (NAT)** , escriba o seleccione la información siguiente:
 
-1. En el portal, seleccione **Más servicios**. En el cuadro de filtro, escriba **Dirección IP pública** y, a continuación, seleccione **Direcciones IP públicas**. En el siguiente panel, cerca de la parte superior, seleccione **Agregar**.
+    | Configuración | Value |
+    | ------- | ----- |
+    | **Detalles del proyecto** |   |
+    | Subscription | Seleccione su suscripción. |
+    | Resource group | Seleccione **TutorialLBIP-rg**. |
+    | **Detalles de instancia** |    |
+    | Nombre de NAT Gateway | Escriba **myNATgateway**. |
+    | Zona de disponibilidad | Seleccione **Ninguno**. |
+    | Tiempo de espera de inactividad (minutos) | Escriba **15**. |
 
-2. Configure dos direcciones IP públicas (**PublicIP1** y **PublicIP2**) para ambos sitios web (contoso.com y fabrikam):
+4. Seleccione la pestaña **Dirección IP de salida** o elija el botón **Siguiente: Dirección IP de salida** situado en la parte inferior de la página.
 
-   1. Escriba un nombre para la dirección IP de servidor front-end.
+5. En **Dirección IP de salida**, seleccione **Crear una dirección IP pública** junto a **Direcciones IP públicas**.
 
-   2. En **Grupo de recursos**, seleccione el grupo de recursos existente de sus máquinas virtuales (por ejemplo, **contosofabrikam**).
-
-   3. Para **Ubicación**, seleccione la misma ubicación que la de las máquinas virtuales.
-
-   4. Seleccione **Aceptar**.
-
-      Una vez creadas las direcciones IP públicas, se muestran en las **direcciones IP públicas**.
-
-3. <a name="step3-3"></a>En el portal, seleccione **Más servicios**. En el cuadro de filtro, escriba **load balancer** y, luego, seleccione **Load Balancer**. 
-
-4. Seleccione el equilibrador de carga (**mylb**) al que desea agregar el grupo de direcciones IP de servidor front-end.
-
-5. En **Configuración**, seleccione **Configuración de direcciones IP de front-end**. En el siguiente panel, cerca de la parte superior, seleccione **Agregar**.
-
-6. Escriba un nombre para la dirección IP de servidor front-end (por ejemplo, **contosofe** o **fabrikamfe**).
-
-7. <a name="step3-7"></a>Seleccione **Dirección IP**. En **Elegir dirección IP pública**, seleccione las direcciones IP para servidor front-end (**PublicIP1** o **PublicIP2**).
-
-8. Cree la segunda dirección IP de servidor front-end repitiendo desde el <a href="#step3-3">paso 3</a> hasta el <a href="#step3-7">paso 7</a> en esta sección.
-
-Después de configurar el grupo de servidores front-end, las direcciones IP se muestran en la configuración **Configuración de direcciones IP de front-end** del equilibrador de carga. 
-    
-### <a name="step-4-configure-the-back-end-pool"></a>Paso 4: Configuración del grupo de servidores back-end
-
-Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direcciones de servidores back-end en el equilibrador de carga:
-        
-1. En el portal, seleccione **Más servicios**. En el cuadro de filtro, escriba **load balancer** y, luego, seleccione **Load Balancer**.
-
-2. Seleccione el equilibrador de carga (**mylb**) al que va a agregar el grupo de servidores back-end.
-
-3. En **Configuración**, seleccione **Grupos de back-end**. Escriba un nombre para el grupo de servidores back-end (por ejemplo, **contosopool** o **fabrikampool**). En el siguiente panel, cerca de la parte superior, seleccione **Agregar**. 
-
-4. En **Asociado a**, seleccione **Conjunto de disponibilidad**.
-
-5. En **Conjunto de disponibilidad**, seleccione **myAvailset**.
-
-6. Agregue las configuraciones de IP de la red de destino para ambas máquinas virtuales: 
-
-    ![Configuración de grupos de servidores back-end para el equilibrador de carga](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
-    
-    1. En **Máquina virtual de destino**, seleccione la máquina virtual que desea agregar al grupo de servidores back-end (por ejemplo, **VM1** o **VM2**).
-
-    2. En **Configuración IP de red**, seleccione la configuración de IP del NIC secundario de la máquina virtual que seleccionó en el paso anterior (por ejemplo **VM1NIC2-ipconfig2** o **VM2NIC2-ipconfig2**).
+6. Escriba **myNATgatewayIP** en **Nombre** en **Agregar una dirección IP pública**.
 
 7. Seleccione **Aceptar**.
 
-Después de configurar el grupo de servidores back-end, las direcciones se muestran en la configuración **Grupo back-end** del equilibrador de carga.
+8. Seleccione la pestaña **Subred** o seleccione el botón **Siguiente: Subred** situado en la parte inferior de la página.
 
-### <a name="step-5-configure-the-health-probe"></a>Paso 5: Configuración del sondeo de mantenimiento
+9. En **Red virtual** de la pestaña **Subred**, seleccione **myVNet**.
 
-Configuración de un sondeo de estado para el equilibrador de carga:
+10. Seleccione **myBackendSubnet** en **Nombre de subred**.
 
-1. En el portal, seleccione **Más servicios**. En el cuadro de filtro, escriba **load balancer** y, luego, seleccione **Load Balancer**.
+11. Seleccione el botón azul **Revisar y crear** en la parte inferior de la página, o seleccione la pestaña **Revisar y crear**.
 
-2. Seleccione el equilibrador de carga (**mylb**) al que desee agregar el sondeo de mantenimiento.
+12. Seleccione **Crear**.
 
-3. En **Configuración**, seleccione **Sondeo de estado**. En el siguiente panel, cerca de la parte superior, seleccione **Agregar**. 
+## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-4. Escriba un nombre para el sondeo de estado (por ejemplo, **HTTP**). Seleccione **Aceptar**.
+En esta sección, creará dos máquinas virtuales para hospedar los sitios web de IIS.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Paso 6: Configuración de las reglas de equilibrio de carga
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Máquina virtual**. En los resultados de la búsqueda, seleccione **Máquinas virtuales**.
 
-Para cada sitio web (contoso.com y fabrikam.com), configure las reglas de equilibrio de carga:
-    
-1. <a name="step6-1"></a>En **Configuración**, seleccione **Reglas de equilibrio de carga**. En el siguiente panel, cerca de la parte superior, seleccione **Agregar**. 
+2. En **Máquinas virtuales**, seleccione **+ Crear** y, a continuación, **Máquina virtual**.
 
-2. En **Nombre**, escriba un nombre para la regla de equilibrio de carga (por ejemplo, **HTTPc** para contoso.com, o **HTTPf** para fabrikam.com).
+3. En **Crear máquina virtual**, escriba o seleccione esta información:
 
-3. En **Dirección IP de front-end**, seleccione la dirección IP de servidor front-end creada previamente (por ejemplo **contosofe** o **fabrikamfe**).
+    | Configuración | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Detalles del proyecto** |  |
+    | Subscription | Selección de su suscripción a Azure |
+    | Grupo de recursos | Seleccione **TutorialLBIP-rg**. |
+    | **Detalles de instancia** |  |
+    | Nombre de la máquina virtual | Escriba **myVM1**. |
+    | Region | Seleccione **(Europa) Oeste de Europa**. |
+    | Opciones de disponibilidad | Seleccione **Zonas de disponibilidad**. |
+    | Zona de disponibilidad | Seleccione **1**. |
+    | Imagen | Seleccione **Windows Server 2019 Datacenter - Gen1**. |
+    | Instancia de Azure Spot | Deje esta casilla desactivada, tal y como está de forma predeterminada. |
+    | Size | Elija el tamaño de la máquina virtual o acepte la configuración predeterminada. |
+    | **Cuenta de administrador** |  |
+    | Nombre de usuario | Escriba un nombre de usuario. |
+    | Contraseña | Escriba una contraseña. |
+    | Confirmar contraseña | Vuelva a escribir la contraseña. |
+    | **Reglas de puerto de entrada** |  |
+    | Puertos de entrada públicos | Seleccione **Ninguno**. |
 
-4. En **Puerto** y **Puerto back-end**, mantenga el valor predeterminado de **80**.
+3. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
+  
+4. En la pestaña Redes, seleccione o escriba:
 
-5. En **IP flotante (Direct Server Return)**, seleccione **Deshabilitado**.
+    | Configuración | Value |
+    |-|-|
+    | **Interfaz de red** |  |
+    | Virtual network | **myVNet** |
+    | Subnet | **myBackendSubnet** |
+    | Dirección IP pública | Seleccione **Ninguno**. |
+    | Grupo de seguridad de red de NIC | Seleccione **Avanzado**.|
+    | Configuración del grupo de seguridad de red | Seleccione **Crear nuevo**. </br> En la página **Crear grupo de seguridad de red**, escriba **myNSG** en **Nombre**. </br> En **Reglas de entrada**, seleccione **+Agregar una regla de entrada**. </br> En **Servicio**, seleccione **HTTP**. </br> En **Prioridad**, escriba **100**. </br> En **Nombre**, escriba **myNSGrule**. </br> Seleccione **Agregar**. </br> Seleccione **Aceptar**. |
+   
+7. Seleccione **Revisar + crear**. 
+  
+8. Revise la configuración y, a continuación, seleccione **Crear**.
 
-6. <a name="step6-6"></a>Seleccione **Aceptar**.
+9. Siga los pasos 1 a 8 para crear otra máquina virtual con los siguientes valores y el resto de la configuración igual que la de **myVM1**:
 
-7. Cree la segunda regla del equilibrador de carga repitiendo el <a href="#step6-1">paso 1</a> hasta el <a href="#step6-6">paso 6</a> en esta sección.
+    | Configuración | VM 2 |
+    | ------- | ---- |
+    | Nombre |  **myVM2** |
+    | Zona de disponibilidad | **2** |
+    | Grupo de seguridad de red | Seleccione el grupo **myNSG** existente. |
 
-Una vez configuradas las reglas, se muestran en el equilibrador de carga la configuración de **reglas de equilibrio de carga**.
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
-### <a name="step-7-configure-dns-records"></a>Paso 7: Configuración de los registros DNS
+## <a name="create-secondary-network-configurations"></a>Creación de configuraciones de red secundarias
 
-Como último paso, configure los registros de recursos de DNS para que apunten a las direcciones IP de servidor front-end respectivas para el equilibrador de carga. Puede hospedar los dominios en Azure DNS. Para más información sobre el uso de Azure DNS con Load Balancer, consulte [Uso de Azure DNS con otros servicios de Azure](../dns/dns-for-azure-services.md).
+En esta sección, cambiará la dirección IP privada de la NIC existente de cada máquina virtual a **Estática**. A continuación, agregará un nuevo recurso de NIC a cada máquina virtual con una configuración de dirección IP privada **estática**.
+
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Máquina virtual**. En los resultados de la búsqueda, seleccione **Máquinas virtuales**.
+
+2. Seleccione **myVM1**.
+
+3. Si la máquina virtual se está ejecutando, deténgala. 
+
+4. En **Configuración**, seleccione **Redes**.
+
+5. En **Redes**, seleccione el nombre de la interfaz de red junto a **Interfaz de red**. La interfaz de red comenzará con el nombre de la máquina virtual y tendrá asignado un número aleatorio. En este ejemplo, es **myVM1266**.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-nic.png" alt-text="Captura de pantalla de la configuración de red myVM1 en Azure Portal.":::
+
+6. En la página de interfaz de red, seleccione **Configuraciones de IP** en **Configuración**.
+
+7. En **Configuraciones IP**, seleccione **ipconfig1**.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-ipconfig1.png" alt-text="Captura de pantalla de la configuración de la interfaz de red myVM1.":::
+
+8. Seleccione **Estática** en **Asignación** en la configuración **ipconfig1**.
+
+9. Seleccione **Guardar**.
+
+10. Vuelva a la página de **información general** de **myVM1**.
+
+11. En **Configuración**, seleccione **Redes**.
+
+12. En la página **Redes**, seleccione **Asociar interfaz de red**.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-attach-nic.png" alt-text="Captura de pantalla de la interfaz de red de conexión myVM1.":::
+
+13. En **Asociar interfaz de red**, seleccione **Crear y asociar interfaz de red**.
+
+14. En la hoja **Crear interfaz de red**, escriba o seleccione la siguiente información:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    | **Detalles del proyecto** |   |
+    | Grupo de recursos | Seleccione **TutorialLBIP-rg**. |
+    | **Interfaz de red** |  |
+    | Nombre | Escriba **myVM1NIC2**. |
+    | Subnet | Seleccione **myBackendSubnet (10.1.0.0/24)** . |
+    | Grupo de seguridad de red de NIC | Seleccione **Advanced** (Avanzadas). |
+    | Configuración del grupo de seguridad de red | Seleccione **myNSG**. |
+    | Asignación de la dirección IP privada | Seleccione **Estática**. |
+    | Dirección IP privada | Escriba **10.1.0.6**. |
+
+15. Seleccione **Crear**. 
+
+16. Inicie la máquina virtual.
+
+17. Repita los pasos 1 al 16 para **myVM2** y reemplace la siguiente información:
+
+    | Configuración | myVM2 |
+    | ------  | ----- |
+    | Nombre | **myVM2NIC2** |
+    | Dirección IP privada | **10.1.0.7** |
+
+## <a name="configure-virtual-machines"></a>Configuración de máquinas virtuales
+
+Se conectará a **myVM1** y **myVM2** con Azure Bastion y configurará la red secundaria en esta sección. Agregará una ruta para la puerta de enlace para la configuración de red secundaria. A continuación, instalará IIS en cada máquina virtual y personalizará los sitios web para mostrar el nombre de host de la máquina virtual.
+
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Máquina virtual**. En los resultados de la búsqueda, seleccione **Máquinas virtuales**.
+
+2. Seleccione **myVM1**.
+
+3. Inicie **myVM1**.
+
+4. En **Información general**, seleccione **Conectar** y, luego, **Bastion**.
+
+5. Seleccione **Usar Bastion**.
+
+6. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual.
+
+7. Seleccione **Permitir** para que Bastion use el Portapapeles.
+
+8. En el escritorio del servidor, vaya a Inicio > Herramientas administrativas de Windows > Windows PowerShell > Windows PowerShell.
+
+9. En la ventana de PowerShell, ejecute el comando `route print`. Este comando devuelve una salida similar a la siguiente para una máquina virtual con dos interfaces de red conectadas:
+
+    ```console
+    ===========================================================================
+    Interface List
+      6...00 22 48 86 00 53 ......Microsoft Hyper-V Network Adapter #2
+     13...00 22 48 83 0b da ......Microsoft Hyper-V Network Adapter #3
+      1...........................Software Loopback Interface 1
+    ===========================================================================
+    ```
+    En este ejemplo, **Microsoft Hyper-V Network Adapter #3** (interfaz 13) es la interfaz de red secundaria que no tiene una puerta de enlace predeterminada asignada.
+
+10. En la ventana de PowerShell, ejecute el comando `ipconfig /all` para ver la dirección IP asignada a la interfaz de red secundaria. En este ejemplo, la dirección IP 10.1.0.6 se asigna a la interfaz 13. No se devuelve ninguna dirección de puerta de enlace predeterminada para la interfaz de red secundaria.
+
+11. Para redirigir todo el tráfico para direcciones fuera de la subred a la puerta de enlace, ejecute el comando siguiente:
+
+    ```console
+    route -p add 0.0.0.0 MASK 0.0.0.0 10.1.0.1 METRIC 5015 IF 13
+    ```
+
+    En este ejemplo, **10.1.0.1** es la puerta de enlace predeterminada para la red virtual que creó anteriormente.
+
+12. Ejecute los siguientes comandos en las ventanas de PowerShell para instalar y configurar IIS y los sitios web de prueba:
+
+    ```powershell
+    ## Install IIS and the management tools. ##
+    Install-WindowsFeature -Name Web-Server -IncludeManagementTools
+
+    ## Set the binding for the Default website to 10.1.0.4:80. ##
+    $para1 = @{
+        Name = 'Default Web Site'
+        BindingInformation = '10.1.0.4:80:'
+        Protocol = 'http'
+    }
+    New-IISSiteBinding @para1
+
+    ## Remove the default site binding. ##
+    $para2 = @{
+        Name = 'Default Web Site'
+        BindingInformation = '*:80:'
+    }
+    Remove-IISSiteBinding @para2 -Force
+
+    ## Remove the default htm file. ##
+    Remove-Item c:\inetpub\wwwroot\iisstart.htm
+
+    ## Add a new htm file that displays the Contoso website. ##
+    $para3 = @{
+        Path = 'c:\inetpub\wwwroot\iisstart.htm'
+        Value = $("Hello World from www.contoso.com" + "-" + $env:computername)
+    }
+    Add-Content @para3
+
+    ## Create folder to host website. ##
+    $para4 = @{
+        Path = 'c:\inetpub\'
+        Name = 'fabrikam'
+        Type = 'directory'
+    }
+    New-Item @para4
+
+     ## Create a new website and site binding for the second IP address 10.1.0.6. ##
+    $para5 = @{
+        Name = 'Fabrikam'
+        PhysicalPath = 'c:\inetpub\fabrikam'
+        BindingInformation = '10.1.0.6:80:'
+    }
+    New-IISSite @para5
+
+    ## Add a new htm file that displays the Fabrikam website. ##
+    $para6 = @{
+        Path = 'C:\inetpub\fabrikam\iisstart.htm'
+        Value = $("Hello World from www.fabrikam.com" + "-" + $env:computername)
+
+    }
+    Add-Content @para6
+
+    ```
+13. Cierre la conexión de Bastion a **myVM1**.
+
+14. Repita los pasos 1 al 13 para **myVM2**. Use el código de PowerShell siguiente para **myVM2** para la instalación de IIS.
+
+    ```powershell
+    ## Install IIS and the management tools. ##
+    Install-WindowsFeature -Name Web-Server -IncludeManagementTools
+
+    ## Set the binding for the Default website to 10.1.0.5:80. ##
+    $para1 = @{
+        Name = 'Default Web Site'
+        BindingInformation = '10.1.0.5:80:'
+        Protocol = 'http'
+    }
+    New-IISSiteBinding @para1
+
+    ## Remove the default site binding. ##
+    $para2 = @{
+        Name = 'Default Web Site'
+        BindingInformation = '*:80:'
+    }
+    Remove-IISSiteBinding @para2
+
+    ## Remove the default htm file. ##
+    Remove-Item C:\inetpub\wwwroot\iisstart.htm
+
+    ## Add a new htm file that displays the Contoso website. ##
+    $para3 = @{
+        Path = 'c:\inetpub\wwwroot\iisstart.htm'
+        Value = $("Hello World from www.contoso.com" + "-" + $env:computername)
+    }
+    Add-Content @para3
+
+    ## Create folder to host website. ##
+    $para4 = @{
+        Path = 'c:\inetpub\'
+        Name = 'fabrikam'
+        Type = 'directory'
+    }
+    New-Item @para4
+
+    ## Create a new website and site binding for the second IP address 10.1.0.7. ##
+    $para5 = @{
+        Name = 'Fabrikam'
+        PhysicalPath = 'c:\inetpub\fabrikam'
+        BindingInformation = '10.1.0.7:80:'
+    }
+    New-IISSite @para5
+
+    ## Add a new htm file that displays the Fabrikam website. ##
+    $para6 = @{
+        Path = 'C:\inetpub\fabrikam\iisstart.htm'
+        Value = $("Hello World from www.fabrikam.com" + "-" + $env:computername)
+    }
+    Add-Content @para6
+
+    ```
+
+## <a name="create-load-balancer"></a>Creación de un equilibrador de carga
+
+En esta sección, creará un equilibrador de carga con redundancia de zona que equilibra la carga de las máquinas virtuales. 
+
+Con la redundancia de zona, aunque se produzcan errores en una o varias zonas disponibilidad, la ruta de los datos puede mantenerse a salvo siempre que una zona de la región permanezca en buen estado.
+
+Durante la creación del equilibrador de carga, configurará:
+
+* Dos direcciones IP de front-end, una para cada sitio web.
+* Grupo back-end
+* Reglas de equilibrio de carga de entrada
+
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Load Balancer**. Seleccione **Equilibradores de carga** en los resultados de la búsqueda.
+
+2. En la página **Equilibrador de carga**, seleccione **Crear**.
+
+3. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
+
+    | Configuración                 | Value                                              |
+    | ---                     | ---                                                |
+    | **Detalles del proyecto** |   |
+    | Subscription               | Seleccione su suscripción.    |    
+    | Resource group         | Seleccione **TutorialLBIP-rg**. |
+    | **Detalles de instancia** |   |
+    | Nombre                   | Escriba **myLoadBalancer**.                                   |
+    | Region         | Seleccione **(Europa) Oeste de Europa**.                                        |
+    | Tipo          | Seleccione **Público**.                                        |
+    | SKU           | Deje el valor predeterminado **Estándar**. |
+    | Nivel          | En **Regional**, deje el valor predeterminado. |
+
+4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
+
+5. En **Configuración de IP de front-end**, seleccione **+Agregar una IP de front-end**.
+
+6. Escriba **Frontend-contoso** en **Nombre**.
+
+7. Seleccione **IPv4** para **Versión de IP**.
+
+    > [!NOTE]
+    > IPv6 no se admite actualmente con preferencia de enrutamiento o equilibrio de carga entre regiones (nivel global).
+
+8. Seleccione **Dirección IP** para **Tipo de IP**.
+
+    > [!NOTE]
+    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/public-ip-address-prefix.md).
+
+9. Seleccione **Crear nueva** en **Dirección IP pública**.
+
+10. En **Agregar una dirección IP pública**, escriba **myPublicIP-contoso** para **Nombre**.
+
+11. Seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
+
+    > [!NOTE]
+    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o con redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
+
+12. Deje el valor predeterminado **Microsoft Network** para **Preferencia de enrutamiento**.
+
+13. Seleccione **Aceptar**.
+
+14. Seleccione **Agregar**.
+
+14. Seleccione **+ Agregar una IP de front-end**.
+
+15. Escriba **Frontend-fabrikam** en **Nombre**.
+
+7. Seleccione **IPv4** para **Versión de IP**.
+
+8. Seleccione **Dirección IP** para **Tipo de IP**.
+
+9. Seleccione **Crear nueva** en **Dirección IP pública**.
+
+10. En **Agregar una dirección IP pública**, escriba **myPublicIP-fabrikam** para **Nombre**.
+
+11. Seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
+
+14. Seleccione **Agregar**.
+
+15. Seleccione **Siguiente: Grupos de back-end** en la parte inferior de la página.
+
+16. En la pestaña **Grupos de back-end**, seleccione **+ Agregar un grupo de back-end**.
+
+17. Escriba **myBackendPool-contoso** en **Nombre** en **Agregar un grupo de back-end**.
+
+18. Seleccione **myVNet** en **Red virtual**.
+
+19. Seleccione **NIC** para **Configuración del grupo de back-end**.
+
+20. Seleccione **IPv4** para **Versión de IP**.
+
+21. En **Máquinas virtuales**, seleccione **+ Agregar**.
+
+22. Seleccione **myVM1** y **myVM2**, que se corresponden con **ipconfig1 (10.1.0.4)** y **ipconfig1 (10.1.0.5)** .
+
+23. Seleccione **Agregar**.
+
+21. Seleccione **Agregar**.
+
+22. Seleccione **+ Agregar un grupo de back-end**.
+
+23. Escriba **myBackendPool-fabrikam** en **Nombre** en **Agregar un grupo de back-end**.
+
+24. Seleccione **myVNet** en **Red virtual**.
+
+19. Seleccione **NIC** para **Configuración del grupo de back-end**.
+
+20. Seleccione **IPv4** para **Versión de IP**.
+
+21. En **Máquinas virtuales**, seleccione **+ Agregar**.
+
+22. Seleccione **myVM1** y **myVM2**, que se corresponden con **ipconfig1 (10.1.0.6)** y **ipconfig1 (10.1.0.7)** .
+
+23. Seleccione **Agregar**.
+
+21. Seleccione **Agregar**.
+
+22. Seleccione el botón **Siguiente: Reglas de entrada** situado en la parte inferior de la página.
+
+23. En **Regla de equilibrio de carga** de la pestaña **Reglas de entrada**, seleccione **+ Agregar regla de equilibrio de carga**.
+
+24. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    | Nombre | Escriba **myHTTPRule-contoso**. |
+    | Versión de la dirección IP | Seleccione **IPv4**. |
+    | Dirección IP del front-end | Seleccione **Frontend-contoso**. |
+    | Protocolo | seleccione **TCP**. |
+    | Port | Escriba **80**. |
+    | Puerto back-end | Escriba **80**. |
+    | Grupo back-end | Seleccione **myBackendPool-contoso**. |
+    | Sondeo de mantenimiento | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myHealthProbe-contoso**. </br> Seleccione **HTTP** en **Protocolo**. </br> Deje el resto de valores predeterminados y seleccione **Aceptar**. |
+    | Persistencia de la sesión | Seleccione **Ninguno**. |
+    | Tiempo de espera de inactividad (minutos) | Escriba o seleccione **15**. |
+    | Restablecimiento de TCP | Seleccione **Habilitado**. |
+    | Dirección IP flotante | Seleccione **Deshabilitado**. |
+    | Traducción de direcciones de red de origen (SNAT) de salida | Deje el valor predeterminado, **(Recommended) Use outbound rules to provide backend pool members access to the internet** ([Recomendado] Usar reglas de salida para que los miembros del grupo de servidores de back-end puedan acceder a Internet). |
+
+25. Seleccione **Agregar**.
+
+26. Seleccione **Agregar una regla de equilibrio de carga**.
+
+27. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    | Nombre | Escriba **myHTTPRule-fabrikam** |
+    | Versión de la dirección IP | Seleccione **IPv4**. |
+    | Dirección IP del front-end | Seleccione **Frontend-fabrikam**. |
+    | Protocolo | seleccione **TCP**. |
+    | Port | Escriba **80**. |
+    | Puerto back-end | Escriba **80**. |
+    | Grupo back-end | Seleccione **myBackendPool-fabrikam**. |
+    | Sondeo de mantenimiento | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myHealthProbe-fabrikam**. </br> Seleccione **HTTP** en **Protocolo**. </br> Deje el resto de valores predeterminados y seleccione **Aceptar**. |
+    | Persistencia de la sesión | Seleccione **Ninguno**. |
+    | Tiempo de espera de inactividad (minutos) | Escriba o seleccione **15**. |
+    | Restablecimiento de TCP | Seleccione **Habilitado**. |
+    | Dirección IP flotante | Seleccione **Deshabilitado**. |
+    | Traducción de direcciones de red de origen (SNAT) de salida | Deje el valor predeterminado, **(Recommended) Use outbound rules to provide backend pool members access to the internet** ([Recomendado] Usar reglas de salida para que los miembros del grupo de servidores de back-end puedan acceder a Internet). |
+
+25. Seleccione **Agregar**.
+
+26. Seleccione el botón azul **Revisar y crear** en la parte inferior de la página.
+
+27. Seleccione **Crear**.
+
+    > [!NOTE]
+    > En este ejemplo, hemos creado una puerta de enlace NAT para proporcionar acceso saliente a Internet. La pestaña de reglas de salida de la configuración se omite, ya que no es necesaria con la puerta de enlace NAT. Para más información sobre la puerta de enlace NAT de Azure, consulte [¿Qué es Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+    > Para más información sobre las conexiones salientes en Azure, consulte [Traducción de direcciones de red de origen (SNAT) para conexiones salientes](../load-balancer/load-balancer-outbound-connections.md).
+
+## <a name="test-load-balancer"></a>Prueba del equilibrador de carga
+
+En esta sección detectará la dirección IP pública de cada sitio web. Escribirá la dirección IP en un explorador para probar los sitios web que creó anteriormente.
+
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **IP pública**. Seleccione **Direcciones IP públicas** en los resultados de la búsqueda.
+
+2. Seleccione **myPublicIP-contoso**.
+
+3. Copie la **dirección IP** en la página de información general de **myPublicIP-contoso**.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/public-ip-contoso.png" alt-text="Captura de pantalla de la dirección IP pública myPublicIP-fabrikam.":::
+
+4. Abra un explorador web y copie la dirección IP pública en la barra de direcciones.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/test-contoso.png" alt-text="Captura de pantalla del sitio web de Contoso en el explorador web.":::
+
+5. Vuelva a **Direcciones IP públicas**. Seleccione **myPublicIP-fabrikam**.
+
+6. Copie la **dirección IP** en la página de información general de **myPublicIP-fabrikam**.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/public-ip-fabrikam.png" alt-text="Captura de pantalla de la dirección IP pública myPublicIP-contoso.":::
+
+7. Abra un explorador web y copie la dirección IP pública en la barra de direcciones.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/test-fabrikam.png" alt-text="Captura de pantalla del sitio web de Fabrikam en el explorador web.":::
+
+8. Para probar el equilibrador de carga, actualice el explorador o apague una de las máquinas virtuales.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si no va a seguir usando esta aplicación, elimine las máquinas virtuales y el equilibrador de carga mediante los pasos siguientes:
+
+1. Escriba **Grupo de recursos** en el cuadro de búsqueda que se encuentra en la parte superior del portal.  Seleccione **Grupos de recursos** en los resultados de la búsqueda.
+
+2. Seleccione **TutorialLBIP-rg** en **Grupos de recursos**.
+
+3. Seleccione **Eliminar grupo de recursos**.
+
+4. Escriba **TutorialLBIP-rg** en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS:** . Seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Aprenda más sobre cómo combinar servicios de equilibrio de carga en Azure en [Uso de servicios de equilibrio de carga de Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Obtenga información sobre cómo usar diferentes tipos de registros para administrar y solucionar los problemas del equilibrador de carga en [Registros de Azure Monitor para Azure Load Balancer](./monitor-load-balancer.md).
+
+Pase al siguiente artículo para aprender a crear un equilibrador de carga entre regiones:
+
+> [!div class="nextstepaction"]
+> [Creación de un equilibrador de carga entre regiones mediante Azure Portal](tutorial-cross-region-portal.md)

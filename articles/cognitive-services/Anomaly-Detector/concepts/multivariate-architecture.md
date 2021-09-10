@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
-ms.openlocfilehash: 4d379cfe01dcbd88531b98a32b45e0b30f6adeef
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9de0a774ab2464d3b59ee8875453255e92ea5c45
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107318861"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297251"
 ---
-# <a name="predictive-maintenance-solution-with-anomaly-detector-multivariate"></a>Solución de mantenimiento predictivo con Anomaly Detector Multivariate
+# <a name="predictive-maintenance-solution-with-anomaly-detector-multivariate"></a>Solución de mantenimiento predictivo con Anomaly Detector (multivariante)
 
 Muchos sectores diferentes necesitan soluciones de mantenimiento predictivo para reducir los riesgos y obtener información sobre la que actuar mediante el procesamiento de datos de sus equipos. El mantenimiento predictivo evalúa la condición del equipo mediante la supervisión en línea. El objetivo es realizar el mantenimiento antes de que el equipo se degrade o averíe.
 

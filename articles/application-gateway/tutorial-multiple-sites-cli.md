@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cb924ab1f8947fefc83ed35a409628a576fad4b9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c637f22a21b73450746a90b83ea7c87249da1d45
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772689"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113507436"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante la CLI de Azure
 
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Incorporación de reglas de enrutamiento
 
-Las reglas se procesan en el orden en que aparecen. El tráfico se dirige mediante la primera regla que coincide, con independencia de la especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
+Las reglas se procesan en el orden en que aparecen si no se usa el campo de prioridad de regla. El tráfico se dirige mediante la primera regla que coincide, con independencia de la especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto.
 
 En este ejemplo, va a crear dos reglas nuevas y a eliminar la regla predeterminada creada cuando implementó la puerta de enlace de aplicaciones. Puede agregar la regla mediante [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
@@ -171,6 +171,29 @@ az network application-gateway rule delete \
   --gateway-name myAppGateway \
   --name rule1 \
   --resource-group myResourceGroupAG
+```
+### <a name="add-priority-to-routing-rules"></a>Adición de prioridad a las reglas de enrutamiento
+
+Para asegurarse de que las reglas más específicas se procesan primero, use el campo de prioridad de la regla para tener la seguridad de que tienen mayor prioridad. El campo Prioridad de la regla debe establecerse para todas las reglas de enrutamiento de solicitudes existentes, y las reglas creadas más adelante también deben tener un valor de prioridad de regla.
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name wccontosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener wccontosoListener \
+  --rule-type Basic \
+  --priority 200 \
+  --address-pool wccontosoPool
+
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name shopcontosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener shopcontosoListener \
+  --rule-type Basic \
+  --priority 100 \
+  --address-pool shopcontosoPool
+
 ```
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales

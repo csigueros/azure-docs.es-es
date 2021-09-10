@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: cb3c503000e895344368f09dfdceac1156628bb9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: dd32e421b678b9cfc6277bdc593a06f93fab447f
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969981"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136119"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
@@ -40,18 +40,6 @@ El servicio Azure Private Link permite acceder a Azure Key Vault y a los servici
 - El protocolo HTTPS permite al cliente participar en la negociación de TLS. Los **clientes pueden aplicar la última versión de TLS** y, cada vez que un cliente lo hace, toda la conexión usará la protección de nivel correspondiente. El hecho de que Key Vault siga siendo compatible con versiones anteriores de TLS no afectará a la seguridad de las conexiones con las versiones más recientes de TLS.
 - A pesar de las vulnerabilidades conocidas del protocolo TLS, no hay ningún ataque conocido que permita a un agente malintencionado extraer cualquier información de su almacén de claves cuando el atacante inicie una conexión con una versión de TLS que tenga vulnerabilidades. El atacante todavía tendría que autenticarse y autorizarse a sí mismo, y siempre y cuando los clientes legítimos se conecten siempre con versiones de TLS recientes, no existe la posibilidad de que las credenciales se hayan filtrado de las vulnerabilidades de versiones de TLS anteriores.
 
-## <a name="identity-management"></a>Administración de identidades
-
-Cuando se crea un almacén de claves en una suscripción de Azure, se asocia automáticamente al inquilino de Azure AD de dicha suscripción. Cualquier persona que intente administrar o recuperar el contenido desde un almacén debe autenticarse con Azure AD. En ambos casos, las aplicaciones pueden acceder a Key Vault de tres maneras:
-
-- **Solo la aplicación**: La aplicación representa una entidad de servicio o una identidad administrada. Esta identidad es el escenario más común para aplicaciones que necesitan acceder periódicamente a certificados, claves o secretos del almacén de claves. Para que este escenario funcione, el elemento `objectId` de la aplicación debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
-- **Solo el usuario**: el usuario accede al almacén de claves desde cualquier aplicación registrada en el inquilino. Los ejemplos de este tipo de acceso incluyen Azure PowerShell y Azure Portal. Para que este escenario funcione, el elemento `objectId` del usuario debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
-- **Aplicación y usuario** (a veces denominado _identidad compuesta_): 4el usuario tiene que acceder al almacén de claves desde una aplicación específica _y_ la aplicación debe usar el flujo de autenticación en nombre de (OBO) para suplantar al usuario. Para que este escenario funcione, se deben especificar ambos objetos `applicationId` y `objectId` en la directiva de acceso. El elemento `applicationId` identifica la aplicación necesaria y el elemento `objectId` identifica al usuario. Actualmente, esta opción no está disponible para Azure RBAC en el plano de datos.
-
-Para todos los tipos de acceso, la aplicación se autentica con Azure AD. La aplicación utiliza cualquiera [método de autenticación compatible](../../active-directory/develop/authentication-vs-authorization.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST a Key Vault. Para más información, revise [todo el flujo de autenticación](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
-
-Para conocer los detalles completos, consulte [Aspectos básicos de la autenticación de Key Vault](/azure/key-vault/general/authentication.md).
-
 ## <a name="key-vault-authentication-options"></a>Opciones de autenticación de Key Vault
 
 Cuando se crea un almacén de claves en una suscripción de Azure, se asocia automáticamente al inquilino de Azure AD de dicha suscripción. En ambos planos, todos los llamadores deben registrarse en este inquilino y autenticarse para acceder al almacén de claves. En ambos casos, las aplicaciones pueden acceder a Key Vault de tres maneras:
@@ -67,6 +55,8 @@ El modelo de un único mecanismo de autenticación para ambos planos tiene varia
 - Las organizaciones pueden controlar el acceso de forma centralizada a todos los almacenes de claves de su organización.
 - Si un usuario abandona la organización, al instante pierde el acceso a todos los almacenes de claves de la organización.
 - Las organizaciones pueden personalizar la autenticación mediante las opciones de Azure AD, como la habilitación de Multi-Factor Authentication para aumentar la seguridad.
+
+Para obtener más información, consulte [Aspectos básicos de la autenticación de Key Vault](authentication.md).
 
 ## <a name="access-model-overview"></a>Introducción al modelo acceso
 

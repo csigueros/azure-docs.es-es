@@ -1,20 +1,20 @@
 ---
 title: Establecimiento de un estilo de mapa en los mapas de Android | Microsoft Azure Maps
 description: Obtenga información sobre dos maneras de establecer el estilo de un mapa. Vea cómo usar el SDK para Android de Azure Maps en el archivo de diseño o en la clase de actividad para ajustar el estilo.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 4d96d116bc4350a3326722c87f65e887d5a54791
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: c6d9eaedbd4a257a60fa0ba3dc7f41857173207e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326550"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431575"
 ---
 # <a name="set-map-style-android-sdk"></a>Establecimiento del estilo de mapa (Android SDK)
 
@@ -33,14 +33,14 @@ Asegúrese de completar los pasos descritos en el documento [Inicio rápido: Cre
 Puede establecer un estilo de mapa en el archivo de diseño de la clase de actividad al agregar el control de mapa. En el código siguiente se establece la ubicación central, el nivel de zoom y el estilo de mapa.
 
 ```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/mapcontrol"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_centerLat="47.602806"
-    app:mapcontrol_centerLng="-122.329330"
-    app:mapcontrol_zoom="12"
-    app:mapcontrol_style="grayscale_dark"
+    app:azure_maps_centerLat="47.602806"
+    app:azure_maps_centerLng="-122.329330"
+    app:azure_maps_zoom="12"
+    app:azure_maps_style="grayscale_dark"
     />
 ```
 
@@ -204,6 +204,47 @@ map.setCamera(
 ::: zone-end
 
 Tenga en cuenta que la relación de aspecto de un rectángulo delimitador puede ser diferente de la del mapa, ya que el mapa mostrará a menudo toda el área del rectángulo delimitador, pero a menudo solo se ajustará vertical u horizontalmente.
+
+### <a name="animate-map-view"></a>Animación de la vista de mapa
+
+Al establecer las opciones de cámara del mapa, se pueden usar también las opciones de animación para crear una transición entre la vista de mapa actual y la siguiente. Estas opciones especifican el tipo de animación y la duración del movimiento de la cámara.
+
+| Opción | Descripción |
+|--------|-------------|
+| `animationDuration(Integer durationMs)` | Especifica cuánto tiempo se animará la cámara entre las vistas en milisegundos (ms). |
+| `animationType(AnimationType animationType)` | Especifica el tipo de transición con animación que debe realizarse.<br/><br/> - `JUMP`: cambio inmediato.<br/> - `EASE`: cambio gradual de la configuración de la cámara.<br/> - `FLY`: cambio gradual de la configuración de la cámara siguiendo un vuelo en forma de arco. |
+
+El siguiente código muestra cómo animar la vista de mapa mediante `FLY` con una duración de tres segundos.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.6)),
+    zoom(12),
+    animationType(AnimationType.FLY), 
+    animationDuration(3000)
+);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.6)),
+    zoom(12.0),
+    AnimationOptions.animationType(AnimationType.FLY),
+    AnimationOptions.animationDuration(3000)
+)
+```
+
+::: zone-end
+
+En el siguiente mapa, se ve la animación que produce el código anterior para desplazarse de Nueva York a Seattle.
+
+![Mapa con animación de la cámara para ir de Nueva York a Seattle](media/set-android-map-styles/android-animate-camera.gif)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: v-erkel
-ms.openlocfilehash: 3eddd53d8b1d4ff59f27535a070924cf0e86c5a7
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 0374c2da7cda001da779c42cacaf11db6f797356
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904422"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587398"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configuración del espacio de nombres agregado
 
@@ -115,7 +115,7 @@ Las opciones que se usan en el comando "update" son similares al comando "create
 
 ---
 
-### <a name="adls-nfs-namespace-paths-preview"></a>Rutas de acceso de espacio de nombres de ADLS-NFS (versión preliminar)
+### <a name="adls-nfs-namespace-paths"></a>Rutas de acceso del espacio de nombres ADLS-NFS
 
 Al igual que un destino de almacenamiento de blobs normal, un destino de almacenamiento de ADLS-NFS solo tiene una exportación, por lo que solo puede tener una ruta de acceso de espacio de nombres.
 

@@ -8,12 +8,12 @@ metadata:
   author: keferna
   ms.author: keferna
   ms.date: 07/14/2020
-  ms.openlocfilehash: bf27d686edd4324419a06e696eed27a64c66a32d
-  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+  ms.openlocfilehash: 4015d78469f08450d81495f61800f68f980b9b02
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/10/2021
-  ms.locfileid: "113595894"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122866349"
 title: Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 summary: >
   Cloud Partner Portal se ha convertido en el Centro de partners. El Centro de partners ofrece una experiencia simplificada e integrada para publicar nuevas ofertas en [Microsoft AppSource](https://appsource.microsoft.com/) o [Azure Marketplace](https://azuremarketplace.microsoft.com/), y para administrar las ofertas existentes que se han migrado desde Cloud Partner Portal. Todas las funciones de Cloud Partner Portal están disponibles en el Centro de partners. En este artículo se abordan las preguntas más frecuentes sobre esto.
@@ -120,7 +120,7 @@ sections:
 
       | Dynamics 365 Business Central | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 para Business Central](dynamics-365-business-central-offer-setup.md). |
 
-      | Dynamics 365 for Customer Engagement y Power Apps | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps](dynamics-365-customer-engage-offer-setup.md). |
+      | Dynamics 365 for Customer Engagement & Power Apps | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Obtenga más información en [Creación de una oferta de Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md). |
 
       | Dynamics 365 for Operations | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md). |
 

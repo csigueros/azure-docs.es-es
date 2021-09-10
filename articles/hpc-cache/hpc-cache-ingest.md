@@ -4,20 +4,24 @@ description: Cómo rellenar Azure Blob Storage para usarlo con Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 06/30/2021
 ms.author: v-erkel
-ms.openlocfilehash: 0da8a4fc1b59976c50cd96f2155715a4cb178cc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccb052a9eacacdc18d954fedd940bcc6792fb361
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87072774"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586931"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Traslado de datos a Azure Blob Storage
 
-Si el flujo de trabajo incluye el movimiento de datos a Azure Blob Storage, asegúrese de que usa una estrategia eficaz. Puede precargar los datos en un nuevo contenedor de blobs antes de definirlo como destino de almacenamiento, o bien agregar el contenedor y, a continuación, copiar los datos mediante Azure HPC Cache.
+Si el flujo de trabajo incluye el movimiento de datos a Azure Blob Storage, asegúrese de que usa una estrategia eficaz. Puede precargar los datos en un nuevo contenedor de blobs antes de definirlo como destino de almacenamiento, o bien agregar el contenedor y, luego, copiar los datos mediante Azure HPC Cache.
 
 En este artículo se explican las mejores formas de mover los datos a Blob Storage para usarlos con Azure HPC Cache.
+
+> [!TIP]
+>
+> Este artículo no se aplica al almacenamiento de blobs montado en NFS (destinos de almacenamiento ADLS-NFS). Puede usar cualquier método basado en NFS para rellenar un contenedor de blobs ADLS-NFS antes de agregarlo a HPC Cache. Lea [Precarga de datos con el protocolo NFS](nfs-blob-considerations.md#pre-load-data-with-nfs-protocol) para más información.
 
 Tenga en cuenta estos factores:
 
@@ -31,7 +35,7 @@ Si no quiere usar la utilidad de carga o si quiere agregar contenido a un destin
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Carga previa de datos en Blob Storage con CLFSLoad
 
-Puede usar la utilidad Avere CLFSLoad para copiar los datos en un nuevo contenedor de Almacenamiento de blobs antes de agregarlo como destino de almacenamiento. Esta utilidad se ejecuta en un sistema Linux único y escribe los datos en el formato de propiedad necesario para Azure HPC Cache. CLFSLoad es la manera más eficaz de rellenar un contenedor de Blob Storage y usarlo con la caché.
+Puede usar la utilidad CLFSLoad de Avere para copiar los datos en un nuevo contenedor de almacenamiento de blobs antes de agregarlo como destino de almacenamiento. Esta utilidad se ejecuta en un sistema Linux único y escribe los datos en el formato de propiedad necesario para Azure HPC Cache. CLFSLoad es la manera más eficaz de rellenar un contenedor de almacenamiento de blobs y usarlo con la caché.
 
 La utilidad Avere CLFSLoad está disponible a petición de su equipo de Azure HPC Cache. Pida contacto a su equipo o abra una [incidencia de soporte técnico](hpc-cache-support-ticket.md) para solicitar ayuda.
 
@@ -47,16 +51,16 @@ Información general del proceso:
 
 La utilidad Avere CLFSLoad necesita la siguiente información:
 
-* El identificador de la cuenta de almacenamiento que incluye el contenedor de Blob Storage.
-* El nombre del contenedor vacío de Blob Storage.
+* El identificador de la cuenta de almacenamiento que incluye el contenedor de almacenamiento de blobs.
+* El nombre del contenedor vacío de almacenamiento de blobs.
 * Un token de firma de acceso compartido (SAS) que permite a la utilidad escribir en el contenedor
 * Una ruta de acceso local al origen de datos, ya sea un directorio local que contiene los datos que se van a copiar o una ruta de acceso local a un sistema remoto montado con los datos
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>Copia de datos mediante Azure HPC Cache
 
-Si no quiere usar la utilidad Avere CLFSLoad o si quiere agregar una gran cantidad de datos a un destino existente de Blob Storage, puede copiarlos mediante la caché. Azure HPC Cache está diseñado para atender a varios clientes a la vez, así que para copiar datos mediante la caché, debe usar escrituras en paralelo desde varios clientes.
+Si no quiere usar la utilidad CLFSLoad de Avere o si quiere agregar una gran cantidad de datos a un destino existente de almacenamiento de blobs, puede copiarlos mediante la caché. Azure HPC Cache está diseñado para atender a varios clientes a la vez, así que para copiar datos mediante la caché, debe usar escrituras en paralelo desde varios clientes.
 
-![Diagrama que muestra el movimiento de datos de varios clientes de múltiples subprocesos: en la parte superior izquierda, hay un icono para el almacenamiento de hardware local que tiene varias flechas que salen de él. Las flechas apuntan a cuatro equipos cliente diferentes. De cada máquina cliente tres flechas apuntan a Azure HPC Cache. De Azure HPC Cache, varias flechas apuntan a Blob Storage.](media/hpc-cache-parallel-ingest.png)
+![Diagrama que muestra el movimiento de datos de varios clientes de múltiples subprocesos: en la parte superior izquierda, hay un icono para el almacenamiento de hardware local que tiene varias flechas que salen de él. Las flechas apuntan a cuatro equipos cliente diferentes. De cada máquina cliente tres flechas apuntan a Azure HPC Cache. Desde Azure HPC Cache, hay varias flechas que apuntan a Blob Storage.](media/hpc-cache-parallel-ingest.png)
 
 Los comandos ``cp`` o ``copy`` que se usan habitualmente para transferir datos de un sistema de almacenamiento a otro son comandos de subproceso único que copian solo un archivo a la vez. Esto significa que el servidor de archivos solo puede ingerir un archivo a la vez, lo que es un desperdicio de los recursos de la caché.
 

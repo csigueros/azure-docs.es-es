@@ -4,12 +4,12 @@ description: ¿No ve los datos en Azure Application Insights? Pruebe aquí.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 2a301efe2ea7c6c74d503fda4a9bbf63f8ce7f80
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 828eab154c09e3e623b5cfb84d6fc72d2bd480f5
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061585"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616152"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solución de problemas cuando no hay datos: Application Insights para .NET/.NET Core
 
@@ -38,9 +38,9 @@ Internet Information Services (IIS) registra los recuentos de todas las solicitu
 * Probablemente sea un problema de firewall. [Configure excepciones de firewall para que Application Insights envíe datos](../../azure-monitor/app/ip-addresses.md).
 * Es posible que falten algunos requisitos previos en el servidor IIS como extensibilidad de .NET 4.5 y ASP.NET 4.5.
 
-*He [instalado el monitor de estado](./monitor-performance-live-website-now.md) en el servidor web para supervisar las aplicaciones existentes. No se ve ningún resultado.*
+*He [instalado el agente de Azure Monitor Application Insights](./status-monitor-v2-overview.md) en mi servidor web para supervisar las aplicaciones existentes, pero no veo los resultados.*
 
-* Consulte [Solución de problemas del Monitor de estado](./monitor-performance-live-website-now.md#troubleshoot).
+* Consulte [Solución de problemas del Monitor de estado](./status-monitor-v2-troubleshoot.md).
 
 > [!IMPORTANT]
 > Se recomiendan las [cadenas de conexión](./sdk-connection-string.md?tabs=net) por encima de las claves de instrumentación. Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La cadena de conexión identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
@@ -185,13 +185,13 @@ Los datos proceden de los scripts de las páginas web.
 Consulte [telemetría de dependencias](./asp-net-dependencies.md) y [telemetría de excepciones](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Sin datos de rendimiento
-Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para [servicios web de Java](java-2x-collectd.md), [aplicaciones de escritorio de Windows](./windows-desktop.md), [servicios y aplicaciones web IIS si instala el Monitor de estado](./monitor-performance-live-website-now.md) y [Azure Cloud Services](./app-insights-overview.md). Los encontrará en la sección Configuración > Servidores.
+Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para [servicios web de Java](java-2x-collectd.md), [aplicaciones de escritorio de Windows](./windows-desktop.md), [servicios y aplicaciones web IIS si instala el agente de Application Insights](./status-monitor-v2-overview.md) y [Azure Cloud Services](./app-insights-overview.md). Los encontrará en la sección Configuración > Servidores.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>No hay datos (de servidor) desde que se publicó la aplicación en el servidor
 * Compruebe que realmente copió todas las DLL de Microsoft.ApplicationInsights en el servidor, junto con Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll.
 * En el firewall, es posible que tenga que [abrir algunos puertos TCP](./ip-addresses.md).
 * Si tiene que usar un servidor proxy para enviar fuera de la red corporativa, establezca el valor [defaultProxy](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) en el archivo Web.config.
-* Windows Server 2008: asegúrese de que ha instalado las siguientes actualizaciones: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523) y [KB2600217](https://web.archive.org/web/20150129090641/http://support.microsoft.com/kb/2600217).
+* Windows Server 2008: asegúrese de que ha instalado las siguientes actualizaciones: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523) y [KB2600217](https://www.microsoft.com/download/details.aspx?id=28936).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Solía ver datos, pero ya no sucede esto.
 * ¿Ha alcanzado su cuota mensual de puntos de datos? Abra Configuración/Cuotas y Precios para averiguarlo. Si es así, puede actualizar el plan o pagar para obtener capacidad adicional. Consulte el [esquema de precios](https://azure.microsoft.com/pricing/details/application-insights/).

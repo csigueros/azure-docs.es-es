@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 0d5b67bb25f6f2425016824e5b73783a8db8e806
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d2ab2609338daff846797834be7694a8b1f220e6
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072161"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113600946"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configuración de clústeres de HDInsight con una base de datos de Ambari personalizada
 
@@ -62,19 +62,25 @@ az deployment group create --name HDInsightAmbariDBDeployment \
     --parameters azuredeploy.parameters.json
 ```
 
-## <a name="database-sizing"></a>Dimensionamiento de la base de datos
+
+> [!WARNING]
+> Use la siguiente máquina virtual recomendada de base de datos SQL y nodo principal para el clúster de HDInsight. No use la base de datos de Ambari (S0) predeterminada en ningún entorno de producción. 
+>
+
+
+## <a name="database-and-headnode-sizing"></a>Tamaño de base de datos y nodo principal
 
 En la tabla siguiente se proporcionan instrucciones sobre el nivel de Azure SQL Database que se debe seleccionar según el tamaño del clúster de HDInsight.
 
-| Número de nodos de trabajo | Nivel de base de datos requerido |
-|---|---|
-| menor o igual que 4 | S0 |
-| mayor que 4 y menor o igual que 8 | S1 |
-| mayor que 8 y menor o igual que 16 | S2 |
-| mayor que 16 y menor o igual que 32 | S3 |
-| mayor que 32 y menor o igual que 64 | S4 |
-| mayor que 64 y menor o igual que 128 | P2 |
-| mayor que 128 | Ponerse en contacto con el servicio de soporte técnico |
+| Número de nodos de trabajo | Nivel de base de datos requerido | Máquina virtual de nodo principal necesaria |
+|---|---|---|
+| menor o igual que 4 | S0 | 4 núcleos/28 GB de RAM o superior |
+| mayor que 4 y menor o igual que 8 | S1 | 4 núcleos/28 GB de RAM o superior |
+| mayor que 8 y menor o igual que 16 | S2 | 4 núcleos/28 GB de RAM o superior |
+| mayor que 16 y menor o igual que 32 | S3 | 8 núcleos/56 GB de RAM o superior |
+| mayor que 32 y menor o igual que 64 | S4 | 8 núcleos/56 GB de RAM o superior |
+| mayor que 64 y menor o igual que 128 | P2 | 16 núcleos/112 GB de RAM o superior |
+| mayor que 128 | Ponerse en contacto con el servicio de soporte técnico | Ponerse en contacto con el servicio de soporte técnico |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,18 +9,18 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 87871be12310782abe172fe308782825ba8e09d0
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 6520c9514ee8fbf950437026c1d2712683e58151
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858156"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442470"
 ---
 Comience a usar el reconocimiento facial mediante Face REST API. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
 Use Face REST API para:
 
-* [Detección de caras en una imagen](#detect-faces-in-an-image)
+* [Detección y análisis de caras](#detect-and-analyze-faces)
 * [Búsqueda de caras similares](#find-similar-faces)
 
 > [!NOTE]
@@ -29,13 +29,14 @@ Use Face REST API para:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Face API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 * [PowerShell versión 6.0, o superior,](/powershell/scripting/install/installing-powershell-core-on-windows) o una aplicación de la línea de comandos similar.
 
 
-## <a name="detect-faces-in-an-image"></a>Detectar caras en una imagen
+## <a name="detect-and-analyze-faces"></a>Detección y análisis de caras
 
 Utilizará un comando como el siguiente para llamar a la API Face y obtener los datos de los atributos de las caras de una imagen. En primer lugar, copie el código en un editor de texto; deberá realizar cambios en ciertas partes del comando antes de su ejecución.
 
@@ -175,7 +176,7 @@ Esta operación toma una sola cara detectada (origen) y busca en un conjunto de 
 
 ### <a name="detect-faces-for-comparison"></a>Detección de caras para la comparación
 
-En primer lugar, debe detectar caras en imágenes para poder compararlas. Ejecute este comando al igual que lo hizo en la sección [Detección de caras](#detect-faces-in-an-image). Este método de detección está optimizado para las operaciones de comparación. No extrae los atributos de cara detallados como en la sección anterior y usa un modelo de detección diferente.
+En primer lugar, debe detectar caras en imágenes para poder compararlas. Ejecute este comando al igual que lo hizo en la sección [Detect and analyze](#detect-and-analyze-faces) (Detectar y analizar). Este método de detección está optimizado para las operaciones de comparación. No extrae los atributos de cara detallados como en la sección anterior y usa un modelo de detección diferente.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detect_for_similar":::
 

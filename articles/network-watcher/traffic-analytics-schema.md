@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 5bc493197b6ae4e6bd969a837bb873cae38c0790
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: fb32ff13df7329e6e78095b8ee28639312cc62b5
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032022"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113216250"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Esquema y agregación de datos en Análisis de tráfico
 
@@ -143,7 +143,7 @@ A continuación se proporcionan los campos en el esquema y su significado
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Puerta de enlace de red local asociada con la dirección IP de origen en el flujo. |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Puerta de enlace de red local asociada con la dirección IP de destino en el flujo. |
 | ConnectionType_s | Los valores posibles son VNetPeering, VpnGateway y ExpressRoute. |    Tipo de conexión. |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nombre de la conexión. En el caso del tipo de flujo de la conexión de punto a sitio, el formato será <gateway name>_<VPN Client IP> |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nombre de la conexión. En el caso del tipo de flujo de la conexión de punto a sitio, el formato será <gateway name>_<VPN Client IP>. |
 | ConnectingVNets_s | Lista separada por espacios de nombres de red virtual. | En el caso de una topología de concentrador y radio, las redes virtuales de centro se rellenarán aquí. |
 | Country_s | Código de país o región de dos letras (ISO 3166-1 alfa-2). | Se rellena para el tipo de flujo ExternalPublic. Todas las direcciones IP en el campo PublicIPs_s compartirán el mismo código de país o región. |
 | AzureRegion_s | Ubicaciones de la región de Azure | Se rellena para el tipo de flujo AzurePublic. Todas las direcciones IP en el campo PublicIPs_s compartirán la región de Azure. |
@@ -152,14 +152,52 @@ A continuación se proporcionan los campos en el esquema y su significado
 | AllowedOutFlows_d | | Número de flujos salientes que se permitieron. (Saliente a la interfaz de red en la que se capturó el flujo). |
 | DeniedOutFlows_d  | | Número de flujos salientes que se denegaron. (Saliente a la interfaz de red en la que se capturó el flujo). |
 | FlowCount_d | En desuso. Total de flujos que coincidieron con la misma tupla de cuatro. En el caso de tipos de flujo ExternalPublic y AzurePublic, el número también incluirá los flujos de distintas direcciones de PublicIP.
-| InboundPackets_d | Paquetes recibidos según se capturaron en la interfaz de red donde se aplicó la regla de NSG. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
-| OutboundPackets_d  | Paquetes enviados según se capturaron en la interfaz de red donde se aplicó la regla de NSG. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
-| InboundBytes_d |  Bytes recibidos según se capturaron en la interfaz de red donde se aplicó la regla de NSG. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
-| OutboundBytes_d | Bytes enviados según se capturaron en la interfaz de red donde se aplicó la regla de NSG. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
+| InboundPackets_d | Representa los paquetes enviados desde el destino al origen del flujo. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
+| OutboundPackets_d  | Representa los paquetes enviados desde el origen al destino del flujo. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
+| InboundBytes_d |  Representa los bytes enviados desde el destino al origen del flujo. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
+| OutboundBytes_d |Representa los bytes enviados desde el origen al destino del flujo. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
 | CompletedFlows_d  |  | Esto se rellenará con un valor distinto de cero solo para la versión 2 del esquema de registro de flujos de NSG. |
 | PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entradas separadas por barras |
 | SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entradas separadas por barras |
 | DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entradas separadas por barras |
+
+### <a name="public-ip-details-schema"></a>Esquema de detalles de IP pública
+
+Análisis de tráfico proporciona datos de WHOIS y ubicación geográfica para todas las IP públicas del entorno del cliente. En el caso de la IP malintencionada, proporciona descripciones de dominios, tipos de amenazas y subprocesos DNS identificados por las soluciones de inteligencia de seguridad de Microsoft. Los detalles de IP se publican en el área de trabajo de Log Analytics para que pueda crear consultas personalizadas y colocar alertas en ellas. También puede acceder a las consultas rellenadas previamente desde el panel de análisis de tráfico.
+
+A continuación se muestra el esquema para los detalles de la dirección IP pública:
+
+| Campo | Formato | Comentarios |
+|:---   |:---    |:---  |
+| TableName | AzureNetworkAnalyticsIPDetails_CL | Tabla que contiene los datos de detalles de IP de Análisis de tráfico |
+| SubType_s | FlowLog | Subtipo para los registros de flujo. **Usar solo "FlowLog"** ; otros valores de SubType_s son para el funcionamiento interno del producto. |
+| FASchemaVersion_s | 2 | Versión de esquema. No refleja la versión del registro de flujo de NSG. |
+| FlowIntervalStartTime_t | Fecha y hora en UTC | Hora de inicio del intervalo de procesamiento de registro de flujo. Se trata de la hora desde la que se mide el intervalo de flujos. |
+| FlowIntervalEndTime_t | Fecha y hora en UTC | Hora de finalización del intervalo de procesamiento de registro de flujo. |
+| FlowType_s | * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow | Definición en las notas después de la tabla. |
+| IP | Dirección IP pública | Dirección IP pública cuya información se proporciona en el registro |
+| Ubicación | Ubicación de la dirección IP | - Para una dirección IP pública de Azure: región de Azure de la red virtual, interfaz de red o máquina virtual a la que pertenece la dirección IP. <br> - Para una dirección IP pública externa e IP malintencionada: código de país de 2 letras donde se encuentra la IP (ISO 3166-1 alpha-2). |
+| PublicIPDetails | Información sobre IP | - Para una dirección IP pública de Azure: servicio de Azure detrás de la dirección IP. <br> - Para una dirección IP pública externa e IP malintencionada: información completa de la dirección IP. |
+| ThreatType | Amenaza que supone una dirección IP malintencionada | **Solo para direcciones IP malintencionadas:** una de las amenazas de la lista de valores permitidos actualmente (que se describen a continuación). |
+| ThreatDescription | Descripción de la amenaza | **Solo para direcciones IP malintencionadas**: descripción de la amenaza que supone la dirección IP malintencionada. |
+| DNSDomain | Dominio DNS | **Solo para direcciones IP malintencionadas**: nombre de dominio asociado a esta dirección IP. |
+
+Lista de tipos de amenazas:
+
+| Valor | Descripción |
+|:---   |:---    |
+| Red de robots (botnet) | El indicador detalla un nodo o miembro de la red de robots (botnet). |
+| C2 | El indicador detalla un nodo de comando y control de una red de robots (botnet). |
+| CryptoMining | El tráfico que involucra esta dirección de red/URL es una indicación de CyrptoMining/abuso de recursos. |
+| DarkNet | El indicador es el de un nodo o red de Darknet. |
+| DDos | Indicadores relacionados con una campaña de DDoS activa o próxima. |
+| MaliciousUrl | Dirección URL que atiende malware. |
+| Malware | Indicador que describe un archivo o archivos malintencionados. |
+| Suplantación de identidad (phishing) | Indicadores relacionados con una campaña de suplantación de identidad (phishing). |
+| Proxy | El indicador es el de un servicio proxy. |
+| PUA | Aplicación potencialmente no deseada. |
+| WatchList | Este es el cubo genérico en el que se colocan los indicadores cuando no se puede determinar exactamente cuál es la amenaza o requerirá una interpretación manual. Normalmente, los asociados que envían datos al sistema no deben usar esta opción. |
+
 
 ### <a name="notes"></a>Notas
 

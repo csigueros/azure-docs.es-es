@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79f0b1a6942f141f0a2d2d38adc5875d82e86d50
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: aa11979d205693cb730cda64debd4430dbb0b43f
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567628"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541975"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingesta de datos en un grupo de SQL dedicado
 
@@ -22,9 +22,11 @@ En este artículo, aprenderá a ingerir datos desde una cuenta de almacenamiento
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage**: Puede usar Azure Data Lake Storage Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md) para crear una.
-* **Azure Synapse Analytics**: Puede usar un grupo de SQL dedicado como almacén de datos *receptor*. Si no tiene una instancia de Azure Synapse Analytics, consulte [Creación de un grupo de SQL dedicado](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para ver los pasos para crear una.
+- **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+- **Cuenta de Azure Storage**: Puede usar Azure Data Lake Storage Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md) para crear una.
+- **Azure Synapse Analytics**: Puede usar un grupo de SQL dedicado como almacén de datos *receptor*. 
+    - Si no tiene un área de trabajo de Synapse, vea [Creación de un área de trabajo de Synapse](../get-started-create-workspace.md).
+    - Si no tiene un grupo de SQL dedicado, vea [Creación de un grupo de SQL dedicado](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 

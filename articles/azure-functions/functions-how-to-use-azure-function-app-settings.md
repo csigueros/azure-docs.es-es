@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 041f004f18b4b5fa44e4d652b2d29edb833cdc2b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: aac032247383fe1e0b1e181c0d78864ecda778e7
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862360"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831373"
 ---
 # <a name="manage-your-function-app"></a>Administración de la aplicación de funciones 
 
@@ -32,9 +32,11 @@ Puede navegar a todo lo que necesita para administrar Function App desde la pág
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Trabajo con la configuración de la aplicación
 
-La configuración de la aplicación se puede administrar no solo tanto desde [Azure Portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), como desde la [CLI de Azure](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) y [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). También se puede administrar desde [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) y desde [Visual Studio](functions-develop-vs.md#function-app-settings). 
+Puede crear cualquier número de configuraciones de aplicación que requiera el código de la función. Functions también usa configuraciones de aplicación predefinidas. Para obtener más información, vea [Referencia de configuración de aplicación para Azure Functions](functions-app-settings.md).
 
 Esta configuración se almacena cifrada. Para más información, consulte [Seguridad de la configuración de la aplicación](security-concepts.md#application-settings).
+
+La configuración de la aplicación se puede administrar no solo tanto desde [Azure Portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), como desde la [CLI de Azure](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) y [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). También se puede administrar desde [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) y desde [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -44,7 +46,7 @@ La pestaña **Configuración de la aplicación** mantiene la configuración de l
 
 ![Configuración de Function App en Azure Portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 El comando [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) devuelve la configuración de la aplicación existente, como en el ejemplo siguiente:
 
@@ -62,7 +64,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 El cmdlet [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) devuelve la configuración de la aplicación existente, como en el ejemplo siguiente: 
 
@@ -104,7 +106,7 @@ Para determinar el tipo de plan que usa la aplicación de funciones, consulte **
 
 ![Vista del plan de escalado en el portal](./media/functions-scale/function-app-overview-portal.png)
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Ejecute el siguiente comando de CLI de Azure para obtener el tipo de plan de hospedaje:
 
@@ -118,7 +120,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 En el ejemplo anterior, reemplace `<RESOURCE_GROUP>` y `<FUNCTION_APP_NAME>` por los nombres del grupo de recursos y de la aplicación de funciones, respectivamente. 
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Ejecute el siguiente comando de Azure PowerShell para obtener el tipo de plan de hospedaje:
 
@@ -202,6 +204,52 @@ Use el siguiente procedimiento para migrar de un plan Prémium a un plan de cons
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
     ```
+
+## <a name="get-your-function-access-keys"></a>Obtención de las claves de acceso de la función
+
+Por lo general, se puede llamar a las funciones desencadenadas por HTTP mediante una dirección URL con el formato : `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. Cuando la autorización para la función se establece en un valor distinto de `anonymous`, también debe proporcionar una clave de acceso en la solicitud. La clave de acceso se puede proporcionar en la dirección URL mediante la cadena de consulta `?code=` o en el encabezado de solicitud. Para obtener más información, vea [Claves de acceso de función](functions-bindings-http-webhook-trigger.md#authorization-keys). Hay varias formas de obtener las claves de acceso. 
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+1. Inicie sesión en Azure Portal, busque y seleccione **Aplicación de funciones**.
+
+1. Seleccione la función que quiera comprobar.
+
+1. En el panel de navegación izquierdo, en **Functions**, seleccione **Claves de la aplicación**.
+
+    Esto devuelve las claves de host, que se pueden usar para acceder a cualquier función de la aplicación. También devuelve la clave del sistema, que proporciona a cualquier usuario acceso de nivel de administrador a todas las API de una aplicación de funciones.   
+
+También puede emplear menos privilegios si usa la clave simplemente para la clave de función concreta al seleccionar **Claves de función** en **Desarrollador** en la función desencadenada por HTTP. 
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Ejecute el siguiente script en Azure Cloud Shell; el resultado es la [clave predeterminada (host)](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) que se puede usar para acceder a cualquier función desencadenada por HTTP de la aplicación de funciones.
+
+```azurecli-interactive
+subName='<SUBSCRIPTION_ID>'
+resGroup=AzureFunctionsContainers-rg
+appName=glengagtestdocker
+path=/subscriptions/$subName/resourceGroups/$resGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01
+az rest --method POST --uri $path --query functionKeys.default --output tsv
+```
+
+En este script, reemplace `<SUBSCRIPTION_ID>` y `<APP_NAME>` por el identificador de la suscripción y el nombre de la aplicación de funciones, respectivamente. Este script se ejecuta en Bash en Cloud Shell. Debe modificarse para ejecutarse en un símbolo del sistema de Windows.  
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Ejecute el siguiente script; el resultado es la [clave predeterminada (host)](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) que se puede usar para acceder a cualquier función desencadenada por HTTP de la aplicación de funciones. 
+
+```powershell-interactive
+$subName = '<SUBSCRIPTION_ID>'
+$rGroup = 'AzureFunctionsContainers-rg'
+$appName = '<APP_NAME>'
+$path = "/subscriptions/$subName/resourceGroups/$rGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01"
+((Invoke-AzRestMethod -Path $path -Method POST).Content | ConvertFrom-JSON).functionKeys.default
+```
+
+En este script, reemplace `<SUBSCRIPTION_ID>` y `<APP_NAME>` por el identificador de la suscripción y el nombre de la aplicación de funciones, respectivamente. 
+
+---
 
 ## <a name="platform-features"></a>Características de la plataforma
 

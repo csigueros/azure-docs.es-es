@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da05251dab17aeb086be53a8583110dd5f12d7b3
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: b933829ec9cfdb322cf0498c10966b9c244ac98e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541642"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727963"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificación de un modelo de detección de caras
 
@@ -33,7 +33,7 @@ Si no está seguro de si debe usar el modelo más reciente, vaya a la sección [
 Debe estar familiarizado con el concepto de detección de caras de inteligencia artificial. Si no lo está, consulte la guía conceptual de detección de caras o la guía paso a paso:
 
 * [Conceptos relacionados con la detección de caras](../concepts/face-detection.md)
-* [Detección de caras en una imagen](HowtoDetectFacesinImage.md)
+* [Llamada a la API de detección](HowtoDetectFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Detección de caras con el modelo especificado
 
@@ -109,7 +109,7 @@ La mejor manera de comparar el rendimiento de los modelos de detección es usarl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a especificar el modelo de detección que se debe usar con diferentes tipos de Face API. A continuación, siga un inicio rápido para empezar a usar la detección de caras.
+En este artículo, ha aprendido a especificar el modelo de detección que se debe usar con diferentes tipos de Face API. A continuación, siga un inicio rápido para empezar a trabajar con la detección y el análisis de caras.
 
 * [SDK de .NET para Face](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [SDK de Python para Face](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

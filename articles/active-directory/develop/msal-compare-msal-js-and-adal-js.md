@@ -1,99 +1,478 @@
 ---
-title: Diferencias entre MSAL.js y ADAL.js | Azure
+title: Migración de su aplicación JavaScript de ADAL.js a MSAL.js | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre las diferencias entre la Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) y la Biblioteca de autenticación de Active Directory para JavaScript (ADAL.js) y cómo elegir cuál usar.
+description: En este artículo se explica cómo actualizar una aplicación JavaScript con el objetivo de usar la biblioteca de autenticación de Microsoft (MSAL) para la autenticación y autorización en lugar de la biblioteca de autenticación de Active Directory (ADAL).
 services: active-directory
-author: mtillman
+author: derisen
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/10/2019
-ms.author: mtillman
-ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 2c4a1463074635ed46fc4bc0c21771aabdb00254
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/06/2021
+ms.author: v-doeris
+ms.openlocfilehash: 0036dcb5a87ea6b36c6deea3760ff24aa7c7bd8d
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077255"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431893"
 ---
-# <a name="differences-between-msaljs-and-adaljs"></a>Diferencias entre MSAL.js y ADAL.js
+# <a name="how-to-migrate-a-javascript-app-from-adaljs-to-msaljs"></a>Cómo migrar una aplicación de JavaScript de ADAL.js a MSAL.js
 
-Tanto la Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) como la Biblioteca de autenticación de Active Directory (ADAL.js) se usan para autenticar entidades de Azure AD y solicitar tokens a Azure AD. Hasta ahora, la mayoría de los desarrolladores ha trabajado con Azure AD para que los desarrolladores (v1.0) autentiquen identidades de Azure AD (cuentas profesionales y educativas) mediante la solicitud de tokens con ADAL. Ahora, mediante MSAL.js, es posible autenticar un conjunto más amplio de identidades de Microsoft (identidades de Azure AD y cuentas Microsoft, así como cuentas sociales y locales a través de Azure AD B2C) a través de la Plataforma de identidad de Microsoft.
+La [biblioteca de autenticación de Microsoft para JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js, también conocida como *msal-browser*) 2.x es la biblioteca de autenticación que recomendamos utilizar con aplicaciones JavaScript en la plataforma de identidad de Microsoft. En este artículo se resaltan los cambios que debe realizar para migrar una aplicación que usa ADAL.js para usar MSAL.js 2.x.
 
-En este artículo se describe cómo elegir entre la Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) y la Biblioteca de autenticación de Active Directory para JavaScript (ADAL.js) y se comparan ambas bibliotecas.
+> [!NOTE]
+> Se recomienda encarecidamente usar MSAL.js 2.x en lugar de MSAL.js 1.x. El flujo de concesión de código de autenticación es más seguro y permite que las aplicaciones de página única mantengan una buena experiencia de usuario a pesar de las medidas de privacidad que los exploradores como Safari han implementado para bloquear las cookies de terceros, entre otras ventajas.
 
-## <a name="choosing-between-adaljs-and-msaljs"></a>Elección entre ADAL.js y MSAL.js
+## <a name="prerequisites"></a>Requisitos previos
 
-En la mayoría de los casos deseará usar la plataforma de identidad de Microsoft y MSAL.js, que es la última generación de bibliotecas de autenticación de Microsoft. Mediante MSAL.js, adquiere tokens para los usuarios que inician sesión en su aplicación con Azure AD (cuentas profesionales y educativas), cuentas (personales) Microsoft (MSA) o Azure AD B2C.
+- Debe establecer la **Plataforma** / **Tipo de URL de respuesta** en **Aplicación de una sola página** en el portal de registro de aplicaciones (si tiene otras plataformas en su registro de aplicaciones, como **Web**, debe asegurarse de que los URI de redirección no se solapen. Vea [Restricciones aplicables a los URI de redirección](./reply-url.md)).
+- Debe proporcionar [polyfills](./msal-js-use-ie-browser.md) para las características de ES6 en las que se basa MSAL.js (por ejemplo, promesas) para ejecutar sus aplicaciones en **Internet Explorer**
+- Asegúrese de haber migrado las aplicaciones de Azure AD al [punto de conexión v2](../azuread-dev/azure-ad-endpoint-comparison.md) si aún no lo ha hecho.
 
-Si ya conoce el punto de conexión v1.0 (y ADAL.js), es posible que quiera consultar [¿Qué hay diferente en el punto de conexión v2.0?](../azuread-dev/azure-ad-endpoint-comparison.md).
+## <a name="install-and-import-msal"></a>Instalación e importación de MSAL
 
-Sin embargo, aun así deberá usar ADAL.js si la aplicación necesita iniciar sesión en los usuarios con versiones anteriores de [Servicios de federación de Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services).
+Hay dos maneras de instalar la biblioteca MSAL.js 2.x:
 
-## <a name="key-differences-in-authentication-with-msaljs"></a>Diferencias clave en la autenticación con MSAL.js
+### <a name="via-npm"></a>A través de NPM:
 
-### <a name="core-api"></a>Core API
+```console
+npm install @azure/msal-browser
+```
 
-* ADAL.js usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) como representación de una instancia de la conexión de la aplicación con el servidor de autorización o el proveedor de identidades a través de una dirección URL de la autoridad. Por el contrario, MSAL.js API se diseñó en torno a una aplicación cliente de agente de usuario (una forma de aplicación cliente pública en la que el código cliente se ejecuta en un agente de usuario, como un explorador web). Proporciona la clase `UserAgentApplication` para representar una instancia del contexto de autenticación de la aplicación con el servidor de autorización. Para más detalles, consulte el artículo sobre la [inicialización con MSAL.js](msal-js-initializing-client-applications.md).
+A continuación, en función del sistema del módulo, impórtelo como se muestra a continuación:
 
-* En ADAL.js, los métodos para adquirir tokens están asociados con una sola entidad establecida en `AuthenticationContext`. En MSAL.js, las solicitudes de adquisición de token pueden tener valores de autoridad distintos a los que se enviaron en `UserAgentApplication`. Esto permite que MSAL.js adquiera y almacene en caché tokens por separado para varios inquilinos y cuentas de usuario en la misma aplicación.
+```javascript
+import * as msal from "@azure/msal-browser"; // ESM
 
-* El método para adquirir y renovar tokens de manera silenciosa sin solicitar nada a los usuarios se denomina `acquireToken` en ADAL.js. En MSAL.js, este método se denomina `acquireTokenSilent` para describir mejor esta funcionalidad.
+const msal = require('@azure/msal-browser'); // CommonJS
+```
 
-### <a name="authority-value-common"></a>Valor de autoridad `common`
+### <a name="via-cdn"></a>A través de CDN:
 
-En la versión 1.0, si se usa la autoridad `https://login.microsoftonline.com/common` se permitirá que los usuarios inicien sesión con cualquier cuenta de Azure AD (para cualquier organización).
+Cargue el script en la sección de encabezado del documento HTML:
 
-En la versión 2.0, si se usa la autoridad `https://login.microsoftonline.com/common`, se permitirá que los usuarios inicien sesión con cualquier cuenta de organización o con una cuenta personal de Microsoft (MSA). Para restringir el inicio de sesión solo a cuentas de Azure AD (el mismo comportamiento que con ADAL.js), use `https://login.microsoftonline.com/organizations`. Si necesita conocer detalles, consulte la opción de configuración `authority` en el artículo sobre la [inicialización con MSAL.js](msal-js-initializing-client-applications.md).
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js"></script>
+  </head>
+</html>
+```
 
-### <a name="scopes-for-acquiring-tokens"></a>Ámbitos para la adquisición de tokens
-* Ámbito en lugar de parámetro de recurso en solicitudes de autenticación para adquirir tokens
+Para obtener vínculos alternativos de CDN y los procedimientos recomendados para utilizarlos, consulte [Uso de CDN](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/cdn-usage.md).
 
-    El protocolo de la versión v2.0 usa ámbitos en lugar de recursos en las solicitudes. Es decir, cuando la aplicación tenga que solicitar tokens con permisos para un recurso como MS Graph, la diferencia en los valores pasados a los métodos de biblioteca son los siguientes:
+## <a name="initialize-msal"></a>Inicializar MSAL
 
-    v1.0: resource = https\://graph.microsoft.com
+En ADAL.js, se crea una instancia de la clase [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext), que luego expone los métodos que puede usar para lograr la autenticación (`login`, `acquireTokenPopup` etc.). Este objeto actúa como la representación de la conexión de la aplicación con el servidor de autorización o el proveedor de identidades. Al inicializarse, el único parámetro obligatorio es **clientId**:
 
-    v2.0: scope = https\://graph.microsoft.com/User.Read
+```javascript
+window.config = {
+  clientId: "YOUR_CLIENT_ID"
+};
 
-    Puede solicitar ámbitos para cualquier API de recurso con el URI de la API con este formato: appidURI/scope, por ejemplo: https:\//mi-inquilino.onmicrosoft.com/myapi/api.read
+var authContext = new AuthenticationContext(config);
+```
 
-    Solo para MS Graph API, el valor de ámbito `user.read` se asigna a https:\//graph.microsoft.com/User.Read y se puede usar indistintamente.
+En MSAL.js, se crea una instancia de la clase [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) en su lugar. Al igual que ADAL.js, el constructor espera un [objeto de configuración](#configure-msal) que contiene el parámetro `clientId` como mínimo. Para obtener más información, consulte [Inicialización de MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md).
 
-    ```javascript
-    var request = {
-        scopes = ["User.Read"];
-    };
+```javascript
+const msalConfig = {
+  auth: {
+      clientId: 'YOUR_CLIENT_ID'
+  }
+};
 
-    acquireTokenPopup(request);   
-    ```
+const msalInstance = new msal.PublicClientApplication(msalConfig);
+```
 
-* Ámbitos dinámicos para consentimiento incremental.
+Tanto en ADAL.js como en MSAL.js, el URI de autoridad tiene como valor predeterminado `https://login.microsoftonline.com/common` si no se especifica.
 
-    Cuando compilaba aplicaciones con la versión 1.0, era necesario registrar el conjunto completo de permisos (ámbitos estáticos) que requería la aplicación para que el usuario diera su consentimiento en el momento del inicio de sesión. En la versión 2.0, puede usar el parámetro de ámbito para solicitar los permisos en el momento en que lo desee. Se denominan "ámbitos dinámicos". Esto permite que el usuario dé su consentimiento incremental a los ámbitos. Por lo tanto, si al inicio solo quería que el usuario iniciara sesión en la aplicación y no necesita ningún tipo de acceso, puede hacerlo. Si posteriormente necesita poder leer el calendario del usuario, podrá solicitar el ámbito de calendario en los métodos acquireToken y obtener el consentimiento del usuario. Por ejemplo:
+> [!NOTE]
+> Si usa la autoridad `https://login.microsoftonline.com/common` en v2.0, permitirá a los usuarios iniciar sesión con una cuenta personal de Microsoft (MSA) o una de organización de Azure AD. En MSAL.js, si quiere restringir el inicio de sesión a cualquier cuenta de Azure AD (el mismo comportamiento que con ADAL.js), use `https://login.microsoftonline.com/organizations`.
 
-    ```javascript
-    var request = {
-        scopes = ["https://graph.microsoft.com/User.Read", "https://graph.microsoft.com/Calendar.Read"];
-    };
+## <a name="configure-msal"></a>Configuración de MSAL
 
-    acquireTokenPopup(request);   
-    ```
+Algunas de las [opciones de configuración de ADAL.js](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context) que se utilizan al inicializar [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) dejan de usarse en MSAL.js, mientras que se incluyen algunas nuevas. Vea la [lista completa de opciones disponibles](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md). Lo importante es que muchas de estas opciones, excepto `clientId`, pueden invalidarse durante la adquisición de tokens, lo que permite establecerlas en función de *cada solicitud*. Por ejemplo, puede utilizar un **URI de autoridad** o un **URI de redirección** diferente al que estableció durante la inicialización al adquirir los tokens.
 
-* Ámbitos para las API de la versión 1.0
+Además, ya no es necesario especificar la experiencia de inicio de sesión (es decir, si se usan ventanas emergentes o se redirige la página) mediante las opciones de configuración. En su lugar, MSAL.js expone los métodos `loginPopup` y `loginRedirect` a través de la instancia de `PublicClientApplication`.
 
-    Al obtener tokens para las API de la versión 1.0 con MSAL.js, puede solicitar todos los ámbitos estáticos registrados en la API si anexa `.default` al URI del identificador de la aplicación de la API como ámbito. Por ejemplo:
+## <a name="enable-logging"></a>Habilitar registro
 
-    ```javascript
-    var request = {
-        scopes = [ appidURI + "/.default"];
-    };
+En ADAL.js, configure el registro por separado en cualquier lugar del código:
 
-    acquireTokenPopup(request);
-    ```
+```javascript
+window.config = {
+  clientId: "YOUR_CLIENT_ID"
+};
+
+var authContext = new AuthenticationContext(config);
+
+var Logging = {
+  level: 3,
+  log: function (message) {
+      console.log(message);
+  },
+  piiLoggingEnabled: false
+};
+
+
+authContext.log(Logging)
+```
+
+En MSAL.js, el registro forma parte de las opciones de configuración y se crea durante la inicialización de `PublicClientApplication`:
+
+```javascript
+const msalConfig = {
+  auth: {
+      // authentication related parameters
+  },
+  cache: {
+      // cache related parameters
+  },
+  system: {
+      loggerOptions: {
+          loggerCallback(loglevel, message, containsPii) {
+              console.log(message);
+          },
+          piiLoggingEnabled: false,
+          logLevel: msal.LogLevel.Verbose,
+      }
+  }
+}
+
+const msalInstance = new msal.PublicClientApplication(msalConfig);
+```
+
+## <a name="switch-to-msal-api"></a>Cambio a la API de MSAL
+
+La mayoría de los métodos públicos de ADAL.js tienen equivalentes en MSAL.js:
+
+| ADAL                                | MSAL                              | Notas                                        |
+|-------------------------------------|-----------------------------------|----------------------------------------------|
+| `acquireToken`                      | `acquireTokenSilent`              | Se ha cambiado el nombre y ahora espera un objeto de [cuenta](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#accountinfo). |
+| `acquireTokenPopup`                 | `acquireTokenPopup`               | Ahora asincrónico y devuelve una promesa.              |
+| `acquireTokenRedirect`              | `acquireTokenRedirect`            | Ahora asincrónico y devuelve una promesa.              |
+| `handleWindowCallback`              | `handleRedirectPromise`           | Necesario si se usa la experiencia de redirección.          |
+| `getCachedUser`                     | `getAllAccounts`                  | Se ha cambiado el nombre y ahora devuelve una matriz de cuentas.|
+
+Otros quedaron en desuso, mientras que MSAL.js ofrece nuevos métodos:
+
+| ADAL                              | MSAL                            | Notas                                            |
+|-----------------------------------|---------------------------------|--------------------------------------------------|
+| `login`                           | N/D                             | En desuso. Utilice `loginPopup` o `loginRedirect`.  |
+| `logOut`                          | N/D                             | En desuso. Utilice `logoutPopup` o `logoutRedirect`.|
+| N/D                               | `loginPopup`                    |                                                  |
+| N/D                               | `loginRedirect`                 |                                                  |
+| N/D                               | `logoutPopup`                   |                                                  |
+| N/D                               | `logoutRedirect`                |                                                  |
+| N/D                               | `getAccountByHomeId`            | Filtra las cuentas por identificador de inicio (oid + id. de inquilino).    |
+| N/D                               | `getAccountLocalId`             | Filtra las cuentas por identificador local (útil para ADFS)   |
+| N/D                               | `getAccountUsername`            | Filtra las cuentas por nombre de usuario (si existe).         |
+
+Además, como MSAL.js se implementa en TypeScript a diferencia de ADAL.js, expone varios tipos e interfaces que puede usar en los proyectos. Consulte la [referencia de la API de MSAL.js](https://azuread.github.io/microsoft-authentication-library-for-js/ref/) para obtener más detalles.
+
+## <a name="use-scopes-instead-of-resources"></a>Uso de ámbitos en lugar de recursos
+
+Una diferencia importante entre los puntos de conexión **v1.0** y **v2.0** de Azure AD es cómo se accede a los recursos. Al utilizar ADAL.js con el punto de conexión **v1.0**, primero registraría un permiso en el portal de registro de aplicaciones y, a continuación, solicitaría un token de acceso para un recurso (como Microsoft Graph), como se muestra a continuación:
+
+```javascript
+authContext.acquireTokenRedirect("https://graph.microsoft.com", function (error, token) {
+  // do something with the access token
+});
+```
+
+MSAL.js admite los puntos de conexión **v1.0** y **v2.0**. El punto de conexión **v2.0** emplea un modelo *centrado en el ámbito* para acceder a los recursos. Por lo tanto, cuando solicite un token de acceso para un recurso, también debe especificar el ámbito de ese recurso:
+
+```javascript
+msalInstance.acquireTokenRedirect({
+  scopes: ["https://graph.microsoft.com/User.Read"]
+});
+```
+
+Una ventaja del modelo centrado en el ámbito es la posibilidad de usar *ámbitos dinámicos*. Al compilar aplicaciones con el punto de conexión v1.0, era necesario registrar el conjunto completo de permisos (llamados *ámbitos estáticos*) que requería la aplicación para que el usuario diera su consentimiento en el momento del inicio de sesión. En v2.0, puede usar el parámetro de ámbito para solicitar los permisos en el momento en que lo desee (por eso se llaman *ámbitos dinámicos*). Esto permite que el usuario dé su **consentimiento incremental** a los ámbitos. Por lo tanto, si al inicio solo quería que el usuario iniciara sesión en la aplicación y no necesita ningún tipo de acceso, puede hacerlo. Si posteriormente necesita poder leer el calendario del usuario, podrá solicitar el ámbito de calendario en los métodos acquireToken y obtener el consentimiento del usuario. Para obtener más información, consulte [Recursos y ámbitos](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md).
+
+## <a name="use-promises-instead-of-callbacks"></a>Uso de promesas en lugar de devoluciones de llamada
+
+En ADAL.js, las devoluciones de llamada se usan para cualquier operación después de que la autenticación se realice correctamente y se obtenga una respuesta:
+
+```javascript
+authContext.acquireTokenPopup(resource, extraQueryParameter, claims, function (error, token) {
+  // do something with the access token
+});
+```
+
+En MSAL.js, se usan promesas:
+
+```javascript
+msalInstance.acquireTokenPopup({
+      scopes: ["User.Read"] // shorthand for https://graph.microsoft.com/User.Read
+  }).then((response) => {
+      // do something with the auth response
+  }).catch((error) => {
+      // handle errors
+  });
+```
+
+También puede usar la sintaxis **async/await** que se incluye con ES8:
+
+```javascript
+const getAccessToken = async() => {
+  try {
+      const authResponse = await msalInstance.acquireTokenPopup({
+          scopes: ["User.Read"]
+      });
+  } catch (error) {
+      // handle errors
+  }
+}
+```
+
+## <a name="cache-and-retrieve-tokens"></a>Almacenamiento en caché y recuperación de tokens
+
+Al igual que ADAL.js, MSAL.js almacena en caché los tokens y otros artefactos de autenticación en el almacenamiento del explorador, utilizando la [API de almacenamiento web](https://developer.mozilla.org/docs/Web/API/Web_Storage_API). Se recomienda utilizar la opción `sessionStorage` (consulte [configuración](#configure-msal)) porque es más segura para almacenar los tokens que adquieren sus usuarios, pero `localStorage` le proporcionará [Inicio de sesión único](./msal-js-sso.md) entre pestañas y sesiones de usuario.
+
+Es importante destacar que no se debe acceder a la caché directamente. En su lugar, debe utilizar una API de MSAL.js adecuada para recuperar artefactos de autenticación como tokens de acceso o cuentas de usuario.
+
+## <a name="renew-tokens-with-refresh-tokens"></a>Renovación de tokens con tokens de actualización
+
+ADAL.js utiliza el [flujo implícito OAuth 2.0](./v2-oauth2-implicit-grant-flow.md), que no devuelve tokens de refresco por razones de seguridad (los tokens de actualización tienen una duración más larga que los tokens de acceso y, por tanto, son más peligrosos en manos de actores malintencionados). Por lo tanto, ADAL.js realiza la renovación de los tokens mediante un Iframe oculto para que no se pida al usuario que se autentique repetidamente.
+
+Con el flujo de código de autenticación compatible con PKCE, las aplicaciones que utilizan MSAL.js 2.x obtienen tokens de actualización junto con tokens de identificación y acceso, que se pueden usar para renovarlos. El uso de los tokens de actualización se abstrae, y se supone que los desarrolladores no deben crear lógica en torno a ellos. En su lugar, MSAL administra la renovación de tokens mediante tokens de actualización por sí mismo. La caché de tokens anterior con ADAL.js no será transferible a MSAL.js, ya que el esquema de caché de tokens ha cambiado y es incompatible con el esquema usado en ADAL.js.
+
+## <a name="handle-errors-and-exceptions"></a>Control de errores y excepciones
+
+Al usar MSAL.js, el tipo de error más común al que podría enfrentarse es el error `interaction_in_progress`. Este error se produce cuando se invoca una API interactiva (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`) mientras otra API interactiva sigue en curso. Las API `login*` y `acquireToken*` son *asincrónicas* por lo que deberá asegurarse de que las promesas resultantes se han resuelto antes de invocar otra.
+
+Otro error común es `interaction_required`. Para resolverlo, en general basta con iniciar un símbolo del sistema de adquisición de tokens interactivo. Por ejemplo, la API web a la que intenta acceder podría tener una directiva de [acceso condicional](../conditional-access/overview.md), que requiere que el usuario realice la [autenticación multifactor](../authentication/concept-mfa-howitworks.md) (MFA). En ese caso, el control del error `interaction_required` mediante el desencadenamiento de `acquireTokenPopup` o `acquireTokenRedirect` solicitará al usuario que realice la autenticación multifactor, lo que le permitirá completarla.
+
+Otro error común al que podría enfrentarse es `consent_required`, que se produce cuando el usuario no da su consentimiento a los permisos necesarios para obtener un token de acceso para un recurso protegido. Al igual que en el caso de `interaction_required`, la solución del error `consent_required` suele consistir en iniciar un símbolo del sistema de adquisición de tokens interactivo mediante el método `acquireTokenPopup` o `acquireTokenRedirect`.
+
+Más información: [Errores comunes de MSAL.js y solución](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/errors.md)
+
+## <a name="use-the-events-api"></a>Uso de la API de eventos
+
+MSAL.js (>=v2.4) presenta una API de eventos que puede usar en sus aplicaciones. Estos eventos están relacionados con el proceso de autenticación y lo que hace MSAL en cualquier momento, y se pueden usar para actualizar la interfaz de usuario, mostrar mensajes de error, comprobar si hay alguna interacción en curso, etc. Por ejemplo, a continuación se muestra una devolución de llamada de evento a la que se llamará cuando se produce un error en el proceso de inicio de sesión por cualquier motivo:
+
+```javascript
+const callbackId = msalInstance.addEventCallback((message) => {
+  // Update UI or interact with EventMessage here
+  if (message.eventType === EventType.LOGIN_FAILURE) {
+      if (message.error instanceof AuthError) {
+          // Do something with the error
+      }
+    }
+});
+```
+
+Para mejorar el rendimiento, es importante anular el registro de las devoluciones de llamada de eventos cuando ya no sean necesarias. Más información: [API de eventos de MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/events.md)
+
+## <a name="handle-multiple-accounts"></a>Control de varias cuentas
+
+ADAL.js tiene el concepto de *usuario* para representar la entidad autenticada actualmente. MSAL.js sustituye *usuarios* por *cuentas*, dado que un usuario puede tener más de una cuenta asociada. Esto también significa que ahora debe controlar varias cuentas y elegir la adecuada con la que trabajar. El siguiente fragmento de código ilustra este proceso:
+
+```javascript
+let homeAccountId = null; // Initialize global accountId (can also be localAccountId or username) used for account lookup later, ideally stored in app state
+
+// This callback is passed into `acquireTokenPopup` and `acquireTokenRedirect` to handle the interactive auth response
+function handleResponse(resp) {
+  if (resp !== null) {
+      homeAccountId = resp.account.homeAccountId; // alternatively: resp.account.homeAccountId or resp.account.username
+  } else {
+      const currentAccounts = myMSALObj.getAllAccounts();
+      if (currentAccounts.length < 1) { // No cached accounts
+          return;
+      } else if (currentAccounts.length > 1) { // Multiple account scenario
+          // Add account selection logic here
+      } else if (currentAccounts.length === 1) {
+          homeAccountId = currentAccounts[0].homeAccountId; // Single account scenario
+      }
+  }
+}
+```
+
+Para más información, consulte [Cuentas en MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/accounts.md).
+
+## <a name="use-the-wrappers-libraries"></a>Uso de bibliotecas contenedoras
+
+Si está desarrollando para marcos Angular y React, puede usar [MSAL Angular v2](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) y [MSAL React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react), respectivamente. Estos contenedores exponen la misma API pública que MSAL.js mientras ofrecen métodos y componentes específicos del marco que pueden simplificar los procesos de autenticación y adquisición de tokens.
+
+## <a name="run-the-app"></a>Ejecución la aplicación
+
+Una vez realizados los cambios, ejecute la aplicación y pruebe el escenario de autenticación:
+
+```console
+npm start
+```
+
+## <a name="example-securing-web-apps-with-adal-node-vs-msal-node"></a>Ejemplo: Diferencias en la protección de aplicaciones web con el nodo ADAL y con el nodo MSAL
+
+Los siguientes fragmentos de código demuestran el código mínimo necesario para una aplicación de página única que autentica a los usuarios con la plataforma de identidad de Microsoft y obtiene un token de acceso para Microsoft Graph utilizando primero ADAL.js y luego MSAL.js:
+
+<table>
+<tr><td> Uso de ADAL.js </td><td> Uso de MSAL.js </td></tr>
+<tr>
+<td>
+
+```html
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script 
+    type="text/javascript"
+    src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.18/js/adal.min.js">
+  </script>
+</head>
+
+<div>
+  <button id="loginButton">Login</button>
+  <button id="logoutButton" style="visibility: hidden;">Logout</button>
+  <button id="tokenButton" style="visibility: hidden;">Get Token</button>
+</div>
+
+<body>
+  <script>
+
+    const loginButton = document.getElementById("loginButton");
+    const logoutButton = document.getElementById("logoutButton");
+    const tokenButton = document.getElementById("tokenButton");
+
+    var authContext = new AuthenticationContext({
+        instance: 'https://login.microsoftonline.com/',
+        clientId: "ENTER_CLIENT_ID",
+        tenant: "ENTER_TENANT_ID",
+        cacheLocation: "sessionStorage",
+        redirectUri: "http://localhost:3000",
+        popUp: true,
+        callback: function (errorDesc, token, error, tokenType) {
+            console.log('Hello ' + authContext.getCachedUser().profile.upn)
+
+            loginButton.style.visibility = "hidden";
+            logoutButton.style.visibility = "visible";
+            tokenButton.style.visibility = "visible";
+        }
+    });
+
+    authContext.log({
+        level: 3,
+        log: function (message) {
+            console.log(message);
+        },
+        piiLoggingEnabled: false
+    });
+
+    loginButton.addEventListener('click', function () {
+        authContext.login();
+    });
+
+    logoutButton.addEventListener('click', function () {
+        authContext.logOut();
+    });
+
+    tokenButton.addEventListener('click', () => {
+        authContext.acquireTokenPopup(
+            "https://graph.microsoft.com", 
+            null, null, 
+            function (error, token) {
+                console.log(error, token);
+            }
+        )
+    });
+  </script>
+</body>
+
+</html>
+
+```
+
+</td>
+<td>
+
+```html
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script 
+    type="text/javascript" 
+    src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js">
+  </script>
+</head>
+
+<div>
+  <button id="loginButton">Login</button>
+  <button id="logoutButton" style="visibility: hidden;">Logout</button>
+  <button id="tokenButton" style="visibility: hidden;">Get Token</button>
+</div>
+
+<body>
+  <script>
+    const loginButton = document.getElementById("loginButton");
+    const logoutButton = document.getElementById("logoutButton");
+    const tokenButton = document.getElementById("tokenButton");
+
+    const pca = new msal.PublicClientApplication({
+        auth: {
+            clientId: "ENTER_CLIENT_ID",
+            authority: "https://login.microsoftonline.com/ENTER_TENANT_ID",
+            redirectUri: "http://localhost:3000",
+        },
+        cache: {
+            cacheLocation: "sessionStorage"
+        },
+        system: {
+            loggerOptions: {
+                loggerCallback(loglevel, message, containsPii) {
+                    console.log(message);
+                },
+                piiLoggingEnabled: false,
+                logLevel: msal.LogLevel.Verbose,
+            }
+        }
+    });
+
+    loginButton.addEventListener('click', () => {
+        pca.loginPopup().then((response) => {
+            console.log(`Hello ${response.account.username}!`);
+
+            loginButton.style.visibility = "hidden";
+            logoutButton.style.visibility = "visible";
+            tokenButton.style.visibility = "visible";
+        })
+    });
+
+    logoutButton.addEventListener('click', () => {
+        pca.logoutPopup().then((response) => {
+            window.location.reload();
+        })
+    });
+
+    tokenButton.addEventListener('click', () => {
+        pca.acquireTokenPopup({
+            scopes: ["User.Read"]
+        }).then((response) => {
+            console.log(response);
+        })
+    });
+  </script>
+</body>
+
+</html>
+
+```
+
+</td>
+</tr>
+</table>
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información, consulte la [comparación entre la versión 1 y la versión 2](../azuread-dev/azure-ad-endpoint-comparison.md).
+
+- [Referencia de API de MSAL.js](https://azuread.github.io/microsoft-authentication-library-for-js/ref/)
+- [Ejemplos de código de MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples)

@@ -13,12 +13,12 @@ ms.date: 05/06/2021
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cf1ca72d7afaace847fb1b8321723f57fbe133f6
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 27c56804eeb3b27bfda9f581f13b853edc8e4b4e
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802184"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453797"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procedimiento: Incorporación de roles de aplicación a una aplicación y su recepción en el token
 
@@ -203,7 +203,8 @@ Obtenga más información sobre los roles de aplicación en los recursos siguien
 
 - Ejemplos de código en GitHub
   - [Incorporación de autorización mediante grupos y notificaciones de grupos a una aplicación web de ASP.NET Core](https://aka.ms/groupssample)
-  - [Artículo sobre Llamada a una API web de .NET Core desde una aplicación de página única (SPA) de Angular y uso de roles de aplicación y grupos de seguridad](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+  - [Artículo sobre Llamada a una API web de .NET Core desde una aplicación de página única (SPA) de Angular y uso de roles de aplicación y grupos de seguridad](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl)
+  - [Aplicación de página única (SPA) de React que llama a una API web de Node.js y usa roles de aplicación y grupos de seguridad](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/5-AccessControl)
 - Documentación de referencia
   - [Manifiesto de la aplicación de Azure AD](./reference-app-manifest.md)
   - [Tokens de acceso de Azure AD](access-tokens.md)

@@ -3,16 +3,16 @@ title: Use la API REST para administrar usuarios y roles en Azure IoT Central
 description: Uso de la API REST de IoT Central para administrar usuarios y roles en una aplicación
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 34be4920b343117ed895313c45a66e54b2de9ab3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 97f97206b5071824f8bde8733d208078ddaf72bb
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950582"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473323"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-manage-users-and-roles"></a>Uso de la API REST de IoT Central para administrar usuarios y roles
 
@@ -183,6 +183,8 @@ La respuesta a esta solicitud es similar al ejemplo siguiente. El valor de rol i
 }
 ```
 
+También puede agregar un usuario de entidad de servicio, lo que resulta útil si necesita usar la autenticación de entidad de servicio para las llamadas a la API REST. Para más información, consulte [Incorporación o actualización de un usuario de entidad de servicio](/rest/api/iotcentral/1.0/users/create#add-or-update-a-service-principal-user).
+
 ### <a name="change-the-role-of-a-user"></a>Cambio del rol de un usuario
 
 Use la siguiente solicitud para cambiar el rol asignado al usuario. En este ejemplo se usa el identificador del rol de generador que recuperó anteriormente:
@@ -228,4 +230,4 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que sabe administrar usuarios y roles con la API REST, el siguiente paso recomendado consiste en [administrar aplicaciones de IoT Central mediante la API REST](/learn/modules/manage-iot-central-apps-with-rest-api/).
+Ahora que ha aprendido a administrar los usuarios y roles con la API REST, el siguiente paso que se sugiere es [Empleo de la API REST de IoT Central para controlar dispositivos](howto-control-devices-with-rest-api.md).

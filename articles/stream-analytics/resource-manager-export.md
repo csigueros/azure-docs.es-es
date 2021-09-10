@@ -7,12 +7,12 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: aa17d83dcc14675db5ff6aa4597314baffbffdbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c67d6895fe4dde54992c7a79067a45dcdff18305
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015426"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586426"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Exportación de plantillas de Azure Resource Manager para trabajos de Azure Stream Analytics
 

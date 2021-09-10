@@ -3,9 +3,8 @@ title: Aislamiento en la nube pública de Azure | Microsoft Docs
 description: Conozca cómo Azure proporciona aislamiento contra usuarios malintencionados y no malintencionados y ofrece a los arquitectos varias opciones de aislamiento.
 services: security
 documentationcenter: na
-author: UnifyCloud
+author: TomSh
 manager: rkarlin
-editor: TomSh
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
-ms.author: TomSh
-ms.openlocfilehash: c06fb0830ae709918b668ed60efbaaf47a63ce84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/30/2021
+ms.author: terrylan
+ms.openlocfilehash: 3ef9f5cb6e0175a501b05da6e79194da76b18dae
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94842845"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257258"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 
@@ -42,9 +41,9 @@ El inquilinato de Azure (suscripción de Azure) hace referencia a una relación 
 
 Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los recursos en la suscripción de Azure. Puede asignar estos derechos de acceso con Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure. Un inquilino de Azure está aislado lógicamente mediante límites de seguridad de forma que ningún cliente puede acceder o poner en riesgo los coinquilinos, ya sea de forma malintencionada o por accidente. Azure AD se ejecuta en servidores sin sistema operativo, aislados en un segmento de red separado donde el filtrado de paquetes de nivel de host y Firewall de Windows bloquean el tráfico y las conexiones no deseadas.
 
-- El acceso a los datos de Azure AD requiere autenticación del usuario mediante un servicio de token de seguridad (STS). El sistema de autorización usa la información sobre la existencia, estado habilitado y rol del usuario se usa para determinar si el acceso solicitado al inquilino de destino está autorizado para este usuario en esta sesión.
+:::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagrama que muestra un inquilino de Azure." border="false":::
 
-![Inquilinato de Azure](./media/isolation-choices/azure-isolation-fig1.png)
+- El acceso a los datos de Azure AD requiere autenticación del usuario mediante un servicio de token de seguridad (STS). El sistema de autorización usa la información sobre la existencia, estado habilitado y rol del usuario se usa para determinar si el acceso solicitado al inquilino de destino está autorizado para este usuario en esta sesión.
 
 - Los inquilinos son contenedores separados y no hay ninguna relación entre ellos.
 
@@ -90,7 +89,7 @@ Otras funcionalidades de Azure Active Directory incluyen:
 
 - Azure AD proporciona identidad como servicio a través de la federación (mediante los [Servicios de federación de Active Directory](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)), sincronización y replicación de directorios locales.
 
-- [Multi-Factor Authentication de Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md) es el servicio de autenticación multifactor que requiere que los usuarios verifiquen los inicios de sesión mediante una aplicación móvil, una llamada telefónica o un mensaje de texto. Se puede usar con Azure AD como ayuda para proteger los recursos locales con el servidor de Azure Multi-Factor Authentication, y también con aplicaciones y directorios personalizados mediante el SDK.
+- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) exige a los usuarios que comprueben los inicios de sesión mediante una aplicación móvil, una llamada de teléfono o un mensaje de texto. Se puede usar con Azure AD como ayuda para proteger los recursos locales con Servidor Multi-Factor Authentication, y también con aplicaciones y directorios personalizados mediante el SDK.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) permite unir máquinas virtuales de Azure a un dominio de Active Directory sin implementar controladores de dominio. Puede conectarse a estas máquinas virtuales con sus credenciales corporativas de Active Directory y administrar las máquinas virtuales unidas a un dominio mediante una directiva de grupo para aplicar una base de referencia de seguridad en todas sus máquinas virtuales de Azure.
 
@@ -131,7 +130,7 @@ Cada nodo tiene también una máquina virtual raíz especial, que ejecuta el sis
 
 La plataforma de Azure usa un entorno virtualizado. Las instancias de usuario funcionan como máquinas virtuales independientes que no tienen acceso a un servidor host físico.
 
-El hipervisor de Azure actúa como un micronúcleo y pasa todas las solicitudes de acceso al hardware desde las máquinas virtuales invitadas hasta el host para procesarlas mediante una interfaz de memoria compartida denominada VMBus. Esto impide que los usuarios obtengan acceso de lectura/escritura/ejecución sin procesar en el sistema y reduce el riesgo de compartir recursos del sistema.
+El hipervisor de Azure actúa como un microkernel y pasa todas las solicitudes de acceso al hardware desde las máquinas virtuales invitadas hasta el host para procesarlas mediante una interfaz de memoria compartida denominada VM Bus. Esto impide que los usuarios obtengan acceso de lectura/escritura/ejecución sin procesar en el sistema y reduce el riesgo de compartir recursos del sistema.
 
 ### <a name="advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>Algoritmo avanzado de selección de ubicación de la máquina virtual y protección frente a ataques de canal lateral
 
@@ -317,6 +316,6 @@ La implementación de Azure tiene varios niveles de aislamiento de red. El sigui
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [opciones de aislamiento de red para máquinas Windows en redes virtuales de Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Esto incluye el escenario de front-end y back-end clásico en el que las máquinas de una determinada red o subred back-end pueden permitir conectarse solo a determinados clientes o equipos a un punto de conexión en particular, en función de una lista de direcciones IP autorizadas.
+- Más información sobre [opciones de aislamiento de red para máquinas Windows en redes virtuales de Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Esto incluye el escenario de front-end y back-end clásico en el que las máquinas de una determinada red o subred de back-end pueden permitir conectarse solo a determinados clientes u otros equipos a un punto de conexión en particular, en función de una lista de direcciones IP autorizadas.
 
 - Más información sobre [aislamiento de máquinas virtuales de Azure](../../virtual-machines/isolation.md). Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.

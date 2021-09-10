@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 0ed20af6b27822f1f437f584e9b73eb416941d6f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1ba278b80d75e64b4394bfeb1b98cd0ec2d805a8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066005"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469964"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Autenticación y autorización para Azure Static Web Apps
 
@@ -122,6 +122,8 @@ Para evitar que la plataforma proporcione esta información en futuras solicitud
 ```url
 https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
+
+Tenga en cuenta que si usa Azure Active Directory, use `aad` como valor para el marcador de posición `<AUTHENTICATION_PROVIDER_NAME>`.
 
 ## <a name="system-folder"></a>Carpeta del sistema
 

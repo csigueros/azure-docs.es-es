@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: ac4e8d93e2e729db387b0f9cf81017b6c58b6750
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10fe758bf11f0452ef07d30329d7d48914fbb4bf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951341"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737221"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -157,3 +157,7 @@ Para obtener más información sobre los procedimientos recomendados, visite [Di
 - Haga clic en **Best Practices for Availability & Performance** (Prácticas recomendadas de disponibilidad y rendimiento) o en **Best Practices for Optimal Configuration** (Procedimientos recomendados para la configuración óptima) para ver el estado actual de la aplicación en lo que respecta a estas prácticas recomendadas.
 
 También puede usar este vínculo para abrir directamente Diagnósticos de App Service para el recurso: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+
+## <a name="more-resources"></a>Más recursos
+
+[Referencia de variables de entorno y configuración de la aplicación](reference-app-settings.md)

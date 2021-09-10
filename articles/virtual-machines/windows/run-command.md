@@ -1,31 +1,28 @@
 ---
 title: Ejecución de scripts de PowerShell en una máquina virtual Windows en Azure
 description: Este tema describe cómo ejecutar scripts de PowerShell dentro de una máquina virtual Windows en Azure mediante la función Ejecutar comando
-services: automation
 ms.service: virtual-machines
 ms.collection: windows
 author: bobbytreed
 ms.author: robreed
-ms.date: 04/26/2019
+ms.date: 06/22/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-manager: carmonm
-ms.openlocfilehash: de84372a6d9e6aa2c506427cd601859bf1ac00f0
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 81ffce59b1f99628580418836d690d650ea94a1c
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672672"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566253"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows mediante Ejecutar comando
 
 La función Ejecutar comando usa el agente de máquina virtual (VM) para ejecutar los scripts de PowerShell de una VM Windows de Azure. Puede usar estos scripts para la administración general de máquinas o aplicaciones. Pueden ayudarle a diagnosticar y corregir rápidamente el acceso a la máquina virtual y los problemas de red, así como a revertir la máquina virtual a un buen estado.
 
 
-
 ## <a name="benefits"></a>Ventajas
 
-Puede acceder a las máquinas virtuales de varias maneras. Ejecutar comando puede ejecutar scripts en sus máquinas virtuales de forma remota con el agente de VM. Ejecutar comando se usa mediante Azure Portal, la [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) para VM con Windows.
+Puede acceder a las máquinas virtuales de varias maneras. Ejecutar comando puede ejecutar scripts en sus máquinas virtuales de forma remota con el agente de VM. Ejecutar comando se usa mediante Azure Portal, la [API REST](/rest/api/compute/virtual-machines-run-commands/run-command) o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) para VM con Windows.
 
 Esta funcionalidad es útil en todos los escenarios en los que quiera ejecutar un script en una máquina virtual. Es uno de los únicos métodos para solucionar problemas y corregir una máquina virtual que no tiene abierto el puerto RDP o SSH debido a una configuración incorrecta de red o de usuario administrativo.
 
@@ -45,6 +42,8 @@ Las siguientes consideraciones se aplican al usar el Ejecutar comando:
 
 > [!NOTE]
 > Para poder funcionar correctamente, Ejecutar comando requiere conectividad (puerto 443) a las direcciones IP públicas de Azure. Si la extensión no tiene acceso a estos puntos de conexión, los scripts pueden ejecutarse correctamente, pero no devuelven los resultados. Si va a bloquear el tráfico de la máquina virtual, puede usar las [etiquetas de servicio](../../virtual-network/network-security-groups-overview.md#service-tags) para permitir el tráfico a las direcciones IP públicas de Azure mediante la etiqueta `AzureCloud`.
+> 
+> La característica Ejecutar no funciona si el estado del agente de máquina virtual es NOT READY. Compruebe el estado del agente en las propiedades de la máquina virtual en Azure Portal.
 
 ## <a name="available-commands"></a>Comandos disponibles
 
@@ -53,16 +52,21 @@ Esta tabla muestra la lista de comandos disponibles para máquinas virtuales Win
 ```error
 The entity was not found in this Azure location
 ```
+<br>
 
-|**Nombre**|**Descripción**|
+| **Nombre** | **Descripción** |
 |---|---|
-|**RunPowerShellScript**|Ejecuta un script de PowerShell.|
-|**EnableRemotePS**|Configura la máquina para habilitar PowerShell remoto.|
-|**EnableAdminAccount**|Comprueba si la cuenta de administrador local está deshabilitada, y si lo está, la habilita.|
-|**IPConfig**| Muestra información detallada de la dirección IP, la máscara de subred y la puerta de enlace predeterminada de cada adaptador enlazado a TCP/IP.|
-|**RDPSettings**|Comprueba la configuración del registro y de la directiva de dominio. Recomienda acciones de directiva si la máquina forma parte de un dominio o modifica la configuración a los valores predeterminados.|
-|**ResetRDPCert**|Quita el certificado TLS/SSL asociado al agente de escucha RDP y restaura la seguridad de este a los valores predeterminados. Use este script si ve algún problema con el certificado.|
-|**SetRDPPort**|Establece el número de puerto especificado por el usuario o predeterminado para las conexiones del Escritorio remoto. Habilita las reglas de firewall para el acceso entrante al puerto.|
+| **RunPowerShellScript** | Ejecuta un script de PowerShell. |
+| **DisableNLA** | Deshabilita la autenticación de nivel de red. |
+| **DisableWindowsUpdate** | Deshabilita las actualizaciones automáticas de Windows Update. |
+| **EnableAdminAccount** | Comprueba si la cuenta de administrador local está deshabilitada, y si lo está, la habilita. |
+| **EnableEMS** | Habilita EMS. |
+| **EnableRemotePS** | Configura la máquina para habilitar PowerShell remoto. |
+| **EnableWindowsUpdate** | Habilita las actualizaciones automáticas de Windows Update. |
+| **IPConfig** | Muestra información detallada de la dirección IP, la máscara de subred y la puerta de enlace predeterminada de cada adaptador enlazado a TCP/IP. |
+| **RDPSetting** | Comprueba la configuración del registro y de la directiva de dominio. Recomienda acciones de directiva si la máquina forma parte de un dominio o modifica la configuración a los valores predeterminados. |
+| **ResetRDPCert** | Quita el certificado TLS/SSL asociado al agente de escucha RDP y restaura la seguridad de este a los valores predeterminados. Use este script si ve algún problema con el certificado. |
+| **SetRDPPort** | Establece el número de puerto especificado por el usuario o predeterminado para las conexiones del Escritorio remoto. Habilita las reglas de firewall para el acceso entrante al puerto. |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -82,7 +86,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Navegue hasta una máquina virtual en [Azure Portal](https://portal.azure.com) y seleccione **Ejecutar comando** en **OPERACIONES**. Se mostrará una lista de los comandos disponibles para ejecutarse en la máquina virtual.
+Vaya a una máquina virtual en [Azure Portal](https://portal.azure.com) y seleccione **Ejecutar comando** en el menú de la izquierda, en **Operaciones**. Se mostrará una lista de los comandos disponibles para ejecutarse en la máquina virtual.
 
 ![Lista de comandos](./media/run-command/run-command-list.png)
 

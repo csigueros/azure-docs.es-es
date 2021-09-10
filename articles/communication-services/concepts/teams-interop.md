@@ -7,19 +7,19 @@ manager: chpalm
 services: azure-communication-services
 ms.author: chpalm
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: e884079bc159dbbc76d6443dc0e095c4d8f596ab
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 1bcb97892965cbe978899df4208888a4adb07253
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114668103"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251343"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidad de Teams
 
 > [!IMPORTANT]
-> La interoperabilidad de BYOI está en versión preliminar pública y ampliamente disponible a petición. Para habilitar o deshabilitar la [interoperabilidad de los inquilinos de equipos](../concepts/teams-interop.md), complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
+> La interoperabilidad de BYOI está en versión preliminar pública y está disponible para todas las aplicaciones de Communication Services y organizaciones de Teams.
 >
 > La interoperabilidad de Microsoft 365 autenticada está en versión preliminar privada y restringida mediante controles de servicio para los usuarios pioneros de Azure Communication Services. Para unirse al programa de acceso pionero, complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 >
@@ -42,10 +42,24 @@ Azure Communication Services admite dos tipos de interoperabilidad con Teams en 
 
 Las aplicaciones pueden implementar ambos esquemas de autenticación y dejar la opción de autenticación al usuario final.
 
-## <a name="bring-your-own-identity"></a>Traiga su propia identidad
-Traiga su propia identidad (BYOI) es el modelo común de interoperabilidad entre Azure Communication Services y Teams. Admite cualquier proveedor de identidades y esquema de autenticación. La aplicación puede unirse a reuniones de Microsoft Teams y Teams tratará estos usuarios como cuentas externas anónimas. El nombre de los usuarios de Communication Services que se muestran en Teams se puede configurar mediante Calling SDK de Communication Services.
+## <a name="overview"></a>Información general
 
-Esta funcionalidad es ideal para aplicaciones de negocio a consumidor que reúnen a empleados (que conocen Teams) y usuarios externos (con una experiencia de aplicación personalizada) en una reunión. Los detalles de la reunión que deben compartirse con usuarios externos de la aplicación se pueden recuperar mediante Graph API o el calendario de Microsoft Teams.
+Hay dos maneras de que los usuarios puedan acceder a la experiencia de llamadas de Teams:
+
+- A través de clientes de Teams como **usuarios de Teams**. Esto incluye los clientes de escritorio, dispositivos móviles y Teams web. 
+- A través de la experiencia web de la aplicación como **usuarios anónimos de Teams**. 
+
+Los usuarios anónimos de Teams no tienen que ser usuarios de Teams. Azure Communication Services permite compilar y personalizar nuevos puntos de conexión de llamadas de Teams para usuarios y usuarios anónimos de Teams. Puede usar el SDK de llamadas de Communication Services y la biblioteca de interfaz de usuario para la personalización y la integración en cualquier aplicación o producto existente. En el diagrama siguiente se muestra cómo se puede unir a una reunión Teams desde varios puntos de conexión: ![Información general de varios escenarios de interoperabilidad dentro de Azure Communication Services](./media/teams-identities/teams_interop_overview.png)
+
+Cuando un punto de conexión se conecta a una reunión de Teams mediante una identidad de Teams a través de las bibliotecas cliente de Azure Communication Services, el punto de conexión se trata como un usuario de Teams con un cliente de Teams. Los usuarios de Teams tienen acceso a más funcionalidad que los usuarios anónimos de Teams. Los usuarios de Teams pueden unirse a reuniones de Teams, realizar llamadas a otro usuario de Teams, recibir llamadas de números de teléfono y transferir llamadas en curso a la cola de llamadas de Teams. La conectividad del punto de conexión de Communication Services con identidad de Teams se muestra en el diagrama siguiente.
+
+![Introducción a los escenarios de interoperabilidad en Azure Communication Services](./media/teams-identities/teams_interop_m365_identity_interop_overview.png)
+
+## <a name="bring-your-own-identity"></a>Traiga su propia identidad
+
+Traiga su propia identidad (BYOI) es el modelo común de interoperabilidad entre Azure Communication Services y Teams. Admite cualquier proveedor de identidades y esquema de autenticación. El primer escenario que se ha habilitado permite que la aplicación se una a reuniones de Microsoft Teams y Teams tratará a estos usuarios como cuentas externas anónimas, igual que los usuarios que se unen mediante la aplicación web anónima de Teams. Esta funcionalidad es ideal para aplicaciones de negocio a consumidor que reúnen empleados (que conocen Teams) y usuarios externos (con una experiencia de aplicación personalizada) en una reunión. En el futuro, habilitaremos escenarios adicionales, como llamadas directas y chat, que permitirán a la aplicación iniciar llamadas y chats con usuarios de Teams fuera del contexto de una reunión de Teams.
+
+La capacidad de los usuarios de Communication Services de unirse a reuniones de Teams como usuarios anónimos se controla mediante la configuración existente "permitir la unión a reuniones anónimas", que también controla la unión a reuniones anónimas de Teams existentes.  Esta configuración se puede actualizar en el centro de administración de Teams (https://admin.teams.microsoft.com/meetings/settings) o con el cmdlet de PowerShell Set-CsTeamsMeetingConfiguration de Teams (https://docs.microsoft.com/powershell/module/skype/set-csteamsmeetingconfiguration). Al igual que con la unión a una reunión anónima de Teams, la aplicación debe tener el vínculo de reunión para unirse, que se puede recuperar a través de Graph API o del calendario de Microsoft Teams.  El nombre de los usuarios de Communication Services que se muestran en Teams se puede configurar mediante Calling SDK de Communication Services.
 
 Los usuarios externos podrán usar la funcionalidad principal de audio, vídeo, uso compartido de pantalla y chat mediante los SDK de Azure Communication Services. Características como levantar la mano, el modo de reunión y las salas de descanso solo estarán disponibles para los usuarios de Teams. Los usuarios de Communication Services pueden enviar y recibir mensajes solo mientras están presentes en la reunión de Teams y si la reunión no está programada para un canal.
 

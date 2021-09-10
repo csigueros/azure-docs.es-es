@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/03/2021
 ms.author: victorh
-ms.openlocfilehash: 0800373919ba95f48d30b9fe6eb5e7f8eb99a82a
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: 8a757b1825cb1c1e2f471a965077ea5801000dc4
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422073"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113761447"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway
 
@@ -126,9 +126,9 @@ En las tablas siguientes se describen las diferencias de SNI entre las SKU v1 y 
 ---
 Escenario | v1 | v2 |
 | --- | --- | --- |
-| Si el cliente especifica un encabezado SNI y todos los clientes de escucha multisitio están habilitados con la marca "Requerir SNI" | Devuelve el certificado adecuado y, si el sitio no existe (según server_name), se restablece la conexión. | Devuelve el certificado adecuado si está disponible; de lo contrario, devuelve el certificado del primer cliente de escucha HTTPS configurado (en el orden).|
-| Si el cliente no especifica un encabezado SNI y si todos los encabezados multisitio están habilitados con la marca "Requerir SNI" | Restablece la conexión. | Devuelve el certificado del primer cliente de escucha HTTPS configurado (en el orden).
-| Si el cliente no especifica el encabezado SNI y si hay un cliente de escucha básico configurado con un certificado | Devuelve el certificado configurado en el cliente de escucha básico al cliente (certificado predeterminado o de reserva). | Devuelve el certificado del primer cliente de escucha HTTPS configurado (en el orden). |
+| Si el cliente especifica un encabezado SNI y todos los clientes de escucha multisitio están habilitados con la marca "Requerir SNI" | Devuelve el certificado adecuado y, si el sitio no existe (según server_name), se restablece la conexión. | Devuelve el certificado adecuado si está disponible; de lo contrario, devuelve el certificado del primer cliente de escucha HTTPS según el orden especificado por las reglas de enrutamiento de solicitudes asociadas a los clientes de escucha HTTPS.|
+| Si el cliente no especifica un encabezado SNI y si todos los encabezados multisitio están habilitados con la marca "Requerir SNI" | Restablece la conexión. | Devuelve el certificado del primer cliente de escucha HTTPS según el orden especificado por las reglas de enrutamiento de solicitudes asociadas a los clientes de escucha HTTPS.
+| Si el cliente no especifica el encabezado SNI y si hay un cliente de escucha básico configurado con un certificado | Devuelve el certificado configurado en el cliente de escucha básico al cliente (certificado predeterminado o de reserva). | Devuelve el certificado configurado en el cliente de escucha básico. |
 
 ### <a name="backend-tls-connection-application-gateway-to-the-backend-server"></a>Conexión TLS de back-end (Application Gateway al servidor back-end)
 

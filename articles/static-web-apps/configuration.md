@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 06/17/2021
 ms.author: cshoe
-ms.openlocfilehash: 693a102c988d87dc4ed6ac9f0f4cb2176ec78ca5
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 210618ba5c49fbe0e53bd5b3fb2fe808b6b6aa03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060001"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728504"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configuración de Azure Static Web Apps
 
@@ -25,13 +25,16 @@ La configuración de Azure Static Web Apps se define en el archivo _staticwebapp
 - Invalidación de respuestas HTTP
 - Definiciones de encabezados HTTP globales
 - Tipos MIME personalizados
+- Redes
 
 > [!NOTE]
 > El archivo [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) que se usó anteriormente para configurar el enrutamiento está en desuso. Use _staticwebapp.config.json_ como se describe en este artículo para configurar el enrutamiento y otras opciones para la aplicación web estática.
+> 
+> Este documento es sobre Azure Static Web Apps, que es un producto independiente de la característica de [hospedaje de sitios web estáticos](../storage/blobs/storage-blob-static-website.md) de Azure Storage.
 
 ## <a name="file-location"></a>Ubicación del archivo
 
-La ubicación recomendada del archivo _staticwebapp.config.jsen_ es la carpeta establecida como `app_location` en el [archivo de flujo de trabajo](./github-actions-workflow.md). Sin embargo, el archivo puede colocarse en cualquier ubicación dentro de la carpeta de código fuente de la aplicación.
+La ubicación recomendada del archivo _staticwebapp.config.jsen_ es la carpeta establecida como `app_location` en el [archivo de flujo de trabajo](./github-actions-workflow.md). Sin embargo, el archivo puede colocarse en cualquier subcarpeta dentro del conjunto de carpetas como `app_location`.
 
 Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver los detalles.
 
@@ -76,9 +79,9 @@ Cada propiedad tiene un propósito específico en la canalización de solicitude
 
 ## <a name="securing-routes-with-roles"></a>Protección de rutas mediante roles
 
-Las rutas se protegen agregando uno o varios nombres de rol a su matriz `allowedRoles` y los usuarios se asocian a los roles personalizados utilizando [invitaciones](./authentication-authorization.md). Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver cómo se usan.
+Las rutas están protegidas mediante la adición de uno o varios nombres de rol a la matriz `allowedRoles` de una regla. Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver cómo se usan.
 
-De forma predeterminada, todos los usuarios pertenecen al rol de `anonymous` integrado, y todos los usuarios que han iniciado sesión son miembros del rol `authenticated`.
+De forma predeterminada, todos los usuarios pertenecen al rol de `anonymous` integrado, y todos los usuarios que han iniciado sesión son miembros del rol `authenticated`. Opcionalmente, los usuarios están asociados a roles personalizados a través de [invitaciones](./authentication-authorization.md).
 
 Por ejemplo, para restringir una ruta solo a los usuarios autenticados, agregue el rol `authenticated` integrado a la matriz `allowedRoles`.
 
@@ -149,7 +152,17 @@ Algunos de los casos de uso de las rutas con caracteres comodín más frecuentes
 
 Las aplicaciones de una sola página suelen utilizar el enrutamiento del lado cliente. Estas reglas de enrutamiento del lado cliente actualizan la ubicación de la ventana del explorador sin realizar solicitudes al servidor. Si actualiza la página o va directamente a las direcciones URL generadas por las reglas de enrutamiento del lado cliente, necesitará una ruta de reserva en el lado servidor para proporcionar la página HTML adecuada (que normalmente será el archivo _index.html_ de la aplicación del lado cliente).
 
-Puede configurar la aplicación para que use reglas que implementen una ruta de reserva, tal y como se muestra en el ejemplo siguiente, donde se utiliza un comodín de ruta de acceso con filtro de archivos:
+Puede definir una regla de reserva agregando una sección `navigationFallback`. En el siguiente ejemplo se devuelve _/index.html_ para todas las solicitudes de archivos estáticos que no coinciden con un archivo implementado.
+
+```json
+{
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
+}
+```
+
+Puede controlar qué solicitudes devuelven el archivo de reserva definiendo un filtro. En el siguiente ejemplo, las solicitudes de determinadas rutas en la carpeta _/images_ y todos los archivos de la carpeta _/css_ están excluidos de la devolución del archivo de reserva.
 
 ```json
 {
@@ -184,6 +197,9 @@ En la estructura de archivos siguiente, se pueden conseguir los resultados que s
 | _/css/global.css_                                      | Archivo de hoja de estilos                                                                                           | `200`              |
 | Cualquier otro archivo que esté fuera de las carpetas _/images_ o _/css_ | El archivo _index.html_                                                                                        | `200`              |
 
+> [!IMPORTANT]
+> Si va a migrar desde el archivo [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) en desuso, no incluya la ruta de reserva heredada (`"route": "/*"`) en las [reglas de enrutamiento](#routes).
+
 ## <a name="global-headers"></a>Encabezados globales
 
 En la sección `globalHeaders` se proporciona un conjunto con los [encabezados HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) que se aplican a cada respuesta, a menos que queden invalidados por una regla de [encabezado de ruta](#route-headers). De lo contrario, se devuelve la unión de los dos encabezados de la ruta y los encabezados globales.
@@ -217,24 +233,44 @@ En la configuración del ejemplo siguiente, se muestra cómo invalidar un códig
 {
   "responseOverrides": {
     "400": {
-      "rewrite": "/invalid-invitation-error.html",
-      "statusCode": 200
+      "rewrite": "/invalid-invitation-error.html"
     },
     "401": {
       "statusCode": 302,
       "redirect": "/login"
     },
     "403": {
-      "rewrite": "/custom-forbidden-page.html",
-      "statusCode": 200
+      "rewrite": "/custom-forbidden-page.html"
     },
     "404": {
-      "rewrite": "/custom-404.html",
-      "statusCode": 200
+      "rewrite": "/custom-404.html"
     }
   }
 }
 ```
+
+## <a name="networking"></a>Redes
+
+La sección `networking` controla la configuración de red de su aplicación web estática. Para restringir el acceso a su aplicación, especifique una lista de bloques de direcciones IP permitidos en `allowedIpRanges`.
+
+> [!NOTE]
+> La configuración de red solo está disponible en el plan Estándar de Azure Static Web Apps.
+
+Defina cada bloque de direcciones IPv4 en la notación Enrutamiento de interdominios sin clases (CIDR). Para más información acerca de la notación CIDR, consulte [Enrutamiento de interdominios sin clases](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Cada bloque de direcciones IPv4 puede indicar un espacio de direcciones público o privado. Si solo desea permitir el acceso desde una sola dirección IP, puede usar el bloque CIDR `/32`.
+
+```json
+{
+  "networking": {
+    "allowedIpRanges": [
+      "10.0.0.0/24",
+      "100.0.0.0/32",
+      "192.168.100.0/22"
+    ]
+  }
+}
+```
+
+Cuando se especifican uno o más bloques de direcciones IP, a las solicitudes que se originan desde direcciones IP que no coinciden con un valor en `allowedIpRanges` se les deniega el acceso.
 
 ## <a name="example-configuration-file"></a>Archivos de configuración de ejemplo
 
@@ -345,7 +381,7 @@ Consulte los escenarios siguientes teniendo en cuenta la configuración anterior
 
 ## <a name="restrictions"></a>Restricciones
 
-El archivo _staticwebapps.config.json_ tiene las siguientes restricciones:
+El archivo _staticwebapps.config.json_ tiene las siguientes restricciones.
 
 - El tamaño máximo del archivo es 100 KB.
 - Hay 50 roles distintos como máximo.

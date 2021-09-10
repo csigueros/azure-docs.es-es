@@ -7,13 +7,12 @@ ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: bcda4ca252101ed1505f71a1b5f9fe9a0d8d16b9
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 46b8cdc7fa33c8ddd382decb49eaa148093c99fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728399"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742262"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitectura de Azure IoT Central
 
@@ -52,7 +51,8 @@ IoT Central habilita las funcionalidades siguientes para los dispositivos IoT Ed
   - Comandos a los que responde cada módulo.
   - Relaciones entre el dispositivo de puerta de enlace IoT Edge y el dispositivo de nivel inferior.
   - Propiedades de la nube que no están almacenadas en el dispositivo IoT Edge.
-  - Personalizaciones, paneles y formularios que forman parte de la aplicación IoT Central.
+  - Personalizaciones que cambian la forma en que la interfaz de usuario muestra las funcionalidades del dispositivo.
+  - Vistas y formularios de dispositivos.
 
   Para obtener más información, consulte el artículo [Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central](./concepts-iot-edge.md).
 
@@ -69,6 +69,9 @@ IoT Central clasifica los tipos de dispositivo IoT Edge de la manera siguiente:
 - Dispositivos de puerta de enlace con dispositivos de nivel inferior. Tanto el dispositivo de puerta de enlace como los dispositivos de nivel inferior se aprovisionan en IoT Central.
 
 ![Introducción a IoT Central con IoT Edge](./media/concepts-architecture/gatewayedge.png)
+
+> [!NOTE]
+> IoT Central actualmente no admite la conexión de un dispositivo IoT Edge como un dispositivo de bajada a una puerta de enlace de IoT Edge. Esto se debe a que todos los dispositivos que se conectan a IoT Central se aprovisionan mediante Device Provisioning Service (DPS) y DPS no admite escenarios de IoT Edge anidados.
 
 ### <a name="iot-edge-patterns"></a>Patrones de IoT Edge
 
@@ -121,7 +124,7 @@ En una aplicación de Azure IoT Central, puede [exportar continuamente los datos
 
 ## <a name="batch-device-updates"></a>Actualizaciones de dispositivos en lote
 
-En una aplicación de Azure IoT Central, puede [crear y ejecutar trabajos](howto-run-a-job.md) para administrar los dispositivos conectados. Estos trabajos le permiten realizar actualizaciones masivas de los comandos, las configuraciones y propiedades de los dispositivos. Por ejemplo, puede crear un trabajo para aumentar la velocidad del ventilador de varias máquinas expendedoras refrigeradas.
+En una aplicación de Azure IoT Central, puede [crear y ejecutar trabajos](howto-manage-devices-in-bulk.md) para administrar los dispositivos conectados. Estos trabajos le permiten realizar actualizaciones masivas de los comandos, las configuraciones y propiedades de los dispositivos. Por ejemplo, puede crear un trabajo para aumentar la velocidad del ventilador de varias máquinas expendedoras refrigeradas.
 
 ## <a name="role-based-access-control-rbac"></a>Control de acceso basado en roles (RBAC)
 

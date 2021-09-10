@@ -2,17 +2,31 @@
 title: Copia de seguridad de SQL Server con Azure Backup Server
 description: En este artículo aprenderá la configuración de la copia de seguridad de bases de datos de SQL Server mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 03/24/2017
-ms.openlocfilehash: e79b5263b248312b7170288be24ab5fc196042a7
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/28/2021
+ms.openlocfilehash: f97fc81b051b8c7d76ee1769b82ad4a2d489357b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518667"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722760"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Copia de seguridad de SQL Server en Azure con Azure Backup Server
 
-Este artículo le ayudará en la configuración de la copia de seguridad de bases de datos de SQL Server mediante Microsoft Azure Backup Server (MABS).
+Microsoft Azure Backup Server (MABS) proporciona funciones de copia de seguridad y recuperación para las bases de datos de SQL Server. Además de hacer copias de seguridad de bases de datos de SQL Server, puede ejecutar una copia de seguridad del sistema o una copia de seguridad de reconstrucción completa del equipo de SQL Server. A continuación se indica qué puede proteger MABS:
+
+- Una instancia independiente de SQL Server
+- Una instancia de clúster de conmutación por error (FCI) de SQL Server
+
+>[!Note]
+>MABS v3 UR2 admite instancias de clúster de conmutación por error (FCI) de SQL Server con Volumen compartido de clúster (CSV).
+>
+>La protección de la instancia de clúster de conmutación por error de SQL Server con Espacios de almacenamiento directo en Azure y la instancia de clúster de conmutación por error de SQL Server con los discos compartidos de Azure es compatible con esta característica. El servidor DPM debe implementarse en la máquina virtual de Azure para proteger la instancia FCI de SQL, implementada en las máquinas virtuales de Azure.
+>
+>Un grupo de disponibilidad de SQL Server AlwaysOn con las siguientes preferencias:
+>- Preferir secundaria
+>- Solo secundaria
+>- Principal
+>- Cualquier réplica
 
 Para realizar una copia de seguridad de una base de datos de SQL Server y recuperarla desde Azure:
 

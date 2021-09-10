@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: iafinder
-ms.openlocfilehash: 88286e15861ac5be80692d01bfe4768311e3d6e2
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d323338ba5b323db5ea1a144fe1010962407f3b9
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111886959"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123423617"
 ---
 # <a name="nd-a100-v4-series"></a>Serie ND A100 v4
 
@@ -42,13 +42,20 @@ Estas instancias proporcionan un rendimiento excelente para muchas herramientas 
 InfiniBand: Compatible, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Interconexión de NVIDIA NVLink: Compatible<br>
 <br>
+La serie ND A100 v4 admite las siguientes versiones de kernel: <br>
+CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
+Ubuntu 18.04: 5.4.0-1043-azure <br>
+Ubuntu 20.04: 5.4.0-1046-azure <br>
+<br>
 
 | Size | vCPU | Memoria: GiB | Almacenamiento temporal (SSD): GiB | GPU | Memoria de GPU: GiB | Discos de datos máx. | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Ancho de banda de red máx. | Nº máx. NIC |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 GPU A100 de 40 GB (NVLink 3.0) | 40 | 32 | 80 000 / 800 | 24 000 Mbps | 8 |
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
+
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)] <br>
 
 ## <a name="other-sizes"></a>Otros tamaños
 

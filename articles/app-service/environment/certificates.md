@@ -7,22 +7,24 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 604adeb3eeb716027ba821b4e230285602680e00
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962050"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433173"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados y App Service aislado 
-
+> [!NOTE]
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados.
+> 
 Una instancia de App Service aislado es una implementación de Azure App Service que se ejecuta en su instancia de Azure Virtual Network (VNet). Se puede implementar con un punto de conexión de la aplicación accesible a Internet o un punto de conexión de la aplicación que se encuentra en la red virtual. Si App Service aislado se implementa con un punto de conexión accesible a Internet, dicha implementación se denomina App Service aislado externo. Si App Service aislado se implementa con un punto de conexión en la red virtual, dicha implementación se denomina App Service aislado con ILB. Puede obtener más información sobre App Service aislado con ILB en el documento [Creación y uso de App Service aislado con ILB](./create-ilb-ase.md).
 
 App Service aislado es un sistema de inquilino único. Debido a esto, existen algunas características que solo están disponibles con App Service aislado que no está disponible en la instancia de App Service multiinquilino. 
 
 ## <a name="ilb-ase-certificates"></a>Certificados de App Service aislado con ILB 
 
-Si usa una instancia de App Service aislado externo, se establece contacto con las aplicaciones en [appname].[asename].p.azurewebsites.net. De forma predeterminada, todas las instancias de App Service aislado, incluso las de App Service aislado con ILB, se crean con certificados que siguen ese formato. Cuando tiene una instancia de App Service aislado con ILB, se establece contacto con las aplicaciones según el nombre de dominio que especifique al crear App Service aislado con ILB. Para que las aplicaciones admitan TLS, debe cargar los certificados. La obtención de un certificado TLS/SSL válido se realiza mediante autoridades de certificados internas, la adquisición de un certificado de un emisor externo o el uso de un certificado autofirmado. 
+Si usa una instancia de App Service Environment externo, se establece contacto con las aplicaciones en &lt;appname&gt;.&lt;asename&gt;.p.azurewebsites.net. De forma predeterminada, todas las instancias de App Service aislado, incluso las de App Service aislado con ILB, se crean con certificados que siguen ese formato. Cuando tiene una instancia de App Service aislado con ILB, se establece contacto con las aplicaciones según el nombre de dominio que especifique al crear App Service aislado con ILB. Para que las aplicaciones admitan TLS, debe cargar los certificados. La obtención de un certificado TLS/SSL válido se realiza mediante autoridades de certificados internas, la adquisición de un certificado de un emisor externo o el uso de un certificado autofirmado. 
 
 Hay dos opciones para configurar certificados con App Service aislado con ILB.  Puede establecer un certificado predeterminado de carácter comodín para App Service aislado con ILB o bien certificados en las aplicaciones web individuales de App Service aislado.  Independientemente de la opción que escoja, es necesario configurar correctamente los siguientes atributos del certificado:
 
@@ -35,7 +37,7 @@ Como tercera variante, puede crear un certificado de App Service aislado con ILB
 
 Después de crear una instancia de App Service aislado con ILB en el portal, se debe establecer el certificado para dicha instancia. Hasta que no se establezca, App Service aislado mostrará un banner indicando que no se ha establecido el certificado.  
 
-El certificado que cargue debe ser un archivo .pfx. Tras cargar el certificado, App Service aislado llevará a cabo una operación de escalado para establecer el certificado. 
+El certificado que cargue debe ser un archivo .pfx. Después de cargar el certificado, pasan unos 20 minutos antes de que se utilice el certificado. 
 
 No puede crear la instancia de App Service aislado ni cargar el certificado como una acción en el portal o en una plantilla. De forma alternativa, puede cargar el certificado mediante una plantilla según se describe en el documento [Creación de una instancia de App Service aislado mediante una plantilla](./create-from-template.md).  
 

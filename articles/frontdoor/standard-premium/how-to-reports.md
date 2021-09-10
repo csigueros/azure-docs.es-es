@@ -2,17 +2,17 @@
 title: Informes de Azure Front Door Estándar y Premium (versión preliminar)
 description: En este artículo se explica cómo funciona la creación de informes en Azure Front Door.
 services: frontdoor
-author: duongau
+author: jessie-jyy
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 07/07/2021
 ms.author: yuajia
-ms.openlocfilehash: 9670d8204d04fc770bf3fe98a270a3f6ccbf234b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e43bf01be44c8d82bb8b5f9d466552fc9d7ad17
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101098280"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595010"
 ---
 # <a name="azure-front-door-standardpremium-preview-reports"></a>Informes de Azure Front Door Estándar y Premium (versión preliminar)
 
@@ -27,7 +27,7 @@ Los informes de análisis de Azure Front Door Estándar y Premium proporcionan u
 |---------|---------|
 | Información general sobre las métricas principales | Muestra los datos totales que se enviaron desde los perímetros de Azure Front Door a los clientes<br/>- Ancho de banda máximo<br/>- Solicitudes <br/>- Frecuencia de aciertos de caché<br/> - Latencia total<br/>- Tasa de errores 5XX |
 | Tráfico por dominio | - Proporciona información general de todos los dominios del perfil<br/>- Desglose de los datos transferidos de salida desde el perímetro de AFD al cliente<br/>- Total de solicitudes<br/>- Código de respuesta 3XX, 4XX o 5XX por dominios |
-| Tráfico por ubicación | - Muestra una vista de mapa de la solicitud y el uso según los países principales<br/>- Vista de tendencias de los países principales |
+| Tráfico por ubicación | - Muestra una vista de mapa de la solicitud y el uso por los países principales.<br/>- Vista de tendencias de los países principales. |
 | Uso | - Muestra la transferencia de datos de salida desde el perímetro de Azure Front Door a los clientes<br/>- Transferencia de datos de salida desde el origen al perímetro de AFD<br/>- Ancho de banda desde el perímetro de AFD a los clientes<br/>- Ancho de banda desde el origen al perímetro de AFD<br/>- Solicitudes<br/>- Latencia total<br/>- Tendencia de recuento de solicitudes por código de estado HTTP |
 | Almacenamiento en memoria caché | - Muestra la frecuencia de aciertos de caché por recuento de solicitudes<br/>- Vista de tendencias de las solicitudes de aciertos y con errores |
 | Dirección URL principal | - Muestra el recuento de solicitudes <br/>- Datos transferidos <br/>- Frecuencia de aciertos de caché <br/>- Distribución del código de estado de respuesta de los 50 recursos más solicitados. |
@@ -37,7 +37,7 @@ Los informes de análisis de Azure Front Door Estándar y Premium proporcionan u
 | Informes de seguridad | Detalles |
 |---------|---------|
 | Información general sobre las métricas principales | - Muestra las reglas coincidentes del firewall de aplicaciones web<br/>- Reglas coincidentes de OWASP<br/>- Reglas de BOT coincidentes<br/>- Reglas personalizadas coincidentes |
-| Métricas según las dimensiones | - Desglose de la tendencia de reglas de WAF coincidentes por acción<br/>- Gráfico de anillos de eventos por tipo de conjunto de reglas y por grupo de reglas<br/>- Lista desglosada de eventos principales por identificador de regla, país, dirección IP, dirección URL y agente de usuario  |
+| Métricas según las dimensiones | - Desglose de la tendencia de reglas de WAF coincidentes por acción<br/>- Gráfico de anillos de eventos por tipo de conjunto de reglas y por grupo de reglas<br/>- Lista desglosada de eventos principales por identificador de regla, país o región, dirección IP, dirección URL y agente de usuario  |
 
 > [!NOTE]
 > Los informes de seguridad solo están disponibles con la SKU Premium de Azure Front Door.
@@ -84,7 +84,7 @@ Los informes admiten cualquier intervalo de fechas seleccionado de los 90 días 
 
         Siempre puede utilizar la opción Agregación para cambiar la granularidad predeterminada de la agregación. Nota: 5 minutos no funciona para un intervalo de datos de más de 14 días. 
 
-    1. **Ubicación**: seleccione una o varias ubicaciones de cliente por país. Los países se agrupan en seis regiones: Norteamérica, Asia, Europa, África, Oceanía y Sudamérica. Consulte [asignación de región o país](https://en.wikipedia.org/wiki/Subregion). De forma predeterminada, se seleccionan todos los países.
+    1. **Ubicación**: seleccione una o varias ubicaciones de cliente por país o región. Los países o regiones se agrupan en seis regiones: Norteamérica, Asia, Europa, África, Oceanía y Sudamérica. Consulte la [asignación de países o regiones](https://en.wikipedia.org/wiki/Subregion). De forma predeterminada, se seleccionan todos los países.
     
         :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-locations.png" alt-text="Captura de pantalla de Informes para la dimensión de ubicación.":::
    
@@ -152,15 +152,15 @@ Este informe muestra las tendencias de tráfico y el código de estado de respue
 
 ## <a name="traffic-by-location"></a>Tráfico por ubicación
 
-En este informe se muestran las primeras 50 ubicaciones por el país de los visitantes que acceden al recurso. El informe también proporciona un desglose de las métricas por país y ofrece una visión general de los países en los que se genera la mayor parte del tráfico. Por último, puede ver qué país tiene una mayor frecuencia de aciertos de caché o de códigos de error 4XX/5XX.
+En este informe se muestran las primeras 50 ubicaciones por el país o región de los visitantes que más acceden al recurso. El informe también proporciona un desglose de las métricas por país o región y ofrece una visión general de los países o regiones en los que se genera la mayor parte del tráfico. Por último, puede ver qué país o región tiene una mayor frecuencia de aciertos de caché o de códigos de error 4XX/5XX.
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Captura de pantalla de Informes por ubicaciones" lightbox="../media/how-to-reports/front-door-reports-by-location-expanded.png":::
 
 En los informes se incluyen los siguientes elementos:
 
-* Una vista de un mapa mundial con los primeros 50 países ordenados según los datos de salida transferidos o las solicitudes de su elección.
-* Una vista de tendencias con dos gráficos de líneas de los primeros cinco países ordenados según los datos de salida transferidos y las solicitudes de su elección. 
-* Una cuadrícula de los principales países con los correspondientes informes sobre datos de salida transferidos desde Azure Front Door a los clientes, el porcentaje de datos de salida transferidos de todos los países, las solicitudes, el porcentaje de solicitudes entre todos los países, la frecuencia de aciertos de caché y los códigos de respuesta 4XX y 5XX.
+* Una vista de un mapa mundial con los primeros 50 países o regiones ordenados según los datos de salida transferidos o las solicitudes de su elección.
+* Una vista de tendencias con dos gráficos de líneas de los primeros cinco países o regiones ordenados según los datos de salida transferidos y las solicitudes de su elección. 
+* Una cuadrícula de los principales países o regiones con los correspondientes informes sobre datos de salida transferidos desde AFD a los clientes, el porcentaje de transferencia de datos de salida de todos los países o regiones, las solicitudes, el porcentaje de solicitudes entre todos los países o regiones, la frecuencia de aciertos de caché y los códigos de respuesta 4XX y 5XX.
 
 ## <a name="caching"></a>Almacenamiento en memoria caché
 
@@ -259,7 +259,7 @@ Este informe le permite tener una vista gráfica y de estadísticas de los patro
 | Eventos por grupo de reglas | Gráfico de anillos de la distribución de solicitudes del firewall de aplicaciones web por grupo de reglas. |
 | Solicitudes por acciones | Tabla de solicitudes por acciones, en orden descendente. |
 | Solicitudes por identificadores de regla principales | Una tabla de solicitudes ordenadas por los 50 identificadores de reglas principales, en orden descendente. |
-| Solicitudes por países principales |  Una tabla de solicitudes ordenadas por los 50 países principales, en orden descendente. |
+| Solicitudes por países o regiones principales |  Una tabla de solicitudes ordenadas por los 50 países o regiones principales, en orden descendente. |
 | Solicitudes por IP de cliente principales |  Una tabla de solicitudes ordenadas por las 50 direcciones IP principales, en orden descendente. |
 | Solicitudes por direcciones URL de solicitud principales |  Una tabla de solicitudes ordenadas por las 50 direcciones URL principales, en orden descendente. |
 | Solicitudes por los nombres de host principales | Una tabla de solicitudes ordenadas por los 50 nombres de host principales, en orden descendente. |
@@ -281,7 +281,7 @@ Cada informe CSV incluye información general que está disponible en todos los 
 | StartDateUTC | Inicio del intervalo de fechas para el que se generó el informe, según el estándar de hora universal coordinada (UTC) |
 | EndDateUTC | Fin del intervalo de fechas para el que se generó el informe, según el estándar de hora universal coordinada (UTC) |
 | GeneratedTimeUTC | La fecha y hora en la que se generó el informe, según el estándar de hora universal coordinada (UTC) |
-| Location | La lista de los países donde se originaron las solicitudes del cliente. El valor predeterminado es TODOS. No es aplicable al informe de seguridad. |
+| Location | La lista de los países o regiones donde se originaron las solicitudes del cliente. El valor predeterminado es TODOS. No es aplicable al informe de seguridad. |
 | Protocolo | Protocolo de la solicitud, HTTP o HTTPs. No es aplicable a Dirección URL principal ni a Tráfico por el agente de usuario de Informes, ni al informe de seguridad. |
 | Agregación | La granularidad de la agregación de datos en cada fila, cada cinco minutos, cada hora y cada día. No es aplicable a Tráfico por dominio, Dirección URL principal ni a Tráfico por el agente de usuario de Informes, ni al informe de seguridad. |
 
@@ -364,7 +364,7 @@ A continuación, hay siete tablas con los mismos campos.
 * CustomRuleRequests 
 * BotRequests 
 
-Las siete tablas son para la hora, el identificador de la regla, el país, la dirección IP, la dirección URL, el nombre de host y el agente de usuario. 
+Las siete tablas son para la hora, el identificador de la regla, el país o región, la dirección IP, la dirección URL, el nombre de host y el agente de usuario. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

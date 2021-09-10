@@ -10,18 +10,18 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6657147d044d49ff72532ad270552a175c197c8f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ae8759bd10096737b400fe672c3555ff5fd41585
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078227"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296638"
 ---
-# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedimientos: Uso de Anomaly Detector API en datos de serie temporal  
+# <a name="how-to-use-the-anomaly-detector-univariate-api-on-your-time-series-data"></a>Uso de la API univariante de Anomaly Detector en datos de serie temporal  
 
 [Anomaly Detector API](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) proporciona dos métodos de detección de anomalías. Las anomalías se pueden detectar como un lote a lo largo de la serie temporal, o a medida que se generan los datos mediante la detección del estado de anomalía del punto de datos más reciente. El modelo de detección devuelve resultados de anomalía junto con el valor esperado de cada punto de datos, y los límites de detección de anomalías superior e inferior. Puede usar estos valores para visualizar el intervalo de valores normales y las anomalías en los datos.
 
-## <a name="anomaly-detection-modes"></a>Modos de detección de anomalías 
+## <a name="anomaly-detection-modes"></a>Modos de detección de anomalías
 
 Anomaly Detector API proporciona dos modos de detección: por lotes y transmisión.
 

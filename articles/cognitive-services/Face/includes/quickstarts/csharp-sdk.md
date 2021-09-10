@@ -9,21 +9,20 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ee861896020f41dd841f538f546242a65992b8d3
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 5d795debd6701c2d2d579a5558fc0631b732e66a
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113364831"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442507"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
 Use la biblioteca cliente de Face para .NET para:
 
-* [Detección de caras en una imagen](#detect-faces-in-an-image)
-* [Búsqueda de caras similares](#find-similar-faces)
-* [Creación de un elemento PersonGroup](#create-a-persongroup)
+* [Detección y análisis de caras](#detect-and-analyze-faces)
 * [Identificación de una cara](#identify-a-face)
+* [Búsqueda de caras similares](#find-similar-faces)
 
 [Documentación de referencia](/dotnet/api/overview/azure/cognitiveservices/face-readme) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Ejemplos](/samples/browse/?products=azure&term=face)
 
@@ -32,6 +31,7 @@ Use la biblioteca cliente de Face para .NET para:
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * El [IDE de Visual Studio](https://visualstudio.microsoft.com/vs/) o la versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Face API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
@@ -122,10 +122,9 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 En estos fragmentos de código se muestra cómo realizar las siguientes tareas con la biblioteca cliente de Face para .NET:
 
 * [Autenticar el cliente](#authenticate-the-client)
-* [Detección de caras en una imagen](#detect-faces-in-an-image)
-* [Búsqueda de caras similares](#find-similar-faces)
-* [Creación de un elemento PersonGroup](#create-a-persongroup)
+* [Detección y análisis de caras](#detect-and-analyze-faces)
 * [Identificación de una cara](#identify-a-face)
+* [Búsqueda de caras similares](#find-similar-faces)
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
@@ -143,7 +142,8 @@ En el método **Main**, defina cadenas que apunten a los diferentes tipos de mod
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
-## <a name="detect-faces-in-an-image"></a>Detectar caras en una imagen
+## <a name="detect-and-analyze-faces"></a>Detección y análisis de caras
+La detección de caras es necesaria como primer paso en todos los demás escenarios. En esta sección se muestra cómo devolver los datos de atributos de cara adicionales. Si solo desea detectar caras para la identificación o comprobación de caras, vaya a las secciones posteriores.
 
 ### <a name="get-detected-face-objects"></a>Obtención de los objetos faciales detectados
 
@@ -160,31 +160,11 @@ El resto del método `DetectFaceExtract` analiza e imprime los datos de atributo
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_parse)]
 
-## <a name="find-similar-faces"></a>Búsqueda de caras similares
 
-El siguiente código toma una sola cara detectada (origen) y busca en un conjunto de otras caras (destino) para encontrar coincidencias (búsqueda de cara por imagen). Cuando la encuentra, imprime el identificador de la cara coincidente en la consola.
-
-### <a name="detect-faces-for-comparison"></a>Detección de caras para la comparación
-
-En primer lugar, defina un segundo método de detección de caras. Debe detectar las caras en las imágenes para poder compararlas y este método de detección está optimizado para las operaciones de comparación. No extrae los atributos de cara detallados como en la sección anterior y usa un modelo de reconocimiento diferente.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_face_detect_recognize)]
-
-### <a name="find-matches"></a>Búsqueda de coincidencias
-
-El método siguiente detecta caras en un conjunto de imágenes de destino y en una sola imagen de origen. Después, los compara y busca todas las imágenes de destino que son similares a la imagen de origen.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
-
-### <a name="print-matches"></a>Impresión de las coincidencias
-
-El siguiente código imprime los detalles coincidentes en la consola:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
 
 ## <a name="identify-a-face"></a>Identificar una cara
 
-La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen. Para realizar la operación de identificación, primero debe crear y entrenar un objeto **PersonGroup**.
+La operación de identificación toma una imagen de una persona (o de varias) y busca el objeto de persona almacenado asociado a cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen. Para realizar la operación de identificación, primero debe crear y entrenar un objeto **PersonGroup**.
 
 ### <a name="create-a-persongroup"></a>Creación de un elemento PersonGroup
 
@@ -227,6 +207,30 @@ El siguiente código toma la imagen de origen y crea una lista de todas las cara
 El siguiente fragmento de código llama a la operación **IdentifyAsync** e imprime los resultados en la consola. En este caso, el servicio intenta hacer coincidir cada una de las caras de la imagen de origen con un objeto **Person** del objeto **PersonGroup** dado. Esta acción cierra el método de identificación.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
+
+
+## <a name="find-similar-faces"></a>Búsqueda de caras similares
+
+El siguiente código toma una sola cara detectada (origen) y busca en un conjunto de otras caras (destino) para encontrar coincidencias (búsqueda de cara por imagen). Cuando la encuentra, imprime el identificador de la cara coincidente en la consola.
+
+### <a name="detect-faces-for-comparison"></a>Detección de caras para la comparación
+
+En primer lugar, defina un segundo método de detección de caras. Debe detectar las caras en las imágenes para poder compararlas y este método de detección está optimizado para las operaciones de comparación. No extrae los atributos de cara detallados como en la sección anterior y usa un modelo de reconocimiento diferente.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_face_detect_recognize)]
+
+### <a name="find-matches"></a>Búsqueda de coincidencias
+
+El método siguiente detecta caras en un conjunto de imágenes de destino y en una sola imagen de origen. Después, los compara y busca todas las imágenes de destino que son similares a la imagen de origen.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
+
+### <a name="print-matches"></a>Impresión de las coincidencias
+
+El siguiente código imprime los detalles coincidentes en la consola:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
+
 
 ## <a name="run-the-application"></a>Ejecutar la aplicación
 

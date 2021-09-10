@@ -1,176 +1,247 @@
 ---
-title: Protección de aplicaciones demonio
+title: Cómo proteger una aplicación de demonio en Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: Use Azure Portal para administrar la autenticación para configurar una aplicación demonio de confianza.
+description: En este artículo, se explica cómo hospedar aplicaciones de demonio, como procesos en segundo plano, temporizadores y trabajos, en un entorno seguro y de confianza en Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/12/2020
+ms.date: 06/21/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: 2dd04f404330a6c86e2df09da610e16ba9b721f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: philema
+custom.ms: subject-rbac-steps
+ms.openlocfilehash: b888dccbd7ce5cbf948b2da5494dd554b2d80649
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92895654"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541777"
 ---
 # <a name="secure-a-daemon-application"></a>Protección de una aplicación demonio
 
-La guía siguiente es para los procesos en segundo plano, temporizadores y trabajos que se hospedan en un entorno seguro y de confianza. Algunos ejemplos son los trabajos web de Azure, las aplicaciones de Azure Functions, los servicios de Windows y cualquier otro servicio en segundo plano de confianza.
+En este artículo, se explica cómo hospedar aplicaciones de demonio en un entorno seguro y de confianza en Microsoft Azure Maps.
 
-> [!Tip]
-> Microsoft recomienda implementar Azure Active Directory (Azure AD) y el control de acceso basado en roles (RBAC de Azure) para las aplicaciones de producción. Para obtener información general sobre los conceptos, consulte [Autenticación de Azure Maps](./azure-maps-authentication.md).
+Estos son algunos ejemplos de aplicaciones de demonio:
+
+- Instancia de Azure WebJobs
+- Aplicación de función de Azure
+- Servicio de Windows
+- Un servicio confiable ejecutándose en segundo plano
+
+## <a name="view-azure-maps-authentication-details"></a>Visualización de los detalles de autenticación de Azure Maps
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
-## <a name="scenario-shared-key-authentication"></a>Escenario: Autenticación de clave compartida
+>[!IMPORTANT]
+>En el caso de las aplicaciones de producción, se recomienda implementar Azure AD y el control de acceso basado en rol de Azure (RBAC de Azure). Para obtener información general sobre los conceptos de Azure AD, consulte [Autenticación con Azure Maps](azure-maps-authentication.md).
 
-Después de crear la cuenta de Azure Maps, se generan las claves principal y secundaria. Se recomienda que use la clave principal como clave de suscripción cuando [llame a Azure Maps mediante la autenticación de clave compartida](./azure-maps-authentication.md#shared-key-authentication). Puede usar la clave secundaria, por ejemplo, para realizar cambios de clave graduales. Para más información, consulte [Autenticación con Azure Maps](./azure-maps-authentication.md).
+## <a name="scenario-shared-key-authentication-with-azure-key-vault"></a>Escenario: Autenticación mediante claves compartidas con Azure Key Vault
 
-### <a name="securely-store-shared-key"></a>Almacenamiento seguro de la clave compartida
+Las aplicaciones que usan la autenticación mediante claves compartidas deben almacenar las claves en un almacén seguro. En este escenario, se explica cómo almacenar de forma segura la clave de una aplicación como un secreto en Azure Key Vault. En lugar de almacenar la clave compartida en la configuración de la aplicación, es la aplicación quien debe recuperar la clave compartida como un secreto de Azure Key Vault. Para simplificar la regeneración de claves, se recomienda que las aplicaciones usen una clave cada vez. Después, las aplicaciones pueden volver a generar la clave no utilizada e implementar la clave regenerada en Azure Key Vault, todo ello mientras se mantienen las conexiones actuales con una clave. Para saber cómo configurar un almacén de Azure Key Vault, consulte [Guía del desarrollador de Azure Key Vault](../key-vault/general/developers-guide.md).
 
-Las claves principal y secundaria permiten la autorización a todas las API de la cuenta de Maps. Las aplicaciones deben almacenar las claves en un almacén seguro como Azure Key Vault. La aplicación debe recuperar la clave compartida como un secreto de Azure Key Vault para evitar almacenar la clave compartida en texto sin formato en la configuración de la aplicación. Para saber cómo configurar un almacén de Azure Key Vault, consulte [Guía del desarrollador de Azure Key Vault](../key-vault/general/developers-guide.md).
+>[!IMPORTANT]
+>En este escenario, se accede indirectamente a Azure Active Directory a través de Azure Key Vault. Sin embargo, se recomienda usar la autenticación de Azure AD directamente. El uso de Azure AD evita la complejidad adicional y los requisitos operativos de usar la autenticación mediante claves compartidas y la configuración de un almacén de claves.
 
 En los pasos siguientes se describe este proceso:
 
-1. Cree un almacén de Azure Key Vault.
-2. Cree una entidad de servicio de Azure AD mediante la creación de un registro de aplicación o una identidad administrada, la entidad de seguridad creada es responsable del acceso a Azure Key Vault.
-3. Asigne a la entidad de servicio acceso a los secretos de Azure Key Vault con el permiso `Get`.
-4. Asigne temporalmente acceso a los secretos con el permiso `Set` para el desarrollador.
-5. Establezca la clave compartida en los secretos de Key Vault, haga referencia al identificador de secreto como configuración de la aplicación demonio y elimine el permiso `Set` del secreto.
-6. Implemente la autenticación de Azure AD en la aplicación demonio para recuperar el secreto de la clave compartida desde Azure Key Vault.
-7. Cree una solicitud a la API REST de Azure Maps con la clave compartida.
+1. [Cree un almacén de claves de Azure Key Vault](../key-vault/general/quick-create-portal.md).
+2. Cree una [entidad de servicio de Azure AD](../active-directory/fundamentals/service-accounts-principal.md) mediante la creación de un registro de aplicación o una identidad administrada. La entidad de servicio creada es responsable de acceder al almacén de claves de Azure Key Vault.
+3. Asigne a la entidad de servicio acceso a los secretos de Azure Key Vault con el permiso `get`. Para obtener más información sobre cómo establecer los permisos, consulte [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](../key-vault/general/assign-access-policy-portal.md).
+4. Asigne temporalmente acceso a los secretos con el permiso `set` para el desarrollador.
+5. Establezca la clave compartida en los secretos del almacén de claves y haga referencia al identificador del secreto en la configuración de la aplicación de demonio.
+6. Quite el permiso `set` de los secretos.
+7. Para recuperar el secreto de la clave compartida de Azure Key Vault, implemente la autenticación de Azure Active Directory en la aplicación de demonio.
+8. Cree una solicitud de la API REST de Azure Maps con la clave compartida.
+Ahora, la aplicación de demonio puede recuperar la clave compartida del almacén de claves.
 
-> [!Tip]
-> Si la aplicación se hospeda en el entorno de Azure, debería implementar una identidad administrada para reducir el costo y la complejidad de la administración de un secreto para autenticarse en Azure Key Vault. Consulte el siguiente [tutorial para la conexión mediante una identidad administrada](../key-vault/general/tutorial-net-create-vault-azure-web-app.md) de Azure Key Vault.
-
-La aplicación demonio es responsable de recuperar la clave compartida de un almacenamiento seguro. La implementación con Azure Key Vault requiere la autenticación mediante Azure AD para acceder al secreto. En su lugar, se recomienda la autenticación de Azure AD para Azure Maps debido a la complejidad y los requisitos operativos adicionales que supone el uso de la autenticación de clave compartida.
-
-> [!IMPORTANT]
-> Para simplificar la regeneración de claves, se recomienda que las aplicaciones usen una clave cada vez. Después, las aplicaciones pueden regenerar la clave no utilizada e implementar la nueva clave regenerada en un almacén secreto seguro como Azure Key Vault.
+> [!TIP]
+> Si la aplicación está hospedada en el entorno de Azure, se recomienda usar una identidad administrada para reducir el costo y la complejidad de administrar un secreto para la autenticación. Para obtener información sobre cómo configurar una identidad administrada, consulte [Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación web de Azure en .NET](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
 
 ## <a name="scenario-azure-ad-role-based-access-control"></a>Escenario: control de acceso basado en rol de Azure AD
 
-Una vez creada una cuenta de Azure Maps, se muestra el valor de `x-ms-client-id` de Azure Maps en la página de detalles de autenticación de Azure Portal. Este valor representa la cuenta que se utilizará para las solicitudes a la API REST. Este valor se debe almacenar en la configuración de la aplicación y recuperarse antes de realizar las solicitudes HTTP. El objetivo del escenario es permitir que la aplicación demonio se autentique en Azure AD y llame a las API REST de Azure Maps.
+Cuando se crea una cuenta de Azure Maps, se muestra el valor `Client ID` de Azure Maps en la página Detalles de autenticación de Azure Portal. Este valor representa la cuenta que debe usarse para las solicitudes de la API REST. Este valor debe almacenarse en la configuración de la aplicación y debe recuperarse antes de realizar las solicitudes HTTP. El objetivo del escenario es permitir que la aplicación de demonio se autentique en Azure AD y llame a las API REST de Azure Maps.
 
-> [!Tip]
-> Se recomienda el hospedaje en Azure Virtual Machines, Virtual Machine Scale Sets o App Services para habilitar las ventajas de los componentes de las identidades administradas.
+> [!TIP]
+>Para habilitar las ventajas de los componentes de identidades administradas, se recomienda el hospedaje en Azure Virtual Machines, Virtual Machine Scale Sets o App Services.
 
-### <a name="daemon-hosted-on-azure-resources"></a>Demonio hospedado en recursos de Azure
+### <a name="host-a-daemon-on-azure-resources"></a>Hospedaje de un demonio en recursos de Azure
 
-Cuando la ejecución se realiza en recursos de Azure, configure identidades administradas de Azure para posibilitar un esfuerzo mínimo en la administración de credenciales y un bajo costo. 
+Cuando ejecute aplicaciones en recursos de Azure, puede configurar identidades administradas por Azure para lograr un esfuerzo de administración de credenciales mínimo y de bajo costo.
 
-Consulte [¿Qué son las identidades administradas de recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md) para habilitar el acceso de la aplicación a una identidad administrada.
+Para habilitar el acceso de las aplicaciones a una identidad administrada, consulte [¿Qué son las identidades administradas de recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 
-Ventajas de la identidad administrada:
+Las siguientes son algunas de las ventajas de las identidades administradas:
 
-* Autenticación de criptografía de clave pública de certificado X509 administrada por el sistema de Azure.
-* Seguridad de Azure AD con certificados X509 en lugar de secretos de cliente.
-* Azure administra y renueva todos los certificados asociados al recurso de la identidad administrada.
-* Administración simplificada de las operaciones de credenciales que elimina la necesidad de un servicio de almacén de secretos seguro como Azure Key Vault. 
+- Autenticación mediante criptografía de claves públicas con certificados X509 administrada por el sistema de Azure.
+- Seguridad de Azure AD con certificados X509 en lugar de secretos de cliente.
+- Azure administra y renueva todos los certificados asociados al recurso de la identidad administrada.
+- Simplificación de la administración operativa de credenciales, ya que la identidad administrada elimina la necesidad de un servicio de almacén de secretos protegido, como Azure Key Vault.
 
-### <a name="daemon-hosted-on-non-azure-resources"></a>Demonio hospedado en recursos que no son de Azure
+### <a name="host-a-daemon-on-non-azure-resources"></a>Hospedaje de un demonio en recursos que no son de Azure
 
-Cuando la ejecución se realiza en un entorno que no es de Azure, las identidades administradas no están disponibles. Por lo tanto, debe configurar una entidad de servicio mediante un registro de aplicación de Azure AD para la aplicación demonio.
+Cuando se ejecutan aplicaciones en un entorno que no es de Azure, las identidades administradas no están disponibles. Por tanto, debe configurar una entidad de servicio mediante un registro de aplicación de Azure AD para la aplicación de demonio.
 
-1. En Azure Portal, en la lista de servicios de Azure, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.  
+#### <a name="create-new-application-registration"></a>Creación de un nuevo registro de aplicación
 
-    > [!div class="mx-imgBorder"]
-    > ![Registro de aplicaciones](./media/how-to-manage-authentication/app-registration.png)
+Si ya ha creado el registro de aplicación, vaya a [Asignación de permisos de API delegados](#assign-delegated-api-permissions).
 
-2. Si ya ha registrado la aplicación, continúe en el siguiente paso. Si no la ha registrado, especifique un **nombre**, seleccione el **tipo de cuenta admitido** y haga clic en **Registrar**.  
+Para crear un nuevo registro de aplicación:
 
-    > [!div class="mx-imgBorder"]
-    > ![Detalles del registro de la aplicación](./media/how-to-manage-authentication/app-create.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-3. Para asignar permisos de API delegados a Azure Maps, vaya a la aplicación. A continuación, en **Registros de aplicaciones**, seleccione **Permisos de API** > **Add a permission** (Agregar un permiso). En **API usadas en mi organización**, busque y seleccione **Azure Maps**.
+2. Seleccione **Azure Active Directory**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Adición de permisos de API a la aplicación](./media/how-to-manage-authentication/app-permissions.png)
+3. En **Administrar** en el menú de la izquierda, seleccione **Registros de aplicaciones**.
 
-4. Active la casilla situada junto a **Access Azure Maps** (Acceder a Azure Maps) y seleccione **Agregar permisos**.
+4. Seleccione la pestaña **+ Nuevo registro**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Selección de permisos de API de la aplicación](./media/how-to-manage-authentication/select-app-permissions.png)
+      :::image type="content" border="true" source="./media/how-to-manage-authentication/app-registration.png" alt-text="Visualización de registros de aplicaciones.":::
 
-5. Complete los pasos siguientes para crear un secreto de cliente o configurar el certificado.
+5. Escriba un **Nombre** y seleccione una opción en **Supported account types** (Tipos de cuenta admitidos).
 
-    * Si la aplicación utiliza la autenticación del servidor o de la aplicación, en la página de registro de la aplicación, vaya a **Certificates & secrets** (Certificados y secretos). Cargue un certificado de clave pública o cree una contraseña seleccionando **Nuevo secreto de cliente**.
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/app-create.png" alt-text="Creación de un registro de aplicación.":::
 
-        > [!div class="mx-imgBorder"]
-        > ![Creación de un secreto de cliente](./media/how-to-manage-authentication/app-keys.png)
+6. Seleccione **Registrar**.  
 
-    * Después de seleccionar **Agregar**, copie el secreto y almacénelo de forma segura en un servicio como Azure Key Vault. Consulte [Guía del desarrollador de Azure Key Vault](../key-vault/general/developers-guide.md) para almacenar de forma segura el certificado o el secreto. Usará este secreto para obtener tokens de Azure AD.
+#### <a name="assign-delegated-api-permissions"></a>Asignación de permisos de API delegados
 
-        > [!div class="mx-imgBorder"]
-        > ![Adición de un secreto de cliente](./media/how-to-manage-authentication/add-key.png)
+Para asignar permisos de API delegados a Azure Maps:
 
-### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Concesión de acceso basado en roles para la aplicación demonio a Azure Maps
+1. Si no lo ha hecho aún, inicie sesión en [Azure Portal](https://portal.azure.com).
 
-El *control de acceso basado en roles (RBAC de Azure)* se concede mediante la asignación de la identidad administrada creada o de la entidad de servicio a una o más definiciones de roles de control de acceso de Azure Maps. Para ver las definiciones de roles de Azure disponibles para Azure Maps, vaya a **Control de acceso (IAM)** . Seleccione **Roles** y busque los roles que comienzan con *Azure Maps*. Esos son los roles de Azure Maps a los que puede conceder acceso.
+2. Seleccione **Azure Active Directory**.
 
-> [!div class="mx-imgBorder"]
-> ![Visualización de roles disponibles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
+3. En **Administrar** en el menú de la izquierda, seleccione **Registros de aplicaciones**.
 
-1. Vaya a su **cuenta de Azure Maps**. Seleccione **Control de acceso (IAM)**  > **Asignaciones de roles**.
+4. Seleccione la aplicación.
 
-    > [!div class="mx-imgBorder"]
-    > ![Concesión del acceso mediante RBAC de Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/app-select.png" alt-text="Selección de registros de aplicaciones.":::
 
-2. En la pestaña **Asignaciones de roles**, seleccione **Agregar** para agregar una asignación de roles. 
+5. En el panel izquierdo, en **Administrar**, seleccione **Permisos de API**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Captura de pantalla muestra las asignaciones de roles con la opción agregar seleccionada.](./media/how-to-manage-authentication/add-role-assignment.png)
+6. Seleccione **Agregar un permiso**.
 
-3. Seleccione una definición de roles de Azure Maps integrada como **Lector de datos de Azure Maps** o **Colaborador de datos de Azure Maps**. En **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD** o identidad administrada con **Identidad administrada asignada por el usuario** / **Identidad administrada asignada por el sistema**. Seleccione la entidad de seguridad. Después, seleccione **Guardar**.
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/app-add-permissions.png" alt-text="Adición de un permiso de aplicación.":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Cómo agregar una asignación de roles](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+7. Seleccione la pestaña **API usadas en mi organización**.
 
-4. Puede confirmar que se aplicó la asignación de roles en la pestaña Asignación de roles.
+8. En el cuadro de búsqueda, escriba **Azure Maps**.
 
-## <a name="request-token-with-managed-identity"></a>Solicitud de token con una identidad administrada
+9. Seleccione **Azure Maps**.
 
-Una vez configurada una identidad administrada para el recurso de hospedaje, use el SDK o la API REST de Azure para adquirir un token de Azure Maps. Mas información en [Adquisición de un token de acceso](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md). Según la guía, se espera que se devuelva un token de acceso que se puede utilizar en las solicitudes a la API REST.
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/app-permissions.png" alt-text="Solicitud de permiso de aplicación.":::
 
-## <a name="request-token-with-application-registration"></a>Solicitud de un token con un registro de aplicación
+10. Seleccione la casilla **Access Azure Maps** (Acceder a Azure Maps).
 
-Después de registrar la aplicación y asociarla a Azure Maps, puede solicitar los tokens de acceso.
+11. Seleccione **Agregar permisos**.
 
-* Identificador de recurso de Azure AD `https://atlas.microsoft.com/`
-* Identificador de aplicación de Azure AD
-* Identificador de inquilino de Azure AD
-* Secreto de cliente de un registro de aplicación de Azure AD
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/select-app-permissions.png" alt-text="Selección de permisos de API de la aplicación.":::
 
-Solicitud:
+#### <a name="create-a-client-secret-or-configure-certificate"></a>Creación de un secreto de cliente o configuración de un certificado
 
-```http
-POST /<Azure AD Tenant ID>/oauth2/token HTTP/1.1
-Host: login.microsoftonline.com
-Content-Type: application/x-www-form-urlencoded
+Para implementar la autenticación basada en el servidor o en la aplicación, puede elegir una de estas dos opciones:
 
-client_id=<Azure AD App ID>&resource=https://atlas.microsoft.com/&client_secret=<client secret>&grant_type=client_credentials
-```
+- Cargar un certificado de clave pública.
+- Crear un secreto de cliente.
 
-Respuesta:
+##### <a name="upload-a-public-key-certificate"></a>Carga de un certificado de clave pública
+
+Para cargar un certificado de clave pública:
+
+1. En el panel izquierdo, en **Administrar**, seleccione **Certificados y secretos**.
+
+2. Seleccione **Cargar certificado**.
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/upload-certificate.png" alt-text="Carga de un certificado.":::
+
+3. A la derecha del cuadro de texto, seleccione el icono de archivo.
+
+4. Elija un archivo *.crt*, *.cer* o *.pem* y seleccione **Agregar**.
+
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/upload-certificate-file.png" alt-text="Carga de un archivo de certificado.":::
+
+##### <a name="create-a-client-secret"></a>Creación de un secreto de cliente
+
+Para crear un secreto de cliente:
+
+1. En el panel izquierdo, en **Administrar**, seleccione **Certificados y secretos**.
+
+2. Seleccione **+ Nuevo secreto de cliente**.
+
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret.png" alt-text="Nuevo secreto de cliente.":::
+
+3. Escriba una descripción del secreto de cliente.
+
+4. Seleccione **Agregar**.
+
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret-add.png" alt-text="Adición de un nuevo secreto de cliente.":::
+
+5. Copie el secreto y almacénelo de forma segura en un servicio como Azure Key Vault. También usaremos el secreto en la sección [Solicitud de un token con una identidad administrada](#request-a-token-with-managed-identity) de este artículo.
+
+      :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Copia del secreto de cliente.":::
+
+     >[!IMPORTANT]
+     >Consulte la [Guía del desarrollador de Azure Key Vault](../key-vault/general/developers-guide.md) para almacenar de forma segura el certificado o el secreto. Usará este secreto para obtener tokens de Azure AD.
+
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
+
+### <a name="request-a-token-with-managed-identity"></a>Solicitud de un token con una identidad administrada
+
+Una vez configurada una identidad administrada para el recurso de hospedaje, puede usar el SDK o la API REST de Azure para adquirir un token para Azure Maps. Para obtener información sobre cómo adquirir un token de acceso, consulte [Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+### <a name="request-token-with-application-registration"></a>Solicitud de un token con un registro de aplicación
+
+Después de registrar la aplicación y asociarla a Azure Maps, debe solicitar un token de acceso.
+
+Para adquirir el token de acceso:
+
+1. Si no lo ha hecho aún, inicie sesión en [Azure Portal](https://portal.azure.com).
+
+2. Seleccione **Azure Active Directory**.
+
+3. En **Administrar** en el menú de la izquierda, seleccione **Registros de aplicaciones**.
+
+4. Seleccione la aplicación.
+
+5. Debe abrirse la página Información general. Copie el id. de la aplicación (id. de cliente) y el id. del directorio (inquilino).
+
+      :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="Copia de los parámetros del token.":::
+
+Usaremos la aplicación [Postman](https://www.postman.com/) para crear la solicitud de token, pero puede usar otro entorno de desarrollo de API.
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *POST Token Request*.
+
+4. Seleccione el método HTTP **POST**.
+
+5. Escriba la siguiente dirección URL en la barra de direcciones [reemplace `<Tenant ID>` por el identificador del directorio (inquilino), `<Client ID>` por el identificador de la aplicación (cliente) y `<Client Secret>` por el secreto del cliente]:
+
+    ```http
+    https://login.microsoftonline.com/<Tenant ID>/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id=<Client ID>&client_secret=<Client Secret>%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
+    ```
+
+6. Seleccione **Enviar**.
+
+7. Debe mostrarse la siguiente respuesta de JSON:
 
 ```json
 {
     "token_type": "Bearer",
-    "expires_in": "...",
-    "ext_expires_in": "...",
-    "expires_on": "...",
-    "not_before": "...",
-    "resource": "https://atlas.microsoft.com/",
-    "access_token": "ey...gw"
+    "expires_in": 86399,
+    "ext_expires_in": 86399,
+    "access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFq..."
 }
 ```
 
-Para obtener ejemplos más detallados, consulte [Escenarios de autenticación en Azure AD](../active-directory/develop/authentication-vs-authorization.md).
+Para obtener más información sobre el flujo de autenticación, consulte [La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener ejemplos más detallados, vea:
+> [!div class="nextstepaction"]
+> [Escenarios de autenticación de Azure AD](../active-directory/develop/authentication-vs-authorization.md)
 
 Descubra las métricas de uso de API de la cuenta de Azure Maps:
 > [!div class="nextstepaction"]

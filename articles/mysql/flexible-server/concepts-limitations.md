@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 659f62cb8e42a4e2aba2e51dfcfee9826a614923
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034527"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588336"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitaciones de Azure Database for MySQL con servidor flexible (versión preliminar)
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Actualmente, Azure Database for MySQL con servidor flexible se encuentra en versión preliminar pública.
 
 En este artículo se describen las limitaciones del servicio Azure Database for MySQL con servidor flexible. También se aplican las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) en el motor de base de datos de MySQL. Para obtener más información sobre los niveles de recursos (proceso, memoria y almacenamiento), consulte el artículo acerca del [proceso y el almacenamiento](concepts-compute-storage.md).
@@ -59,7 +61,7 @@ No se admite lo siguiente:
 - `SELECT ... INTO OUTFILE`: no se admite en el servicio.
 
 ### <a name="supported"></a>Compatible
-- `LOAD DATA INFILE` es compatible, pero el parámetro `[LOCAL]` debe especificarse y dirigirse a una ruta de acceso UNC (Azure Storage montado a través de SMB).
+- `LOAD DATA INFILE` es compatible, pero el parámetro `[LOCAL]` debe especificarse y dirigirse a una ruta de acceso UNC (Azure Storage montado a través de SMB). Además, si usa una versión de cliente de MySQL igual o superior a 8.0, debe incluir el parámetro `-–local-infile=1` en la cadena de conexión.
 
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 

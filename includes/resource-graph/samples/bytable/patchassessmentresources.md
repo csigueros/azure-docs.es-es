@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 1b1c91ac00a359b9fc33ebacca26c2e2ebfae5e3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2e2695f2c2b193e77b286b30b5300aa09d099358
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456908"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308933"
 ---
 ### <a name="count-of-os-update-installation-done"></a>Recuento de instalaciones de actualizaciones de SO realizadas
 
-Devuelve una lista con los estados de las instalaciones de actualizaciones del SO que se han realizado en las máquinas en los últimos 7 días
+Devuelve una lista con los estados de las instalaciones de actualizaciones del SO que se han realizado en las máquinas en los últimos 7 días.
 
 ```kusto
 PatchAssessmentResources
@@ -50,7 +50,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type !has 'softwarepatch
 
 ### <a name="list-available-os-updates-for-all-your-machines-grouped-by-update-category"></a>Lista de las actualizaciones de SO disponibles para todas las máquinas agrupadas por categoría de actualización
 
-Devuelve una lista de SO pendientes para las máquinas
+Devuelve una lista de SO pendientes para las máquinas.
 
 ```kusto
 PatchAssessmentResources
@@ -85,7 +85,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type !has 'softwarepatch
 
 ### <a name="list-of-linux-os-update-installation-done"></a>Lista de las instalaciones de actualizaciones realizadas en el SO Linux
 
-Devuelve una lista con los estados de las instalaciones de actualizaciones del SO Windows Server que se han realizado en las máquinas en los últimos 7 días
+Devuelve una lista con los estados de las instalaciones de actualizaciones del SO Linux Server que se han realizado en las máquinas en los últimos 7 días.
 
 ```kusto
 PatchAssessmentResources
@@ -122,7 +122,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type has 'softwarepatche
 
 ### <a name="list-of-windows-server-os-update-installation-done"></a>Lista de las instalaciones de actualizaciones realizadas en el SO Windows Server
 
-Devuelve una lista con los estados de las instalaciones de actualizaciones del SO Windows Server que se han realizado en las máquinas en los últimos 7 días
+Devuelve una lista con los estados de las instalaciones de actualizaciones del SO Windows Server que se han realizado en las máquinas en los últimos 7 días.
 
 ```kusto
 PatchAssessmentResources

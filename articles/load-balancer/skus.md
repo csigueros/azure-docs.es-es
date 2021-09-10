@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 874ecfc8c1c50816916fb0b04975477a1cbe0a71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc474bf8a6df613a8dc1e95169b4730251ff22b7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94698094"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472857"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU de Azure Load Balancer
 
@@ -39,7 +39,7 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 | **[Sondeos de estado](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Comportamiento del sondeo de mantenimiento](./load-balancer-custom-probe-overview.md#probedown)** | Las conexiones TCP permanecen activas en el sondeo de la instancia __y__ en todos los sondeos. | Las conexiones TCP permanecen activas en un sondeo de instancia. Todas las conexiones TCP terminan cuando todos los sondeos están inactivos. |
 | **Zonas de disponibilidad** | Servidores front-end con redundancia de zona y zonales para el tráfico de entrada y salida. | No disponible |
-| **Diagnóstico** | [Métricas multidimensionales de Azure Monitor](./load-balancer-standard-diagnostics.md) | [Registros de Azure Monitor](./load-balancer-monitor-log.md) |
+| **Diagnóstico** | [Métricas multidimensionales de Azure Monitor](./load-balancer-standard-diagnostics.md) | No compatible |
 | **Puertos de alta disponibilidad** | [Disponibles para el equilibrador de carga interno](./load-balancer-ha-ports-overview.md) | No disponible |
 | **Seguro de forma predeterminada** | Cerrado a los flujos de entrada, a menos que lo permita un grupo de seguridad de red. Se permite el tráfico interno desde la red virtual al equilibrador de carga interno. | Abrir de forma predeterminada. Grupo de seguridad de red opcional. |
 | **Reglas de salida** | [Configuración declarativa de NAT de salida](./load-balancer-outbound-connections.md#outboundrules) | No disponible |
@@ -47,6 +47,7 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 | **[Varios servidores front-end](./load-balancer-multivip-overview.md)** | Entrada y [salida](./load-balancer-outbound-connections.md) | Solo de entrada |
 | **Operaciones de administración** | La mayoría de las operaciones en menos de 30 segundos | Normalmente, entre 60 y 90 segundos |
 | **Acuerdo de Nivel de Servicio** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | No disponible | 
+| **Compatibilidad con Emparejamiento de VNET global** | Se admite ILB estándar a través del Emparejamiento de VNET global | No compatible | 
 
 Para más información, consulte [Límites del equilibrador de carga](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). Para más información de Load Balancer Estándar, consulte los artículos de [introducción](./load-balancer-overview.md), [precios](https://aka.ms/lbpricing) y [Acuerdo de Nivel de Servicio](https://aka.ms/lbsla).
 

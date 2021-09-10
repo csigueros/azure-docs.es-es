@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lagayhar
 ms.reviewer: Dale.Koetke
-ms.openlocfilehash: c4aded73334e38539e1c671831fe812a9525698c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 540bed61d26b2387399230324db4373172a233a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048682"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734252"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Supervisión del uso y costos estimados en Azure Monitor
 
@@ -25,7 +25,7 @@ ms.locfileid: "102048682"
 
 El modelo de facturación básico de Azure Monitor consta de precios basados en la nube y el consumo ("pago por uso"). Pague solo por lo que usa. Hay detalles disponibles sobre los precios para [alertas, métricas y notificaciones](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) y [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-Además del modelo de pago por uso para los datos de registros, Log Analytics tiene niveles de Reserva de capacidad que le permiten ahorrar hasta un 25 % en comparación con el precio de pago por uso. Los precios de la reserva de capacidad permiten comprar una reserva a partir de 100 GB/día. Cualquier uso por encima del nivel de reserva se facturará según la tarifa de pago por uso. [Obtenga más información](https://azure.microsoft.com/pricing/details/monitor/) sobre los precios de la reserva de capacidad.
+Además del modelo de pago por uso para los datos de registro, Azure Monitor Log Analytics tiene niveles de compromiso. Esto le permite ahorrar hasta un 30 % en comparación con los precios de pago por uso. Los niveles de compromiso comienzan en solo 100 GB/día. Cualquier uso por encima del nivel de compromiso se facturará con el mismo precio por GB que el nivel de compromiso. Obtenga [más información](https://azure.microsoft.com/pricing/details/monitor/) sobre los precios de los niveles de compromiso.
 
 Algunos clientes tendrán acceso a los [planes de tarifa de Log Analytics heredados](logs/manage-cost-storage.md#legacy-pricing-tiers) y el [plan de tarifa de Enterprise Application Insights heredado](app/pricing.md#legacy-enterprise-per-node-pricing-tier). 
 
@@ -66,7 +66,7 @@ Esto da como resultado una vista como la siguiente:
 
 Desde aquí, puede profundizar en este resumen de costos acumulados para obtener detalles más precisos en la vista "Costo por recurso". En los planes de tarifa actuales, los datos de registro de Azure se cobran según el mismo conjunto de medidores independientemente de si se originan en Log Analytics o Application Insights. Para separar los costos del uso de Log Analytics o Application Insights, puede agregar un filtro en **Tipo de recurso**. Para ver todos los costos de Application Insights, filtre el tipo de recurso por "microsoft.insights/components", y para los costos de Log Analytics, filtre el tipo de recurso por "microsoft.operationalinsights/workspaces". 
 
-Puede consultar más detalles sobre el uso mediante la [descarga del uso desde Azure Portal](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). En la hoja de cálculo descargada puede ver el uso por recurso de Azure al día. En esta hoja de cálculo de Excel, el uso de los recursos de Application Insights se puede encontrar filtrando, en primer lugar, la columna "Categoría de medición" para mostrar "Application Insights" y "Log Analytics" y, a continuación, agregando un filtro en la columna "Id. de instancia", que es "contiene microsoft.insights/components".  La mayor parte del uso de Application Insights se muestra en medidores con la Categoría de medición de Log Analytics, ya que hay un back-end de registros único para todos los componentes de Azure Monitor.  Con una Categoría de medición de Application Insights, solo se muestran recursos de Application Insights de los planes de tarifa heredados y las pruebas web de varios pasos.  El uso se muestra en la columna "Cantidad consumida" y la unidad de cada entrada se muestra en la columna "Unidad de medida".  Hay más detalles disponibles para ayudarle a [entender la factura de Microsoft Azure](../cost-management-billing/understand/review-individual-bill.md). 
+Puede consultar más detalles sobre el uso mediante la [descarga del uso desde Azure Portal](../cost-management-billing/understand/download-azure-daily-usage.md). En la hoja de cálculo descargada puede ver el uso por recurso de Azure al día. En esta hoja de cálculo de Excel, el uso de los recursos de Application Insights se puede encontrar filtrando, en primer lugar, la columna "Categoría de medición" para mostrar "Application Insights" y "Log Analytics" y, a continuación, agregando un filtro en la columna "Id. de instancia", que es "contiene microsoft.insights/components".  La mayor parte del uso de Application Insights se muestra en medidores con la Categoría de medición de Log Analytics, ya que hay un back-end de registros único para todos los componentes de Azure Monitor.  Con una Categoría de medición de Application Insights, solo se muestran recursos de Application Insights de los planes de tarifa heredados y las pruebas web de varios pasos.  El uso se muestra en la columna "Cantidad consumida" y la unidad de cada entrada se muestra en la columna "Unidad de medida".  Hay más detalles disponibles para ayudarle a [entender la factura de Microsoft Azure](../cost-management-billing/understand/review-individual-bill.md). 
 
 > [!NOTE]
 > El uso de **Cost Management** en el centro de **Administración de costos y facturación de Azure** es el mejor método para comprender de forma general los costos de supervisión.  Las experiencias de **Uso y costos estimados** de [Log Analytics](logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs) y [Application Insights](app/pricing.md#understand-your-usage-and-estimate-costs) proporcionan información más detallada sobre cada una de las partes de Azure Monitor.

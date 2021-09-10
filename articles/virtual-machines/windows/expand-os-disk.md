@@ -17,12 +17,12 @@ ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7bbea4fabcfce3a8f73045ab1f5071b7df0855b8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 74ce4cf27f8a8be8fd86bad3e3f03589cf3640ea
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670346"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113600539"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
 
@@ -57,7 +57,7 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
 5. En **Size + performance** (Tamaño y rendimiento), seleccione el tamaño de disco que quiera.
    
    > [!WARNING]
-   > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 2048 GB para los discos del sistema operativo. (El blob de VHD se puede expandir más, pero el sistema operativo solo usa los primeros 2048 GB de espacio).
+   > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 4095 GB para los discos del sistema operativo. (El blob de VHD se puede expandir más, pero el sistema operativo solo usa los primeros 4095 GB de espacio).
    > 
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de pantalla que muestra el panel Size and performance (Tamaño y rendimiento) con el tamaño de disco seleccionado.":::
@@ -105,7 +105,7 @@ Abra la ventana de PowerShell o PowerShell ISE en el modo administrativo y siga 
     Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
     ```   
     > [!WARNING]
-    > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 2048 GB para los discos del sistema operativo. (El blob de VHD se puede expandir más, pero el sistema operativo solo usa los primeros 2048 GB de espacio).
+    > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 4095 GB para los discos del sistema operativo. (El blob de VHD se puede expandir más, pero el sistema operativo solo usa los primeros 4095 GB de espacio).
     > 
          
 6. La actualización de la máquina virtual puede tardar unos segundos. Cuando el comando acabe de ejecutarse, reinicie la máquina virtual:

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ba266c5a4ec5ffb84ee02e9c1904423f01d333e5
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: aca2e73b6abbdce6447034e14d0457958f1b800e
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670917"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964525"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado TLS/SSL en Azure App Service
 
@@ -35,14 +35,14 @@ Cuando agrega un enlace TLS, recibe el mensaje de error siguiente:
 
 #### <a name="cause"></a>Causa
 
-Este problema puede producirse si tiene varios enlaces SSL basados en IP para la misma dirección IP en varias aplicaciones. Por ejemplo, la aplicación A tiene un enlace SSL basado en IP con un certificado antiguo. La aplicación B tiene un enlace SSL basado en IP con un certificado nuevo para la misma dirección IP. Cuando se actualiza el enlace TLS de la aplicación con el nuevo certificado, se produce este error porque se usa la misma dirección IP para otra aplicación. 
+Este problema puede producirse si tiene varios enlaces TLS/SSL basados en IP para la misma dirección IP en varias aplicaciones. Por ejemplo, la aplicación A tiene un enlace TLS/SSL basado en IP con un certificado antiguo. La aplicación B tiene un enlace TLS/SSL basado en IP con un certificado nuevo para la misma dirección IP. Cuando se actualiza el enlace TLS de la aplicación con el nuevo certificado, se produce este error porque se usa la misma dirección IP para otra aplicación. 
 
 #### <a name="solution"></a>Solución 
 
 Para corregirlo, use uno de los siguientes métodos:
 
-- Elimine el enlace SSL basado en IP de la aplicación que usa el certificado antiguo. 
-- Cree un nuevo enlace SSL basado en IP que use el nuevo certificado.
+- Elimine el enlace TLS/SSL basado en IP de la aplicación que usa el certificado antiguo. 
+- Cree un nuevo enlace TLS/SSL basado en IP que use el nuevo certificado.
 
 ### <a name="you-cant-delete-a-certificate"></a>No se puede eliminar un certificado 
 

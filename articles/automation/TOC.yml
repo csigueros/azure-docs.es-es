@@ -14,11 +14,13 @@
   items:
     - name: 'Creación de una cuenta de Automation: Azure Portal'
       href: quickstarts/create-account-portal.md
+    - name: 'Habilitación de identidades administradas: Azure Portal'
+      href: quickstarts/enable-managed-identity.md
     - name: Habilitación de Desired State Configuration en una máquina
       href: quickstarts/dsc-configuration.md
 - name: Tutoriales
   items:
-    - name: Uso de una identidad administrada con un runbook de PowerShell
+    - name: Creación de un runbook de PowerShell mediante una identidad administrada
       href: learn/powershell-runbook-managed-identity.md
     - name: Creación de un runbook de flujo de trabajo de PowerShell
       href: learn/automation-tutorial-runbook-textual.md

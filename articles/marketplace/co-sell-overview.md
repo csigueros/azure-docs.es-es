@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 4/15/2021
-ms.openlocfilehash: bb4a0cd58c316a9e40a3346d4f5417fe911c2c0e
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 07/13/2021
+ms.openlocfilehash: c50db3a7127959539d4a03f7f9a04cb2943dec79
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111420975"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866962"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados
 
@@ -44,11 +44,11 @@ Estados de venta conjunta para Azure:
 
 - No listo para la venta conjunta
 - Listo para la venta conjunta
-- Venta conjunta de propiedad intelectual de Azure con incentivos
+- Incentivo de venta conjunta de Azure IP
 
 Estados de venta conjunta para aplicaciones empresariales:
-- Venta conjunta con incentivos estándar de Business Applications
-- Venta conjunta con incentivos prémium de Business Applications  
+- Incentivo de venta conjunta de Business Applications (Estándar)
+- Incentivo de venta conjunta de Business Applications (Premium)  
 
 Para más información sobre los requisitos para lograr estos estados de venta conjunta, consulte [Requisitos de la venta conjunta](co-sell-requirements.md).
 
@@ -58,7 +58,7 @@ El estado Listo para la venta conjunta expone sus soluciones a los equipos de ve
 
 Para obtener información sobre cómo lograr el estado Listo para la venta conjunta y el estado Venta conjunta de propiedad intelectual de Azure, consulte [Requisitos de la venta conjunta](co-sell-requirements.md).
 
-## <a name="benefits-of-co-sell-incentivized-status"></a>Ventajas del estado de venta conjunta con incentivos
+## <a name="benefits-of-co-sell-incentive-status"></a>Ventajas del estado de venta conjunta con incentivos
 
 El estado de _venta conjunta con incentivos_ incluye la _venta conjunta con incentivos de propiedad intelectual de Azure_ y la _venta conjunta con incentivos de Business Applications (estándar y prémium)_ . Estos estados incentivan a los equipos de ventas de Microsoft para vender su oferta. Para lograr este estado, también debe alcanzar el estado Listo para la venta conjunta. El estado Venta conjunta con incentivos obtiene todas las ventajas del estado listo para la venta conjunta y puede obtener otros incentivos para los equipos de ventas de Microsoft y ser apto para más ventajas del marketplace comercial.
 
@@ -70,14 +70,13 @@ El estado Venta conjunta de propiedad intelectual de Azure con incentivos se pue
 - Módulo IoT Edge
 - Software como servicio (SaaS)
 
-El estado de venta conjunta con incentivos de Business Applications (estándar y prémium) puede aplicarse a los siguientes tipos de oferta:
+El estado de venta conjunta con incentivos de Business Applications (Estándar y Premium) puede aplicarse a los siguientes tipos de oferta:
 
-- Dynamics 365 for Customer Engagement y Power Apps
+- Dynamics 365 for Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 
 Las ofertas que logran el estado _Venta conjunta de propiedad intelectual de Azure con incentivos_ obtienen estas ventajas adicionales de Marketplace:
 
-- El precio del servicio de marketplace se reduce del 20 al 10 %. Este descuento se aplica a su solución de infraestructura como servicio (IaaS) o software como servicio (SaaS) vendida mediante Marketplace comercial. Para obtener más información, consulte [Tarifas de servicio de Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Los asociados del programa Proveedor de soluciones en la nube (CSP) reciben un incentivo del 10 % para vender su oferta de IaaS o SaaS. Para más información acerca del programa CSP, consulte [Programa Proveedor de soluciones en la nube](cloud-solution-providers.md).
 - Las ventas de su oferta mediante Azure Marketplace contribuirán a los compromisos de consumo de Azure de los clientes. Los clientes cualificados verán la oferta marcada como **Apto para ventajas de Azure** en Azure Portal. Para más información sobre cómo el programa MACC beneficia a los clientes y cómo pueden encontrar soluciones habilitadas para MACC, consulte [Ventaja del compromiso de consumo de Azure](/marketplace/azure-consumption-commitment-benefit). Para información sobre cómo los editores pueden inscribir su oferta de transacción en MACC, consulte [Inscripción al compromiso de consumo de Azure](azure-consumption-commitment-enrollment.md).
 - Las ofertas que alcanzan el estado de _venta conjunta con incentivos de la propiedad intelectual de Azure_ o que están inscritas en el [Programa Connect para ISV de Business Applications](business-applications-isv-program.md) con el estado Listo para la venta conjunta recibirán un distintivo de **soluciones preferidas de Microsoft** en la página de descripción de la oferta de las tiendas en línea [Azure Marketplace](https://azuremarketplace.microsoft.com/) y [AppSource](https://appsource.microsoft.com/).  Una vez que una oferta alcanza el estado correspondiente, el distintivo de solución preferida puede tardar hasta 30 días en mostrarse en la tienda en línea. El distintivo promueve las ofertas por su calidad, rendimiento y capacidad para satisfacer las necesidades de los clientes de un sector vertical de la industria o área de soluciones determinados.
@@ -87,6 +86,6 @@ Para obtener información sobre cómo lograr el estado Listo para la venta conju
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre los requisitos, consulte [Requisitos de la venta conjunta](co-sell-requirements.md).
-- Para configurar una oferta para la venta conjunta, consulte [Opción de venta conjunta en el marketplace comercial](./co-sell-configure.md).
+- Para configurar una oferta para la venta conjunta, consulte [Opción de venta conjunta en el marketplace comercial](co-sell-configure.md).
 - Para comprobar el estado de venta conjunta, consulte [Comprobación del estado de venta conjunta de una oferta de Marketplace comercial](co-sell-status.md).
 - Más información en [Venta conjunta con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).

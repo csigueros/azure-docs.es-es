@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 8315c2fa094f1d12a788d42a336cb01feb58c6c9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 89230372c641168c1aff4fade8475a48f1a95e04
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450282"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112428779"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
@@ -442,6 +442,9 @@ Específicamente, Sysprep requiere que las unidades se descifren por completo an
 
 
 ### <a name="generalize-a-vhd"></a>Generalización de un VHD
+
+>[!NOTE]
+> Si va a crear una imagen generalizada a partir de una máquina virtual de Azure, se recomienda quitar las extensiones de máquina virtual antes de ejecutar sysprep.
 
 >[!NOTE]
 > Después de ejecutar `sysprep.exe` en los pasos siguientes, desactive la máquina virtual. No vuelva a activarla hasta que cree una imagen de ella en Azure.

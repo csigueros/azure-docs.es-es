@@ -3,20 +3,21 @@ title: 'Administración del entorno mediante plantillas de Azure Resource Manage
 description: Aprenda a administrar el entorno de Azure Time Series Insights mediante programación con Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 493750e69b1fdc935b04d6dc705cfd046b6b086e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23b7906a7035ebb8af0558dcd28952aa3fb71c0b
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011666"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136191"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Azure Time Series Insights Gen 1 mediante plantillas de Azure Resource Manager
 
@@ -40,7 +41,7 @@ Una plantilla de Resource Manager es un archivo JSON que define la infraestructu
 - [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Tipos de recursos de Microsoft.TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
-La plantilla de inicio rápido [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) está publicada en GitHub. Esta plantilla crea un entorno de Azure Time Series Insights, un origen de eventos secundario configurado para consumir eventos de un centro de eventos y directivas de acceso que conceden acceso a los datos del entorno. Si no se especifica un centro de eventos existente, se crea uno con la implementación.
+La plantilla de inicio rápido [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub) está publicada en GitHub. Esta plantilla crea un entorno de Azure Time Series Insights, un origen de eventos secundario configurado para consumir eventos de un centro de eventos y directivas de acceso que conceden acceso a los datos del entorno. Si no se especifica un centro de eventos existente, se crea uno con la implementación.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,13 +51,13 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. Instale Azure PowerShell siguiendo las instrucciones de [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps) (Introducción a Azure PowerShell).
 
-1. Clone o copie la plantilla [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) de GitHub.
+1. Clone o copie la plantilla [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.json) de GitHub.
 
    - Creación de un archivo de parámetros
 
-     Para crear un archivo de parámetros, copie el archivo [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json).
+     Para crear un archivo de parámetros, copie el archivo [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json).
 
-      [!code-json[deployment-parameters](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
+      [!code-json[deployment-parameters](~/quickstart-templates/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
 
     <div id="required-parameters"></div>
 
@@ -249,7 +250,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
    - La página principal de la plantilla de inicio rápido de GitHub incluye también un botón **Deploy to Azure** (Implementar en Azure). Al hacer clic en él se abre una página de implementación personalizado en Azure Portal. En esta página, puede definir o seleccionar valores para cada uno de los parámetros en las tablas de [parámetros obligatorios](#required-parameters) o [parámetros opcionales](#optional-parameters). Después de rellenar la configuración, al hacer clic en el botón **Purchase** (Comprar) se inicia la implementación de la plantilla.
     </br>
     </br>
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.timeseriesinsights%2Ftimeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
        <img src="https://azuredeploy.net/deploybutton.png" alt="The Deploy to Azure button."/>
     </a>
 

@@ -2,20 +2,20 @@
 title: Archivo de inclusión
 description: Archivo de inclusión
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 41a25c5b92bfc91379ecf9c869a6c1dbbb7c9680
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.author: rifox
+ms.openlocfilehash: 9f9c85a7674dfee99a3db41fdcf8b14d1ac8b96b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201134"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967968"
 ---
 ## <a name="sample-code"></a>Código de ejemplo
 Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).
@@ -42,14 +42,16 @@ Antes de comenzar, compruebe lo siguiente:
 
 Usaremos Gradle para instalar las dependencias de Communication Services necesarias. Desde la línea de comandos, vaya al directorio raíz del proyecto `ChatQuickstart`. Abra el archivo build.gradle de la aplicación y agregue las siguientes dependencias en el destino `ChatQuickstart`:
 
-```
-implementation 'com.azure.android:azure-communication-common:1.0.1'
-implementation 'com.azure.android:azure-communication-chat:1.0.0'
+```groovy
+implementation 'com.azure.android:azure-communication-common:' + $azureCommunicationCommonVersion
+implementation 'com.azure.android:azure-communication-chat:' + $azureCommunicationChatVersion
 implementation 'org.slf4j:slf4j-log4j12:1.7.29'
 ```
 
+Consulte https://search.maven.org/artifact/com.azure.android/azure-communication-common y https://search.maven.org/artifact/com.azure.android/azure-communication-chat para obtener los números de versión más recientes.
+
 #### <a name="exclude-meta-files-in-packaging-options-in-root-buildgradle"></a>Exclusión de metarchivos en las opciones de empaquetado del archivo build.gradle raíz
-```
+```groovy
 android {
    ...
     packagingOptions {
@@ -73,7 +75,7 @@ Para importar la biblioteca en su proyecto mediante el sistema de compilación [
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0</version>
+  <version><!-- Please refer to https://search.maven.org/artifact/com.azure.android/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -106,7 +108,7 @@ Copie el código siguiente en la clase `MainActivity` del archivo `MainActivity.
     private String firstUserAccessToken = "<first_user_access_token>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0";
+    private final String sdkVersion = "<chat_sdk_version>";
     private static final String APPLICATION_ID = "Chat Quickstart App";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "Chat Quickstart App";
@@ -152,6 +154,7 @@ Copie el código siguiente en la clase `MainActivity` del archivo `MainActivity.
 1. Reemplace `<resource>` por el recurso de Communication Services
 2. Reemplace `<first_user_id>` y `<second_user_id>` por los identificadores de usuario válidos de Communication Services que se generaron como parte de los requisitos previos.
 3. Reemplace `<first_user_access_token>` por el token de acceso de Communication Services de `<first_user_id>` que se generó como parte de los requisitos previos.
+4. Reemplace `<chat_sdk_version>` por la versión de Chat SDK de Azure Communication Services.
 
 En los pasos siguientes, se reemplazaran los marcadores de posición por código de ejemplo mediante la biblioteca de chat de Communication Services.
 
@@ -233,15 +236,28 @@ Reemplace el comentario `<SEND A MESSAGE>` por el código siguiente:
 
 ```java
 // The chat message content, required.
-final String content = "Test message 1";
+final String content = "Please take a look at the attachment";
+
 // The display name of the sender, if null (i.e. not specified), an empty name will be set.
 final String senderDisplayName = "An important person";
+
+// Use metadata optionally to include any additional data you want to send along with the message.
+// This field provides a mechanism for developers to extend chat message functionality and add
+// custom information for your use case. For example, when sharing a file link in the message, you
+// might want to add 'hasAttachment:true' in metadata so that recipient's application can parse
+// that and display accordingly.
+final Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions chatMessageOptions = new SendChatMessageOptions()
     .setType(ChatMessageType.TEXT)
     .setContent(content)
-    .setSenderDisplayName(senderDisplayName);
+    .setSenderDisplayName(senderDisplayName)
+    .setMetadata(metadata);
 
-// A string is the response returned from sending a message, it is an id, which is the unique ID of the message.
+// A string is the response returned from sending a message, it is an id, which is the unique ID
+// of the message.
 chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getId();
 
 ```

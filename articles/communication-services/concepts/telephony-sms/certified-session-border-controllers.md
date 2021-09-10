@@ -6,14 +6,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 7251e97209e9cca1b4c86a6ab8c829c8f0346525
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 8b2468b13f7093129c137019d8ec7f60e4fd5e4f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674906"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258008"
 ---
 # <a name="list-of-session-border-controllers-certified-for-azure-communication-services-direct-routing"></a>Lista de controladores de límites de sesión certificados para enrutamiento directo de Azure Communication Services
 Este documento contiene una lista de controladores de límites de sesión certificados para enrutamiento directo de Azure Communication Services. También incluye limitaciones conocidas.
@@ -37,8 +37,8 @@ Si tiene alguna pregunta sobre el programa de certificación SBC para enrutamien
 
 |Vendor|Producto|Versión del software|
 |:--- |:--- |:--- 
+|AudioCodes|Mediant SBC|7.40A
 |Metaswitch|Perimeta SBC|4,9|
-
 
 Tenga en cuenta la certificación que se concede a una versión principal. Esto significa que se admite el firmware con cualquier número del firmware SBC que sigue a la versión principal.
 
@@ -47,7 +47,7 @@ Tenga en cuenta la certificación que se concede a una versión principal. Esto 
 ### <a name="conceptual-documentation"></a>Documentación conceptual
 
 - [Tipos de número de teléfono en Azure Communication Services](./plan-solution.md)
-- [Planeamiento del enrutamiento directo de Azure](./sip-interface-infrastructure.md)
+- [Planeamiento del enrutamiento directo de Azure](./direct-routing-infrastructure.md)
 - [Emparejamiento del controlador de límite de sesión y configuración del enrutamiento de voz](./direct-routing-provisioning.md)
 - [Precios](../pricing.md)
 

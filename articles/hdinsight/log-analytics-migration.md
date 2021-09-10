@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.author: ali
 author: AliciaLiMicrosoft
 ms.date: 04/19/2021
-ms.openlocfilehash: 5e312941e02c5605132971a55041a0b4f7d6dbc9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 823fb43afbd7ac51cafeff7e9e18472fe32c9aec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139100"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742264"
 ---
 # <a name="log-analytics-migration-guide-for-azure-hdinsight-clusters"></a>Guía de migración de Log Analytics para clústeres de Azure HDInsight
 
@@ -34,6 +34,12 @@ Teniendo en cuenta los comentarios de los clientes, el equipo de Azure HDInsight
 - Mayor confiabilidad.
 - Entrega de registros más rápida.
 - Agrupación de tablas basadas en recursos y consultas predeterminadas.
+
+
+
+> [!NOTE]  
+> La nueva integración de Azure Monitor está en versión preliminar pública. Solo está disponible en las regiones Este de EE. UU. y Oeste de Europa.
+
 
 ## <a name="benefits-of-the-new-azure-monitor-integration"></a>Ventajas de la nueva integración en Azure Monitor
 

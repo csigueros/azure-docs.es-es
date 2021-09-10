@@ -1,22 +1,22 @@
 ---
-title: Restricciones del identificador URI de redirección (dirección URL de respuesta) | Azure
+title: Restricciones de los URI de redirección (URL de respuesta) | Azure AD
 titleSuffix: Microsoft identity platform
 description: Descripción de las restricciones y limitaciones del formato del identificador URI de redirección (dirección URL de respuesta) aplicado por la Plataforma de identidad de Microsoft.
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 11/23/2020
+ms.date: 06/23/2021
 ms.topic: conceptual
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9484973e724246db76ccc927437fccf2c4c7be1
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582815"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966471"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)
 
@@ -27,6 +27,10 @@ Un identificador URI de redirección, o dirección URL de respuesta, es la ubica
 * El identificador URI de redirección debe comenzar con el esquema `https`. Hay algunas [excepciones](#localhost-exceptions) para los URI de redirección de localhost.
 
 * El identificador URI de redirección distingue entre mayúsculas y minúsculas. Sus mayúsculas o minúsculas deben coincidir con las de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en el identificador URI de redirección. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
+
+* Un URI de redirección sin un segmento de ruta de acceso anexa una barra diagonal al final del URI de la respuesta. Por ejemplo, los URI https://contoso.com y http://localhost:7071 devuelven https://contoso.com/ y http://localhost:7071/ respectivamente. Esto ocurre únicamente cuando el modo de respuesta es query o fragment.
+
+* Los URI de redirección que contienen el segmento de ruta de acceso no anexan una barra diagonal al final. En el ejemplo https://contoso.com/abc, se usará https://contoso.com/abc/response-oidc tal cual en la respuesta.
 
 ## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URI de redireccionamiento
 
@@ -76,7 +80,7 @@ Sin embargo, no puede usar el cuadro de texto **URI de redirección** en Azure P
 
 :::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Cuadro de diálogo de error en Azure Portal que muestra el URI de redirección del bucle invertido basado en HTTP no permitido":::
 
-Para agregar un URI de redirección que usa el esquema `http` con la dirección de bucle invertido `127.0.0.1`, actualmente debe modificar el atributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) en el [manifiesto de la aplicación](reference-app-manifest.md).
+Para agregar un URI de redirección que usa el esquema `http` con la dirección de bucle invertido `127.0.0.1`, actualmente debe modificar el atributo [replyUrlsWithType en el manifiesto de la aplicación](reference-app-manifest.md#replyurlswithtype-attribute).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restricciones en los caracteres comodín en los identificadores URI de redirección
 
@@ -84,9 +88,9 @@ Los identificadores URI con caracteres comodín como `https://*.contoso.com` pue
 
 Los identificadores URI con caracteres comodín no se admiten actualmente en los registros de aplicación configurados para iniciar sesión en cuentas personales de Microsoft y cuentas profesionales o educativas. Sin embargo, se permiten los identificadores URI con caracteres comodín para las aplicaciones que están configuradas para iniciar sesión solo en cuentas profesionales o educativas del inquilino de Azure AD de la organización.
 
-Para agregar identificadores URI de redirección con caracteres comodín a los registros de aplicaciones que inician la sesión de cuentas profesionales o educativas, use el editor de manifiestos de aplicación en [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) en Azure Portal. Aunque es posible establecer un identificador URI de redirección con un carácter comodín mediante el editor de manifiestos, *se recomienda* que respete la [sección 3.1.2 de RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) y use solo identificadores URI absolutos.
+Para agregar identificadores URI de redirección con caracteres comodín a los registros de aplicaciones que inician la sesión de cuentas profesionales o educativas, use el editor de manifiestos de aplicación en **Registros de aplicaciones** en Azure Portal. Aunque es posible establecer un URI de redirección con un carácter comodín usando el editor de manifiestos, se recomienda *encarecidamente* adherirse a la sección 3.1.2 de la especificación RFC 6749. y usar únicamente URI absolutos.
 
-Si el escenario requiere más identificadores URI de redirección que el límite máximo permitido, en lugar de agregar un identificador URI de redirección con caracteres comodín, considere la posibilidad de utilizar el siguiente [enfoque de parámetro de estado](#use-a-state-parameter).
+Si el escenario requiere más identificadores URI de redirección que el límite máximo permitido, en lugar de agregar un identificador URI de redirección con caracteres comodín, considere la posibilidad de utilizar el siguiente enfoque de parámetro de estado.
 
 #### <a name="use-a-state-parameter"></a>Uso de un parámetro de estado
 

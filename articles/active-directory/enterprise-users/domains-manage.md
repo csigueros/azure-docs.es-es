@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a201452a9c708d898ee1762385955b63684876c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 551808586f8e710f5d8e3fd7c905db6dbcfc8963
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577978"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438775"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 
-Un nombre de dominio es una parte importante del identificador para muchos recursos de Azure Active Directory (Azure AD): forma parte de un nombre de usuario o una dirección de correo electrónico de un usuario, forma parte de la dirección para un grupo y puede formar parte del URI del identificador de una aplicación. Un recurso de Azure AD puede incluir un nombre de dominio que pertenezca a la organización que contiene ese recurso. Solo los administradores globales pueden administrar dominios en Azure AD.
+Un nombre de dominio es una parte importante del identificador para muchos recursos de Azure Active Directory (Azure AD): forma parte de un nombre de usuario o una dirección de correo electrónico de un usuario, forma parte de la dirección para un grupo y puede formar parte del URI del identificador de una aplicación. Un recurso de Azure AD puede incluir un nombre de dominio que pertenezca a la organización de Azure AD (a veces llamado "iniquilino") que contiene ese recurso. Solo los administradores globales pueden administrar dominios en Azure AD.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-organization"></a>Establecimiento del nombre de dominio principal para su organización de Azure AD
 
@@ -51,15 +51,13 @@ Si desea agregar un nombre de subdominio como "europe.contoso.com" a su organiza
 
 Si ya ha agregado un dominio contoso.com a una organización de Azure AD, también puede verificar el subdominio europe.contoso.com en otra organización de Azure AD. Al agregar el subdominio, se le pide que agregue un registro TXT en el proveedor de hospedaje DNS.
 
-
-
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Qué hacer si se cambia el registrador DNS del nombre de dominio personalizado
 
 Si cambia a los registradores DNS más habituales, no hay ninguna tarea de configuración adicional en Azure AD. Puede continuar usando el nombre de dominio con Azure AD sin interrupciones. Si usa el nombre de dominio personalizado con Microsoft 365, Intune u otros servicios que dependan de los nombres de dominio personalizados en Azure AD, consulte la documentación de dichos servicios.
 
 ## <a name="delete-a-custom-domain-name"></a>Eliminación de un nombre de dominio personalizado
 
-Puede eliminar un nombre de dominio personalizado de Azure AD si su organización ya no utiliza ese nombre de dominio o si necesita utilizar ese nombre de dominio con otro Azure AD.
+Puede eliminar un nombre de dominio personalizado de Azure AD si su organización ya no utiliza ese nombre de dominio o si necesita utilizar ese nombre de dominio con otra organización de Azure AD.
 
 Para eliminar un nombre de dominio personalizado, antes debe asegurarse de que no haya recursos en la organización que se basen en ese nombre. No puede eliminar un nombre de dominio de la organización si se da alguno de los siguientes casos:
 
@@ -67,13 +65,16 @@ Para eliminar un nombre de dominio personalizado, antes debe asegurarse de que n
 * Algún grupo tiene una dirección de correo electrónico o una dirección de proxy que incluya el nombre de dominio.
 * Alguna aplicación en Azure AD tiene un URI de identificador de aplicación que incluya el nombre de dominio.
 
-Debe cambiar o eliminar esos recursos de su organización de Azure AD para poder eliminar el nombre de dominio personalizado.
+Debe cambiar o eliminar esos recursos de su organización de Azure AD para poder eliminar el nombre de dominio personalizado. 
+
+> [!Note]
+> Para eliminar el dominio personalizado, use una cuenta de administrador global basada en el dominio predeterminado (onmicrosoft.com) o en otro dominio personalizado (mydomainname.com).
 
 ### <a name="forcedelete-option"></a>Opción ForceDelete
 
 Puede usar la operación **ForceDelete** en un nombre de dominio en el [Centro de administración de Azure AD](https://aad.portal.azure.com) o mediante [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). Estas opciones usan una operación asincrónica y actualizan todas las referencias del nombre de dominio personalizado, como "user@contoso.com", al nombre de dominio predeterminado inicial, como "user@contoso.onmicrosoft.com".
 
-Para llamar a **ForceDelete** en Azure Portal, debe asegurarse de que hay menos de 1000 referencias en el nombre de dominio, y todas las referencias en las que Exchange sea el servicio de aprovisionamiento deben actualizarse o quitarse del [Centro de administración de Exchange](https://outlook.office365.com/ecp/). Esto incluye los grupos de seguridad habilitados para el correo electrónico de Exchange y las listas distribuidas. Para obtener más información, consulte [Quitar grupos de seguridad habilitados para correo](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). Además, la operación **ForceDelete** no se realizará correctamente si se cumple alguna de las siguientes condiciones:
+Para llamar a **ForceDelete** en Azure Portal, debe asegurarse de que hay menos de 1000 referencias en el nombre de dominio, y todas las referencias en las que Exchange sea el servicio de aprovisionamiento deben actualizarse o quitarse del [Centro de administración de Exchange](https://outlook.office365.com/ecp/). Esto incluye las listas distribuidas y los grupos de seguridad habilitados para correo electrónico de Exchange. Para obtener más información, consulte [Eliminación de grupos de seguridad habilitados para correo](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). Además, la operación **ForceDelete** no se realizará correctamente si se cumple alguna de las siguientes condiciones:
 
 * Adquirió un dominio mediante los servicios de suscripción de dominios de Microsoft 365.
 * Es un asociado de administración en nombre de otra organización del cliente.

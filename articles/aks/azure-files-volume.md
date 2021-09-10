@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a crear manualmente un volumen con Azure Files para usarlo con varios pods simultáneos en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 7f3c8ae63e908f440740277084293a011b80b9d7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/08/2021
+ms.openlocfilehash: c68783cd614ca5dc1a569f17365992a378d225b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776095"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732215"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creación manual y uso de un volumen con un recurso compartido de Azure Files en Azure Kubernetes Service (AKS)
 
@@ -68,7 +68,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 ```
 
 ## <a name="mount-file-share-as-an-inline-volume"></a>Montaje de un recurso compartido de archivos como volumen insertado
-> Nota: A partir de 1.18.15, 1.19.7, 1.20.2 y 1.21.0, el espacio de nombres secreto en el volumen insertado `azureFile` solo se puede establecer como espacio de nombres `default` para especificar otro espacio de nombres secreto. Use en su lugar el siguiente ejemplo de volumen persistente.
+> Nota: El volumen `azureFile` insertado solo puede acceder al secreto en el mismo espacio de nombres como pod, para especificar otro espacio de nombres secreto. Use en su lugar el siguiente ejemplo de volumen persistente.
 
 Para montar el recurso compartido de Azure Files en el pod, configure el volumen en las especificaciones del contenedor. Cree un nuevo archivo denominado `azure-files-pod.yaml` con el contenido siguiente. Si ha cambiado el nombre del recurso compartido de Azure Files o el nombre del secreto, actualice los valores *shareName* y *secretName*. Además, actualice el valor de `mountPath`, que es la ruta de acceso en la que se monta el recurso compartido de Azure Files en el pod. Para los contenedores de Windows Server, especifique un elemento *mountPath* con la convención de ruta de acceso de Windows, como *"D:"* .
 
@@ -226,6 +226,14 @@ Actualice la especificación de contenedor para hacer referencia al objeto *Pers
   - name: azure
     persistentVolumeClaim:
       claimName: azurefile
+```
+
+Como la especificación del pod no se puede actualizar en su lugar, use comandos `kubectl` para eliminar y, a continuación, vuelva a crear el pod:
+
+```console
+kubectl delete pod mypod
+
+kubectl apply -f azure-files-pod.yaml
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

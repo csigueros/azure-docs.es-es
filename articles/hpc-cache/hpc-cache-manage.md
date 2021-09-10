@@ -4,14 +4,14 @@ description: Administración y actualización de Azure HPC Cache mediante Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 07/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: a831aa7b2f3b0d438d9db8fefa3d26428fea3680
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cd4dcb4bac5f2876db9af194abc5835c1d0f5a3c
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862604"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586984"
 ---
 # <a name="manage-your-cache"></a>Administración de la caché
 
@@ -33,6 +33,9 @@ Los botones que se encuentran en la parte superior de la página pueden ayudarlo
 * [**Eliminar**](#delete-the-cache): destruye permanentemente la memoria caché
 
 Lea más información sobre estas opciones a continuación.
+
+> [!TIP]
+> También puede administrar destinos de almacenamiento individuales. Lea [Administración de destinos de almacenamiento](manage-storage-targets.md) para más información.
 
 Haga clic en la imagen siguiente para ver un [vídeo](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) que muestra las tareas de administración de caché.
 
@@ -247,14 +250,6 @@ $
 
 ---
 
-## <a name="cache-metrics-and-monitoring"></a>Supervisión y métricas de caché
-
-La página de información general muestra gráficos para algunas estadísticas básicas de caché: rendimiento de caché, operaciones por segundo y latencia.
-
-![Captura de pantalla de tres gráficos de líneas que muestran las estadísticas mencionadas anteriormente para una memoria caché de ejemplo](media/hpc-cache-overview-stats.png)
-
-Estos gráficos forman parte de las herramientas de supervisión y análisis integradas de Azure. Existen otras herramientas y alertas disponibles en las páginas del encabezado **Supervisión** de la barra lateral del portal. Obtenga más información en la sección del portal de la [documentación de Supervisión de Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
-
 ## <a name="view-warnings"></a>Ver advertencias
 
 Si la caché entra en un estado incorrecto, Compruebe la **página advertencias**. En esta página se muestran notificaciones del software de caché que podrían ayudarle a entender su estado.
@@ -271,5 +266,5 @@ Los tipos de advertencias que puede ver aquí incluyen:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre las [herramientas de métricas y estadísticas de Azure](../azure-monitor/index.yml)
+* [Supervisión de la caché con estadísticas](metrics.md)
 * Obtener [ayuda con la instancia de Azure HPC Cache](hpc-cache-support-ticket.md)

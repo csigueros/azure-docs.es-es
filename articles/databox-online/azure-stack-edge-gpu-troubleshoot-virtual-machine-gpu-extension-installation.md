@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 256902ef26328050b4ed52053f465571974ffefe
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: a2e6996bd2b86da470b364da1349248e26b2fa58
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422163"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747357"
 ---
 # <a name="troubleshoot-gpu-extension-issues-for-gpu-vms-on-azure-stack-edge-pro-gpu"></a>Solución de problemas de extensión de GPU para VM de GPU en GPU de Azure Stack Edge Pro
 
@@ -36,7 +36,7 @@ Para ver los pasos de instalación, consulte [Instalación de la extensión de G
 
 **Solución sugerida:** Prepare una nueva imagen de VM que tenga un sistema operativo compatible con la extensión de GPU. 
 
-* Para obtener una lista de los sistemas operativos compatibles, consulte [Sistema operativo y controladores de GPU admitidos para VM de GPU](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#supported-os-and-gpu-drivers).
+* Para obtener una lista de los sistemas operativos compatibles, consulte [Sistema operativo y controladores de GPU admitidos para VM de GPU](./azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-and-gpu-drivers).
 
 * Para ver los requisitos de preparación de imágenes para una VM de GPU, consulte [Creación de VM de GPU](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
@@ -52,7 +52,7 @@ Para ver los pasos de instalación, consulte [Instalación de la extensión de G
 
 **Descripción del error:** Hubo un error en el aprovisionamiento de la extensión durante la instalación de la extensión o mientras se encontraba en el estado Habilitado.
 
-1. Compruebe el registro de invitados para ver el error asociado. <!--To collect the guest logs, see [Collect guest logs for VMs on an Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).-->
+1. Compruebe el registro de invitados para ver el error asociado. Para recopilar los registros de invitado, consulte [Recopilación de registros de invitado de VM en un dispositivo GPU de Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
 
    En una VM Linux:
    * Busque en `/var/log/waagent.log` o `/var/log/azure/nvidia-vmext-status`.
@@ -78,7 +78,7 @@ Para ver los pasos de instalación, consulte [Instalación de la extensión de G
 
 **Solución sugerida:** Para resolver el problema, siga estos pasos:
 
-1.  Para averiguar qué proceso está aplicando el bloqueo, busque en el registro \var\log\azure\nvidia-vmext-status un error, como "dpkg is used by another process" (Otro proceso está usando dpkg) o "Another app is holding yum lock" (Otra aplicación está manteniendo el bloqueo de yum).
+1.  Para averiguar qué proceso está aplicando el bloqueo, busque en el registro "\var\log\azure\nvidia-vmext-status" un error, como "dpkg is used by another process" (Otro proceso está usando dpkg) o "Another app is holding `yum lock`" (Otra aplicación está manteniendo el bloqueo de yum).
 
 1. Espere a que termine el proceso o finalícelo.
 
@@ -89,5 +89,4 @@ Para ver los pasos de instalación, consulte [Instalación de la extensión de G
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Instalación de la extensión de GPU](./azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux)<!--Temporary link until next one can be restored.-->
-<!-- Remove link while cmdlet is fixed. - [Collect guest logs, and create a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
+[Recopilación de registros de invitado y creación de un paquete de soporte técnico](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)

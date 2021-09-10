@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b2facd700fa0bf5943cca679f9dac6616f27b8f8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 176c75922fdeae6f1984330a40cbdc38a4d8404b
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457223"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309526"
 ---
-### <a name="list-cosmos-db-with-specific-write-locations"></a>Enumeración de Cosmos DB con ubicaciones de escritura concretas
+### <a name="list-azure-cosmos-db-with-specific-write-locations"></a>Enumeración de Azure Cosmos DB con ubicaciones de escritura concretas
 
-La siguiente consulta limita con los recursos de Cosmos DB, utiliza `mv-expand` para expandir el contenedor de propiedades para **properties.writeLocations** , después proyectar campos específicos y limitar los resultados a **properties.writeLocations.locationName** valores que coinciden con "Este de EE. UU." u "Oeste de EE. UU.".
+Los siguientes límites de consultas para los recursos de Azure Cosmos DB usan `mv-expand` para expandir la bolsa de propiedades para **properties.writeLocations**, después proyectan campos específicos y limitan los resultados a valores de **properties.writeLocations.locationName** que coinciden con "Este de EE. UU." u "Oeste de EE. UU.".
 
 ```kusto
 Resources

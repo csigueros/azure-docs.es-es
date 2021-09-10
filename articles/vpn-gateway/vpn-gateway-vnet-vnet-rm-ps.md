@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6baf0342f5fea5ee4ec062c5eed07d9761e72c1d
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 87a2a658b37f199c8e5b6c92543cc9c70a8ae42c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289469"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729462"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
 
 Este artículo le ayuda a conectarse a redes virtuales mediante el tipo de conexión de red virtual a red virtual. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory.
 
-Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y utilizan PowerShell. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+Los pasos descritos en este artículo se aplican al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md) y utilizan PowerShell. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -80,7 +80,7 @@ Para este ejercicio, puede combinar las configuraciones, o bien elegir con la qu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Dado que se tarda hasta 45 minutos en crear una puerta de enlace, el tiempo de Azure Cloud Shell expirara periódicamente durante este ejercicio. Para reiniciar Cloud Shell, haga clic en la esquina superior izquierda del terminal. No olvide volver a declarar las variables cuando se reinicie el terminal.
+* Dado que se tarda 45 minutos o más en crear una puerta de enlace, Azure Cloud Shell expirará periódicamente durante este ejercicio. Para reiniciar Cloud Shell, haga clic en la esquina superior izquierda del terminal. No olvide volver a declarar las variables cuando se reinicie el terminal.
 
 * Si prefiere instalar la versión más reciente del módulo Azure PowerShell localmente, consulte el artículo de [Instalación y configuración de Azure PowerShell](/powershell/azure/).
 
@@ -204,7 +204,7 @@ En los ejemplos usamos los siguientes valores:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-Cuando termine con los comandos, esta puerta de enlace tardará hasta 45 minutos en crearse. Si usa Azure Cloud Shell, puede reiniciar la sesión; para ello, haga clic en la esquina superior izquierda del terminal de Cloud Shell y configure TestVNet4. No es necesario esperar hasta que se complete la puerta de enlace de TestVNet1.
+Cuando termine con los comandos, esta puerta de enlace tardará 45 minutos o más en crearse. Si usa Azure Cloud Shell, puede reiniciar la sesión; para ello, haga clic en la esquina superior izquierda del terminal de Cloud Shell y configure TestVNet4. No es necesario esperar hasta que se complete la puerta de enlace de TestVNet1.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Paso 3: Creación y configuración de TestVNet4
 

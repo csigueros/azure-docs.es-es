@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/29/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f57e7f25a9e34a88c9ae279083a2cf1d9be2ff1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8b2da6b75ec495fe96b0c65e312a91d0dd30a2d2
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099431"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091508"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge Mini R
 
@@ -138,10 +138,10 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 
 |     Especificaciones             |     Descripción                                                          |
 |--------------------------------|--------------------------------------------------------------------------|
-|     Intervalo de temperatura          |     0 a 43 °C (operativo)                                              |
+|     Intervalo de temperatura          |     0 a 40 °C (operativo)                                              |
 |     Vibración                  |     Método 514.7* de MIL-STD-810<br> Procedimiento I CAT 4, 20                  |
 |     Choque                      |     Método 516.7* de MIL-STD-810<br> Procedimiento IV, Logística                 |
-|     Altitud                   |     Operativo:   3 km (10 000 pies)<br> No operativo: 12 km (40 000 pies)          |
+|     Altitud                   |     Operativo:   3 km (15 000 pies)<br> No operativo: 12 km (40 000 pies)          |
 
 **Todas las referencias son de MIL-STD-810G Aviso de cambio 1 (2014)*
 

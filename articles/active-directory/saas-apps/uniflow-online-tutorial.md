@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 08/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 9fdcd8a82b901e00e28f0ddd89ba53d9a2e3fbae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9a51d7266be8c8565ddd84afa0989951896af1b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952718"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032910"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con uniFLOW Online
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar uniFLOW Online con Azure Active Director
 * Permitir que los usuarios inicien sesión automáticamente en uniFLOW Online con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,7 +37,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* uniFLOW Online admite el inicio de sesión único iniciado por **SP**
+* uniFLOW Online admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="add-uniflow-online-from-the-gallery"></a>Incorporación de uniFLOW Online desde la galería
 
@@ -73,30 +73,34 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con uno de los patrones siguientes:
 
-    - `https://<tenant_domain_name>.eu.uniflowonline.com`
-    - `https://<tenant_domain_name>.us.uniflowonline.com`
-    - `https://<tenant_domain_name>.sg.uniflowonline.com`
-    - `https://<tenant_domain_name>.jp.uniflowonline.com`
-    - `https://<tenant_domain_name>.au.uniflowonline.com`
+    | **Identificador** |
+    |---------|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com` |
+    | `https://<tenant_domain_name>.us.uniflowonline.com` |
+    | `https://<tenant_domain_name>.sg.uniflowonline.com` |
+    | `https://<tenant_domain_name>.jp.uniflowonline.com` |
+    | `https://<tenant_domain_name>.au.uniflowonline.com` |
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con uno de los patrones siguientes:
+    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    - `https://<tenant_domain_name>.eu.uniflowonline.com`
-    - `https://<tenant_domain_name>.us.uniflowonline.com`
-    - `https://<tenant_domain_name>.sg.uniflowonline.com`
-    - `https://<tenant_domain_name>.jp.uniflowonline.com`
-    - `https://<tenant_domain_name>.au.uniflowonline.com`
+    | **Dirección URL de inicio de sesión** |
+    |---------|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com` |
+    | `https://<tenant_domain_name>.us.uniflowonline.com` |
+    | `https://<tenant_domain_name>.sg.uniflowonline.com` |
+    | `https://<tenant_domain_name>.jp.uniflowonline.com` |
+    | `https://<tenant_domain_name>.au.uniflowonline.com` |
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico para clientes de uniFLOW Online](mailto:support@nt-ware.com) para obtener estos valores. También puede hacer referencia a los patrones mostrados en la sección **Configuración básica de SAML** en Azure Portal o hacer referencia a la dirección URL de respuesta que se muestra en el inquilino de uniFLOW Online.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte técnico para clientes de uniFLOW Online](mailto:support@nt-ware.com) para obtener estos valores. También puede hacer referencia a los patrones mostrados en la sección **Configuración básica de SAML** en Azure Portal o hacer referencia a la dirección URL de respuesta que se muestra en el inquilino de uniFLOW Online.
 
-1. La aplicación uniFLOW Online espera las aserciones de SAML en un formato específico que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+1. La aplicación uniFLOW Online espera las aserciones de SAML en un formato específico que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación uniFLOW Online espera que **nameidentifier** se asigne a **user.objectid**, por lo que debe editar la asignación de atributos; para ello, haga clic en el icono de **Editar** y cambie dicha asignación.
 
-    ![imagen](common/default-attributes.png)
+    ![Captura de pantalla que muestra el panel User Attributes (Atributos de usuario) con el icono de edición resaltado.](common/edit-attribute.png)
 
 1. Además de lo anterior, la aplicación uniFLOW Online espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
@@ -145,21 +149,21 @@ En esta sección va a permitir que B.Simon acceda a uniFLOW Online mediante el i
 
 1. En el panel de navegación de la izquierda, seleccione la pestaña **Usuario**.
 
-    ![Captura de pantalla que muestra el usuario seleccionado en el sitio de uniFLOW Online.](./media/uniflow-online-tutorial/configure-1.png)
+    ![Captura de pantalla que muestra el usuario seleccionado en el sitio de uniFLOW Online.](./media/uniflow-online-tutorial/user.png)
 
 1. Haga clic en **Proveedores de identidades**.
 
-    ![Captura de pantalla que muestra la opción de proveedores de identidades seleccionada.](./media/uniflow-online-tutorial/configure-2.png)
+    ![Captura de pantalla que muestra la opción de proveedores de identidades seleccionada.](./media/uniflow-online-tutorial/profile.png)
 
 1. Haga clic en **Agregar proveedor de identidades**.
 
-    ![Captura de pantalla que muestra la opción para agregar un proveedor de identidades seleccionada.](./media/uniflow-online-tutorial/configure-3.png)
+    ![Captura de pantalla que muestra la opción para agregar un proveedor de identidades seleccionada.](./media/uniflow-online-tutorial/add-profile.png)
 
 1. En la sección **Agregar proveedor de identidades**, realice los pasos siguientes:
 
-    ![Captura de pantalla que muestra la sección AGREGAR PROVEEDOR DE IDENTIDADES, donde puede especificar los valores descritos.](./media/uniflow-online-tutorial/configure-4.png)
+    ![Captura de pantalla que muestra la sección AGREGAR PROVEEDOR DE IDENTIDADES, donde puede especificar los valores descritos.](./media/uniflow-online-tutorial/configuration.png)
 
-    a. Indique el nombre para mostrar, por ejemplo: *AzureAD SSO*.
+    a. Indique el nombre para mostrar, por ejemplo: **AzureAD SSO**.
 
     b. En **Tipo de proveedor**, seleccione la opción **WS-Fed** del menú desplegable.
 
@@ -169,13 +173,13 @@ En esta sección va a permitir que B.Simon acceda a uniFLOW Online mediante el i
 
 1. En la pestaña **General**, realice los pasos siguientes:
 
-    ![Captura de pantalla que muestra la pestaña General, en la que puede especificar los valores descritos.](./media/uniflow-online-tutorial/configure-5.png)
+    ![Captura de pantalla que muestra la pestaña General, en la que puede especificar los valores descritos.](./media/uniflow-online-tutorial/general-tab.png)
 
-    a. Indique el nombre para mostrar, por ejemplo: *AzureAD SSO*.
+    a. Indique el nombre para mostrar, por ejemplo: **AzureAD SSO**.
 
     b. Seleccione la opción **From URL** (Desde URL) para **ADFS Federation Metadata** (Metadatos de federación de ADFS).
 
-    c. En el cuadro de texto **Federation Metadata URL** (Dirección URL de metadatos de federación), pegue el valor de **App Federation Metadata Url** (Dirección URL de metadatos de federación de aplicaciones) que copió de Azure Portal.
+    c. En el cuadro de texto **Dirección URL de metadatos de federación**, pegue el valor de **Dirección URL de metadatos de federación de aplicación** que copió de Azure Portal.
 
     d. Seleccione **Identity Provider Initiated** (Proveedor de identidades) como **Habilitado**.
 

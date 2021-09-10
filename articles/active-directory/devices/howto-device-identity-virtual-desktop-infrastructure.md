@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a122c5dc10600b612c20d3a742f3500944562357
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e4eac73f756268af21cbb97c8c5c2bf53c2322bc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408000"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733690"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidad del dispositivo y virtualización del escritorio
 
@@ -54,9 +54,9 @@ Antes de configurar las identidades de dispositivo en Azure AD para el entorno 
 |   | Administrada<sup>4</sup> | Windows actual y Windows de nivel inferior | Persistente | Sí |
 |   |   | Windows actual | No persistente | No |
 |   |   | Dispositivos de Windows de nivel inferior | No persistente | Sí<sup>6</sup> |
-| Unido a Azure AD | Federado | Windows actual | Persistente | No |
+| Unido a Azure AD | Federado | Windows actual | Persistente | Limitada<sup>7</sup> |
 |   |   |   | No persistente | No |
-|   | Administrado | Windows actual | Persistente | No |
+|   | Administrado | Windows actual | Persistente | Limitada<sup>7</sup> |
 |   |   |   | No persistente | No |
 | Registrado en Azure AD | Federada/administrada | Windows actual/Windows de nivel inferior | Persistente/no persistente | No es aplicable |
 
@@ -71,6 +71,7 @@ Antes de configurar las identidades de dispositivo en Azure AD para el entorno 
 
 <sup>6</sup> La **compatibilidad sin persistencia con Windows de nivel inferior** requiere una consideración adicional, tal y como se documenta a continuación en la sección de directrices.
 
+<sup>7</sup> La **compatibilidad con Unión de Azure AD** solo está disponible con Azure Virtual Desktop y Windows 365
 
 ## <a name="microsofts-guidance"></a>Guías de Microsoft
 
@@ -96,7 +97,7 @@ A la hora de implementar un entorno VDI no persistente, Microsoft recomienda que
    - En el caso de las implementaciones de VDI no persistentes en Windows actual y Windows de nivel inferior, se deben eliminar los dispositivos con más de 15 días de antigüedad en **ApproximateLastLogonTimestamp**.
 
 > [!NOTE]
-> Al usar VDI no persistente, si quiere evitar un estado de unión a dispositivo, asegúrese de que la siguiente clave del Registro esté establecida:  
+> Al usar VDI no persistente, si quiere evitar la incorporación de una cuenta profesional o educativa, asegúrese de que la siguiente clave del Registro esté establecida:  
 > `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
 >
 > Asegúrese de que está ejecutando la versión 1803 o superior de Windows 10.  
@@ -109,7 +110,9 @@ A la hora de implementar un entorno VDI no persistente, Microsoft recomienda que
 > * `%localappdata%\Microsoft\TokenBroker`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WorkplaceJoin`
 >
+> No se admite la movilidad del certificado de dispositivo de la cuenta profesional. El certificado, emitido por "MS-Organization-Access", se almacena en el almacén de certificados Personal (MI) del usuario actual y en la máquina local.
 
 
 ### <a name="persistent-vdi"></a>VDI persistente

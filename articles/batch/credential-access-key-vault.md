@@ -2,18 +2,18 @@
 title: Uso de certificados y acceso seguro a Azure Key Vault con Batch
 description: Obtenga información sobre cómo tener acceso mediante programación a las credenciales de Key Vault mediante Azure Batch.
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eaaeaa05caca7897eb649b56504b643038f08d53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20af753813ead55a3107b952a56d92b16135b523
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99260136"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098970"
 ---
 # <a name="use-certificates-and-securely-access-azure-key-vault-with-batch"></a>Uso de certificados y acceso seguro a Azure Key Vault con Batch
 
-En este artículo, aprenderá a configurar nodos de Batch para acceder de forma segura a las credenciales almacenadas en [Azure Key Vault](../key-vault/general/overview.md). No tiene sentido poner las credenciales de administrador en Key Vault y, a continuación, codificar de forma rígida las credenciales para tener acceso a Key Vault desde un script. La solución consiste en usar un certificado que conceda a los nodos de Batch acceso a Key Vault.
+En este artículo, aprenderá a configurar nodos de Batch para acceder de forma segura a las credenciales almacenadas en [Azure Key Vault](../key-vault/general/overview.md).
 
 Para autenticarse en Azure Key Vault desde un nodo de Batch, necesita:
 
@@ -21,6 +21,9 @@ Para autenticarse en Azure Key Vault desde un nodo de Batch, necesita:
 - Un certificado
 - Una cuenta de Batch
 - Un grupo de Batch con al menos un nodo
+
+> [!IMPORTANT]
+> Batch ahora ofrece una opción mejorada para acceder a las credenciales almacenadas en Azure Key Vault. Al crear el grupo con una identidad administrada asignada por el usuario que pueda acceder al certificado en Azure Key Vault, no es necesario enviar el contenido del certificado al servicio Batch, lo que mejora la seguridad. Se recomienda usar la rotación automática de certificados en lugar del método descrito en este tema. Para obtener más información, vea [Habilitación de la rotación automática de certificados en un grupo de Batch](automatic-certificate-rotation.md).
 
 ## <a name="obtain-a-certificate"></a>Obtener un certificado
 

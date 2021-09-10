@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Operations'
 - 'Role: Technical Support'
 - contperf-fy21q4
-ms.openlocfilehash: 127e511769a7c2aface1531c9f888e9ce213b999
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: f0c07da859ae34a030058ee2c99d2c7b72378f5d
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407028"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135634"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -70,7 +70,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 
 *  **Cuota** es el número agregado de mensajes que se pueden enviar en el centro *por día*. Puede encontrar el límite de cuota del centro en la columna **número total de mensajes/día** en la [página de precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-*  Sus limitaciones de la nube al dispositivo y del dispositivo a la nube determinan la *velocidad máxima* a la que puede enviar mensajes: número de mensajes con independencia de los fragmentos de 4 KB. Cada mensaje puede tener hasta 256 KB, que es el [tamaño máximo del mensaje](iot-hub-devguide-quotas-throttling.md#other-limits).
+*  Sus limitaciones de la nube al dispositivo y del dispositivo a la nube determinan la *velocidad máxima* a la que puede enviar mensajes: número de mensajes con independencia de los fragmentos de 4 KB. Los mensajes D2C pueden tener hasta 256 KB; los mensajes C2D pueden tener hasta 64 KB. Estos son los [tamaños máximos de mensaje] para cada tipo de mensaje.
 
 *  Se recomienda limitar las llamadas para que no alcancen o superen los límites. Si alcanza el límite, IoT Hub responde con el código de error 429 y el cliente debería interrumpirse y volver a iniciarse. Estos límites son por centro (o en algunos casos por centro por unidad). Para más información, consulte [Administración de la conectividad y de los patrones de mensajería confiable y de reintento](iot-hub-reliability-features-in-sdks.md#retry-patterns).
 

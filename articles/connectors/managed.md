@@ -3,27 +3,29 @@ title: Conectores administrados para Azure Logic Apps
 description: Use acciones y desencadenadores administrados por Microsoft para crear flujos de trabajo automatizados que integren otras aplicaciones, datos, servicios y sistemas mediante Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: 857c0e41f52c99d83142b3db7471b51b55316b5e
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 05/16/2021
+ms.openlocfilehash: 9461baebfad58f848b27fe689ed8dbd26c9dd07e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316180"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727092"
 ---
 # <a name="managed-connectors-for-logic-apps"></a>Conectores administrados para Logic Apps
 
 Los [conectores administrados](apis-list.md) proporcionan maneras de obtener acceso a otros servicios y sistemas en los que los [desencadenadores y las acciones integrados](built-in.md) no están disponibles. Puede usar estos desencadenadores y acciones para crear flujos de trabajo que integren datos, aplicaciones, servicios basados en la nube y sistemas locales. En comparación con los desencadenadores y las acciones integrados, estos conectores suelen estar vinculados a un servicio o sistema específico, como Azure Blob Storage, Office 365, SQL, Salesforce o los servidores SFTP. Administrados por Microsoft y hospedados en Azure, los conectores administrados normalmente requieren que primero se cree una conexión desde el flujo de trabajo y autentique su identidad. Tanto los desencadenadores basados en la periodicidad como los basados en un webhook están disponibles, por lo que si usa un desencadenador basado en la periodicidad, revise la [Información general sobre el comportamiento de la periodicidad](apis-list.md#recurrence-behavior).
 
-Para algunos servicios, sistemas y protocolos, como Azure Service Bus, Azure Functions, SQL o AS2, entre otros, Logic Apps también proporciona versiones integradas. El número y el intervalo varían en función de si crea una aplicación lógica multiinquilino o una aplicación lógica de un solo inquilino. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Por ejemplo, para [intercambiar mensajes B2B mediante el protocolo AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), seleccione la versión integrada a menos que necesite usar funcionalidades de seguimiento, puesto que solo están disponibles en la versión del conector administrado (en desuso).
+Para una menor cantidad de servicios, sistemas y protocolos, como Azure Service Bus, Azure Functions, Azure Blob, Azure App Services, Azure API Management, SQL y AS2, entre otros, Logic Apps también proporciona operaciones integradas. El número y el intervalo varían en función de si crea una aplicación lógica multiinquilino o una aplicación lógica de un solo inquilino. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Por ejemplo, para [intercambiar mensajes B2B mediante el protocolo AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), seleccione la versión integrada a menos que necesite usar funcionalidades de seguimiento, puesto que solo están disponibles en la versión del conector administrado (en desuso).
 
 Algunos conectores administrados para Logic Apps pertenecen a varias subcategorías. Por ejemplo, el conector SAP es tanto un [conector empresarial](#enterprise-connectors) como un [conector local](#on-premises-connectors).
 
 * Los [conectores estándar](#standard-connectors) proporcionan acceso a servicios como Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive y muchos más.
+* Los [conectores empresariales](#enterprise-connectors) proporcionan acceso a sistemas empresariales como SAP, IBM MQ e IBM 3270.
 * Los [conectores locales](#on-premises-connectors) proporcionan acceso a sistemas locales como SQL Server, SharePoint Server, SAP, Oracle DB, recursos compartidos de archivos y otros.
-* Los [conectores de cuenta de integración](#integration-account-connectors) le permiten transformar y validar el código XML, codificar y descodificar archivos sin formato y procesar mensajes de negocio a negocio (B2B) con protocolos AS2, EDIFACT y X12. 
+* Los [conectores de cuenta de integración](#integration-account-connectors) le permiten transformar y validar el código XML, codificar y descodificar archivos sin formato y procesar mensajes de negocio a negocio (B2B) con protocolos AS2, EDIFACT y X12.
+* Los [conectores del entorno del servicio de integración](#ise-connectors) están diseñados para ejecutarse específicamente en un ISE y ofrecen ventajas con respecto a las versiones de estos que no son ISE.
 
 ## <a name="standard-connectors"></a>Conectores estándar
 
@@ -54,7 +56,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         [![Icono del conector administrado de Azure Blob Storage en Logic Apps][azure-blob-storage-icon]][azure-blob-storage-doc]
         \
         \
-        [**Azure Blog Storage**][azure-blob-storage-doc]
+        [**Azure Blob Storage**][azure-blob-storage-doc]
         \
         \
         Conéctese a su cuenta de Azure Storage para crear y administrar el contenido de los blobs.
@@ -145,7 +147,6 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Conéctese a su cuenta de Salesforce para crear y administrar elementos tales como registros, trabajos, objetos y mucho más.
     :::column-end:::
 :::row-end:::
-
 
 ## <a name="on-premises-connectors"></a>Conectores locales
 

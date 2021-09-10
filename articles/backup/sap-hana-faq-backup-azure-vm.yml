@@ -2,14 +2,15 @@
 metadata:
   title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure'
   description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
-  ms.topic: conceptual
-  ms.date: 11/7/2019
-  ms.openlocfilehash: 4a0212e204278214273f49e64b5db1da29da9fad
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.topic: article
+  ms.service: backup
+  ms.date: 06/23/2021
+  ms.openlocfilehash: 5983508897520ad6fe5b91df3bd6abf26244d09f
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "111907418"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253654"
 title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure'
 summary: Este artículo responde preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
 sections:
@@ -18,15 +19,24 @@ sections:
   - question: >
       ¿Cuántas copias de seguridad completas se admiten al día?
     answer: >
-      Solo se admite una copia de seguridad completa al día. No se puede desencadenar una copia de seguridad diferencial y una copia de seguridad completa en el mismo día.
+      Puede tener una copia de seguridad completa programada y varias copias de seguridad a petición en un día.
+
+
+      | Tipos de copia de seguridad | Copia de seguridad programada | Copia de seguridad a petición |
+
+      | --- | --- | --- |
+
+      | Completo | Solo se admite una por día. | Se admiten varias por día. |
+
+      | Diferencial/incremental | Solo se admite una por día. <br><br> **Nota** <br> Las copias de seguridad diferenciales solo se pueden programar cuando no hay programada ninguna copia de seguridad completa para el día en concreto. Además, solo se puede programar un tipo de copia de seguridad diferencial o incremental en una directiva de copia de seguridad. | Se admiten varias por día. |
   - question: >
-      ¿Generan alertas los trabajos de copia de seguridad que se han realizado correctamente?
+      ¿Dónde puedo encontrar alertas relacionadas con copias de seguridad?
     answer: >
-      No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas se envían únicamente para los trabajos de copia de seguridad con errores. El comportamiento detallado para alertas del portal está documentado [aquí](./backup-azure-monitoring-built-in-monitor.md). Sin embargo, si está interesado en recibir alertas incluso para trabajos realizados correctamente, puede usar [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+      Actualmente, los trabajos de copia de seguridad correctos no generan alertas. Solo se generan alertas para los trabajos de copia de seguridad con errores. [Obtenga información](backup-azure-monitoring-built-in-monitor.md) sobre cómo usar Azure Portal para ver alertas de copias de seguridad.
   - question: >
       ¿Se pueden ver los trabajos de copia de seguridad programados en el menú de Trabajos de copia de seguridad?
     answer: >
-      En el menú de Trabajo de copia de seguridad solo se mostrarán los trabajos de copia de seguridad a petición. Para los trabajos programados, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+      En el menú "Trabajos de copia de seguridad" solo se mostrarán los trabajos de copia de seguridad a petición que estén en curso, se hayan completado correctamente o hayan dado error. Para los trabajos programados, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
   - question: >
       ¿Las bases de datos futuras se agregan automáticamente para copia de seguridad?
     answer: >
@@ -42,25 +52,25 @@ sections:
     answer: >
       Una base de datos después de un cambio de nombre se trata como una nueva base de datos. Por lo tanto, el servicio trata esta situación como si no se encontrara la base de datos y producirá un error en las copias de seguridad. La base de datos cuyo nombre se ha cambiado aparecerá como una nueva base de datos y se debe configurar su protección.
   - question: >
-      ¿Cuáles son los requisitos previos para realizar copias de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure?
+      ¿Cómo empiezo a hacer copias de seguridad de mis bases de datos SAP HANA usando Azure Backup?
     answer: >
-      Consulte las secciones relativas a los [requisitos previos](tutorial-backup-sap-hana-db.md#prerequisites) y [Qué hace el script de registro previo](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+      En el [tutorial](./tutorial-backup-sap-hana-db.md) encontrará una guía paso a paso para empezar a usar Azure Backup con bases de datos SAP HANA. También puede usar la [CLI](./tutorial-sap-hana-backup-cli.md) para configurar y administrar copias de seguridad.
   - question: >
-      ¿Qué permisos se deben establecer para que Azure pueda realizar copias de seguridad de bases de datos de SAP HANA?
+      ¿Existen requisitos previos para hacer copias de seguridad de bases de datos SAP HANA usando Azure Backup?
     answer: >
-      Al ejecutar el script de registro previo, se establecen los permisos necesarios para permitir que Azure realice copias de seguridad de bases de datos de SAP HANA. Puede encontrar más información sobre el script de registro previo [aquí](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+      Consulte los [requisitos previos](./tutorial-backup-sap-hana-db.md#prerequisites) para usar Azure Backup con SAP HANA.
   - question: >
       ¿Funcionarán las copias de seguridad después de migrar SAP HANA de SDC a MDC?
     answer: >
       Consulte [esta sección](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) de la guía de solución de problemas.
   - question: >
-      ¿Qué se debe hacer al actualizarse a la misma versión?
+      ¿Cómo me aseguro de que las copias de seguridad continúan después de actualizar mi instancia de HANA dentro de la misma versión de la solución?
     answer: >
       Consulte [esta sección](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) en la guía de solución de problemas.
   - question: >
       ¿Se puede configurar la copia de seguridad de Azure HANA en una IP virtual (equilibrador de carga) y no en una máquina virtual?
     answer: >
-      Actualmente no se tiene la capacidad de configurar la solución en una IP virtual por sí sola. Se necesita una máquina virtual para ejecutar la solución.
+      Actualmente no tenemos la posibilidad de configurar la solución con relación a una IP virtual o un proxy. Se necesita una máquina virtual para ejecutar la solución.
   - question: >
       ¿Cómo puedo trasladar una copia de seguridad a petición al sistema de archivos local en lugar de al almacén de Azure?
     answer: >

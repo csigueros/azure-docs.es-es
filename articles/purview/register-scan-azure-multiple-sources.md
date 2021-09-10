@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: ce78b36a07a0648e869a2a382554fdc41b408f96
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: ee5151b31e691b43d1d0df1694c636c3c35f9bc2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656333"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743192"
 ---
 # <a name="register-and-scan-multiple-sources-in-azure-purview"></a>Registro y examen de varios orígenes en Azure Purview
 
@@ -59,7 +59,7 @@ Para saber cómo agregar permisos en cada tipo de recurso dentro de una suscripc
 Para registrar varios orígenes nuevos en el catálogo de datos, haga lo siguiente:
 
 1. Vaya a la cuenta de Azure Purview.
-1. Seleccione **Orígenes** en el menú izquierdo.
+1. Seleccione **Data Map** (Mapa de datos) en el menú de navegación izquierdo.
 1. Seleccione **Registrar**.
 1. En **Registrar orígenes**, seleccione **Azure (varios)** .
 
@@ -80,7 +80,7 @@ Para registrar varios orígenes nuevos en el catálogo de datos, haga lo siguien
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Vaya a la sección **Orígenes**.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
 1. Seleccione el origen de datos que ha registrado.
 1. Seleccione **Ver detalles** >  **+ Nuevo examen**, o use el icono de acción rápida **Escanear** en el mosaico de origen.
 1. En **Nombre**, escriba el nombre.
@@ -112,7 +112,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 ## <a name="view-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
 
-1. Para ver los detalles del origen, haga clic en **Ver detalles** en el icono de la sección de **Orígenes**. 
+1. Para ver los detalles del origen, haga clic en **Ver detalles** en el icono de la sección de **Mapa de datos**. 
 
     :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-detail.png" alt-text="Captura de pantalla que muestra los detalles del origen."::: 
 

@@ -36,7 +36,7 @@
       href: quickstart-arc.md
 - name: Tutoriales
   items:
-    - name: Protección de la aplicación accede al almacenamiento y a Microsoft Graph
+    - name: 'Protección de los accesos de la aplicación, el almacenamiento y Microsoft Graph'
       items:
         - name: Información general
           href: scenario-secure-app-overview.md

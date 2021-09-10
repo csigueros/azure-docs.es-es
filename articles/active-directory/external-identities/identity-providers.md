@@ -5,34 +5,34 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 07/26/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fd158c5d19c805fe7b7592904fc42ed3117bef6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0f867e0091d792ef88b79f1c1bb7f4272a35e928
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764358"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721367"
 ---
 # <a name="identity-providers-for-external-identities"></a>Proveedores de identidades para External Identities
-
-> [!NOTE]
-> Algunas de las características que se mencionan en este artículo son características en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Un *proveedor de identidades* crea, mantiene y administra la información de identidad al tiempo que proporciona servicios de autenticación a las aplicaciones. Al compartir aplicaciones y recursos con usuarios externos, Azure AD es el proveedor de identidades predeterminado para el uso compartido. Esto significa que, al invitar a usuarios externos que ya tienen una cuenta de Azure AD o de Microsoft, estos pueden iniciar sesión automáticamente sin tener que realizar ninguna configuración adicional.
 
 Además de cuentas de Azure AD, External Identities ofrece una variedad de proveedores de identidades.
 
-- **Cuentas Microsoft** (versión preliminar): los usuarios invitados pueden usar su propia cuenta Microsoft personal (MSA) para canjear las invitaciones de colaboración B2B. Al configurar un flujo de usuario de autoservicio de suscripción, puede agregar [Cuenta Microsoft (versión preliminar)](microsoft-account.md) como uno de los proveedores de identidades permitidos. Para que este proveedor de identidades esté disponible para los flujos de usuario, no es necesario realizar ninguna configuración adicional.
+- **Cuentas Microsoft**: los usuarios invitados pueden usar su propia cuenta Microsoft (MSA) personal para canjear las invitaciones de colaboración B2B. Al configurar un flujo de usuarios de registro de autoservicio, puede agregar la [Cuenta Microsoft](microsoft-account.md) como uno de los proveedores de identidades permitidos. Para que este proveedor de identidades esté disponible para los flujos de usuario, no es necesario realizar ninguna configuración adicional.
 
-- **Código de acceso de un solo uso por correo electrónico** (versión preliminar): al canjear una invitación o acceder a un recurso compartido, un usuario invitado puede solicitar un código temporal, que se envía a su dirección de correo electrónico. A continuación, escribe este código para continuar con el inicio de sesión. La característica de código de acceso de un solo uso por correo electrónico autentica a los usuarios invitados B2B cuando no pueden autenticarse por otros medios. Al configurar un flujo de usuarios de autoservicio de suscripción, puede agregar **Email One-Time Passcode** (Código de acceso de un solo uso por correo electrónico [versión preliminar]) como uno de los proveedores de identidades permitidos. Alguna configuración es necesaria; consulte [Autenticación mediante un código de acceso de un solo uso por correo electrónico](one-time-passcode.md).
+- **Código de acceso de un solo uso de correo electrónico**: al canjear una invitación o acceder a un recurso compartido, un usuario invitado puede solicitar un código temporal, que se envía a su dirección de correo electrónico. A continuación, escribe este código para continuar con el inicio de sesión. La característica de código de acceso de un solo uso por correo electrónico autentica a los usuarios invitados B2B cuando no pueden autenticarse por otros medios. Al configurar un flujo de usuarios de registro de autoservicio, puede agregar **Código de acceso de un solo uso de correo electrónico** como uno de los proveedores de identidades permitidos. Alguna configuración es necesaria; consulte [Autenticación mediante un código de acceso de un solo uso por correo electrónico](one-time-passcode.md).
 
 - **Google**: La federación de Google permite a usuarios externos canjear invitaciones que les haya enviado si inician sesión en sus aplicaciones con sus propias cuentas de Gmail. La federación de Google también se puede usar en los flujos de usuario de registro de autoservicio. Consulte cómo [agregar Google como proveedor de identidades](google-federation.md).
    > [!IMPORTANT]
-   > **A partir de la segunda mitad de 2021**, Google va a [suspender la compatibilidad con el inicio de sesión de vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Gmail de Google no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   >
+   > - **A partir del 12 de julio de 2021**, si los clientes de Azure AD B2B configuran nuevas integraciones de Google para usarlas con el registro de autoservicio para sus aplicaciones personalizadas o de línea de negocio, la autenticación con identidades de Google no funcionará hasta que las autenticaciones se trasladen a las vistas web del sistema. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **A partir del 30 de septiembre de 2021**, Google [retira la compatibilidad con el inicio de sesión en la vista web insertada](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si sus aplicaciones autentican a los usuarios con una vista web insertada y va a usar la federación de Google con [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) o Azure AD B2B para las [invitaciones de usuarios externos](google-federation.md) o el registro de autoservicio, los usuarios de Google Gmail no podrán autenticarse. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+
 
 - **Facebook**: al compilar una aplicación, puede configurar el registro de autoservicio y habilitar la federación de Facebook para que los usuarios puedan suscribirse a la aplicación con sus propias cuentas de Facebook. Facebook solo se puede usar para flujos de usuario de registro de autoservicio y no está disponible como una opción de inicio de sesión cuando los usuarios canjean las invitaciones que les envíe. Consulte cómo [agregar Facebook como proveedor de identidades](facebook-federation.md).
 

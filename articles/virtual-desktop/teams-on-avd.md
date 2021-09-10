@@ -3,15 +3,15 @@ title: 'Microsoft Teams en Azure Virtual Desktop: Azure'
 description: Procedimiento para utilizar Microsoft Teams en Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 08/02/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 05d1188e00235001ba4d8fd173d4f03a28dadf90
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 63c75636fcab47a31735b772f85a8dccbb9c65f5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111758291"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728451"
 ---
 # <a name="use-microsoft-teams-on-azure-virtual-desktop"></a>Uso de Microsoft Teams en Azure Virtual Desktop
 
@@ -30,7 +30,7 @@ Con la optimización multimedia de Microsoft Teams, el cliente de escritorio de 
 Para poder usar Microsoft Teams en Azure Virtual Desktop, tendrá que hacer lo siguiente:
 
 - [Prepare la red](/microsoftteams/prepare-network/) para Microsoft Teams.
-- Instale el [cliente de escritorio de Windows](connect-windows-7-10.md) en un dispositivo con Windows 10 o Windows 10 IoT Enterprise que cumpla los [requisitos de hardware de Teams de un equipo Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Instale el [cliente de escritorio de Windows](./user-documentation/connect-windows-7-10.md) en un dispositivo con Windows 10 o Windows 10 IoT Enterprise que cumpla los [requisitos de hardware de Teams de un equipo Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Conéctese a una máquina virtual (VM) de sesión múltiple de Windows 10 o Windows 10 Enterprise.
 
 ## <a name="install-the-teams-desktop-app"></a>Instalación de la aplicación de escritorio Teams
@@ -51,7 +51,7 @@ Para habilitar la optimización multimedia para Teams, establezca la siguiente c
 
 ### <a name="install-the-teams-websocket-service"></a>Instalación del servicio WebSocket de Teams
 
-Instale la [el servicio Redirector de WebRTC del Escritorio remoto](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) en la imagen de máquina virtual. Si se produce un error de instalación, instale la [última versión de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e inténtelo de nuevo.
+Instale la [el servicio Redirector de WebRTC del Escritorio remoto](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWFYsj) en la imagen de máquina virtual. Si se produce un error de instalación, instale la [última versión de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e inténtelo de nuevo.
 
 #### <a name="latest-websocket-service-versions"></a>Versiones más recientes del servicio WebSocket
 
@@ -59,8 +59,13 @@ En la tabla siguiente se enumeran las versiones más recientes del servicio WebS
 
 |Versión        |Fecha de la versión  |
 |---------------|--------------|
+|1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |28/07/2020    |
 |0.11.0         |29/05/2020    |
+
+#### <a name="updates-for-version-10210614001"></a>Actualizaciones de la versión 1.0.2106.14001
+
+Se ha aumentado la confiabilidad de la conexión entre el servicio Redirector de WebRTC y el complemento de cliente de WebRTC.
 
 #### <a name="updates-for-version-10200611001"></a>Actualizaciones de la versión 1.0.2006.11001
 
@@ -136,7 +141,7 @@ El uso de Teams en un entorno virtualizado es diferente de su uso en un entorno 
 
 - Con la instalación por máquina, Teams en VDI no se actualiza automáticamente de la misma forma en que lo hacen los clientes de Teams no VDI. Para actualizar el cliente, debe actualizar la imagen de la máquina virtual mediante la instalación de una nueva MSI.
 - La optimización multimedia para Teams solo se admite para el cliente de escritorio de Windows en máquinas que ejecutan Windows 10.
-- No se admite el uso de servidores proxy HTTP explícitos definidos en el dispositivo de punto de conexión del cliente.
+- No se admite el uso de proxies HTTP explícitos definidos en el dispositivo de punto de conexión del cliente.
 
 ### <a name="calls-and-meetings"></a>Llamadas y reuniones
 

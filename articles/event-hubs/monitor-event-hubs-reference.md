@@ -4,12 +4,12 @@ description: Material de referencia importante necesario al supervisar Azure Eve
 ms.topic: reference
 ms.custom: subject-monitoring
 ms.date: 06/11/2021
-ms.openlocfilehash: 3d68f84c3c58cd29951c2d51cc8d89e3573b7f7a
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 4dc40cef074a223a2cc34e3a87c9acae840f8dbf
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063809"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992052"
 ---
 # <a name="monitoring-azure-event-hubs-data-reference"></a>Referencia sobre la supervisión de datos de Azure Event Hubs
 Consulte [Supervisión de Azure Event Hubs](monitor-event-hubs.md) para más información sobre la recopilación y el análisis de datos de supervisión para Azure Event Hubs.
@@ -68,6 +68,8 @@ Los dos tipos de errores siguientes se clasifican como **errores de usuario**:
 |Errores de usuario | No | Count | Total | Número de solicitudes no procesadas debido a errores de usuario durante un período determinado. | Nombre de entidad<br/><br/>Resultado de la operación|
 |Cuota de errores superada | No |Count | Total | Número de errores causados por superar las cuotas durante un período especificado. | Nombre de entidad<br/><br/>Resultado de la operación|
 
+> [!NOTE]
+> Logic Apps crea receptores de época que se pueden mover de un nodo a otro en función de la carga del servicio. Durante estos movimientos, pueden producirse excepciones `ReceiverDisconnection`. En el servicio Event Hubs, cuentan como errores de usuario. Logic Apps puede recopilar errores de clientes de Event Hubs para que pueda verlos en los registros de usuario.
 
 ## <a name="metric-dimensions"></a>Dimensiones de métricas
 
@@ -78,7 +80,7 @@ Azure Event Hubs admite las siguientes dimensiones para las métricas de Azure M
 |Nombre de entidad| Nombre del centro de eventos.|
 
 ## <a name="resource-logs"></a>Registros del recurso
-[!INCLUDE [event-hubs-diagnostic-log-schema](../../includes/event-hubs-diagnostic-log-schema.md)]
+[!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 
 

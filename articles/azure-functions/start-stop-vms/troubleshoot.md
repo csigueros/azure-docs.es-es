@@ -3,14 +3,14 @@ title: Solución de problemas de Start/Stop VMs v2 (versión preliminar)
 description: En este artículo se explica cómo solucionar los problemas encontrados con la función Start/Stop VMs (versión preliminar) para las máquinas virtuales de Azure.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/31/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 587dddfde930bb64aa21f2e24c26d815e60ab9b0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2908f9a8383897ae0bda162e6f980e02d6c81bc1
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791696"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966996"
 ---
 # <a name="troubleshoot-common-issues-with-startstop-vms-preview"></a>Solución de problemas comunes con Start/Stop VMs (versión preliminar)
 
@@ -65,3 +65,5 @@ Más información sobre la supervisión de Azure Functions y aplicaciones lógic
 * [Configuración de la supervisión para Azure Functions](../../azure-functions/configure-monitoring.md)
 
 * [Supervisión del estado de ejecución, revisión del historial de los desencadenadores y configuración de alertas en Azure Logic Apps](../../logic-apps/monitor-logic-apps.md)
+
+* Si tiene problemas durante la implementación, encuentra dificultades al usar Start/Stop VMs v2 (versión preliminar) o tiene alguna pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). El envío de incidencias de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 

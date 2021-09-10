@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2021
+ms.date: 08/05/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ff9a6c989446c2cee074485ba02fddd40cbfc83
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a91a5df939ee55b37369b73e02fa0921a9e4688c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953324"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732362"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procedimientos: Integrar los registros de Azure Active Directory con Splunk mediante Azure Monitor
 
@@ -42,16 +42,16 @@ Para usar esta característica, necesita:
 
     ![Botón "Data Summary" (Resumen de datos)](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-2. Seleccione la pestaña **Sourcetypes** (Tipos de origen) y, a continuación, seleccione **amal: aadal:audit**
+2. Seleccione la pestaña **Sourcetypes** y, a continuación, seleccione **mscs:azure:eventhub**
 
-    ![Pestaña Sourcetypes (Tipos de origen) del resumen de datos](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
+    ![Pestaña Sourcetypes (Tipos de origen) del resumen de datos](./media/howto-integrate-activity-logs-with-splunk/source-eventhub.png)
 
-    Los registros de actividad de Azure AD se muestran en la ilustración siguiente:
+Anexe **body.records.category=AuditLogs** a la búsqueda. Los registros de actividad de Azure AD se muestran en la ilustración siguiente:
 
-    ![Registros de actividad](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
+   ![Registros de actividad](./media/howto-integrate-activity-logs-with-splunk/activity-logs.png)
 
 > [!NOTE]
-> Si no puede instalar un complemento en la instancia de Splunk (por ejemplo, si usa un proxy o se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk. Para ello, use esta [función de Azure](https://github.com/Microsoft/AzureFunctionforSplunkVS) que se desencadena con los nuevos mensajes del centro de eventos. 
+> Si no puede instalar un complemento en la instancia de Splunk (por ejemplo, si usa un proxy o se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk. Para ello, use esta [función de Azure](https://github.com/splunk/azure-functions-splunk) que se desencadena con los nuevos mensajes del centro de eventos. 
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

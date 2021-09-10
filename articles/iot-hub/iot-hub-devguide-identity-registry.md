@@ -6,18 +6,18 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 06/29/2021
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2590ffd15ec046d0fc81e73b98577fa9ad91ae41
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 71007f18edcac6089be89537f0021f75c2cc4b38
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712755"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294739"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -183,8 +183,10 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
 | ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| auth |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. |
-| auth.symkey |opcional |Un objeto compuesto que contiene una clave principal y una secundaria, almacenadas en formato base64. |
+| autenticación |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. Para más información, consulte el [mecanismo de autenticación](/rest/api/iothub/service/devices/get-identity#authenticationmechanism) en la documentación de API REST. |
+| capabilities | opcional | Conjunto de funcionalidades del dispositivo. Por ejemplo, si el dispositivo es un dispositivo perimetral o no. Para más información, consulte las [funcionalidades de dispositivos](/rest/api/iothub/service/devices/get-identity#devicecapabilities) documentación de la API REST. |
+| deviceScope | opcional | El ámbito del dispositivo. En dispositivos perimetrales, generados automáticamente e inmutables. En desuso en dispositivos que no son perimetrales. Sin embargo, en los dispositivos secundarios (hoja), establezca esta propiedad en el mismo valor que la propiedad **parentScopes** (el **deviceScope** del dispositivo primario) para la compatibilidad con versiones anteriores de la API. Para más información, consulte [IoT Edge como puerta de enlace: relaciones primarias y secundarias](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships).|
+| parentScopes | opcional | El ámbito del elemento primario directo de un dispositivo secundario (el valor de la propiedad **deviceScope** del dispositivo primario). En los dispositivos perimetrales, el valor está vacío si el dispositivo no tiene ningún elemento primario. En los dispositivos que no son perimetrales, la propiedad no está presente si el dispositivo no tiene ningún elemento primario. Para más información, consulte [IoT Edge como puerta de enlace: relaciones primarias y secundarias](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships). |
 | status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado**, el dispositivo se puede conectar. Si está **Dishabilitado**, este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |
 | statusReason |opcional |Una cadena de 128 caracteres que almacena el motivo del estado de identidad del dispositivo. Se permiten todos los caracteres UTF-8. |
 | statusUpdateTime |solo lectura |Un indicador temporal, que muestra la fecha y hora de la última actualización de estado. |
@@ -208,11 +210,9 @@ Las identidades de módulos se representan como documentos JSON con las propieda
 | moduleId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
 | ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| auth |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. |
-| auth.symkey |opcional |Un objeto compuesto que contiene una clave principal y una secundaria, almacenadas en formato base64. |
-| status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado**, el dispositivo se puede conectar. Si está **Dishabilitado**, este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |
-| statusReason |opcional |Una cadena de 128 caracteres que almacena el motivo del estado de identidad del dispositivo. Se permiten todos los caracteres UTF-8. |
-| statusUpdateTime |solo lectura |Un indicador temporal, que muestra la fecha y hora de la última actualización de estado. |
+| autenticación |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. Para más información, consulte el [mecanismo de autenticación](/rest/api/iothub/service/modules/get-identity#authenticationmechanism) en la documentación de API REST. |
+| managedBy | opcional | Identifica quién administra este módulo. Por ejemplo, este valor es "IotEdge" si el entorno de ejecución perimetral posee este módulo. |
+| cloudToDeviceMessageCount | solo lectura | Número de mensajes de nube a módulo actualmente en cola para enviarse al módulo. |
 | connectionState |solo lectura |Un campo que indica el estado de la conexión: **Conectado** o **Desconectado**. Este campo representa la vista de IoT Hub del estado de conexión del dispositivo. **Importante**: Este campo debe usarse solo para fines de desarrollo o depuración. El estado de conexión se actualiza solo para dispositivos que usen AMQP o MQTT. Además, se basa en pings de nivel de protocolo (pings MQTT o pings AMQP) y puede tener un retraso de 5 minutos como máximo. Por estos motivos es posible que haya falsos positivos, como dispositivos que se notifican como conectados pero que están desconectados. |
 | connectionStateUpdatedTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que se actualizó el estado de conexión. |
 | lastActivityTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que el dispositivo se conectó, recibió o envió un mensaje. |
@@ -248,7 +248,7 @@ Ahora que ha aprendido a usar el registro de identidad de IoT Hub, pueden intere
 
 Para probar algunos de los conceptos descritos en este artículo, vea el siguiente tutorial de IoT Hub:
 
-* [Introducción a Azure IoT Hub](quickstart-send-telemetry-dotnet.md)
+* [Introducción a Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
 

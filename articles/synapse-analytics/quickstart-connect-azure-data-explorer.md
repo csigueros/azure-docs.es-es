@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
-ms.openlocfilehash: ee9d137973bfa4eeb28bc6526437e76e781f3199
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f45bc134c656701ff02beca464ac00fdf222f88
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92172278"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830210"
 ---
 # <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Conexión a Azure Data Explorer con Apache Spark para Azure Synapse Analytics
 
@@ -57,6 +57,8 @@ En Azure Data Explorer, siga estos pasos para conectar directamente un clúster 
 1. Los clústeres y las bases de datos de Azure Data Explorer aparecen en la pestaña **Vinculado** de la sección **Azure Data Explorer**.
 
     ![Captura de pantalla que muestra la exploración de clústeres.](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
+
+1. Para poder interactuar con el servicio vinculado desde un cuaderno, debe publicarse en el área de trabajo. Haga clic en **Publicar** en la barra de herramientas, revise los cambios pendientes y haga clic **Aceptar**.
 
     > [!NOTE]
     > En la versión actual, los objetos de base de datos se rellenan en función de los permisos de las cuentas de Azure AD en las bases de datos de Azure Data Explorer. Al ejecutar los cuadernos o los trabajos de integración de Apache Spark, se usará la credencial del servicio de vínculo (por ejemplo, la entidad de servicio).

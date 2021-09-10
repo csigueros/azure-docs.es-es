@@ -3,12 +3,12 @@ title: Uso de puntos de conexión privados para integrar Azure Functions con una
 description: En este tutorial se explica cómo conectar una función a una red virtual de Azure y cómo bloquearla con puntos de conexión privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 0f18712e9881c60754d5729751609f6458104daf
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: a410d6717a73df2c7e947fd15c6c89040f08846c
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715491"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204747"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integración de Azure Functions con una red virtual de Azure mediante puntos de conexión privados
 
@@ -147,7 +147,7 @@ Cree la red virtual con la que se integra la aplicación de funciones:
 
 Los puntos de conexión privados de Azure se usan para conectarse a recursos específicos de Azure mediante una dirección IP privada. Esta conexión garantiza que el tráfico de red permanece dentro de la red virtual elegida y que el acceso solo está disponible para recursos específicos. 
 
-Cree los puntos de conexión privados para Azure File Storage y Azure Blob Storage mediante la cuenta de almacenamiento:
+Cree los puntos de conexión privados para Azure Files Storage, Azure Blob Storage y Azure Table Storage mediante la cuenta de almacenamiento:
 
 1. En el menú de la izquierda de la cuenta de almacenamiento nueva, seleccione **Redes**.
 
@@ -186,6 +186,15 @@ Cree los puntos de conexión privados para Azure File Storage y Azure Blob Sto
     | **Nombre** | blob-endpoint | Nombre del punto de conexión privado para los blobs de la cuenta de almacenamiento. |
     | **Recurso** | mysecurestorage | La cuenta de almacenamiento que creó. |
     | **Recurso secundario de destino** | blob | El punto de conexión privado se usará para los blobs de la cuenta de almacenamiento. |
+1. Cree otro punto de conexión privado para las tablas. En la pestaña **Recursos**, use la configuración que se muestra en la tabla siguiente. Para todas las demás opciones, utilice los mismos valores que usó para crear el punto de conexión privado para los archivos.
+
+    | Configuración      | Valor sugerido  | Descripción      |
+    | ------------ | ---------------- | ---------------- |
+    | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. | 
+    | **Tipo de recurso**  | Microsoft.Storage/storageAccounts | El tipo de recurso de las cuentas de almacenamiento. |
+    | **Nombre** | table-endpoint | Nombre del punto de conexión privado para los blobs de la cuenta de almacenamiento. |
+    | **Recurso** | mysecurestorage | La cuenta de almacenamiento que creó. |
+    | **Recurso secundario de destino** | table | El punto de conexión privado se usará con los archivos de la cuenta de almacenamiento. |
 1. Una vez creados los puntos de conexión privados, vuelva a la sección **Firewalls y redes virtuales** de la cuenta de almacenamiento.  
 1. Asegúrese de que esté seleccionada la opción **Redes seleccionadas**.  No es necesario agregar una red virtual existente.
 

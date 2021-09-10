@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: eb50a6418c296e98b12af481df33509af3f0a06d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/05/2021
+ms.openlocfilehash: a7dfe0b24143b9a92c10d1b1c876eabb200f2270
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536585"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113598259"
 ---
 # <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Revisión y publicación de una oferta en el marketplace comercial
 
@@ -30,7 +30,7 @@ Puede revisar el estado de la oferta en la pestaña **Información general** del
 | Atención necesaria | Se ha detectado un problema crítico durante la certificación o durante otra fase de publicación. |
 | Versión preliminar | Nosotros certificamos la oferta, misma que está en espera de la comprobación final del anunciante. Seleccione **Transmitir** para publicar la oferta en vivo. |
 | En vivo | La oferta está activa en Marketplace y los clientes la pueden ver y adquirir. |
-| Detener venta pendiente | El anunciante ha seleccionado "Detener venta" en la oferta o el plan, pero aún no se ha completado la acción. |
+| Pending Stop distribution (Pendiente de dejar de distribuir) | El anunciante ha seleccionado "Stop distribution" (Dejar de distribuir) en la oferta o el plan, pero aún no se ha completado la acción. |
 | No disponible en el marketplace | Una oferta publicada anteriormente se ha quitado del Marketplace. |
 |
 
@@ -128,7 +128,7 @@ La oferta se prueba en varias plataformas y con distintas versiones para garanti
 
 Si se produce algún error en las comprobaciones del anuncio, técnicas o de las directivas, o si no es apto para enviar una oferta de ese tipo, se genera un informe de error de certificación, que se le envía por correo electrónico.
 
-Este informe contiene descripciones de las directivas con error, junto con notas de revisión. Revise este informe de correo electrónico, solucione los problemas, actualice la oferta según sea necesario y vuelva a enviarla mediante el [portal de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) del Centro de partners. Puede volver a enviar las ofertas las veces que sea necesario hasta que se supere la certificación.
+Este informe contiene descripciones de las directivas con error, junto con notas de revisión. Revise este informe de correo electrónico, solucione los problemas, actualice la oferta según sea necesario y vuelva a enviarla mediante el [portal de marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2165935) del Centro de partners. Puede volver a enviar las ofertas las veces que sea necesario hasta que se supere la certificación.
 
 ## <a name="preview-creation-phase"></a>Fase de versión preliminar
 
@@ -214,8 +214,8 @@ Para ver el historial de la oferta:
 |Oferta creada    |Se ha creado la oferta en el Centro de partners. Un usuario seleccionó el tipo de oferta, el id. de la oferta y el alias de la oferta en **Marketplace comercial** > **Información general**.    |
 |Plan creado: *nombre de plan*    |Un usuario creó un nuevo plan especificando el id. de plan y el nombre del plan en la pestaña **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
 |Plan eliminado    |Un usuario eliminó un plan borrador que no se había publicado, seleccionando **Eliminar borrador** en la página **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
-|Plan de detención de la venta iniciado: *nombre del plan*    |Un usuario inició un plan de detención de la venta, seleccionando **Dejar de vender** en la página de **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
-|Plan de detención de la venta cancelado: *nombre del plan*    |Un usuario canceló un plan de detención de la venta, seleccionando **Deshacer detención de la venta** en la página de **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Initiated plan Stop distribution (Plan iniciado Dejar de distribuir): *nombre del plan*    |Un usuario inició un plan para dejar de distribuir seleccionando **Stop distribution** (Dejar de distribuir) en la página **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Resume distribution (Reanudar distribución): *nombre del plan*    |Un usuario canceló un plan para dejar de distribuir seleccionando **Resume distribution** (Reanudar distribución) en la página **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
 |Envío de oferta a versión preliminar    |Un usuario envió la oferta a versión preliminar seleccionando **Publicar** en la página **Revisar y publicar**.    |
 |Cancelación del envío a versión preliminar iniciada    |Un usuario solicitó cancelar la publicación de la oferta en versión preliminar, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después del envío a versión preliminar.</br>*Este evento se muestra mientras se procesa la solicitud de cancelación*.    |
 |Envío a versión preliminar cancelado    |Un usuario canceló la publicación de la oferta en versión preliminar, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después del envío a versión preliminar.</br>*Este evento se muestra después de que la solicitud de cancelación se haya procesado correctamente*.    |
@@ -223,7 +223,7 @@ Para ver el historial de la oferta:
 |Cancelación de publicación en marketplace iniciada    |Un usuario solicitó cancelar la publicación de la oferta, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después de cerrar sesión para la llamada en directo.</br>*Este evento se muestra mientras se procesa la solicitud de cancelación*.    |
 |Publicación en marketplace comercial cancelada    |Un usuario canceló la publicación de la oferta, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después de cerrar sesión para la llamada en directo.</br>*Este evento se muestra después de que la solicitud de cancelación se haya procesado correctamente*.    |
 |Audiencia privada sincronizada    |Un usuario actualizó y sincronizó la audiencia privada seleccionando **Sync private audience** (Sincronizar audiencia privada) en la página **Información general del plan** o en la página **Plan pricing & availability** (Precio y disponibilidad del plan).</br>*Este evento solo se aplica a los tipos de oferta que admiten planes privados*.    |
-|Venta de la oferta detenida    |Un usuario dejó de vender la oferta seleccionando **Dejar de vender** en la página **Información general de la oferta**.    |
+|Stop distribution offer (Dejar de distribuir oferta)    |Un usuario dejó de vender la oferta seleccionando **Stop distribution** (Dejar de distribuir) en la página **Información general de la oferta**.    |
 
 > [!NOTE]
 > En la página Historial no se indica cuándo se ha guardado un borrador de la oferta.

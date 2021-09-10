@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación rápida de identidades de Azure Communication 
 titleSuffix: An Azure Communication Services quickstart
 description: Obtenga información sobre cómo usar la herramienta Identidades y tokens de acceso en Azure Portal con ejemplos y para solucionar problemas.
 author: manoskow
-manager: jken
+manager: chpalm
 services: azure-communication-services
 ms.author: manoskow
 ms.date: 07/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 20984666878b94a914770b8afd17ad8f3fdd3ff1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d61fb99787bc2e934ce2f1abc9bedff0c21bc64d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114481804"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251109"
 ---
 # <a name="quickstart-quickly-create-azure-communication-services-access-tokens-for-testing"></a>Inicio rápido: Creación rápida de tokens de acceso de Azure Communication Services para pruebas
 
@@ -32,7 +32,11 @@ En [Azure Portal](https://portal.azure.com), vaya a la hoja **Identidades y toke
 
 Elija el ámbito de los tokens de acceso. Puede seleccionar ninguno, uno o varios. Haga clic en **Generar**.
 
-Verá una identidad y el token de acceso de usuario correspondiente generado. Puede copiar estas cadenas y usarlas en las [aplicaciones de ejemplo](https://docs.microsoft.com/azure/communication-services/samples/overview) y otros escenarios de prueba.
+![Seleccione los ámbitos de los tokens de identidad y acceso.](../media/quick-create-identity-choose-scopes.png)
+
+Verá una identidad y el token de acceso de usuario correspondiente generado. Puede copiar estas cadenas y usarlas en las [aplicaciones de ejemplo](../../samples/overview.md) y otros escenarios de prueba.
+
+![Los tokens de identidad y acceso se generan y muestran la fecha de expiración.](../media/quick-create-identity-generated.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

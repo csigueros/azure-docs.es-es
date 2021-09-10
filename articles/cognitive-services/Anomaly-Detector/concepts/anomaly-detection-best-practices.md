@@ -1,5 +1,5 @@
 ---
-title: Procedimientos recomendados cuando se usa Anomaly Detector API
+title: Procedimientos recomendados para usar la API univariante de Anomaly Detector
 titleSuffix: Azure Cognitive Services
 description: Conozca los procedimientos recomendados al detectar anomalías con Anomaly Detector API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 43ccde054a9630b251aa6c206028d29c7c699316
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de1662fd39030082dfbfef4d38d1803b3d6f82e5
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98936209"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297305"
 ---
-# <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedimientos recomendados para usar Anomaly Detector API
+# <a name="best-practices-for-using-the-anomaly-detector-univariate-api"></a>Procedimientos recomendados para usar la API univariante de Anomaly Detector
 
 Anomaly Detector API es un servicio de detección de anomalías sin estado. La precisión y el rendimiento de sus resultados pueden verse afectados por:
 

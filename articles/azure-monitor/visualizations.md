@@ -2,15 +2,15 @@
 title: Visualizar datos de Azure Monitor | Microsoft Docs
 description: Proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 01/25/2021
-ms.openlocfilehash: 1da3f75fb95488d45a3f29284bdc8c7424b6bc9a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+author: rboucher
+ms.author: robb
+ms.date: 07/28/2021
+ms.openlocfilehash: 4a98a44cd56691947536779103f55b4e713c74df
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459111"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724609"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -85,6 +85,9 @@ Este es un tutorial en vídeo sobre la creación de paneles.
 
 ![Captura de pantalla que muestra las visualizaciones de Grafana.](media/visualizations/grafana.png)
 
+> [!IMPORTANT]
+> El explorador Internet Explorer y los exploradores Microsoft Edge más antiguos no son compatibles con Grafana, debe usar un explorador basado en Chromium, incluido Microsoft Edge. Consulte [Exploradores compatibles con Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
+
 ### <a name="advantages"></a>Ventajas
 - Visualizaciones enriquecidas.
 - Ecosistema enriquecido de orígenes de datos.
@@ -95,6 +98,15 @@ Este es un tutorial en vídeo sobre la creación de paneles.
 - No hay integración de Azure. No puede administrar los paneles y los modelos a través de Azure Resource Manager.
 - Costo para admitir una infraestructura Grafana adicional o costo adicional para Grafana Cloud.
 
+## <a name="azure-monitor-partners"></a>Asociados de Azure Monitor
+Algunos [asociados de Azure Monitor](./partners.md) pueden proporcionar la funcionalidad de visualización. En el vínculo anterior se enumeran los asociados evaluados por Microsoft. 
+
+### <a name="advantages"></a>Ventajas
+- Puede proporcionar visualizaciones rápidas, lo que ahorra tiempo
+
+### <a name="limitations"></a>Limitaciones
+- Puede tener costos adicionales
+- Tiempo para investigar y evaluar las ofertas de asociados
 
 ## <a name="build-your-own-custom-application"></a>Compilar su propia aplicación personalizada
 Puede tener acceso a datos de métricas y de registro en Azure Monitor mediante la API con cualquier cliente REST, lo que le permite crear sus propios sitios web y aplicaciones personalizados.
@@ -105,7 +117,6 @@ Puede tener acceso a datos de métricas y de registro en Azure Monitor mediante 
 
 ### <a name="disadvantages"></a>Inconvenientes
 - Se requiere un trabajo de ingeniería importante.
-
 
 ## <a name="azure-monitor-views"></a>Vistas de Azure Monitor
 
@@ -140,4 +151,3 @@ Las [vistas de Azure Monitor](visualize/view-designer.md) le permiten crear visu
 - Obtenga información sobre cómo [importar datos de registro en Power BI](./visualize/powerbi.md).
 - Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](./visualize/grafana-plugin.md).
 - Obtenga información sobre las [vistas de Azure Monitor](visualize/view-designer.md).
-

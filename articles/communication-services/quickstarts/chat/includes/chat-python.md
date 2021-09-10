@@ -2,20 +2,20 @@
 title: Archivo de inclusión
 description: Archivo de inclusión
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: e0c2deba9bdd69c6a4c9c9c5f0974a181c6c2472
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.author: rifox
+ms.openlocfilehash: b22cee560284a5a185e6b3ba560531d43d37ca67
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113414"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967925"
 ---
 ## <a name="sample-code"></a>Código de ejemplo
 Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat).
@@ -143,6 +143,7 @@ Utilice el método `send_message` para enviar un mensaje a una conversación de 
 - Utilice `content` para proporcionar el contenido del mensaje de chat.
 - Utilice `chat_message_type` para especificar el tipo de contenido del mensaje. Los valores posibles son `text` y `html`. Si no especifica un valor, el valor predeterminado es `text`.
 - Utilice `sender_display_name` para especificar el nombre para mostrar del remitente.
+- Opcionalmente, use `metadata` para incluir los datos adicionales que quiera enviar con el mensaje. Este campo proporciona un mecanismo para que los desarrolladores amplíen la funcionalidad de los mensajes de chat y agreguen información personalizada para su caso de uso. Por ejemplo, al compartir un vínculo de archivo en el mensaje, es posible que quiera agregar "hasAttachment:true" en los metadatos para que la aplicación del destinatario pueda analizarlo y mostrarlo en consecuencia.
 
 `SendChatMessageResult` es la respuesta devuelta al enviar un mensaje. Contiene un identificador, que es el identificador único del mensaje.
 
@@ -155,11 +156,15 @@ thread_id = create_chat_thread_result.chat_thread.id
 chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
 
 
-content='hello world'
+content='Please take a look at the attachment'
 sender_display_name='sender name'
+metadata={
+    'hasAttachment': 'true',
+    'attachmentUrl': 'https://contoso.com/files/attachment.docx'
+}
 
 # specify chat message type with pre-built enumerations
-send_message_result_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT)
+send_message_result_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT, metadata=metadata)
 print("Message sent: id: ", send_message_result_w_enum.id)
 ```
 

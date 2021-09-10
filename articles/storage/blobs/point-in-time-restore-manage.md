@@ -10,12 +10,12 @@ ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd58ae6aa0083b0f2a02ef1c008e76f92f39b766
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 904def8328fbd7e23812b7ca325beda7722c5189
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676307"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504700"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Habilitación y administración de la restauración a un momento dado para blobs en bloques
 
@@ -24,7 +24,7 @@ Puede usar la restauración a un momento dado para restaurar uno o más conjunto
 Para más información sobre la restauración a un momento dado, consulte [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> La restauración a un momento dado solo admite la restauración de operaciones en blobs en bloques. No se pueden restaurar las operaciones en contenedores. Si elimina un contenedor de la cuenta de almacenamiento llamando a la operación [Eliminar contenedor](/rest/api/storageservices/delete-container), dicho contenedor no se puede restaurar con una operación de restauración. En lugar de eliminar un contenedor completo, elimine blobs individuales, por si desea restaurarlos más adelante. Además, Microsoft recomienda habilitar la eliminación temporal de contenedores y blobs para proteger contra la eliminación accidental. Para más información, consulte [Eliminación temporal de contenedores (versión preliminar)](soft-delete-container-overview.md) y [Eliminación temporal de blobs](soft-delete-blob-overview.md).
+> La restauración a un momento dado solo admite la restauración de operaciones en blobs en bloques. No se pueden restaurar las operaciones en contenedores. Si elimina un contenedor de la cuenta de almacenamiento llamando a la operación [Eliminar contenedor](/rest/api/storageservices/delete-container), dicho contenedor no se puede restaurar con una operación de restauración. En lugar de eliminar un contenedor completo, elimine blobs individuales, por si desea restaurarlos más adelante. Además, Microsoft recomienda habilitar la eliminación temporal de contenedores y blobs para proteger contra la eliminación accidental. Para más información, consulte [Eliminación temporal de contenedores](soft-delete-container-overview.md) y [Eliminación temporal de blobs](soft-delete-blob-overview.md).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Habilitar y configurar la restauración a un momento dado
 

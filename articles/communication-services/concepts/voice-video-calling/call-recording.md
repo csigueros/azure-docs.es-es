@@ -2,27 +2,27 @@
 title: Introducción a la grabación de llamadas con Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Proporciona una introducción a la característica y las API de grabación de llamadas.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 898346d69b656656c93889002109bae0f15b2dbc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fef4972271046f7435140fd2d9ba3d18c7c3b11c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464344"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254754"
 ---
 # <a name="calling-recording-overview"></a>Introducción a la grabación de llamadas
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
-> La grabación de llamadas solo está disponible actualmente para los recursos de Communication Services creados en la región de EE. UU.
+> La grabación de llamadas está disponible para los recursos de Communication Services creados en las regiones de EE. UU., Reino Unido, Europa, Asia y Australia.
 
 Grabación de llamadas proporciona un conjunto de API para iniciar, detener, pausar y reanudar la grabación. Se puede acceder a estas API desde la lógica de negocios del lado servidor o a través de eventos desencadenados por acciones del usuario. La salida de los elementos multimedia grabados está en formato de audio y vídeo MP4, que es el mismo formato que usa Teams para grabar los elementos multimedia. Las notificaciones relacionadas con los elementos multimedia y los metadatos se emiten a través de Event Grid. Las grabaciones se almacenan durante 48 horas en el almacenamiento temporal integrado para su recuperación y traslado a una solución de almacenamiento a largo plazo de su elección. 
 

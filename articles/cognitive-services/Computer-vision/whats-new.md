@@ -10,16 +10,22 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: ce04187cb513712998b6c4ba26d5210bb56ca5df
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b7292206aacbbca5c8e76ce573dc6fd0b3e32578
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453763"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835763"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Agregue esta página a sus marcadores para mantenerse actualizado con el servicio.
+
+## <a name="august-2021"></a>Agosto de 2021
+
+### <a name="image-tagging-language-expansion"></a>Expansión del idioma de etiquetado de imágenes
+
+La [versión más reciente (v3.2)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200) del etiquetador de imágenes ahora admite etiquetas en 50 idiomas. Para obtener más información, consulte la página [Compatibilidad con idiomas](language-support.md).
 
 ## <a name="may-2021"></a>Mayo de 2021
 

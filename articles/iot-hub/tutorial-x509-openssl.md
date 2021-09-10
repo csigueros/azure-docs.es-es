@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 7985879b54fe840ec47d72595d95547aa062938b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: adbb2979fc9e097fa0abf2675759ba1f7aad8a0c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724305"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310564"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>Tutorial: Uso de OpenSSL para crear certificados de prueba
 
@@ -238,20 +238,27 @@ Ahora tiene un certificado de entidad de certificación raíz y un certificado d
 
 1. En Azure Portal, vaya a la instancia de IoT Hub y seleccione **Configuración > Certificados**.
 
-1. Seleccione **Agregar** para agregar el nuevo certificado de la entidad de certificación subordinada.
+2. Seleccione **Agregar** para agregar el nuevo certificado de la entidad de certificación subordinada.
 
-1. Escriba un nombre para mostrar en el campo **Nombre del certificado** y seleccione el archivo de certificado PEM que creó anteriormente.
+3. Escriba un nombre para mostrar en el campo **Nombre del certificado** y seleccione el archivo de certificado PEM que creó anteriormente.
 
-1. Seleccione **Guardar**. El certificado se muestra en la lista de certificados con el estado **Sin comprobar**. El proceso de comprobación demostrará que es el propietario del certificado.
+> [!NOTE]
+> Los certificados .crt creados anteriormente son los mismos que los certificados .pem. Simplemente puede cambiar la extensión al cargar un certificado para demostrar la posesión, o puede usar el siguiente comando OpenSSL:
+
+```bash
+openssl x509 -in mycert.crt -out mycert.pem -outform PEM
+```
+
+4. Seleccione **Guardar**. El certificado se muestra en la lista de certificados con el estado **Sin comprobar**. El proceso de comprobación demostrará que es el propietario del certificado.
 
    
-1. Seleccione el certificado para ver el cuadro de diálogo **Detalles del certificado**.
+5. Seleccione el certificado para ver el cuadro de diálogo **Detalles del certificado**.
 
-1. Seleccione **Generar código de verificación**. Para más información, consulte [Demostración de la posesión de un certificado de entidad de certificación](tutorial-x509-prove-possession.md).
+6. Seleccione **Generar código de verificación**. Para más información, consulte [Demostración de la posesión de un certificado de entidad de certificación](tutorial-x509-prove-possession.md).
 
-1. Copie este código de verificación en el portapapeles. Debe establecer el código de verificación como asunto del certificado. Por ejemplo, si el código de verificación es BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, agréguelo como firmante del certificado, tal como se muestra en el paso 9.
+7. Copie este código de verificación en el portapapeles. Debe establecer el código de verificación como asunto del certificado. Por ejemplo, si el código de verificación es BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, agréguelo como firmante del certificado, tal como se muestra en el paso 9.
 
-1. Genere una clave privada.
+8. Genere una clave privada.
 
   ```bash
     $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048

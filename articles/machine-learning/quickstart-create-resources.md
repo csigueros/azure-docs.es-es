@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.date: 06/10/2021
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 0d4c85ec1075e3925fa5657783ffce618faaa6ea
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: a5bc3ebfb58a41761b4a41439b6482592c58a7b0
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760146"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037320"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Creación de los recursos de área de trabajo necesarios para empezar a trabajar con Azure Machine Learning
 
@@ -44,10 +44,10 @@ Azure Machine Learning se puede instalar en el propio equipo.  Pero en este inic
 Cree una *instancia de proceso* para usar este entorno de desarrollo en el resto de los tutoriales e inicios rápidos.
 
 1. Si no seleccionó **Ir a área de trabajo** en la sección anterior, inicie sesión en [Estudio de Azure Machine Learning](https://ml.azure.com) y seleccione el área de trabajo.
-1. A la izquierda, en **Administrar**, seleccione **Proceso**.
+1. Seleccione **Proceso** en el lado izquierdo.
 1. Seleccione **+Nuevo** para crear una nueva instancia de proceso.
-1. Mantenga todos los valores predeterminados de la primera página y seleccione **Siguiente**.
-1. Especifique un nombre y seleccione **Crear**.
+1. Proporcione un valor y mantenga todos los valores predeterminados de la primera página.
+1. Seleccione **Crear**.
  
 En unos dos minutos, verá que el valor de **Estado** de la instancia de proceso cambia de *Creando* a *En ejecución*.  Ya está listo para empezar.  
 
@@ -86,6 +86,10 @@ Revise las partes de Studio en la barra de navegación izquierda:
 * La sección **Recursos** de Studio le ayuda a realizar un seguimiento de los recursos que crea al ejecutar los trabajos.  Si tiene un área de trabajo nueva, estas secciones no contendrán absolutamente nada.
 
 * Ya ha usado la sección **Administrar** de Studio para crear los recursos de proceso.  Esta sección también le permite crear y administrar datos y servicios externos que vincular a su área de trabajo.  
+
+### <a name="workspace-diagnostics"></a>Diagnóstico del área de trabajo
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## <a name="clean-up-resources"></a><a name="clean-up"></a>Limpieza de recursos
 

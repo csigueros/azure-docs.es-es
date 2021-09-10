@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: edb758469a06dcb7914025ea449b9d952e939533
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: f2aaf03f4314386615fabfe65ca47132543577fa
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097217"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091706"
 ---
 # <a name="add-a-symbol-layer-android-sdk"></a>Adición de una capa de símbolo (Android SDK)
 
@@ -144,9 +144,9 @@ En la captura de pantalla siguiente se muestra el código anterior que represent
 > [!TIP]
 > De forma predeterminada, las capas de símbolos optimizan la representación de los símbolos, ya que ocultan los símbolos que se superponen. A medida que se acerca el zoom, los símbolos ocultos se hacen visibles. Para deshabilitar esta característica y representar todos los símbolos en todo momento, establezca las opciones `iconAllowOverlap` y `textAllowOverlap` en `true`.
 
-## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adición de un icono personalizado a una capa de símbolo
+## <a name="add-a-custom-icon-to-a-symbol-layer&quot;></a>Adición de un icono personalizado a una capa de símbolo
 
-Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recursos, como las imágenes de icono, se deben cargar en el contexto de WebGL. En este ejemplo, se muestra cómo se agrega un icono personalizado a los recursos del mapa. Este icono se usa después para representar los datos de punto en el mapa con un símbolo personalizado. La propiedad `textField` de la capa de símbolo requiere que se especifique una expresión. En este caso, queremos representar la propiedad "temperature". Como la temperatura es un número, debe convertirse en una cadena. Además, queremos anexarle "°F". Para ello, podemos utilizar la expresión `concat(Expression.toString(get("temperature")), literal("°F"))`.
+Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recursos, como las imágenes de icono, se deben cargar en el contexto de WebGL. En este ejemplo, se muestra cómo se agrega un icono personalizado a los recursos del mapa. Este icono se usa después para representar los datos de punto en el mapa con un símbolo personalizado. La propiedad `textField` de la capa de símbolo requiere que se especifique una expresión. En este caso, queremos representar la propiedad &quot;temperature&quot;. Como la temperatura es un número, debe convertirse en una cadena. Además, queremos anexarle &quot;°F&quot;. Para ello, podemos utilizar la expresión `concat(Expression.toString(get(&quot;temperature")), literal("°F"))`.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -222,17 +222,17 @@ En la captura de pantalla siguiente se muestra el código anterior que represent
 ![Mapa con punto representado mediante una capa de símbolo que muestra un icono personalizado y una etiqueta de texto con formato para una característica de punto](media/how-to-add-symbol-to-android-map/android-custom-symbol-layer.png)
 
 > [!TIP]
-> Si solamente desea representar texto con una capa de símbolos, puede ocultar el icono estableciendo la propiedad `iconImage` de las opciones del icono en `"none"`.
+> Si solamente desea representar texto con una capa de símbolos, puede ocultar el icono estableciendo la propiedad `iconImage` de las opciones del icono en `"none&quot;`.
 
-## <a name="modify-symbol-colors"></a>Modificación de los colores de símbolos
+## <a name=&quot;modify-symbol-colors&quot;></a>Modificación de los colores de símbolos
 
 La instancia de Android SDK de Azure Maps incluye un conjunto de variaciones de color predefinidas del icono de marcador predeterminado. Por ejemplo, `marker-red` se puede pasar a la opción `iconImage` de una capa de símbolos para representar una versión roja del icono de marcador en esa capa.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 SymbolLayer layer = new SymbolLayer(source,
-    iconImage("marker-red")
+    iconImage(&quot;marker-red")
 );
 ```
 
@@ -248,27 +248,27 @@ val layer = SymbolLayer(source,
 
 ::: zone-end
 
-En la tabla siguiente se enumeran todos los nombres de imagen de icono integrados que hay disponibles. Todos estos marcadores extraen sus colores de los recursos de color que se pueden invalidar. Además, puede invalidar el color de relleno principal de este marcador. Sin embargo, tenga en cuenta que la invalidación del color de uno de estos marcadores se aplicará a todas las capas que usen esa imagen de icono.
+En la tabla siguiente se enumeran todos los nombres de imagen de icono integrados que hay disponibles. Todos estos marcadores extraen sus colores de los recursos de color que se pueden invalidar. Además, puede invalidar el color de relleno principal de este marcador. Sin embargo, la invalidación del color de uno de estos marcadores se aplicará a todas las capas que usen esa imagen de icono.
 
 | Nombre de la imagen de icono | Nombre del recurso de color |
 |-----------------|---------------------|
-| `marker-default` | `mapcontrol_marker_default` |
-| `marker-black` | `mapcontrol_marker_black` |
-| `marker-blue` | `mapcontrol_marker_blue` |
-| `marker-darkblue` | `mapcontrol_marker_darkblue` |
-| `marker-red` | `mapcontrol_marker_red` |
-| `marker-yellow` | `mapcontrol_marker_yellow` |
+| `marker-default` | `azure_maps_marker_default` |
+| `marker-black` | `azure_maps_marker_black` |
+| `marker-blue` | `azure_maps_marker_blue` |
+| `marker-darkblue` | `azure_maps_marker_darkblue` |
+| `marker-red` | `azure_maps_marker_red` |
+| `marker-yellow` | `azure_maps_marker_yellow` |
 
-También puede invalidar el color del borde de todos los marcadores mediante el nombre del recurso de color `mapcontrol_marker_border`. Los colores de estos marcadores se pueden invalidar agregando un color con el mismo nombre en el archivo `colors.xml` de la aplicación. Por ejemplo, el siguiente archivo `colors.xml` hace que el color del marcador predeterminado sea verde claro.
+También puede invalidar el color del borde de todos los marcadores mediante el nombre del recurso de color `azure_maps_marker_border`. Los colores de estos marcadores se pueden invalidar agregando un color con el mismo nombre en el archivo `colors.xml` de la aplicación. Por ejemplo, el siguiente archivo `colors.xml` hace que el color del marcador predeterminado sea verde claro.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="mapcontrol_marker_default">#00FF00</color>
+    <color name="azure_maps_marker_default">#00FF00</color>
 </resources>
 ```
 
-La siguiente es una versión modificada del XML de vector del marcador predeterminado que puede modificar para crear versiones personalizadas adicionales del marcador predeterminado. Asimismo, la versión modificada puede agregarse a la carpeta `drawable` de la aplicación y agregarse a la imagen de mapas de sprite mediante `map.images.add` y, a continuación, usarse con una capa de símbolos.
+El código siguiente es una versión modificada del XML de vector del marcador predeterminado que puede modificar para crear versiones personalizadas del marcador predeterminado. Asimismo, la versión modificada puede agregarse a la carpeta `drawable` de la aplicación y agregarse a la imagen de mapas de sprite mediante `map.images.add` y, a continuación, usarse con una capa de símbolos.
 
 ```xml
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
@@ -279,8 +279,8 @@ La siguiente es una versión modificada del XML de vector del marcador predeterm
     <path
         android:pathData="M12.25,0.25a12.2543,12.2543 0,0 0,-12 12.4937c0,6.4436 6.4879,12.1093 11.059,22.5641 0.5493,1.2563 1.3327,1.2563 1.882,0C17.7621,24.8529 24.25,19.1857 24.25,12.7437A12.2543,12.2543 0,0 0,12.25 0.25Z"
         android:strokeWidth="0.5"
-        android:fillColor="@color/mapcontrol_marker_default"
-        android:strokeColor="@color/mapcontrol_marker_border"/>
+        android:fillColor="@color/azure_maps_marker_default"
+        android:strokeColor="@color/azure_maps_marker_border"/>
 </vector>
 ```
 
@@ -290,6 +290,9 @@ Para obtener más ejemplos de código para agregar a los mapas:
 
 > [!div class="nextstepaction"]
 > [Creación de un origen de datos](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Datos de punto de clúster](clustering-point-data-android-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Adición de una capa de burbuja](map-add-bubble-layer-android.md)

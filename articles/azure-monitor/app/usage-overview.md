@@ -1,20 +1,19 @@
 ---
-title: Análisis de uso con Azure Application Insights | Microsoft Docs
+title: Análisis de uso con Application Insights | Azure Monitor
 description: Entienda a los usuarios y lo qué hacen con la aplicación.
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.openlocfilehash: 8be8f6ad5285819d2cdb7e369c98d6e9da9d76c8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/30/2021
+ms.openlocfilehash: 67739c94afeb841450eb465fe5cd5259093e2e78
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082349"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729328"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análisis de uso con Application Insights
 
-¿Qué características de la aplicación web o móvil son más populares? ¿Los usuarios logran sus objetivos con la aplicación? ¿Salen de ella en momentos concretos y vuelven más tarde?  [Azure Application Insights](./app-insights-overview.md) le ayudará a obtener información eficaz sobre el uso de la aplicación por parte de los usuarios. Cada vez que actualice la aplicación, puede evaluar también si funciona bien para los usuarios. Con este conocimiento, puede tomar decisiones basadas en datos sobre los ciclos de desarrollo siguientes.
+¿Qué características de la aplicación web o móvil son más populares? ¿Los usuarios logran sus objetivos con la aplicación? ¿Salen de ella en momentos concretos y vuelven más tarde?  [Application Insights](./app-insights-overview.md) le ayudará a obtener información eficaz sobre el uso de la aplicación por parte de los usuarios. Cada vez que actualice la aplicación, puede evaluar también si funciona bien para los usuarios. Con este conocimiento, puede tomar decisiones basadas en datos sobre los ciclos de desarrollo siguientes.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
 
 ## <a name="send-telemetry-from-your-app"></a>Envío de telemetría desde la aplicación
 
@@ -47,7 +46,7 @@ La mejor experiencia se obtiene mediante la instalación de Application Insights
 
 3. **Código de aplicación móvil**: utilice el SDK de App Center para recopilar eventos de la aplicación y después enviar copias de estos eventos a Application Insights para el análisis; para ello, [siga esta guía](../app/mobile-center-quickstart.md).
 
-4. **Obtener telemetría**: ejecute su proyecto en modo de depuración durante unos minutos y luego busque resultados en la hoja de información general en Application Insights.
+4. **Obtener telemetría:** ejecute su proyecto en modo de depuración durante unos minutos y luego busque resultados en el panel de información general en Application Insights.
 
     Publique su aplicación para supervisar el rendimiento de su aplicación y descubra lo que hacen sus usuarios con ella.
 
@@ -56,7 +55,7 @@ Descubra cuándo los usuarios utilizan la aplicación, en qué páginas que est�
 
 Los informes Usuarios y sesiones filtran los datos por páginas o eventos personalizados, y los segmentan por propiedades tales como la ubicación, el entorno y la página. También puede agregar sus propios filtros.
 
-![Captura de pantalla que muestra la página de información general de usuarios de una empresa ficticia.](./media/usage-overview/users.png)  
+:::image type="content" source="./media/usage-overview/users.png" alt-text="Captura de pantalla que muestra la pestaña Usuarios con un gráfico de barras." lightbox="./media/usage-overview/users.png":::
 
 La información de la derecha señala patrones de interés en el conjunto de datos.  
 
@@ -73,11 +72,11 @@ Retención lo ayudará a comprender la frecuencia con la que los usuarios vuelve
 - Formular hipótesis basadas en datos de usuarios reales 
 - Determinar si la retención es un problema del producto 
 
-![Captura de pantalla que muestra la página de información general de retención, que presenta información sobre la frecuencia con la que los usuarios vuelven a usar su aplicación.](./media/usage-overview/retention.png) 
+:::image type="content" source="./media/usage-overview/retention.png" alt-text="Captura de pantalla que muestra el libro de retención, que presenta información sobre la frecuencia con la que los usuarios vuelven a usar su aplicación." lightbox="./media/usage-overview/retention.png":::
 
 Los controles de retención de la parte superior permiten definir eventos específicos y el intervalo de tiempo para calcular la retención. El gráfico situado en la parte central proporciona una representación visual del porcentaje total de retención por el intervalo de tiempo especificado. El gráfico de la parte inferior representa la retención individual en un periodo determinado. Este nivel de detalle permite entender lo que hacen los usuarios y qué podría afectar al regreso de los usuarios con una granularidad más detallada.  
 
-[Más información de la herramienta Retención](usage-retention.md)
+[Más información de la herramienta de retención](usage-retention.md)
 
 ## <a name="custom-business-events"></a>Eventos de negocio personalizados
 
@@ -87,12 +86,11 @@ También puede usar el [complemento Click Analytics Auto-collection](javascript-
 
 Aunque, en algunos casos, las vistas de página pueden representar eventos útiles, en general, no es así. Un usuario puede abrir una página de un producto sin necesidad de adquirirlo. 
 
-Con los eventos específicos del negocio, puede realizar un gráfico del progreso de los usuarios en su sitio. Puede averiguar sus preferencias para diferentes opciones y en qué partes salen o tienen dificultades. Con este conocimiento, puedan tomar decisiones fundamentadas en lo que respecta a las prioridades del trabajo pendiente en materia de desarrollo.
+Con los eventos específicos del negocio, puede realizar un gráfico del progreso de los usuarios en su sitio. Averigüe sus preferencias para diferentes opciones y en qué partes salen o tienen dificultades. Con este conocimiento, puedan tomar decisiones fundamentadas en lo que respecta a las prioridades del trabajo pendiente en materia de desarrollo.
 
 Los eventos se pueden registrar del lado del cliente de la aplicación:
 
 ```JavaScript
-
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
@@ -107,14 +105,15 @@ O del lado del servidor:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-Puede adjuntar los valores de propiedad a estos eventos, para que pueda filtrar o dividir los eventos al examinarlos en el portal. Además, se adjunta un conjunto estándar de propiedades a cada evento, como el identificador de usuario anónimo, lo que permite realizar un seguimiento de la secuencia de actividades de un usuario individual.
+Puede adjuntar los valores de propiedad a estos eventos, para que pueda filtrar o dividir los eventos al examinarlos en el portal. También se adjunta un conjunto estándar de propiedades a cada evento, como el identificador de usuario anónimo, lo que permite realizar un seguimiento de la secuencia de actividades de un usuario individual.
 
 Obtenga más información sobre los [eventos personalizados](./api-custom-events-metrics.md#trackevent) y las [propiedades](./api-custom-events-metrics.md#properties).
 
 ### <a name="slice-and-dice-events"></a>Eventos de segmentación y desglose
 
 En las herramientas Usuarios, Sesiones y Eventos, puede segmentar y desglosar los eventos personalizados por usuario, nombre del evento y propiedades.
-![Captura de pantalla que muestra la página de información general de usuarios de una empresa ficticia.](./media/usage-overview/users.png)  
+
+:::image type="content" source="./media/usage-overview/events.png" alt-text="Captura de pantalla que muestra la pestaña Eventos filtrada por AnalyticsItemsOperation y dividida por AppID." lightbox="./media/usage-overview/events.png":::
   
 ## <a name="design-the-telemetry-with-the-app"></a>Diseño de la telemetría con la aplicación
 

@@ -1,17 +1,17 @@
 ---
 ms.date: 02/16/2021
 ms.topic: reference-architecture
-author: kriation
+author: karlerickson
 title: Arquitectura de referencia de Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Esta arquitectura de referencia es una base que usa un diseño empresarial típico de concentrador y radio (hub-and-spoke) para el uso de Azure Spring Cloud.
-ms.openlocfilehash: d45d70227be2d88ca69e8a88bbc116a7f8045e74
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0cc7a1345ff15a63c7cb9b0ebca51863fdf2791
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132690"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271215"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Arquitectura de referencia de Azure Spring Cloud
 
@@ -19,7 +19,7 @@ Esta arquitectura de referencia es una base que usa un diseño empresarial típi
 
 Para obtener una implementación de esta arquitectura, consulte el repositorio de [Arquitectura de referencia de Azure Spring Cloud][10] en GitHub.
 
-Entre las opciones de implementación para esta arquitectura se incluyen Azure Resource Manager (ARM), Terraform y la CLI de Azure. Los artefactos de este repositorio ofrecen una base que se puede personalizar para su entorno. Puede agrupar recursos, como Azure Firewall o Application Gateway, en diferentes grupos de recursos o suscripciones. Esta agrupación ayuda a mantener independientes diferentes funciones, como la infraestructura de TI, la seguridad, los equipos de aplicaciones empresariales, etc.
+Las opciones de implementación para esta arquitectura son Azure Resource Manager (ARM), Terraform, la CLI de Azure y Bicep. Los artefactos de este repositorio ofrecen una base que se puede personalizar para su entorno. Puede agrupar recursos, como Azure Firewall o Application Gateway, en diferentes grupos de recursos o suscripciones. Esta agrupación ayuda a mantener independientes diferentes funciones, como la infraestructura de TI, la seguridad, los equipos de aplicaciones empresariales, etc.
 
 ## <a name="planning-the-address-space"></a>Planeación del espacio de direcciones
 

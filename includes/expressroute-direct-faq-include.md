@@ -1,6 +1,6 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02def8321ce5df33fb89ca8d9f6c24167c15bbb6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "73182278"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733850"
 ---
 ### <a name="what-is-expressroute-direct"></a>¿Qué es ExpressRoute Direct?
 
@@ -39,6 +39,8 @@ ExpressRoute Direct proporciona a los clientes pares de puertos directos de 100 
 
 ExpressRoute Direct se facturará por el par de puertos a una cantidad fija. Los circuitos estándar se incluirán sin horas adicionales y los premium tendrán un ligero cargo adicional. La salida se facturará por circuito en función de la zona de la ubicación del emparejamiento.
 
-### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>¿Cuándo cambia el estado de facturación para los pares de puertos de ExpressRoute Direct?
+### <a name="when-does-billing-start-and-stop-for-the-expressroute-direct-port-pairs"></a>¿Cuándo se inicia y se detiene la facturación para los pares de puertos directo de ExpressRoute?
 
 Los pares de puertos directos de ExpressRoute se facturan 45 días después de la creación del recurso directo de ExpressRoute o cuando se activan uno o ambos vínculos, lo que suceda primero. Este período de gracia de 45 días se concede para permitir a los clientes completar el proceso de conexión cruzada con el proveedor de colocaciones.
+
+Dejará de recibir cargos por los pares de puertos de ExpressRoute Direct después de eliminar los puertos directos y quitar las conexiones cruzadas. 

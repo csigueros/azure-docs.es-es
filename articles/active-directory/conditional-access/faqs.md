@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8043e85db1ee1aadc814e98db12cab10ec17e129
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55dffd12f63b5cea3f2728ca36a1038e990d45e8
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92145235"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865105"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Preguntas más frecuentes sobre el acceso condicional de Azure Active Directory
 
@@ -57,7 +57,7 @@ Para obtener más información, vea el artículo sobre las [dependencias del acc
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>¿Por qué algunas pestañas no funcionan en Microsoft Teams después de habilitar las directivas de acceso condicional?
 
-Después de habilitar algunas directivas de acceso condicional en el inquilino en Microsoft Teams, es posible que algunas pestañas dejen de funcionar en el cliente de escritorio según lo previsto. Sin embargo, las pestañas afectadas funcionan cuando se usa el cliente web de Microsoft Teams. Las pestañas afectadas pueden incluir Power BI, formularios, VSTS, PowerApps y la lista de SharePoint.
+Después de habilitar algunas directivas de acceso condicional en el inquilino en Microsoft Teams, es posible que algunas pestañas dejen de funcionar en el cliente de escritorio según lo previsto. Sin embargo, las pestañas afectadas funcionan cuando se usa el cliente web de Microsoft Teams. Las pestañas afectadas pueden incluir Power BI, Forms, VSTS, Power Apps y la lista de SharePoint.
 
 Para ver las pestañas afectadas, debe usar el cliente web de Teams en Edge, Internet Explorer o Chrome con la extensión de cuentas de Windows 10 instalada. Algunas pestañas dependen de la autenticación web, que no funciona en el cliente de escritorio de Microsoft Teams cuando está habilitado el acceso condicional. Microsoft está trabajando con asociados para habilitar estos escenarios. Hasta la fecha, se han habilitado escenarios relacionados con Planner, OneNote y Stream.
 

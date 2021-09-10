@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f6f653478dea84ecb3951b4c313f0f7604733b88
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: c3ade548ae31f7f62014d8f41141374aaa73217a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292895"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252295"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
@@ -507,6 +507,7 @@ La compatibilidad con Delta Lake se encuentra actualmente en versión preliminar
 - Las tablas externas no admiten la creación de particiones. Use [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en la carpeta de Delta Lake para aprovechar la eliminación de particiones. Consulte a continuación los problemas conocidos y las soluciones alternativas.
 - Los grupos de SQL sin servidor no admiten consultas de viaje en el tiempo. Puede votar por esta característica en el [sitio de comentarios de Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use grupos de Apache Spark en Azure Synapse Analytics para [leer datos históricos](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Los grupos de SQL sin servidor no admiten la actualización de archivos de Delta Lake. Puede usar el grupo de SQL sin servidor para consultar la versión más reciente de Delta Lake. Use grupos de Apache Spark en Azure Synapse Analytics para [actualizar Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
+- Los grupos de SQL sin servidor en Synapse Analytics no admiten conjuntos de datos con el [filtro BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
 - La compatibilidad con Delta Lake no está disponible en grupos de SQL dedicados. Asegúrese de que usa grupos sin servidor para consultar archivos de Delta Lake.
 
 Puede proponer ideas y mejoras en el [sitio de comentarios de Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -539,46 +540,43 @@ La manera más fácil es concederse el rol "Colaborador de datos de blobs de alm
 
 ### <a name="partitioning-column-returns-null-values"></a>La columna de creación de particiones devuelve valores NULL
 
-Si usa vistas sobre la función `OPENROWSET` que lee la carpeta de Delta Lake con particiones, puede obtener el valor `NULL` en lugar de los valores de columna reales para las columnas de creación de particiones. En el ejemplo siguiente se muestra un ejemplo de una vista que hace referencia a las columnas de partición `Year` y `Month`:
+**Estado**: resuelto
 
-```sql
-create or alter view test as
-select top 10 * 
-from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
-                format = 'delta') 
-     with (ID int, Year int, Month int, Temperature float) 
-                as rows
-```
-
-Debido a este problema conocido, la función `OPENROWSET` con la cláusula `WITH` no puede leer los valores de las columnas de partición. Las [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en Delta Lake no deben tener la función `OPENROWSET` con la cláusula `WITH`. Debe usar la función `OPENROWSET` que no tiene un esquema especificado explícitamente.
-
-**Solución alternativa**: quite la cláusula `WITH` de la función `OPENROWSET` que se usa en las vistas; ejemplo:
-
-```sql
-create or alter view test as
-select top 10 * 
-from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
-                format = 'delta') 
-   --with (ID int, Year int, Month int, Temperature float) 
-                as rows
-```
+**Lanzamiento**: agosto de 2021
 
 ### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>Error de consulta debido a un cambio de topología o a un error del contenedor de proceso
 
-Algunas consultas de Delta Lake en los conjuntos de datos con particiones podrían producir este mensaje de error si la intercalación de la base de datos no es `Latin1_General_100_BIN2_UTF8`. Cree una base de datos con intercalación `Latin1_General_100_BIN2_UTF8` y ejecute las consultas en esa base de datos en lugar de en la base de datos maestra y otras bases de datos con la intercalación predeterminada.
+**Estado**: resuelto
 
-```sql
-CREATE DATABASE mydb 
-    COLLATE Latin1_General_100_BIN2_UTF8;
-```
-
-Las consultas ejecutadas mediante la base de datos maestra se ven afectadas por este problema. Esto no es aplicable a todas las consultas que leen datos con particiones. Este problema afecta a los conjuntos de datos particionados por columnas de cadena.
-
-**Solución alternativa:** ejecute las consultas en una base de datos personalizada con la intercalación de base de datos `Latin1_General_100_BIN2_UTF8`.
+**Lanzamiento**: agosto de 2021
 
 ### <a name="column-of-type-varchar-is-not-compatible-with-external-data-type-parquet-column-is-of-nested-type"></a>La columna de tipo "VARCHAR" no es compatible con el tipo de datos externo: "La columna Parquet es de tipo anidado"
 
-Está intentando leer archivos de Delta Lake que contienen algunas columnas de tipo anidado sin especificar la cláusula WITH (mediante la inferencia automática de esquemas). La inferencia automática de esquemas no funciona con las columnas anidadas en Delta Lake.
+Está intentando leer archivos de Delta Lake que contienen algunas columnas de tipo anidado sin especificar la cláusula WITH (mediante la inferencia automática de esquemas).
+
+```sql
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
+    FORMAT = 'delta') as rows;
+```
+
+La inferencia automática de esquemas no funciona con las columnas anidadas en Delta Lake. Compruebe que la consulta devuelve algunos resultados si especifica FORMAT='parquet' y anexa ** a la ruta de acceso.
+
+**Solución alternativa:** use la cláusula `WITH` y asigne explícitamente el tipo `VARCHAR` a las columnas anidadas. Tenga en cuenta que esto no funcionará si el conjunto de datos tiene particiones, debido a otro problema conocido en el que la cláusula `WITH` devuelve `NULL` para las columnas de partición. Actualmente no se admiten conjuntos de datos con particiones con columnas de tipo complejo.
+
+### <a name="cannot-parse-field-type-in-json-object"></a>No se puede analizar el campo "type" en el objeto JSON
+
+Está intentando leer archivos de Delta Lake que contienen algunas columnas de tipo anidado sin especificar la cláusula WITH (mediante la inferencia automática de esquemas). 
+
+```sql
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
+    FORMAT = 'delta') as rows;
+```
+
+La inferencia automática de esquemas no funciona con las columnas anidadas en Delta Lake. Compruebe que la consulta devuelve algunos resultados si especifica FORMAT='parquet' y anexa ** a la ruta de acceso.
 
 **Solución alternativa:** use la cláusula `WITH` y asigne explícitamente el tipo `VARCHAR` a las columnas anidadas. Tenga en cuenta que esto no funcionará si el conjunto de datos tiene particiones, debido a otro problema conocido en el que la cláusula `WITH` devuelve `NULL` para las columnas de partición. Actualmente no se admiten conjuntos de datos con particiones con columnas de tipo complejo.
 
@@ -608,7 +606,17 @@ En primer lugar, asegúrese de que el conjunto de datos de Delta Lake no esté d
 - Compruebe que puede leer el contenido de la carpeta de Delta Lake mediante el grupo de Apache Spark en el clúster de Synapse o Databricks. De este modo, se asegurará de que el archivo `_delta_log` no esté dañado.
 - Compruebe que puede leer el contenido de los archivos de datos especificando `FORMAT='PARQUET'` y usando el carácter comodín recursivo `/**` al final de la ruta de acceso del URI. Si puede leer todos los archivos Parquet, el problema se encuentra en la carpeta del registro de transacciones `_delta_log`.
 
-**Solución alternativa**: este problema puede producirse si usa alguna intercalación de base de datos `_UTF8`. Intente ejecutar una consulta en la base de datos `master` o en cualquier otra base de datos que tenga una intercalación que no sea UTF8. Si esta solución alternativa resuelve el problema, use una base de datos sin intercalación `_UTF8`.
+Errores comunes y soluciones alternativas:
+
+- `JSON text is not properly formatted. Unexpected character '.'`: es posible que los archivos parquet subyacentes contengan algunos tipos de datos que no se admiten en el grupo de SQL sin servidor.
+
+**Solución alternativa:** intente usar el esquema WITH que excluirá tipos no admitidos.
+
+- `JSON text is not properly formatted. Unexpected character '{'`: es posible que use alguna intercalación de base de datos `_UTF8`. 
+
+**Solución alternativa:** intente ejecutar una consulta en la base de datos `master` o en cualquier otra base de datos que tenga una intercalación que no sea UTF8. Si esta solución alternativa resuelve el problema, use una base de datos sin intercalación `_UTF8`. Especifique la intercalación `_UTF8` en la definición de columna de la cláusula `WITH`.
+
+**Solución alternativa general**: intente crear un punto de control en el conjunto de datos de Delta Lake mediante un grupo de Apache Spark y vuelva a ejecutar la consulta. El punto de control agregará archivos de registro JSON transaccionales y podría resolver el problema.
 
 Si el conjunto de datos es válido y la solución alternativa no sirve de ayuda, envíe una incidencia de soporte técnico y proporcione una reproducción a Soporte técnico de Azure:
 - No realice ningún cambio, como agregar o quitar las columnas u optimizar la tabla, ya que esto podría cambiar el estado de los archivos de registro de transacciones de Delta Lake.
@@ -618,6 +626,61 @@ Si el conjunto de datos es válido y la solución alternativa no sirve de ayuda,
 - Envíe el contenido del archivo copiado `_delta_log` a Soporte técnico de Azure.
 
 El equipo de Azure investigará el contenido del archivo `delta_log` y proporcionará más información sobre los posibles errores y las soluciones alternativas.
+
+### <a name="resolving-delta-log-on-path--failed-with-error-cannot-parse-json-object-from-log-file"></a>Error al resolver el registro Delta en la ruta de acceso ... (No se puede analizar el objeto JSON del archivo de registro)
+
+Este error puede producirse debido a las siguientes razones o características no admitidas:
+- [Filtro BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters) en el conjunto de datos de Delta Lake. Los grupos de SQL sin servidor en Synapse Analytics no admiten conjuntos de datos con el [filtro BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- Columna float en el conjunto de datos de Delta Lake con estadísticas.
+- Conjunto de datos particionado en una columna float.
+
+**Solución alternativa**: [quite el filtro BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) s quiere leer la carpeta Delta Lake con el grupo de SQL sin servidor. Si tiene columnas `float` que están causando el problema, deberá volver a particionar el conjunto de datos o quitar las estadísticas.
+
+## <a name="security"></a>Seguridad
+
+### <a name="aad-service-principal-login-failures-when-spi-is-creating-a-role-assignment"></a>Errores de inicio de sesión de la entidad de servicio de AAD cuando SPI crea una asignación de roles
+Si desea crear la asignación de roles para la aplicación de Identificador de entidad de servicio o AAD con otro SPI, o si ya ha creado uno y no puede iniciar sesión, es probable que reciba el siguiente error:
+```
+Login error: Login failed for user '<token-identified principal>'.
+```
+Para las entidades de servicio, el inicio de sesión debe crearse con el identificador de aplicación como SID (no con el identificador de objeto). Hay una limitación conocida para las entidades de servicio que impide que el servicio Synapse obtenga el identificador de aplicación de Azure AD Graph al crear la asignación de roles para otra aplicación o SPI.  
+
+#### <a name="solution-1"></a>Solución 1
+Vaya a Azure Portal > Synapse Studio > Administrar > Control de acceso y agregue manualmente Administrador de Synapse o Administrador de Synapse SQL para la entidad de servicio deseada.
+
+#### <a name="solution-2"></a>Solución 2
+Debe crear manualmente un inicio de sesión adecuado mediante código SQL:
+```sql
+use master
+go
+CREATE LOGIN [<service_principal_name>] FROM EXTERNAL PROVIDER;
+go
+ALTER SERVER ROLE sysadmin ADD MEMBER [<service_principal_name>];
+go
+```
+
+#### <a name="solution-3"></a>Solución 3
+También puede configurar la entidad de servicio Administrador de Synapse mediante PowerShell. Debe tener instalado el [módulo Az.Synapse](/powershell/module/az.synapse).
+La solución es usar el cmdlet New-AzSynapseRoleAssignment con `-ObjectId "parameter"` y en ese campo de parámetro proporcionar el identificador de aplicación (en lugar del identificador de objeto) mediante las credenciales de la entidad de servicio de Azure del administrador del área de trabajo. Script de PowerShell:
+```azurepowershell
+$spAppId = "<app_id_which_is_already_an_admin_on_the_workspace>"
+$SPPassword = "<application_secret>"
+$tenantId = "<tenant_id>"
+$secpasswd = ConvertTo-SecureString -String $SPPassword -AsPlainText -Force
+$cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $spAppId, $secpasswd
+
+Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
+
+New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<app_id_to_add_as_admin>" [-Debug]
+```
+
+#### <a name="validation"></a>Validación
+Conéctese a un punto de conexión de SQL sin servidor y compruebe que se crea el inicio de sesión externo con SID `app_id_to_add_as_admin`:
+```sql
+select name, convert(uniqueidentifier, sid) as sid, create_date
+from sys.server_principals where type in ('E', 'X')
+```
+o simplemente intente iniciar sesión en el punto de conexión de SQL sin servidor mediante la aplicación de administración que acaba de establecer.
 
 ## <a name="constraints"></a>Restricciones
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: arvindshmicrosoft
 ms.author: arvindsh
 ms.reviewer: mathoma
-ms.date: 12/9/2020
-ms.openlocfilehash: 014f3e80446e514fcce20cc0dbc82f6f1d3a063e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 06/23/2021
+ms.openlocfilehash: a3847bb1ac435779e50ce8cc41a3940bb6adfab7
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708789"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112965137"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Los grupos elásticos ayudan a administrar y escalar varias bases de datos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -101,6 +101,10 @@ Los siguientes pasos pueden ayudarle a calcular si un grupo es más rentable que
 
 > [!IMPORTANT]
 > Si el número de bases de datos de un grupo se aproxima al máximo admitido, asegúrese de consultar [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md).
+
+### <a name="per-database-properties"></a>Propiedades por base de datos
+
+Opcionalmente, puede establecer propiedades "por base de datos" para modificar patrones de consumo de recursos en los grupos elásticos. Para obtener más información, consulte la documentación sobre los límites de recursos para los grupos elásticos de [DTU](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases) y [núcleos virtuales](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases).
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Empleo de otras características de SQL Database con grupos elásticos
 

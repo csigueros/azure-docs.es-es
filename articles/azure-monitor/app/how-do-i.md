@@ -3,12 +3,12 @@ title: Procedimientos en Azure Application Insights | Microsoft Docs
 description: P+F en Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: c889c0890f8e6d193b7e36a525470fc18bef494d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3c74add1d426a6d1e383ed90388bb319a8244e05
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060839"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616323"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -65,7 +65,7 @@ Recibirá mensajes de correo electrónico cuando la métrica esté por encima y 
 
 Algunos puntos que se deben tener en cuenta:
 
-* Una alerta tiene dos estados ("alerta&quot; y &quot;correcto"). El estado se evalúa solo cuando se recibe una métrica.
+* Una alerta tiene dos estados ("alerta" y "correcto"). El estado se evalúa solo cuando se recibe una métrica.
 * Un mensaje de correo electrónico solo se envía cuando cambia el estado. Este es el motivo por el que tiene que enviar métricas tanto de valores altos como bajos.
 * Para evaluar la alerta, la media se toma de los valores recibidos durante el período anterior. Esto se produce cada vez que se recibe una métrica, por lo que los mensajes de correo electrónico se pueden enviar con mayor frecuencia que el período definido.
 * Puesto que los correos electrónicos se envían tanto en los estados "alerta" como "correcto", es posible que considere volver a pensar en su evento monoestable como en una condición de dos estados. Por ejemplo, en lugar de un evento de "trabajo completado", tiene una condición de "trabajo en curso", donde recibe correos electrónicos al principio y al final de un trabajo.
@@ -160,7 +160,7 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 ![Abra el recurso de Application Insights y haga clic en Servidores](./media/how-do-i/121-servers.png)
 
 ### <a name="if-you-see-no-performance-counter-data"></a>Si no ve ningún dato de contadores de rendimiento
-* **servidor IIS** en su propia máquina o en una VM. [Instale el Monitor de estado](./monitor-performance-live-website-now.md).
+* **servidor IIS** en su propia máquina o en una VM. [Instale el agente de Azure Monitor Application Insights](./status-monitor-v2-overview.md).
 * **Sitio web de Azure** : todavía no se admiten los contadores de rendimiento. Hay varias métricas que se puede obtener como parte estándar del sitio web de Azure en el panel de control.
 * **Servidor Unix** - [instale collectd](java-2x-collectd.md)
 

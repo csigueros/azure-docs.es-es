@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/04/2021
-ms.openlocfilehash: c0767ffd85e6d6e93f922f4d27e5d41167282b1c
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 06/23/2021
+ms.openlocfilehash: 54a3e933cda054b8bd3f9e86f2db775fca7342f7
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555443"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964435"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ En este artículo se proporcionan los límites de recursos detallados para grupo
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
 
-Cada réplica de solo lectura tiene sus propios recursos, como núcleos virtuales, memoria, IOPS de datos, TempDB, trabajos y sesiones. Cada réplica de solo lectura está sujeta a los límites de recursos que se detallan más adelante en este artículo.
+Cada réplica de solo lectura de un grupo elástico tiene sus propios recursos, como núcleos virtuales, memoria, IOPS de datos, TempDB, trabajos y sesiones. Todas las réplicas de solo lectura están sujetas a los límites de recursos del grupo elástico que se detallan más adelante en este artículo.
 
 Puede establecer el nivel de servicio, el tamaño de proceso (objetivo del servicio) y la cantidad de almacenamiento mediante:
 
@@ -548,17 +548,29 @@ Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una 
 
 ## <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 
-En la tabla siguiente se describen las propiedades de las bases de datos agrupadas.
+Para cada grupo elástico, tiene la opción de especificar el mínimo y el máximo de núcleos virtuales por base de datos, para modificar los patrones de consumo de recursos dentro del grupo. Los valores mínimo y máximo especificados se aplican a todas las bases de datos del grupo. No se permite personalizar los valores mínimo y máximo de núcleos virtuales para bases de datos individuales del grupo. 
 
-> [!NOTE]
-> Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que los de las bases de datos únicas fuera de los grupos que tienen el mismo tamaño de proceso (objetivo de servicio). Por ejemplo, el número máximo de trabajos simultáneos en una base de datos GP_Gen4_1 es 200 trabajos. Por lo tanto, el número máximo de trabajos simultáneos en una base de datos de un grupo GP_Gen4_1 también es 200 trabajos. Tenga en cuenta que el número total de trabajos simultáneos en el grupo GP_Gen4_1 es 210.
+También puede establecer el almacenamiento máximo por base de datos, por ejemplo, para impedir que una base de datos consuma todo el almacenamiento del grupo. Esta opción se puede configurar de forma independiente para cada base de datos.
+
+En la tabla siguiente se describen las propiedades de las bases de datos de un grupo por cada tipo de base de datos. 
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Núcleos virtuales máximos por base de datos |El número máximo de núcleos virtuales que puede usar cualquier base de datos del grupo, si está disponible según el uso que hacen otras bases de datos del grupo. El número de núcleos virtuales por base de datos no garantiza la disponibilidad de recursos para una base de datos. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. Establezca un número de núcleos virtuales por base de datos lo suficientemente alto como para gestionar los picos de uso de la base de datos. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de uso no tienen lugar en todas las bases de datos a la vez.|
-| Número mínimo de núcleos virtuales por base de datos |El número mínimo de núcleos virtuales que se garantiza en cualquier base de datos del grupo. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. El número mínimo de núcleos virtuales por base de datos se puede establecer en 0, y también se trata del valor predeterminado. Esta propiedad se establece en cualquier valor entre 0 y el uso medio de núcleos virtuales por base de datos. El resultado de multiplicar el número de bases de datos del grupo y el número mínimo de núcleos virtuales por base de datos no puede superar el número de núcleos virtuales por grupo.|
-| Almacenamiento máximo por base de datos |El tamaño máximo de base de datos establecido por el usuario para una base de datos de un grupo. Las bases de datos agrupadas comparten el almacenamiento del grupo asignado, de modo que el tamaño que puede alcanzar una base de datos se limita a la menor cantidad de almacenamiento restante del grupo y el tamaño de la base de datos. El tamaño máximo de la base de datos hace referencia al tamaño máximo de los archivos de datos, y no incluye el espacio utilizado por los archivos de registro. |
+| Núcleos virtuales máximos por base de datos |El número máximo de núcleos virtuales que puede usar cualquier base de datos del grupo, si está disponible según el uso que hacen otras bases de datos del grupo. El número de núcleos virtuales por base de datos no garantiza la disponibilidad de recursos para una base de datos. Si la carga de trabajo de cada base de datos no necesita que todos los recursos del grupo disponibles funcionen correctamente, considere la posibilidad de establecer una cantidad máxima de núcleos virtuales por base de datos para impedir que una sola base de datos monopolice los recursos del grupo. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso frecuente y esporádico de las bases de datos, cuando, en realidad, los picos de uso no tienen lugar en todas las bases de datos a la vez. |
+| Número mínimo de núcleos virtuales por base de datos |Cantidad mínima de núcleos virtuales reservados para cualquier base de datos del grupo. Considere la posibilidad de establecer una cantidad mínima de núcleos virtuales por base de datos cuando quiera garantizar la disponibilidad de los recursos para cada base de datos, independientemente de la cantidad de recursos que consuman otras bases de datos del grupo. El número mínimo de núcleos virtuales por base de datos se puede establecer en 0, y también se trata del valor predeterminado. Esta propiedad se establece en cualquier valor entre 0 y el uso medio de núcleos virtuales por base de datos.|
+| Almacenamiento máximo por base de datos |El tamaño máximo de base de datos establecido por el usuario para una base de datos de un grupo. Las bases de datos agrupadas comparten el almacenamiento asignado al grupo, de modo que el tamaño que puede alcanzar una base de datos se limita a la menor cantidad de almacenamiento restante del grupo y al tamaño máximo de las bases de datos. El tamaño máximo de las bases de datos hace referencia al tamaño máximo de los archivos de datos, y no incluye el espacio utilizado por el archivo de registro. |
 |||
+
+> [!IMPORTANT]
+> Dado que los recursos de un grupo elástico son finitos, el hecho de establecer la cantidad mínima de núcleos virtuales por base de datos en un valor mayor que 0 limita implícitamente los recursos que usa cada base de datos. Si, en un momento dado, la mayoría de las bases de datos de un grupo están inactivas, los recursos reservados para satisfacer el mínimo de núcleos virtuales garantizado no estarán disponibles para las bases de datos activas en ese momento.
+>
+> Además, al establecer el mínimo de núcleos virtuales por base de datos en un valor mayor que 0, se limita implícitamente el número de bases de datos que se pueden agregar al grupo. Por ejemplo, si establece en 2 el mínimo de núcleos virtuales en un grupo de 20 núcleos virtuales, significa que no podrá agregar más de 10 bases de datos al grupo, ya que se reservan 2 núcleos virtuales para cada base de datos.
+> 
+
+Aunque las propiedades por base de datos se expresan en núcleos virtuales, también rigen el consumo de otros tipos de recursos, como la E/S de datos, la E/S de registros y los subprocesos de trabajo. A medida que ajuste el mínimo y el máximo de núcleos virtuales por base de datos, las reservas y los límites de todos los tipos de recursos se ajustarán proporcionalmente.
+
+> [!NOTE]
+> Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que los de las bases de datos únicas fuera de los grupos que tienen el mismo tamaño de proceso (objetivo de servicio). Por ejemplo, el número máximo de trabajos simultáneos en una base de datos GP_Gen4_1 es 200 trabajos. Por lo tanto, el número máximo de trabajos simultáneos en una base de datos de un grupo GP_Gen4_1 también es 200 trabajos. Tenga en cuenta que el número total de trabajos simultáneos en el grupo GP_Gen4_1 es 210.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

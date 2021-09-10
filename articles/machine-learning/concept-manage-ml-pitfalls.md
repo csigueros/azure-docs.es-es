@@ -10,20 +10,20 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8945a5766865f4df6175e7330d3bf9c947e1fa0d
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96922620"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113600503"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar el sobreajuste y los datos desequilibrados con el aprendizaje automático automatizado
 
-El sobreajuste y los datos desequilibrados son un problema común al crear modelos de Machine Learning. De forma predeterminada, el aprendizaje automático automatizado de Azure Machine Learning proporciona gráficos y métricas para facilitar la identificación de estos riesgos, e implementa procedimientos recomendados para ayudarle a mitigarlos. 
+El sobreajuste y los datos desequilibrados son un problema común al crear modelos de aprendizaje automático. De forma predeterminada, el aprendizaje automático automatizado de Azure Machine Learning proporciona gráficos y métricas para facilitar la identificación de estos riesgos, e implementa procedimientos recomendados para ayudarle a mitigarlos. 
 
-## <a name="identify-over-fitting"></a>Identificación del sobreajuste
+## <a name="identify-overfitting"></a>Identificación del sobreajuste
 
-El sobreajuste en el aprendizaje automático se produce cuando un modelo se ajusta demasiado bien a los datos de entrenamiento y, como resultado, no puede predecir con precisión sobre datos de prueba desconocidos. En otras palabras, el modelo simplemente ha memorizado patrones y ruido específicos de los datos de entrenamiento, pero no es lo suficientemente flexible como para realizar predicciones sobre datos reales.
+El sobreajuste en el aprendizaje automático se produce cuando un modelo encaja demasiado bien con los datos de entrenamiento y, como resultado, no puede realizar predicciones con precisión sobre datos de prueba desconocidos. En otras palabras, el modelo simplemente ha memorizado patrones y ruido específicos de los datos de entrenamiento, pero no es lo suficientemente flexible como para realizar predicciones sobre datos reales.
 
 Examine los siguientes modelos entrenados y sus correspondientes precisiones de entrenamiento y prueba.
 
@@ -33,15 +33,15 @@ Examine los siguientes modelos entrenados y sus correspondientes precisiones de 
 | B | 87 % | 87 % |
 | C | 99,9 % | 45 % |
 
-Si observa el modelo **A**, hay una idea equivocada habitual de que si la precisión de la prueba en los datos desconocidos es inferior a la del entrenamiento, el modelo está sobreajustado. Pero la precisión de la prueba siempre debe ser menor que la del entrenamiento y la distinción entre el sobreajuste y el ajuste adecuado se convierte en *cuánto* menos preciso. 
+Si observa el modelo **A**, hay una idea equivocada habitual de que, si la precisión de la prueba en los datos desconocidos es inferior a la del entrenamiento, el modelo está sobreajustado. Sin embargo, la precisión de la prueba siempre debe ser menor que la del entrenamiento y la distinción entre el sobreajuste y el ajuste adecuado se reduce a *en qué medida* es menos preciso. 
 
 Al comparar los modelos **A** y **B**, **A** es un modelo mejor porque tiene mayor precisión en las pruebas y, aunque es ligeramente inferior al 95 %, no es una diferencia significativa que sugiera la existencia de sobreajuste. No elegiría el modelo **B** simplemente porque las precisiones del entrenamiento y la prueba están más próximas.
 
 El modelo **C** representa un caso claro de sobreajuste; la precisión del entrenamiento es muy alta, pero la de la prueba no tanto. Esta distinción es subjetiva, pero proviene del conocimiento del problema y los datos y de las magnitudes de error que son aceptables.
 
-## <a name="prevent-over-fitting"></a>Prevención del sobreajuste
+## <a name="prevent-overfitting"></a>Evitación del sobreajuste
 
-En los casos más notorios, un modelo sobreajustado supondrá que las combinaciones de valores de características que se han visto durante el entrenamiento siempre darán exactamente la misma salida para el destino.
+En los casos más graves, en un modelo sobreajustado se supone que las combinaciones de valores de características que se ven durante el entrenamiento siempre darán como resultado exactamente la misma salida como destino.
 
 La mejor manera de evitar el sobreajuste es seguir los procedimientos recomendados de ML, entre los que se incluyen los siguientes:
 
@@ -52,23 +52,35 @@ La mejor manera de evitar el sobreajuste es seguir los procedimientos recomendad
 * **Limitaciones de la complejidad del modelo**
 * **Validación cruzada**
 
-En el contexto del aprendizaje automático automatizado, los tres primeros elementos anteriores son **procedimientos recomendados que usted implementa**. Los tres últimos elementos en negrita son **procedimientos recomendados que el aprendizaje automático automatizado implementa** de forma predeterminada para protegerse frente al sobreajuste. En configuraciones distintas al aprendizaje automático automatizado, es conveniente seguir los seis procedimientos recomendados para evitar modelos con sobreajuste.
+En el contexto del aprendizaje automático automatizado, los tres primeros elementos anteriores son **procedimientos recomendados que usted implementa**. Los tres últimos elementos en negrita son **procedimientos recomendados que el aprendizaje automático automatizado implementa** de forma predeterminada como protección frente al sobreajuste. En configuraciones distintas al aprendizaje automático automatizado, es conveniente seguir los seis procedimientos recomendados para evitar modelos con sobreajuste.
 
-### <a name="best-practices-you-implement"></a>Procedimientos recomendados que usted implementa
+## <a name="best-practices-you-implement"></a>Procedimientos recomendados que usted implementa
+
+### <a name="use-more-data"></a>Uso de más datos
 
 El uso de **más datos** es la forma más sencilla y óptima de evitar el sobreajuste y, como ventaja adicional, suele aumentar la precisión. Cuando se usan más datos, resulta más difícil para el modelo memorizar patrones exactos y se ve obligado a obtener soluciones que son más flexibles para acomodar más condiciones. También es importante reconocer el **sesgo estadístico**, para asegurarse de que los datos de entrenamiento no incluyen patrones aislados que no existen en los datos de predicción en directo. Este escenario puede ser difícil de resolver, ya que es posible que no haya sobreajuste entre los conjuntos de entrenamiento y pruebas, pero puede haberlo cuando se comparan con los datos de pruebas en directo.
 
-La **pérdida de destino** es un problema similar, en el que es posible que no vea sobreajuste entre los conjuntos de entrenamiento y pruebas, sino que aparece en tiempo de predicción. La pérdida de destino se produce cuando el modelo "hace trampa" durante el entrenamiento al tener acceso a datos que normalmente no debería tener en el momento de la predicción. Por ejemplo, si el problema es predecir el lunes cuál será el precio el viernes, pero una de las características incluye accidentalmente datos del jueves, serían datos que el modelo no tendrá en tiempo de predicción, ya que no puede ver el futuro. La pérdida de destino es un error sencillo de evitar, pero a menudo se caracteriza por una precisión anormalmente alta para el problema. Si intenta predecir el precio de las acciones y ha entrenado un modelo con una precisión del 95 %, es probable que se produzcan pérdidas de destino en alguna parte de las características.
+### <a name="prevent-target-leakage"></a>Evitar la pérdida de destino
+
+La **pérdida de destino** es un problema similar, en el que es posible que no observe sobreajuste entre los conjuntos de entrenamiento y pruebas, pero que aparezca en el momento de la predicción. La pérdida de destino se produce cuando el modelo "hace trampa" durante el entrenamiento al tener acceso a datos que normalmente no debería tener en el momento de la predicción. Por ejemplo, si el problema es predecir el lunes cuál será el precio el viernes, pero una de las características incluye accidentalmente datos del jueves, serían datos que el modelo no tendrá en tiempo de predicción, ya que no puede ver el futuro. La pérdida de destino es un error sencillo de evitar, pero a menudo se caracteriza por una precisión anormalmente alta para el problema. Si intenta predecir el precio de las acciones y ha entrenado un modelo con una precisión del 95 %, es probable que se produzcan pérdidas de destino en alguna parte de las características.
+
+### <a name="use-fewer-features"></a>Uso de menos características
 
 La **eliminación de características** también puede ayudar con el sobreajuste, ya que impide que el modelo tenga demasiados campos para memorizar patrones específicos, lo que hace que sea más flexible. Puede ser difícil de medir cuantitativamente, pero si puede eliminar características y conservar la misma precisión, probablemente haya hecho que el modelo sea más flexible y haya reducido el riesgo de sobreajuste.
 
-### <a name="best-practices-automated-ml-implements"></a>Procedimientos recomendados que implementa el aprendizaje automático automatizado
+## <a name="best-practices-automated-ml-implements"></a>Procedimientos recomendados que implementa el aprendizaje automático automatizado
 
-La **regularización** es el proceso de minimizar una función de costo para penalizar modelos complejos y sobreajustados. Hay diferentes tipos de funciones de regularización, pero en general todas penalizan el tamaño del coeficiente del modelo, la varianza y la complejidad. El aprendizaje automático automatizado usa L1 (Lasso), L2 (Ridge) y ElasticNet (L1 y L2 simultáneamente) en combinaciones diferentes con otras configuraciones de hiperparámetros del modelo que controlan el sobreajuste. En términos simples, el aprendizaje automático automatizado variará cuánto se regula un modelo y elegirá el mejor resultado.
+### <a name="regularization-and-hyperparameter-tuning"></a>Regularización y optimización de hiperparámetros
+
+La **regularización** es el proceso de minimizar una función de costo para penalizar modelos complejos y sobreajustados. Hay diferentes tipos de funciones de regularización, pero en general todas penalizan el tamaño del coeficiente del modelo, la varianza y la complejidad. El aprendizaje automático automatizado usa L1 (Lasso), L2 (Ridge) y ElasticNet (L1 y L2 simultáneamente) en combinaciones diferentes con diferentes configuraciones de hiperparámetros del modelo que controlan el sobreajuste. En términos simples, el aprendizaje automático automatizado variará cuánto se regula un modelo y elegirá el mejor resultado.
+
+### <a name="model-complexity-limitations"></a>Limitaciones de la complejidad del modelo
 
 El aprendizaje automático automatizado también implementa **limitaciones de complejidad del modelo** explícitas para evitar el sobreajuste. En la mayoría de los casos, esta implementación se aplica específicamente a árboles de decisión o algoritmos de bosque, donde la profundidad máxima del árbol individual está limitada y el número total de árboles que se usan en el bosque o las técnicas conjunto están limitados.
 
-La **validación cruzada (CV)** es el proceso de tomar muchos subconjuntos de los datos de entrenamiento completos y entrenar un modelo en cada subconjunto. La idea es que un modelo podría tener "suerte" y conseguir una gran precisión con un subconjunto, pero al usar muchos subconjuntos el modelo no la alcanzará cada vez. Al realizar la CV, se proporciona un conjunto de datos de exclusión de la validación, se especifican los plegamientos de la CV (número de subconjuntos) y el aprendizaje automático automatizado entrena el modelo y ajusta los hiperparámetros para minimizar el error en el conjunto de validación. Un plegamiento de la CV podría estar sobreajustado, pero si se usan muchos de ellos, se reduce la probabilidad de que el modelo final esté sobreajustado. La contrapartida es que la CV genera tiempos de entrenamiento más largos y, por tanto, un costo mayor, porque en lugar de entrenar un modelo una vez, se entrena una vez por cada *n* subconjuntos de CV. 
+### <a name="cross-validation"></a>Validación cruzada
+
+La **validación cruzada (CV)** es el proceso de tomar muchos subconjuntos de los datos de entrenamiento completos y entrenar un modelo en cada subconjunto. La idea es que un modelo podría tener "suerte" y conseguir una gran precisión con un subconjunto, pero al usar muchos subconjuntos el modelo no la alcanzará cada vez. Al realizar la CV, se proporciona un conjunto de datos de exclusión de la validación, se especifican los plegamientos de la CV (número de subconjuntos) y el aprendizaje automático automatizado entrena el modelo y ajusta los hiperparámetros para minimizar el error en el conjunto de validación. Se podría sobreajustar un plegamiento de la CV, pero al usar muchos de ellos se reduce la probabilidad de que el modelo final esté sobreajustado. La contrapartida es que la CV genera tiempos de entrenamiento más largos y, por tanto, un costo mayor, porque en lugar de entrenar un modelo una vez, se entrena una vez por cada *n* subconjuntos de CV. 
 
 > [!NOTE]
 > La validación cruzada no está habilitada de forma predeterminada; se debe configurar en la configuración de aprendizaje automático automatizado. Pero después de configurar la validación cruzada y proporcionar un conjunto de datos de validación, el proceso es automático. Más información sobre la [configuración de validación cruzada en ML automatizado](how-to-configure-cross-validation-data-splits.md)
@@ -112,5 +124,3 @@ Vea ejemplos y aprenda cómo generar modelos mediante aprendizaje automático au
 + Configure el experimento de entrenamiento automático:
   + En Azure Machine Learning Studio, [siga estos pasos](how-to-use-automated-ml-for-ml-models.md).
   + Con el SDK de Python, [siga estos pasos](how-to-configure-auto-train.md).
-
-

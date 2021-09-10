@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: d1bb111bbaa909c52261a0dbafe6d6e0a24390ac
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e9e233aa5a4d32a1f298889b0a98c3a85d9cf4e5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007269"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456323"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados de Azure
 
@@ -127,7 +127,7 @@ Hay dos tipos de cuota que se consumen al implementar un host dedicado.
 
 Para solicitar un aumento de la cuota, cree una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-El aprovisionamiento de un host dedicado consumirá la cuota de vCPU de host dedicado y la cuota de vCPU de familia de VM, pero no consumirá la vCPU regional.
+El aprovisionamiento de un host dedicado consumirá la cuota de vCPU de host dedicado y la cuota de vCPU de familia de VM, pero no consumirá la vCPU regional. Las máquinas virtuales colocadas en un host dedicado no contarán para la cuota de vCPU de la familia de máquinas virtuales. Si una máquina virtual se mueve fuera de un host dedicado a un entorno multiinquilino, la máquina virtual consumirá la cuota de vCPU de la familia de máquinas virtuales.
 
 
 ![Captura de pantalla de la página de uso y cuotas del portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)

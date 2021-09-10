@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: cbc5ff51a576cf2c784192bc33b06018c6f116c8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fd364d07202a486bfa47c513af601aeefe595bb5
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472099"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437799"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Reglas de salida en Azure Load Balancer
 
@@ -22,7 +22,7 @@ Las reglas de salida permiten definir de forma explícita SNAT (traducción de d
 Esta configuración habilita:
 
 * El enmascaramiento de IP
-* La simplificación de las listas de permitidos
+* Simplificar las listas de permitidos.
 * La reducción del número de recursos de IP pública para la implementación
 
 Con las reglas de salida, tiene un control declarativo completo sobre la conectividad saliente de Internet. Las reglas de salida le permiten escalar y ajustar esta capacidad a sus necesidades específicas. 
@@ -122,7 +122,7 @@ Si un grupo de seguridad de red bloquea las solicitudes de sondeo de mantenimien
 #### <a name="details"></a>Detalles
 
 
-Use este escenario para adaptar las conexiones de salida de modo que se originen desde un conjunto de direcciones IP públicas. Agregue direcciones IP públicas o prefijos a una lista de permitidos o denegados en función del origen.
+Use este escenario para adaptar las conexiones de salida de modo que se originen desde un conjunto de direcciones IP públicas. Agregue direcciones IP públicas o prefijos a una lista de permitidos o bloqueados en función del origen.
 
 
 Este prefijo o esta dirección IP pública pueden ser los mismos que los usados por una regla de equilibrio de carga. 
@@ -175,13 +175,13 @@ Use un equilibrador de carga público estándar para proporcionar NAT de salida 
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales sin necesidad de un equilibrador de carga. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
+> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales sin necesidad de un equilibrador de carga. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
 
 ### <a name="scenario-4-outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>Escenario 4: NAT de salida solo para VM (no de entrada)
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales sin necesidad de un equilibrador de carga. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
+> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales sin necesidad de un equilibrador de carga. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
 
 #### <a name="details"></a>Detalles
 
@@ -198,7 +198,7 @@ En este escenario: Las reglas de salida de Azure Load Balancer y Virtual Network
 
 
 
-Use un prefijo o una dirección IP pública para escalar puertos de [SNAT](load-balancer-outbound-connections.md). Agregue el origen de conexiones de salida a una lista de permitidos o denegados.
+Use un prefijo o una dirección IP pública para escalar puertos de [SNAT](load-balancer-outbound-connections.md). Agregue el origen de conexiones de salida a una lista de permitidos o bloqueados.
 
 
 
@@ -206,7 +206,7 @@ Use un prefijo o una dirección IP pública para escalar puertos de [SNAT](load-
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales que usen un equilibrador de carga interno estándar. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
+> **Azure Virtual Network NAT** puede proporcionar conectividad de salida para máquinas virtuales que usen un equilibrador de carga interno estándar. Para obtener más información, vea [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
 
 #### <a name="details"></a>Detalles
 
@@ -255,4 +255,4 @@ Si solo se usan reglas de NAT entrantes, no se proporciona ninguna NAT de salida
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [Azure Standard Load Balancer](load-balancer-overview.md).
-- Consulte las [preguntas más frecuentes sobre Azure Load Balancer](load-balancer-faqs.md)
+- Consulte las [preguntas más frecuentes sobre Azure Load Balancer](load-balancer-faqs.yml)

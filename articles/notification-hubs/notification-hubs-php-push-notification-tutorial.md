@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: daebf7c6a5fc9056e16b77a40ee9f90db598749f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46e0a74a97f46c317684f590f7d4462aec08fad2
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87076624"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586855"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Uso de Notification Hubs desde PHP
 
@@ -280,7 +280,7 @@ La ejecución del código de PHP debe generar ahora una notificación que aparec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tema hemos mostrado cómo crear un sencillo cliente de REST en Java para Notification Hubs. Desde aquí, puede:
+En este tema, se ha mostrado cómo crear un sencillo cliente PHP REST para Notification Hubs. Desde aquí, puede:
 
 * Descargar el [ejemplo de contenedor REST para PHP]completo, que contiene todo el código anterior.
 * Continuar aprendiendo sobre la característica de etiquetado de Notification Hubs en el [tutorial Noticias de última hora]

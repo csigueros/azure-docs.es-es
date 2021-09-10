@@ -9,35 +9,19 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: d86e8a6e16fdaa48678ae1af89eb236f6e00b01b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: f83e84e3aa747c41d0e45a5650c704c796c62447
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005185"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112968274"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Uso de Synapse Studio para supervisar sus aplicaciones de Apache Spark
 
 Con Azure Synapse Analytics, puede usar Apache Spark para ejecutar cuadernos, trabajos y otros tipos de aplicaciones en los grupos de Apache Spark en su área de trabajo.
 
 En este artículo se explica cómo supervisar las aplicaciones de Apache Spark, lo que le permite vigilar el estado más reciente, los problemas y el progreso.
-
-En este tutorial se describen las tareas siguientes:
-
-* Supervisión de la aplicación de Apache Spark en ejecución
-* Visualización de la aplicación de Apache Spark completada
-* Visualización de la aplicación de Apache Spark cancelada
-* Depuración de la aplicación de Apache Spark con errores
-* Visualización de los datos de entrada y salida de una aplicación Apache Spark
-* Comparación de aplicaciones de Apache Spark
-
-## <a name="prerequisites"></a>Requisitos previos
-
-Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
-
-- Un área de trabajo de Synapse Studio. Para instrucciones, consulte [Creación de un área de trabajo de Synapse Studio](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
-
-- Un grupo de Apache Spark.
 
 ## <a name="view-apache-spark-applications"></a>Visualización de aplicaciones de Apache Spark 
 Puede ver todas las aplicaciones de Apache Spark en **Supervisión** -> **Apache Spark applications** (Aplicaciones de Apache Spark).
@@ -204,7 +188,7 @@ Seleccione una aplicación Apache Spark y haga clic en la **pestaña Datos de en
 
 Hay dos maneras de comparar las aplicaciones. Puede compararlas eligiendo una **aplicación de comparación** o haciendo clic en el botón **Compare in notebook** (Comparar en el cuaderno) para verla en el cuaderno.
 
-### <a name="compare-by-choose-an-application"></a>Comparación mediante la elección de una aplicación
+### <a name="compare-by-choosing-an-application"></a>Comparación mediante la elección de una aplicación
 
 Haga clic en el botón **Compare applications** (Comparar aplicaciones) y elija una aplicación para comparar el rendimiento; puede ver de manera intuitiva la diferencia entre las dos aplicaciones.
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/14/2021
+ms.date: 08/01/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: f7bdadaf8570fe06d7573ff622ed921137229ae1
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 9abb17c1be9c862cb0d67110c88386a9c0e7313d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061567"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724556"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -77,13 +77,14 @@ Se puede definir una directiva de auditoría para una base de datos específica 
 
 - Los registros de auditoría se escriben en **blobs en anexos** en Azure Blob Storage en su suscripción a Azure.
 - Los registros de auditoría tienen el formato .xel y se pueden abrir con [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- Para configurar un almacén de registros inmutable para los eventos de auditoría de nivel de servidor o base de datos, siga las [instrucciones proporcionadas por Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Asegúrese de que ha seleccionado **Permitir anexiones adicionales** al configurar el almacenamiento de blobs inmutable.
+- Para configurar un almacén de registros inmutable para los eventos de auditoría de nivel de servidor o base de datos, siga las [instrucciones proporcionadas por Azure Storage](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes). Asegúrese de que ha seleccionado **Permitir anexiones adicionales** al configurar el almacenamiento de blobs inmutable.
 - Puede escribir registros de auditoría en una cuenta de Azure Storage detrás de un firewall o una red virtual. Para obtener instrucciones específicas, consulte cómo [escribir auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Para obtener más información sobre el formato de registro, la jerarquía de la carpeta de almacenamiento y las convenciones de nomenclatura, vea la [referencia del formato de registro de auditoría de blobs](./audit-log-format.md).
 - La auditoría en las [réplicas de solo lectura](read-scale-out.md) se habilita automáticamente. Para obtener más información sobre la jerarquía de las carpetas de almacenamiento, las convenciones de nomenclatura y el formato del registro, consulte el artículo sobre el [formato del registro de auditoría de SQL Database](audit-log-format.md).
 - Cuando se usa Autenticación de Azure AD, los registros de inicios de sesión con error *no* aparecerán en el registro de auditoría SQL. Para ver los registros de auditoría de inicio de sesión con error, debe visitar el [portal de Azure Active Directory](../../active-directory/reports-monitoring/concept-sign-ins.md), que registra los detalles de estos eventos.
 - La puerta de enlace enruta los inicios de sesión a la instancia específica en la que se encuentra la base de datos.  En el caso de los inicios de sesión de AAD, se comprueban las credenciales antes de intentar usar el usuario para iniciar sesión en la base de datos solicitada.  En caso de error, nunca se accede a la base de datos solicitada, por lo que no se produce ninguna auditoría.  En el caso de los inicios de sesión de SQL, las credenciales se comprueban en los datos solicitados, por lo que en este caso se pueden auditar.  Los inicios de sesión correctos, que obviamente llegan a la base de datos, se auditan en ambos casos.
 - Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](threat-detection-overview.md).
+- Una vez que una base de datos con la auditoría habilitada se copia en otro servidor lógico de Azure SQL, es posible que reciba un correo electrónico que le notificará que se ha producido un error en la auditoría. Se trata de un problema conocido y la auditoría debe funcionar según lo previsto en la base de datos recién copiada.
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configuración de la auditoría para su servidor
 
@@ -118,10 +119,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 
 Auditoría de operaciones de Soporte técnico de Microsoft para Azure SQL Server le permite auditar las operaciones de los ingenieros de soporte técnico de Microsoft cuando necesitan acceder al servidor durante una solicitud de soporte técnico. El uso de esta funcionalidad, junto con su propia auditoría, permite una mayor transparencia de su personal, y permite la detección de anomalías, la visualización de tendencias y la prevención de pérdida de datos.
 
-Para habilitar Auditoría de operaciones de Soporte técnico de Microsoft, vaya a **Auditoría** en el encabezado Seguridad en el panel **Azure SQL Server** y cambie **Auditoría de operaciones de Soporte técnico de Microsoft (versión preliminar)** a **Activado**.
-
-  > [!IMPORTANT]
-  > Auditoría de operaciones de Soporte técnico de Microsoft no admite el destino de la cuenta de almacenamiento. Para habilitar la funcionalidad, se debe configurar un área de trabajo Log Analytics o un destino de Event Hubs.
+Para habilitar Auditoría de operaciones de Soporte técnico de Microsoft, vaya a **Auditoría** en el encabezado Seguridad en el panel Azure **SQL Server** y cambie **Habilitar Auditoría de operaciones de Soporte técnico de Microsoft** a **Activado**.
 
 ![Captura de pantalla de Operaciones de Soporte técnico de Microsoft](./media/auditing-overview/support-operations.png)
 
@@ -131,6 +129,10 @@ Para revisar los registros de auditoría de las operaciones de Soporte técnico 
 AzureDiagnostics
 | where Category == "DevOpsOperationsAudit"
 ```
+
+Tiene la opción de elegir un destino de almacenamiento diferente para este registro de auditoría o usar la misma configuración de auditoría para el servidor.
+
+:::image type="content" source="media/auditing-overview/auditing-support-operation-log-destination.png" alt-text="Captura de pantalla de configuración de Auditoría para la auditoría de operaciones de Soporte técnico":::
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Auditoría para el destino de almacenamiento
 
@@ -296,3 +298,9 @@ Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azu
 
 > [!NOTE]
 > Los ejemplos vinculados se encuentran en un repositorio público externo y se proporcionan "tal cual", sin ninguna garantía y no se admiten en todos los programas o servicios de soporte técnico de Microsoft.
+
+## <a name="see-also"></a>Vea también
+
+- Episodio de Data Exposed [Novedades de Auditoría de Azure SQL](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) de Channel 9.
+- [Auditoría de SQL Managed Instance](../managed-instance/auditing-configure.md)
+- [Auditoría de SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)

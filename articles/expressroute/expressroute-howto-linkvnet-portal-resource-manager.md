@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 88674255c98559a06c33bd5030aefba9184ada58
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 7b5aff80acca790f1ae8c4a852f8b353dfa7312a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538743"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433843"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutorial: Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 
@@ -49,7 +49,7 @@ En este tutorial, obtendrá información sobre cómo:
 
 * Si habilita el complemento prémium de ExpressRoute, puede vincular redes virtuales fuera de la región geopolítica del circuito ExpressRoute. El complemento Premium también le permitirá conectar más de 10 redes virtuales al circuito ExpressRoute en función del ancho de banda elegido. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
 
-* Para crear la conexión desde el circuito ExpressRoute hasta la puerta de enlace de red virtual de ExpressRoute de destino, el número de espacios de direcciones anunciados desde las redes virtuales locales o emparejadas debe ser igual o menor que **200**. Una vez creada correctamente la conexión, puede agregar hasta un máximo de 1000 espacios de direcciones adicionales a las redes virtuales locales o emparejadas.
+* Para crear la conexión desde el circuito de ExpressRoute a la puerta de enlace de red virtual de ExpressRoute de destino, el número de espacios de direcciones anunciados desde las redes virtuales locales o emparejadas debe ser igual o menor que **200**. Una vez creada correctamente la conexión, puede agregar hasta un máximo de 1000 espacios de direcciones adicionales a las redes virtuales locales o emparejadas.
 
 * Puede [ver un vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) antes de comenzar para entender mejor los pasos.
 
@@ -154,6 +154,41 @@ El usuario del circuito necesita el identificador del recurso y una clave de aut
 1. Revise la información de la página **Resumen** y seleccione **Aceptar**.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Página de resumen":::
+
+## <a name="configure-expressroute-fastpath"></a>Configuración de FastPath de ExpressRoute
+
+Puede habilitar [FastPath de ExpressRoute](expressroute-about-virtual-network-gateways.md) si la puerta de enlace de red virtual es Ultra Performance o ErGw3AZ. FastPath mejora el rendimiento de la ruta de acceso a los datos, como con paquetes y conexiones por segundo entre la red local y la red virtual.
+
+**Configuración de FastPath en una conexión nueva**
+
+Al agregar una nueva conexión para la puerta de enlace de ExpressRoute, active la casilla de **FastPath**.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-portal.png" alt-text="Captura de pantalla de la casilla FastPath en la página Agregar una conexión.":::
+
+> [!NOTE]
+> La habilitación de FastPath para una nueva conexión solo está disponible mediante la creación de una conexión desde el recurso de puerta de enlace. No se admiten las nuevas conexiones creadas desde el circuito de ExpressRoute o desde la página Recurso de conexión.
+>
+**Configuración de FastPath en una conexión existente**
+
+1. Vaya al recurso de conexión existente desde la puerta de enlace de ExpressRoute, el circuito ExpressRoute o la página de recursos de conexión.
+
+1.  Seleccione **Configuración** en *Configuración* y, después, active la casilla **FastPath**. Seleccione **Guardar** para habilitar la característica.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-connection.png" alt-text="Captura de pantalla de la casilla FastPath en la página de configuración de la conexión.":::
+
+> [!NOTE]
+> Puede usar [Connection Monitor](how-to-configure-connection-monitor.md) para comprobar que el tráfico llega al destino mediante FastPath.
+>
+
+## <a name="enroll-in-expressroute-fastpath-features-preview"></a>Inscripción en las características de FastPath de ExpressRoute (versión preliminar)
+
+La compatibilidad de FastPath con el emparejamiento de redes virtuales está ahora en versión preliminar pública. La inscripción solo está disponible a través Azure PowerShell. Consulte las [características de la versión preliminar de FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview) para obtener instrucciones sobre cómo inscribirse.
+
+> [!NOTE] 
+> Todas las conexiones configuradas para FastPath en la suscripción de destino se inscribirán en esta versión preliminar. No se recomienda habilitar esta versión preliminar en las suscripciones de producción.
+> Si ya tiene FastPath configurado y desea inscribirse en la característica en versión preliminar, debe hacer lo siguiente:
+> 1. Inscríbase en la característica en versión preliminar de FastPath con el comando de Azure PowerShell anterior.
+> 1. Deshabilite y vuelva a habilitar FastPath en la conexión de destino.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

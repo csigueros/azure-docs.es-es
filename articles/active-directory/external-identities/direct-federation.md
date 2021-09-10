@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 06/17/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1be64850cba80602c13e30c2545470767963251
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: da0d7c9812575ce6b957e70dbe4f8bc165f39315
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963560"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113138736"
 ---
 # <a name="federation-with-samlws-fed-identity-providers-for-guest-users-preview"></a>Federación con proveedores de identidades SAML o WS-Fed para usuarios invitados (versión preliminar)
 
@@ -62,7 +62,7 @@ También puede proporcionar a los usuarios invitados un vínculo directo a una a
 ## <a name="limitations"></a>Limitaciones
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Dominios comprobados por DNS en Azure AD
-El dominio con el que desea federarse ***no*** puede estar verificado por DNS en Azure AD. Se puede configurar una federación en los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
+Puede configurar la federación con el proveedor de identidades SAML o WS-Fed con dominios que no están comprobados por DNS en Azure AD, incluidos inquilinos no administrados (comprobados por correo electrónico o "virales") de Azure AD. Sin embargo, bloqueamos la federación con el proveedor de identidades SAML o WS-Fed para dominios comprobados de Azure AD en favor de las funcionalidades nativas de dominio administrado de Azure AD. Verá un error en Azure Portal o PowerShell si intenta configurar la federación con el proveedor de identidades SAML o WS-Fed con un dominio comprobado por DNS en Azure AD.
 
 ### <a name="signing-certificate-renewal"></a>Renovación del certificado de firma
 Si especifica la dirección URL de metadatos en la configuración del proveedor de identidades, Azure AD renovará automáticamente el certificado de firma cuando expire. Sin embargo, si el certificado se gira por cualquier razón antes de la hora de expiración, o si no proporciona una dirección URL de metadatos, Azure AD no podrá renovarlo. En este caso, deberá actualizar manualmente el certificado de firma.
@@ -75,7 +75,7 @@ Actualmente no se admite la federación con un proveedor de identidades SAML o W
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 ### <a name="can-i-set-up-samlws-fed-idp-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>¿Puedo configurar la federación con un proveedor de identidades SAML o WS-Fed con un dominio para el que existe un inquilino no administrado (verificado por correo electrónico)? 
-Sí. Si el dominio no se ha comprobado y el inquilino no ha experimentado una [adquisición de administración](../enterprise-users/domains-admin-takeover.md), puede configurar la federación con ese dominio. Los inquilinos no administrados o comprobados por correo electrónico se crean cuando un usuario canjea una invitación B2B o realiza un registro de autoservicio para Azure AD mediante un dominio que no existe actualmente. Puede configurar la federación con estos dominios. Si intenta configurar la federación con un dominio comprobado por DNS, ya sea en Azure Portal o con PowerShell, aparecerá un error.
+Sí. Si el dominio no se ha comprobado y el inquilino no ha experimentado una [adquisición de administración](../enterprise-users/domains-admin-takeover.md), puede configurar la federación con ese dominio. Los inquilinos no administrados o comprobados por correo electrónico se crean cuando un usuario canjea una invitación B2B o realiza un registro de autoservicio para Azure AD mediante un dominio que no existe actualmente. Puede configurar la federación con el proveedor de identidades SAML o WS-Fed con estos dominios.
 ### <a name="if-samlws-fed-idp-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Si la federación con un proveedor de identidades SAML o WS-Fed y la autenticación con código de acceso de un solo uso por correo electrónico están habilitadas, ¿qué método tiene prioridad?
 Cuando se establece la federación con un proveedor de identidades SAML o WS-Fed con una organización asociada, esta federación tiene prioridad sobre la autenticación con código de acceso de un solo uso por correo electrónico para los nuevos usuarios invitados de esa organización. Si un usuario invitado ha canjeado una invitación mediante la autenticación de código de acceso de un solo uso antes de configurar la federación con un proveedor de identidades SAML o WS-Fed, seguirá utilizando la autenticación de código de acceso de un solo uso.
 ### <a name="does-samlws-fed-idp-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>¿Se ocupa la federación con un proveedor de identidades SAML o WS-Fed de los problemas de inicio de sesión debidos a unos inquilinos parcialmente sincronizados?

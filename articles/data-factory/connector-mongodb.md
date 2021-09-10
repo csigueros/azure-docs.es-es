@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/01/2021
-ms.openlocfilehash: 3a555f92fb210516ce7fa010e39df339c3823bf0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 6788de24c3e8fc74ac69f73b5e91c13b56843eda
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638436"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307326"
 ---
 # <a name="copy-data-from-or-to-mongodb-by-using-azure-data-factory"></a>Copia de datos con MongoDB como origen o destino mediante Azure Data Factory
 
@@ -41,6 +41,30 @@ En concreto, este conector de MongoDB admite hasta la **versión 4.2**.
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-mongodb-using-ui"></a>Creación de un servicio vinculado en MongoDB mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado en MongoDB en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Cree un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Cree un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque MongoDB y seleccione el conector de MongoDB.
+
+    :::image type="content" source="media/connector-mongodb/mongodb-connector.png" alt-text="Seleccione el conector de MongoDB.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-mongodb/configure-mongodb-linked-service.png" alt-text="Configure un servicio vinculado en MongoDB.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector MongoDB.
 

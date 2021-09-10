@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/08/2020
+ms.date: 08/09/2021
 ms.author: rolyon
-ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fc3d614ef26235325e0b9a9e8fee68d2bf919a5
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555925"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862583"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Descripción del ámbito de RBAC de Azure
 
@@ -119,6 +119,18 @@ Es bastante sencillo determinar el ámbito de un grupo de administración, una s
         "type": "Microsoft.Authorization/roleAssignments"
       }
     ```
+
+## <a name="scope-and-arm-templates"></a>Ámbito y plantillas de ARM
+
+Una asignación de roles es un tipo especial de Azure Resource Manager que se denomina *recurso de extensión*. Un recurso de extensión es un recurso que se agrega a las capacidades de otro recurso. Siempre existe como extensión (como un elemento secundario) de otro recurso. Por ejemplo, una asignación de roles en el ámbito de la suscripción es un recurso de extensión de la suscripción. El nombre de una asignación de roles siempre es el nombre del recurso que se va a extender más `/Microsoft.Authorization/roleAssignments/{roleAssignmentId}`. Al asignar roles mediante una plantilla de Azure Resource Manager (plantilla de ARM), no suele ser necesario proporcionar el ámbito. El motivo es que el campo de ámbito siempre termina siendo el Id. del recurso que se va a extender. El ámbito se puede determinar a partir del Id. de la propia asignación de roles. En la tabla siguiente se muestran ejemplos de un Id. de asignación de roles y el ámbito correspondiente:
+
+> [!div class="mx-tableFixed"]
+> | Id. de la asignación de roles | Ámbito |
+> | --- | --- |
+> | `/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}` | `/subscriptions/{subscriptionId}` |
+> | `/subscriptions/{subscriptionId}/resourceGroups/Example-Storage-rg/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}` | `/subscriptions/{subscriptionId}/resourceGroups/Example-Storage-rg` |
+
+Para obtener más información sobre el ámbito y las plantillas de ARM, consulte [Asignación de roles de Azure mediante plantillas de Azure Resource Manager](role-assignments-template.md). Para obtener una lista completa de los tipos de recursos de extensión, consulte los [Tipos de recursos que amplían las capacidades de otros recursos](../azure-resource-manager/management/extension-resource-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

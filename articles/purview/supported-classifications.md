@@ -1,18 +1,18 @@
 ---
 title: Lista de clasificaciones admitidas
 description: En esta página se enumeran las clasificaciones del sistema admitidas en Azure Purview.
-author: anmuk601
-ms.author: anmuk
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
 ms.date: 4/1/2021
-ms.openlocfilehash: e1d3d495d958465e966701aa7ce91bc2706b48e0
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: f6282d66a6c499e5a8e14cd90e90dc9b6f6ee633
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219593"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768377"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Clasificaciones admitidas en Azure Purview
 
@@ -65,7 +65,7 @@ Sin formato: nueve dígitos consecutivos que empiezan por 0, 1, 2, 3, 6, 7 u 8
 
 ### <a name="keywords"></a>Palabras clave
 
-#### <a name="keyword_aba_routing"></a>Keyword_aba_routing
+#### <a name="keyword_aba_routing"></a>Keyword\_aba\_routing
 
 ```
 amba number
@@ -103,7 +103,7 @@ Ocho dígitos:
 
 ### <a name="keywords"></a>Palabras clave
 
-#### <a name="keyword_argentina_national_id"></a>Keyword_argentina_national_id
+#### <a name="keyword_argentina_national_id"></a>Keyword\_argentina\_national\_id
 
 ```
 Argentina National Identity number
@@ -135,7 +135,7 @@ Número de sucursal bancaria de Australia:
 
 ### <a name="keywords"></a>Palabras clave
 
-#### <a name="keyword_australia_bank_account_number"></a>Keyword_australia_bank_account_number
+#### <a name="keyword_australia_bank_account_number"></a>Palabra clave\_australia\_bank\_account\_number
 
 ```
 swift bank code
@@ -152,7 +152,61 @@ banking information
 full names
 iaea
 ```
+## <a name="australia-business-number"></a>Número de negocio de Australia
 
+### <a name="format"></a>Formato
+11 dígitos más delimitadores opcionales
+
+### <a name="pattern"></a>Patrón
+11 dígitos más delimitadores opcionales:
+
+- dos dígitos
+- un guion o espacio opcional
+- tres dígitos
+- un guion o espacio opcional
+- tres dígitos
+- un guion o espacio opcional
+- tres dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_australia_business_number"></a>Keyword\_australia\_business\_number
+```
+australia business no
+business number
+abn#
+businessid#
+business id
+abn
+businessno#
+```
+
+## <a name="australia-company-number"></a>Número de sociedad de Australia 
+
+### <a name="format"></a>Formato
+nueve dígitos con delimitadores
+
+### <a name="pattern"></a>Patrón
+nueve dígitos con delimitadores:
+
+- tres dígitos
+- un espacio
+- tres dígitos
+- un espacio
+- tres dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_australia_company_number"></a>Keyword\_australia\_company\_number
+```
+acn
+australia company no
+australia company no#
+australia company number
+australian company no
+australian company no#
+australian company number
+```
 ## <a name="australia-drivers-license-number"></a>Número de permiso de conducir de Australia
 
 ### <a name="format"></a>Formato
@@ -176,7 +230,7 @@ O BIEN
 
 ### <a name="keywords"></a>Palabras clave
 
-#### <a name="keyword_australia_drivers_license_number"></a>Keyword_australia_drivers_license_number
+#### <a name="keyword_australia_drivers_license_number"></a>Keyword\_australia\_drivers\_license\_number
 
 ```
 international driving permits
@@ -244,7 +298,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-#### <a name="keyword_australia_drivers_license_number_exclusions"></a>Keyword_australia_drivers_license_number_exclusions
+#### <a name="keyword_australia_drivers_license_number_exclusions"></a>Keyword\_australia\_drivers\_license\_number\_exclusions
 
 ```
 aaa
@@ -299,7 +353,7 @@ Driver's Licenses#
 
 ### <a name="keywords"></a>Palabras clave
 
-#### <a name="keyword_australia_medicare_number"></a>Keyword_Australia_Medicare_Number
+#### <a name="keyword_australia_medicare_number"></a>Keyword\_Australia\_Medicare\_Number
 
 ```
 bank account details
@@ -396,15 +450,383 @@ individual tax return
 tax file number
 tfn
 ```
-
-## <a name="belgium-national-number"></a>Número nacional de Bélgica
+## <a name="austria-identity-card"></a>Tarjeta de identidad de Austria
 
 ### <a name="format"></a>Formato
 
-11 dígitos más delimitadores opcionales
+Combinación de 24 caracteres de letras, dígitos y caracteres especiales
 
 ### <a name="pattern"></a>Patrón
 
+24 caracteres:
+
+- 22 letras (sin distinguir mayúsculas de minúsculas), dígitos, barras diagonales inversas, barras diagonales o signos más
+- dos letras (sin distinguir mayúsculas de minúsculas), dígitos, barras diagonales inversas, barras diagonales, signos más o signos igual
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_austria_eu_national_id_card"></a>Keyword\_austria\_eu\_national\_id\_card
+
+```
+identity number
+national id
+personalausweis republik österreich
+```
+## <a name="austria-tax-identification-number"></a>Número de identificación fiscal de Austria
+
+### <a name="format"></a>Formato
+
+nueve dígitos con guion opcional y barra diagonal
+
+### <a name="pattern"></a>Patrón
+
+nueve dígitos con guion opcional y barra diagonal:
+
+- dos dígitos
+- un guion (opcional)
+- tres dígitos
+- una barra diagonal (opcional)
+- cuatro dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_austria_eu_tax_file_number"></a>Keywords\_austria\_eu\_tax\_file\_number
+
+```
+österreich
+st.nr.
+steuernummer
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+tax number
+```
+## <a name="austria-passport-number"></a>Número de pasaporte de Australia
+
+### <a name="format"></a>Formato
+Una letra seguida de un espacio opcional y siete dígitos
+
+### <a name="pattern"></a>Patrón
+Combinación de una letra, siete dígitos y un espacio:
+
+- una letra (sin distinguir mayúsculas de minúsculas)
+- un espacio (opcional)
+- siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_austria_eu_passport_number"></a>Keywords\_austria\_eu\_passport\_number
+```
+reisepassnummer
+reisepasse
+No-Reisepass
+Nr-Reisepass
+Reisepass-Nr
+Passnummer
+reisepässe
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="austria-social-security-number"></a>Número del seguro social de Alemania 
+
+### <a name="format"></a>Formato
+10 dígitos en el formato especificado
+
+### <a name="pattern"></a>Patrón
+10 dígitos:
+
+- tres dígitos que corresponden a un número de serie
+- un dígito de comprobación
+- seis dígitos que corresponden a la fecha de nacimiento (DDMMAA)
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_austria_eu_ssn_or_equivalent"></a>Keywords\_austria\_eu\_ssn\_or\_equivalent
+```
+austrian ssn
+ehic number
+ehic no
+insurance code
+insurancecode#
+insurance number
+insurance no
+krankenkassennummer
+krankenversicherung
+socialsecurityno
+socialsecurityno#
+social security no
+social security number
+social security code
+sozialversicherungsnummer
+sozialversicherungsnummer#
+soziale sicherheit kein
+sozialesicherheitkein#
+ssn#
+ssn
+versicherungscode
+versicherungsnummer
+zdravstveno zavarovanje
+```
+
+## <a name="austria-tax-identification-number"></a>Número de identificación fiscal de Austria 
+
+### <a name="format"></a>Formato
+nueve dígitos con guion opcional y barra diagonal
+
+### <a name="pattern"></a>Patrón
+nueve dígitos con guion opcional y barra diagonal:
+
+- dos dígitos
+- un guion (opcional)
+- tres dígitos
+- una barra diagonal (opcional)
+- cuatro dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_austria_eu_tax_file_number"></a>Keywords\_austria\_eu\_tax\_file\_number
+```
+österreich
+st.nr.
+steuernummer
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+tax number
+```
+
+## <a name="austria-value-added-tax"></a>Número de identificación fiscal de Austria 
+### <a name="format"></a>Formato
+Patrón alfanumérico de 11 caracteres
+
+### <a name="pattern"></a>Patrón
+Patrón alfanumérico de 11 caracteres:
+
+- A o a
+- T o t
+- Espacio opcional
+- U o u
+- espacio opcional
+- dos o tres dígitos
+- espacio opcional
+- cuatro dígitos
+- espacio opcional
+- uno o dos dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_austria_value_added_tax"></a>Keyword\_austria\_value\_added\_tax
+```
+vat number
+vat#
+austrian vat number
+vat no.
+vatno#
+value added tax number
+austrian vat
+mwst
+umsatzsteuernummer
+mwstnummer
+ust.-identifikationsnummer
+umsatzsteuer-identifikationsnummer
+vat identification number
+atu number
+uid number
+```
+## <a name="belgium-drivers-license-number"></a>Número de permiso de conducir de Alemania 
+
+### <a name="format"></a>Formato
+10 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+10 dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+ 
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+
+#### <a name="keywords_belgium_eu_drivers_license_number"></a>Keywords\_belgium\_eu\_driver's\_license\_number
+```
+rijbewijs
+rijbewijsnummer
+führerschein
+führerscheinnummer
+füehrerscheinnummer
+fuhrerschein
+fuehrerschein
+fuhrerscheinnummer
+fuehrerscheinnummer
+permis de conduire
+numéro permis conduire
+```
+## <a name="belgium-national-number"></a>Número nacional de Bélgica
+
+### <a name="format"></a>Formato
+11 dígitos más delimitadores opcionales
+
+### <a name="pattern"></a>Patrón
 11 dígitos más delimitadores:
 
 - seis dígitos y dos puntos opcionales con el formato AA.MM.DD para la fecha de nacimiento
@@ -416,7 +838,6 @@ tfn
 ### <a name="keywords"></a>Palabras clave
 
 #### <a name="keyword_belgium_national_number"></a>Keyword\_belgium\_national\_number
-
 ```
 be lasting aantal
 bnn#
@@ -475,6 +896,77 @@ tin ID
 tin no
 tin#
 ```
+## <a name="belgium-passport-number"></a>Número de pasaporte de Bélgica 
+
+### <a name="format"></a>Formato
+dos letras seguidas de seis dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+dos letras mayúsculas seguidas de seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_belgium_eu_passport_number"></a>Keywords\_belgium\_eu\_passport\_number
+```
+numéro passeport
+paspoort nr
+paspoort-nr
+paspoortnummer
+paspoortnummers
+Passeport carte
+Passeport livre
+Pass-Nr
+Passnummer
+reisepass kein
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="belgium-value-added-tax-number"></a>Número de identificación fiscal de Bélgica 
+### <a name="format"></a>Formato
+Patrón alfanumérico de 12 caracteres
+
+### <a name="pattern"></a>Patrón
+Patrón alfanumérico de 12 caracteres:
+
+- una letra B o b
+- una letra E o e
+- un dígito 0
+- un dígito de 1 a 9
+- un punto opcional, guion o espacio
+- cuatro dígitos
+- un punto opcional, guion o espacio
+- cuatro dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_belgium_value_added_tax_number"></a>Keyword\_belgium\_value\_added\_tax\_number
+```
+nº tva
+vat number
+vat no
+numéro t.v.a
+umsatzsteuer-identifikationsnummer
+umsatzsteuernummer
+btw
+btw#
+vat#
+```
 
 ## <a name="brazil-cpf-number"></a>Número de CPF de Brasil
 
@@ -501,7 +993,6 @@ Sin formato:
 ### <a name="keywords"></a>Palabras clave
 
 #### <a name="keyword_brazil_cpf"></a>Keyword\_brazil\_cpf
-
 ```
 CPF
 Identification
@@ -537,7 +1028,6 @@ Receita
 ### <a name="keywords"></a>Palabras clave
 
 #### <a name="keyword_brazil_cnpj"></a>Keyword\_brazil\_cnpj
-
 ```
 CNPJ
 CNPJ/MF
@@ -589,7 +1079,6 @@ Empresa
 ### <a name="keywords"></a>Palabras clave
 
 #### <a name="keyword_brazil_rg"></a>Keyword\_brazil\_rg
-
 ```
 Cédula de identidade
 identity card
@@ -599,6 +1088,98 @@ registro de Iidentidade
 registro geral
 RG (this keyword is case-sensitive)
 RIC (this keyword is case-sensitive)
+```
+## <a name="bulgaria-passport-number"></a>Número de pasaporte de Bulgaria 
+
+### <a name="format"></a>Formato
+nueve dígitos
+### <a name="pattern"></a>Patrón
+nueve dígitos sin espacios ni delimitadores
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_bulgaria_eu_passport_number"></a>Keywords\_bulgaria\_eu\_passport\_number
+```
+номер на паспорта
+номер на паспорт
+паспорт №
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="bulgaria-uniform-civil-number"></a>Número civil uniforme de Bulgaria
+
+### <a name="format"></a>Formato
+10 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+10 dígitos sin espacios ni delimitadores
+
+- seis dígitos que corresponden a la fecha de nacimiento (AAMMDD)
+- dos dígitos que corresponden al orden de nacimiento
+- un dígito que corresponde al género: un dígito par para el varón y un dígito impar para la mujer
+- un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_bulgaria_eu_national_id_card"></a>Keywords\_bulgaria\_eu\_national\_id\_card
+```
+bnn#
+bnn
+bucn#
+bucn
+edinen grazhdanski nomer
+egn#
+egn
+identification number
+national id
+national number
+nationalnumber#
+nationalnumber
+personal id
+personal no
+personal number
+personalidnumber#
+social security number
+ssn#
+ssn
+uniform civil id
+uniform civil no
+uniform civil number
+uniformcivilno#
+uniformcivilno
+uniformcivilnumber#
+uniformcivilnumber
+unique citizenship number
+егн#
+егн
+единен граждански номер
+идентификационен номер
+личен номер
+лична идентификация
+лично не
+национален номер
+номер на гражданството
+униформ id
+униформ граждански id
+униформ граждански не
+униформ граждански номер
+униформгражданскиid#
+униформгражданскине.#
 ```
 
 ## <a name="canada-bank-account-number"></a>Número de cuenta bancaria de Canadá
@@ -622,7 +1203,6 @@ Un número de tránsito de cuenta bancaria de Canadá tiene:
 ### <a name="keywords"></a>Palabras clave
 
 #### <a name="keyword_canada_bank_account_number"></a>Keyword\_canada\_bank\_account\_number
-
 ```
 canada savings bonds
 canada revenue agency
@@ -660,10 +1240,10 @@ Varios patrones que abarcan Alberta, Columbia Británica, Manitoba, Nuevo Brunsw
 ### <a name="keywords"></a>Palabras clave
 
 #### <a name="keyword_province_name_drivers_license_name"></a>Keyword\_[province\_name]\_drivers\_license\_name
-
-- La abreviatura de la provincia; por ejemplo, AB.
-- El nombre de la provincia, por ejemplo, Alberta.
-
+```
+- The province abbreviation, for example AB
+- The province name, for example Alberta
+```
 #### <a name="keyword_canada_drivers_license"></a>Keyword\_canada\_drivers\_license
 
 ```
@@ -1522,7 +2102,34 @@ tin ID
 tin no
 tin#
 ```
+## <a name="croatia-passport-number"></a>Número de pasaporte de Croacia
+### <a name="format"></a>Formato
+nueve dígitos sin espacios ni delimitadores
 
+### <a name="pattern"></a>Patrón
+nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number_common"></a>Keywords\_eu\_passport\_number\_common
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_croatia_eu_passport_number"></a>Keywords\_croatia\_eu\_passport\_number
+```
+broj putovnice
+br. Putovnice
+br putovnice
+```
 ## <a name="croatia-personal-identification-oib-number"></a>Número de identificación personal de Croacia (OIB)
 
 ### <a name="format"></a>Formato
@@ -1570,7 +2177,581 @@ tin ID
 tin no
 tin#
 ```
+## <a name="cyprus-drivers-license-number"></a>Número de permiso de conducir de Chipre 
 
+### <a name="format"></a>Formato
+12 dígitos sin espacios ni delimitadores
+### <a name="pattern"></a>Patrón
+12 dígitos
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_cyprus_eu_drivers_license_number"></a>Keywords\_cyprus\_eu\_driver's\_license\_number
+```
+άδεια οδήγησης
+αριθμό άδειας οδήγησης
+άδειες οδήγησης
+```
+## <a name="cyprus-identity-card"></a>Carné de identidad de Chipre
+
+### <a name="format"></a>Formato
+10 dígitos sin espacios ni delimitadores
+### <a name="pattern"></a>Patrón
+
+10 dígitos
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_cyprus_eu_national_id_card"></a>Keywords\_cyprus\_eu\_national\_id\_card
+```
+id card number
+identity card number
+kimlik karti
+national identification number
+personal id number
+ταυτοτητασ
+```
+## <a name="cyprus-passport-number"></a>Número de pasaporte de Chipre
+### <a name="format"></a>Formato
+una letra seguida de 6-8 dígitos sin espacios ni delimitadores
+### <a name="pattern"></a>Patrón
+una letra seguida de seis a ocho dígitos
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number_common"></a>Keywords\_eu\_passport\_number\_common
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_cyprus_eu_passport_number"></a>Keywords\_cyprus\_eu\_passport\_number
+```
+αριθμό διαβατηρίου
+pasaportu
+Αριθμός Διαβατηρίου
+κυπριακό διαβατήριο
+διαβατήριο#
+διαβατήριο
+αριθμός διαβατηρίου
+Pasaport Kimliği
+pasaport numarası
+Pasaport no.
+Αρ. Διαβατηρίου
+```
+#### <a name="keywords_cyprus_eu_passport_date"></a>Keywords\_cyprus\_eu\_passport\_date
+```
+expires on
+issued on
+```
+## <a name="cyprus-tax-identification-number"></a>Número de identificación fiscal de Chipre
+
+### <a name="format"></a>Formato
+ocho dígitos y una letra en el patrón especificado
+
+### <a name="pattern"></a>Patrón
+
+ocho dígitos y una letra:
+
+- un "0" o "9"
+- siete dígitos
+- una letra (sin distinguir mayúsculas de minúsculas)
+
+### <a name="keywords"></a>Palabras clave
+#### <a name="keywords_cyprus_eu_tax_file_number"></a>Keywords\_cyprus\_eu\_tax\_file\_number
+```
+tax id
+tax identification code
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tic#
+tic
+tin id
+tin no
+tin#
+vergi kimlik kodu
+vergi kimlik numarası
+αριθμός φορολογικού μητρώου
+κωδικός φορολογικού μητρώου
+φορολογική ταυτότητα
+φορολογικού κωδικού
+```
+## <a name="czech-republic-drivers-license-number"></a>Número de permiso de conducir de la República Checa 
+### <a name="format"></a>Formato
+dos letras seguidas por seis dígitos
+### <a name="pattern"></a>Patrón
+nueve letras y dígitos:
+
+- letra "E" (sin distinguir mayúsculas de minúsculas)
+- una letra
+- un espacio (opcional)
+- seis dígitos
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_czech_republic_eu_drivers_license_number"></a>Keywords\_czech\_republic\_eu\_driver's\_license\_number
+```
+řidičský prúkaz
+řidičské průkazy
+číslo řidičského průkazu
+čísla řidičských průkazů
+```
+
+## <a name="czech-passport-number"></a>Número de pasaporte checo 
+### <a name="format"></a>Formato
+ocho dígitos sin espacios ni delimitadores
+### <a name="pattern"></a>Patrón
+ocho dígitos sin espacios ni delimitadores
+
+### <a name="keywords"></a>Palabras clave
+#### <a name="keywords_eu_passport_number_common"></a>Keywords\_eu\_passport\_number\_common
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_czech_republic_eu_passport_number"></a>Keywords\_czech\_republic\_eu\_passport\_number
+```
+cestovní pas
+číslo pasu
+cestovní pasu
+passeport no
+čísla pasu
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="denmark-drivers-license-number"></a>Número de permiso de conducir de Dinamarca 
+
+### <a name="format"></a>Formato
+ocho dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+ocho dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_denmark_eu_drivers_license_number"></a>Keywords\_denmark\_eu\_driver's\_license\_number
+```
+kørekort
+kørekortnummer
+```
+## <a name="denmark-passport-number"></a>Número de pasaporte de Dinamarca 
+### <a name="format"></a>Formato
+nueve dígitos sin espacios ni delimitadores
+### <a name="pattern"></a>Patrón
+nueve dígitos
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number_common"></a>Keywords\_eu\_passport\_number\_common
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_denmark_eu_passport_number"></a>Keywords\_denmark\_eu\_passport\_number
+```
+pasnummer
+Passeport n°
+pasnumre
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
 ## <a name="denmark-personal-identification-number"></a>Número de identificación personal de Dinamarca
 
 ### <a name="format"></a>Formato
@@ -1660,7 +2841,220 @@ sygesikringskortnummer
 sygesikringsnr
 sygesikringsnummer
 ```
+## <a name="estonia-drivers-license-number"></a>Número de permiso de conducir de Estonia 
+### <a name="format"></a>Formato
+dos letras seguidas por seis dígitos
+### <a name="pattern"></a>Patrón
+dos letras y seis dígitos:
 
+- letras "ET" (sin distinguir mayúsculas de minúsculas)
+- seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_estonia_eu_drivers_license_number"></a>Keywords\_estonia\_eu\_driver's\_license\_number
+```
+-- permis de conduire
+juhilubade numbrid
+juhiloa number
+juhiluba
+```
+## <a name="estonia-passport-number"></a>Número de pasaporte de Estonia 
+### <a name="format"></a>Formato
+una letra seguida de siete dígitos sin espacios ni delimitadores
+### <a name="pattern"></a>Patrón
+una letra seguida de siete dígitos
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number_common"></a>Keywords\_eu\_passport\_number\_common
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_estonia_eu_passport_number"></a>Keywords\_estonia\_eu\_passport\_number
+```
+eesti kodaniku pass passi number passinumbrid document number document no dokumendi nr
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="estonia-personal-identification-code-isikukood"></a>Código de identificación personal de Estonia (isikukood)
+
+### <a name="format"></a>Formato
+11 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+11 dígitos:
+
+- un dígito que corresponde al sexo y el siglo de nacimiento (número impar para varón, número par para mujer; 1-2: siglo XIX; 3-4: siglo XX; 5-6: siglo XXI)
+- seis dígitos que corresponden a la fecha de nacimiento (AAMMDD)
+- tres dígitos que corresponden a un número de serie que separa a las personas que han nacido en la misma fecha
+- un dígito de comprobación
+### <a name="keywords"></a>Palabras clave
+#### <a name="keywords_estonia_eu_national_id_card"></a>Keywords\_estonia\_eu\_national\_id\_card
+```
+id-kaart
+ik
+isikukood#
+isikukood
+maksu id
+maksukohustuslase identifitseerimisnumber
+maksunumber
+national identification number
+national number
+personal code
+personal id number
+personal identification code
+personal identification number
+personalidnumber#
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
 ## <a name="eu-debit-card-number"></a>Número de tarjeta de débito de la UE
 
 ### <a name="format"></a>Formato
@@ -2135,8 +3529,183 @@ Estas son las entidades del tipo de información confidencial del Número de ide
 - Suecia
 - Reino Unido
 
+## <a name="finland-drivers-license-number"></a>Número de permiso de conducir de Finlandia 
 
+### <a name="format"></a>Formato
+10 dígitos que contienen un guion
 
+### <a name="pattern"></a>Patrón
+10 dígitos que contienen un guion:
+
+- seis dígitos
+- un guion
+- tres dígitos
+- un dígito o una letra
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_finland_eu_drivers_license_number"></a>Keywords\_finland\_eu\_driver's\_license\_number
+```
+ajokortti
+permis de conduire
+ajokortin numero
+kuljettaja lic.
+körkort
+körkortnummer
+förare lic.
+ajokortit
+ajokortin numerot
+```
+## <a name="finland-european-health-insurance-number"></a>Número de seguro médico europeo de Finlandia
+
+### <a name="format"></a>Formato
+Número de 20 dígitos
+### <a name="pattern"></a>Patrón
+Número de 20 dígitos
+- 10 dígitos: 8024680246
+- un espacio o guion opcional
+- 10 dígitos
+
+### <a name="keywords"></a>Palabras clave
+#### <a name="keyword_finland_european_health_insurance_number"></a>Keyword\_finland\_european\_health\_insurance\_number
+```
+ehic#
+ehic
+finlandehicnumber#
+finska sjukförsäkringskort
+health card
+health insurance card
+health insurance number
+hälsokort
+sairaanhoitokortin
+sairausvakuutuskortti
+sairausvakuutusnumero
+sjukförsäkring nummer
+sjukförsäkringskort
+suomen sairausvakuutuskortti
+terveyskortti
+```
 ## <a name="finland-national-id"></a>Documento nacional de identidad de Finlandia
 
 ### <a name="format"></a>Formato
@@ -2390,7 +3959,24 @@ license numbers
 license numbers
 numéros de license
 ```
+## <a name="france-health-insurance-number"></a>Número de seguro médico de Francia
+### <a name="format"></a>Formato
+Número de 21 dígitos
+### <a name="pattern"></a>Patrón
+Número de 21 dígitos:
 
+- 10 dígitos
+- un espacio opcional
+- 10 dígitos
+- un espacio opcional
+- un dígito
+### <a name="keywords"></a>Palabras clave
+#### <a name="keyword_france_health_insurance_number"></a>Keyword\_France\_health\_insurance\_number
+```
+insurance card
+carte vitale
+carte d'assuré social
+```
 ## <a name="france-national-id-card-cni"></a>Carné de identidad nacional de Francia (CNI)
 
 ### <a name="format"></a>Formato
@@ -2502,7 +4088,78 @@ numéro d'assurance sociale
 numéro de sécu
 code sécu
 ```
+## <a name="france-tax-identification-number-numro-spi"></a>Número de identificación fiscal de Francia (numéro SPI). 
+### <a name="format"></a>Formato 
+13 dígitos
+### <a name="pattern"></a>Patrón
+13 dígitos
 
+- Un dígito que debe ser 0, 1, 2 o 3
+- Un dígito
+- Un espacio (opcional)
+- Dos dígitos
+- Un espacio (opcional)
+- Tres dígitos
+- Un espacio (opcional)
+- Tres dígitos
+- Un espacio (opcional)
+- Tres dígitos de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_france_eu_tax_file_number"></a>Keywords\_france\_eu\_tax\_file\_number
+```
+numéro d'identification fiscale
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
+## <a name="france-value-added-tax-number"></a>Número de identificación fiscal de Francia 
+
+### <a name="format"></a>Formato 
+Patrón alfanumérico de 13 caracteres
+
+### <a name="pattern"></a>Patrón
+Patrón alfanumérico de 13 caracteres:
+
+- dos letras: FR (sin distinguir mayúsculas y minúsculas)
+- un espacio o guion opcional
+- dos letras o dígitos
+- un espacio opcional, punto, guion o coma
+- tres dígitos
+- un espacio opcional, punto, guion o coma
+- tres dígitos
+- un espacio opcional, punto, guion o coma
+- tres dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_france_value_added_tax_number"></a>Keyword\_France\_value\_added\_tax\_number
+```
+vat number
+vat no
+vat#
+value added tax
+siren identification no numéro d'identification taxe sur valeur ajoutée
+taxe valeur ajoutée
+taxe sur la valeur ajoutée
+n° tva
+numéro de tva
+numéro d'identification siren
+```
 ## <a name="germany-drivers-license-number"></a>Número de permiso de conducir de Alemania
 
 Esta entidad de tipo de información confidencial se incluye en el tipo de información confidencial del Número de permiso de conducir de la UE y está disponible como entidad independiente del tipo de información confidencial.
@@ -2745,7 +4402,219 @@ reisepässe
 passeport no.
 passeport no
 ```
+## <a name="germany-tax-identification-number"></a>Número de identificación fiscal de Alemania 
 
+### <a name="format"></a>Formato 
+11 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+11 dígitos
+
+- Dos dígitos
+- Un espacio opcional
+- Tres dígitos
+- Un espacio opcional
+- Tres dígitos
+- Un espacio opcional
+- Dos dígitos
+- un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_germany_eu_tax_file_number"></a>Keywords\_germany\_eu_tax\_file\_number
+```
+identifikationsnummer
+steuer id
+steueridentifikationsnummer
+steuernummer
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+zinn#
+zinn
+zinnnummer
+```
+## <a name="germany-value-added-tax-number"></a>Número de identificación fiscal de Alemania 
+
+### <a name="format"></a>Formato 
+Patrón alfanumérico de 11 caracteres
+
+### <a name="pattern"></a>Patrón
+Patrón alfanumérico de 11 caracteres:
+
+- una letra D o d
+- una letra E o e
+- un espacio opcional
+- tres dígitos
+- un espacio o coma opcionales
+- tres dígitos
+- un espacio o coma opcionales
+- tres dígitos
+
+### <a name="keywords"></a>Palabras clave 
+
+#### <a name="keyword_germany_value_added_tax_number"></a>Keyword\_germany\_value\_added\_tax\_number
+```
+vat number
+vat no
+vat#
+vat#  mehrwertsteuer
+mwst
+mehrwertsteuer identifikationsnummer
+mehrwertsteuer nummer
+```
+## <a name="greece-drivers-license-number"></a>Número de permiso de conducir de Grecia 
+nueve dígitos sin espacios ni delimitadores
+
+### <a name="format"></a>Formato 
+nueve dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_greece_eu_drivers_license_number"></a>Keywords\_greece\_eu\_driver's\_license\_number
+```
+δεια οδήγησης
+Adeia odigisis
+Άδεια οδήγησης
+Δίπλωμα οδήγησης
+```
 ## <a name="greece-national-id-card"></a>Número de carné de identificación nacional de Grecia
 
 ### <a name="format"></a>Formato
@@ -2780,7 +4649,96 @@ tautotita
 ταυτότητα
 ταυτότητας
 ```
+## <a name="greece-passport-number"></a>Número de pasaporte de Grecia
 
+### <a name="format"></a>Formato 
+Dos letras seguidas de siete dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+Dos letras seguidas por siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_greece_eu_passport_number"></a>Keywords\_greece\_eu\_passport\_number
+```
+αριθμός διαβατηρίου
+αριθμούς διαβατηρίου
+αριθμός διαβατηριο
+```
+## <a name="greece-social-security-number-amka"></a>Número del seguro social de Grecia (AMKA)
+
+### <a name="format"></a>Formato 
+11 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+- Seis dígitos como fecha de nacimiento AAMMDD
+- Cuatro dígitos
+- un dígito de control
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_greece_eu_ssn_or_equivalent"></a>Keywords\_greece\_eu\_ssn\_or\_equivalent
+```
+- ssn
+- ssn#
+- social security no
+- socialsecurityno#
+- social security number
+- amka
+- a.m.k.a.
+- Αριθμού Μητρώου Κοινωνικής Ασφάλισης
+```
+## <a name="greece-tax-identification-number"></a>Número de identificación fiscal de Grecia
+
+### <a name="format"></a>Formato 
+Nueve dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+Nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_greece_eu_tax_file_number"></a>Keywords\_greece\_eu\_tax\_file\_number
+```
+afm#
+afm
+aφμ|aφμ αριθμός
+aφμ
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+tax registry no
+tax registry number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+taxregistryno#
+tin id
+tin no
+tin#
+αριθμός φορολογικού μητρώου
+τον αριθμό φορολογικού μητρώου
+φορολογικού μητρώου νο
+```
 ## <a name="hong-kong-identity-card-hkid-number"></a>Número del carné de identidad de Hong Kong (HKID)
 
 ### <a name="format"></a>Formato
@@ -2838,7 +4796,302 @@ Hong Kong ID
 香港特別行政區非永久性居民身分證
 香港特別行政區非永久性居民身分証
 ```
+## <a name="hungary-drivers-license-number"></a>Número de permiso de conducir de Hungría 
 
+### <a name="format"></a>Formato 
+Dos letras seguidas por seis dígitos
+
+### <a name="pattern"></a>Patrón
+Dos letras y seis dígitos:
+
+- Dos letras (no se distingue entre mayúsculas y minúsculas)
+- Seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_hungary_eu_drivers_license_number"></a>Keywords\_hungary\_eu\_driver's\_license\_number
+```
+vezetoi engedely
+vezetői engedély
+vezetői engedélyek
+```
+## <a name="hungary-passport-number"></a>Número de pasaporte de Hungría 
+
+### <a name="format"></a>Formato 
+Dos letras seguidas de seis o siete dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+Dos letras seguidas de seis o siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_hungary_eu_passport_number"></a>Keywords\_hungary\_eu\_passport\_number
+```
+útlevél száma
+Útlevelek száma
+útlevél szám
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+fecha de la fecha de expiración del problema
+
+## <a name="hungary-personal-identification-number"></a>Número de identificación personal de Hungría 
+
+### <a name="format"></a>Formato 
+11 dígitos
+
+### <a name="pattern"></a>Patrón
+11 dígitos:
+
+- Un dígito que corresponde al género, 1 para el varón, 2 para la mujer. Otros números también son posibles para los ciudadanos que han nacido antes de 1900 o para los ciudadanos con doble nacionalidad.
+- Seis dígitos que corresponden a la fecha de nacimiento (AAMMDD)
+- Tres dígitos que corresponden a un número de serie
+- Un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_hungary_eu_national_id_card"></a>Keywords\_hungary\_eu\_national\_id\_card
+```
+id number
+identification number
+sz ig
+sz. ig.
+sz.ig.
+személyazonosító igazolvány
+személyi igazolvány
+```
+## <a name="hungary-social-security-number-taj"></a>Número del seguro social de Hungría (TAJ) 
+
+### <a name="format"></a>Formato 
+Nueve dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+Nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_hungary_eu_ssn_or_equivalent"></a>Keywords\_hungary\_eu\_ssn\_or\_equivalent
+```
+- hungarian social security number
+- social security number
+- socialsecuritynumber#
+- hssn#
+- socialsecuritynno
+- hssn
+- taj
+- taj#
+- ssn
+- ssn#
+- social security no
+- áfa
+- közösségi adószám
+- általános forgalmi adó szám
+- hozzáadottérték adó
+- áfa szám
+- magyar áfa szám
+```
+## <a name="hungary-value-added-tax-number"></a>Número de identificación fiscal de Hungría 
+
+### <a name="format"></a>Formato 
+Patrón alfanumérico de 10 caracteres
+
+### <a name="pattern"></a>Patrón
+Patrón alfanumérico de 10 caracteres:
+
+- dos letras: HU o hu
+- espacio opcional
+- ocho dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_hungary_value_added_tax_number"></a>Keyword\_Hungary\_value\_added\_tax\_number
+```
+vat
+value added tax number
+vat#
+vatno#
+hungarianvatno#
+tax no.
+value added tax áfa
+közösségi adószám
+általános forgalmi adó szám
+hozzáadottérték adó
+áfa szám
+```
+
+## <a name="hungary-tax-identification-number"></a>Número de identificación fiscal de Hungría 
+
+### <a name="format"></a>Formato 
+10 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+10 dígitos:
+
+- Un dígito que debe ser "8"
+- Ocho dígitos
+- Un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_hungary_eu_tax_file_number"></a>Keywords\_hungary\_eu\_tax\_file\_number
+```
+adóazonosító szám
+adóhatóság szám
+adószám
+hungarian tin
+hungatiantin#
+tax authority no
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+vat number
+```
 ## <a name="ip-address"></a>Dirección IP
 
 ### <a name="format"></a>Formato
@@ -2974,6 +5227,187 @@ ad, ae, al, at, az, ba, be, bg, bh, ch, cr, cy, cz, de, dk, do, ee, es, fi, fo, 
 
 None
 
+## <a name="ireland-drivers-license-number"></a>Número de permiso de conducir de Irlanda 
+
+### <a name="format"></a>Formato 
+Seis dígitos seguidos de cuatro letras
+
+### <a name="pattern"></a>Patrón
+Seis dígitos y cuatro letras:
+
+- Seis dígitos
+- Cuatro letras (sin distinguir mayúsculas de minúsculas)
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_ireland_eu_drivers_license_number"></a>Keywords\_ireland\_eu\_driver's\_license\_number
+```
+ceadúnas tiomána
+ceadúnais tiomána 
+```
+## <a name="ireland-passport-number"></a>Número de pasaporte de Irlanda 
+
+
+### <a name="format"></a>Formato 
+Dos letras o dígitos seguidos de siete dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+Dos letras o dígitos seguidos de siete dígitos:
+
+- Dos dígitos o letras (sin distinguir mayúsculas de minúsculas)
+- Siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number_common"></a>Keywords\_eu\_passport\_number\_common
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_ireland_eu_passport_number"></a>Keywords\_ireland\_eu\_passport\_number
+```
+passeport numero
+uimhreacha pasanna
+uimhir pas
+uimhir phas
+uimhreacha pas
+uimhir cárta
+uimhir chárta
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
 ## <a name="ireland-personal-public-service-pps-number"></a>Número de servicio público personal de Irlanda (PPS)
 
 ### <a name="format"></a>Formato
@@ -3140,7 +5574,123 @@ patente guida
 patenti di guida
 patenti guida
 ```
+## <a name="italy-fiscal-code"></a>Código fiscal de Italia 
 
+### <a name="format"></a>Formato 
+una combinación de 16 caracteres de letras y dígitos en el patrón especificado
+
+### <a name="pattern"></a>Patrón
+Una combinación de 16 caracteres de letras y dígitos:
+
+- tres letras que corresponden a las tres primeras consonantes del nombre de familia
+- tres letras que corresponden a la primera, tercera y cuarta consonantes del nombre
+- dos dígitos que corresponden a los últimos dígitos del año de nacimiento
+- una letra que corresponde a la letra del mes de nacimiento: las letras se usan en orden alfabético, pero solo se usan las letras A a E, H, L, M, P, R a T (por lo tanto, enero es A y octubre es R)
+- dos dígitos que corresponden al día del mes de nacimiento para diferenciar entre géneros, se agregan 40 al día de nacimiento de las mujeres.
+- cuatro dígitos que corresponden al código de área específico del municipio donde nació la persona (para los países extranjeros se utilizan códigos de ámbito nacional)
+- un dígito de paridad 
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_italy_eu_national_id_card"></a>Keywords\_italy\_eu\_national\_id\_card
+```
+codice fiscal
+codice fiscale
+codice id personale
+codice personale
+fiscal code
+numero certificato personale
+numero di identificazione fiscale
+numero id personale
+numero personale
+personal certificate number
+personal code
+personal id code
+personal id number
+personalcodeno#
+tax code
+tax id
+tax identification no
+tax identification number
+tax identity number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
+## <a name="italy-passport-number"></a>Número de pasaporte de Italia 
+
+### <a name="format"></a>Formato 
+dos letras o dígitos seguidos de siete dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+dos letras o dígitos seguidos de siete dígitos:
+
+- dos dígitos o letras (sin distinguir mayúsculas de minúsculas)
+- siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number_common"></a>Keywords\_eu\_passport\_number\_common
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_italy_eu_passport_number"></a>Keywords\_italy\_eu\_passport\_number
+```
+italiana passaporto
+passaporto italiana
+passaporto numero
+numéro passeport
+numero di passaporto
+numeri del passaporto
+passeport italien
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="italy-value-added-tax"></a>Número de identificación fiscal de Italia 
+
+### <a name="format"></a>Formato 
+Patrón alfanumérico de 13 caracteres con delimitadores opcionales
+
+### <a name="pattern"></a>Patrón
+Patrón alfanumérico de 13 caracteres con delimitadores opcionales:
+
+- I o i
+- T o t
+- espacio opcional, punto, guion o coma
+- 11 dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_italy_value_added_tax_number"></a>Keyword\_italy\_value\_added\_tax\_number
+```
+vat number
+vat no
+vat#
+iva
+iva#
+```
 ## <a name="japan-bank-account-number"></a>Número de cuenta bancaria de Japón
 
 ### <a name="format"></a>Formato
@@ -3263,7 +5813,63 @@ lics#
 免許証#
 免許#
 ```
+## <a name="japanese-my-number--corporate"></a>Mi número de Japón: corporativo 
 
+
+### <a name="format"></a>Formato 
+Número de 13 dígitos
+
+### <a name="pattern"></a>Patrón
+Número de 13 dígitos:
+
+- un dígito de uno a nueve
+- 12 dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_japan_my_number_corporate"></a>Keyword\_japan\_my\_number\_corporate
+```
+corporate number
+マイナンバー
+共通番号
+マイナンバーカード
+マイナンバーカード番号
+個人番号カード
+個人識別番号
+個人識別ナンバー
+法人番号
+指定通知書
+```
+## <a name="japanese-my-number--personal"></a>Mi número de Japón: personal 
+
+
+### <a name="format"></a>Formato 
+Número de 12 dígitos
+
+### <a name="pattern"></a>Patrón
+Número de 12 dígitos:
+
+- cuatro dígitos
+- un espacio opcional, punto o guion
+- cuatro dígitos
+- un espacio opcional, punto o guion
+- cuatro dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_japan_my_number_personal"></a>Keyword\_japan\_my\_number\_personal
+```
+my number
+マイナンバー
+個人番号
+共通番号
+マイナンバーカード
+マイナンバーカード番号
+個人番号カード
+個人識別番号
+個人識別ナンバー
+通知カード
+```
 ## <a name="japan-passport-number"></a>Número de pasaporte de Japón
 
 ### <a name="format"></a>Formato
@@ -3386,7 +5992,770 @@ Social Insurance Number
 厚生年金
 厚生年金被保険者整理番号
 ```
+## <a name="latvia-drivers-license-number"></a>Número de permiso de conducir de Letonia
 
+### <a name="format"></a>Formato
+tres letras seguidas por seis dígitos
+
+### <a name="pattern"></a>Patrón
+tres letras y seis dígitos:
+
+- tres letras (sin distinguir mayúsculas de minúsculas)
+- seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_latvia_eu_drivers_license_number"></a>Keywords\_latvia\_eu\_driver's\_license\_number
+```
+autovadītāja apliecība
+autovadītāja apliecības
+vadītāja apliecība
+```
+## <a name="latvia-passport-number"></a>Número de pasaporte de Letonia 
+
+### <a name="format"></a>Formato 
+dos letras o dígitos seguidos de siete dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+dos letras o dígitos seguidos de siete dígitos:
+
+- dos dígitos o letras (sin distinguir mayúsculas de minúsculas)
+- siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number_common"></a>Keywords\_eu\_passport\_number\_common
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_latvia_eu_passport_number"></a>Keywords\_latvia\_eu\_passport\_number
+```
+pase numurs
+pase numur
+pases numuri
+pases nr
+passeport no
+n° du Passeport
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="latvia-personal-code-personas-kods-or-pic"></a>Código personal de Letonia (kods o PIC de personas)  
+
+### <a name="format"></a>Formato 
+11 dígitos y un guion opcional
+
+### <a name="pattern"></a>Patrón
+Formato anterior
+
+11 dígitos y un guion:
+
+- seis dígitos que corresponden a la fecha de nacimiento (DDMMAA)
+- un guion
+- un dígito que corresponde al siglo de nacimiento ("0" para el siglo XIX, "1" para el siglo XX y "2" para el siglo XXI)
+- cuatro dígitos, generados aleatoriamente
+- Formato nuevo
+
+11 dígitos
+
+- Dos dígitos "32"
+- Nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_latvia_eu_national_id_card"></a>Keywords\_latvia\_eu\_national\_id\_card
+```
+administrative number
+alvas nē
+birth number
+citizen number
+civil number
+electronic census number
+electronic number
+fiscal code
+healthcare user number
+id#
+id-code
+identification number
+identifikācijas numurs
+id-number
+individual number
+latvija alva
+nacionālais id
+national id
+national identifying number
+national identity number
+national insurance number
+national register number
+nodokļa numurs
+nodokļu id
+nodokļu identifikācija numurs
+personal certificate number
+personal code
+personal id code
+personal id number
+personal identification code
+personal identifier
+personal identity number
+personal number
+personal numeric code
+personalcodeno#
+personas kods
+population identification code
+public service number
+registration number
+revenue number
+social insurance number
+social security number
+state tax code
+tax file number
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+voter’s number
+```
+## <a name="lithuania-drivers-license-number"></a>Número de permiso de conducir de Lituania 
+
+### <a name="format"></a>Formato 
+ocho dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+ocho dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_lithuania_eu_drivers_license_number"></a>Keywords\_lithuania\_eu\_driver's\_license\_number
+```
+vairuotojo pažymėjimas
+vairuotojo pažymėjimo numeris
+vairuotojo pažymėjimo numeriai
+```
+## <a name="lithuania-passport-number"></a>Número de pasaporte de Lituania 
+
+### <a name="format"></a>Formato 
+ocho dígitos o letras sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+ocho dígitos o letras (sin distinguir mayúsculas de minúsculas)
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_lithuania_eu_passport_number"></a>Keywords\_lithuania\_eu\_passport\_number
+```
+paso numeris
+paso numeriai
+paso nr
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="lithuania-personal-code-asmens-kodas"></a>Código personal de Lituania (Asmens kodas)  
+
+### <a name="format"></a>Formato 
+11 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+11 dígitos sin espacios ni delimitadores:
+
+- un dígito (1-6) que corresponde al género y el siglo de nacimiento de la persona
+- seis dígitos que corresponden a la fecha de nacimiento (AAMMDD)
+- tres dígitos que corresponden al número de serie de la fecha de nacimiento
+- un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_lithuania_eu_national_id_card"></a>Keywords\_lithuania\_eu\_national\_id\_card
+```
+asmeninis skaitmeninis kodas
+asmens kodas
+citizen service number
+mokesčių id
+mokesčių identifikavimas numeris
+mokesčių identifikavimo numeris
+mokesčių numeris
+national identification number
+personal code
+personal numeric code
+piliečio paslaugos numeris
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+unikalus identifikavimo kodas
+unikalus identifikavimo numeris
+unique identification number
+unique identity number
+uniqueidentityno#
+```
+## <a name="luxembourg-drivers-license-number"></a>Número de permiso de conducir de Luxemburgo 
+
+### <a name="format"></a>Formato 
+seis dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_luxemburg_eu_drivers_license_number"></a>Keywords\_luxemburg\_eu\_driver's\_license\_number
+```
+fahrerlaubnis
+Führerschäin
+```
+## <a name="luxembourg-passport-number"></a>Número de pasaporte de Luxemburgo 
+
+### <a name="format"></a>Formato 
+ocho dígitos o letras sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+ocho dígitos o letras (sin distinguir mayúsculas de minúsculas)
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_luxemburg_eu_passport_number"></a>Keywords\_luxemburg\_eu\_passport\_number
+```
+ausweisnummer
+luxembourg pass
+luxembourg passeport
+luxembourg passport
+no de passeport
+no-reisepass
+nr-reisepass
+numéro de passeport
+pass net
+pass nr
+passnummer
+passeport nombre
+reisepässe
+reisepass-nr
+reisepassnummer
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="luxemburg-national-identification-number---natural-persons"></a>Número de identificación nacional de Luxemburgo: personas físicas
+
+### <a name="format"></a>Formato 
+13 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+13 dígitos:
+
+- 11 dígitos
+- dos dígitos de control
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_luxemburg_eu_national_id_card"></a>Keywords\_luxemburg\_eu\_national\_id\_card
+```
+eindeutige id
+eindeutige id-nummer
+eindeutigeid#
+id personnelle
+idpersonnelle#
+idpersonnelle
+individual code
+individual id
+individual identification
+individual identity
+numéro d'identification personnel
+personal id
+personal identification
+personal identity
+personalidno#
+personalidnumber#
+persönliche identifikationsnummer
+unique id
+unique identity
+uniqueidkey#
+```
+## <a name="luxemburg-national-identification-number---non-natural-persons"></a>Número de identificación nacional de Luxemburgo: personas jurídicas
+
+### <a name="format"></a>Formato 
+11 dígitos
+
+### <a name="pattern"></a>Patrón
+11 dígitos
+
+- dos dígitos
+- un espacio opcional
+- tres dígitos
+- un espacio opcional
+- tres dígitos
+- un espacio opcional
+- dos dígitos
+- un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_luxemburg_eu_tax_file_number"></a>Keywords\_luxemburg\_eu\_tax\_file\_number
+```
+carte de sécurité sociale
+étain non
+étain#
+identifiant d'impôt
+luxembourg tax identifikatiounsnummer
+numéro d'étain
+numéro d'identification fiscal luxembourgeois
+numéro d'identification fiscale
+social security
+sozialunterstützung
+sozialversécherung
+sozialversicherungsausweis
+steier id
+steier identifikatiounsnummer
+steier nummer
+steuer id
+steueridentifikationsnummer
+steuernummer
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+zinn#
+zinn
+zinnzahl
+```
 ## <a name="malaysia-identification-card-number"></a>Número del carné de identidad de Malasia
 
 ### <a name="format"></a>Formato
@@ -3434,7 +6803,268 @@ malaysian identity card
 nric
 personal identification card
 ```
+## <a name="malta-drivers-license-number"></a>Número de permiso de conducir de Malta 
 
+### <a name="format"></a>Formato 
+Combinación de dos caracteres y seis dígitos en el patrón especificado
+
+### <a name="pattern"></a>Patrón
+combinación de dos caracteres y seis dígitos:
+
+- dos caracteres (dígitos o letras, sin distinguir mayúsculas de minúsculas)
+- un espacio (opcional)
+- tres dígitos
+- un espacio (opcional)
+- tres dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_malta_eu_drivers_license_number"></a>Keywords\_malta\_eu\_driver's\_license\_number
+```
+liċenzja tas-sewqan
+liċenzji tas-sewwieq
+```
+## <a name="malta-identity-card-number"></a>Número del carné de identidad de Malta 
+
+### <a name="format"></a>Formato 
+siete dígitos seguidos de una letra
+
+### <a name="pattern"></a>Patrón
+siete dígitos seguidos de una letra:
+
+- siete dígitos
+- una letra de "M, G, A, P, L, H, B, Z" (sin mayúsculas y minúsculas)
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_malta_eu_national_id_card"></a>Keywords\_malta\_eu\_national\_id\_card
+```
+citizen service number
+id tat-taxxa
+identifika numru tal-biljett
+kodiċi numerali personali
+numru ta 'identifikazzjoni personali
+numru ta 'identifikazzjoni tat-taxxa
+numru ta 'identifikazzjoni uniku
+numru ta' identità uniku
+numru tas-servizz taċ-ċittadin
+numru tat-taxxa
+personal numeric code
+unique identification number
+unique identity number
+uniqueidentityno#
+```
+## <a name="malta-passport-number"></a>Número de pasaporte de Malta 
+
+### <a name="format"></a>Formato 
+siete dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_malta_eu_passport_number"></a>Keywords\_malta\_eu\_passport\_number
+```
+numru tal-passaport
+numri tal-passaport
+Nru tal-passaport
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+## <a name="malta-tax-id-number"></a>El número de identificación fiscal de Malta 
+
+### <a name="format"></a>Formato 
+Para los ciudadanos malteses:
+
+- siete dígitos y una letra en el patrón especificado
+
+Entidades maltesas y ciudadanos no malteses:
+
+- nueve dígitos
+
+### <a name="pattern"></a>Patrón
+
+Ciudadanos malteses: siete dígitos y una letra
+
+- siete dígitos
+- una letra (sin distinguir mayúsculas de minúsculas)
+
+Entidades maltesas y ciudadanos no maltesas: nueve dígitos
+
+- nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_malta_eu_tax_file_number"></a>Keywords\_malta\_eu\_tax\_file\_number
+```
+citizen service number
+id tat-taxxa
+identifika numru tal-biljett
+kodiċi numerali personali
+numru ta 'identifikazzjoni personali
+numru ta 'identifikazzjoni tat-taxxa
+numru ta 'identifikazzjoni uniku
+numru ta' identità uniku
+numru tas-servizz taċ-ċittadin
+numru tat-taxxa
+personal numeric code
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+unique identification number
+unique identity number
+uniqueidentityno#
+```
 ## <a name="netherlands-citizens-service-bsn-number"></a>Número de servicio de ciudadano de Países Bajos (BSN)
 
 ### <a name="format"></a>Formato
@@ -3478,7 +7108,422 @@ unique identification number
 unique identity number
 uniqueidentityno#
 ```
+## <a name="netherlands-drivers-license-number"></a>Número de permiso de conducir de Países Bajos 
 
+### <a name="format"></a>Formato 
+
+10 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+10 dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_netherlands_eu_drivers_license_number"></a>Keywords\_netherlands\_eu\_driver's\_license\_number
+```
+permis de conduire
+rijbewijs
+rijbewijsnummer
+rijbewijzen
+rijbewijs nummer
+rijbewijsnummers
+```
+
+## <a name="netherlands-passport-number"></a>Número de pasaporte de Países Bajos 
+
+### <a name="format"></a>Formato 
+
+nueve letras o dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+nueve letras o dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_netherlands_eu_passport_number"></a>Keywords\_netherlands\_eu\_passport\_number
+```
+paspoort nummer
+paspoortnummers
+paspoortnummer
+paspoort nr
+```
+## <a name="netherlands-tax-identification-number"></a>Número de identificación fiscal de Países Bajos 
+
+### <a name="format"></a>Formato 
+
+nueve dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_netherlands_eu_tax_file_number"></a>Keywords\_netherlands\_eu\_tax\_file\_number
+```
+btw nummer
+hollânske tax identification
+hulandes impuesto id number
+hulandes impuesto identification
+identificatienummer belasting
+identificatienummer van belasting
+impuesto identification number
+impuesto number
+nederlands belasting id nummer
+nederlands belasting identificatie
+nederlands belasting identificatienummer
+nederlands belastingnummer
+nederlandse belasting identificatie
+netherlands tax identification
+netherland's tax identification
+netherlands tin
+netherland's tin
+tax id
+tax identification no
+tax identification number
+tax identification tal
+tax no#
+tax no
+tax number
+tax registration number
+tax tal
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
+## <a name="netherlands-value-added-tax-number"></a>Número de identificación fiscal de Países Bajos 
+
+### <a name="format"></a>Formato 
+
+Patrón alfanumérico de 14 caracteres
+
+### <a name="pattern"></a>Patrón
+
+Patrón alfanumérico de 14 caracteres:
+
+- N o n
+- L o l
+- espacio opcional, punto o guion
+- nueve dígitos
+- espacio opcional, punto o guion
+- B o b
+- dos dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_netherlands_value_added_tax_number"></a>Keyword\_netherlands\_value\_added\_tax\_number
+```
+vat number
+vat no
+vat#
+wearde tafoege tax getal
+btw nûmer
+btw-nummer
+```
+## <a name="new-zealand-bank-account-number"></a>Número de cuenta bancaria de Nueva Zelanda 
+
+### <a name="format"></a>Formato 
+
+Patrón de 14 a 16 dígitos con delimitador opcional
+
+### <a name="pattern"></a>Patrón
+
+Patrón de 14 a 16 dígitos con delimitador opcional:
+
+- dos dígitos
+- un guion o espacio opcional
+- de tres a cuatro dígitos
+- un guion o espacio opcional
+- siete dígitos
+- un guion o espacio opcional
+- de dos a tres dígitos
+- un guion o espacio de opciones
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_new_zealand_bank_account_number"></a>Keyword\_new\_zealand\_bank\_account\_number
+```
+account number
+bank account
+bank_acct_id
+bank_acct_branch
+bank_acct_nbr
+```
+## <a name="new-zealand-driver-license"></a>Número de permiso de conducir de Nueva Zelanda 
+
+### <a name="format"></a>Formato 
+
+patrón alfanumérico de ocho caracteres
+
+### <a name="pattern"></a>Patrón
+
+patrón alfanumérico de ocho caracteres
+
+- dos letras
+- seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_new_zealand_drivers_license_number"></a>Keyword\_new\_zealand\_drivers\_license\_number
+```
+driverlicence
+driverlicences
+driver lic
+driver licence
+driver licences
+driverslic
+driverslicence
+driverslicences
+drivers lic
+drivers lics
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's licence
+driver's licences
+driverlic#
+driverlics#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver licence#
+driver licences#
+driverslic#
+driverslics#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's licence#
+driver's licences#
+international driving permit
+international driving permits
+nz automobile association
+new zealand automobile association
+```
+## <a name="new-zealand-inland-revenue-number"></a>Número de Hacienda Pública de Nueva Zelanda 
+
+### <a name="format"></a>Formato 
+
+ocho o nueve dígitos con delimitadores opcionales
+
+### <a name="pattern"></a>Patrón
+
+ocho o nueve dígitos con delimitadores opcionales
+
+- dos o tres dígitos
+- un espacio o guion opcional
+- tres dígitos
+- un espacio o guion opcional
+- tres dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_new_zealand_inland_revenue_number"></a>Keyword\_new\_zealand\_inland\_revenue\_number
+```
+ird no.
+ird no#
+nz ird
+new zealand ird
+ird number
+inland revenue number
+```
+## <a name="new-zealand-social-welfare-number"></a>Número de bienestar social de Nueva Zelanda
+
+### <a name="format"></a>Formato
+
+nueve dígitos
+
+### <a name="pattern"></a>Patrón
+
+nueve dígitos
+
+- tres dígitos
+- un guión opcional
+- tres dígitos
+- un guión opcional
+- tres dígitos
+
+#### <a name="keyword_new_zealand_social_welfare_number"></a>Keyword\_new\_zealand\_social\_welfare\_number
+```
+social welfare #
+social welfare#
+social welfare No.  
+social welfare number
+swn#
+```
 ## <a name="new-zealand-ministry-of-health-number"></a>Número del Ministerio de Sanidad de Nueva Zelanda
 
 ### <a name="format"></a>Formato
@@ -3563,6 +7608,151 @@ Identity Card
 Pinag-isang Multi-Layunin ID
 ```
 
+## <a name="poland-drivers-license-number"></a>Número de permiso de conducir de Polonia
+
+### <a name="format"></a>Formato
+
+14 dígitos que contienen dos barras diagonales
+
+### <a name="pattern"></a>Patrón
+
+14 dígitos y dos barras diagonales:
+
+- cinco dígitos
+- una barra diagonal
+- dos dígitos
+- una barra diagonal
+- siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_poland_eu_drivers_license_number"></a>Keywords\_poland\_eu\_driver's\_license\_number
+```
+prawo jazdy
+prawa jazdy
+```
+
 ## <a name="poland-identity-card"></a>Carné de identidad de Polonia
 
 ### <a name="format"></a>Formato
@@ -3637,6 +7827,82 @@ Nr. Paszportu
 Paszport
 ```
 
+## <a name="poland-regon-number"></a>Número REGON de Polonia
+
+### <a name="format"></a>Formato
+
+Número de 9 o 14 dígitos
+
+### <a name="pattern"></a>Patrón
+
+número de nueve o 14 dígitos:
+
+- nueve dígitos
+- nueve dígitos
+- guion
+- cinco dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_poland_regon_number"></a>Keywords\_poland\_regon\_number
+```
+regon id
+statistical number
+statistical id
+statistical no
+regon number
+regonid#
+regonno#
+company id
+companyid#
+companyidno#
+numer statystyczny
+numeru regon
+numerstatystyczny#
+numeruregon#
+```
+## <a name="poland-tax-identification-number"></a>Número de identificación fiscal de Polonia
+
+### <a name="format"></a>Formato
+
+11 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+11 dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_poland_eu_tax_file_number"></a>Keywords\_poland\_eu\_tax\_file\_number
+```
+nip#
+nip
+numer identyfikacji podatkowej
+numeridentyfikacjipodatkowej#
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+vat id#
+vat id
+vat no
+vat number
+vatid#
+vatid
+vatno#
+```
 ## <a name="portugal-citizen-card-number"></a>Número de la tarjeta de ciudadano de Portugal
 
 ### <a name="format"></a>Formato
@@ -3836,6 +8102,408 @@ permissão condução
 Licença condução Portugal
 carta de condução
 ```
+## <a name="portugal-passport-number"></a>Número de pasaporte de Portugal
+
+### <a name="format"></a>Formato
+
+una letra seguida de seis dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+una letra seguida de siete dígitos:
+
+- una letra (sin distinguir mayúsculas de minúsculas)
+- seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_portugal_eu_passport_number"></a>Keywords\_portugal\_eu\_passport\_number
+```
+número do passaporte
+portuguese passport
+portuguese passeport
+portuguese passaporte
+passaporte nº
+passeport nº
+números de passaporte
+portuguese passports
+número passaporte
+números passaporte
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+
+## <a name="portugal-tax-identification-number"></a>Número de identificación fiscal de Portugal
+
+### <a name="format"></a>Formato
+
+nueve dígitos con espacios opcionales
+
+### <a name="pattern"></a>Patrón
+
+- tres dígitos
+- un espacio opcional
+- tres dígitos
+- un espacio opcional
+- tres dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_portugal_eu_tax_file_number"></a>Keywords\_portugal\_eu\_tax\_file\_number
+```
+cpf#
+cpf
+nif#
+nif
+número de identificação fisca
+numero fiscal
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
+## <a name="romania-drivers-license-number"></a>Número de permiso de conducir de Rumanía
+
+### <a name="format"></a>Formato
+
+un carácter seguido de ocho dígitos
+
+### <a name="pattern"></a>Patrón
+
+un carácter seguido de ocho dígitos:
+
+- una letra (sin distinguir mayúsculas de minúsculas) o un dígito
+- ocho dígitos
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_romania_eu_drivers_license_number"></a>Keywords\_romania\_eu\_driver's\_license\_number
+```
+permis de conducere
+permisului de conducere
+permisului conducere
+permisele de conducere
+permisele conducere
+permis conducere
+```
+
+## <a name="romania-passport-number"></a>Número de pasaporte de Rumanía
+
+### <a name="format"></a>Formato
+
+ocho o nueve dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+ocho o nueve dígitos:
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_romania_eu_passport_number"></a>Keywords\_romania\_eu\_passport\_number
+```
+numărul pașaportului numarul pasaportului numerele pașaportului Pașaport nr
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
+
+## <a name="romania-personal-numeric-code-cnp"></a>Código numérico personal de Rumanía (CNP)
+
+### <a name="format"></a>Formato
+
+13 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+- un dígito del 1 al 9
+- seis dígitos que representan la fecha de nacimiento (AAMMDD)
+- dos dígitos, que pueden ser 01-52 o 99
+- cuatro dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_romania_eu_national_id_card"></a>Keywords\_romania\_eu\_national\_id\_card
+```
+cnp#
+cnp
+cod identificare personal
+cod numeric personal
+cod unic identificare
+codnumericpersonal#
+codul fiscal nr.
+identificarea fiscală nr#
+id-ul taxei
+insurance number
+insurancenumber#
+national id#
+national id
+national identification number
+număr identificare personal
+număr identitate
+număr personal unic
+număridentitate#
+număridentitate
+numărpersonalunic#
+numărpersonalunic
+număru de identificare fiscală
+numărul de identificare fiscală
+personal numeric code
+pin#
+pin
+tax file no
+tax file number
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+unique identification number
+unique identity number
+uniqueidentityno#
+uniqueidentityno
+```
+
+## <a name="russia-passport-number-domestic"></a>Número de pasaporte nacional de Rusia
+
+### <a name="format"></a>Formato
+
+Número de 10 dígitos
+
+### <a name="pattern"></a>Patrón
+
+Número de 10 dígitos:
+
+- dos dígitos
+- un espacio o guion opcional
+- dos dígitos
+- un espacio opcional
+- seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_russia_passport_number_domestic"></a>Keyword\_russia\_passport\_number\_domestic
+```
+passport number
+passport no
+passport #
+passport id
+passportno#
+passportnumber#
+паспорт нет
+паспорт id
+pоссийской паспорт
+pусский номер паспорта
+паспорт#
+паспортid#
+номер паспорта
+номерпаспорта#
+```
+## <a name="russia-passport-number-international"></a>Número internacional de pasaporte de Rusia
+
+### <a name="format"></a>Formato
+
+número de nueve dígitos
+
+### <a name="pattern"></a>Patrón
+
+número de nueve dígitos:
+
+- dos dígitos
+- un espacio o guion opcional
+- siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_russia_passport_number_international"></a>Keywords\_russia\_passport\_number\_international
+```
+passport number
+passport no
+passport #
+passport id
+passportno#
+passportnumber#
+паспорт нет
+паспорт id
+pоссийской паспорт
+pусский номер паспорта
+паспорт#
+паспортid#
+номер паспорта
+номерпаспорта#
+```
 
 ## <a name="saudi-arabia-national-id"></a>Identificador nacional de Arabia Saudí
 
@@ -3884,6 +8552,477 @@ Foreign Identification Number
 FIN
 身份证
 身份證
+```
+## <a name="slovakia-drivers-license-number"></a>Número de permiso de conducir de Eslovaquia
+
+### <a name="format"></a>Formato
+
+un carácter seguido de siete dígitos
+
+### <a name="pattern"></a>Patrón
+
+un carácter seguido de siete dígitos
+
+- una letra (sin distinguir mayúsculas de minúsculas) o un dígito
+- siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_slovakia_eu_drivers_license_number"></a>Keywords\_slovakia\_eu\_driver's\_license\_number
+```
+vodičský preukaz
+vodičské preukazy
+vodičského preukazu
+vodičských preukazov
+```
+## <a name="slovakia-personal-number"></a>Número personal de Eslovaquia
+
+### <a name="format"></a>Formato
+nueve o 10 dígitos que contienen una barra diagonal inversa opcional
+
+### <a name="pattern"></a>Patrón
+- seis dígitos que representan la fecha de nacimiento
+- barra diagonal opcional (/)
+- tres dígitos
+- un dígito de comprobación opcional
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_slovakia_eu_national_id_card"></a>Keywords\_slovakia\_eu\_national\_id\_card
+```
+azonosító szám
+birth number
+číslo národnej identifikačnej karty
+číslo občianského preukazu
+daňové číslo
+id number
+identification no
+identification number
+identifikačná karta č
+identifikačné číslo
+identity card no
+identity card number
+národná identifikačná značka č
+national number
+nationalnumber#
+nemzeti személyazonosító igazolvány
+personalidnumber#
+rč
+rodne cislo
+rodné číslo
+social security number
+ssn#
+ssn
+személyi igazolvány szám
+személyi igazolvány száma
+személyigazolvány szám
+tax file no
+tax file number
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
+## <a name="slovenia-drivers-license-number"></a>Número de permiso de conducir de Eslovenia
+
+### <a name="format"></a>Formato
+
+nueve dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+#### <a name="keywords_slovenia_eu_drivers_license_number"></a>Keywords\_slovenia\_eu\_driver's\_license\_number
+```
+vozniško dovoljenje
+vozniška številka licence
+vozniških dovoljenj
+številka vozniškega dovoljenja
+številke vozniških dovoljenj
+```
+## <a name="slovenia-passport-number"></a>Número de pasaporte de Eslovenia
+
+### <a name="format"></a>Formato
+
+dos letras seguidas de siete dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+dos letras seguidas por siete dígitos:
+
+- la letra "P"
+- una letra mayúscula
+- siete dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+- passport#
+- passport #
+- passportid
+- passports
+- passportno
+- passport no
+- passportnumber
+- passport number
+- passportnumbers
+- passport numbers
+```
+#### <a name="keywords_slovenia_eu_passport_number"></a>Keywords\_slovenia\_eu\_passport\_number
+```
+- številka potnega lista
+- potek veljavnosti
+- potni list#
+- datum rojstva
+- potni list
+- številke potnih listov
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+- date of issue
+- date of expiry
+```
+## <a name="slovenia-tax-identification-number"></a>Número de identificación fiscal de Eslovenia
+
+### <a name="format"></a>Formato
+
+ocho dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+- Un dígito del 1 al 9
+- seis dígitos
+- un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_slovenia_eu_tax_file_number"></a>Keywords\_slovenia\_eu\_tax\_file\_number
+```
+davčna številka
+identifikacijska številka davka
+številka davčne datoteke
+tax file no
+tax file number
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
+
+## <a name="slovenia-unique-master-citizen-number"></a>Número único de ciudadano de Eslovenia
+
+### <a name="format"></a>Formato
+
+13 dígitos sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+13 dígitos en el patrón especificado:
+
+- siete dígitos que corresponden a la fecha de nacimiento (DDMMLLL) donde "LLL" corresponde a los tres últimos dígitos del año de nacimiento
+- dos dígitos que corresponden al área de nacimiento "50"
+- tres dígitos que corresponden a una combinación de género y número de serie para las personas que han nado el mismo día. 000-499 para hombres y 500-999 para mujeres.
+- un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_slovenia_eu_national_id_card"></a>Keywords\_slovenia\_eu\_national\_id\_card
+```
+edinstvena številka glavnega državljana
+emšo
+enotna maticna številka obcana
+id card
+identification number
+identifikacijska številka
+identity card
+nacionalna id
+nacionalni potni list
+national id
+osebna izkaznica
+osebni koda
+osebni ne
+osebni številka
+personal code
+personal number
+personal numeric code
+številka državljana
+unique citizen number
+unique id number
+unique identity number
+unique master citizen number
+unique registration number
+uniqueidentityno #
+uniqueidentityno#
 ```
 
 ## <a name="south-africa-identification-number"></a>Número de identificación de Sudáfrica
@@ -3941,6 +9080,247 @@ RRN
 주민등록번호
 ```
 
+## <a name="spain-dni"></a>DNI de España 
+
+### <a name="format"></a>Formato
+
+ocho dígitos seguidos de un carácter
+
+### <a name="pattern"></a>Patrón
+
+siete dígitos seguidos de un carácter
+
+- ocho dígitos
+- un espacio o guion opcional
+- una letra de comprobación (sin distinguir mayúsculas de minúsculas)
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_spain_eu_national_id_card"></a>Keywords\_spain\_eu\_national\_id\_card
+```
+carné de identidad
+dni#
+dni
+dninúmero#
+documento nacional de identidad
+identidad único
+identidadúnico#
+insurance number
+national identification number
+national identity
+nationalid#
+nationalidno#
+nie#
+nie
+nienúmero#
+número de identificación
+número nacional identidad
+personal identification number
+personal identity no
+unique identity number
+uniqueid#
+```
+## <a name="spain-drivers-license-number"></a>Número de permiso de conducir de España 
+
+### <a name="format"></a>Formato
+
+ocho dígitos seguidos de un carácter
+
+### <a name="pattern"></a>Patrón
+
+ocho dígitos seguidos de un carácter:
+
+- ocho dígitos
+- un dígito o una letra (sin distinguir mayúsculas de minúsculas)
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+
+#### <a name="keywords_spain_eu_drivers_license_number"></a>Keywords\_spain\_eu\_driver's\_license\_number
+```
+permiso de conducción
+permiso conducción
+licencia de conducir
+licencia conducir
+permiso conducir
+permiso de conducir
+permisos de conducir
+permisos conducir
+carnet conducir
+carnet de conducir
+licencia de manejo
+licencia manejo
+```
+## <a name="spain-passport-number"></a>Número de pasaporte de España 
+
+### <a name="format"></a>Formato
+
+una combinación de ocho o nueve caracteres de letras y números sin espacios ni delimitadores
+
+### <a name="pattern"></a>Patrón
+
+una combinación de letras y números de ocho o nueve caracteres:
+
+- dos dígitos o letras
+- un dígito o una letra (opcional)
+- seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_passport_number"></a>Keywords\_eu\_passport\_number
+```
+passport#
+passport #
+passportid
+passports
+passportno
+passport no
+passportnumber
+passport number
+passportnumbers
+passport numbers
+```
+#### <a name="keywords_spain_eu_passport_number"></a>Keywords\_spain\_eu\_passport\_number
+```
+libreta pasaporte
+número pasaporte
+españa pasaporte
+números de pasaporte
+número de pasaporte
+números pasaporte
+pasaporte no
+Passeport n°
+n° Passeport
+pasaporte no.
+pasaporte n°
+spain passport
+```
+#### <a name="keywords_eu_passport_date"></a>Keywords\_eu\_passport\_date
+```
+date of issue
+date of expiry
+```
 ## <a name="spain-social-security-number-ssn"></a>Número de la seguridad social de España (SSN)
 
 Esta entidad de tipo de información confidencial se incluye en el tipo de información confidencial del Número del seguro social de la UE o el id. equivalente, y está disponible como entidad independiente del tipo de información confidencial.
@@ -3962,6 +9342,229 @@ Esta entidad de tipo de información confidencial se incluye en el tipo de infor
 ### <a name="keywords"></a>Palabras clave
 
 None
+
+## <a name="spain-tax-identification-number"></a>Número de identificación fiscal de España 
+
+### <a name="format"></a>Formato
+
+siete u ocho dígitos y una o dos letras en el patrón especificado
+
+### <a name="pattern"></a>Patrón
+
+Personas ciudadanas de España con un carné de identidad de España:
+
+- ocho dígitos
+- una letra mayúscula (distingue mayúsculas de minúsculas)
+
+Españoles no residentes sin carné de identidad de España
+
+- una letra mayúscula "L" (distingue mayúsculas de minúsculas)
+- siete dígitos
+- una letra mayúscula (distingue mayúsculas de minúsculas)
+
+Españoles residentes menores de 14 años sin un carné de identidad de España:
+
+- una letra mayúscula "K" (distingue mayúsculas de minúsculas)
+- siete dígitos
+- una letra mayúscula (distingue mayúsculas de minúsculas)
+
+Extranjeros con el número de identificación de extranjería
+
+- una letra mayúscula que sea "X", "Y" o "Z" (distingue mayúsculas de minúsculas)
+- siete dígitos
+- una letra mayúscula (distingue mayúsculas de minúsculas)
+
+Extranjeros sin un número de identificación de extranjería
+
+- una letra mayúscula que sea "M" (distingue mayúsculas de minúsculas)
+- siete dígitos
+- una letra mayúscula (distingue mayúsculas de minúsculas)
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_spain_eu_tax_file_number"></a>Keywords\_spain\_eu\_tax\_file\_number
+```
+cif
+cifid#
+cifnúmero#
+número de contribuyente
+número de identificación fiscal
+número de impuesto corporativo
+spanishcifid#
+spanishcifid
+spanishcifno#
+spanishcifno
+tax file no
+tax file number
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
+## <a name="sweden-drivers-license-number"></a>Número de permiso de conducir de Suecia
+
+### <a name="format"></a>Formato
+
+10 dígitos que contienen un guion
+
+### <a name="pattern"></a>Patrón
+
+10 dígitos que contienen un guion:
+
+- seis dígitos
+- un guion
+- cuatro dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords\_eu\_driver's\_license\_number
+```
+driverlic
+driverlics
+driverlicense
+driverlicenses
+driverlicence
+driverlicences
+driver lic
+driver lics
+driver license
+driver licenses
+driver licence
+driver licences
+driverslic
+driverslics
+driverslicence
+driverslicences
+driverslicense
+driverslicenses
+drivers lic
+drivers lics
+drivers license
+drivers licenses
+drivers licence
+drivers licences
+driver'lic
+driver'lics
+driver'license
+driver'licenses
+driver'licence
+driver'licences
+driver' lic
+driver' lics
+driver' license
+driver' licenses
+driver' licence
+driver' licences
+driver'slic
+driver'slics
+driver'slicense
+driver'slicenses
+driver'slicence
+driver'slicences
+driver's lic
+driver's lics
+driver's license
+driver's licenses
+driver's licence
+driver's licences
+dl#
+dls#
+driverlic#
+driverlics#
+driverlicense#
+driverlicenses#
+driverlicence#
+driverlicences#
+driver lic#
+driver lics#
+driver license#
+driver licenses#
+driver licences#
+driverslic#
+driverslics#
+driverslicense#
+driverslicenses#
+driverslicence#
+driverslicences#
+drivers lic#
+drivers lics#
+drivers license#
+drivers licenses#
+drivers licence#
+drivers licences#
+driver'lic#
+driver'lics#
+driver'license#
+driver'licenses#
+driver'licence#
+driver'licences#
+driver' lic#
+driver' lics#
+driver' license#
+driver' licenses#
+driver' licence#
+driver' licences#
+driver'slic#
+driver'slics#
+driver'slicense#
+driver'slicenses#
+driver'slicence#
+driver'slicences#
+driver's lic#
+driver's lics#
+driver's license#
+driver's licenses#
+driver's licence#
+driver's licences#
+driving licence 
+driving license
+dlno#
+driv lic
+driv licen
+driv license
+driv licenses
+driv licence
+driv licences
+driver licen
+drivers licen
+driver's licen
+driving lic
+driving licen
+driving licenses
+driving licence
+driving licences
+driving permit
+dl no
+dlno
+dl number
+```
+
+#### <a name="keywords_sweden_eu_drivers_license_number"></a>Keywords\_sweden\_eu\_driver's\_license\_number
+```
+ajokortti
+permis de conducere
+ajokortin numero
+kuljettajat lic.
+drivere lic.
+körkort
+numărul permisului de conducere
+שאָפער דערלויבעניש נומער
+förare lic.
+דריווערס דערלויבעניש
+körkortsnummer
+```
 
 ## <a name="sweden-national-id"></a>Identificación nacional de Suecia
 
@@ -4052,6 +9655,52 @@ PasseportNon
 Passeportn °
 ```
 
+## <a name="sweden-tax-identification-number"></a>Número de identificación fiscal de Suecia
+
+### <a name="format"></a>Formato
+
+10 dígitos y un símbolo en el patrón especificado
+
+### <a name="pattern"></a>Patrón
+
+10 dígitos y un símbolo:
+
+- seis dígitos que corresponden a la fecha de nacimiento (AAMMDD)
+- signo más o signo menos
+- tres dígitos que hacen que el número de identificación sea único donde:
+- para los números emitidos antes de 1990, los dígitos séptimo y octavo identifican el país de nacimiento o las personas de origen extranjero.
+- el dígito de la novena posición indica el género, impar para el varón o par para la mujer.
+- un dígito de comprobación
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keywords_sweden_eu_tax_file_number"></a>Keywords\_sweden\_eu\_tax\_file\_number
+```
+personal id number
+personnummer
+skatt id nummer
+skatt identifikation
+skattebetalarens identifikationsnummer
+sverige tin
+tax file
+tax id
+tax identification no
+tax identification number
+tax no#
+tax no
+tax number
+tax registration number
+taxid#
+taxidno#
+taxidnumber#
+taxno#
+taxnumber#
+taxnumber
+tin id
+tin no
+tin#
+```
+
 ## <a name="swift-code"></a>Código SWIFT
 
 ### <a name="format"></a>Formato
@@ -4094,7 +9743,7 @@ code SWIFT
 le numéro de swift
 swift numéro d'acheminement
 le numéro BIC
-#BIC
+\#BIC
 code identificateur de banque
 SWIFTコード
 SWIFT番号
@@ -4107,6 +9756,48 @@ BIC コード
 金融機関識別コード
 金融機関コード
 銀行コード
+```
+
+## <a name="switzerland-ssn-ahv-number"></a>Número AHV de SSN de Suiza
+
+### <a name="format"></a>Formato
+
+Número de 13 dígitos
+
+### <a name="pattern"></a>Patrón
+
+Número de 13 dígitos:
+
+- tres dígitos: 756
+- un punto opcional
+- cuatro dígitos
+- un punto opcional
+- cuatro dígitos
+- un punto opcional
+- dos dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_swiss_ssn_ahv_number"></a>Keyword\_swiss\_ssn\_AHV\_number
+```
+ahv
+ssn
+pid
+insurance number
+personalidno#
+social security number
+personal id number
+personal identification no.
+insuranceno#
+uniqueidno#
+unique identification no.
+avs number
+personal identity no versicherungsnummer
+identifikationsnummer
+einzigartige identität nicht
+sozialversicherungsnummer
+identification personnelle id
+numéro de sécurité sociale
 ```
 
 ## <a name="taiwan-national-identification-number"></a>Número de identificación nacional de Taiwán
@@ -4410,6 +10101,50 @@ tin no
 tin#
 ```
 
+## <a name="ukraine-passport-domestic"></a>Pasaporte nacional de Ucrania
+
+### <a name="format"></a>Formato
+
+nueve dígitos
+
+### <a name="pattern"></a>Patrón
+
+nueve dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_ukraine_passport_domestic"></a>Keyword\_ukraine\_passport\_domestic
+```
+ukraine passport
+passport number
+passport no
+паспорт України
+номер паспорта
+персональний
+```
+## <a name="ukraine-passport-international"></a>Pasaporte internacional de Ucrania
+
+### <a name="format"></a>Formato
+
+Patrón alfanumérico de ocho caracteres
+
+#### <a name="pattern"></a>Patrón
+
+Patrón alfanumérico de ocho caracteres:
+
+- dos letras o dígitos
+- seis dígitos
+
+### <a name="keywords"></a>Palabras clave
+
+#### <a name="keyword_ukraine_passport_international"></a>Keyword\_ukraine\_passport\_international
+```
+ukraine passport
+passport number
+passport no
+паспорт України
+номер паспорта
+```
 ## <a name="us-bank-account-number"></a>Número de cuenta bancaria de EE. UU.
 
 ### <a name="format"></a>Formato
@@ -4625,7 +10360,7 @@ individual taxpayer
 
 nueve dígitos que pueden estar en un patrón con formato o sin formato.
 
->[!Note]
+> [!Note]
 > Si se emite antes de mediados de 2011, el SSN tiene un formato seguro en el que algunas partes del número deben estar dentro de determinados intervalos para ser válidas (pero no hay ninguna suma de comprobación).
 >
 

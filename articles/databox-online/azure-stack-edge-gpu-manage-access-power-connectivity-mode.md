@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/08/2021
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 21cb737cf6168f44c1e71815d90139a04ba1d37b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 97ba43602899ee60a6a2d24cdd699b12b8a1c687
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697084"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219715"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Administración del acceso, el encendido y el modo de conectividad de Azure Stack Edge Pro con GPU
 
@@ -161,9 +161,12 @@ Para obtener más información sobre cómo registrar un proveedor de recursos, c
 
 Aparte del modo predeterminado totalmente conectado, el dispositivo también se puede ejecutar en modo parcialmente conectado o en modo totalmente desconectado. A continuación se describe cada uno de estos modos:
 
-- **Totalmente conectado**: este es el modo normal predeterminado en el que opera el dispositivo. En este modo están habilitadas la carga y descarga de datos en la nube. Puede usar Azure Portal o la interfaz de usuario web local para administrar el dispositivo.
+- **Totalmente conectado**: este es el modo normal predeterminado en el que opera el dispositivo. En este modo están habilitadas la carga y descarga de datos en la nube. Puede usar Azure Portal o la interfaz de usuario web local para administrar el dispositivo. 
 
-- **Parcialmente desconectado**: en este modo, el dispositivo no puede cargar ni descargar datos de recurso compartido; sin embargo, se pueden administrar mediante Azure Portal.
+    > [!NOTE]
+    > Para las implementaciones de Network Function Manager, el dispositivo Azure Stack Edge debe estar **en línea** y funcionar en modo totalmente conectado.
+
+- **Parcialmente desconectado**: en este modo, el dispositivo no puede cargar ni descargar datos compartido; sin embargo, se puede administrar el dispositivo mediante Azure Portal.
 
     Este modo se suele usar cuando se encuentra en una red de satélite de uso medido y el objetivo es minimizar el consumo de ancho de banda de red. Todavía puede producirse un consumo de red mínimo por las operaciones de supervisión del dispositivo.
 

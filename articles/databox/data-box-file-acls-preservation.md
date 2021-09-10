@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96d3957a7626e393728d4a309bc56ecaa19d4e83
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950319"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400927"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Conservación de las ACL de archivo, los atributos y las marcas de tiempo con Azure Data Box
 
@@ -102,6 +102,45 @@ where
 |`/log+:<LogFile>`  |Anexa la salida al archivo de registro existente.|
 
 Para obtener más información acerca de estos parámetros `robocopy`, vea [Tutorial: Copia de datos a Azure Data Box Disk mediante SMB](./data-box-deploy-copy-data.md).
+
+> [!NOTE]
+> Si usa para `/copyall` copiar los datos, las ACL de origen de los directorios y archivos se transfieren a Azure Files. Si solo tenía acceso de lectura en los datos de origen y no pudo modificar los datos de origen, solo tendrá acceso de lectura en los datos de Data Box. Use `/copyall` solamente si piensa copiar todas las ACL en los directorios y archivos junto con los datos.
+
+#### <a name="use-robocopy-to-list-copy-modify-files-on-data-box"></a>Uso de robocopy para realizar operaciones de enumeración, copia o modificación en archivos de Data Box
+
+Estos son algunos de los escenarios comunes que usará al copiar datos mediante `robocopy`.
+
+- **Copiar solo datos en Data Box, sin ACL de directorios ni archivos**
+
+    Use la opción `/dcopy:DAT` para copiar solo datos, atributos y marcas de tiempo. Las ACL de directorios y archivos no se copian.
+
+- **Copiar datos y ACL de directorios y archivos en Data Box**
+
+    Use `/copyall` para copiar todos los datos de origen, incluidas todas las ACL de directorios y archivos.
+
+- **Enumerar el sistema de archivos de Data Box mediante robocopy**
+
+    Use este comando para enumerar el contenido del directorio:
+
+    `robocopy <source-dir> NULL /l /s /xx /njh /njs /fp /B`
+
+    Tenga en cuenta que el Explorador de archivos no permite enumerar estos archivos.
+    
+- **Copiar o eliminar carpetas y archivos de Data Box**
+
+    Use este comando para copiar un único archivo:
+
+    `robocopy <source-dir> <destination-dir> <file-name> /B`
+
+    Use este comando para eliminar un único archivo:
+
+    `robocopy <source-dir> <destination-dir> <file-name> /purge /B`
+
+    En el comando anterior, `<source-dir>` no debe tener el archivo `<file-name>`. A continuación, el comando anterior sincroniza el destino con el origen, lo que da lugar a la eliminación del archivo del destino.
+
+    Tenga en cuenta que el Explorador de archivos puede no permitirle realizar las operaciones anteriores.
+
+Para más información, consulte [Uso de los comandos robocopy](/windows-server/administration/windows-commands/robocopy).
 
 ### <a name="linux-data-copy-tool"></a>Herramienta de copia de datos de Linux
 

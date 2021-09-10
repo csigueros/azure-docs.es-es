@@ -3,18 +3,18 @@ title: Asignar acceso a los datos de Cost Management
 description: Este artículo le guiará a través del proceso para asignar permisos a los datos de Azure Cost Management para obtener varios ámbitos de acceso.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 06/27/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 9ee0f7f854363389f3e6594946411f05b1b8b790
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645293"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988704"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
@@ -140,45 +140,24 @@ Después de completar los pasos anteriores, la cuenta de usuario se convierte en
 
 El acceso para ver el ámbito de grupo de administración requiere al menos el permiso de lector de Cost Management (o lector). Puede configurar los permisos de un grupo de administración en Azure Portal. Debe tener al menos el permiso de acceso de usuario administrador (o propietario) para el grupo de Administrador de acceso de usuario (o Propietario) del grupo de administración para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
-1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de administración_ y, a continuación, seleccione los **grupos de administración** que necesite.
-3. Seleccione el grupo de administración que necesite en la jerarquía.
-4. Junto al nombre del grupo de administración, seleccione **Details** (Detalles).
-5. Seleccione **Access Control (IAM)** (Control de acceso [IAM]) en el panel izquierdo.
-6. Seleccione **Agregar**.
-7. En la opción **Role** (Rol), seleccione **Cost Management Reader** (Lector de Cost Management).
-8. En **Assign access to** (Asignar acceso a), seleccione **Azure AD, user, group, or application** (Usuario, grupo o aplicación de Azure AD).
-9. Para asignar el acceso, búsquelo y, a continuación, seleccione el usuario.
-10. Seleccione **Guardar**.  
-    ![información de ejemplo en el cuadro Agregar permisos para un grupo de administración](./media/assign-access-acm-data/add-permissions.png)
+
+- Asigne el rol Lector de Cost Management a un usuario del ámbito del grupo de administración.  
+     Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="assign-subscription-scope-access"></a>Asignar acceso de ámbito de suscripción
 
 Para obtener acceso a la suscripción, es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos a una suscripción en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) de la suscripción para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
-1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. Seleccione **All Services** (Todos los servicios) en la barra lateral, busque _suscripciones_ y , a continuación, seleccione la opción **Subscriptions** (Suscripciones).
-3. Seleccione su suscripción.
-4. Seleccione **Access Control (IAM)** (Control de acceso [IAM]) en el panel izquierdo.
-5. Seleccione **Agregar**.
-6. En la opción **Role** (Rol), seleccione **Cost Management Reader** (Lector de Cost Management).
-7. En **Assign access to** (Asignar acceso a), seleccione **Azure AD, user, group, or application** (Usuario, grupo o aplicación de Azure AD).
-8. Para asignar el acceso, búsquelo y, a continuación, seleccione el usuario.
-9. Seleccione **Guardar**.
+- Asigne el rol Lector de Cost Management a un usuario del ámbito de la suscripción.  
+     Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="assign-resource-group-scope-access"></a>Asignar el acceso al ámbito de grupo de recursos
 
 Para obtener acceso al grupo de recursos es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de recursos en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) del grupo de recursos para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
-1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de recursos_ y, a continuación, seleccione la opción **Resource groups** (Grupos de recursos).
-3. Seleccione el grupo de recursos que necesite.
-4. Seleccione **Access Control (IAM)** (Control de acceso [IAM]) en el panel izquierdo.
-5. Seleccione **Agregar**.
-6. En la opción **Role** (Rol), seleccione **Cost Management Reader** (Lector de Cost Management).
-7. En **Assign access to** (Asignar acceso a), seleccione **Azure AD, user, group, or application** (Usuario, grupo o aplicación de Azure AD).
-8. Para asignar el acceso, búsquelo y, a continuación, seleccione el usuario.
-9. Seleccione **Guardar**.
+
+- Asigne el rol Lector de Cost Management a un usuario del ámbito del grupo de recursos.  
+     Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticación a través de inquilinos
 

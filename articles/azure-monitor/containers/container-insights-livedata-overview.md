@@ -4,12 +4,12 @@ description: En este artículo se describe la vista en tiempo real de los regist
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5277f5051e291e9058255d8920ac0be950389704
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 9c1cbaf09d8f0b0cfe23f7014c1b5046efc5aab9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203205"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739776"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Cómo ver los registros de Kubernetes, eventos y métricas de pods en tiempo real
 
@@ -47,7 +47,7 @@ Puede ver los datos de registro en tiempo real cuando se generan con el motor de
 4. Seleccione un objeto de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, seleccione la opción **Ver datos en directo**. Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
 
     >[!NOTE]
-    >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Vista en Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para más información sobre cómo ver registros históricos, eventos y métricas.
+    >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Procedimiento para consultar registros desde Container Insights](container-insights-log-query.md) para obtener más información sobre cómo ver registros históricos, eventos y métricas.
 
 Después de autenticarse correctamente, el panel de consola de datos en directo aparecerá debajo de la cuadrícula de datos de rendimiento y podrá ver los datos de registro en un flujo continuo. Si el indicador de estado de captura muestra una marca de verificación verde, que se encuentra en el extremo derecho del panel, significa que pueden recuperar los datos y comienzan a transmitirse a la consola.
 
@@ -68,7 +68,7 @@ Puede ver los datos de eventos en tiempo real a medida que los genera el motor d
 4. Seleccione un objeto de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, seleccione la opción **Ver datos en directo**. Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
 
     >[!NOTE]
-    >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Vista en Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para más información sobre cómo ver registros históricos, eventos y métricas.
+    >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Procedimiento para consultar registros desde Container Insights](container-insights-log-query.md) para obtener más información sobre cómo ver registros históricos, eventos y métricas.
 
 Después de autenticarse correctamente, el panel de consola de datos en directo aparecerá debajo de la cuadrícula de datos de rendimiento. Si el indicador de estado de captura muestra una marca de verificación verde, que se encuentra en el extremo derecho del panel, significa que pueden recuperar los datos y comienzan a transmitirse a la consola.
 
@@ -95,7 +95,7 @@ Puede ver los datos de la métrica en tiempo real cuando se generan con el motor
 4. Seleccione un objeto **pod** de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, elija la opción **Ver datos en directo**. Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
 
     >[!NOTE]
-    >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Vista en Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para más información sobre cómo ver registros históricos, eventos y métricas.
+    >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Procedimiento para consultar registros desde Container Insights](container-insights-log-query.md) para obtener más información sobre cómo ver registros históricos, eventos y métricas.
 
 Después de autenticarse correctamente, el panel de consola de datos en directo aparecerá debajo de la cuadrícula de datos de rendimiento. Los datos de métricas se recuperan y comienzan a transmitirse a la consola para su presentación en los dos gráficos. El título del panel muestra el nombre del pod con el que se agrupa el contenedor.
 
@@ -131,4 +131,4 @@ Para suspender el desplazamiento automático y controlar el comportamiento del p
 
 - Para continuar aprendiendo a usar Azure Monitor y supervisar otros aspectos de su clúster de AKS, consulte [Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores](container-insights-analyze.md).
 
-- Vea [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) para ver ejemplos y consultas predefinidas para crear alertas, visualizaciones o realizar análisis adicionales de los clústeres.
+- Vea [Procedimiento para consultar registros desde Container Insights](container-insights-log-query.md) para ver ejemplos y consultas predefinidas para crear alertas, visualizaciones o realizar análisis adicionales de los clústeres.

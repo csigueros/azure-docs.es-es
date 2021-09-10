@@ -6,12 +6,12 @@ ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: fbbb9837a54d323b568e42c90132c799c3927c30
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8d349a0faa2cfc97f029e496b9bd92b1e5057018
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414670"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867510"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Configuración de red del clúster
 
@@ -108,8 +108,8 @@ Para obtener un rendimiento óptimo, configure el servidor DNS para controlar la
 
 Un vserver de clúster se muestra a la izquierda y las direcciones IP aparecen en el centro y a la derecha. Configure todos los puntos de acceso de cliente con registros A y punteros como se muestra en la ilustración.
 
-![Diagrama de DNS round-robin: tras la imagen de un vínculo a texto detallado alternativo](media/fxt-cluster-config/fxt-rrdns-diagram.png)
-[descripción de texto detallado](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
+:::image type="complex" source="media/fxt-cluster-config/fxt-rrdns-diagram.png" alt-text="Diagrama que muestra la configuración de DNS round robin del clúster.":::
+   <El diagrama muestra las conexiones entre tres categorías de elementos: un solo servidor virtual (a la izquierda), tres direcciones IP (columna central) y tres interfaces de cliente (columna derecha). Un único círculo a la izquierda con la etiqueta "vserver1" se conecta mediante flechas que apuntan a tres círculos etiquetados con direcciones IP: 10.0.0.10, 10.0.0.11 y 10.0.0.12. Las flechas del círculo de vserver a los tres círculos de IP tienen la leyenda "A". Cada uno de los círculos de dirección IP se conecta mediante dos flechas a un círculo etiquetado como una interfaz de cliente: el círculo con la IP 10.0.0.10 se conecta a "vs1-client-IP-10", el círculo con la IP 10.0.0.11 se conecta a "vs1-client-IP-11" y el círculo con la IP 10.0.0.12 se conecta a "vs1-client-IP-11". Las conexiones entre los círculos de dirección IP y los círculos de interfaz de cliente son dos flechas: una flecha con la etiqueta "PTR" que señala del círculo de dirección IP al círculo de interfaz de cliente y una flecha con la etiqueta "A" que señala del círculo de interfaz de cliente al círculo de dirección IP.> :::image-end:::
 
 Cada dirección IP orientada al cliente debe tener un nombre único para que el clúster la use internamente. (En este diagrama, las direcciones IP del cliente se denominan vs1-client-IP-* por motivos de claridad, pero en producción debería usar probablemente algo más conciso, como client*.)
 

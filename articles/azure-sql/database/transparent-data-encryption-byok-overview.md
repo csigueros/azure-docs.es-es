@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 02/01/2021
-ms.openlocfilehash: b3403558cbc07d152bbae7e901464a8aa4a8e4d2
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 06/23/2021
+ms.openlocfilehash: c3f6046617458606d13aab243c96ef24246714fd
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812775"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090320"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -28,11 +28,15 @@ En este escenario, la clave que se usa para el cifrado de la clave de cifrado de
 
 En Azure SQL Database y Azure Synapse Analytics, el protector de TDE se establece en el nivel de servidor y todas las bases de datos cifradas asociadas a dicho servidor lo heredan. En el caso de la Instancia administrada de Azure SQL Database, el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos cifradas que se encuentren en dicha instancia. A menos que se indique lo contrario, a lo largo de este documento el término *servidor* hace referencia tanto a un servidor en SQL Database y Azure Synapse, como a una instancia administrada en Instancia administrada de SQL.
 
+> [!NOTE]
+> Este artículo se aplica a Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics [grupos de SQL dedicados (antes conocidos como SQL DW)]. Para obtener documentación sobre el Cifrado de datos transparente para grupos de SQL dedicados en áreas de trabajo de Synapse, consulte [Cifrado de Azure Synapse Analytics](../../synapse-analytics/security/workspaces-encryption.md).
+
 > [!IMPORTANT]
 > Para aquellos que usan TDE administrado por el servicio y que quieren empezar a usar TDE administrado por el cliente, los datos permanecen cifrados durante el proceso de cambio y no hay tiempo de inactividad ni se vuelven a cifrar los archivos de la base de datos. El cambio de una clave administrada por el servicio a una clave administrada por el cliente solo requiere el nuevo cifrado de la DEK, que es una operación rápida y en línea.
 
 > [!NOTE]
 > <a id="doubleencryption"></a> Para proporcionar a los clientes de Azure SQL dos capas de cifrado de datos en reposo, se está implementando el cifrado de infraestructura (mediante el algoritmo de cifrado AES-256) con claves administradas por la plataforma. Esto proporciona una capa adicional de cifrado en reposo junto con TDE con claves administradas por el cliente, que ya está disponible. En Azure SQL Database y Managed Instance, todas las bases de datos, incluida la base de datos maestra y otras bases de datos del sistema, se cifrarán cuando se active el cifrado de infraestructura. En este momento, los clientes deben solicitar el acceso a esta funcionalidad. Si está interesado en esta funcionalidad, póngase en contacto con AzureSQLDoubleEncryptionAtRest@service.microsoft.com.
+
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Ventajas del TDE administrado por el cliente
 

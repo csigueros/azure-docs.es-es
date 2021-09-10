@@ -2,7 +2,6 @@
 title: Introducción a los dispositivos gemelos de Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Describe cómo usar dispositivos gemelos de IoT Hub de Azure para agregar etiquetas y, luego, usar una consulta de IoT Hub. Usará el SDK de dispositivo Azure IoT para .NET con el fin de implementar una aplicación para dispositivo simulado, además del SDK de servicios Azure IoT para .NET con el objetivo de implementar una aplicación de servicio que agrega las etiquetas y ejecuta la consulta de IoT Hub.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 53a2d4ef83f20633c227c5d1a0e23de5bb45c81d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89013765"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737731"
 ---
 # <a name="get-started-with-device-twins-net"></a>Introducción a los dispositivos gemelos (.NET)
 
@@ -250,8 +249,8 @@ En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después,
 
 Puede obtener más información en estos recursos:
 
-* Para aprender a enviar telemetría desde dispositivos, consulte el tutorial [Envío de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md).
+* Para aprender a enviar telemetría desde dispositivos, consulte el tutorial [Envío de telemetría desde un dispositivo a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp).
 
 * Para aprender a configurar dispositivos mediante las propiedades deseadas del dispositivo gemelo, consulte el tutorial [Uso de las propiedades deseadas para configurar dispositivos](tutorial-device-twins.md).
 
-* Para aprender a controlar los dispositivos de forma interactiva, por ejemplo, encender un ventilador desde una aplicación controlada por el usuario, consulte el tutorial [Uso de métodos directos](quickstart-control-device-dotnet.md).
+* Para aprender a controlar los dispositivos de forma interactiva, por ejemplo, encender un ventilador desde una aplicación controlada por el usuario, consulte el inicio rápido [Uso de métodos directos](./quickstart-control-device.md?pivots=programming-language-csharp).

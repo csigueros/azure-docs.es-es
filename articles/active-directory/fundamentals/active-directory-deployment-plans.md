@@ -1,6 +1,6 @@
 ---
 title: Planes de implementación de Azure Active Directory | Microsoft Docs
-description: Guía de un extremo a otro sobre cómo implementar muchas funcionalidades de Azure Active Directory.
+description: Guía sobre cómo implementar muchas funcionalidades de Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -12,15 +12,15 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c521752558e58f19b408b5e85e84863cb4cad2f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8d2a64ec05fb3f6d353374684c14733dda9b302d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966189"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443056"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planes de implementación de Azure Active Directory
-¿Busca una guía de un extremo a otro sobre cómo implementar las funcionalidades de Azure Active Directory (Azure AD)? Los planes de implementación de Azure AD le guían por el valor de negocio, las consideraciones de planeamiento y los procedimientos operativos necesarios para implementar correctamente las funcionalidades comunes de Azure AD.
+¿Busca una guía completa sobre cómo implementar las funcionalidades de Azure Active Directory (Azure AD)? Los planes de implementación de Azure AD le guían por el valor de negocio, las consideraciones de planeamiento y los procedimientos operativos necesarios para implementar correctamente las funcionalidades comunes de Azure AD.
 
 Desde cualquiera de las páginas del plan, use la funcionalidad Imprimir en PDF del explorador para crear una versión sin conexión actualizada de la documentación.
 
@@ -29,7 +29,7 @@ Desde cualquiera de las páginas del plan, use la funcionalidad Imprimir en PDF 
 
 | Capacidad | Descripción|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) es la solución de Microsoft de comprobación de dos pasos. El uso de métodos de autenticación aprobados por un administrador permite a Azure AD MFA ayudar a proteger el acceso a sus datos y aplicaciones, además de satisfacer la exigencia de un proceso de inicio de sesión simple. Vea este vídeo sobre [Configuración y aplicación de la autenticación multifactor en un inquilino](https://www.youtube.com/watch?v=qNndxl7gqVM).|
+| [Autenticación multifactor de Azure AD](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) es la solución de Microsoft de comprobación de dos pasos. El uso de métodos de autenticación aprobados por un administrador permite a Azure AD MFA ayudar a proteger el acceso a sus datos y aplicaciones, además de satisfacer la exigencia de un proceso de inicio de sesión simple. Vea este vídeo sobre [Configuración y aplicación de la autenticación multifactor en un inquilino](https://www.youtube.com/watch?v=qNndxl7gqVM).|
 | [Acceso condicional](../conditional-access/plan-conditional-access.md)| Con Acceso condicional, puede implementar decisiones de control de acceso automatizado sobre quién puede acceder a las aplicaciones en nube, en función de condiciones. |
 | [Restablecimiento de la contraseña de autoservicio](../authentication/howto-sspr-deployment.md)| El autoservicio de restablecimiento de contraseñas proporciona a los usuarios la capacidad de restablecer sus contraseñas, sin intervención de ningún administrador, en el momento y el lugar donde se precisa. |
 | [Inicio de sesión sin contraseña](../authentication/howto-authentication-passwordless-deployment.md) | Implementación de la autenticación sin contraseña mediante la aplicación Microsoft Authenticator o las claves de seguridad de FIDO2 de su organización |
@@ -43,14 +43,13 @@ Desde cualquiera de las páginas del plan, use la funcionalidad Imprimir en PDF 
 | [Dispositivos](../devices/plan-device-deployment.md) | Este artículo le ayuda a evaluar los métodos para integrar el dispositivo con Azure AD, elegir el plan de implementación y proporciona vínculos clave a las herramientas de administración de dispositivos compatibles. |
 
 
-## <a name="deploy-hybrid-scenarios"></a>Implementación de escenarios híbridos
+## <a name="deploy-hybrid-scenarios"></a>Implementación de escenarios híbridos  
 
 | Capacidad | Descripción|
 | -| -|
-| [ADFS para sincronización de hash de contraseña](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Con la sincronización de hash de contraseña, los valores de hash de las contraseñas de usuario se sincronizan desde Active Directory local a Azure AD, lo que permite a Azure AD autenticar a los usuarios sin interacción con Active Directory local. |
-| [Autenticación de ADFS para paso a través](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| La autenticación de paso a través de Azure AD ayuda a los usuarios a iniciar sesión en aplicaciones basadas en la nube y locales con las mismas contraseñas. Esta característica proporciona a los usuarios una mejor experiencia (una contraseña menos que recordar) y reduce los costos del departamento de soporte técnico de TI dado que es menos probable que olviden cómo iniciar sesión. Cuando los usuarios inician sesión con Azure AD, esta característica valida sus contraseñas directamente con la instancia de Active Directory local. |
+| [AD FS a la autenticación de usuarios en la nube](../hybrid/migrate-from-federation-to-cloud-authentication.md)| Aprenda a migrar la autenticación de usuario de la federación a la autenticación en la nube con la autenticación de paso a través o la sincronización de hash de contraseña.
 | [Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) |Hoy en día, los empleados desean ser productivos en cualquier lugar, en cualquier momento y con cualquier dispositivo. Tienen que acceder a aplicaciones SaaS en la nube y a aplicaciones corporativas locales. El proxy de aplicación de Azure AD permite este acceso sólido sin redes privadas virtuales (VPN) costosas y complejas ni zonas desmilitarizadas (DMZ). |
-| [SSO de conexión directa](../hybrid/how-to-connect-sso-quick-start.md)| El inicio de sesión único de conexión directa de Azure Active Directory (SSO de conexión directa de Azure AD) permite iniciar sesión automáticamente a los usuarios en dispositivos corporativos conectados a la red de la empresa. Con esta característica, los usuarios no tendrán que escribir la contraseña para iniciar sesión en Azure AD ni en general el nombre de usuario. Esta característica proporciona a los usuarios autorizados un acceso sencillo a las aplicaciones en la nube sin necesidad de componentes locales adicionales. |
+| [SSO de conexión directa](../hybrid/how-to-connect-sso-quick-start.md)| El inicio de sesión único de conexión directa de Azure Active Directory (SSO de conexión directa de Azure AD) permite iniciar sesión automáticamente a los usuarios en dispositivos corporativos conectados a la red de la empresa. Con esta característica, los usuarios no tendrán que escribir la contraseña para iniciar sesión en Azure AD ni en general el nombre de usuario. Esta característica proporciona a los usuarios autorizados un acceso sencillo a las aplicaciones basadas en la nube sin necesidad de componentes locales adicionales. |
 
 ## <a name="deploy-user-provisioning"></a>Implementación del aprovisionamiento de usuarios
 
@@ -78,7 +77,7 @@ Entre los roles, se incluyen los siguientes:
 |Usuario final|Un grupo representativo de usuarios para el que se implementará la funcionalidad. A menudo previsualiza los cambios en un programa piloto.
 |Administrador de soporte técnico de TI|Un representante de la organización de soporte técnico de TI que puede proporcionar información sobre la compatibilidad de este cambio desde una perspectiva del departamento de soporte técnico.  
 |Arquitecto de identidades o administrador global de Azure|Un representante del equipo de administración de identidades responsable de definir cómo este cambio se alinea con la infraestructura de administración de identidades principal de su organización.|
-|Propietario empresarial de la aplicación |El propietario empresarial global de las aplicaciones afectadas, que pueden incluir la administración del acceso.  También puede proporcionar información sobre la experiencia del usuario y la utilidad de este cambio desde la perspectiva del usuario final.
+|Propietario empresarial de la aplicación |El propietario empresarial global de las aplicaciones afectadas, que pueden incluir la administración del acceso.También puede proporcionar información sobre la experiencia del usuario y la utilidad de este cambio desde la perspectiva del usuario final.
 |Propietario de seguridad|Un representante del equipo de seguridad que puede aprobar que el plan cumplirá los requisitos de seguridad de la organización.|
 |Administrador de cumplimiento|La persona de la organización responsable de garantizar el cumplimiento con requisitos corporativos, del sector o gubernamentales.|
 
@@ -92,10 +91,9 @@ Entre los roles, se incluyen los siguientes:
 
 - **I** nformado del plan del proyecto y el resultado
 
-
 ## <a name="best-practices-for-a-pilot"></a>Procedimientos recomendados para un piloto
 Un piloto le permite probar con un grupo pequeño antes de activar una funcionalidad para todos. Asegúrese de que, como parte de sus pruebas, cada caso de uso de su organización se prueba de forma exhaustiva. Es mejor dirigirse a un grupo específico de usuarios piloto antes de implementar esto en su organización como un todo.
 
-En su primera oleada, TI de destino, facilidad de uso y otros usuarios adecuados que pueden probar y proporcionar comentarios. Estos comentarios deben usarse para desarrollar aún más las comunicaciones e instrucciones que envía a sus usuarios y proporcionarles información sobre los tipos de problemas que puede ver su personal de soporte técnico. 
+En su primera oleada, TI de destino, facilidad de uso y otros usuarios adecuados que pueden probar y proporcionar comentarios. Use estos comentarios para desarrollar aún más las comunicaciones e instrucciones que envía a sus usuarios y proporcionarles información sobre los tipos de problemas que puede ver su personal de soporte técnico. 
 
 La ampliación de la implementación en grupos de usuarios más grandes debe llevarse a cabo aumentando el ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](../enterprise-users/groups-dynamic-membership.md) o agregando usuarios manualmente a los grupos objetivo.

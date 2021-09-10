@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: c53a59279a8101f29cb9bfb64f4ccd1b4921283e
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 383636d07aa453266be43b33d6f62b93255ac24a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205456"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729537"
 ---
 # <a name="configure-forced-tunneling"></a>Configuración de la tunelización forzada
 
 La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio con fines de inspección y auditoría. Se trata de un requisito de seguridad crítico en la mayoría de las directivas de las empresas de TI. Si no configura la tunelización forzada, el tráfico de Internet desde las máquinas virtuales de Azure siempre va desde la infraestructura de red de Azure directamente a Internet, sin la opción que permite inspeccionarlo o auditarlo. Un acceso no autorizado a Internet puede provocar la divulgación de información u otros tipos de infracciones de seguridad.
 
-La tunelización forzada puede configurarse mediante Azure PowerShell. No se puede configurar con Azure Portal. Este artículo ayuda a configurar la tunelización forzada en las redes virtuales creadas mediante el modelo de implementación de Resource Manager. Si quiere configurar la tunelización forzada en el modelo de implementación clásico, vea [Tunelización forzada: clásica](vpn-gateway-about-forced-tunneling.md).
+La tunelización forzada puede configurarse mediante Azure PowerShell. No se puede configurar con Azure Portal. Este artículo ayuda a configurar la tunelización forzada en las redes virtuales creadas mediante el [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md). Si quiere configurar la tunelización forzada en el modelo de implementación clásico, vea [Tunelización forzada: clásica](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="about-forced-tunneling"></a>Información acerca de la tunelización forzada
 
@@ -110,7 +110,7 @@ Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource
    Set-AzVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
    Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-6. Cree la puerta de enlace de red virtual. Este paso tarda algún tiempo en completarse, a veces 45 minutos o más, dado que va a crear y configurar la puerta de enlace. Si ve errores ValidateSet relacionados con el valor de GatewaySku, compruebe que tiene instalada la [versión más reciente de los cmdlets de PowerShell](#before). La versión más reciente de los cmdlets de PowerShell contiene los nuevos valores validados para las SKU más recientes de la puerta de enlace.
+6. Cree la puerta de enlace de red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada. Si ve errores ValidateSet relacionados con el valor de GatewaySku, compruebe que tiene instalada la [versión más reciente de los cmdlets de PowerShell](#before). La versión más reciente de los cmdlets de PowerShell contiene los nuevos valores validados para las SKU más recientes de la puerta de enlace.
 
    ```powershell
    $pip = New-AzPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic

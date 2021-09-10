@@ -3,12 +3,12 @@ title: Recopilar y analizar registros de recursos
 description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: 0c95535c80425abb8bdc904132581531b8cdd24e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 4c43d16c7df7ef54e401966e0c114de4d79cbdac
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029070"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112071"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
@@ -52,6 +52,9 @@ En los ejemplos siguientes se muestran dos maneras de crear un grupo de contened
 
 Para implementar con la CLI de Azure, especifique los parámetros `--log-analytics-workspace` y `--log-analytics-workspace-key` en el comando [az container create][az-container-create]. Antes de ejecutar el siguiente comando, reemplace los dos valores de área de trabajo por los valores obtenidos en el paso anterior (y actualice el nombre del grupo de recursos).
 
+> [!NOTE]
+> En el ejemplo siguiente se extrae una imagen de contenedor público de Docker Hub. Se recomienda configurar un secreto de extracción para autenticarse mediante una cuenta de Docker Hub en lugar de realizar una solicitud de extracción anónima. Para mejorar la confiabilidad al trabajar con contenido público, importe y administre la imagen en un registro de contenedor privado de Azure. [Más información sobre cómo trabajar con imágenes públicas.](../container-registry/buffer-gate-public-content.md)
+
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
@@ -64,6 +67,9 @@ az container create \
 ### <a name="deploy-with-yaml"></a>Implementación con YAML
 
 Utilice este método si prefiere implementar grupos de contenedores con YAML. El siguiente fragmento de código YAML define un grupo de contenedores con un solo contenedor. Copie el código YAML en un nuevo archivo y sustituya `LOG_ANALYTICS_WORKSPACE_ID` y `LOG_ANALYTICS_WORKSPACE_KEY` por los valores que obtuvo en el paso anterior. Guarde el archivo con el nombre **deploy-aci.yaml**.
+
+> [!NOTE]
+> En el ejemplo siguiente se extrae una imagen de contenedor público de Docker Hub. Se recomienda configurar un secreto de extracción para autenticarse mediante una cuenta de Docker Hub en lugar de realizar una solicitud de extracción anónima. Para mejorar la confiabilidad al trabajar con contenido público, importe y administre la imagen en un registro de contenedor privado de Azure. [Más información sobre cómo trabajar con imágenes públicas.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: 2019-12-01

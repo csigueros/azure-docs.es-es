@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 4e0091d1d94a173df07f956959580f7f862ec08f
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 5fd588cc9ff36f4213d62ee47ce296e9eadfc40e
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930036"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296764"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool"></a>Copias de seguridad con la herramienta Azure Application Consistent Snapshot
 
@@ -85,9 +85,11 @@ azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
 
 El comando no genera resultados en la consola, sino que escribe en un archivo de registro, un archivo de resultados y `/var/log/messages`.
 
-El *archivo de registro* se compone del nombre del comando + la opción -c + el nombre de archivo de configuración. De manera predeterminada, un nombre de archivo de registro para `-c backup` se ejecuta con un nombre de archivo de configuración `azacsnap-backup-azacsnap.log` predeterminado.
+En este ejemplo, el nombre del *archivo de registro* es `azacsnap-backup-azacsnap.log` (consulte [Archivos de registro](#log-files)).
 
-El archivo de *resultados* tiene el mismo nombre base que el archivo de registro, con `.result` como sufijo; por ejemplo, `azacsnap-backup-azacsnap.result`, que contiene el siguiente resultado:
+Cuando se ejecuta `-c backup` con la opción `--volume data`, también se genera un archivo de resultados como un archivo para permitir la comprobación rápida del resultado de una copia de seguridad.  El archivo de *resultados* tiene el mismo nombre base que el archivo de registro, con `.result` como sufijo.
+
+En este ejemplo, el nombre del *archivo de resultados* es `azacsnap-backup-azacsnap.result` y contiene la salida siguiente:
 
 ```bash
 cat logs/azacsnap-backup-azacsnap.result
@@ -124,7 +126,7 @@ azacsnap -c backup --volume other --prefix logs_TEST --retention 9
 
 El comando no genera resultados en la consola, sino que escribe en un archivo de registro únicamente.  _No_ escribe en un archivo de resultados ni en `/var/log/messages`.
 
-El *archivo de registro* se compone del nombre del comando + la opción -c + el nombre de archivo de configuración. De manera predeterminada, un nombre de archivo de registro para `-c backup` se ejecuta con un nombre de archivo de configuración `azacsnap-backup-azacsnap.log` predeterminado.
+En este ejemplo, el nombre del *archivo de registro* es `azacsnap-backup-azacsnap.log` (consulte [Archivos de registro](#log-files)).
 
 ## <a name="example-with-other-parameter-to-backup-host-os"></a>Ejemplo con el parámetro `other` (para el sistema operativo del host de copia de seguridad)
 
@@ -135,15 +137,17 @@ El *archivo de registro* se compone del nombre del comando + la opción -c + el 
 azacsnap -c backup --volume other --prefix boot_TEST --retention 9 --configfile bootVol.json
 ```
 
+> [!IMPORTANT]
+> Para Azure (instancias grandes), es posible que el parámetro de volumen del archivo de configuración para el volumen de arranque no esté visible en el nivel del sistema operativo host.
+> Microsoft Operations puede proporcionar este valor.
+
 El comando no genera resultados en la consola, sino que escribe en un archivo de registro únicamente.  _No_ escribe en un archivo de resultados ni en `/var/log/messages`.
 
-El nombre de *archivo de registro* en este ejemplo es `azacsnap-backup-bootVol.log`.
+En este ejemplo, el nombre del *archivo de registro* es `azacsnap-backup-bootVol.log` (consulte [Archivos de registro](#log-files)).
 
-> [!NOTE]
-> El nombre de archivo de registro se compone del "(nombre del comando - (la opción `-c`) - (el nombre de archivo de configuración)".  Por ejemplo, si usa la opción `-c backup` con un nombre de archivo de registro de `h80.json`, el archivo de registro se denominará `azacsnap-backup-h80.log`.  O bien, si usa la opción `-c test` con el mismo archivo de configuración, el archivo de registro se denominará `azacsnap-test-h80.log`.
+## <a name="log-files"></a>Archivos de registro
 
-- Tipo de instancia grande de HANA: Hay dos valores válidos con `TYPEI` o `TYPEII`, en función de la unidad de instancia grande de HANA.
-- Consulte [SKU disponibles para instancias grandes de HANA](../virtual-machines/workloads/sap/hana-available-skus.md) para confirmar las SKU disponibles.
+El nombre del archivo de registro se crea a partir de lo siguiente "(nombre del comando)-(la opción `-c`)-(el nombre del archivo de configuración)".  Por ejemplo, si ejecuta el comando `azacsnap -c backup --configfile h80.json --retention 5 --prefix one-off`, el archivo de registro se denominará `azacsnap-backup-h80.log`.  O bien, si usa la opción `-c test` con el mismo archivo de configuración (por ejemplo, `azacsnap -c test --configfile h80.json`), el archivo de registro se denominará `azacsnap-test-h80.log`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

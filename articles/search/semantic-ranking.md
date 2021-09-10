@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: bf311eb2b2d0ff7a9c17380d2e384bc05c6f05f3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/17/2021
+ms.openlocfilehash: 61fb6de73567b7a83e2c4db2010c717a160aebe0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562042"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473994"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Clasificación semántica en Azure Cognitive Search
 
 > [!IMPORTANT]
-> Las características de búsqueda semántica se encuentran en versión preliminar pública, y están disponibles mediante la API de REST en versión preliminar y el portal. Las características en versión preliminar se ofrecen tal cual, según las [Condiciones de uso complementarias](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), y no se garantiza que tengan la misma implementación en la disponibilidad general. Estas características son facturables. Para más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
+> La búsqueda semántica está en versión preliminar pública en los [términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Está disponible a través de Azure Portal, la API REST en versión preliminar y los SDK en versión beta. Estas características son facturables. Para más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
 
 La clasificación semántica es una extensión de la canalización de ejecución de consultas que mejora la precisión mediante la reclasificación de las coincidencias principales de un conjunto de resultados inicial. La clasificación semántica está respaldada por grandes redes basadas en transformadores, y que se entrenan para capturar el significado semántico de los términos de la consulta, en lugar de las coincidencias lingüísticas en palabras clave. A diferencia del [algoritmo de clasificación de similitudes predeterminado](index-ranking-similarity.md), el clasificador semántico usa el contexto y el significado de las palabras para determinar la relevancia.
 
@@ -40,8 +40,10 @@ Antes de realizar la puntuación por relevancia, el contenido se debe reducir a 
 
 Cada documento se representa ahora con una sola cadena larga.
 
+La cadena se compone de tokens, no caracteres ni palabras. El número máximo de tokens es de 128 tokens únicos. Para realizar una estimación, puede suponer que 128 tokens equivalen aproximadamente a una cadena con una longitud de 128 palabras. 
+
 > [!NOTE]
-> La cadena se compone de tokens, no caracteres ni palabras. La asignación del analizador determina la tokenización en los campos de búsqueda. Si usa un analizador especializado, como nGram o EdgeNGram, es posible que quiera excluir ese campo de searchFields. Para obtener información sobre cómo se tokenizan las cadenas, puede revisar la salida de tokens de un analizador mediante la [API de REST del analizador de pruebas](/rest/api/searchservice/test-analyzer).
+>La asignación del analizador determina la tokenización en los campos de búsqueda. Si usa un analizador especializado, como nGram o EdgeNGram, es posible que quiera excluir ese campo de searchFields. Para obtener información sobre cómo se tokenizan las cadenas, puede revisar la salida de tokens de un analizador mediante la [API de REST del analizador de pruebas](/rest/api/searchservice/test-analyzer).
 
 ## <a name="extraction"></a>Extracción
 

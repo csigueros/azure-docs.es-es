@@ -2,19 +2,19 @@
 title: Información general de Calling SDK de Azure Communication Services.
 titleSuffix: An Azure Communication Services concept document
 description: Proporciona información general sobre Calling SDK.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 320ef1b523615894910d277fcc155104b4b297bc
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 7069d5089142f4fc5a6fff6492726b6f949c8f18
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766554"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259019"
 ---
 # <a name="calling-sdk-overview"></a>Información general de Calling SDK
 
@@ -90,6 +90,8 @@ Calling SDK de Communication Services admite las siguientes configuraciones de s
 | **Número de secuencias salientes que se pueden enviar simultáneamente**     | 1 vídeo o 1 uso compartido de pantalla | 1 vídeo + 1 uso compartido de pantalla |
 | **número de secuencias entrantes que se pueden representar simultáneamente** | 1 vídeo o 1 uso compartido de pantalla | 6 vídeo + 1 uso compartido de pantalla |
 
+Aunque el SDK de llamada no aplicará estos límites, los usuarios pueden experimentar una degradación del rendimiento si se superan.
+
 ## <a name="calling-sdk-timeouts"></a>Tiempos de espera de Calling SDK
 
 Los siguientes tiempos de espera se aplican a las instancias de Calling SDK de Communication Services:
@@ -106,18 +108,19 @@ Los siguientes tiempos de espera se aplican a las instancias de Calling SDK de C
 
 ## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Compatibilidad de Calling SDK de JavaScript según el sistema operativo y el explorador
 
-En la tabla siguiente se representa el conjunto de exploradores compatibles que están disponibles actualmente. Se admiten las tres versiones más recientes del explorador, a menos que se indique lo contrario.
+En la tabla siguiente se representa el conjunto de exploradores compatibles que están disponibles actualmente. **Se admiten las tres versiones más recientes del explorador**, a menos que se indique lo contrario.
 
-| Plataforma     | Chrome | Safari | Edge (Chromium) | Notas                                                                                                                                                                                                       |
-| ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Android      | ✔️      | ❌      | ❌               | No se admite el uso compartido de pantalla saliente.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | [Las aplicaciones iOS en Safari no pueden enumerar ni seleccionar dispositivos de micrófono y altavoz](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (por ejemplo, Bluetooth); se trata de una limitación del sistema operativo y siempre hay un solo dispositivo, el sistema operativo controla la selección predeterminada del dispositivo. No se admite el uso compartido de pantalla saliente. |
-| macOS        | ✔️      | ✔️      | ❌               | Son necesarios Safari 14+ y macOS 11+ para la compatibilidad con vídeo saliente.                                                                                                                                                     |
-| Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
-| Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |
+| Plataforma     | Chrome | Safari | Edge (Chromium)  |
+| ------------ | ------ | ------ | --------------   |
+| Android      | ✔️      | ❌      | ❌           | 
+| iOS          | ❌      | ✔️      | ❌           |
+| macOS        | ✔️      | ✔️      | ❌           | 
+| Windows      | ✔️      | ❌      | ✔️           |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* Se admiten en las versiones de Safari 13.1 +, las llamadas uno a uno no se admiten en Safari.
-* Salvo que se especifique lo contrario, se admiten las tres últimas versiones de cada explorador.
+* No se admiten llamadas de uno a uno en Safari.
+* No se admite el uso compartido de pantalla saliente en iOS ni Android.
+* [Las aplicaciones iOS en Safari no pueden enumerar ni seleccionar dispositivos de micrófono y altavoz](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (por ejemplo, Bluetooth); se trata de una limitación del sistema operativo y siempre hay un solo dispositivo, el sistema operativo controla la selección predeterminada del dispositivo.
 
 ## <a name="android-calling-sdk-support"></a>Compatibilidad con el SDK de llamada de Android
 

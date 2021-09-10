@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 07/14/2021
 ms.author: egeaney
-ms.openlocfilehash: 3e2f4cbdf7f84f7b6cbd749225a2e0f7ed60cdd5
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: cdf8276904fda5098b3192779e0372b4a1bcc9d2
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202882"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766621"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio de voz
 
@@ -39,7 +39,12 @@ Mientras tanto, cuando se usa Comando personalizado, puede administrar la suscri
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Traiga su propio almacenamiento (BYOS) para la personalización y el registro
 
-Para solicitar acceso para traer su propio almacenamiento, rellene y envíe el  [formulario de solicitud del servicio de voz: traiga su propia cuenta de almacenamiento (BYOS)](https://aka.ms/cogsvc-cmk). Una vez que reciba la aprobación, será preciso que cree su propia cuenta de almacenamiento para almacenar los datos necesarios para la personalización y el registro. Al agregar una cuenta de almacenamiento, el recurso del servicio de voz habilitará una identidad administrada asignada por el sistema. Después de que se habilite la identidad administrada asignada por el sistema, este recurso se registrará con Azure Active Directory (AAD). Tras su registro, se concederá acceso a la identidad administrada a la cuenta de almacenamiento. Aquí puede obtener más información acerca de las identidades administradas. Para más información sobre la identidad administrada, consulte [¿Qué son las identidades administradas?](../../active-directory/managed-identities-azure-resources/overview.md)
+Para solicitar acceso para traer su propio almacenamiento, rellene y envíe el  [formulario de solicitud del servicio de voz: traiga su propia cuenta de almacenamiento (BYOS)](https://aka.ms/cogsvc-cmk). Una vez que reciba la aprobación, será preciso que cree su propia cuenta de almacenamiento para almacenar los datos necesarios para la personalización y el registro. Al agregar una cuenta de almacenamiento, el recurso del servicio de voz habilitará una identidad administrada asignada por el sistema.
+
+> [!IMPORTANT]
+> La cuenta de usuario que se use para crear un recurso de voz con la funcionalidad BYOS habilitada debe tener asignado el [rol Propietario en el ámbito de la suscripción de Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator). De lo contrario, recibirá un error de autorización durante el aprovisionamiento de recursos.
+
+Después de que se habilite la identidad administrada asignada por el sistema, este recurso se registrará con Azure Active Directory (AAD). Tras su registro, se concederá acceso a la identidad administrada a la cuenta de almacenamiento. Para más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas?](../../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > Si deshabilita identidades administradas asignadas por el sistema, se quitará el acceso a la cuenta de almacenamiento. Esto hará que las partes del servicio de voz que requieran acceso a la cuenta de almacenamiento dejen de funcionar.  

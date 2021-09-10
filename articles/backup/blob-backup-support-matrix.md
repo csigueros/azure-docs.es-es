@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 description: Proporciona un resumen de opciones y limitaciones de compatibilidad a la hora de realizar copias de seguridad en blobs de Azure.
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 07/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 06e6d193ec929961dd4eeb192045a217aefa4ab2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ba2798ff464720379326ee56098f840a06e2c042
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475107"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722650"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 
@@ -32,6 +32,7 @@ La copia de seguridad operativa de blobs usa la restauración a un momento dado 
 - Un bloque que se ha cargado mediante la operación [Put Block](/rest/api/storageservices/put-block) o [Put Block from URL](/rest/api/storageservices/put-block-from-url), pero que no se ha confirmado a través de [Put Block List](/rest/api/storageservices/put-block-list), no es parte de un blob y, por tanto, no se restaura como parte de una operación de restauración.
 - No se puede restaurar un blob con una concesión activa. Si se incluye un blob con una concesión activa en el intervalo de blobs para restaurar, la operación de restauración producirá un error automáticamente. Interrumpa las concesiones activas antes de iniciar la operación de restauración.
 - Las instantáneas no se crean ni se eliminan como parte de una operación de restauración. Solo el blob base se restaura a su estado anterior.
+- Si hay [blobs inmutables](../storage/blobs/immutable-storage-overview.md#about-immutable-storage-for-blobs) entre los que se restauran, estos blobs inmutables no se restaurarán a su estado según el punto de recuperación seleccionado. Sin embargo, otros blobs que no tengan habilitada la inmutabilidad se restaurarán al punto de recuperación seleccionado, según lo previsto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Copia de seguridad de Azure Managed Disks
 description: Obtenga información sobre cómo realizar una copia de seguridad de Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
 ms.date: 05/27/2021
-ms.openlocfilehash: c47499c371a9eccfd97224344a48c166d0e1f811
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 9bbb29aa4741f71448876a0af947964f728b0fb0
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653637"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300743"
 ---
 # <a name="back-up-azure-managed-disks"></a>Copia de seguridad de Azure Managed Disks
 
@@ -121,7 +121,7 @@ Los siguientes requisitos previos son necesarios para configurar la copia de seg
 
    - No se puede cambiar el grupo de recursos de instantáneas asignado a una instancia de copia de seguridad al configurar la copia de seguridad de un disco.
 
-   - Durante una operación de copia de seguridad, el servicio Azure Backup crea una cuenta de almacenamiento en el grupo de recursos de instantáneas, donde se almacenan las instantáneas. Solo se crea una cuenta de almacenamiento por cada grupo de recursos de instantáneas. La cuenta se reutiliza en varias instancias de copia de seguridad de disco que usan el mismo grupo de recursos que el grupo de recursos de instantáneas.
+   - Durante una operación de copia de seguridad, Azure Backup crea una cuenta de almacenamiento en el grupo de recursos de instantáneas. Solo se crea una cuenta de almacenamiento por cada grupo de recursos de instantáneas. La cuenta se reutiliza en varias instancias de copia de seguridad de disco que usan el mismo grupo de recursos que el grupo de recursos de instantáneas.
      
      - Las instantáneas no se almacenan en la cuenta de almacenamiento. Las instantáneas incrementales del disco administrado son recursos de ARM que se crean en el grupo de recursos y no en una cuenta de almacenamiento. 
      
@@ -182,7 +182,7 @@ Siga estos pasos para asignar un rol:
    ![Selección de los discos de los que se van a realizar copias de seguridad](./media/backup-managed-disks/select-disks-to-backup.png)
 
    >[!NOTE]
-   >Aunque el portal le permite seleccionar varios discos y configurar la copia de seguridad, tenga en cuenta que cada disco es una instancia de copia de seguridad individual. Actualmente Azure Disk Backup solo admite la copia de seguridad de discos individuales. No se pueden realizar copias de seguridad en un momento dado de varios discos que estén conectados a un disco virtual.
+   >Aunque el portal le permite seleccionar varios discos y configurar la copia de seguridad, tenga en cuenta que cada disco es una instancia de copia de seguridad individual. Actualmente Azure Disk Backup solo admite la copia de seguridad de discos individuales. No se pueden realizar copias de seguridad en un momento dado de varios discos que estén conectados a una máquina virtual.
    >
    >Al usar el portal, solo debe seleccionar los discos que estén en la misma suscripción. Si tiene varios discos a los que va a hacer una copia de seguridad o si los discos están en una suscripción diferente, puede usar scripts para automatizar este proceso.
    >

@@ -7,19 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 6954ce289cb3cf219f8c4024a112411fd60d70e0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/25/2021
+ms.openlocfilehash: f452aa6ababd338ccc86b7c7c40854367ed46e41
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310672"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460630"
 ---
-# <a name="create-and-manage-api-keys-for-authentication-to-azure-cognitive-search"></a>Creación y administración de claves de API para la autenticación en Azure Cognitive Search
+# <a name="use-api-keys-for-azure-cognitive-search-authentication"></a>Uso de claves de API para la autenticación de Azure Cognitive Search
 
-Al conectarse a un servicio de búsqueda, todas la solicitudes necesitan incluir una clave de API de solo lectura generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar las solicitudes de entrada al punto de conexión de su servicio de búsqueda y se necesita en todas las solicitudes. 
+Cognitive Search usa las claves de API como método de autenticación principal. Para las solicitudes entrantes a los servicios de búsqueda, como aquellas que crean o consultan un índice, las claves de API son la única opción de autenticación disponible. Algunos escenarios de solicitudes salientes, sobre todo los que implican indizadores, pueden usar identidades y roles de Azure Active Directory.
 
-+ En las [soluciones de REST](search-get-started-rest.md), el objeto `api-key` se especifica normalmente en un encabezado de solicitud.
+Las claves de API se generan cuando se crea el servicio. Pasar una clave de API válida en la solicitud se considera una prueba de que esta última procede de un cliente autorizado. Existen dos tipos de claves. Las *claves de administración* transmiten permisos de escritura en el servicio y también conceden derechos para consultar la información del sistema. Las *claves de consulta* transmiten permisos de lectura y las aplicaciones pueden usarlas para consultar un índice específico. 
+
+> [!NOTE]
+> La autorización para las operaciones del plano de datos mediante el control de acceso basado en roles (RBAC) de Azure está ahora en versión preliminar. Puede usar esta funcionalidad en versión preliminar para complementar o reemplazar las claves de API [por roles de Azure para Search](search-security-rbac.md). 
+
+## <a name="using-api-keys-in-search"></a>Uso de las claves de API en la búsqueda
+
+Al conectarse a un servicio de búsqueda, todas la solicitudes deben incluir una clave de API generada de forma específica para el servicio.
+
++ En las [soluciones de REST](search-get-started-rest.md), la clave de API se especifica normalmente en un encabezado de solicitud.
 
 + En las [soluciones de .NET](search-howto-dotnet-sdk.md), una clave suele especificarse como un valor de configuración y pasarse como un valor [AzureKeyCredential](/dotnet/api/azure.azurekeycredential).
 
@@ -89,13 +98,13 @@ Después de crear nuevas claves a través del portal o la capa de administració
 
 ## <a name="secure-api-keys"></a>Protección de las claves de API
 
-A través de [permisos basados en roles](search-security-rbac.md), puede eliminar o leer las claves, pero no se puede reemplazar una clave con una contraseña definida por el usuario ni usar Active Directory como metodología de autenticación principal para acceder a las operaciones de búsqueda. 
+Las [asignaciones de roles](search-security-rbac.md) determinan quiénes puede leer y administrar las claves. Los miembros de los roles siguientes pueden ver y regenerar las claves: Propietario, Colaborador, [Colaboradores de Search Service](../role-based-access-control/built-in-roles.md#search-service-contributor). El rol Lector no tiene acceso a las claves de API.
 
-La seguridad de las claves se garantiza mediante la restricción del acceso a través del portal o de las interfaces de Resource Manager (PowerShell o interfaz de línea de comandos). Como se ha indicado, los administradores de suscripciones pueden ver y volver a generar todas las claves de API. Como medida de precaución, revise las asignaciones de roles para conocer quién tiene acceso a las claves de administración.
+Los administradores de suscripciones pueden ver y volver a generar todas las claves de API. Como medida de precaución, revise las asignaciones de roles para conocer quién tiene acceso a las claves de administración.
 
-+ En el panel de servicio, haga clic en **Control de acceso (IAM)** y, a continuación, en la pestaña **Asignaciones de roles** para ver las asignaciones de roles para su servicio.
-
-Los miembros de los roles siguientes pueden ver y regenerar las claves: Propietario, Colaborador, [Colaboradores de Search Service](../role-based-access-control/built-in-roles.md#search-service-contributor)
+1. Vaya a la página del servicio de búsqueda de Azure Portal.
+1. En el panel de navegación izquierdo, seleccione **Control de acceso (IAM)** y después seleccione la pestaña **Asignaciones de rol**.
+1. Establezca **Ámbito** en **Este recurso** para ver las asignaciones de roles para el servicio.
 
 ## <a name="see-also"></a>Consulte también
 

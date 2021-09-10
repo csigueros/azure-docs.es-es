@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/05/2020
 ms.author: banders
-ms.openlocfilehash: bf7945c56fc05c33ae3cfed1c67085b3b28f847f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b038ab5a937105d3fb625f6b17dd71b0073b7080
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690517"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726985"
 ---
 # <a name="automatically-renew-reservations"></a>Renovación automática de reservas
 
@@ -31,7 +31,7 @@ Vaya a Azure Portal > **Reservations**.
 
 1. Seleccione la reserva.
 2. Haga clic en **Renovación**.
-3. Seleccione **Comprar automáticamente una nueva reserva en la fecha de expiración** .  
+3. Seleccione **Comprar automáticamente una nueva reserva en la fecha de expiración**.  
   ![Ejemplo que muestra la renovación de una reserva](./media/reservation-renew/reservation-renewal.png)
 
 ## <a name="if-you-dont-renew"></a>Si no se realiza la renovación
@@ -84,6 +84,8 @@ Es posible que Azure no procese una renovación si:
 Recibirá una notificación por correo electrónico si se da cualquiera de las condiciones anteriores y la renovación se desactiva.
 
 ## <a name="renewal-notification"></a>Notificación de la renovación
+
+Los correos electrónicos de notificación de renovación se envían 30 días antes de la expiración y de nuevo en la fecha de expiración. La dirección de correo electrónico de envío es `azure-noreply@microsoft.com`. Es posible que quiera agregar la dirección de correo electrónico a los remitentes seguros o a la lista de permitidos.
 
 Se envían correos electrónicos a diferentes personas según en función del método de compra:
 

@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 16735c2d8e77c23156e23aade7a1d42bd7504e71
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: aa51a489fd1dc7a3e7188239ea200b6fb95b3ed1
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765639"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123271978"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Google Cloud Platform (GCP) a Azure
 
@@ -348,12 +348,11 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Detiene la replicación de la máquina virtual de GCP.
     - Quita la máquina virtual de GCP del recuento de **Replicando servidores** en Azure Migrate: Server Migration.
     - Limpia la información de estado de replicación de la máquina virtual.
-2. Instale el agente de [Windows](../virtual-machines/extensions/agent-windows.md) o [Linux](../virtual-machines/extensions/agent-linux.md) de la máquina virtual de Azure en las máquinas migradas.
-3. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
-4. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
-5. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
-6. Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure.
-
+1. Compruebe y [solucione los problemas de activación de Windows en la máquina virtual de Azure.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. Realice los ajustes de la aplicación posteriores a la migración, como actualizar los nombres de host, las cadenas de conexión de la base de datos y las configuraciones del servidor web.
+1. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
+1. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
+1. Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure.
 
 
 

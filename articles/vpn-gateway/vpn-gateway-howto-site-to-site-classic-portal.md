@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: f440ec76d3085e7a5ef7ec99f1a5a76c9c444ef9
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 71b365a2034e40831d4216f83d046c0b897bbe26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205348"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729499"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creación de una conexión de sitio a sitio mediante Azure Portal (clásico)
 
@@ -34,7 +34,7 @@ Se utiliza una conexión de puerta de enlace VPN de sitio a sitio para conectar 
 
 Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
-* Compruebe que desea trabajar en el modelo de implementación clásica. Si desea trabajar en el modelo de implementación de Resource Manager, consulte [Creación de una conexión de sitio a sitio (Resource Manager)](./tutorial-site-to-site-portal.md). Se recomienda usar el modelo de implementación de Resource Manager, ya que el modelo clásico es heredado.
+* Compruebe que desea trabajar en el modelo de implementación clásica. Si desea trabajar en el [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md), consulte [Creación de una conexión de sitio a sitio (Resource Manager)](./tutorial-site-to-site-portal.md). Se recomienda usar el modelo de implementación de Resource Manager, ya que el modelo clásico es heredado.
 * Asegúrese de tener un dispositivo VPN compatible y alguien que pueda configurarlo. Para más información acerca de los dispositivos VPN compatibles y su configuración, consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 * Compruebe que tiene una dirección IPv4 pública externa para el dispositivo VPN.
 * Si no está familiarizado con los intervalos de direcciones IP ubicados en la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles. Al crear esta configuración, debe especificar los prefijos del intervalo de direcciones IP al que Azure enrutará la ubicación local. Ninguna de las subredes de la red local puede superponerse con las subredes de la red virtual a la que desea conectarse.

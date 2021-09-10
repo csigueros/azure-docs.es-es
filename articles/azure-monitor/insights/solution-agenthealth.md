@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 171230dc2ce6189e36c601c6c7d3b3612fce160c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24797f6524cd9a129f8eafb5b13e4bd1a26cf803
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711066"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432201"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solución Agent Health en Azure Monitor
 La solución Agent Health en Azure le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de Log Analytics en Azure Monitor o a un grupo de administración de System Center Operations Manager conectado a Azure Monitor, cuáles no responden y cuáles envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
@@ -78,6 +78,7 @@ Se crea un registro del tipo **Heartbeat**.  Estos registros tienen las propieda
 | `SCAgentChannel` | El valor es *Direct* o *SCManagementServer*.|
 | `IsGatewayInstalled` | Si la puerta de enlace de Log Analytics está instalada, el valor es *true*; en caso contrario, es *false*.|
 | `ComputerIP` | Dirección IP pública del equipo. En máquinas virtuales de Azure, se mostrará la dirección IP pública si hay alguna disponible. En el caso de las máquinas virtuales que usan direcciones IP privadas, se mostrará la dirección SNAT de Azure (no la dirección IP privada). |
+| `ComputerPrivateIPs` | Lista de direcciones IP privadas del equipo. |
 | `RemoteIPCountry` | Ubicación geográfica donde el equipo está implementado.|
 | `ManagementGroupName` | Nombre del grupo de administración de Operations Manager.|
 | `SourceComputerId` | Identificador único del equipo.|

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 3749a7080bf17c020b48ae3ebc3cff3aa998eeef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ade5e44e7b43e30447a31dcc138a2514771fe21
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382300"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443683"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad en Azure Logic Apps
 
@@ -122,6 +122,23 @@ En este ejemplo se muestra el aspecto que podrá tener una definición de desenc
          "timeZone": "Pacific Standard Time"
       }
    }
+}
+```
+
+En el ejemplo siguiente se muestra cómo actualizar la definición del desencadenador para que el desencadenador se ejecute solo una vez el último día de cada mes:
+
+```json
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
+        },
+        "type": "Recurrence"
+    }
 }
 ```
 

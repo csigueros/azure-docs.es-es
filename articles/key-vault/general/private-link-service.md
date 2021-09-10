@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 825fb15d9c3a0a0a44a77d3feec767adc0368add
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: a2906145e135f1b2e683ed757efde07ce1d5dd65
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279197"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296623"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integración de Key Vault con Azure Private Link
 
@@ -80,9 +80,6 @@ Si ya tiene un almacén de claves, puede crear una conexión de vínculo privado
     ![Captura de pantalla que muestra la pestaña "Datos básicos" de la página "Crear un punto de conexión privado (versión preliminar)"](../media/private-link-service-4.png).
 
 Puede optar por crear un punto de conexión privado para cualquier recurso de Azure mediante esta hoja. Puede usar los menús desplegables para seleccionar un tipo de recurso y seleccionar un recurso en el directorio, o bien puede conectarse a cualquier recurso de Azure mediante un identificador de recurso. Deje la opción "Integrate with the private zone DNS" (Integrar con el DNS de la zona privada) sin cambios.  
-
-![Captura de pantalla que muestra cómo se agrega un punto de conexión privado mediante la hoja actual.](../media/private-link-service-3.png)
-![Captura de pantalla que muestra un ejemplo de la página "Crear un punto de conexión privado (versión preliminar)".](../media/private-link-service-4.png)
 
 Cuando se crea un punto de conexión privado, se debe aprobar la conexión. Si el recurso para el que va a crear el punto de conexión privado está en el directorio, podrá aprobar la solicitud de conexión siempre que tenga los permisos necesarios. Si se va a conectar a un recurso de Azure en otro directorio, debe esperar a que el propietario de ese recurso apruebe la solicitud de conexión.
 
@@ -243,7 +240,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 * Asegúrese de que en la zona DNS privada no falta un registro d para el almacén de claves. 
     1. Vaya a la página Zona DNS privada. 
     2. Haga clic en Información general y compruebe si hay un registro D con el nombre simple de su almacén de claves (es decir, fabrikam). No especifique ningún sufijo.
-    3. Asegúrese de revisar la ortografía y de crear o reparar el registro D. Puede usar un TTL de 3600 (1 hora). 
+    3. Asegúrese de revisar la ortografía y de crear o reparar el registro D. Puede usar un TTL de 600 (10 minutos).
     4. Asegúrese de especificar la dirección IP privada correcta. 
     
 * Asegúrese de que el registro D tiene la dirección IP correcta. 
