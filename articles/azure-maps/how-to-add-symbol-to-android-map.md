@@ -228,7 +228,7 @@ En la captura de pantalla siguiente se muestra el código anterior que represent
 
 La instancia de Android SDK de Azure Maps incluye un conjunto de variaciones de color predefinidas del icono de marcador predeterminado. Por ejemplo, `marker-red` se puede pasar a la opción `iconImage` de una capa de símbolos para representar una versión roja del icono de marcador en esa capa.
 
-::: zone pivot=&quot;programming-language-java-android&quot;
+::: zone pivot="programming-language-java-android"
 
 ```java
 SymbolLayer layer = new SymbolLayer(source,
