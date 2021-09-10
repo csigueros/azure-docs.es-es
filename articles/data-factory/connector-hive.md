@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: e9117ce75c17a1d45d5479520372de5bbcb47074
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: db88b0250a52ea96a116097469e43e1f0c26ece2
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637936"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306054"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copia y transformación de datos de Hive con Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,6 +40,32 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-hive-using-ui"></a>Creación de un servicio vinculado a Hive mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Hive en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar en el área de trabajo de Azure Data Factory o Synapse, seleccione Servicios vinculados y, después, haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Hive y seleccione el conector de Hive.
+
+    :::image type="content" source="media/connector-hive/hive-connector.png" alt-text="Selección del conector de Hive.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el servicio vinculado.
+
+    :::image type="content" source="media/connector-hive/configure-hive-linked-service.png" alt-text="Configuración de un servicio vinculado a Hive.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+
+
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Hive.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
@@ -50,7 +76,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Hive:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Hive** | Sí |
 | host | Dirección IP o nombre de host del servidor de Hive, separados por ";" para varios hosts (solo cuando serviceDiscoveryMode está habilitado).  | Sí |
-| port | Puerto TCP que el servidor de Hive utiliza para escuchar las conexiones del cliente. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sí |
+| port | Puerto TCP que el servidor de Hive utiliza para escuchar las conexiones del cliente. Si se conecta a Azure HDInsight, especifique el puerto 443. | Sí |
 | serverType | Tipo de servidor de Hive. <br/>Los valores permitidos son: **HiveServer1**, **HiveServer2** y **HiveThriftServer** | No |
 | thriftTransportProtocol | Protocolo de transporte que se va a usar en la capa de Thrift. <br/>Los valores permitidos son: **Binary**, **SASL** y **HTTP** | No |
 | authenticationType | Método de autenticación que se usa para tener acceso al servidor de Hive. <br/>Los valores permitidos son: **Anonymous**, **Username**, **UsernameAndPassword** y **WindowsAzureHDInsightService**. Actualmente no se admite la autenticación de Kerberos. | Sí |

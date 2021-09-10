@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.openlocfilehash: cae8c1564d9ba03d48f5ac8dcc1eb23b36589df4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: 98458a624a9c0d713e518e3fda442b8e45209d25
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733171"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123036512"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opciones para migrar los datos locales o en la nube a Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,6 +41,9 @@ Los siguientes factores determinan la elección de la herramienta de migración:
 
 ## <a name="azure-cosmos-db-sql-api"></a>API de SQL de Azure Cosmos DB
 
+Si necesita ayuda con el planeamiento de la capacidad, considere la posibilidad de leer nuestra [guía de estimación de RU/s mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md). 
+* Si va a migrar desde una plataforma basada en núcleos virtuales o servidor y necesita instrucciones sobre cómo calcular las unidades de solicitud, considere la posibilidad de leer nuestra [guía para calcular las RU/s basadas en núcleos virtuales](estimate-ru-with-capacity-planner.md).
+
 |Tipo de migración|Solución|Orígenes compatibles|Destinos admitidos|Consideraciones|
 |---------|---------|---------|---------|---------|
 |Sin conexión|[Herramienta de migración de datos](import-data.md)| &bull;Archivos JSON/CSV<br/>&bull;API de SQL de Azure Cosmos DB<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;AWS DynamoDB<br/>&bull;Azure Blob Storage|&bull;API de SQL de Azure Cosmos DB<br/>&bull;Instancias de Table API de Azure Cosmos DB<br/>&bull;Archivos JSON |&bull; Fácil de configurar y admite varios orígenes. <br/>&bull; No es adecuada para grandes conjuntos de datos.|
@@ -53,6 +56,20 @@ Los siguientes factores determinan la elección de la herramienta de migración:
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Mongo API de Azure Cosmos DB
 
+Siga la [guía previa a la migración](mongodb/pre-migration-steps.md) para planear la migración. 
+* Si necesita ayuda con el planeamiento de la capacidad, considere la posibilidad de leer nuestra [guía de estimación de RU/s mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md). 
+* Si va a migrar desde una plataforma basada en núcleos virtuales o servidor y necesita instrucciones sobre cómo calcular las unidades de solicitud, considere la posibilidad de leer nuestra [guía para calcular las RU/s basadas en núcleos virtuales](convert-vcore-to-request-unit.md).
+
+Cuando esté listo para migrar, puede encontrar instrucciones detalladas sobre las herramientas de migración a continuación.
+* [Migración sin conexión mediante herramientas nativas de MongoDB](mongodb/tutorial-mongotools-cosmos-db.md)
+* [Migración sin conexión con Azure Database Migration Service (DMS)](../dms/tutorial-mongodb-cosmos-db.md)
+* [Migración en línea con Azure Database Migration Service (DMS)](../dms/tutorial-mongodb-cosmos-db-online.md)
+* [Migración sin conexión o en línea mediante Azure Databricks y Spark](mongodb/migrate-databricks.md)
+
+A continuación, siga [nuestra guía posterior a la migración](mongodb/post-migration-optimization.md) para optimizar el patrimonio de datos de Azure Cosmos DB una vez que haya migrado.
+
+A continuación se proporciona un resumen de las rutas de migración de la solución actual a Azure Cosmos DB API para MongoDB:
+
 |Tipo de migración|Solución|Orígenes compatibles|Destinos admitidos|Consideraciones|
 |---------|---------|---------|---------|---------|
 |En línea|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB API para MongoDB |&bull; Hace uso de la biblioteca BulkExecutor de Azure Cosmos DB. <br/>&bull; Adecuada para grandes conjuntos de valores y se encarga de replicar los cambios en directo. <br/>&bull; Solo funciona con otros orígenes de MongoDB.|
@@ -61,6 +78,8 @@ Los siguientes factores determinan la elección de la herramienta de migración:
 |Sin conexión|[Herramientas existentes de Mongo (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|MongoDB | Azure Cosmos DB API para MongoDB| &bull; Fácil de configurar e integrar. <br/>&bull; Necesita un control personalizado para las limitaciones.|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>API Cassandra de Azure Cosmos DB
+
+Si necesita ayuda con el planeamiento de la capacidad, considere la posibilidad de leer nuestra [guía de estimación de RU/s mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md). 
 
 |Tipo de migración|Solución|Orígenes compatibles|Destinos admitidos|Consideraciones|
 |---------|---------|---------|---------|---------|
@@ -85,6 +104,9 @@ En el caso de las API que no sean SQL API, Mongo API y Cassandra API, se admi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, obtenga información sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 * Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md). 
 * La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](./create-sql-api-spark.md).  
 * Póngase en contacto con el equipo de producto de Azure Cosmos DB abriendo una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y en el subtipo "Grandes migraciones (TB+)" para obtener ayuda adicional con las migraciones a gran escala.

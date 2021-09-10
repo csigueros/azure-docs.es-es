@@ -1,18 +1,18 @@
 ---
-title: Configuración y uso de la identidad administrada de aplicación en nodos de clúster administrados de Service Fabric
-description: Aprenda a configurar y usar una identidad administrada de aplicación en un clúster administrado de Azure Service Fabric implementado con plantilla de ARM.
+title: Configuración y uso de aplicaciones con identidad administrada en un clúster administrado de Service Fabric
+description: Veremos cómo configurar y usar una aplicación con identidad administrada en un clúster administrado de Azure Service Fabric implementado con una plantilla de Azure Resource Manager (ARM).
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 4e488f9ebb78208617ca59fdb88dbec454de10e1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 8/23/2021
+ms.openlocfilehash: 5007f17754572c03ff820ecda1bb09f6e8a8020e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958284"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864754"
 ---
-# <a name="deploy-a-service-fabric-application-with-managed-identity"></a>Implementación de una aplicación de Service Fabric con identidad administrada
+# <a name="deploy-an-application-with-managed-identity-to-a-service-fabric-managed-cluster"></a>Implementación de una aplicación con identidad administrada en un clúster administrado de Service Fabric
 
-Para implementar una aplicación de Service Fabric con una identidad administrada, la aplicación debe implementarse a través de Azure Resource Manager, normalmente con una plantilla de Azure Resource Manager. Para obtener más información sobre cómo implementar la aplicación de Service Fabric a través de Azure Resource Manager, vea [Administración de aplicaciones y servicios como recursos de Azure Resource Manager](service-fabric-application-arm-resource.md).
+Para implementar una aplicación de Service Fabric con una identidad administrada, la aplicación debe implementarse a través de Azure Resource Manager, normalmente con una plantilla de Azure Resource Manager. Para obtener más información sobre cómo implementar una aplicación de Service Fabric a través de Azure Resource Manager, consulte [Implementación de una aplicación de clúster administrado de Service Fabric mediante una plantilla de ARM](how-to-managed-cluster-app-deployment-template.md).
 
 > [!NOTE] 
 > 
@@ -195,6 +195,5 @@ Esta propiedad declara (para Azure Resource Manager y los proveedores de recurso
     Esta es la asignación equivalente de una identidad a un servicio, tal como se ha descrito anteriormente, pero desde la perspectiva de la definición del servicio. Aquí se hace referencia a la identidad mediante su nombre descriptivo (`WebAdmin`), como se declaró en el manifiesto de aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* [Aprovechamiento de la identidad administrada de una aplicación de Service Fabric desde el código de servicio](./how-to-managed-identity-service-fabric-app-code.md)
-* [Concesión de acceso a otros recursos de Azure para una aplicación de Azure Service Fabric](./how-to-grant-access-other-resources.md)
+* [Aprovechamiento de la identidad administrada de una aplicación de Service Fabric desde el código de servicio](how-to-managed-identity-service-fabric-app-code.md)
+* [Concesión de acceso a otros recursos de Azure para una aplicación de Azure Service Fabric](how-to-grant-access-other-resources.md)

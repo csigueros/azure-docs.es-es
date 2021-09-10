@@ -2,27 +2,28 @@
 title: Escalado de unidades reservadas de multimedia (MRU) con CLI
 description: En este tema se muestra cómo usar la CLI para escalar el procesamiento multimedia con Azure Media Services.
 services: media-services
-author: IngridAtMicrosoft
+author: jiayali-ms
 manager: femila
 ms.service: media-services
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 08/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: c5fa3aa8397ea6e13500717f035c414af8de8e3d
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b8dc092104f3371263719adbec16305afb87113c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121683"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867386"
 ---
-# <a name="how-to-scale-media-reserved-units"></a>Escalado de unidades reservadas de multimedia
+# <a name="how-to-scale-media-reserved-units-legacy"></a>Escalado de unidades reservadas de multimedia (heredado)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-En este artículo se muestra cómo escalar las unidades reservadas de multimedia (MRU) para una codificación más rápida.
+En este artículo se describe cómo escalar las unidades reservadas de multimedia (MRU) para conseguir una codificación más rápida.
 
 > [!WARNING]
 > Este comando dejará de funcionar en las cuentas de Media Services que se crearon con la versión 2020-05-01 de la API o con una versión posterior. Para estas cuentas, las unidades reservadas de multimedia ya no son necesarias, ya que el sistema se escalará y reducirá automáticamente en función de la carga. Si no ve la opción para administrar MRU en Azure Portal, es que está usando una cuenta creada con la API 2020-05-01 o posterior.
+> El propósito de este artículo es documentar el proceso heredado de uso de MRUs.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -42,12 +43,8 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## <a name="billing"></a>Facturación
 
-Se le cobra en función del número de minutos que se aprovisionan las unidades reservadas de multimedia en su cuenta. Esto ocurre independientemente de si se ejecutan trabajos en la cuenta. Para obtener una explicación detallada, vea la sección de preguntas más frecuentes de la página de [precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
+ Antes, las unidades reservadas de multimedia tenían un coste, pero a partir del 17 de abril de 2021 ya no hay que abonar nada por las cuentas que tengan una configuración de unidades reservadas de multimedia.
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="see-also"></a>Vea también
 
-[Análisis de vídeos](analyze-videos-tutorial.md)
-
-## <a name="see-also"></a>Consulte también
-
-* [Cuotas y límites](limits-quotas-constraints-reference.md)
+* [Migración de Media Services v2 a v3](migrate-v-2-v-3-migration-introduction.md)

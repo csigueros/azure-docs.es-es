@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2021
-ms.openlocfilehash: 91bfa04c9fab179cf3935e703f13004f3aadd170
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: eb00a9fa81b6fadd999c6c824ff7be06f76c8f4a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220134"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221758"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Configuración recomendada para el aislamiento de red
 
@@ -99,7 +99,7 @@ La instancia de Cognitive Search se puede aislar a través de un punto de conexi
     > [ ![Captura de pantalla de la interfaz de usuario de Redes con el botón de alternancia público/privado]( ../media/network-isolation/private.png) ](  ../media/network-isolation/private.png#lightbox)
 
 4. Una vez que el recurso de Search se cambia a privado, seleccione Agregar **punto de conexión privado**.
-    - **Pestaña Aspectos básicos**: asegúrese de crear el punto de conexión en la misma región que el recurso de Search.
+    - **Pestaña Datos básicos**: asegúrese de crear el punto de conexión en la misma región que el recurso de Search.
     - **Pestaña Recurso**: seleccione el recurso de Search necesario de tipo `Microsoft.Search/searchServices`.
 
     > [!div class="mx-imgBorder"]
@@ -110,9 +110,9 @@ La instancia de Cognitive Search se puede aislar a través de un punto de conexi
      > [!div class="mx-imgBorder"]
      > [ ![Captura de pantalla de la ventana de la interfaz de usuario Crear un punto de conexión privado con el campo de subred rellenado ]( ../media/network-isolation/subnet.png) ](  ../media/network-isolation/subnet.png#lightbox)
 
-    5. Habilite la integración con red virtual para App Service normal. Puede omitir este paso para ASE, ya que ya tiene acceso a la red virtual.
-        - Vaya a la sección **Redes** de App Service y abra **Integración con red virtual**.
-        - Cree un vínculo a la red virtual de App Service dedicada, subred (appservicevnet) creada en el paso 2.
+5. Habilite la integración con red virtual para App Service normal. Puede omitir este paso para ASE, ya que ya tiene acceso a la red virtual.
+    - Vaya a la sección **Redes** de App Service y abra **Integración con red virtual**.
+    - Cree un vínculo a la red virtual de App Service dedicada, subred (appservicevnet) creada en el paso 2.
     
      > [!div class="mx-imgBorder"]
      > [ ![Captura de pantalla de la interfaz de usuario de Integración con red virtual]( ../media/network-isolation/integration.png) ](  ../media/network-isolation/integration.png#lightbox)

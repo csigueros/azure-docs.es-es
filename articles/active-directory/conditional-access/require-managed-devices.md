@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e39a6bbde587e543afcb10cb910a675bf4c69fc
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93077768"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867566"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -31,6 +31,7 @@ El uso obligatorio de dispositivos administrados para acceder a las aplicaciones
 - **[Acceso condicional en Azure Active Directory](./overview.md)** : en este artículo se proporciona información general conceptual sobre el acceso condicional y la terminología relacionada.
 - **[Introducción a la administración de dispositivos en Azure Active Directory](../devices/overview.md)** : en este artículo se proporciona información general de las diversas opciones que tiene para mantener los dispositivos bajo el control de la organización. 
 - Para la compatibilidad con Chrome en **Windows 10 Creators Update (versión 1703)** o posterior, instale la [extensión de cuentas de Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Esta extensión es necesaria cuando una directiva de acceso condicional requiere detalles específicos del dispositivo.
+- Para obtener compatibilidad con Firefox (a partir de **Firefox 91** en **Windows 10 versión 1809** o posterior), configure [SSO de Windows](https://support.mozilla.org/en-US/kb/windows-sso).
 
 >[!NOTE] 
 > Se recomienda usar el dispositivo de Azure AD basado en la directiva de acceso condicional para obtener la mejor aplicación después de la autenticación inicial del dispositivo. Esto incluye cerrar sesiones si el dispositivo está fuera de cumplimiento y del flujo de código de dispositivo.

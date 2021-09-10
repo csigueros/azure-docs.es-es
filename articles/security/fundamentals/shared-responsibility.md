@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2021
+ms.date: 08/31/2021
 ms.author: terrylan
-ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14d53d3f58c1bbdb03a5ac510f6a2e44157906f9
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99548956"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272120"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilidad compartida en la nube
 
@@ -29,7 +29,7 @@ A medida que considera y evalúa los servicios en la nube pública, es fundament
 ## <a name="division-of-responsibility"></a>División de responsabilidad
 En un centro de datos local, usted es el propietario de toda la pila. A medida que se traslada a la nube, algunas responsabilidades se transfieren a Microsoft. En el diagrama siguiente se muestran las áreas de responsabilidad entre usted y Microsoft, según el tipo de implementación de la pila.
 
-![Zonas de responsabilidad](./media/shared-responsibility/shared-responsibility.png)
+:::image type="content" source="media/shared-responsibility/shared-responsibility.svg" alt-text="Diagrama en el que se muestran las zonas de responsabilidad." border="false":::
 
 Para todos los tipos de implementación de nube, es propietario de los datos y las identidades. Asimismo, es responsable de proteger la seguridad de los datos y las identidades, los recursos locales y los componentes en la nube que controla (que varía según el tipo de servicio).
 
@@ -45,7 +45,7 @@ La nube ofrece importantes ventajas para solucionar los desafíos de seguridad d
 
 En el diagrama siguiente se muestra un enfoque tradicional, en el que no se pueden satisfacer muchas responsabilidades de seguridad debido a los limitados recursos. En el enfoque habilitado para la nube, puede trasladar las responsabilidades de seguridad del día a día a su proveedor de servicios en la nube y reasignar sus recursos.
 
-![Ventajas de seguridad de la era en la nube](./media/shared-responsibility/cloud-enabled-security.png)
+:::image type="content" source="media/shared-responsibility/cloud-enabled-security.svg" alt-text="Diagrama en el que se muestran las ventajas de seguridad de la era de la nube." border="false":::
 
 En el enfoque habilitado para la nube, también puede aprovechar las funcionalidades de seguridad basadas en la nube para conseguir mayor eficacia y usar la inteligencia en la nube para mejorar la detección de amenazas y el tiempo de respuesta. Con la transferencia de responsabilidades al proveedor de nube, las organizaciones pueden obtener más cobertura de seguridad, lo que les permite reasignar recursos de seguridad y presupuestos a otras prioridades empresariales.
 

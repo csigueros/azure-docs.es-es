@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 9b2de3d5926298097a503a3c6ff77562b3fb5587
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7fee5b4133cc048576ff0b794d441fac3ee162e6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386448"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035949"
 ---
 # <a name="azure-cosmos-db-integrated-cache-frequently-asked-questions"></a>Preguntas más frecuentes sobre la caché integrada de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -61,3 +61,6 @@ La expansión de la caché integrada más allá de SQL API está prevista en el 
 - [Caché integrada](integrated-cache.md)
 - [Configuración de la memoria caché integrada](how-to-configure-integrated-cache.md)
 - [Puerta de enlace dedicada](dedicated-gateway.md)
+- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    - Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

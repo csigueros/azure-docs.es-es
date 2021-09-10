@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo identificar, diagnosticar y soluci
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 03/02/2021
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sngun
-ms.openlocfilehash: 30e9623a63f0342f6800ffbb6b3534989d02ec02
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 90641a3ecbf7d09e9ecdc1101d97cedbe64b893e
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780310"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039507"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Solución de problemas de consultas al usar la API para MongoDB de Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -349,3 +349,6 @@ El valor `estimatedDelayFromRateLimitingInMilliseconds` da la sensación de posi
 
 * [Solución de problemas del rendimiento de las consultas (API de SQL)](troubleshoot-query-performance.md)
 * [Administración de la indexación en la API de Azure Cosmos DB para MongoDB](mongodb-indexing.md)
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

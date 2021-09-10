@@ -3,12 +3,12 @@ title: 'Azure Lab Services: Cómo incorporar una imagen personalizada de Windo
 description: Describe cómo incorporar una imagen personalizada de Windows desde una máquina virtual de Azure.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: dc946e770f719ad76fd0c46d5fe418a937f17867
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 465d3c128e68e1c8a0d72f51bcf5f354da9d6818
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452274"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831382"
 ---
 # <a name="bring-a-windows-custom-image-from-an-azure-virtual-machine"></a>Transporte de una imagen personalizada de Windows desde una máquina virtual de Azure
 
@@ -18,7 +18,7 @@ En los pasos de este artículo se muestra cómo importar una imagen personalizad
 
 Necesitará permiso para crear una máquina virtual de Azure en la suscripción de Azure del centro educativo para completar los pasos de este artículo.
 
-## <a name="prepare-a-custom-image-on-an-azure-vm"></a>Preparación de una imagen personalizada en una máquina virtual de Azure
+## <a name="prepare-a-custom-image-on-an-azure-vm"></a>Preparación de una imagen en una máquina virtual de Azure
 
 1. Cree una máquina virtual de Azure mediante [Azure Portal](../virtual-machines/windows/quick-create-portal.md), [PowerShell](../virtual-machines/windows/quick-create-powershell.md), la [CLI de Azure](../virtual-machines/windows/quick-create-cli.md) o una [plantilla de Azure Resource Manager](../virtual-machines/windows/quick-create-template.md).
     
@@ -32,7 +32,7 @@ Necesitará permiso para crear una máquina virtual de Azure en la suscripción 
 
 ## <a name="import-the-custom-image-into-a-shared-image-gallery"></a>Importación de la imagen personalizada en una galería de imágenes compartidas
 
-1. En una galería de imágenes compartidas, [cree una definición de imagen](../virtual-machines/image-version.md) o elija una definición de imagen existente.
+1. En una galería de imágenes compartidas, [cree una definición de imagen](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition) o elija una definición de imagen existente.
      - Elija **Gen 1** para la **generación de máquinas virtuales**.
      - Elija si va a crear una imagen **especializada** o **generalizada** para el **estado del sistema operativo**.
 
@@ -40,7 +40,7 @@ Necesitará permiso para crear una máquina virtual de Azure en la suscripción 
     
     También puede elegir usar una definición de imagen existente y crear una nueva versión para la imagen personalizada.
     
-1. [Cree la versión de una imagen](../virtual-machines/image-version.md).
+1. [Cree la versión de una imagen](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
     - La propiedad **Número de versión** usa el formato siguiente: *MajorVersion.MinorVersion.Patch*.   
     - En **Origen**, seleccione **Discos y/o instantáneas** en la lista desplegable.
     - En la propiedad **Disco de SO**, elija el disco de la máquina virtual de Azure que creó en los pasos anteriores.

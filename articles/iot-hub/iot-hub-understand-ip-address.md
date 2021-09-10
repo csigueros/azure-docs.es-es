@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2021
-ms.openlocfilehash: 053ba5b768e9a09eb50f71a8296d42f85a9e4515
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: a2c500072dfd1137f14d7ae663c6736bf6328c33
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861218"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866315"
 ---
 # <a name="iot-hub-ip-addresses"></a>Direcciones IP de IoT Hub
 
@@ -30,18 +30,18 @@ Puede usar estos prefijos de dirección IP para controlar la conectividad entre 
 | Comprobación de que el punto de conexión de dispositivo IoT Hub solo recibe conexiones de los dispositivos y los recursos de red | Mensajería [del dispositivo a la nube](./iot-hub-devguide-messaging.md) y [de la nube al dispositivo](./iot-hub-devguide-messages-c2d.md), [métodos directos](./iot-hub-devguide-direct-methods.md), [dispositivos y módulos gemelos](./iot-hub-devguide-device-twins.md) y [flujos de dispositivo](./iot-hub-device-streams-overview.md) | Use la [característica de filtro IP](iot-hub-ip-filtering.md) de IoT Hub para permitir conexiones desde sus dispositivos y direcciones IP de recursos de red (consulte la sección de [limitaciones](#limitations-and-workarounds)). | 
 | Comprobación de que los recursos de punto de conexión personalizados de las rutas (cuentas de almacenamiento, Service Bus y centros de eventos) solo son accesibles desde los recursos de red | [Enrutamiento de mensajes](./iot-hub-devguide-messages-d2c.md) | Siga las instrucciones del recurso para restringir la conectividad (por ejemplo, a través de [reglas de firewall](../storage/common/storage-network-security.md), [vínculos privados](../private-link/private-endpoint-overview.md)o [puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md)); use etiquetas de servicio _AzureIoTHub_ para detectar prefijos de dirección IP de IoT Hub y agregar reglas de permiso para esos prefijos IP en la configuración de firewall del recurso (consulte la sección de [limitaciones](#limitations-and-workarounds)). |
 
-
-
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-* Al agregar reglas de permiso en la configuración del firewall de los dispositivos, es mejor proporcionar [puertos específicos utilizados por los protocolos aplicables](./iot-hub-devguide-protocols.md#port-numbers).
+* La dirección IP de un centro de IoT está sujeta a cambios sin previo aviso. Para ocasionar el menor trastorno posible, use el nombre de host del centro de IoT (por ejemplo, myhub.azure-devices.net) en la configuración de red y firewall siempre que sea posible. 
 
-* Los prefijos de dirección IP de IoT Hub están sujetos a cambios. Estos cambios se publican periódicamente mediante etiquetas de servicio antes de entrar en vigor. Por lo tanto, es importante que desarrolle procesos para recuperar y usar con regularidad las etiquetas de servicio más recientes. Este proceso se puede automatizar mediante la [API de detección de etiquetas de servicio](../virtual-network/service-tags-overview.md#service-tags-on-premises). Tenga en cuenta que la API de detección de etiquetas de servicio todavía está en versión preliminar y, en algunos casos, es posible que no genere la lista completa de etiquetas y direcciones IP. Hasta que la API de detección esté disponible con carácter general, considere la posibilidad de usar las [etiquetas de servicio en formato JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
+* En el caso de los sistemas IoT restringidos sin resolución de nombres de dominio (DNS), se publican periódicamente intervalos de direcciones IP del centro de IoT a través de etiquetas de servicio antes de que los cambios surtan efecto. Por lo tanto, es importante que desarrolle procesos para recuperar y usar con regularidad las etiquetas de servicio más recientes. Este proceso se puede automatizar mediante la [API de detección de etiquetas de servicio](../virtual-network/service-tags-overview.md#service-tags-on-premises). Tenga en cuenta que la API de detección de etiquetas de servicio todavía está en versión preliminar y, en algunos casos, es posible que no genere la lista completa de etiquetas y direcciones IP. Hasta que la API de detección esté disponible con carácter general, considere la posibilidad de usar las [etiquetas de servicio en formato JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
+
 
 * Use la etiqueta *AzureIoTHub.[nombre de la región]* para identificar prefijos de dirección IP que usan los puntos de conexión de IoT Hub en una región determinada. Para tener en cuenta la recuperación ante desastres de un centro de datos o la [conmutación por error regional](iot-hub-ha-dr.md), asegúrese de que también esté habilitada la conectividad a los prefijos de dirección IP de la región del par de replicación geográfica de su instancia de IoT Hub.
 
 * La configuración de reglas de firewall en IoT Hub puede bloquear la conectividad necesaria para ejecutar la CLI de Azure y comandos de PowerShell en IoT Hub. Para evitar esto, puede agregar reglas ALLOW a los prefijos de dirección IP de los clientes para volver a habilitar la CLI o para que los clientes de PowerShell se comuniquen con su instancia de IoT Hub.  
 
+* Al agregar reglas de permiso en la configuración del firewall de los dispositivos, es mejor proporcionar [puertos específicos utilizados por los protocolos aplicables](./iot-hub-devguide-protocols.md#port-numbers).
 
 ## <a name="limitations-and-workarounds"></a>Limitaciones y soluciones alternativas
 

@@ -1,18 +1,18 @@
 ---
-title: Uso de secretos de aplicación en clústeres administrados de Service Fabric
-description: Obtenga información sobre los secretos de aplicación de Azure Service Fabric y sobre cómo recopilar la información necesaria para su uso en clústeres administrados
+title: Implementación de secretos de aplicación en un clúster administrado de Service Fabric
+description: Información sobre los secretos de aplicación de Azure Service Fabric y cómo implementarlos en un clúster administrado
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 820fb2a116ba5343a2f2126950a7f5d5896ddee3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 8/23/2021
+ms.openlocfilehash: 81fbd254f6aee216661e720a73c97e89351a9fad
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950116"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867350"
 ---
-# <a name="use-application-secrets-in-service-fabric-managed-clusters"></a>Uso de secretos de aplicación en clústeres administrados de Service Fabric
+# <a name="deploy-application-secrets-to-a-service-fabric-managed-cluster"></a>Implementación de secretos de aplicación en un clúster administrado de Service Fabric
 
-Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato. En este artículo se usa Azure Key Vault para administrar claves y secretos, ya que se trata de clústeres administrados de Service Fabric. Sin embargo, el *uso* de secretos en una aplicación es independiente de la plataforma de nube para permitir que las aplicaciones se implementen en un clúster hospedado en cualquier parte.
+Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato. Se recomienda usar Azure Key Vault para administrar las claves y secretos de los clústeres administrados de Service Fabric y sacarle partido en este artículo. Sin embargo, el *uso* de secretos en una aplicación es independiente de la plataforma de nube para permitir que las aplicaciones se implementen en un clúster hospedado en cualquier parte.
 
 La forma recomendada de administrar las opciones de configuración de servicio es mediante los [paquetes de configuración de servicio][config-package]. Los paquetes de configuración se actualizan mediante actualizaciones acumulativas administradas con validación de estado y reversión automática. Esto es preferible a la configuración global ya que reduce las posibilidades de una interrupción del servicio global. Los secretos cifrados no son ninguna excepción. Service Fabric presenta características integradas para cifrar y descifrar valores en un archivo Settings.xml de paquete de configuración mediante cifrado de certificados.
 
@@ -45,11 +45,11 @@ Este certificado debe instalarse en cada nodo del clúster y los clústeres admi
 En el caso de los clústeres administrados se necesitan tres valores, dos de Azure Key Vault y uno que decida para el nombre del almacén local en los nodos.
 
 Parámetros: 
-* Almacén de origen: es el 
+* `Source Vault`: se trata de 
     * por ejemplo: /subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1
-* URL del certificado: es el identificador de objeto completo, no distingue mayúsculas de minúsculas y es inmutable
+* `Certificate URL`: se trata del identificador de objeto completo, no distingue mayúsculas de minúsculas y es inmutable.
     * https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}
-* Almacén de certificados: es el almacén de certificados local en los nodos donde se va a colocar el certificado
+* `Certificate Store`: se trata del almacén de certificados local en los nodos donde se va a colocar el certificado.
     * nombre del almacén de certificados en los nodos, por ejemplo: "MY"
 
 Los clústeres administrados de Service Fabric admiten dos métodos para agregar secretos específicos de la versión a los nodos.

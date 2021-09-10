@@ -1,6 +1,6 @@
 ---
-title: Copia de seguridad de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure con RMAN y Azure Storage
-description: Aprenda a hacer una copia de seguridad de una base de datos de Oracle Database 19c en el almacenamiento en la nube de Azure.
+title: Copia de seguridad de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure con RMAN y Azure Files
+description: Aprenda a hacer una copia de seguridad de una base de datos de Oracle Database 19c en Azure Files.
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 44d1345a8c02c2cde5d0bc34d1b509af321c42c0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f30a7fcbc99f6a47574d101e3792d992dc2c1af8
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952284"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260039"
 ---
-# <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Storage
+# <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-files"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Files
 
-En este artículo se muestra el uso de Azure Storage como un medio para hacer una copia de seguridad de una base de datos de Oracle que se ejecuta en una máquina virtual de Azure y restaurarla. Hará una copia de seguridad de la base de datos mediante Oracle RMAN en Azure File Storage montado en la máquina virtual con el protocolo SMB. El uso de Azure Storage para los medios de copia de seguridad es extremadamente rentable y eficaz. Sin embargo, en el caso de las bases de datos de gran tamaño, Azure Backup ofrece una mejor solución.
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux 
+
+En este artículo se muestra el uso de Azure Files como un medio para hacer una copia de seguridad de una base de datos de Oracle que se ejecuta en una máquina virtual de Azure y restaurarla. Hará una copia de seguridad de la base de datos mediante Oracle RMAN en recurso compartido de archivos de Azure montado en la máquina virtual con el protocolo SMB. El uso de Azure Files para los medios de copia de seguridad es extremadamente rentable y eficaz. Sin embargo, en el caso de las bases de datos de gran tamaño, Azure Backup ofrece una mejor solución.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -166,14 +168,14 @@ En este artículo se muestra el uso de Azure Storage como un medio para hacer u
 
 Siga estos pasos para hacer una copia de seguridad en Azure Files:
 
-1. Configure Azure File Storage.
-1. Monte el recurso compartido de archivos de Azure Storage en su máquina virtual.
+1. Configure Azure Files.
+1. Monte el recurso compartido de archivos de Azure en la máquina virtual.
 1. Realice una copia de seguridad de la base de datos.
 1. Restaure y recupere la base de datos.
 
-### <a name="set-up-azure-file-storage"></a>Configuración de Azure File Storage
+### <a name="set-up-azure-files"></a>Configuración de Azure Files
 
-En este paso, hará una copia de seguridad de la base de datos de Oracle mediante Oracle Recovery Manager (RMAN) en el almacenamiento de Azure Files. Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. Se pueden acceder mediante el protocolo de Bloque de mensajes del servidor (SMB) o el protocolo Network File System (NFS). En este paso se describe cómo crear un recurso compartido de archivos que usa el protocolo SMB para su montaje en la máquina virtual. Para información sobre el montaje con NFS, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+En este paso, hará una copia de seguridad de la base de datos de Oracle mediante Oracle Recovery Manager (RMAN) en Azure Files. Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. Se pueden acceder mediante el protocolo de Bloque de mensajes del servidor (SMB) o el protocolo Network File System (NFS). En este paso se describe cómo crear un recurso compartido de archivos que usa el protocolo SMB para su montaje en la máquina virtual. Para información sobre el montaje con NFS, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 Al montar la instancia de Azure Files, usaremos `cache=none` para deshabilitar el almacenamiento en caché de los datos del recurso compartido. Y para asegurarse de que los archivos creados en el recurso compartido son propiedad del usuario de Oracle, establezca también las opciones `uid=oracle` y `gid=oinstall`. 
 
@@ -181,9 +183,7 @@ Al montar la instancia de Azure Files, usaremos `cache=none` para deshabilitar e
 
 En primer lugar, configure la cuenta de almacenamiento.
 
-1. Configuración de File Storage en Azure Portal
-
-    En Azure Portal, seleccione * **+ Crear un recurso** _ y busque y seleccione *_Cuenta de almacenamiento_**.
+1. En Azure Portal, seleccione * **+ Crear un recurso** _ y busque y seleccione *_Cuenta de almacenamiento_**.
     
     ![Captura de pantalla que muestra dónde se crean los recursos y se selecciona Cuenta de almacenamiento.](./media/oracle-backup-recovery/storage-1.png)
     
@@ -191,11 +191,9 @@ En primer lugar, configure la cuenta de almacenamiento.
     
     ![Captura de pantalla que muestra dónde se elige un grupo de recursos existente.](./media/oracle-backup-recovery/file-storage-1.png)
    
-   
 3. Haga clic en la pestaña ***Avanzado** _ y, en Azure Files, en _*_Large file shares_*_ (Recursos compartidos de archivos grandes), seleccione _*_Enabled_** (Habilitado). Haga clic en Revisar y crear y, a continuación, en Crear.
     
     ![Captura de pantalla en la que se muestra dónde seleccionar Enabled (Habilitado) en Large file shares (Recursos compartidos de archivos grandes).](./media/oracle-backup-recovery/file-storage-2.png)
-    
     
 4. Una vez creada la cuenta de almacenamiento, vaya al recurso y elija ***Recursos compartidos de archivos***.
     
@@ -354,9 +352,9 @@ En esta sección, usaremos Oracle Recovery Manager (RMAN) para hacer una copia d
     RMAN> backup as compressed backupset database plus archivelog;
     ```
 
-Hizo una copia de seguridad de la base de datos en línea con Oracle RMAN, la que se encuentra ubicada en Azure File Storage. Este método tiene la ventaja de usar las características de RMAN al almacenar copias de seguridad en Azure File Storage, donde se puede acceder a ellas desde otras máquinas virtuales, lo que resulta útil si necesita clonar la base de datos.  
+Ha hecho una copia de seguridad de la base de datos en línea con Oracle RMAN, con la copia de seguridad ubicada en Azure Files. Este método tiene la ventaja de usar las características de RMAN al almacenar copias de seguridad en Azure Files, donde se puede acceder a ellas desde otras máquinas virtuales, lo que resulta útil si tiene que clonar la base de datos.  
     
-Aunque el uso de RMAN y Azure File Storage para hacer la copia de seguridad de la base de datos tiene muchas ventajas, el tiempo de copia de seguridad y restauración está vinculado al tamaño de la base de datos, por lo que estas operaciones pueden tardar un tiempo considerable en el caso de las bases de datos de gran tamaño.  Un mecanismo de copia de seguridad alternativo, con copias de seguridad de VM coherentes con la aplicación de Azure Backup, usa la tecnología de instantáneas para realizar las copias de seguridad, lo que tiene la ventaja de hacer copias de seguridad muy rápidas, independientemente del tamaño de la base de datos. La integración con un almacén de Recovery Services proporciona almacenamiento seguro de las copias de seguridad de Oracle Database en el almacenamiento en la nube de Azure accesible desde otras máquinas virtuales y regiones de Azure. 
+Aunque el uso de RMAN y Azure Files para la copia de seguridad de bases de datos tiene muchas ventajas, el tiempo de copia de seguridad y restauración está vinculado al tamaño de la base de datos, por lo que estas operaciones pueden tardar un tiempo considerable en el caso de las bases de datos de gran tamaño. Un mecanismo de copia de seguridad alternativo, con copias de seguridad de VM coherentes con la aplicación de Azure Backup, usa la tecnología de instantáneas para realizar las copias de seguridad, lo que tiene la ventaja de hacer copias de seguridad muy rápidas, independientemente del tamaño de la base de datos. La integración con un almacén de Recovery Services proporciona almacenamiento seguro de las copias de seguridad de Oracle Database en el almacenamiento en la nube de Azure accesible desde otras máquinas virtuales y regiones de Azure. 
 
 ### <a name="restore-and-recover-the-database"></a>Restauración y recuperación de una base de datos
 

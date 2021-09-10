@@ -11,17 +11,71 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/13/2021
+ms.date: 8/27/2021
 ms.author: gunnarc
-ms.openlocfilehash: 478a5599c32f237eabd65830b70db5731c3b8ab5
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 770d781b7430dcd98ea60eae310be9e4a8c8844c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122069479"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187440"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
+
+## <a name="august-2021-guest-os"></a>SO invitado de agosto de 2021
+
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 21-08 |  [5005030]  |  Actualización acumulativa más reciente (LCU) | [6.34] | 10 de agosto de 2021 |
+|  Versión 21-08 |  [5005036]  |  Actualizaciones acumulativas de IE | [2.113], [3.100], [4.93] | 10 de agosto de 2021 |
+|  Versión 21-08 |  [5004238]  |  Actualización acumulativa más reciente (LCU) | [5.58] | 13 de julio de 2021 |
+|  Versión 21-08 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [2.113] | 16 de febrero de 2021 |
+|  Versión 21-08 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [2.113] | 8 de junio de 2021 |
+|  Versión 21-08 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [4.93] | 16 de febrero de 2021 |
+|  Versión 21-08 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [4.93] | 16 de febrero de 2021 |
+|  Versión 21-08 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [3.100] | 16 de febrero de 2021 |
+|  Versión 21-08 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [3.100] | 16 de febrero de 2021 |
+|  Versión 21-08 |  [5004335]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | [6.34] | 10 de agosto de 2021 |
+|  Versión 21-08 |  [5005088]  |  Acumulación mensual  | [2.113] | 10 de agosto de 2021 |
+|  Versión 21-08 |  [5005099]  |  Acumulación mensual  | [3.100] | 10 de agosto de 2021 |
+|  Versión 21-08 |  [5005076]  |  Acumulación mensual  | [4.93] | 10 de agosto de 2021 |
+|  Versión 21-08 |  [5001401]  |  Actualización de la pila de servicio  | [3.100] | 13 de abril de 2021 |
+|  Versión 21-08 |  [5001403]  |  Actualización de la pila de servicio  | [4.93] | 13 de abril de 2021 |
+|  Versión 21-08 OOB |  [4578013]  |  Actualización de seguridad independiente  | [4.93] | 19 de agosto de 2020 |
+|  Versión 21-08 |  [5001402]  |  Actualización de la pila de servicio  | [5.58] | 13 de abril de 2021 |
+|  Versión 21-08 |  [5004378]  |  Actualización de la pila de servicio  | [2.113] | 13 de julio de 2021 |
+|  Versión 21-08 |  [5005112]  |  Actualización de la pila de servicio  | [6.34] | 10 de agosto de 2021 |
+|  Versión 21-08 |  [4494175]  |  Microcódigo  | [5.58] | 1 de septiembre de 2020 |
+|  Versión 21-08 |  [4494174]  |  Microcódigo  | [6.34] | 1 de septiembre de 2020 |
+
+[5005030]: https://support.microsoft.com/kb/5005030
+[5005036]: https://support.microsoft.com/kb/5005036
+[5004238]: https://support.microsoft.com/kb/5004238
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[5004335]: https://support.microsoft.com/kb/5004335
+[5005088]: https://support.microsoft.com/kb/5005088
+[5005099]: https://support.microsoft.com/kb/5005099
+[5005076]: https://support.microsoft.com/kb/5005076
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[5004378]: https://support.microsoft.com/kb/5004378
+[5005112]: https://support.microsoft.com/kb/5005112
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.113]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.100]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.93]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.58]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.34]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="july-2021-guest-os"></a>Sistema operativo invitado, julio de 2021
 

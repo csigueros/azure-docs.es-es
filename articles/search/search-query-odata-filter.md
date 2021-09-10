@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be51077c5aad6056cf4e28656c0552bc052a7ead
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88934861"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829915"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintaxis de $filter de OData en Azure Cognitive Search
 
 En Azure Cognitive Search se usan [expresiones de filtro de OData](query-odata-filter-orderby-syntax.md) para aplicar criterios adicionales a una consulta de búsqueda, además de los términos de búsqueda de texto completo. En este artículo se describe con detalle la sintaxis de los filtros. Para información general sobre qué son los filtros y cómo usarlos para desarrollar escenarios de consulta específicos, consulte [Filtros de Azure Cognitive Search](search-filters.md).
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxis
 
 En el lenguaje OData, un filtro es una expresión booleana, que a su vez puede ser uno de los distintos tipos de expresión, como se muestra en la siguiente EBNF ([forma de Backus-Naur extendida](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
@@ -242,6 +242,12 @@ Buscar hoteles donde los términos "hotel" y "airport" no estén separados en la
 
 ```odata-filter-expr
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+```
+
+Busque documentos que tengan una palabra que comience por las letras "lux" en el campo Descripción. En esta consulta se usa la [búsqueda de prefijo](query-simple-syntax.md#prefix-queries) en combinación con `search.ismatch`.
+
+```odata-filter-expr
+    $filter=search.ismatch('lux*', 'Description')
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes  

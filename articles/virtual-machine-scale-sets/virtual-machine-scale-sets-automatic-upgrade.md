@@ -9,16 +9,14 @@ ms.subservice: automatic-os-upgrade
 ms.date: 07/29/2021
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e9e814ad43d157d69fee2b70eaaccbadf23f4fa2
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: b080c741276233e671d5724b3ee72cc7b4738446
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690520"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751733"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
-
-**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 La habilitación de las actualizaciones automáticas de imágenes del sistema operativo en el conjunto de escalado facilita la administración de actualizaciones al actualizarse de forma segura y automática el disco del sistema operativo de todas las instancias del conjunto de escalado.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 353ba2f51f93056547cbd9bb21455f277828e5c5
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: dd63a04616848acfb3971a97f8363498e6ba4e55
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253349"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835747"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Administración de puntos de conexión y rutas en Azure Digital Twins
 
@@ -432,6 +432,9 @@ Estos son los filtros de ruta admitidos.
 | Tipo de contenido | Tipo de contenido del valor de datos. | `datacontenttype = '<content-type>'` | El tipo de contenido es `application/json`. |
 | Versión de especificación | Versión del esquema de evento que se usa. | `specversion = '<version>'` | La versión debe ser `1.0`. Esto indica la versión de esquema de CloudEvents es la 1.0. |
 | Cuerpo de la notificación | Referencia a cualquier propiedad en el campo `data` de una notificación | `$body.<property>` | Para ver ejemplos de notificaciones, consulte [Notificaciones de eventos](concepts-event-notifications.md). Se puede hacer referencia a cualquier propiedad del campo `data` mediante `$body`
+
+>[!NOTE]
+> Actualmente, Azure Digital Twins no permite filtrar eventos basados en campos dentro de una matriz, lo que incluye filtrar por propiedades en una sección `patch` de una [notificación de cambio de gemelo digital](concepts-event-notifications.md#digital-twin-change-notifications).
 
 Los siguientes tipos de datos se admiten como valores devueltos por las referencias a los datos anteriores:
 

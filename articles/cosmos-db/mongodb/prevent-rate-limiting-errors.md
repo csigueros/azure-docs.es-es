@@ -5,14 +5,14 @@ author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 08/26/2021
 ms.author: gahllevy
-ms.openlocfilehash: 5aa1fd009896a6483794e663a7b6251bd10cef41
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e9067a87887c47229b8bba687535e2730c2ed1b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121779923"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123030909"
 ---
 # <a name="prevent-rate-limiting-errors-for-azure-cosmos-db-api-for-mongodb-operations"></a>Evitación de errores de limitación de velocidad para las operaciones de Azure Cosmos DB API para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -80,3 +80,7 @@ No, solo afecta a los errores de limitación de velocidad (429) al volver a inte
 Para obtener más información sobre la solución de errores comunes, consulte este artículo:
 
 * [Solución de errores habituales de la API de Azure Cosmos DB para MongoDB](error-codes-solutions.md)
+
+¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+* Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

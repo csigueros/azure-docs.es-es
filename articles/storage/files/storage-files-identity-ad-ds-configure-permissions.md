@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: e88a8df21d1161351a97434b3bf70656a09ea2ae
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: efa2ec8873374604e252677e436e6883867f982a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731050"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255493"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte 3: Configuración de permisos de nivel de directorio y de archivo en SMB 
 
@@ -68,7 +68,7 @@ Los siguientes permisos están incluidos en el directorio raíz de un recurso co
 |Usuarios|Definición|
 |---|---|
 |BUILTIN\Administrators|Todos los usuarios que son administradores de dominio del entorno de AD DS local.
-|BUILTIN\Users|Grupo de seguridad integrado en AD. Incluye NT AUTHORITY\Authenticated Users de forma predeterminada. En el caso de un servidor de archivos tradicional, puede configurar la definición de pertenencia por servidor. Para Azure Files, no hay un servidor de hospedaje, por lo tanto, BUILTIN\Users incluye el mismo conjunto de usuarios que NT AUTHORITY\Authenticated Users.|
+|BUILTIN\Users|Grupo de seguridad integrado en AD. Incluye NT AUTHORITY\Authenticated Users de forma predeterminada. En el caso de un servidor de archivos tradicional, puede configurar la definición de pertenencia por servidor. Para Azure Files, no hay un servidor de hospedaje, por lo que BUILTIN\Users incluye el mismo conjunto de usuarios que NT AUTHORITY\Authenticated Users.|
 |NT AUTHORITY\SYSTEM|La cuenta de servicio del sistema operativo del servidor de archivos. Esta cuenta de servicio no se aplica en el contexto de Azure Files. Se incluye en el directorio raíz para ser coherente con la experiencia del servidor de archivos de Windows para escenarios híbridos.|
 |NT AUTHORITY\Authenticated Users|Todos los usuarios de AD que pueden obtener un token de Kerberos válido.|
 |CREATOR OWNER|Cada objeto del directorio o archivo tiene un propietario para ese objeto. Si hay ACL asignadas a "CREATOR OWNER" en ese objeto, el usuario que es propietario de este objeto tiene los permisos para el objeto definido por la ACL.|

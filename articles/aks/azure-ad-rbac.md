@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo usar la pertenencia a grupos de Az
 services: container-service
 ms.topic: article
 ms.date: 03/17/2021
-ms.openlocfilehash: 0d5171e9e9a5d7f033ff615a3f1205b8dc93966f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 571a0153bfe56a6d3b92700eb0e40f457cf92ffc
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769560"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097953"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Administración del acceso a recursos de clúster mediante el control de acceso basado en roles de Kubernetes y las identidades de Azure Active Directory en Azure Kubernetes Service
 
-Es posible configurar Azure Kubernetes Service (AKS) para que utilice Azure Active Directory (AD) para la autenticación de usuarios. En esta configuración, inicie sesión en un clúster de AKS mediante un token de autenticación de Azure AD. También puede configurar el control de acceso basado en roles de Kubernetes (RBAC de Kubernetes) para limitar el acceso a los recursos de clúster en función de la identidad de los usuarios o su pertenencia a un grupo.
+Es posible configurar Azure Kubernetes Service (AKS) para que utilice Azure Active Directory (AD) para la autenticación de usuarios. En esta configuración, inicie sesión en un clúster de AKS mediante un token de autenticación de Azure AD. Una vez autenticado, puede usar el control de acceso basado en rol de Kubernetes integrado (RBAC de Kubernetes) para administrar el acceso a los espacios de nombres y los recursos del clúster en función de la identidad o la pertenencia a grupos de un usuario.
 
-Este artículo muestra cómo usar la pertenencia a grupos de Azure AD para controlar el acceso a los espacios de nombres y los recursos de clúster con Kubernetes RBAC en un clúster de AKS. Los usuarios y grupos de ejemplo se crean en Azure AD y, a continuación, se crean roles y enlaces de roles en el clúster de AKS para conceder los permisos adecuados para crear y ver los recursos.
+En este artículo se muestra cómo controlar el acceso mediante RBAC de Kubernetes en un clúster de AKS en función de la pertenencia a grupos de Azure AD. Los usuarios y grupos de ejemplo se crean en Azure AD y, a continuación, se crean roles y enlaces de roles en el clúster de AKS para conceder los permisos adecuados para crear y ver los recursos.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

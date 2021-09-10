@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 08/03/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: b2766495c89b9be1a89e0648bcec83c160c1e0a8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e25fa98e2ca43b6697de6290ad122b6585b6a072
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479449"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186036"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-signalr-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure SignalR
 Azure SignalR Service admite la autenticación de Azure Active Directory (Azure AD) con [identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas de recursos de Azure pueden autorizar el acceso a los recursos de Azure SignalR Service con credenciales de Azure AD desde aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure, aplicaciones de funciones, conjuntos de escalado de máquinas virtuales y otros servicios. Si usa identidades administradas para recursos de Azure junto con autenticación de Azure AD, puede evitar el almacenamiento de credenciales con las aplicaciones que se ejecutan en la nube.
@@ -50,7 +50,7 @@ Siga estas instrucciones para administrar las asignaciones de roles:
     ![Botón Agregar de la barra de herramientas](./media/authenticate/role-assignments-add-button.png)
 
 1. En la página **Agregar asignación de roles**, siga estos pasos:
-    1. Seleccione el rol de **servidor de aplicaciones de SignalR**. Tenga en cuenta que esto también se aplica a la **aplicación Azure Functions**.
+    1. Seleccione **Propietario de SignalR Service** como rol.
     1. Realice una búsqueda para localizar la **entidad de seguridad** (usuario, grupo, entidad de servicio) a la que quiere asignar el rol.
     1. Seleccione **Guardar** para guardar la asignación de roles. 
 

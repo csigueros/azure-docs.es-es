@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d6e5f608a79765a0bf6ac46cb8e36e6ba1ed1f3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: b0d0c77ffbf6e8c8493abe2f9356aaa0e171f1f2
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122321832"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967300"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario
 
@@ -176,6 +176,25 @@ Para habilitar la información de consentimiento
 12. Guarde el archivo. En **Upload new overrides** (Cargar nuevos reemplazos) busque el archivo y selecciónelo. Confirme que ve la notificación "Se cargaron correctamente los reemplazos.".
 
 13. Seleccione **Phone signUp page** (Página de registro por teléfono) y repita los pasos del 10 al 12. 
+
+
+## <a name="get-a-users-phone-number-in-your-directory"></a>Obtención del número de teléfono de un usuario en el directorio
+
+1. Ejecute la siguiente solicitud en Graph Explorer:
+
+   `GET https://graph.microsoft.com/v1.0/users/{object_id}?$select=identities`
+
+1. Busque la propiedad `issuerAssignedId` en la respuesta devuelta:
+
+   ```json
+       "identities": [
+           {
+               "signInType": "phoneNumber",
+               "issuer": "contoso.onmicrosoft.com",
+               "issuerAssignedId": "+11231231234"
+           }
+       ]
+   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

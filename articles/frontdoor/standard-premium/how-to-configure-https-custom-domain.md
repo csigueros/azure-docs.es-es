@@ -6,14 +6,14 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/10/2021
+ms.date: 08/26/2021
 ms.author: amsriva
-ms.openlocfilehash: 0e8c597037ac769c293a2f04cb2e300658db93b4
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 79674febe7f43f8ae57d8c0420d6c8500506506e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005238"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965680"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Configuración de HTTPS en un dominio personalizado de la SKU de Front Door Estándar/Prémium (versión preliminar) mediante Azure Portal
 
@@ -86,7 +86,7 @@ Conceda a Azure Front Door permisos para acceder a los certificados ubicados en 
 
 1. En su cuenta de Key Vault, en CONFIGURACIÓN, seleccione **Directivas de acceso**. Luego, seleccione **Agregar nueva** para crear una directiva.
 
-1. En **Seleccionar la entidad de seguridad**, busque **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** y elija ** Microsoft.AzureFrontDoor-Cdn**. Haga clic en **Seleccionar**.
+1. En **Select principal** (Seleccionar la entidad de seguridad), busque **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** y elija **Microsoft.AzureFrontDoor-Cdn**. Haga clic en **Seleccionar**.
 
 1. En **Permisos de secretos**, seleccione **Obtener** para permitir que Front Door recupere el certificado.
 

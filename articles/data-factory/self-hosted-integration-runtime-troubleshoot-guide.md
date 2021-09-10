@@ -1,39 +1,50 @@
 ---
-title: Solución de problemas de un entorno de ejecución de integración autohospedado en Azure Data Factory
-description: Conozca cómo solucionar problemas del entorno de ejecución de integración autohospedado en Azure Data Factory.
+title: Solución de problemas del entorno de ejecución de integración autohospedado
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Información sobre cómo solucionar problemas del entorno de ejecución de integración autohospedado en canalizaciones de Azure Data Factory y Azure Synapse Analytics.
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/31/2021
+ms.date: 08/24/2021
 ms.author: lle
-ms.openlocfilehash: 7abdd532e20a2514fcf96d97973a8fbfdd87d0df
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b833b8b63415a36fb0ee2862c9dfa261cfeb44ef
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796278"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864214"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se exploran los métodos comunes de solución de problemas del entorno de ejecución de integración (IR) autohospedado en Azure Data Factory.
+En este artículo se exploran los métodos comunes de solución de problemas del entorno de ejecución de integración (IR) autohospedado en áreas de trabajo de Azure Data Factory y Synapse.
 
-## <a name="gather-self-hosted-ir-logs-from-azure-data-factory"></a>Recopilación de registros de IR autohospedado en Azure Data Factory
+## <a name="gather-self-hosted-ir-logs"></a>Recopilación de registros de IR autohospedado
 
-En el caso de las actividades con error que se ejecutan en IR autohospedado o IR compartido, Azure Data Factory admite la visualización y carga de los registros de errores. Para obtener el identificador del informe de error, siga las instrucciones que se indican aquí y, a continuación, escriba el identificador de informe para buscar problemas conocidos relacionados.
+En el caso de las actividades con error que se ejecutan en un IR autohospedado o un IR compartido, el servicio permite ver y cargar registros de errores. Para obtener el identificador del informe de error, siga las instrucciones que se indican aquí y, a continuación, escriba el identificador de informe para buscar problemas conocidos relacionados.
 
-1. En Data Factory, seleccione **Ejecuciones de la canalización**.
+1. En la página Supervisar de la interfaz de usuario del servicio, seleccione **Ejecuciones de canalización**.
 
 1. En **Ejecuciones de actividad**, en la columna **Error**, seleccione el botón resaltado para mostrar los registros de actividad, tal como se muestra en la siguiente captura de pantalla:
 
-    ![Captura de pantalla de la sección "Ejecuciones de actividad" en el panel "Todas las ejecuciones de la canalización".](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
-
-    Los registros de actividad se muestran para la ejecución de actividad con errores.
-
-    ![Captura de pantalla de los registros de actividad para la actividad con errores.](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png) 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
     
-1. Para obtener más ayuda, seleccione **Enviar registros**.
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Captura de pantalla de la sección &quot;Ejecuciones de actividad&quot; del panel &quot;Todas las ejecuciones de la canalización&quot;":::
+    
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Captura de pantalla de la sección &quot;Ejecuciones de actividad&quot; del panel &quot;Todas las ejecuciones de la canalización&quot;":::
+    
+    ---
+    
+    Los registros de actividad se muestran para la ejecución de actividad con errores.
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png" alt-text="Captura de pantalla de los registros de actividad para la actividad con errores."::: 
+    
+3. Para obtener más ayuda, seleccione **Enviar registros**.
  
    Se abre la ventana **Share the self-hosted integration runtime (IR) logs with Microsoft** (Compartir los registros de entorno de ejecución de integración [IR] autohospedado con Microsoft).
 
@@ -71,7 +82,7 @@ Compruebe el uso de recursos y la ejecución de actividades simultáneas en el n
 
 #### <a name="symptoms"></a>Síntomas
 
-Al intentar aumentar el límite de trabajos simultáneos desde la interfaz de Azure Data Factory, el proceso se bloquea con el estado *Actualizando*.
+Al intentar aumentar el límite de trabajos simultáneos desde la interfaz de usuario, el proceso se bloquea con el estado *Actualizando*.
 
 Escenario de ejemplo: El valor máximo de trabajos simultáneos está establecido actualmente en 24, y se quiere aumentar el número total para que los trabajos se puedan ejecutar con mayor rapidez. El valor mínimo que se puede especificar es 3, y el valor máximo es 32. Aumenta el valor de 24 a 32 y, luego, selecciona el botón **Actualizar**. El proceso se bloquea con el estado *Actualizando*, como se muestra en la captura de pantalla siguiente. Actualiza la página y el valor aún se muestra como 24. No se ha actualizado a 32 como era de esperar.
 
@@ -307,7 +318,7 @@ El motivo es que los nodos de trabajo no tienen acceso a las claves privadas. Es
 
 `[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
 
-No tiene ningún problema con el proceso de sincronización al usar la autenticación de la entidad de servicio en el servicio vinculado de ADF. Sin embargo, al cambiar el tipo de autenticación a clave de cuenta, se inició el problema de sincronización. Esto se debe a que el servicio del entorno de ejecución de integración autohospedado se ejecuta en una cuenta de servicio (NT SERVICE\DIAHostService) y debe agregarse a los permisos de clave privada.
+No tiene ningún problema con el proceso de sincronización al usar la autenticación de la entidad de servicio en el servicio vinculado. Sin embargo, al cambiar el tipo de autenticación a clave de cuenta, se inició el problema de sincronización. Esto se debe a que el servicio del entorno de ejecución de integración autohospedado se ejecuta en una cuenta de servicio (NT SERVICE\DIAHostService) y debe agregarse a los permisos de clave privada.
  
 
 #### <a name="resolution"></a>Solución
@@ -516,9 +527,9 @@ Antes y después de la conversión:
 ![Captura de pantalla del resultado después de la conversión del certificado.](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 ### <a name="self-hosted-integration-runtime-version-5x"></a>Entorno de ejecución de integración autohospedado, versión 5.x
-Para la actualización a la versión 5.x del entorno de ejecución de integración autohospedado de Azure Data Factory, se requiere el **tiempo de ejecución de .NET Framework 4.7.2** o posterior. En la página de descarga, habrá vínculos de descarga para la versión 4.x más reciente y las dos versiones 5.x más recientes. 
+La actualización a la versión 5.x del entorno de ejecución de integración autohospedado requiere el **tiempo de ejecución de .NET Framework Runtime 4.7.2** o una versión posterior. En la página de descarga, habrá vínculos de descarga para la versión 4.x más reciente y las dos versiones 5.x más recientes. 
 
-Para los clientes de Azure Data Factory v2:
+Para clientes de Azure Data Factory v2 y Azure Synapse:
 - Si la actualización automática está activada y ya ha actualizado su entorno de tiempo de ejecución de .NET Framework a la versión 4.7.2 o posterior, el entorno de ejecución de integración autohospedado se actualizará automáticamente a la versión 5.x más reciente.
 - Si la actualización automática está activada y ya ha actualizado su entorno de tiempo de ejecución de .NET Framework a la versión 4.7.2 o posterior, el entorno de ejecución de integración autohospedado se actualizará automáticamente a la versión 5.x más reciente. El entorno de ejecución de integración autohospedado permanecerá en la versión 4.x actual. Verá una advertencia para la actualización del entorno de tiempo de ejecución de .NET Framework en el portal y en el cliente del entorno de ejecución de integración autohospedado.
 - Si la actualización automática está desactivada y ya ha actualizado el entorno de tiempo de ejecución de .NET Framework a la versión 4.7.2 o posterior, puede descargar manualmente la versión 5.x más reciente e instalarla en la máquina.
@@ -545,7 +556,7 @@ Al intentar registrar el entorno de ejecución de integración autohospedado, Co
 
 #### <a name="cause"></a>Causa 
 
-El IR autohospedado no puede conectarse al back-end del servicio Azure Data Factory. Este problema se debe normalmente a la configuración de red en el firewall.
+El IR autohospedado no puede conectarse al back-end del servicio. Este problema se debe normalmente a la configuración de red en el firewall.
 
 #### <a name="resolution"></a>Solución
 
@@ -557,10 +568,10 @@ El IR autohospedado no puede conectarse al back-end del servicio Azure Data Fact
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
-    ```
-        
+    ```      
+
    > [!NOTE]     
-   > La dirección URL del servicio puede variar en función de la ubicación de la instancia de Data Factory. Para encontrar la dirección URL del servicio, seleccione **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs** (Interfaz de usuario de ADF > Conexiones > Entornos de ejecución de integración > Editar IR autohospedado > Nodos > Ver direcciones URL del servicio).
+   > La dirección URL del servicio puede variar en función de la ubicación de la instancia de área de trabajo de Data Factory o Synapse. Para dar con la dirección URL del servicio, use la página Administrar de la instancia de Data Factory o Synapse para buscar **tiempos de ejecución de entornos** y haga clic en su entorno de ejecución autohospedado para editarlo.  Seleccione la pestaña **Nodos** y haga clic en **View Service URLs** (Ver direcciones URL de servicio).
             
     La respuesta esperada es la siguiente:
             
@@ -646,13 +657,13 @@ Este comportamiento se produce cuando los nodos no pueden comunicarse entre sí.
     - Colocar todos los nodos en el mismo dominio
     - Agregar la asignación de IP a host en todos los archivos de hosts de la máquina virtual hospedada
 
-### <a name="connectivity-issue-between-the-self-hosted-ir-and-your-data-factory-instance-or-the-self-hosted-ir-and-the-data-source-or-sink"></a>Problema de conectividad entre el IR autohospedado y la instancia de Data Factory, o entre el IR autohospedado y el origen o receptor de datos
+### <a name="connectivity-issue-between-the-self-hosted-ir-and-your-data-factory-or-azure-synapse-instance-or-the-self-hosted-ir-and-the-data-source-or-sink"></a>Problema de conectividad entre el IR autohospedado y la instancia de Data Factory o Azure Synapse, o entre el IR autohospedado y el origen o receptor de datos
 
 Para solucionar el problema de conectividad de red, debe saber cómo recopilar el seguimiento de red, entender cómo usarlo y [analizar el seguimiento de Monitor de red de Microsoft (Netmon)](#analyze-the-netmon-trace) antes de aplicar las herramientas de Netmon en casos reales desde el IR autohospedado.
 
 #### <a name="symptoms"></a>Síntomas
 
-En ocasiones, es posible que necesite solucionar determinados problemas de conectividad entre el IR autohospedado y la instancia de Data Factory, como se muestra en la captura de pantalla siguiente, o entre el IR autohospedado y el origen o el receptor de datos. 
+En ocasiones, es posible que necesite solucionar determinados problemas de conectividad entre el IR autohospedado y la instancia de Data Factory o Azure Synapse, como se muestra en la captura de pantalla siguiente, o entre el IR autohospedado y el origen o el receptor de datos. 
 
 ![Captura de pantalla de un mensaje "Error de solicitud HTTP procesada".](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
@@ -800,13 +811,13 @@ Cómo determinar si se ve afectado:
 
 #### <a name="symptoms"></a>Síntomas
 
-El IR autohospedado no puede conectarse al servicio Azure Data Factory.
+El IR autohospedado no puede conectarse al servicio Azure Data Factory o Azure Synapse.
 
 Al comprobar el registro de eventos de IR autohospedado o los registros de notificación del cliente en la tabla CustomLogEvent, encontrará el siguiente mensaje de error:
 
 "The underlying connection was closed: No se ha podido establecer la relación de confianza para el canal seguro SSL/TLS. El certificado remoto no es válido según el procedimiento de validación".
 
-La manera más sencilla de comprobar el certificado de servidor del servicio Data Factory es abrir la dirección URL del servicio Data Factory en el explorador. Por ejemplo, abra el [vínculo para comprobar el certificado de servidor](https://eu.frontend.clouddatahub.net/) en la máquina donde está instalado el IR autohospedado y, a continuación, vea la información del certificado de servidor.
+La manera más sencilla de comprobar el certificado de servidor del servicio es abrir la dirección URL del servicio en el explorador. Por ejemplo, abra el [vínculo para comprobar el certificado de servidor](https://eu.frontend.clouddatahub.net/) en la máquina donde está instalado el IR autohospedado y, a continuación, vea la información del certificado de servidor.
 
   ![Captura de pantalla del panel de comprobación del certificado de servidor del servicio Azure Data Factory.](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
 
@@ -816,13 +827,13 @@ La manera más sencilla de comprobar el certificado de servidor del servicio Dat
 
 Este problema se debe a dos motivos posibles:
 
-- Motivo 1: La CA raíz del certificado de servidor del servicio Data Factory no es de confianza en la máquina donde está instalado el IR autohospedado. 
-- Motivo 2: Usa un proxy en el entorno, y el certificado de servidor del servicio Data Factory se sustituye por el proxy, y el certificado de servidor reemplazado no es de confianza para la máquina donde está instalado el IR autohospedado.
+- Motivo 1: la CA raíz del certificado de servidor del servicio no es de confianza en la máquina donde está instalado el IR autohospedado. 
+- Motivo 2: está usando un proxy en el entorno, el certificado de servidor del servicio se sustituye por el proxy y el certificado de servidor reemplazado no es de confianza en el equipo donde el IR autohospedado está instalado.
 
 #### <a name="resolution"></a>Solución
 
-- Para el motivo 1: Asegúrese de que el certificado de servidor de Data Factory y su cadena de certificados sean de confianza para la máquina donde está instalado el IR autohospedado.
-- Para el motivo 2: Confíe en la CA raíz reemplazada en la máquina con el IR autohospedado, o bien configure el proxy para que no reemplace el certificado de servidor de Data Factory.
+- Para el motivo 1, asegúrese de que el certificado de servidor del servicio y su cadena de certificados sean de confianza en el equipo donde el IR autohospedado está instalado.
+- Para el motivo 2, confíe en la CA raíz reemplazada en el equipo con el IR autohospedado, o bien configure el proxy para que no reemplace el certificado de servidor del servicio.
 
 Para obtener más información sobre la confianza de certificados en Windows, consulte [Instalación del certificado raíz de confianza](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
@@ -839,7 +850,7 @@ Si no está en la CA raíz de confianza, [descárguelo aquí](http://cacerts.dig
 Para obtener más ayuda para solucionar problemas, pruebe los siguientes recursos:
 
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Solicitud de características de Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-data-factory.html)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

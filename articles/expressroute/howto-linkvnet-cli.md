@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: a94821f5254526fa13f9e87e62803581c46127d2
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: abca04eb60538921191b9c632ef6ef2849f959c5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538665"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424913"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Tutorial: Conexión de una red virtual a un circuito ExpressRoute mediante la CLI
 
@@ -46,7 +46,7 @@ En este tutorial, obtendrá información sobre cómo:
 * Una única red virtual se puede vincular a 16 circuitos ExpressRoute como máximo. Use el procedimiento siguiente para crear un nuevo objeto de conexión para cada circuito ExpressRoute al que quiere conectarse. Los circuitos ExpressRoute pueden estar en la misma suscripción, en suscripciones diferentes o en una combinación de ambas.
 * Si habilita el complemento prémium de ExpressRoute, puede vincular redes virtuales fuera de la región geopolítica del circuito ExpressRoute. El complemento Premium también le permitirá conectar más de 10 redes virtuales al circuito ExpressRoute en función del ancho de banda elegido. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
 
-* Para crear la conexión desde el circuito ExpressRoute hasta la puerta de enlace de red virtual de ExpressRoute de destino, el número de espacios de direcciones anunciados desde las redes virtuales locales o emparejadas debe ser igual o menor que **200**. Una vez creada correctamente la conexión, puede agregar hasta un máximo de 1000 espacios de direcciones adicionales a las redes virtuales locales o emparejadas.
+* Para crear la conexión desde el circuito de ExpressRoute a la puerta de enlace de red virtual de ExpressRoute de destino, el número de espacios de direcciones anunciados desde las redes virtuales locales o emparejadas debe ser igual o menor que **200**. Una vez creada correctamente la conexión, puede agregar hasta un máximo de 1000 espacios de direcciones adicionales a las redes virtuales locales o emparejadas.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conexión de una red virtual en la misma suscripción a un circuito
 
@@ -170,6 +170,21 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ```azurecli-interactive
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
 ```
+
+> [!NOTE]
+> Puede usar [Connection Monitor](how-to-configure-connection-monitor.md) para comprobar que el tráfico llega al destino mediante FastPath.
+>
+
+## <a name="enroll-in-expressroute-fastpath-features-preview"></a>Inscripción en las características de FastPath de ExpressRoute (versión preliminar)
+
+La compatibilidad de FastPath con el emparejamiento de redes virtuales está ahora en versión preliminar pública. La inscripción solo está disponible a través Azure PowerShell. Consulte las [características de la versión preliminar de FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview) para obtener instrucciones sobre cómo inscribirse.
+
+> [!NOTE] 
+> Todas las conexiones configuradas para FastPath en la suscripción de destino se inscribirán en esta versión preliminar. No se recomienda habilitar esta versión preliminar en las suscripciones de producción.
+> Si ya tiene FastPath configurado y desea inscribirse en la característica en versión preliminar, debe hacer lo siguiente:
+> 1. Inscríbase en la característica en versión preliminar de FastPath con el comando de Azure PowerShell anterior.
+> 1. Deshabilite y vuelva a habilitar FastPath en la conexión de destino.
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si ya no necesita la conexión a ExpressRoute, desde la suscripción en que se encuentra la puerta de enlace, use el comando `az network vpn-connection delete` para quitar el vínculo entre la pasarela y el circuito.

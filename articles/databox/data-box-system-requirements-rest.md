@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 10/05/2020
 ms.author: alkohli
-ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c62c1e854e55b8817724c78bc325badc703bc27
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91744119"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250662"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisitos de almacenamiento de blobs de Azure Data Box
 
@@ -26,13 +26,13 @@ Se recomienda que revise cuidadosamente la información antes de conectarse al a
 
 |     Característica                                             |     Azure Storage                                     |     Almacenamiento de blobs de Azure Data Box |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Almacenamiento de archivos de Azure                                   |    Recursos compartidos de archivos SMB basado en la nube admitidos              |    No compatible      |
+|    Azure Files                                   |    Se admiten recursos compartidos de archivos SMB y NFS basados en la nube               |    No compatible      |
 |    Cifrado de servicio para datos en reposo                  |    Cifrado de AES de 256 bits                             |    Cifrado de AES de 256 bits |
 |    Tipo de cuenta de almacenamiento                                 |    Cuentas de Azure Blob Storage y de uso general    |    Solo de uso general v1|
 |    Nombre de blob                                            |    1 024 caracteres (2 048 bytes)                     |    880 caracteres (1 760 bytes)|
-|    Tamaño máximo del blob en bloques                              |    4,75 TB (100 MB x 50 000 bloques)                   |    4,75 TB (100 MB x 50 000 bloques) para Azure Data Box v3.0 y versiones posteriores.|
-|    Tamaño máximo del blob en páginas                               |    8 TB                                               |    1 TB                   |
-|    Tamaño de página de blob en página                                  |    512 bytes                                          |    4 KB                   |
+|    Tamaño máximo del blob en bloques                              |    4,75 TiB (100 MB x 50 000 bloques)                   |    4,75 TiB (100 MB x 50 000 bloques) para Azure Data Box v 3.0 y versiones posteriores.|
+|    Tamaño máximo del blob en páginas                               |    8 TiB                                               |    1 TiB                   |
+|    Tamaño de página de blob en página                                  |    512 bytes                                          |    4 KiB                   |
 
 ## <a name="supported-api-versions"></a>Versiones de API admitidas
 

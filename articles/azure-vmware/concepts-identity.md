@@ -3,12 +3,12 @@ title: Conceptos sobre identidad y acceso
 description: Obtenga información sobre los conceptos de identidad y acceso de Azure VMware Solution
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: 7d6bcfc9426761615d1f9220f36834cc19eb09f8
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: e09a69ae1e3a9e8cba5d1027af1fc3ad57c73446
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122069498"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252535"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceptos de identidad en Azure VMware Solution
 
@@ -16,13 +16,7 @@ Las nubes privadas de Azure VMware Solution se aprovisionan con vCenter Server y
 
 ## <a name="vcenter-access-and-identity"></a>Acceso e identidad de vCenter
 
-En Azure VMware Solution, vCenter tiene un usuario local integrado denominado cloudadmin que está asignado al rol CloudAdmin. El usuario cloudadmin local se usa para configurar usuarios en Active Directory (AD). En general, el rol CloudAdmin crea y administra las cargas de trabajo en la nube privada. En cambio, en Azure VMware Solution, el rol CloudAdmin tiene privilegios de vCenter que son distintos de otras soluciones en la nube de VMware.     
-
-- En una implementación local de vCenter y ESXi, el administrador tiene acceso a la cuenta de administrador de vCenter\@vsphere.local. También se pueden tener más usuarios y grupos de AD asignados. 
-
-- En una implementación de Azure VMware Solution, el administrador no tiene acceso a la cuenta de usuario de administrador. Sin embargo, puede asignar usuarios y grupos de AD al rol CloudAdmin en vCenter.  
-
-El usuario de nube privada no tiene acceso a los componentes de administración específicos que Microsoft admite y administra, ni tampoco puede configurarlos. Por ejemplo, clústeres, hosts, almacenes de datos y conmutadores virtuales distribuidos.
+[!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
 > [!IMPORTANT]
 > Azure VMware Solution ofrece roles personalizados en vCenter, pero actualmente no los ofrece en el portal de Azure VMware Solution. Para obtener más información, consulte la sección [Creación de roles personalizados en vCenter](#create-custom-roles-on-vcenter) más adelante en este artículo. 
@@ -111,8 +105,12 @@ Use la cuenta de *administrador* para acceder a NSX-T Manager. Tiene privilegios
 
 Ahora que ha visto los conceptos de identidad y acceso de Azure VMware Solution, puede que quiera obtener información sobre:
 
-- [Habilitación del recurso de Azure VMware Solution](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)  
+- [Procedimiento para configurar el origen de identidad externo de vCenter](configure-identity-source-vcenter.md)
+
+- [Habilitación del recurso de Azure VMware Solution](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
+
 - [Detalles de cada privilegio](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+
 - [Supervisión y reparación de nubes privadas de Azure VMware Solution](./concepts-private-clouds-clusters.md#host-monitoring-and-remediation)
 
 

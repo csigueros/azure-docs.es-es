@@ -9,16 +9,19 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: e53089c2287d255fd3dbe6ca7961646e0e3de05a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2ac7aa7d5078359f747e141971eabeba21eab3e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457430"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968737"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
-El plan Prémium de Azure Functions (a veces conocido como plan Elástico Prémium) es una opción de hospedaje de las aplicaciones de funciones. Para ver otras opciones de plan de hospedaje, consulte [este artículo](functions-scale.md).
+El plan Elastic Premium de Azure Functions es una opción de hospedaje de escalado dinámico para las aplicaciones de funciones. Para ver otras opciones de plan de hospedaje, consulte [este artículo](functions-scale.md).
+
+>[!IMPORTANT]
+>Azure Functions se ejecuta en la plataforma Azure App Service. En la plataforma App Service, los planes que hospedan las aplicaciones de funciones de plan Premium se conocen como planes *Elastic* Premium, con nombres de SKU como `EP1`. Si decide ejecutar la aplicación de funciones en un plan Premium, asegúrese de crear un plan con un nombre de SKU que comience por "E", como `EP1`. Nombres de SKU de plan de App Service que comienzan por "P", como `P1V2` (plan Premium pequeño V2), son en realidad [Planes de hospedaje dedicados](dedicated-plan.md). Dado que son Premium dedicados y no elásticos, los planes con nombres de SKU que comienzan por "P" no se escalan dinámicamente y pueden aumentar los costos. 
 
 El hospedaje del plan Prémium ofrece las siguientes ventajas para sus funciones:
 
@@ -158,7 +161,7 @@ Además, en el caso de los planes con más de 4 GB de memoria, asegúrese de qu
 
 ## <a name="region-max-scale-out"></a>Escalabilidad horizontal máxima en regiones
 
-A continuación se muestran los valores máximos de escalabilidad horizontal actualmente admitidos para un solo plan en cada región y configuración del sistema operativo. Para solicitar un aumento, abra una incidencia de soporte técnico.
+A continuación se muestran los valores máximos de escalabilidad horizontal actualmente admitidos para un solo plan en cada región y configuración del sistema operativo.
 
 Consulte la disponibilidad regional completa de Functions en el [sitio web de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=functions).
 

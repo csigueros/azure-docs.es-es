@@ -4,16 +4,16 @@ description: Aprenda a crear un contenedor en MongoDB API de Azure Cosmos DB me
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 511c629aa0d8ce5388895d4ce56ccee24c7794ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 40458740092c7b462683512e3c419eff417019da
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780313"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038529"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Creación de un contenedor en MongoDB API de Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -71,3 +71,6 @@ Si se produce una excepción de tiempo de espera al crear una colección, realic
 * [Unidades de solicitud en Azure Cosmos DB](../request-units.md)
 * [Aprovisionamiento del rendimiento en contenedores y bases de datos](../set-throughput.md)
 * [Uso de la cuenta de Azure Cosmos](../account-databases-containers-items.md)
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

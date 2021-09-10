@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: f623a5012ebd02ddf55b41541bb66cc34eaa4de8
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 62e7f1b770db05f4dcd5d84cdc5f6a769566a4bd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461240"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867593"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -86,6 +86,12 @@ Estos métodos de creación de un clúster de AKS usan la versión __predetermin
 
 Cuando **adjunta** un clúster de AKS existente, se admiten todas las versiones de AKS compatibles actualmente.
 
+> [!IMPORTANT]
+> Actualmente, Azure Machine Learning no admite la implementación de modelos en la versión **1.21.x** de Azure Kubernetes Service.
+
+> [!IMPORTANT]
+> Azure Kubernetes Service usa el [controlador Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) en las versiones hasta la 1.16 y el [controlador Blob CSI](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md), en las versiones a partir de 1.17. Por eso es importante que, después de actualizar el clúster, se vuelva a implementar o a [actualizar el servicio web](how-to-deploy-update-web-service.md) para implementar en el método blobfuse adecuado a la versión del clúster.
+
 > [!NOTE]
 > Puede haber casos extremos en los que tenga un clúster anterior que ya no se admita. En este caso, la operación de adjuntar devolverá un error y mostrará las versiones admitidas actualmente.
 >
@@ -128,7 +134,7 @@ Result
 1.16.13
 ```
 
-Si quiere **comprobar mediante programación las versiones disponibles**, utilice la API REST [Container Service Client - List Orchestrators](/rest/api/container-service/container-service-client/list-orchestrators). Para buscar las versiones disponibles, examine las entradas en las que `orchestratorType` sea `Kubernetes`. Las entradas `orchestrationVersion` asociadas contienen las versiones disponibles que se pueden **adjuntar** al área de trabajo.
+Si quiere **comprobar mediante programación las versiones disponibles**, utilice la API REST Container Service Client - List Orchestrators. Para buscar las versiones disponibles, examine las entradas en las que `orchestratorType` sea `Kubernetes`. Las entradas `orchestrationVersion` asociadas contienen las versiones disponibles que se pueden **adjuntar** al área de trabajo.
 
 Para buscar la versión predeterminada que se usa al **crear** un clúster a través de Azure Machine Learning, busque la entrada en la que `orchestratorType` sea `Kubernetes` y `default` sea `true`. El valor de `orchestratorVersion` asociado es la versión predeterminada. El siguiente fragmento de código JSON es un ejemplo de entrada:
 

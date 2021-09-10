@@ -2,15 +2,15 @@
 title: Muestreo de telemetría en Azure Application Insights | Microsoft Docs
 description: Cómo mantener el volumen de telemetría bajo control.
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 08/26/2021
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 27aff24abddbca3317e252a76ac11c062f57213a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9db589de9bd62a00b7de89b2b558a3bac1e1785a
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071603"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039984"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -23,6 +23,7 @@ Cuando los recuentos de métrica se presentan en el portal, se vuelven a normali
 * Hay tres tipos diferentes de muestreo: muestreo adaptable, muestreo de frecuencia fija y muestreo de ingesta.
 * El muestreo adaptable está habilitado de manera predeterminada en todas las versiones más recientes de los kits de desarrollo de software (SDK) de Application Insights para ASP.NET y ASP.NET Core. También lo usa [Azure Functions](../../azure-functions/functions-overview.md).
 * El muestreo de frecuencia fija está disponible en las versiones recientes de los SDK de Application Insights para ASP.NET, ASP.NET Core, Java (tanto el agente como el SDK) y Python.
+* En Java, las invalidaciones de muestreo están disponibles y son útiles cuando necesita aplicar diferentes velocidades de muestreo a dependencias, solicitudes y pruebas de estado seleccionadas. Use [invalidaciones de muestreo](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) para optimizar algunas dependencias ruidosas, mientras que, por ejemplo, todos los errores importantes se mantienen al 100 %. Se trata de una forma de muestreo fijo que proporciona un nivel de control más preciso sobre la telemetría.
 * El muestreo de ingesta funciona en el punto de conexión de servicio de Application Insights. Solo se aplica cuando no hay ningún otro muestreo en vigor. Si el SDK muestrea los datos de telemetría, el muestreo de ingesta está deshabilitado.
 * Para aplicaciones web, si registra eventos personalizados y necesita asegurarse de que un conjunto de eventos se conserva o descarta en conjunto, los eventos deben tener el mismo valor de `OperationId`.
 * Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
@@ -35,7 +36,7 @@ En la tabla siguiente se resumen los tipos de muestreo disponibles para cada SDK
 | ASP.NET | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sí](#configuring-fixed-rate-sampling-for-aspnet-applications) | Solo si no hay otro muestreo en vigor |
 | ASP.NET Core | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sí](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Solo si no hay otro muestreo en vigor |
 | Azure Functions | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-azure-functions) | No | Solo si no hay otro muestreo en vigor |
-| Java | No | [Sí](#configuring-fixed-rate-sampling-for-java-applications) | Solo si no hay otro muestreo en vigor |
+| Java | No | [Sí](#configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications) | Solo si no hay otro muestreo en vigor |
 | Node.JS | No | [Sí](./nodejs.md#sampling) | Solo si no hay otro muestreo en vigor
 | Python | No | [Sí](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Solo si no hay otro muestreo en vigor |
 | Todos los demás | No | No | [Sí](#ingestion-sampling) |
@@ -307,23 +308,14 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
     }
     ```
 
-### <a name="configuring-fixed-rate-sampling-for-java-applications"></a>Configuración del muestreo de frecuencia fija para aplicaciones de Java
+### <a name="configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications"></a>Configuración de invalidaciones de muestreo y muestreo de frecuencia fija para aplicaciones Java
 
-De manera predeterminada, no hay ningún muestreo habilitado en el agente ni en el SDK de Java. Actualmente, solo admite el muestreo de frecuencia fija. No se admite el muestreo adaptable en Java.
+De manera predeterminada, no hay ningún muestreo habilitado en la instrumentación automática y el SDK de Java. Actualmente se admiten la instrumentación automática de Java, las [invalidaciones de muestreo](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) y el muestreo de frecuencia fija. No se admite el muestreo adaptable en Java.
 
-#### <a name="configuring-java-agent"></a>Configuración del agente de Java
+#### <a name="configuring-java-auto-instrumentation"></a>Configuración de la instrumentación automática de Java
 
-1. Descargue [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar).
-
-1. Para habilitar el muestreo, agregue lo siguiente al archivo `applicationinsights.json`:
-
-```json
-{
-  "sampling": {
-    "percentage": 10 //this is just an example that shows you how to enable only 10% of transaction 
-  }
-}
-```
+* Para configurar invalidaciones de muestreo que invaliden la frecuencia de muestreo predeterminada y apliquen diferentes velocidades de muestreo a las solicitudes y dependencias seleccionadas, use la [guía de invalidación de muestreo](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides#getting-started).
+* Para configurar el uso de velocidad fija que se aplica a todos los datos de telemetría, use la [guía de muestreo de frecuencia fija](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#sampling).
 
 #### <a name="configuring-java-2x-sdk"></a>Configuración del SDK de Java 2.x
 
@@ -449,13 +441,13 @@ El muestreo de ingesta no funciona mientras el muestreo adaptable o el de frecue
 > [!WARNING]
 > El valor que se muestra en el icono del portal indica el valor que ha establecido para el muestreo de ingesta. Si un muestreo del SDK está en funcionamiento (muestreo adaptable o de frecuencia fija), no representa la frecuencia real de muestreo.
 
-## <a name="when-to-use-sampling&quot;></a>¿Cuándo usar el muestreo?
+## <a name="when-to-use-sampling"></a>¿Cuándo usar el muestreo?
 
 En general, para la mayoría de las aplicaciones pequeñas y medianas no es necesario realizar muestreos. La información de diagnóstico más útil y las estadísticas más precisas se obtienen mediante la recopilación de datos en todas las actividades del usuario. 
 
 Las principales ventajas del muestreo son:
 
-* El servicio de Application Insights descarta (&quot;limita") puntos de datos cuando la aplicación envía un número muy elevado de datos de telemetría en un intervalo de tiempo corto. El muestreo reduce la probabilidad de que se produzca una limitación en la aplicación.
+* El servicio de Application Insights descarta ("limita") puntos de datos cuando la aplicación envía un número muy elevado de datos de telemetría en un intervalo de tiempo corto. El muestreo reduce la probabilidad de que se produzca una limitación en la aplicación.
 * Para mantenerse dentro de la [cuota](pricing.md) de puntos de datos de su plan de tarifa. 
 * Para reducir el tráfico de red de la recopilación de telemetría. 
 

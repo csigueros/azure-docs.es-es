@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87fd2189222828eef2ff03a82125e0b6dcf7111e
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 29b000ee3231361ccdca4c2909e093cdaef6bc04
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179868"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866522"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
@@ -76,7 +76,7 @@ Una vez emitido, un PRT es válido durante 14 días y se renueva continuamente s
 Dos componentes principales de Windows usan un PRT:
 
 * **Complemento CloudAP de Azure AD**: durante el inicio de sesión de Windows, el complemento CloudAP de Azure AD solicita un PRT a Azure AD mediante las credenciales proporcionadas por el usuario. También almacena en caché el PRT para permitir el inicio de sesión almacenado en caché cuando el usuario no tiene acceso a una conexión de Internet.
-* **Complemento WAM de Azure AD**: cuando los usuarios intentan acceder a las aplicaciones, el complemento WAM de Azure AD usa el PRT para permitir el inicio de sesión único en Windows 10. El complemento WAM de Azure AD usa el PRT para solicitar tokens de acceso y actualización para las aplicaciones en las que las solicitudes de tokens dependen de WAM. También permite el inicio de sesión único en los exploradores mediante la inserción del PRT en las solicitudes del explorador. El inicio de sesión único en el explorador en Windows 10 se admite en Microsoft Edge (de forma nativa) y en Chrome (mediante la extensión [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) u [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)).
+* **Complemento WAM de Azure AD**: cuando los usuarios intentan acceder a las aplicaciones, el complemento WAM de Azure AD usa el PRT para permitir el inicio de sesión único en Windows 10. El complemento WAM de Azure AD usa el PRT para solicitar tokens de acceso y actualización para las aplicaciones en las que las solicitudes de tokens dependen de WAM. También permite el inicio de sesión único en los exploradores mediante la inserción del PRT en las solicitudes del explorador. El inicio de sesión único en el explorador de Windows 10 se admite en Microsoft Edge (de forma nativa), en Chrome (mediante las extensiones [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) u [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)) o en Mozilla Firefox v91 y posteriores (a través de la [opción SSO de Windows](https://support.mozilla.org/en-US/kb/windows-sso)).
 
 ## <a name="how-is-a-prt-renewed"></a>¿Cómo se renueva un PRT?
 
@@ -109,7 +109,7 @@ Al proteger estas claves con TPM, se mejora la seguridad de PRT frente a actores
 
 **Tokens de la aplicación**: cuando una aplicación solicita un token mediante WAM, Azure AD emite un token de actualización y un token de acceso. Sin embargo, WAM solo devuelve el token de acceso a la aplicación y protege el token de actualización en su caché mediante su cifrado con la clave de la interfaz de programación de aplicaciones de protección de datos (DPAPI) del usuario. Para usar de forma segura el token de actualización, WAM firma las solicitudes con la clave de sesión para emitir tokens de acceso adicionales. La clave DPAPI está protegida con una clave simétrica basada en Azure AD en el propio Azure AD. Cuando el dispositivo tiene que descifrar el perfil de usuario con la clave DPAPI, Azure AD proporciona la clave DPAPI cifrada con la clave de sesión, que el complemento CloudAP solicita descifrar con TPM. Esta funcionalidad garantiza la coherencia en la protección de los tokens de actualización y evita que las aplicaciones implementen sus propios mecanismos de protección.  
 
-**Cookies del explorador**: en Windows 10, Azure AD admite el inicio de sesión único del explorador en Internet Explorer y Microsoft Edge de forma nativa o en Google Chrome mediante la extensión Windows 10 Accounts. La seguridad se ha creado no solo para proteger las cookies, sino también los puntos de conexión a los que se envían. Las cookies del explorador están protegidas de la misma manera que un PRT, mediante la clave de sesión para firmar y proteger las cookies.
+**Cookies del explorador**: en Windows 10, Azure AD admite el inicio de sesión único del explorador en Internet Explorer y Microsoft Edge de forma nativa, en Google Chrome mediante las extensiones de cuentas de Windows 10 y en Mozilla Firefox v91 y posteriores mediante una opción del explorador. La seguridad se ha creado no solo para proteger las cookies, sino también los puntos de conexión a los que se envían. Las cookies del explorador están protegidas de la misma manera que un PRT, mediante la clave de sesión para firmar y proteger las cookies.
 
 Cuando un usuario inicia una interacción con el explorador, el explorador (o la extensión) invoca un host de cliente nativo COM. El host de cliente nativo garantiza que la página procede de uno de los dominios permitidos. El explorador podría enviar otros parámetros al host de cliente nativo, como un nonce; sin embargo, el host de cliente nativo garantiza la validación del nombre de host. El host de cliente nativo solicita una cookie con PRT al complemento CloudAP, que la crea y la firma con la clave de sesión protegida por TPM. Como la cookie de PRT está firmada por la clave de sesión, es muy difícil manipularla. Esta cookie con PRT se incluye en el encabezado de la solicitud para que Azure AD valide el dispositivo desde el que se origina. Si usa el explorador Chrome, solo se puede invocar con la extensión definida explícitamente en el manifiesto del host de cliente nativo, lo que impide que extensiones arbitrarias creen estas solicitudes. Una vez que Azure AD valida la cookie con PRT, emite una cookie de sesión para el explorador. Esta cookie de sesión también contiene la misma clave de sesión emitida con un PRT. Durante las solicitudes posteriores, para validar la clave de sesión de manera efectiva se enlaza la cookie con el dispositivo y se impide que se reproduzca desde cualquier parte.
 
@@ -199,7 +199,7 @@ Los siguientes diagramas ilustran los detalles subyacentes en la emisión, la re
 | F | Azure AD valida la firma de la clave de sesión de la cookie con PRT, valida el nonce, comprueba que el dispositivo sea válido en el inquilino y emite un token de identidad para la página web y una cookie de sesión cifrada para el explorador. |
 
 > [!NOTE]
-> El flujo de SSO del explorador descrito en los pasos anteriores no se aplica a las sesiones en modos privados como InPrivate en Microsoft Edge o Incógnito en Google Chrome (cuando se usa la extensión Cuentas de Microsoft).
+> El flujo de SSO del explorador descrito en los pasos anteriores no se aplica a las sesiones en modos privados como InPrivate en Microsoft Edge o Incógnito en Google Chrome (cuando se usan la extensiones de cuentas de Microsoft) o en modo privado en Mozilla Firefox v91 y posteriores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

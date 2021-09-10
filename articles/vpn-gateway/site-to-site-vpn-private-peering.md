@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4c84b46fe3265b5ada792cbe47d92768e602fa20
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 68dee7e8d00f3f1b6853a7be5c9328647d96371d
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229043"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272086"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configuración de una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute
 
@@ -22,6 +22,8 @@ Puede configurar una VPN de sitio a sitio para una puerta de enlace de red virtu
 * El tráfico a través del emparejamiento privado está cifrado.
 
 * Los usuarios de punto a sitio que se conectan a una puerta de enlace de red virtual pueden usar ExpressRoute (a través del túnel de sitio a sitio) para acceder a los recursos locales.
+
+* Es posible implementar conexiones VPN de sitio a sitio mediante el emparejamiento privado de ExpressRoute al mismo tiempo que las conexiones VPN de sitio a sitio por Internet en la misma puerta de enlace de VPN.
 
 >[!NOTE]
 >Esta característica solo se admite en puertas de enlace con redundancia de zona. Por ejemplo, VpnGw1AZ, VpnGw2AZ, etc.

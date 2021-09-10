@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 268993dcdd2250037ebcfa1640bc4e54f82c926f
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: f72ac3b3a799b97883586e5c2eebc4a42119ae6f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112575539"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255708"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Actualización o eliminación de un equilibrador de carga usado por conjuntos de escalado de máquinas virtuales
 
@@ -109,7 +109,7 @@ Para agregar varias configuraciones de IP:
 1. En el menú izquierdo, seleccione **Todos los recursos**. A continuación, seleccione **MyLoadBalancer** en la lista de recursos.
 1. En **Configuración**, seleccione **Configuración de direcciones IP de front-end**. A continuación, seleccione **Agregar**.
 1. En la página **Agregar dirección IP de front-end**, escriba los valores y seleccione **Aceptar**.
-1. Siga el [paso 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) y el [paso 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) de este tutorial si se necesitan nuevas reglas de equilibrio de carga.
+1. Consulte [Administración de reglas para Azure Load Balancer: Azure Portal](manage-rules-how-to.md) si se necesitan nuevas reglas de equilibrio de carga.
 1. Si es necesario, cree un conjunto de reglas NAT de entrada con las configuraciones de IP de front-end recién creadas. En la sección anterior se puede encontrar un ejemplo.
 
 ## <a name="multiple-virtual-machine-scale-sets-behind-a-single-load-balancer"></a>Varias instancias de Virtual Machine Scale Sets detrás de un solo Load Balancer

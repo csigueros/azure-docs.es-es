@@ -1,17 +1,17 @@
 ---
-title: Implementación de una aplicación de clúster administrado de Service Fabric mediante una plantilla de ARM
-description: Implemente una aplicación en un clúster administrado de Azure Service Fabric mediante una plantilla de Azure Resource Manager.
+title: Implementación de una aplicación en un clúster administrado mediante Azure Resource Manager
+description: Información sobre cómo implementar, actualizar o eliminar una aplicación de Service Fabric en un clúster administrado de Azure Service Fabric mediante Azure Resource Manager
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6a40dc23b0eeda4c680d0151b08cb1c8f1a84053
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: f2f2f47e9cdcef54be9c78513fbb57cd20ddde5f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290144"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864781"
 ---
-# <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>Implementación de una aplicación de clúster administrado de Service Fabric mediante una plantilla de ARM
+# <a name="manage-application-lifecycle-on-a-managed-cluster-using-azure-resource-manager"></a>Administración del ciclo de vida de una aplicación en un clúster administrado mediante Azure Resource Manager
 
 Dispone de varias opciones a la hora de implementar aplicaciones de Azure Service Fabric en un clúster administrado de Service Fabric. y la más aconsejable es usar Azure Resource Manager, ya que de esa forma es posible describir las aplicaciones y los servicios en JSON y, después, implementarlos en la misma plantilla de Resource Manager en que se encuentre el clúster. A diferencia del uso de PowerShell o la CLI de Azure para implementar y administrar aplicaciones, si se utiliza Resource Manager, no es preciso esperar a que el clúster esté preparado; el registro, aprovisionamiento e implementación de las aplicaciones se pueden realizar en un solo paso. Resource Manager es la mejor opción para administrar el ciclo de vida de las aplicaciones en el clúster. Para obtener más información, consulte [Procedimientos recomendados: Infraestructura como código](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
@@ -25,11 +25,11 @@ En este documento, aprenderá a:
 
 > [!div class="checklist"]
 >
-> * Implementar recursos de aplicación mediante Resource Manager.
-> * Actualizar recursos de aplicación mediante Resource Manager.
-> * Eliminar recursos de aplicación.
+> * Implementar recursos de aplicación de Service Fabric mediante Resource Manager
+> * Actualizar recursos de aplicación de Service Fabric mediante Resource Manager
+> * Eliminar recursos de aplicación de Service Fabric
 
-## <a name="deploy-application-resources"></a>Implementación de recursos de aplicación
+## <a name="deploy-service-fabric-application-resources"></a>Implementación de recursos de aplicación de Service Fabric
 
 Estos son los pasos de alto nivel que se dan para implementar una aplicación y sus servicios mediante el modelo de recursos de aplicación de Resource Manager:
 1. Empaquetar el código de la aplicación.
@@ -38,7 +38,7 @@ Estos son los pasos de alto nivel que se dan para implementar una aplicación y 
 
 Para obtener más información, consulte [Empaquetado de una aplicación](service-fabric-package-apps.md#create-an-sfpkg).
 
-Después, cree una plantilla de Azure Resource Manager, actualice el archivo de parámetros con los detalles de la aplicación e implemente la plantilla en el clúster de Service Fabric. [Explore los ejemplos](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
+Después, cree una plantilla de Azure Resource Manager, actualice el archivo de parámetros con los detalles de la aplicación e implemente la plantilla en el clúster administrado de Service Fabric. [Explore los ejemplos](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -127,7 +127,7 @@ La aplicación de ejemplo contiene [plantillas de Azure Resource Manager](https:
 }
 ```
 
-### <a name="deploy-the-application"></a>Implementación de la aplicación
+### <a name="deploy-the-service-fabric-application"></a>Implementación de la aplicación de Service Fabric
 
 Ejecute el cmdlet **New-AzResourceGroupDeployment** para implementar la aplicación en el grupo de recursos que contiene el clúster:
 
@@ -138,7 +138,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Actualización de la aplicación de Service Fabric mediante Resource Manager
 
 > [!IMPORTANT]
-> Cualquier servicio implementado a través de la definición de JSON de ARM se debe quitar de la sección DefaultServices del archivo ApplicationManifest.xml correspondiente.
+> Cualquier servicio implementado a través de una plantilla de Azure Resource Manager (ARM) se debe quitar de la sección DefaultServices del archivo ApplicationManifest.xml correspondiente.
 
 
 Cualquier aplicación implementada en un clúster de Service Fabric se puede actualizar por una de estas razones:
@@ -164,9 +164,11 @@ Cualquier aplicación implementada en un clúster de Service Fabric se puede act
         "value": "1.0.1"
     },
     ```
-## <a name="delete-application-resources"></a>Eliminación de recursos de la aplicación
+## <a name="delete-service-fabric-application-resources"></a>Eliminación de recursos de aplicación de Service Fabric
+> [!NOTE]
+> Las aplicaciones no deben eliminarse a través de una plantilla de Azure Resource Manager (ARM), ya que no existe ningún método declarativo para limpiar recursos individuales.
 
-Para eliminar una aplicación implementada mediante el modelo de recursos de aplicación en Resource Manager:
+Para eliminar una aplicación de Service Fabric usando el modelo de recursos de aplicación en Resource Manager:
 
 1. Use el cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource) para obtener el identificador de recurso de la aplicación:
 

@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: ddf7d6bba58d8eb8a7ad8a52a8e9c51098e71dcc
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 161813b7da42a5697fdb595e6a7050923e28fca2
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228904"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038898"
 ---
 # <a name="built-in-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Aptitudes integradas para el procesamiento de texto e imagen durante la indexación (Azure Cognitive Search)
 
@@ -30,7 +30,7 @@ En la tabla siguiente se enumeran y se describen las habilidades integradas.
 | [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md) | Esta habilidad usa un modelo aprendido previamente para detectar frases importantes en función de la colocación de términos, las reglas lingüísticas, la proximidad a otros términos y cómo de inusual es el término en los datos de origen. | [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services | 
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Esta habilidad usa un modelo aprendido previamente para detectar qué idioma se usa (un identificador de idioma por documento). Si se usan varios idiomas en los mismos segmentos de texto, la salida es el LCID del idioma más usado. | [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services | 
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Consolida el texto de una colección de campos en un solo campo.  | No aplicable |
-| [Microsoft.Skills.Text.V3.EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md) | Esta aptitud usa un modelo entrenado previamente para determinar las coincidencias de la entidad vinculada de un texto dado. | [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services | 
+| [Microsoft.Skills.Text.V3.EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md) | Esta aptitud usa un modelo entrenado previamente para generar vínculos para entidades reconocidas a artículos de Wikipedia. | [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services | 
 | [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) | Esta aptitud usa un modelo entrenado previamente para establecer las entidades de un conjunto fijo de categorías: los campos `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"DateTime"`, `"URL"`, `"Email"`, `"PersonType"`, `"Event"`, `"Product"`, `"Skill"`, `"Address"`, `"Phone Number"` y `"IP Address"`. | [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services | 
 | [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Esta aptitud usa un modelo previamente entrenado para extraer información personal de un texto dado. También ofrece varias opciones para enmascarar las entidades de información personal que se detecten en el texto.  | [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services | 
 | [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md)  | Esta aptitud usa un modelo entrenado previamente para asignar etiquetas de opinión (como "negative", "neutral" y "positive") basadas en la mayor puntuación de confianza que haya encontrado el servicio, tanto en el nivel de oración como en el de documento, registro a registro. | [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services | 

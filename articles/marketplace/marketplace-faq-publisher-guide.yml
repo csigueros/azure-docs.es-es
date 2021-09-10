@@ -8,250 +8,250 @@ metadata:
   author: trkeya
   ms.author: trkeya
   ms.date: 06/02/2021
-  ms.openlocfilehash: 82fda61ce146760b939a427e0acf46498ec78c9f
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: d8403e69b241ee107631f7ba8cdd88d6700e65e0
+  ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121735045"
+  ms.lasthandoff: 08/30/2021
+  ms.locfileid: "123187640"
 title: Preguntas habituales sobre el marketplace comercial de Microsoft
 summary: En este artículo se responden las preguntas más frecuentes sobre el marketplace comercial.
 sections:
 - name: General
   questions:
   - question: >
-      What is the Microsoft commercial marketplace?
+      ¿Qué es el marketplace comercial de Microsoft?
     answer: >
-      The commercial marketplace connects business and government agencies with solutions built by our partners. Our partners create and manage offers in Partner Center, and customers can discover and buy solutions through in-product experiences, such as Microsoft AppSource, Azure Marketplace, resellers in the Cloud Solution Provider program, and our sales teams through the co-sell program.
+      El marketplace comercial conecta a negocios y agencias gubernamentales con soluciones creadas por nuestros partners. Nuestros partners crean y administran ofertas en el Centro de partners, y los clientes pueden descubrir y comprar soluciones por medio de experiencias dentro del producto (como Microsoft AppSource y Azure Marketplace), revendedores del programa Proveedor de soluciones en la nube y nuestros equipos de ventas a través del programa de venta conjunta.
 
 
-      To learn more, go to the [Microsoft commercial marketplace hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/).
+      Para más información, consulte el [centro del marketplace comercial de Microsoft](https://aka.ms/commercialmarketplacehub).
   - question: >
-      What's the difference between Microsoft AppSource and Azure Marketplace?
+      ¿Cuál es la diferencia entre Microsoft AppSource y Azure Marketplace?
     answer: >
-      AppSource includes business and industry solutions, such as apps that integrate into Microsoft 365, Dynamics 365, and Power Platform services.
+      AppSource incluye soluciones empresariales y del sector, como por ejemplo, aplicaciones que se integran en los servicios de Microsoft 365, Dynamics 365 y Power Platform.
 
 
-      Azure Marketplace includes IT and developer solutions that are built on Azure or used within Azure subscriptions themselves.
+      Azure Marketplace incluye soluciones para desarrolladores y TI creadas en Azure o que se usan en las propias suscripciones de Azure.
 
 
-      To learn more, go to the [buyer's guide](https://aka.ms/MarketplaceBuyerGuide).
+      Para obtener más información, vea la [documentación de cliente de Marketplace](https://aka.ms/MarketplaceBuyerGuide).
   - question: >
-      Why should I make my software or services available in the Microsoft commercial marketplace?
-    answer: "The commercial marketplace is a starting point for go-to-market collaboration and enablement with sales channels and Marketplace Rewards. The websites and in-product experiences give your products visibility to millions of customers who are seeking solutions like yours. You don't even need to build or buy the commerce capabilities. \n\nThe commercial marketplace is available in 141 regions, on a per-plan basis. \n\nWe manage tax payment in many countries/regions, and we provide access to our global channel network of resellers. You can use a customer's Microsoft Customer Agreement or Enterprise Agreement to sell to organizations without having to create a new buying relationship.\n\nTo learn more, see the [Microsoft commercial marketplace hub](https://aka.ms/commercialmarketplacehub).\n"
+      ¿Por qué debo hacer que mi software o mis servicios estén disponibles en el marketplace comercial de Microsoft?
+    answer: "El marketplace comercial es un punto de partida para la colaboración en la comercialización y para la habilitación en canales de ventas y Marketplace Rewards. Los sitios web y las experiencias en el producto permiten que sus productos sean vistos por millones de clientes que buscan soluciones como la suya. Ni siquiera necesita crear o comprar las capacidades de comercio. \n\nEl marketplace comercial está disponible en 141 regiones, según el plan. \n\nAdministramos el pago de impuestos en muchos países o regiones y proporcionamos acceso a nuestra red global de canales de revendedores. Puede usar el Contrato de cliente de Microsoft o el Contrato Enterprise para vender a las organizaciones sin tener que crear una nueva relación de compra.\n\nPara más información, consulte el [centro del marketplace comercial de Microsoft](https://aka.ms/commercialmarketplacehub).\n"
   - question: >
-      Is there a listing fee for the Microsoft commercial marketplace?
+      ¿Hay que pagar por anunciarse en el marketplace comercial de Microsoft?
     answer: >
-      No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations.
+      No, la publicación de ofertas en el marketplace comercial no tiene ningún costo. Mantenemos un pequeño porcentaje de la venta, como honorario de transacción, y lo invertimos en el programa de premios de Marketplace, la innovación de la plataforma y las operaciones comerciales de marketplace.
   - question: >
-      How do I sign up to be a publisher in the Microsoft commercial marketplace?
+      ¿Cómo me registro como editor en el marketplace comercial de Microsoft?
     answer: >
-      To create offers in the commercial marketplace, your organization needs to be a Microsoft partner by agreeing to the Microsoft Partner Agreement and accepting the Publisher agreement.
+      Para crear ofertas en el marketplace comercial, su organización debe ser un partner de Microsoft, lo que supone aceptar dos contratos: Microsoft Partner Agreement y el contrato como editor.
 
 
-      To sign up to be a commercial marketplace publisher, go to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165614).
+      Para registrarse como anunciante de marketplace comercial, vaya a [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165614).
   - question: >
-      How can customers engage with my offers in the commercial marketplace?
-    answer: "The ways that customers can use your commercial marketplace offer depend on how you create the offers.\n\n- For solutions that you provide automatically, whether they're paid, bring-your-own-license (BYOL), or free, customers are urged to *Get It Now*.\n- Offers that support a test drive (demo) request the customer to *Test Drive*. \n- Software as a service (SaaS) offers that provide a trial outside the commercial marketplace say *Free Trial*.\n- Simple listings allow the customer to request *Contact Me*.\n"
+      ¿Cómo pueden los clientes interactuar con mis ofertas del marketplace comercial?
+    answer: "Las formas en que los clientes pueden usar su oferta del marketplace comercial depende de cómo cree las oferta.\n\n- En el caso de las soluciones que proporcione automáticamente, ya sean pagadas, traiga su propia licencia (BYOL) o gratis, se les animará a los clientes a *Obtenerla ahora*.\n- Las ofertas que admiten una versión de prueba (demostración) solicitan al cliente que utilice una *Versión de prueba*. \n- Las ofertas de software como servicio (SaaS) que proporcionan una prueba fuera de nuestro marketplace comercial indicarán *Evaluación gratuita*.\n- Los anuncios simples permiten al cliente solicitar *Contacto*.\n"
   - question: >
-      How do I create offers for the commercial marketplace?
+      ¿Cómo se crean ofertas para el marketplace comercial?
     answer: >
-      After you sign up and accept the Publisher Agreement, you'll have access to the commercial marketplace page in Partner Center. This is where you create and manage offers and where you view analytics reports. For Microsoft 365 apps, you must also activate the Office Store program within Partner Center.
+      Después de registrarse y aceptar el contrato del editor, tendrá acceso a la página Marketplace comercial en el Centro de partners. Aquí es donde puede crear y administrar las ofertas y dónde se ven los informes de análisis. En el caso de las aplicaciones de Microsoft 365, también debe activar el programa Tienda Office en el Centro de partners.
 
 
-      For more information, see [Welcome to the commercial marketplace](index.yml) and [Monetize your Microsoft 365 add-in through Microsoft Commercial Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+      Para más información, consulte [Bienvenido a marketplace comercial](index.yml) y [Rentabilizar el complemento de Microsoft 365 a través del marketplace comercial de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
   - question: >
-      How can my own employees use our offers from the marketplace without being charged?
+      ¿Cómo pueden mis propios empleados usar nuestras ofertas del marketplace sin que se les cobre?
     answer: >
-      To prevent Microsoft from charging your employees and assessing the store service fee on the sale of your offer, you must first create a [private plan](./private-offers.md) for the offer with a $0 price and send this offer to the internal users who want to purchase it.
+      Para evitar que Microsoft cobre a sus empleados y evalúe la tasa de servicio de la tienda por la venta de su oferta, primero debe crear un [plan privado](./private-offers.md) para la oferta con un precio de 0 USD y enviar esta oferta a los usuarios internos que quieran comprarla.
 
 
-      You can also use our [Private Marketplace](/marketplace/create-manage-private-azure-marketplace) functionality to ensure internal users are only purchasing specific offers that are approved by your administrator.
+      También puede usar nuestra funcionalidad de [Marketplace privado](/marketplace/create-manage-private-azure-marketplace) para asegurarse de que los usuarios internos solo compran ofertas específicas aprobadas por el administrador.
   - question: >
-      How do I get support assistance for the commercial marketplace?
-    answer: "To contact our marketplace publisher support team, you can [submit a support ticket](https://go.microsoft.com/fwlink/?linkid=2165533) from within Partner Center. \n\nYou can also [join our active community forum](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222) to learn about best practices and share information.\n"
+      ¿Cómo puedo obtener asistencia de soporte técnico para el marketplace comercial?
+    answer: "Para ponerse en contacto con el equipo de soporte técnico al editor en el marketplace, puede [Enviar incidencias de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2165533) desde el Centro de partners. \n\nTambién puede [unirse a nuestro foro de comunidad activo](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222) para obtener información acerca de los procedimientos recomendados y compartir información.\n"
   - question: >
-      What analytics are available to my organization from the commercial marketplace?
+      ¿Qué análisis están disponibles para mi organización desde el marketplace comercial?
     answer: >
-      We provide reporting on your offers within the commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](analytics.md).
+      En el marketplace comercial ofrecemos informes sobre sus ofertas. Para acceder a los datos de los clientes, pedidos, involucración en la tienda y mucho más, vaya a [Analytics del marketplace comercial en el Centro de Partners](analytics.md).
   - question: >
-      What is Microsoft's relationship with my customers?
+      ¿Cuál es la relación de Microsoft con mis clientes?
     answer: >
-      The commercial marketplace works using an agency model. The customer signs a purchase agreement with us, through their Microsoft Cloud Agreement or Enterprise Agreement (EA). We're responsible for billing, collections, tax payment in applicable regions, and publisher payout. As the publisher, you set the price, set the terms of use, and provide technical support.
+      El marketplace comercial trabaja siguiendo un modelo de agencia. El cliente firma un contrato de compra con nosotros a través de del Contrato de Microsoft Cloud o del Contrato Enterprise (EA). Nosotros nos hacemos cargo de la facturación, el cobro, el pago de impuestos en las regiones aplicables y el pago al editor. Como editor, usted establece el precio y las condiciones de uso, y ofrece soporte técnico.
   - question: >
-      What terms of use options are available with the commercial marketplace?
+      ¿Qué opciones de condiciones de uso están disponibles en el marketplace comercial?
     answer: >
-      As a publisher, you set the terms of use for your software solution, which customers must accept as part of the purchase flow. To simplify and speed things up, we provide a Standard Contract that you can choose to include in your terms and conditions. This lets customers review the Standard Contract one time, get approval from legal and buying teams, and then focus on the amendments for each offer.
+      Como editor, se encarga de establecer las condiciones de uso de su solución de software, condiciones que los clientes deben aceptar como parte del flujo de compra. Para simplificar y acelerar las cosas, ofrecemos un Contrato estándar que puede incluir en los términos y condiciones. Esto permite a los clientes revisar este Contrato estándar una sola vez, conseguir la aprobación de los equipos legal y de compra y centrarse en las modificaciones de cada oferta.
 
 
-      You can create changes that apply to all customers, or you can make the changes specific to certain customers. You can also fully customize your terms and conditions, which can be entered into a text box in Partner Center.
+      Puede crear cambios que se apliquen a todos los clientes o puede adaptarlos a determinados clientes. También puede personalizar por completo los términos y condiciones, que se pueden escribir en un cuadro de texto del Centro de partners.
 
 
-      To learn more, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md).
+      Para más información en [Contrato estándar para el Marketplace comercial de Microsoft](standard-contract.md).
   - question: >
-      Is Azure Marketplace available in Azure Government?
+      ¿Está disponible Azure Marketplace en Azure Government?
     answer: >
-      Yes, the Azure Government Marketplace is available within Azure Government regions and supports Azure virtual machine and Azure application offers. There's a check box option to make the offers available in the Azure Government Marketplace during the standard publishing process.
+      Sí, el marketplace de Azure Government está disponible en regiones de Azure Government y admite las ofertas de aplicaciones de Azure y máquinas virtuales de Azure. Hay una opción de casilla para que las ofertas estén disponibles en el marketplace de Azure Government durante el proceso de publicación estándar.
   - question: >
-      What permissions do I need in Partner Center to manage my offers?
+      ¿Qué permisos necesito en el Centro de partners para administrar mis ofertas?
     answer: >
-      There are four relevant roles that govern Partner Center access.
+      Hay cuatro roles pertinentes que controlan el acceso al Centro de partners.
 
 
-      - *Manager*: Provides permissions to manage Partner Center users in the directory, and create and update offers.
+      - *Administrador*: proporciona permisos para administrar usuarios del Centro de partners en el directorio y para crear y actualizar ofertas.
 
-      - *Developer*: Allows a user to create and update offers.
+      - *Desarrollador*: permite a un usuario crear y actualizar ofertas.
 
-      - *Financial Contributor*: Provides permissions to view payout reporting.
+      - *Colaborador financiero*: proporciona permisos para ver los informes de pago.
 
-      - *Owner*: Can set up the payout account and tax profile. The user who accepted the Publisher Agreement becomes the Owner by default.
-
-
-      Azure Active Directory (Azure AD) *Global Admin* permissions are necessary to create new user accounts or invite guest accounts in the underlying directory. Partner Center applies Azure AD to the identity model, and an organization's Azure AD instance is often managed and controlled by its IT or security teams.
+      - *Propietario*: puede configurar la cuenta de pago y el perfil fiscal. El usuario que aceptó el contrato de editor se convierte en el propietario de forma predeterminada.
 
 
-      To learn more, see [Assign users roles and permissions](/partner-center/permissions-overview).
+      Se necesitan permisos de *Administrador global* de Azure Active Directory (Azure AD) para crear nuevas cuentas de usuario o invitar a cuentas de invitado del directorio subyacente. El Centro de partners aplica Azure AD al modelo de identidad y, a menudo, los equipos de seguridad y TI administran y controlan la instancia de Azure AD de la organización.
+
+
+      Para más información, consulte [Asignar roles y permisos de usuarios](/partner-center/permissions-overview).
   - question: >
-      Do customers need a subscription for Microsoft Azure Cloud Services?
+      ¿Los clientes necesitan una suscripción a Microsoft Azure Cloud Services?
     answer: >
-      Depending on your product's delivery model, a subscription to Azure Cloud Services may be needed. Solutions that are used directly in an Azure subscription, Microsoft 365 applications, or Dynamics 365 applications will require customers to have an existing subscription. Offers that are purchased in Azure Marketplace require an Azure subscription, because the subscription is used as the billing mechanism.
+      Según el modelo de entrega del producto, es posible que se necesite una suscripción a Azure Cloud Services. Las soluciones que se usan directamente en una suscripción de Azure, aplicaciones de Microsoft 365 o aplicaciones de Dynamics 365 requerirán que los clientes tengan una suscripción existente. Las ofertas adquiridas en Azure Marketplace requieren una suscripción de Azure, ya que la suscripción se usa como mecanismo de facturación.
   - question: >
-      Who's responsible for supporting customers?
+      ¿Quién es el responsable de dar soporte técnico a los clientes?
     answer: >
-      Commercial marketplace publishers are responsible for supporting their software, and Microsoft is responsible for supporting the purchase, billing, payments, and subscription management experiences.
+      Los editores del marketplace comercial son responsables de ofrecer soporte técnico para su software y Microsoft es responsable de ofrecer soporte técnico en cuestiones relacionadas con la compra, la facturación, los pagos y la administración de suscripciones.
 
 
-      When the offer removal is initiated by the publisher, the publisher owns communication of the removal to the customer.
+      Cuando el anunciante inicia la eliminación de la oferta, este está en posesión de la comunicación de la eliminación al cliente.
   - question: >
-      What's the process of validating the end-to-end purchase and setup flow?
+      ¿Cuál es el proceso de validación compra de un extremo a otro y configuración de flujo?
     answer: >
-      During the publishing process, you're given access to a preview of your offer. Access is restricted to users that you specify in the **Preview** tab, and the offer can't be viewed by anyone else. You can purchase a preview and test the process, but you'll be charged the full amount according to your offer's setup.
+      Durante el proceso de publicación, se le dará acceso a una versión preliminar de la oferta. El acceso está restringido a los usuarios que especificó en la pestaña **Versión preliminar** y nadie más puede ver la oferta. Puede comprar una versión preliminar y probar el proceso, pero se le cobrará la cantidad total conforme a la configuración de la oferta.
 
 
-      To complete a purchase at a low price, we suggest publishing a private plan that's viewable by you alone and at a price you can accept as the cost of testing. A price of $0.00 is supported but won't reflect the full experience, as a paid subscription would, so we recommend setting the price at $1.00.
+      Para completar una compra a un precio muy bajo, le sugerimos que publique un plan privado que sea visible solo por usted y a un precio que pueda aceptar como costo por las pruebas. Se acepta un precio de 0,00 USD, pero no reflejará la experiencia completa, como lo haría una suscripción de pago, por lo que recomendamos fijar el precio en 1,00 USD.
   - question: >
-      What are leads from the commercial marketplace and what should I do with them?
+      ¿Qué son los clientes potenciales del marketplace comercial y qué debo hacer con ellos?
     answer: >
-      As customers use your offers on the Microsoft AppSource and Azure Marketplace online stores, information is captured. After customers have demonstrated enough interest, a lead is created and an opportunity is sent to the system of your choice. Publishers who are successful with the commercial marketplace often pursue leads, develop relationships, and turn interest into deals.
+      A medida que los clientes usen las ofertas que publique en las tiendas en línea de Microsoft AppSource y Azure Marketplace, se va capturando información. Una vez que los clientes ha demostrado un interés suficiente, se crea un cliente potencial y se envía la oportunidad al sistema de su elección. Los editores que aprovechan nuestro marketplace comercial suelen hacer un seguimiento de los clientes potenciales, desarrollar relaciones con ellos y convertir el interés en oportunidades de negocio.
 
 
-      For more information, see [Customer leads from your marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+      Para más información, consulte [Clientes potenciales a partir de la oferta de Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
   - question: >
-      Why aren't my changes reflected in the offer on Microsoft AppSource or Azure Marketplace?
+      ¿Por qué mis cambios en la oferta no se reflejan en Microsoft AppSource o Azure Marketplace?
     answer: >
-      Changes made within Partner Center are updated in the system and commercial marketplaces only after you've republished the offer. Make sure that you've submitted the offer for publication after any changes.
+      Los cambios realizados en el Centro de partners se actualizan en el sistema y en los marketplaces comerciales solo después de haber vuelto a publicar la oferta. Asegúrese de que ha enviado la oferta para su publicación después de cualquier modificación.
 - name: Canales
   questions:
   - question: >
-      Where can customers find my commercial marketplace offers?
+      ¿Dónde pueden encontrar los clientes mis ofertas del marketplace comercial?
     answer: >
-      Offers are presented to customers through in-product experiences, websites, resellers, and Microsoft sales teams based on how you've configured them and the context of the customers' actions. If your software is used directly with Azure, Microsoft 365, Dynamics 365, or the Power Platform service, customers can find it within the product. Microsoft AppSource and Azure Marketplace are split by offer types and audiences, and resellers can access your offer only if you've opted in to the Cloud Solution Provider (CSP) program.
+      Las ofertas se presentan a los clientes por medio de experiencias en el producto, sitios web, revendedores y equipos de ventas de Microsoft, en función de cómo las haya configurado y del contexto de las acciones de los clientes. Si el software se usa directamente con Azure, Microsoft 365, Dynamics 365 o el servicio Power Platform, los clientes pueden encontrarlo en el producto. Microsoft AppSource y Azure Marketplace se dividen por tipos de oferta y audiencias, y los revendedores pueden acceder a la oferta solo si está suscrito al programa Proveedor de soluciones en la nube (CSP).
   - question: >
-      Can my offer appear in both Microsoft AppSource and Azure Marketplace?
+      ¿Puede aparecer mi oferta en Microsoft AppSource y en Azure Marketplace a la vez?
     answer: >
-      Microsoft AppSource is the destination for business and industry solutions, and Azure Marketplace is designed for IT and developer solutions. Offers are available in each of the online stores based on categories and industries that you selected during the offer creation. In the rare case that the offer is relevant to the users of both online stores, it can appear in both.
+      Microsoft AppSource es el destino de las soluciones empresariales y del sector, y Azure Marketplace está diseñado para soluciones de TI y de desarrollador. Las ofertas están disponibles en cada uno de llas tiendas en línea en función de las categorías y los sectores que seleccionara durante la creación de la oferta. En el caso excepcional de que la oferta sea pertinente para los usuarios de ambas tiendas en línea, puede aparecer en ambos.
   - question: >
-      What is the Cloud Solution Provider program?
+      ¿Qué es el programa Proveedor de soluciones en la nube?
     answer: >
-      Our global network of resellers includes tens of thousands of organizations who take part in the Cloud Solution Provider program. The CSP program enables organizations to resell our products and offers from the commercial marketplace, and it gives them the tools to do it successfully.
+      Nuestra red mundial de revendedores incluye decenas de miles de organizaciones que participan en el programa Proveedor de soluciones en la nube. El programa CSP permite a las organizaciones revender nuestros productos y ofertas del marketplace comercial y les proporciona las herramientas para hacerlo correctamente.
 
 
-      For more information, see [Cloud Solution Providers](cloud-solution-providers.md).
+      Para más información, consulte [Proveedor de soluciones en la nube](cloud-solution-providers.md).
   - question: >
-      How can I find resellers to establish partnerships?
+      ¿Cómo puedo encontrar revendedores para establecer asociaciones?
     answer: >
-      By using the [solution provider directory](https://www.microsoft.com/solution-providers/home), you can search for our partners by location, products, services, skills, industries, or organization name.
+      Con el [directorio de proveedores de soluciones](https://www.microsoft.com/solution-providers/home), puede buscar a nuestros partners por la ubicación, los productos, los servicios, los conocimientos, los sectores o el nombre de la organización.
   - question: >
-      Can I limit the resellers who are allowed to sell my offer?
+      ¿Puedo limitar los revendedores a los que se les permite vender mi oferta?
     answer: >
-      Yes, you can make offers available to all resellers in the Cloud Solution Provider program or only to those whom you specify.
+      Sí, puede hacer que las ofertas estén disponibles para todos los revendedores en el programa Proveedor de soluciones en la nube o solo para aquellos que especifique.
 
 
-      For more information, see [Cloud Solution Providers](cloud-solution-providers.md).
+      Para más información, consulte [Proveedor de soluciones en la nube](cloud-solution-providers.md).
   - question: >
-      How can I pay margin to resellers?
+      ¿Cómo puedo pagar el margen a los revendedores?
     answer: >
-      The commercial marketplace doesn't have the ability to specify margin for resellers or pay it to them directly and automatically. However, you can create agreements, sales contests, or margins outside the commercial marketplace systems.
+      El marketplace comercial no tiene la capacidad de especificar un margen para los revendedores ni de pagarlo directa y automáticamente. Sin embargo, puede crear contratos, concursos de ventas o márgenes fuera de los sistemas del marketplace comercial.
   - question: >
-      How does geographic availability work with resellers?
+      ¿Cómo funciona la disponibilidad geográfica con los revendedores?
     answer: >
-      The availability of your offers and plans is defined by customers' billing locations. Resellers first select the customers they're selling to and then select your offer. If a customer is in an unsupported location, your offer won't be available to them.
+      La disponibilidad de las ofertas y los planes se define según la ubicación de facturación del cliente. En primer lugar, los revendedores seleccionan los clientes a los que están vendiendo y luego seleccionan la oferta. Si un cliente está en una ubicación no admitida, la oferta no estará disponible para él.
 - name: Capacidades de facturación
   questions:
   - question: >
-      What's the difference between transaction and monetization?
-    answer: "- Transaction is the exchange of money for goods. An offer is considered transactable in the commercial marketplace if it has a price and is paid for by the customer through our billing and collections. \n- Monetization is the ability to charge money for your intellectual property, which can happen within or outside our commerce platform. For example, your bring-your-own-license (BYOL) Teams app can be monetized with a transactable SaaS licensing service.\n"
+      ¿Cuál es la diferencia entre la transacción y la monetización?
+    answer: "- La transacción es el intercambio de dinero por mercancía. Una oferta se considera objeto de transacción en el marketplace comercial si tiene un precio que el cliente paga por medio de nuestro sistema de facturación y cobros. \n- La monetización es la capacidad de cobrar dinero por la propiedad intelectual, lo que puede producirse dentro o fuera de nuestra plataforma de comercio. Por ejemplo, la aplicación de Teams de tipo \"traiga su propia licencia\" (BYOL) se puede monetizar con un servicio de licencias de SaaS comercializable.\n"
   - question: >
-      What offer types are transacted through Microsoft?
+      ¿Qué tipos de oferta se comercializan mediante Microsoft?
     answer: >
-      *Get It Now* offers can be handled through Microsoft for some delivery models. This is currently supported with the following delivery models:
+      Las ofertas de tipo *Obtener ahora* se pueden administrar mediante Microsoft en algunos modelos de entrega. Actualmente, esta opción se admite con los siguientes modelos de entrega:
 
-      - VM images
+      - Imágenes de VM
 
-      - Azure apps (managed applications)
+      - Aplicaciones de Azure (aplicaciones administradas)
 
-      - SaaS apps
+      - Aplicaciones SaaS
   - question: >
-      What billing models are supported in the commercial marketplace?
+      ¿Qué modelos de facturación se admiten en el marketplace comercial?
     answer: >
-      - VM images are billed based on hourly usage, and the price is set per hour.
+      - Las imágenes de máquina virtual se facturan en función del uso por hora y el precio se establece por hora.
 
-      - Managed applications are billed based on an optional monthly flat fee, plus metered billing and any usage costs for VM images that are used by the app.
+      - Las aplicaciones administradas se facturan en función de una tarifa fija mensual opcional, más la facturación de uso medido y los costos de uso de las imágenes de VM que usa la aplicación.
 
-      - SaaS applications are billed based on a flat rate, per user, or by custom metering on a monthly or annual basis.
+      - Las aplicaciones SaaS se facturan en función de una tarifa fija, por usuario o por medidores personalizados con una frecuencia mensual o anual.
   - question: >
-      Can I monetize offer types that are not transactable?
+      ¿Puedo monetizar tipos de ofertas que no son comercializables?
     answer: >
-      Although not all offer types are transactable, you can still reach millions of customers and monetize your intellectual property. By adding a license check within your solution, you can collect payment for licenses. Selling licenses can be done through Microsoft or separately.
+      Aunque no todos los tipos de oferta son comercializables, tiene la opción de llegar a millones de clientes y monetizar su propiedad intelectual. Si agrega una comprobación de licencia dentro de la solución, puede cobrar por las licencias. La venta de licencias se pueden realizar a través de Microsoft o de forma independiente.
   - question: >
-      Can I offer a software trial through the commercial marketplace?
+      ¿Puedo ofrecer una evaluación de software mediante el marketplace comercial?
     answer: >
-      Yes, and there are multiple ways to offer free trials:
+      Sí, y hay varias maneras de ofrecer versiones de evaluación gratuitas:
 
 
-      - The preferred method is to add a free period at the beginning of paid SaaS offers (one month) and VM image offers (one or three months). The customer will receive a $0.00 charge, and after the trial period ends, the subscription automatically changes to paid. The contract term then starts at that point.
+      - El método preferido es agregar un período gratuito al principio de las ofertas de SaaS de pago (un mes) y de las ofertas de imágenes de máquina virtual (de uno o tres meses). El cliente recibirá un cargo de 0.00 USD; una vez finalizado el período de prueba, la suscripción cambiará automáticamente a una opción de pago. A partir de ese momento comienza el plazo del contrato.
 
-      - You can create a SaaS offer listing that takes the customer to a web address of your choice to start a trial outside of the commercial marketplace. Some offer types support a *Test Drive* that lets you provide the customer with a demo.
+      - Puede crear un anuncio de la oferta de SaaS que lleve al cliente a la dirección web que haya elegido para iniciar una prueba fuera del marketplace comercial. Algunos tipos de oferta admiten una *Versión de prueba* que le permite proporcionar al cliente una demostración.
   - question: >
-      Who pays for the underlying Azure consumption?
+      ¿Quién paga por el consumo de Azure subyacente?
     answer: >
-      If the solution is used directly in a customer's Azure subscription, the customer is responsible for paying the Azure costs. If the solution is used in your Azure subscription, such as in the case of SaaS applications, you're responsible for the Azure costs. You should account for that in the cost of the customer's SaaS subscription.
+      Si la solución se usa directamente en la suscripción de Azure de un cliente, el cliente es responsable de pagar los costos de Azure. Si la solución se usa en la suscripción de Azure, como en el caso de las aplicaciones SaaS, usted es responsable de los costos de Azure. Tome esto en cuenta en el costo de la suscripción de SaaS del cliente.
   - question: >
-      Can I sell professional services through the commercial marketplace?
+      ¿Puedo vender servicios profesionales mediante el marketplace comercial?
     answer: >
-      Software that's built on or built for our cloud services can be transacted through the commercial marketplace. Professional services are not yet transactable.
+      El marketplace comercial admite las transacciones relacionadas con software que se integra en nuestros servicios en la nube o que se ha creado para ellos. Todavía no se pueden crear transacciones por servicios profesionales.
 - name: Compra
   questions:
   - question: >
-      What's required to purchase solutions from Microsoft AppSource or Azure Marketplace?
+      ¿Qué se necesita para comprar soluciones de Microsoft AppSource o Azure Marketplace?
     answer: >
-      Azure Marketplace requires customers to have an Azure Active Directory ID and an active Azure subscription. If neither or only one requirement is in place, the customer is asked to create them in the purchase flow.
+      Azure Marketplace requiere que los clientes tenga un identificador de Azure Active Directory y una suscripción activa de Azure. Si no hay ninguno o sólo un requisito, se solicita al cliente que los cree en el flujo de compras.
 
 
-      Microsoft AppSource requires customers to have an Azure Active Directory ID. If the ID doesn't exist, the customer is asked to create it in the purchase flow.
+      Microsoft AppSource requiere que los clientes tenga un identificador de Azure Active Directory. Si no tiene el identificador, se solicita al cliente que lo cree en el flujo de compra.
   - question: >
-      What payment methods are supported with the commercial marketplace?
+      ¿Qué métodos de pago se admiten en el marketplace comercial?
     answer: >
-      Microsoft AppSource supports credit card payments. Azure Marketplace supports credit card payments or invoicing. Offers purchased through Azure Marketplace are automatically added to customers' Azure bill and are charged according to the payment method associated with their subscription.
+      Microsoft AppSource admite los pagos con tarjeta de crédito. Azure Marketplace admite pagos o la facturación con tarjeta de crédito. Las ofertas adquiridas por medio de Azure Marketplace se agregan automáticamente a la factura de Azure de los clientes y se cobran según el método de pago asociado a su suscripción.
   - question: >
-      Can customers apply Azure credits or sponsorship toward purchases?
+      ¿Los clientes pueden solicitar créditos de Azure o patrocinio para las compras?
     answer: >
-      No, prepaid or sponsored Azure spend can't be used to buy partner solutions from Azure Marketplace.
+      No se puede usar ningún gasto de Azure de prepago o patrocinio para comprar soluciones de partners en Azure Marketplace.
   - question: >
-      What Azure subscription permissions are required to complete a purchase?
+      ¿Qué permisos de suscripción de Azure son necesarios para realizar una compra?
     answer: >
-      The user account must have *Owner* or *Contributor* permissions on the Azure subscription.
+      La cuenta de usuario debe tener permisos de *Propietario* o *Colaborador* en la suscripción de Azure.
   - question: >
-      In what countries/regions can customers purchase from Microsoft AppSource and Azure Marketplace?
+      ¿En qué países o regiones pueden comprar los clientes las ofertas de Microsoft AppSource y Azure Marketplace?
     answer: >
-      Customers can get solutions from the commercial marketplace in 141 locations around the world.
+      Los clientes pueden conseguir soluciones del marketplace comercial en 141 ubicaciones de todo el mundo.
 
 
-      To review the list of locations, go to [Tax details for commercial marketplace publishers](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
+      Para revisar la lista de ubicaciones, vaya a [Información sobre impuestos para los publicadores de Marketplace comercial](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
   - question: >
-      What currencies are supported with the commercial marketplace?
+      ¿Qué monedas se admiten en el marketplace comercial?
     answer: >
-      Transactions can be handled in the following 17 currencies:
+      Se pueden llevar a cabo transacciones en las 17 monedas siguientes:
 
       - AUD
 
@@ -288,97 +288,97 @@ sections:
       - USD
 
 
-      To review the list of currencies, go to [Geographic availability and currency support for commercial marketplace](marketplace-geo-availability-currencies.md).
+      Para revisar la lista de divisas, vaya a [Disponibilidad geográfica y compatibilidad con monedas para Marketplace comercial](marketplace-geo-availability-currencies.md).
   - question: >
-      Can customers change subscriptions or license volumes mid-term?
+      ¿Pueden los clientes cambiar suscripciones o volúmenes de licencias a mitad del plazo?
     answer: >
-      Customers can increase or decrease user counts for per-user SaaS subscriptions at any time. The license subscription terms will remain the same regardless of any volume or plan upgrades. Plan changes are also supported for existing subscriptions via the application programming interfaces (APIs). Publishers can use API calls to change the customer's subscription plan. We encourage independent software vendors (ISVs) to consider a customer's user experience within the SaaS solution for upgrade and downgrade situations.
+      Los clientes pueden aumentar o disminuir los recuentos de usuarios en las suscripciones de SaaS por usuario en cualquier momento. Los términos de la suscripción de licencias seguirán siendo los mismos independientemente de cualquier volumen o actualización del plan. También se admiten cambios en el plan de las suscripciones existentes por medio de las interfaces de programación de aplicaciones (API). Los editores pueden usar llamadas API para cambiar el plan de suscripción del cliente. Recomendamos a los proveedores de software independientes que tengan en cuenta la experiencia de usuario de un cliente en la solución de SaaS en lo que respecta a las situaciones de actualización y de cambio a una versión anterior.
 
 
-      If the plan is changed for an existing subscription, the term remains unchanged, and the cost is prorated according to the duration of the remaining term.
+      Si se cambia el plan de una suscripción existente, el plazo no se modifica y el costo se prorratea en función de la duración del período restante.
   - question: >
-      What could block a customer from completing a purchase?
+      ¿Qué podría impedir que un cliente completara una compra?
     answer: >
-      For Microsoft AppSource, the customer must have a credit card with a billing address in the same country/region as their Azure AD instance, and the customer's Azure AD admin must ensure that the system doesn't prevent authentication to Microsoft AppSource.
+      En Microsoft AppSource, el cliente debe tener una tarjeta de crédito con una dirección de facturación en el mismo país o región que su instancia de Azure AD y el administrador de Azure AD del cliente debe asegurarse de que el sistema no impide la autenticación en Microsoft AppSource.
 
 
-      For Azure Marketplace, the customer must have an active Azure subscription and a user account with *Owner* or *Contributor* permissions on that subscription. The customer's Azure administrator must ensure that the Azure Policy doesn't conflict with the offer being used, and that cost management can't be set up to disable Azure Marketplace.
+      En Azure Marketplace, el cliente debe tener una suscripción activa de Azure y una cuenta de usuario con permisos de *Propietario* o *Colaborador* en esa suscripción. El administrador de Azure del cliente debe asegurarse de que el servicio de Azure Policy no entra en conflicto con la oferta que se usa y que no se puede configurar Cost Management para deshabilitar Azure Marketplace.
 - name: Cobro y pagos
   questions:
   - question: >
-      When are customers billed for their purchases in the commercial marketplace?
+      ¿Cuándo se factura a los clientes por sus compras en el marketplace comercial?
     answer: >
-      Customers are usually billed monthly for any purchases in the previous billing cycle. Consumption-based offers with metered billing plans, such as VM images, SaaS applications, and managed applications, are charged after they've been used. Subscription-based plans are charged at the beginning of the term.
+      Normalmente, se factura mensualmente a los clientes por cualquier compra realizada en el ciclo de facturación anterior. Las ofertas basadas en el consumo con planes de facturación de uso medido, como imágenes de VM, aplicaciones SaaS y aplicaciones administradas, se cobran después de que se hayan usado. Los planes basados en suscripciones se cobran al principio del plazo.
   - question: >
-      How often will I receive payouts for sales through the commercial marketplace?
-    answer: "Payouts happen monthly. For details on payment schedules, finding your upcoming payouts in Partner Center, and how we deal with customer non-payments, see [Payout policy details](/partner-center/payout-policy-details?context=/azure/marketplace/context/context).\n\n- For transactions where the customer used an Enterprise Agreement, payouts are issued in the next payout cycle 30-days post customer invoice. \n- For transactions where the customer used a credit card, there is an additional 30-day escrow period after we receive payment to ensure funds clear and there are no chargebacks or suspected fraud.\n\nPayouts are issued only when sales have reached a minimum combined value of $50.00.\n\nFor more information, see [Payment thresholds, methods, and time frames](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context).\n"
+      ¿Con qué frecuencia se pueden recibir pagos por ventas por medio del marketplace comercial?
+    answer: "Los pagos se llevan a cabo mensualmente. Para obtener más información sobre las programaciones de pago, el procedimiento para buscar los pagos futuros en el Centro de partners y la manera en que se tratan los impagos de clientes, consulte [Detalles de la directiva de pago](/partner-center/payout-policy-details?context=/azure/marketplace/context/context).\n\n- En el caso de las transacciones en las que el cliente usó un Contrato Enterprise, los pagos se emiten en el siguiente ciclo de pago, 30 días después de la factura del cliente. \n- En el caso de las transacciones en las que el cliente usó una tarjeta de crédito, hay un período de custodia adicional de 30 días después de que hayamos recibido el pago, con el fin de garantizar que los fondos están disponibles y no hay contracargos ni posibles fraudes.\n\nLos pagos solo se emiten cuando las ventas han alcanzado un valor mínimo combinado de 50,00 USD.\n\nPara más información, consulte [Umbrales de pago, métodos e intervalos de tiempo](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context).\n"
   - question: >
-      In what countries/regions are taxes managed on my behalf?
-    answer: "Customers can find solutions from the commercial marketplace around the world, and we manage taxes in many locations. \n\nTo review the full list of locations, go to [Tax details for commercial marketplace publishers](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).\n"
+      ¿En qué países o regiones se administran los impuestos en mi nombre?
+    answer: "Los clientes pueden encontrar soluciones de nuestro marketplace comercial en todo el mundo y nos encargamos de la parte fiscal en muchas ubicaciones. \n\nPara revisar la lista completa de ubicaciones, vaya a [Información sobre impuestos para los publicadores de Marketplace comercial](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).\n"
   - question: >
-      Where can I find payout reporting for the commercial marketplace?
+      ¿Dónde puedo encontrar informes de pago del marketplace comercial?
     answer: >
-      Within Partner Center, a user with *Owner* or *Financial Contributor* permissions can view payout reporting. These users can access reports at the upper right by selecting the icon showing a hand holding a bill.
+      En el Centro de partners, un usuario con permisos de *Propietario* o *Colaborador* financiero puede ver los informes de pago. Estos usuarios pueden tener acceso a los informes de la parte superior derecha al seleccionar el icono que muestra una mano que contiene una factura.
 
 
-      For more information, see [Payout statements](/partner-center/payout-statement?context=/azure/marketplace/context/context).
+      Para obtener más información, consulte [Extractos de pagos](/partner-center/payout-statement?context=/azure/marketplace/context/context).
   - question: >
-      How do I configure my payout method and destination?
+      ¿Cómo configuro el método y el destino de pago?
     answer: >
-      With Partner Center, users with *Owner* permissions can set up the payout account and tax forms. Users can do this by selecting the **Settings** button (gear icon) at the upper right.
+      Con el Centro de partners, los usuarios con permisos de *Propietario* puede configurar la cuenta de pago y los formularios fiscales. Los usuarios pueden hacerlo seleccionando el botón de **configuración** (icono de engranaje) en la esquina superior derecha.
 
 
-      For more information, see [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context).
+      Para obtener más información, consulte [Configuración de la cuenta de pago y los formularios de impuestos](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context).
   - question: >
-      Are returns and refunds supported with the commercial marketplace?
-    answer: "Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase. \n\nRefunds are not issued for variable charges resulting from usage (from either virtual machine offers or metered billing).\n\n> [!NOTE]\n> Refunds are not granted for metered usage of Virtual Machines, metered billing for SaaS and Azure Apps, or other instances of product consumption (Pay as you Go, etc.).  If a vendor does receive a refund, it will be reflected in the Partner Center [payout reporting](/partner-center/payout-statement?context=/azure/marketplace/context/context).\n"
+      ¿Se admiten devoluciones y reembolsos en el marketplace comercial?
+    answer: "Los clientes tienen el reembolso disponibles con ciertas condiciones y para determinados cargos. Las solicitudes de reembolso para cargos periódicos facturados mensualmente se deben recibir en un plazo de 24 horas a partir de la compra. Del mismo modo, las solicitudes de reembolso de cargos periódicos facturados anualmente se deben recibir en los 14 días siguientes a la compra. \n\nNo se emiten reembolsos por los cargos variables resultantes del uso (de ofertas de máquina virtual o facturación de uso medido).\n\n> [!NOTE]\n> No se conceden reembolsos por el uso medido de Virtual Machines, la facturación medida de aplicaciones SaaS y de Azure, u otras instancias de consumo de productos (pago por uso, etc.)  Si un proveedor recibe un reembolso, se reflejará en los [informes de pagos](/partner-center/payout-statement?context=/azure/marketplace/context/context) del Centro de partners.\n"
 - name: Recursos
   questions:
   - question: >
-      Where can I find more information about the commercial marketplace?
+      ¿Dónde puedo encontrar más información sobre el marketplace comercial?
     answer: >
-      Here are some resources to get you started:
+      Aquí tiene algunos recursos para empezar:
 
 
-      - [What is the Microsoft commercial marketplace?](overview.md)
+      - [¿Qué es el marketplace comercial de Microsoft?](overview.md)
 
-      - [Microsoft commercial marketplace partner hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
+      - [Centro de conectividad del marketplace comercial de Microsoft](https://aka.ms/commercialmarketplacehub)
   - question: >
-      How can I engage with Microsoft and other partners?
+      ¿Cómo puedo interactuar con Microsoft y otros partners?
     answer: >
-      We recommend these resources:
+      Se recomiendan estos recursos:
 
 
-      - To join the Microsoft Partner Community, see [Microsoft AppSource and Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222).
+      - Para unirse a la Comunidad de partners de Microsoft, consulte [Microsoft AppSource y Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222).
 
-      - Learn about and join the [Microsoft Commercial Marketplace Insiders Program](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/Commercial-Marketplace-Insiders-Program/td-p/13743).
+      - Para más información sobre [Microsoft Commercial Marketplace Insiders Program](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/Commercial-Marketplace-Insiders-Program/td-p/13743) y únase a este programa.
   - question: >
-      Where can I learn more about Partner Center?
+      ¿Dónde puedo obtener más información sobre el Centro de partners?
     answer: >
-      - [Partner Center documentation](/partner-center/)
+      - [Documentación del Centro de partners](/partner-center/)
 
-      - [Welcome to the commercial marketplace](index.yml)
+      - [Bienvenido a Marketplace comercial](index.yml)
   - question: >
-      Where can I learn more about the Microsoft Admin Center?
+      ¿Dónde puedo obtener más información sobre el centro de administración de Microsoft?
     answer: >
-      For information about the Microsoft Admin Center, see [Manage third-party app subscriptions for your organization](/microsoft-365/commerce/manage-saas-apps).
+      Para más información sobre el centro de administración de Microsoft, consulte [Administrar suscripciones de aplicaciones de terceros para la organización](/microsoft-365/commerce/manage-saas-apps).
   - question: >
-      Where can I learn more about Azure billing?
+      ¿Dónde puedo obtener más información sobre la facturación de Azure?
     answer: >
-      - [Azure Cost Management + Billing documentation](../cost-management-billing/index.yml)
+      - [Documentación sobre Administración de costos + facturación](../cost-management-billing/index.yml)
 
-      - [Understand Azure Marketplace charges on your Azure bill](../cost-management-billing/understand/understand-azure-marketplace-charges.md)
+      - [Descripción de los gastos de servicios externos de Azure](../cost-management-billing/understand/understand-azure-marketplace-charges.md)
 
-      - [Convert Azure subscription to invoice payment](../cost-management-billing/manage/pay-by-invoice.md)
+      - [Pago de las suscripciones de Azure con factura](../cost-management-billing/manage/pay-by-invoice.md)
   - question: >
-      Where can I learn about Azure Government and the Azure Government Marketplace?
+      ¿Dónde puedo obtener información sobre Azure Government y el marketplace de Azure Government?
     answer: >-
       - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
 
       - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
 
-      - [Azure Government documentation](../azure-government/index.yml)
+      - [Documentación de Azure Government](../azure-government/index.yml)
 
-      - [Azure Government marketplace](../azure-government/documentation-government-manage-marketplace.md)
+      - [Marketplace de Azure Government](../azure-government/documentation-government-manage-marketplace.md)
 
-      - [Azure Government compliance](../azure-government/documentation-government-plan-compliance.md)
+      - [Cumplimiento de Azure Government](../azure-government/documentation-government-plan-compliance.md)

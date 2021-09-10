@@ -1,6 +1,6 @@
 ---
-title: Habilitación de la autenticación en una aplicación web mediante los bloques de creación de Azure Active Directory B2C
-description: Bloques de creación de Azure Active Directory B2C para registrar e iniciar sesión con usuarios en una aplicación web para ASP.NET.
+title: Habilitación de la autenticación en una aplicación web mediante los bloques de creación de Azure Active Directory B2C
+description: En este artículo se describe cómo usar los bloques de creación de Azure Active Directory B2C para registrar e iniciar sesión con usuarios en una aplicación web para ASP.NET.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,37 +11,39 @@ ms.date: 06/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 2a89f2c5179e9280e09741d8fc524406698c31e0
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 0fc28097220918f8d9cde8f44c156a5de82a5e50
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071540"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469669"
 ---
-# <a name="enable-authentication-in-your-own-web-application-using-azure-active-directory-b2c"></a>Habilitación de la autenticación en su propia aplicación web mediante Azure Active Directory B2C
+# <a name="enable-authentication-in-your-own-web-app-by-using-azure-ad-b2c"></a>Habilitación de la autenticación en una aplicación web propia mediante Azure AD B2C
 
-En este artículo se muestra cómo agregar la autenticación de Azure Active Directory B2C (Azure AD B2C) a su propia aplicación web de ASP.NET. Aprenda a crear una aplicación web de ASP.NET Core con middleware de ASP.NET Core que usa el protocolo [OpenID Connect](openid-connect.md). Use este artículo junto con el artículo [Configuración de la autenticación en una aplicación web de ejemplo](configure-authentication-sample-web-app.md) cuando sustituya la aplicación web de ejemplo por la suya propia.
+En este artículo se muestra cómo agregar la autenticación de Azure Active Directory B2C (Azure AD B2C) a su propia aplicación web de ASP.NET. Aprenda a crear una aplicación web de ASP.NET Core con middleware de ASP.NET Core que usa el protocolo [OpenID Connect](openid-connect.md). 
+
+Use este artículo junto con [Configuración de la autenticación en una aplicación web de ejemplo](configure-authentication-sample-web-app.md) y sustituya la aplicación web de ejemplo por una propia.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Revise los requisitos previos y los pasos de integración de [Configuración de la autenticación en una aplicación web de ejemplo](configure-authentication-sample-web-app.md).
+Para revisar los requisitos previos y las instrucciones de integración, vea [Configuración de la autenticación en una aplicación web de ejemplo](configure-authentication-sample-web-app.md).
 
-## <a name="create-a-web-app-project"></a>Creación de un proyecto de aplicación web
+## <a name="step-1-create-a-web-app-project"></a>Paso 1: Creación de un proyecto de aplicación web
 
-Puede usar un proyecto de aplicación web MVC de ASP.NET existente o crear uno nuevo. Para crear un nuevo proyecto, abra un shell de comandos y escriba el siguiente comando:
+Puede usar un proyecto existente de aplicación web Modelo-Vista-Controlador (MVC) de ASP.NET o crear uno. Para crear un proyecto, abra un shell de comandos y escriba el comando siguiente:
 
 ```dotnetcli
 dotnet new mvc -o mywebapp
 ```
 
-El comando anterior:
+El comando anterior hace lo siguiente:
 
-* Crea una nueva aplicación web MVC.  
+* Crea una aplicación web MVC.  
 * El parámetro `-o mywebapp` crea un directorio llamado *mywebapp* con los archivos de código fuente de la aplicación.
 
-## <a name="add-the-authentication-libraries"></a>Adición de las bibliotecas de autenticación
+## <a name="step-2-add-the-authentication-libraries"></a>Paso 2: Adición de las bibliotecas de autenticación
 
-En primer lugar, agregue la biblioteca web de identidad de Microsoft. Se trata de un conjunto de bibliotecas de ASP.NET Core que simplifican la adición de la compatibilidad con la autenticación y la autorización de Azure AD B2C en la aplicación web. La biblioteca Microsoft Identity Web configura la canalización de autenticación con la autenticación basada en cookies. Se encarga de enviar y recibir mensajes de autenticación HTTP, la validación de tokens, la extracción de notificaciones, etc.
+Agregue la biblioteca Microsoft Identity Web, que es un conjunto de bibliotecas de ASP.NET Core que simplifican la adición de la compatibilidad con la autenticación y la autorización de Azure AD B2C en la aplicación web. La biblioteca Microsoft Identity Web configura la canalización de autenticación con la autenticación basada en cookies. Se encarga de enviar y recibir mensajes de autenticación HTTP, la validación de tokens, la extracción de notificaciones, etc.
 
 Para agregar la biblioteca Microsoft Identity Web, instale los paquetes mediante la ejecución de los siguientes comandos: 
 
@@ -62,11 +64,11 @@ Install-Package Microsoft.Identity.Web.UI
 ---
 
 
-## <a name="initiate-the-authentication-libraries"></a>Inicio de las bibliotecas de autenticación
+## <a name="step-3-initiate-the-authentication-libraries"></a>Paso 3: Inicio de las bibliotecas de autenticación
 
 El middleware Microsoft Identity Web usa una clase de inicio que se ejecuta cuando se inicia el proceso de hospedaje. En este paso, agregará el código necesario para iniciar las bibliotecas de autenticación.
 
-Abra `Startup.cs` y agregue las siguientes declaraciones `using` al principio de la clase :
+Abra el archivo *Startup.cs* y, a continuación, agregue las siguientes declaraciones `using` al principio de la clase:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -75,9 +77,9 @@ using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 ```
 
-Dado que Microsoft Identity Web usa la autenticación basada en cookies para proteger la aplicación web, el código siguiente establece la configuración de cookies *SameSite*. A continuación, lee la configuración de la aplicación `AzureAdB2C` e inicia el controlador de middleware con su vista. 
+Dado que Microsoft Identity Web usa la autenticación basada en cookies para proteger la aplicación web, el código siguiente establece la configuración de cookies *SameSite*. Después, lee la configuración de la aplicación `AzureAdB2C` e inicia el controlador de middleware con su vista. 
 
-Reemplace la función `ConfigureServices(IServiceCollection services)` por el fragmento de código siguiente. 
+Reemplace la función `ConfigureServices(IServiceCollection services)` por el siguiente fragmento de código: 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -105,7 +107,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-El código siguiente agrega la directiva de cookies y usa el modelo de autenticación. Reemplace la función `Configure` por el fragmento de código siguiente. 
+El código siguiente agrega la directiva de cookies y usa el modelo de autenticación. Reemplace la función `Configure` por el siguiente fragmento de código: 
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -143,11 +145,11 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 };
 ```
 
-## <a name="add-the-ui-elements"></a>Adición de elementos de la interfaz de usuario
+## <a name="step-4-add-the-ui-elements"></a>Pas 4: Adición de elementos de la interfaz de usuario
 
-Para agregar elementos de la interfaz de usuario, use una vista parcial que contenga lógica para comprobar si un usuario ha iniciado sesión o no. Si el usuario no ha iniciado sesión, la vista parcial representa el botón de inicio de sesión. Si el usuario ha iniciado sesión, se muestra el nombre para mostrar del usuario y el botón de cerrar sesión.
+Para agregar elementos de la interfaz de usuario, use una vista parcial que contenga lógica para comprobar si los usuarios han iniciado sesión. Si los usuarios no han iniciado sesión, la vista parcial representa el botón de inicio de sesión. Si han iniciado sesión, se muestra el nombre para mostrar del usuario y el botón de cierre de sesión.
   
-Cree un nuevo archivo `_LoginPartial.cshtml` dentro de la carpeta `Views/Shared` con el siguiente fragmento de código:
+Cree un archivo *\_LoginPartial.cshtml* dentro de la carpeta */Views/Shared* con el fragmento de código siguiente:
 
 ```razor
 @using System.Security.Principal
@@ -181,12 +183,12 @@ else
 }
 ```
 
-Modifique `Views\Shared\_Layout.cshtml` para incluir el archivo *_LoginPartial.cshtml* que agregó. El archivo *_Layout.cshtml* es un diseño común que proporciona al usuario una experiencia coherente a medida que navega de página a página. El diseño incluye elementos comunes de la interfaz de usuario, como el encabezado y el pie de página de la aplicación.
+Modifique el archivo */Views/Shared_Layout.cshtml* para incluir el archivo *_LoginPartial.cshtml* que ha agregado. El archivo *_Layout.cshtml* es un diseño común que proporciona a los usuarios una experiencia coherente a medida que navegan entre páginas. El diseño incluye elementos comunes de la interfaz de usuario, como el encabezado y el pie de página de la aplicación.
 
 > [!NOTE]
-> Dependiendo de la versión de .NET Core y de si va a agregar el inicio de sesión a una aplicación existente, los elementos de la interfaz de usuario podrían tener un aspecto diferente. Si es así, asegúrese de incluir *_LoginPartial* en la ubicación adecuada dentro del diseño de página.
+> En función de la versión de .NET Core que ejecute y de si va a agregar el inicio de sesión a una aplicación existente, los elementos de la interfaz de usuario podrían tener otro aspecto. Si es así, asegúrese de incluir *_LoginPartial* en la ubicación adecuada dentro del diseño de página.
 
-Abra */Views/Shared/_Layout.cshtml* y agregue el siguiente elemento `div`.
+Abra el archivo */Views/Shared/_Layout.cshtml* y agregue el siguiente elemento `div`.
 
 ```razor
 <div class="navbar-collapse collapse">
@@ -206,11 +208,11 @@ Reemplace este elemento con el siguiente código de Razor:
 </div>
 ```
 
-El código de Razor anterior incluye un vínculo a la acción `Claims` que creará en el siguiente paso.
+El código de Razor anterior incluye un vínculo a la acción `Claims` que creará en el paso siguiente.
 
-## <a name="add-the-claims-view"></a>Adición de la vista de notificaciones
+## <a name="step-5-add-the-claims-view"></a>Paso 5: Adición de la vista de notificaciones
 
-Para ver las notificaciones del token de identificador en la carpeta `Views/Home`, agregue la vista `Claims.cshtml`.
+Para ver las notificaciones del token de identificador en la carpeta */Views/Home*, agregue la vista *Claims.cshtml*.
 
 ```razor
 @using System.Security.Claims
@@ -236,9 +238,9 @@ Para ver las notificaciones del token de identificador en la carpeta `Views/Home
 </table>
 ```
 
-En este paso, agregará la acción `Claims` que vincula la vista *Claims.cshtml* al controlador *Home*. Usa el atributo `[Authorize]`, que limita el acceso a la acción Claims a los usuarios autenticados.  
+En este paso, agregará la acción `Claims` que vincula la vista *Claims.cshtml* al controlador *Home*. El atributo `Claims` usa el atributo `Authorize`, que limita el acceso a la acción para los usuarios autenticados.  
 
-En el controlador `/Controllers/HomeController.cs`, agregue la siguiente acción.
+En el controlador */Controllers/HomeController.cs*, agregue la siguiente acción:
 
 ```csharp
 [Authorize]
@@ -248,15 +250,15 @@ public IActionResult Claims()
 }
 ```
 
-Agregue la siguiente declaración `using` al comienzo de la clase:
+Agregue la siguiente declaración `using` al inicio de la clase:
 
 ```csharp
 using Microsoft.AspNetCore.Authorization;
 ```
 
-## <a name="add-the-app-settings"></a>Adición de la configuración de la aplicación
+## <a name="step-6-add-the-app-settings"></a>Paso 6: Adición de la configuración de la aplicación
 
-La configuración del proveedor de identidades de Azure AD B2C se almacena en el archivo `appsettings.json`. Abra appsettings.json y agregue los siguientes valores:
+La configuración del proveedor de identidades de Azure AD B2C se almacena en el archivo *appsettings.json*. Abra *appsettings.json* y agregue los valores siguientes:
 
 ```JSon
 "AzureAdB2C": {
@@ -270,20 +272,19 @@ La configuración del proveedor de identidades de Azure AD B2C se almacena en e
 
 La información necesaria se describe en el artículo [Configuración de la autenticación en una aplicación web de ejemplo](configure-authentication-sample-web-app.md). Use la configuración siguiente:
 
-* **Instancia**: reemplace `<your-tenant-name>` por la primera parte del [nombre del inquilino](tenant-management.md#get-your-tenant-name) de Azure AD B2C. Por ejemplo, `https://contoso.b2clogin.com`.
-* **Dominio**: reemplace `<your-b2c-domain>` por el [nombre completo del inquilino](tenant-management.md#get-your-tenant-name) de Azure AD B2C. Por ejemplo, `contoso.onmicrosoft.com`.
-* **Identificador de cliente**: reemplace `<web-app-application-id>` por el identificador de la aplicación del [paso 2](configure-authentication-sample-web-app.md#step-2-register-a-web-application).
-* **Nombre de directiva**: reemplace `<your-sign-up-in-policy>` por los flujos de usuario que creó en el [paso 1](configure-authentication-sample-web-app.md#step-1-configure-your-user-flow).
+* **Instancia**: reemplace `<your-tenant-name>` por la primera parte del [nombre del inquilino](tenant-management.md#get-your-tenant-name) de Azure AD B2C (por ejemplo, `https://contoso.b2clogin.com`).
+* **Dominio**: reemplace `<your-b2c-domain>` por el [nombre completo del inquilino](tenant-management.md#get-your-tenant-name) de Azure AD B2C (por ejemplo, `contoso.onmicrosoft.com`).
+* **Identificador de cliente**: reemplace `<web-app-application-id>` por el identificador de la aplicación del [paso 2](configure-authentication-sample-web-app.md#step-2-register-a-web-application).
+* **Nombre de directiva**: reemplace `<your-sign-up-in-policy>` por los flujos de usuario que ha creado en el [paso 1](configure-authentication-sample-web-app.md#step-1-configure-your-user-flow).
 
-## <a name="run-your-application"></a>Ejecución de la aplicación
+## <a name="step-7-run-your-application"></a>Paso 7: Ejecución de la aplicación
 
 1. Compile y ejecute el proyecto.
-1. Vaya a https://localhost:5001. 
-1. Seleccione **SignIn/Up** (Iniciar sesión o registrarse).
+1. Ir a `https://localhost:5001`. 
+1. Seleccione **Registrarse/Iniciar sesión**.
 1. Complete el proceso de inicio de sesión o registro.
 
-Después de autenticarse correctamente, verá el nombre para mostrar en la barra de navegación. Para ver las notificaciones que devuelve el token de Azure AD B2C a la aplicación, seleccione **Notificaciones**.
+Después de autenticarse correctamente, verá el nombre para mostrar en la barra de navegación. Para ver las notificaciones que el token de Azure AD B2C devuelve a la aplicación, seleccione **Notificaciones**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* Obtenga información sobre cómo [personalizar y mejorar la experiencia de autenticación de Azure AD B2C para la aplicación web](enable-authentication-web-application-options.md).
+* Obtenga información sobre cómo [personalizar y mejorar la experiencia de autenticación de Azure AD B2C para la aplicación web](enable-authentication-web-application-options.md).

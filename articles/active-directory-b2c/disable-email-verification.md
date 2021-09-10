@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 08/25/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0f70c8d501a7d56f4bc29e0f2b065760cad625e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7aab8497baa5c6b9a53a98ed76e6760fa54ffb0
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97585027"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864439"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Deshabilitar la comprobación del correo electrónico durante la suscripción de consumidores en Azure Active Directory B2C
 
@@ -44,11 +44,11 @@ Siga estos pasos para deshabilitar la comprobación de correo electrónico:
 1. Use el filtro **Directorio y suscripción** del menú superior para seleccionar el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Flujos de usuario**.
-1. Seleccione el flujo de usuario para el que desea deshabilitar la comprobación de correo electrónico. Por ejemplo, *B2C_1_signinsignup*.
+1. Seleccione el flujo de usuario para el que desea deshabilitar la comprobación de correo electrónico.
 1. Seleccione **Diseños de página**.
 1. Seleccione **Página de suscripción de cuenta local**.
 1. En **Atributos de usuario**, seleccione **Dirección de correo electrónico**.
-1. En el menú desplegable **REQUIERE VERIFICACIÓN**, seleccione **No**.
+1. En el menú desplegable **Requiere verificación**, seleccione **No**.
 1. Seleccione **Guardar**. La comprobación de correo electrónico se deshabilitará en este flujo de usuario.
 
 ::: zone-end

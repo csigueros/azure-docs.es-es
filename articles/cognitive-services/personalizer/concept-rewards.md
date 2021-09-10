@@ -1,16 +1,19 @@
 ---
 title: 'Puntuación de recompensa: Personalizer'
 description: La puntuación de recompensa indica el resultado que tuvo la elección de personalización, RewardActionID, para el usuario. El valor de la puntuación de recompensa viene determinado por la lógica de negocios, según las observaciones del comportamiento del usuario. Personalizer entrena sus modelos de Machine Learning mediante la evaluación de las recompensas.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 69e5aeff345bdf66d1b171738a2fbf14c7f8b15c
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: ec2c9ba7e700a79cffc70cfd4eab7ea780527cff
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453491"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867044"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Las puntuaciones de recompensa reflejan el éxito de la personalización.
 
@@ -97,7 +100,7 @@ Al sumar las puntuaciones de recompensa, su recompensa final puede estar fuera d
 
 Personalizer correlacionará la información de una llamada a Rank con las recompensas enviadas en las llamadas a Reward para entrenar el modelo. Esto pueden ocurrir en momentos diferentes. Personalizer espera durante un tiempo limitado, a partir del momento en que se produjo la llamada a Rank, incluso si la llamada de clasificación se realizó como un evento inactivo y se activó más tarde.
 
-Si se agota el **Tiempo de espera de las recompensas** y no se ha producido ninguna información de recompensa, se aplica una recompensa predeterminada a ese evento con fines de entrenamiento. La duración de espera máxima es de 6 días.
+Si se agota el **Tiempo de espera de las recompensas** y no se ha producido ninguna información de recompensa, se aplica una recompensa predeterminada a ese evento con fines de entrenamiento. La duración de espera máxima es de 2 días. Si el escenario requiere un tiempo de espera de recompensa más prolongado (por ejemplo, para campañas de marketing por correo electrónico), ofrecemos una versión preliminar privada con tiempos de espera más dilatados. Abra una incidencia de soporte técnico en Azure Portal para ponerse en contacto con el equipo con objeto de ver si reúne los requisitos y puede optar a esta versión.
 
 ## <a name="best-practices-for-reward-wait-time"></a>Procedimientos recomendados para el tiempo de espera de la recompensa
 

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 08/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0023d40fdc26fa1c42a67ce78a9259643098abb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9abc9e2e2ca2b9305cccf5cec554994c3703ef1
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96741412"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214500"
 ---
 # <a name="getting-started-with-azure-ad-multi-factor-authentication-and-active-directory-federation-services"></a>Introducción a Azure AD Multi-Factor Authentication y a los Servicios de federación de Active Directory
 
@@ -46,5 +46,5 @@ Advertencias sobre las contraseñas de aplicación para usuarios federados:
 Para información sobre cómo configurar Azure AD Multi-Factor Authentication o Servidor Azure Multi-Factor Authentication con AD FS, consulte los siguientes artículos:
 
 * [Protección de recursos en la nube con Azure AD Multi-Factor Authentication y AD FS](howto-mfa-adfs.md)
-* [Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con Windows Server 2012 R2 AD FS](howto-mfaserver-adfs-2012.md)
+* [Protección de recursos en la nube y locales mediante Servidor Microsoft Azure Multi-Factor Authentication con Windows Server](howto-mfaserver-adfs-windows-server.md)
 * [Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con AD FS 2.0](howto-mfaserver-adfs-2.md)

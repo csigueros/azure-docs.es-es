@@ -1,31 +1,31 @@
 ---
-title: 'Creación de un grupo de hosts de Azure Virtual Desktop con PowerShell: Azure'
-description: Creación de un grupo de hosts en Azure Virtual Desktop con cmdlets de PowerShell.
+title: 'Creación de un grupo de hosts de Azure Virtual Desktop: Azure'
+description: Procedimiento para crear un grupo de hosts en Azure Virtual Desktop con PowerShell o la CLI de Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 07/23/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 0b0822bf7653a076e579a0bec1cbfcc926d4c7b9
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: dbd48f8ff2b3da5cec432f6b1fba7d272621535c
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113651133"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100861"
 ---
-# <a name="create-a-azure-virtual-desktop-host-pool-with-powershell"></a>Creación de un grupo de hosts de Azure Virtual Desktop con PowerShell
+# <a name="create-an-azure-virtual-desktop-host-pool-with-powershell-or-the-azure-cli"></a>Creación de un grupo de hosts de Azure Virtual Desktop con PowerShell o la CLI de Azure
 
 >[!IMPORTANT]
 >Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 
 Los grupos de hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Azure Virtual Desktop. Cada grupo de hosts puede estar asociado a varios grupos de RemoteApp, un grupo de aplicaciones de escritorio y varios hosts de sesión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="create-a-host-pool"></a>Creación de un grupo de hosts
 
-En este artículo se supone que ya ha seguido las instrucciones del artículo [Configuración del módulo de PowerShell](powershell-module.md).
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Uso del cliente de PowerShell para crear un grupo hosts
+Si aún no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
 
 Ejecute el cmdlet siguiente para iniciar sesión en el entorno de Azure Virtual Desktop:
 
@@ -35,7 +35,7 @@ New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -W
 
 Este cmdlet creará el grupo de hosts, el área de trabajo y el grupo de aplicaciones de escritorio. Además, registrará el grupo de aplicaciones de escritorio en el área de trabajo. Solo puede crear un área de trabajo con este cmdlet o utilizar un área de trabajo existente.
 
-Ejecute el siguiente cmdlet para crear un token de registro para autorizar que un host de sesión se una el grupo de hosts y guárdelo en un archivo nuevo en el equipo local. Puede especificar cuánto tiempo es válido el token de registro mediante el parámetro -ExpirationHours.
+Ejecute el siguiente cmdlet para crear un token de registro para autorizar que un host de sesión se una el grupo de hosts y guárdelo en un archivo nuevo en el equipo local. Puede especificar cuánto tiempo es válido el token de registro mediante el parámetro *-ExpirationTime*.
 
 >[!NOTE]
 >La fecha de expiración del token no puede ser inferior a una hora ni superior a un mes. Si establece *-ExpirationTime* fuera de ese límite, el cmdlet no creará el token.
@@ -68,6 +68,31 @@ Ejecute el cmdlet siguiente para exportar el token de registro a una variable, q
 $token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname>
 ```
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Si aún no lo ha hecho, prepare el entorno para la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Después de iniciar sesión, use el comando [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) para crear el grupo de hosts y, opcionalmente, cree un token de registro para que los hosts de sesión se unan al grupo de hosts:
+
+```azurecli
+az desktopvirtualization hostpool create --name "MyHostPool" \
+   --resource-group "MyResourceGroup" \
+   --location "MyLocation" \
+   --host-pool-type "Pooled" \
+   --load-balancer-type "BreadthFirst" \
+   --max-session-limit 999 \
+   --personal-desktop-assignment-type "Automatic" \
+   --registration-info expiration-time="2022-03-22T14:01:54.9571247Z" registration-token-operation="Update" \
+   --sso-context "KeyVaultPath" \
+   --description "Description of this host pool" \
+   --friendly-name "Friendly name of this host pool" \
+   --tags tag1="value1" tag2="value2"
+```
+
+---
+
 ## <a name="create-virtual-machines-for-the-host-pool"></a>Creación de máquinas virtuales para el grupo de hosts
 
 Ahora puede crear una máquina virtual de Azure que puede unirse al grupo de hosts de Azure Virtual Desktop.
@@ -76,6 +101,7 @@ Puede crear una máquina virtual de varias maneras:
 
 - [Crear una máquina virtual desde una imagen de la galería de Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Crear una máquina virtual desde una imagen administrada](../virtual-machines/windows/create-vm-generalized-managed.md)
+- [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 >[!NOTE]
 >Si va a implementar una máquina virtual en la que Windows 7 es el sistema operativo del host, el proceso de creación e implementación será un poco diferente. Para más información, consulte [Implementación de una máquina virtual Windows 7 en Azure Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).

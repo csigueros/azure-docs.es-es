@@ -4,12 +4,12 @@ description: Cómo autenticar las solicitudes y usar la API de REST de Azure Mon
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: 8c7e40ced81ae71bd9f8688130944144314ec1ab
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2b7033c86c412e2bebb320952bb8ac94d33cfb69
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320086"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272176"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 
@@ -617,7 +617,7 @@ Para buscar el identificador de recurso para un recurso deseado, un enfoque úti
 
 ![Alt "Explorador de recursos de Azure"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 El identificador de recurso también puede obtenerse desde Azure Portal. Para ello, desplácese hasta el recurso deseado y luego seleccione Propiedades. El identificador de recurso se muestra en la sección Propiedades, como se muestra en la siguiente captura de pantalla:
 
@@ -729,6 +729,11 @@ Obtención de registros de actividad sin filtro ni selección:
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si recibe un error 429, 503 o 504, vuelva a probar la API después de un minuto.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

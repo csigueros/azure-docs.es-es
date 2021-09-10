@@ -2,13 +2,13 @@
 title: Implementación de un clúster administrado de Service Fabric con tipos de nodo sin estado
 description: Aprenda a crear e implementar tipos de nodo sin estado en clústeres administrados de Service Fabric
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 2e7ebd2ec3098cc90c8fb044472c348c68aed689
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.date: 8/23/2021
+ms.openlocfilehash: 1d6cd328a195e35bd2523fa24aed9153267bd83e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113033720"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867341"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-with-stateless-node-types"></a>Implementación de un clúster administrado de Service Fabric con tipos de nodo sin estado
 
@@ -16,7 +16,8 @@ Los tipos de nodo de Service Fabric vienen con una asunción inherente de que, e
 
 * Los tipos de nodo principales no se pueden configurar para que no tengan estado.
 * Los tipos de nodo sin estado requieren una versión de API **2021-05-01** o posterior
-
+* La propiedad **multipleplacementgroup** se establecerá automáticamente en **true**. Puede obtener más información sobre esta propiedad [aquí](how-to-managed-cluster-large-virtual-machine-scale-sets.md).
+* Esto permite admitir hasta 1000 nodos para el tipo de nodo especificado.
 
 Están disponibles plantillas de ejemplo: [Plantilla de tipos de nodos sin estado de Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 

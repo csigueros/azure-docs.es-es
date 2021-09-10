@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 07/30/2021
-ms.openlocfilehash: 26897f9c4284ad970d2d662ca444324660064a4d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 154cfa6f8fd413c1cef1a22143d7e4d357053760
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731200"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867017"
 ---
 # <a name="introduction-to-listing-options"></a>Introducción a las opciones de lista
 
@@ -27,7 +27,7 @@ En esta tabla se muestra qué opciones de publicación están disponibles para c
 | Servicios de consultoría |  |  | &#10004; |  |
 | Contenedor de Azure |  |  |  | &#10004; |
 | Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Customer Engagement & Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
 | Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; | &#10004; |
 | Módulo IoT Edge |  |  |  | &#10004; |
 | Servicio administrado |  |  |  | &#10004; |
@@ -74,7 +74,7 @@ En esta tabla se muestran los tipos de ofertas que admiten las opciones de preci
 | Servicios de consultoría |   |   |   |   |
 | Contenedor de Azure | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
 | Dynamics 365 Business Central | &#10004; |   |   |   |
-| Dynamics 365 Customer Engagement & PowerApps | &#10004; |   |   |   |
+| Dynamics 365 Customer Engagement & Power Apps | &#10004; |   |   |   |
 | Dynamics 365 for Operations | &#10004; |   |   |   |
 | Módulo IoT Edge | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
 | Servicio administrado |   | &#10004; |   |   |
@@ -141,7 +141,7 @@ En la tabla siguiente se muestran las opciones disponibles para los distintos ti
 | SaaS  | Ambas tiendas en línea | Ambas tiendas en línea | Ambas tiendas en línea |   | Ambas tiendas en línea &#42; |
 | Aplicación de Microsoft 365 | AppSource | AppSource |   |   | AppSource &#42;&#42; |
 | Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
-| Dynamics 365 for Customer Engagements y PowerApps | AppSource | AppSource |   |   |   |
+| Dynamics 365 for Customer Engagements y Power Apps | AppSource | AppSource |   |   |   |
 | Dynamics 365 Operations | AppSource | AppSource |   |   |   |
 | Aplicación Power BI |   |   | AppSource |   |   |
 |||||||

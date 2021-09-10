@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 7a477122e9a0642233a5bac7a1884818f216d2f3
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 085b9a187ce574c5138867f7a2ce929218717c37
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252326"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253823"
 ---
 # <a name="azure-sentinel-workspace-architecture-best-practices"></a>Procedimientos recomendados de arquitectura de áreas de trabajo de Azure Sentinel
 
@@ -25,6 +25,9 @@ Al planear la implementación del área de trabajo de Azure Sentinel, también d
 - Implicaciones de costes para distintos escenarios
 
 Para obtener más información, consulte [Diseñar la arquitectura del área de trabajo de Azure Sentinel](design-your-workspace-architecture.md) y [Diseños de áreas de trabajo de ejemplo](sample-workspace-designs.md) para escenarios comunes, y [Actividades previas a la implementación y requisitos previos para implementar Azure Sentinel](prerequisites.md).
+
+Vea nuestro vídeo: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI) (Arquitectura de SecOps para el éxito: procedimientos recomendados de implementación de Azure Sentinel)
+
 
 ## <a name="tenancy-considerations"></a>Consideraciones sobre el alquiler
 
@@ -44,7 +47,7 @@ Todos los conectores basados en la configuración de diagnóstico no se pueden c
 Utilice [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) para ayudar a administrar varias instancias de Azure Sentinel en diferentes inquilinos.
 
 > [!NOTE]
-> Los [conectores de datos de asociados](partner-data-connectors.md) normalmente se basan en colecciones de agentes o API y, por tanto, no se adjuntan a un inquilino Azure AD asociado.
+> Los [conectores de datos de asociados](data-connectors-reference.md) normalmente se basan en colecciones de agentes o API y, por tanto, no se adjuntan a un inquilino de Azure AD concreto.
 >
 
 
