@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 1c28f549cf93d77f6aef6bcde6a2225345a79cc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500cc23f2091c38006f7e58e150fb246f2a9ca64
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91612955"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586912"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planeamiento del espacio de nombres agregado
 
@@ -48,7 +48,7 @@ Para permitir un acceso sencillo a través de la memoria caché, puede crear des
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | recopilaciónDeOrigen                        | /source/               |
 
-Un destino de almacenamiento NFS puede tener varias rutas de acceso de espacio de nombres virtual, siempre y cuando cada una haga referencia a una ruta de acceso de exportación única. Lea [Rutas de acceso del espacio de nombres de NFS](add-namespace-paths.md#nfs-namespace-paths) para conocer el número máximo recomendado de rutas de acceso de espacio de nombres por destino de almacenamiento de NFS.
+Un destino de almacenamiento NFS puede tener varias rutas de acceso de espacio de nombres virtual, siempre y cuando cada una haga referencia a una ruta de acceso de exportación única. (Lea [Rutas de acceso del espacio de nombres NFS](add-namespace-paths.md#nfs-namespace-paths) para más información sobre el uso de varias rutas de acceso de espacio de nombres con un destino de almacenamiento NFS).
 
 Dado que las rutas de acceso de origen NFS son subdirectorios de la misma exportación, deberá definir varias rutas de acceso de espacio de nombres desde el mismo destino de almacenamiento.
 

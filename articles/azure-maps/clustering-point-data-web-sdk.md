@@ -1,22 +1,22 @@
 ---
-title: Agrupación en clústeres de datos de punto en un mapa| Microsoft Azure Maps
+title: Agrupación en clústeres de datos de punto en el SDK web | Microsoft Azure Maps
 description: Información sobre cómo agrupar datos de puntos en los mapas Vea cómo usar el SDK web de Azure Maps para agrupar datos en clústeres, reaccionar a eventos de mouse de clúster y mostrar agregados de clústeres.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f798b4a7964eba112ed9948b2db4f6d5c3edd1e3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0510d729f42c0c9c80e228b9da298af70b7fcf21
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608364"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437803"
 ---
-# <a name="clustering-point-data"></a>Agrupación en clústeres de datos de punto
+# <a name="clustering-point-data-in-the-web-sdk"></a>Agrupación en clústeres de datos de punto en el SDK web
 
 Cuando se visualizan muchos puntos de datos en el mapa, los puntos pueden superponerse entre sí. Este solapamiento puede hacer que el mapa resulte ilegible y difícil de usar. La agrupación en clústeres de datos de punto es el proceso de combinar datos de punto que están cerca unos de otros y representarlos en el mapa como un único punto de datos agrupados en clúster. Cuando el usuario acerca el mapa, los clústeres se separan en sus puntos de datos individuales. Cuando trabaje con un gran número de puntos de datos, utilice procesos de agrupación en clústeres para mejorar la experiencia del usuario.
 
@@ -62,7 +62,7 @@ Para mostrar el tamaño del clúster encima de la burbuja, utilice una capa de s
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Capa básica de burbujas de agrupación en clústeres" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Capa básica de burbujas de agrupación en clústeres" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Basic bubble layer clustering</a> (Agrupación en clústeres básica de capa de burbujas) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -74,7 +74,7 @@ Utilice la agrupación en clústeres para mostrar la densidad de puntos de datos
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Capa de símbolos agrupados en clúster" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Capa de símbolos agrupados en clúster" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>Clustered Symbol layer</a> (Capa de símbolos agrupados en clústeres) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -84,7 +84,7 @@ Los mapas térmicos son una excelente manera de mostrar la densidad de los datos
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa térmico ponderado del clúster" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Mapa térmico ponderado del clúster" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster weighted Heat Map</a> (Clúster ponderado de mapa térmico) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -103,7 +103,7 @@ En este ejemplo, se toma la capa de burbujas que representa los puntos del clús
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Clúster getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Clúster getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/moZWeV/'>Cluster getClusterExpansionZoom</a> (Clúster getClusterExpansionZoom) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -113,7 +113,7 @@ Los datos de punto que un clúster representa se dispersan por un área. En este
 
 <br/>
 
- <iframe height="500" style="width: 100%;" scrolling="no" title="Envolvente convexa del área de clúster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+ <iframe height="500" scrolling="no" title="Envolvente convexa del área de clúster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Cluster area convex hull</a> (Envolvente convexa del área de clúster) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -123,7 +123,7 @@ Los clústeres suelen representarse utilizando un símbolo con el número de pun
 
 En los ejemplos siguientes, se utiliza una expresión de agregado. El código calcula un número en función de la propiedad de tipo de entidad de cada punto de datos del clúster. Cuando un usuario hace clic en un clúster, se abre un elemento emergente con información adicional sobre el clúster.
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Agregados de clúster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Agregados de clúster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte los Pen <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Cluster aggregates</a> (Agregados de clúster) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

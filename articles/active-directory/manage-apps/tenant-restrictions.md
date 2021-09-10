@@ -2,22 +2,22 @@
 title: 'Uso de restricciones de inquilino para administrar el acceso a las aplicaciones SaaS: Azure AD'
 description: Cómo usar restricciones de inquilino para administrar los usuarios que pueden tener acceso a las aplicaciones según su inquilino de Azure AD.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/2/2021
-ms.author: mtillman
-ms.reviewer: hpsin
+ms.date: 7/30/2021
+ms.author: davidmu
+ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c443f3084c465e1a8f2358c1b8db365e576b04f5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: d013d383192b206fdc05f36f320b01fe57526bb8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082242"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737297"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -53,7 +53,7 @@ Se deben realizar dos pasos para empezar a trabajar con restricciones de inquili
 
 ### <a name="urls-and-ip-addresses"></a>Direcciones URL e IP reservadas
 
-Para usar restricciones de inquilino, los clientes deben ser capaces de conectarse a las siguientes direcciones URL de Azure AD para autenticarse: [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) y [login.windows.net](https://login.windows.net/). Además, para acceder a Office 365, los clientes también deben ser capaces de conectarse a los nombre de dominio completo (FQDN), las direcciones URL y las direcciones IP que se definen en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+Para usar restricciones de inquilino, los clientes deben ser capaces de conectarse a las siguientes direcciones URL de Azure AD para autenticarse: [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) y [login.windows.net](https://login.windows.net/). Además, para acceder a Office 365, los clientes también deben ser capaces de conectarse a los nombre de dominio completo (FQDN), las direcciones URL y las direcciones IP que se definen en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 ### <a name="proxy-configuration-and-requirements"></a>Requisitos y configuración de proxy
 
@@ -81,9 +81,9 @@ Los encabezados deben incluir los siguientes elementos:
 - Para *Restrict-Access-Context* (Contexto para restringir acceso), use un valor de un identificador de directorio único que declare qué inquilino está estableciendo restricciones de inquilino. Por ejemplo, para declarar Contoso como el inquilino que establece la directiva de restricciones de inquilino, el par nombre-valor puede ser algo así como: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  **Debe** usar su propio identificador de inquilino en este lugar para obtener registros de estas autenticaciones.
 
 > [!TIP]
-> Puede encontrar el identificador de directorio en el [portal de Azure Active Directory](https://aad.portal.azure.com/). Inicie sesión como administrador, seleccione **Azure Active Directory** y luego seleccione **propiedades**. 
+> Puede encontrar el identificador de directorio en el [portal de Azure Active Directory](https://aad.portal.azure.com/). Inicie sesión como administrador, seleccione **Azure Active Directory** y luego seleccione **propiedades**.
 >
-> Para validar que un identificador de directorio o un nombre de dominio hagan referencia al mismo inquilino, use ese identificador o dominio en lugar de <tenant> en esta dirección URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  Si los resultados con el dominio y el identificador son los mismos, hacen referencia al mismo inquilino. 
+> Para validar que un identificador de directorio o un nombre de dominio hagan referencia al mismo inquilino, use ese identificador o dominio en lugar de <tenant> en esta dirección URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  Si los resultados con el dominio y el identificador son los mismos, hacen referencia al mismo inquilino.
 
 Para evitar que los usuarios inserten su propio encabezado HTTP con inquilinos no aprobados, el proxy debe reemplazar el encabezado *Restrict-Access-To-Tenants* (Restringir acceso para inquilinos) si ya está presente en la solicitud entrante.
 
@@ -111,11 +111,11 @@ Mientras la configuración de restricciones de inquilino se realice en la infrae
 
 El administrador del inquilino especificado como inquilino Restricted-Access-Context puede usar este informe para ver todos los inicios de sesión bloqueados debido a la directiva de restricciones de inquilino, incluida la identidad que se usa y el identificador de directorio de destino. Los inicios de sesión se incluyen si el inquilino que establece la restricción es el inquilino del usuario o el inquilino del recurso para el inicio de sesión.
 
-El informe puede contener información limitada, como el identificador del directorio de destino, cuando un usuario que está en un inquilino distinto del inquilino Restricted-Access-Context inicia sesión. En este caso, la información de identificación del usuario, como el nombre y el nombre principal de usuario, se enmascara para proteger los datos de usuario de otros inquilinos ("{PII Removed} @domain.com " o 00000000-0000-0000-0000-000000000000 en lugar de los nombres de usuario y los identificadores de objeto, según corresponda). 
+El informe puede contener información limitada, como el identificador del directorio de destino, cuando un usuario que está en un inquilino distinto del inquilino Restricted-Access-Context inicia sesión. En este caso, la información de identificación del usuario, como el nombre y el nombre principal de usuario, se enmascara para proteger los datos de usuario de otros inquilinos ("{PII Removed} @domain.com " o 00000000-0000-0000-0000-000000000000 en lugar de los nombres de usuario y los identificadores de objeto, según corresponda).
 
 Al igual que otros informes en Azure Portal, puede usar filtros para especificar el ámbito del informe. Puede filtrar por un usuario, una aplicación, un cliente, un estado o un intervalo de tiempo específico. Si selecciona el botón **Columnas**, puede elegir mostrar los datos con cualquier combinación de los siguientes campos:
 
-- **Usuario**: este campo puede tener los datos personales quitados, donde se establecerán en `00000000-0000-0000-0000-000000000000`. 
+- **Usuario**: este campo puede tener los datos personales quitados, donde se establecerán en `00000000-0000-0000-0000-000000000000`.
 - **Aplicación**
 - **Estado**
 - **Date**
@@ -133,7 +133,7 @@ Las aplicaciones de Microsoft 365 deben cumplir dos criterios para que sean tot
 1. El cliente utilizado admite la autenticación moderna.
 2. La autenticación moderna está habilitada como el protocolo de autenticación predeterminado para el servicio en la nube.
 
-Consulte [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticación moderna actualizada de Office 365) para ver la información más reciente sobre qué clientes de Office admiten actualmente la autenticación moderna. Esa página también incluye vínculos a instrucciones para habilitar la autenticación moderna en inquilinos específicos de Exchange Online y Skype Empresarial Online. SharePoint Online ya habilita la autenticación moderna de manera predeterminada.
+Consulte [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticación moderna actualizada de Office 365) para ver la información más reciente sobre qué clientes de Office admiten actualmente la autenticación moderna. Esa página también incluye vínculos a instrucciones para habilitar la autenticación moderna en inquilinos específicos de Exchange Online y Skype Empresarial Online. SharePoint Online ya habilita la autenticación moderna de manera predeterminada. Teams solo admite la autenticación moderna y no admite la autenticación heredada, por lo que este problema de omisión no se aplica a Teams. 
 
 Actualmente, las aplicaciones de Microsoft 365 basadas en explorador (portal de Office, Yammer, sitios de SharePoint, Outlook en la web, etc.) son compatibles con las restricciones de inquilino. Los clientes pesados (Outlook, Skype Empresarial, Word, Excel, PowerPoint, etc.) pueden exigir restricciones de inquilino solo cuando se usa la autenticación moderna.  
 
@@ -157,7 +157,7 @@ Fiddler es un proxy de depuración web gratis que puede usarse para capturar y m
 
    1. En la herramienta Fiddler Web Debugger, seleccione el menú **Reglas** y luego **Personalizar reglas...** para abrir el archivo CustomRules.
 
-   2. Agregue las líneas siguientes al principio de la función `OnBeforeRequest`. Reemplace \<List of tenant identifiers\> (dominio del inquilino) por un dominio registrado en el inquilino (por ejemplo, `contoso.onmicrosoft.com`). Reemplace \<directory ID\> por el identificador GUID de Azure AD del inquilino.  **Debe** incluir el identificador GUID correcto para que los registros aparezcan en el inquilino. 
+   2. Agregue las líneas siguientes al principio de la función `OnBeforeRequest`. Reemplace \<List of tenant identifiers\> (dominio del inquilino) por un dominio registrado en el inquilino (por ejemplo, `contoso.onmicrosoft.com`). Reemplace \<directory ID\> por el identificador GUID de Azure AD del inquilino.  **Debe** incluir el identificador GUID correcto para que los registros aparezcan en el inquilino.
 
    ```JScript.NET
     // Allows access to the listed tenants.

@@ -2,20 +2,20 @@
 title: Archivo de inclusión
 description: Archivo de inclusión
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 63824148e25465034ed7bed49f1931514c10a35a
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.author: rifox
+ms.openlocfilehash: b5ea5a90a6ad39404208bb9c353bb33e86201299
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113399"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967947"
 ---
 ## <a name="sample-code"></a>Código de ejemplo
 Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/chat-quickstart-java).
@@ -58,7 +58,7 @@ En el archivo POM, haga referencia al paquete `azure-communication-chat` con las
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -68,7 +68,7 @@ Para la autenticación, el cliente debe hacer referencia al paquete `azure-commu
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-common for the latest version --></version>
 </dependency>
 ```
 
@@ -184,14 +184,20 @@ Utilice el método `sendMessage` para enviar un mensaje al subproceso recién cr
 - Utilice `content` para proporcionar el contenido del mensaje de chat.
 - Utilice `type` usa para especificar el tipo de contenido del mensaje de chat, texto o HTML.
 - Utilice `senderDisplayName` para especificar el nombre para mostrar del remitente.
+- Opcionalmente, use `metadata` para incluir los datos adicionales que quiera enviar con el mensaje. Este campo proporciona un mecanismo para que los desarrolladores amplíen la funcionalidad de los mensajes de chat y agreguen información personalizada para su caso de uso. Por ejemplo, al compartir un vínculo de archivo en el mensaje, es posible que quiera agregar "hasAttachment:true" en los metadatos para que la aplicación del destinatario pueda analizarlo y mostrarlo en consecuencia.
 
 La respuesta `sendChatMessageResult` contiene un `id`, que es el identificador único del mensaje.
 
 ```Java
+Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
-    .setContent("Message content")
+    .setContent("Please take a look at the attachment")
     .setType(ChatMessageType.TEXT)
-    .setSenderDisplayName("Sender Display Name");
+    .setSenderDisplayName("Sender Display Name")
+    .setMetadata(metadata);
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
 String chatMessageId = sendChatMessageResult.getId();

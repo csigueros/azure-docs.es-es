@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: dbc349b907e8141af30012271c22c9c99d5a0298
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a899622c22d68217fd4fbf73e495f89885f4d7ba
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722974"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445414"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Establecimiento del ámbito de los recursos de extensión en Bicep
 
@@ -119,9 +119,6 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
     principalId: principalId
   }
   scope: demoStorageAcct
-  dependsOn: [
-    demoStorageAcct
-  ]
 }
 ```
 

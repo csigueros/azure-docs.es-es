@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2021
-ms.openlocfilehash: f7a44ae2033d75c81f80bc9a37e17ed8fe2786b2
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 2b7392af7a00ec68ad263b7c930842714c94fe1d
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110501400"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967724"
 ---
 # <a name="quickstart-transform-data-using-apache-spark-job-definition"></a>Inicio rápido: Transformación de datos mediante la definición de trabajo de Apache Spark.
 
@@ -42,13 +42,13 @@ En este inicio rápido, se usa como ejemplo el área de trabajo denominada "samp
 
 Una canalización contiene el flujo lógico para una ejecución de un conjunto de actividades. En esta sección, creará una canalización que contiene una actividad de definición de trabajo de Apache Spark.
 
-1. Vaya a la ficha **Integrar**. Seleccione el icono de signo de más situado junto al encabezado de canalizaciones y seleccione Pipeline (Canalización).
+1. Vaya a la pestaña **Integración**. Seleccione el icono de signo más junto al encabezado Canalizaciones y seleccione **Canalización**.
 
      ![Creación de una canalización](media/doc-common-process/new-pipeline.png)
 
 2. En la página de configuración **Propiedades** de la canalización, escriba **demo** en **Nombre**.
 
-3. En *Synapse*, en el panel *Actividades*, arrastre la **definición del trabajo de Spark** al lienzo de la canalización.
+3. En **Synapse**, en el panel **Actividades**, arrastre la **definición del trabajo de Spark** al lienzo de la canalización.
 
      ![arrastre la definición de trabajos de Spark](media/quickstart-transform-data-using-spark-job-definition/drag-spark-job-definition.png)
 
@@ -61,7 +61,7 @@ Una vez que haya creado la definición de trabajo de Apache Spark, se le enviar�
 
 1. Seleccione el módulo de la definición de trabajo de Spark en el lienzo.
 
-2. En la pestaña General, escriba **sample** en **Nombre**.
+2. En la pestaña **General**, escriba **sample** en el cuadro **Nombre**.
 
 3. (Opción) También puede escribir una descripción.
 
@@ -71,9 +71,9 @@ Una vez que haya creado la definición de trabajo de Apache Spark, se le enviar�
 
 6. Intervalo de reintento: número de segundos entre cada reintento.
 
-7. Salida segura: cuando esté activada, la salida de la actividad no se capturará en el registro.
+7. Secure output (Salida segura): cuando se selecciona, no se captura en el registro la salida de la actividad.
 
-8. Entrada segura: cuando esté activada, la entrada de la actividad no se capturará en el registro.
+8. Secure input (Entrada segura): cuando se selecciona, no se captura en el registro la entrada de la actividad.
 
      ![información general de la definición de trabajo de Spark](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-general.png)
 
@@ -81,9 +81,9 @@ Una vez que haya creado la definición de trabajo de Apache Spark, se le enviar�
 
 En este panel, puede hacer referencia a la definición de trabajo de Spark que se va a ejecutar.
 
-* Expanda la lista de definiciones de trabajo de Spark, puede elegir una definición de trabajo de Apache Spark existente. También puede crear una nueva definición de trabajo de Apache Spark al hacer clic en el botón Nuevo para hacer referencia a la definición de trabajo de Spark que se va a ejecutar.
+* Expanda la lista de definiciones de trabajo de Spark, puede elegir una definición de trabajo de Apache Spark existente. También puede crear una nueva definición de trabajo de Apache Spark. Para ello, seleccione el botón **Nuevo** y haga referencia a la definición de trabajo de Spark que se debe ejecutar.
 
-* Puede agregar argumentos de línea de comandos al hacer clic en el botón **Nuevo**. Tome en cuenta que esto invalidará los argumentos de la línea de comandos definidos por la definición de trabajo de Spark. <br> *Ejemplo: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
+* Puede agregar argumentos de línea de comandos al hacer clic en el botón **Nuevo**. Debe tener en cuenta que, al agregar argumentos de la línea de comandos, invalida los argumentos que establece la definición de trabajo de Spark. <br> *Ejemplo: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
 
      ![configuración de la canalización de la definición de trabajo de Spark](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 

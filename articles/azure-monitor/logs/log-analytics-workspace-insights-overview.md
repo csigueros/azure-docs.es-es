@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 05/06/2021
-ms.openlocfilehash: 450f4f8d93261412db4963579f8b8525c2028f46
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0d5fb976bfeb496e6c69e7df401ed0a756985475
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482971"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113295891"
 ---
 # <a name="log-analytics-workspace-insights-preview"></a>Conclusiones del área de trabajo de Log Analytics (versión preliminar)
 
@@ -108,7 +108,7 @@ En el demo de área de trabajo, puede ver claramente que tres clústeres de Kube
 
 ### <a name="health-tab"></a>Pestaña Estado
 
-Esta pestaña muestra el estado de mantenimiento del área de trabajo y cuándo se informó por última vez, así como los errores operativos y advertencias (recuperados de la tabla _LogOperation).
+Esta pestaña muestra el estado de mantenimiento del área de trabajo y cuándo se informó por última vez, así como los [errores operativos y advertencias](../logs/monitor-workspace.md) (recuperados de la tabla _LogOperation). Puede encontrar más detalles sobre los problemas enumerados, así como los pasos de mitigación, [aquí](../logs/monitor-workspace.md#categories).
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-health.png" alt-text="Captura de pantalla de la pestaña Estado del área de trabajo" lightbox="media/log-analytics-workspace-insights-overview/workspace-health.png":::
 
@@ -118,7 +118,7 @@ Esta pestaña proporciona información sobre los agentes que envían registros a
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-agents.png" alt-text="Captura de pantalla de la pestaña Agentes del área de trabajo" lightbox="media/log-analytics-workspace-insights-overview/workspace-agents.png":::
 
 * Errores y advertencias de operación: son errores y advertencias relacionados específicamente con los agentes. Están agrupados según el título del error o advertencia para ayudarle a obtener una vista más clara de los distintos problemas que pueden producirse, pero se pueden expandir para mostrar las horas exactas y los recursos a los que hacen referencia. Tenga en cuenta también que puede hacer clic en "Ejecutar consulta en registros" para consultar la tabla _LogOperation a través de la experiencia de registros, ver los datos sin procesar y analizarlos con más detalle.
-* Agentes del área de trabajo: estos son los agentes que enviaron registros al área de trabajo durante el intervalo de tiempo seleccionado. Puede ver los tipos de agentes (directo, puerta de enlace, SCOM o servidores de administración de SCOM) y el estado de mantenimiento. Los agentes marcados como correctos no necesariamente funcionan de forma correcta; este valor solo indica que enviaron un latido durante la última hora. En la cuadrícula siguiente se desglosa un estado de mantenimiento más detallado.
+* Agentes del área de trabajo: estos son los agentes que enviaron registros al área de trabajo durante el intervalo de tiempo seleccionado. Puede ver los tipos y el estado de mantenimiento de los agentes. Los agentes marcados como correctos no necesariamente funcionan de forma correcta; este valor solo indica que enviaron un latido durante la última hora. En la cuadrícula siguiente se desglosa un estado de mantenimiento más detallado.
 * Actividad de agentes: esta cuadrícula muestra información sobre todos los agentes, ya sean correctos o incorrectos. En este caso, "Correcto" también indica únicamente que el agente envió un latido durante la última hora. Para comprender mejor su estado, revise la tendencia que se muestra en la cuadrícula, donde aparece cuántos latidos ha enviado este agente a lo largo del tiempo. El verdadero estado de mantenimiento solo se puede inferir si sabe cómo funciona el recurso supervisado; por ejemplo, si un equipo se apaga intencionadamente en momentos concretos, cabe esperar que los latidos del agente aparezcan de manera intermitente en un patrón coincidente.
 
 

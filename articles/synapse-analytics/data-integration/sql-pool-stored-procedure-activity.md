@@ -8,16 +8,16 @@ author: linda33wj
 ms.author: jingwang
 ms.reviewer: jrasnick
 ms.date: 05/13/2021
-ms.openlocfilehash: f7f697b9df78c44efb7a266d1a92bdd9ffe31753
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 4c1f12d4e61f254f753f3feb59ca46997f88b751
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112967698"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257072"
 ---
 # <a name="transform-data-by-using-sql-pool-stored-procedure-activity-in-azure-synapse-analytics"></a>Transformación de datos mediante la actividad de procedimiento almacenado de grupo de SQL en Azure Synapse Analytics
 
-<Token>**SE APLICA A:** ![no admitido](../media/applies-to/no.png)Azure Data Factory ![admitido](../media/applies-to/yes.png)Azure Synapse Analytics</Token> 
+[!INCLUDE[appliesto-xxx-asa-md](../../data-factory/includes/appliesto-xxx-asa-md.md)]
 
 Las actividades de transformación en una [canalización](../../data-factory/concepts-pipelines-activities.md) transforman y procesan sus datos sin procesar para convertirlos en predicciones y perspectivas. Este artículo se basa en el artículo sobre [transformación de datos](../../data-factory/transform-data.md), que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 324e30df7f63f5ca0abf7abd50ab890495e4e7cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 973d6f9450d0cb58df5b1e8dcd208990806abc54
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721984"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967336"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutorial: Detección de los servidores que se ejecutan en un entorno de VMware con Azure Migrate
 
@@ -137,7 +137,8 @@ Para configurar un nuevo proyecto:
 La herramienta Azure Migrate: Discovery and assessment usa un dispositivo ligero de Azure Migrate. El dispositivo de Azure Migrate detecta los servidores y envía los metadatos de configuración y rendimiento a Azure Migrate. Configure el dispositivo mediante la implementación de una plantilla OVA que se puede descargar del proyecto.
 
 > [!NOTE]
-> Si no puede configurar el dispositivo mediante la plantilla OVA, puede hacerlo mediante la ejecución de un script de PowerShell en un servidor existente que ejecute Windows Server 2016. Obtenga información sobre cómo [utilizar PowerShell para configurar un dispositivo de Azure Migrate](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
+> Si no puede configurar el dispositivo mediante la plantilla OVA, puede hacerlo mediante la ejecución de un script de PowerShell en un servidor existente que ejecute Windows Server 2016. Obtenga información sobre cómo [utilizar PowerShell para configurar un dispositivo de Azure Migrate](deploy-appliance-script.md#set-up-the-appliance-for-vmware). <br/>
+> La opción para implementar un dispositivo mediante una plantilla OVA no se admite en la nube de Azure Government. [Más información](/azure/migrate/deploy-appliance-script-government) sobre cómo implementar un dispositivo para la nube de Azure Government.
 
 ### <a name="deploy-by-using-an-ova-template"></a>Implementación mediante una plantilla OVA
 

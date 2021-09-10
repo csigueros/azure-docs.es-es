@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: duau
-ms.openlocfilehash: 3602c3944e8731263fbb55f024c276783950329f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dcf58dce7b87862c2f01ad76db8aff66366ee4b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202368"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733873"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Diseño de alta disponibilidad con ExpressRoute
 
@@ -50,23 +50,31 @@ Al ejecutar las conexiones principales y secundarias de un circuito de ExpressRo
 
 Como alternativa, ejecutar las conexiones principales y secundarias de un circuito de ExpressRoute en modo activo-activo, solo produce la mitad de los flujos que crean un error y se vuelven a enrutar; a continuación, se produce un error en la conexión de ExpressRoute. Por lo tanto, el modo activo-activo ayudará significativamente a mejorar el tiempo medio de recuperación (MTTR).
 
+> [!NOTE]
+> Durante una actividad de mantenimiento o en caso de eventos no planeados que afectan a una de las conexiones, Microsoft prefiere usar la anteposición de la ruta de acceso de AS para purgar el tráfico mediante la conexión correcta. Deberá asegurarse de que el tráfico pueda enrutarse mediante la ruta de acceso correcta cuando se configura la anteposición de la ruta desde Microsoft y los anuncios de ruta necesarios se configuran correctamente para evitar cualquier interrupción del servicio. 
+> 
+
 ### <a name="nat-for-microsoft-peering"></a>NAT para el emparejamiento de Microsoft 
 
 El emparejamiento de Microsoft está diseñado para la comunicación entre los puntos de conexión públicos. Por lo general, los puntos de conexión privados en el entorno local son la traducción de direcciones de red (NAT) con IP pública en la red del cliente o asociado, antes de que estos se comuniquen mediante el emparejamiento de Microsoft. Suponiendo que usa las conexiones principal y secundaria en el modo activo-activo, se decidirá el impacto que tendrá NAT (dónde y cómo) en la rapidez con la que se recupera después de un error en una de las conexiones de ExpressRoute. Dos opciones de NAT diferentes se ilustran en la siguiente imagen:
 
 [![3]][3]
 
-En la opción 1, NAT se aplica después de dividir el tráfico entre las conexiones principal y secundaria de ExpressRoute. Para cumplir con los requisitos de estado de NAT, se usan grupos de NAT independientes entre los dispositivos principal y secundario para que el tráfico de retorno llegue al mismo dispositivo de borde a través del cual salió el flujo.
+#### <a name="option-1"></a>Opción 1:
 
-En la opción 2, se usa un conjunto común de NAT antes de dividir el tráfico entre las conexiones principal y secundaria de ExpressRoute. Es importante distinguir el conjunto de NAT común antes de dividir el tráfico; esto no significa que debe agregar un único punto de error, puesto que comprometería la alta disponibilidad.
+NAT se aplica después de dividir el tráfico entre las conexiones principal y secundaria del circuito ExpressRoute. Para cumplir con los requisitos de estado de NAT, se usan grupos de NAT independientes entre los dispositivos principal y secundario para que el tráfico de retorno llegue al mismo dispositivo perimetral mediante el cual salió el flujo.
 
-Con la opción 1, después de un error de conexión de ExpressRoute, se interrumpe la capacidad para alcanzar el grupo de NAT correspondiente. Por lo tanto, todos los flujos interrumpidos deben restablecerse mediante TCP o el nivel de aplicación después de que pase el tiempo de espera de la ventana correspondiente. Si cualquiera de los grupos de NAT se usa en la interfaz de cualquiera de los servidores locales y si se produjera un error en la conectividad correspondiente, no se puede obtener acceso a los servidores locales desde Azure hasta que se solucione el error de conectividad.
+Si se produce un error en la conexión de ExpressRoute, no se podrá acceder al grupo NAT correspondiente. Por lo tanto, todos los flujos interrumpidos deben restablecerse mediante TCP o el nivel de aplicación después de que pase el tiempo de espera de la ventana correspondiente. Durante el error, Azure no puede acceder a los servidores locales mediante la NAT correspondiente hasta que se restaure la conectividad para las conexiones principal o secundaria del circuito ExpressRoute.
 
-Así pues, con la opción 2, se puede obtener acceso a NAT incluso después de un error en la conexión principal o secundaria. Por lo tanto, la propia capa de red puede redireccionar los paquetes y permitir una recuperación más rápida después del error. 
+#### <a name="option-2"></a>Opción 2:
+
+Se usa un conjunto común de NAT antes de dividir el tráfico entre las conexiones principal y secundaria del circuito ExpressRoute. Es importante distinguir el conjunto de NAT común antes de dividir el tráfico. Esto no significa que debe agregar un único punto de error, puesto que pondría en peligro la alta disponibilidad.
+
+Se puede acceder al grupo NAT incluso después de que se produzca un error en la conexión principal o secundaria. Este es el motivo por el que el propio nivel de red puede volver a enrutar los paquetes y ayudar a recuperarse más rápido después de un error. 
 
 > [!NOTE]
-> Si usa la opción 1 de NAT (grupos de NAT independientes para conexiones de ExpressRoute principales y secundarias) y asigna un puerto de una dirección IP desde uno de los grupos de NAT a un servidor local, no se podrá acceder al servidor a través del circuito de ExpressRoute cuando se produzca un error en la conexión correspondiente.
-> 
+> * Si usa la opción 1 de NAT (grupos de NAT independientes para conexiones de ExpressRoute principales y secundarias) y asigna un puerto de una dirección IP desde uno de los grupos de NAT a un servidor local, no se podrá acceder al servidor a través del circuito de ExpressRoute cuando se produzca un error en la conexión correspondiente.
+> * La terminación de conexiones BGP de ExpressRoute en dispositivos con estado puede provocar problemas con la conmutación por error durante los mantenimientos planeados o no planeados por Microsoft o por el proveedor de ExpressRoute. Debe probar la configuración para asegurarse de que el tráfico conmutará por error correctamente y, cuando sea posible, finalice las sesiones de BGP en los dispositivos sin estado.
 
 ## <a name="fine-tuning-features-for-private-peering"></a>Características de ajuste preciso para el emparejamiento privado
 

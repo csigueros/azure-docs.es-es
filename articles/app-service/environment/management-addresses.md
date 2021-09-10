@@ -7,14 +7,17 @@ ms.topic: article
 ms.date: 03/22/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions, devx-track-azurecli
-ms.openlocfilehash: 796ee38140e72a56f1f22b0594dd904a43ac53c0
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 1480b23f4c213d1c251e47678b235c9f8c8d45df
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865232"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432903"
 ---
 # <a name="app-service-environment-management-addresses"></a>Direcciones de administración de App Service Environment
+> [!NOTE]
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados.
+> 
 
 App Service Environment (ASE) es una implementación de inquilino único de Azure App Service que se ejecuta en su instancia de Azure Virtual Network (VNet).  Si bien el ASE se ejecuta en su red virtual, debe seguir siendo accesible desde varias direcciones IP dedicadas que utiliza Azure App Service para administrar el servicio.  En el caso de un ASE, el tráfico de administración atraviesa la red controlada por el usuario. Si este tráfico está bloqueado o no está correctamente dirigido, se suspenderá la instancia de ASE. Para más información sobre las dependencias de redes de ASE, consulte [Consideraciones de redes y App Service Environment][networking]. Para información general sobre ASE, puede comenzar con la [Introducción a App Service Environment][intro].
 

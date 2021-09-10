@@ -1,20 +1,20 @@
 ---
 title: Introducción al objeto visual de Azure Maps en Power BI | Microsoft Azure Maps
 description: En este artículo, aprenderá a usar el objeto visual de Microsoft Azure Maps para Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e57f687622b0878d66bfde5770ed9a97b613a683
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 9dda6433f5f16ec71b086f606927d9f27c83098b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091364"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430475"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introducción al objeto visual de Azure Maps en Power BI
 
@@ -130,7 +130,7 @@ El objeto visual de Azure Maps está disponible en los siguientes servicios y ap
 
 | Servicio/aplicación                              | Disponibilidad |
 |------------------------------------------|--------------|
-| Power BI Desktop                         | Sí          |
+| Power BI Desktop                         | Sí          |
 | Servicio Power BI (app.powerbi.com)       | Sí          |
 | Aplicaciones móviles de Power BI             | Sí          |
 | Publicar en la web desde Power BI                  | No           |

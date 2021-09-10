@@ -1,19 +1,19 @@
 ---
 title: Migración de las soluciones de venta conjunta de OCP GTM al Centro de partners para Microsoft AppSource
-description: Obtenga información sobre cómo migrar soluciones de venta conjunta de OCP GTM al Centro de partners para Microsoft AppSource.
+description: Migre las soluciones de venta conjunta de OCP GTM al Centro de partners (Azure Marketplace).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 05/18/2021
-ms.openlocfilehash: d4eb677b0f55a8ccd2cda33e6026e01238deb9b3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/13/2021
+ms.openlocfilehash: 6ca8c75e5cf6f5290736cf01a20db63a8fb2d077
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971528"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389089"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migración de soluciones de venta conjunta de OCP GTM al marketplace comercial
 
@@ -36,7 +36,7 @@ Asegúrese de que tiene una pertenencia de Microsoft Partner Network activa y qu
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>Publicación de actualizaciones para alcanzar el estado de listo para la venta conjunta
 
-Para que los vendedores y asociados de Microsoft puedan descubrir su solución, debe cumplir los [requisitos de preparación para realizar ventas conjuntas](./co-sell-overview.md). Para que un vendedor de Microsoft reciba incentivos, la solución debe cumplir los [requisitos pertinentes](./co-sell-overview.md). Complete estos requisitos en la pestaña Venta conjunta del Centro de partners (vea [esta imagen](#action-2-merge) que aparece más abajo en este artículo).
+Para que los vendedores y asociados de Microsoft puedan descubrir su solución, debe cumplir los [requisitos de preparación para realizar ventas conjuntas](./co-sell-overview.md). Para que un vendedor de Microsoft sea un incentivo de venta conjunta, la solución debe cumplir los [requisitos pertinentes](./co-sell-overview.md). Complete estos requisitos en la pestaña Venta conjunta del Centro de partners (vea [esta imagen](#action-2-merge) que aparece más abajo en este artículo).
 
 > [!NOTE]
 > En el marketplace comercial, las soluciones se conocen como "ofertas" a lo largo de la experiencia de publicación.
@@ -45,8 +45,8 @@ Después de inscribirse en el marketplace comercial, prepárese para migrar las 
 
 Siga estos pasos antes de importar las soluciones de OCP GTM:
 
-1. Visite la [lista de publicadores](https://partner.microsoft.com/dashboard/account/v3/publishers/list) de su empresa. Esta lista incluye el propietario de la cuenta, los administradores y los desarrolladores que tienen acceso de publicación. Obtenga más información sobre los [roles de usuario del Centro de partners](user-roles.md).
-2. Pida a uno de los contactos indicados que [agregue usuarios](https://partner.microsoft.com/dashboard/account/usermanagement) al marketplace comercial como *administradores* o *desarrolladores*, ya que solo estos roles pueden editar y publicar soluciones.
+1. Visite la [lista de publicadores](https://go.microsoft.com/fwlink/?linkid=2165704) de su empresa. Esta lista incluye el propietario de la cuenta, los administradores y los desarrolladores que tienen acceso de publicación. Obtenga más información sobre los [roles de usuario del Centro de partners](user-roles.md).
+2. Pida a uno de los contactos indicados que [agregue usuarios](https://go.microsoft.com/fwlink/?linkid=2166003) al marketplace comercial como *administradores* o *desarrolladores*, ya que solo estos roles pueden editar y publicar soluciones.
 3. Colabore sus desarrolladores para migrar sus soluciones de la cuenta de OCP GTM al marketplace comercial.
 4. Decida cuál de las siguientes opciones desea realizar:
     1. Si tiene una solución en OCP GTM que desea migrar al Centro de partners, *para conservar la canalización de referencia, el material adjunto, el estado de la venta conjunta y los incentivos*, hay dos escenarios entre los que puede elegir:
@@ -66,7 +66,7 @@ Siga estos pasos antes de importar las soluciones de OCP GTM:
 
 ## <a name="begin-the-migration-of-your-solutions-from-ocp-gtm"></a>Inicio de la migración de las soluciones desde OCP GTM
 
-1. Comience con la migración [aquí](https://partner.microsoft.com/solutions/migration#).
+1. Comience con la migración [aquí](https://go.microsoft.com/fwlink/?linkid=2165807).
 2. Seleccione la página **Overview** (Información general) y, después, en **Click here to get started** (Haga clic aquí para empezar).
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Muestra la página de información general":::

@@ -1,22 +1,22 @@
 ---
 title: Métricas en Azure Spring Cloud
 description: Aprenda a revisar las métricas en Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d7b9f068eef38a7567e5b595277ee92493a6c16
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d09b2aff00d32dc3865c13e2aaab94a0a86464e3
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129268"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181576"
 ---
 # <a name="metrics-for-azure-spring-cloud"></a>Métricas en Azure Spring Cloud
 
-El explorador de métricas de Azure es un componente de Microsoft Azure Portal que permite trazar gráficos, correlacionar tendencias visualmente e investigar máximos y mínimos en las métricas. Utilice el Explorador de métricas para investigar el estado y la utilización de recursos. 
+El explorador de métricas de Azure es un componente de Microsoft Azure Portal que permite trazar gráficos, correlacionar tendencias visualmente e investigar máximos y mínimos en las métricas. Utilice el Explorador de métricas para investigar el estado y la utilización de recursos.
 
 En Azure Spring Cloud, hay dos puntos de vista para las métricas.
 * Gráficos en todas las páginas de información general de aplicaciones
@@ -27,13 +27,14 @@ En Azure Spring Cloud, hay dos puntos de vista para las métricas.
 Los gráficos de la **Información general** de la aplicación proporcionan comprobaciones de estado rápidas para cada aplicación. La página de **Métricas** comunes contiene todas las métricas disponibles como referencia. Puede crear sus propios gráficos en la página de métricas comunes y anclarlos en el Panel.
 
 ## <a name="application-overview-page"></a>Página de información general de la aplicación
-Seleccione una aplicación en **Aplicaciones** para buscar gráficos en la página de información general.  
 
- ![Administración de métricas de aplicación](media/metrics/metrics-2.png)
+Seleccione una aplicación en **Aplicaciones** para buscar gráficos en la página de información general.
 
-La página **Información general de aplicación** de cada aplicación muestra un gráfico de métricas que le permite realizar una comprobación rápida del estado de la aplicación.  
+![Administración de métricas de aplicación](media/metrics/metrics-2.png)
 
- ![Información general de métricas de aplicación](media/metrics/metrics-3.png)
+La página **Información general de aplicación** de cada aplicación muestra un gráfico de métricas que le permite realizar una comprobación rápida del estado de la aplicación.
+
+![Información general de métricas de aplicación](media/metrics/metrics-3.png)
 
 Azure Spring Cloud proporciona estos cinco gráficos con métricas que se actualizan cada minuto:
 
@@ -60,6 +61,7 @@ A continuación, seleccione el tipo de agregación para cada métrica:
 ![Agregación de métricas](media/metrics/metrics-5.png)
 
 El tipo de agregación indica cómo agregar puntos de métrica en el gráfico por tiempo. Hay un punto de métrica sin procesar cada minuto y el tipo de agregación previa dentro de un minuto lo predefine el tipo de métrica.
+
 * Suma: suma todos los valores como salida del destino.
 * Promedio: use el valor promedio del período como salida del destino.
 * Máx./mín.: Use el valor Máx./mín. del período como salida del destino.
@@ -68,9 +70,10 @@ El intervalo de tiempo también se puede ajustar entre los últimos 30 minutos 
 
 ![Modificación de métricas](media/metrics/metrics-6.png)
 
-La vista predeterminada reúne todas las métricas de las aplicaciones de un servicio de Azure Spring Cloud. Se pueden filtrar las métricas de una aplicación o instancia en la pantalla.  Haga clic en **Agregar filtro**, establezca la propiedad en **Aplicación** y seleccione la aplicación de destino que quiere supervisar en el cuadro de texto **Valores**. 
+La vista predeterminada reúne todas las métricas de las aplicaciones de un servicio de Azure Spring Cloud. Se pueden filtrar las métricas de una aplicación o instancia en la pantalla. Seleccione **Agregar filtro**, establezca la propiedad en **Aplicación** y seleccione la aplicación de destino que quiera supervisar en el cuadro de texto **Valores**.
 
 Puede usar dos tipos de filtros (propiedades):
+
 * Aplicación: filtrar por nombre de la aplicación
 * Instancia: filtrar por instancia de la aplicación
 
@@ -88,18 +91,22 @@ También puede usar la opción **Aplicar división**, que dibujará varias líne
 En las tablas siguientes se muestran las métricas y los detalles disponibles.
 
 ### <a name="error"></a>Error
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
 >| tomcat.global.error | tomcat.global.error | Count | Número de errores que se produjeron en las solicitudes procesadas |
 
 ### <a name="performance"></a>Rendimiento
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
 >| system.cpu.usage | system.cpu.usage | Percent | Uso de CPU reciente para todo el sistema (obsoleto y no se recomienda su uso). Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que todas las CPU estuvieron inactivas durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU se estaban ejecutando activamente el 100 % del tiempo durante el último período observado.|
 >| process.cpu.usage | App CPU Usage Percentage (Porcentaje de uso de CPU de la aplicación) | Percent | Uso de CPU reciente para el proceso de Máquina virtual Java (obsoleto y no se recomienda su uso). Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que ninguna de las CPU estaba ejecutando subprocesos del proceso de Máquina virtual Java durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU estaban ejecutando activamente subprocesos de la Máquina virtual Java el 100 % del tiempo durante el último período observado. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
->| AppCpuUsage | Uso de CPU de la aplicación | Percent | Uso de CPU reciente del proceso de JVM en la CPU asignada a esta aplicación, valor de tipo double entre [0.0, 1.0]. Un valor de 0,0 indica que ninguna de las CPU estaba ejecutando subprocesos del proceso de Máquina virtual Java durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU estaban ejecutando activamente subprocesos de la Máquina virtual Java el 100 % del tiempo durante el último período observado. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
+>| Uso de CPU de la aplicación | | Percent | Uso de CPU reciente del proceso de JVM en la CPU asignada a esta aplicación. Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que ninguna de las CPU estaba ejecutando subprocesos del proceso de Máquina virtual Java durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU estaban ejecutando activamente subprocesos de la Máquina virtual Java el 100 % del tiempo durante el último período observado. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
+>| Uso de CPU de la aplicación (en desuso) | | Percent | Métrica en desuso del uso de CPU de la aplicación. Use en su lugar la nueva métrica.|
+>| Uso de memoria de la aplicación | | Percent | Uso de memoria reciente del proceso de JVM en la CPU asignada a esta aplicación. Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que los subprocesos del proceso de Máquina virtual Java no han asignado memoria durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que han asignado toda la memoria el 100 % del tiempo durante dicho período. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Representa la cantidad de memoria que se garantiza que va a estar disponible para que la use la Máquina virtual Java. Es posible que la Máquina virtual Java libere memoria para el sistema y que la memoria confirmada sea menor que la inicial. La memoria asignada siempre será mayor o igual que la utilizada. |
 >| jvm.memory.used | jvm.memory.used | Bytes | Representa la cantidad de memoria que se usa actualmente en bytes. |
 >| jvm.memory.max | jvm.memory.max | Bytes | Representa la cantidad máxima de memoria que se puede usar para la administración de memoria. La cantidad de memoria usada y asignada siempre será menor o igual al valor máximo, si se definió el máximo. Se puede producir un error de asignación de memoria si intenta aumentar la memoria usada de modo que la memoria usada sea mayor que la memoria asignada, incluso si la memoria usada es menor o igual que el valor máximo (por ejemplo, cuando el sistema tiene poca memoria virtual). |
@@ -138,6 +145,7 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagnostics/dotnet-counters).
 
 ### <a name="request"></a>Solicitud
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
@@ -159,6 +167,7 @@ Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagno
 Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagnostics/dotnet-counters).
 
 ### <a name="session"></a>Sesión
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
@@ -169,16 +178,10 @@ Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagno
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Número de sesiones que no se crearon porque se alcanzó el número máximo de sesiones activas. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Recuento de sesiones activas de Tomcat |
 
-## <a name="see-also"></a>Consulte también
-
-* [Inicio rápido: Supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento](./quickstart-logs-metrics-tracing.md)
-
-* [Introducción al Explorador de métricas de Azure](../azure-monitor/essentials/metrics-getting-started.md)
-
-* [Análisis de registros y métricas con la configuración de diagnóstico](./diagnostic-services.md)
-
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Inicio rápido: Supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento](./quickstart-logs-metrics-tracing.md)
+* [Introducción al Explorador de métricas de Azure](../azure-monitor/essentials/metrics-getting-started.md)
+* [Análisis de registros y métricas con la configuración de diagnóstico](./diagnostic-services.md)
 * [Tutorial: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones](./tutorial-alerts-action-groups.md)
-
 * [Cuotas y planes de servicio de Azure Spring Cloud](./quotas.md)

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: f5f0351e21588d6e01a633a11d5638358e4d706b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: bf29f435c2d9439659abdcc76a7f8d85cf51c2af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008275"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739156"
 ---
 # <a name="manage-and-optimize-azure-machine-learning-costs"></a>Administración y optimización de costos de Azure Machine Learning
 
@@ -26,6 +26,7 @@ Use las sugerencias siguientes para ayudarle a administrar y optimizar los costo
 - Establecer cuotas en las áreas de trabajo y la suscripción
 - Establecer directivas de finalización en la ejecución del entrenamiento
 - Usar máquinas virtuales de prioridad baja
+- Programar las instancias de proceso para que se apaguen e inicien automáticamente
 - Usar una instancia de Azure Reserved Virtual Machine Instances
 - Entrenamiento local
 - Paralelización del entrenamiento
@@ -55,7 +56,7 @@ También puede configurar la cantidad de tiempo que el nodo está inactivo antes
 + Si realiza una experimentación menos iterativa, reduzca este tiempo para ahorrar costos.
 + Si realiza experimentación de desarrollo y pruebas de gran iteración, es posible que tenga que aumentar este tiempo para no pagar por el escalado y la reducción vertical constante después de cada cambio en el entorno o el script de entrenamiento.
 
-Los clústeres de AmlCompute se pueden configurar para los cambios en los requisitos de carga de trabajo de Azure Portal, mediante la [clase SDK de AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [la CLI de AmlCompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute), con las [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Los clústeres de AmlCompute se pueden configurar para los cambios en los requisitos de carga de trabajo de Azure Portal, mediante la [clase SDK de AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [la CLI de AmlCompute](/cli/azure/ml(v1)/computetarget/create#az_ml_v1__computetarget_create_amlcompute), con las [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -86,6 +87,10 @@ Las máquinas virtuales de prioridad baja tienen una cuota única independiente 
 
  Las máquinas virtuales de prioridad baja no funcionan para las instancias de proceso, ya que necesitan admitir experiencias interactivas de cuaderno.
 
+## <a name="schedule-compute-instances"></a>Programación de instancias de proceso
+
+Cuando se crea una [instancia de proceso](concept-compute-instance.md), la máquina virtual permanece encendida para estar disponible para el trabajo.  [Configure una programación](how-to-create-manage-compute-instance.md#schedule) para iniciar y detener automáticamente la instancia de proceso (versión preliminar) para ahorrar costos cuando no planee usarla.
+
 ## <a name="use-reserved-instances"></a>Uso de instancias reservadas
 
 Otra manera de ahorrar dinero en recursos de proceso es la instancia reservada de máquina virtual de Azure. Con esta oferta, se compromete con plazos de uno o tres años. Estos descuentos van hasta el 72 % de los precios de pago por uso y se aplican directamente a su factura mensual de Azure.
@@ -104,7 +109,7 @@ Uno de los métodos clave para optimizar el costo y el rendimiento es paraleliza
 
 ## <a name="set-data-retention--deletion-policies"></a>Establecimiento de directivas de retención y eliminación de datos
 
-Cada vez que se ejecuta una canalización, se generan conjuntos de datos intermedios en cada paso. Con el tiempo, estos conjuntos de datos intermedios ocupan espacio en la cuenta de almacenamiento. Considere la posibilidad de configurar directivas para administrar los datos a lo largo de su ciclo de vida para archivar y eliminar los conjuntos de datos. Para más información, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](/storage/blobs/storage-lifecycle-management-concepts.md).
+Cada vez que se ejecuta una canalización, se generan conjuntos de datos intermedios en cada paso. Con el tiempo, estos conjuntos de datos intermedios ocupan espacio en la cuenta de almacenamiento. Considere la posibilidad de configurar directivas para administrar los datos a lo largo de su ciclo de vida para archivar y eliminar los conjuntos de datos. Para más información, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md).
 
 ## <a name="deploy-resources-to-the-same-region"></a>Implementación de recursos en la misma región
 

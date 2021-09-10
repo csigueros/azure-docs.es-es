@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 42a9a0ea23faa481140a46ec52b2214431dd723e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42c90d009aefb399e7635ec4a7cd09f884f3c51c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101098239"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437655"
 ---
 # <a name="origin-and-origin-group-in-azure-front-door-standardpremium-preview"></a>Origen y grupo de origen en Azure Front Door Estándar/Premium (versión preliminar)
 
@@ -28,7 +28,7 @@ En este artículo se describen conceptos sobre cómo funciona la implementación
 
 ## <a name="origin"></a>Origen
 
-El origen de Azure Front Door Estándar/Prémium hace referencia al nombre de host o la dirección IP pública de la aplicación que atiende las solicitudes de los clientes. Azure Front Door Estándar/Premium admite recursos de Azure y que no son de Azure en un grupo de origen. La aplicación se puede hospedar también en el centro de datos local o con otro proveedor de servicios en la nube. El origen no debe confundirse con el nivel de base de datos o el nivel de almacenamiento. Se debe considerar como el punto de conexión público del servidor back-end de la aplicación. Cuando se agrega un origen a un grupo de origen de Azure Front Door Estándar/Prémium, también se debe agregar la siguiente información:
+El origen de Azure Front Door Estándar/Prémium hace referencia al nombre de host o la dirección IP pública de la aplicación que atiende las solicitudes de los clientes. Azure Front Door Standard/Premium admite orígenes de Azure y también orígenes que no son de Azure, como cuando la aplicación se hospeda en el centro de datos local o con otro proveedor de nube. El origen no debe confundirse con el nivel de base de datos o el nivel de almacenamiento. Se debe considerar como el punto de conexión del servidor back-end de la aplicación. Cuando se agrega un origen a un grupo de origen de Azure Front Door Estándar/Prémium, también se debe agregar la siguiente información:
 
 * **Tipo de origen**: el tipo de recurso que quiere agregar. Front Door admite la detección automática de los servidores back-end de la aplicación desde App Service, Cloud Service o Storage. Si desea usar un recurso diferente en Azure o incluso un back-end ajeno a Azure, seleccione **Host personalizado**.
 

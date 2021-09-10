@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 3c18b6d8dc44762649a9c07b88af348a18888fb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfec3e6305b6b955cfb7b2cfd787507db36ff6ba
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699120"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213604"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer y Availability Zones
 
@@ -75,6 +75,12 @@ La redundancia de zona no implica un plano de control o un plano de datos sin in
 Los flujos de tráfico que están usando una zona en el momento en que se produce un error en esta pueden resultar afectados, pero las aplicaciones se pueden recuperar. El tráfico continúa por las zonas correctas de la región después de la retransmisión cuando Azure ha detectado el error en la zona.
 
 Revise [los patrones de diseño en la nube de Azure](/azure/architecture/patterns/) para mejorar la resistencia de la aplicación a los escenarios de error.
+
+## <a name="limitations"></a>Limitaciones
+
+* Las zonas no se pueden cambiar, actualizar ni crear para el recurso después de su creación.
+
+* Los recursos no se pueden actualizar de zonal a con redundancia de zona y viceversa después de su creación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más sobre [zonas de disponibilidad](../availability-zones/az-overview.md).

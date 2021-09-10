@@ -165,6 +165,8 @@
         - name: Creación de un grupo sin direcciones IP públicas
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: Creación de un grupo con nodos de disco de SO efímero
+          href: create-pool-ephemeral-os-disk.md
         - name: Uso de extensiones con grupos
           href: create-pool-extensions.md
         - name: Configuración de identidades administradas

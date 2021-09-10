@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: f394448f0b488f468ce09c13d036585db032bda9
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 1f027dd3dfb812e9a700810972d2b019810dc41c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112535987"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251521"
 ---
 En este inicio rápido, verá cómo iniciar una llamada con Calling SDK de Azure Communication Services para JavaScript.
 
@@ -124,8 +124,10 @@ Agregue un controlador de eventos para iniciar una llamada cuando se haga clic e
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
+    // To call an ACS communication user, use {communicationUserId: 'ACS_USER_ID'}.
+    // To call echobot, use {id: '8:echo123'}.
     call = callAgent.startCall(
-        [{ id: userToCall }],
+        [{ communicationUserId: userToCall }],
         {}
     );
     // toggle button states
@@ -164,4 +166,7 @@ Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 
 :::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="Captura de pantalla de la aplicación JavaScript completada.":::
 
-Para hacer una llamada de VOIP saliente, proporcione un token de acceso de usuario y un identificador de usuario válidos en los campos de texto correspondientes y haga clic en el botón **Iniciar llamada**. La llamada a `8:echo123` le conecta a un bot de eco; esto es excelente como introducción y para comprobar que los dispositivos de audio funcionan.
+Para hacer una llamada de VOIP saliente, proporcione un token de acceso de usuario y un identificador de usuario válidos en los campos de texto correspondientes y haga clic en el botón **Iniciar llamada**.
+
+La llamada a `8:echo123` le conecta a un bot de eco; esto es excelente como introducción y para comprobar que los dispositivos de audio funcionan. Pase `{id: '8:echo123'}` a la API CallAgent.startCall() para llamar al bot de eco.
+Para llamar a un usuario de comunicación de ACS, pase `{communicationUserId: 'ACS_USER_ID'}` a la API `CallAgent.startCall()`.

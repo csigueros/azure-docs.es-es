@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 0510292b27d61c9142edd710e903ebad74b3d244
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c65c860e54d327c4ec24474658968577387fbc49
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228935"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729543"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminación de una puerta de enlace de red virtual mediante el portal
 
@@ -29,7 +29,7 @@ Este artículo lo ayuda a eliminar una puerta de enlace de red virtual. Hay un p
 * Si desea mantener algunos de los recursos en el grupo de recursos, será algo más complicado eliminar una puerta de enlace de red virtual. Antes de poder eliminar la puerta de enlace de red virtual, primero debe quitar todos los recursos que dependen de la puerta de enlace. Los pasos que seguirá dependerán del tipo de conexiones que creó y de los recursos dependientes de cada conexión.
 
 > [!IMPORTANT]
-> Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager. Para eliminar una puerta de enlace VPN implementada mediante el modelo de implementación clásica, use los pasos que aparecen en el artículo sobre la [eliminación clásica de una puerta de enlace](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
+> Los pasos descritos en este artículo se aplican al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md). Para eliminar una puerta de enlace VPN implementada mediante el modelo de implementación clásica, use los pasos que aparecen en el artículo sobre la [eliminación clásica de una puerta de enlace](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
 
 ## <a name="delete-a-vpn-gateway"></a>Eliminación de una instancia de VPN Gateway
 
@@ -61,7 +61,7 @@ Los pasos siguientes lo ayudan a eliminar todos los recursos que ya no se usan.
 
 ## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="deleterg"></a>Eliminación de una puerta de enlace VPN mediante la eliminación del grupo de recursos
 
-Si no desea mantener ninguno de los recursos del grupo, sino que desea empezar de nuevo, puede eliminar dicho grupo al completo. Se trata de una forma rápida de quitarlos todos. Los siguientes pasos se aplican solo al modelo de implementación de Resource Manager.
+Si no desea mantener ninguno de los recursos del grupo, sino que desea empezar de nuevo, puede eliminar dicho grupo al completo. Se trata de una forma rápida de quitarlos todos. Los siguientes pasos se aplican solo al [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 1. En **Todos los recursos**, busque el grupo de recursos y haga clic para abrir la hoja.
 1. Haga clic en **Eliminar**. En la hoja Eliminar, revise los recursos afectados. Asegúrese de que desea eliminar todos estos recursos. Si no es así, siga los pasos de Eliminación de una puerta de enlace VPN en la parte superior de este artículo.

@@ -1,28 +1,24 @@
 ---
-title: Certificados de la versión preliminar de Azure Firewall Prémium
-description: Para configurar correctamente la inspección de TLS en la versión preliminar de Azure Firewall Prémium, debe configurar e instalar certificados de la entidad de certificación intermedia.
+title: Certificados de Azure Firewall Prémium
+description: Para configurar correctamente la inspección de TLS en Azure Firewall Premium, debe configurar e instalar certificados de la entidad de certificación intermedia.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 08/02/2021
 ms.author: victorh
-ms.openlocfilehash: 47ebc752dedd72bbdedc02908911f1686584acda
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0826e58f4b61e0a99064226a8488f1c3fb499cd7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615506"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738078"
 ---
-# <a name="azure-firewall-premium-preview-certificates"></a>Certificados de la versión preliminar de Azure Firewall Prémium 
+# <a name="azure-firewall-premium-certificates"></a>Certificados de Azure Firewall Prémium 
 
-> [!IMPORTANT]
-> Azure Firewall Prémium se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Para configurar correctamente la inspección de TLS de Azure Firewall Premium, debe proporcionar un certificado de la entidad de certificación intermedia válido y depositarlo en Azure Key Vault.
 
- Para configurar correctamente la inspección de TLS de la versión preliminar de Azure Firewall Prémium, debe proporcionar un certificado de la entidad de certificación intermedia válido y depositarlo en Azure Key Vault.
-
-## <a name="certificates-used-by-azure-firewall-premium-preview"></a>Certificados usados por la versión preliminar de Azure Firewall Prémium
+## <a name="certificates-used-by-azure-firewall-premium"></a>Certificados usados por Azure Firewall Premium
 
 Hay tres tipos de certificados que se usan en una implementación típica:
 
@@ -42,7 +38,7 @@ Hay tres tipos de certificados que se usan en una implementación típica:
 
    Una entidad de certificación puede emitir varios certificados como una estructura de árbol. Un certificado raíz es el certificado de nivel superior del árbol.
 
-La versión preliminar de Azure Firewall Prémium puede interceptar el tráfico HTTP/S saliente y generar automáticamente un certificado de servidor para `www.website.com`. Este certificado se genera mediante el certificado de la entidad de certificación intermedia que proporcione. Para que este procedimiento funcione, el explorador de usuario final y las aplicaciones cliente deben confiar en el certificado de la entidad de certificación raíz de la organización o en el certificado de la entidad de certificación intermedia. 
+Azure Firewall Premium puede interceptar el tráfico HTTP/S saliente y generar automáticamente un certificado de servidor para `www.website.com`. Este certificado se genera mediante el certificado de la entidad de certificación intermedia que proporcione. Para que este procedimiento funcione, el explorador de usuario final y las aplicaciones cliente deben confiar en el certificado de la entidad de certificación raíz de la organización o en el certificado de la entidad de certificación intermedia. 
 
 :::image type="content" source="media/premium-certificates/certificate-process.png" alt-text="Proceso de certificado":::
 
@@ -82,7 +78,7 @@ Puede crear o volver a usar una identidad administrada asignada por el usuario e
 
 ## <a name="configure-a-certificate-in-your-policy"></a>Configuración de un certificado en la directiva
 
-Para configurar un certificado de entidad de certificación en la directiva de firewall prémium, seleccione la directiva y, luego, elija **TLS inspection (preview)** (Inspección de TLS [versión preliminar]). En la página **TLS inspection**(Inspección de TLS), seleccione **Habilitado**. Después, seleccione el certificado de entidad de certificación en Azure Key Vault, como se muestra en la ilustración siguiente:
+Para configurar un certificado de entidad de certificación en la directiva de firewall prémium, seleccione la directiva y, luego, elija **TLS inspection** (Inspección de TLS). En la página **TLS inspection**(Inspección de TLS), seleccione **Habilitado**. Después, seleccione el certificado de entidad de certificación en Azure Key Vault, como se muestra en la ilustración siguiente:
 
 :::image type="content" source="media/premium-certificates/tls-inspection.png" alt-text="Diagrama de información general de Azure Firewall Prémium":::
  
@@ -90,13 +86,12 @@ Para configurar un certificado de entidad de certificación en la directiva de f
 > Para ver y configurar un certificado desde Azure Portal, debe agregar su cuenta de usuario de Azure a la directiva de acceso de Key Vault. Proporcione a su cuenta de usuario los permisos **Obtener** y **Enumerar** en **Permisos de secretos**.
    :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Directiva de acceso de Azure Key Vault":::
 
-
 ## <a name="create-your-own-self-signed-ca-certificate"></a>Creación de su propio certificado de entidad de certificación autofirmado
 
-Para ayudarle a probar y comprobar la inspección de TLS, puede usar los siguientes scripts para crear su propia entidad de certificación raíz autofirmada y entidad de certificación intermedia.
+Si desea crear sus propios certificados para ayudarle a probar y comprobar la inspección de TLS, puede usar los siguientes scripts para crear su propia entidad de certificación raíz autofirmada y entidad de certificación intermedia.
 
 > [!IMPORTANT]
-> En el caso de producción, debe usar la PKI corporativa para crear un certificado de entidad de certificación intermedia. Una PKI corporativa aprovecha la infraestructura existente y controla la distribución de la entidad de certificación raíz a todos los equipos de punto de conexión. Para más información, consulte [Implementación y configuración de certificados de entidad de certificación de empresa para la versión preliminar de Azure Firewall](premium-deploy-certificates-enterprise-ca.md).
+> En el caso de producción, debe usar la PKI corporativa para crear un certificado de entidad de certificación intermedia. Una PKI corporativa aprovecha la infraestructura existente y controla la distribución de la entidad de certificación raíz a todos los equipos de punto de conexión. Para obtener más información, consulte [Implementación y configuración de certificados de entidad de certificación de empresa para Azure Firewall](premium-deploy-certificates-enterprise-ca.md).
 
 Existen dos versiones de este script:
 - Un script de Bash `cert.sh` 
@@ -202,6 +197,18 @@ Write-Host "   - interCA.pfx - Intermediate CA pkcs12 package which could be upl
 Write-Host "================"
 
 ```
+
+## <a name="certificate-auto-generation-preview"></a>Generación automática de certificados (versión preliminar)
+
+Para las implementaciones que no son de producción, puede usar el mecanismo de generación automática de certificación de Azure Firewall Premium, que crea automáticamente los tres recursos siguientes:
+
+- Identidad administrada
+- Key Vault
+- Certificado de entidad de certificación raíz autofirmado
+
+Solo tiene que elegir la versión preliminar de la nueva identidad administrada y unir los tres recursos en la directiva de Premium y configurar la inspección de TLS. 
+
+:::image type="content" source="media/premium-certificates/auto-gen-certs.png" alt-text="Certificados generados automáticamente":::
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

@@ -2,13 +2,13 @@
 title: 'Mensajería de Azure Service Bus: colas, temas y suscripciones'
 description: En este artículo se proporciona información general sobre las entidades de mensajería (colas, temas y suscripciones) de Azure Service Bus.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: c3e50c5f8487a0f6dc26a50ec6bfb10f4136f899
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/27/2021
+ms.openlocfilehash: 8756da7f4000f5ef3b478567934ba99a90b0ab4c
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479101"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102273"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
 Azure Service Bus admite un conjunto de tecnologías middleware orientadas a mensajes basadas en la nube, entre las que se incluyen una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Estas funcionalidades de mensajería asincrónica pueden considerarse como características de mensajería desacopladas que admiten la publicación-suscripción, el desacoplamiento temporal y los escenarios de equilibrio de carga mediante la carga de trabajo de mensajería de Service Bus. La comunicación desacoplada ofrece muchas ventajas. Por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de manera asincrónica.
@@ -18,12 +18,12 @@ Las entidades de mensajería que forman el núcleo de las funcionalidades de men
 ## <a name="queues"></a>Colas
 Las colas ofrecen una entrega de mensajes según el modelo **primero en entrar, primero en salir (FIFO [PEPS])** a uno o más destinatarios de la competencia. Es decir, los receptores normalmente reciben y procesan los mensajes en el orden en el que se agregaron a la cola. Además, solo un destinatario de mensaje recibe y procesa cada uno de los mensajes. La principal ventaja del uso de colas es conseguir un **desacoplamiento temporal de los componentes de la aplicación**. En otras palabras, los productores (remitentes) y los consumidores (receptores) no tienen que enviar y recibir mensajes al mismo tiempo. Esto se debe a que los mensajes se almacenan de manera duradera en la cola. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de mensajes.
 
-Una ventaja relacionada es la **nivelación de la carga**, lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades. En muchas aplicaciones, la carga del sistema varía con el tiempo. Sin embargo, el tiempo de procesamiento necesario para cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora solo necesita la capacidad de administrar una carga promedio, en lugar de una carga de mucha actividad. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación. A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Es más, este equilibrio de carga basado en la extracción permite el uso óptimo de los equipos de trabajo aunque estos equipos con capacidad de procesamiento extraigan mensajes a la frecuencia máxima. Este patrón con frecuencia se denomina patrón de **consumo de competidor**.
+Una ventaja relacionada es la **nivelación de la carga**, lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades. En muchas aplicaciones, la carga del sistema varía con el tiempo. Sin embargo, el tiempo de procesamiento necesario para cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora solo necesita la capacidad de administrar una carga promedio, en lugar de una carga de mucha actividad. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que directamente ahorra dinero en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación. A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Es más, este equilibrio de carga basado en la extracción permite el uso óptimo de los equipos de trabajo aunque estos equipos con capacidad de procesamiento extraigan mensajes a la frecuencia máxima. Este patrón con frecuencia se denomina patrón de **consumo de competidor**.
 
 El uso de colas para intermediar entre los consumidores y productores de mensajes proporciona un acoplamiento no estricto inherente entre los componentes. Dado que los productores y consumidores no están relacionados entre sí, un consumidor puede actualizarse sin tener ningún efecto en el productor.
 
 ### <a name="create-queues"></a>Creación de colas
-Puede crear colas mediante [Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-quickstart-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-queue.md). A continuación, envíe y reciba mensajes mediante clientes escritos en [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md) y [PHP](service-bus-php-how-to-use-queues.md). 
+Puede crear colas mediante [Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-quickstart-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-queue.md). Luego envíe y reciba mensajes mediante clientes escritos en [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md) y [JavaScript](service-bus-nodejs-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Modos de recepción
 Puede especificar dos modos distintos en los que Service Bus recibe los mensajes.
@@ -43,15 +43,15 @@ Puede especificar dos modos distintos en los que Service Bus recibe los mensajes
 ## <a name="topics-and-subscriptions"></a>Temas y suscripciones
 Una cola permite que un único consumidor procese un mensaje. En comparación con las colas, los temas y suscripciones proporcionan una vía de comunicación uno a varios en un patrón de **publicación y suscripción**. Resulta útil para escalar a un gran número de destinatarios. Cada mensaje publicado se pone a disposición de todas las suscripciones registradas en el tema. El publicador envía un mensaje a un tema y uno o varios suscriptores reciben una copia del mensaje, en función de las reglas de filtro establecidas en las suscripciones. Las suscripciones pueden usar filtros adicionales para restringir los mensajes que desean recibir. Los publicadores envían mensajes a un tema de la misma manera en que envían mensajes a una cola. No obstante, los consumidores no reciben mensajes directamente del tema. En su lugar, los reciben de las suscripciones del tema. Una suscripción al tema se parece a una cola virtual en que recibe copias de los mensajes que se envían al tema. Los consumidores reciben los mensajes de una suscripción exactamente de la misma manera en que se reciben de una cola.
 
-La funcionalidad de envío de mensajes de una cola los asigna directamente a un tema y su funcionalidad de recepción de mensajes a una suscripción. Entre otras cosas, esta característica significa que las suscripciones admiten los mismos patrones que se han descrito en esta misma sección con respecto a las colas: consumidor en competencia, desacoplamiento temporal, nivelación de carga y equilibrio de la carga.
+La funcionalidad de envío de mensajes de una cola los asigna directamente a un tema y su funcionalidad de recepción de mensajes a una suscripción. Entre otras cosas, esta característica significa que las suscripciones admiten los mismos patrones que se han descrito antes en esta sección con respecto a las colas: consumidor simultáneo, desacoplamiento temporal, nivelación de carga y equilibrio de carga.
 
 ### <a name="create-topics-and-subscriptions"></a>Creación de temas y suscripciones
-La creación de un tema es similar a la creación de una cola, como se describe en la sección anterior. Puede crear temas y suscripciones mediante [Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-tutorial-topics-subscriptions-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-topic.md). A continuación, envíe mensajes a un tema y recíbalos de las suscripciones mediante clientes escritos en [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md) y [PHP](service-bus-php-how-to-use-topics-subscriptions.md). 
+La creación de un tema es similar a la creación de una cola, como se describe en la sección anterior. Puede crear temas y suscripciones mediante [Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-tutorial-topics-subscriptions-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-topic.md). Luego envíe mensajes a un tema y recíbalos de suscripciones mediante clientes escritos en [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md) y [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md). 
 
 ### <a name="rules-and-actions"></a>Reglas y acciones
 En muchos escenarios, los mensajes que tienen características específicas deben procesarse de maneras diferentes. Para permitir este procesamiento, puede configurar suscripciones para buscar los mensajes que tengan las propiedades deseadas y, después, realizar determinadas modificaciones en dichas propiedades. Mientras que las suscripciones del Service Bus ven todos los mensajes enviados al tema, solo se puede copiar un subconjunto de dichos mensajes en la cola de suscripción virtual. Este filtrado se consigue mediante los filtros de suscripción. Dichas modificaciones se denominan **acciones de filtrado**. Cuando se cree una suscripción, podrá proporcionar una expresión de filtro que opere en las propiedades del mensaje. Las propiedades pueden ser del sistema (por ejemplo, **etiqueta**) y propiedades de la aplicación personalizadas (por ejemplo, **StoreName**). En este caso, la expresión de filtro SQL es opcional. Sin una expresión de filtro SQL, todas las acciones de filtro definidas en una suscripción se realizarán en todos los mensajes de dicha suscripción.
 
-Si desea ver un ejemplo funcional completo, consulte el [ejemplo TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) en GitHub.
+Para obtener un ejemplo práctico completo, vea el [ejemplo TopicFilters](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples/TopicFilters) en GitHub.
 
 Para más información acerca de los filtros, consulte [Filtros y acciones de temas](topic-filters.md).
 
@@ -69,10 +69,14 @@ Obtenga más información sobre las [entidades de JMS 2.0](java-message-service
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información y ejemplos de cómo usar la mensajería de Service Bus, consulte estos temas avanzados:
+Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
 
-* [Introducción a la mensajería de Service Bus](service-bus-messaging-overview.md)
-* [Inicio rápido: Envío y recepción de mensajes mediante Azure Portal y .NET](service-bus-quickstart-portal.md)
-* [Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones](service-bus-tutorial-topics-subscriptions-portal.md)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión más reciente)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión más reciente)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 
-
+A continuación, encontrará ejemplos de las bibliotecas cliente de .NET y Java anteriores:
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)

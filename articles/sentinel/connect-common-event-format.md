@@ -1,5 +1,5 @@
 ---
-title: Conexión de datos CEF a la versión preliminar de Azure Sentinel | Microsoft Docs
+title: Conexión de datos de CEF con Azure Sentinel | Microsoft Docs
 description: Conecte una solución externa que envía mensajes de formato de evento común (CEF) a Azure Sentinel mediante una máquina Linux como reenviador de registros.
 services: sentinel
 documentationcenter: na
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 07/26/2021
 ms.author: yelevin
-ms.openlocfilehash: 54fd6c0c085c0055f3114fde606f8f7d2f2e055e
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ccf05bb51c64a94c07a0277ed901912f9e4dda3e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772066"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742995"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conexión de su solución externa con Common Event Format
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Al conectar una solución externa que envía mensajes de CEF, hay tres pasos para conectarse con Azure Sentinel:
 
@@ -49,6 +51,8 @@ Asegúrese de configurar la seguridad de la máquina de acuerdo con la directiva
 Para usar la comunicación TLS entre el origen y el reenviador de Syslog, debe configurar el demonio de Syslog (rsyslog o syslog-ng) para que se comunique en TLS: [Cifrado del tráfico de Syslog con TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Cifrado de los mensajes de registro con TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
  
 ## <a name="prerequisites"></a>Requisitos previos
+
+Se requiere un área de trabajo de Azure Sentinel para ingerir datos CEF en Log Analytics.
 
 Asegúrese de que la máquina Linux que usa como reenviador de registros ejecuta alguno de los siguientes sistemas operativos:
 
@@ -101,5 +105,5 @@ En este documento ha aprendido cómo recopila Azure Sentinel los registros de CE
 Para obtener más información sobre qué hacer con los datos recopilados en Azure Sentinel, vea los siguientes artículos:
 
 - Obtenga información sobre la [asignación de campos de CEF y CommonSecurityLog](cef-name-mapping.md).
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./detect-threats-built-in.md).

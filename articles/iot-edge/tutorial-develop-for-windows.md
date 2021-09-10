@@ -9,12 +9,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 07cb9d302613c94b72663f7a4b4a46c94dd0209a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e3e4add97b63dc7ed6e375f90eb3d5d48a81ffef
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726491"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039000"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Tutorial: Desarrollo de módulos IoT Edge con contenedores de Windows
 
@@ -155,6 +155,20 @@ Cuando el nuevo proyecto se cargue en la ventana de Visual Studio, dedique unos 
 * Un proyecto del módulo IoT Edge denominado **IotEdgeModule1**.
   * El archivo **program.cs** contiene el código del módulo de C# predeterminado que se incluye con la plantilla de proyecto. El módulo predeterminado toma la entrada de un origen y lo pasa a la instancia de IoT Hub.
   * El archivo **module.json** contiene detalles sobre el módulo, incluido el repositorio de imágenes completo, la versión de la imagen y el Dockerfile que se va a utilizar para cada plataforma admitida.
+
+### <a name="set-iot-edge-runtime-version"></a>Establecimiento de la versión del entorno de ejecución de Azure IoT Edge
+
+La extensión IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, esta es la versión 1.2. 
+
+Los contenedores Windows solo se admiten en la versión 1.1 con soporte técnico a largo plazo o en la versión 1.0 anterior. Para desarrollar módulos para dispositivos mediante contenedores Windows, actualice la versión del entorno de ejecución de Azure IoT Edge en Visual Studio para que coincida con la versión de IoT Edge en esos dispositivos.
+
+1. En el Explorador de soluciones, haga clic con el botón derecho en el nombre del proyecto y seleccione **Set IoT Edge runtime version** (Establecer la versión del entorno de ejecución de Azure IoT Edge).
+
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Haga clic con el botón derecho en el nombre del proyecto y seleccione Establecer la versión del entorno de ejecución de Azure IoT Edge.":::
+
+1. Use el menú desplegable para elegir la versión del entorno de ejecución en la que se ejecutan los dispositivos IoT Edge y, a continuación, seleccione **Aceptar** para guardar los cambios.
+
+1. Vuelva a generar el manifiesto de implementación con la nueva versión del entorno de ejecución. Haga clic con el botón derecho en el nombre del proyecto y seleccione **Generar implementación para IoT Edge**.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Especificación de la credenciales del registro para el agente de IoT Edge
 

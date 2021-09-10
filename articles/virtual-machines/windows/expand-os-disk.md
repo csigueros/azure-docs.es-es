@@ -1,30 +1,25 @@
 ---
 title: Expansión de la unidad de sistema operativo de una máquina virtual de Windows en Azure
 description: Expanda el tamaño de la unidad de sistema operativo de una máquina virtual con Azure PowerShell en el modelo de implementación de Resource Manager.
-services: virtual-machines
-documentationcenter: ''
 author: kirpasingh
 manager: roshar
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74ce4cf27f8a8be8fd86bad3e3f03589cf3640ea
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
+ms.openlocfilehash: fbc7a6df9dfdd50315176db343c6c94aaefbba12
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113600539"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692484"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante la implementación de una imagen de [Azure Marketplace](https://azure.microsoft.com/marketplace/), la unidad del sistema operativo predeterminada suele tener 127 GB (algunas imágenes son más pequeñas de manera predeterminada). Aunque es posible agregar discos de datos a la máquina virtual (el número depende de la SKU que elija) y se recomienda instalar aplicaciones y cargas de trabajo intensivas de CPU en estos discos anexos, a menudo los clientes necesitan expandir la unidad del sistema operativo para admitir escenarios concretos:
 

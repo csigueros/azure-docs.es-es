@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 06/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c0d0fa394c8b962206879a80d600987753f2f6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: db8be2618ee4bdeab517242870d593e88f631cfa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953463"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740024"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -36,6 +36,14 @@ En este artículo se da por hecho que está familiarizado con la [introducción 
 
 > [!NOTE]
 > La versión del controlador de dominio mínima necesaria para la unión de dispositivos Windows 10 a Azure AD híbrido es Windows Server 2008 R2.
+
+Los dispositivos unidos de Azure AD híbrido requieren una línea de visión de red a sus controladores de dominio periódicamente. Sin esta conexión, los dispositivos se vuelven inutilizables.
+
+Escenarios que se interrumpirán sin línea de visión a los controladores de dominio:
+
+- Cambio de contraseña del dispositivo
+- Cambio de contraseña de usuario (credenciales almacenadas en caché)
+- TPM restablecido
 
 ## <a name="plan-your-implementation"></a>Planeamiento de la implementación
 
@@ -93,7 +101,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Control de dispositivos con el estado registrado de Azure AD
 
-Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Azure AD](overview.md#getting-devices-in-azure-ad) con su inquilino, podría provocar un doble estado de dispositivos registrados en Azure AD y unidos a Azure AD híbrido. Se recomienda actualizar a Windows 10 1803 (con KB4489894 aplicado) o una versión superior para solucionar automáticamente esta situación. En las versiones anteriores a 1803, deberá quitar manualmente el estado registrado en Azure AD antes de habilitar la unión a Azure AD híbrido. A partir de la versión 1803, se han realizado los siguientes cambios para evitar este doble estado:
+Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Azure AD](concept-azure-ad-register.md) con su inquilino, podría provocar un doble estado de dispositivos registrados en Azure AD y unidos a Azure AD híbrido. Se recomienda actualizar a Windows 10 1803 (con KB4489894 aplicado) o una versión superior para solucionar automáticamente esta situación. En las versiones anteriores a 1803, deberá quitar manualmente el estado registrado en Azure AD antes de habilitar la unión a Azure AD híbrido. A partir de la versión 1803, se han realizado los siguientes cambios para evitar este doble estado:
 
 - Cualquier estado registrado de Azure AD existente de un usuario se eliminaría automáticamente <i>en el momento en que el dispositivo se una a Azure AD híbrido y el usuario en cuestión inicie sesión</i>. Por ejemplo, si un usuario A tuviera un estado registrado de Azure AD en el dispositivo, el doble estado de ese usuario A se limpiará únicamente cuando este inicie sesión en el dispositivo. Si hay varios usuarios en el mismo dispositivo, el doble estado se limpiará individualmente cuando cada uno de esos usuarios inicie sesión. Además de quitar el estado registrado de Azure AD, Windows 10 también anulará la inscripción del dispositivo de Intune u otra MDM, si la inscripción se produjo como parte del registro de Azure AD a través de la inscripción automática.
 - El estado registrado de Azure AD en las cuentas locales del dispositivo no se ve afectado por este cambio. Solo se aplica a las cuentas de dominio. Por lo tanto, el estado registrado de Azure AD en las cuentas locales no se quita de forma automática, incluso después del inicio de sesión del usuario, ya que no se trata de un usuario del dominio. 

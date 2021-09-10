@@ -10,15 +10,16 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 3/31/2021
-ms.openlocfilehash: a3a3ca1e4a6161f12b5695ac96a3d9e562a13947
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 7/8/2021
+ms.openlocfilehash: ca9bfaa6155c2d0f4600ed56bf5a3cab3880274c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693345"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722905"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server que se ajusta al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres modelos de arquitectura que se usan en Azure SQL Database:
 
@@ -41,10 +42,10 @@ El nivel de servicio Hiperescala en Azure SQL Database proporciona las siguiente
 - Copias de seguridad de base de datos casi instantáneas (basadas en las instantáneas almacenadas en Azure Blob Storage) independientemente del tamaño sin efecto de la E/S en recursos de proceso  
 - Restauraciones rápidas de base de datos (basadas en instantáneas de archivos) en minutos en lugar de horas o días (no el tamaño de la operación de datos)
 - Mayor rendimiento general debido a un mayor rendimiento de los registros y tiempos más rápidos de confirmación de las transacciones, independientemente de los volúmenes de datos
-- Rápido escalado horizontal: puede aprovisionar uno o varios de solo lectura nodos para la descarga de la carga de trabajo de lectura y para su uso como esperas activas
+- Rápido escalado horizontal: puede aprovisionar una o varias [réplicas de solo lectura](service-tier-hyperscale-replicas.md) para la descarga de la carga de trabajo de lectura y para su uso como esperas activas
 - Rápido escalado vertical: en tiempo constante, puede escalar verticalmente los recursos de proceso para dar cabida a cargas de trabajo pesadas cuando sea necesario y, después, reducir verticalmente los recursos de proceso cuando no sean necesarios.
 
-El nivel de servicio Hiperescala elimina muchos de los límites prácticos que tradicionalmente se ven en las bases de datos en la nube. Donde la mayoría de las otras bases de datos están limitados por los recursos disponibles en un único nodo, las bases de datos en el nivel de servicio Hiperescala no tienen límites de este tipo. Con su arquitectura de almacenamiento flexible, el almacenamiento crece a medida que sea necesario. De hecho, las bases de datos de Hiperescala no se crean con un tamaño máximo definido. Una base de datos de hiperescala aumenta según sea necesario, y se le cobrará solo la capacidad que use. Para cargas de trabajo de lectura intensiva, el nivel de servicio Hiperescala proporciona rápida escalabilidad horizontal mediante el aprovisionamiento de réplicas de lectura adicionales según sea necesario para descargar las cargas de trabajo de lectura.
+El nivel de servicio Hiperescala elimina muchos de los límites prácticos que tradicionalmente se ven en las bases de datos en la nube. Donde la mayoría de las otras bases de datos están limitados por los recursos disponibles en un único nodo, las bases de datos en el nivel de servicio Hiperescala no tienen límites de este tipo. Con su arquitectura de almacenamiento flexible, el almacenamiento crece a medida que sea necesario. De hecho, las bases de datos de Hiperescala no se crean con un tamaño máximo definido. Una base de datos de hiperescala aumenta según sea necesario, y se le cobrará solo la capacidad que use. Para cargas de trabajo de lectura intensiva, el nivel de servicio Hiperescala proporciona rápida escalabilidad horizontal mediante el aprovisionamiento de réplicas adicionales según sea necesario para descargar las cargas de trabajo de lectura.
 
 Además, el tiempo necesario para crear copias de seguridad de bases de datos o para escalar o reducir verticalmente ya no está ligado al volumen de los datos en la base de datos. Pueden crearse copias de seguridad de las bases de datos de hiperescala de manera prácticamente instantánea. También puede escalar o reducir verticalmente una base de datos de decenas de terabytes en cuestión de minutos. Esta funcionalidad le libra de la preocupación de estar atado por las opciones de la configuración inicial.
 
@@ -69,7 +70,7 @@ El nivel de servicio Hiperescala solo está disponible en el [modelo de núcleo 
 
 - **Proceso**:
 
-  El precio de la unidad de proceso de Hiperescala es por réplica. El precio de la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) se aplica automáticamente a las réplicas de escalado de lectura. De manera predeterminada, creamos una réplica principal y una réplica de solo lectura por base de datos Hiperescala.  Los usuarios pueden ajustar el número total de réplicas, incluida la principal, de 1 a 5.
+  El precio de la unidad de proceso de Hiperescala es por réplica. El precio de la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) se aplica automáticamente a las réplicas de alta disponibilidad y con nombre. De manera predeterminada, se crea una réplica principal y una [réplica de alta disponibilidad](service-tier-hyperscale-replicas.md) secundaria por base de datos de Hiperescala.  Los usuarios pueden ajustar el número total de réplicas de alta disponibilidad de 0 a 4, en función del [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) necesario. 
 
 - **Almacenamiento**:
 
@@ -79,7 +80,7 @@ Para más información sobre los precios de Hiperescala, consulte [Precios de Az
 
 ## <a name="distributed-functions-architecture"></a>Arquitectura de funciones distribuidas
 
-A diferencia de los motores de base de datos tradicionales, que han centralizada todas las funciones de administración de datos en una ubicación o proceso (incluso las llamadas bases de datos distribuidas en producción actualmente tienen varias copias de un motor de datos monolítico), una base de datos de hiperescala separa el motor de procesamiento de consultas, donde la semántica de los diversos motores de datos difieren, de los componentes que proporcionan almacenamiento a largo plazo y durabilidad de los datos. De este modo, la capacidad de almacenamiento se puede escalar horizontalmente fácilmente en cuanto sea necesario (el destino inicial es de 100 TB). Las réplicas de solo lectura comparten los mismos componentes de almacenamiento, por lo que no se requiere ninguna copia de datos para poner en marcha una nueva réplica legible.
+A diferencia de los motores de base de datos tradicionales, que han centralizada todas las funciones de administración de datos en una ubicación o proceso (incluso las llamadas bases de datos distribuidas en producción actualmente tienen varias copias de un motor de datos monolítico), una base de datos de hiperescala separa el motor de procesamiento de consultas, donde la semántica de los diversos motores de datos difieren, de los componentes que proporcionan almacenamiento a largo plazo y durabilidad de los datos. De este modo, la capacidad de almacenamiento se puede escalar horizontalmente fácilmente en cuanto sea necesario (el destino inicial es de 100 TB). Las réplicas de alta disponibilidad y con nombre comparten los mismos componentes de almacenamiento, por lo que no se requiere ninguna copia de datos para poner en marcha una nueva réplica.
 
 El siguiente diagrama ilustra los diferentes tipos de nodos en una base de datos de hiperescala:
 
@@ -141,22 +142,11 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Conexión a una réplica de escalado de lectura de una base de datos de Hiperescala
-
-En las bases de datos de Hiperescala, el argumento `ApplicationIntent` de la cadena de conexión que proporciona el cliente dictamina si la conexión se enruta a la réplica de escritura o a una réplica de solo lectura secundaria. Si el argumento `ApplicationIntent` establecido en `READONLY` y la base de datos no tienen una réplica secundaria, la conexión se enrutará a la réplica principal y de forma predeterminada es el comportamiento `ReadWrite`.
-
-```cmd
--- Connection string with application intent
-Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
-```
-
-Las réplicas secundarias de Hiperescala son todas idénticas, y utilizan el mismo objetivo de nivel de servicio que la réplica principal. Si hay más de una réplica secundaria, la carga de trabajo se distribuye entre todas las replicas secundarias disponibles. Cada réplica secundaria se actualiza de forma independiente. Por lo tanto, las distintas réplicas podrían tener una latencia de datos diferente en relación con la réplica principal.
-
 ## <a name="database-high-availability-in-hyperscale"></a>Alta disponibilidad de la base de datos en Hiperescala
 
-Como en todos los demás niveles de servicio, Hiperescala garantiza la durabilidad de los datos para las transacciones confirmadas, independientemente de la disponibilidad de la réplica de proceso. El grado de tiempo de inactividad debido a que la réplica principal no esté disponible, depende del tipo de conmutación por error (planeada frente a no planeada) y de la presencia de al menos una réplica secundaria. En una conmutación por error planeada (es decir, un evento de mantenimiento), el sistema crea la nueva réplica principal antes de iniciar la conmutación por error, o bien usa una réplica secundaria existente como destino de la conmutación por error. En una conmutación por error no planeada (es decir, un error de hardware en la réplica principal), el sistema usa una réplica secundaria como destino de la conmutación por error, si existe, o crea una nueva réplica principal a partir del grupo de capacidad de proceso disponible. En el último caso, la duración del tiempo de inactividad es mayor debido a pasos adicionales necesarios para crear la nueva réplica principal.
+Como en todos los demás niveles de servicio, Hiperescala garantiza la durabilidad de los datos para las transacciones confirmadas, independientemente de la disponibilidad de la réplica de proceso. El grado de tiempo de inactividad debido a que la réplica principal no esté disponible depende del tipo de conmutación por error (planeada frente a no planeada) y de la presencia de al menos una réplica de alta disponibilidad. En una conmutación por error planeada (es decir, un evento de mantenimiento), el sistema crea la nueva réplica principal antes de iniciar la conmutación por error, o bien usa una réplica de alta disponibilidad existente como destino de la conmutación por error. En una conmutación por error no planeada (es decir, un error de hardware en la réplica principal), el sistema usa una réplica del alta disponibilidad como destino de la conmutación por error, si existe, o crea una réplica principal a partir del grupo de capacidad de proceso disponible. En el último caso, la duración del tiempo de inactividad es mayor debido a pasos adicionales necesarios para crear la nueva réplica principal.
 
-Para el contrato de nivel de servicio de Hiperescala, consulte [Contrato de nivel de servicio para Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/).
+Para el contrato de nivel de servicio de Hiperescala, consulte [Contrato de nivel de servicio para Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Recuperación ante desastres para bases de datos Hiperescala
 
@@ -175,7 +165,7 @@ Si necesita restaurar una base de datos Hiperescala de Azure SQL Database en una
 El nivel Hiperescala de Azure SQL Database está disponible en todas las regiones, pero está habilitado de forma predeterminada en las regiones que se enumeran a continuación. Si desea crear una base de datos Hiperescala en una región donde este nivel no está habilitado de forma predeterminada, puede enviar una solicitud de incorporación a través de Azure Portal. Para obtener instrucciones, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md). Cuando envíe la solicitud, utilice las siguientes directrices:
 
 - Use el tipo de cuota [Acceso a la región](quota-increase-request.md#region) de SQL Database.
-- En la descripción, agregue la SKU o el total de núcleos de proceso, incluidas las réplicas legibles, e indique que está solicitando capacidad de Hiperescala.
+- En la descripción, agregue la SKU o el total de núcleos de proceso, incluidas las réplicas de alta disponibilidad y con nombre, e indique que está solicitando capacidad de Hiperescala.
 - Especifique también una proyección del tamaño total, en TB, de todas las bases de datos a lo largo del tiempo.
 
 Regiones habilitadas:
@@ -230,11 +220,11 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo bacpac u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.) No se admite la exportación o importación de bacpac desde Azure Portal, desde PowerShell mediante [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), desde la CLI de Azure con [az sql db export](/cli/azure/sql/db#az_sql_db_export) y [az sql db import](/cli/azure/sql/db#az_sql_db_import) ni desde la [API REST](/rest/api/sql/). Se admite la importación y exportación de bases de datos de Hiperescala (200 GB como máximo) mediante SSMS y [SqlPackage](/sql/tools/sqlpackage) versión 18.4 y posteriores. En el caso de las bases de datos de mayor tamaño, la importación y exportación de bacpac puede tardar mucho tiempo y producir errores por diversos motivos.|
 | Migración de bases de datos con objetos OLTP en memoria | Hiperescala admite un subconjunto de objetos OLTP en memoria, incluidos los tipos de tablas optimizadas para memoria, las variables de tablas y los módulos compilados de forma nativa. Sin embargo, cuando hay presente cualquier tipo de objeto OLTP en memoria en la base de datos que se está migrando, no se admite la migración desde los niveles de servicio Premium y Crítico para la empresa a Hiperescala. Para migrar este tipo de base de datos a Hiperescala, se deben quitar todos los objetos OLTP en memoria y sus dependencias. Después de migrar la base de datos, estos objetos se pueden volver a crear. En este momento no se admiten tablas optimizadas para memoria, duraderas y no duraderas, en Hiperescala, y deben cambiarse a tablas de disco.|
 | Replicación geográfica  | La [replicación geográfica](active-geo-replication-overview.md) en Hiperescala está ahora en versión preliminar pública. |
-| Copia de base de datos | La [copia de la base de datos](database-copy.md) en Hiperescala está ahora en versión preliminar pública. |
 | Características de bases de datos inteligentes | Con la excepción de la opción "Forzar plan", todas las demás opciones de ajuste automático no se admiten aún en Hiperescala: puede parecer que las opciones están habilitadas, pero no se realizarán recomendaciones ni acciones. |
 | Información del rendimiento de las consultas | La información de rendimiento de consultas no se admite actualmente para las bases de datos de Hiperescala. |
 | Reducir base de datos | DBCC SHRINKDATABASE o DBCC SHRINKFILE no se admite actualmente con las bases de datos de Hiperescala. |
 | Comprobación de la integridad de la base de datos | DBCC CHECKDB no se admite actualmente con las bases de datos de Hiperescala. DBCC CHECKFILEGROUP y DBCC CHECKTABLE se pueden usar como solución alternativa. Consulte [Integridad de datos en Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) para más información sobre la administración de esta en Azure SQL Database. |
+| Trabajos elásticos | No se admite el uso de una base de datos de Hiperescala como base de datos de trabajo. Sin embargo, los trabajos elásticos pueden tener como destino bases de datos de Hiperescala, de la misma manera que cualquier otra base de datos de Azure SQL. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

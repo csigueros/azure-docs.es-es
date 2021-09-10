@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 3394754f2829018f7862b3775f8ab2cb2d07d005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b76ffc9c0c8d061e63636f40f696cc41a1238b1a
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98051367"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437781"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Actualización de Azure Load Balancer interno con necesidad de conexión de salida
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](./skus.md#skus). Dado que Standard Load Balancer interno no proporciona conexión de salida, se ofrece una solución para crear una instancia de Standard Public Load Balancer en su lugar.
@@ -58,7 +58,7 @@ Para usar esta opción, los módulos de Azure Az no deben estar instalados en e
   
 Ejecute el script con el siguiente comando:
 
-`Install-Script -Name AzurePublicLBUpgrade`
+`Install-Script -Name AzureLBUpgrade`
 
 Este comando también instala los módulos de Az necesarios.  
 
@@ -84,18 +84,18 @@ Para ejecutar el script:
     **Ejemplo**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzureLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg&quot; -oldLBName &quot;LBForPublic&quot; -newrgName &quot;test_userInput3_rg&quot; -newlocation &quot;centralus&quot; -newLbName &quot;LBForUpgrade"
    ```
 
 ### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Incorporación de máquinas virtuales a los grupos de back-end de Standard Load Balancer
 
-En primer lugar, asegúrese de que el script ha creado correctamente una instancia de Standard Public Load Balancer con la configuración exacta migrada a partir de la instancia de Basic Public Load Balancer. Puede comprobarlo desde Azure Portal.
+En primer lugar, asegúrese de que el script ha creado correctamente una nueva instancia de Standard Load Balancer público con la configuración exacta migrada de la instancia de Basic Load Balancer interno. Puede comprobarlo desde Azure Portal.
 
 Asegúrese de que envía una pequeña cantidad de tráfico mediante Standard Load Balancer como una prueba manual.
   
 Estos son algunos escenarios en los que puede agregar máquinas virtuales a los grupos de back-end de la instancia de Standard Public Load Balancer recién creada y cómo se pueden configurar y nuestras recomendaciones para cada uno de ellos:
 
-* **Traslado de las máquinas virtuales existentes desde los grupos de back-end de las instancias antiguas de Basic Public Load Balancer a los grupos de back-end de la instancia de Standard Public Load Balancer recién creada**.
+* **Traslado de máquinas virtuales existentes desde grupos de back-end de la instancia antigua de Basic Load Balancer interno a grupos de back-end de la instancia de Standard Load Balancer público recién creada**.
     1. Para realizar las tareas de esta guía de inicio rápido, inicie sesión en [Azure Portal](https://portal.azure.com).
  
     1. Seleccione **Todos los recursos** en el menú de la izquierda y, a continuación, seleccione la **instancia recién creada de Standard Load Balancer** de la lista de recursos.

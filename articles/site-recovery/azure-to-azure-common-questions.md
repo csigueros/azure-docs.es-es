@@ -3,14 +3,14 @@ title: Preguntas comunes sobre la recuperación ante desastres de máquinas virt
 description: En este artículo se responde a preguntas comunes sobre la recuperación ante desastres de máquinas virtuales de Azure cuando se usa Azure Site Recovery.
 author: sideeksh
 manager: rochakm
-ms.date: 11/03/2019
+ms.date: 07/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: cd44d3361e96a22ddb70fb5568926583ac3dbb67
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: c2fb5175b077275d0c2ef5b0a37f6d4ead76b9d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952699"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728578"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
@@ -59,13 +59,13 @@ Sí. Site Recovery admite la recuperación ante desastres de máquinas virtuales
 
 ### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>¿Se puede seleccionar una cuenta de automatización de otro grupo de recursos?
 
-Cuando permite que Site Recovery administre las actualizaciones de la extensión del servicio Mobility que se ejecuta en máquinas virtuales de Azure replicadas, se implementa un runbook global (que usan los servicios de Azure) a través de una cuenta de automatización de Azure. Puede usar la cuenta de automatización que Site Recovery crea o seleccionar usar una cuenta de automatización existente. 
+Cuando permite que Site Recovery administre las actualizaciones de la extensión del servicio Mobility que se ejecuta en máquinas virtuales de Azure replicadas, se implementa un runbook global (que usan los servicios de Azure) a través de una cuenta de automatización de Azure. Puede usar la cuenta de automatización que Site Recovery crea o seleccionar usar una cuenta de automatización existente.
 
 Actualmente, en el portal, solo puede seleccionar una cuenta de automatización del mismo grupo de recursos que el almacén. Sin embargo, puede seleccionar una cuenta de automatización de otro grupo de recursos mediante PowerShell. [Más información](azure-to-azure-autoupdate.md#enable-automatic-updates).
 
 ### <a name="if-i-use-a-customer-automation-account-thats-not-in-the-vault-resource-group-can-i-delete-the-default-runbook"></a>Si uso la cuenta de automatización de un cliente que no está en el grupo de recursos del almacén, ¿puedo eliminar el runbook predeterminado?
 
-Sí, puede eliminarlo si no lo necesita. 
+Sí, puede eliminarlo si no lo necesita.
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>¿Se pueden replicar máquinas virtuales en otra suscripción?
 
@@ -73,9 +73,9 @@ Sí, puede replicar las máquinas virtuales de Azure en otra suscripción que es
 
 ### <a name="can-i-replicate-vms-in-an-availability-zone-to-another-region"></a>¿Puedo replicar las máquinas virtuales de una zona de disponibilidad en otra región?
 
-Sí, puede replicar las máquinas virtuales de las zonas de disponibilidad en otra región de Azure. 
+Sí, puede replicar las máquinas virtuales de las zonas de disponibilidad en otra región de Azure.
 
-### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>¿Puedo replicar las máquinas virtuales que no son de zona en una zona dentro de la misma región? 
+### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>¿Puedo replicar las máquinas virtuales que no son de zona en una zona dentro de la misma región?
 
 No existe esta posibilidad en el portal. Para ello, puede usar la API REST o PowerShell.
 
@@ -89,7 +89,7 @@ Sí, puede excluir discos al configurar la replicación, mediante PowerShell. [M
 
 ### <a name="can-i-replicate-new-disks-added-to-replicated-vms"></a>¿Puedo replicar nuevos discos agregados a las máquinas virtuales replicadas?
 
-En el caso de las máquinas virtuales replicadas con discos administrados, puede agregar nuevos discos y habilitar la replicación en ellos. Cuando se agrega un nuevo disco, la máquina virtual replicada muestra un mensaje de advertencia que indica que uno o más discos de la máquina virtual están disponibles para la protección. 
+En el caso de las máquinas virtuales replicadas con discos administrados, puede agregar nuevos discos y habilitar la replicación en ellos. Cuando se agrega un nuevo disco, la máquina virtual replicada muestra un mensaje de advertencia que indica que uno o más discos de la máquina virtual están disponibles para la protección.
 
 - Si habilita la replicación para los discos agregados, la advertencia desaparece después de la replicación inicial.
 - Si no quiere permitir la replicación en el disco, puede hacer caso omiso de la advertencia.
@@ -101,13 +101,13 @@ Site Recovery no admite la eliminación en caliente de un disco de una máquina 
 
 La replicación es continua cuando se replican máquinas virtuales de Azure en otra región de Azure. [Más información](./azure-to-azure-architecture.md#replication-process) sobre cómo funciona la replicación.
 
-### <a name="can-i-replicate-virtual-machines-within-a-region"></a>¿Se pueden replicar máquinas virtuales de una misma región? 
+### <a name="can-i-replicate-virtual-machines-within-a-region"></a>¿Se pueden replicar máquinas virtuales de una misma región?
 
 No puede usar Site Recovery para replicar discos dentro de una región.
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>¿Se pueden replicar instancias de máquina virtual en cualquier región de Azure?
 
-Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera dentro del mismo clúster geográfico. Los clústeres geográficos se definen teniendo presente la latencia y la soberanía de datos. [Más información](./azure-to-azure-support-matrix.md#region-support) sobre la compatibilidad de regiones.
+Puede replicar y recuperar las VM entre dos regiones cualesquiera. 
 
 ### <a name="does-site-recovery-need-internet-connectivity"></a>¿Site Recovery requiere conectividad a Internet?
 
@@ -162,7 +162,7 @@ Sí. El agente de movilidad para Linux admite scripts personalizados para la coh
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>¿Cómo se generan y guardan los puntos de recuperación?
 
-Para entender cómo Site Recovery genera puntos de recuperación, vamos a usar un ejemplo. 
+Para entender cómo Site Recovery genera puntos de recuperación, vamos a usar un ejemplo.
 
 - Una directiva de replicación retiene los puntos de recuperación durante 24 horas y toma una instantánea de frecuencia coherente con la aplicación cada hora.
 - Site Recovery crea un punto de recuperación coherente con los bloqueos cada cinco minutos. No se puede cambiar esta frecuencia.
@@ -176,7 +176,7 @@ Por lo tanto, en la última hora, puede elegir entre 12 puntos coherentes con lo
 
 El punto de recuperación más antiguo que puede usar es de 72 horas.
 
-### <a name="what-happens-if-site-recovery-cant-generate-recovery-points-for-more-than-24-hours"></a>¿Qué ocurre si Site Recovery no puede generar puntos de recuperación durante más de 24 horas? 
+### <a name="what-happens-if-site-recovery-cant-generate-recovery-points-for-more-than-24-hours"></a>¿Qué ocurre si Site Recovery no puede generar puntos de recuperación durante más de 24 horas?
 
 Si tiene una directiva de replicación de 24 horas y Site Recovery no puede generar puntos de recuperación durante un número de horas superior, los puntos de recuperación antiguos permanecen. Site Recovery solo reemplaza el punto más antiguo si genera nuevos puntos. Hasta que no haya nuevos puntos de recuperación, todos los puntos anteriores permanecerán después de alcanzar la ventana de retención.
 
@@ -198,7 +198,7 @@ Sí. Por ejemplo, si aumenta la retención de 24 a 72 horas, Site Recovery guar
 
 La coherencia con múltiples máquinas virtuales garantiza que los puntos de recuperación sean coherentes entre todas las máquinas virtuales replicadas.
 
-- Cuando se habilita la coherencia con varias máquinas virtuales, Site Recovery crea un grupo de replicación de todas las máquinas con la opción habilitada. 
+- Cuando se habilita la coherencia con varias máquinas virtuales, Site Recovery crea un grupo de replicación de todas las máquinas con la opción habilitada.
 - Al conmutar por error las máquinas del grupo de replicación, tienen puntos de recuperación compartidos coherentes con los bloqueos y coherentes con la aplicación.
 
 [Aprenda](azure-to-azure-tutorial-enable-replication.md#enable-replication) cómo habilitar la coherencia con múltiples máquinas virtuales.
@@ -217,8 +217,8 @@ Dado que la coherencia con múltiples máquinas virtuales consume mucha CPU, su 
 
 ### <a name="can-i-add-a-replicating-vm-to-a-replication-group"></a>¿Puedo agregar una máquina virtual de replicación a un grupo de replicación?
 
-Al habilitar la replicación en una máquina virtual, puede agregarla a un nuevo grupo de replicación o a un grupo ya existente. No se puede agregar a un grupo una máquina virtual que ya se esté replicando. 
- 
+Al habilitar la replicación en una máquina virtual, puede agregarla a un nuevo grupo de replicación o a un grupo ya existente. No se puede agregar a un grupo una máquina virtual que ya se esté replicando.
+
 ## <a name="failover"></a>Conmutación por error
 
 ### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>¿Cómo se garantiza la capacidad en la región de destino?
@@ -270,7 +270,7 @@ Puede iniciar la conmutación por error. Site Recovery no necesita conectividad 
 
 ### <a name="what-is-the-rto-of-a-vm-failover"></a>¿Qué es el RTO de la conmutación por error de una máquina virtual?
 
-Site Recovery tiene un Acuerdo de Nivel de Servicio de RTO de [dos horas](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). La mayoría de las veces, Site Recovery conmuta por error las máquinas virtuales en cuestión de minutos. Para calcular el RTO, revise el trabajo de conmutación por error, que muestra el tiempo que ha tardado en aparecer una máquina virtual. 
+Site Recovery tiene un Acuerdo de Nivel de Servicio de RTO de [dos horas](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). La mayoría de las veces, Site Recovery conmuta por error las máquinas virtuales en cuestión de minutos. Para calcular el RTO, revise el trabajo de conmutación por error, que muestra el tiempo que ha tardado en aparecer una máquina virtual.
 
 ## <a name="recovery-plans"></a>Planes de recuperación
 
@@ -280,7 +280,7 @@ Un [plan de recuperación](site-recovery-create-recovery-plans.md) en Site Recov
 
 - Define un grupo de máquinas virtuales que se conmutan por error juntas.
 - Define las dependencias entre las máquinas virtuales, de forma que la aplicación aparezca de forma precisa.
-- Automatiza la recuperación, con la opción de acciones manuales personalizadas para tareas distintas de la conmutación por error de la máquina virtual. 
+- Automatiza la recuperación, con la opción de acciones manuales personalizadas para tareas distintas de la conmutación por error de la máquina virtual.
 
 
 ### <a name="how-does-sequencing-work"></a>¿Cómo funciona la secuenciación?
@@ -299,11 +299,11 @@ Sí. [Más información](site-recovery-runbook-automation.md).
 
 ## <a name="reprotection-and-failback"></a>Reprotección y conmutación por recuperación
 
-### <a name="after-failover-are-vms-in-the-secondary-region-protected-automatically"></a>Después de la conmutación por error, ¿las máquinas virtuales de la región secundaria están protegidas automáticamente? 
+### <a name="after-failover-are-vms-in-the-secondary-region-protected-automatically"></a>Después de la conmutación por error, ¿las máquinas virtuales de la región secundaria están protegidas automáticamente?
 
 No. Al conmutar por error las máquinas virtuales de una región a otra, estas se inician en la región de recuperación ante desastres de destino con un estado desprotegido. Para [volver a proteger](./azure-to-azure-how-to-reprotect.md) las máquinas virtuales de la región secundaria, habilite de nuevo la replicación en la región primaria.
 
-### <a name="when-i-reprotect-is-all-data-replicated-from-the-secondary-region-to-primary"></a>Al volver a aplicar la protección, ¿todos los datos se replican de la región secundaria a la primaria? 
+### <a name="when-i-reprotect-is-all-data-replicated-from-the-secondary-region-to-primary"></a>Al volver a aplicar la protección, ¿todos los datos se replican de la región secundaria a la primaria?
 
 Depende. Si la máquina virtual de la región de origen existe, solo se sincronizan los cambios entre el disco de origen y el disco de destino. Site Recovery compara los discos para ver qué hay diferente y, luego, transfiere los datos. Este proceso suele tardar unas horas. [Más información](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 

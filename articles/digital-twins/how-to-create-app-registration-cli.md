@@ -4,23 +4,23 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo se crea un registro de aplicaciones de Azure AD, como opción de autenticación para aplicaciones cliente, mediante la CLI.
 author: baanders
 ms.author: baanders
-ms.date: 5/13/2021
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a42a09af845bce160689718fb74eb393409740d3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7c9f69d33c89fba209ecf7ad76bc1aa8e2b6b666
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437953"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224899"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-cli"></a>Creación de un registro de aplicaciones para usar con Azure Digital Twins (CLI)
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
-Al trabajar con una instancia de Azure Digital Twins, es habitual interactuar con esa instancia mediante aplicaciones cliente, como una aplicación cliente personalizada o la aplicación de ejemplo [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Dichas aplicaciones deben autenticarse con Azure Digital Twins para interactuar con él, y algunos de los [mecanismos de autenticación](how-to-authenticate-client.md) que las aplicaciones pueden usar conllevan un **registro de aplicaciones** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
+Al trabajar con una instancia de Azure Digital Twins, es habitual interactuar con esa instancia mediante aplicaciones cliente, como una aplicación cliente personalizada o una aplicación de ejemplo como [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Estas aplicaciones deben autenticarse con Azure Digital Twins para interactuar con él, y algunos de los [mecanismos de autenticación](how-to-authenticate-client.md) que las aplicaciones pueden usar conllevan un **registro de aplicación** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
 
-Esto no es necesario en todos los escenarios de autenticación. Sin embargo, si va a usar una estrategia de autenticación o un ejemplo de código que requiera un registro de aplicaciones, en este artículo se muestra cómo configurar uno mediante la [CLI de Azure](/cli/azure/what-is-azure-cli). También se explica cómo [recopilar valores importantes](#collect-important-values) necesarios para usar el registro de aplicaciones para realizar la autenticación.
+El registro de la aplicación no es necesario en todos los escenarios de autenticación. Pero si va a usar una estrategia de autenticación o un ejemplo de código que requiera el registro de la aplicación, en este artículo se muestra cómo configurar uno mediante la [CLI de Azure](/cli/azure/what-is-azure-cli). También se explica cómo [recopilar valores importantes](#collect-important-values) necesarios para usar el registro de la aplicación para realizar la autenticación.
 
 ## <a name="azure-ad-app-registrations"></a>Registros de aplicaciones de Azure AD
 
@@ -59,13 +59,13 @@ Guarde el archivo terminado.
 
 ### <a name="upload-to-cloud-shell"></a>Carga en Cloud Shell
 
-A continuación, cargue en Cloud Shell el archivo de manifiesto que acaba de crear, con el fin de que pueda acceder a él en los comandos de Cloud Shell al configurar el registro de la aplicación.
+Luego, cargue en Cloud Shell el archivo de manifiesto creado para poder acceder a él en comandos de Cloud Shell a la hora de configurar el registro de la aplicación.
 
 Para cargar el archivo, vaya a la ventana Cloud Shell en el explorador. Seleccione el icono "Cargar/Descargar archivos" y elija "Cargar".
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Captura de pantalla de Azure Cloud Shell. El icono Cargar está resaltado.":::
 
-Vaya al archivo **manifest.json** en la máquina y pulse "Open" (Abrir). Así se cargará el archivo en la raíz del almacenamiento de Cloud Shell.
+Vaya al archivo **manifest.json** en la máquina y pulse "Open" (Abrir). Así se carga el archivo en la raíz del almacenamiento de Cloud Shell.
 
 ## <a name="create-the-registration"></a>Creación del registro
 
@@ -93,7 +93,7 @@ También puede comprobar que el registro de la aplicación se creó correctament
 
 ## <a name="collect-important-values"></a>Recopilación de valores importantes
 
-A continuación, recopile algunos valores importantes sobre el registro de la aplicación que necesitará para usar el registro para autenticar una aplicación cliente. Estos valores incluyen:
+Luego, recopile algunos valores importantes sobre el registro de la aplicación que va a necesitar para usar el registro a fin de autenticar una aplicación cliente. Estos valores incluyen:
 * **nombre del recurso**
 * **identificador del cliente**
 * **identificador del inquilino**
@@ -125,7 +125,7 @@ Para crear un **secreto de cliente** para el registro de la aplicación, necesit
 az ad app credential reset --id <client-ID> --append
 ```
 
-También puede agregar más parámetros a este comando para especificar una descripción de las credenciales, una fecha de finalización y otros detalles. Para más información sobre el comando y sus parámetros adicionales, consulte la [documentación de az ad app credential resetn](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset).
+También puede agregar más parámetros a este comando para especificar una descripción de las credenciales, una fecha de finalización y otros detalles. Para obtener más información sobre el comando y sus parámetros, vea la [documentación de az ad app credential reset](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset).
 
 La salida de este comando es información sobre el secreto de cliente que ha creado. Copie el valor de `password` para usarlo cuando necesite el secreto de cliente para la autenticación.
 
@@ -136,7 +136,7 @@ La salida de este comando es información sobre el secreto de cliente que ha cre
 
 ## <a name="other-possible-steps-for-your-organization"></a>Otros posibles pasos para la organización
 
-Es posible que su organización requiera otras acciones por parte de los propietarios o administradores de las suscripciones para configurar correctamente un registro de aplicaciones. Los pasos necesarios pueden variar en función de la configuración específica de su organización.
+Es posible que la organización requiera más acciones por parte de los propietarios o administradores de las suscripciones para configurar correctamente un registro de aplicación. Los pasos necesarios pueden variar en función de la configuración específica de su organización.
 
 Estas son algunas posibles actividades comunes que puede que el propietario o administrador de la suscripción tenga que realizar.
 * Conceda el consentimiento del administrador para el registro de aplicaciones. Es posible que la organización tenga habilitado globalmente el **Consentimiento del administrador necesario** en Azure AD para todos los registros de aplicaciones dentro de la suscripción. En ese caso, es posible que el propietario o administrador tenga que conceder permisos delegados o de aplicación adicionales.

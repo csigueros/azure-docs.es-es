@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7d663345a5980d32a59d3185226e48dc75ef96c2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5857ba3543cabd2dc80831b51b256a139f43e8b6
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737243"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221142"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configuración de una aplicación de PHP para Azure App Service
 
@@ -119,11 +119,11 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-Confirme todos los cambios e implemente el código mediante Git o realice la implementación desde un archivo ZIP con la [automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation). Composer ahora debería estar funcionando como parte de la automatización de la implementación.
+Confirme todos los cambios e implemente el código mediante Git o realice la implementación desde un archivo ZIP con la [automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation-for-zip-deploy). Composer ahora debería estar funcionando como parte de la automatización de la implementación.
 
 ## <a name="run-gruntbowergulp"></a>Ejecutar Grunt, Bower o Gulp
 
-Si quiere que App Service ejecute herramientas de automatización populares en el momento de la implementación, como Grunt, Bower o Gulp, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service ejecuta este script cuando se implementa con Git o con la [implementación desde un archivo ZIP](deploy-zip.md) con la [automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation). 
+Si quiere que App Service ejecute herramientas de automatización populares en el momento de la implementación, como Grunt, Bower o Gulp, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service ejecuta este script cuando se implementa con Git o con la [implementación desde un archivo ZIP](deploy-zip.md) con la [automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation-for-zip-deploy). 
 
 Para habilitar que el repositorio ejecute estas herramientas, deberá agregarlas a las dependencias en el archivo *package.json.* Por ejemplo:
 
@@ -206,7 +206,7 @@ fi
 
 ## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-Si implementa la aplicación mediante paquetes Git o zip [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation), la automatización de compilaciones de App Service se ejecutará en este orden:
+Si implementa la aplicación mediante paquetes Git o zip [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation-for-zip-deploy), la automatización de compilaciones de App Service se ejecutará en este orden:
 
 1. Ejecute el script personalizado si lo especifica `PRE_BUILD_SCRIPT_PATH`.
 1. Ejecute `php composer.phar install`.

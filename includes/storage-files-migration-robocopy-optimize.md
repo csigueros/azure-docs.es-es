@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: storage
 author: fauhse
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 4/05/2021
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: a3dc42ece6bbd05b61ef9a4f1a0f82e147b2a762
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 12a11fadaa7a98b9a5d2d9f81cf91dfa26680f56
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749307"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462218"
 ---
 La velocidad y la tasa de éxito de una ejecución determinada de RoboCopy dependerán de varios factores:
 
@@ -48,11 +48,14 @@ RoboCopy recorrerá el espacio de nombres al que se apunta y evaluará cada arch
 
 A menudo, el ancho de banda suele considerarse como el factor más restrictivo en una migración, algo que puede ser cierto. Pero la posibilidad de enumerar un espacio de nombres puede influir en el tiempo total de copia para espacios de nombres más largos con archivos más pequeños. Tenga en cuenta que copiar 1 TiB de archivos pequeños tardará mucho más que copiar 1 TiB de un número inferior de archivos de mayor tamaño. Esto es así si damos por hecho que las demás variables no cambian.
 
-La razón de esta diferencia es la potencia de procesamiento necesaria para recorrer un espacio de nombres. RoboCopy admite copias multiproceso a través del parámetro `/MT:n`, en donde "n" indica el número de subprocesos del procesador. Por lo tanto, al aprovisionar una máquina específicamente para RoboCopy, tenga en cuenta el número de núcleos de procesador y su relación con el número de subprocesos que proporcionan. Lo más habitual son dos subprocesos por núcleo. El número de núcleos y subprocesos de una máquina es un punto de datos importante para determinar qué valores multiproceso `/MT:n` se deberían especificar. Tenga en cuenta también cuántos trabajos de RoboCopy tiene previsto ejecutar al mismo tiempo en una máquina determinada.
+La razón de esta diferencia es la potencia de procesamiento necesaria para recorrer un espacio de nombres. RoboCopy admite copias multiproceso a través del parámetro `/MT:n`, donde n indica el número de subprocesos que se van a usar. Por lo tanto, al aprovisionar una máquina específicamente para RoboCopy, tenga en cuenta el número de núcleos de procesador y su relación con el número de subprocesos que proporcionan. Lo más habitual son dos subprocesos por núcleo. El número de núcleos y subprocesos de una máquina es un punto de datos importante para determinar qué valores multiproceso `/MT:n` se deberían especificar. Tenga en cuenta también cuántos trabajos de RoboCopy tiene previsto ejecutar al mismo tiempo en una máquina determinada.
 
 Un número mayor de subprocesos copiarán nuestro ejemplo de 1 TiB de archivos pequeños considerablemente más rápido que un número menor de subprocesos. Al mismo tiempo, la inversión adicional en recursos en 1 TiB de archivos de más grandes podría no aportar ventajas proporcionales. Un número mayor de subprocesos intentará copiar simultáneamente más archivos grandes a través de la red. Esta actividad de red adicional aumentará la probabilidad de sufrir restricciones asociadas al rendimiento o a las operaciones de IOPS de almacenamiento.
 
 Durante una primera ejecución de RoboCopy en un destino vacío o una ejecución diferencial con una gran cantidad de archivos modificados, es probable que el rendimiento de la red plantee restricciones. Comience con un número elevado de subprocesos para una ejecución inicial. Un alto número de subprocesos, incluso más allá de los subprocesos disponibles actualmente en la máquina, ayuda a saturar el ancho de banda de red disponible. Las ejecuciones /MIR posteriores se verán afectadas progresivamente por el procesamiento de elementos. Menos cambios en una ejecución diferencial significa menos transporte de datos a través de la red. La velocidad ahora depende más de la capacidad de procesar elementos de espacio de nombres que de moverlos a través del vínculo de red. Para las ejecuciones posteriores, haga coincidir el valor del número de subprocesos con el número de núcleos del procesador y el número de subprocesos por núcleo. Considere si es necesario reservar los núcleos para otras tareas que quizá tenga un servidor de producción.
+
+> [!TIP]
+> Regla general: la primera ejecución de RoboCopy, que moverá una gran cantidad de datos de una red de mayor latencia, se beneficia del aprovisionamiento excesivo del número de subprocesos (`/MT:n`). Las ejecuciones posteriores copiarán menos diferencias y es más probable que se cambie de un rendimiento restringido de red a otro restringido por proceso. En estas circunstancias, a menudo es mejor que el número de subprocesos de robocopy coincida con los subprocesos disponibles realmente en la máquina. El aprovisionamiento excesivo en ese escenario puede generar más cambios de contexto en el procesador, lo que podría ralentizar la copia.
 
 ### <a name="avoid-unnecessary-work"></a>Evitar el trabajo innecesario
 
@@ -69,4 +72,3 @@ Debe estar preparado para ejecutar varias rondas de RoboCopy en el ámbito de un
 * `/W:n` n = el número de segundos que hay que esperar entre reintentos
 
 `/R:5 /W:5` es un valor razonable que puede ajustar a su gusto. En este ejemplo, un archivo con errores se intentará volver a copiar cinco veces, con un tiempo de espera de cinco segundos entre un reintento y otro. Si el archivo sigue sin copiarse, el siguiente trabajo de RoboCopy lo volverá a intentar. A menudo, los archivos que generan errores por estar en uso o debido a problemas de tiempo de espera se pueden copiar correctamente de esta manera.
-   

@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
-ms.openlocfilehash: 9b5d5d85d8df58a8e8c3e2626abaed75377e6025
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5a7df784ec30b958eb6924de674e09cbbe21c91e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "122643541"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830051"
 ---
 # <a name="quickstart-create-your-first-c-function-in-azure-using-visual-studio"></a>Inicio rápido: Creación de la primera función de C# en Azure mediante Visual Studio
 
@@ -28,9 +28,14 @@ En este artículo aprenderá a:
 > * Ejecute el código localmente para comprobar el comportamiento de la función.
 > * Implemente el proyecto de código en Azure Functions. 
  
+En este artículo se admite la creación de ambos tipos de funciones de C# compiladas: 
+
++ [En proceso](functions-create-your-first-function-visual-studio.md?tabs=in-process): se ejecuta en el mismo proceso que el proceso de host de Functions. Para obtener más información, consulte [Desarrollo de funciones de la biblioteca de clases de C# con Azure Functions](functions-dotnet-class-library.md).
++ [Proceso aislado](functions-create-your-first-function-visual-studio.md?tabs=isolated-process): se ejecuta en un proceso de trabajo de .NET independiente. Para más información, consulte la [Guía para ejecutar funciones en .NET 5.0 en Azure](dotnet-isolated-process-guide.md).
+
 Este inicio rápido supone un pequeño costo en su cuenta de Azure.
- 
-El proyecto creado se ejecuta en .NET Core 3.1. Si en su lugar desea crear un proyecto que se ejecute en .NET 5.0, consulte [Desarrollo y publicación de funciones de .NET 5 mediante Azure Functions](dotnet-isolated-process-developer-howtos.md).
+
+También hay una [versión basada en Visual Studio Code](create-first-function-vs-code-csharp.md) de este artículo.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -56,8 +61,16 @@ El atributo del método `FunctionName` establece el nombre de la función que, d
 
 La definición de la función ahora debe parecerse al código siguiente:
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
- 
+# <a name="in-process"></a>[En proceso](#tab/in-process) 
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
+
+# <a name="isolated-process"></a>[Proceso aislado](#tab/isolated-process)
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13"::: 
+
+---
+
 Ahora que ha cambiado el nombre de la función, puede probarla en el equipo local.
 
 ## <a name="run-the-function-locally"></a>Ejecución local de la función

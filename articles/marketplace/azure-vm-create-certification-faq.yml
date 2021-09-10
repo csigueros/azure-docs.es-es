@@ -8,12 +8,12 @@ metadata:
   author: mathapli
   ms.author: mathapli
   ms.date: 01/18/2021
-  ms.openlocfilehash: 96e8f93f38d7ba84b93fdfb4101371f426a14f37
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: dcb526fe2e7946e9ffd77d319107d150f04ad06d
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114456576"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122968434"
 title: Solución de problemas de certificación de máquina virtual
 summary: >
   Cuando publica la imagen de máquina virtual (VM) en Azure Marketplace, el equipo de Azure la valida para garantizar que se puede arrancar, que es segura y que es compatible con Azure. Si la imagen de la máquina virtual produce un error en cualquiera de las pruebas de alta calidad, no se publicará. Recibirá un mensaje de error que describe el problema.
@@ -46,7 +46,7 @@ sections:
 
       |1|Disco duro virtual (VHD) no válido:|Si el valor de cookie especificado en el pie de página del VHD no es correcto, el VHD se considerará no válido.|Vuelva a crear la imagen y envíe la solicitud.|
 
-      |2|Tipo de blob no válido|La máquina virtual no se pudo aprovisionar porque el bloque utilizado es de tipo bloque en lugar de tipo página.|Vuelva a crear la imagen como tipo página y envíe la solicitud.|
+      |2|Tipo de blob no válido|La VM no se pudo aprovisionar porque el blob utilizado es de tipo bloque en lugar de ser de tipo página.|Vuelva a crear la imagen como tipo página y envíe la solicitud.|
 
       |3|Tiempo de espera de aprovisionamiento agotado o no generalizado correctamente|Hay un problema con la generalización de máquina virtual.|Vuelva a crear la imagen con generalización y envíe la solicitud.|
 
@@ -196,7 +196,7 @@ sections:
 
       | 1 | Caso de prueba de la versión del agente Linux | La versión mínima del agente Linux es 2.2.41 o más reciente. Este requisito es obligatorio desde el 1 de mayo de 2020. | Actualice la versión del agente Linux. Debe ser 2.241 o posterior. Para obtener más información, visite la [página de actualización de la versión del agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
 
-      | 2 | Caso de prueba del historial de Bash | Se produce un error si el tamaño del historial de Bash de la imagen enviada es superior a 1 kilobyte (KB). El tamaño está limitado a 1 KB para garantizar que cualquier archivo de historial de Bash no contiene información potencialmente confidencial. | Monte el disco duro virtual en otra máquina virtual que funcione y realice cambios para reducir el tamaño a 1 KB o menos. Por ejemplo, elimine los archivos de historial de `.bash`. |
+      | 2 | Caso de prueba del historial de Bash | Se produce un error si el tamaño del historial de Bash de la imagen enviada es superior a 1 kilobyte (KB). El tamaño está limitado a 1 KB para garantizar que cualquier archivo de historial de Bash no contiene información potencialmente confidencial. | Monte el disco duro virtual en otra máquina virtual que funcione y realice cambios para reducir el tamaño a 1 KB o menos. Por ejemplo, elimine los archivos `.bash_history`. |
 
       | 3 | Caso de prueba del parámetro de kernel obligatorio | Recibirá este error si el valor de `console` no se ha establecido en `ttyS0`. Haga una comprobación al ejecutar el comando siguiente: <br /> `cat /proc/cmdline` | Establezca el valor de `console` en `ttyS0` y vuelva a enviar la solicitud. |
 

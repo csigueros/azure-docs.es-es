@@ -3,12 +3,12 @@ title: Ejecución de la instancia de Azure Functions desde un paquete
 description: Para que el sistema en tiempo de ejecución de Azure Functions ejecute sus funciones, monte un archivo del paquete de implementación que contenga los archivos de proyecto de la aplicación de función.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: aad6991d0ddd5c439d03e41adec63837a21db87b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0be037d5a9270d60c16f8fc128030705be8b81ef
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581599"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136893"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
@@ -35,7 +35,7 @@ Para permitir la ejecución de la aplicación de función desde un paquete, solo
 | Value  | Descripción  |
 |---------|---------|
 | **`1`**  | Se recomienda para las aplicaciones de función que se ejecutan en Windows. Ejecución desde un archivo de paquete en la carpeta `d:\home\data\SitePackages` de la aplicación de función. Si no se va a [implementar con un archivo zip](#integration-with-zip-deployment), esta opción requiere que la carpeta tenga también un archivo denominado `packagename.txt`. Este archivo contiene solo el nombre del archivo de paquete en la carpeta, sin ningún espacio en blanco. |
-|**`<URL>`**  | Ubicación del archivo de paquete específico que desea ejecutar. Cuando se usa Blob Storage, debe usar un contenedor privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para permitir que sistema en tiempo de ejecución de Functions acceda al paquete. Puede usar el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar archivos de paquete en la cuenta de Blob Storage. Al especificar una dirección URL, también debe [sincronizar desencadenadores](functions-deployment-technologies.md#trigger-syncing) tras publicar un paquete actualizado. |
+|**`<URL>`**  | Ubicación del archivo de paquete específico que desea ejecutar. Al especificar una dirección URL, también debe [sincronizar desencadenadores](functions-deployment-technologies.md#trigger-syncing) tras publicar un paquete actualizado. <br/>Al usar Blob Storage, normalmente no debe usar un blob público. En su lugar, debe usar un contenedor de almacenamiento privado con una [Firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) o bien [una identidad administrada](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) para permitir que el entorno de ejecución de Functions acceda al paquete. Puede usar el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar archivos de paquete en la cuenta de Blob Storage. |
 
 > [!CAUTION]
 > Al ejecutar una aplicación de función en Windows, la opción de dirección URL externa tiene peor rendimiento con el arranque en frío. Al implementar la aplicación de función en Windows, debe establecer `WEBSITE_RUN_FROM_PACKAGE` en `1` y publicar con implementación de un archivo zip.
@@ -46,6 +46,10 @@ A continuación se muestra una aplicación de función configurada para ejecutar
 
 > [!NOTE]
 > Actualmente, solo se admiten archivos de paquete .zip.
+
+### <a name="fetch-a-package-from-azure-blob-storage-using-a-managed-identity"></a>Captura de un paquete de Azure Blob Storage mediante una identidad administrada
+
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## <a name="integration-with-zip-deployment"></a>Integración con la implementación de archivos ZIP
 

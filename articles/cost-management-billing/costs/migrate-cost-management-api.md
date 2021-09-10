@@ -3,17 +3,17 @@ title: Migración del Contrato Enterprise a las API del contrato de cliente de M
 description: En este artículo se explicarán las consecuencias de migrar un Contrato Enterprise (EA) de Microsoft a un contrato de cliente de Microsoft.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 07/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 9e7d1d08a3d69337cc205bdaf4bf3afc8941dd77
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 2d3bae2f6282a4e505e2d5aa9ce2cf3f52b80006
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750306"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762265"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft
 
@@ -42,7 +42,7 @@ Los elementos siguientes lo ayudarán a hacer la transición a las API de MCA.
 - Actualice cualquier código de programación para [usar la autenticación de Azure AD](/rest/api/azure/#create-the-request).
 - Actualice cualquier código de programación para reemplazar las llamadas API de EA por las llamadas API de MCA.
 - Actualice el control de errores para usar códigos de errores nuevos.
-- Revise otras ofertas de integración, como Cloudyn y Power BI, en caso de que se requiera alguna otra acción.
+- Revise las ofertas de integración adicionales, como Power BI, para otras acciones necesarias.
 
 ## <a name="ea-apis-replaced-with-mca-apis"></a>API de EA reemplazadas por API de MCA
 
@@ -78,7 +78,6 @@ Si usa cualquiera de las API de EA existentes, deberá actualizarlas para que ad
 
 | Propósito | Oferta anterior | Nueva oferta |
 | --- | --- | --- |
-| Cloudyn | Cloudyn | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
 | Power BI | Conector y paquete de contenido de [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |  [Conector de Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>API para obtener el saldo y los créditos
@@ -515,18 +514,6 @@ Para obtener resúmenes de reservas con Reservation Summaries API:
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
 
-
-
-## <a name="move-from-cloudyn-to-cost-management"></a>Migración de Cloudyn a Cost Management
-
-Las organizaciones que usan Cloudyn deben empezar a usar [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) para cualquier necesidad de administración de costos. Cost Management está disponible en Azure Portal sin incorporación y con una latencia de ocho horas. Para más información, consulte la [documentación de Cost Management](../index.yml).
-
-Con Azure Cost Management, puede:
-
-- Ver costos en el tiempo con respecto a un presupuesto predefinido. Analice los patrones de costos diarios para identificar y detener anomalías en los gastos. Desglose los costos por etiquetas, grupo de recursos, servicio y ubicación.
-- Crear presupuestos para establecer límites de uso y costos y recibir notificaciones cuando se esté cerca de umbrales importantes. Configure la automatización con grupos de acciones para desencadenar eventos personalizados y aplicar límites estrictos en sus términos.
-- Optimizar el costo y el uso con recomendaciones de Azure Advisor. Descubra cómo optimizar una compra con reservas, disminuir las máquinas virtuales infrautilizadas y eliminar los recursos no utilizados para cumplir con los presupuestos.
-- Programe una exportación de datos de costo y uso para publicar diariamente un archivo .csv a la cuenta de almacenamiento. Automatice la integración con sistemas externos para mantener los datos de facturación sincronizados y actualizados.
 
 ## <a name="power-bi-integration"></a>Integración con Power BI
 

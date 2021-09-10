@@ -1,31 +1,33 @@
 ---
-title: Conectores para Azure Logic Apps
-description: Información general acerca del uso de conectores para crear flujos de trabajo automatizados con Azure Logic Apps. Obtenga información acerca de cómo funcionan los diferentes desencadenadores, acciones y conectores.
+title: Introducción a los conectores para Azure Logic Apps
+description: Obtenga información sobre los conectores y cómo le ayudan a crear flujos de trabajo de integración automatizados de forma rápida y sencilla mediante Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/01/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e6841afabe36667070ca595810c423c61db03837
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f8db25d79784b1a2ca2b63ace57f729271271a43
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377045"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218878"
 ---
-# <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
+# <a name="about-connectors-in-azure-logic-apps"></a>Acerca de los conectores en Azure Logic Apps
 
-En Azure Logic Apps, los *conectores* le permiten acceder rápidamente a datos, eventos y otros recursos desde otras aplicaciones, servicios, sistemas, protocolos y plataformas. Al usar conectores, puede crear flujos de trabajo de aplicaciones lógicas que usen, procesen e integren información en entornos híbridos, locales y basados en la nube, a menudo sin tener que escribir código.
+Al crear flujos de trabajo mediante Azure Logic Apps, puede usar *conectores* para acceder de forma rápida y sencilla a datos, eventos y recursos en otras aplicaciones, servicios, sistemas, protocolos y plataformas, a menudo sin escribir código. Un conector proporciona operaciones precompiladas que puede usar como pasos en los flujos de trabajo. Azure Logic Apps proporciona cientos de conectores que puede utilizar. Si no hay ningún conector disponible para el recurso al que desea acceder, puede usar la operación HTTP genérica para comunicarse con el servicio, o puede crear un [conector personalizado](#custom-apis-and-connectors).
 
-Puede elegir entre cientos de conectores para usarlos en los flujos de trabajo. Como resultado, esta documentación se centra en algunos de los conectores populares y que se usan con frecuencia en Logic Apps. Para obtener información completa sobre los conectores de Logic Apps, Microsoft Power Automate y Microsoft Power Apps, revise la [documentación de conectores](/connectors). Para obtener información acerca de los precios, revise el [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) y los [Detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+Esta información general ofrece una introducción a los conectores, cómo funcionan normalmente y los conectores más populares y usados con más frecuencia en Azure Logic Apps. Para más información, revise la siguiente documentación:
 
-> [!NOTE]
-> Para integrar el flujo de trabajo con un servicio o API que no tiene conector, puede llamar al servicio a través de un protocolo como HTTP, o bien [crear un conector personalizado](#custom-apis-and-connectors).
+* [Información general de conectores para Azure Logic Apps, Microsoft Power Automate y Microsoft Power Apps](/connectors)
+* [Referencia de conectores para Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Modelos de precios y facturación en Azure Logic Apps](../logic-apps/logic-apps-pricing.md)
+* [Detalles sobre los precios de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 ## <a name="what-are-connectors"></a>¿Qué son los conectores?
 
-Los conectores proporcionan *desencadenadores* y *acciones* que se usan para realizar tareas en el flujo de trabajo de la aplicación lógica. Cada desencadenador y acción tienen propiedades que puede configurar. Algunos desencadenadores y acciones requieren que [cree y configure conexiones](#connection-configuration) para que el flujo de trabajo pueda obtener acceso a un servicio o sistema específico.
+Técnicamente, un conector es un proxy o un contenedor alrededor de una API que el servicio subyacente usa para comunicarse con Azure Logic Apps. Este conector proporciona operaciones que se usan en los flujos de trabajo para realizar tareas. Una operación está disponible como *desencadenador* o *acción* con las propiedades que puede configurar. Algunos desencadenadores y acciones también requieren que primero [cree y configure una conexión](#connection-configuration) con el servicio o sistema subyacente, por ejemplo, para que pueda autenticar el acceso a una cuenta de usuario.
 
 ### <a name="triggers"></a>Desencadenadores
 
@@ -44,7 +46,7 @@ Una *acción* es una operación que sigue al desencadenador y realiza algún tip
 
 ## <a name="connector-categories"></a>Categorías del conector
 
-En Logic Apps, la mayoría de los desencadenadores y acciones están disponibles en una versión *integrada* o de *conector administrado*. Existe un pequeño número de desencadenadores y acciones disponibles en ambas versiones. Las versiones disponibles dependen de si va a crear una aplicación lógica multiinquilino o de inquilino único, que actualmente solo está disponible en [Azure Logic Apps de inquilino único](../logic-apps/single-tenant-overview-compare.md).
+En Logic Apps, la mayoría de los desencadenadores y acciones están disponibles en una versión *integrada* o de *conector administrado*. Existen unos pocos desencadenadores y acciones disponibles en ambas versiones. Las versiones disponibles dependen de si va a crear una aplicación lógica multiinquilino o de inquilino único, que actualmente solo está disponible en [Azure Logic Apps de inquilino único](../logic-apps/single-tenant-overview-compare.md).
 
 Los [desencadenadores y las acciones integrados](built-in.md) se ejecutan de forma nativa en el entorno de ejecución de Logic Apps, y no requieren la creación de conexiones; asimismo, realizan estos tipos de tareas:
 
@@ -133,7 +135,7 @@ En el caso de los flujos de trabajo que necesitan acceso directo a los recursos 
 
 Los conectores personalizados creados dentro de un ISE no funcionan con la puerta de enlace de datos local. Pero estos conectores pueden acceder directamente a orígenes de datos locales que están conectados a una red virtual de Azure en la que se hospeda el ISE. Por tanto, es muy probable que las aplicaciones lógicas en un ISE no necesiten la puerta de enlace de datos cuando se comuniquen con esos recursos. Si tiene conectores personalizados que creó fuera de un ISE que requieran una puerta de enlace de datos local, las aplicaciones lógicas de un ISE pueden usar esos conectores.
 
-En el diseñador de Logic Apps, al examinar los desencadenadores y acciones integrados o los conectores administrados que quiere usar para las aplicaciones lógicas en un ISE, la etiqueta **CORE** aparece en los desencadenadores y acciones integrados, mientras que la etiqueta **ISE** aparece en los conectores administrados diseñados específicamente para funcionar con un ISE.
+En el diseñador de Logic Apps, al examinar los desencadenadores y acciones integrados o los conectores administrados que quiere usar para las aplicaciones lógicas en un ISE, la etiqueta **CORE** aparece en los desencadenadores y acciones integrados, mientras que la etiqueta **ISE** aparece en los conectores administrados diseñados para funcionar con un ISE.
 
 :::row:::
     :::column:::
@@ -184,4 +186,4 @@ En la siguiente tabla se muestran problemas conocidos de los conectores de Logic
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de API personalizadas que se pueden llamar desde Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Creación de API personalizadas que se pueden llamar desde Logic Apps](../logic-apps/logic-apps-create-api-app.md)

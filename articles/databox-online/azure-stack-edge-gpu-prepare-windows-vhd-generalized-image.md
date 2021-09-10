@@ -1,70 +1,65 @@
 ---
-title: Creación de imágenes de máquina virtual a partir de imágenes generalizadas de un VHD de Windows para el dispositivo de GPU de Azure Stack Edge Pro
-description: Describe cómo se crean imágenes de máquina virtual a partir de imágenes generalizadas desde un VHD o VHDX de Windows. Utilice esta imagen generalizada para crear imágenes de máquina virtual que se usarán con máquinas virtuales implementadas en el dispositivo de GPU de Azure Stack Edge Pro.
+title: Preparación de una imagen generalizada a partir de un disco VHD con Windows para implementar máquinas virtuales en Azure Stack Edge Pro GPU
+description: Explica cómo crear una imagen de máquina virtual generalizada a partir de un disco VHD o VHDX con Windows. Utilice esta imagen de máquina virtual generalizada para implementar máquinas virtuales en un dispositivo de Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/18/2021
+ms.date: 06/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 978099accd57d15c750a27f77b2e220f569a2dd0
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: e60f7e7195ef81b3bf17a85c5662824df945ef91
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962378"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112968466"
 ---
-# <a name="use-generalized-image-from-windows-vhd-to-create-a-vm-image-for-your-azure-stack-edge-pro-device"></a>Uso de una imagen generalizada de un VHD de Windows para crear una imagen de máquina virtual para el dispositivo de Azure Stack Edge Pro
+# <a name="prepare-generalized-image-from-windows-vhd-to-deploy-vms-on-azure-stack-edge-pro-gpu"></a>Preparación de una imagen generalizada a partir de un disco VHD con Windows para implementar máquinas virtuales en Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Para implementar máquinas virtuales en el dispositivo Azure Stack Edge Pro, debe ser capaz de crear imágenes personalizadas de máquina virtual que puede usar para crear máquinas virtuales. En este artículo se describen los pasos necesarios para preparar un VHD o VHDX de Windows a fin de crear una imagen generalizada. Esta imagen generalizada se usa para crear una imagen de máquina virtual para el dispositivo de Azure Stack Edge Pro. 
+Para implementar máquinas virtuales en un dispositivo Azure Stack Edge Pro GPU, debe poder crear imágenes de máquina virtual personalizadas que puede usar para crear máquinas virtuales. En este artículo, se explica cómo preparar una imagen generalizada a partir de un disco VHD o VHDX con Windows, que puede usar para implementar máquinas virtuales en dispositivos Stack Edge Pro GPU con Windows.
 
-## <a name="about-preparing-windows-vhd"></a>Acerca de la preparación de un VHD de Windows
+Para preparar una imagen de máquina virtual generalizada usando una imagen ISO, vea [Preparación de una imagen generalizada a partir de una imagen ISO para implementar máquinas virtuales en Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
 
-Se puede utilizar un VHD o un VHDX de Windows para crear una imagen *generalizada* o una imagen *especializada*. En la tabla siguiente se resumen las diferencias principales entre las imágenes *generalizadas* y las *especializadas*.
+## <a name="about-vm-images"></a>Acerca de las imágenes de máquinas virtuales
 
+Se puede utilizar un archivo VHD o VHDX de Windows para crear una imagen *especializada* o *generalizada*. En la tabla siguiente se resumen las diferencias principales entre las imágenes *especializadas* y *generalizadas*.
 
-|Tipo de imagen  |Generalizada  |Especializada  |
-|---------|---------|---------|
-|Destino     |Implementado en cualquier sistema         | Destinado a un sistema específico        |
-|Configuración después del arranque     | Configuración requerida en el primer arranque de la máquina virtual.          | No se necesita configuración. <br> La plataforma enciende la máquina virtual.        |
-|Configuración     |Nombre de host, administrador-usuario y otros valores específicos de la máquina virtual necesarios.         |Totalmente preconfigurado.         |
-|Se usa al     |Crear varias máquinas virtuales nuevas a partir de la misma imagen.         |Migrar una máquina específica o restaurar una máquina virtual a partir de una copia de seguridad anterior.         |
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
+## <a name="workflow"></a>Flujo de trabajo
 
-En este artículo se describen los pasos necesarios para realizar la implementación a partir de una imagen generalizada. Para realizar la implementación a partir de una imagen especializada, consulte el artículo sobre [VHD de Windows especializado](azure-stack-edge-placeholder.md) para el dispositivo.
+En líneas generales, el flujo de trabajo para preparar un disco VHD con Windows con el fin de usarlo como una imagen generalizada, a partir del disco VHD o VHDX de una máquina virtual, tiene los siguientes pasos:
 
-> [!IMPORTANT]
-> Este procedimiento no cubre los casos en los que el VHD de origen se configura con configuraciones e instalaciones personalizadas. Por ejemplo, es posible que se necesiten acciones adicionales para generalizar un VHD que contenga reglas de firewall personalizadas o valores de proxy. Para más información sobre estas acciones adicionales, consulte el artículo sobre la [preparación de un VHD de Windows para cargarlo en Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
-
-
-## <a name="vm-image-workflow"></a>Flujo de trabajo de la imagen de máquina virtual
-
-El flujo de trabajo de alto nivel para preparar un VHD de Windows para utilizarlo como una imagen generalizada consta de los siguientes pasos:
-
-1. Convierta el VHD o VHDX de origen a un VHD de tamaño fijo.
-1. Cree una máquina virtual en Hyper-V con el VHD fijo.
-1. Conéctese a la máquina virtual de Hyper-V.
-1. Generalice el VHD mediante la utilidad *sysprep*. 
+1. Preparar la máquina virtual de origen a partir del disco VHD con Windows:
+   1. Convertir el disco VHD o VHDX de origen en un disco VHD de tamaño fijo.
+   1. Usar ese disco VHD para crear una nueva máquina virtual.<!--Can this procedure be generalized and moved to an include file?-->
+1. Iniciar la máquina virtual e instalar el sistema operativo Windows.
+1. Generalice el VHD mediante la utilidad *sysprep*.
 1. Copie la imagen generalizada en Blob Storage.
-1. Utilice la imagen generalizada para implementar máquinas virtuales en el dispositivo. Para más información, consulte cómo [implementar una máquina virtual mediante Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md) o cómo [implementar una máquina virtual mediante PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de preparar un VHD de Windows para usarlo como imagen generalizada en Azure Stack Edge, asegúrese de que:
+Antes de preparar un disco VHD con Windows para usarlo como imagen generalizada en un dispositivo Azure Stack Edge Pro GPU, asegúrese de que:
 
-- Tiene un VHD o un VHDX que contenga una versión compatible de Windows. Consulte el artículo sobre [sistemas operativos invitados compatibles]() para su instancia de Azure Stack Edge Pro. 
+- Tiene un VHD o un VHDX que contenga una versión compatible de Windows. 
 - Tiene acceso a un cliente de Windows con el administrador de Hyper-V instalado. 
 - Tiene acceso a una cuenta de Azure Blob Storage para almacenar el VHD una vez preparado.
 
-## <a name="prepare-a-generalized-windows-image-from-vhd"></a>Preparación de una imagen de Windows generalizada a partir de un VHD
+## <a name="prepare-source-vm-from-windows-vhd"></a>Preparación de la máquina virtual de origen a partir de un disco VHD con Windows
 
-## <a name="convert-to-a-fixed-vhd"></a>Conversión a un VHD fijo 
+Cuando el origen de la máquina virtual es un disco VHD o VHDX con Windows, primero debe convertir el disco en un disco VHD de tamaño fijo. Usará el disco VHD de tamaño fijo para crear una nueva máquina virtual.
 
-En su dispositivo, necesitará VHD de tamaño fijo para crear imágenes de máquina virtual. Deberá convertir el VHD o el VHDX de Windows de origen a un VHD fijo. Siga estos pasos:
+> [!IMPORTANT]
+> Estos procedimientos no cubren los casos en los que el disco VHD de origen está configurado con opciones personalizadas. Por ejemplo, es posible que se necesiten acciones adicionales para generalizar un VHD que contenga reglas de firewall personalizadas o valores de proxy. Para más información sobre estas acciones adicionales, consulte el artículo sobre la [preparación de un VHD de Windows para cargarlo en Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+
+#### <a name="convert-source-vhd-to-a-fixed-size-vhd"></a>Conversión del disco VHD de origen en un disco VHD de tamaño fijo
+
+En su dispositivo, necesitará VHD de tamaño fijo para crear imágenes de máquina virtual. Deberá convertir el VHD o el VHDX de Windows de origen a un VHD fijo. 
+
+Siga estos pasos:
 
 1. Abra el administrador de Hyper-V en el sistema cliente. Vaya a **Editar disco**.
 
@@ -84,18 +79,15 @@ En su dispositivo, necesitará VHD de tamaño fijo para crear imágenes de máqu
 
    ![Página Elegir formato de disco](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-4.png)
 
-
 1. En la página **Elegir tipo de disco**, seleccione **Tamaño fijo** y, después, **Siguiente>** .
 
    ![Página Elegir tipo de disco](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-5.png)
-
 
 1. En la página **Configurar disco**, busque la ubicación y especifique un nombre para el disco VHD de tamaño fijo. Seleccione **Siguiente>** .
 
    ![Página Configurar disco](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-6.png)
 
-
-1. Revise el resumen y seleccione **Finalizar**. La conversión de VHD o VHDX tarda unos minutos. El tiempo de conversión depende del tamaño del disco de origen. 
+1. Revise el resumen y seleccione **Finalizar**. La conversión de VHD o VHDX tarda unos minutos. El tiempo de conversión depende del tamaño del disco de origen.
 
 <!--
 1. Run PowerShell on your Windows client.
@@ -105,10 +97,9 @@ En su dispositivo, necesitará VHD de tamaño fijo para crear imágenes de máqu
     Convert-VHD -Path <source VHD path> -DestinationPath <destination-path.vhd> -VHDType Fixed 
     ```
 -->
-Utilizará este VHD fijo para todos los pasos posteriores de este artículo.
+Usará este disco VHD de tamaño fijo para todos los pasos siguientes de este artículo.
 
-
-## <a name="create-a-hyper-v-vm-from-fixed-vhd"></a>Creación de una máquina virtual de Hyper-V a partir de un VHD fijo
+#### <a name="create-hyper-v-vm-from-the-fixed-size-vhd"></a>Creación de una máquina virtual Hyper-V a partir del disco VHD de tamaño fijo
 
 1. En el **Administrador de Hyper-V**, en el panel de ámbito, haga clic con el botón derecho en el nodo del sistema para abrir el menú contextual y seleccione luego **Nuevo** > **Máquina virtual**.
 
@@ -133,51 +124,35 @@ Utilizará este VHD fijo para todos los pasos posteriores de este artículo.
 1. Revise la sección **Resumen** y seleccione luego **Finalizar** para crear la máquina virtual.
 
 La creación de la máquina virtual tarda varios minutos.
-     
 
-## <a name="connect-to-the-hyper-v-vm"></a>Conexión a la máquina virtual de Hyper-V
+La máquina virtual se muestra en la lista de máquinas virtuales del sistema cliente.
 
-La máquina virtual se muestra en la lista de máquinas virtuales del sistema cliente. 
+## <a name="start-vm-and-install-operating-system"></a>Inicio de la máquina virtual e instalación del sistema operativo
 
+Para terminar de crear la máquina virtual, debe iniciarla e instalar el sistema operativo.
 
-1. Seleccione la máquina virtual, haga clic con el botón derecho y seleccione **Iniciar**. 
+[!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
-    ![Selección e inicio de la máquina virtual](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/connect-virtual-machine-2.png)
+Una vez conectado a la máquina virtual, complete el asistente para la configuración de la máquina y, después, inicie sesión en la máquina virtual.<!--It's not clear what they are doing here. Where does the Machine setup wizard come in?-->
 
-2. La máquina virtual aparece como **Ejecutando**. Seleccione la máquina virtual, haga clic con el botón derecho y seleccione **Conectar**.
-
-    ![Conexión con una máquina virtual](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/connect-virtual-machine-4.png)
-
-Una vez conectado a la máquina virtual, complete el Asistente para la configuración del equipo y, a continuación, inicie sesión en la máquina virtual.
-
-
-## <a name="generalize-the-vhd"></a>Generalización del disco duro virtual  
+## <a name="generalize-the-vhd"></a>Generalización del disco duro virtual
 
 Use la utilidad *sysprep* para generalizar el VHD. 
 
-1. Dentro de la máquina virtual, abra un símbolo del sistema.
-1. Ejecute el siguiente comando para generalizar el VHD. 
+[!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 
-    ```
-    c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm
-    ```
-    Para más información, consulte [Introducción a sysprep (preparación del sistema)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
-1.  Una vez completado el comando, la máquina virtual se apagará. **No reinicie la VM**.
+El disco VHD se puede usar ahora para crear una imagen generalizada para usarla en Azure Stack Edge Pro GPU.
 
-## <a name="upload-the-vhd-to-azure-blob-storage"></a>Carga del VHD en Azure Blob Storage
+## <a name="upload-generalized-vhd-to-azure-blob-storage"></a>Carga del disco VHD generalizado en Azure Blob Storage
 
-El VHD se puede usar ahora para crear una imagen generalizada en Azure Stack Edge. 
-
-1. Cargue el VHD en Azure Blob Storage. Consulte las instrucciones detalladas en el artículo sobre [carga de un VHD mediante el Explorador de Azure Storage](../devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md).
-1. Una vez completada la carga, puede utilizar la imagen cargada para crear imágenes de máquina virtual y máquinas virtuales. 
+[!INCLUDE [Upload VHD to Blob storage](../../includes/azure-stack-edge-upload-vhd-to-blob-storage.md)]
 
 <!-- this should be added to deploy VM articles - If you experience any issues creating VMs from your new image, you can use VM console access to help troubleshoot. For information on console access, see [link].-->
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En función de la naturaleza de la implementación, puede elegir uno de los procedimientos siguientes.
 
 - [Implementación de máquinas virtuales a partir de una imagen generalizada mediante Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
-- [Implementación de máquinas virtuales a partir de una imagen generalizada mediante Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
+- [Preparación de una imagen generalizada a partir de una imagen ISO para implementar máquinas virtuales en Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
+- [Implementación de una máquina virtual a partir de una imagen especializada en el dispositivo Azure Stack Edge Pro GPU a través de Azure PowerShell](azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md) 

@@ -10,15 +10,15 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: 0d7d4dda75fba86bf5d624ea277b8866490ea608
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a69cb5e2a4563f96fb18979ff8aefdf805e94d7f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291197"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729552"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migración de VPN Gateway (clásico) a Resource Manager
-Las instancias de VPN Gateway ahora se pueden migrar del modelo de implementación clásica al de Resource Manager. Puede leer más información sobre las [características y ventajas](../azure-resource-manager/management/overview.md) de Azure Resource Manager. En este artículo, se explica cómo migrar desde implementaciones clásicas al nuevo modelo basado en Resource Manager. 
+Las instancias de VPN Gateway ahora se pueden migrar del modelo de implementación clásica al de [Resource Manager](../azure-resource-manager/management/deployment-models.md). Puede leer más información sobre las [características y ventajas](../azure-resource-manager/management/overview.md) de Azure Resource Manager. En este artículo, se explica cómo migrar desde implementaciones clásicas al nuevo modelo basado en Resource Manager. 
 
 Las instancias de VPN Gateway se migran como parte de la migración de red virtual del modelo clásico al de Resource Manager. Esta migración se realiza con una red virtual cada vez. No se necesita nada más en cuanto a herramientas o requisitos previos para la migración. Los pasos de migración son idénticos a los de la migración de red virtual existente y están documentados en la [página de migración de recursos de IaaS](../virtual-machines/migration-classic-resource-manager-ps.md). No existe ningún tiempo de inactividad para la ruta de acceso de datos durante la migración y, por tanto, las cargas de trabajo existentes seguirán funcionando sin que se pierda la conectividad local durante la migración. La dirección IP pública asociada a la puerta de enlace de VPN no cambia durante el proceso de migración. Esto significa que no tendrá que volver a configurar el enrutador local una vez completada la migración.  
 

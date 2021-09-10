@@ -4,41 +4,25 @@ description: Utilice bucles y matrices en un archivo de Bicep para implementar v
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.openlocfilehash: b510d2601c7f1d2724e104017707345e05fb47c7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 08/30/2021
+ms.openlocfilehash: 1b044b4ae3f5d73ad535d44153ea3d47023aeaaa
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453347"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225314"
 ---
 # <a name="resource-iteration-in-bicep"></a>Iteración de recursos en Bicep
 
-En este artículo, se muestra cómo crear varias instancias de un recurso en el archivo de Bicep. Puede agregar un bucle a la sección `resource` del archivo y establecer dinámicamente el número de recursos que se van a implementar. También evita repetir la sintaxis en el archivo Bicep.
+En este artículo, se muestra cómo crear varias instancias de un recurso en el archivo de Bicep. Puede agregar un bucle a una declaración `resource` y establecer dinámicamente el número de recursos que se van a implementar. Se evita repetir la sintaxis en el archivo Bicep.
 
-También puede usar un bucle con las [propiedades](loop-properties.md), las [variables](loop-variables.md) y las [salidas](loop-outputs.md).
+También puede usar un bucle con [módulos](loop-modules.md), [propiedades](loop-properties.md), [variables](loop-variables.md) y [salidas](loop-outputs.md).
 
 Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Sintaxis
 
 Los bucles se pueden usar para declarar varios recursos al:
-
-- Iteración en una matriz.
-
-  ```bicep
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
-    <resource-properties>
-  }]
-  ```
-
-- Iteración en los elementos de una matriz.
-
-  ```bicep
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
-    <resource-properties>
-  }]
-  ```
 
 - Uso de un índice de bucle.
 
@@ -48,11 +32,33 @@ Los bucles se pueden usar para declarar varios recursos al:
   }]
   ```
 
+  Para obtener más información, vea [Índice de bucles](#loop-index).
+
+- Iteración en una matriz.
+
+  ```bicep
+  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
+    <resource-properties>
+  }]
+  ```
+
+  Para obtener más información, vea [Matriz de bucles](#loop-array).
+
+- Iteración en una matriz y un índice.
+
+  ```bicep
+  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
+    <resource-properties>
+  }]
+  ```
+
+  Para obtener más información, vea [Matriz e índice de bucles](#loop-array-and-index).
+
 ## <a name="loop-limits"></a>Límites del bucle
 
-Las iteraciones de bucle del archivo Bicep no pueden ser un número negativo ni superar las 800 iteraciones. Para implementar archivos Bicep, instale la versión más reciente de las [herramientas de Bicep](install.md).
+Las iteraciones de bucle del archivo Bicep no pueden ser un número negativo ni superar las 800 iteraciones.
 
-## <a name="resource-iteration"></a>Iteración de recursos
+## <a name="loop-index"></a>Índice de bucles
 
 En el ejemplo siguiente, se crea el número de cuentas de almacenamiento especificado en el parámetro `storageCount`.
 
@@ -71,6 +77,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 ```
 
 Observe que el índice `i` se usa para crear el nombre del recurso de la cuenta de almacenamiento.
+
+## <a name="loop-array"></a>Matriz de bucles
 
 En el ejemplo siguiente, se crea una cuenta de almacenamiento para cada nombre proporcionado en el parámetro `storageNames`.
 
@@ -94,6 +102,49 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 
 Si desea devolver valores de los recursos implementados, puede usar un bucle en la [sección output](loop-outputs.md).
 
+## <a name="loop-array-and-index"></a>Índice y matriz de bucles
+
+En el ejemplo siguiente se usa el elemento de matriz y el valor de índice al definir la cuenta de almacenamiento.
+
+```bicep
+param storageAccountNamePrefix string
+
+var storageConfigurations = [
+  {
+    suffix: 'local'
+    sku: 'Standard_LRS'
+  }
+  {
+    suffix: 'geo'
+    sku: 'Standard_GRS'
+  }
+]
+
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-02-01' = [for (config, i) in storageConfigurations: {
+  name: '${storageAccountNamePrefix}${config.suffix}${i}'
+  location: resourceGroup().location
+  properties: {
+    supportsHttpsTrafficOnly: true
+    accessTier: 'Hot'
+    encryption: {
+      keySource: 'Microsoft.Storage'
+      services: {
+        blob: {
+          enabled: true
+        }
+        file: {
+          enabled: true
+        }
+      }
+    }
+  }
+  kind: 'StorageV2'
+  sku: {
+    name: config.sku
+  }
+}]
+```
+
 ## <a name="resource-iteration-with-condition"></a>Iteración de recursos con una condición
 
 En el ejemplo siguiente, se muestra un bucle anidado combinado con un bucle de recursos filtrado. Los filtros deben ser expresiones que se evalúen como un valor booleano.
@@ -110,7 +161,7 @@ resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent i
 }]
 ```
 
-Los filtros también se admiten con bucles de módulo.
+Los filtros también se admiten con [bucles de módulo](loop-modules.md).
 
 ## <a name="deploy-in-batches"></a>Implementación por lotes
 
@@ -118,7 +169,7 @@ Resource Manager crea los recursos en paralelo de forma predeterminada. Cuando s
 
 Es posible que no quiera actualizar todas las instancias de un tipo de recurso al mismo tiempo. Por ejemplo, al actualizar un entorno de producción, puede que quiera escalonar las actualizaciones para que solo una cantidad determinada se actualice al mismo tiempo. Puede especificar que un subconjunto de las instancias se agrupe por lotes e implemente al mismo tiempo. Las demás instancias esperan a que se complete ese lote.
 
-Para implementar instancias de un recurso en serie, agregue el [decorador batchSize](./file.md#resource-and-module-decorators). Establezca su valor en el número de instancias que se implementarán a la vez. Se crea una dependencia en las instancias anteriores del bucle, por lo que no se inicia ningún lote hasta que se completa el lote anterior.
+Para implementar instancias de un recurso en serie, agregue el [decorador batchSize](./file.md#resource-and-module-decorators). Establezca su valor en el número de instancias que se van a implementar a la vez. Se crea una dependencia en las instancias anteriores del bucle, por lo que no se inicia ningún lote hasta que se completa el lote anterior.
 
 ```bicep
 param rgLocation string = resourceGroup().location
@@ -133,6 +184,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
   kind: 'Storage'
 }]
 ```
+
+Para una implementación puramente secuencial, establezca el tamaño del lote en 1.
 
 ## <a name="iteration-for-a-child-resource"></a>Iteración para un recurso secundario
 
@@ -182,24 +235,10 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01
 }]
 ```
 
-## <a name="example-templates"></a>Plantillas de ejemplo
-
-En los ejemplos siguientes se muestran escenarios comunes para crear más de una instancia de un recurso o propiedad.
-
-|Plantilla  |Descripción  |
-|---------|---------|
-|[Almacenamiento en bucle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstorage.bicep) |Implementa más de una cuenta de almacenamiento con un número de índice en el nombre. |
-|[Almacenamiento en bucle en serie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopserialstorage.bicep) |Implementa varias cuentas de almacenamiento, una tras otra. El nombre incluye el número de índice. |
-|[Almacenamiento en bucle con una matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstoragewitharray.bicep) |Implementa varias cuentas de almacenamiento. El nombre incluye el valor de una matriz. |
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para otros usos del bucle, consulte:
-  - [Iteración de propiedades en archivos Bicep](loop-properties.md)
-  - [Iteración de variables en archivos Bicep](loop-variables.md)
-  - [Iteración de la salida en archivos Bicep](loop-outputs.md)
-- Si quiere conocer las secciones de una plantilla, consulte [Nociones sobre la estructura y la sintaxis de los archivos Bicep](file.md).
-- Para información sobre cómo implementar varios recursos, vea [Uso de módulos de Bicep.](modules.md)
+  - [Iteración de propiedades en Bicep](loop-properties.md)
+  - [Iteración de variables en Bicep](loop-variables.md)
+  - [Iteración de salidas en Bicep](loop-outputs.md)
 - Para establecer las dependencias de los recursos creados en un bucle, consulte [Establecimiento de dependencias de recursos](./resource-declaration.md#set-resource-dependencies).
-- Para información sobre la implementación con PowerShell, consulte [Implementación de recursos con Bicep y Azure PowerShell](deploy-powershell.md).
-- Para información sobre la implementación con la CLI de Azure, consulte [Implementación de recursos con Bicep y la CLI de Azure](deploy-cli.md).

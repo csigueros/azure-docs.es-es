@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09fc8f9697f418533131e86c069afd3157a71c78
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b6b0fa5e1af60b65c513fd3fa6250dba2a978879
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142988"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965902"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA
 
@@ -55,13 +55,13 @@ A la hora de considerar Azure NetApp Files para SAP Netweaver y SAP HANA, tenga 
 
 ## <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Ajuste del tamaño de la base de datos HANA en Azure NetApp Files
 
-El rendimiento de un volumen de Azure NetApp es una función del tamaño del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
+El rendimiento de un volumen de Azure NetApp es una función del tamaño del volumen y el nivel de servicio, como se documenta en [Niveles de servicio para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
-Es importante comprender el tamaño de la relación de rendimiento y que hay límites físicos para una LIF (interfaz lógica) de la SVM (máquina virtual de almacenamiento).
+Es importante comprender la relación entre rendimiento y tamaño, y que hay límites físicos en un punto de conexión de almacenamiento del servicio. Cada punto de conexión de almacenamiento se inserta dinámicamente en la [subred delegada de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) tras la creación del volumen y recibe una dirección IP. Los volúmenes de Azure NetApp Files pueden, en función de la capacidad disponible y la lógica de implementación, compartir un punto de conexión de almacenamiento.
 
-En la tabla siguiente se muestra que podría tener sentido crear un volumen "Estándar" de gran tamaño para almacenar las copias de seguridad y que no tiene sentido crear un volumen "Ultra" mayor de 12 TB, porque se superaría la capacidad de ancho de banda físico de un solo LIF. 
+En la tabla siguiente se demuestra que podría tener sentido crear un volumen "Estándar" de gran tamaño para almacenar las copias de seguridad, y que no tiene sentido crear un volumen "Ultra" mayor de 12 TB, porque se superaría la capacidad de ancho de banda física máxima de un solo volumen. 
 
-El rendimiento máximo de un LIF y una única sesión de Linux está comprendido entre 1,2 y 1,4 GB/s. Si necesita más rendimiento para /hana/data, puede usar la creación de particiones del volumen de datos de SAP HANA para fragmentar la actividad de E/S durante la recarga de datos o los puntos de retorno de HANA en varios archivos de datos de HANA ubicados en varios recursos compartidos de NFS. Para obtener más detalles sobre la fragmentación del volumen de datos de HANA, lea estos artículos:
+El rendimiento de escritura máximo de un volumen y una única sesión de Linux está entre 1,2 y 1,4 GB/s. Si necesita más rendimiento para /hana/data, puede usar la creación de particiones del volumen de datos de SAP HANA para fragmentar la actividad de E/S durante la recarga de datos o los puntos de retorno de HANA en varios archivos de datos de HANA ubicados en varios recursos compartidos de NFS. Para obtener más detalles sobre la fragmentación del volumen de datos de HANA, lea estos artículos:
 
 - [Guía para administradores de HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [Blog sobre SAP HANA: creación de particiones de volúmenes de datos](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -95,7 +95,7 @@ Dado que se exigen los tres KPI, el volumen de **/hana/data** debe dimensionarse
 En el caso de los sistemas HANA, que no requieren ancho de banda grande, los tamaños de los volúmenes de ANF pueden ser más pequeños. Y, en caso de que un sistema HANA requiera más rendimiento, el volumen podría adaptarse mediante el cambio de tamaño de la capacidad en línea. No se ha definido ningún KPI para los volúmenes de copia de seguridad. Sin embargo, el rendimiento del volumen de copia de seguridad es fundamental para un entorno que funcione correctamente. El rendimiento del volumen de registros y datos debe estar diseñado para cumplir con las expectativas de los clientes.
 
 > [!IMPORTANT]
-> Independientemente de la capacidad que implemente en un volumen NFS individual, se espera que el rendimiento se nivele en el rango de 1,2-1,4 GB/s de ancho de banda usado por un consumidor en una máquina virtual. Esto tiene que ver con la arquitectura subyacente de la oferta de ANF y los límites de sesiones de Linux relacionadas alrededor de NFS. Las cifras relativas al rendimiento y a la capacidad de proceso que se indican en el artículo [Banco de pruebas de rendimiento de resultados de pruebas para Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) se obtuvieron en un volumen NFS compartido con varias máquinas virtuales cliente y como resultado con varias sesiones. Dicho escenario es diferente del escenario que medimos en SAP. Ahí medimos la capacidad de procesamiento de una sola máquina virtual en un volumen NFS Hospedado en ANF.
+> Independientemente de la capacidad que implemente en un volumen NFS individual, se espera que el rendimiento se nivele en el rango de 1,2-1,4 GB/s de ancho de banda usado por un consumidor en una sola sesión. Esto tiene que ver con la arquitectura subyacente de la oferta de ANF y los límites de sesiones de Linux relacionadas alrededor de NFS. Las cifras relativas al rendimiento y a la capacidad de proceso que se indican en el artículo [Banco de pruebas de rendimiento de resultados de pruebas para Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) se obtuvieron en un volumen NFS compartido con varias máquinas virtuales cliente y como resultado con varias sesiones. Dicho escenario es diferente del escenario que medimos en SAP. Ahí medimos la capacidad de procesamiento de una sola máquina virtual en un volumen NFS Hospedado en ANF.
 
 Para cumplir los requisitos de rendimiento mínimo de SAP para los datos y el registro, y de acuerdo con las directrices para **/hana/shared**, los tamaños recomendados serían los siguientes:
 
@@ -104,7 +104,7 @@ Para cumplir los requisitos de rendimiento mínimo de SAP para los datos y el re
 | /hana/log/ | 4 TiB | 2 TiB | v4.1 |
 | /hana/data | 6,3 TiB | 3,2 TiB | v4.1 |
 | /hana/shared scale-up | Mín. (1 TB, 1 x RAM)  | Mín. (1 TB, 1 x RAM) | v3 o v4.1 |
-| /hana/shared scale-out | 1 x RAM del nodo de trabajo<br /> por 4 nodos de trabajo  | 1 x RAM del nodo de trabajo<br /> por 4 nodos de trabajo  | v3 o v4.1 |
+| /hana/shared scale-out | 1 x RAM del nodo de trabajo<br /> por cuatro nodos de trabajo  | 1 x RAM del nodo de trabajo<br /> por cuatro nodos de trabajo  | v3 o v4.1 |
 | /hana/logbackup | 3 x RAM  | 3 x RAM | v3 o v4.1 |
 | /hana/backup | 2 x RAM  | 2 x RAM | v3 o v4.1 |
 
@@ -128,10 +128,10 @@ Las actualizaciones del sistema y las actualizaciones de ANF se aplican sin afec
 
 
 ## <a name="volumes-and-ip-addresses-and-capacity-pools"></a>Volúmenes, direcciones IP y grupos de capacidades
-Con ANF, es importante comprender cómo se compila la infraestructura subyacente. Un grupo de capacidad tan solo es una estructura, lo que simplifica la creación de un modelo de facturación para ANF. Un grupo de capacidad no tiene ninguna relación física con la infraestructura subyacente. Si crea un grupo de capacidad, tan solo se crea un shell que se puede cargar. Cuando se crea un volumen, la primera SVM (Máquina virtual de almacenamiento) se crea en un clúster de varios sistemas NetApp. Se crea una única dirección IP para que esta SVM acceda al volumen. Si crea varios volúmenes, todos estos se distribuyen en esta SVM a través de este clúster de NetApp de varios controladores. Incluso si solo obtiene una dirección IP, los datos se distribuyen en varios controladores. ANF tiene una lógica que distribuye de forma automática las cargas de trabajo de los clientes cuando los volúmenes o la capacidad del almacenamiento configurado alcanzan un nivel interno predefinido. Es posible que observe estos casos porque se asigna una nueva dirección IP para acceder a los volúmenes.
+Con ANF, es importante comprender cómo se compila la infraestructura subyacente. Un grupo de capacidad es solo una construcción que proporciona un presupuesto de capacidad y rendimiento, y una unidad de facturación, en función del nivel de servicio del grupo de capacidad. Un grupo de capacidad no tiene ninguna relación física con la infraestructura subyacente. Al crear un volumen en el servicio, se crea un punto de conexión de almacenamiento. A este punto de conexión de almacenamiento se le asigna una única dirección IP para proporcionar acceso a los datos al volumen. Si crea varios volúmenes, todos ellos se distribuyen entre el conjunto subyacente de equipos sin sistema operativo, asociados a este punto de conexión de almacenamiento. ANF tiene una lógica que distribuye de forma automática las cargas de trabajo de los clientes cuando los volúmenes o la capacidad del almacenamiento configurado alcanzan un nivel interno predefinido. Es posible que observe estos casos al crearse automáticamente un nuevo punto de conexión de almacenamiento con una nueva dirección IP para acceder a los volúmenes. El servicio ANF no proporciona control al cliente sobre esta lógica de distribución.
 
-##<a name="log-volume-and-log-backup-volume"></a>Volumen de registro y volumen de copia de seguridad de registros
-El "volumen de registro" ( **/hana/log**) se usa para escribir el registro de la fase de puesta al día en línea. Por lo tanto, hay archivos abiertos ubicados en este volumen y no tiene sentido crear una instantánea del mismo. Los archivos de registro en línea de la fase de puesta al día se archivan, o se hace una copia de seguridad de estos, en el volumen de copia de seguridad de registros cuando el archivo de registro en línea de la fase de puesta al día está completo o se ejecuta una copia de seguridad de registros de la fase de puesta al día. Para proporcionar un rendimiento de copia de seguridad razonable, el volumen de copia de seguridad de registros requiere un buen rendimiento. Para optimizar los costos de almacenamiento, puede tener sentido consolidar el volumen de copia de seguridad de registros de varias instancias de HANA. Esto es así para que varias instancias de HANA aprovechen el mismo volumen y escriban sus copias de seguridad en directorios diferentes. Con este tipo de consolidación, se puede obtener más rendimiento, ya que es necesario aumentar ligeramente el tamaño del volumen. 
+## <a name="log-volume-and-log-backup-volume"></a>Volumen de registro y volumen de copia de seguridad de registros
+El "volumen de registro" ( **/hana/log**) se usa para escribir el registro de la fase de puesta al día en línea. Por lo tanto, hay archivos abiertos ubicados en este volumen y no tiene sentido crear una instantánea del mismo. Los archivos de registro en línea de la fase de puesta al día se archivan, o se hace una copia de seguridad de estos, en el volumen de copia de seguridad de registros cuando el archivo de registro en línea de la fase de puesta al día está completo o se ejecuta una copia de seguridad de registros de la fase de puesta al día. Para proporcionar un rendimiento de copia de seguridad razonable, el volumen de copia de seguridad de registros requiere un buen rendimiento. Para optimizar los costos de almacenamiento, puede tener sentido consolidar el volumen de copia de seguridad de registros de varias instancias de HANA. Así, varias instancias de HANA usan el mismo volumen y escriben sus copias de seguridad en directorios diferentes. Con este tipo de consolidación, se puede obtener más rendimiento, ya que es necesario aumentar ligeramente el tamaño del volumen. 
 
 Esto mismo se aplica al volumen que se usa para escribir copias de seguridad completas de bases de datos de HANA.  
  
@@ -170,7 +170,7 @@ az netappfiles snapshot create -g mygroup --account-name myaccname --pool-name m
 BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
 ```
 
-Este procedimiento de copia de seguridad de instantáneas se puede administrar de varias maneras, mediante el uso de diversas herramientas. Un ejemplo de esto es el script de Python "ntaphana_azure.py" disponible en GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana) Este es un código de ejemplo, proporcionado "tal cual" sin ningún mantenimiento o soporte técnico.
+Este procedimiento de copia de seguridad de instantáneas se puede administrar de varias maneras y con distintas herramientas. Un ejemplo de esto es el script de Python "ntaphana_azure.py" disponible en GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana) Este es un código de ejemplo, proporcionado "tal cual" sin ningún mantenimiento o soporte técnico.
 
 
 
@@ -182,8 +182,8 @@ En el caso de los usuarios de productos de copia de seguridad de CommVault, una 
 
 
 ### <a name="back-up-the-snapshot-using-azure-blob-storage"></a>Copia de seguridad de la instantánea mediante almacenamiento de blobs de Azure
-La realización de una copia de seguridad en el almacenamiento de blobs de Azure es un método rápido y rentable para guardar copias de seguridad de instantáneas de almacenamiento de base de datos de HANA basadas en ANF. Para guardar las instantáneas en el almacenamiento de blobs de Azure, es preferible usar la herramienta azcopy. Descargue la versión más reciente de esta herramienta e instálela, por ejemplo, en el directorio bin donde esté instalado el script de Python de GitHub.
-Descargue la versión más reciente de la herramienta azcopy:
+La realización de una copia de seguridad en el almacenamiento de blobs de Azure es un método rápido y rentable para guardar copias de seguridad de instantáneas de almacenamiento de base de datos de HANA basadas en ANF. Para guardar las instantáneas en el almacenamiento de blobs de Azure, es preferible usar la herramienta AzCopy. Descargue la versión más reciente de esta herramienta e instálela, por ejemplo, en el directorio bin donde esté instalado el script de Python de GitHub.
+Descargue la versión más reciente de la herramienta AzCopy:
 
 ```
 root # wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1

@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 04/22/2019
-ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/20/2021
+ms.openlocfilehash: af13306598db75e89064507b9a2fad80d8d33542
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74793033"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453178"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Guía de referencia para la configuración de envío y recepción de AS2 en Azure Logic Apps con Enterprise Integration Pack
 
@@ -47,7 +47,7 @@ Esta referencia describe las propiedades que puede establecer para especificar c
 | Propiedad | Obligatorio | Descripción |
 |----------|----------|-------------|
 | **Habilitar la firma de mensajes** | No | Especifica si todos los mensajes salientes deben estar firmados digitalmente. Si requiere inicio de sesión, seleccione estos valores: <p>- Desde la lista **Algoritmo de firma**, seleccione el algoritmo que se usará para firmar los mensajes. <br>- Desde la lista **Certificado**, seleccione un certificado privado del asociado del host existente para firmar los mensajes. Si no tiene un certificado, obtenga más información sobre la [adición de certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Habilitar el cifrado de mensajes** | No | Especifica si se deben cifrar todos los mensajes salientes. Si requiere cifrado, seleccione estos valores: <p>- Desde la lista **Algoritmo de cifrado**, seleccione el algoritmo del certificado público del asociado invitado que se usará para cifrar los mensajes. <br>- Desde la lista **Certificado**, seleccione un certificado privado del asociado del host existente para cifrar los mensajes salientes. Si no tiene un certificado, obtenga más información sobre la [adición de certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Habilitar el cifrado de mensajes** | No | Especifica si se deben cifrar todos los mensajes salientes. Si requiere cifrado, seleccione estos valores: <p>- Desde la lista **Algoritmo de cifrado**, seleccione el algoritmo del certificado público del asociado invitado que se usará para cifrar los mensajes. <br>- Desde la lista **Certificado**, seleccione un certificado público del asociado del host existente para cifrar los mensajes salientes. Si no tiene un certificado, obtenga más información sobre la [adición de certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Habilitar la compresión de mensajes** | No | Especifica si se deben comprimir todos los mensajes salientes. |
 | **Unfold HTTP headers (Expandir encabezados HTTP)** | No | Coloca el encabezado HTTP `content-type` en una sola línea. |
 | **Transmitir el nombre de archivo en el encabezado MIME** | No | Especifica si se debe incluir el nombre de archivo en el encabezado MIME. |

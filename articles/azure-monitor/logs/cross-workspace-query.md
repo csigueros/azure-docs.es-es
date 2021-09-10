@@ -4,25 +4,27 @@ description: En este artículo se describe cómo se puede consultar los recursos
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/11/2021
-ms.openlocfilehash: 19cc85751fc5e4a165b646ac89d9d6b6e90c4408
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.date: 06/30/2021
+ms.openlocfilehash: ef7a917b504df521f087e5a2729d5c431e84fd62
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379560"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295896"
 ---
-# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realización de consultas de registro en Azure Monitor que abarcan entre áreas de trabajo y aplicaciones
+# <a name="perform-log-queries-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realización de consultas de registro en Azure Monitor que abarcan entre áreas de trabajo y aplicaciones
 
 Los registros de Azure Monitor admiten consultas en varias áreas de trabajo de Log Analytics y la aplicación Application Insights en el mismo grupo de recursos, otro grupo de recursos u otra suscripción. Gracias a esto se consigue una vista total del sistema de datos.
 
+Si administra suscripciones en otros inquilinos de Azure Active Directory (Azure AD) mediante [Azure Lighthouse](../../lighthouse/overview.md), puede incluir las [áreas de trabajo de Log Analytics creadas en esos inquilinos de cliente en las consultas](../../lighthouse/how-to/monitor-at-scale.md).
+
 Hay dos métodos para consultar datos almacenados en varias áreas de trabajo y aplicaciones:
+
 1. Explícitamente especificando los detalles del área de trabajo y la aplicación. Esta técnica se detalla en este artículo.
 2. Usar implícitamente [consultas de contexto de recursos](./design-logs-deployment.md#access-mode). Al consultar en el contexto de un recurso específico, un grupo de recursos o una suscripción, los datos pertinentes se capturarán de todas las áreas de trabajo que contengan datos de estos recursos. Los datos de Application Insights que se almacenan en aplicaciones no se capturarán.
 
 > [!IMPORTANT]
 > Si usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), la telemetría se almacena en un área de trabajo de Log Analytics con todos los demás datos del registro. Use la expresión workspace() para escribir una consulta que incluya la aplicación en varias áreas de trabajo. Si tiene varias aplicaciones en la misma área de trabajo, no se necesita realizar una consulta entre áreas de trabajo.
-
 
 ## <a name="cross-resource-query-limits"></a>Límites de la consulta entre recursos 
 

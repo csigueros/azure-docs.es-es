@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/14/2021
-ms.openlocfilehash: 99e507fed35e5b74aa44bc2713550f7cf9d7b2e5
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/09/2021
+ms.openlocfilehash: fc52bac390763418d21cb001e5ae224acbaaa906
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518888"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595532"
 ---
 # <a name="point-in-time-restore-of-a-hyperscale-citus-server-group"></a>Restauración a un momento dado de un grupo de servidores de Hiperescala (Citus)
 
@@ -27,7 +27,7 @@ Siga estos pasos para restaurar el grupo de servidores de Hiperescala (Citus) a 
 2.  Haga clic en **Información general** en el panel izquierdo y, después, haga clic en **Restaurar**.
 
     > [!IMPORTANT]
-    > Si el botón **Restaurar** aún no aparece para el grupo de servidores, abra una solicitud de soporte técnico de Azure.
+    > Si el botón **Restaurar** aún no aparece para el grupo de servidores, abra una solicitud de soporte técnico de Azure para restaurar dicho grupo.
 
 3.  La página Restaurar le pedirá que elija entre el punto de restauración **más antiguo** y uno **personalizado**, y mostrará la fecha más antigua.
 
@@ -50,7 +50,7 @@ Siga estos pasos para restaurar el grupo de servidores de Hiperescala (Citus) a 
 2.  Haga clic en **Información general** en el panel izquierdo y, después, haga clic en **Restaurar**.
 
     > [!IMPORTANT]
-    > Si el botón **Restaurar** aún no aparece para el grupo de servidores, abra una solicitud de soporte técnico de Azure.
+    > Si el botón **Restaurar** aún no aparece para el grupo de servidores, abra una solicitud de soporte técnico de Azure para restaurar dicho grupo.
 
 3.  La página Restaurar le pedirá que elija entre el punto de restauración **más antiguo** y uno **personalizado**, y mostrará la fecha más antigua.
 

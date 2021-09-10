@@ -8,12 +8,12 @@ author: ejarvi
 ms.author: ejarvi
 ms.collection: windows
 ms.date: 03/19/2020
-ms.openlocfilehash: 62ad5ca5d3b150aef5a83eaa4d5231e7bb5a6a62
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 679682ed0a268306bfb6c7afcf9abbd94a4d45b7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100187"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738976"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -134,6 +134,8 @@ Usar `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valores de propiedad
 
+Nota: Todos los valores distinguen mayúsculas de minúsculas.
+
 | Nombre | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
@@ -156,7 +158,7 @@ Usar `AADClientCertificate`:
 
 Para ver un ejemplo de una implementación de plantilla basada en la versión 2.2 del esquema, consulte la plantilla de inicio rápido de Azure [encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad).
 
-Para un ejemplo de una implementación de plantilla basada en un esquema de la versión 1.1, consulte la plantilla de inicio rápido de Azure [201-encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
+Para un ejemplo de una implementación de plantilla basada en un esquema de la versión 1.1, consulte la plantilla de inicio rápido de Azure [encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm).
 
 >[!NOTE]
 > Además, si el parámetro `VolumeType` está establecido en Todos, los discos de datos se cifrarán solo si tienen el formato correcto.

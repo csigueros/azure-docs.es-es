@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 2744a1dd36751175e7bd421210bdb5b92b53dfe5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3eb0ab8ac6ca4c0ceddd9e3ebf84b8c2ddd5a9f4
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456927"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301319"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -193,7 +193,9 @@ Consulte este ejemplo de evaluación de alertas sin estado:
 | 00:15 | true  | La alerta se desencadena y se llama a los grupos de acciones. Estado de nueva alerta ACTIVA.
 | 00:20 | false | La alerta no se activa. No se llamó a ninguna acción. El estado de las alertas anteriores sigue como ACTIVA.
 
-Las alertas con estado se activa una vez por incidente y se resuelven. Esta característica se encuentra actualmente en versión preliminar en la nube pública de Azure. Puede establecer esta opción mediante **Automatically resolve alerts** (Resolución automática de alertas) de la sección de detalles de alertas.
+Las alertas con estado se activa una vez por incidente y se resuelven. La regla de alerta se resuelve cuando la condición de alerta no se cumple durante 30 minutos durante un período de evaluación específico (para tener en cuenta el retraso de ingesta de registros) y durante tres evaluaciones consecutivas para reducir el ruido si hay condiciones de oscilación. Por ejemplo, con una frecuencia de 5 minutos, la alerta se resuelve después de 40 minutos; con una frecuencia de 1 minuto, la alerta se resuelve después de 32 minutos. Cuando la notificación resuelta se envíe a través del webhook o del correo electrónico, el estado de la instancia de alerta (llamada estado de supervisión) de Azure Portal también se establecerá como Resuelta.
+
+La característica de alertas con estado se encuentra actualmente en versión preliminar en la nube pública de Azure. Puede establecer esta opción mediante **Automatically resolve alerts** (Resolución automática de alertas) de la sección de detalles de alertas.
 
 ## <a name="location-selection-in-log-alerts"></a>Selección de ubicación en alertas de registro
 

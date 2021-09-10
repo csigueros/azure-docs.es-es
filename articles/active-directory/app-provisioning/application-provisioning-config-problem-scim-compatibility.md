@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 0e369a6ab857b95035b0aaca28525e54e15835e8
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f74e9a4f99523e26feb703f5ed2bedf33366f8d6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783268"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738939"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
 
@@ -50,71 +50,40 @@ Utilice las marcas siguientes en la dirección URL del inquilino de la aplicaci�
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Marcas de SCIM para modificar el comportamiento.":::
 
-* Use la siguiente dirección URL para actualizar el comportamiento de las revisiones para garantizar el cumplimiento de SCIM (por ejemplo, activo como booleano y eliminación de las pertenencia a grupos adecuadas). Actualmente, este comportamiento solo está disponible cuando se usa la marca, pero se convertirá en el comportamiento predeterminado durante los próximos meses. Tenga en cuenta que esta marca de vista previa no funciona actualmente con el aprovisionamiento a petición. 
+Use la siguiente dirección URL para actualizar el comportamiento de las revisiones para garantizar el cumplimiento de SCIM. La marca modificará los comportamientos siguientes:                
+- Solicitudes realizadas para deshabilitar usuarios
+- Solicitudes para agregar un atributo de cadena de un solo valor
+- Solicitudes para reemplazar varios atributos
+- Solicitudes para quitar un miembro del grupo        
+                                                                                     
+Actualmente, este comportamiento solo está disponible cuando se usa la marca, pero se convertirá en el comportamiento predeterminado durante los próximos meses. Tenga en cuenta que esta marca de vista previa no funciona actualmente con el aprovisionamiento a petición. 
   * **Dirección URL (compatible con SCIM):** aadOptscim062020
   * **Referencias de RFC de SCIM:** 
-    * https://tools.ietf.org/html/rfc7644#section-3.5.2
-  * **Comportamiento:**
+    * https://tools.ietf.org/html/rfc7644#section-3.5.2    
+
+A continuación se muestran solicitudes de ejemplo para ayudar a describir lo que el motor de sincronización envía actualmente frente a las solicitudes que se envían una vez habilitada la marca de característica. 
+                           
+**Solicitudes realizadas para deshabilitar usuarios:**
+
+**Sin marca de característica**
   ```json
-   PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
-   {
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
         {
-            "op": "remove",
-            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+            "op": "Replace",
+            "path": "active",
+            "value": "False"
         }
     ]
-   }
+}
+  ```
 
-    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "add",
-            "path": "members",
-            "value": [
-                {
-                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
-                }
-            ]
-        }
-    ]
-    } 
-
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].value",
-            "value": "someone@contoso.com"
-        },
-        {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].primary",
-            "value": true
-        },
-        {
-            "op": "replace",
-            "value": {
-                "active": false,
-                "userName": "someone"
-            }
-        }
-    ]
-    }
-
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
+**Con marca de características**
+  ```json
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -125,23 +94,153 @@ Utilice las marcas siguientes en la dirección URL del inquilino de la aplicaci�
             "value": false
         }
     ]
-    }
+}
+  ```
 
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
+**Solicitudes realizadas para agregar un atributo de cadena de un solo valor:**
+
+**Sin marca de característica**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Add",
+            "path": "nickName",
+            "value": [
+                {
+                    "value": "Babs"
+                }
+            ]
+        }
+    ]
+}   
+  ```
+
+**Con marca de características**
+  ```json
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
         {
             "op": "add",
-            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
-            "value": "Tech Infrastructure"
+            "value": {
+                "nickName": "Babs"
+            }
         }
     ]
-    }
-   
+}
   ```
+
+**Solicitudes para reemplazar varios atributos:**
+
+**Sin marca de característica**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "displayName",
+            "value": "Pvlo"
+        },
+        {
+            "op": "Replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "TestBcwqnm@test.microsoft.com"
+        },
+        {
+            "op": "Replace",
+            "path": "name.givenName",
+            "value": "Gtfd"
+        },
+        {
+            "op": "Replace",
+            "path": "name.familyName",
+            "value": "Pkqf"
+        },
+        {
+            "op": "Replace",
+            "path": "externalId",
+            "value": "Eqpj"
+        },
+        {
+            "op": "Replace",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber",
+            "value": "Eqpj"
+        }
+    ]
+}
+  ```
+
+**Con marca de características**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "TestMhvaes@test.microsoft.com"
+        },
+        {
+            "op": "replace",
+            "value": {
+                "displayName": "Bjfe",
+                "name.givenName": "Kkom",
+                "name.familyName": "Unua",
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber": "Aklq"
+            }
+        }
+    ]
+} 
+  ```
+
+**Solicitudes realizadas para quitar un miembro del grupo:**
+
+**Sin marca de característica**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Remove",
+            "path": "members",
+            "value": [
+                {
+                    "value": "u1091"
+                }
+            ]
+        }
+    ]
+} 
+  ```
+
+**Con marca de características**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "remove",
+            "path": "members[value eq \"7f4bc1a3-285e-48ae-8202-5accb43efb0e\"]"
+        }
+    ]
+}
+  ```
+
 
   * **Cambio a una versión anterior de la dirección URL:** una vez que el nuevo comportamiento conforme a SCIM se convierte en el valor predeterminado de una aplicación que no es de la galería, puede usar la siguiente dirección URL para revertir al comportamiento anterior, que no es compatible con SCIM: AzureAdScimPatch2017
   

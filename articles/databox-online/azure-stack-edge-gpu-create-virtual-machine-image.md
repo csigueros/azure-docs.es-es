@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: a1f6b51c8ab36d779ad2771c1e12de78673e6fc1
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 94ffb38c71437c8f5902866620b5ac0c2467edfd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902448"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462921"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-gpu-device"></a>Creación de imágenes de máquina virtual personalizadas para el dispositivo GPU de Azure Stack Edge Pro
 
@@ -27,7 +27,7 @@ Para preparar una imagen de máquina virtual personalizada, es necesario seguir 
 
 Antes de crear la imagen de máquina virtual, complete el siguiente requisito previo:
 
-- [Descargue AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy le ofrece una manera rápida de copiar un disco del sistema operativo en una cuenta de Azure Storage.
+- [Descargue AzCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy). AzCopy le ofrece una manera rápida de copiar un disco del sistema operativo en una cuenta de Azure Storage.
 
 ---
 
@@ -40,9 +40,11 @@ Los pasos para preparar una imagen de máquina virtual personalizada varían seg
 
 Realice los pasos siguientes para crear una imagen de máquina virtual Windows:
 
-1. Cree una máquina virtual Windows en Azure. Para ver cómo hacerlo en el portal, consulte [Creación de una máquina virtual Windows en Azure Portal](/azure/virtual-machines/windows/quick-create-portal). Para ver cómo hacerlo en PowerShell, consulte [Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).
+1. Cree una máquina virtual Windows en Azure. Para ver cómo hacerlo en el portal, consulte [Creación de una máquina virtual Windows en Azure Portal](../virtual-machines/windows/quick-create-portal.md). Para ver cómo hacerlo en PowerShell, consulte [Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).  
 
-   La máquina virtual solo puede ser de primera generación. El disco del sistema operativo que use para crear la imagen de máquina virtual debe ser un VHD de un tamaño fijo cualquiera compatible con Azure. Para ver las opciones de tamaño de máquina virtual, consulte [Tamaños de máquina virtual admitidos](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).  
+   La máquina virtual solo puede ser de primera generación. El disco del sistema operativo que use para crear la imagen de máquina virtual debe ser un VHD de un tamaño fijo cualquiera compatible con Azure. Para ver las opciones de tamaño de máquina virtual, consulte [Tamaños de máquina virtual admitidos](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+
+   Puede usar cualquier máquina virtual de Windows Gen1 con un VHD de tamaño fijo en Azure Marketplace. Para obtener una lista de imágenes de Azure Marketplace que pueden servir, consulte la sección sobre [imágenes de Azure Marketplace de uso común para Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images).
 
 2. Generalice la máquina virtual. Para generalizar la máquina virtual, [conéctese a la máquina virtual](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm), abra un símbolo del sistema y ejecute el siguiente comando `sysprep`:
 
@@ -60,7 +62,7 @@ Realice los pasos siguientes para crear una imagen de máquina virtual Linux:
 
 1. Cree una máquina virtual Linux en Azure. Para hacerlo en portal, consulte [Inicio rápido: Creación de una máquina virtual Linux en Azure Portal](../virtual-machines/linux/quick-create-portal.md).  Para hacerlo en PowerShell, consulte [Inicio rápido: Creación de una máquina virtual Linux en Azure con PowerShell](../virtual-machines/linux/quick-create-powershell.md).
 
-   Puede usar cualquier máquina virtual Gen1 con un VHD de tamaño fijo de Azure Marketplace para crear imágenes personalizadas de Linux, a excepción de las imágenes de Red Hat Enterprise Linux (RHEL), que requieren pasos adicionales. Para ver una lista de imágenes de Azure Marketplace que podrían servir, consulte [Elementos de Azure Marketplace disponibles para Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true). Para información sobre las imágenes de RHEL, consulte [Uso de imágenes BYOS de RHEL](#using-rhel-byos-images) a continuación. 
+   Puede usar cualquier máquina virtual Gen1 con un VHD de tamaño fijo de Azure Marketplace para crear imágenes personalizadas de Linux, a excepción de las imágenes de Red Hat Enterprise Linux (RHEL), que requieren pasos adicionales. Para obtener una lista de imágenes de Azure Marketplace que pueden servir, consulte la sección sobre [imágenes de Azure Marketplace de uso común para Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images). Para información sobre las imágenes de RHEL, consulte [Uso de imágenes BYOS de RHEL](#using-rhel-byos-images) a continuación.
 
 1. Desaprovisione la máquina virtual. Use el agente de máquina virtual de Azure para eliminar archivos y datos específicos de la máquina. Use el comando `waagent` con el parámetro `-deprovision+user` en la máquina virtual Linux de origen. Para obtener más información, consulte [Información y uso del agente de Linux de Azure](../virtual-machines/extensions/agent-linux.md).
 
@@ -98,9 +100,9 @@ Para usar la imagen de máquina virtual personalizada para implementar máquinas
 
 Para descargar el disco del sistema operativo de la máquina virtual en una cuenta de almacenamiento de Azure, siga estos pasos:
 
-1. [Detenga la máquina virtual en el portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). Debe hacerlo para desasignar el disco del sistema operativo incluso si la máquina virtual Windows se cerró después de que se ejecutara `sysprep` para generalizarla.
+1. [Detenga la máquina virtual en el portal](../virtual-machines/windows/download-vhd.md#stop-the-vm). Debe hacerlo para desasignar el disco del sistema operativo incluso si la máquina virtual Windows se cerró después de que se ejecutara `sysprep` para generalizarla.
 
-1. [Genere una dirección URL de descarga para el disco del sistema operativo](/azure/virtual-machines/windows/download-vhd#generate-download-url) y anote la dirección URL. De forma predeterminada, la dirección URL expira después de 3600 segundos (1 hora). Puede aumentar ese tiempo si es necesario.
+1. [Genere una dirección URL de descarga para el disco del sistema operativo](../virtual-machines/windows/download-vhd.md#generate-download-url) y anote la dirección URL. De forma predeterminada, la dirección URL expira después de 3600 segundos (1 hora). Puede aumentar ese tiempo si es necesario.
       
 1. Descargue el VHD en la cuenta de Azure Storage mediante uno de estos métodos:
    
@@ -112,7 +114,7 @@ Ahora puede usar este VHD para crear e implementar máquinas virtuales en el dis
 
 ## <a name="copy-vhd-to-storage-account-using-azcopy"></a>Copia del VHD en la cuenta de almacenamiento mediante AzCopy
 
-Los procedimientos siguientes describen cómo usar AzCopy para copiar una imagen de máquina virtual personalizada en una cuenta de Azure Storage para que pueda usar la imagen para implementar máquinas virtuales en el dispositivo GPU de Azure Stack Edge Pro. Se recomienda almacenar las imágenes de máquina virtual personalizadas en la misma cuenta de almacenamiento que usa para el dispositivo GPU de Azure Stack Edge Pro. 
+Los procedimientos siguientes describen cómo usar AzCopy para copiar una imagen de máquina virtual personalizada en una cuenta de Azure Storage para que pueda usar la imagen para implementar máquinas virtuales en el dispositivo GPU de Azure Stack Edge Pro. Se recomienda almacenar las imágenes de máquina virtual personalizadas en cualquier cuenta de almacenamiento existente que use, que se encuentre en la misma región o suscripción que Azure Stack Edge.
 
 
 ### <a name="create-target-uri-for-a-container"></a>Creación del URI de destino para un contenedor
@@ -152,7 +154,7 @@ Para crear el URI de destino para el VHD preparado, siga estos pasos:
 
 Para copiar el VHD en un contenedor de blobs mediante AzCopy, siga estos pasos:
 
- 1. [Descargue AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) si aún no lo ha hecho.
+ 1. [Descargue AZCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy) si aún no lo ha hecho.
  
  1. En PowerShell, vaya al directorio donde guardó azcopy.exe y ejecute el siguiente comando:
 

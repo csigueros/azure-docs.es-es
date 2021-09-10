@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd47a623700c495a571bc4ca6b949d1a2229178a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f44390d042f12336c6556d05c4fe1332e822e068
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469167"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963769"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD
 
@@ -49,7 +49,7 @@ Si no tiene el correo electrónico, puede encontrar las solicitudes de acceso pe
 
 1. En la pestaña **Pendientes**, busque la solicitud.
 
-## <a name="view-requestors-answers-to-questions-preview"></a>Visualización de las respuestas del solicitante a las preguntas (versión preliminar)
+## <a name="view-requestors-answers-to-questions"></a>Visualización de las respuestas del solicitante a las preguntas
 
 1. Vaya a la pestaña **Aprobaciones** en Mi acceso.
 

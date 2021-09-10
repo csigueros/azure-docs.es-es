@@ -2,23 +2,24 @@
 title: Configuración de un entorno de ejecución de integración autohospedado como proxy para SSIS
 description: Aprenda a configurar un entorno de ejecución de integración autohospedado como proxy para Azure-SSIS Integration Runtime.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 05/19/2021
-ms.openlocfilehash: dde4c234a6a0459441a601813f4f4a42dfbbff1c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 07/19/2021
+ms.openlocfilehash: ff0dc37b70861dae8cddb77ef984c27109eefc15
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665474"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747415"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configuración de IR autohospedado como proxy para Azure-SSIS IR en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este artículo se describe cómo ejecutar paquetes de SQL Server Integration Services (SSIS) en Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF) con un entorno de ejecución de integración autohospedado (IR autohospedado) configurado como proxy. 
+En este artículo se describe cómo ejecutar paquetes de SQL Server Integration Services (SSIS) en una instancia de Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF), con un entorno de ejecución de integración autohospedado (IR autohospedado) configurado como proxy. 
 
 Con esta característica, puede acceder a los datos y ejecutar tareas en el entorno local sin tener que [unir la instancia de Azure-SSIS IR a una red virtual](./join-azure-ssis-integration-runtime-virtual-network.md). La característica resulta útil cuando la configuración de la red corporativa es demasiado compleja o una directiva es demasiado restrictiva para que pueda insertar la instancia de Azure-SSIS IR en ella.
 
@@ -50,7 +51,7 @@ Por último, descargue e instale la versión más reciente del entorno de ejecuc
   
   Si usa controladores OLEDB/ODBC/ADO.NET para otros sistemas de base de datos, como PostgreSQL, MySQL, Oracle, etc., puede descargar las versiones de 64 bits de sus sitios web.
 - Si usa componentes de flujo de datos de Azure Feature Pack de los paquetes, [descargue e instale Azure Feature Pack para SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) en la misma máquina en la que está instalado el entorno de ejecución de integración autohospedado, si aún no lo ha hecho.
-- Si aún no lo ha hecho, [descargue e instale la versión de 64 bits del entorno de ejecución de Visual C++ (VC)](https://www.microsoft.com/download/details.aspx?id=40784) en la misma máquina en la que está instalada la instancia de IR autohospedado.
+- Si aún no lo ha hecho, [descargue e instale la versión de 64 bits del entorno de ejecución de Visual C++ (VC)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) en la misma máquina en la que está instalada la instancia de IR autohospedado.
 
 ### <a name="enable-windows-authentication-for-on-premises-tasks"></a>Habilitación de la autenticación de Windows en tareas del entorno local
 
@@ -67,10 +68,10 @@ Las tareas de almacenamiento provisional en el entorno local o las tareas de eje
 Si aún no lo ha hecho, cree un servicio vinculado de Azure Blob Storage en la misma factoría de datos en la que está configurada la instancia de Azure-SSIS IR. Para ello, consulte [Creación de un servicio vinculado de Azure Data Factory](./quickstart-create-data-factory-portal.md#create-a-linked-service). Asegúrese de hacer lo siguiente:
 - En **Almacén de datos**, seleccione **Azure Blob Storage**.  
 - En **Conectar mediante el entorno de ejecución de integración**, seleccione **AutoResolveIntegrationRuntime** (no su IR autohospedado). De este modo, podremos ignorarlo y usar la instancia de Azure-SSIS IR en su lugar para capturar las credenciales de acceso de su instancia de Azure Blob Storage.
-- En **Método de autenticación**, seleccione **Clave de cuenta**, **SAS URI** (URI de SAS), **Entidad de servicio** o **Identidad administrada**.  
+- En **Método de autenticación**, seleccione **Clave de cuenta**, **SAS URI** (URI de SAS), **Entidad de servicio**, **Identidad administrada** o **Identidad administrada asignada por el usuario**.  
 
 >[!TIP]
->Si selecciona el método **Entidad de servicio**, conceda a la entidad de servicio al menos el rol *Colaborador de datos de Storage Blob*. Para más información, vea el [conector de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties). Si selecciona el método **Identidad administrada**, conceda el rol apropiado a la identidad administrada de ADF para acceder a Azure Blob Storage. Para más información, vea [Acceso a Azure Blob Storage mediante la autenticación de Azure Active Directory con la identidad administrada de ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
+>Si selecciona el método **Entidad de servicio**, conceda a la entidad de servicio al menos el rol *Colaborador de datos de Storage Blob*. Para más información, vea el [conector de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties). Si selecciona el método **Identidad administrada**/**Identidad administrada asignada por el usuario**, conceda a la identidad administrada asignada por el usuario o el sistema que se ha especificado para su ADF un rol adecuado para acceder a Azure Blob Storage. Para obtener más información, consulte [Acceso a Azure Blob Storage usando la autenticación de Azure Active Directory (Azure AD) con la identidad administrada asignada por el usuario o el sistema que se ha especificado para su ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
 ![Preparación del servicio vinculado de Azure Blob Storage para almacenamiento provisional](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -105,7 +106,7 @@ $DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-pre
 $DataProxyStagingLinkedServiceName = "" # OPTIONAL to configure a proxy for on-premises data access 
 $DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data access 
 
-# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data access
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

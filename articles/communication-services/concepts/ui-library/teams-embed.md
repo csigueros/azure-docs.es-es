@@ -7,12 +7,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 49fca98d6bd8bc45cb7306dbc6ae9fae5047651b
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 14a063bc6b274c0c93ff700648e670f1c740730d
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256818"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114401034"
 ---
 # <a name="teams-embed"></a>Inserción de Teams
 
@@ -56,7 +56,7 @@ El SDK de inserción de Teams está construido según los estándares de calidad
 
 Puede usar un token de acceso de Azure Communication Service. Obtenga más información sobre la [generación y administración de tokens de acceso](../../quickstarts/access-tokens.md).
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funcionalidades
 
 | Funcionalidades del SDK                                                        | Disponibilidad |
 |---------------------------------------------------------------------|--------------|

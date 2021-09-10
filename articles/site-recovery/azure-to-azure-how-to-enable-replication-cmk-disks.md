@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/25/2021
 ms.author: mayg
-ms.openlocfilehash: 9f9052f51c5bab0ea738e9fd15d8f62f45ff0c9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a0e7696cb631bee8b114cf2277a277b9c81cbd1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93146542"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732498"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicación de máquinas con discos habilitados para claves administradas por el cliente (CMK)
 
@@ -37,7 +37,7 @@ En este ejemplo la región principal de Azure es Este de Asia y la secundaria es
 
 4. En **Configuración**, puede configurar las opciones siguientes de sitio de destino.
 
-    - **Ubicación de destino**: ubicación donde se replicarán los datos de la máquina virtual de origen. Site Recovery proporciona una lista de regiones de destino adecuadas en función de la ubicación de la máquina seleccionada. Se recomienda usar la misma ubicación que la del almacén de Recovery Services.
+    - **Ubicación de destino:** ubicación donde se replicarán los datos de la máquina virtual de origen. Se recomienda usar la misma ubicación que la del almacén de Recovery Services.
     - **Suscripción de destino**: la suscripción de destino que se usa para la recuperación ante desastres. De forma predeterminada, la suscripción de destino será la misma que la de origen.
     - **Grupo de recursos de destino**: el grupo de recursos al que pertenecen todas las máquinas virtuales replicadas. De forma predeterminada, Site Recovery crea un nuevo grupo de recursos en la región de destino. El nombre toma el sufijo `asr`. Si un grupo de recursos que ha creado Azure Site Recovery ya existe, se vuelve a usar. También se puede elegir personalizarlo, tal como se muestra en la sección siguiente. La ubicación del grupo de recursos de destino puede ser cualquier región de Azure excepto la región en la que se hospedan las máquinas virtuales de origen.
     - **Red virtual de destino**: De manera predeterminada, Site Recovery crea una red virtual en la región de destino. El nombre toma el sufijo `asr`. Se asigna a la red de origen y se usa para todas las protecciones futuras. [más información](./azure-to-azure-network-mapping.md) sobre la asignación de red.
@@ -85,4 +85,3 @@ Siga estos pasos para modificar los valores de destino predeterminados de Site R
 * He habilitado las claves administradas por el cliente y la plataforma, ¿cómo puedo proteger mis discos?
 
     La habilitación del cifrado doble con claves administradas por el cliente y la plataforma se admite en Site Recovery. Siga las instrucciones de este artículo para proteger la máquina. Previamente, debe crear un DES con el cifrado doble habilitado en la región de destino. En el momento de habilitar la replicación para esta máquina virtual, puede proporcionar este DES a Site Recovery.
-
