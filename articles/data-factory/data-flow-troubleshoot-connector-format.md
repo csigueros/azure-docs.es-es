@@ -5,13 +5,13 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2021
-ms.openlocfilehash: 055b933834c3cf112742d011a7f34205a07c5e04
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/17/2021
+ms.openlocfilehash: 79a64a7eb1e06fef3c9e534a69324faaf9f23107
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746563"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867539"
 ---
 # <a name="troubleshoot-connector-and-format-issues-in-mapping-data-flows-in-azure-data-factory"></a>Solución de problemas de conectores y formatos en flujos de datos de asignación en Azure Data Factory
 
@@ -761,12 +761,62 @@ Si se produce un error con la consulta de Snowflake, compruebe si algunos identi
     
 1. Después de probar y validar la consulta SQL de Snowflake, puede usarla directamente en el origen de Snowflake del flujo de datos.
 
+### <a name="the-expression-type-does-not-match-the-column-data-type-expecting-variant-but-got-varchar"></a>El tipo de expresión no coincide con el tipo de datos de columna; se esperaba VARIANT pero se ha obtenido VARCHAR. 
+
+#### <a name="symptoms"></a>Síntomas
+
+Al intentar escribir datos en la tabla de Snowflake, es posible que vea el error siguiente:
+
+`java.sql.BatchUpdateException: SQL compilation error: Expression type does not match column data type, expecting VARIANT but got VARCHAR`
+
+#### <a name="cause"></a>Causa
+
+El tipo de columna de los datos de entrada es string, que es diferente del tipo VARIANT de la columna relacionada en el receptor de Snowflake.
+
+Al almacenar datos con esquemas complejos (array/map/struct) en una tabla nueva de Snowflake, el tipo de flujo de datos se convertirá automáticamente en su tipo físico VARIANT.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/physical-type-variant.png" alt-text="Captura de pantalla en la que se muestra el tipo VARIANT en una tabla."::: 
+
+Los valores relacionados se almacenan como cadenas JSON, que se muestran en la imagen siguiente.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-string.png" alt-text="Captura de pantalla en la que se muestra la cadena de JSON almacenada."::: 
+
+#### <a name="recommendation"></a>Recomendación
+
+En el caso de VARIANT de Snowflake, solo puede aceptar el valor de flujo de datos de tipo struct, map o array. Si el valor de la columna de datos de entrada es JSON, XML u otras cadenas, use una de las opciones siguientes para solucionar este problema:
+
+- **Opción 1**: use la [transformación de análisis](./data-flow-parse.md) antes de utilizar Snowflake como receptor para convertir el valor de la columna de datos de entrada en un tipo struct, map o array, por ejemplo:
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/parse-transformation.png" alt-text="Captura de pantalla en la que se muestra la transformación de análisis."::: 
+
+    > [!Note]
+    > El valor de la columna Snowflake con el tipo VARIANT se lee como cadena en Spark de forma predeterminada.
+
+- **Opción 2**: inicie sesión en el servidor de Snowflake (`https://{accountName}.azure.snowflakecomputing.com/`, reemplace {accountName} por el nombre de la cuenta) para cambiar el esquema de la tabla de destino de Snowflake. Aplique los pasos siguientes mediante la ejecución de la consulta en cada paso.
+    1. Cree una columna con VARCHAR para almacenar los valores. <br/>
+        ```SQL
+        alter table tablename add newcolumnname varchar;
+        ```    
+    1. Copie el valor de VARIANT en la nueva columna. <br/>
+    
+        ```SQL
+        update tablename t1 set newcolumnname = t1."details"
+        ```
+    1. Elimine la columna VARIANT sin usar. <br/>
+        ```SQL
+        alter table tablename drop column "details";
+        ```
+    1. Cambie el nombre de la nueva columna al anterior. <br/>
+        ```SQL
+        alter table tablename rename column newcolumnname to "details";
+        ```
+
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más ayuda para solucionar problemas, consulte estos recursos:
 
 *  [Solución de problemas de los flujos de datos de asignación en Azure Data Factory](data-flow-troubleshoot-guide.md)
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Solicitud de características de Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)

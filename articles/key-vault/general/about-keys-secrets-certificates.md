@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e3eb77d15c288c93298da6dd79a76565e5d67f96
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 4119794663a35c6f29edf42443e57d411376cce5
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749949"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830471"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Introducción a las claves, secretos y certificados de Azure Key Vault
 
@@ -47,7 +47,7 @@ Claves de cuenta de almacenamiento|/storage|Compatible|No compatible
 |||
 - **Claves criptográficas**: Admite varios tipos de claves y algoritmos, y permite el uso de claves protegidas por software y protegidas con HSM. Para más información, consulte [Acerca de las claves](../keys/about-keys.md).
 - **Secretos**: proporciona un almacenamiento seguro de secretos, como contraseñas y cadenas de conexión de base de datos. Para más información, consulte [Acerca de los secretos](../secrets/about-secrets.md).
-- **Certificados**: admite certificados, que se basan en claves y secretos, y agrega una característica de renovación automática. Para más información, consulte [Acerca de los certificados](../certificates/about-certificates.md).
+- **Certificados**: admite certificados, que se basan en claves y secretos, y agrega una característica de renovación automática. Tenga en cuenta que cuando se crea un certificado, se crean también una clave direccionable y un secreto con el mismo nombre. Para más información, consulte [Acerca de los certificados](../certificates/about-certificates.md).
 - **Claves de cuentas de Azure Storage**: puede administrar automáticamente las claves de una cuenta de Azure Storage. Internamente, Key Vault puede enumerar (sincronizar) las claves con una cuenta de almacenamiento de Azure y volver a generar (rotar) las claves periódicamente. Para más información, consulte [Administración de claves de cuenta de almacenamiento con Key Vault](../secrets/overview-storage-keys.md).
 
 Para más información sobre Key Vault, consulte [Acerca de Azure Key Vault](overview.md). Para más información sobre los grupos de HSM administrados, consulte [¿Qué es HSM administrado de Azure Key Vault?](../managed-hsm/overview.md)

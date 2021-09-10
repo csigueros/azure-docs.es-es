@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 24a1ed0d3146b695995182f8a9236ca48ee4fe81
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 768bcc39505671c452d99dc1d8d1d50ec3f3b9e5
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290932"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259655"
 ---
 # <a name="java-web-app-containerization-and-migration-to-azure-app-service"></a>Contenedorización de aplicaciones web de Java y migración a Azure App Service
 
@@ -231,7 +231,7 @@ Una vez compilada la imagen de contenedor, el paso siguiente consiste en impleme
     - **Área de trabajo de supervisión**: si ha seleccionado habilitar la supervisión con Application Insights, especifique el recurso de Application Insights que desea usar. Esta opción no estará visible si había deshabilitado la integración de la supervisión.
          - Si no tiene ningún recurso de Application Insights o desea crear uno, puede optar por hacerlo desde la herramienta si hace clic en **Crear nuevo**.
 
-3. **Especifique el recurso compartido de archivos de Azure**: si ha agregado más directorios o carpetas, y ha seleccionado la opción de recurso compartido de archivos de Azure para el almacenamiento persistente, especifique el recurso compartido de archivos de Azure que debe usar la herramienta de contenedorización de aplicaciones de Azure Migrate durante el proceso de implementación. La herramienta copiará los directorios o las carpetas de la aplicación configurados para el almacenamiento de archivos de Azure y los montará en el contenedor de aplicaciones durante la implementación. 
+3. **Especifique el recurso compartido de archivos de Azure**: si ha agregado más directorios o carpetas, y ha seleccionado la opción de recurso compartido de archivos de Azure para el almacenamiento persistente, especifique el recurso compartido de archivos de Azure que debe usar la herramienta de contenedorización de aplicaciones de Azure Migrate durante el proceso de implementación. La herramienta copiará los directorios o las carpetas de la aplicación configurados para Azure Files y los montará en el contenedor de aplicaciones durante la implementación. 
 
      - Si no tiene un recurso compartido de archivos de Azure o quiere crear uno nuevo, puede optar por crear uno desde la herramienta. Para ello, haga clic en **Crear nueva cuenta de almacenamiento y recurso compartido de archivos**.  
 

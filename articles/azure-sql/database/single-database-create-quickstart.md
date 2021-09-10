@@ -11,22 +11,22 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: baf181c90b4bc899f682cbfea28d1998f7b2117a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8f9fa57a160871ba88b080ac7599e1781202fb84
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722886"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306253"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Inicio rápido: Creación de una base de datos única de Azure SQL Database
 
 En este inicio rápido, va a crear una [base de datos única](single-database-overview.md) en Azure SQL Database mediante Azure Portal, un script de PowerShell o un script de la CLI de Azure. A continuación, realizará una consulta de la base de datos mediante el **editor de consultas** en Azure Portal.
 
 
-## <a name="prerequisite"></a>Requisito previo
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure activa. En caso de no tener ninguna, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
-- También puede necesitar la versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps) o la [CLI de Azure](/cli/azure/install-azure-cli-windows), en función del método de creación que elija. 
+- La versión más reciente de [Azure Powershell](/powershell/azure/install-az-ps) o la [CLI de Azure](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-a-single-database"></a>Crear una base de datos única
 
@@ -34,7 +34,7 @@ En este inicio rápido se crea una base de datos única en el [nivel de proceso 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para crear una base de datos única en Azure Portal, este inicio rápido se inicia en la página Azure SQL.
+Para crear una base de datos única en Azure Portal, este inicio rápido comienza en la página de Azure SQL.
 
 1. Vaya a la página [Seleccione una opción de implementación de SQL](https://portal.azure.com/#create/Microsoft.AzureSQL).
 1. En **Bases de datos SQL**, deje **Tipo de recurso** establecido en **Base de datos única** y seleccione **Crear**.
@@ -45,7 +45,7 @@ Para crear una base de datos única en Azure Portal, este inicio rápido se inic
 1. En **Grupo de recursos**, seleccione **Crear nuevo**, escriba *miGrupoDeRecursos* y seleccione **Aceptar**.
 1. En **Nombre de la base de datos**, escriba *miBaseDeDatosDeEjemplo*.
 1. En **Servidor**, seleccione **Crear nuevo** y rellene el formulario **Nuevo servidor** con los valores siguientes:
-   - **Nombre del servidor**: Escriba *miServidorSql* y agregue algunos caracteres para que el nombre sea único. No se puede proporcionar un nombre de servidor exacto para usar porque los nombres de los servidores deben ser globalmente únicos para todos los servidores en Azure, no solo únicos dentro de una suscripción. Por lo tanto, escriba algo como mysqlserver12345 y el portal le permite saber si está disponible o no.
+   - **Nombre del servidor**: Escriba *miServidorSql* y agregue algunos caracteres para que el nombre sea único. No se puede proporcionar un nombre de servidor exacto para usar porque los nombres de los servidores deben ser globalmente únicos para todos los servidores en Azure, no solo únicos dentro de una suscripción. Por lo tanto, escriba algo como mysqlserver12345 y el portal le indicará si está disponible o no.
    - **Inicio de sesión del administrador del servidor**: escriba *usuarioazure*.
    - **Contraseña**: escriba una contraseña que cumpla los requisitos y escríbala de nuevo en el campo **Confirmar contraseña**.
    - **Ubicación**: Seleccione una ubicación en la lista desplegable.
@@ -160,6 +160,47 @@ az sql db create \
     --capacity 2
 ```
 
+# <a name="azure-cli-sql-up"></a>[CLI de Azure (sql up)](#tab/azure-cli-sql-up)
+
+## <a name="use-azure-cloud-shell"></a>Uso de Azure Cloud Shell
+
+Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. 
+
+Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede ir a [https://shell.azure.com](https://shell.azure.com) para iniciar Cloud Shell en una pestaña independiente del explorador. Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, luego, presione **Entrar** para ejecutarlos.
+
+## <a name="create-a-database-and-resources"></a>Creación de una base de datos y recursos
+
+El comando [az sql up](/cli/azure/sql#az_sql_up) simplifica el proceso de creación de bases de datos. Con él, puede crear una base de datos y todos sus recursos asociados con un solo comando. Esto incluye el grupo de recursos, el nombre del servidor, la ubicación del servidor, el nombre de la base de datos y la información de inicio de sesión. La base de datos se crea con el plan de tarifa predeterminado De uso general, Aprovisionado, Gen5 y dos núcleos virtuales. 
+
+Este comando crea y configura un [servidor lógico](logical-servers.md) para Azure SQL Database para su uso inmediato. Para lograr un control de recursos más pormenorizado durante la creación de la base de datos, use los comandos la CLI de Azure estándar de este artículo.
+
+> [!NOTE]
+> La primera vez que se ejecuta el comando `az sql up` la CLI de Azure solicita que se instale la extensión `db-up`. Esta extensión está actualmente en versión preliminar. Acepte la instalación para continuar. Para más información sobre las extensiones, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
+
+1. Ejecute el comando `az sql up`. Si no se usa ningún parámetro necesario, como `--server-name`, el recurso se crea con un nombre aleatorio e información de inicio de sesión asignados.
+
+    ```azurecli-interactive
+    az sql up \
+        --resource-group $resourceGroupName \
+        --location $location \
+        --server-name $serverName \
+        --database-name mySampleDatabase \
+        --admin-user $adminlogin \
+        --admin-password $password
+    ```
+
+2.  Se crea automáticamente una regla de firewall de servidor. Si el servidor rechaza la dirección IP, utilice el comando `az sql server firewall-rule create` para crear una regla de firewall.
+
+    ```azurecli-interactive
+    az sql server firewall-rule create \
+        --resource-group $resourceGroupName \
+        --server $serverName \
+        -n AllowYourIp \
+        --start-ip-address $startip \
+        --end-ip-address $endip
+    ```
+
+3. Se crean todos los recursos necesarios y la base de datos está lista para las consultas.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -294,6 +335,14 @@ Para eliminar **myResourceGroup** y todos sus recursos con Azure Portal:
 1. En **Escriba el nombre del grupo de recursos** escriba *myResourceGroup* y luego seleccione **Eliminar**.
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para eliminar el grupo de recursos y todos sus respectivos recursos, ejecute el siguiente comando de la CLI de Azure con el nombre del grupo de recursos:
+
+```azurecli-interactive
+az group delete --name $resourceGroupName
+```
+
+### <a name="azure-cli-sql-up"></a>[CLI de Azure (sql up)](#tab/azure-cli-sql-up)
 
 Para eliminar el grupo de recursos y todos sus respectivos recursos, ejecute el siguiente comando de la CLI de Azure con el nombre del grupo de recursos:
 

@@ -8,79 +8,82 @@ metadata:
   ms.topic: conceptual
   ms.date: 06/30/2021
   ms.author: amgowda
+  ms.openlocfilehash: 21a4b0fdd3a000469339e6ac49df0a43dc56e451
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123101607"
 title: Preguntas más frecuentes sobre los nodos de computación confidencial en Azure Kubernetes Service (AKS)
-summary: "En este artículo se abordan las preguntas más frecuentes sobre los nodos de computación confidencial basados en Intel\_SGX en Azure Kubernetes Service (AKS). Si tiene más preguntas, puede enviar un correo electrónico a **acconaks@microsoft.com** .\n"
+summary: >
+  En este artículo se abordan las preguntas más frecuentes sobre los nodos de computación confidencial basados en Intel SGX en Azure Kubernetes Service (AKS). Si tiene más preguntas, puede enviar un correo electrónico a **acconaks@microsoft.com** .
 sections:
-  - name: Product
-    questions:
-      - question: ¿Tienen disponibilidad general los nodos de computación confidencial de AKS?
-        answer: |
-          Sí
-      - question: ¿Puedo habilitar las redes aceleradas con los clústeres de AKS de computación confidencial de Azure?
-        answer: |
-          No. Las redes aceleradas no se admiten en las máquinas virtuales DCSv2 que estructuran los nodos de computación confidencial en AKS.
-      - question: ¿Qué versión del controlador de Intel SGX se encuentra en la imagen de AKS para los nodos confidenciales?
-        answer: "Actualmente, las máquinas virtuales\_DCSv2 de computación confidencial de Azure tienen instalado Intel SGX DCAP\_1.33. \n"
-      - question: ¿Puedo insertar scripts posteriores a la instalación o controladores personalizados en los nodos aprovisionados por AKS?
-        answer: |
-          No. Los [nodos de computación confidencial basados en el motor de AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) admiten nodos de computación confidencial que permiten instalaciones personalizadas y tienen control total sobre el plano de control de Kubernetes.
-      - question: '¿Puedo ejecutar nodos de ACC con otras SKU de AKS estándar (es decir, crear un clúster de grupos de nodos heterogéneos)?'
-        answer: |
-          Sí, puede ejecutar grupos de nodos diferentes en el mismo clúster de AKS, incluidos los nodos de ACC. Para establecer como destino las aplicaciones de enclave de un grupo de nodos específico, puede agregar selectores de nodo o aplicar límites de EPC. Consulte más detalles sobre el inicio rápido en los nodos confidenciales [aquí](confidential-nodes-aks-get-started.md).
-      - question: ¿Puedo ejecutar nodos de Windows y contenedores de Windows con ACC?
-        answer: |
-          De momento, no. Póngase en contacto con el equipo del producto en *acconaks@microsoft.com* si necesita contenedores o nodos de Windows.
-      - question: ¿Puedo seguir programando y ejecutando contenedores que no sean de enclave en nodos de computación confidencial?
-        answer: |
-          Sí. Las máquinas virtuales también tienen una memoria normal que puede ejecutar cargas de trabajo de contenedor estándar. Antes de decidir los modelos de implementación, tenga en cuenta el modelo de seguridad y amenazas de las aplicaciones.
-      - question: ¿Qué SKU de máquina virtual debería elegir para los nodos de computación confidencial?
-        answer: |
-          Las SKU de DCSv2. Las [SKU de DCSv2](../virtual-machines/dcv2-series.md) están disponibles en las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
-      - question: ¿Puedo aprovisionar AKS con grupos de nodos DCSv2 mediante Azure Portal?
-        answer: |
-          Sí. Como alternativa, también se puede usar la CLI de Azure, tal como se documenta [aquí](confidential-nodes-aks-get-started.md).
-      - question: ¿Qué versión de Ubuntu y generación de máquinas virtuales se admite?
-        answer: "18.04 en Gen\_2. \n"
-      - question: ¿Cuáles son las limitaciones actuales conocidas del producto?
-        answer: "- Solo admite nodos de máquina virtual de la generación 2 de Ubuntu\_18.04. \n- No se admiten nodos de Windows ni contenedores de Windows.\n- No se admite la escalabilidad automática horizontal de pods basado en memoria EPC. Se admite el escalado basado en CPU y en memoria normal.\n- Actualmente no se admite Dev Spaces en AKS para aplicaciones confidenciales.   \n"
-      - question: ¿Puedo aprovisionar AKS con grupos de nodos DCSv2 mediante Azure Portal?
-        answer: |
-          Sí. Como alternativa, también se puede usar la CLI de Azure, tal como se documenta [aquí](confidential-nodes-aks-get-started.md).
-      - question: ¿Qué versión de Ubuntu y generación de máquinas virtuales se admite?
-        answer: "18.04 en Gen\_2. \n"
-  - name: Desarrollo e implementación
-    questions:
-      - question: ¿Puedo traer las aplicaciones en contenedores que tengo y ejecutarlas en AKS con la computación confidencial de Azure (ACC)?
-        answer: |
-          Sí, va a usar un software de contenedor SGX para ejecutarlo en un enclave; revise la página [Contenedores confidenciales](confidential-containers.md) para más detalles sobre los habilitadores de plataforma.
-      - question: ¿Debo usar una imagen base de Docker para empezar a trabajar con las aplicaciones de enclave?
-        answer: |
-          Diversos habilitadores (ISV y proyectos de OSS) proporcionan métodos para habilitar contenedores confidenciales. Revise la [página de contenedores confidenciales](confidential-containers.md) para obtener más detalles y referencias individuales a las implementaciones.
-  - name: Conceptos de contenedores confidenciales
-    questions:
-      - question: ¿Qué es la atestación y cómo se puede realizar la atestación de aplicaciones que se ejecutan en enclaves?
-        answer: |
-          La atestación es el proceso por el que se demuestra y se confirma que se ha creado correctamente una instancia de un fragmento de software en la plataforma de hardware específica. Este proceso también asegura que su evidencia es comprobable, para proporcionar garantías de que se está ejecutando en una plataforma segura y no se ha alterado. [Lea más](attestation.md) sobre cómo se realiza la atestación en las aplicaciones de enclave.
-      - question: ¿Qué ocurre si el tamaño del contenedor es mayor que la memoria EPC disponible?
-        answer: "La memoria EPC se aplica a la parte de la aplicación que está programada para ejecutarse en el enclave. Por tanto, no tiene sentido comparar el tamaño total del contenedor con la cantidad máxima de memoria EPC disponible. De hecho, las máquinas\_DCSv2 con SGX admiten una cantidad máxima de memoria de la máquina virtual de 32\_GB, donde se usaría la parte que no es de confianza de la aplicación. Sin embargo, si el contenedor consume más memoria EPC de la que tiene disponible, el rendimiento de la parte del programa que se ejecuta en el enclave podría verse afectado.\n\nPara administrar mejor la memoria EPC en los nodos de trabajo, puede administrar los límites basados en memoria EPC mediante Kubernetes. Siga el ejemplo siguiente como referencia.\n\n```yaml\napiVersion: batch/v1\nkind: Job\nmetadata:\n  name: sgx-test\n  labels:\n    app: sgx-test\nspec:\n  template:\n    metadata:\n      labels:\n        app: sgx-test\n    spec:\n      containers:\n      - name: sgxtest\n        image: oeciteam/sgx-test:1.0\n        resources:\n          limits:\n            sgx.intel.com/sgx_epc_mem_in_MiB: 10 # This limit will automatically place the job into confidential computing node. Alternatively, you can target deployment to nodepools\n      restartPolicy: Never\n  backoffLimit: 0\n```\n"
-      - question: ¿Qué ocurre si mi enclave consume más memoria EPC que la cantidad máxima disponible?
-        answer: |
-          La memoria EPC total disponible se comparte entre las aplicaciones del enclave de las mismas máquinas virtuales o nodos de trabajo. Si la aplicación usa más cantidad de memoria EPC de la que hay disponible, el rendimiento de la aplicación podría verse afectado. Por esta razón, se recomienda establecer valores toleration por aplicación en el archivo YAML de implementación para administrar mejor la memoria EPC disponible por nodos de trabajo, tal como se ha mostrado en los ejemplos anteriores. Como alternativa, siempre puede optar por aumentar los tamaños de máquina virtual del grupo de nodos de trabajo o agregar más nodos. 
-      - question: ¿Por qué no puedo usar bifurcaciones y exec para ejecutar varios procesos en mi aplicación de enclave?
-        answer: "Actualmente, las máquinas virtuales de la SKU de\_DCsv2 de computación confidencial de Azure solo admiten un espacio de direcciones para el programa que se ejecuta en un enclave. Para garantizar un alto nivel de seguridad, se ha impuesto la limitación de un único proceso. Sin embargo, los habilitadores de contenedores confidenciales pueden tener implementaciones alternativas para superar esta limitación.\n"
-      - question: ¿Tengo que montar los volúmenes de controladores en el archivo yaml de la implementación?
-        answer: |
-          No. El producto proporciona el complemento ACC que incluye (confcom) y le ayudará con esto. Más información sobre los detalles de implementación [aquí](confidential-nodes-aks-overview.md).  
-                  
-      - question: "¿Se puede cambiar la versión actual de controlador de Intel SGX\_DCAP en AKS?"
-        answer: |
-          No. Para realizar cualquier instalación personalizada, se recomienda elegir implementaciones de [nodos de trabajo de computación confidencial de motor de AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md). 
-      - question: ¿Solo se cargarán imágenes firmadas y de confianza en el enclave para la computación confidencial?
-        answer: |
-          No se puede validar de forma nativa durante la inicialización del enclave, pero sí a través de la firma del proceso de atestación. [Aquí](../attestation/basic-concepts.md#benefits-of-policy-signing) encontrará más referencia. 
-      - question: ¿Es posible la firma de contenedores para proteger la integridad del código en contenedores confidenciales?
-        answer: |
-          Los contenedores confidenciales le permiten firmar el código del enclave, pero no el propio contenedor de Docker. Con la firma del código de enclave (que suele ser el código principal de la aplicación en Java, Python, etc.), puede comprobar mediante la atestación los detalles de MRSIGNER del código del enclave antes de poder confiar en el código y el entorno de ejecución mediante el flujo de atestación. 
-additionalContent: |
+- name: Product
+  questions:
+  - question: ¿Tienen disponibilidad general los nodos de computación confidencial de AKS?
+    answer: >
+      Sí
+  - question: ¿Puedo habilitar las redes aceleradas con los clústeres de AKS de computación confidencial de Azure?
+    answer: >
+      No. Las redes aceleradas no se admiten en las máquinas virtuales DCSv2 que estructuran los nodos de computación confidencial en AKS.
+  - question: ¿Qué versión del controlador de Intel SGX se encuentra en la imagen de AKS para los nodos confidenciales?
+    answer: "Actualmente, las máquinas virtuales DCSv2 de computación confidencial de Azure tienen instalado Intel SGX DCAP 1.33. \n"
+  - question: ¿Puedo insertar scripts posteriores a la instalación o controladores personalizados en los nodos aprovisionados por AKS?
+    answer: >
+      No. Los [nodos de computación confidencial basados en el motor de AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) admiten nodos de computación confidencial que permiten instalaciones personalizadas y tienen control total sobre el plano de control de Kubernetes.
+  - question: ¿Puedo ejecutar nodos de ACC con otras SKU de AKS estándar (es decir, crear un clúster de grupos de nodos heterogéneos)?
+    answer: >
+      Sí, puede ejecutar grupos de nodos diferentes en el mismo clúster de AKS, incluidos los nodos de ACC. Para establecer como destino las aplicaciones de enclave de un grupo de nodos específico, puede agregar selectores de nodo o aplicar límites de EPC. Consulte más detalles sobre el inicio rápido en los nodos confidenciales [aquí](confidential-nodes-aks-get-started.md).
+  - question: ¿Puedo ejecutar nodos de Windows y contenedores de Windows con ACC?
+    answer: >
+      De momento, no. Póngase en contacto con el equipo del producto en *acconaks@microsoft.com* si necesita contenedores o nodos de Windows.
+  - question: ¿Puedo seguir programando y ejecutando contenedores que no sean de enclave en nodos de computación confidencial?
+    answer: >
+      Sí. Las máquinas virtuales también tienen una memoria normal que puede ejecutar cargas de trabajo de contenedor estándar. Antes de decidir los modelos de implementación, tenga en cuenta el modelo de seguridad y amenazas de las aplicaciones.
+  - question: ¿Qué SKU de máquina virtual debería elegir para los nodos de computación confidencial?
+    answer: >
+      Las SKU de DCSv2. Las [SKU de DCSv2](../virtual-machines/dcv2-series.md) están disponibles en las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
+  - question: ¿Puedo aprovisionar AKS con grupos de nodos DCSv2 mediante Azure Portal?
+    answer: >
+      Sí. Como alternativa, también se puede usar la CLI de Azure, tal como se documenta [aquí](confidential-nodes-aks-get-started.md).
+  - question: ¿Qué versión de Ubuntu y generación de máquinas virtuales se admite?
+    answer: "18.04 en Gen 2. \n"
+  - question: ¿Cuáles son las limitaciones actuales conocidas del producto?
+    answer: "- Solo admite nodos de máquina virtual de la generación 2 de Ubuntu 18.04. \n- No se admiten nodos de Windows ni contenedores de Windows.\n- No se admite la escalabilidad automática horizontal de pods basado en memoria EPC. Se admite el escalado basado en CPU y en memoria normal.\n- Actualmente no se admite Dev Spaces en AKS para aplicaciones confidenciales.   \n"
+  - question: ¿Puedo aprovisionar AKS con grupos de nodos DCSv2 mediante Azure Portal?
+    answer: >
+      Sí. Como alternativa, también se puede usar la CLI de Azure, tal como se documenta [aquí](confidential-nodes-aks-get-started.md).
+  - question: ¿Qué versión de Ubuntu y generación de máquinas virtuales se admite?
+    answer: "18.04 en Gen 2. \n"
+- name: Desarrollo e implementación
+  questions:
+  - question: ¿Puedo traer las aplicaciones en contenedores que tengo y ejecutarlas en AKS con la computación confidencial de Azure (ACC)?
+    answer: >
+      Sí, va a usar un software de contenedor SGX para ejecutarlo en un enclave; revise la página [Contenedores confidenciales](confidential-containers.md) para más detalles sobre los habilitadores de plataforma.
+  - question: ¿Debo usar una imagen base de Docker para empezar a trabajar con las aplicaciones de enclave?
+    answer: >
+      Diversos habilitadores (ISV y proyectos de OSS) proporcionan métodos para habilitar contenedores confidenciales. Revise la [página de contenedores confidenciales](confidential-containers.md) para obtener más detalles y referencias individuales a las implementaciones.
+- name: Conceptos de contenedores confidenciales
+  questions:
+  - question: ¿Qué es la atestación y cómo se puede realizar la atestación de aplicaciones que se ejecutan en enclaves?
+    answer: >
+      La atestación es el proceso por el que se demuestra y se confirma que se ha creado correctamente una instancia de un fragmento de software en la plataforma de hardware específica. Este proceso también asegura que su evidencia es comprobable, para proporcionar garantías de que se está ejecutando en una plataforma segura y no se ha alterado. [Lea más](attestation.md) sobre cómo se realiza la atestación en las aplicaciones de enclave.
+  - question: ¿Qué ocurre si el tamaño del contenedor es mayor que la memoria EPC disponible?
+    answer: "La memoria EPC se aplica a la parte de la aplicación que está programada para ejecutarse en el enclave. Por tanto, no tiene sentido comparar el tamaño total del contenedor con la cantidad máxima de memoria EPC disponible. De hecho, las máquinas DCSv2 con SGX admiten una cantidad máxima de memoria de la máquina virtual de 32 GB, donde se usaría la parte que no es de confianza de la aplicación. Sin embargo, si el contenedor consume más memoria EPC de la que tiene disponible, el rendimiento de la parte del programa que se ejecuta en el enclave podría verse afectado.\n\nPara administrar mejor la memoria EPC en los nodos de trabajo, puede administrar los límites basados en memoria EPC mediante Kubernetes. Siga el ejemplo siguiente como referencia.\n\n> [!NOTE] \n> En el ejemplo siguiente se extrae una imagen de contenedor público de Docker Hub. Se recomienda configurar un secreto de extracción para autenticarse mediante una cuenta de Docker Hub en lugar de realizar una solicitud de extracción anónima. Para mejorar la confiabilidad al trabajar con contenido público, importe y administre la imagen en un registro de contenedor privado de Azure. [Más información sobre cómo trabajar con imágenes públicas.](../container-registry/buffer-gate-public-content.md)\n\n```yaml\napiVersion: batch/v1\nkind: Job\nmetadata:\n  name: sgx-test\n  labels:\n    app: sgx-test\nspec:\n  template:\n    metadata:\n      labels:\n        app: sgx-test\n    spec:\n      containers:\n      - name: sgxtest\n        image: oeciteam/sgx-test:1.0\n        resources:\n          limits:\n            sgx.intel.com/sgx_epc_mem_in_MiB: 10 # This limit will automatically place the job into confidential computing node. Alternatively, you can target deployment to nodepools\n      restartPolicy: Never\n  backoffLimit: 0\n```\n"
+  - question: ¿Qué ocurre si mi enclave consume más memoria EPC que la cantidad máxima disponible?
+    answer: "La memoria EPC total disponible se comparte entre las aplicaciones del enclave de las mismas máquinas virtuales o nodos de trabajo. Si la aplicación usa más cantidad de memoria EPC de la que hay disponible, el rendimiento de la aplicación podría verse afectado. Por esta razón, se recomienda establecer valores toleration por aplicación en el archivo YAML de implementación para administrar mejor la memoria EPC disponible por nodos de trabajo, tal como se ha mostrado en los ejemplos anteriores. Como alternativa, siempre puede optar por aumentar los tamaños de máquina virtual del grupo de nodos de trabajo o agregar más nodos. \n"
+  - question: ¿Por qué no puedo usar bifurcaciones y exec para ejecutar varios procesos en mi aplicación de enclave?
+    answer: >
+      Actualmente, las máquinas virtuales de la SKU de DCsv2 de computación confidencial de Azure solo admiten un espacio de direcciones para el programa que se ejecuta en un enclave. Para garantizar un alto nivel de seguridad, se ha impuesto la limitación de un único proceso. Sin embargo, los habilitadores de contenedores confidenciales pueden tener implementaciones alternativas para superar esta limitación.
+  - question: ¿Tengo que montar los volúmenes de controladores en el archivo yaml de la implementación?
+    answer: "No. El producto proporciona el complemento ACC que incluye (confcom) y le ayudará con esto. Más información sobre los detalles de implementación [aquí](confidential-nodes-aks-overview.md).  \n        \n"
+  - question: ¿Se puede cambiar la versión actual de controlador de Intel SGX DCAP en AKS?
+    answer: "No. Para realizar cualquier instalación personalizada, se recomienda elegir implementaciones de [nodos de trabajo de computación confidencial de motor de AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md). \n"
+  - question: ¿Solo se cargarán imágenes firmadas y de confianza en el enclave para la computación confidencial?
+    answer: "No se puede validar de forma nativa durante la inicialización del enclave, pero sí a través de la firma del proceso de atestación. [Aquí](../attestation/basic-concepts.md#benefits-of-policy-signing) encontrará más referencia. \n"
+  - question: ¿Es posible la firma de contenedores para proteger la integridad del código en contenedores confidenciales?
+    answer: "Los contenedores confidenciales le permiten firmar el código del enclave, pero no el propio contenedor de Docker. Con la firma del código de enclave (que suele ser el código principal de la aplicación en Java, Python, etc.), puede comprobar mediante la atestación los detalles de MRSIGNER del código del enclave antes de poder confiar en el código y el entorno de ejecución mediante el flujo de atestación. \n"
+additionalContent: >-
   ## <a name="next-steps"></a>Pasos siguientes
+
   Consulte la página [Contenedores confidenciales](confidential-containers.md) para más detalles sobre los contenedores confidenciales.

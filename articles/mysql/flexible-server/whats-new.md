@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 231622c5333875d1051bbdd2c17951c994b6f4d0
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 74b81b095ef969715313c79c90821a8c8e8aaf1d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122270956"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098256"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Novedades de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -46,6 +46,10 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
   La experiencia de restauración a un momento dado para el servicio ahora permite a los clientes configurar la zona de disponibilidad. Colocalizar los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](https://aka.ms/standby-selection).
 
+- **Complemento validate_password y caching_sha2_password disponibles en versión preliminar privada**
+
+  Servidor flexible ahora admite la habilitación de los complementos validate_password y caching_sha2_password en versión preliminar privada. Envíenos un correo electrónico a AskAzureDBforMySQL@service.microsoft.com.
+
 - **Disponibilidad en cuatro regiones de Azure adicionales**
 
   La versión preliminar pública de Azure Database for MySQL: servidor flexible ya está disponible en las siguientes regiones de Azure. [Más información](overview.md#azure-regions):
@@ -61,6 +65,13 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
   - No se puede crear el servidor de alta disponibilidad en la misma zona en las siguientes regiones: Centro de la India, Este de Asia, Centro de Corea del Sur, Norte de Sudáfrica, Norte de Suiza.
   - En un escenario poco frecuente y después de la conmutación por error de alta disponibilidad, el servidor principal estará en modo read_only. Para resolver el problema, actualice el valor "read_only" de la hoja de parámetros del servidor a OFF.
   - Después de escalar correctamente Proceso en la hoja Proceso y almacenamiento, las IOPS se restablecen al valor predeterminado de SKU. Para evitar el problema, los clientes pueden volver a escalar las IOPS en la hoja Proceso y almacenamiento al valor deseado (establecido previamente) después de la implementación de proceso y el consiguiente restablecimiento de las IOPS.
+  - Al intentar habilitar o implementar Alta disponibilidad en la misma zona, se produce un error en la implementación en las siguientes regiones 
+      - Centro de la India
+      - Este de Asia
+      - Centro de Corea del Sur
+      - Norte de Sudáfrica
+      - Norte de Suiza
+
 
 ## <a name="july-2021"></a>Julio de 2021
 
@@ -200,7 +211,7 @@ Si tiene preguntas o sugerencias sobre el trabajo con Azure Database for MySQL, 
 
 - Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
-- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- Para proporcionar comentarios o solicitar nuevas características, envíenos un correo electrónico a AskAzureDBforMySQL@service.microsoft.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

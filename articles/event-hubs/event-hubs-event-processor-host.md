@@ -4,12 +4,12 @@ description: En este artículo se describe el host del procesador de eventos de 
 ms.topic: conceptual
 ms.date: 08/04/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e10a472c261c14fcdd3debf1caaf9f00fdeb5e0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ea8beeafd7be3f1e586fc0eaf542d4ee946262fe
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733900"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101279"
 ---
 # <a name="event-processor-host"></a>Host del procesador de eventos
 > [!NOTE]
@@ -86,7 +86,8 @@ A continuación, cree una instancia de una instancia de [EventProcessorHost](/do
 - **storageConnectionString:** la cuenta de almacenamiento que se usa para la administración de recursos internos.
 
 > [!IMPORTANT]
-> No habilite la característica de eliminación flexible en la cuenta de almacenamiento que se usa como almacén de puntos de control. 
+> - No habilite la característica de eliminación flexible en la cuenta de almacenamiento que se usa como almacén de puntos de control. 
+> - No use un almacenamiento jerárquico (Azure Data Lake Storage Gen 2) como almacén de puntos de comprobación.
 
 Por último, los consumidores registran la instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) con el servicio Event Hubs. Al registrar una clase de procesador de eventos con una instancia de EventProcessorHost, se inicia el procesamiento de eventos. El proceso de registro indica al servicio Event Hubs que debe esperar que la aplicación del consumidor consuma eventos de algunas de sus particiones y que debe invocar el código de implementación de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) siempre que envíe eventos para su consumo. 
 

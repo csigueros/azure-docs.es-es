@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/09/2020
+ms.date: 08/26/2021
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 699dc5a3f069d3f8a8a3c20d9daa2d5cf9432c1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0d086592a372cc583c4929a897e42d9882a68545
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785799"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033825"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Creación de una aplicación Xamarin.Forms con el SDL de .NET y la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -204,6 +204,10 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 ## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB y ejecutar una aplicación Xamarin.Forms con la API para MongoDB. Ahora puede importar datos adicionales en la cuenta de Cosmos DB.
+
+¿Intenta planear la capacidad para una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+* Si todo lo que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre cómo [calcular las unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+* Si conoce las velocidades de solicitud típicas para la carga de trabajo de la base de datos actual, lea sobre la [estimación de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
 
 > [!div class="nextstepaction"]
 > [Importación de datos en Azure Cosmos DB configurado con la API de Azure Cosmos DB para MongoDB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

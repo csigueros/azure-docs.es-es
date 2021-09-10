@@ -12,23 +12,25 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2021
+ms.date: 08/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 123b3ab0f438c0577143c3780836a2a2c574412e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 4f79fc66b44de89ba93137b244e22890348ab1c4
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081035"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967210"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>¿Qué son las identidades administradas de recursos de Azure?
 
 Una dificultad común para los desarrolladores es la administración de los secretos y las credenciales usados para proteger la comunicación entre los distintos componentes que constituyen una solución. Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Proporcionan una identidad que usan las aplicaciones al conectarse a recursos que admiten la autenticación de Azure Active Directory (Azure AD). Las aplicaciones pueden usar la identidad administrada para obtener tokens de Azure AD. Por ejemplo, una aplicación puede usar una identidad administrada para acceder a recursos como [Azure Key Vault](../../key-vault/general/overview.md) donde los desarrolladores pueden almacenar credenciales de forma segura o tener acceso a cuentas de almacenamiento.
 
-¿Para qué se puede usar una identidad administrada?</br>
+Mire a ver cómo puede usar las identidades administradas.</br>
 
-> [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+> [!VIDEO https://channel9.msdn.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+
+
 
 Estas son algunas de las ventajas de usar las identidades administradas:
 
@@ -46,7 +48,6 @@ Hay dos tipos de identidades administradas:
 - **Asignada por el sistema**. Algunos servicios de Azure permiten habilitar una identidad administrada directamente en una instancia de servicio. Cuando se habilita una identidad administrada asignada por el sistema, se crea una identidad en Azure AD que está vinculada al ciclo de vida de esa instancia de servicio. Por tanto, cuando se elimina el recurso, Azure elimina automáticamente la identidad. Por diseño, solo ese recurso de Azure puede usar esta identidad para solicitar tokens de Azure AD.
 - **Asignada por el usuario**. También es posible crear una identidad administrada como un recurso independiente de Azure. Puede [crear una identidad administrada asignada por el usuario](how-to-manage-ua-identity-portal.md) y asignarla a una o varias instancias de un servicio de Azure. En el caso de las identidades administradas asignadas por el usuario, la identidad se administra independientemente de los recursos que la utilicen. </br></br>
 
-> [!VIDEO https://www.youtube.com/embed/OzqpxeD3fG0]
 
 En la tabla siguiente, se muestran las diferencias entre los dos tipos de identidades administradas.
 

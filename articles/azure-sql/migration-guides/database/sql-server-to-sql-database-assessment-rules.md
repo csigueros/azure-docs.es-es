@@ -10,12 +10,12 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 011420abfbd6bf5994aa65024651f2bbd34e1bf4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab030e8e4b86fc669325099e13650f8e1c178986
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743687"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835342"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Reglas de evaluación para la migración de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -317,7 +317,7 @@ Las auditorías de servidor no se admite en Azure SQL Database.
 
 
 **Recomendación**   
-Considere la posibilidad de usar las características de auditoría de Azure SQL Database para reemplazar las auditorías de servidor.  Azure SQL admite las auditorías y las características están más enriquecidas que en SQL Server. Azure SQL Database puede auditar varias acciones y eventos de base de datos, entre los que se incluyen el acceso a datos, los cambios de esquema (DDL), los cambios de datos (DML), las cuentas, roles y permisos (DCL) y las excepciones de seguridad. La auditoría de SQL Database aumenta la capacidad de la organización de obtener información sobre los eventos y los cambios que se producen en la base de datos, incluidas las actualizaciones y las consultas efectuadas en los datos. También puede migrar a Azure SQL Managed Instance o SQL Server en la máquina virtual de Azure.
+Considere la posibilidad de usar las características de auditoría de Azure SQL Database para reemplazar las auditorías de servidor.  Azure SQL admite las auditorías y las características están más enriquecidas que en SQL Server. Azure SQL Database puede auditar varias acciones y eventos de base de datos, entre los que se incluyen el acceso a datos, los cambios de esquema (DDL), los cambios de datos (DML), las cuentas, los roles y los permisos (DCL), y las excepciones de seguridad. La auditoría de SQL Database aumenta la capacidad de la organización de obtener información sobre los eventos y los cambios que se producen en la base de datos, incluidas las actualizaciones y las consultas efectuadas en los datos. También puede migrar a Azure SQL Managed Instance o SQL Server en la máquina virtual de Azure.
 
 Más información: [Auditoría de Azure SQL Database ](../../database/auditing-overview.md)
 
@@ -409,7 +409,7 @@ Más información: [Funcionalidad del motor de base de datos descontinuada en SQ
 **Categoría**: Advertencia   
 
 **Descripción**   
-No se pueden usar en Azure SQL Database los siguientes procedimientos almacenados extendidos y del sistema no admitidos: `sp_dboption`, `sp_addserver`, `sp_dropalias`, `sp_activedirectory_obj`, `sp_activedirectory_scp` y `sp_activedirectory_start`.
+No se pueden usar en Azure SQL Database los siguientes procedimientos almacenados extendidos y del sistema no admitidos: `sp_dboption`, `sp_addserver`, `sp_dropalias`, `sp_activedirectory_obj`, `sp_activedirectory_scp` y `sp_activedirectory_start`.
 
 
 **Recomendación**    

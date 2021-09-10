@@ -3,14 +3,15 @@ title: Administración de paquetes de Python 3 en Azure Automation
 description: En este artículo se describe cómo administrar paquetes de Python 3 (versión preliminar) en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/22/2021
+ms.date: 08/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: d986d3ee30641e2a350d3f3838263670e4ce46da
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.custom: has-adal-ref
+ms.openlocfilehash: b7393f06df77b0057925e20a7cf055fddb0a7bf2
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112515829"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965296"
 ---
 # <a name="manage-python-3-packages-preview-in-azure-automation"></a>Administración de paquetes de Python 3 (versión preliminar) en Azure Automation
 
@@ -127,6 +128,9 @@ groups = resource_client.resource_groups.list()
 for group in groups:  
     print(group.name) 
 ```
+
+> [!NOTE]
+> El paquete de Python `automationassets` no está disponible en pypi.org, por lo que no está disponible para importarlo en una máquina Windows.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

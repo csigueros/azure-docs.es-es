@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 3b6ed39c11e3f90b986ef904ff3f8e9ff3158d0d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fc202359e90024ee73c3041013eef9c2da814045
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103574176"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835834"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
 > [!div class="op_single_selector"]
@@ -37,6 +37,7 @@ En este artículo, se explican los pasos para configurar ambos escenarios. Este 
 
 ## <a name="limits-and-limitations"></a>Límites y limitaciones
 * **Solo se admite la VPN Gateway basada en rutas.** Debe usar una [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) basada en rutas. También puede usar una VPN Gateway basada en rutas con una conexión VPN configurada para "selectores de tráfico basados en directivas", tal y como se describe en [Conexión a varios dispositivos VPN basados en directivas](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+* **Las configuraciones de la coexistencia de ExpressRoute-VPN Gateway no se admiten en la SKU de nivel Básico**.
 * **El ASN de Azure VPN Gateway debe establecerse en 65515.** Azure VPN Gateway admite el protocolo de enrutamiento de BGP. Para que ExpressRoute y la VPN de Azure funcionen juntos, debe mantener el número de sistema autónomo de la puerta de enlace de VPN de Azure en su valor predeterminado, 65515. Si previamente ha seleccionado un ASN que no sea 65515 y cambia el valor a 65515, debe restablecer la puerta de enlace de VPN para que la configuración surta efecto.
 * **La subred de la puerta de enlace debe ser /27 o un prefijo más corto**, (como /26, /25). De lo contrario, recibirá un mensaje de error al agregar la puerta de enlace de red virtual de ExpressRoute.
 * **No se admite la coexistencia en una red virtual de doble pila.** Si usa la compatibilidad con IPv6 de ExpressRoute y una puerta de enlace de ExpressRoute de doble pila, la coexistencia con VPN Gateway no será posible.

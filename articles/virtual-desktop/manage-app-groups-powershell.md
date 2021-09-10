@@ -1,19 +1,19 @@
 ---
-title: 'Administración de grupos de aplicaciones para Azure Virtual Desktop PowerShell: Azure'
-description: Cómo administrar grupos de aplicaciones de Azure Virtual Desktop con PowerShell.
+title: 'Administración de grupos de aplicaciones para Azure Virtual Desktop: Azure'
+description: Cómo administrar grupos de aplicaciones de Azure Virtual Desktop con PowerShell o la CLI de Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a900d1d92509fab7b777ca5864a51c7699cb294e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f323819492fe89f7742c6b218afa4d2e1bf1b6c0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749082"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123103935"
 ---
-# <a name="manage-app-groups-using-powershell"></a>Administración de grupos de aplicaciones con PowerShell
+# <a name="manage-app-groups-using-powershell-or-the-azure-cli"></a>Administración de grupos de aplicaciones mediante PowerShell o la CLI de Azure
 
 >[!IMPORTANT]
 >Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
@@ -28,9 +28,21 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
 Este artículo supone que ha seguido las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md) para configurar el módulo de PowerShell e iniciar sesión en su cuenta de Azure.
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+En este artículo se da por supuesto que ya ha configurado el entorno para el CLI de Azure y que ha iniciado sesión en su cuenta de Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+---
+
 ## <a name="create-a-remoteapp-group"></a>Creación de un grupo de RemoteApp
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Para crear un grupo de RemoteApp con PowerShell:
 
@@ -100,6 +112,34 @@ Para crear un grupo de RemoteApp con PowerShell:
    ```powershell
    New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
    ```
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+> [!NOTE]
+> La CLI de Azure no proporciona comandos para obtener aplicaciones del menú Inicio, ni para crear un nuevo programa RemoteApp o publicarlo en el grupo de aplicaciones. Usar Azure PowerShell.
+
+Para crear un grupo de RemoteApp con la CLI de Azure:
+
+1. Use el comando [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az_desktopvirtualization_applicationgroup_create) para crear un grupo de aplicaciones remotas:
+
+   ```azurecli
+   az desktopvirtualization applicationgroup create --name "MyApplicationGroup" \
+      --resource-group "MyResourceGroup" \
+      --location "MyLocation" \
+      --application-group-type "RemoteApp" \
+      --host-pool-arm-path "/subscriptions/MySubscriptionGUID/resourceGroups/MyResourceGroup/providers/Microsoft.DesktopVirtualization/hostpools/MyHostPool"
+      --tags tag1="value1" tag2="value2" \
+      --friendly-name "Friendly name of this application group" \
+      --description "Description of this application group" 
+   ```
+    
+2. (Opcional) Para comprobar que se creó el grupo de aplicaciones, puede ejecutar el siguiente comando para ver una lista de todos los grupos de aplicaciones del grupo de hosts.
+
+   ```azurecli
+   az desktopvirtualization applicationgroup list \
+      --resource-group "MyResourceGroup"
+   ```
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

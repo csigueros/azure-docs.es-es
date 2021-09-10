@@ -7,15 +7,15 @@ metadata:
   ms.service: synapse-analytics
   ms.topic: overview
   ms.subservice: overview
-  ms.date: 10/25/2020
+  ms.date: 07/27/2021
   ms.author: saveenr
-  ms.reviewer: jrasnick
-  ms.openlocfilehash: b1fb4a033e0b501c25e2588e2dce6b7c1bce3d26
-  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.reviewer: jrasnick, wiassaf
+  ms.openlocfilehash: c6e970383611a14694b7e921257a117b09a4da89
+  ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/22/2021
-  ms.locfileid: "112467925"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123029802"
 title: Preguntas frecuentes sobre Azure Synapse Analytics
 summary: En esta guía, encontrará las preguntas más frecuentes sobre Azure Synapse Analytics.
 sections:
@@ -126,4 +126,10 @@ sections:
       No hay "movimiento" o "migración". Puede elegir habilitar nuevas características de área de trabajo en los grupos existentes. Si lo hace, no se producen cambios importantes, sino que podrá usar nuevas características como Synapse Studio, Spark y grupos de SQL sin servidor.
   - question: "¿Cuál es la implementación predeterminada de los grupos de SQL dedicados ahora? \n"
     answer: "De forma predeterminada, todos los nuevos grupos de SQL dedicados se implementarán en un área de trabajo; sin embargo, si lo necesita, puede crear un grupo de SQL dedicado (anteriormente SQL DW) en un factor de forma independiente. \n"
+- name: Seguridad de la red
+  questions:
+  - question: >
+      Cómo proteger el acceso a mi área de trabajo de Azure Synapse?
+    answer: >
+      Con o sin una [red virtual administrada](/azure/synapse-analytics/security/synapse-workspace-managed-vnet), se puede conectar al área de trabajo desde redes públicas. Para obtener más información, vea [Configuración de conectividad](/azure/azure-sql/database/connectivity-settings). El acceso desde las redes públicas se puede controlar al habilitar la [característica de acceso de red pública](/azure/azure-sql/database/connectivity-settings#public-network-access) o el [firewall de área de trabajo](/bs-cyrl-ba/azure/synapse-analytics/security/synapse-workspace-ip-firewall). Como alternativa, puede conectarse al área de trabajo mediante un [punto de conexión privado](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) y un [vínculo privado](../azure-sql/database/private-endpoint-overview.md). Las áreas de trabajo de Synapse sin la [Red virtual administrada de Azure Synapse Analytics](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) no tienen la capacidad de conectarse por medio de puntos de conexión privados administrados.
 additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n   * [Introducción a Azure Synapse Analytics](get-started.md)\n   * [Creación de un área de trabajo](quickstart-create-workspace.md)\n   * [Uso de grupos de SQL sin servidor](quickstart-sql-on-demand.md)"

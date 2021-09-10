@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo escribir código de autenticación en una aplicación cliente
 author: baanders
 ms.author: baanders
-ms.date: 10/7/2020
+ms.date: 8/26/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b72455692ebb114792ecf0b5cdff7b8e0930ed85
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a1b2465f29ae659f3e255a4843a2abd5f9ab75b2
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750874"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224853"
 ---
 # <a name="write-client-app-authentication-code"></a>Escritura de código de autenticación de aplicación cliente
 
@@ -20,7 +20,7 @@ Después de [configurar una instancia y la autenticación de Azure Digital Twins
 
 Azure Digital Twins realiza la autenticación mediante [tokens de seguridad de Azure AD basados en OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar el SDK, deberá obtener un token de portador con los permisos correctos para Azure Digital Twins y pasarlo junto con las llamadas de API. 
 
-En este artículo se describe cómo obtener credenciales mediante la biblioteca de cliente `Azure.Identity`. Aunque en este artículo se muestran ejemplos de código en C#, como lo que escribiría para el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), puede usar una versión de `Azure.Identity` independientemente del SDK que use. (Para obtener más información sobre los SDK disponibles para Azure Digital Twins, consulte [API y SDK de Azure Digital Twins](concepts-apis-sdks.md)).
+En este artículo se describe cómo obtener credenciales mediante la biblioteca de cliente `Azure.Identity`. Aunque en este artículo se muestran ejemplos de código en C#, como los que escribiría para el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), puede usar una versión de `Azure.Identity` independientemente del SDK que utilice. (Para obtener más información sobre los SDK disponibles para Azure Digital Twins, vea [API y SDK de Azure Digital Twins](concepts-apis-sdks.md)).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

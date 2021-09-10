@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db47b66a08ebe1c8a053995d0d8d8d810ae6b564
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 45d03495d0866674352de35c337303a92ff3263b
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746081"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835192"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
 En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [asignaciones de roles](active-directory-users-assign-role-azure-portal.md) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
@@ -56,7 +56,8 @@ Capacidad de crear grupos de Microsoft 365 | Si esta opción se establece en No,
 Restringir el acceso al portal de administración de Azure AD | <p>Si esta opción se establece en No, los usuarios que no son administradores pueden usar el portal de administración de Azure AD para leer y administrar recursos de Azure AD. Si se elige Sí, los usuarios que no son administradores no podrán acceder a ningún dato de Azure AD en el portal de administración.</p><p>**Nota**: Esta configuración no restringe el acceso a los datos de Azure AD mediante PowerShell u otros clientes como Visual Studio. Cuando se establece en Sí, para conceder a un usuario no administrador específico la capacidad de usar el portal de administración de Azure AD, asigne cualquier rol administrativo, como el rol Lectores de directorio.</p><p>**Nota**: Esta configuración impedirá que los usuarios no administradores, que sean propietarios de grupos o aplicaciones utilicen Azure Portal administrar los recursos de su propiedad.</p><p>Este rol permite leer información básica del directorio, que los usuarios miembros tienen de forma predeterminada (los invitados y las entidades de servicio, no).</p>
 Capacidad para leer otros usuarios | Esta configuración solo está disponible en PowerShell. Si establece esta marca en $false, se impide que quienes no son administradores lean la información de los usuarios desde el directorio. Esta marca no impide que puedan leer la información de los usuarios en otros servicios de Microsoft, como Exchange Online. Esta configuración está pensada para circunstancias especiales y no se recomienda establecer esta marca en $false.
 
->![NOTA] Se supone que el usuario promedio solo usaría el portal para acceder a Azure AD y no usaría PowerShell ni la CLI para acceder a sus recursos. Actualmente, la restricción del acceso a los permisos predeterminados de los usuarios solo tiene lugar cuando el usuario intenta acceder al directorio dentro de Azure Portal.
+>[!NOTE]
+>Se supone que el usuario medio solo utilizará el portal para acceder a Azure AD y no usará PowerShell ni la CLI para acceder a sus recursos. Actualmente, la restricción del acceso a los permisos predeterminados de los usuarios solo tiene lugar cuando el usuario intenta acceder al directorio dentro de Azure Portal.
 
 ## <a name="restrict-guest-users-default-permissions"></a>Restringir los permisos predeterminados de los usuarios invitados
 
@@ -132,6 +133,9 @@ Los usuarios pueden realizar las siguientes acciones en los dispositivos que pos
 
 #### <a name="owned-groups"></a>Grupos que se poseen
 Los usuarios pueden realizar las siguientes acciones en los grupos que poseen.
+
+> [!NOTE]
+> Los propietarios de grupos dinámicos deben tener un rol de Administrador global, Administrador de grupo, Administrador de Intune o Administrador de usuarios para editar las reglas de pertenencia a grupos. Para obtener más información, vea [Creación o actualización de un grupo dinámico en Azure Active Directory](../enterprise-users/groups-create-rule.md).
 
 | **Acciones** | **Descripción** |
 | --- | --- |

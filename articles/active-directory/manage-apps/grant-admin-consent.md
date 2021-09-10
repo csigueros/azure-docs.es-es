@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/04/2019
+ms.date: 08/21/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397b55bccde5781de5b9e53922e31281b3ec855c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ee3ff6fc063de5eebd4a7cc300fdc0a5ceeba560
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749146"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038400"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concesión del consentimiento del administrador para todo el inquilino a una aplicación
 
@@ -46,7 +46,10 @@ Para conceder el consentimiento del administrador para todo el inquilino a una d
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con un rol que permita conceder el consentimiento del administrador (consulte [Requisitos previos)](#prerequisites).
 2. Seleccione **Azure Active Directory** y después **Aplicaciones empresariales**.
 3. Seleccione la aplicación a la que quiera conceder el consentimiento del administrador para todo el inquilino.
-4. Seleccione **Permisos** y, a continuación, haga clic en **Conceder consentimiento de administrador**.
+4. Seleccione **Permisos** y, a continuación, haga clic en **Conceder consentimiento de administrador**. En este ejemplo, se usan aplicaciones de 10 000ft Plans.
+
+   :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Captura de pantalla en la que se muestra cómo conceder consentimiento de administrador para todo el inquilino.":::
+
 5. Revise cuidadosamente los permisos que requiere la aplicación.
 6. Si está de acuerdo con los permisos que requiere la aplicación, conceda el consentimiento. En caso contrario, haga clic en **Cancelar** o cierre la ventana.
 

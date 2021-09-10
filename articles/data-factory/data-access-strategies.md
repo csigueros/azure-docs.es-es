@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: dd52d74ab4b5be261e6c170d897e15f14a332d9c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b5d2921a59cc62ec4a58230a76eee33e4347ed0
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638964"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250721"
 ---
 # <a name="data-access-strategies"></a>Estrategias de acceso a datos
 
@@ -48,12 +48,12 @@ Para obtener más información sobre los mecanismos de seguridad de red admitido
 
     | Almacenes de datos                  | Mecanismo de seguridad de red compatible con almacenes de datos | Private Link     | Servicio de confianza     | Rango de direcciones IP estáticas | Etiquetas de servicio | Permitir servicios de Azure |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
-    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                     | Sí              | -                   | Sí             | -            | Sí                  |
+    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                     | Sí              | -                   | Sí             | -            | Sí                  |
     |                              | Explorador de datos de Azure                                 | -                | -                   | Sí*            | Sí*         | -                    |
     |                              | Azure Data Lake Gen1                                | -                | -                   | Sí             | -            | Sí                  |
     |                              | Azure Database for MariaDB, MySQL y PostgreSQL       | -                | -                   | Sí             | -            | Sí                  |
-    |                              | Azure File Storage                                  | Sí              | -                   | Sí             | -            | .                    |
-    |                              | Azure Storage (Blob, ADLS Gen2)                     | Sí              | Sí (solo autenticación MSI) | Sí             | -            | .                    |
+    |                              | Azure Files                                  | Sí              | -                   | Sí             | -            | .                    |
+    |                              | Azure Blob Storage y ADLS Gen2                     | Sí              | Sí (solo autenticación MSI) | Sí             | -            | .                    |
     |                              | Azure SQL DB, Azure Synapse Analytics), SQL Ml  | Sí (solo Azure SQL DB/DW)        | -                   | Sí             | -            | Sí                  |
     |                              | Azure Key Vault (para capturar secretos/cadena de conexión) | sí      | Sí                 | Sí             | -            | -                    |
     | Otros almacenes de datos de PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Sí             | -            | -                    |
@@ -66,12 +66,12 @@ Para obtener más información sobre los mecanismos de seguridad de red admitido
     
     | Almacenes de datos                  | Mecanismo de seguridad de red compatible con almacenes de datos         | IP estática | Servicios de confianza  |
     |--------------------------------|---------------------------------------------------------------|-----------|---------------------|
-    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                               | Sí       | -                   |
+    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                               | Sí       | -                   |
     |                                | Explorador de datos de Azure                                           | -         | -                   |
     |                                | Azure Data Lake Gen1                                          | Sí       | -                   |
     |                                | Azure Database for MariaDB, MySQL y PostgreSQL               | Sí       | -                   |
-    |                                | Azure File Storage                                            | Sí       | -                   |
-    |                                | Azure Storage (blog, ADLS Gen2)                             | Sí       | Sí (solo autenticación MSI) |
+    |                                | Azure Files                                            | Sí       | -                   |
+    |                                | Azure Blob Storage y ADLS Gen2                             | Sí       | Sí (solo autenticación MSI) |
     |                                | Azure SQL DB, Azure Synapse Analytics), SQL Ml          | Sí       | -                   |
     |                                | Azure Key Vault (para capturar secretos/cadena de conexión) | Sí       | Sí                 |
     | Otros almacenes de datos de PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.              | Sí       | -                   |

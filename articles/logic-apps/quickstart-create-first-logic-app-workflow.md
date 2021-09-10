@@ -1,24 +1,24 @@
 ---
-title: 'Inicio rápido: Creación de flujos de trabajo de integración con Azure Logic Apps en Azure Portal'
+title: 'Inicio rápido: Creación de flujos de trabajo automáticos con Azure Logic Apps en Azure Portal'
 description: Cree su primer flujo de trabajo de integración automatizado con Azure Logic Apps en Azure Portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
-ms.date: 05/25/2021
-ms.openlocfilehash: b7419986137632561cae71b91dd55a2af64912a7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/24/2021
+ms.openlocfilehash: a2b3533a1af6740b1d847a2a3e452bbe45aacc05
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373298"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831302"
 ---
 # <a name="quickstart-create-an-integration-workflow-with-multi-tenant-azure-logic-apps-and-the-azure-portal"></a>Inicio rápido: Creación de un flujo de trabajo de integración con Azure Logic Apps multiinquilino en Azure Portal
 
-En este inicio rápido se muestra cómo crear un flujo de trabajo automatizado de ejemplo que integra dos servicios: una fuente RSS para un sitio web y una cuenta de correo electrónico, cuando se usa [Azure Logic Apps](logic-apps-overview.md) *multiinquilino*. Aunque este ejemplo está basado en la nube, Azure Logic Apps admite flujos de trabajo que conectan aplicaciones, datos, servicios y sistemas en entornos de nube, locales e híbridos. Para más información sobre el modelo multiinquilino frente al modelo de inquilino único, consulte [Entorno del servicio de integración: inquilino único frente a multiinquilino](single-tenant-overview-compare.md).
+En este inicio rápido se muestra cómo crear un flujo de trabajo automatizado de ejemplo que integra dos servicios: una fuente RSS para un sitio web y una cuenta de correo electrónico, cuando se usa el entorno [*multiinquilino* de Azure Logic Apps](logic-apps-overview.md). Aunque este ejemplo está basado en la nube, Azure Logic Apps admite flujos de trabajo que conectan aplicaciones, datos, servicios y sistemas en entornos de nube, locales e híbridos. Para más información sobre el entorno multiinquilino frente al de inquilino único de Azure Logic Apps, consulte [Inquilino único (versión preliminar) frente a multiinquilino y entorno del servicio de integración para Azure Logic Apps](single-tenant-overview-compare.md).
 
-En este ejemplo, creará un flujo de trabajo que usa el conector RSS y el conector de Office 365 Outlook. El conector RSS tiene un desencadenador que comprueba una fuente RSS, según una programación. El conector de Office 365 Outlook tiene una acción que envía un correo electrónico para cada nuevo elemento. Los conectores de este ejemplo son solo dos de los [cientos de conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) que puede usar en un flujo de trabajo.
+En este ejemplo, se crea un recurso de aplicación lógica y un flujo de trabajo que usa el conector RSS y el conector de Office 365 Outlook. El recurso se ejecuta en entornos multiinquilino de Azure Logic Apps se basa en el [modelo de precios Consumo](logic-apps-pricing.md#consumption-pricing). El conector RSS tiene un desencadenador que comprueba una fuente RSS, según una programación. El conector de Office 365 Outlook tiene una acción que envía un correo electrónico para cada nuevo elemento. Los conectores de este ejemplo son solo dos de los [cientos de conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) que puede usar en un flujo de trabajo.
 
 En la captura de pantalla siguiente se muestra el flujo de trabajo de alto nivel de ejemplo:
 
@@ -26,13 +26,13 @@ En la captura de pantalla siguiente se muestra el flujo de trabajo de alto nivel
 
 A medida que avance en este inicio rápido, aprenderá estos pasos básicos:
 
-* Creación de un recurso de aplicación lógica que se ejecute en el entorno del servicio Logic Apps multiinquilino.
+* Creación de un recurso de aplicación lógica que se ejecute en el entorno multiinquilino de Azure Logic Apps.
 * Selección de la plantilla de aplicación lógica en blanco.
 * Incorporación de un desencadenador que especifique cuándo se debe ejecutar el flujo de trabajo.
 * Incorporación de una acción que realice una tarea después de que se active el desencadenador.
 * Ejecución del flujo de trabajo.
 
-Para crear y administrar una aplicación lógica mediante otras herramientas, revise estos otros inicios rápidos de Logic Apps:
+Para crear y administrar un recurso de aplicación lógica mediante otras herramientas, consulte estos otros inicios rápidos de Azure Logic Apps:
 
 * [Inicio rápido: Creación y administración de definiciones de flujo de trabajo de aplicaciones lógicas mediante Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * [Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
@@ -42,16 +42,16 @@ Para crear y administrar una aplicación lógica mediante otras herramientas, re
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* Una cuenta y una suscripción de Azure. Si aún no tiene una suscripción, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Una cuenta de correo electrónico de un servicio que funcione con Azure Logic Apps, como Office 365 Outlook o Outlook.com. Para otros proveedores de correo electrónico admitidos, consulte [Conectores de Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+* Una cuenta de correo electrónico de un servicio que funcione con Azure Logic Apps, como Office 365 Outlook o Outlook.com. Para conocer otros proveedores de correo electrónico admitidos, consulte [Conectores de Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
   > [!NOTE]
   > Si quiere usar el [conector de Gmail](/connectors/gmail/), solo las cuentas de G-Suite pueden usarlo sin restricciones en Azure Logic Apps. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google, a menos que pueda [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Si tiene un firewall que limite el tráfico a direcciones IP específicas, configúrelo para permitir el acceso para *ambas* direcciones IP, la [de entrada](logic-apps-limits-and-config.md#inbound) y la [de salida](logic-apps-limits-and-config.md#outbound), utilizadas por el servicio Logic Apps en la región de Azure donde se encuentra la aplicación lógica.
+* Si tiene un firewall que limite el tráfico a direcciones IP específicas, configúrelo para que permita el acceso a las *dos* direcciones IP, la [de entrada](logic-apps-limits-and-config.md#inbound) y la [de salida](logic-apps-limits-and-config.md#outbound), que utiliza por el servicio Logic Apps en la región de Azure en la que se crea el flujo de trabajo de la aplicación lógica.
 
-  En este ejemplo también se usan los conectores RSS y Office 365 Outlook que [administra Microsoft](../connectors/managed.md). Estos conectores requieren que configure el firewall para permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica.
+  En este ejemplo se usan los conectores RSS y Office 365 Outlook, que [administra Microsoft](../connectors/managed.md). Estos conectores requieren que se configure el firewall para permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](/connectors/common/outbound-ip-addresses) en la región de Azure del recurso de aplicación lógica.
 
 <a name="create-logic-app-resource"></a>
 
@@ -63,39 +63,37 @@ Para crear y administrar una aplicación lógica mediante otras herramientas, re
 
    ![Captura de pantalla del cuadro de búsqueda de Azure Portal con "Logic apps" como término de la búsqueda y "Logic Apps" como resultado seleccionado.](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
-1. En la página **Logic Apps**, seleccione en **Agregar** > **Consumo**.
+1. En la página **Logic Apps**, seleccione en **Agregar**.
 
-   Este paso crea un recurso de aplicación lógica que se ejecuta en el entorno del servicio Logic Apps multiinquilino y usa un [modelo de precios de consumo](logic-apps-pricing.md).
+   ![Captura de pantalla que muestra Azure Portal, la página del servicio Logic Apps y la opción "Agregar" seleccionada.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-   ![Captura de pantalla que muestra la página de Azure Portal y del servicio Logic Apps con la lista de aplicaciones lógicas, el menú "Agregar" abierto y la opción "Consumo" seleccionada.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+1. En el panel **Crear aplicación lógica**, seleccione la suscripción de Azure que desea usar, cree un [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) para el recurso de aplicación lógica y especifique los detalles básicos del recurso de la aplicación lógica.
 
-1. En el panel **Aplicación lógica**, proporcione los detalles básicos y la configuración de la aplicación lógica. Cree un [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) para esta aplicación lógica de ejemplo.
-
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Suscripción** | <*Azure-subscription-name*> | Nombre de la suscripción de Azure. |
-   | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | El nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md#terminology), que debe ser único en todas las regiones. En este ejemplo se usa "My-First-LA-RG". |
-   | **Nombre de la aplicación lógica** | <*nombre-de-la-aplicación-lógica*> | Nombre de la aplicación lógica, que debe ser único en todas las regiones. En este ejemplo se usa "My-First-Logic-App". <p><p>**Importante**: el nombre solo puede contener letras, números, guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`, `)`) y puntos (`.`).  |
-   | **Región** | <*Azure-region*> | La región del centro de datos de Azure donde se almacenará la información de la aplicación. En este ejemplo se utiliza "Oeste de EE. UU.". |
-   | **Asociación con el entorno del servicio de integración** | Desactivado | Seleccione esta opción solo cuando desee implementar esta aplicación lógica en un [entorno del servicio de integración](connect-virtual-network-vnet-isolated-environment-overview.md). En este ejemplo, deje esta opción sin seleccionar. |
-   | **Habilitación de análisis de registros** | Desactivado | Seleccione esta opción solo cuando desee habilitar el registro de diagnóstico. En este ejemplo, deje esta opción sin seleccionar. |
+   | **Grupo de recursos** | <*nombre del grupo de recursos de Azure*> | El nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md#terminology), que debe ser único en todas las regiones. En este ejemplo se usa "My-First-LA-RG". |
+   | **Tipo** | **Consumo** | El tipo de recurso de aplicación lógica y el modelo de facturación que se usarán para el recurso: <p><p>- **Consumo**: este tipo de recurso de aplicación lógica se ejecuta en entornos globales multiinquilino de Azure Logic Apps y usa el [modelo de facturación Consumo](logic-apps-pricing.md#consumption-pricing). En este ejemplo se utiliza este modelo **Consumo**. <p>- **Estándar**: este tipo de recurso de aplicación lógica se ejecuta en entornos de inquilino único de Azure Logic Apps y usa el [modelo de facturación Estándar](logic-apps-pricing.md#standard-pricing). |
+   | **Nombre de la aplicación lógica** | <*nombre-de-la-aplicación-lógica*> | El nombre de la aplicación lógica, que debe ser único en todas las regiones. En este ejemplo se usa "My-First-Logic-App". <p><p>**Importante**: el nombre solo puede contener letras, números, guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`, `)`) y puntos (`.`).  |
+   | **Región** | <*Azure-region*> | La región del centro de datos de Azure donde se almacenará la información de la aplicación. En este ejemplo se utiliza "Oeste de EE. UU.". <p>**Nota**: Si la suscripción está asociada a un [entorno de servicio de integración](connect-virtual-network-vnet-isolated-environment-overview.md), esta lista incluye esos entornos. |
+   | **Habilitación de análisis de registros** | **No** | Cambie esta opción solo cuando desee habilitar el registro de diagnóstico. En este ejemplo, deje esta opción sin seleccionar. |
    ||||
 
-   ![Captura de pantalla que muestra Azure Portal y la página de creación de aplicaciones lógicas con detalles de la nueva aplicación lógica.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
+   ![Captura de pantalla que muestra Azure Portal y la página de creación del recurso aplicación lógica con detalles de la nueva aplicación lógica.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
 1. Seleccione **Revisar y crear** cuando esté preparado. En la página de validación, confirme los detalles que proporcionó y seleccione **Crear**.
 
 ## <a name="select-the-blank-template"></a>Selección de una plantilla en blanco
 
-1. Una vez que Azure implemente correctamente la aplicación, seleccione **Ir al recurso**. O también puede buscar y seleccionar la aplicación lógica escribiendo el nombre en el cuadro de búsqueda de Azure.
+1. Una vez que Azure implemente correctamente la aplicación, seleccione **Ir al recurso**. O bien busque y seleccione el recurso aplicación lógica escribiendo el nombre en el cuadro de búsqueda de Azure.
 
    ![Captura de pantalla que muestra la página de implementación del recurso y el botón seleccionado, "Ir al recurso".](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
-   El Diseñador de aplicación lógica se abre y muestra una página con un vídeo de introducción y desencadenadores utilizados frecuentemente.
+   Se abre el diseñador del flujo de trabajo y muestra una página con un vídeo de introducción y desencadenadores utilizados frecuentemente.
 
-1. En **Plantillas**, elija **Blank Logic App**.
+1. En **Plantillas**, seleccione **Aplicación lógica en blanco**.
 
-   ![Captura de pantalla que muestra la galería de plantillas del diseñador de aplicaciones lógicas y la plantilla seleccionada, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![Captura de pantalla que muestra el diseñador del flujo de trabajo, la galería de plantillas y la plantilla seleccionada, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
    Después de seleccionar la plantilla, el diseñador muestra ahora una superficie de flujo de trabajo vacía.
 
@@ -107,11 +105,11 @@ Un flujo de trabajo siempre se inicia con un único [desencadenador](../logic-ap
 
 En este ejemplo se usa un desencadenador RSS que comprueba una fuente RSS según una programación. Si se encuentra un nuevo elemento en la fuente, el desencadenador se activa y comienza a ejecutarse una nueva instancia del flujo de trabajo. Si se encuentran varios elementos nuevos entre varias comprobaciones, el desencadenador se activa para cada elemento y se ejecuta una nueva instancia del flujo de trabajo independiente para cada elemento.
 
-1. En el **Diseñador de aplicaciones lógicas**, debajo del cuadro de búsqueda, seleccione **Todo**.
+1. En el diseñador del flujo de trabajo, debajo del cuadro de búsqueda, seleccione **Todo**.
 
 1. En el cuadro de búsqueda, escriba `rss` para buscar el desencadenador de RSS. En la lista **Desencadenadores**, seleccione el desencadenador de RSS, **Cuando se publica un elemento de fuente**.
 
-   ![Captura de pantalla que muestra el diseñador de aplicaciones lógicas con "rss" en el cuadro de búsqueda y el desencadenador de RSS "Cuando se publica un elemento de fuente" seleccionado.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
+   ![Captura de pantalla que muestra el diseñador del flujo de trabajo con "rss" en el cuadro de búsqueda y el desencadenador de RSS "Cuando se publica un elemento de fuente" seleccionado.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
 1. Escriba la siguiente información en los detalles del desencadenador:
 
@@ -218,7 +216,7 @@ En este ejemplo se usa una acción de Office 365 Outlook que envía un correo el
       | `Link:` | **Vínculo de fuente principal** | Dirección URL del elemento |
       ||||
 
-      ![Captura de pantalla del diseñador de aplicaciones lógicas con la acción "Enviar un correo electrónico" y las propiedades seleccionadas dentro del cuadro "Cuerpo".](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
+      ![Captura de pantalla del diseñador del flujo de trabajo con la acción "Enviar un correo electrónico" y las propiedades seleccionadas dentro del cuadro "Cuerpo".](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
 1. Guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
@@ -226,11 +224,11 @@ En este ejemplo se usa una acción de Office 365 Outlook que envía un correo el
 
 ## <a name="run-your-workflow"></a>Ejecución del flujo de trabajo
 
-Para comprobar que el flujo de trabajo se ejecuta correctamente, puede esperar a que el desencadenador compruebe la fuente RSS según la programación establecida. O bien, puede ejecutar manualmente el flujo de trabajo; para ello, seleccione **Ejecutar** en la barra de herramientas del diseñador de aplicaciones lógicas, tal como se muestra en la siguiente captura de pantalla. 
+Para comprobar que el flujo de trabajo se ejecuta correctamente, puede esperar a que el desencadenador compruebe la fuente RSS según la programación establecida. O bien, puede ejecutar manualmente el flujo de trabajo; para ello, seleccione **Ejecutar** en la barra de herramientas del diseñador del flujo de trabajo, tal como se muestra en la siguiente captura de pantalla.
 
-![Captura de pantalla del diseñador de aplicaciones lógicas que muestra el botón "Ejecutar" seleccionado en la barra de herramientas del diseñador.](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
+![Captura de pantalla del diseñador del flujo de trabajo que muestra el botón "Ejecutar" seleccionado en la barra de herramientas del diseñador.](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
 
-Si la fuente RSS tiene nuevos elementos, el flujo de trabajo envía un correo electrónico para cada uno de ellos. En caso contrario, el flujo de trabajo espera hasta el siguiente intervalo para comprobar de nuevo la fuente RSS. 
+Si la fuente RSS tiene nuevos elementos, el flujo de trabajo envía un correo electrónico para cada uno de ellos. En caso contrario, el flujo de trabajo espera hasta el siguiente intervalo para comprobar de nuevo la fuente RSS.
 
 En la captura de pantalla siguiente se muestra un correo electrónico de ejemplo que envía el flujo de trabajo de ejemplo. El correo electrónico incluye los detalles de cada salida del desencadenador que seleccionó, además del texto descriptivo que incluyó para cada elemento.
 
@@ -241,11 +239,12 @@ En la captura de pantalla siguiente se muestra un correo electrónico de ejemplo
 Si no recibe correos electrónicos del flujo de trabajo según lo previsto:
 
 * Compruebe la carpeta de correo no deseado de la cuenta de correo electrónico, por si el mensaje se ha filtrado incorrectamente.
+
 * Asegúrese de que la fuente RSS que usa ha publicado elementos desde la última comprobación programada o manual.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya terminado este inicio rápido, limpie la aplicación lógica de ejemplo y los recursos relacionados; para ello, elimine el grupo de recursos que creó para este ejemplo.
+Cuando haya terminado este inicio rápido, elimine el recurso de aplicación lógica de ejemplo y los recursos relacionados; para ello, debe eliminar el grupo de recursos que creó para este ejemplo.
 
 1. En el cuadro de búsqueda de Azure, escriba `resource groups` y seleccione **Grupos de recursos**.
 

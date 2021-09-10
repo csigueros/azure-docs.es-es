@@ -2,13 +2,13 @@
 title: Configuración del clúster administrado de Service Fabric
 description: Aprenda a configurar el clúster administrado de Service Fabric para las actualizaciones automáticas del sistema operativo, las reglas de grupo de seguridad de red y mucho más.
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 5fd2736917517f20d3d093492c6011d6fcf716cf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 8/23/2021
+ms.openlocfilehash: 5be6422af6a1611bb8978ff4f0b76122cb146eb7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067445"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864358"
 ---
 # <a name="service-fabric-managed-cluster-configuration-options"></a>Opciones de configuración del clúster administrado de Service Fabric
 
@@ -16,7 +16,8 @@ Además de seleccionar el [SKU de clúster administrado de Service Fabric](overv
 
 * Adición de una [extensión del conjunto de escalado de máquinas virtuales](how-to-managed-cluster-vmss-extension.md) a un tipo de nodo
 * Configuración de la [expansión de la zona de disponibilidad](how-to-managed-cluster-availability-zones.md) de un clúster
-* Configuración de las [reglas de grupo de seguridad de red y otras opciones de red](how-to-managed-cluster-networking.md) del clúster
+* Configuración de las [opciones de red](how-to-managed-cluster-networking.md) del clúster
+* Configuración de un tipo de nodo para [grandes conjuntos de escalado de máquinas virtuales](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
 * Configuración de la [identidad administrada](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) en los tipos de nodo de clúster
 * Habilitación de las [actualizaciones automáticas del sistema operativo](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) para nodos de clúster
 * Habilitación del [cifrado de discos de datos y sistema operativo](how-to-enable-managed-cluster-disk-encryption.md) en los nodos de clúster

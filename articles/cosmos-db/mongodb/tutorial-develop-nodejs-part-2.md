@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 08/26/2021
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 8c37fb423d35ffffb83f59de46df332f3c8c08ae
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f78c64d8ab22168bba44305bffa66987e02ae21c
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785736"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039393"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una aplicación de Node.js Express
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -179,3 +179,7 @@ Puede continuar con la siguiente parte del tutorial para crear la interfaz de us
 
 > [!div class="nextstepaction"]
 > [Creación de la interfaz de usuario con Angular](tutorial-develop-nodejs-part-3.md)
+
+¿Intenta planear la capacidad para una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de base de datos existente.
+* Si todo lo que sabe es el número de núcleos virtuales y servidores del clúster de base de datos existente, lea sobre cómo [calcular las unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+* Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

@@ -3,17 +3,17 @@ title: Importación de la API de WebSocket con Azure Portal | Microsoft Docs
 titleSuffix: ''
 description: Obtenga información sobre cómo API Management admite WebSocket, agregue una API de WebSocket y conozca las limitaciones de WebSocket.
 ms.service: api-management
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 08/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 887e1257ef5585e99da1922aa840761ebcb7aa05
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: b3eb368184eceeabc6af46bac8ca08254560e252
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439780"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097876"
 ---
 # <a name="import-a-websocket-api-preview"></a>Importación de una API de WebSocket (versión preliminar)
 
@@ -36,7 +36,7 @@ En este artículo:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Tener una instancia de API Management existente. [Cree una suscripción si todavía no lo ha hecho](get-started-create-service-instance.md).
-- Una [API de WebSocket](https://www.websocket.org/echo.html).
+- Una API de WebSocket. 
 
 ## <a name="websocket-passthrough"></a>Tráfico de WebSocket
 
@@ -77,7 +77,9 @@ Según el [protocolo WebSocket](https://tools.ietf.org/html/rfc6455), cuando una
     |----------------|-------|
     | Nombre para mostrar | Nombre con el que se mostrará la API de WebSocket. |
     | Nombre | Nombre sin procesar de la API de WebSocket. Se rellena automáticamente a medida que escribe el nombre para mostrar. |
-    | URL de WebSocket | Dirección URL base con el nombre de WebSocket. Por ejemplo: ws://ejemplo.com/nombre-del-socket |
+    | URL de WebSocket | Dirección URL base con el nombre de WebSocket. Por ejemplo: *ws://example.com/nombre_del_socket* |
+    | Esquema URL | Acepte el valor predeterminado. |
+    | Sufijo de dirección URL de API| Agregue un sufijo de URL para identificar esta API específica en esta instancia de API Management. Debe ser exclusivo en esta instancia de APIM. |
     | Productos | Asocie la API de WebSocket a un producto para publicarla. |
     | Puertas de enlace | Asocie la API de WebSocket a las puertas de enlace existentes. |
  
@@ -99,6 +101,17 @@ Según el [protocolo WebSocket](https://tools.ietf.org/html/rfc6455), cuando una
 1. Vea los mensajes recibidos en **Salida**.
 1. Repita los pasos anteriores para probar diferentes cargas.
 1. Cuando se complete la prueba, seleccione **Desconectar**.
+
+## <a name="view-metrics-and-logs"></a>Visualización de métricas y registros
+
+Use características estándar de API Management y Azure Monitor para [supervisar](api-management-howto-use-azure-monitor.md) las API de WebSocket:
+
+* Visualización de métricas de API en Azure Monitor
+* Opcionalmente, habilite la configuración de diagnóstico para recopilar y ver los registros de puerta de enlace de API Management, que incluyen operaciones de API de WebSocket.
+
+Por ejemplo, en la captura de pantalla siguiente se muestran las respuestas recientes de la API de WebSocket con código `101` de la tabla **ApiManagementGatewayLogs**. Estos resultados indican el cambio correcto de las solicitudes de TCP al protocolo WebSocket.
+
+:::image type="content" source="./media/websocket-api/query-gateway-logs.png" alt-text="Consulta de registros para solicitudes de API de WebSocket":::
 
 ## <a name="limitations"></a>Limitaciones
 

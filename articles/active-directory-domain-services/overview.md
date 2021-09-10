@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 04/28/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 5854d8cecd1de8121b6129d86a70c1f5ad9518f2
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 8c390593778917bef45b20d27e11e1b642b194c6
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175395"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303575"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>¿Qué es Azure Active Directory Domain Services?
 
-Azure Active Directory Domain Services (Azure AD DS) proporciona servicios de dominio administrados como unión a un dominio, directiva de grupo, protocolo ligero de acceso a directorios (LDAP) y autenticación Kerberos o NTLM. Puede usar estos servicios de dominio sin necesidad de implementar o administrar los controladores de dominio de la nube, ni de aplicarles revisiones.
+Azure Active Directory Domain Services (Azure AD DS) proporciona servicios de dominio administrados como, por ejemplo, unión a un dominio, directivas de grupo, protocolo ligero de acceso a directorios (LDAP) y autenticación Kerberos o NTLM. Puede usar estos servicios de dominio sin necesidad de implementar o administrar los controladores de dominio de la nube, ni de aplicarles revisiones.
 
 Un dominio administrado de Azure AD DS le permite ejecutar aplicaciones heredadas en la nube que no pueden usar métodos de autenticación modernos o cuando no quiere que las búsquedas de directorio regresen siempre a un entorno de AD DS local. Esas aplicaciones heredadas se pueden migrar mediante "lift-and-shift" del entorno local a un dominio administrado, sin necesidad de administrar el entorno de AD DS en la nube.
 

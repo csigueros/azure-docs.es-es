@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfed2797d0f331becf273b7ed3828aabd8378ebf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e05bfa8a024cb823a552f01e585f1c4843bd6df9
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749033"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866459"
 ---
 # <a name="azure-ad-built-in-roles"></a>Roles integrados de Azure AD
 
@@ -85,7 +85,7 @@ En este artículo se enumeran los roles integrados de Azure AD que se pueden asi
 > | [Soporte para asociados de nivel 2](#partner-tier2-support) | No lo use. No está pensado para el uso general. | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8 |
 > | [Administrador de contraseñas](#password-administrator) | Puede restablecer contraseñas para usuarios que no son administradores y para administradores de contraseñas. | 966707d0-3269-4727-9be2-8c3a10f19b9d |
 > | [Administrador de Power BI](#power-bi-administrator) | Puede administrar todos los aspectos del producto Power BI. | a9ea8996-122f-4c74-9520-8edcd192826c |
-> | [Administrador de Power Platform](#power-platform-administrator) | Puede crear y administrar todos los aspectos de Microsoft Dynamics 365, PowerApps y Microsoft Flow. | 11648597-926c-4cf3-9c36-bcebb0ba8dcc |
+> | [Administrador de Power Platform](#power-platform-administrator) | Puede crear y administrar todos los aspectos de Microsoft Dynamics 365, Power Apps y Power Automate. | 11648597-926c-4cf3-9c36-bcebb0ba8dcc |
 > | [Administrador de impresoras](#printer-administrator) | Puede administrar todos los aspectos de impresoras y conectores de impresora. | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f |
 > | [Técnico de impresoras](#printer-technician) | Puede registrar impresoras, así como anular dicho registro, y actualizar su estado. | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477 |
 > | [Administrador de autenticación con privilegios](#privileged-authentication-administrator) | Puede ver, configurar y restablecer la información de los métodos de autenticación de cualquier usuario (administrador o no administrador). | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13 |
@@ -1489,7 +1489,7 @@ los usuarios con este rol tienen permisos globales en Microsoft Power BI, cuando
 
 ## <a name="power-platform-administrator"></a>Administrador de Power Platform
 
-Los usuarios de este rol pueden crear y administrar todos los aspectos de las directivas de entornos, PowerApps, flujos y prevención de pérdida de datos. Además, los usuarios con este rol tienen la capacidad de administrar incidencias de soporte técnico y supervisar el estado del servicio.
+Los usuarios de este rol pueden crear y administrar todos los aspectos de las directivas de entornos, Power Apps, flujos y prevención de pérdida de datos. Además, los usuarios con este rol tienen la capacidad de administrar incidencias de soporte técnico y supervisar el estado del servicio.
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |

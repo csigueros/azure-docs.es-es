@@ -9,18 +9,16 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 88e67711b71ad80b48a7d5c19377847d0dadd296
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 04b1b4b9b9dd859a2f4b4515c2896163b8f9a698
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725947"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038484"
 ---
 # <a name="manage-a-public-ip-address-with-a-load-balancer"></a>Administración de una IP pública con un equilibrador de carga
 
-Un equilibrador de carga público es una solución de nivel 4 para distribuir el tráfico TCP y UDP a un grupo de back-end. El equilibro puede usar SKU básicas y estándar. 
-
-Estas SKU se corresponden con las SKU básicas y estándar de una IP pública.
+Un equilibrador de carga público es una solución de nivel 4 para distribuir el tráfico TCP y UDP a un grupo de back-end. El equilibro puede usar SKU básicas y estándar. Estas SKU se corresponden con las SKU básicas y estándar de una IP pública.
 
 Una IP pública asociada a un equilibrador de carga actúa como configuración de IP del front-end orientada a Internet. El front-end se usa para acceder a los recursos del grupo de back-end. La IP del front-end se puede usar para que los miembros del grupo de back-end salgan a Internet. 
 
@@ -40,9 +38,9 @@ Por último, en el artículo se revisan aspectos únicos del uso de IP pública
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Dos IP públicas de SKU estándar en la suscripción. Las direcciones IP no pueden estar asociadas con ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](create-public-ip-portal.md).
+- Dos IP públicas de SKU estándar en la suscripción. Las direcciones IP no pueden estar asociadas con ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](create-public-ip-portal.md).
     - Para fines de los ejemplos de este artículo, asigne los nombres **myStandardPublicIP-1** y **myStandardPublicIP-2** a las IP públicas nuevas.
-- Un prefijo de dirección IP pública en la suscripción. Para más información sobre cómo crear un prefijo de dirección IP pública, consulte la sección sobre [cómo crear un prefijo de dirección IP pública con Azure Portal](create-public-ip-prefix-portal.md).
+- Un prefijo de dirección IP pública en la suscripción. Para más información sobre cómo crear un prefijo de dirección IP pública, consulte la sección sobre [cómo crear un prefijo de dirección IP pública con Azure Portal](create-public-ip-prefix-portal.md).
     - Para fines del ejemplo de este artículo, asigne el nombre **myPublicIPPrefixOutbound** al prefijo de dirección IP pública nuevo.
 
 ## <a name="create-load-balancer-existing-public-ip"></a>Creación de una IP pública existente de un equilibrador de carga
@@ -62,7 +60,7 @@ En esta sección, creará un equilibrador estándar de SKU estándar. Selecciona
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **Crear nuevo**. </br> Escriba **myResourceGroupIP**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |   |
     | Nombre | Escriba **myLoadBalancer**. |
@@ -84,7 +82,7 @@ En esta sección, creará un equilibrador estándar de SKU estándar. Selecciona
 >
 > Para más información sobre Azure Load Balancer, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
-## <a name="change-or-remove-public-ip-address"></a>Cambio o eliminación de IP pública
+## <a name="change-or-remove-public-ip-address"></a>Cambio o eliminación de IP pública
 
 En esta sección, iniciaremos sesión en Azure Portal y cambiaremos la dirección IP de el equilibrador de carga. 
 
@@ -114,7 +112,7 @@ Para cambiar la IP, asociará una nueva IP pública creada anteriormente con e
     > Estos procedimientos son válidos para los equilibradores de carga entre regiones. Para más información sobre el equilibrador de carga entre regiones, consulte **[Equilibrador de carga entre regiones](../load-balancer/cross-region-overview.md)** .
 
 
-## <a name="add-public-ip-prefix"></a>Adición del prefijo de IP pública
+## <a name="add-public-ip-prefix"></a>Adición del prefijo de dirección IP pública
 
 Un equilibrador de carga estándar admite reglas de salida para la traducción de direcciones de red de origen (SNAT). SNAT permite la salida a Internet de los miembros del grupo de back-end. Los prefijos de la IP pública amplían la extensibilidad de SNAT, ya que permiten varias direcciones IP para las conexiones salientes. 
 
@@ -157,7 +155,7 @@ En esta sección, cambiará la configuración del front-end que se utiliza para 
 
 ## <a name="caveats"></a>Advertencias
 
-* Los equilibradores de carga públicos estándar pueden usar direcciones IPv6 como IP públicas del front-end o prefijos de IP pública.  Cada implementación debe tener dos pilas con los front-ends IPv4 e IPv6. La traducción NAT64 no está disponible. Para más información, consulte [Implementación de una aplicación de pila doble IPv6 en Azure (PowerShell)](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)
+* Los equilibradores de carga públicos estándar pueden usar direcciones IPv6 estáticas de SKU estándar como IP públicas del front-end o prefijos de IP pública.  Cada implementación debe tener dos pilas con los front-ends IPv4 e IPv6. La traducción NAT64 no está disponible. Para más información, consulte [Implementación de una aplicación de pila doble IPv6 en Azure: PowerShell](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) (tenga en cuenta que los equilibradores de carga públicos básicos pueden usar direcciones IPv6 dinámicas de SKU básicas como direcciones IP públicas de front-end).
 
 * Cuando se asignan varios front-ends a un equilibrador de carga público, no hay un método para asignar flujos de instancias de back-end concretas a la salida en una IP específica.  Para más información, consulte [Varios front-ends para Azure Load Balancer](../load-balancer/load-balancer-multivip-overview.md).
 ## <a name="next-steps"></a>Pasos siguientes
@@ -169,4 +167,4 @@ Ha reemplazado la dirección IP en una configuración de front-end del equilibr
 Por último, ha cambiado la configuración del front-end de salida para usar un prefijo de IP pública.
 
 - Para más información sobre Azure Load Balancer, consulte [¿Qué e Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
-- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](public-ip-addresses.md).
+- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](public-ip-addresses.md).

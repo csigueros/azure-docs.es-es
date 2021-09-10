@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ada4235539c96fee6969f9731c1b5a63934e825
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: ba229ed81cd5ece4a6013654a11c21740c00c844
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115627"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254072"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
@@ -67,7 +67,7 @@ Para ahorrar espacio, puede eliminar la instantánea de recurso compartido duran
 
 Incluso si las instantáneas de recurso compartido se guardan de forma incremental, solamente deberá guardar la instantánea de recurso compartido más reciente para poder restaurar el recurso compartido. Cuando elimine una instantánea de recurso compartido, solo se quitan los datos exclusivos para esa instantánea de recurso compartido. Las instantáneas activas contienen toda la información necesaria para examinar y restaurar sus datos (desde el momento en el que se realizó la instantánea de recurso compartido) en la ubicación original o en una alternativa. Puede restaurarlas en el nivel de elemento.
 
-Las instantáneas no se tienen en cuenta en el límite de recursos compartidos de 5 TB. No hay ninguna restricción en la cantidad de espacio que ocupan las instantáneas de recurso compartido. Los límites de cuenta de almacenamiento se siguen aplicando.
+Las instantáneas no cuentan respecto al límite de tamaño del recurso compartido. No hay ninguna restricción en la cantidad de espacio que ocupan las instantáneas de recurso compartido. Los límites de cuenta de almacenamiento se siguen aplicando.
 
 ## <a name="limits"></a>Límites
 

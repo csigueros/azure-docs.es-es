@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11182b8331f218b970d867764f575ba5b7854d62
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 4042ce416b2af83447af283d21c059050b9a144c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550700"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866594"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -82,7 +82,7 @@ Para habilitar o deshabilitar dispositivos, tiene dos opciones:
 - La barra de herramientas después de profundizar en un dispositivo específico.
 
 > [!IMPORTANT]
-> - Para habilitar o deshabilitar un dispositivo, tiene que ser administrador global o administrador de dispositivos en la nube de Azure AD. 
+> - Para habilitar o deshabilitar un dispositivo, tiene que ser administrador global, un administrador de Intune o administrador de dispositivos en la nube de Azure AD. 
 > - Cuando se deshabilita un dispositivo, ya no puede autenticarse correctamente con Azure AD, lo que evita que pueda acceder a los recursos de Azure AD que están protegidos por el acceso condicional basado en dispositivos o mediante las credenciales de Windows Hello para empresas.
 > - Al deshabilitar un dispositivo, se revocarán el token de actualización principal (PRT) y todos los tokens de actualización (RT) del dispositivo.
 > - Las impresoras no se pueden habilitar ni deshabilitar en Azure AD.

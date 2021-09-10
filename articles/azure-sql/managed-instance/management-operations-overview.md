@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
-ms.reviewer: mathoma, MashaMSFT
-ms.date: 06/08/2021
-ms.openlocfilehash: 8e33e8271f8b877f20fb3f27885aa518a52ed90e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.reviewer: mathoma
+ms.date: 08/20/2021
+ms.openlocfilehash: 2131f5549c026afdfde1d0ec14a27608a2ffaae8
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751148"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215221"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Introducción a las operaciones de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,16 +41,21 @@ Las operaciones de administración posteriores en instancias administradas puede
 
 La duración de las operaciones en el clúster virtual puede variar, pero normalmente tienen la duración más larga. 
 
-Los valores siguientes son los valores normalmente previsibles en función de los datos de telemetría de los servicios existentes:
+En la tabla siguiente se enumeran los pasos de larga duración que se pueden desencadenar como parte de la operación de creación, actualización o eliminación. En la tabla siguiente se enumeran las duraciones normalmente previsibles en función de los datos de telemetría de los servicios existentes:
 
-- **Creación de un clúster virtual**:  es un paso sincrónico en las operaciones de administración de una instancia. <br/> **El 90 % de las operaciones finaliza en 4 horas**.
-- **Cambio de tamaño del clúster virtual (expansión o reducción)** : La expansión es un paso sincrónico, mientras que la reducción se realiza de manera asincrónica (sin afectar la duración de las operaciones de administración de la instancia). <br/>**El 90 % de las expansiones de un clúster finaliza en menos de 2,5 horas**.
-- **Eliminación de un clúster virtual**: La eliminación es un paso asincrónico, pero también se puede [iniciar manualmente](virtual-cluster-delete.md) en un clúster virtual vacío, en cuyo caso se ejecuta de manera sincrónica. <br/>**El 90 % de las eliminaciones de clúster virtual finaliza en 1,5 horas**.
+|Paso|Descripción|Duración estimada|
+|---------|---------|---------|
+|**Creación de un clúster virtual**|es un paso sincrónico en las operaciones de administración de una instancia.|**El 90 % de las operaciones finaliza en 4 horas.**|
+|**Cambio de tamaño del clúster virtual (expansión o reducción)**|La expansión es un paso sincrónico, mientras que la reducción se realiza de manera asincrónica (sin afectar la duración de las operaciones de administración de la instancia).|**El 90 % de las expansiones de un clúster finaliza en menos de 2,5 horas.**|
+|**Eliminación de un clúster virtual**|La eliminación del clúster virtual puede ser sincrónica y asincrónica. La eliminación asincrónica se realiza en segundo plano y se desencadena en el caso de que haya varios clústeres virtuales dentro de la misma subred, cuando se elimina la última instancia del clúster que no sea el último de la subred. La eliminación sincrónica del clúster virtual se desencadena como parte de la eliminación de la última instancia de la subred.|**El 90 % de las eliminaciones de clúster finaliza en 1,5 horas.**|
+|**Inicialización de archivos de base de datos**<sup>1</sup>|Un paso sincrónico, desencadenado durante el escalado del proceso (núcleos virtuales) o del almacenamiento en el nivel de servicio Crítico para la empresa, así como durante el cambio del nivel de servicio De uso general a Crítico para la empresa (o viceversa). La duración de esta operación es proporcional al tamaño total de la base de datos, así como la actividad de base de datos actual (el número de transacciones activas). La actividad de la base de datos cuando se actualiza una instancia puede introducir una varianza considerable en la duración total.|**El 90 % de estas operaciones se ejecuta a 220 GB/hora o más.**|
 
-Además, la administración de las instancias también puede incluir una de las operaciones en bases de datos hospedadas, lo que provoca duraciones más largas:
+<sup>1</sup> Al escalar el proceso (núcleos virtuales) o el almacenamiento en el nivel de servicio Crítico para la empresa o al cambiar el nivel de servicio De uso general a Crítico para la empresa, la inicialización también incluye la inicialización del grupo de disponibilidad Always On.
 
-- **Asociación de archivos de base de datos desde Azure Storage**:  un paso sincrónico, como el escalado o la reducción vertical de un proceso (núcleos virtuales) o de un almacenamiento en el nivel de servicio De uso general. <br/>**El 90 % de estas operaciones finaliza en 5 minutos**.
-- **Inicialización de un grupo de disponibilidad AlwaysOn**: un paso sincrónico, como el escalado o la reducción vertical de un proceso (núcleo virtual) o de un almacenamiento en el nivel de servicio Crítico para la empresa, así como en el cambio del nivel de servicio De uso general a Crítico para la empresa (o viceversa). La duración de esta operación es proporcional al tamaño total de la base de datos, así como la actividad de base de datos actual (el número de transacciones activas). La actividad de la base de datos cuando se actualiza una instancia puede introducir una varianza considerable en la duración total. <br/>**El 90 % de estas operaciones se ejecuta a 220 GB/hora o más**.
+> [!IMPORTANT]
+> El escalado o reducción vertical del almacenamiento del nivel de servicio De uso general consiste en actualizar los metadatos y propagar la respuesta para la solicitud enviada. Se trata de una operación rápida que se completa en hasta 5 minutos, sin tiempo de inactividad ni conmutación por error.
+
+### <a name="management-operations-long-running-segments"></a>Segmentos de larga duración de las operaciones de administración
 
 En las tablas siguientes se resumen las operaciones y duraciones generales normales según la categoría de la operación:
 
@@ -63,31 +68,34 @@ En las tablas siguientes se resumen las operaciones y duraciones generales norma
 |Creación de instancia subsiguiente dentro de la subred no vacía (segunda instancia, tercera instancia, etc.)|Cambio de tamaño de un clúster virtual|El 90 % de las operaciones finaliza en 2,5 horas.|
 | | | 
 
-<sup>1</sup> El clúster virtual se crea por generación de hardware.
+<sup>1</sup> El clúster virtual se crea por generación de hardware y configuración de ventana de mantenimiento.
 
 **Categoría: Actualización**
 
 |Operación  |Segmento de larga duración  |Duración estimada  |
 |---------|---------|---------|
 |Cambio de una propiedad de una instancia (contraseña de administrador, inicio de sesión de Azure AD, marca de Ventaja híbrida de Azure)|N/D|Hasta 1 minuto.|
-|Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio De uso general)|No hay segmento de larga duración<sup>1</sup>|El 99 % de las operaciones finaliza en 5 minutos.|
+|Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio De uso general)|No hay segmentos de larga duración|El 99 % de las operaciones finaliza en 5 minutos.|
 |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
 |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (De uso general)|- Cambio de tamaño de un clúster virtual<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 2,5 horas.|
 |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
 |Cambio en el nivel de servicio de una instancia (De uso general a Crítico para la empresa y viceversa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
 | | | 
 
-<sup>1</sup> El escalado del almacenamiento de una instancia administrada de uso general no provocará una conmutación por error al final de la operación. En este caso, la operación consiste en actualizar los metadatos y propagar la respuesta para la solicitud enviada.
-
 **Categoría: Eliminación**
 
 |Operación  |Segmento de larga duración  |Duración estimada  |
 |---------|---------|---------|
-|Eliminación de una instancia|Copia del final del registro para todas las bases de datos|El 90 % de las operaciones finaliza en hasta 1 minuto.<br>Nota: Si se elimina la última instancia de la subred, esta operación programará la eliminación del clúster virtual después de 12 horas.<sup>1</sup>|
-|Eliminación de un clúster virtual (como operación iniciada por el usuario)|Eliminación de un clúster virtual|El 90 % de las operaciones finaliza en hasta 1,5 hora.|
+|Eliminación de la instancia que no sea la última|Copia del final del registro para todas las bases de datos|El 90 % de las operaciones finaliza en hasta 1 minuto.<sup>1</sup>|
+|Eliminación de la última instancia |- Copia de seguridad del final del registro para todas las bases de datos <br> - Eliminación de un clúster virtual|El 90 % de las operaciones finaliza en hasta 1,5 horas.<sup>2</sup>|
 | | | 
 
-<sup>1</sup>12 horas es la configuración actual pero está sujeta a cambios en el futuro. Si necesita eliminar un clúster virtual anterior (por ejemplo, para liberar la subred), consulte [Eliminación de una subred después de eliminar una instancia administrada](virtual-cluster-delete.md).
+<sup>1</sup> En el caso de tener varios clústeres virtuales en la subred, si se elimina la última instancia del clúster virtual, esta operación desencadenará inmediatamente la eliminación **asincrónica** del clúster virtual.
+
+<sup>2</sup> La eliminación de la última instancia de la subred desencadena de inmediato le eliminación **asincrónica** del clúster virtual.
+
+> [!IMPORTANT]
+> En cuanto se desencadena la operación de eliminación, se deshabilita la facturación de SQL Managed Instance. La duración de la operación de eliminación no afectará a la facturación.
 
 ## <a name="instance-availability"></a>Disponibilidad de instancias
 
@@ -117,15 +125,22 @@ Las operaciones de administración constan de varios pasos. Con la [introducció
 
 |Nombre del paso  |Descripción del paso  |
 |----|---------|
-|Validación de solicitudes | Se validan los parámetros enviados. En caso de configuración errónea, se producirá un error en la operación. |
+|Validación de solicitudes |Se validan los parámetros enviados. En caso de configuración errónea, se producirá un error en la operación. |
 |Cambio de tamaño o creación de un clúster virtual |Según el estado de la subred, se podrá crear el clúster virtual o cambiar su tamaño. |
-|Nuevo inicio de instancia de SQL | El proceso de SQL se inicia en el clúster virtual implementado. |
+|Nuevo inicio de instancia de SQL |El proceso de SQL se inicia en el clúster virtual implementado. |
 |Inicializar o asociar archivos de base de datos |Según el tipo de operación de actualización, se inicializará la base de datos o se asociarán los archivos de esta. |
 |Preparación de la conmutación por error y conmutación por error |Una vez que se han inicializado los datos o se han vuelto a asociar los archivos de la base de datos, se prepara el sistema para la conmutación por error. Cuando todo está configurado, se realiza la conmutación por error **con un breve tiempo de inactividad**. |
 |Limpieza de instancias de SQL antiguas |Proceso de eliminación de instancias antiguas de SQL del clúster virtual |
 
+### <a name="managed-instance-delete-steps"></a>Pasos de la eliminación de una instancia administrada
+|Nombre del paso  |Descripción del paso  |
+|----|---------|
+|Validación de solicitudes |Se validan los parámetros enviados. En caso de configuración errónea, se producirá un error en la operación. |
+|Limpieza de instancias de SQL |Eliminación del proceso de SQL del clúster virtual |
+|Eliminación de un clúster virtual |En función de si la instancia que se va a eliminar sea la última de la subred, el clúster virtual se elimina sincrónicamente como último paso. |
+
 > [!NOTE]
-> Una vez completado el escalado de instancias, el clúster virtual subyacente pasará por el proceso de liberar la capacidad no utilizada y la posible desfragmentación de la capacidad, lo que podría afectar a las instancias de la misma subred que no participaron en la operación de escalado, lo que provocaría su conmutación por error. 
+> Como resultado del escalado de las instancias, el clúster virtual subyacente pasará por el proceso de liberar capacidad no usada y de una posible desfragmentación de la capacidad, lo que podría afectar a las instancias que no participaron en las operaciones de creación y escalado. 
 
 
 ## <a name="management-operations-cross-impact"></a>Impacto de las operaciones de administración

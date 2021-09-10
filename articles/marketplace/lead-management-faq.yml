@@ -8,12 +8,12 @@ metadata:
   author: keferna
   ms.author: keferna
   ms.date: 10/01/2020
-  ms.openlocfilehash: 49109c47e6c066122ef59ac37193a06562b35ab0
-  ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
+  ms.openlocfilehash: 08e196f4cc0e8adf0df67bbfdb7fc8ba18b0f269
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/11/2021
-  ms.locfileid: "113603569"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122866430"
 title: Preguntas y solución de problemas relacionados con la configuración de clientes potenciales
 summary: >
   En este artículo se da respuesta a algunas preguntas comunes sobre la administración de clientes potenciales en las ofertas del marketplace comercial. También se tratan los errores que pueden surgir al configurar clientes potenciales en el sistema de administración de relaciones con clientes (CRM) en el Centro de partners.
@@ -74,7 +74,7 @@ sections:
   - question: >
       He configurado una tabla de Azure como destino de mi cliente potencial. ¿Puedo recibir una notificación cuando se envíe un nuevo cliente potencial del marketplace comercial?
     answer: >
-      Sí. Siga las instrucciones de [Configuración de la administración de clientes potenciales mediante una tabla de Azure](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) para configurar un flujo de Microsoft que envía un correo electrónico si se agrega un cliente potencial a la tabla de Azure.
+      Sí. Siga las instrucciones de [Configuración de la administración de clientes potenciales mediante una tabla de Azure](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) para configurar un flujo con Power Automate que envía un correo electrónico si se agrega un cliente potencial a la tabla de Azure.
   - question: >
       He configurado Salesforce como destino de clientes potenciales. ¿Por qué no los encuentro?
     answer: >

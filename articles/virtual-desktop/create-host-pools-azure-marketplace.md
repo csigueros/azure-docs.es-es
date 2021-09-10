@@ -4,17 +4,17 @@ description: Creación de un grupo de hosts de Azure Virtual Desktop con Azure P
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 07/20/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 34faa055eb14841d1b35d81e62c74fef92c80bac
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 49c453f4ffcb2fac04b42f4956768e06ab8fce8f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707067"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100856"
 ---
-# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
+# <a name="tutorial-create-a-host-pool"></a>Tutorial: Creación de un grupo de hosts
 
 >[!IMPORTANT]
 >Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Cualquier objeto que cree con Azure Virtual Desktop (clásico) no se puede administrar con Azure Portal.
@@ -50,7 +50,7 @@ Si es un desarrollador de aplicaciones que usa el streaming de aplicaciones remo
 
 - Si pretende proporcionar la aplicación de su organización a los usuarios finales, asegúrese de que realmente tiene esa aplicación lista. Para más información, consulte [Hospedaje de aplicaciones personalizadas con Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 - Si las opciones de imagen existentes de la galería de Azure no satisfacen sus necesidades, también deberá crear su propia imagen personalizada para las máquinas virtuales del host de sesión. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
-- Sus credenciales de unión un dominio. Si aún no tiene un sistema de administración de identidades compatible con Azure Virtual Desktop, deberá configurar la administración de identidades para el grupo de host.
+- Sus credenciales de unión un dominio. Si aún no tiene un sistema de administración de identidades compatible con Azure Virtual Desktop, deberá configurar la administración de identidades para el grupo de hosts. Para más información, consulte [Configuración de identidades administradas](./remote-app-streaming/identities.md).
 
 ### <a name="final-requirements"></a>Requisitos finales
 
@@ -61,6 +61,8 @@ Si es un profesional de TI que crea una red, al crear un grupo de hosts de Azure
 Por último, pero no menos importante, si aún no tiene una suscripción a Azure, asegúrese de [crear una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar a seguir estas instrucciones.
 
 ## <a name="begin-the-host-pool-setup-process"></a>Inicio del proceso de configuración del grupo de hosts
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para empezar a crear el grupo de hosts:
 
@@ -110,13 +112,42 @@ Para empezar a crear el grupo de hosts:
 
 11. Si ya ha creado las máquinas virtuales y quiere usarlas con el nuevo grupo de hosts, seleccione **No** (No), seleccione **Next: Workspace >** (Siguiente: Área de trabajo) y vaya a la sección [Workspace information](#workspace-information) (Información del área de trabajo). Si quiere crear máquinas virtuales y registrarlas en el nuevo grupo de hosts, seleccione **Yes** (Sí).
 
-Ahora que ha completado la primera parte, vamos a pasar a la siguiente parte del proceso de configuración en el que se crea la máquina virtual.
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Empiece por preparar el entorno para la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Después de iniciar sesión, use el comando [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) para crear el grupo de hosts y, opcionalmente, cree un token de registro para que los hosts de sesión se unan al grupo de hosts:
+
+```azurecli
+az desktopvirtualization hostpool create --name "MyHostPool" \
+    --resource-group "MyResourceGroup" \ 
+    --location "MyLocation" \
+    --host-pool-type "Pooled" \
+    --load-balancer-type "BreadthFirst" \
+    --max-session-limit 999 \
+    --personal-desktop-assignment-type "Automatic"  \
+    --registration-info expiration-time="2022-03-22T14:01:54.9571247Z" registration-token-operation="Update" \
+    --sso-context "KeyVaultPath" \
+    --description "Description of this host pool" \
+    --friendly-name "Friendly name of this host pool" \
+    --tags tag1="value1" tag2="value2" 
+```
+
+Si quiere crear máquinas virtuales y registrarlas en el nuevo grupo de hosts, continúe con la sección siguiente. Si ya ha creado las máquinas virtuales y quiere usarlas con el nuevo grupo de hosts, seleccione la sección [Información del área de trabajo](#workspace-information). 
+
+---
+
+Ahora que ha creado un grupo de hosts, vamos a pasar a la siguiente parte del proceso de configuración en el que se crea la máquina virtual.
 
 ## <a name="virtual-machine-details"></a>Detalles de máquina virtual
 
 Ahora que hemos recorrido la primera parte, tendrá que configurar la máquina virtual.
 
-Para configurar la máquina virtual en el proceso de configuración del grupo de hosts:
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Para configurar la máquina virtual en el proceso de configuración del grupo de hosts de Azure Portal:
 
 1. En **Resource Group** (Grupo de recursos), elija el grupo de recursos donde quiere crear las máquinas virtuales. Puede ser un grupo de recursos diferente al que usó para el grupo de hosts.
 
@@ -190,6 +221,26 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
 13. Seleccione **Siguiente: Workspace >** (Siguiente: Área de trabajo).
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para crear una máquina virtual de Azure, use el comando [az vm create](/cli/azure/vm#az_vm_create):
+
+```azurecli
+az vm create --name "MyVMName" \
+    --resource-group "MyResourceGroup" \
+    --image "MyImage" \
+    --generate-ssh-keys
+```
+
+Para más información sobre el uso de la CLI de Azure para crear máquinas virtuales de Azure, consulte:
+- Windows
+    - [Creación de una máquina virtual Windows mediante la CLI de Azure]( /azure/virtual-machines/windows/quick-create-cli)
+    - [Tutorial: Creación y administración de máquinas virtuales Windows con la CLI de Azure](/cli/azure/azure-cli-vm-tutorial)
+- Linux
+    - [Creación de una máquina virtual con Linux desde cero con la CLI de Azure]( /virtual-machines/linux/quick-create-cli)
+    - [Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure]( /azure/virtual-machines/linux/tutorial-manage-vm) 
+---
+
 Ahora, estamos preparados para iniciar la siguiente fase de configuración del grupo de hosts: registro del grupo de aplicaciones en un área de trabajo.
 
 ## <a name="workspace-information"></a>Información del área de trabajo
@@ -198,6 +249,8 @@ El proceso de configuración del grupo de hosts crea un grupo de aplicaciones de
 
 >[!NOTE]
 >Si es un desarrollador de aplicaciones que intenta publicar las aplicaciones de su organización, puede adjuntar dinámicamente aplicaciones MSIX a sesiones de usuario o agregar los paquetes de aplicación a una imagen de máquina virtual personalizada. Consulte Cómo proporcionar la aplicación personalizada con Azure Virtual Desktop para obtener más información.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
 
@@ -216,14 +269,30 @@ Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
      >[!NOTE]
      >El proceso de validación "Review + create" (Revisar y crear) no comprueba si la contraseña cumple los estándares de seguridad o si la arquitectura es correcta, por lo que deberá confirmar si hay algún problema con cualquiera de estos aspectos.
 
-5. Revise la información sobre la implementación para asegurarse de que todo es correcto. Seleccione **Crear** cuando haya terminado. Esta acción inicia el proceso de implementación, que crea los objetos siguientes:
+5. Revise la información sobre la implementación para asegurarse de que todo es correcto. Seleccione **Crear** cuando haya terminado. 
 
-     - El nuevo grupo de hosts.
-     - Un grupo de aplicaciones de escritorio.
-     - Un área de trabajo, si decidió crearla.
-     - Si ha decidido registrar el grupo de aplicaciones de escritorio, el registro se habrá completado.
-     - Máquinas virtuales, si ha decidido crearlas, que se unen al dominio y se registran en el nuevo grupo de hosts.
-     - Un vínculo de descarga de una plantilla de Azure Resource Manager basada en la configuración.
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Use el comando [az desktopvirtualization workspace create](/cli/azure/desktopvirtualization#az_desktopvirtualization_workspace_create) para crear el área de trabajo:
+
+```azurecli
+az desktopvirtualization workspace create --name "MyWorkspace" \
+    --resource-group "MyResourceGroup" \
+    --location "MyLocation" \
+    --tags tag1="value1" tag2="value2" \
+    --friendly-name "Friendly name of this workspace" \
+    --description "Description of this workspace" 
+```
+---
+
+Esta acción inicia el proceso de implementación, que crea los objetos siguientes:
+
+- El nuevo grupo de hosts.
+- Un grupo de aplicaciones de escritorio.
+- Un área de trabajo, si decidió crearla.
+- Si ha decidido registrar el grupo de aplicaciones de escritorio, el registro se habrá completado.
+- Máquinas virtuales, si ha decidido crearlas, que se unen al dominio y se registran en el nuevo grupo de hosts.
+- Un vínculo de descarga de una plantilla de administración de recursos de Azure basada en la configuración.
 
 Y ya está.
 

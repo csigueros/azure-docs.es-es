@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 854931273ffebd653615a44dbfa9ce1b846655c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 852a842c9b58a76742d0b482e62c49cd91d34f1b
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91333433"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099651"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Agente de autenticación de paso a través de Azure AD: Historial de lanzamiento de versiones 
  
@@ -27,6 +27,14 @@ Estos son algunos temas relacionados:
 
 - [Inicio de sesión del usuario con la autenticación de paso a través de Azure AD](how-to-connect-pta.md) 
 - [Instalación del agente de autenticación de paso a través de Azure AD](how-to-connect-pta-quick-start.md) 
+
+## <a name="1524820"></a>1.5.2482.0
+### <a name="release-status"></a>Estado de la versión: 
+07/07/2021: publicado para descarga
+
+### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+
+- Se han actualizado los paquetes o las bibliotecas a versiones más recientes firmadas mediante SHA-256RSA.
 
 ## <a name="1517420"></a>1.5.1742.0
 ### <a name="release-status"></a>Estado de la versión: 

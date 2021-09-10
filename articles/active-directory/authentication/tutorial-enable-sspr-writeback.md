@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 08/25/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: ff3c052e2e9e745c59947cda43d12b46786fbd62
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: ff38cf413f6e1812c72d410c31088b965af1b3dd
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707590"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123213917"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
@@ -48,11 +48,11 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [complete el tutorial anterior para habilitar SSPR de Azure AD](tutorial-enable-sspr.md).
 * Un entorno de AD DS local existente configurado con una versión actual de Azure AD Connect.
     * Si es necesario, configure Azure AD Connect con la configuración [rápida](../hybrid/how-to-connect-install-express.md) o [personalizada](../hybrid/how-to-connect-install-custom.md).
-    * Para usar la escritura diferida de contraseñas, los controladores de dominio deben ser Windows Server 2012 o posteriores.
+    * Para usar la escritura diferida de contraseñas, los controladores de dominio deben ser Windows Server 2016 o posteriores.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configuración de los permisos de cuenta para Azure AD Connect
 
-Azure AD Connect le permite sincronizar usuarios, grupos y credenciales entre un entorno de AD DS local y Azure AD. Normalmente, se instala Azure AD Connect en un equipo con Windows Server 2012 o posterior que esté unido al dominio de AD DS local.
+Azure AD Connect le permite sincronizar usuarios, grupos y credenciales entre un entorno de AD DS local y Azure AD. Normalmente, se instala Azure AD Connect en un equipo con Windows Server 2016 o posterior que esté unido al dominio de AD DS local.
 
 Para trabajar correctamente con la escritura diferida del autoservicio de restablecimiento de contraseña, la cuenta especificada en Azure AD Connect debe tener establecidos los permisos y las opciones correspondientes. Si no está seguro de qué cuenta está actualmente en uso, abra Azure AD Connect y seleccione la opción **Ver la configuración actual**. La cuenta a la que necesita agregar los permisos se muestra en **Directorios sincronizados**. Se deben establecer los siguientes permisos y opciones en la cuenta:
 

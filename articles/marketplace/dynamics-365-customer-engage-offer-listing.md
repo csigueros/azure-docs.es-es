@@ -1,18 +1,18 @@
 ---
-title: Configuración de los detalles de la descripción de una oferta de Dynamics 365 for Customer Engagement & Power Apps en Microsoft AppSource (Azure Marketplace)
-description: Configure los detalles de la descripción de una oferta de Dynamics 365 for Customer Engagement & Power Apps en Microsoft AppSource (Azure Marketplace).
+title: Configuración de los detalles de la descripción de una oferta de Dynamics 365 for Customer Engagement y Power Apps en Microsoft AppSource (Azure Marketplace)
+description: Configure los detalles de la descripción de una oferta de Dynamics 365 for Customer Engagement y Power Apps en Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/20/2021
-ms.openlocfilehash: f6769d693eb19943ce8412d045a76382c4d98fb8
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: da0401a8733fc8ecb30b36f748ed87ba380df556
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110612667"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867431"
 ---
 # <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-listing-details"></a>Configuración de los detalles de la descripción de una oferta de Dynamics 365 for Customer Engagement & Power Apps
 

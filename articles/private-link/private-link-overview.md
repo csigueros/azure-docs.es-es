@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/15/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 0b420b55800d1ef17f3b01d291bec3073b236e3c
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 3fc3dbbe453ebddd03f70082ff6974fd830b380c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112200139"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305831"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -78,3 +78,4 @@ Para ver el Acuerdo de Nivel de Servicio, consulte [SLA para Azure Private Link]
 
 - [Inicio rápido: Creación de un punto de conexión privado mediante Azure Portal](create-private-endpoint-portal.md)
 - [Inicio rápido: Creación de un servicio de Private Link mediante Azure Portal](create-private-link-service-portal.md)
+- [Módulo de aprendizaje: Introducción a Azure Private Link](/learn/modules/introduction-azure-private-link/)

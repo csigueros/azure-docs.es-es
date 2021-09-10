@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 05d617b39160a55a15eb3e74b6b515ce053baf6c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 2a8f8c4a1cda62c4267f7a0f38f4dc9f9654404f
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113769061"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272464"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -356,13 +356,11 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Detiene la replicación de la máquina virtual de AWS.
     - Quita la máquina virtual de AWS del recuento de **Replicando servidores** en Azure Migrate: Server Migration.
     - Limpia la información de estado de replicación de la máquina virtual.
-2. Instale el agente de [Linux](../virtual-machines/extensions/agent-linux.md) en las máquinas migradas. El agente de Windows de la máquina virtual de Azure se instala previamente durante el proceso de migración.
-3. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
-4. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
-5. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
-6. Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure.
-
-
+1. Compruebe y [solucione los problemas de activación de Windows en la máquina virtual de Azure](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).
+1. Realice los ajustes de la aplicación posteriores a la migración, como actualizar los nombres de host, las cadenas de conexión de la base de datos y las configuraciones del servidor web.
+1. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
+1. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
+1. Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure.
 
 
 ## <a name="post-migration-best-practices"></a>Procedimientos recomendados después de la migración

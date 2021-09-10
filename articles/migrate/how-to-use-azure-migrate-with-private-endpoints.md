@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: fad5a625de4b39163c893d1fb35efc68261d0145
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 10f46f5788cd2f17be4b46c2f655fb4e05fed1d9
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179426"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965950"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>Uso de Azure Migrate con puntos de conexión privados
 
@@ -101,7 +101,7 @@ En esta sección se describe cómo configurar el dispositivo de Azure Migrate. A
 La herramienta Azure Migrate: Discovery and assessment usa un dispositivo de Azure Migrate ligero. El dispositivo de Azure Migrate detecta los servidores y envía los metadatos de configuración y rendimiento a Azure Migrate.
 
 > [!Note]
-> La opción de implementar un dispositivo mediante una plantilla (OVA para servidores en el entorno de VMware y el entorno de Hyper-V VHD) no se admite para los proyectos de Azure Migrate con conectividad de punto de conexión privado.
+> Si ha implementado un dispositivo mediante una plantilla (OVA para servidores en un entorno de VMware y VHD para un entorno de Hyper-V), puede usar el mismo dispositivo y registrarlo con un proyecto de Azure Migrate con conectividad de punto de conexión privado.
 
 Para configurar el dispositivo:
   1. Descargue el archivo comprimido que contiene el script del instalador desde el portal.
@@ -121,7 +121,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2160648) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2160648) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > El mismo script se puede usar para configurar un dispositivo con conectividad de punto de conexión privado para cualquiera de los escenarios elegidos, como VMware, Hyper-V, físico u otro para implementar un dispositivo con la configuración deseada.

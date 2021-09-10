@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 34a7a987de10ec727db0ed5a4e29c679c4dc1416
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6d18338bcaa36b499ecfd3787848e6269a738c0e
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735442"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031869"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Aspectos técnicos de la distribución de datos global con Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -86,3 +86,6 @@ A continuación, aprenda a configurar la distribución global mediante los sigui
 
 * [Agregar o eliminar regiones de una cuenta de base de datos](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Procedimientos de creación de una directiva de resolución de conflictos personalizada](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

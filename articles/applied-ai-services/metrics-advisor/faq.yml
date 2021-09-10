@@ -11,30 +11,15 @@ metadata:
   ms.topic: conceptual
   ms.date: 11/05/2020
   ms.author: mbullwin
-  ms.openlocfilehash: 9c09297f587fcac65346abddc1b06a69a8e58e6e
-  ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+  ms.openlocfilehash: fb5659f5432225c6b6e33dd8480377763697190f
+  ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/15/2021
-  ms.locfileid: "114342288"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123029852"
 title: Preguntas más frecuentes sobre Metrics Advisor
 summary: ''
 sections:
-- name: General
-  questions:
-  - question: >
-      ¿Por qué no puedo crear el recurso? El "plan de tarifa" no está disponible y dice "Ya ha creado 1 S0 para esta suscripción".
-    answer: >
-      :::image type="content" source="media/pricing.png" alt-text="Mensaje cuando ya existe un recurso F0":::
-
-
-      Durante la versión preliminar pública, solo se puede crear una instancia de Metrics Advisor por región en una suscripción.
-
-
-      Si ya tiene una instancia creada en la misma región con la misma suscripción, puede probar una región diferente o una suscripción diferente para crear una nueva instancia. También puede eliminar una instancia existente para crear una nueva.
-
-
-      Si ya ha eliminado la instancia existente pero sigue apareciendo el error, espere unos veinte minutos después de eliminar el recurso antes de crear una nueva instancia.
 - name: Conceptos básicos
   questions:
   - question: >
@@ -64,6 +49,9 @@ sections:
 
       | Superior a 31 días | 48 años de datos |
   - question: >
+      ¿Qué datos procesa Metrics Advisor y cómo se conservan los datos?
+    answer: "- Metrics Advisor procesa datos de series temporal que se recopilan del origen de datos de un cliente, los datos históricos se usan para la selección del modelo y determinan el límite de datos esperado. \n- Los datos de las series temporales del cliente y los resultados de la inferencia se almacenarán en el servicio. Metrics Advisor no almacena ni procesa los datos del cliente fuera de la región donde el cliente implementa la instancia de servicio.\n"
+  - question: >
       ¿Por qué Metrics Advisor no detecta las anomalías de los datos históricos?
     answer: >
       Metrics Advisor está diseñado para detectar datos de streaming en vivo. Existe una limitación de la duración máxima de los datos históricos que el servicio analizará y en la que ejecutará la detección de anomalías. Esto significa que solo los puntos de datos después de una marca de tiempo más temprana determinada tendrán resultados de detección de anomalías. La marca de tiempo más temprana depende de la granularidad de los datos.
@@ -88,7 +76,7 @@ sections:
 
       | Superior a 31 días | Tiempo de incorporación: 24 años   |
   - question: >
-      Cuáles son la retención de datos y las limitaciones de Metrics Advisor.
+      ¿Cuáles son la retención de datos y las limitaciones de Metrics Advisor?
     answer: "1. Retención de datos.\nMetrics Advisor mantendrá como máximo **10 000** intervalos de tiempo (¿qué es un intervalo?) contando hacia delante desde la marca de tiempo actual, con independencia de que haya datos disponibles o no. Se eliminarán los datos fuera del intervalo.  Asignación de retención de datos para el recuento de días para una granularidad de métricas diferente.\n\n| Grranularidad (min) |    Retención (día) |\n|------------------| ------------------|\n|  1 | 6,94 |\n|  5 | 34,72|\n| 15 | 104,1|\n| 60(=hourly) | 416,67 |\n| 1440(=daily)|10000,00|\n\n2. Limitación del número máximo de series temporales dentro de una métrica.\n\nPueden tener varias dimensiones dentro de una métrica y cada dimensión puede tener varios valores. La combinación de dimensiones máxima para una métrica no debe superar los **100 000**.   \n- Los administradores de recursos y propietarios de fuentes de distribución de datos de Metrics Advisor recibirán una notificación cuando se alcance la limitación del **80 %** en la página de detalles de la fuente de distribución de datos. \n- Si la métrica ha superado la limitación, la fuente de distribución de datos **se pausará** y esperará a que los clientes realicen acciones de seguimiento. Se recomienda dividir la fuente de distribución de datos en varias fuentes de distribución de datos mediante el filtrado. \n\n3. Limitación de los puntos de datos máximos almacenados en una instancia de Metrics Advisor\n\nMetrics Advisor cuenta el total de puntos de datos de todas las fuentes de distribución de datos que se incorporaron a la instancia a partir de la primera fecha de ingesta. El número máximo de puntos de datos que se almacenarán en una instancia de Metrics Advisor es de **2 mil millones**. \n- Los administradores de recursos y todos los propietarios de Metrics Advisor recibirán una notificación cuando se alcance la limitación del **80 %** en la página de la lista de fuente de distribución de datos y en la página de fuente de distribución de datos nueva. \n- Si el total de puntos de datos ha superado la limitación, todas las fuentes de distribución de datos **se pausarán** y también **se bloqueará** la incorporación de nuevas fuentes. Se recomienda eliminar las fuentes de distribución de datos no utilizadas o crear un nuevo recurso de Metrics Advisor dentro de la suscripción.\n"
   - question: >
       ¿Cómo detecto picos y caídas como anomalías?

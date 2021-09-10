@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c71a0ddece95eb7d6a651da9c307912a1a24c800
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 52a1931ec567d03d0beaaf9180532a91ff6bed07
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795606"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259468"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Extensión de servidores de archivos de Windows con Azure File Sync
 
@@ -61,7 +61,7 @@ Tras implementar una cuenta de Azure Storage, cree un recurso compartido de arch
 
     ![Haga clic en el botón para agregar un recurso compartido de archivos](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. Asigne el nombre _afsfileshare_ al nuevo recurso compartido de archivos. Escriba "1" en **Cuota** y seleccione **Crear**. El valor máximo de la cuota es 5 TiB, pero para este tutorial solo se necesita 1 GB.
+1. Asigne el nombre _afsfileshare_ al nuevo recurso compartido de archivos. Escriba "5120" en **Cuota** y seleccione **Crear**. El valor máximo de la cuota es de 100 TiB, pero para este tutorial solo se necesitan 5 GB.
 
     ![Especificar el nombre y la cuota del nuevo recurso compartido de archivos](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -97,7 +97,7 @@ Ya ha creado una cuenta de almacenamiento y un recurso compartido de archivos co
    1. En la pestaña **Discos**, en **Opciones de disco**, deje los valores predeterminados.
    1. En **DISCOS DE DATOS**, seleccione **Crear y adjuntar un nuevo disco**.
 
-   1. Use la configuración predeterminada, salvo en **Tamaño (GiB)** , que se puede cambiar a **1 GB** para este tutorial.
+   1. Use la configuración predeterminada, salvo en **Tamaño (GiB)** , que se puede cambiar a **1 GiB** para este tutorial.
 
       ![Detalles del disco de datos](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -156,7 +156,7 @@ Ya puede agregar el disco de datos a la máquina virtual.
 
     ![Disco de datos](media/storage-sync-files-extend-servers/your-disk.png)
 
-1. Haga clic con el botón derecho en el disco de 1 GB llamado **Msft Virtual Disk** y seleccione **New volume** (Volumen nuevo).
+1. Haga clic con el botón derecho en el disco de 1 GiB llamado **Msft Virtual Disk** y seleccione **New volume** (Volumen nuevo).
 1. Finalice el asistente. Use la configuración predeterminada y tome nota de la letra de unidad asignada.
 1. Seleccione **Crear**.
 1. Seleccione **Cerrar**.

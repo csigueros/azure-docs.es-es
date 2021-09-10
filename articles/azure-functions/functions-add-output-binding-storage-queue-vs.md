@@ -4,12 +4,12 @@ description: Aprenda a agregar un enlace de salida para conectar las funciones d
 ms.date: 05/30/2021
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 28748b7b9d0622d62baeb0de144adcd89c061a72
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 9b5d6e4919db9fcf41eea8704878d10606833658
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790926"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829567"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conexión de las funciones a Azure Storage mediante Visual Studio
 
@@ -49,9 +49,15 @@ Dado que está utilizando un enlace de salida de Queue Storage, debe tener la ex
 
 1. En la consola de, ejecute el siguiente comando [Install-Package](/nuget/tools/ps-ref-install-package) para instalar las extensiones de Azure Storage:
 
-    ```Command
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.6
-    ````
+    # <a name="in-process"></a>[En proceso](#tab/in-process) 
+    ```bash
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage 
+    ```
+    # <a name="isolated-process"></a>[Proceso aislado](#tab/isolated-process)
+    ```bash
+    Install-Package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues -IncludePrerelease
+    ```
+    ---
 
 Ahora podrá agregar el enlace de salida de almacenamiento al proyecto.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 300bde794afbd3c2db4e9049e28979933b19ac79
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a5d3e8aa303527e7baaa465e911d3b869a975cf5
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099971"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224241"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Contentful
 
@@ -39,6 +39,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Contentful admite el inicio de sesión único iniciado por **SP e IDP**.
 * Contentful admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Contentful admite el [aprovisionamiento automático de usuarios](contentful-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -146,6 +147,8 @@ Si esto no funciona, póngase en contacto con el [equipo de soporte técnico de 
 ### <a name="create-contentful-test-user"></a>Creación de un usuario de prueba en Contentful
 
 En esta sección se crea un usuario llamado B.Simon en Contentful. Contentful admite el aprovisionamiento de usuarios Just-In-Time, habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe aún en Contentful, se crea uno tras la autenticación.
+
+Contentful también admite el aprovisionamiento automático de usuarios. [Aquí](./contentful-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

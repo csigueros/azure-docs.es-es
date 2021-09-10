@@ -10,19 +10,19 @@ author: Blackmist
 ms.date: 04/02/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7181a82cd8dcfc74caa860ef0570793582f55b27
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 65445d67f87e5c10aef6f7e8b7e20e0908271a21
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183156"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034606"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Administración de áreas de trabajo de Azure Machine Learning usando la CLI de Azure
 
 En este artículo obtendrá información sobre cómo crear y administrar áreas de trabajo de Azure Machine Learning usando la CLI de Azure. La CLI de Azure proporciona comandos para administrar recursos de Azure y está diseñada para ayudarle a trabajar rápidamente con la plataforma, con especial énfasis en la automatización. La extensión de aprendizaje automático de la CLI proporciona comandos para trabajar con recursos de Azure Machine Learning.
 
 > [!NOTE]
-> En los ejemplos de este artículo se hace referencia a las versiones 1.0 y 2.0 de la CLI. La versión 2.0 de la CLI de Machine Learning se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción.
+> En los ejemplos de este artículo se hace referencia a las versiones 1.0 y (v2) de la CLI. La versión (v2) de la CLI de Machine Learning se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -121,7 +121,7 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# <a name="bring-existing-resources-20-cli---preview"></a>[Incorporación de recursos existentes (CLI 2.0)](#tab/bringexistingresources2)
+# <a name="bring-existing-resources-cli-v2---preview"></a>[Incorporación de recursos existentes (CLI v2): (versión preliminar)](#tab/bringexistingresources2)
 
 Para crear un área de trabajo incorporando recursos asociados existentes mediante la CLI, primero tendrá que definir cómo se debe configurar el área de trabajo en un archivo de configuración.
 
@@ -206,9 +206,9 @@ az ml workspace create -w <workspace-name>
 
 Para obtener más información sobre cómo usar estos comandos, consulte las [páginas de referencia de la CLI](/cli/azure/ml(v1)/workspace).
 
-# <a name="20-cli---preview"></a>[CLI 2.0 (versión preliminar)](#tab/vnetpleconfigurationsv2cli)
+# <a name="cli-v2---preview"></a>[CLI (v2): versión preliminar](#tab/vnetpleconfigurationsv2cli)
 
-Para configurar la conectividad de red privada para su área de trabajo mediante la CLI 2.0, amplíe el archivo de configuración del área de trabajo para que incluya los detalles del recurso de punto de conexión de vínculo privado.
+A fin de configurar la conectividad de red privada para el área de trabajo mediante la CLI (v2), amplíe el archivo de configuración del área de trabajo para que incluya los detalles del recurso de punto de conexión de vínculo privado.
 
 ```yaml workspace.yml
 name: azureml888
@@ -238,16 +238,13 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 ---
 
-> [!IMPORTANT]
-> El uso de un área de trabajo de Azure Machine Learning con un punto de conexión privado no está disponible en las regiones de Azure Government.
-
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Clave administrada por el cliente y área de trabajo de alto impacto de negocio
 
 De manera predeterminada, los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft. En lugar de usar la clave administrada por Microsoft, puede proporcionar su propia clave. Al hacerlo, se crea un conjunto adicional de recursos en la suscripción de Azure para almacenar los datos.
 
 Para obtener más información sobre los recursos que se crean al aportar su propia clave para el cifrado, consulte [Cifrado de datos con Azure Machine Learning](./concept-data-encryption.md#azure-cosmos-db).
 
-En los siguientes comandos de la CLI se proporcionan ejemplos para crear un área de trabajo que usa claves administradas por el cliente para el cifrado, mediante las versiones 1.0 y 2.0 de la CLI.
+En los siguientes comandos de la CLI se proporcionan ejemplos para crear un área de trabajo que usa claves administradas por el cliente para el cifrado, mediante las versiones 1.0 y (v2) de la CLI.
 
 # <a name="10-cli"></a>[CLI 1.0](#tab/vnetpleconfigurationsv1cli)
 
@@ -263,7 +260,7 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# <a name="20-cli---preview"></a>[CLI 2.0 (versión preliminar)](#tab/vnetpleconfigurationsv2cli)
+# <a name="cli-v2---preview"></a>[CLI (v2): versión preliminar](#tab/vnetpleconfigurationsv2cli)
 
 Use el parámetro `customer_managed_key` con los parámetros`key_vault` y `key_uri`, para especificar el Id. de recurso y el URI de la clave dentro del almacén.
 

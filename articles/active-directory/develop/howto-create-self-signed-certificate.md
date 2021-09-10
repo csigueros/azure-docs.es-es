@@ -13,14 +13,14 @@ ms.date: 08/10/2021
 ms.author: ombongifaith
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: scenarios:getting-started
-ms.openlocfilehash: 55076f382b24c8bcf994b452e8c26e5bb6cc23b9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cc084fe1b9df8a4ab4db5b926bb7b44646f17c2
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781251"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123030330"
 ---
-# <a name="how-to-create-a-self-signed-public-certificate-to-authenticate-your-application"></a>Procedimiento: Creación de un certificado público autofirmado para autenticar la aplicación
+# <a name="create-a-self-signed-public-certificate-to-authenticate-your-application"></a>Creación de un certificado público autofirmado para autenticar la aplicación
 
 Azure Active Directory admite dos tipos de autenticación disponibles para las entidades de servicio: **autenticación basada en contraseña** (secreto de aplicación) y **autenticación basada en certificados**. Aunque los secretos de la aplicación se pueden crear fácilmente en Azure Portal, se recomienda que la aplicación use un certificado.
 

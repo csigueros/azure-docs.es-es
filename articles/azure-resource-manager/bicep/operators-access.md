@@ -4,23 +4,97 @@ description: Describe el operador de acceso a recursos y el operador de acceso a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
-ms.openlocfilehash: addf6f552d6c409c77a11d666b8b9ade619ca8f2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: b5eebb9b5dd6d39ae790b8fda7133e94ecd0cdb5
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746619"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224288"
 ---
 # <a name="bicep-accessor-operators"></a>Operadores de descriptores de acceso de Bicep
 
-Los operadores de descriptores de acceso se usan para acceder a recursos secundarios y propiedades en objetos. También puede usar el descriptor de acceso de propiedades para usar algunas funciones.
+Los operadores de descriptor de acceso se usan para acceder a recursos secundarios y propiedades en objetos, y a elementos de una matriz. También puede usar el descriptor de acceso de propiedades para usar algunas funciones.
 
 | Operator | Nombre |
 | ---- | ---- |
+| `[]` | [Descriptor de acceso de índice](#index-accessor) |
+| `.`  | [Descriptor de acceso de funciones](#function-accessor) |
 | `::` | [Descriptor de acceso de recursos anidados](#nested-resource-accessor) |
 | `.`  | [Descriptor de acceso de propiedades](#property-accessor) |
-| `.`  | [Descriptor de acceso de funciones](#function-accessor) |
+
+## <a name="index-accessor"></a>Descriptor de acceso de índice
+
+`array[index]`
+
+`object['index']`
+
+Para obtener un elemento de una matriz, use `[index]` y proporcione un entero para el índice.
+
+En el ejemplo siguiente se obtiene un elemento de una matriz.
+
+```bicep
+var arrayVar = [
+  'Coho'
+  'Contoso'
+  'Fabrikan'
+]
+
+output accessorResult string = arrayVar[1]
+``` 
+
+Salida del ejemplo:
+
+| Nombre | Tipo | Value |
+| ---- | ---- | ---- |
+| accessorResult | string | "Contoso" |
+
+También puede usar el descriptor de acceso de índice para obtener una propiedad de objeto por nombre. Debe usar una cadena para el índice, no un entero. En el ejemplo siguiente se obtiene una propiedad en un objeto.
+
+```bicep
+var environmentSettings = {
+  dev: {
+    name: 'Development'
+  }
+  prod: {
+    name: 'Production'
+  }
+}
+
+output accessorResult string = environmentSettings['dev'].name
+```
+
+Salida del ejemplo:
+
+| Nombre | Tipo | Value |
+| ---- | ---- | ---- |
+| accessorResult | string | "Development" |
+
+## <a name="function-accessor"></a>Descriptor de acceso de funciones
+
+`resourceName.functionName()`
+
+Dos funciones, [getSecret](bicep-functions-resource.md#getsecret) y [list*](bicep-functions-resource.md#list), admiten el operador de descriptor de acceso para llamar a la función. Estas dos funciones son las únicas que admiten el operador de descriptor de acceso.
+
+### <a name="example"></a>Ejemplo
+
+En el ejemplo siguiente se hace referencia a un almacén de claves existente y, a continuación, se usa `getSecret` para pasar un secreto a un módulo.
+
+```bicep
+resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+  name: kvName
+  scope: resourceGroup(subscriptionId, kvResourceGroup )
+}
+
+module sql './sql.bicep' = {
+  name: 'deploySQL'
+  params: {
+    sqlServerName: sqlServerName
+    adminLogin: adminLogin
+    adminPassword: kv.getSecret('vmAdminPassword')
+  }
+}
+```
 
 ## <a name="nested-resource-accessor"></a>Descriptor de acceso de recursos anidados
 
@@ -107,32 +181,6 @@ resource publicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
 
 // Use property accessor to get value
 output ipFqdn string = publicIp.properties.dnsSettings.fqdn
-```
-
-## <a name="function-accessor"></a>Descriptor de acceso de funciones
-
-`resourceName.functionName()`
-
-Dos funciones, [getSecret](bicep-functions-resource.md#getsecret) y [list*](bicep-functions-resource.md#list), admiten el operador de descriptor de acceso para llamar a la función. Estas dos funciones son las únicas que admiten el operador de descriptor de acceso.
-
-### <a name="example"></a>Ejemplo
-
-En el ejemplo siguiente se hace referencia a un almacén de claves existente y, a continuación, se usa `getSecret` para pasar un secreto a un módulo.
-
-```bicep
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
-  name: kvName
-  scope: resourceGroup(subscriptionId, kvResourceGroup )
-}
-
-module sql './sql.bicep' = {
-  name: 'deploySQL'
-  params: {
-    sqlServerName: sqlServerName
-    adminLogin: adminLogin
-    adminPassword: kv.getSecret('vmAdminPassword')
-  }
-}
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

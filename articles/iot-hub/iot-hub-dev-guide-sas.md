@@ -6,7 +6,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 08/24/2021
 ms.custom:
 - amqp
 - mqtt
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: aec64f22cf0af9de9b99c914d972f45f3dfefe1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 032f67427f070818aa6874d33414c857fa6ca39c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728800"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867188"
 ---
 # <a name="control-access-to-iot-hub-using-shared-access-signatures-and-security-tokens"></a>Control del acceso a IoT Hub mediante firmas de acceso compartido y tokens de seguridad
 
@@ -282,6 +282,14 @@ El resultado, que concedería acceso para leer todas las identidades del disposi
 ### <a name="supported-x509-certificates"></a>Certificados X.509 compatibles
 
 Puede usar cualquier certificado X.509 para autenticar un dispositivo en IoT Hub, cargando ya sea una huella digital del certificado o una entidad de certificación (CA) a Azure IoT Azure. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](iot-hub-x509ca-overview.md). Para más información sobre cómo cargar y comprobar una entidad de certificación con su centro de IoT, consulte [Configuración de la seguridad de X.509 en Azure IoT Hub](./tutorial-x509-scripts.md).
+
+### <a name="enforcing-x509-authentication"></a>Aplicación de la autenticación X.509
+
+Para obtener mayor seguridad, se puede configurar un centro de IoT a fin de no permitir la autenticación SAS para dispositivos y módulos, y dejar X.509 como la única opción de autenticación aceptada. Actualmente esta característica no está disponible en Azure Portal. Para configurarla, establezca `disableDeviceSAS` y `disableModuleSAS` en `true` en las propiedades del recurso de IoT Hub:
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --set properties.disableDeviceSAS=true properties.disableModuleSAS=true
+```
 
 ### <a name="use-sas-tokens-as-a-device"></a>Uso de tokens de SAS como dispositivo
 

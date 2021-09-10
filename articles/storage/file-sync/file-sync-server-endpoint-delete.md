@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 6/01/2021
 ms.author: mtalasila
 ms.subservice: files
-ms.openlocfilehash: 597a3dfce5d647359b23e732f74dc6949078c000
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: b608100ab9ec1706e65cd4930b00ef163218f64d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113799214"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258696"
 ---
 # <a name="deprovision-your-azure-file-sync-server-endpoint"></a>Desaprovisionamiento de un punto de conexión de servidor de Azure File Sync
 
@@ -57,13 +57,13 @@ Para ello, abra el **Programador de tareas** en el servidor local, vaya a **Micr
 
 Para asegurarse de que los datos más recientes están en la nube, debe esperar a que se complete la sesión de carga de sincronización final. 
 
-Para comprobar el estado de la sesión de sincronización, abra el **Visor de eventos** en el servidor local. Vaya al registro de eventos de telemetría **(Applications and Services\Microsoft\FileSync\Agent)** . Asegúrese de que ve un evento 9102 con "sync direction" = upload, "HResult" = 0 y "PerItemErrorCount" = 0 que se produjo después de iniciar manualmente una sesión de carga de VSS.
+Para comprobar el estado de la sesión de sincronización, abra el **Visor de eventos** en el servidor local. Vaya al registro de eventos de telemetría **(Applications and Services\Microsoft\FileSync\Agent)** . Asegúrese de que ve un evento 9102 con "sync direction" = upload, "HResult" = 0 y "PerItemErrorCount" = 0 que se ha producido después de iniciar manualmente una sesión de carga de VSS.
 
 ![Captura de pantalla de la comprobación de si se ha completado una sesión de sincronización final.](media/file-sync-server-endpoint-delete/event-viewer.png)
 
-Si "PerItemErrorCount" es mayor que 0, los archivos no se pueden sincronizar. Use **FileSyncErrorsReport.ps1** para ver los archivos que no se pueden sincronizar. Este script de PowerShell normalmente se encuentra en esta ruta de acceso en un servidor con un agente de Azure File Sync instalado: **C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**.
+Si "PerItemErrorCount" es mayor que 0, los archivos no se pueden sincronizar. Use **FileSyncErrorsReport.ps1** para ver los archivos que no se pueden sincronizar. Este script de PowerShell normalmente se encuentra en esta ruta en un servidor con un agente de Azure File Sync instalado: **C:\Archivos de programa\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**.
 
-Si estos archivos no son importantes, puede eliminar el punto de conexión de servidor. Si son importantes, corrija sus errores y espere a que se produzca otro evento 9102 con "sync direction" = upload, "HResult" = 0 y "PerItemErrorCount" = 0 antes de eliminar el punto de conexión de servidor.
+Si estos archivos no son importantes, puede eliminar el punto de conexión de servidor. Si son importantes, corrija sus errores y espere a que se produzca otro evento 9102 con "sync direction" = upload, "HResult" = 0 y "PerItemErrorCount" = 0 antes de eliminar el punto de conexión de servidor.
 
 ## <a name="scenario-2-you-intend-to-delete-your-server-endpoint-and-stop-using-this-specific-azure-file-share"></a>Escenario 2: tiene previsto eliminar el punto de conexión de servidor y dejar de usar este recurso compartido de archivos de Azure específico
 
@@ -81,7 +81,7 @@ Antes de recuperar los archivos, asegúrese de que tiene suficiente espacio disp
 
 Use el cmdlet **Invoke-StorageSyncFileRecall** de PowerShell y especifique el parámetro **SyncGroupName** para recuperar todos los archivos. 
 ```powershell
-Invoke-StorageSyncFileRecall  -SyncGroupName “samplesyncgroupname”
+Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname"
 ```
 Una vez que este cmdlet haya terminado de ejecutarse, puede pasar a la sección siguiente.
 
@@ -102,13 +102,13 @@ Este paso puede tardar un tiempo en completarse.
 ### <a name="wait-for-a-final-sync-session-to-complete"></a>Espera hasta que se complete una sesión de sincronización final
 Para asegurarse de que los datos están actualizados en el servidor local, debe esperar a que se complete una sesión de carga de sincronización final. 
 
-Para comprobarlo, vaya a **Visor de eventos** en el servidor local. Vaya al registro de eventos de telemetría **(Applications and Services\Microsoft\FileSync\Agent)** . Asegúrese de que ve un evento 9102 con "sync direction" = download, "HResult" = 0 y "PerItemErrorCount" = 0 que se produjo una vez finalizada la detección de cambios en la nube de fecha y hora.
+Para comprobarlo, vaya a **Visor de eventos** en el servidor local. Vaya al registro de eventos de telemetría **(Applications and Services\Microsoft\FileSync\Agent)** . Asegúrese de que ve un evento 9102 con "sync direction" = download, "HResult" = 0 y "PerItemErrorCount" = 0 que se ha producido después de finalizar la detección de cambios de fecha y hora en la nube.
 
 ![Captura de pantalla de la comprobación de si se ha completado una sesión de sincronización final.](media/file-sync-server-endpoint-delete/event-viewer.png)
 
-Si "PerItemErrorCount" es mayor que 0, los archivos no se pueden sincronizar. Use **FileSyncErrorsReport.ps1** para ver los archivos que no se pueden sincronizar. Este script de PowerShell normalmente se encuentra en esta ruta de acceso en un servidor con un agente de Azure File Sync instalado: **C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**.
+Si "PerItemErrorCount" es mayor que 0, los archivos no se pueden sincronizar. Use **FileSyncErrorsReport.ps1** para ver los archivos que no se pueden sincronizar. Este script de PowerShell normalmente se encuentra en esta ruta en un servidor con un agente de Azure File Sync instalado: **C:\Archivos de programa\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**.
 
-Si estos archivos no son importantes, puede eliminar el punto de conexión de servidor. Si son importantes, corrija sus errores y espere a que se produzca otro evento 9102 con "sync direction" = download, "HResult" = 0 y "PerItemErrorCount" = 0 antes de eliminar el punto de conexión de servidor.
+Si estos archivos no son importantes, puede eliminar el punto de conexión de servidor. Si son importantes, corrija sus errores y espere a que se produzca otro evento 9102 con "sync direction" = download, "HResult" = 0 y "PerItemErrorCount" = 0 antes de eliminar el punto de conexión de servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Modificación de la topología de Azure File Sync](./file-sync-modify-sync-topology.md)

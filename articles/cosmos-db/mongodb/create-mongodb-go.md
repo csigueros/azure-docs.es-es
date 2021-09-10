@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 04/24/2020
-ms.openlocfilehash: ca06f5a106da38e724325f3de66d76c1c8f4f4b0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: f474ac853c9196d36af6aa832b0c455db6a08b73
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788156"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032292"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Conexión de una aplicación Go a la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -453,6 +453,10 @@ El elemento `todo` que acaba de eliminar no debe estar presente:
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha aprendido a crear una cuenta de la API de Azure Cosmos DB para MongoDB mediante Azure Cloud Shell, y a crear y ejecutar una aplicación Go de línea de comandos para administrar elementos `todo`. Ahora puede importar datos adicionales en la cuenta de Azure Cosmos DB.
+
+¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, obtenga información sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+* Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
 
 > [!div class="nextstepaction"]
 > [Importación de datos de MongoDB a Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

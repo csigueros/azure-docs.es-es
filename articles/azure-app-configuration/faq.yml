@@ -9,12 +9,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-  ms.openlocfilehash: 2c7df8ee7ea6947165157e43f79ecca7afd8a118
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 6dd7cff8408d89cfca117241ebb434f6976a32fb
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114447546"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123112047"
 title: Preguntas frecuentes de Azure App Configuration
 summary: En este artículo se responde a preguntas frecuentes sobre Azure App Configuration.
 sections:
@@ -85,28 +85,7 @@ sections:
 
       No se puede degradar un almacén del nivel Estándar al nivel Gratis. Puede crear un nuevo almacén en el nivel Gratis y luego importar los datos de configuración en ese almacén.
   - question: ¿Qué nivel de App Configuration debo usar?
-    answer: >
-      Ambos niveles de App Configuration ofrecen funcionalidad básica, como opciones de configuración, marcas de características, referencias de Key Vault, operaciones de administración básicas, métricas y registros.
-
-
-      A continuación se indican algunas consideraciones para elegir un nivel.
-
-
-      - **Recursos por suscripción**: Un recurso se compone de un único almacén de configuración. Cada suscripción está limitada a un almacén de configuración en el nivel Gratis. Las suscripciones pueden tener un número ilimitado de almacenes de configuración en el nivel Estándar.
-
-      - **Almacenamiento por recurso**: En el nivel Gratis, cada almacén de configuración está limitado a 10 MB de almacenamiento. En el nivel Estándar, cada almacén de configuración puede usar hasta 1 GB de almacenamiento.
-
-      - **Historial de revisiones**: App Configuration almacena un historial de todos los cambios realizados en las claves. En el nivel Gratis, el historial se almacena durante siete días. En el nivel Estándar, el historial se almacena durante 30 días.
-
-      - **Cuota de solicitudes**: los almacenes del nivel Gratis se limitan a 1 000 solicitudes al día. Cuando un almacén alcanza 1000 solicitudes, devuelve el código de estado HTTP 429 para todas las solicitudes hasta medianoche UTC.
-
-          Los almacenes de nivel Estándar están limitados a 20 000 solicitudes por hora. Cuando se agota la cuota, se devuelve el código de estado HTTP 429 para todas las solicitudes hasta el final de la hora.
-
-      - **Contrato de nivel de servicio**: El nivel Estándar tiene un contrato de nivel de servicio del 99,9 % de disponibilidad. El nivel Gratis no tiene un contrato de nivel de servicio.
-
-      - **Características de seguridad**: ambos niveles proporcionan funcionalidad de seguridad básica, lo que incluye el cifrado con claves administradas por Microsoft, la autenticación mediante HMAC o Azure Active Directory, la compatibilidad con RBAC de Azure, la identidad administrada y las etiquetas de servicio. El nivel Estándar ofrece una funcionalidad de seguridad más avanzada, incluida la compatibilidad con Private Link y el cifrado con claves administradas por el cliente.
-
-      - **Costo**: Los almacenes del nivel Estándar tienen un cargo de uso diario. Las primeras 200 000 solicitudes de cada día se incluyen en el cargo diario. También hay un cargo por uso por encima del límite por las solicitudes más allá de la asignación diaria. El uso de un almacén del nivel Gratis no supone ningún costo.
+    answer: "Ambos niveles de App Configuration ofrecen funcionalidad básica, como opciones de configuración, marcas de características, referencias de Key Vault, operaciones de administración básicas, métricas y registros.\n\nA continuación se indican algunas consideraciones para elegir un nivel.\n\n- **Recursos por suscripción**: Un recurso se compone de un único almacén de configuración. Cada suscripción está limitada a un almacén de configuración en el nivel Gratis. Las suscripciones pueden tener un número ilimitado de almacenes de configuración en el nivel Estándar.\n- **Almacenamiento por recurso**: En el nivel Gratis, cada almacén de configuración está limitado a 10 MB de almacenamiento. En el nivel Estándar, cada almacén de configuración puede usar hasta 1 GB de almacenamiento.\n- **Historial de revisiones**: App Configuration almacena un historial de todos los cambios realizados en las claves. En el nivel Gratis, el historial se almacena durante siete días. En el nivel Estándar, el historial se almacena durante 30 días.\n- **Cuota de solicitudes**: los almacenes del nivel Gratis se limitan a 1 000 solicitudes al día. Cuando un almacén alcanza 1000 solicitudes, devuelve el código de estado HTTP 429 para todas las solicitudes hasta medianoche UTC.\n\n    Los almacenes del nivel estándar están limitados a 30 000 solicitudes por hora. Cuando se agota la cuota por hora, las solicitudes pueden devolver el código de estado HTTP 429, que indica que hay demasiadas solicitudes hasta que finalice la hora. Cuantas más solicitudes se envíen por encima de la cuota, mayor será el porcentaje de ella que podrían devolver el código de estado 429. \n\n- **Contrato de nivel de servicio**: El nivel Estándar tiene un contrato de nivel de servicio del 99,9 % de disponibilidad. El nivel Gratis no tiene un contrato de nivel de servicio.\n- **Características de seguridad**: ambos niveles proporcionan funcionalidad de seguridad básica, lo que incluye el cifrado con claves administradas por Microsoft, la autenticación mediante HMAC o Azure Active Directory, la compatibilidad con RBAC de Azure, la identidad administrada y las etiquetas de servicio. El nivel Estándar ofrece una funcionalidad de seguridad más avanzada, incluida la compatibilidad con Private Link y el cifrado con claves administradas por el cliente.\n- **Costo**: Los almacenes del nivel Estándar tienen un cargo de uso diario. Las primeras 200 000 solicitudes de cada día se incluyen en el cargo diario. También hay un cargo por uso por encima del límite por las solicitudes más allá de la asignación diaria. El uso de un almacén del nivel Gratis no supone ningún costo.\n"
   - question: ¿Puedo actualizar un almacén desde el nivel Gratis al nivel Estándar? ¿Puedo degradar un almacén del nivel Estándar al nivel Gratis?
     answer: >
       Puede actualizar desde el nivel Gratis al nivel Estándar en cualquier momento.
@@ -117,13 +96,38 @@ sections:
     answer: >
       Los datos de cliente almacenados en App Configuration residen en la región en la que se creó el almacén de App Configuration del cliente. Esto se aplica a todas las regiones disponibles. Los clientes y los usuarios finales pueden mover, copiar o acceder a los datos de cliente desde cualquier ubicación global.
   - question: ¿Cómo App Configuration garantiza una alta disponibilidad de los datos?
-    answer: "\nAzure App Configuration admite Azure Availability Zones para proteger la aplicación y los datos frente a errores de un solo centro de datos.Todas las regiones habilitadas para la zona de disponibilidad constan de un mínimo de tres zonas de disponibilidad, donde cada una es un centro de datos físicamente independiente.Para lograr resistencia, esta compatibilidad de App Configuration está habilitada para todos los clientes sin costo adicional. Las regiones en las que App Configuration tiene Availability Zones habilitado son Este de EE.  UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Centro de Francia, Sur de Reino Unido, Sudeste Asiático y Japón Oriental. Para más información, vea  [Regiones y zonas de disponibilidad en Azure](../availability-zones/az-overview.md).\n\n \n"
+    answer: >
+      Azure App Configuration admite Azure Availability Zones para proteger la aplicación y los datos frente a errores de un solo centro de datos.*Todas las regiones compatibles con las zonas de disponibilidad constan de un mínimo de tres zonas de disponibilidad, donde cada una es un centro de datos físicamente independiente.Para lograr resistencia, esta compatibilidad de App Configuration está habilitada para todos los clientes sin costo adicional. A continuación, se muestran las regiones en las que App Configuration tiene habilitada la compatibilidad con las zonas de disponibilidad. Para más información, vea  [Regiones y zonas de disponibilidad en Azure](../availability-zones/az-overview.md).
+
+      - Centro de EE. UU.
+
+      - Este de EE. UU.
+
+      - Este de EE. UU. 2
+
+      - Oeste de EE. UU. 2
+
+      - Centro de Canadá
+
+      - Centro de Francia
+
+      - Centro-oeste de Alemania
+
+      - Norte de Europa
+
+      - Sur de Reino Unido
+
+      - Oeste de Europa
+
+      - Sudeste de Asia
+
+      - Japón Oriental
   - question: ¿Hay algún límite para el número de solicitudes que se realiza a App Configuration?
     answer: >
-      Los almacenes de configuración del nivel Gratis están limitados a 1000 solicitudes al día. Los almacenes de configuración del nivel Estándar pueden experimentar una limitación temporal cuando la tasa de solicitudes supera las 20 000 solicitudes por hora.
+      Los almacenes de configuración del nivel Gratis están limitados a 1000 solicitudes al día. Los almacenes de configuración del nivel estándar pueden experimentar una limitación temporal si la velocidad supera las 30 000 solicitudes por hora.
 
 
-      Cuando un almacén alcanza su límite, devolverá el código de estado HTTP 429 para todas las solicitudes realizadas hasta que expire el período de tiempo. El encabezado `retry-after-ms` de la respuesta proporciona un tiempo de espera sugerido (en milisegundos) antes de volver a intentar la solicitud.
+      Cuando un almacén alcanza su límite en el nivel estándar, puede devolver el código de estado HTTP 429 con algunas de las solicitudes realizadas hasta que termine la hora. El encabezado `retry-after-ms` de la respuesta proporciona un tiempo de espera sugerido (en milisegundos) antes de volver a intentar la solicitud.
 
 
       Si la aplicación recibe periódicamente respuestas de código de estado HTTP 429, considere la posibilidad de rediseñarla para reducir el número de solicitudes realizadas. Para obtener más información, consulte [Reducción de las solicitudes realizadas a App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
@@ -144,10 +148,16 @@ sections:
       Compruebe el cuerpo de la respuesta 429 para conocer el motivo específico por el que se produjo un error en la solicitud.
   - question: ¿Por qué no puedo crear un almacén de App Configuration con el mismo nombre que el que acabo de eliminar?
     answer: >
-      Cuando se elimina un App Configuration de nivel estándar, el nombre se reserva durante tres días después de la eliminación. Se puede volver a crear un almacén con el mismo nombre antes de que haya transcurrido el periodo de reserva, pero debe estar en la misma suscripción, grupo de recursos y región que el almacén original. Si se eliminó el grupo de recursos que contenía el almacén, será preciso volver a crearlo en la misma suscripción antes de volver a crear el almacén dentro de él.
+      Cuando se elimina un almacén de App Configuration de nivel estándar, el nombre se reserva durante tres días. Se puede volver a crear un almacén con el mismo nombre antes de que haya transcurrido el periodo de reserva, pero debe estar en la misma suscripción, grupo de recursos y región que el almacén original. Si se eliminó el grupo de recursos que contenía el almacén, será preciso volver a crearlo en la misma suscripción antes de volver a crear el almacén dentro de él.
+
+
+      El almacén de App Configuration no se puede crear en otro grupo de recursos o en otra suscripción hasta que haya transcurrido el período de retención. Sin embargo, el recurso puede volver a crearse en la suscripción o el grupo de recursos originales y transferirse después a una nueva suscripción o a un nuevo grupo de recursos siguiendo [estas instrucciones](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal).
+
+
+      Actualmente, solo se puede volver a crear un almacén de App Configuration durante el período de retención con la CLI de Azure utilizando el comando `az appconfig create` que se indica [aquí](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
   - question: ¿Cómo se puede restaurar un almacén de App Configuration que se ha eliminado por error?
     answer: >
-      Los almacenes App Configuration de nivel estándar se pueden recuperar a los tres días de haberse eliminado. Para recuperar un almacén de App Configuration eliminado por error, póngase en contacto con el Soporte técnico de Microsoft.
+      Los almacenes de App Configuration del nivel estándar pueden recuperarse durante los tres días siguientes a su eliminación. Para recuperar un almacén de App Configuration eliminado por error, póngase en contacto con el Soporte técnico de Microsoft.
   - question: ¿Cómo puedo recibir anuncios sobre nuevas versiones y otra información relacionada con App Configuration?
     answer: >
       Suscríbase a nuestro [repositorio de anuncios de GitHub](https://github.com/Azure/AppConfiguration-Announcements).

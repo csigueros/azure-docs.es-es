@@ -10,14 +10,17 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 759bd7fb48134d2e0da4514a143d3ffb5d5336bb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ac879292086b56003ac934a3f3005b2a8ecc0516
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953775"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112578"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
+
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la Ventaja híbrida de Azure para Windows Server para implementar nuevas máquinas virtuales con el SO Windows. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Cada una de las licencias de dos procesadores o cada uno de los conjuntos de licencias de 16 núcleos tienen derecho a dos instancias de hasta ocho núcleos o a una instancia de hasta 16 núcleos. La Ventaja híbrida de Azure para licencias de Standard Edition solo podrá usarse una vez en el entorno local o en Azure. Las ventajas de Datacenter Edition permiten el uso simultáneo de forma local y en Azure.
@@ -68,13 +71,15 @@ az vm create \
 ```
 
 ### <a name="template"></a>Plantilla
-En las plantillas de Resource Manager, se debe especificar un parámetro `licenseType` adicional. Puede obtener más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
+En las plantillas de Resource Manager, se debe especificar un parámetro `licenseType` adicional. En [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md), puede encontrar más información al respecto.
+
 ```json
 "properties": {
     "licenseType": "Windows_Server",
     "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
     }
+}    
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Conversión de una máquina virtual existente con la Ventaja híbrida de Azure para Windows Server
@@ -146,27 +151,39 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Wind
 > Cuando se cambia el tipo de licencia de una máquina virtual, el sistema no se reinicia ni se interrumpe el servicio. Se trata simplemente de una marca de licencia de metadatos.
 >
 
-## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Enumeración de todas las máquinas virtuales con la Ventaja híbrida de Azure para Windows Server en una suscripción
-Para ver y contar todas las máquinas virtuales implementadas con la ventaja para uso híbrido de Azure para Windows Server, puede ejecutar el siguiente comando desde su suscripción:
+## <a name="list-all-vms-and-vmss-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Enumeración de todas las VM y todos los VMSS con la Ventaja híbrida de Azure para Windows Server en una suscripción
+Para ver y contar todas las máquinas virtuales y todos los conjuntos de escalado de máquinas virtuales implementados con la Ventaja híbrida de Azure para Windows Server, puede ejecutar el siguiente comando desde su suscripción:
 
 ### <a name="portal"></a>Portal
 En la hoja de recursos de la máquina virtual o de los conjuntos de escalado de máquinas virtuales, puede ver una lista de todas las máquinas virtuales y el tipo de licencia si configura la columna de la tabla de forma que incluya "Ventaja híbrida de Azure". El valor de la máquina virtual puede estar en los siguientes estados: "Habilitado", "No habilitado" o "No compatible".
 
 ### <a name="powershell"></a>PowerShell
+Para las máquinas virtuales:
 ```powershell
-$vms = Get-AzVM
-$vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
+Get-AzVM | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
+```
+
+Para los conjuntos de escalado de máquinas virtuales:
+```powershell
+Get-AzVmss | Select * -ExpandProperty VirtualMachineProfile | ? LicenseType -eq 'Windows_Server' | select ResourceGroupName, Name, LicenseType
 ```
 
 ### <a name="cli"></a>CLI
+Para las máquinas virtuales:
 ```azurecli
 az vm list --query "[?licenseType=='Windows_Server']" -o table
+```
+
+Para los conjuntos de escalado de máquinas virtuales:
+```azurecli
+az vmss list --query "[?virtualMachineProfile.licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implementación de un conjunto de escalado de máquinas virtuales con la Ventaja híbrida de Azure para Windows Server
 En las plantillas de Resource Manager del conjunto de escalado de máquinas virtuales, se debe especificar un parámetro `licenseType` adicional en la propiedad VirtualMachineProfile. Puede hacerlo durante la creación o actualización del conjunto de escalado a través de la plantilla de ARM, PowerShell, la CLI de Azure o REST.
 
 En el ejemplo siguiente, se usa una plantilla de ARM con una imagen de Windows Server 2016 Datacenter:
+
 ```json
 "virtualMachineProfile": {
     "storageProfile": {
@@ -186,6 +203,7 @@ En el ejemplo siguiente, se usa una plantilla de ARM con una imagen de Windows S
             "adminUsername": "[parameters('adminUsername')]",
             "adminPassword": "[parameters('adminPassword')]"
     }
+}    
 ```
 También puede obtener más información sobre cómo [modificar un conjunto de escalado de máquinas virtuales](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) para conocer más formas de actualizar su conjunto de escalado.
 

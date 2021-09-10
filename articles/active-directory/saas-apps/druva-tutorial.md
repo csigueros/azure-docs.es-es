@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 08/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 858e63272faea2aaf2572a5e97e24ba5858d5bda
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 69649cf16ecfeca81d730ecfc19c8124fdc25579
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111568454"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224184"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Druva
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Druva admite el inicio de sesión único iniciado por **IDP**.
+* Druva admite el [aprovisionamiento automático de usuarios](druva-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -155,6 +156,8 @@ En esta sección, va a permitir que B.Simon acceda a Druva mediante el inicio de
 ### <a name="create-druva-test-user"></a>Creación de un usuario de prueba en Druva
 
 En esta sección, se crea un usuario llamado B.Simon en Druva. Druva admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en Druva, se crea otro después de la autenticación.
+
+Druva también admite el aprovisionamiento automático de usuarios. [Aquí](./druva-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 07/05/2021
 ms.author: mimart
-ms.openlocfilehash: 3d4bb5ff840a2f4ee5c4c33e2cc51dfe440866a7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ebc113e993eadc41c2b1c58c9130908727101a6f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121779875"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227785"
 ---
 Una vez completada la autenticación, los usuarios interactúan con la aplicación, que invoca una API web protegida. La API web usa la autenticación de [token de portador](https://datatracker.ietf.org/doc/html/rfc6750). El token de portador es el token de acceso que la aplicación ha obtenido de Azure Active Directory B2C. La aplicación pasa el token en el encabezado de autorización de la solicitud HTTPS. 
     

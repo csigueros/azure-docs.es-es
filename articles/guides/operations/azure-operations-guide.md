@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: f362bc76a3361b511b08a3822c01730c200d37b1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cfbca90fe4c0053816421ff392f0af93938ff5ee
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957039"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254177"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -348,46 +348,33 @@ El acceso a la máquina virtual por la dirección IP pública se administra util
 
 Por último, al igual que con la administración de cualquier sistema informático, debe proporcionar seguridad para una máquina virtual de Azure en el sistema operativo mediante el uso de credenciales de seguridad y firewalls de software.
 
-## <a name="azure-storage"></a>Azure Storage
-
-Azure Storage es un servicio administrado por Microsoft que proporciona almacenamiento redundante, escalable y duradero. Puede agregar una cuenta de Azure Storage como un recurso a cualquier grupo de recursos mediante cualquier método de implementación de recursos. Azure incluye cuatro tipos de almacenamiento: Blob Storage, File Storage, Table Storage y Queue Storage. Al implementar una cuenta de almacenamiento, están disponibles dos tipos de cuenta, de propósito general y de almacenamiento de blobs. Una cuenta de almacenamiento de propósito general proporciona acceso a los cuatro tipos de almacenamiento. Las cuentas de almacenamiento de blobs son similares a las cuentas de uso general, pero contienen blobs especializados que incluyen niveles de acceso activos e inactivos. Para más información sobre el almacenamiento de blobs, consulte [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md).
-
-Las cuentas de Azure Storage pueden configurarse con distintos niveles de redundancia:
-
-- **Almacenamiento con redundancia local** ofrece una alta disponibilidad al garantizar que se realizan tres copias de todos los datos de forma sincrónica antes de una operación de escritura se considere correcta. Estas copias se almacenan en una única instalación de una única región. Las réplicas residen en dominios de error y dominios de actualización independientes. Esto significa que los datos están disponibles aunque falle un nodo de almacenamiento que contenga los datos o se ponga en modo sin conexión para ser actualizado.
-
-- **Almacenamiento con redundancia geográfica** realiza tres copias sincrónicas de los datos en la región principal para lograr alta disponibilidad y, a continuación, hace tres réplicas de forma asincrónica en una región emparejada para recuperación ante desastres.
-
-- **Almacenamiento con redundancia geográfica con acceso de lectura** es un almacenamiento con redundancia geográfica más la funcionalidad de leer los datos desde la región secundaria. Esta funcionalidad resulta adecuada para una recuperación ante desastres parcial. Si hay un problema con la región principal, puede cambiar la aplicación para que tenga acceso de solo lectura a la región emparejada.
+## <a name="azure-storage"></a>Almacenamiento de Azure
+Azure proporciona Azure Blob Storage, Azure Files, Azure Table Storage y Azure Queue Storage para abordar diversos casos de uso de almacenamiento, todo ello con garantías de alta durabilidad, escalabilidad y redundancia. Los servicios de almacenamiento de Azure se administran mediante una cuenta de almacenamiento de Azure que se puede implementar como un recurso en cualquier grupo de recursos mediante cualquier método de implementación de recursos. 
 
 ### <a name="use-cases"></a>Casos de uso
-
 Cada tipo de almacenamiento tiene un caso de uso diferente.
 
 #### <a name="blob-storage"></a>Blob Storage
+La palabra *blob* es un acrónimo de *objeto binario grande*. Los blobs son archivos no estructurados, como los que se almacenan en el equipo. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
-La palabra *blob* es un acrónimo de *objeto binario grande*. Los blobs son archivos no estructurados, como los que se almacenan en el equipo. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos". Azure Blob Storage también contiene los discos de datos de Azure Virtual Machines.
+Azure Blob Storage admite tres tipos de blobs:
 
-Azure Storage admite tres tipos de blobs:
+- Los **blobs en bloques** se utilizan para contener archivos normales de hasta 195 GiB de tamaño (4 MiB × 50 000 bloques). El caso de uso principal de los blobs en bloques es el almacenamiento de archivos que se leen de principio a fin, como los archivos multimedia o los archivos de imagen de sitios web. Se llaman blobs en bloques porque los archivos mayores de 64 MiB se deben cargar como bloques pequeños. Estos bloques, a continuación, se consolidan (o confirman) en el blob final.
 
-- Los **Blobs en bloques** se utilizan para contener archivos normales de hasta 195 GB de tamaño (4 MB × 50.000 bloques). El caso de uso principal de los blobs en bloques es el almacenamiento de archivos que se leen desde el principio hasta el final, como los archivos multimedia o los archivos de imagen para sitios web. Se denominan blobs en bloques porque los archivos mayores de 64 MB se deben cargar como bloques pequeños. Estos bloques, a continuación, se consolidan (o confirman) en el blob final.
+- Los **blobs en páginas** se utilizan para almacenar archivos de acceso aleatorio de hasta 1 TiB de tamaño. Los blobs en páginas se utilizan principalmente como almacenamiento de copias de seguridad de los discos duros virtuales que proporcionan discos duraderos para Azure Virtual Machines, el servicio de proceso de la IaaS de Azure. Se denominan blobs en páginas porque proporcionan acceso de lectura y escritura aleatoria a páginas de 512 bytes.
 
-- Los **Blobs en páginas** se utilizan para almacenar archivos de acceso aleatorio de hasta 1 TB de tamaño. Los blobs en páginas se utilizan principalmente como almacenamiento de copias de seguridad de los discos duros virtuales que proporcionan discos duraderos para Azure Virtual Machines, el servicio de proceso de la IaaS de Azure. Se denominan blobs en páginas porque proporcionan acceso de lectura y escritura aleatoria a páginas de 512 bytes.
+- Los **blobs en anexos** consisten en bloques, como los blobs en bloques, pero están optimizados para operaciones de anexión. Con frecuencia, estos se utilizan para registrar información de uno o más orígenes en el mismo blob. Por ejemplo, puede escribir todo el registro de seguimiento en el mismo blob en anexos para una aplicación que se ejecuta en varias máquinas virtuales. Un único blob en anexos puede tener hasta 195 GiB.
 
-- Los **blobs en anexos** consisten en bloques, como los blobs en bloques, pero están optimizados para operaciones de anexión. Con frecuencia, estos se utilizan para registrar información de uno o más orígenes en el mismo blob. Por ejemplo, puede escribir todo el registro de seguimiento en el mismo blob en anexos para una aplicación que se ejecuta en varias máquinas virtuales. Un blob en anexos solo puede tener hasta 195 GB.
+Para más información, consulte [¿Qué es Azure Blob Storage?](../../storage/blobs/storage-blobs-overview.md)
 
-Consulte [Introducción a Azure Blob Storage con .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md) para más información.
+#### <a name="azure-files"></a>Azure Files
+Azure Files ofrece recursos compartidos de archivos totalmente administrados en la nube a los que se puede acceder mediante los protocolos SMB (Bloque de mensajes del servidor) o NFS (Network File System) estándar del sector. El servicio admite SMB 3.1.1, SMB 3.0, SMB 2.1 y NFS 4.1. Con Azure Files, puede migrar aplicaciones basadas en recursos compartidos de archivos a Azure con rapidez y sin necesidad de costosas reescrituras. Las aplicaciones que se ejecutan en máquinas virtuales de Azure, en servicios en la nube o desde clientes locales pueden montar un recurso compartido de archivos en la nube.
 
-#### <a name="file-storage"></a>File Storage
+Puesto que un recurso compartido de archivos de Azure expone puntos de conexión SMB o NFS estándar, las aplicaciones que se ejecutan en Azure pueden tener acceso a los datos del recurso compartido mediante las API de E/S del sistema de archivos. Por tanto, los desarrolladores pueden aprovechar el código y los conocimientos que ya tienen para migrar las aplicaciones actuales. Los profesionales de TI pueden usar cmdlets de PowerShell para crear, montar y administrar recursos compartidos de archivos de Azure como parte de la administración de las aplicaciones de Azure.
 
-Azure File Storage es un servicio que ofrece recursos compartidos de archivos en la nube mediante el protocolo estándar Bloque de mensajes del servidor (SMB). El servicio admite SMB 2.1 y SMB 3.0. Con Azure File Storage puede migrar aplicaciones basadas en recursos compartidos de archivos a Azure con rapidez y sin necesidad de costosas reescrituras. Las aplicaciones que se ejecutan en máquinas virtuales de Azure, en servicios en la nube o desde clientes locales pueden montar un recurso compartido de archivos en la nube. Esto es similar a cómo una aplicación de escritorio monta un recurso compartido SMB típico. Cualquier número de componentes de aplicación puede montar y acceder simultáneamente al recurso compartido de Almacenamiento de archivos.
-
-Puesto que un recurso compartido de almacenamiento de archivos es un recurso compartido de archivos SMB estándar, las aplicaciones que se ejecutan en Azure pueden tener acceso a los datos del recurso compartido a través de las API de E/S del sistema de archivos. Por tanto, los desarrolladores pueden aprovechar el código y los conocimientos que ya tienen para migrar las aplicaciones actuales. Los profesionales de TI pueden usar cmdlets de PowerShell para crear, montar y administrar recursos compartidos de almacenamiento de archivos como parte de la administración de las aplicaciones de Azure.
-
-Para más información, vea [Introducción a Azure File Storage en Windows](../../storage/files/storage-how-to-use-files-windows.md) o [Uso de Azure File Storage con Linux](../../storage/files/storage-how-to-use-files-linux.md).
+Para más información, consulte [¿Qué es Azure Files?](../../storage/files/storage-files-introduction.md)
 
 #### <a name="table-storage"></a>Almacenamiento de tablas
-
 Almacenamiento de tablas de Azure es un servicio que almacena datos de NoSQL estructurados en la nube. Table Storage es un almacén de claves y atributos con un diseño sin esquema. Como Table Storage carece de esquema, es fácil adaptar los datos a medida que evolucionan las necesidades de la aplicación. El acceso a los datos es rápido y rentable para todos los tipos de aplicaciones y, además, su coste es muy inferior al del SQL tradicional para volúmenes de datos similares.
 
 Table Storage se puede usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos y cualquier otro tipo de metadatos requerido por el servicio. Puede almacenar cualquier número de entidades en una tabla. Una cuenta de almacenamiento puede contener cualquier número de tablas, hasta el límite de capacidad de la cuenta de almacenamiento.
@@ -395,7 +382,6 @@ Table Storage se puede usar para almacenar conjuntos de datos flexibles, como da
 Para más información, consulte [Introducción a Azure Table Storage](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 #### <a name="queue-storage"></a>Queue Storage
-
 El almacenamiento en cola de Azure proporciona mensajería en la nube entre componentes de aplicaciones. A la hora de diseñar aplicaciones para escala, los componentes de las mismas suelen desacoplarse para poder escalarlos de forma independiente. El almacenamiento en cola ofrece mensajería asincrónica para la comunicación entre los componentes de las aplicaciones, independientemente de si se ejecutan en la nube, en el escritorio, en un servidor local o en un dispositivo móvil. Además, este tipo de almacenamiento admite la administración de tareas asincrónicas y la creación de flujos de trabajo de procesos.
 
 Para más información, consulte [Introducción a Azure Queue Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md).
@@ -418,17 +404,17 @@ Además de implementar individualmente los recursos de Azure, puede usar el mód
 
 #### <a name="command-line-interface-cli"></a>Interfaz de la línea de comandos (CLI)
 
-Al igual que con el módulo de PowerShell, la interfaz de línea de comandos de Azure proporciona automatización de la implementación y puede usarse en sistemas Windows, OS X o Linux. Puede utilizar el comando **storage account create** de la CLI de Azure para crear una cuenta de almacenamiento. Para más información, consulte [Uso de la CLI de Azure con Azure Storage](../../storage/blobs/storage-quickstart-blobs-cli.md)
+Al igual que con el módulo de PowerShell, la interfaz de la línea de comandos de Azure proporciona automatización de la implementación y se puede usar en sistemas Windows, macOS o Linux. Puede utilizar el comando **storage account create** de la CLI de Azure para crear una cuenta de almacenamiento. Para más información, consulte [Uso de la CLI de Azure con Azure Storage](../../storage/blobs/storage-quickstart-blobs-cli.md)
 
 Del mismo modo, puede utilizar la CLI de Azure para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
-### <a name="access-and-security-for-azure-storage"></a>Acceso y seguridad en Azure Storage
+### <a name="access-and-security-for-azure-storage-services"></a>Acceso y seguridad de los servicios de Azure Storage
 
-Hay acceso a Azure Storage de varias maneras, por ejemplo desde Azure Portal durante la creación y operación de máquinas virtuales o desde bibliotecas de cliente de Storage.
+Hay acceso a los servicios de Azure Storage de varias maneras, por ejemplo desde Azure Portal durante la creación y operación de máquinas virtuales o desde las bibliotecas cliente de Storage.
 
 #### <a name="virtual-machine-disks"></a>Discos de máquinas virtuales
 
-Si va a implementar una máquina virtual, también debe crear una cuenta de almacenamiento que contenga el disco de sistema operativo de la máquina virtual y los discos de datos adicionales. Puede seleccionar una cuenta de almacenamiento existente o crear una nueva. Dado que el tamaño máximo de un blob es 1.024 GB, un único disco de máquina virtual tiene un tamaño máximo de 1023 GB. Para configurar un disco de datos más grande, puede asignar varios discos de datos a la máquina virtual y agruparlos como un único disco lógico. Para más información, consulte "Administración de discos de Azure" para [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) y [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
+Si va a implementar una máquina virtual, también debe crear una cuenta de almacenamiento que contenga el disco de sistema operativo de la máquina virtual y los discos de datos adicionales. Puede seleccionar una cuenta de almacenamiento existente o crear una nueva. Dado que el tamaño máximo de un blob es de 1024 GiB, un único disco de máquina virtual tiene un tamaño máximo de 1023 GiB. Para configurar un disco de datos más grande, puede asignar varios discos de datos a la máquina virtual y agruparlos como un único disco lógico. Para más información, consulte "Administración de discos de Azure" para [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) y [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 #### <a name="storage-tools"></a>Herramientas de Azure Storage
 
@@ -436,7 +422,7 @@ El acceso a las cuentas de Azure Storage es posible a través de varios explorad
 
 #### <a name="storage-api"></a>API de Storage
 
-Es posible acceder a los recursos de Azure Storage por medio de cualquier lenguaje que pueda realizar solicitudes HTTP/HTTPS. Además, Azure Storage ofrece bibliotecas de programación para varios lenguajes de amplio uso. Estas bibliotecas simplifican el uso de Azure Storage, ya que controlan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones o los reintentos automáticos. Para más información, consulte [Referencia de la API de REST del servicio Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
+Es posible acceder a los recursos de Azure Storage por medio de cualquier lenguaje que pueda realizar solicitudes HTTP/HTTPS. Además, los servicios de Azure Storage ofrecen bibliotecas de programación para varios lenguajes populares. Estas bibliotecas simplifican el trabajo con la plataforma de Azure Storage, ya que controlan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones o los reintentos automáticos. Para más información, consulte [Referencia de la API de REST del servicio Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 #### <a name="storage-access-keys"></a>Claves de acceso a Azure Storage
 

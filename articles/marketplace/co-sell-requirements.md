@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 07/13/2021
-ms.openlocfilehash: 31ea2d07db013220db97ab9d3b0e7879f83bc3fe
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: c39b86c6417d2cae8d303f7cae0aa523e223edaa
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388068"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866945"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de venta conjunta
 
@@ -49,7 +49,7 @@ Para que una oferta obtenga el estado Listo para la venta conjunta, debe cumplir
 
 **Fabricantes independientes de software para aplicaciones empresariales**:
 
-- Las soluciones Dynamics 365 & PowerApps (excepto Dynamics 365 Business Central) requieren la inscripción a Connect para ISV.
+- Las soluciones Dynamics 365 & Power Apps (excepto Dynamics 365 Business Central) requieren la inscripción a Connect para ISV.
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Completar la pestaña Venta conjunta con Microsoft
 

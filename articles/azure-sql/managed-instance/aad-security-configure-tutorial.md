@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d763931e7baec0fb17cfc127834cbfccec51d7d6
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639854"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256103"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad en Instancia administrada de Azure SQL mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -213,8 +213,7 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
       GO
       ```
 
-> [!NOTE]
-> Se admiten usuarios invitados de Azure AD en los inicios de sesión de Instancia administrada de SQL, pero solo cuando se agregan como parte de un grupo de Azure AD. Un usuario invitado de Azure AD es una cuenta que se ha invitado a la instancia de Azure AD a la que pertenece la instancia administrada, desde otra instancia de Azure AD. Por ejemplo, joe@contoso.com (cuenta de Azure AD) o steve@outlook.com (cuenta de Microsoft) pueden agregarse a un grupo en el dominio aadsqlmi de Azure AD. Una vez que los usuarios se agregan a un grupo, se puede crear un inicio de sesión en la base de datos **maestra** de Instancia administrada de SQL para el grupo mediante la sintaxis **CREATE LOGIN**. Los usuarios invitados que son miembros de este grupo pueden conectarse a la instancia administrada con sus inicios de sesión actuales (por ejemplo, joe@contoso.com o steve@outlook.com).
+Los usuarios invitados se admiten como usuarios individuales (sin formar parte de un grupo de AAD (aunque puede pasar)) y los inicios de sesión se pueden crear directamente en la base de datos maestra (por ejemplo, joe@contoso.con) mediante la sintaxis de inicio de sesión actual.
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Creación de un usuario de Azure AD desde la entidad de seguridad de un servidor de Azure AD (inicio de sesión)
 

@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 08/26/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 06ca17329a5c6888e1f0ce847d2a2f9ae2bd8d35
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 04ac3178b439e755bbcbd33855ff0bab9a566784
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785775"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029207"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-api-for-mongodb"></a>Ejemplos de la CLI de Azure para Azure Cosmos DB API para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -44,3 +44,9 @@ Estos ejemplos se aplican a todas las API de Azure Cosmos DB
 | [Operaciones de capacidad de proceso](../scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Lee, actualiza y migra entre la escalabilidad automática y la capacidad de proceso estándar en una base de datos y una colección.|
 | [Bloquear recursos contra la eliminación](../scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Bloquee los recursos para impedir que se eliminen.|
 |||
+
+## <a name="next-steps"></a>Pasos siguientes
+
+¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+* Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

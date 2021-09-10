@@ -3,15 +3,15 @@ title: ¿Qué es el streaming de aplicaciones remotas de Azure Virtual Desktop? 
 description: Información general del streaming de aplicaciones remotas de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 88bc4c94612a69be8a9d7aad7bbad983b687235a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: e1ff4cba43c1e57c39b5e47e2485a262f66bbb5f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113799179"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032987"
 ---
 # <a name="what-is-azure-virtual-desktop-remote-app-streaming"></a>¿Qué es el streaming de aplicaciones remotas de Azure Virtual Desktop?
 
@@ -27,13 +27,15 @@ Para configurar una implementación de Azure Virtual Desktop para las aplicacion
 
 - La aplicación personalizada. Consulte [Cómo hospedar aplicaciones personalizadas con Azure Virtual Desktop](custom-apps.md) para obtener información sobre los tipos de aplicaciones que admite Azure Virtual Desktop y cómo puede ofrecerlas a los clientes.
 
-- Sus credenciales de unión un dominio. Si aún no tiene un sistema de administración de identidades compatible con Azure Virtual Desktop, deberá configurar la administración de identidades para el grupo de hosts.
+- Sus credenciales de unión un dominio. Si aún no tiene un sistema de administración de identidades compatible con Azure Virtual Desktop, deberá configurar la administración de identidades para el grupo de hosts. Para más información, consulte [Configuración de identidades administradas](identities.md).
 
 - Suscripción a Azure. Si aún no tiene una suscripción, asegúrese de [crear una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="get-started"></a>Introducción
 
-Ahora que está listo, echemos un vistazo a cómo puede configurar la implementación de Azure Virtual Desktop.
+Ahora que está listo, echemos un vistazo a cómo puede configurar la implementación de Azure Virtual Desktop. Tiene dos opciones para configurarse correctamente. Puede configurar la implementación de forma manual o automática. En las dos secciones siguientes se describen las diferencias entre estos dos métodos.
+
+### <a name="set-up-azure-virtual-desktop-manually"></a>Configuración manual de Azure Virtual Desktop
 
 Puede configurar la implementación manualmente siguiendo estos tutoriales:
 
@@ -44,6 +46,13 @@ Puede configurar la implementación manualmente siguiendo estos tutoriales:
 3. [Creación de un grupo de hosts para validar las actualizaciones del servicio](../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 4. [Configuración de alertas de servicio](../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+
+### <a name="set-up-azure-virtual-desktop-automatically"></a>Configuración automática de Azure Virtual Desktop
+
+Si prefiere un proceso automático, puede usar la característica de introducción para configurar la implementación automáticamente. Para más información, consulte los siguientes artículos:
+
+- [Implementación de Azure Virtual Desktop con la característica de introducción](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (al seguir estas instrucciones, asegúrese de seguir las instrucciones de [Para suscripciones con Azure AD DS o AD DS](../getting-started-feature.md#for-subscriptions-with-azure-ad-ds-or-ad-ds). Este método permite administrar mejor las identidades y la compatibilidad de las aplicaciones, y permite ajustar los costos de infraestructura relacionados con la identidad. El método para las suscripciones que aún no tienen Azure AD DS o AD DS no le ofrece estas ventajas).
+- [Solución de problemas de la característica de introducción](../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="customize-and-manage-azure-virtual-desktop"></a>Personalización y administración de Azure Virtual Desktop
 
@@ -58,6 +67,7 @@ Una vez que haya configurado Azure Virtual Desktop, tiene muchas opciones para p
 - [Configuración de un plan de continuidad empresarial y recuperación ante desastres](../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Escalado de hosts de sesión con Azure Automation](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Configuración de Impresión universal](/universal-print/fundamentals/universal-print-getting-started)
+- [Configuración de la característica Iniciar VM al establecer la conexión](../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="get-to-know-your-azure-virtual-desktop-deployment"></a>Conozca la implementación de Azure Virtual Desktop
 
@@ -69,7 +79,9 @@ Lea los artículos siguientes para comprender los conceptos esenciales para crea
 - [Glosario de Azure Monitor para Azure Virtual Desktop](../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Azure Virtual Desktop para la empresa](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [Cálculo de los costos de implementación totales](total-costs.md)
+- [Cálculo de los costos de streaming de aplicaciones por usuario](streaming-costs.md)
 - [Recomendaciones de arquitectura](architecture-recs.md)
+- [Preguntas frecuentes sobre el inicio de máquina virtual al conectar](../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

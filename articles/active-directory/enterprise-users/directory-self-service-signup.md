@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1869c48e38bdaf56fe4bd428a7bcbd6d316b85
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: a8580c025e7fc14144202962528a00aa78548ddf
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535708"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867181"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
 
@@ -61,10 +61,10 @@ AllowEmailVerifiedUsers y AllowAdHocSubscriptions son configuraciones de todo el
 
 Si se cumplen las condiciones anteriores, a continuación, se crea un usuario miembro en el inquilino principal y un usuario invitado B2B en el inquilino que invita.
 
-Para más información sobre las suscripciones de Flow y PowerApps, consulte los siguientes artículos:
+Para más información sobre las suscripciones de Flow y Power Apps, consulte los siguientes artículos:
 
 * [¿Cómo puedo impedir que mis usuarios existentes comiencen a utilizar Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Preguntas y respuestas sobre Flow en su organización](/flow/organization-q-and-a)
+* [Preguntas y respuestas sobre Flow en su organización](/power-automate/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>¿Cómo funciona los controles conjuntamente?
 Estos dos parámetros se pueden usar juntos para definir un control más preciso del registro de autoservicio. Por ejemplo, el comando siguiente permitirá a los usuarios realizar registros de autoservicio, pero solo si estos usuarios ya tienen una cuenta en Azure AD (es decir, los usuarios que necesitan crear primero una cuenta comprobada por correo electrónico no pueden realizar registros de autoservicio):

@@ -1,15 +1,15 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Aprenda a incorporar un cliente a Azure Lighthouse para permitir que los usuarios de su inquilino accedan a sus recursos y los administren.
-ms.date: 08/16/2021
+ms.date: 08/26/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 533841e958d7873c4961814f7398ec539fd6a6fd
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 9e61fb83af009b96b5781912e2feff8c0c747827
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253227"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034245"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -20,10 +20,8 @@ En este artículo se explica cómo, como proveedor de servicios, puede incorpora
 
 Puede repetir el proceso de incorporación de varios clientes. Cuando un usuario con permisos apropiados inicia sesión en el inquilino administrador, se puede autorizar a ese usuario en los ámbitos del inquilino del cliente para realizar operaciones de administración sin tener que iniciar sesión en todos y cada uno de los inquilinos de cliente individuales.
 
-Para realizar el seguimiento del impacto en las involucraciones de los clientes y recibir el reconocimiento correspondiente, asocie el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario con acceso a cada una de las suscripciones incorporadas. Tendrá que realizar esta asociación en el inquilino del proveedor de servicios. Se recomienda crear una cuenta de entidad de servicio en el inquilino que esté asociado a su identificador de MPN y, a continuación, incluya esa entidad de servicio cada vez que incorpore un cliente. Para obtener más información, consulte el artículo sobre la [vinculación de un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados](partner-earned-credit.md).
-
 > [!NOTE]
-> Los clientes también se pueden incorporar a Azure Lighthouse cuando compran una oferta de servicios administrados (pública o privada) que [haya publicado en Azure Marketplace](publish-managed-services-offers.md). También puede usar el proceso de incorporación que se describe aquí con ofertas publicadas en Azure Marketplace.
+> Los clientes también se pueden incorporar a Azure Lighthouse cuando compran una oferta de servicios administrados (pública o privada) que [haya publicado en Azure Marketplace](publish-managed-services-offers.md). También puede usar el proceso de incorporación que se describe aquí junto con ofertas publicadas en Azure Marketplace.
 
 El proceso de incorporación requiere que se tomen medidas desde el inquilino del proveedor de servicios y del inquilino del cliente. Todos estos pasos se describen en este artículo.
 
@@ -35,31 +33,7 @@ Para incorporar el inquilino de un cliente, este debe tener una suscripción act
 - El identificador del inquilino del cliente (cuyos recursos administrará el proveedor de servicios).
 - Los identificadores de suscripción de cada suscripción específica del inquilino del cliente que administrará el proveedor de servicios (o que contenga los grupos de recursos que administrará el proveedor de servicios).
 
-Si aún no tiene estos valores de identificador, puede recuperarlos de una de las siguientes maneras. Asegúrese y use estos valores exactos en su implementación.
-
-### <a name="azure-portal"></a>Azure portal
-
-Para ver el identificador del inquilino, mantenga el mouse sobre el nombre de la cuenta en la parte superior derecha de Azure Portal o seleccione **Cambiar directorio**. Para seleccionar y copiar el identificador del inquilino, busque "Azure Active Directory" desde dentro del portal y, a continuación, seleccione **Propiedades** y copie el valor que se muestra en campo **Id. de directorio**. Para buscar el identificador de una suscripción en el inquilino del cliente, busque "Suscripciones" y, a continuación, seleccione el identificador de suscripción adecuado.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Select-AzSubscription <subscriptionId>
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set --subscription <subscriptionId/name>
-az account show
-```
-
-> [!NOTE]
-> Al incorporar una suscripción (o uno o varios grupos de recursos dentro de una suscripción) mediante el proceso que se describe aquí, el proveedor de recursos **Microsoft.ManagedServices** se registrará para esa suscripción.
+Si no conoce el identificador de un inquilino, puede [recuperarlo mediante Azure Portal, Azure PowerShell o la CLI de Azure](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
 ## <a name="define-roles-and-permissions"></a>Definir roles y permisos
 
@@ -68,56 +42,22 @@ Como proveedor de servicios, es posible que quiera realizar varias tareas para u
 > [!NOTE]
 > A menos que se especifique explícitamente, las referencias a un "usuario" en la documentación de Azure Lighthouse pueden referirse a un usuario, grupo o entidad de servicio de Azure AD en una autorización.
 
-A fin de facilitar la administración, se recomienda usar grupos de usuarios de Azure AD para cada rol siempre que sea posible, y no para usuarios individuales. Esto le ofrece la flexibilidad para agregar o quitar usuarios individuales del grupo que tiene acceso, de modo que no tenga que repetir el proceso de incorporación para realizar cambios en el usuario. También puede asignar roles a una entidad de servicio, lo que puede ser útil para escenarios de automatización.
+Para definir las autorizaciones, tiene que conocer los valores de identificador de cada usuario, grupo de usuarios o entidad de servicio en el inquilino de administración al que quiere conceder acceso. Puede [recuperar estos identificadores mediante Azure Portal, Azure PowerShell o la CLI de Azure](../../role-based-access-control/role-assignments-template.md#get-object-ids) desde el inquilino de administración. También necesitará el identificador de definición de roles para cada [rol integrado](../../role-based-access-control/built-in-roles.md) que quiera asignar.
+
+> [!TIP]
+> Se recomienda asignar el [rol de eliminación de asignación del registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al incorporar un cliente, de modo que los usuarios del inquilino puedan [quitar el acceso a la delegación](remove-delegation.md) más adelante si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
+
+Se recomienda usar grupos de usuarios de Azure AD para cada rol siempre que sea posible, en lugar de usuarios individuales. Esto le ofrece la flexibilidad para agregar o quitar usuarios individuales del grupo que tiene acceso, de modo que no tenga que repetir el proceso de incorporación para realizar cambios en el usuario. También puede asignar roles a una entidad de servicio, lo que puede ser útil para escenarios de automatización.
 
 > [!IMPORTANT]
 > Para agregar permisos a un grupo de Azure AD, el **Tipo de grupo** debe establecerse en **Seguridad**. Esta opción se selecciona cuando se crea el grupo. Para obtener más información vea [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Al definir las autorizaciones, asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo. Para obtener información sobre los roles admitidos y los procedimientos recomendados, vea [Inquilinos, usuarios y roles en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
 
+Para realizar el seguimiento del impacto en las involucraciones de los clientes y recibir el reconocimiento correspondiente, asocie el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario con acceso a cada una de las suscripciones incorporadas. Tendrá que realizar esta asociación en el inquilino del proveedor de servicios. Se recomienda crear una cuenta de entidad de servicio en el inquilino que esté asociado a su identificador de MPN y, a continuación, incluya esa entidad de servicio cada vez que incorpore un cliente. Para obtener más información, consulte el artículo sobre la [vinculación de un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados](partner-earned-credit.md).
+
 > [!TIP]
 > También puede crear *autorizaciones aptas* que permitan a los usuarios del inquilino de administración tener un rol superior temporalmente. Esta característica está actualmente en una versión preliminar pública y tiene requisitos de licencia específicos. Para obtener más información, vea [Creación de autorizaciones aptas](create-eligible-authorizations.md).
-
-Para definir las autorizaciones, tiene que conocer los valores de identificador de cada usuario, grupo de usuarios o entidad de servicio en el inquilino del proveedor de servicios al que quiera conceder acceso. También necesitará el identificador de definición de roles para cada rol integrado que quiera asignar. Si aún no los tiene, puede recuperarlos ejecutando los comandos a continuación en el inquilino del proveedor de servicios.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-# To retrieve the objectId for an Azure AD group
-(Get-AzADGroup -DisplayName '<yourGroupName>').id
-
-# To retrieve the objectId for an Azure AD user
-(Get-AzADUser -UserPrincipalName '<yourUPN>').id
-
-# To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
-
-# To retrieve role definition IDs
-(Get-AzRoleDefinition -Name '<roleName>').id
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-# To retrieve the objectId for an Azure AD group
-az ad group list --query "[?displayName == '<yourGroupName>'].objectId" --output tsv
-
-# To retrieve the objectId for an Azure AD user
-az ad user show --id "<yourUPN>" --query "objectId" --output tsv
-
-# To retrieve the objectId for an SPN
-az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output tsv
-
-# To retrieve role definition IDs
-az role definition list --name "<roleName>" | grep name
-```
-
-> [!TIP]
-> Se recomienda asignar el [rol de eliminación de asignación del registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al incorporar un cliente, de modo que los usuarios del inquilino puedan [quitar el acceso a la delegación](remove-delegation.md) más adelante si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
 
@@ -168,9 +108,9 @@ La plantilla que elija dependerá de si se incorpora una suscripción completa, 
 
 |Para incorporar esto  |Use esta plantilla de Azure Resource Manager  |Y modifique este archivo de parámetros |
 |---------|---------|---------|
-|Suscripción   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Varios grupos de recursos de una suscripción   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Suscripción   |[subscription.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/subscription/subscription.json)  |[subscription.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/subscription/subscription.parameters.json)    |
+|Resource group   |[rg.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/rg/rg.json)  |[rg.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/rg/rg.parameters.json)    |
+|Varios grupos de recursos de una suscripción   |[multi-rg.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/rg/multi-rg.json)  |[multiple-rg.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/rg/multiple-rg.parameters.json)    |
 |Suscripción (al usar una oferta publicada en Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 Si desea incluir [autorizaciones elegibles](create-eligible-authorizations.md#create-eligible-authorizations-using-azure-resource-manager-templates) (actualmente en versión preliminar pública), seleccione la plantilla correspondiente en la sección [delegated-resource-management-eligible-authorizations](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations) de nuestro repositorio de ejemplos.
@@ -178,7 +118,7 @@ Si desea incluir [autorizaciones elegibles](create-eligible-authorizations.md#cr
 > [!TIP]
 > Aunque no se puede incorporar un grupo de administración completo en una implementación, es posible implementar una directiva para [incorporar cada suscripción en un grupo de administración](onboard-management-group.md). Tendrá acceso a todas las suscripciones del grupo de administración, aunque tendrá que trabajar en ellas como si fueran suscripciones individuales (en lugar de realizar acciones en el recurso del grupo de administración directamente).
 
-En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.parameters.json**, que se usará para incorporar una suscripción. Los archivos de parámetros del grupo de recursos (situados en la carpeta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) son similares, pero también incluyen un parámetro **rgName** para identificar los grupos de recursos específicos que se incorporarán.
+En el ejemplo siguiente se muestra un archivo **subscription.parameters.json** modificado que se puede usar para incorporar una suscripción. Los archivos de parámetros del grupo de recursos (situados en la carpeta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management/rg)) son similares, pero también incluyen un parámetro **rgName** para identificar los grupos de recursos específicos que se incorporarán.
 
 ```json
 {
@@ -236,6 +176,8 @@ La última autorización del ejemplo anterior agrega un valor de **principalId**
 ## <a name="deploy-the-azure-resource-manager-template"></a>Implementación de la plantilla de Azure Resource Manager
 
 Una vez que haya creado la plantilla, un usuario del inquilino del cliente debe implementarla en su inquilino. Se necesita una implementación independiente para cada suscripción que quiera incorporar (o para cada suscripción que contenga grupos de recursos que quiera incorporar).
+
+Al incorporar una suscripción (o uno o varios grupos de recursos dentro de una suscripción) mediante el proceso que se describe aquí, el proveedor de recursos **Microsoft.ManagedServices** se registrará para esa suscripción.
 
 > [!IMPORTANT]
 > Esta implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente, que tenga el rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para buscar usuarios que puedan delegar la suscripción, un usuario del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 06/04/2021
-ms.openlocfilehash: 6c55b2e5fbaadec239c1818d1bbe47443e797ddf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: ffd59ebcac1779c43222ea9a006888edd634bafa
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725455"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035916"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -84,6 +84,9 @@ Comience a usar Azure Cosmos DB con una de nuestras guías rápidas:
 - [Introducción a Gremlin API de Azure Cosmos DB](create-graph-dotnet.md)
 - [Introducción a Table API de Azure Cosmos DB](table/create-table-dotnet.md)
 - [Documento técnico sobre el desarrollo de aplicaciones de próxima generación con Azure Cosmos DB](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
+- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
+    - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo para [calcular las unidades de solicitud utilizando núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    - Si conoce la velocidad que suelen tener las solicitudes de la carga de trabajo de la base de datos actual, lea este artículo para [calcular las unidades de solicitud utilizando la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 
 > [!div class="nextstepaction"]
 > [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)

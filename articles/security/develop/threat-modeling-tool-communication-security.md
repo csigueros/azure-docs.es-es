@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 265ae82f3a8d5a10e333057ebb55473c18fd36c3
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 501294688446bdb944d93a0939cde0a5e4fea0df
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109474"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254155"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -195,7 +195,7 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 | **Referencias**              | [Información general de MD5 de Windows Azure Blob](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/) |
 | **Pasos** | <p>Azure Blob service proporciona mecanismos para garantizar la integridad de datos tanto en el nivel de la aplicación como en el de transporte. Si por algún motivo debe utilizar HTTP en lugar de HTTPS y está trabajando con blobs en bloques, puede usar la comprobación de MD5 para ayudar a comprobar la integridad de los blobs que se transfieren.</p><p>Esto le ayudará con la protección frente a errores de red o de la capa de transporte, pero no necesariamente con ataques de intermediarios. Si puede usar HTTPS, que proporciona seguridad de nivel de transporte, el uso de la comprobación de MD5 es redundante e innecesario.</p>|
 
-## <a name="use-smb-30-compatible-client-to-ensure-in-transit-data-encryption-to-azure-file-shares"></a><a id="smb-shares"></a>Uso de un cliente compatible con SMB 3.0 para garantizar el cifrado de datos en tránsito en recursos compartidos de Azure File
+## <a name="use-smb-3x-compatible-client-to-ensure-in-transit-data-encryption-to-azure-file-shares"></a><a id="smb-shares"></a>Uso de un cliente compatible con SMB 3.x para garantizar el cifrado de datos en tránsito en recursos compartidos de archivos de Azure
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -203,8 +203,8 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | StorageType: archivo |
-| **Referencias**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Compatibilidad con SMB de Azure File Storage para clientes de Windows](../../storage/files/storage-dotnet-how-to-use-files.md#understanding-the-net-apis) |
-| **Pasos** | Azure File Storage admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB asociado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.0 admite el cifrado, y se puede utilizar con Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio. |
+| **Referencias**              | [Azure Files](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [compatibilidad con SMB de Azure Files para clientes de Windows](../../storage/files/storage-dotnet-how-to-use-files.md#understanding-the-net-apis) |
+| **Pasos** | Azure Files admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB conectado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.x admite el cifrado y se puede usar con Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio. |
 
 ## <a name="implement-certificate-pinning"></a><a id="cert-pinning"></a>Implementación de asignación de certificados
 

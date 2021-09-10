@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 06/23/2021
-ms.openlocfilehash: fdeaf2f16dc2b1b6d6beb75544160ac03ce025e9
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 2aa4fe3e7e2f7637060996b53748391da03879ec
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588370"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032289"
 ---
 # <a name="whats-new-in-anomaly-detector"></a>Novedades de Anomaly Detector
 
@@ -20,9 +20,15 @@ También se han agregado vínculos a contenido generado por el usuario. Esos ele
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="august-2021"></a>Agosto de 2021
+
+* API de detección de anomalías multivariante implementadas en cinco regiones más: Oeste de EE. UU. 3, Este de Japón, Sur de Brasil, Centro de EE. UU., Este de Noruega. Ahora se admiten 15 regiones en total.
+
 ### <a name="july-2021"></a>Julio de 2021
 
 * API de detección de anomalías multivariante implementadas en cuatro regiones más: Este de Australia, Centro de Canadá, Norte de Europa y Sudeste Asiático. Ahora se admiten 10 regiones en total.
+* Anomaly Detector (univariante) disponible en Oeste de EE. UU. 3 y Este de Noruega.
+
 
 ### <a name="june-2021"></a>Junio de 2021
 

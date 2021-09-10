@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/25/2021
 ms.author: alkohli
-ms.openlocfilehash: e84f39fa5b9245d1874e60d651156e99c0885040
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa37d5dc9957e39d7fe4f47404bc9aaf249f192f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678916"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226433"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use la interfaz de usuario web local para administrar los dispositivos Data Box y Data Box Heavy
 
@@ -95,6 +95,27 @@ Para reiniciar su Data Box, realice los pasos siguientes.
 3. Cuando se le pida confirmación, seleccione **Aceptar** para continuar.
 
    El dispositivo se apaga y, a continuación, se reinicia.
+
+## <a name="get-share-credentials"></a>Obtención de las credenciales de recursos compartidos 
+
+Si necesita averiguar el nombre de usuario y la contraseña que se usarán para conectarse a un recurso compartido en el dispositivo, puede encontrar las credenciales del recurso compartido en **Conectar y copiar** en la interfaz de usuario web local.
+
+Al solicitar el dispositivo, puede elegir entre usar contraseñas predeterminadas generadas por el sistema para los recursos compartidos del dispositivo o bien usar sus propias contraseñas. En cualquier caso, las contraseñas de recurso compartido se establecen de fábrica y no se pueden cambiar. 
+
+Para obtener las credenciales de un recurso compartido:
+
+1. En la interfaz de usuario web local, vaya a **Conectar y copiar**. Seleccione **SMB** para obtener las credenciales de acceso de los recursos compartidos asociados con la cuenta de almacenamiento.
+
+   ![Captura de pantalla que muestra la página Conectar y copiar en la interfaz de usuario web local para un Data Box. El elemento de menú Conectar y copiar junto con la opción SMB aparecen resaltados.](media/data-box-local-web-ui-admin/get-share-credentials-01.png)
+
+1. En el cuadro de diálogo **Acceder al recurso compartido y copiar datos**, copie los valores de **Nombre de usuario** y **Contraseña** correspondientes al recurso compartido. Para cerrar el cuadro de diálogo, seleccione **Aceptar**.
+
+   ![Captura de pantalla que muestra el cuadro de diálogo Acceder al recurso compartido y copiar datos en la interfaz de usuario web local para un recurso compartido SMB en el Data Box. El icono Copiar de las opciones Cuenta de almacenamiento y Contraseña, así como el botón Aceptar, aparecen resaltados.](media/data-box-local-web-ui-admin/get-share-credentials-02.png)
+
+> [!NOTE]
+> Después de varios errores de conexión del recurso compartido debido al uso de una contraseña incorrecta, la cuenta de usuario se bloqueará fuera de ese recurso. El bloqueo de cuenta se eliminará después de unos minutos y podrá conectarse de nuevo a los recursos compartidos.  
+> - Data Box 4.1 y versiones posteriores: la cuenta se bloquea durante 15 minutos después de cinco intentos de inicio de sesión con errores. 
+> - Data Box 4.0 y versiones anteriores: la cuenta se bloquea durante 30 minutos después de tres intentos de inicio de sesión con errores.
 
 ## <a name="download-bom-or-manifest-files"></a>Descarga de los archivos del manifiesto o la lista de materiales
 

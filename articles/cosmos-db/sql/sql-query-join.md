@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 08/27/2021
 ms.author: tisande
-ms.openlocfilehash: 95e6c74ad03cae30a2b7b6544a490ef86e92e900
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 490510e3b1a46b21123a7cd519a7bf8cb81021d6
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122206704"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109209"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Combinaciones en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -20,7 +20,7 @@ ms.locfileid: "122206704"
 En una base de datos relacional, las combinaciones entre tablas son la consecuencia lógica de diseñar esquemas normalizados. En cambio, la API de SQL usa el modelo de datos desnormalizado de los elementos sin esquemas, que es el equivalente lógico de una *autocombinación*.
 
 > [!NOTE]
-> En Azure Cosmos DB, las combinaciones tienen como ámbito un único elemento. No se admiten combinaciones entre elementos ni entre contenedores. En bases de datos NoSQL, como Azure Cosmos DB, un buen [modelado de datos](../modeling-data.md) puede ayudar a evitar la necesidad de combinaciones entre elementos y entre contenedores.
+> En Azure Cosmos DB, las combinaciones tienen como ámbito un único elemento. No se admiten combinaciones entre elementos ni entre contenedores. En bases de datos NoSQL, como Azure Cosmos DB, un buen [modelado de datos](../modeling-data.md) puede ayudar a evitar la necesidad de combinaciones entre elementos y entre contenedores.
 
 Las combinaciones derivan en un producto cruzado completo de los conjuntos participantes en la combinación. El resultado de una combinación de N es un conjunto de tuplas de N elementos, donde cada valor de la tupla se asocia con el conjunto del alias participante en la combinación, accesible mediante una referencia a ese alias en otras cláusulas.
 
@@ -255,7 +255,40 @@ Los resultados son:
     ]
 ```
 
-Si la consulta contiene una combinación (JOIN) y filtros, puede volver a escribir parte de ella como una [subconsulta](sql-query-subquery.md#optimize-join-expressions) para mejorar el rendimiento.
+## <a name="subqueries-instead-of-joins"></a>Subconsultas en lugar de operaciones JOIN
+
+Si la consulta contiene una combinación (JOIN) y filtros, puede volver a escribir parte de ella como una [subconsulta](sql-query-subquery.md#optimize-join-expressions) para mejorar el rendimiento. En algunos casos, puede usar una subconsulta o [ARRAY_CONTAINS](sql-query-array-contains.md) para evitar la necesidad de JOIN y mejorar el rendimiento de las consultas.
+
+Por ejemplo, considere la consulta anterior en la que se proyectaban los valores familyName, givenName (del hijo), firstName (de los hijos) y givenName (de la mascota). Si esta consulta solo tuviera que filtrar por el nombre de la mascota y no devolverla, podría usar `ARRAY_CONTAINS` o una [subconsulta](sql-query-subquery.md) para comprobar si hay mascotas donde `givenName = "Shadow"`.
+
+### <a name="query-rewritten-with-array_contains"></a>Consulta reescrita con ARRAY_CONTAINS
+
+```sql
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName
+    FROM Families f
+    JOIN c IN f.children
+    WHERE ARRAY_CONTAINS(c.pets, {givenName: 'Shadow'})
+```
+
+### <a name="query-rewritten-with-subquery"></a>Consulta reescrita con la subconsulta
+
+```sql
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName
+    FROM Families f
+    JOIN c IN f.children
+    WHERE EXISTS (
+    SELECT VALUE n
+    FROM n IN c.pets
+    WHERE n.givenName = "Shadow"
+    )
+```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: 536a9b0fe4cacdc48f4429e1b85b5a47c4dbd449
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c31ed32e13e8b71b5ad6253d5e157b5adc2096bf
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780370"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260018"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Conexión de datos de Microsoft 365 Defender con Azure Sentinel
 
@@ -55,7 +55,7 @@ Para obtener más información sobre la integración de incidentes y la recopila
 
 1. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos), elija **Microsoft 365 Defender (Preview)** (Microsoft 365 Defender [versión preliminar]) en la galería y seleccione **Open connector page** (Abrir página del conector).
 
-1. En la sección **Connect incidents & alerts** (Conectar incidentes y alertas) de **Configuration** (Configuración), haga clic en el botón **Connect incidents & alerts** (Conectar incidentes y alertas).
+1. En la sección **Conectar incidentes y alertas** de **Configuración**, seleccione el botón **Conectar incidentes y alertas**.
 
 1. Para evitar la duplicación de incidentes, se recomienda marcar la casilla **Turn off all Microsoft incident creation rules for these products** (Desactivar todas las reglas de creación de incidentes de Microsoft para estos productos).
 

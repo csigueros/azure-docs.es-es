@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b32d5aee270e3380899a81f49b12a55c468f2bc5
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888545"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865015"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Mejore la protección frente a amenazas mediante la integración de las operaciones de seguridad con Microsoft Graph Security y Azure Logic Apps.
 
@@ -30,9 +30,9 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector [Micr
 
 El flujo de trabajo de la aplicación lógica puede usar acciones que obtengan respuestas del conector Microsoft Graph Security y permitir que esa salida esté disponible para otras acciones del flujo de trabajo. También puede tener otras acciones en el flujo de trabajo mediante la salida de las acciones del conector Microsoft Graph Security. Por ejemplo, si recibe alertas de gravedad alta a través del conector Microsoft Graph Security, puede enviar esas alertas en un mensaje de correo electrónico mediante el conector de Outlook. 
 
-Para más información sobre Microsoft Graph Security, consulte la [introducción a Microsoft Graph Security API](/graph/security-concept-overview). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Si está buscando Power Automate o PowerApps, consulte [¿Qué es Power Automate?](https://flow.microsoft.com/) o [¿Qué es Power Apps?](https://powerapps.microsoft.com/)
+Para más información sobre Microsoft Graph Security, consulte la [introducción a Microsoft Graph Security API](/graph/security-concept-overview). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Si está buscando Power Automate o Power Apps, vea [¿Qué es Power Automate?](https://flow.microsoft.com/) o [¿Qué es Power Apps?](https://powerapps.microsoft.com/)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 

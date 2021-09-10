@@ -8,12 +8,12 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 55ad870da1b89e24777647613f607038089863e9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc6175ca771a8be262c9a2d1ba92871a43140367
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739455"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257356"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 
@@ -264,7 +264,7 @@ Para que el dispositivo de firewall permita el tráfico saliente, tiene que perm
 
 -   Puerto 445 con destino como Azure Storage (solo es necesario cuando se ejecuta el paquete SSIS almacenado en Azure Files).
 
-    Si usa Azure Firewall, puede especificar una regla de red con la etiqueta de servicio Storage; de lo contrario, podría permitir el destino como especifico azure file storage url en el dispositivo de firewall.
+    Si usa Azure Firewall, puede especificar una regla de red con la etiqueta de servicio Storage; de lo contrario, puede permitir el destino como dirección URL del recurso compartido de archivos de Azure especifica en el dispositivo de firewall.
 
 > [!NOTE]
 > Para Azure SQL y Storage, si configura los puntos de conexión de servicio de red virtual en la subred, el tráfico entre Azure-SSIS Integration Runtime y Azure SQL en la misma región o Azure Storage en la misma región o región emparejada, se enrutará directamente a la red troncal de Microsoft Azure en lugar de al dispositivo de firewall.

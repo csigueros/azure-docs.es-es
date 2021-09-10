@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfdb79885563cbc0791ae3f3b2effd54ea3123a7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200525"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867494"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solución de problemas de emparejamiento de redes virtuales
 
@@ -48,7 +48,7 @@ Para configurar el emparejamiento de red virtual para las redes virtuales que es
 > * Conjuntos de escalado de máquinas virtuales (usa la SKU básica de ILB)
 > * Clústeres de Azure Service Fabric (usa la SKU básica de ILB)
 > * Grupos de disponibilidad AlwaysOn de SQL Server (usa la SKU básica de ILB)
-> * Azure App Service Environment para PowerApps (usa la SKU básica de ILB)
+> * Azure App Service Environment para Power Apps (usa la SKU básica de ILB)
 > * Azure API Management (usa la SKU básica de ILB)
 > * Azure Active Directory Domain Services (Azure AD DS) (usa la SKU básica de ILB)
 

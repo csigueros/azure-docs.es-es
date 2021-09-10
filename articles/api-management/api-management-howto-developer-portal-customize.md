@@ -5,14 +5,14 @@ services: api-management
 author: mikebudzynski
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 11/16/2020
+ms.date: 08/31/2021
 ms.author: apimpm
-ms.openlocfilehash: 7c341dee3106530715248355da4412b97ed30980
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: c08fd4635232bdb84ce27fdc7a3e6f0d1791e921
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739627"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318583"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutorial: Acceso y personalización del portal para desarrolladores
 
@@ -122,15 +122,49 @@ Antes de que el portal esté disponible para los visitantes, debe personalizar e
 
 ### <a name="home-page"></a>Página de inicio
 
-La página **Inicio** predeterminada se rellena con el contenido del marcador de posición. Puede eliminar todas las secciones con este contenido o mantener la estructura y ajustar los elementos uno a uno. Reemplace las imágenes y el texto generados por los suyos y asegúrese de que los vínculos señalan a las ubicaciones deseadas.
+La página **Inicio** predeterminada se rellena con el contenido del marcador de posición. Puede eliminar todas las secciones con este contenido o mantener la estructura y ajustar los elementos uno a uno. Reemplace las imágenes y el texto generados por los suyos y asegúrese de que los vínculos señalan a las ubicaciones deseadas. Puede editar la estructura y el contenido de la página principal con los siguientes métodos:
+* Arrastrar y colocar elementos de página en la ubicación deseada en el sitio.
+* Seleccionar elementos de texto y encabezado para editar y dar formato al contenido. 
+* Comprobar que los botones apuntan a las ubicaciones correctas.
 
 ### <a name="layouts"></a>Diseños
 
 Reemplace el logotipo generado automáticamente en la barra de navegación por el suyo.
 
+1. En el portal para desarrolladores, seleccione el logotipo predeterminado de **Contoso** en la parte superior izquierda de la barra de navegación. 
+1. Seleccione el icono **Editar**. 
+1. En la sección **Principal**, seleccione **Origen**.
+1. En elemento emergente **Elementos multimedia**, seleccione:
+    * Una imagen ya cargada en la biblioteca.
+    * **Cargar archivo** para cargar una imagen nueva.
+    * **Ninguno** para no usar un logotipo.
+1. El logotipo se actualiza en tiempo real.
+1. Seleccione fuera de las ventanas emergentes para salir de la biblioteca multimedia.
+1. Haga clic en **Guardar**.
+
 ### <a name="styling"></a>Estilos
 
-Aunque no es necesario ajustar ningún estilo, puede ajustar elementos determinados. Por ejemplo, cambie el color principal para que coincida con el de la marca.
+Aunque no es necesario ajustar ningún estilo, puede ajustar elementos determinados. Por ejemplo, cambie el color principal para que coincida con el de la marca. Puede hacerlo de dos maneras:
+
+#### <a name="overall-site-style"></a>Estilo general del sitio
+
+1. En el portal para desarrolladores, seleccione el icono **Estilos** en la barra de herramientas de la izquierda.
+1. En la sección **Colores**, seleccione el elemento de estilo de color que desee editar.
+1. Haga clic en el icono **Editar** de ese elemento de estilo.
+1. Seleccione el color en el selector de colores o escriba el código hexadecimal del color.
+1. Haga clic en **Agregar color** para agregar otro elemento de color y darle nombre.  
+1. Haga clic en **Guardar**.
+
+#### <a name="container-style"></a>Estilo de contenedor
+
+1. En la página principal del portal para desarrolladores, seleccione el fondo del contenedor.
+1. Seleccione el icono **Editar**.
+1. En el menú emergente, establezca:
+    * Un fondo transparente, una imagen, un color específico o un degradado.
+    * Tamaño, margen y relleno del contenedor.
+    * Posición y alto del contenedor.
+1. Seleccione fuera de las ventanas emergentes para salir de la configuración del contenedor.
+1. Haga clic en **Guardar**.
 
 ### <a name="customization-example"></a>Ejemplo de personalización
 

@@ -10,12 +10,12 @@ ms.date: 03/02/2021
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 9a73ea697a48a5b2514f4701b8a24896e9a04c1f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f2c687d3124e19bd91321391396499675052662b
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627700"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123113046"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Conexión a Azure Synapse Link para Azure Cosmos DB
 
@@ -69,4 +69,5 @@ Al hacer clic con el botón derecho en un contenedor, tendrá una lista de gesto
 
 * [Aprenda qué se admite entre Azure Synapse y Azure  DB](./concept-synapse-link-cosmos-db-support.md)
 * [Configuración de puntos de conexión privados para el almacén analítico de Azure Cosmos DB](../../cosmos-db/analytical-store-private-endpoints.md)
-* [Información sobre cómo realizar consultas en el almacén analítico con Spark](./how-to-query-analytical-store-spark.md)
+* [Información sobre cómo realizar consultas en el almacén analítico con Spark 3](./how-to-query-analytical-store-spark-3.md)
+* [Información sobre cómo realizar consultas en el almacén analítico con Spark 2](./how-to-query-analytical-store-spark.md)

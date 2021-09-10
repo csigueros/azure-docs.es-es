@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: d64dc4f3c034279aee7401503bbb60883c9ed4e7
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 43f544cb2782fc80dd574a1d8c425283c51a0ed3
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492246"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256482"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Parámetros del servidor en Azure Database for MySQL: servidor flexible
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
@@ -103,7 +105,7 @@ Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Demasiadas conexiones
 
 > [!IMPORTANT]
-> Para obtener la mejor experiencia posible, se recomienda usar un agrupador de conexiones, como ProxySQL, para administrar las conexiones de forma eficaz.
+>Para obtener la mejor experiencia posible, se recomienda usar un agrupador de conexiones, como ProxySQL, para administrar las conexiones de forma eficaz.
 
 La creación de conexiones de cliente a MySQL lleva tiempo y, una vez establecidas, estas conexiones ocupan recursos de bases de datos, incluso cuando están inactivas. La mayoría de las aplicaciones solicitan muchas conexiones de corta duración, y esto es lo que conforma esta situación. El resultado es que hay menos recursos disponibles para la carga de trabajo real, lo que baja el rendimiento. Esto se puede evitar con un agrupador de conexiones, ya que reduce las conexiones inactivas y reutiliza las conexiones existentes. Para más información sobre cómo configurar ProxySQL, consulte nuestra [entrada de blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
@@ -122,6 +124,12 @@ Este parámetro se puede establecer en un nivel de sesión mediante `init_connec
 ### <a name="time_zone"></a>time_zone
 
 Tras la implementación inicial, un servidor flexible de Azure for MySQL incluye tablas de sistemas para la información de zona horaria, pero estas tablas no se rellenan. Las tablas de la zona horaria se pueden rellenar mediante una llamada al procedimiento almacenado `mysql.az_load_timezone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench. Vea los artículos de [Azure Portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) o de la [CLI de Azure](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) sobre cómo llamar al procedimiento almacenado y establecer las zonas horarias globales o de nivel de sesión.
+
+### <a name="binlog_expire_logs_seconds"></a>binlog_expire_logs_seconds 
+
+En Azure Database for MySQL, este parámetro especifica el número de segundos que el servicio espera antes de purgar el archivo de registro binario.
+
+El registro binario contiene "eventos" que describen los cambios de la base de datos, como las operaciones de creación de tablas o los cambios en los datos de la tabla. También contiene eventos para instrucciones que puedan haber realizado cambios. El registro binario se usa para dos objetivos principalmente: las operaciones de replicación y de recuperación de datos.  Normalmente, los registros binarios se purgan en cuanto el identificador queda libre del servicio, de la copia de seguridad o del conjunto de réplicas. En el caso de varias réplicas, espera a que la réplica más lenta lea los cambios antes de purgarse. Si quiere conservar los registros binarios durante más tiempo, puede configurar el parámetro binlog_expire_logs_seconds para ello. Si binlog_expire_logs_seconds se establece en 0, que es el valor predeterminado, se purgará en cuanto se libere el identificador para el registro binario. Si el valor de binlog_expire_logs_seconds es > 0, se esperaría durante los segundos configurados antes de purgar. En Azure Database for MySQL, las características administradas, como la copia de seguridad y la purga de réplicas de lectura de archivos binarios, se controlan internamente. Al replicar los datos fuera del servicio Azure Database for MySQL, este parámetro debe establecerse como primario para evitar la purga de registros binarios antes de que la réplica lea los cambios del elemento primario. Si binlog_expire_logs_seconds se establece en un valor superior, los registros binarios no se purgarán lo suficientemente pronto, lo que puede provocar un aumento de los gastos de facturación de almacenamiento. 
 
 ## <a name="non-modifiable-server-parameters"></a>Parámetros de servidor no modificables
 

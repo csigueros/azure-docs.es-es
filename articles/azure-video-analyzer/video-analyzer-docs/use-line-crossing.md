@@ -3,12 +3,12 @@ title: Detectar si los objetos cruzan una línea virtual en un vídeo en directo
 description: En este inicio rápido se muestra cómo usar Azure Video Analyzer para detectar si los objetos cruzan una línea a partir de una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 06/01/2021
-ms.openlocfilehash: 0b87d80c5dcc7a72bf940cac3573ee5e68964022
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7257562626b17c8f61479eb1ba4d51fea52d3c91
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604651"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185964"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>Tutorial: Detectar si los objetos cruzan una línea virtual en un vídeo en directo
 
@@ -113,7 +113,7 @@ Abra la dirección URL de la topología de canalización en un explorador y exam
    }
 ```
 
-En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensiones debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, hasta el nodo de seguimiento de objetos de nivel inferior. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. Si el vídeo en directo se ejecuta a una velocidad de 30 fotogramas por segundo, significa que se deben enviar al menos 2 fotogramas por segundo al servidor HTTP para la inferencia. El modelo de IA tiene un valor de FPS máximo para el procesamiento, que es el valor más alto en el que se debe establecer `maximumSamplesPerSecond`.
+En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensiones debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, hasta el nodo de seguimiento de objetos de nivel inferior. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. El modelo de IA tiene un valor de FPS máximo para el procesamiento, que es el valor más alto en el que se debe establecer `maximumSamplesPerSecond`.
 
 Observe también los marcadores de posición de los parámetros `linecrossingName` y `lineCoordinates` del nodo de detección de cruce de líneas. Hemos proporcionado valores predeterminados para estos parámetros, pero se pueden sobrescribir mediante el uso del archivo operations.json. Observe cómo se pasan otros parámetros del archivo operations.json a una topología (es decir, dirección URL de RTSP).  
 
@@ -251,6 +251,9 @@ En este mensaje, tenga en cuenta estos detalles:
 * Número de cruces `clockwiseTotal`.
 * Número de cruces `counterclockwiseTotal`.
 * El elemento `direction` contiene la dirección de este evento.
+
+> [!NOTE] 
+> Si ha implementado recursos de Azure mediante la implementación con un solo clic de este tutorial, se crea una máquina virtual DS1 estándar. Sin embargo, para obtener resultados precisos de modelos de inteligencia artificial que consumen muchos recursos, como YOLO, es posible que tenga que aumentar el tamaño de la máquina virtual. [Cambie el tamaño de la máquina virtual](../../virtual-machines/windows/resize-vm.md) para aumentar el número de vcpus y la memoria según sus necesidades. A continuación, vuelva a activar la canalización activa para ver las inferencias.
 
 ## <a name="customize-for-your-own-environment"></a>Personalización para su propio entorno
 

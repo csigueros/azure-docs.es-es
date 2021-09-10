@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 92ee092f50b334ac1be05ea4d37cf42d3dc91a62
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: 17d6120a951af052c82f06ed62025279011018a6
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114361443"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867557"
 ---
 # <a name="translator-language-support"></a>Idiomas admitidos en Translator
 
@@ -43,6 +43,7 @@ ms.locfileid: "114361443"
 | Búlgaro | `bg` |✔|✔|✔|✔|✔|
 | Cantonés (tradicional) | `yue` |✔|✔||||
 | Catalán | `ca` |✔|✔|✔|✔|✔|
+| Chino (clásico) | `lzh` |✔|||||
 | Chino simplificado | `zh-Hans` |✔|✔|✔|✔|✔|
 | Chino tradicional | `zh-Hant` |✔|✔|✔|✔||
 | Croata | `hr` |✔|✔|✔|✔|✔|

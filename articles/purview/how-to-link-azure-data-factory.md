@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
-ms.openlocfilehash: 0a5ab1b8e79c3cfacb2944369b5f9234355ba4c8
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.date: 08/25/2021
+ms.openlocfilehash: 31ac845591387ec0c7061945e3324cd5249d7b23
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122229011"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037803"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -20,7 +20,7 @@ En este documento se explican los pasos necesarios para conectar una cuenta de A
 
 ## <a name="view-existing-data-factory-connections"></a>Visualización de conexiones existentes de Data Factory
 
-Es posible conectar varias instancias de Azure Data Factory a una sola de Data Catalog de Azure Purview para enviar información de linaje. El límite actual permite conectar hasta 10 cuentas de Data Factory a la vez desde el centro de administración de Purview. Para mostrar la lista de cuentas de Data Factory conectadas a la instancia de Data Catalog de Purview, haga lo siguiente:
+Es posible conectar varias instancias de Azure Data Factory a una sola de Azure Purview para enviar información de linaje. El límite actual permite conectar hasta 10 cuentas de Data Factory a la vez desde el centro de administración de Purview. Para mostrar la lista de cuentas de Data Factory conectadas a la de Purview, siga estos pasos:
 
 1. En el panel de navegación izquierdo, seleccione **Administración**.
 2. En **Lineage connections** (Conexiones de linaje), seleccione **Data Factory**.
@@ -30,26 +30,25 @@ Es posible conectar varias instancias de Azure Data Factory a una sola de Data C
 
 4. Observe los distintos valores de **Estado** de la conexión:
 
-    - **Conectado**: la factoría de datos está conectada al catálogo de datos.
+    - **Conectado**: la factoría de datos está conectada a la cuenta de Purview.
     - **Desconectado**: la factoría de datos tiene acceso al catálogo, pero está conectada a otro catálogo. Como resultado, el linaje de datos no se comunica al catálogo automáticamente.
     - **CannotAccess**: el usuario actual no tiene acceso a la factoría de datos, por lo que se desconoce el estado de la conexión.
- >[!Note]
- >Para ver las conexiones de Data Factory, debe tener asignado alguno de los roles de Purview. La herencia de roles del grupo de administración **no se admite**:
- >- Colaborador
- >- Propietario
- >- Lector
- >- Administrador de acceso de usuario
+
+>[!Note]
+>Para ver las conexiones de Data Factory, debe tener asignado el rol siguiente. No se admite la herencia de roles del grupo de administración.
+>- Para la cuenta de Purview creada el **18 de agosto de 2021 o después**: rol **Administradores de colecciones** en la colección raíz.
+>- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**: rol integrado de Azure **Propietario**, **Colaborador**, **Lector** o **Administrador de acceso de usuario**.
 
 ## <a name="create-new-data-factory-connection"></a>Creación de una nueva conexión de Data Factory
 
 >[!Note]
->Para agregar o quitar las conexiones de Data Factory, debe tener asignado cualquiera de los roles de Purview: La herencia de roles del grupo de administración **no se admite**:
->- Propietario
->- Administrador de acceso de usuario
+>Para agregar o quitar las conexiones de Data Factory, debe tener asignado el rol siguiente. No se admite la herencia de roles del grupo de administración.
+>- Para la cuenta de Purview creada el **18 de agosto de 2021 o después**: rol **Administradores de colecciones** en la colección raíz.
+>- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**: rol **Propietario** o **Administrador de acceso de usuario**. 
 >
-> Además, requiere que los usuarios sean el "Propietario" o "Colaborador" de la factoría de datos. 
+> Además, es necesario que los usuarios sean el "Propietario" o "Colaborador" de la factoría de datos. 
 
-Siga los pasos que se indican a continuación para conectar una factoría de datos existente  a la instancia de Data Catalog de Purview.
+Siga los pasos que se indican a continuación para conectar una factoría de datos existente a la cuenta de Purview. También puede [conectar Data Factory a la cuenta de Purview desde ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
 1. En el panel de navegación izquierdo, seleccione **Administración**.
 2. En **Lineage connections** (Conexiones de linaje), seleccione **Data Factory**.
@@ -68,18 +67,16 @@ Siga los pasos que se indican a continuación para conectar una factoría de dat
 >[!Note]
 >Ahora se admite la adición de un máximo de 10 factorías de datos a la vez. Si quiere agregar más de 10 factorías de datos a la vez, rellene una incidencia de soporte técnico.
 
-### <a name="how-does-the-authentication-work"></a>¿Cómo funciona la autenticación?
+### <a name="how-authentication-works"></a>Funcionamiento de la autenticación
 
-Cuando un usuario de Purview registra una factoría de datos a la que tiene acceso, ocurre lo siguiente en el back-end:
+La identidad administrada de la factoría de datos se usa para autenticar las operaciones de inserción de linaje desde la factoría de datos a Purview. Al conectar la factoría de datos a Purview en la interfaz de usuario, agrega automáticamente la asignación de roles. 
 
-1. La **identidad administrada de Data Factory** se agrega al rol RBAC de Purview: **Conservador de datos de Purview**.
+- En el caso de la cuenta de Purview creada el **18 de agosto de 2021 o después**, conceda el rol **Conservador de datos** de la identidad administrada de la factoría de datos en la **colección raíz** de Purview. Obtenga más información sobre el [control de acceso en Azure Purview y ](../purview/catalog-permissions.md)[Adición de roles y restricción del acceso mediante colecciones](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Captura de pantalla que muestra el MSI de Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
-     
-2. La canalización de Data Factory debe ejecutarse de nuevo para que los metadatos de linaje puedan volver a insertarse en Purview.
-3. Después de la ejecución, los metadatos de Data Factory se insertan en Purview.
+- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**, conceda el rol integrado de Azure [**Conservador de datos de Purview**](../role-based-access-control/built-in-roles.md#purview-data-curator) de la identidad administrada de la factoría de datos en la cuenta de Purview. Obtenga más información sobre el [Control de acceso en Azure Purview: permisos heredados](../purview/catalog-permissions.md#legacy-permission-guide).
 
 ### <a name="remove-data-factory-connections"></a>Eliminación de conexiones de Data Factory
+
 Para quitar una conexión de Data Factory, haga lo siguiente:
 
 1. En la página **Data Factory connection** (Conexión de Data Factory), seleccione el botón **Quitar** situado junto a una o más conexiones de Data Factory.
@@ -101,22 +98,6 @@ Azure Purview captura el linaje en tiempo de ejecución de las siguientes activi
 La integración entre Data Factory y Purview solo admite un subconjunto de los sistemas de datos que admite Data Factory, como se explica en las secciones siguientes.
 
 [!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
-
-### <a name="data-flow-support"></a>Compatibilidad de Data Flow
-
-| Almacén de datos | Compatible |
-| ------------------- | ------------------- | 
-| Azure Blob Storage | Sí |
-| Azure Cosmos DB (SQL API) \* | Sí | 
-| Azure Data Lake Storage Gen1 | Sí |
-| Azure Data Lake Storage Gen2 | Sí |
-| Azure Database for MySQL \* | Sí | 
-| Azure Database for PostgreSQL \* | Sí |
-| Azure SQL Database \* | Sí |
-| Azure SQL Managed Instance \* | Sí | 
-| Azure Synapse Analytics \* | Sí |
-
-*\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
 
 ### <a name="execute-ssis-package-support"></a>Compatibilidad de ejecución de paquetes SSIS
 

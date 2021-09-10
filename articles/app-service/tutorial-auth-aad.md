@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/26/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 475d7d25bf0d4a373fd2cb630ee7f2a643581b04
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 4b5244766769255a74becaa7c8893db45532dc4f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090680"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227132"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -65,19 +65,28 @@ En este paso, configurará el proyecto .NET Core local. Usará el mismo proyecto
 
 ### <a name="clone-and-run-the-sample-application"></a>Clonación y ejecución de la aplicación de ejemplo
 
-Ejecute los comandos siguientes para clonar el repositorio de ejemplo y ejecutarlo.
+1. Ejecute los comandos siguientes para clonar el repositorio de ejemplo y ejecutarlo.
 
-```bash
-git clone https://github.com/Azure-Samples/dotnet-core-api
-cd dotnet-core-api
-dotnet run
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/dotnet-core-api
+    cd dotnet-core-api
+    dotnet run
+    ```
+    
+1. Vaya a `http://localhost:5000` e intente agregar, modificar y quitar elementos de lista de tareas. 
 
-Vaya a `http://localhost:5000` e intente agregar, modificar y quitar elementos de lista de tareas. 
+    ![API de ASP.NET Core en ejecución local](./media/tutorial-auth-aad/local-run.png)
 
-![API de ASP.NET Core en ejecución local](./media/tutorial-auth-aad/local-run.png)
+1. Para detener ASP.NET Core, presione `Ctrl+C` en el terminal.
 
-Para detener ASP.NET Core en cualquier momento, presione `Ctrl+C` en el terminal.
+1. Asegúrese de que la rama predeterminada sea `main`.
+
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > App Service no exige el cambio de nombre de rama. Sin embargo, dado que muchos repositorios cambian su rama predeterminada a `main`, en este tutorial también se muestra cómo implementar un repositorio desde `main`. Para más información, consulte [Cambio de la rama de implementación](deploy-local-git.md#change-deployment-branch).
 
 ## <a name="deploy-apps-to-azure"></a>Implementación de aplicaciones en Azure
 
@@ -121,19 +130,26 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Inserción en Azure desde Git
 
-De nuevo en la _ventana de terminal local_, ejecute los siguientes comandos de Git para implementar la aplicación de back-end. Reemplace _\<deploymentLocalGitUrl-of-back-end-app>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources). Cuando el administrador de credenciales de Git solicite las credenciales, asegúrese de especificar sus [credenciales de implementación](deploy-configure-credentials.md) y no las usadas para iniciar sesión en Azure Portal.
+1. Puesto que va a implementar la rama `main`, debe establecer la rama de implementación predeterminada para las dos aplicaciones de App Service en `main` (consulte [Cambio de la rama de implementación](deploy-local-git.md#change-deployment-branch)). En Cloud Shell, establezca el valor de la aplicación `DEPLOYMENT_BRANCH` con el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). 
 
-```bash
-git remote add backend <deploymentLocalGitUrl-of-back-end-app>
-git push backend master
-```
+    ```azurecli-interactive
+    az webapp config appsettings set --name <front-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH='main'
+    az webapp config appsettings set --name <back-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH='main'
+    ```
 
-En la ventana de terminal local, ejecute los siguientes comandos de Git para implementar el mismo código en la aplicación de front-end. Reemplace _\<deploymentLocalGitUrl-of-front-end-app>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources).
+1. De nuevo en la _ventana de terminal local_, ejecute los siguientes comandos de Git para implementar la aplicación de back-end. Reemplace _\<deploymentLocalGitUrl-of-back-end-app>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources). Cuando el administrador de credenciales de Git solicite las credenciales, asegúrese de especificar sus [credenciales de implementación](deploy-configure-credentials.md) y no las usadas para iniciar sesión en Azure Portal.
 
-```bash
-git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
-git push frontend master
-```
+    ```bash
+    git remote add backend <deploymentLocalGitUrl-of-back-end-app>
+    git push backend main
+    ```
+
+1. En la ventana de terminal local, ejecute los siguientes comandos de Git para implementar el mismo código en la aplicación de front-end. Reemplace _\<deploymentLocalGitUrl-of-front-end-app>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources).
+
+    ```bash
+    git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
+    git push frontend main
+    ```
 
 ### <a name="browse-to-the-apps"></a>Navegación hasta las aplicaciones
 
@@ -157,74 +173,74 @@ En este paso, vinculará el código de servidor de la aplicación de front-end p
 
 ### <a name="modify-front-end-code"></a>Modificación del código de front-end
 
-En el repositorio local, abra _Controllers/TodoController.cs_. Al comienzo de la clase `TodoController`, agregue las siguientes líneas y reemplace _\<back-end-app-name>_ por el nombre de la aplicación de back-end:
+1. En el repositorio local, abra _Controllers/TodoController.cs_. Al comienzo de la clase `TodoController`, agregue las siguientes líneas y reemplace _\<back-end-app-name>_ por el nombre de la aplicación de back-end:
 
-```cs
-private static readonly HttpClient _client = new HttpClient();
-private static readonly string _remoteUrl = "https://<back-end-app-name>.azurewebsites.net";
-```
+    ```cs
+    private static readonly HttpClient _client = new HttpClient();
+    private static readonly string _remoteUrl = "https://<back-end-app-name>.azurewebsites.net";
+    ```
 
-Busque el método decorado con `[HttpGet]` y reemplace el código entre llaves por:
+1. Busque el método decorado con `[HttpGet]` y reemplace el código entre llaves por:
 
-```cs
-var data = await _client.GetStringAsync($"{_remoteUrl}/api/Todo");
-return JsonConvert.DeserializeObject<List<TodoItem>>(data);
-```
+    ```cs
+    var data = await _client.GetStringAsync($"{_remoteUrl}/api/Todo");
+    return JsonConvert.DeserializeObject<List<TodoItem>>(data);
+    ```
 
-La primera línea realiza una llamada `GET /api/Todo` a la aplicación de API de back-end.
+    La primera línea realiza una llamada `GET /api/Todo` a la aplicación de API de back-end.
 
-Después, busque el método decorado con `[HttpGet("{id}")]` y reemplace el código entre llaves por:
+1. Después, busque el método decorado con `[HttpGet("{id}")]` y reemplace el código entre llaves por:
 
-```cs
-var data = await _client.GetStringAsync($"{_remoteUrl}/api/Todo/{id}");
-return Content(data, "application/json");
-```
+    ```cs
+    var data = await _client.GetStringAsync($"{_remoteUrl}/api/Todo/{id}");
+    return Content(data, "application/json");
+    ```
 
-La primera línea realiza una llamada `GET /api/Todo/{id}` a la aplicación de API de back-end.
+    La primera línea realiza una llamada `GET /api/Todo/{id}` a la aplicación de API de back-end.
 
-Después, busque el método decorado con `[HttpPost]` y reemplace el código entre llaves por:
+1. Después, busque el método decorado con `[HttpPost]` y reemplace el código entre llaves por:
 
-```cs
-var response = await _client.PostAsJsonAsync($"{_remoteUrl}/api/Todo", todoItem);
-var data = await response.Content.ReadAsStringAsync();
-return Content(data, "application/json");
-```
+    ```cs
+    var response = await _client.PostAsJsonAsync($"{_remoteUrl}/api/Todo", todoItem);
+    var data = await response.Content.ReadAsStringAsync();
+    return Content(data, "application/json");
+    ```
 
-La primera línea realiza una llamada `POST /api/Todo` a la aplicación de API de back-end.
+    La primera línea realiza una llamada `POST /api/Todo` a la aplicación de API de back-end.
 
-Después, busque el método decorado con `[HttpPut("{id}")]` y reemplace el código entre llaves por:
+1. Después, busque el método decorado con `[HttpPut("{id}")]` y reemplace el código entre llaves por:
 
-```cs
-var res = await _client.PutAsJsonAsync($"{_remoteUrl}/api/Todo/{id}", todoItem);
-return new NoContentResult();
-```
+    ```cs
+    var res = await _client.PutAsJsonAsync($"{_remoteUrl}/api/Todo/{id}", todoItem);
+    return new NoContentResult();
+    ```
 
-La primera línea realiza una llamada `PUT /api/Todo/{id}` a la aplicación de API de back-end.
+    La primera línea realiza una llamada `PUT /api/Todo/{id}` a la aplicación de API de back-end.
 
-Después, busque el método decorado con `[HttpDelete("{id}")]` y reemplace el código entre llaves por:
+1. Después, busque el método decorado con `[HttpDelete("{id}")]` y reemplace el código entre llaves por:
 
-```cs
-var res = await _client.DeleteAsync($"{_remoteUrl}/api/Todo/{id}");
-return new NoContentResult();
-```
+    ```cs
+    var res = await _client.DeleteAsync($"{_remoteUrl}/api/Todo/{id}");
+    return new NoContentResult();
+    ```
 
-La primera línea realiza una llamada `DELETE /api/Todo/{id}` a la aplicación de API de back-end.
+    La primera línea realiza una llamada `DELETE /api/Todo/{id}` a la aplicación de API de back-end.
 
-Guarde todos los cambios. En la ventana de terminal local, implemente los cambios en la aplicación de front-end con los siguientes comandos de Git:
+1. Guarde todos los cambios. En la ventana de terminal local, implemente los cambios en la aplicación de front-end con los siguientes comandos de Git:
 
-```bash
-git add .
-git commit -m "call back-end API"
-git push frontend master
-```
+    ```bash
+    git add .
+    git commit -m "call back-end API"
+    git push frontend main
+    ```
 
 ### <a name="check-your-changes"></a>Comprobación de los cambios
 
-Vaya a `http://<front-end-app-name>.azurewebsites.net` y agregue algunos elementos, como `from front end 1` y `from front end 2`.
+1. Vaya a `http://<front-end-app-name>.azurewebsites.net` y agregue algunos elementos, como `from front end 1` y `from front end 2`.
 
-Vaya a `http://<back-end-app-name>.azurewebsites.net` para ver los elementos agregados desde la aplicación de front-end. Además, agregue algunos elementos, como `from back end 1` y `from back end 2`, y luego actualice la aplicación de front-end para ver si refleja los cambios.
+1. Vaya a `http://<back-end-app-name>.azurewebsites.net` para ver los elementos agregados desde la aplicación de front-end. Además, agregue algunos elementos, como `from back end 1` y `from back end 2`, y luego actualice la aplicación de front-end para ver si refleja los cambios.
 
-:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Captura de pantalla de un ejemplo de API REST de Azure App Service en una ventana del explorador, que muestra una aplicación de lista de tareas pendientes, con elementos agregados desde la aplicación de front-end.":::
+    :::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Captura de pantalla de un ejemplo de API REST de Azure App Service en una ventana del explorador, que muestra una aplicación de lista de tareas pendientes, con elementos agregados desde la aplicación de front-end.":::
 
 ## <a name="configure-auth"></a>Configuración de la autenticación
 
@@ -234,29 +250,29 @@ Usará Azure Active Directory como proveedor de identidades. Para más informaci
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitación de la autenticación y autorización en una aplicación de back-end
 
-En el menú de [Azure Portal](https://portal.azure.com), seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página.
+1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página.
 
-En **Grupos de recursos**, busque y seleccione el grupo de recursos. En **Información general**, seleccione la página de administración de la aplicación de back-end.
+1. En **Grupos de recursos**, busque y seleccione el grupo de recursos. En **Información general**, seleccione la página de administración de la aplicación de back-end.
 
-:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Captura de pantalla de la ventana de grupos de recursos, que muestra información general de un grupo de recursos de ejemplo y la página de administración de una aplicación de back-end seleccionada.":::
+    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Captura de pantalla de la ventana de grupos de recursos, que muestra información general de un grupo de recursos de ejemplo y la página de administración de una aplicación de back-end seleccionada.":::
 
-En el menú de la izquierda de la aplicación de back-end, seleccione **Autenticación** y haga clic en **Agregar proveedor de identidades**.
+1. En el menú de la izquierda de la aplicación de back-end, seleccione **Autenticación** y haga clic en **Agregar proveedor de identidades**.
 
-En la página **Agregar un proveedor de identidades**, seleccione **Microsoft** en **Proveedor de identidades** para iniciar sesión en las identidades de Microsoft y Azure AD.
+1. En la página **Agregar un proveedor de identidades**, seleccione **Microsoft** en **Proveedor de identidades** para iniciar sesión en las identidades de Microsoft y Azure AD.
 
-En **Registro de aplicación** > **App registration type** (Tipo de registro de aplicación), seleccione **Create new app registration** (Crear registro de aplicación).
+1. En **Registro de aplicación** > **App registration type** (Tipo de registro de aplicación), seleccione **Create new app registration** (Crear registro de aplicación).
 
-En **Registro de aplicación** > **Supported account types** (Tipos de cuenta admitidos), seleccione **Current tenant-single tenant** (Inquilino de inquilino único actual).
+1. En **Registro de aplicación** > **Supported account types** (Tipos de cuenta admitidos), seleccione **Current tenant-single tenant** (Inquilino de inquilino único actual).
 
-En la sección **App Service authentication settings** (Configuración de autenticación de App Service), deje la opción **Autenticación** establecida en **Requerir autenticación** y la opción **Unauthenticated requests** (Solicitudes no autenticadas) establecida en **HTTP 302 Found redirect: recommended for websites** (HTTP 302 Redirección no encontrada: recomendado para sitios web).
+1. En la sección **App Service authentication settings** (Configuración de autenticación de App Service), deje la opción **Autenticación** establecida en **Requerir autenticación** y la opción **Unauthenticated requests** (Solicitudes no autenticadas) establecida en **HTTP 302 Found redirect: recommended for websites** (HTTP 302 Redirección no encontrada: recomendado para sitios web).
 
-En la parte inferior de la página **Agregar un proveedor de identidades**, haga clic en **Agregar** para permitir la autenticación de la aplicación web.
+1. En la parte inferior de la página **Agregar un proveedor de identidades**, haga clic en **Agregar** para permitir la autenticación de la aplicación web.
 
-:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Captura de pantalla del menú de la izquierda de la aplicación de back-end que muestra la opción de autenticación o autorización seleccionada y la configuración que se ha seleccionado en el menú de la derecha.":::
+    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Captura de pantalla del menú de la izquierda de la aplicación de back-end que muestra la opción de autenticación o autorización seleccionada y la configuración que se ha seleccionado en el menú de la derecha.":::
 
-Se abrirá la página de **autenticación**. Copie el valor de **Identificador de cliente** de la aplicación de Azure AD en un bloc de notas. Este valor lo necesitará más adelante.
+1. Se abrirá la página de **autenticación**. Copie el valor de **Identificador de cliente** de la aplicación de Azure AD en un bloc de notas. Este valor lo necesitará más adelante.
 
-:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Captura de pantalla de la ventana de configuración de Azure Active Directory que muestra el aplicación de Azure AD y la ventana de aplicaciones de Azure AD con el identificador de cliente para copiar.":::
+    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Captura de pantalla de la ventana de configuración de Azure Active Directory que muestra el aplicación de Azure AD y la ventana de aplicaciones de Azure AD con el identificador de cliente para copiar.":::
 
 Si se detiene aquí, tiene una aplicación independiente que ya está protegida por la autenticación y la autorización de App Service. En las secciones restantes se muestra cómo proteger una solución de varias aplicaciones al "fluir" el usuario autenticado desde el front-end hasta el back-end. 
 
@@ -277,41 +293,41 @@ Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería diri
 
 Ahora que ha habilitado la autenticación y autorización en las dos aplicaciones, cada una de ellas está respaldada por una aplicación de AD. En este paso, concederá a la aplicación de front-end permisos para acceder al back-end en nombre del usuario. (Técnicamente, asignará a la _aplicación de AD_ del front-end permisos para acceder a la _aplicación de AD_ del back-end en nombre del usuario).
 
-En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione *Azure Active Directory* desde cualquier página.
+1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione *Azure Active Directory* desde cualquier página.
 
-Seleccione **Registros de aplicaciones** > **Aplicaciones propias** > **View all applications in this directory** (Ver todas las aplicaciones de este directorio). Seleccione el nombre de la aplicación de front-end y, después, seleccione **Permisos de API**.
+1. Seleccione **Registros de aplicaciones** > **Aplicaciones propias** > **View all applications in this directory** (Ver todas las aplicaciones de este directorio). Seleccione el nombre de la aplicación de front-end y, después, seleccione **Permisos de API**.
 
-:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Captura de pantalla de la ventana Microsoft - Registros de aplicaciones, con Aplicaciones propias, un nombre de aplicación de front-end y permisos de API seleccionados.":::
+    :::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Captura de pantalla de la ventana Microsoft - Registros de aplicaciones, con Aplicaciones propias, un nombre de aplicación de front-end y permisos de API seleccionados.":::
 
-Seleccione **Agregar un permiso** y, a continuación, **API usadas en mi organización** >  **\<back-end-app-name>** .
+1. Seleccione **Agregar un permiso** y, a continuación, **API usadas en mi organización** >  **\<back-end-app-name>** .
 
-En la página **Solicitud de permisos de API** de la aplicación de back-end, seleccione **Permisos delegados** y **user_impersonation** y, después, seleccione **Agregar permisos**.
+1. En la página **Solicitud de permisos de API** de la aplicación de back-end, seleccione **Permisos delegados** y **user_impersonation** y, después, seleccione **Agregar permisos**.
 
-:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Captura de pantalla de la página de solicitud de permisos de API, con Permisos delegados, user_impersonation y el botón Agregar permiso seleccionados.":::
+    :::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Captura de pantalla de la página de solicitud de permisos de API, con Permisos delegados, user_impersonation y el botón Agregar permiso seleccionados.":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Configuración de App Service para devolver un token de acceso que se pueda usar
 
 La aplicación de front-end ya tiene los permisos necesarios para acceder a la aplicación de back-end como usuario con sesión iniciada. En este paso, configurará la autenticación y autorización de App Service para proporcionarle un token de acceso que se pueda usar para acceder al back end. Para este paso necesitará el identificador de cliente del back-end, que copió en [Habilitación de la autenticación y autorización en una aplicación de back-end](#enable-authentication-and-authorization-for-back-end-app).
 
-Vaya a [Azure Resource Explorer](https://resources.azure.com) y, mediante el árbol de recursos, busque la aplicación web de front-end.
+1. Vaya a [Azure Resource Explorer](https://resources.azure.com) y, mediante el árbol de recursos, busque la aplicación web de front-end.
 
-Se abre ahora [Azure Resource Explorer](https://resources.azure.com) con la aplicación de front-end seleccionada en el árbol de recursos. En la parte superior de la página, haga clic en **Read/Write** (Lectura/escritura) para permitir la edición de los recursos de Azure.
+1. Se abre ahora [Azure Resource Explorer](https://resources.azure.com) con la aplicación de front-end seleccionada en el árbol de recursos. En la parte superior de la página, haga clic en **Read/Write** (Lectura/escritura) para permitir la edición de los recursos de Azure.
 
-:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Captura de pantalla de los botones de solo lectura y de lectura/escritura en la parte superior de la página de Azure Resource Explorer, con el botón de lectura/escritura seleccionado.":::
+    :::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Captura de pantalla de los botones de solo lectura y de lectura/escritura en la parte superior de la página de Azure Resource Explorer, con el botón de lectura/escritura seleccionado.":::
 
-En el explorador izquierdo, explore en profundidad hasta **config** > **authsettings**.
+1. En el explorador izquierdo, explore en profundidad hasta **config** > **authsettings**.
 
-En la vista **authsettings**, haga clic en **Edit** (Editar). Establezca `additionalLoginParams` en la siguiente cadena JSON, utilizando el identificador de cliente que copió. 
+1. En la vista **authsettings**, haga clic en **Edit** (Editar). Establezca `additionalLoginParams` en la siguiente cadena JSON, utilizando el identificador de cliente que copió. 
 
-```json
-"additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
-```
+    ```json
+    "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
+    ```
 
-:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Captura de pantalla de un ejemplo de código en la vista authsettings que muestra la cadena additionalLoginParams, con un ejemplo de un identificador de cliente.":::
+    :::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Captura de pantalla de un ejemplo de código en la vista authsettings que muestra la cadena additionalLoginParams, con un ejemplo de un identificador de cliente.":::
 
-Haga clic en **PUT** para guardar la configuración.
+1. Haga clic en **PUT** para guardar la configuración.
 
-Ahora las aplicaciones están configuradas. El front-end ahora está listo para acceder al back-end con un token de acceso apropiado.
+    Ahora las aplicaciones están configuradas. El front-end ahora está listo para acceder al back-end con un token de acceso apropiado.
 
 Para más información acerca de cómo configurar el token de acceso para otros proveedores, consulte [Actualización de tokens del proveedor de identidades](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
@@ -324,32 +340,32 @@ La aplicación de front-end dispone ahora del permiso necesario y también agreg
 > [!NOTE]
 > Estos encabezados se insertan con todos los lenguajes admitidos. Se accede a ellos mediante el patrón estándar de cada lenguaje respectivo.
 
-En el repositorio local, abra de nuevo _Controllers/TodoController.cs_. En la construcción `TodoController(TodoContext context)`, agregue el siguiente código:
+1. En el repositorio local, abra de nuevo _Controllers/TodoController.cs_. En la construcción `TodoController(TodoContext context)`, agregue el siguiente código:
 
-```cs
-public override void OnActionExecuting(ActionExecutingContext context)
-{
-    base.OnActionExecuting(context);
+    ```cs
+    public override void OnActionExecuting(ActionExecutingContext context)
+    {
+        base.OnActionExecuting(context);
+    
+        _client.DefaultRequestHeaders.Accept.Clear();
+        _client.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);
+    }
+    ```
 
-    _client.DefaultRequestHeaders.Accept.Clear();
-    _client.DefaultRequestHeaders.Authorization =
-        new AuthenticationHeaderValue("Bearer", Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);
-}
-```
+    Este código agrega el encabezado HTTP estándar `Authorization: Bearer <access-token>` a todas las llamadas de API remotas. En la canalización de ejecución de solicitudes de MVC de ASP.NET Core, `OnActionExecuting` se ejecuta justo antes de la acción correspondiente, de modo que cada una de las llamadas API salientes presenta ahora el token de acceso.
 
-Este código agrega el encabezado HTTP estándar `Authorization: Bearer <access-token>` a todas las llamadas de API remotas. En la canalización de ejecución de solicitudes de MVC de ASP.NET Core, `OnActionExecuting` se ejecuta justo antes de la acción correspondiente, de modo que cada una de las llamadas API salientes presenta ahora el token de acceso.
+1. Guarde todos los cambios. En la ventana de terminal local, implemente los cambios en la aplicación de front-end con los siguientes comandos de Git:
 
-Guarde todos los cambios. En la ventana de terminal local, implemente los cambios en la aplicación de front-end con los siguientes comandos de Git:
+    ```bash
+    git add .
+    git commit -m "add authorization header for server code"
+    git push frontend main
+    ```
 
-```bash
-git add .
-git commit -m "add authorization header for server code"
-git push frontend master
-```
+1. Vuelva a iniciar sesión en `https://<front-end-app-name>.azurewebsites.net`. En la página de contrato de uso de datos del usuario, haga clic en **Accept** (Aceptar).
 
-Vuelva a iniciar sesión en `https://<front-end-app-name>.azurewebsites.net`. En la página de contrato de uso de datos del usuario, haga clic en **Accept** (Aceptar).
-
-Ahora deberá poder crear, leer, actualizar y eliminar datos de la aplicación de back-end como antes. La única diferencia ahora es que ambas aplicaciones están protegidas mediante la autenticación y autorización de App Service, incluidas las llamadas de servicio a servicio.
+    Ahora deberá poder crear, leer, actualizar y eliminar datos de la aplicación de back-end como antes. La única diferencia ahora es que ambas aplicaciones están protegidas mediante la autenticación y autorización de App Service, incluidas las llamadas de servicio a servicio.
 
 Felicidades. El código de servidor puede acceder ahora a los datos de back-end en nombre del usuario autenticado.
 
@@ -375,63 +391,63 @@ Este paso no está relacionado con la autenticación y autorización. Sin embarg
 
 ### <a name="point-angularjs-app-to-back-end-api"></a>Vinculación de la aplicación Angular.js a la API de back-end
 
-En el repositorio local, abra _wwwroot/index.html_.
+1. En el repositorio local, abra _wwwroot/index.html_.
 
-En la línea 51, establezca la variable `apiEndpoint` en la dirección URL HTTPS de la aplicación de back-end (`https://<back-end-app-name>.azurewebsites.net`). Reemplace _\<back-end-app-name>_ por el nombre de la aplicación de App Service.
+1. En la línea 51, establezca la variable `apiEndpoint` en la dirección URL HTTPS de la aplicación de back-end (`https://<back-end-app-name>.azurewebsites.net`). Reemplace _\<back-end-app-name>_ por el nombre de la aplicación de App Service.
 
-En el repositorio local, abra _wwwroot/app/scripts/todoListSvc.js_ y observe que `apiEndpoint` está anexado a todas las llamadas API. La aplicación Angular.js ahora está llamando a las API de back-end. 
+1. En el repositorio local, abra _wwwroot/app/scripts/todoListSvc.js_ y observe que `apiEndpoint` está anexado a todas las llamadas API. La aplicación Angular.js ahora está llamando a las API de back-end. 
 
 ### <a name="add-access-token-to-api-calls"></a>Adición del token de acceso a las llamadas API
 
-En _wwwroot/app/scripts/todoListSvc.js_, encima de la lista de llamadas API (encima de la línea `getItems : function(){`), agregue la siguiente función a la lista:
+1. En _wwwroot/app/scripts/todoListSvc.js_, encima de la lista de llamadas API (encima de la línea `getItems : function(){`), agregue la siguiente función a la lista:
 
-```javascript
-setAuth: function (token) {
-    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-},
-```
-
-Esta función se invoca para establecer el encabezado `Authorization` predeterminado con el token de acceso. La invocará en el paso siguiente.
-
-En el repositorio local, abra _wwwroot/app/scripts/app.js_ y busque el código siguiente:
-
-```javascript
-$routeProvider.when("/Home", {
-    controller: "todoListCtrl",
-    templateUrl: "/App/Views/TodoList.html",
-}).otherwise({ redirectTo: "/Home" });
-```
-
-Reemplace el bloque de código completo por el siguiente código:
-
-```javascript
-$routeProvider.when("/Home", {
-    controller: "todoListCtrl",
-    templateUrl: "/App/Views/TodoList.html",
-    resolve: {
-        token: ['$http', 'todoListSvc', function ($http, todoListSvc) {
-            return $http.get('/.auth/me').then(function (response) {
-                todoListSvc.setAuth(response.data[0].access_token);
-                return response.data[0].access_token;
-            });
-        }]
+    ```javascript
+    setAuth: function (token) {
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
     },
-}).otherwise({ redirectTo: "/Home" });
-```
+    ```
 
-El nuevo cambio se agrega a la asignación `resolve` que invoca a `/.auth/me` y establece el token de acceso. Esto garantiza que tiene el token de acceso antes de crear una instancia del controlador `todoListCtrl`. De este modo, todas las llamadas API por el controlador incluyen el token.
+    Esta función se invoca para establecer el encabezado `Authorization` predeterminado con el token de acceso. La invocará en el paso siguiente.
+
+1. En el repositorio local, abra _wwwroot/app/scripts/app.js_ y busque el código siguiente:
+
+    ```javascript
+    $routeProvider.when("/Home", {
+        controller: "todoListCtrl",
+        templateUrl: "/App/Views/TodoList.html",
+    }).otherwise({ redirectTo: "/Home" });
+    ```
+
+1. Reemplace el bloque de código completo por el siguiente código:
+
+    ```javascript
+    $routeProvider.when("/Home", {
+        controller: "todoListCtrl",
+        templateUrl: "/App/Views/TodoList.html",
+        resolve: {
+            token: ['$http', 'todoListSvc', function ($http, todoListSvc) {
+                return $http.get('/.auth/me').then(function (response) {
+                    todoListSvc.setAuth(response.data[0].access_token);
+                    return response.data[0].access_token;
+                });
+            }]
+        },
+    }).otherwise({ redirectTo: "/Home" });
+    ```
+
+    El nuevo cambio se agrega a la asignación `resolve` que invoca a `/.auth/me` y establece el token de acceso. Esto garantiza que tiene el token de acceso antes de crear una instancia del controlador `todoListCtrl`. De este modo, todas las llamadas API por el controlador incluyen el token.
 
 ### <a name="deploy-updates-and-test"></a>Implementación de actualizaciones y prueba
 
-Guarde todos los cambios. En la ventana de terminal local, implemente los cambios en la aplicación de front-end con los siguientes comandos de Git:
+1. Guarde todos los cambios. En la ventana de terminal local, implemente los cambios en la aplicación de front-end con los siguientes comandos de Git:
 
-```bash
-git add .
-git commit -m "add authorization header for Angular"
-git push frontend master
-```
+    ```bash
+    git add .
+    git commit -m "add authorization header for Angular"
+    git push frontend main
+    ```
 
-Vaya de nuevo a `https://<front-end-app-name>.azurewebsites.net`. Ahora debería poder crear, leer, actualizar y eliminar datos de la aplicación back-end, directamente en la aplicación Angular.js.
+1. Vaya de nuevo a `https://<front-end-app-name>.azurewebsites.net`. Ahora debería poder crear, leer, actualizar y eliminar datos de la aplicación back-end, directamente en la aplicación Angular.js.
 
 Felicidades. El código de cliente puede acceder ahora a los datos de back-end en nombre del usuario autenticado.
 

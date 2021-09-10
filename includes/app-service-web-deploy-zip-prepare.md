@@ -1,6 +1,6 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54a29bb1cc92347d9a2578a4f0ec9febb22553ac
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85570153"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225443"
 ---
-## <a name="create-a-project-zip-file"></a>Creación de un archivo ZIP de proyecto
+## <a name="create-a-project-zip-package"></a>Creación de un paquete ZIP de proyecto
 
 >[!NOTE]
-> Si descargó los archivos en un archivo ZIP, extráigalos primero. Por ejemplo, si descargó un archivo ZIP de GitHub, no puede implementar ese archivo tal cual. GitHub agrega directorios anidados adicionales que no funcionan con App Service. 
+> Si ha descargado los archivos en un paquete ZIP, extráigalos primero. Por ejemplo, si ha descargado un paquete ZIP de GitHub, no puede implementar ese archivo tal cual. GitHub agrega directorios anidados adicionales que no funcionan con App Service. 
 >
 
 En la ventana de un terminal local, navegue hasta el directorio raíz del proyecto de la aplicación. 

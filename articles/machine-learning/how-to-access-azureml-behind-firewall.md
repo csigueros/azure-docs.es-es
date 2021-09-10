@@ -1,7 +1,7 @@
 ---
-title: Uso de un firewall
+title: Configuración del tráfico de red entrante y saliente
 titleSuffix: Azure Machine Learning
-description: Controle el acceso a las áreas de trabajo de Azure Machine Learning con instancias de Azure Firewall. Averigüe qué hosts debe permitir a través del firewall.
+description: Cómo configurar el tráfico de red entrante y saliente necesario cuando se usa un área de trabajo de Azure Machine Learning segura.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 08/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 790b5a3e34d36d674511507bc5e9ed452c5ba74e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2bcc1a9fdd930a8c9dd85604528a276f9de8d6e8
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745303"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123113112"
 ---
-# <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Uso de áreas de trabajo detrás de un firewall en Azure Machine Learning
+# <a name="configure-inbound-and-outbound-network-traffic"></a>Configuración del tráfico de red entrante y saliente
 
-En este artículo, aprenderá a configurar Azure Firewall para controlar el acceso al área de trabajo de Azure Machine Learning y a la red pública de Internet. Para obtener más información sobre la protección de Azure Machine Learning, consulte [Seguridad de empresa para Azure Machine Learning](concept-enterprise-security.md).
+En este artículo, obtendrá información sobre los requisitos de comunicación de red al proteger el área de trabajo de Azure Machine Learning en una red virtual (VNet). Incluye el procedimiento de configuración de Azure Firewall para controlar el acceso al área de trabajo de Azure Machine Learning y a la red pública de Internet. Para obtener más información sobre la protección de Azure Machine Learning, consulte [Seguridad de empresa para Azure Machine Learning](concept-enterprise-security.md).
 
 > [!NOTE]
 > La información de este artículo se aplica al área de trabajo de Azure Machine Learning, con independencia de si usa un punto de conexión privado o un punto de conexión de servicio.
@@ -99,6 +99,14 @@ Estas colecciones de reglas se describen con más detalle en [¿Cuáles son algu
 
 1. Para restringir el tráfico de salida para los modelos implementados en Azure Kubernetes Service (AKS), consulte los artículos [Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md) e [Implementación de un modelo en un clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
 
+### <a name="azure-kubernetes-services"></a>Azure Kubernetes Service
+
+Al usar Azure Kubernetes Service con Azure Machine Learning, se debe permitir el tráfico siguiente:
+
+* Requisitos generales de entrada y salida para AKS, tal como se describe en el artículo [Restricción del tráfico de salida en Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+* __Tráfico de salida__ a mcr.microsoft.com.
+* Al implementar un modelo en un clúster de AKS, use las instrucciones del artículo [Implementación de modelos de ML en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
+
 ### <a name="diagnostics-for-support"></a>Diagnósticos de soporte técnico
 
 Si necesita recopilar información de diagnóstico al trabajar con el soporte técnico de Microsoft, siga estos pasos:
@@ -111,6 +119,7 @@ Si necesita recopilar información de diagnóstico al trabajar con el soporte t�
     + **dc.services.visualstudio.com**
 
     Para obtener una lista de las direcciones IP para los hosts de Azure Monitor, vea [Direcciones IP usadas por Azure Monitor](../azure-monitor/app/ip-addresses.md).
+
 ## <a name="other-firewalls"></a>Otros firewalls
 
 La guía de esta sección es genérica, ya que cada firewall tiene su propia terminología y configuraciones específicas. Si tiene alguna duda, consulte la documentación del firewall que utiliza.
@@ -149,19 +158,19 @@ Los hosts de las siguientes tablas son propiedad de Microsoft y proporcionan ser
 
 | **Requerido para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Instancia/clúster de proceso | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
 | Instancia/clúster de proceso | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Instancia de proceso | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Instancia de proceso | \*.instances.azureml.ms |  |  |
+| Cuenta de Azure Storage | \*blob.core.windows.net</br>\*.table.core.windows.net</br>\*.queue.core.windows.net | \*.blob.core.usgovcloudapi.net</br>\*.table.core.usgovcloudapi.net</br>\*.queue.core.usgovcloudapi.net | \*blob.core.chinacloudapi.cn</br>\*.table.core.chinacloudapi.cn</br>\*.queue.core.chinacloudapi.cn |
+| Azure Key Vault | \*.vault.azure.net | \*.vault.usgovcloudapi.net | \*.vault.azure.cn |
 
 > [!IMPORTANT]
 > El firewall debe permitir la comunicación con \*.instances.azureml.ms a través de los puertos __TCP__ __18881, 443 y 8787__.
 
-**Recursos asociados usados por Azure Machine Learning**
+**Imágenes de Docker que mantiene Azure Machine Learning**
 
 | **Requerido para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Cuenta de Azure Storage | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Registro de contenedor de Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 | Imágenes precompiladas de Azure Machine Learning | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
@@ -204,9 +213,13 @@ Los hosts de esta sección se usan para instalar paquetes de R y son necesarios 
 | ---- | ---- |
 | **cloud.r-project.org** | Usado al instalar paquetes CRAN |
 
-### <a name="azure-kubernetes-services-hosts"></a>Hosts de Azure Kubernetes Services
+### <a name="azure-kubernetes-services"></a>Azure Kubernetes Service
 
-Para obtener información sobre los hosts con los que AKS necesita comunicarse, consulte los artículos [Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md) e [Implementación de un modelo en un clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
+Al usar Azure Kubernetes Service con Azure Machine Learning, se debe permitir el tráfico siguiente:
+
+* Requisitos generales de entrada y salida para AKS, tal como se describe en el artículo [Restricción del tráfico de salida en Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+* __Tráfico de salida__ a mcr.microsoft.com.
+* Al implementar un modelo en un clúster de AKS, use las instrucciones del artículo [Implementación de modelos de ML en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
 
 ### <a name="visual-studio-code-hosts"></a>Hosts de Visual Studio Code
 

@@ -1,15 +1,15 @@
 ---
 title: Lista de definiciones de directiva integradas
 description: Se enumeran las definiciones de directiva integradas para Azure Policy. Las categorías incluyen Etiquetas, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 07/16/2021
+ms.date: 08/27/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 37bce44a1e62157b995c12d9a79963618df103a0
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 0f7e40931602c6232c558b0ba8982388e409aac2
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388768"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123103717"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definiciones de directiva integradas de Azure Policy
 
@@ -56,6 +56,10 @@ El nombre de cada uno de los vínculos integrados a la definición de directiva 
 ## <a name="azure-data-explorer"></a>Explorador de datos de Azure
 
 [!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
+
+## <a name="azure-edge-hardware-center"></a>Azure Edge Hardware Center
+
+[!INCLUDE [azure-policy-reference-policies-azure-edge-hardware-center](../../../../includes/policy/reference/bycat/policies-azure-edge-hardware-center.md)]
 
 ## <a name="azure-stack-edge"></a>Azure Stack Edge
 

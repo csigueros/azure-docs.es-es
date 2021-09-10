@@ -1,17 +1,17 @@
 ---
-title: 'Información general: Azure Logic Apps de un solo inquilino'
+title: Azure Logic Apps de inquilino único frente a multiinquilino
 description: Conozca las diferencias entre las opciones de un solo inquilino, multiinquilino y de entorno del servicio de integración (ISE) para Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/13/2021
-ms.openlocfilehash: bf8140c67e9f572ed9da6672e67966772267f822
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.date: 08/18/2021
+ms.openlocfilehash: 61dbf2f83ad135cfdef6fffcc3a8c162d0a4c0cd
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767030"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111459"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps
 
@@ -38,7 +38,7 @@ En la tabla siguiente se resumen brevemente las diferencias entre el tipo de rec
 
 ## <a name="logic-app-standard-resource"></a>Recurso Logic Apps (estándar)
 
-El tipo de recurso **Logic Apps (estándar)** está equipado con la tecnología de runtime rediseñada de Azure Logic Apps de un solo inquilino. Este runtime contenedorizado usa el [modelo de extensibilidad de Azure Functions](../azure-functions/functions-bindings-register.md) y se hospeda como una extensión en el runtime de Azure Functions. Este diseño proporciona portabilidad, flexibilidad y más rendimiento para los flujos de trabajo de aplicaciones lógicas, además de otras funcionalidades y ventajas heredadas de la plataforma Azure Functions y el ecosistema Azure App Service.
+El tipo de recurso **Logic Apps (estándar)** está equipado con la tecnología de runtime rediseñada de Azure Logic Apps de un solo inquilino. Este runtime usa el [modelo de extensibilidad de Azure Functions](../azure-functions/functions-bindings-register.md) y se hospeda como una extensión en el runtime de Azure Functions. Este diseño proporciona portabilidad, flexibilidad y más rendimiento para los flujos de trabajo de aplicaciones lógicas, además de otras funcionalidades y ventajas heredadas de la plataforma Azure Functions y el ecosistema Azure App Service.
 
 Por ejemplo, puede ejecutar aplicaciones lógicas basadas en un solo inquilino y sus flujos de trabajo en cualquier lugar en el que se puedan ejecutar las aplicaciones de funciones de Azure y sus funciones. El tipo de recurso estándar presenta una estructura de recursos que puede hospedar varios flujos de trabajo, igual que una aplicación de funciones de Azure puede hospedar varias funciones. Con una asignación de uno a varios, los flujos de trabajo de la misma aplicación lógica y el inquilino comparten recursos de proceso y procesamiento, lo que proporciona un mejor rendimiento debido a su proximidad. Esta estructura difiere del recurso **Logic Apps (consumo)** , donde tiene una asignación de uno a uno entre un recurso de aplicación lógica y un flujo de trabajo.
 
@@ -55,7 +55,7 @@ Para obtener más información sobre las mejoras de portabilidad, flexibilidad y
 
 Al crear aplicaciones lógicas con el tipo de recurso **Logic Apps (estándar)** , puede ejecutar los flujos de trabajo en cualquier lugar en el que pueda ejecutar aplicaciones de funciones de Azure y sus funciones, no solo en el entorno de servicio de un solo inquilino.
 
-Por ejemplo, si usa Visual Studio Code con la extensión **Azure Logic Apps (estándar)** , puede desarrollar, compilar y ejecutar *localmente* los flujos de trabajo en el entorno de desarrollo sin tener que realizar la implementación en Azure. Si el escenario requiere contenedores, puede incluir en contenedores las aplicaciones lógicas e implementarlas como contenedores.
+Por ejemplo, si usa Visual Studio Code con la extensión **Azure Logic Apps (estándar)** , puede desarrollar, compilar y ejecutar *localmente* los flujos de trabajo en el entorno de desarrollo sin tener que realizar la implementación en Azure. Si el escenario requiere contenedores, [cree aplicaciones lógicas basadas en un solo inquilino mediante Logic Apps habilitado para Azure Arc](azure-arc-enabled-logic-apps-create-deploy-workflows.md). Para más información, consulte [¿Qué es Azure Logic Apps habilitado para Azure Arc?](azure-arc-enabled-logic-apps-overview.md)
 
 Esta funcionalidad proporciona mejoras importantes y ventajas considerables en comparación con el modelo multiinquilino, que requiere el desarrollo en un recurso en ejecución existente en Azure. Además, el modelo multiinquilino para automatizar la implementación de recursos de **Logic Apps (consumo)** se basa completamente en plantillas de Azure Resource Manager (plantillas de ARM), que combinan y controlan el aprovisionamiento de recursos para las aplicaciones y la infraestructura.
 
@@ -182,20 +182,25 @@ El modelo de un solo inquilino y el tipo de recurso **Logic Apps (estándar)** i
 
     La funcionalidad de creación solo está disponible actualmente en Visual Studio Code, pero no está habilitada de manera predeterminada. Para crear estos conectores, [cambie el proyecto de la extensión basada en agrupación (Node.js) a basado en paquetes NuGet (.NET)](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring). Para obtener más información, vea [Azure Logic Apps en ejecución en cualquier ubicación: extensibilidad de los conectores integrados](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
-  * Puede usar las acciones B2B en operaciones de Liquid y XML sin ninguna cuenta de integración. Para usar estas acciones, debe tener asignaciones de Liquid, asignaciones XML o esquemas XML que pueda cargar por medio de las acciones respectivas en Azure Portal o agregar a la carpeta **Artefactos** del proyecto de Visual Studio Code mediante las carpetas **Asignaciones** y **Esquemas** respectivas.
+  * Puede usar las acciones siguientes en operaciones de Liquid y XML sin ninguna cuenta de integración. Estas operaciones incluyen las acciones siguientes:
 
-  * Los recursos **Logic Apps (estándar)** puedec ejecutarse en cualquier lugar, ya que el servicio Azure Logic Apps genera cadenas de conexión de Firma de acceso compartido (SAS) que estas aplicaciones lógicas pueden usar para enviar solicitudes al punto de conexión de runtime de conexión a la nube. El servicio Logic Apps guarda estas cadenas de conexión con otras opciones de configuración de la aplicación para que pueda almacenar fácilmente estos valores en Azure Key Vault al realizar la implementación en Azure.
+    * XML: **Transformar XML** y **Validación XML**
+
+    * Liquid: **Transformar de JSON a JSON**, **Transformar de JSON a TEXT**, **Transformar de XML a JSON** y **Transformar de XML a TEXTO**
+
+    > [!NOTE]
+    > Para usar estas acciones en Azure Logic Apps de inquilino único (Estándar), debe tener mapas de Liquid, mapas de XML o esquemas de XML. Puede cargar estos artefactos en Azure Portal desde el menú de recursos de la aplicación lógica, en **Artifacts**, que incluye las secciones **Schemas** y **Maps**. O bien, puede agregar estos artefactos a la carpeta **Artifacts** de su proyecto de Visual Studio Code mediante las carpetas **Maps** y **Schemas** respectivas. A continuación, puede usar estos artefactos en varios flujos de trabajo dentro del *mismo recurso de aplicación lógica*.
+
+  * Los recursos de **aplicación lógica (estándar)** pueden ejecutarse en cualquier lugar, ya que el servicio Azure Logic Apps genera cadenas de conexión de Firma de acceso compartido (SAS) que estas aplicaciones lógicas pueden usar para enviar solicitudes al punto de conexión de runtime de conexión a la nube. El servicio Azure Logic Apps guarda estas cadenas de conexión con otras opciones de configuración de la aplicación para que pueda almacenar fácilmente estos valores en Azure Key Vault al realizar la implementación en Azure.
 
     > [!NOTE]
     > De manera predeterminada, un recurso **Logic Apps (estándar)** tiene su [identidad administrada asignada por el sistema](../logic-apps/create-managed-service-identity.md) habilitada automáticamente para autenticar conexiones en tiempo de ejecución. Esta identidad se diferencia de las credenciales de autenticación o de la cadena de conexión que se usan al crear una conexión. Si deshabilita esta identidad, las conexiones no funcionarán en tiempo d ejecución. Para ver este valor, en el menú de la aplicación lógica, en **Configuración**, seleccione **Identidad**.
-
-* Los flujos de trabajo sin estado se ejecutan solo en memoria para que finalicen con mayor rapidez, respondan más rápido, tengan un mayor rendimiento y tengan menos costos de ejecución, ya que los historiales de ejecución y los datos entre las acciones no se conservan en el almacenamiento externo. De manera opcional, puede habilitar el historial de ejecución para facilitar la depuración. Para obtener más información, consulte [Flujos de trabajo con y sin estado](#stateful-stateless).
 
 * Ejecute, pruebe y depure las aplicaciones lógicas y sus flujos de trabajo localmente en el entorno de desarrollo de Visual Studio Code.
 
   Antes de ejecutar y probar la aplicación lógica, puede facilitar la depuración si agrega y usa puntos de interrupción dentro del archivo **workflow.json** de un flujo de trabajo. Pero los puntos de interrupción solo se admiten en las acciones en este momento, no en los desencadenadores. Para obtener más información, vea [Creación de flujos de trabajo basados en un solo inquilino en Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
-* Publique o implemente directamente las aplicaciones lógicas y sus flujos de trabajo desde Visual Studio Code en varios entornos de hospedaje, como Azure y contenedores.
+* Publique o implemente directamente las aplicaciones lógicas y sus flujos de trabajo desde Visual Studio Code en varios entornos de hospedaje, como Azure y Logic Apps habilitado para Azure Arc.
 
 * Habilite las capacidades de registro de diagnóstico y seguimiento de la aplicación lógica mediante [Application Insights](../azure-monitor/app/app-insights-overview.md) cuando lo admitan la configuración de la aplicación lógica y la suscripción de Azure.
 
@@ -233,13 +238,15 @@ Para el recurso **Logic Apps (estándar)** , estas funcionalidades han cambiado,
       >
       > Al igual que con el modelo multiinquilino, si renueva esta clave, por ejemplo, mediante la experiencia de Azure Functions del portal, la acción de la función ya no funciona debido a la clave no válida. Para corregir este problema, debe volver a crear la conexión a la función a la que quiere llamar o actualizar la configuración de la aplicación con la nueva clave.
 
-    * El nombre [Acción de código en línea](logic-apps-add-run-inline-code.md) se ha cambiado por el **Operaciones de código en línea**; ya no requiere una cuenta de integración y se han [actualizado los límites](logic-apps-limits-and-config.md).
+    * El nombre de la acción integrada, [Código en línea](logic-apps-add-run-inline-code.md), se ha cambiado por el **Operaciones de código en línea**; ya no requiere una cuenta de integración y se han [actualizado los límites](logic-apps-limits-and-config.md).
 
     * La acción integrada [Azure Logic Apps: Elegir un flujo de trabajo de aplicación lógica](logic-apps-http-endpoint.md) es ahora **Operaciones de flujo de trabajo: Invocar un flujo de trabajo en esta aplicación de flujo de trabajo**.
 
-    * Algunos [desencadenadores y acciones de B2B integrados de las cuentas de integración](../connectors/managed.md#integration-account-connectors) no están disponibles, por ejemplo, las acciones de codificación y descodificación **Archivo plano**.
+    * Algunos [desencadenadores y acciones integrados de las cuentas de integración](../connectors/managed.md#integration-account-connectors) no están disponibles, como las acciones de codificación y descodificación de **Archivo plano**.
 
     * Actualmente, no se admiten [conectores administrados personalizados](../connectors/apis-list.md#custom-apis-and-connectors). Sin embargo, puede crear *operaciones integradas personalizadas* si usa Visual Studio Code. Para obtener más información, revise [Creación de flujos de trabajo basados en un solo inquilino mediante Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
+
+* Para la transformación XML, la compatibilidad para hacer referencia a ensamblados desde mapas no está disponible actualmente. Además, actualmente solo se admite XSLT 1.0.
 
 * **Depuración de puntos de interrupción en Visual Studio Code**: aunque puede agregar y usar puntos de interrupción dentro del archivo **workflow.json** de un flujo de trabajo, los puntos de interrupción solo se admiten en las acciones en este momento, no en los desencadenadores. Para obtener más información, vea [Creación de flujos de trabajo basados en un solo inquilino en Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 

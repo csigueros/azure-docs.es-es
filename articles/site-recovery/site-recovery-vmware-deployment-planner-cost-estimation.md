@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 05/27/2021
-ms.openlocfilehash: 92d1c5babc2daacdd0b0687a5ff779fcd4272e71
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 7dc82a163a9365532b21af447b823659bf40c71f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577076"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225336"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Revisión de las estimaciones de costes en VMware Deployment Planner 
 
@@ -65,7 +65,10 @@ El costo total de la recuperación ante desastres se clasifica según dos estado
 **Replication cost** (Costo de replicación): se incurre en el costo en el momento de la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery. 
 
 **DR-Drill cost** (Costo del simulacro de recuperación ante desastres): se incurre en el costo en el momento del simulacro de recuperación ante desastres. Azure Site Recovery pone en marcha las máquinas virtuales durante los simulacros de recuperación ante desastres. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución.
-Duración total de los simulacros de recuperación ante desastres en un año = Número de simulacros de recuperación ante desastres x Duración de cada simulacro de recuperación ante desastres (días) Costo promedio del simulacro de recuperación ante desastres (por mes) = Costo total de los simulacros de recuperación ante desastres/12
+
+1.  Duración total de los simulacros de recuperación ante desastres en un año = número de simulacros de recuperación ante desastres x duración de cada simulacro de recuperación ante desastres (días)
+
+2.  Costo medio de simulacros de recuperación ante desastres (por mes) = costo total de simulacros de recuperación ante desastres/12
 
 ### <a name="storage-cost-table"></a>Tabla Storage cost (Costo de almacenamiento):
 Esta tabla muestra el costo del almacenamiento premium y estándar en el que se incurre por la replicación y los simulacros de recuperación ante desastres, con y sin descuento.

@@ -6,15 +6,15 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 01/14/2021
+  ms.date: 08/24/2021
   ms.author: alkohli
   ms.subservice: common
-  ms.openlocfilehash: 51af880897564851750dccd756601d86a1dab889
-  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.openlocfilehash: bfdbb966783e4f95945933c074265d8c45ee1f61
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113095210"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122867618"
 title: 'Servicio Azure Import/Export: preguntas frecuentes'
 summary: >
   Estas son algunas de las preguntas que puede plantearse, junto con sus respuestas, al usar el servicio Azure Import/Export para transferir datos a Azure Storage.
@@ -124,6 +124,10 @@ sections:
       Al enviar la unidad, la empresa de transporte le pedirá la dirección de contacto y el número de teléfono del centro de datos. ¿Qué debo proporcionar?
     answer: >
       El número de teléfono y la dirección del centro de datos se proporcionan como parte de la creación del trabajo.
+  - question: >
+      ¿Por qué el estado del pedido sigue siendo Envío cuando el dispositivo ya se ha entregado?
+    answer: >
+      Una vez que el operador entrega un dispositivo físico, la entrega tarda entre 1 y 3 días laborables en procesarse en Azure Import/Export. Cuando se complete el procesamiento, el estado del pedido cambiará a Recibido.
 - name: Varios
   questions:
   - question: >

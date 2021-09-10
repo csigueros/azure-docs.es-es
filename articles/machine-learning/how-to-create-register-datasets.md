@@ -10,13 +10,13 @@ ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/31/2020
-ms.openlocfilehash: 9bfe0ad6e94ea40ad5edc97e8b3259bb817df03f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 07/06/2021
+ms.openlocfilehash: 5443386a8e62d6576d73161519546e368f41ad82
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788344"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860892"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -38,7 +38,7 @@ Con los conjuntos de datos de Azure Machine Learning, puede:
 
 Para crear y trabajar con conjuntos de datos, necesita:
 
-* Suscripción a Azure. Si no tiene una, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -48,10 +48,13 @@ Para crear y trabajar con conjuntos de datos, necesita:
 
     **OR**
 
-    * Trabaje en su propio cuaderno de Jupyter Notebook e instale el SDK con [estas instrucciones](/python/api/overview/azure/ml/install).
+    * Trabaje en su propio cuaderno de Jupyter Notebook e [instale por su cuenta el SDK](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](https://pypi.org/project/azureml-dataprep/), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) y CentOS (7). Si usa distribuciones no compatibles, siga [esta guía](/dotnet/core/install/linux) para instalar .NET Core 2.1 para continuar. 
+> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](https://pypi.org/project/azureml-dataprep/), que solo es compatible con Python de 64 bits. Si va a desarrollar en __Linux__, estas clases se basan en .NET Core 2.1 y solo se admiten en distribuciones específicas. Para obtener más información sobre las distribuciones admitidas, consulte la columna sobre .NET Core 2.1 en el artículo [Instalación de .NET en Linux](/dotnet/core/install/linux).
+
+> [!IMPORTANT]
+> Aunque el paquete puede funcionar en versiones anteriores de distribuciones de Linux, no se recomienda usar una distribución fuera del soporte estándar. Las distribuciones que están fuera del soporte estándar pueden tener vulnerabilidades de seguridad, ya que no reciben las actualizaciones más recientes. Se recomienda usar la versión admitida más reciente de la distribución que sea compatible con .
 
 ## <a name="compute-size-guidance"></a>Orientación sobre el tamaño de proceso
 
@@ -85,7 +88,7 @@ Cree un objeto TabularDataset con el [SDK de Python](#create-a-tabulardataset) o
 
 ## <a name="access-datasets-in-a-virtual-network"></a>Obtener acceso a los conjuntos de valores de una red virtual
 
-Si el área de trabajo está en una red virtual, debe configurar el conjunto de datos para omitir la validación. Para obtener más información sobre cómo usar los almacenes de datos y los conjuntos de datos en una red virtual, consulte [Protección de un área de trabajo y los recursos asociados](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+Si el área de trabajo está en una red virtual, debe configurar el conjunto de datos para omitir la validación. Para obtener más información sobre cómo usar los almacenes de datos y los conjuntos de datos en una red virtual, consulte [Protección de un área de trabajo y los recursos asociados](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 <a name="datasets-sdk"></a>
 
@@ -111,7 +114,7 @@ Para crear conjuntos de datos a partir de un almacén de datos con el SDK para P
 
 Use el método [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true-) en la clase `FileDatasetFactory` para cargar archivos en cualquier formato y crear un objeto FileDataset sin registrar. 
 
-Si el almacenamiento está detrás de un firewall o una red virtual, establezca el parámetro `validate=False` en el método `from_files()`. Esto omite el paso de validación inicial y garantiza que se pueda crear el conjunto de datos a partir de estos archivos seguros. Obtenga más información sobre cómo [usar almacenes de datos y conjuntos de datos en una red virtual](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+Si el almacenamiento está detrás de un firewall o una red virtual, establezca el parámetro `validate=False` en el método `from_files()`. Esto omite el paso de validación inicial y garantiza que se pueda crear el conjunto de datos a partir de estos archivos seguros. Obtenga más información sobre cómo [usar almacenes de datos y conjuntos de datos en una red virtual](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -132,11 +135,11 @@ Para reutilizar y compartir conjuntos de datos en el experimento en su área de 
 
 ### <a name="create-a-tabulardataset"></a>Creación de un objeto TabularDataset
 
-Use el método [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) en la clase `TabularDatasetFactory` para leer archivos en los formatos .csv o .tsv, y crear una clase TabularDataset sin registrar. Para leer archivos en Formato .parquet, use el método [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-). Si se lee de varios archivos, los resultados se agregarán en una representación tabular. 
+Use el método [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--) en la clase `TabularDatasetFactory` para leer archivos en los formatos .csv o .tsv, y crear una clase TabularDataset sin registrar. Para leer archivos en Formato .parquet, use el método [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-). Si se lee de varios archivos, los resultados se agregarán en una representación tabular. 
 
-Consulte la [documentación de referencia TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) para obtener información sobre los formatos de archivo admitidos, así como los patrones de diseño y la sintaxis. 
+Consulte la [documentación de referencia de TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) para obtener información sobre los formatos de archivo admitidos, así como modelos de diseño y sintaxis, como la [compatibilidad con varias líneas](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--). 
 
-Si el almacenamiento está detrás de un firewall o una red virtual, establezca el parámetro `validate=False` en el método `from_delimited_files()`. Esto omite el paso de validación inicial y garantiza que se pueda crear el conjunto de datos a partir de estos archivos seguros. Más información sobre cómo usar [almacenes de datos y conjuntos de datos en una red virtual](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+Si el almacenamiento está detrás de un firewall o una red virtual, establezca el parámetro `validate=False` en el método `from_delimited_files()`. Esto omite el paso de validación inicial y garantiza que se pueda crear el conjunto de datos a partir de estos archivos seguros. Más información sobre cómo usar [almacenes de datos y conjuntos de datos en una red virtual](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 En el código siguiente se obtiene el área de trabajo existente y el almacén de datos deseado por nombre. A continuación, pasa las ubicaciones del almacén de datos y los archivos al parámetro `path` para crear un nuevo objeto TabularDataset, `weather_ds`.
 
@@ -280,9 +283,6 @@ new_dataset = ds.partition_by(name="repartitioned_ds", partition_keys=['country'
 partition_keys = new_dataset.partition_keys # ['country']
 ```
 
->[!IMPORTANT]
-> Las particiones TabularDataset también se pueden aplicar en canalizaciones de Azure Machine Learning como entrada a ParallelRunStep en muchas aplicaciones de modelos. Vea un ejemplo en la [documentación del acelerador de muchos modelos](https://github.com/microsoft/solution-accelerator-many-models/blob/master/01_Data_Preparation.ipynb).
-
 ## <a name="explore-data"></a>Exploración de datos
 
 Después de haber realizado la limpieza y transformación de datos, puede [registrar](#register-datasets) el conjunto de datos y, luego, cargarlo en el cuaderno para explorar los datos antes del entrenamiento del modelo.
@@ -362,7 +362,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Creación de conjuntos de datos mediante Azure Resource Manager
 
-Hay muchas plantillas en [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) que pueden usarse para crear conjuntos de datos.
+Hay muchas plantillas en [https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) que pueden usarse para crear conjuntos de datos.
 
 Para información sobre el uso de estas plantillas, consulte [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
 

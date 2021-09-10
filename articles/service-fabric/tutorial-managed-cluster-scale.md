@@ -2,14 +2,14 @@
 title: Escalado horizontal de un clúster administrado de Service Fabric
 description: En este tutorial aprenderá a escalar horizontalmente un tipo de nodo de un clúster administrado de Service Fabric.
 ms.topic: tutorial
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e2bd57925ddb78dcfe23742b35c1490584558f8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 938c163f4b27706999f7fe32f7935d4d7877c96b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666884"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864977"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster"></a>Tutorial: Escalado horizontal de un clúster administrado de Service Fabric
 
@@ -35,7 +35,7 @@ En esta parte de la serie se explica lo siguiente:
 Cambie el recuento de instancias para aumentar o disminuir el número de nodos del tipo de nodo que desea escalar. Puede buscar los nombres de tipo de nodo en la plantilla de Azure Resource Manager (plantilla de ARM) de la implementación del clúster o en Service Fabric Explorer.  
 
 > [!NOTE]
-> Si el tipo de nodo es principal, no podrá desplazarse por debajo de 3 nodos para un clúster de SKU básico y de 5 nodos, para un clúster de SKU estándar.
+> En el tipo nodo principal, no podrá desplazarse por debajo de 3 nodos para un clúster de SKU básico y de 5 nodos, para un clúster de SKU estándar.
 
 ```powershell
 $resourceGroup = "myResourceGroup"

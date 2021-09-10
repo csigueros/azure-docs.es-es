@@ -8,37 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/08/2021
+ms.date: 08/25/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 69026d9abd8e0f3a978d9c327e9cb9c2e0140d04
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 8eeac06c4db34a7aa2452ae9fda51890ac1b91a1
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113565785"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864867"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>Inicio rápido: Uso de la biblioteca cliente y la API REST de Text Analytics
 
-Use este artículo para empezar a trabajar con la biblioteca cliente y la API REST de Text Analytics. Siga estos pasos para probar códigos de ejemplo para realizar tareas de minería de texto:
-
-* análisis de opiniones
-* Minería de opiniones
-* Detección de idiomas
-* Reconocimiento de entidades
-* Reconocimiento de información de identificación personal
-* Extracción de la frase clave
+Use este artículo para empezar a trabajar con la biblioteca cliente y la API REST de Text Analytics. Siga estos pasos para probar código de ejemplo para realizar tareas de minería de texto.
 
 
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * La versión estable más reciente de Text Analytics API es `3.1`.
->    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
-> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
-> * Si desea usar Text Analytics for Health u operaciones asincrónicas, consulte en GitHub los ejemplos para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) o [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * En este inicio rápido, solo se tratan las siguientes versiones de la API: v3.1 y v3.2-preview.
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -49,7 +39,8 @@ Use este artículo para empezar a trabajar con la biblioteca cliente y la API RE
 > [!IMPORTANT]
 > * La versión estable más reciente de Text Analytics API es `3.1`.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
-Si desea usar Text Analytics for Health u operaciones asincrónicas, consulte en GitHub los ejemplos para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) o [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * También puede usar la versión preliminar más reciente de la biblioteca cliente para usar el resumen extractivo. Consulte los siguientes ejemplos [en GitHub](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeExtractiveSummarization.java).
+
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -70,9 +61,7 @@ Si desea usar Text Analytics for Health u operaciones asincrónicas, consulte en
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * La versión estable más reciente de Text Analytics API es `3.1`.
->    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
-> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia. Si desea usar Text Analytics for Health u operaciones asincrónicas, consulte en GitHub los ejemplos para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) o [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * En este inicio rápido, solo se tratan las siguientes versiones de la API: v3.1 y v3.2-preview.
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 

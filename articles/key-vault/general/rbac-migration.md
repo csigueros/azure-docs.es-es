@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 75a6064ba44f803837719e0cb1f574d4295f8ac4
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 88ac65c35b29c2113576594788f820973331d64b
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732897"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515012"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migración desde la directiva de acceso de almacén a un modelo de permisos de control de acceso basado en rol de Azure
 
@@ -76,7 +76,7 @@ Plantillas de permisos predefinidas de directiva de acceso:
 | Administración de certificados | Certificados: todas las operaciones | Agente de certificados de Key Vault|
 | Conector de SQL Server | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Usuario de cifrado de servicio criptográfico de Key Vault|
 | Azure Data Lake Storage o Azure Storage | Claves: obtener, enumerar y desencapsular clave | N/D<br> Rol personalizado obligatorio|
-| Azure Backup | Claves: obtener, enumerar y copia de seguridad<br> Certificado: obtener, enumerar y copia de seguridad | N/D<br> Rol personalizado obligatorio|
+| Azure Backup | Claves: obtener, enumerar y copia de seguridad<br> Secretos: obtener, enumerar y copia de seguridad | N/D<br> Rol personalizado obligatorio|
 | Clave de cliente de Exchange Online | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Usuario de cifrado de servicio criptográfico de Key Vault|
 | Clave de cliente de Exchange Online | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Usuario de cifrado de servicio criptográfico de Key Vault|
 | BYOK para información de Azure | Claves: obtener, descifrar y firmar | N/D<br>Rol personalizado obligatorio|

@@ -8,16 +8,23 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 6554fefe035267416a47af7e28270129b443a550
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3ad91e8a275fca61dfc70cdf98c84984ac08f754
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663316"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862658"
 ---
-# <a name="troubleshoot-azure-nfs-file-shares"></a>Solución de problemas de recursos compartidos de archivos NFS de Azure
+# <a name="troubleshoot-azure-nfs-file-share-problems"></a>Solución de problemas de recursos compartidos de archivos NFS de Azure
 
-En este artículo se enumeran algunos problemas habituales relacionados con los recursos compartidos de archivos NFS de Azure. Se proporcionan las posibles causas y soluciones alternativas cuando se producen estos problemas.
+En este artículo se enumeran algunos problemas habituales relacionados con los recursos compartidos de archivos NFS de Azure (versión preliminar). Se proporcionan las posibles causas y soluciones alternativas cuando se producen estos problemas. En este artículo también se tratan los problemas conocidos de la versión preliminar pública.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="chgrp-filename-failed-invalid-argument-22"></a>Error en chgrp "nombre de archivo": argumento no válido (22)
 
@@ -85,7 +92,7 @@ Una vez completado el registro, siga las instrucciones del artículo: [Procedimi
 
 ### <a name="cause-1-request-originates-from-a-client-in-an-untrusted-networkuntrusted-ip"></a>Causa 1: La solicitud se origina desde un cliente en una red o una IP que no son de confianza
 
-A diferencia de SMB, la autenticación de NFS no se basa en el usuario. La autenticación de un recurso compartido se basa en la configuración de la regla de seguridad de red. Por eso, para tener la certeza de que solo se establecen conexiones seguras con su recurso compartido de NFS, debe usar el punto de conexión de servicio o puntos de conexión privados. Para acceder a recursos compartidos desde un entorno local, además de los puntos de conexión privados, debe configurar una VPN o ExpressRoute. Se omiten las direcciones IP agregadas a la lista de permitidos de la cuenta de almacenamiento para el firewall. Debe usar uno de los métodos siguientes para configurar el acceso a un recurso compartido de NFS:
+A diferencia de SMB, la autenticación de NFS no se basa en el usuario. La autenticación de un recurso compartido se basa en la configuración de la regla de seguridad de red. Por eso, para tener la certeza de que solo se establecen conexiones seguras con su recurso compartido de NFS, debe usar el punto de conexión de servicio o puntos de conexión privados. Para acceder a recursos compartidos desde un entorno local, además de los puntos de conexión privados, debe configurar una VPN o ExpressRoute. Se han omitido las direcciones IP agregadas a la lista de permitidos de la cuenta de almacenamiento para el firewall. Debe usar uno de los siguientes métodos para configurar el acceso a un recurso compartido de NFS:
 
 
 - [Punto de conexión de servicio](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
@@ -93,7 +100,7 @@ A diferencia de SMB, la autenticación de NFS no se basa en el usuario. La auten
     - Solo está disponible en la misma región.
     - El emparejamiento de VNet no proporcionará acceso al recurso compartido.
     - Cada red virtual o subred debe agregarse individualmente a la lista de permitidos.
-    - En el caso del acceso local, los puntos de conexión de servicio se pueden usar con ExpressRoute y las VPN de punto a sitio y de sitio a sitio, pero se recomienda usar un punto de conexión privado porque es más seguro.
+    - En el caso del acceso local, se pueden usar puntos de conexión de servicio con ExpressRoute y VPN de punto a sitio y de sitio a sitio, pero se recomienda usar un punto de conexión privado, ya que es más seguro.
 
 En el diagrama siguiente se muestra la conectividad mediante puntos de conexión públicos.
 
@@ -103,7 +110,7 @@ En el diagrama siguiente se muestra la conectividad mediante puntos de conexión
     - El acceso es más seguro que con el punto de conexión de servicio.
     - El acceso al recurso compartido de NFS a través de un vínculo privado está disponible desde y hacia la región de Azure de la cuenta de almacenamiento (entre regiones o local).
     - El emparejamiento de red virtual con redes virtuales hospedadas en el punto de conexión privado proporciona acceso al recurso compartido de NFS a los clientes en las redes virtuales emparejadas.
-    - Los puntos de conexión privados se pueden usar con ExpressRoute y las VPN de punto a sitio y de sitio a sitio.
+    - Se pueden usar puntos de conexión privados con ExpressRoute y VPN de punto a sitio y de sitio a sitio.
 
 :::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagrama de conectividad mediante puntos de conexión privados" lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
@@ -150,10 +157,10 @@ El protocolo NFS se comunica con su servidor a través del puerto 2049; asegúr
 
 Compruebe que el puerto 2049 está abierto en el cliente mediante la ejecución del siguiente comando: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. Si el puerto no está abierto, ábralo.
 
-## <a name="ls-list-files-shows-incorrectinconsistent-results"></a>ls (list files) muestra resultados incorrectos o incoherentes
+## <a name="ls-list-files-command-shows-incorrectinconsistent-results"></a>El comando ls (list files) muestra resultados incorrectos o incoherentes
 
 ### <a name="cause-inconsistency-between-cached-values-and-server-file-metadata-values-when-the-file-handle-is-open"></a>Causa: Incoherencia entre valores almacenados en caché y valores de metadatos de archivo de servidor cuando el identificador de archivo está abierto
-A veces, el comando "list files" muestra un tamaño distinto de cero según lo esperado y, en su lugar, en los comandos list files siguientes muestra un tamaño de cero o una marca de tiempo muy antigua. Se trata de un problema conocido debido al almacenamiento en caché incoherente de los valores de metadatos de archivo mientras el archivo está abierto. Para resolver el problema, puede usar una de las siguientes soluciones alternativas:
+A veces, el comando "list files" (o "df" o "find") muestra un tamaño distinto de cero como era de esperar; en su lugar, en el comando list files siguiente muestra un tamaño de cero o una marca de tiempo muy antigua. Se trata de un problema conocido debido al almacenamiento en caché incoherente de los valores de metadatos de archivo mientras el archivo está abierto. Para resolver el problema, puede usar una de las siguientes soluciones alternativas:
 
 #### <a name="workaround-1-for-fetching-file-size-use-wc--c-instead-of-ls--l"></a>Alternativa 1: Para obtener el tamaño de archivo, use wc -c en lugar de ls -l
 El uso de wc -c siempre recuperará el valor más reciente del servidor y no tendrá ninguna incoherencia.
@@ -164,6 +171,29 @@ Vuelva a montar el sistema de archivos mediante la marca "noac" con el comando m
 
 ## <a name="unable-to-mount-an-nfs-share-that-is-restored-back-from-soft-deleted-state"></a>No se puede montar un recurso compartido NFS que se restauró a partir del estado de eliminación temporal
 Hay un problema conocido durante la versión preliminar en el que los recursos compartidos NFS se eliminan temporalmente a pesar de que la plataforma no lo admite por completo. Estos recursos compartidos se eliminarán de manera rutinaria al expirar. También puede eliminarlas anticipadamente mediante el flujo "recuperar recurso compartido + deshabilitar la eliminación temporal + eliminar recurso compartido". Sin embargo, si intenta recuperar y usar los recursos compartidos, se le denegará el acceso o el permiso, o se producirá un error de E/S de NFS en el cliente.
+
+## <a name="ls-la-throws-io-error"></a>ls –la produce un error de E/S
+
+### <a name="cause-a-known-bug-that-has-been-fixed-in-newer-linux-kernel"></a>Causa: error conocido que se ha corregido en el kernel de Linux más reciente
+En kernels anteriores, NFS4ERR_NOT_SAME provoca que el cliente deje de enumerar (en lugar de reiniciar para el directorio). Los kernels más recientes se desbloquearían de inmediato; desafortunadamente, en el caso de distribuciones como SUSE, no hay ninguna revisión para SUSE Enterprise Linux Server 12 o 15 que actualice el kernel con esta corrección.  La revisión está disponible a partir del kernel 5.12.  La revisión de la corrección del lado cliente se describe a continuación: [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
+
+#### <a name="workaround-use-latest-kernel-workaround-while-the-fix-reaches-the-region-hosting-your-storage-account"></a>Solución alternativa: usar la solución más reciente del kernel hasta que llegue la corrección a la región que hospeda su cuenta de almacenamiento
+La revisión está disponible a partir del kernel 5.12.
+
+## <a name="ls-hangs-for-large-directory-enumeration-on-some-kernels"></a>ls no responde con la enumeración de directorios grandes en algunos kernels
+
+### <a name="cause-a-bug-was-introduced-in-linux-kernel-v511-and-was-fixed-in-v5125"></a>Causa: en el kernel de Linux v5.11 se introdujo un error, que se corrigió en v5.12.5.  
+Algunas versiones de kernel tienen un error que hace que las listas de directorios provoquen secuencias READDIR infinitas. Los directorios muy pequeños donde todas las entradas se pueden enviar en una sola llamada no tienen este problema.
+El error se introdujo en el kernel de Linux v5.11 y se corrigió en v5.12.5. Por lo tanto, todas las versiones intermedias tienen el error. Se sabe que RHEL 8.4 tiene esta versión del kernel.
+
+#### <a name="workaround-downgrading-or-upgrading-the-kernel"></a>Solución alternativa: cambiar a una versión anterior o posterior del kernel
+Cambie a una versión anterior o posterior del kernel para resolver el problema.
+
+## <a name="df-and-find-command-shows-inconsistent-results-on-clients-other-than-where-the-writes-happen"></a>El comando df y find muestra resultados incoherentes en clientes distintos de donde se produce la escritura
+Este es un problema conocido. Microsoft está trabajando activamente para resolverlo.
+
+## <a name="application-fails-with-error-underlying-file-changed-by-an-external-force-when-using-exclusive-open"></a>Error "El archivo subyacente ha cambiado por una fuerza externa" en la aplicación al usar OPEN exclusivo 
+Este es un problema conocido. Microsoft está trabajando activamente para resolverlo.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

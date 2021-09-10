@@ -6,13 +6,13 @@ ms.author: sngun
 ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/05/2021
-ms.openlocfilehash: c8589911e4424afe1ff2f5dbed32c375cb29c706
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/26/2021
+ms.openlocfilehash: f954be4b5ce82bf84bc99fcdab253c48fccf9933
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095741"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226984"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planeamiento y administración de los costos de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,9 +35,20 @@ El análisis de costos de Cost Management admite la mayoría de los tipos de cue
 
 Azure Cosmos DB admite dos tipos de modos de capacidad: rendimiento aprovisionado y sin servidor. Puede realizar exactamente las mismas operaciones de base de datos en ambos modos, pero la forma de facturar estas operaciones es diferente.
 
+### <a name="capacity-planning"></a>Planificación de capacidad
+
+Planear la capacidad para una migración a Azure Cosmos DB puede ser útil para ayudar a calcular los costos. Si planea una migración desde un clúster de base de datos existente a Azure Cosmos DB, puede usar información sobre dicho clúster para el planeamiento de la capacidad.
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+
+![Migración de un conjunto de tres réplicas de una SKU de cuatro núcleos a Azure Cosmos DB](media/convert-vcore-to-request-unit/one-replica-set.png)
+
+* Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+
 ### <a name="estimate-provisioned-throughput-costs"></a>Cálculo de costos del rendimiento aprovisionado
 
-Si tiene previsto usar Azure Cosmos DB en el modo de rendimiento aprovisionado, use la [calculadora de capacidad de Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) para calcular los costos antes de crear los recursos en una cuenta de Azure Cosmos. La calculadora de capacidad se usa para obtener una estimación del rendimiento necesario y el costo de la carga de trabajo. La configuración de las bases de datos y los contenedores de Azure Cosmos con la cantidad adecuada de rendimiento aprovisionado, o [unidades de solicitud (RU/s)](request-units.md), para la carga de trabajo es esencial para optimizar el costo y el rendimiento. Tiene que escribir detalles como el tipo de API, el número de regiones, el tamaño de los elementos, las solicitudes de lectura/escritura por segundo y el total de datos almacenados para obtener una estimación de costos. Para más información acerca de la calculadora de capacidad, consulte el artículo [Estimación](estimate-ru-with-capacity-planner.md).
+Si tiene previsto usar Azure Cosmos DB en el modo de rendimiento aprovisionado, use la [calculadora de capacidad de Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) para calcular los costos antes de crear los recursos en una cuenta de Azure Cosmos. La calculadora de capacidad se usa para obtener una estimación del rendimiento necesario y el costo de la carga de trabajo. La calculadora de capacidad solo está disponible actualmente para la API de SQL, Cassandra API y API para MongoDB.
+
+La configuración de las bases de datos y los contenedores de Azure Cosmos con la cantidad adecuada de rendimiento aprovisionado, o [unidades de solicitud (RU/s)](request-units.md), para la carga de trabajo es esencial para optimizar el costo y el rendimiento. Tiene que escribir detalles como el tipo de API, el número de regiones, el tamaño de los elementos, las solicitudes de lectura/escritura por segundo y el total de datos almacenados para obtener una estimación de costos. Para más información acerca de la calculadora de capacidad, consulte el artículo [Estimación](estimate-ru-with-capacity-planner.md).
 
 En la captura de pantalla siguiente se muestra el rendimiento y la estimación de costos mediante la calculadora de capacidad:
 
@@ -107,7 +118,7 @@ Al usar el análisis de costos, puede ver los costos de Azure Cosmos DB en grá
 
 Para ver los costos de Azure Cosmos DB en el análisis de costos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Abra el ámbito en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y, a continuación, seleccione **Análisis de costos** en el menú. Seleccione **Ámbito** para cambiar a otro ámbito del análisis de costos.
 
@@ -149,6 +160,9 @@ A continuación se muestran algunos procedimientos recomendados que puede usar p
 
 Consulte los siguientes artículos para obtener información sobre cómo funcionan los precios en Azure Cosmos DB:
 
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 * [Modelo de precios de Azure Cosmos DB](how-pricing-works.md)
 * Aprenda a [optimizar su inversión en la nube con Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Obtenga más información sobre la administración de costos con los [análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

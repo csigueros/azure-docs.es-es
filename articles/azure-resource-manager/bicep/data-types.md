@@ -2,13 +2,13 @@
 title: Tipos de datos de Bicep
 description: Describe los tipos de datos disponibles en Bicep.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 31f2c6e979acb3b0b622bc63ffb8a2845179491d
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/30/2021
+ms.openlocfilehash: f520e314aff783a78e1656c16721f0fb8504215b
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026868"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221689"
 ---
 # <a name="data-types-in-bicep"></a>Tipos de datos de Bicep
 
@@ -32,6 +32,23 @@ Las matrices comienzan con un corchete de apertura (`[`) y terminan con un corch
 
 En una matriz, cada elemento se representa mediante [cualquier tipo](bicep-functions-any.md). Puede tener una matriz en la que cada elemento sea del mismo tipo de datos o una matriz que contenga tipos de datos diferentes.
 
+En el ejemplo siguiente se muestra una matriz de enteros y una matriz de otros tipos.
+
+```bicep
+var integerArray = [
+  1
+  2
+  3
+]
+
+var mixedArray = [
+  resourceGroup().name
+  1
+  true
+  'example string'
+]
+```
+
 Las matrices de Bicep son de base 0. En el ejemplo siguiente, la expresión `exampleArray[0]` se evalúa en 1 y `exampleArray[2]` se evalúa en 3. El índice del indexador puede ser otra expresión. La expresión `exampleArray[index]` se evalúa en 2. Los indexadores enteros solo se permiten en la expresión de tipos de matriz.
 
 ```bicep
@@ -41,40 +58,6 @@ var exampleArray = [
   1
   2
   3
-]
-```
-
-Los indexadores basados en cadenas están permitidos en Bicep.
-
-```bicep
-param environment string = 'prod'
-
-var environmentSettings = {
-  dev: {
-    name: 'dev'
-  }
-  prod: {
-    name: 'prod'
-  }
-}
-```
-
-La expresión environmentSettings['dev'] se evalúa en el objeto siguiente:
-
-```bicep
-{
-  name: 'dev'
-}
-```
-
-En el ejemplo siguiente se muestra una matriz con diferentes tipos.
-
-```bicep
-var mixedArray = [
-  resourceGroup().name
-  1
-  true
-  'example string'
 ]
 ```
 
@@ -113,21 +96,38 @@ param exampleObject object = {
 }
 ```
 
-Los descriptores de acceso de propiedad se usan para acceder a las propiedades de un objeto. Se construyen mediante el operador `.`. Por ejemplo:
+Los descriptores de acceso de propiedad se usan para acceder a las propiedades de un objeto. Se construyen mediante el operador `.`.
 
 ```bicep
-var x = {
-  y: {
-    z: 'Hello`
-    a: true
+var a = {
+  b: 'Dev'
+  c: 42
+  d: {
+    e: true
   }
-  q: 42
 }
+
+output result1 string = a.b // returns 'Dev' 
+output result2 int = a.c // returns 42
+output result3 bool = a.d.e // returns true
 ```
 
-Dada la declaración anterior, la expresión x.y.z se evalúa como la cadena literal "Hello". De igual modo, la expresión x.q se evalúa como el entero literal 42.
-
 Los descriptores de acceso de propiedad se pueden usar con cualquier objeto, incluidos los parámetros y las variables de tipos de objeto y literales de objeto. Usar un descriptor de acceso de propiedad en una expresión que no sea de tipo objeto es un error.
+
+También puede usar la sintaxis `[]` para acceder a una propiedad. El siguiente ejemplo devuelve `Development`.
+
+```bicep
+var environmentSettings = {
+  dev: {
+    name: 'Development'
+  }
+  prod: {
+    name: 'Production'
+  }
+}
+
+output accessorResult string = environmentSettings['dev'].name
+```
 
 ## <a name="strings"></a>Cadenas
 

@@ -5,12 +5,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 5b6e83909d3a8ccd224169e1571def422c7456c4
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: b422bbad06b419f35e8f4a1107c60e4312abba4d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006336"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304037"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para la configuración de diagnóstico en Azure Monitor
 Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) de ejemplos para crear una configuración de diagnóstico en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
@@ -127,6 +127,9 @@ En el ejemplo siguiente se crea una configuración de diagnóstico para un regis
 
 ## <a name="diagnostic-setting-for-azure-key-vault"></a>Configuración de diagnóstico para Azure Key Vault 
 En el ejemplo siguiente se crea una configuración de diagnóstico para Azure Key Vault mediante la adición de un recurso de tipo `Microsoft.KeyVault/vaults/providers/diagnosticSettings` a la plantilla.
+
+> [!IMPORTANT]
+> Para Azure Key Vault, el centro de eventos debe estar en la misma región que el almacén de claves.
 
 ### <a name="template-file"></a>Archivo de plantilla
 

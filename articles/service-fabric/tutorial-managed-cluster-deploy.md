@@ -2,14 +2,14 @@
 title: Implementación de un clúster administrado de Service Fabric
 description: En este tutorial, implementará un clúster administrado de Service Fabric para pruebas.
 ms.topic: tutorial
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: f87e45dcaab5e42607f24decc5897471a74e90b5
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3117c4c248aa073fb961dc031342d8b3d9489bbd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666936"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867411"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster"></a>Tutorial: Implementación de un clúster administrado de Service Fabric
 
@@ -52,9 +52,6 @@ Set-AzContext -SubscriptionId <your-subscription>
 ## <a name="create-a-new-resource-group"></a>Creación de un grupo de recursos
 
 A continuación, cree el grupo de recursos para el clúster administrado de Service Fabric y reemplace `<your-rg>` y `<location>` por el nombre y la ubicación del grupo que desee.
-
-> [!NOTE]
-> En las regiones admitidas en la versión preliminar pública se incluyen `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` y `eastus2`.
 
 ```powershell
 $resourceGroup = "myResourceGroup"

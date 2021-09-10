@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1266e10f6d8bf69c6e72a236ecde27623ad1cf12
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: b96a2ad95d126feaa8def5a2cddea4702ff823ff
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281651"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122651575"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configuración de Postman para llamadas API REST de Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-En este artículo se muestra cómo configurar **Postman** para que se pueda usar para llamar a las API REST de Azure Media Services (AMS). El artículo muestra cómo importar archivos de entorno y colección a **Postman**. La colección contiene definiciones agrupadas de solicitudes HTTP que llaman a API de REST de Azure Media Services. El archivo de entorno contiene variables que la colección usa.
+En este artículo se muestra cómo configurar **Postman** para que se pueda usar para llamar a las API REST de Azure Media Services (AMS). Se proporciona como una herramienta de aprendizaje y no se recomienda para las aplicaciones de producción. Las aplicaciones de producción deben usar los SDK de cliente compatibles, que contienen directivas de reintento de Azure Resource Management integradas.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
+El artículo muestra cómo importar archivos de entorno y colección a **Postman**. La colección contiene definiciones agrupadas de solicitudes HTTP que llaman a API de REST de Azure Media Services. El archivo de entorno contiene variables que la colección usa.
 
 Antes de comenzar a desarrollar, revise [Desarrollo con las API de Media Services v3](media-services-apis-overview.md).
 

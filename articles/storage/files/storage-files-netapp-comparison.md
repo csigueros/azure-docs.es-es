@@ -6,26 +6,26 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 5/25/2021
+ms.date: 8/25/2021
 ms.author: jeffpatt
-ms.openlocfilehash: 7cd1b08b572dc000ac3346e493302437eb32ae98
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 1cc88641f93a29c2436b5ce579c2f3e5dcc73d0d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015435"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864304"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Comparación entre Azure NetApp Files y Azure Files
 
 En este artículo se proporciona una comparación entre Azure Files y Azure NetApp Files. 
 
-La mayoría de las cargas de trabajo que requieren almacenamiento de archivos en la nube funcionan bien tanto en Azure Files como en Azure NetApp Files. Para ayudar a determinar la mejor opción para la carga de trabajo, revise la información proporcionada en este artículo. Para más información, consulte la documentación de [Azure Files](./index.yml) y [Azure NetApp Files](../../azure-netapp-files/index.yml), así como la sesión [Almacenamiento compartido para todas las cargas de trabajo de archivos empresariales](https://www.youtube.com/watch?v=MJEbmITLwwU&t=4s), que trata la elección entre Azure Files y Azure NetApp Files.
+La mayoría de las cargas de trabajo que requieren almacenamiento de archivos en la nube funcionan bien tanto en Azure Files como en Azure NetApp Files. Para ayudar a determinar la mejor opción para la carga de trabajo, revise la información proporcionada en este artículo. Para obtener más información, vea la documentación de [Azure Files](./index.yml) y [Azure NetApp Files](../../azure-netapp-files/index.yml), así como la sesión [Almacenamiento compartido para todas las cargas de trabajo de archivos empresariales](https://www.youtube.com/watch?v=MJEbmITLwwU&t=4s), en la que se describe la elección entre Azure Files y Azure NetApp Files.
 
 ## <a name="features"></a>Características
 
 | Category | Azure Files | Azure NetApp Files |
 |---------|-------------------------|---------|
-| Descripción | [Azure Files](https://azure.microsoft.com/services/storage/files/) es un servicio de clase empresarial totalmente administrado y de alta disponibilidad que está optimizado para cargas de trabajo de acceso aleatorio con actualizaciones de datos locales.<br><br> Azure Files se basa en la misma plataforma de Azure Storage que otros servicios como Azure Blobs. | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) es un servicio NAS (almacenamiento conectado a la red) de nivel empresarial, de alta disponibilidad y totalmente administrado, que puede administrar las cargas de trabajo más exigentes, de alto rendimiento y baja latencia, que requieren funcionalidades avanzadas de administración de datos. Permite la migración de cargas de trabajo, que se consideran "no migrables" sin él.<br><br>  Azure NetApp Files se basa en un equipo sin sistema operativo de NetApp con sistema operativo de almacenamiento ONTAP que se ejecuta dentro del centro de datos de Azure para proporcionar una experiencia coherente de Azure y un rendimiento parecido al de un entorno local. |
+| Descripción | [Azure Files](https://azure.microsoft.com/services/storage/files/) es un servicio de clase empresarial totalmente administrado y de alta disponibilidad que está optimizado para cargas de trabajo de acceso aleatorio con actualizaciones de datos locales.<br><br> Azure Files se basa en la misma plataforma de Azure Storage que otros servicios como Azure Blobs. | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) es un servicio NAS (almacenamiento conectado a la red) de nivel empresarial, de alta disponibilidad y totalmente administrado, que puede administrar las cargas de trabajo más exigentes, de alto rendimiento y baja latencia, que requieren funcionalidades avanzadas de administración de datos. Permite la migración de cargas de trabajo, que se consideran "que no se pueden migrar" sin él.<br><br>  ANF se basa en un equipo sin sistema operativo de NetApp con sistema operativo de almacenamiento ONTAP que se ejecuta dentro del centro de datos de Azure para proporcionar una experiencia coherente de Azure y un rendimiento parecido al de un entorno local. |
 | Protocolos | Premium<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>NFS 4.1 (versión preliminar)</li><li>REST</li></ul><br>Estándar<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>REST</li></ul><br> Para más información, consulte los [protocolos de recursos compartidos de archivos disponibles](./storage-files-planning.md#available-protocols). | Todos los niveles<br><ul><li>SMB 2.x, 3.x</li><li>NFS 3.0, 4.1</li><li>Acceso de protocolo doble (NFSv3/SMB)</li></ul><br> Para más información, consulte cómo crear volúmenes [NFS](../../azure-netapp-files/azure-netapp-files-create-volumes.md), [SMB](../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) o de [protocolo doble](../../azure-netapp-files/create-volumes-dual-protocol.md). |
 | Disponibilidad regional | Premium<br><ul><li>Más de 30 regiones</li></ul><br>Estándar<br><ul><li>Todas las regiones</li></ul><br> Para obtener más información, vea [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage). | Todos los niveles<br><ul><li>Más de 25 regiones</li></ul><br> Para obtener más información, vea [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage). |
 | Redundancia | Premium<br><ul><li>LRS</li><li>ZRS</li></ul><br>Estándar<br><ul><li>LRS</li><li>ZRS</li><li>GRS</li><li>GZRS</li></ul><br> Para más información, consulte la sección sobre [redundancia](./storage-files-planning.md#redundancy). | Todos los niveles<br><ul><li>Alta disponibilidad local integrada</li><li>[Replicación entre regiones](../../azure-netapp-files/cross-region-replication-introduction.md)</li></ul> |
@@ -49,7 +49,7 @@ La mayoría de las cargas de trabajo que requieren almacenamiento de archivos en
 | Tamaño de archivo máximo | 4 TiB | 16 TiB |
 | Número máximo de IOPS por archivo | Premium<br><ul><li>Hasta 8 000</li></ul><br>Estándar<br><ul><li>1,000</li></ul> | Todos los niveles<br><ul><li>Hasta el límite de volumen</li></ul> |
 | Rendimiento máximo por archivo | Premium<br><ul><li>300 MiB/s (hasta 1 GiB/s con SMB multicanal)</li></ul><br>Estándar<br><ul><li>60 MiB/s</li></ul> | Todos los niveles<br><ul><li>Hasta el límite de volumen</li></ul> |
-| SMB multicanal | Sí ([versión preliminar](./storage-files-smb-multichannel-performance.md)) | Sí |
+| SMB multicanal | Sí | Sí |
 | Latencia | Latencia mínima de un solo milisegundo (entre 2 ms y 3 ms para E/S pequeñas) | Latencia mínima en submilisegundos (<1 ms para E/S aleatorias)<br><br>Para más información, consulte la sección sobre [puntos de referencia de rendimiento](../../azure-netapp-files/performance-benchmarks-linux.md). |
 
 Para más información sobre los objetivos de escalabilidad y rendimiento, consulte [Azure Files](./storage-files-scale-targets.md#azure-files-scale-targets) y [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-resource-limits.md).

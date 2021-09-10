@@ -1,7 +1,7 @@
 ---
 title: Etiquetado de imágenes y de texto
 titleSuffix: Azure Machine Learning
-description: Aprenda a crear y ejecutar proyectos para etiquetar imágenes o texto. Para ayudar con la tarea, use el etiquetado asistido por ML o el etiquetado con intervención humana.
+description: Use la herramienta de etiquetado de datos para etiquetar imágenes o texto. Para ayudar con la tarea, use el etiquetado asistido por ML o el etiquetado con intervención humana.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: 54ed2504063cc3a0479d37127888ccb727fbd671
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c29e3dbbcb892127fc89963866dab684fe45095f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736582"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108540"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas
 
-Aprenda a crear y ejecutar proyectos para etiquetar imágenes o datos de texto en Azure Machine Learning.  Para ayudar con la tarea, use el etiquetado asistido por aprendizaje automático o el etiquetado con intervención humana.
+Aprenda a crear y ejecutar proyectos de etiquetado de datos para etiquetar imágenes o datos de texto en Azure Machine Learning.  Para ayudar con la tarea, use el etiquetado asistido por aprendizaje automático o el etiquetado con intervención humana.
 
 
 ## <a name="data-labeling-capabilities"></a>Funcionalidades del etiquetado de datos

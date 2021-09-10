@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 07/12/2021
+ms.date: 08/20/2021
 ms.author: apimpm
-ms.openlocfilehash: 26f1f9449a4e02f25e44e55d578f0194615b0be5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6946dcaf713bda83e5bce7e823b5f7e26ccd6e92
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437079"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694611"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Directivas de API Management para validar solicitudes y respuestas
 
@@ -95,7 +95,7 @@ En el ejemplo siguiente, la carga de JSON en solicitudes y respuestas se valida 
 | Nombre                       | Descripción                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-content-type-action | [Acción](#actions) que se realiza para las solicitudes o respuestas con un tipo de contenido que no se especifica en el esquema de la API. |  Sí     | N/D   |
-| max-size | Longitud máxima del cuerpo de la solicitud o respuesta en bytes, comprobada con el encabezado `Content-Length`. Si el cuerpo de la solicitud o de la respuesta está comprimido, este valor es la longitud descomprimida. Valor máximo permitido: 102 400 bytes (100 KB).  | Sí       | N/D   |
+| max-size | Longitud máxima del cuerpo de la solicitud o respuesta en bytes, comprobada con el encabezado `Content-Length`. Si el cuerpo de la solicitud o de la respuesta está comprimido, este valor es la longitud descomprimida. Valor máximo permitido: 102 400 bytes (100 KB). (Póngase en contacto con el [soporte técnico](https://azure.microsoft.com/support/options/) si tiene que aumentar este límite). | Sí       | N/D   |
 | size-exceeded-action | [Acción](#actions) que se realiza para las solicitudes o respuestas cuyo cuerpo supera el tamaño especificado en `max-size`. |  Sí     | N/D   |
 | errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
 | type | Tipo de contenido para el que se va a ejecutar la validación del cuerpo, comprobado con el encabezado `Content-Type`. El valor no distingue mayúsculas y minúsculas. Si está vacío, se aplica a todos los tipos de contenido especificados en el esquema de la API. |   No    |  N/D  |

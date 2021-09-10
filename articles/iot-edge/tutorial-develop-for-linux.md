@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dde83e48fe25e1f7e4d23462574e80c75323dde3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cff113ffd6a37406a88eb5ad5a4e3d5e85e10c5
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740579"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039429"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Tutorial: Desarrollo de módulos IoT Edge para contenedores de Linux
 
@@ -80,6 +80,7 @@ En la tabla siguiente se enumeran los escenarios de desarrollo compatibles con l
 >La compatibilidad con dispositivos ARM64 de Linux está disponible en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para más información, consulte [Desarrollo y depuración de módulos ARM64 IoT Edge en Visual Studio Code (versión preliminar)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 En este tutorial se enseñan los pasos del desarrollo en Visual Studio Code. Si prefiere usar Visual Studio, consulte las instrucciones de [Uso de Visual Studio 2019 para desarrollar y depurar los módulos Azure IoT Edge](how-to-visual-studio-develop-module.md).
+
 ## <a name="install-container-engine"></a>Instalación de un motor de contenedor
 
 Los módulos IoT Edge se empaquetan como contenedores, por lo que necesita un motor de contenedor en la máquina de desarrollo para crear y administrar los contenedores. Se recomienda Docker Desktop para el desarrollo debido a su popularidad y la compatibilidad de las características. Docker Desktop en Windows permite cambiar entre contenedores Linux y Windows para poder desarrollar fácilmente módulos para los distintos tipos de dispositivos IoT Edge.
@@ -150,6 +151,18 @@ Cuando la nueva solución se cargue en la ventana de Visual Studio Code, dedique
 
   * En la sección de credenciales del registro, la dirección se rellena automáticamente a partir de la información que proporcionó al crear la solución. Sin embargo, el nombre de usuario y la contraseña hacen referencia a las variables almacenadas en el archivo .env. Esta configuración es por motivos de seguridad, ya que Git ignora el archivo .env, pero no sucede lo mismo con la plantilla de implementación.
   * En la sección SampleModule, la imagen de contenedor no se rellena, aunque haya especificado el repositorio de imágenes al crear la solución. Este marcador de posición apunta al archivo **module.json** de la carpeta SampleModule. Si va a dicho archivo, verá que el campo de imagen contiene el repositorio, sino también un valor de etiqueta, que se compone de la versión y la plataforma del contenedor. La versión se puede iterar manualmente como parte del ciclo de desarrollo y se puede seleccionar la plataforma de contenedor mediante un modificador que se presentará en esta misma sección más adelante.
+
+### <a name="set-iot-edge-runtime-version"></a>Establecimiento de la versión del entorno de ejecución de IoT Edge
+
+La extensión IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, esta versión es la 1.2. Si va a desarrollar módulos para dispositivos que ejecutan la versión de compatibilidad a largo plazo 1.1 o la versión 1.0 anterior, actualice la versión del entorno de ejecución de IoT Edge en Visual Studio Code para que coincidan.
+
+1. Seleccione **Ver** > **Paleta de comandos**.
+
+1. En la paleta de comandos, escriba el comando **Azure IoT Edge: Set default IoT Edge runtime version** (Azure IoT Edge: Establecer la versión predeterminada del entorno de ejecución de IoT Edge) y ejecútelo.
+
+1. En la lista, elija la versión del entorno de ejecución que ejecutan los dispositivos de IoT Edge.
+
+Después de seleccionar una nueva versión del entorno de ejecución, el manifiesto de implementación se actualiza dinámicamente para reflejar el cambio en las imágenes del módulo del entorno de ejecución.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Especificación de la credenciales del registro para el agente de IoT Edge
 

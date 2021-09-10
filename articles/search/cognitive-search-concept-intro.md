@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: ab899a58bab3c4e37b6aa66669f0e060fb7e7e28
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 73a1ae771ba3e3e5876b2efd3914b9e38ab0e426
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737638"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222355"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
@@ -75,7 +75,7 @@ Las aptitudes personalizadas pueden admitir escenarios más complejos, como el r
 
 ## <a name="enrichment-steps"></a>Pasos de enriquecimiento <a name="enrichment-steps"></a>
 
-Una canalización de enriquecimiento consta de [*indexadores*](search-indexer-overview.md) que tienen [*conjuntos de aptitudes*](cognitive-search-working-with-skillsets.md). Un conjunto de aptitudes define los pasos de enriquecimiento, mientras que el indexador impulsa el conjunto de aptitudes. Al configurar un indexador, puede incluir propiedades, por ejemplo, asignaciones de campos de salida que envían contenido enriquecido a un [índice de búsqueda](search-what-is-an-index.md) o a un [almacén de conocimiento](knowledge-store-concept-intro.md).
+Una canalización de enriquecimiento consta de [*indexadores*](search-indexer-overview.md) que tienen [*conjuntos de aptitudes*](cognitive-search-working-with-skillsets.md). Un conjunto de aptitudes define los pasos de enriquecimiento, mientras que el indexador impulsa el conjunto de aptitudes. Al configurar un indizador, puede incluir propiedades, como asignaciones de campos de salida que envían contenido enriquecido a un [índice de búsqueda](search-what-is-an-index.md) o proyecciones que definen estructuras de datos en un [almacén de conocimiento](knowledge-store-concept-intro.md).
 
 Una vez que se indexa, puede acceder al contenido mediante solicitudes de búsqueda a través de todos los [tipos de consulta compatibles con Azure Cognitive Search](search-query-overview.md).
 
@@ -143,5 +143,7 @@ Para iterar con los pasos anteriores, [restablezca el indexador](search-howto-re
 
 + [Inicio rápido: Tutorial de la prueba del enriquecimiento con IA en un portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Información sobre las API de REST de enriquecimiento con IA](cognitive-search-tutorial-blob.md)
-+ [Almacén de conocimiento](knowledge-store-concept-intro.md)
-+ [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md)
++ [Conceptos de conjunto de aptitudes](cognitive-search-working-with-skillsets.md)
++ [Conceptos del almacén de conocimiento](knowledge-store-concept-intro.md)
++ [Creación de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Crear un almacén de conocimientos](knowledge-store-create-rest.md)

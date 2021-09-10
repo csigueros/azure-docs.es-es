@@ -5,12 +5,12 @@ description: Aprenda a instalar y configurar un controlador de entrada NGINX en 
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 8f500da443489619111200542dfc69a3850a4ed2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b95ae084fa3dd5b2d5308dece2612ab9cbe99a82
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751513"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099084"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada para una red virtual interna en Azure Kubernetes Service (AKS)
 
@@ -31,11 +31,13 @@ En este artículo se usa [Helm 3][helm] para instalar el controlador de entrada
 
 En este artículo también se requiere que ejecute la versión 2.0.64 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
-Además, en este artículo se da por supuesto que tiene un clúster de AKS existente con un ACR integrado. Para obtener más información sobre cómo crear un clúster de AKS con un ACR integrado, consulte [Autenticación con Azure Container Registry desde Azure Kubernetes Service][aks-integrated-acr].
+Además, en este artículo se da por hecho que ya tiene un clúster de AKS con un [ACR integrado][aks-integrated-acr].
 
 ## <a name="import-the-images-used-by-the-helm-chart-into-your-acr"></a>Importación de las imágenes usadas por el gráfico de Helm en el ACR
 
-En este artículo se usa el [gráfico de Helm del controlador de entrada de NGINX][ingress-nginx-helm-chart], que se basa en tres imágenes de contenedor. Use `az acr import` para importar esas imágenes en el ACR.
+Es habitual que cuando se usa un clúster de AKS con una red privada, sea requisito imprescindible administrar la procedencia de las imágenes de contenedor usadas en el clúster. Vea [Procedimientos recomendados para la administración y la protección de las imágenes de contenedor en Azure Kubernetes Service (AKS)][aks-container-best-practices] para obtener más información.  Para satisfacer este requisito, y por integridad, los ejemplos de este artículo se basan en la importación de las tres imágenes de contenedor que usa el [gráfico de Helm del controlador de entrada NGINX][ingress-nginx-helm-chart] en el ACR.
+
+Use `az acr import` para importar esas imágenes en el ACR.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
@@ -416,3 +418,4 @@ También puede:
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
+[aks-container-best-practices]: operator-best-practices-container-image-management.md

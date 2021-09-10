@@ -13,12 +13,12 @@ ms.date: 07/23/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: johngarland, mamarxen, ianbe, marsma
-ms.openlocfilehash: cc636c60ee88d69e263ae5a2d9d599e2230184cd
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 4dcdb90daa9bb8cd1df79ec399eb9372fca02c61
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122206609"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037195"
 ---
 # <a name="authorization-basics"></a>Conceptos básicos de autorización
 
@@ -59,6 +59,8 @@ El control de acceso basado en atributos (ABAC) es un mecanismo de control de ac
 Una ventaja de ABAC es que se puede lograr un control de acceso más específico y dinámico mediante evaluaciones de reglas y condiciones sin necesidad de crear un gran número de roles muy específicos y asignaciones de RBAC.
 
 Un método para obtener el control de acceso basado en atributos con Azure Active Directory es usar [grupos dinámicos](../enterprise-users/groups-create-rule.md). Los grupos dinámicos permiten a los administradores asignar dinámicamente usuarios a grupos en función de atributos de usuario específicos con los valores deseados.  Por ejemplo, se podría crear un grupo Autores en el que todos los usuarios con el puesto Autor se asignen dinámicamente al grupo Autores.  Los grupos dinámicos se pueden usar en combinación con RBAC para la autorización allí donde se asignan roles a grupos y se asignan dinámicamente usuarios a grupos.
+
+[Azure ABAC](../../role-based-access-control/conditions-overview.md) es un ejemplo de una solución de ABAC que está disponible actualmente. Azure ABAC se basa en Azure RBAC con la adición de condiciones de asignación de roles basadas en atributos en el contexto de acciones específicas. 
 
 ## <a name="implementing-authorization"></a>Implementación de la autorización
 

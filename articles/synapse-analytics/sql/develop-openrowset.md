@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c8a93ce59927144ce02edb8c1193406a29b18530
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 578ff0997375b62b3fd5a90ec44967ead1b9cd63
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112913786"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253809"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -113,10 +113,10 @@ Hay dos opciones para los archivos de entrada que contienen los datos de destino
 **"unstructured_data_path"**
 
 El elemento unstructured_data_path que establece una ruta de acceso a los datos puede ser una ruta de acceso relativa o absoluta:
-- La ruta de acceso absoluta con el formato "\<prefix>://\<storage_account_path>/\<storage_path>" permite que un usuario lea directamente los archivos.
-- Ruta de acceso relativa con el formato "<storage_path>" que se debe usar con el parámetro `DATA_SOURCE` y describe el patrón de archivo en la ubicación <storage_account_path> definida en `EXTERNAL DATA SOURCE`. 
+- La ruta de acceso absoluta con el formato `\<prefix>://\<storage_account_path>/\<storage_path>` permite que un usuario lea directamente los archivos.
+- Ruta de acceso relativa con el formato `<storage_path>` que se debe usar con el parámetro `DATA_SOURCE` y describe el patrón de archivo en la ubicación <storage_account_path> definida en `EXTERNAL DATA SOURCE`. 
 
-A continuación, encontrará los valores de <storage account path> relevantes que se vincularán a su origen de datos externo concreto. 
+A continuación, encontrará los valores de \<storage account path> relevantes que se vincularán a su origen de datos externo concreto. 
 
 | Origen de datos externo       | Prefijo | Ruta de acceso a la cuenta de almacenamiento                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |

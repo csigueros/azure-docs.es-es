@@ -1,6 +1,6 @@
 ---
 title: Directivas de Azure API Management | Microsoft Docs
-description: Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API. Vea ejemplos de código y examine los recursos adicionales disponibles.
+description: Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API. Vea ejemplos de código y otros recursos disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,35 +10,40 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 08/25/2021
 ms.author: apimpm
-ms.openlocfilehash: c87e436fe7fada8b1e16c18a5fad36c4ef3c872a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c4b069d76d795bd8ae830b811c97dfe58c2f842c
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096407"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106017"
 ---
 # <a name="policies-in-azure-api-management"></a>Directivas de Azure API Management
 
-En Azure API Management (APIM), las directivas constituyen una eficaz funcionalidad del sistema que permite al editor cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir la cantidad de llamadas entrantes de un desarrollador. Hay muchas más directivas disponibles y listas para usar.
+En Azure API Management, los publicadores de API pueden cambiar el comportamiento de la API a través de la configuración mediante directivas. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Algunas instrucciones populares son:
 
-Las directivas se aplican en la puerta de enlace que se encuentra entre el consumidor de la API y la API administrada. La puerta de enlace recibe todas las solicitudes y normalmente las reenvía sin modificar a la API subyacente. Sin embargo, una directiva puede aplicar cambios a la solicitud de entrada y a la respuesta de salida.
+* Conversión de formato de XML a JSON.
+* Limitación de la frecuencia de llamadas para restringir el número de llamadas entrantes de un desarrollador. 
 
-Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de API Management, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][Control flow] y [Establecer variable][Set variable] se basan en expresiones de directiva. Para más información, consulte [Directivas avanzadas][Advanced policies] y [Expresiones de directiva][Policy expressions].
+Hay muchas más directivas disponibles y listas para usar.
+
+Las directivas se aplican en la puerta de enlace entre el consumidor de la API y la API administrada. Mientras que la puerta de enlace recibe solicitudes y las reenvía, sin modificaciones, a la API subyacente, una directiva puede aplicar cambios tanto en la solicitud entrante como en la respuesta saliente.
+
+Salvo que la directiva especifique lo contrario, las expresiones de directiva pueden utilizarse como valores de atributo o valores de texto en cualquiera de las directivas de API Management. Algunas directivas como [Flujo de control][Control flow] y [Establecer variable][Set variable] se basan en expresiones de directiva. Para más información, consulte los artículos [Directivas avanzadas][Advanced policies] y [Expresiones de directiva][Policy expressions].
 
 ## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Descripción de la configuración de directivas
 
-La definición de la directiva es un documento XML simple que describe una secuencia de declaraciones de entrada y de salida. El XML se puede editar directamente en la ventana de definición. Se ofrece una lista de instrucciones a la derecha y las instrucciones aplicables al ámbito actual están habilitadas y resaltadas.
+Las definiciones de directivas son documentos XML que describen una secuencia de instrucciones de entrada y salida. Puede editar el XML directamente en la ventana de definición, que también proporciona lo siguiente:
+* Una lista de instrucciones a la derecha.
+* Las instrucciones aplicables al ámbito actual habilitadas y resaltadas.
 
 Al hacer clic en una declaración habilitada se agregará el XML correspondiente en la ubicación del cursor en la vista de definición. 
 
 > [!NOTE]
-> Si la directiva que desea agregar no está habilitada, asegúrese de que se encuentra en el ámbito correcto para esa directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, compruebe la sección de **uso** de esa directiva en la [referencia de directivas][Policy Reference].
-> 
-> 
+> Si la directiva que desea agregar no está habilitada, asegúrese de que se encuentra en el ámbito correcto para esa directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, compruebe la sección **Uso** en la [referencia de directivas][Policy Reference].
 
-La configuración se divide en `inbound`, `backend`, `outbound` y `on-error`. La serie de instrucciones de una directiva determinada se ejecuta en orden para una solicitud y una respuesta.
+La configuración se divide en `inbound`, `backend`, `outbound` y `on-error`. Esta serie de instrucciones de una directiva determinada se ejecuta en orden para una solicitud y una respuesta.
 
 ```xml
 <policies>
@@ -58,7 +63,18 @@ La configuración se divide en `inbound`, `backend`, `outbound` y `on-error`. La
 </policies> 
 ```
 
-Si se produce un error durante el procesamiento de una solicitud, los pasos restantes de las secciones `inbound`, `backend` o `outbound` se omiten y la ejecución salta a las instrucciones de la sección `on-error`. Mediante la colocación de instrucciones de directiva en la sección `on-error` puede revisar el error con la propiedad `context.LastError`, inspeccionar y personalizar la respuesta de error con la directiva `set-body` y configurar lo que ocurre si se produce un error. Existen códigos de error para pasos integrados y errores que pueden producirse durante el procesamiento de las instrucciones de directiva. Para más información, consulte [Control de errores en las directivas de administración de API](./api-management-error-handling-policies.md).
+Si se produce un error durante el procesamiento de una solicitud:
+* Los pasos restantes de las secciones `inbound`, `backend` o `outbound` se omiten.
+* La ejecución salta a las instrucciones de la sección `on-error`.
+
+Al colocar instrucciones de directiva en la sección `on-error`, puede hacer lo siguiente:
+* Revise el error mediante la propiedad `context.LastError`.
+* Inspeccione y personalice la respuesta del error mediante la directiva `set-body`.
+* Configure lo que sucede si se produce un error. 
+
+Para más información, consulte [Control de errores en las directivas de API Management](./api-management-error-handling-policies.md).
+* Pasos integrados
+* Errores que pueden producirse durante el procesamiento de instrucciones de directiva. 
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Configuración de directivas
 
@@ -76,7 +92,7 @@ Vea [ejemplos de directivas](./policy-reference.md) para obtener más código de
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>Aplicación de las directivas especificadas en distintos ámbitos
 
-Si tiene una directiva de nivel global y una directiva configurada para una API, cuando se use esa API en concreto, se aplicarán ambas directivas. API Management permite el orden determinista de las instrucciones de directiva combinadas mediante el elemento `base`. 
+Si tiene una directiva en el nivel global y una directiva configurada para una API, cuando se use esa API en concreto, se aplicarán ambas directivas. API Management permite el orden determinista de las instrucciones de directiva combinadas mediante el elemento `base`. 
 
 ```xml
 <policies>
@@ -88,7 +104,12 @@ Si tiene una directiva de nivel global y una directiva configurada para una API,
 </policies>
 ```
 
-En la definición de directiva del ejemplo anterior, la instrucción `cross-domain` se ejecutaría antes de las directivas superiores que, a su vez, irían seguidas de la directiva `find-and-replace`. 
+En la definición de directiva de ejemplo anterior:
+* La instrucción `cross-domain` se ejecutaría antes que las directivas superiores.
+* La directiva `find-and-replace` se ejecutaría después que las directivas superiores. 
+
+>[!NOTE]
+> Si quita la etiqueta `<base />` en el ámbito de la API, solo se aplicarán las directivas configuradas en el ámbito de la API. No se aplicarán las directivas de producto ni las de ámbito global.
 
 ### <a name="restrict-incoming-requests"></a>Restricción de las solicitudes de entrada
 

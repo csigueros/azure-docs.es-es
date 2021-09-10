@@ -1,21 +1,21 @@
 ---
-title: Información general sobre el almacenamiento de inmutabilidad para Blob Storage
+title: Introducción al almacenamiento inmutable para datos de blobs
 titleSuffix: Azure Storage
 description: Azure Storage ofrece compatibilidad WORM (escribir una vez, leer muchas) para Blob Storage, lo que permite a los usuarios almacenar datos en un estado que no se puede borrar ni modificar. Las directivas de retención con duración definida almacenan los datos de blobs en un estado WORM durante un intervalo especificado, mientras las suspensiones legales permanecen en vigor hasta que se borran explícitamente.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 1096b23305a4048f2e6ade860e322fed282711f7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ed7a8fb4420108ea76e21e30f14897e5857c0445
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780844"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273202"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -58,9 +58,9 @@ El ámbito de las directivas de inmutabilidad se puede establecer en una versió
 
 Puede configurar tanto una directiva de retención con duración definida como una suspensión legal para un recurso (contenedor o versión de blob), según el ámbito. En la tabla siguiente se resumen las directivas de inmutabilidad que se admiten para cada ámbito de recurso:
 
-| Ámbito | El contenedor está configurado para admitir directivas de inmutabilidad a nivel de versión | El contenedor no está configurado para admitir directivas de inmutabilidad a nivel de versión |
+| Ámbito | El contenedor admite directivas de inmutabilidad de nivel de versión | El contenedor no admite directivas de inmutabilidad de nivel de versión |
 |--|--|--|
-| Contenedor | Admite una directiva de inmutabilidad predeterminada a nivel de versión. No admite la suspensión legal. | Admite una directiva de inmutabilidad a nivel de contenedor y una suspensión legal. |
+| Contenedor | Admite una directiva de inmutabilidad predeterminada a nivel de versión. La directiva predeterminada se aplica a las versiones creadas en el contenedor después de configurarlo.<br /><br /> No admite la suspensión legal. | Admite una directiva de inmutabilidad a nivel de contenedor y una suspensión legal. Una directiva en una versión de blob puede invalidar una directiva predeterminada especificada en el contenedor. |
 | Versión de un blob | Admite una directiva de inmutabilidad a nivel de versión y una suspensión legal. | N/D |
 
 ### <a name="about-the-preview"></a>Acerca de la versión preliminar
@@ -165,6 +165,8 @@ Si no paga la factura y su cuenta tiene en vigor una directiva de retención con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Directivas de retención con duración definida para datos de blobs inmutables](immutable-time-based-retention-policy-overview.md)
-- [Retenciones legales para datos de blob inmutables](immutable-legal-hold-overview.md)
 - [Información general sobre la protección de datos](data-protection-overview.md)
+- [Directivas de retención de duración definida para datos de blobs inmutables](immutable-time-based-retention-policy-overview.md)
+- [Retenciones legales para datos de blob inmutables](immutable-legal-hold-overview.md)
+- [Configuración de directivas de inmutabilidad para versiones de blobs (versión preliminar)](immutable-policy-configure-version-scope.md)
+- [Configuración de directivas de inmutabilidad para contenedores](immutable-policy-configure-container-scope.md)

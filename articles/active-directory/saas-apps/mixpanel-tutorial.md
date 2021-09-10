@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 0dd136b442f426cc7da547f2fb3ac98c649866ee
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 5d59d2eea57b58188b87ba83112e8e52bdc9660d
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689277"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integración de Azure Active Directory con Mixpanel
 
@@ -38,6 +38,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Mixpanel admite el inicio de sesión único iniciado por **SP**.
+
+* Mixpanel admite el [aprovisionamiento de usuarios automático](mixpanel-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -155,6 +157,9 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 > [!Note]
 > El usuario recibirá un correo electrónico para configurar el perfil.
+
+> [!NOTE]
+> Mixpanel también admite el aprovisionamiento automático de usuarios; [aquí](./mixpanel-provisioning-tutorial.md) encontrará más detalles sobre cómo configurarlo.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

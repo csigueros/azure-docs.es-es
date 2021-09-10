@@ -9,14 +9,16 @@ ms.subservice: windows
 ms.date: 11/30/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: b3853ddc71d1a9be26b2492764a9b341446e0eeb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30894ad9cb9288ca213cf342b334e60f2611b3e0
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89078748"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306746"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Windows con Azure PowerShell
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
+
 Un conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado de forma manual. También puede definir reglas de escalado automático en función del uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure y aprenderá cómo:
 
 > [!div class="checklist"]
@@ -80,7 +82,7 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.8 `
+  -TypeHandlerVersion 1.10 `
   -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances

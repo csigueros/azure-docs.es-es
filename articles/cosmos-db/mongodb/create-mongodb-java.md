@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/26/2018
+ms.date: 08/26/2021
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 85ac1162dd82c492bf274bc4a4f82ae923b0bd33
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 51b6c1a6e480b8fdd383a970936e6b140aafd09d
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787865"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037713"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de consola con Java y MongoDB API en Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -134,6 +134,10 @@ Ahora puede usar [Robomongo](connect-using-robomongo.md) / [Studio 3T](connect-u
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB para MongoDB API, a agregar una base de datos y un contenedor mediante el Explorador de datos, y a agregar datos mediante una aplicación de consola de Java. Ahora puede importar datos adicionales en la base de datos de Cosmos. 
+
+¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar la información sobre el clúster de bases de datos existente para planear la capacidad.
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+* Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
 
 > [!div class="nextstepaction"]
 > [Importación de datos de MongoDB a Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

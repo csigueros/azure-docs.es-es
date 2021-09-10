@@ -2,14 +2,14 @@
 title: Información general del Administrador de recursos de Azure
 description: Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure.
 ms.topic: overview
-ms.date: 03/25/2021
+ms.date: 08/27/2021
 ms.custom: contperf-fy21q1,contperf-fy21q3-portal
-ms.openlocfilehash: 6cd9aa82ad2f8a821ae82a361b3f11b72ca25f7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ecb9c163728536b56d119ffa5d67aa6650dbc7e7
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608551"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106506"
 ---
 # <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
@@ -62,6 +62,8 @@ Azure proporciona cuatro niveles de ámbito: [grupos de administración](../../g
 ![Niveles de administración](./media/overview/scope-levels.png)
 
 Aplicará la configuración de administración en cualquiera de estos niveles de ámbito. El nivel que seleccione determina el grado de amplitud con que se aplica la configuración. Los niveles inferiores heredan la configuración de los niveles superiores. Por ejemplo, al aplicar una [directiva](../../governance/policy/overview.md) a la suscripción, esta se aplica a todos los grupos de recursos y recursos de la suscripción. Al aplicar una directiva al grupo de recursos, esta también se aplica al grupo de recursos y a todos sus recursos. Sin embargo, otro grupo de recursos no tiene la asignación de dicha directiva.
+
+Para obtener información sobre cómo administrar identidades y acceso, consulte [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
 
 Puede implementar plantillas en inquilinos, grupos de administración, suscripciones o grupos de recursos.
 

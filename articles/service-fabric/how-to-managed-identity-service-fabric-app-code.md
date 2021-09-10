@@ -3,12 +3,12 @@ title: Uso de una identidad administrada con una aplicación
 description: Cómo usar identidades administradas en el código de una aplicación de Azure Service Fabric para acceder a los servicios de Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: e26a29020f26583f7e4aa16434c7e8647ba9a5a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc7eff8119e6b79ca991543cdc09cfe106989fd3
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98871068"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867062"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Cómo usar la identidad administrada de una aplicación de Service Fabric para acceder a los servicios de Azure
 
@@ -427,7 +427,8 @@ Se recomienda que las solicitudes que tengan errores debido a la limitación se 
 Vea [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para obtener una lista de los recursos que admiten Azure AD y sus respectivos identificadores de recurso.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Concesión de acceso a otros recursos de Azure para una aplicación de Azure Service Fabric](./how-to-grant-access-other-resources.md)
+* [Implementación de una aplicación de Service Fabric con una identidad administrada en un clúster administrado](how-to-managed-cluster-application-managed-identity.md)
+* [Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema en un clúster clásico](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el usuario en un clúster clásico](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Concesión de acceso a los recursos de Azure para la identidad administrada de la aplicación de Service Fabric](./how-to-grant-access-other-resources.md)
 * [Exploración de una aplicación de ejemplo mediante Identidad administrada de Service Fabric](https://github.com/Azure-Samples/service-fabric-managed-identity)

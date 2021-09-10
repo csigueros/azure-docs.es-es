@@ -3,12 +3,12 @@ title: Clústeres administrados de Service Fabric
 description: Los clústeres administrados de Service Fabric son una evolución del modelo de recursos de clúster de Azure Service Fabric que agiliza la implementación y la administración de clústeres.
 ms.topic: overview
 ms.date: 5/10/2021
-ms.openlocfilehash: a412899f4aa37ce2257a3351c3e27da4d5d3add2
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 12f5c7bd16e8738aaadfb8ca9aeed491bab5b8e0
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685268"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866925"
 ---
 # <a name="service-fabric-managed-clusters"></a>Clústeres administrados de Service Fabric
 
@@ -33,12 +33,15 @@ En lo que se refiere al tamaño y la complejidad, la plantilla de ARM para un cl
 | Cuentas de almacenamiento | |
 | Virtual network | |
 
+## <a name="service-fabric-managed-cluster-advantages"></a>Ventajas del clúster administrado de Service Fabric
 Los clústeres administrados de Service Fabric proporcionan una serie de ventajas respecto a los clústeres tradicionales:
 
 **Implementación y administración simplificadas del clúster**
 - Implementación y administración de un único recurso de Azure
-- Administración y rotación automática de certificados
+- Administración de certificados de clúster y rotación automática cada 90 días
 - Operaciones de escalado simplificadas
+- Compatibilidad con la actualización automática de imágenes del sistema operativo
+- Compatibilidad con cambios de SKU del sistema operativo in-situ
 
 **Prevención de errores operativos**
 - Prevención de errores de coincidencia de configuración con recursos subyacentes
@@ -60,7 +63,7 @@ Los clústeres administrados de Service Fabric están disponibles en las SKU de 
 | ------- | ----- | -------- |
 | Recurso de red (SKU para [Load Balancer](../load-balancer/skus.md), [IP pública](../virtual-network/public-ip-addresses.md)) | Básico | Estándar |
 | Número mínimo de nodos (instancia de máquina virtual) | 3 | 5 |
-| Número máximo de nodos por tipo de nodo | 100 | 100 |
+| Número máximo de nodos por tipo de nodo | 100 | 1000 |
 | Número máximo de tipos de nodos | 1 | 20 |
 | Adición o eliminación de tipos de nodos | No | Sí |
 | Redundancia de zona | No | Sí |
@@ -85,6 +88,8 @@ Para empezar a utilizar los clústeres administrados de Service Fabric, pruebe e
 
 > [!div class="nextstepaction"]
 > [Creación de un clúster administrado de Service Fabric](quickstart-managed-cluster-template.md)
+
+Y referencia a [cómo configurar su clúster gestionado](how-to-managed-cluster-configuration.md)
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png

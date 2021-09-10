@@ -2,18 +2,18 @@
 title: Solución de problemas en Azure Communication Services
 description: Aprenda a recopilar la información que necesita para solucionar los problemas de las soluciones de Communication Services.
 author: manoskow
-manager: jken
+manager: chpalm
 services: azure-communication-services
 ms.author: manoskow
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d8e3dbc012e49b69e766d0551c0a91dcbb92660b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cd19094b876203569df83cf3bc165968d9051a2
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739583"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257990"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Solución de problemas en Azure Communication Services
 
@@ -77,7 +77,28 @@ chat_client = ChatClient(
 ```
 ---
 
-## <a name="access-your-call-id"></a>Acceso al identificador de llamada
+## <a name="access-your-server-call-id"></a>Acceso al id. de llamada de servidor
+Al solucionar incidencias con el SDK de automatización de llamadas, como problemas de grabación y administración de llamadas, deberá recopilar el id. de llamada del servidor. Este id. puede recopilarse con el método ```getServerCallId```.
+
+#### <a name="javascript"></a>JavaScript
+```
+callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
+    e.added.forEach((addedCall) => {
+        addedCall.on('stateChanged', (): void => {
+            if (addedCall.state === 'Connected') {
+                addedCall.info.getServerCallId().then(result => {
+                    dispatch(setServerCallId(result));
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        });
+    });
+});
+```
+
+
+## <a name="access-your-client-call-id"></a>Acceso al id. de llamada de cliente
 
 Al solucionar problemas de llamadas de voz o vídeo, es posible que se le pida que proporcione un identificador `call ID`. Se puede acceder a él mediante la propiedad `id` del objeto `call`:
 

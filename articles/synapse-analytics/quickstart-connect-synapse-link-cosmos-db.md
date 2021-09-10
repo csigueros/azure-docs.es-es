@@ -10,12 +10,12 @@ ms.date: 04/21/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 7d77431f5caa1a2ac67428326dcd6d4ce75a4a93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6d89fd1aa0cb0047057340dd85ec1c0d318016b7
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625847"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106797"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Inicio rápido: Conexión a Azure Synapse Link para Azure Cosmos DB
 
@@ -68,4 +68,5 @@ Al hacer clic con el botón derecho en un contenedor, tendrá una lista de gesto
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Información sobre compatibilidad entre Synapse y Azure Cosmos DB](./synapse-link/concept-synapse-link-cosmos-db-support.md)
-* [Información sobre cómo realizar una consulta de un almacén analítico con Apache Spark para Azure Synapse Analytics](synapse-link/how-to-query-analytical-store-spark.md)
+* [Obtenga más información sobre cómo consultar un almacén analítico con Apache Spark 3 para Azure Synapse Analytics](synapse-link/how-to-query-analytical-store-spark-3.md)
+* [Obtenga más información sobre cómo consultar un almacén analítico con Apache Spark 2 para Azure Synapse Analytics](synapse-link/how-to-query-analytical-store-spark.md)

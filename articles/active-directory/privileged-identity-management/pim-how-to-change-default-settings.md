@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2021
+ms.date: 08/25/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f843aebfea4e7c5b956d5e150c4e54dffa764a5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 558f8b720992f44a747689cb0e69436507b685c4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749065"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866999"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configuración de roles de Azure AD en Privileged Identity Management
 
@@ -94,7 +94,7 @@ Puede requerir que los usuarios escriban una justificación empresarial cuando s
 
 ## <a name="require-approval-to-activate"></a>Solicitud de aprobación para activar
 
-Si se establecen varios aprobadores, la aprobación se completa en cuanto uno de ellos aprueba o deniega. No se puede exigir la aprobación de al menos dos usuarios. Para solicitar aprobación a fin de activar un rol, siga estos pasos.
+Si se establecen varios aprobadores, la aprobación se completa en cuanto uno de ellos aprueba o deniega. No se puede forzar la aprobación de un segundo aprobador o posterior. Para solicitar aprobación a fin de activar un rol, siga estos pasos.
 
 1. Active la casilla **Se requiere aprobación para activar**.
 
@@ -102,11 +102,9 @@ Si se establecen varios aprobadores, la aprobación se completa en cuanto uno de
 
     ![Seleccionar un panel de usuarios o grupos para seleccionar aprobadores](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Seleccione al menos un usuario y haga clic en **Seleccionar**. Seleccione por lo menos un aprobador. Si no se selecciona un aprobador específico, los administradores globales o de roles con privilegios pasarán a ser los aprobadores predeterminados.
+1. Seleccione al menos un usuario y haga clic en **Seleccionar**. Seleccione por lo menos un aprobador. Si no se seleccionan aprobadores específicos, los administradores globales o de roles con privilegios pasarán a ser los aprobadores predeterminados.
 
-    Su elección aparecerá en la lista de aprobadores seleccionados.
-
-1. Una vez que haya especificado todos los valores de rol, seleccione **Actualizar** para guardar los cambios.
+1. Para guardar los cambios, seleccione **Actualizar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

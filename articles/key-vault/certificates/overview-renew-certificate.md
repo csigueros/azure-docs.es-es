@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 082b0fd4d3324502516dcd2b45b9ad16a919c773
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: ce1d83ddd47553de1efdef80cc33bc5dd4634c81
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749229"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307601"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renovación de los certificados de Azure Key Vault
 
@@ -28,7 +28,7 @@ En este artículo se describe cómo renovar los certificados de Azure Key Vault.
 Para recibir notificaciones sobre los eventos de vida de un certificado, deberá agregar el contacto del certificado. Los contactos de certificados contienen información de contacto para enviar notificaciones desencadenadas por los eventos de vigencia del certificado. La información de los contactos es compartida por todos los certificados del almacén de claves. Se envía una notificación a todos los contactos especificados para un evento de cualquier certificado del almacén de claves.
 
 ### <a name="steps-to-set-certificate-notifications"></a>Pasos para establecer notificaciones de certificado:
-En primer lugar, agregue un contacto del certificado al almacén de claves. Para ello, puede usar Azure Portal o el cmdlet de PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact).
+En primer lugar, agregue un contacto del certificado al almacén de claves. Puede hacerlo mediante Azure Portal o el cmdlet [Add-AzKeyVaultCertificateContact](/powershell/module/az.keyvault/add-azkeyvaultcertificatecontact)de PowerShell.
 
 En segundo lugar, configure cuándo desea recibir una notificación sobre la expiración del certificado. Para configurar los atributos del ciclo de vida del certificado, consulte [Configuración de la rotación automática de certificados en Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 

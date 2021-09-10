@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 07/02/2021
 ms.author: rahugup
-ms.openlocfilehash: 674fcd1fc7ad6035278448b46528cc939b5e8a6e
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: fd0a7d3e1af6bb0a0dad10f9a92194b495b13b91
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294640"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253117"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-app-service"></a>Contenedorización de aplicaciones de ASP.NET y migración a Azure App Service
 
@@ -38,8 +38,8 @@ Aunque todas las aplicaciones no se beneficiarán de un cambio directo a los con
 
 - **Uso mejorado de la infraestructura:** con los contenedores, varias aplicaciones pueden compartir recursos y hospedarse en la misma infraestructura. Esto puede ayudarlo a consolidar la infraestructura y mejorar su utilización.
 - **Administración simplificada:** al hospedar las aplicaciones en una plataforma administrada moderna, como AKS y App Service, puede simplificar los procedimientos de administración. Puede conseguirlo al retirar o reducir los procesos de administración y mantenimiento de la infraestructura que tradicionalmente realizaría con una infraestructura de su propiedad.
-- **Portabilidad de la aplicación:** debido a la mayor adopción y estandarización de los formatos y plataformas de especificación de contenedores, la portabilidad de la aplicación ya no es un problema.
-- **Adopción de la administración moderna con DevOps:** le ayuda a adoptar y normalizar los procedimientos modernos de administración y seguridad, y la transición a DevOps.
+- **Portabilidad de la aplicación**: debido a la mayor adopción y estandarización de los formatos y las plataformas de especificación de contenedores, la portabilidad de la aplicación ya no es un problema.
+- **Adopción de la administración moderna con DevOps**: le ayuda a adoptar y normalizar los procedimientos modernos de administración y seguridad, y la transición a DevOps.
 
 
 En este tutorial, aprenderá a:
@@ -49,7 +49,7 @@ En este tutorial, aprenderá a:
 > * Instalar la herramienta Azure Migrate: App Containerization.
 > * Detectar la aplicación ASP.NET.
 > * Compile la imagen de contenedor.
-> * Implementación de la aplicación contenedorizada en App Service.
+> * Implementar la aplicación contenedorizada en App Service.
 
 > [!NOTE]
 > En los tutoriales se muestra la ruta de implementación más sencilla para un escenario, de modo que pueda configurar rápidamente una prueba de concepto. En ellos se usan las opciones predeterminadas siempre que es posible y no muestran todos los valores y rutas de acceso posibles.
@@ -213,28 +213,28 @@ Al parametrizar la configuración, esta pasa a estar disponible como parámetro 
 
 ## <a name="deploy-the-containerized-app-on-azure-app-service"></a>Implementación de la aplicación contenedorizada en Azure App Service
 
-Una vez que se compila la imagen de contenedor, el paso siguiente consiste en implementar la aplicación como un contenedor en [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Una vez compilada la imagen de contenedor, el paso siguiente consiste en implementar la aplicación como un contenedor en [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 1. **Seleccione el plan de App Service**: especifique el plan de Azure App Service que debe usar la aplicación.
 
-     - Si no tiene un plan de App Service o quiere crear uno, puede elegir crearlo desde la herramienta si hace clic en **Crear nuevo plan de servicio de aplicaciones**.      
+     - Si no tiene un plan de App Service o quiere crear uno, puede elegir crearlo desde la herramienta si hace clic en **Crear nuevo plan de App Service**.      
      - Haga clic en **Continuar** después de seleccionar el plan de App Service.
 
-2. **Especifique el almacén de secretos**: si ha optado por parametrizar las configuraciones de la aplicación, especifique el almacén de secretos que se usará para la aplicación. Puede elegir Azure Key Vault o la configuración de la aplicación App Service para administrar los secretos de la aplicación. [Más información](../app-service/configure-common.md#configure-connection-strings)
+2. **Especifique el almacén de secretos**: si ha optado por parametrizar las configuraciones de la aplicación, especifique el almacén de secretos que se usará para la aplicación. Puede elegir Azure Key Vault o la configuración de la aplicación App Service para administrar los secretos de la aplicación. [Más información](../app-service/configure-common.md#configure-connection-strings)
 
      - Si ha seleccionado la configuración de la aplicación de App Service para administrar los secretos, haga clic en **Continuar**.
      - Si prefiere usar una instancia de Azure Key Vault para administrar los secretos de aplicación, especifique la que quiera usar.     
-         - Si no tiene una instancia de Azure Key Vault o quiere crear una, puede optar por hacerlo desde la herramienta si hace clic en **Create new Azure Key Vault** (Crear instancia de Azure Key Vault).
+         - Si no tiene una instancia de Azure Key Vault o quiere crear una, puede optar por hacerlo desde la herramienta si hace clic en **Create new Azure Key Vault** (Crear nueva instancia de Azure Key Vault).
          - La herramienta asignará automáticamente los permisos necesarios para administrar secretos por medio de la instancia de Key Vault.
 
-3. **Especifique el recurso compartido de archivos de Azure**: si ha agregado más directorios o carpetas, y ha seleccionado la opción de recurso compartido de archivos de Azure para el almacenamiento persistente, especifique el recurso compartido de archivos de Azure que debe usar la herramienta de contenedorización de aplicaciones de Azure Migrate durante el proceso de implementación. La herramienta copiará los directorios o carpetas de la aplicación configurados el almacenamiento de archivos de Azure y los montará en el contenedor de aplicaciones durante la implementación. 
+3. **Especifique el recurso compartido de archivos de Azure**: si ha agregado más directorios o carpetas, y ha seleccionado la opción de recurso compartido de archivos de Azure para el almacenamiento persistente, especifique el recurso compartido de archivos de Azure que debe usar la herramienta de contenedorización de aplicaciones de Azure Migrate durante el proceso de implementación. La herramienta copiará los directorios o las carpetas de la aplicación configurados para Azure Files y los montará en el contenedor de aplicaciones durante la implementación. 
 
      - Si no tiene un recurso compartido de archivos de Azure o quiere crear uno nuevo, puede optar por crear uno desde la herramienta. Para ello, haga clic en **Crear nueva cuenta de almacenamiento y recurso compartido de archivos**.  
 
 4. **Configuración de la implementación de aplicaciones**: una vez completados los pasos anteriores, deberá especificar la configuración de implementación de la aplicación. Haga clic en **Configurar** para personalizar la implementación de la aplicación. En el paso de configuración puede especificar las siguientes personalizaciones:
      - **Nombre**: especifique un nombre único para la aplicación. Este nombre se usará para generar la dirección URL de la aplicación y como prefijo para otros recursos que se crean como parte de esta implementación.
      - **Configuración de la aplicación**: para cualquier configuración de aplicación que se haya parametrizado, especifique los valores que se usarán para la implementación actual.
-     - **Configuración de almacenamiento**: revise la información de los directorios o carpetas de la aplicación que se han configurado para el almacenamiento persistente.
+     - **Configuración de almacenamiento**: revise la información de los directorios o las carpetas de la aplicación que se han configurado para el almacenamiento persistente.
 
     ![Captura de pantalla de la configuración de la implementación de la aplicación.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-config.png)
 
@@ -255,5 +255,5 @@ Para solucionar cualquier problema con la herramienta, puede ver los archivos de
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Contenedorización de las aplicaciones web de ASP.NET e implementación en contenedores de Windows en AKS. [Más información](./tutorial-app-containerization-aspnet-kubernetes.md)
-- Contenedorización de aplicaciones web de Java en Apache Tomcat (en servidores Linux) e implementación en contenedores de Linux en AKS. [Más información](./tutorial-app-containerization-java-kubernetes.md)
-- Contenedorización de aplicaciones web de Java en Apache Tomcat (en servidores Linux) e implementación en contenedores de Linux en App Service. [Más información](./tutorial-app-containerization-java-app-service.md)
+- Inclusión en contenedores de aplicaciones web de Java en Apache Tomcat (en servidores Linux) e implementación en contenedores de Linux en AKS. [Más información](./tutorial-app-containerization-java-kubernetes.md)
+- Inclusión en contenedores de aplicaciones web de Java en Apache Tomcat (en servidores Linux) e implementación en contenedores de Linux en App Service. [Más información](./tutorial-app-containerization-java-app-service.md)

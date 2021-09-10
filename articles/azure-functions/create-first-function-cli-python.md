@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: e4ceefbf3dc722b0e575b697f6872b033f494714
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8bba5cbfe0496c773625a164e3e3e2ef002e03b1
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739846"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829967"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Python en Azure desde la línea de comandos
 
@@ -204,20 +204,20 @@ Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de 
     
     ---
 
-1. Cree un grupo de recursos llamado `AzureFunctionsQuickstart-rg` en la región `westeurope`. 
+1. Cree un grupo de recursos denominado `AzureFunctionsQuickstart-rg` en la región elegida: 
 
     # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
     
     ```azurecli
-    az group create --name AzureFunctionsQuickstart-rg --location westeurope
+    az group create --name AzureFunctionsQuickstart-rg --location <REGION>
     ```
  
-    El comando [az group create](/cli/azure/group#az_group_create) crea un grupo de recursos. Por lo general, los recursos y los grupos de recursos se crean en una región cerca de usted, y se utiliza alguna de las regiones devueltas por el comando `az account list-locations`.
+    El comando [az group create](/cli/azure/group#az_group_create) crea un grupo de recursos. En el comando anterior, reemplace `<REGION>` por una región cercana mediante un código de región disponible devuelto por el comando [az account list-locations](/cli/azure/account#az_account_list_locations).
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
+    New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location '<REGION>'
     ```
 
     El comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) crea un grupo de recursos. Por lo general, los recursos y los grupos de recursos se crean en una región cerca de usted, y se utiliza alguna de las regiones devueltas por el cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
@@ -240,7 +240,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzStorageAccount -ResourceGroupName AzureFunctionsQuickstart-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location westeurope
+    New-AzStorageAccount -ResourceGroupName AzureFunctionsQuickstart-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location <REGION>
     ```
 
     El cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) crea la cuenta de almacenamiento.
@@ -264,7 +264,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location '<REGION>'
     ```
     
     El cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crea la aplicación de funciones en Azure. Si usa Python 3.7 o 3.6, cambie `-RuntimeVersion` a `3.7` o `3.6`, respectivamente.

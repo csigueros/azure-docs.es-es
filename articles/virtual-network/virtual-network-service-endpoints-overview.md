@@ -13,18 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 7b3db4e47a73cf7b7ad4e4645546d103c1a3c4fc
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: bbd27f7457b01386ddb1b207c10dcab87ffd4cd6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812881"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180366"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
 El punto de conexión de servicio de red virtual (VNet) proporciona conectividad directa y segura con los servicios de Azure por medio de una ruta optimizada a través de la red troncal de Azure. Los puntos de conexión permiten proteger los recursos de servicio de Azure críticos únicamente para las redes virtuales. Los puntos de conexión de servicio permiten a las direcciones IP privadas de la red virtual alcanzar el punto de conexión de un servicio de Azure sin necesidad de una dirección IP pública en la red virtual.
 
-Esta característica está disponible para las siguientes regiones y servicios de Azure. El recurso *Microsoft.\** está entre paréntesis. Habilítelo desde la subred mientras configura los puntos de conexión del servicio:
+   >[!NOTE]
+   > Microsoft recomienda usar Azure Private Link para disfrutar de un acceso seguro y privado a los servicios hospedados en la plataforma Azure. Para obtener más información, consulte [Azure Private Link](../private-link/private-link-overview.md).  
+
+Los puntos de conexión de servicio están disponibles para los servicios y las regiones siguientes de Azure. El recurso *Microsoft.\** está entre paréntesis. Habilítelo desde la subred mientras configura los puntos de conexión del servicio:
 
 **Disponibilidad general**
 
@@ -150,6 +153,6 @@ Consulte las [preguntas más frecuentes acerca de los puntos de conexión de ser
 - [Protección de una cuenta de Azure Storage para una red virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Protección de una instancia de Azure SQL Database para una red virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Establecimiento de una instancia de Azure Synapse Analytics a una red virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Integración de servicios de Azure en redes virtuales](virtual-network-for-azure-services.md)
+- [Comparación de puntos de conexión privados y puntos de conexión de servicio](./vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints)
 - [Directivas de puntos de conexión de servicio de red virtual](./virtual-network-service-endpoint-policies-overview.md)
 - [Plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/vnet-2subnets-service-endpoints-storage-integration)

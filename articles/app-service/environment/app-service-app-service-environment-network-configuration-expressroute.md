@@ -1,20 +1,20 @@
 ---
 title: Configuración de Azure ExpressRoute v1
-description: Configuración de red para instancias de App Service Environment para PowerApps con Azure ExpressRoute. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
+description: Configuración de red para instancias de App Service Environment para Power Apps con Azure ExpressRoute. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
 author: stefsch
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 3fa2677f7c71b118ec3f7da717e29d5879ee982b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a7ea57cf8d76c7a8e1455b561a1a2bc050ec3d7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88961829"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864799"
 ---
-# <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalles de configuración de red para entornos de App Service para PowerApps con Azure ExpressRoute
+# <a name="network-configuration-details-for-app-service-environment-for-power-apps-with-azure-expressroute"></a>Detalles de configuración de red para instancias de App Service Environment para Power Apps con Azure ExpressRoute
 
 Los clientes pueden conectar un circuito de [Azure ExpressRoute][ExpressRoute] a su infraestructura de red virtual para ampliar la red local a Azure. App Service Environment se crea en una subred de la infraestructura de [red virtual][virtualnetwork]. Las aplicaciones que se ejecutan en App Service Environment pueden establecer conexiones seguras con los recursos de back-end a los que solo se puede tener acceso través de la conexión de ExpressRoute.  
 
@@ -140,7 +140,7 @@ Ahora ya está listo para implementar App Service Environment.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a trabajar con App Service Environment para PowerApps, consulte [Introducción a App Service Environment][IntroToAppServiceEnvironment].
+Para empezar a trabajar con App Service Environment para Power Apps, consulte [Introducción a App Service Environment][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 

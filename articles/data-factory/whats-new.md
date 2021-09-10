@@ -1,22 +1,22 @@
 ---
-title: Novedades en Azure Data Factory
-description: En esta página Novedades se resaltan las nuevas características y mejoras de Azure Data Factory.
+title: Novedades de Azure Data Factory
+description: En esta página se resaltan las nuevas características y mejoras de Azure Data Factory. Azure Data Factory es un servicio en la nube administrado creado para complejos proyectos híbridos de extracción, transformación y carga (ETL), extracción, carga y transformación (ELT) e integración de datos.
 author: pennyzhou-msft
 ms.author: xupzhou
-ms.reviewer: xupzhou
 ms.service: data-factory
+ms.subservice: concepts
 ms.topic: overview
 ms.date: 07/14/2021
-ms.openlocfilehash: fe4c5fb72ce3cd32e14bad211683e01ac6edf3ab
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 7509be190afd0354f730f72dd97c5b5a118f20dd
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114342625"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187350"
 ---
-# <a name="whats-new-in-azure-data-factory"></a>Novedades en Azure Data Factory
+# <a name="whats-new-in-azure-data-factory"></a>Novedades de Azure Data Factory
 
-Azure Data Factory se mejora de forma continua. Para mantenerse al día de los avances más recientes, este artículo proporciona información acerca de los elementos siguientes:
+El servicio Azure Data Factory se mejora de forma continua. Para mantenerse al día de los avances más recientes, este artículo proporciona información acerca de los elementos siguientes:
 
 - Versiones más recientes
 - Problemas conocidos
@@ -25,6 +25,29 @@ Azure Data Factory se mejora de forma continua. Para mantenerse al día de los a
 - Planes de cambios
 
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia. 
+
+## <a name="august-2021"></a>Agosto de 2021
+<br>
+<table>
+<tr><td><b>Categoría del servicio</b></td><td><b>Mejoras en el servicio</b></td><td><b>Detalles</b></td></tr>
+  <tr><td><b>Integración continua y entrega continua (CI/CD)</b></td><td>Mejoras de CI/CD con compatibilidad de GitHub en Azure Government y Azure China</td><td>Se ha agregado compatibilidad con GitHub en Azure Government y Azure China.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918">Más información</a></td></tr>
+<tr><td rowspan=2><b>Movimiento de datos</b></td><td>La API de Azure Cosmos DB de para el conector MongoDB es ahora compatible con las versiones 3.6 y 4.0 de Azure Data Factory.</td><td>La API de Cosmos DB de Azure Data Factory para el conector MongoDB es ahora compatible con las versiones del servidor 3.6 y 4.0.<br><a href="connector-azure-cosmos-db-mongodb-api.md">Más información</a></td></tr>
+<tr><td>Mejore el uso de la instrucción COPY para cargar datos en Azure Synapse Analytics.</td><td>El conector de Azure Synapse Analytics de Azure Data Factory ahora admite la copia por fases y el origen de copia con *.* como wildcardFilename para la instrucción COPY.<br><a href="connector-azure-sql-data-warehouse.md#use-copy-statement">Más información</a></td></tr>
+<tr><td><b>Flujo de datos</b></td><td>Los puntos de conexión REST están disponibles como origen y receptor en Data Flow.</td><td>Los flujos de datos de Azure Data Factory y Azure Synapse Analytics ahora admiten puntos de conexión REST como origen y receptor con compatibilidad total con cargas útiles JSON y XML.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/rest-source-and-sink-now-available-for-data-flows/ba-p/2596484">Más información</a></td></tr>
+<tr><td><b>Integration Runtime</b></td><td>La herramienta de diagnóstico está disponible para el entorno de ejecución de integración autohospedado.</td><td>Una herramienta de diagnóstico para el entorno de ejecución de integración auto-hospedado está diseñada para proporcionar una mejor experiencia de usuario y ayudar a los usuarios a encontrar posibles problemas. La herramienta ejecuta una serie de escenarios de prueba en la máquina del entorno de ejecución de integración autohospedado y cada escenario tiene casos de comprobación de estado típicos para problemas comunes.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/diagnostic-tool-for-self-hosted-integration-runtime/ba-p/2634905">Más información</a></td></tr>
+<tr><td><b>Orquestación</b></td><td>El desencadenador de eventos personalizado con la opción de filtrado avanzado está disponible de forma general.</td><td>Ahora puede crear un desencadenador que responda a un tema personalizado publicado en Event Grid. Además, puede aprovechar el filtrado avanzado para obtener un control preciso sobre los eventos a los que responder.<br><a href="how-to-create-custom-event-trigger.md">Más información</a></td></tr>
+</table>
+
+## <a name="july-2021"></a>Julio de 2021
+<br>
+<table>
+<tr><td><b>Categoría del servicio</b></td><td><b>Mejoras en el servicio</b></td><td><b>Detalles</b></td></tr>
+<tr><td><b>Movimiento de datos</b></td><td>Obtención de canalizaciones de ingesta de datos controladas por metadatos en la herramienta Copiar datos de ADF en 10 minutos (versión preliminar pública)</td><td>Con esto, puede compilar canalizaciones de copia de datos a gran escala con un enfoque basado en metadatos en la herramienta de copiar datos (versión preliminar pública) en 10 minutos.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/get-metadata-driven-data-ingestion-pipelines-on-adf-within-10/ba-p/2528219">Más información</a></td></tr>
+<tr><td><b>Flujo de datos</b></td><td>Nuevas funciones de asignación agregadas en las funciones de transformación de flujo de datos</td><td>Se ha agregado un nuevo conjunto de funciones de transformación de flujo de datos para permitir que los ingenieros de datos generen, lean y actualicen fácilmente tipos de datos de asignación y estructuras de asignación complejas.<br><a href="data-flow-expression-functions.md#map-functions">Más información</a></td></tr>
+<tr><td><b>Integration Runtime</b></td><td>Cinco nuevas regiones disponibles en la VNET administrada de Azure Data Factory (versión preliminar pública)</td><td>Estas cinco nuevas regiones (Este de China 2, Norte de China 2, US Gov Arizona, US Gov Texas, US Gov Virginia) están disponibles en una red virtual administrada de Azure Data Factory (versión preliminar pública).<br><a href="managed-virtual-network-private-endpoint.md#azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions">Más información</a></td></tr>
+<tr><td rowspan=2><b>Productividad de los desarrolladores</b></td><td>Página principal de ADF rediseñada con algunas sesiones agregadas</td><td>La página principal de Data Factory se ha rediseñado con mejores funcionalidades de contraste y reflujo. Además, se han introducido algunas secciones en la página principal para ayudarle a mejorar la productividad en el recorrido de integración de datos.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">Más información</a></td></tr>
+<tr><td>Nueva página de aterrizaje para Azure Data Factory Studio</td><td>Página de aterrizaje de la hoja Data Factory en Azure Portal<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">Más información</a></td></tr>
+</table>
 
 ## <a name="june-2021"></a>Junio de 2021
 <br>
@@ -47,8 +70,3 @@ Esta página se actualiza mensualmente, por lo que se recomienda visitarla con f
 - [Foro Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [Twitter](https://twitter.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
 - [Vídeos](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/featured)
-
-
-
-
-

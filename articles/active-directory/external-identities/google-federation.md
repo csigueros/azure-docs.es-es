@@ -5,25 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37feb36e69277002f124b4a909d5bf8f75a4a3f3
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 687e23c7267991eee171e205a537a45546da73b2
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666897"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864583"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
-Si configura la federación con Google, puede permitir que los usuarios invitados puedan iniciar sesión en sus aplicaciones y recursos compartidos con sus propias cuentas de Google, sin tener que crear cuentas Microsoft.
-
-Cuando haya agregado Google como una de las opciones de inicio de sesión en la página **Iniciar sesión**, el usuario solo tendrá que escribir el correo electrónico que utiliza para iniciar sesión en Google o seleccionar **Opciones de inicio de sesión** y elegir **Iniciar sesión con Google**. En los dos casos, accederá automáticamente a la página de inicio de sesión de Google, donde tendrá que autenticarse.
+Si configura la federación con Google, puede permitir que los usuarios invitados puedan iniciar sesión en sus aplicaciones y recursos compartidos con sus propias cuentas de Google, sin tener que crear cuentas Microsoft. Después de agregar Google como una de las opciones de inicio de sesión de la aplicación, en la página **Iniciar sesión**, el usuario solo tendrá que escribir la dirección de correo electrónico de Gmail que utiliza para iniciar sesión en Google.
 
 ![Opciones de inicio de sesión para los usuarios de Google](media/google-federation/sign-in-with-google-overview.png)
 
@@ -33,7 +31,7 @@ Cuando haya agregado Google como una de las opciones de inicio de sesión en la 
 > [!IMPORTANT]
 >
 > - **A partir del 12 de julio de 2021**, si los clientes de Azure AD B2B configuran nuevas integraciones de Google para su uso con el registro de autoservicio o para invitar a usuarios externos para sus aplicaciones personalizadas o de línea de negocio, la autenticación podría bloquearse para los usuarios de Gmail (con la pantalla de error que se muestra a continuación en la página [Qué esperar](#what-to-expect)). Este problema solo se produce si crea la integración de Google para flujos de usuario de registro de autoservicio o invitaciones después del 12 de julio de 2021, y las autenticaciones de Gmail en las aplicaciones personalizadas o de línea de negocio no se han movido a las vistas web del sistema. Dado que las vistas web del sistema están habilitadas de forma predeterminada, la mayoría de las aplicaciones no se verán afectadas. Para evitar el problema, le recomendamos encarecidamente que traslade las autenticaciones de Gmail a exploradores del sistema antes de crear nuevas integraciones de Google para el registro de autoservicio. Consulte [Acción necesaria para las vistas web insertadas](#action-needed-for-embedded-frameworks).
-> - **A partir del 30 de septiembre de 2021**, Google [retira la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si sus aplicaciones autentican a los usuarios con una vista web insertada y va a usar la federación de Google con [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) o Azure AD B2B para las invitaciones de usuarios externos o el [registro de autoservicio](identity-providers.md), los usuarios de Google Gmail no podrán autenticarse. [Más información](#deprecation-of-web-view-sign-in-support).
+> - **A partir del 30 de septiembre de 30, 2021,** , Google [retira la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si sus aplicaciones autentican a los usuarios con una vista web insertada y va a usar la federación de Google con [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) o Azure AD B2B para las invitaciones de usuarios externos o el [registro de autoservicio](identity-providers.md), los usuarios de Google Gmail no podrán autenticarse. [Más información](#deprecation-of-web-view-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>¿Cuál es la experiencia del usuario de Google?
 
@@ -63,7 +61,7 @@ También puede proporcionar a los usuarios invitados de Google un vínculo direc
 A partir del 30 de septiembre de 2021, Google [retira la compatibilidad con el inicio de sesión en la vista web insertada](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si sus aplicaciones autentican a los usuarios con una vista web insertada y va a usar la federación de Google con [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) o Azure AD B2B para las [invitaciones de usuarios externos](google-federation.md) o el [registro de autoservicio](identity-providers.md), los usuarios de Google Gmail no podrán autenticarse.
 
 Estos son escenarios conocidos que afectarán a los usuarios de Gmail:
-- Aplicaciones de Microsoft (por ejemplo, Teams y PowerApps) en Windows 
+- Aplicaciones de Microsoft (por ejemplo, Teams y Power Apps) en Windows 
 - Aplicaciones de Windows que usan el control [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview), [WebView2](/microsoft-edge/webview2/) o el control WebBrowser anterior, para la autenticación. Estas aplicaciones deben migrarse para usar el flujo Administrador de cuentas web (WAM).
 - Aplicaciones Android que usan el elemento de interfaz de usuario WebView 
 - Aplicaciones iOS con UIWebView/WKWebview 
@@ -71,6 +69,7 @@ Estos son escenarios conocidos que afectarán a los usuarios de Gmail:
 
 Este cambio no afecta a:
 - Aplicaciones web
+- Servicios de Microsoft 365 a los que se accede a través de un sitio web (por ejemplo, SharePoint Online, aplicaciones web de Office y aplicación web de Teams)
 - Aplicaciones móviles que usan vistas web del sistema para la autenticación ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) en iOS, [Pestañas personalizadas](https://developer.chrome.com/docs/android/custom-tabs/overview/) en Android).  
 - Identidades de Google Workspace, por ejemplo cuando usa la [federación basada en SAML](direct-federation.md) con Google Workspace.
 
@@ -141,6 +140,7 @@ En primer lugar, cree un proyecto en la consola de desarrolladores de Google par
 11. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web). Asigne un nombre adecuado a la aplicación, como **Azure AD B2B**. En **URI de redirección autorizados**, escriba los siguientes URI:
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(donde `<tenant ID>` es el id. de inquilino)
+    - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(donde `<tenant name>` es el nombre del inquilino)
    
     > [!NOTE]
     > Para buscar el identificador de inquilino, vaya a [Azure Portal](https://portal.azure.com). En **Azure Active Directory**, seleccione **Propiedades** y copie el **Id. del inquilino**.
@@ -150,6 +150,8 @@ En primer lugar, cree un proyecto en la consola de desarrolladores de Google par
 12. Seleccione **Crear**. Copie el identificador de cliente y del secreto de cliente. Los usará cuando agregue el proveedor de identidades en Azure Portal.
 
     ![Captura de pantalla en la que se muestra el Id. de cliente de OAuth y el secreto de cliente.](media/google-federation/google-auth-client-id-secret.png)
+
+13. Puede dejar el proyecto con el estado de publicación **Pruebas** y agregar usuarios de prueba a la pantalla de consentimiento de OAuth. O bien, puede seleccionar el botón **Publicar aplicación** en la pantalla de consentimiento de OAuth para que la aplicación esté disponible para cualquier usuario con una cuenta de Google.
 
 ## <a name="step-2-configure-google-federation-in-azure-ad"></a>Paso 2: configuración de la federación de Google en Azure AD 
 
@@ -173,7 +175,7 @@ Defina ahora el identificador y el secreto de cliente de Google. Para ello, pued
  
    > [!NOTE]
    > Use el identificador y secreto de cliente de la aplicación que creó en el "Paso 1: configuración de un proyecto de desarrollador de Google". Para más información, vea [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true). 
- 
+
 ## <a name="how-do-i-remove-google-federation"></a>¿Cómo se quita la federación de Google?
 
 La configuración de la federación de Google se puede eliminar. Si lo hace, los usuarios invitados de Google que ya hayan canjeado su invitación no podrán iniciar sesión. Sin embargo, puede concederles acceso de nuevo a sus recursos al [restablecer el estado de canje](reset-redemption-status.md).

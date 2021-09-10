@@ -6,21 +6,19 @@ author: prakulka
 manager: nmurav
 services: azure-communication-services
 ms.author: prakulka
-ms.date: 03/19/2021
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: bb9765c2620f45d67bf888f8bfe8a4dee450cfd6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2281dac86281d01ec6f033062b87236a780d3bc7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645824"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259753"
 ---
 # <a name="azure-communication-services-messaging-policy"></a>Directiva de mensajería de Azure Communication Services
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Azure Communication Services está transformando la forma en la que nuestros clientes interactúan con sus clientes mediante la creación de experiencias de comunicación personalizadas enriquecidas que aprovechan los mismos servicios de clase empresarial que respaldan a Microsoft Teams y Skype. Integre la funcionalidad de mensajería SMS en sus soluciones de comunicaciones para llegar a sus clientes en cualquier momento y en cualquier lugar en el que necesiten asistencia. Solo tiene que tener en cuenta algunos requisitos de mensajería para comenzar.
+Azure Communication Services está transformando la forma en la que nuestros clientes interactúan con sus clientes mediante la creación de experiencias de comunicación personalizadas enriquecidas que aprovechan los mismos servicios de clase empresarial que respaldan a Microsoft Teams y Skype. Integre la funcionalidad de mensajería SMS en sus soluciones de comunicaciones para llegar a sus clientes en cualquier momento y en cualquier lugar en el que necesiten asistencia. Solo tiene que tener en cuenta algunos requisitos de mensajería y normativas del sector para comenzar.
 
 Sabemos que los requisitos de mensajería pueden parecer complicados de aprender, pero es tan sencillo como recordar la abreviatura "COMS":
 
@@ -131,9 +129,11 @@ El contenido del mensaje que incluya elementos de sexo, odio, alcohol, armas de 
 
 Incluso en los casos en los que dicho contenido no sea ilícito, debe incluir un mecanismo de comprobación de edad en el momento de optar por participar para filtrar por edad el destinatario previsto del mensaje con contenido para adultos. En Estados Unidos se aplican requisitos legales adicionales a las comunicaciones de marketing dirigidas a niños menores de 13 años. 
 
-### <a name="prohibited-content"></a>Contenido prohibido:
+### <a name="prohibited-practices"></a>Prácticas prohibidas:
 
-Azure Communication Services prohíbe cierto contenido del mensaje independientemente del consentimiento. El contenido prohibido incluye:
+Tanto usted como sus clientes tienen prohibido usar Azure Communication Services para eludir solicitudes de cancelación razonables. Además, ni usted ni sus clientes pueden eludir las medidas implementadas por Azure Communication Services o un proveedor de servicios de comunicaciones para garantizar el cumplimiento de los requisitos de mensajería y los estándares del sector.
+
+Azure Communication Services prohíbe ciertos contenidos de los mensajes independientemente del consentimiento. El contenido prohibido incluye:
 - Contenido que promueve actividades ilícitas (por ejemplo, fraude de impuestos o crueldad hacia los animales en Estados Unidos)
 - Discursos de incitación al odio, difamación, acoso o cualquier otro discurso que se haya determinado como claramente ofensivo
 - Contenido pornográfico
@@ -156,7 +156,7 @@ La suplantación de identidad es el acto de hacer que se muestre en el dispositi
 
 Esta directiva de mensajería no constituye consejo legal y nos reservamos el derecho a modificar la directiva en cualquier momento. Azure Communication Services no es responsable de garantizar que el contenido, los tiempos o los destinatarios de los mensajes de nuestros clientes cumplan todos los requisitos legales aplicables. 
 
-Nuestros clientes son responsables de todos los requisitos de mensajería. Si es una plataforma o un proveedor de software que usa Azure Communication Services con fines de mensajería, debe requerir que sus clientes también cumplan todos los requisitos descritos en esta directiva de mensajería. Para más instrucciones, CTIA proporciona [principios y procedimientos recomendados de mensajería](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf) útiles.
+Nuestros clientes son responsables de todos los requisitos de mensajería. Si es una plataforma o un proveedor de software que usa Azure Communication Services con fines de mensajería, debe requerir que sus clientes también cumplan todos los requisitos descritos en esta directiva de mensajería. Si necesita más información, los [principios de mensajería y los procedimientos recomendados](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf) de CTIA pueden serle útil para conocer los estándares del sector pertinentes.
 
 ### <a name="penalties"></a>Penalizaciones:
 

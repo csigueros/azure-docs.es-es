@@ -4,41 +4,25 @@ description: Use un bucle de propiedades Bicep para iterar al crear una propieda
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 59ca13e4f6ab29a71c543fcbe779ef616beba43b
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/30/2021
+ms.openlocfilehash: 6e9d41136401b28cf330bc828947d35a67c69a43
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026749"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225957"
 ---
 # <a name="property-iteration-in-bicep"></a>Iteración de propiedades en Bicep
 
-En este artículo, se muestra cómo crear más de una instancia de una propiedad en el archivo de Bicep. Puede agregar un bucle a la sección `properties` del recurso y establecer dinámicamente el número de elementos de una variable durante la implementación. También evita repetir la sintaxis en el archivo Bicep.
+En este artículo, se muestra cómo crear más de una instancia de una propiedad en el archivo de Bicep. Puede agregar un bucle a la sección `properties` del recurso y establecer dinámicamente el número de elementos de una propiedad. Se evita repetir la sintaxis en el archivo de Bicep.
 
 Solo se puede usar un bucle con recursos de nivel superior, incluso cuando se aplica el bucle a una propiedad. Para obtener información sobre cómo cambiar un recurso secundario a un recurso de nivel superior, vea [Iteración para un recurso secundario](loop-resources.md#iteration-for-a-child-resource).
 
-También puede usar el bucle de copia con [recursos](loop-resources.md), [variables](loop-variables.md) y [salidas](loop-outputs.md).
+También puede usar un bucle con [módulos](loop-modules.md), [recursos](loop-resources.md), [variables](loop-variables.md) y [salidas](loop-outputs.md).
 
 ## <a name="syntax"></a>Sintaxis
 
 Los bucles se pueden usar para declarar varias propiedades mediante:
-
-- Iteración en una matriz.
-
-  ```bicep
-  <property-name>: [for <item> in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Iteración en los elementos de una matriz.
-
-  ```bicep
-  <property-name>: [for (<item>, <index>) in <collection>: {
-    <properties>
-  }]
-  ```
 
 - Uso de un índice de bucle.
 
@@ -48,11 +32,29 @@ Los bucles se pueden usar para declarar varias propiedades mediante:
   }]
   ```
 
+- Iteración en una matriz.
+
+  ```bicep
+  <property-name>: [for <item> in <collection>: {
+    <properties>
+  }]
+  ```
+
+  Para obtener más información, vea [Matriz de bucles](#loop-array).
+
+- Iteración sobre una matriz e índice.
+
+  ```bicep
+  <property-name>: [for (<item>, <index>) in <collection>: {
+    <properties>
+  }]
+  ```
+
 ## <a name="loop-limits"></a>Límites del bucle
 
-Las iteraciones de bucle del archivo Bicep no pueden ser un número negativo ni superar las 800 iteraciones. Para implementar archivos Bicep, instale la versión más reciente de las [herramientas de Bicep](install.md).
+Las iteraciones de bucle del archivo Bicep no pueden ser un número negativo ni superar las 800 iteraciones. 
 
-## <a name="property-iteration"></a>Iteración de propiedades
+## <a name="loop-array"></a>Matriz de bucles
 
 En este ejemplo se recorre en iteración una matriz para que la propiedad `subnets` cree dos subredes dentro de una red virtual.
 
@@ -92,11 +94,8 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-07-01' = {
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para otros usos de bucles, consulte:
-  - [Iteración de recursos en archivos Bicep](loop-resources.md)
-  - [Iteración de variables en archivos Bicep](loop-variables.md)
-  - [Iteración de la salida en archivos Bicep](loop-outputs.md)
-- Si quiere conocer las secciones de una plantilla, consulte [Nociones sobre la estructura y la sintaxis de los archivos Bicep](file.md).
-- Para información sobre cómo implementar varios recursos, vea [Uso de módulos de Bicep.](modules.md)
+  - [Iteración de recursos en Bicep](loop-resources.md)
+  - [Iteración de módulos en Bicep](loop-modules.md)
+  - [Iteración de variables en Bicep](loop-variables.md)
+  - [Iteración de salidas en Bicep](loop-outputs.md)
 - Para establecer las dependencias de los recursos creados en un bucle, consulte [Establecimiento de dependencias de recursos](./resource-declaration.md#set-resource-dependencies).
-- Para información sobre la implementación con PowerShell, consulte [Implementación de recursos con Bicep y Azure PowerShell](deploy-powershell.md).
-- Para información sobre la implementación con la CLI de Azure, consulte [Implementación de recursos con Bicep y la CLI de Azure](deploy-cli.md).

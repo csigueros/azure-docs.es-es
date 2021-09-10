@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 353fdd952ed4b2baa8920f1e15fb0dc0f44264ba
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: 7a5bea7e555bf4f388a06668b2e349045692a941
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122202073"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106632"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integración de Azure Active Directory administrado por AKS
 
-La integración de Azure AD administrado por AKS está diseñada para simplificar la experiencia de integración de Azure AD, donde los usuarios debían crear una aplicación cliente y otra de servidor, y donde el inquilino de Azure AD debía conceder permisos de lectura para Active Directory. En la nueva versión, el proveedor de recursos de AKS administra las aplicaciones de cliente y servidor.
+La integración de Azure AD administrado por AKS simplifica el proceso de integración de Azure AD. Anteriormente, los usuarios debían crear una aplicación cliente y otra de servidor, y el inquilino de Azure AD debía conceder permisos de lectura de directorio. En la nueva versión, el proveedor de recursos de AKS administra las aplicaciones de cliente y servidor.
 
 ## <a name="azure-ad-authentication-overview"></a>Introducción a la autenticación de Azure AD
 
@@ -26,7 +26,7 @@ Obtenga más información sobre el flujo de integración de Azure AD en la [doc
 
 * No se puede deshabilitar la integración de Azure AD administrados por AKS.
 * No se admite cambiar un clúster integrado de Azure AD administrado por AKS por AAD heredado
-* Los clústeres habilitados para RBAC que no son de Kubernetes no se admiten para la integración de Azure AD administrado por AKS.
+* Los clústeres sin RBAC de Kubernetes habilitado no se admiten para la integración de Azure AD administrado por AKS.
 * No se admite el cambio del inquilino de Azure AD asociado a la integración de Azure AD administrado por AKS.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -50,7 +50,7 @@ Siga [estas instrucciones](https://kubernetes.io/docs/tasks/tools/install-kubect
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para el clúster, necesita un grupo de Azure AD. Este grupo es necesario como grupo de administradores para que el clúster conceda permisos de administrador de clústeres. Puede usar un grupo de Azure AD existente o crear uno nuevo. Anote el identificador de objeto del grupo de Azure AD.
+Para el clúster, necesita un grupo de Azure AD. Este grupo se registrará como grupo de administración en el clúster para conceder permisos de administrador de clúster. Puede usar un grupo de Azure AD existente o crear uno nuevo. Anote el identificador de objeto del grupo de Azure AD.
 
 ```azurecli-interactive
 # List existing groups in the directory
@@ -100,7 +100,7 @@ Una vez creado el clúster, puede empezar a acceder a él.
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Acceso a un clúster habilitado para Azure AD
 
-Necesitará el rol integrado del [usuario del clúster de Azure Kubernetes Service](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) para realizar los pasos siguientes.
+Antes de acceder al clúster mediante un grupo definido de Azure AD, necesitará el rol integrado de [usuario de clúster de Azure Kubernetes Service](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role).
 
 Obtenga las credenciales de usuario para acceder al clúster:
  

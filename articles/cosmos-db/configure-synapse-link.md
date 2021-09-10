@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: 86f27f08bd7495e558cd81b122f1daa243dbe313
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 116997c8abbad382dc10014fd76e7933f333c113
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727909"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109356"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -34,7 +34,7 @@ También puede consultar el módulo de información sobre cómo [configurar Azur
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-db-accounts"></a><a id="enable-synapse-link"></a>Habilitación de Azure Synapse Link para cuentas de Azure Cosmos DB
 
 > [!NOTE]
-> Si quiere usar claves administradas por el cliente con Azure Synapse Link, debe configurar la identidad administrada de la cuenta en la directiva de acceso de Azure Key Vault antes de habilitar Synapse Link en la cuenta. Para más información, consulte el artículo sobre cómo [configurar claves administradas por el cliente mediante identidades administradas de las cuentas de Azure Cosmos DB](how-to-setup-cmk.md#using-managed-identity).
+> Si quiere usar claves administradas por el cliente con Azure Synapse Link, debe configurar la identidad administrada de la cuenta en la directiva de acceso de Azure Key Vault antes de habilitar Synapse Link en la cuenta. Para más información, consulte el artículo [Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault](how-to-setup-cmk.md#using-managed-identity).
 
 > [!NOTE]
 > Si desea usar el esquema de fidelidad total para las cuentas de API de SQL (CORE), no puede usar Azure Portal para habilitar Synapse Link. Esta opción no se puede cambiar después de habilitar Synapse Link en su cuenta y, para establecerla, debe usar la CLI de Azure o PowerShell. Para obtener más información, consulte la [documentación de representación del esquema del almacén analítico](analytical-store-introduction.md#schema-representation). 
@@ -268,7 +268,9 @@ Siga las instrucciones del artículo [Conexión a Azure Synapse Link](../synapse
 
 ## <a name="query-analytical-store-using-apache-spark-for-azure-synapse-analytics"></a><a id="query-analytical-store-spark"></a> Consulta del almacén analítico mediante Apache Spark para Azure Synapse Analytics
 
-Siga las instrucciones que se indican en el artículo [Consulta al almacén analítico de Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) sobre cómo realizar consultas con Spark en Synapse. En este artículo se ofrecen algunos ejemplos sobre cómo puede interactuar con el almacén analítico desde los gestos de Synapse. Dichos gestos se muestran cuando se hace clic con el botón secundario en un contenedor. Con ellos, puede generar código rápidamente y adaptarlo a sus necesidades. También son ideales para detectar datos con un solo clic.
+Siga las instrucciones que se indican en el artículo [Consulta del almacén analítico de Azure Cosmos DB mediante Spark 3](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md) para obtener información sobre cómo realizar consultas con Spark 3 en Synapse. En este artículo se ofrecen algunos ejemplos sobre cómo puede interactuar con el almacén analítico desde los gestos de Synapse. Dichos gestos se muestran cuando se hace clic con el botón secundario en un contenedor. Con ellos, puede generar código rápidamente y adaptarlo a sus necesidades. También son ideales para detectar datos con un solo clic.
+
+Para la integración de Spark 2, use la instrucción del artículo [Consulta del almacén analítico de Azure Cosmos DB mediante Spark 2](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md).
 
 ## <a name="query-the-analytical-store-using-serverless-sql-pool-in-azure-synapse-analytics"></a><a id="query-analytical-store-sql-on-demand"></a> Consultar el almacén analítico mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 

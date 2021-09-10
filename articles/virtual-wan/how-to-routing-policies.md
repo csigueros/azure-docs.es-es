@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 08/01/2021
 ms.author: wellee
-ms.openlocfilehash: d61e6c3847d9ce64f9c3f17da1300b32a1a8e643
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 5fb694cd1dab2d53495e2e4b513ce6bfe2ebaff9
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122206602"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101835"
 ---
 # <a name="how-to-configure-virtual-wan-hub-routing-intent-and-routing-policies"></a>Configuración de intención y directivas de enrutamiento del centro de conectividad de Virtual WAN
 
@@ -22,13 +22,13 @@ ms.locfileid: "122206602"
 > 
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla en las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan funcionalidades limitadas. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> Para obtener acceso a la versión preliminar, póngase en contacto con previewinterhub@microsoft.com con el identificador de Virtual WAN, el identificador de suscripción y la región de Azure en la que desea configurar la intención de enrutamiento. Espere una respuesta en un plazo de 48 horas laborables (de lunes a viernes) con la confirmación de la habilitación de la característica.
+> Para obtener acceso a la versión preliminar, implemente dos centros en la misma región de Azure junto con las puertas de enlace (instancias de VPN Gateway de sitio a sitio, puertas de enlace de punto a sitio e instancias de ExpressRouteGateway) y, a continuación, acceda a previewinterhub@microsoft.com con el identificador de Virtual WAN, el identificador de suscripción y la región de Azure en la que desea configurar la intención de enrutamiento. Espere una respuesta en un plazo de 48 horas laborables (de lunes a viernes) con la confirmación de la habilitación de la característica. Tenga en cuenta que el equipo de Virtual WAN deberá actualizar todas las puertas de enlace creadas después de la habilitación de características.
 
-## <a name="background"></a>Información previa 
+## <a name="background"></a>Fondo 
 
-Los clientes que usan Azure Firewall Manager para configurar directivas para el tráfico público y privado ahora pueden configurar sus redes de una manera mucho más sencilla mediante la intención y las directivas de enrutamiento.
+Los clientes que usan Azure Firewall Manager con el fin de configurar directivas para tráfico público y privado ya pueden configurar sus redes de una manera mucho más sencilla mediante la intención y las directivas de enrutamiento.
 
-La intención y las directivas de enrutamiento permiten especificar cómo el centro de conectividad de Virtual WAN reenvía el tráfico vinculado a Internet y el privado (punto a sitio, sitio a sitio, ExpressRoute, aplicaciones virtuales de red dentro del centro de conectividad de Virtual WAN y Virtual Network). Hay dos tipos de directivas de enrutamiento: directivas de enrutamiento de tráfico de Internet y de tráfico privado. Cada centro de conectividad de Virtual WAN puede tener como máximo una directiva de enrutamiento de tráfico de Internet y una de tráfico privado, cada una con un recurso de próximo salto. 
+La intención y las directivas de enrutamiento permiten especificar cómo el centro de Virtual WAN reenvía el tráfico de Internet y privado (de punto a sitio, de sitio a sitio, ExpressRoute, aplicaciones virtuales de red dentro del centro de Virtual WAN y Virtual Network). Hay dos tipos de directivas de enrutamiento: de tráfico de Internet y de tráfico privado. Cada centro de Virtual WAN puede tener como máximo una directiva de enrutamiento de tráfico de Internet y otra de tráfico privado, cada una con un recurso de próximo salto. 
 
 Aunque el tráfico privado incluye prefijos de dirección de ramas y de Virtual Network, las directivas de enrutamiento los consideran como una entidad dentro de los conceptos de intención de enrutamiento.
 
@@ -39,7 +39,7 @@ Aunque el tráfico privado incluye prefijos de dirección de ramas y de Virtual 
 * **Directiva de enrutamiento de tráfico de Internet**: cuando se configura una directiva de enrutamiento de tráfico de Internet en un centro de conectividad de Virtual WAN, todas las conexiones de las ramas (VPN de usuario, VPN de punto a sitio, VPN de sitio a sitio y ExpressRoute) y de Virtual Network a ese centro de conectividad de Virtual WAN reenviarán el tráfico vinculado a Internet al recurso de Azure Firewall o al proveedor de seguridad de terceros especificado como parte de la directiva de enrutamiento.
  
 
-* **Directiva de enrutamiento de tráfico privado**: cuando se configura una directiva de enrutamiento de tráfico privado en un centro de conectividad de Virtual WAN, **todo** el tráfico de las ramas y de Virtual Network dentro y fuera del centro de conectividad de Virtual WAN, incluido el tráfico entre centros, se reenviará al recurso de próximo salto de Azure Firewall que se especificó en la directiva de enrutamiento del tráfico privado. 
+* **Directiva de enrutamiento de tráfico privado**: cuando se configure una directiva de enrutamiento de tráfico privado en un centro de Virtual WAN, **todo** el tráfico de rama y de Virtual Network dentro y fuera de dicho centro, incluido el tráfico entre centros, se reenviará al recurso de próximo salto de Azure Firewall que se haya especificado en la directiva de enrutamiento de tráfico privado. 
 
     En otras palabras, cuando se configura una directiva de enrutamiento de tráfico privado en el centro de conectividad de Virtual WAN, todo el tráfico de rama a rama, de rama a red virtual, de red virtual a rama y entre centros de conectividad se enviará a través de Azure Firewall.
 
@@ -53,7 +53,7 @@ Aunque el tráfico privado incluye prefijos de dirección de ramas y de Virtual 
 ## <a name="prerequisites"></a>Requisitos previos
 1. Creación de una instancia de Virtual WAN. Asegúrese de que crea al menos dos centros de conectividad virtual en la **misma** región. Por ejemplo, puede crear una instancia de Virtual WAN con dos centros de conectividad virtuales en la región Este de EE. UU. 
 2. Convierta su centro de conectividad de Virtual WAN en un centro protegido mediante la implementación de Azure Firewall en los centros de conectividad virtuales de la región elegida. Para más información sobre cómo convertir el centro de conectividad de Virtual WAN en un centro protegido, consulte este [documento](howto-firewall.md).
-3. Póngase en contacto con **previewinterhub@microsoft.com** con el **identificador de recurso de Virtual WAN** y la **región del centro de conectividad de Azure Virtual WAN** en la que desea configurar las directivas de enrutamiento. Para localizar el identificador de Virtual WAN, abra Azure Portal, vaya al recurso de Virtual WAN y seleccione Configuración > Propiedades > Id. del recurso. Por ejemplo: 
+3. Implemente todas las VPN de sitio a sitio, VPN de punto a sitio y puertas de enlace de ExpressRoute que usará para las pruebas. Póngase en contacto con **previewinterhub@microsoft.com** con el **identificador de recurso de Virtual WAN** y la **región del centro de conectividad de Azure Virtual WAN** en la que desea configurar las directivas de enrutamiento. Para localizar el identificador de Virtual WAN, abra Azure Portal, vaya al recurso de Virtual WAN y seleccione Configuración > Propiedades > Id. del recurso. Por ejemplo: 
 ```
     /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>
 ```
@@ -104,7 +104,7 @@ Estos son los flujos de tráfico que se derivan de esta configuración.
 > [!NOTE]
 > El tráfico de Internet debe salir a través de la instancia **local** de Azure Firewall ya que la ruta predeterminada (0.0.0.0/0) **no** se propaga entre centros de conectividad.
 
-| From |   En |  Redes virtuales del Centro de conectividad 1 | Ramas del Centro de conectividad 1 | Redes virtuales del Centro de conectividad 2 | Ramas del Centro de conectividad 2| Internet|
+| De |   A |  Redes virtuales del Centro de conectividad 1 | Ramas del Centro de conectividad 1 | Redes virtuales del Centro de conectividad 2 | Ramas del Centro de conectividad 2| Internet|
 | -------------- | -------- | ---------- | ---| ---| ---| ---|
 | Redes virtuales del Centro de conectividad 1     | &#8594;| Hub 1 AzFW |   Hub 1 AzFW    | Hub 1 y 2 AzFW | Hub 1 y 2 AzFW | Hub 1 AzFW |
 | Ramas del Centro de conectividad 1   | &#8594;|  Hub 1 AzFW  |   Hub 1 AzFW    | Hub 1 y 2 AzFW | Hub 1 y 2 AzFW | Hub 1 AzFW|
@@ -131,7 +131,7 @@ Tenga en cuenta la siguiente configuración en la que Centro de conectividad 1 (
 
  Estos son los flujos de tráfico que se derivan de esta configuración. Las ramas y redes virtuales conectadas al Centro de conectividad 1 **no pueden** acceder a Internet a través de la instancia de Azure Firewall del centro de conectividad porque la ruta predeterminada (0.0.0.0/0) **no** se propaga entre centros de conectividad.
 
-| From |   En |  Redes virtuales del Centro de conectividad 1 | Ramas del Centro de conectividad 1 | Redes virtuales del Centro de conectividad 2 | Ramas del Centro de conectividad 2| Internet |
+| De |   A |  Redes virtuales del Centro de conectividad 1 | Ramas del Centro de conectividad 1 | Redes virtuales del Centro de conectividad 2 | Ramas del Centro de conectividad 2| Internet |
 | -------------- | -------- | ---------- | ---| ---| ---| --- |
 | Redes virtuales del Centro de conectividad 1     | &#8594;| Directo |   Directo   | Hub 2 AzFW | Hub 2 AzFW | - |
 | Ramas del Centro de conectividad 1   | &#8594;|  Directo |   Directo    | Hub 2 AzFW | Hub 2 AzFW | - |
@@ -157,6 +157,7 @@ En la sección siguiente se describen los problemas comunes que se encuentran al
 * Actualmente, el uso de Azure Firewall para inspeccionar el tráfico entre centros de conectividad solo está disponible para centros de Virtual WAN que estén implementados en la **misma** región de Azure. 
 * Actualmente, las directivas de enrutamiento de tráfico privado no se admiten en centros de conectividad con conexiones de ExpressRoute cifradas (túnel VPN de sitio a sitio que se ejecuta mediante conectividad privada de ExpressRoute). 
 * Para comprobar que las directivas de enrutamiento se han aplicado correctamente, compruebe las rutas vigentes de DefaultRouteTable. Si las directivas de enrutamiento privado están configuradas, debería ver las rutas en DefaultRouteTable para los prefijos de tráfico privado con la instancia de Azure Firewall de próximo salto. Si las directivas de enrutamiento de tráfico de Internet están configuradas, debería ver una ruta predeterminada (0.0.0.0/0) en DefaultRouteTable con la instancia de Azure Firewall de próximo salto.
+* Si hay instancias de VPN Gateway de sitio a sitio o de punto a sitio creadas **después** de que confirmar que la característica está habilitada en la implementación, tendrá que acceder de nuevo a previewinterhub@microsoft.com para habilitar la característica. 
 
 ### <a name="troubleshooting-azure-firewall"></a>Solución de problemas de Azure Firewall
 

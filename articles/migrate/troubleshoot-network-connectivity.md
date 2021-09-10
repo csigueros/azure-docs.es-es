@@ -6,13 +6,13 @@ ms.author: v-ssudhir
 ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/15/2021
-ms.openlocfilehash: 1b2dd711fb44b1b6b684257e5e5f6abefb5eda50
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.date: 08/19/2021
+ms.openlocfilehash: f6f63c24f98cd362619823ca4ebe1d66d35e6ced
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114291156"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598042"
 ---
 # <a name="troubleshoot-network-connectivity"></a>Solución de problemas de conectividad de red
 Este artículo le ayuda a solucionar problemas de conectividad de red mediante Azure Migrate con puntos de conexión privados.
@@ -49,7 +49,7 @@ Los detalles del punto de conexión privado y la información de los FQDN de rec
 
 Ejemplo ilustrativo de la resolución DNS del FQDN del vínculo privado de la cuenta de almacenamiento.  
 
-- Escriba _nslookup< nombre_de_la_cuenta_de_almacenamiento>_ .blob.core.windows.net.  Reemplace <nombre_de_la_cuenta_de_almacenamiento> por el nombre de la cuenta de almacenamiento usada en Azure Migrate.  
+- Escriba _nslookup ```<storage-account-name>_.blob.core.windows.net.``` Reemplace ```<storage-account-name>``` por el nombre de la cuenta de almacenamiento usada en Azure Migrate.  
 
     Recibirá un mensaje similar a este:  
 
@@ -265,3 +265,33 @@ Si la resolución DNS es incorrecta, siga estos pasos:
 3. Si el problema persiste, [consulte esta sección](#validate-the-private-dns-zone) para obtener más información sobre la solución de problemas.
 
 Después de comprobar la conectividad, vuelva a intentar el proceso de detección.
+
+### <a name="importexport-request-fails-with-the-error-403-this-request-is-not-authorized-to-perform-this-operation"></a>Se produce un error en la solicitud de importación o exportación con el error "403: Esta solicitud no está autorizada para realizar esta operación" 
+
+Se produce un error en la solicitud de informe de exportación, importación o descarga con el error *"403: Esta solicitud no está autorizada para realizar esta operación"* para los proyectos con conectividad de punto de conexión privado.
+
+#### <a name="possible-causes"></a>Causas posibles: 
+Este error se puede producir si la solicitud de importación, exportación o descarga no se ha iniciado desde una red autorizada. Esto puede ocurrir si la solicitud de importación, exportación o descarga se ha iniciado desde un cliente que no está conectado al servicio Azure Migrate (red virtual de Azure) mediante una red privada. 
+
+#### <a name="remediation"></a>Corrección
+**Opción 1** *(recomendada)* :
+  
+Para resolver este error, vuelva a intentar la operación de importación, exportación o descarga desde un cliente que resida en una red virtual conectada a Azure mediante un vínculo privado. Puede abrir Azure Portal en la red local o en la máquina virtual del dispositivo y volver a intentar la operación. 
+
+**Opción 2**:
+
+La solicitud de importación, exportación o descarga realiza una conexión a una cuenta de almacenamiento para cargar o descargar informes. También puede cambiar la configuración de red de la cuenta de almacenamiento usada para la operación de importación, exportación o descarga, y permitir el acceso a la cuenta de almacenamiento por medio de otras redes (redes públicas).  
+
+Para configurar la cuenta de almacenamiento para la conectividad de punto de conexión público,
+
+1. **Busque la cuenta de almacenamiento**: el nombre de la cuenta de almacenamiento está disponible en la página de propiedades Azure Migrate: Detección y evaluación. El nombre de la cuenta de almacenamiento tendrá el sufijo *usa*. 
+
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Instantánea de la configuración de DNS de descarga."::: 
+
+2. Vaya a la cuenta de almacenamiento y edite las propiedades de red de la cuenta de almacenamiento para permitir el acceso desde todas las redes u otras redes. 
+
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall-virtual-networks.png" alt-text="Instantánea de las propiedades de red de la cuenta de almacenamiento.":::
+
+3. Como alternativa, puede limitar el acceso a redes concretas y agregar la dirección IP pública del cliente desde donde intente acceder a Azure Portal.  
+
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Instantánea de adición de la dirección IP pública del cliente.":::
