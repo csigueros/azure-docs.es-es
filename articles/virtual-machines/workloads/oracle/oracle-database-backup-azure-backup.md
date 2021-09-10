@@ -9,16 +9,14 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: fd6826370a0292190fc2534585fdb08f7982f447
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 31bb35a096845c489b0f141a601ee604253e6ef9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698703"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738987"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Backup
-
-**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 En este artículo se muestra el uso de Azure Backup para tomar instantáneas de disco de los discos de la máquina virtual, que incluyen los archivos de base de datos y el área de recuperación rápida. Con Azure Backup puede tomar instantáneas completas de disco que pueden usarse como copias de seguridad y se almacenan en un [almacén de Recovery Services](../../../backup/backup-azure-recovery-services-vault-overview.md).  Azure Backup también proporciona copias de seguridad coherentes con las aplicaciones, lo que garantiza que no se van a necesitar correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que permite volver rápidamente a un estado de ejecución.
 

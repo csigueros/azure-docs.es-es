@@ -5,16 +5,16 @@ description: En este inicio rápido, se creará una aplicación y una entidad de
 services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: 6e573b455896b2eec6ec8163e1c463ed758279d4
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 5b25c0c5d140302d6ea8abbc3eeafaf47fb3b64b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257958"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473168"
 ---
 # <a name="quickstart-authenticate-using-azure-active-directory-azure-cli"></a>Inicio rápido: Autenticación con Azure Active Directory (CLI de Azure)
 

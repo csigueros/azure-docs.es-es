@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
 ms.author: v-doeris
-ms.openlocfilehash: 0036dcb5a87ea6b36c6deea3760ff24aa7c7bd8d
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.custom: has-adal-ref
+ms.openlocfilehash: a67f493666c458637a2cd48b7e0d78e0bcf59862
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113431893"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418771"
 ---
 # <a name="how-to-migrate-a-javascript-app-from-adaljs-to-msaljs"></a>Cómo migrar una aplicación de JavaScript de ADAL.js a MSAL.js
 

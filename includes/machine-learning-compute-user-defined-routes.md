@@ -4,21 +4,21 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 08/12/2021
 ms.author: larryfr
-ms.openlocfilehash: 8f60a29adcdf8e679a523748a97a24ba2f06cbdd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c2ad7408f00d8abf4cb5afdbdba44af5e0779380
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739147"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603977"
 ---
 Cuando utilice una __instancia de proceso__ o un __clúster de proceso__ de Azure Machine Learning, permita el tráfico entrante de los servicios de administración de Azure Batch y Azure Machine Learning. Al crear las rutas definidas por el usuario para este tráfico, puede usar **direcciones IP** o **etiquetas de servicio** para enrutar el tráfico.
 
 > [!IMPORTANT]
-> El uso de etiquetas de servicio con rutas definidas por el usuario está actualmente en versión preliminar y es posible que no sea totalmente compatible. Para obtener más información, consulte [Enrutamiento de redes virtuales](/azure/virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview).
+> El uso de etiquetas de servicio con rutas definidas por el usuario está actualmente en versión preliminar y es posible que no sea totalmente compatible. Para obtener más información, consulte [Enrutamiento de redes virtuales](/azure/virtual-network/virtual-networks-udr-overview#service-tags-for-user-defined-routes-preview).
 
 # <a name="ip-address-routes"></a>[Rutas de dirección IP](#tab/ipaddress)
 
-Para el servicio Azure Machine Learning, debe agregar la dirección IP de las regiones __primaria__ y __secundaria__. Para ubicar la región secundaria, consulte [Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure](/azure/best-practices-availability-paired-regions.md#azure-regional-pairs). Por ejemplo, si Azure Machine Learning Service está en la región Este de EE. UU. 2, la región secundaria es Centro de EE. UU. 
+Para el servicio Azure Machine Learning, debe agregar la dirección IP de las regiones __primaria__ y __secundaria__. Para ubicar la región secundaria, consulte [Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs). Por ejemplo, si Azure Machine Learning Service está en la región Este de EE. UU. 2, la región secundaria es Centro de EE. UU. 
 
 Para obtener una lista de direcciones IP del servicio Batch y de Azure Machine Learning Service, utilice uno de los métodos siguientes:
 
@@ -63,4 +63,4 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 ---
 
-Para obtener información sobre cómo configurar UDR, consulte [Enrutamiento del tráfico de red con una tabla de enrutamiento](/azure/virtual-network/tutorial-create-route-table-portal.md).
+Para obtener información sobre cómo configurar UDR, consulte [Enrutamiento del tráfico de red con una tabla de enrutamiento](/azure/virtual-network/tutorial-create-route-table-portal).

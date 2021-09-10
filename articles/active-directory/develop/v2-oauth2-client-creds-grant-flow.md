@@ -12,12 +12,12 @@ ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 301a386c9c9a21cf1f988ee62c19ca7cc60e7a39
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 594b04c96ddbc166c7c3f95b7b04ebc1b1a3784b
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430007"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223432"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -58,7 +58,7 @@ Este tipo de autorización es común para las cuentas de servicio y los demonios
 
 Para habilitar este patrón de autorización basado en ACL, Azure AD no requiere que las aplicaciones estén autorizadas para obtener tokens para otra aplicación. Por lo tanto, los tokens de solo aplicación se pueden emitir sin una notificación `roles`. Las aplicaciones que exponen las API deben implementar comprobaciones de permisos para aceptar tokens.
 
-Si quiere impedir que las aplicaciones obtengan tokens de acceso de solo aplicación sin roles para la aplicación, [asegúrese de que los requisitos de asignación de usuario están habilitados para la aplicación](../manage-apps/add-application-portal-configure.md#configure-app-properties). Esto impedirá que los usuarios y las aplicaciones sin roles asignados puedan obtener un token para esta aplicación.
+Si quiere impedir que las aplicaciones obtengan tokens de acceso de solo aplicación sin roles para la aplicación, [asegúrese de que los requisitos de asignación de usuario están habilitados para la aplicación](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Esto impedirá que los usuarios y las aplicaciones sin roles asignados puedan obtener un token para esta aplicación. 
 
 ### <a name="application-permissions"></a>Permisos de aplicación
 
@@ -114,7 +114,7 @@ En este momento, Azure AD exige que solo un administrador de inquilino pueda in
 Si el administrador aprueba los permisos para la aplicación, la respuesta correcta tendrá un aspecto similar al siguiente:
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
 ```
 
 | Parámetro | Descripción |

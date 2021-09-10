@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b2c4a56be15aa8a331224958329ba263bc9a8426
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 1e836366223a7a283a103375b2888afce71311c9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205087"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689894"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Creación de una imagen a partir de un disco administrado o una instantánea en Shared Image Gallery mediante la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Si tiene una instantánea o disco administrado existente que quiera migrar a Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente a partir del disco administrado o la instantánea. Una vez que haya probado la nueva imagen, puede eliminar el disco administrado o instantánea de origen. También puede crear una imagen a partir de un disco administrado o una instantánea en Shared Image Gallery mediante [Azure PowerShell](image-version-snapshot-powershell.md).
 

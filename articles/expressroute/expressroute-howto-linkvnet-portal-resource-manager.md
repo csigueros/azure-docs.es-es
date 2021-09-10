@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 7b5aff80acca790f1ae8c4a852f8b353dfa7312a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bed2f746d0216a120b1f144a410a15d533ae3113
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433843"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866646"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutorial: Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 
@@ -185,7 +185,6 @@ Al agregar una nueva conexión para la puerta de enlace de ExpressRoute, active 
 La compatibilidad de FastPath con el emparejamiento de redes virtuales está ahora en versión preliminar pública. La inscripción solo está disponible a través Azure PowerShell. Consulte las [características de la versión preliminar de FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview) para obtener instrucciones sobre cómo inscribirse.
 
 > [!NOTE] 
-> Todas las conexiones configuradas para FastPath en la suscripción de destino se inscribirán en esta versión preliminar. No se recomienda habilitar esta versión preliminar en las suscripciones de producción.
 > Si ya tiene FastPath configurado y desea inscribirse en la característica en versión preliminar, debe hacer lo siguiente:
 > 1. Inscríbase en la característica en versión preliminar de FastPath con el comando de Azure PowerShell anterior.
 > 1. Deshabilite y vuelva a habilitar FastPath en la conexión de destino.

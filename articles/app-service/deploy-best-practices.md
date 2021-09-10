@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 10fe758bf11f0452ef07d30329d7d48914fbb4bf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c70cf1ca07e5fff58a14aa6b5b6c2f18b9e0e775
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737221"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222516"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -127,7 +127,7 @@ En el script, inicie sesión con `az login --service-principal` y proporcione la
 
 ### <a name="java"></a>Java
 
-Use la API[ zipdeploy/](deploy-zip.md) de Kudu para implementar las aplicaciones JAR y [wardeploy/](deploy-zip.md#deploy-war-file) para las aplicaciones WAR. Si usa Jenkins, puede usar esas API directamente en la fase de implementación. Para obtener más información, consulte [este artículo](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
+Use la API[ zipdeploy/](deploy-zip.md) de Kudu para implementar las aplicaciones JAR y [wardeploy/](deploy-zip.md#deploy-warjarear-packages) para las aplicaciones WAR. Si usa Jenkins, puede usar esas API directamente en la fase de implementación. Para obtener más información, consulte [este artículo](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Nodo
 

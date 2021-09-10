@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/25/2021
+ms.date: 08/11/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccc9b6dffd6fa18fc18a9d16bc702553d277193d
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: a96181c86faf983abd349dcb9b287e2f3ac344de
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866603"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747920"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Solución de problemas de la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -53,13 +53,13 @@ Si necesita más detalles, consulte la [lista de intervalos de dirección IP del
 Para determinar si el acceso a una dirección URL y un puerto están restringidos en un entorno, ejecute el siguiente cmdlet:
 
 ```powershell
-Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -Port 443
+Test-NetConnection -ComputerName https://ssprdedicatedsbprodncu.servicebus.windows.net -Port 443
 ```
 
 También puede ejecutar lo siguiente:
 
 ```powershell
-Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.servicebus.windows.net -Verbose
+Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.windows.net -Verbose
 ```
 
 Para más información, consulte los [requisitos previos de conectividad para Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).

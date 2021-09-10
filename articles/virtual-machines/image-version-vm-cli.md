@@ -10,14 +10,16 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 75ce18b89975aaf0f45620291ccd106db69656ec
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 618a7df8895c0d44ee186d4f3b5dee61bf9821a7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205104"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697065"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Creación de la versión de una imagen a partir de una máquina virtual de Azure mediante la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Si tiene una máquina virtual que le gustaría usar para crear varias máquinas virtuales idénticas, utilícela para crear una imagen en una instancia de Shared Image Gallery mediante la CLI de Azure. También puede crear una máquina virtual usando [Azure PowerShell](image-version-vm-powershell.md).
 

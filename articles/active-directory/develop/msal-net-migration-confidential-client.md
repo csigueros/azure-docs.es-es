@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
-ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b48056b9615bcbf1ecbcdaf3501437a18fcb987b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: devx-track-csharp, aaddev, has-adal-ref
+ms.openlocfilehash: e00eff9bfaa64abc4d37d7e4f6d66552b2f674cb
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728401"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418633"
 ---
 # <a name="migrate-confidential-client-applications-from-adalnet-to-msalnet"></a>Migración de aplicaciones cliente confidenciales de ADAL.NET a MSAL.NET
 

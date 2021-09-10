@@ -8,12 +8,12 @@ author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/19/2021
-ms.openlocfilehash: ff0dc37b70861dae8cddb77ef984c27109eefc15
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d015c5182b51c655d45365a2f45a9f9d08db582b
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747415"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835633"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configuración de IR autohospedado como proxy para Azure-SSIS IR en Azure Data Factory
 
@@ -51,7 +51,7 @@ Por último, descargue e instale la versión más reciente del entorno de ejecuc
   
   Si usa controladores OLEDB/ODBC/ADO.NET para otros sistemas de base de datos, como PostgreSQL, MySQL, Oracle, etc., puede descargar las versiones de 64 bits de sus sitios web.
 - Si usa componentes de flujo de datos de Azure Feature Pack de los paquetes, [descargue e instale Azure Feature Pack para SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) en la misma máquina en la que está instalado el entorno de ejecución de integración autohospedado, si aún no lo ha hecho.
-- Si aún no lo ha hecho, [descargue e instale la versión de 64 bits del entorno de ejecución de Visual C++ (VC)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) en la misma máquina en la que está instalada la instancia de IR autohospedado.
+- Si aún no lo ha hecho, [descargue e instale la versión de 64 bits del entorno de ejecución de Visual C++ (VC)](https://www.microsoft.com/en-us/download/details.aspx?id=40784) en la misma máquina en la que está instalada la instancia de IR autohospedado.
 
 ### <a name="enable-windows-authentication-for-on-premises-tasks"></a>Habilitación de la autenticación de Windows en tareas del entorno local
 
