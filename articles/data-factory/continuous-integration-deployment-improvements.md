@@ -7,13 +7,13 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/23/2021
-ms.openlocfilehash: 38e1d89a6934c603fa15c4b50e2309c57dc28622
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.date: 02/02/2021
+ms.openlocfilehash: 30e87110ae7124141eaeb18fafa77bcef1d59201
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771813"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726911"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>Publicación automatizada para la integración y entrega continuas
 
@@ -79,10 +79,10 @@ Actualmente hay dos comandos disponibles en el paquete:
 
 ### <a name="export-arm-template"></a>Exportación de una plantilla de Resource Manager
 
-Ejecute `npm run build export <rootFolder> <factoryId> [outputFolder]` para exportar la plantilla de ARM mediante los recursos de una carpeta determinada. Este comando también ejecuta una comprobación de validación antes de generar la plantilla de ARM. Este es un ejemplo:
+Ejecute `npm run start export <rootFolder> <factoryId> [outputFolder]` para exportar la plantilla de ARM mediante los recursos de una carpeta determinada. Este comando también ejecuta una comprobación de validación antes de generar la plantilla de ARM. Este es un ejemplo:
 
 ```dos
-npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
+npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
 ```
 
 - `RootFolder` es un campo obligatorio que representa dónde se encuentran los recursos de Data Factory.
@@ -94,10 +94,10 @@ npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxx
 
 ### <a name="validate"></a>Validación
 
-Ejecute `npm run build validate <rootFolder> <factoryId>` para validar todos los recursos de una carpeta determinada. Este es un ejemplo:
+Ejecute `npm run start validate <rootFolder> <factoryId>` para validar todos los recursos de una carpeta determinada. Este es un ejemplo:
 
 ```dos
-npm run build validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
+npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
 ```
 
 - `RootFolder` es un campo obligatorio que representa dónde se encuentran los recursos de Data Factory.

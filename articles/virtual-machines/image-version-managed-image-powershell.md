@@ -10,16 +10,14 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91d83cbc2af684057f7faad0d9621da1d049be25
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 282c463f1045cda63abec0358da38f294e41b05a
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689015"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205155"
 ---
 # <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Clonación de una imagen administrada en una imagen de Shared Image Gallery
-
-**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Si tiene una imagen administrada existente que desee clonar y mover a Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente desde la imagen administrada. Una vez que haya probado la nueva imagen, puede eliminar la imagen administrada de origen. También puede migrar de una imagen administrada a Shared Image Gallery mediante la [CLI de Azure](image-version-managed-image-cli.md).
 
