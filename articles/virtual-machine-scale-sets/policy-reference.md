@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para conjuntos de escalado de máquinas virtuales de Azure
 description: Se enumeran las definiciones de directivas integradas para conjuntos de escalado de máquinas virtuales de Azure. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c1fb1183f0a0e754a138bf90d7c48af403523012
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: de4a822f76133e612986773e61b628bc3aa06a63
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102895"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123474387"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Definiciones integradas de Azure Policy para conjuntos de escalado de máquinas virtuales de Azure
 

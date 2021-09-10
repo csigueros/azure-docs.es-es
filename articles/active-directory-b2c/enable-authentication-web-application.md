@@ -11,12 +11,12 @@ ms.date: 06/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 0fc28097220918f8d9cde8f44c156a5de82a5e50
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 44f3c777279d6f6b8d2df2600141e7fd66e44214
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469669"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186306"
 ---
 # <a name="enable-authentication-in-your-own-web-app-by-using-azure-ad-b2c"></a>Habilitación de la autenticación en una aplicación web propia mediante Azure AD B2C
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo agregar la autenticación de Azure Active Dir
 
 Use este artículo junto con [Configuración de la autenticación en una aplicación web de ejemplo](configure-authentication-sample-web-app.md) y sustituya la aplicación web de ejemplo por una propia.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para revisar los requisitos previos y las instrucciones de integración, vea [Configuración de la autenticación en una aplicación web de ejemplo](configure-authentication-sample-web-app.md).
 
@@ -68,7 +68,7 @@ Install-Package Microsoft.Identity.Web.UI
 
 El middleware Microsoft Identity Web usa una clase de inicio que se ejecuta cuando se inicia el proceso de hospedaje. En este paso, agregará el código necesario para iniciar las bibliotecas de autenticación.
 
-Abra el archivo *Startup.cs* y, a continuación, agregue las siguientes declaraciones `using` al principio de la clase:
+Abra el archivo *Startup.cs* y, después, agregue las siguientes declaraciones `using` al principio de la clase:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -280,11 +280,12 @@ La información necesaria se describe en el artículo [Configuración de la aute
 ## <a name="step-7-run-your-application"></a>Paso 7: Ejecución de la aplicación
 
 1. Compile y ejecute el proyecto.
-1. Ir a `https://localhost:5001`. 
+1. Vaya a [https://localhost:5001](https://localhost:5001). 
 1. Seleccione **Registrarse/Iniciar sesión**.
 1. Complete el proceso de inicio de sesión o registro.
 
 Después de autenticarse correctamente, verá el nombre para mostrar en la barra de navegación. Para ver las notificaciones que el token de Azure AD B2C devuelve a la aplicación, seleccione **Notificaciones**.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Obtenga información sobre cómo [personalizar y mejorar la experiencia de autenticación de Azure AD B2C para la aplicación web](enable-authentication-web-application-options.md).

@@ -11,12 +11,12 @@ ms.date: 08/23/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: b05aa59f465eafd65fa111fff811d2f0909f601d
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: f8d27d30ace8ac29a59df9b77de4b56b5e138f63
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123471865"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185748"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-by-using-azure-ad-b2c"></a>Configuración de la autenticación en una aplicación web de ejemplo mediante Azure AD B2C
 
@@ -135,7 +135,7 @@ El archivo de configuración final debería tener un aspecto parecido al del sig
 ## <a name="step-5-run-the-sample-web-app"></a>Paso 5: Ejecución de la aplicación web de ejemplo
 
 1. Compile y ejecute el proyecto.
-1. Ir a `https://localhost:5001`. 
+1. Vaya a [https://localhost:5001](https://localhost:5001). 
 1. Seleccione **Registrarse/Iniciar sesión**.
 
     ![Captura de pantalla del botón "Registrarse/Iniciar sesión" en la página principal del proyecto.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)

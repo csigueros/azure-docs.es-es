@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/23/2021
-ms.openlocfilehash: dbe9118cd74b81e82343ec13e74dd20cbee12ae7
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 87902df54eccdd7038c8351f4ca1794b013a0f13
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469930"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122868522"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migración a Azure Machine Learning 
 
@@ -82,7 +82,7 @@ Tras trazar una estrategia, migre el primer modelo.
 
 ## <a name="step-5-cleanup-studio-classic-assets"></a>Paso 5: Limpiar los recursos de Studio (clásico)
 
-1. [Limpie los recursos de Studio (clásico)](/azure/machine-learning/classic/export-delete-personal-data-dsr) para evitar cargos adicionales. Puede que desee conservar recursos como reserva hasta que haya comprobado las cargas de trabajo de Azure Machine Learning.
+1. [Limpie los recursos de Studio (clásico)](/classic/export-delete-personal-data-dsr.md) para evitar cargos adicionales. Puede que desee conservar recursos como reserva hasta que haya comprobado las cargas de trabajo de Azure Machine Learning.
 
 ## <a name="step-6-review-and-expand-scenarios"></a>Paso 6: Revisar y ampliar los escenarios
 
