@@ -1,15 +1,15 @@
 ---
-author: PatrickFarley
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: pafarley
-ms.openlocfilehash: cb39fc53e5753c2667fcc3d3bf78b075366dd3a8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: lajanuar
+ms.openlocfilehash: bc4709eeb59f0333a086336b4f61474671dac3af
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539075"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122068972"
 ---
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
@@ -25,7 +25,7 @@ En primer lugar, deberá instalar Speech SDK. Utilice las siguientes instruccion
 
 (Puede omitir este paso si no quiere usar perfiles de usuario inscritos previamente para identificar participantes concretos).
 
-Si quiere inscribir perfiles de usuario, el primer paso consiste en crear firmas de voz para los participantes en la conversación a fin de que puedan identificarse como hablantes únicos. El archivo de audio `.wav` de entrada para la creación de firmas de voz debe ser de 16 bits, con frecuencia de muestreo de 16 kHz y un formato de canal único (mono). La longitud recomendada para cada muestra de audio está entre 30 segundos y dos minutos. Una muestra de audio demasiado corta dará como resultado una precisión reducida al reconocer el hablante. El archivo `.wav` debe ser una muestra de voz de **una persona** para que se cree un perfil de voz único.
+Si quiere inscribir perfiles de usuario, el primer paso consiste en crear firmas de voz para los participantes en la conversación a fin de que puedan identificarse como hablantes únicos. El archivo de audio `.wav` de entrada para la creación de firmas de voz debe ser de 16 bits, con una frecuencia de muestreo de 16 kHz y un formato de canal único (mono). La longitud recomendada para cada muestra de audio está entre 30 segundos y dos minutos. Una muestra de audio demasiado corta dará como resultado una precisión reducida al reconocer el hablante. El archivo `.wav` debe ser una muestra de voz de **una persona** para que se cree un perfil de voz único.
 
 El ejemplo siguiente muestra cómo crear una firma de voz [mediante la API REST](https://aka.ms/cts/signaturegenservice) de C#. Tenga en cuenta que debe sustituir la información real de `subscriptionKey`, `region` y la ruta de acceso a un archivo `.wav` de ejemplo.
 
@@ -102,7 +102,7 @@ El siguiente código de ejemplo muestra cómo transcribir conversaciones en tiem
 Si no usa perfiles de usuario inscritos previamente, se tardarán unos segundos más en completar el primer reconocimiento de usuarios desconocidos como speaker1, speaker2, etc.
 
 > [!NOTE]
-> Asegúrese de que se usa el mismo valor `subscriptionKey` en la aplicación para la creación de firmas o se producirán errores. 
+> Asegúrese de usar el mismo valor `subscriptionKey` en la aplicación para la creación de firmas; de lo contrario, se producirán errores. 
 
 Este código de ejemplo realiza las tareas siguientes:
 
