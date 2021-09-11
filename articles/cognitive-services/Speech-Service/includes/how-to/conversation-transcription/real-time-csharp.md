@@ -1,15 +1,15 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: trbye
-ms.openlocfilehash: 3985e2bb2058a033bcbbccde286ba3aa7aa77b96
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: pafarley
+ms.openlocfilehash: cb39fc53e5753c2667fcc3d3bf78b075366dd3a8
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104632"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539075"
 ---
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
@@ -23,7 +23,9 @@ En primer lugar, deberá instalar Speech SDK. Utilice las siguientes instruccion
 
 ## <a name="create-voice-signatures"></a>Creación de firmas de voz
 
-El primer paso es crear firmas de voz para los participantes en la conversación para que puedan identificarse como hablantes únicos. El archivo `.wav` de audio de entrada para la creación de firmas de voz debe ser de 16 bits, con frecuencia de muestreo de 16 kHz y un formato de canal único (mono). La longitud recomendada para cada muestra de audio está entre 30 segundos y dos minutos. El archivo `.wav` debe ser una muestra de voz de **una persona** para que se cree un perfil de voz único.
+(Puede omitir este paso si no quiere usar perfiles de usuario inscritos previamente para identificar participantes concretos).
+
+Si quiere inscribir perfiles de usuario, el primer paso consiste en crear firmas de voz para los participantes en la conversación a fin de que puedan identificarse como hablantes únicos. El archivo de audio `.wav` de entrada para la creación de firmas de voz debe ser de 16 bits, con frecuencia de muestreo de 16 kHz y un formato de canal único (mono). La longitud recomendada para cada muestra de audio está entre 30 segundos y dos minutos. Una muestra de audio demasiado corta dará como resultado una precisión reducida al reconocer el hablante. El archivo `.wav` debe ser una muestra de voz de **una persona** para que se cree un perfil de voz único.
 
 El ejemplo siguiente muestra cómo crear una firma de voz [mediante la API REST](https://aka.ms/cts/signaturegenservice) de C#. Tenga en cuenta que debe sustituir la información real de `subscriptionKey`, `region` y la ruta de acceso a un archivo `.wav` de ejemplo.
 
@@ -97,11 +99,16 @@ La ejecución de la función `GetVoiceSignatureString()` devuelve una cadena de 
 
 El siguiente código de ejemplo muestra cómo transcribir conversaciones en tiempo real para dos hablantes. Se da por supuesto que ya ha creado cadenas de firma de voz para cada hablante como se muestra arriba. Sustituya la información real de `subscriptionKey`, `region` y la ruta de acceso `filepath` por la del audio que desea transcribir.
 
+Si no usa perfiles de usuario inscritos previamente, se tardarán unos segundos más en completar el primer reconocimiento de usuarios desconocidos como speaker1, speaker2, etc.
+
+> [!NOTE]
+> Asegúrese de que se usa el mismo valor `subscriptionKey` en la aplicación para la creación de firmas o se producirán errores. 
+
 Este código de ejemplo realiza las tareas siguientes:
 
-* Crea un `AudioStreamReader` a partir del archivo `.wav` de ejemplo para transcribir.
+* Crea un `AudioConfig` a partir del archivo `.wav` de ejemplo para transcribir.
 * Crea una `Conversation` mediante `CreateConversationAsync()`.
-* Crea un `ConversationTranscriber` mediante el constructor y se suscribe a los eventos necesarios.
+* Crea un objeto `ConversationTranscriber` usando el constructor y se suscribe a los eventos necesarios.
 * Agrega participantes a la conversación. Las cadenas `voiceSignatureStringUser1` y `voiceSignatureStringUser2` deben aparecer como salidas de los pasos anteriores desde la función `GetVoiceSignatureString()`.
 * Se une a la conversación y comienza la transcripción.
 
@@ -112,7 +119,12 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Transcription;
+
+class transcribe_conversation
+{
+// all your other code
 
 public static async Task TranscribeConversationsAsync(string voiceSignatureStringUser1, string voiceSignatureStringUser2)
 {
@@ -122,9 +134,10 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
 
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
+    // config.SpeechRecognitionLanguage = "zh-cn"; // en-us by default. This code specifies Chinese.
     var stopRecognition = new TaskCompletionSource<int>();
 
-    using (var audioInput = AudioStreamReader.OpenWavFile(filepath))
+    using (var audioInput = AudioConfig.FromWavFileInput(filepath))
     {
         var meetingID = Guid.NewGuid().ToString();
         using (var conversation = await Conversation.CreateConversationAsync(config, meetingID))
@@ -190,5 +203,6 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
             }
         }
     }
+}
 }
 ```

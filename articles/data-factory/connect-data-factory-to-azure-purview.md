@@ -4,52 +4,64 @@ description: Información sobre la conexión de Data Factory a Azure Purview
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom:
-- seo-lt-2019
-- references_regions
-ms.date: 12/3/2020
-ms.openlocfilehash: fee7f240903f1a812b69fcc359225ea197c56293
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: seo-lt-2019, references_regions
+ms.date: 08/10/2021
+ms.openlocfilehash: 1d03eb65ebc976691ee76dc4dd208baa7445d92e
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482424"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201635"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Conexión de Data Factory a Azure Purview (versión preliminar)
+
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este artículo se explica cómo conectar Data Factory a Azure Purview y cómo notificar el linaje de datos de las actividades de Azure Data Factory Copiar datos, Flujo de datos y Ejecutar paquete SSIS.
-
+[Azure Purview](../purview/overview.md) es un servicio de gobernanza de datos unificado que le ayuda a administrar y controlar sus datos locales, multinube y de software como servicio (SaaS). Puede conectar su factoría de datos a Azure Purview. Esta conexión le permite usar Azure Purview para capturar datos de linaje, así como para detectar y explorar los activos de Azure Purview.
 
 ## <a name="connect-data-factory-to-azure-purview"></a>Conexión de Data Factory a Azure Purview
-Azure Purview es un nuevo servicio en la nube para los usuarios de datos que administran de forma centralizada la gobernanza de datos en su patrimonio de datos distribuido en entornos locales y de nube. Puede conectar su instancia de Data Factory a Azure Purview. La conexión le permite aprovechar Azure Purview para capturar datos de linaje de Copiar, Flujo de datos y Ejecutar paquete SSIS. Tiene dos maneras de conectar Data Factory a Azure Purview:
-### <a name="register-azure-purview-account-to-data-factory"></a>Registro de la cuenta de Azure Purview en Data Factory
-1. En el portal de ADF, vaya a **Administrar** -> **Azure Purview**. Seleccione **Connect to a Purview account** (Conectarse a una cuenta de Purview). 
 
-:::image type="content" source="./media/data-factory-purview/register-purview-account.png" alt-text="Captura de pantalla para registrar una cuenta de Purview.":::
-2. Puede elegir **A partir de una suscripción de Azure** o **Especificar manualmente**. En **A partir de una suscripción de Azure**, puede seleccionar la cuenta a la que tiene acceso. 
-3. Una vez conectado, debería poder ver el nombre de la cuenta de Purview en la pestaña **Cuenta de Purview**. 
-4. Puede usar la barra de búsqueda de la parte superior central del portal de Azure Data Factory para buscar datos. 
+Tiene dos maneras de conectar Data Factory a Azure Purview:
 
-Si ve una advertencia en el portal de Azure Data Factory después de registrar la cuenta de Azure Purview en Data Factory, siga los pasos que se indican a continuación para corregir el problema:
+- [Conectar una cuenta de Azure Purview en Data Factory](#connect-to-azure-purview-account-in-data-factory).
+- [Registro de Data Factory en Azure Purview](#register-data-factory-in-azure-purview)
+
+### <a name="connect-to-azure-purview-account-in-data-factory"></a>Conexión de una cuenta de Azure Purview en Data Factory
+
+Para establecer la conexión, debe tener los roles **Propietario** o **Colaborador** en su factoría de datos.
+
+1. En la interfaz de usuario de creación de Azure Data Factory, vaya a **Administrar** -> **Azure Purview** y  seleccione **Conectarse a una cuenta de Purview**. 
+
+    :::image type="content" source="./media/data-factory-purview/register-purview-account.png" alt-text="Captura de pantalla para registrar una cuenta de Purview.":::
+
+2. Elija **A partir de una suscripción de Azure** o **Especificar manualmente**. En **A partir de una suscripción de Azure**, puede seleccionar la cuenta a la que tiene acceso.
+
+3. Una vez que se haya conectado, puede ver el nombre de la cuenta de Purview en la pestaña **Cuenta de Purview**.
+
+Al conectar una factoría de datos a Purview, la interfaz de usuario de Azure Data Factory también intenta conceder a la identidad administrada de la factoría el rol **Conservador de datos de Purview** en la cuenta de Purview. La identidad administrada se usa para autenticar las operaciones de inserción de linaje desde la factoría de datos a Purview. Si tiene los roles **Propietario** o **Administrador de acceso de usuarios** en la cuenta de Purview, esta operación se realiza correctamente. Si no es así, aparecerá una advertencia como la siguiente:
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Captura de pantalla de la advertencia de registro de una cuenta de Purview.":::
 
-1. Vaya a Azure Portal y busque su instancia de Data Factory. Elija la sección "Etiquetas" y compruebe si hay una etiqueta denominada **catalogUri**. Si no es así, desconéctese y vuelva a conectar la cuenta de Azure Purview en el portal de ADF.
-
-:::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Captura de pantalla para etiquetas de registro de una cuenta de Purview.":::
-
-2. Compruebe si se ha concedido el permiso para registrar una cuenta de Azure Purview en Data Factory. Consulte [Cómo conectar Azure Data Factory y Azure Purview](../purview/how-to-link-azure-data-factory.md#create-new-data-factory-connection).
+Para resolver el problema, vaya a Azure Portal -> su cuenta de Purview -> Control de acceso (IAM) y compruebe se ha concedido el rol **Conservador de datos de Purview** a la identidad administrada de la factoría de datos. Si no es así, agregue manualmente la asignación de roles.
 
 ### <a name="register-data-factory-in-azure-purview"></a>Registro de Data Factory en Azure Purview
+
 Para obtener información sobre cómo registrar Data Factory en Azure Purview, consulte [Cómo conectar Azure Data Factory y Azure Purview](../purview/how-to-link-azure-data-factory.md). 
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Notificación de datos de linaje a Azure Purview
-Cuando los clientes ejecutan las actividades Copiar, Flujo de datos o Ejecutar paquetes SSIS en Azure Data Factory, pueden obtener la relación de dependencia y tener una introducción de alto nivel del proceso de flujo de trabajo completo entre los orígenes de datos y el destino.
-Para obtener información sobre cómo recopilar el linaje de Azure Data Factory, consulte el artículo sobre el [linaje de Data Factory](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities).
+
+Una vez conectada la factoría de datos a una cuenta de Purview, al ejecutar la actividad Copiar, Flujo de datos o Ejecutar paquete SSIS, puede obtener el linaje entre los conjuntos de datos creados por los procesos de datos y tener una visión general de todo el proceso de flujo de trabajo entre los orígenes de datos y el destino. Para obtener más información sobre las funcionalidades admitidas, consulte [Actividades admitidas de Azure Data Factory](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities). Para ver un tutorial completo, consulte [Tutorial: Inserción de datos de linaje de Data Factory en Azure Purview](tutorial-push-lineage-to-purview.md).
+
+## <a name="discover-and-explore-data-using-purview"></a>Detección y exploración de datos mediante Purview
+
+Una vez conectada la factoría de datos a una cuenta de Purview, puede usar la barra de búsqueda ubicada en la parte superior central de la interfaz de usuario de Azure Data Factory para buscar datos y realizar acciones. Para obtener más información, consulte [Detección y exploración de datos en ADF mediante Purview](how-to-discover-explore-purview-data.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Guía de usuario del linaje de Data Catalog](../purview/catalog-lineage-user-guide.md)
 
-[Tutorial: Inserción de datos de linaje de Data Factory en Azure Purview](turorial-push-lineage-to-purview.md)
+[Tutorial: Inserción de datos de linaje de Data Factory en Azure Purview](tutorial-push-lineage-to-purview.md)
+
+[Detección y exploración de datos en ADF mediante Purview](how-to-discover-explore-purview-data.md)
+
+[Guía del usuario del linaje de Azure Purview Data Catalog](../purview/catalog-lineage-user-guide.md)

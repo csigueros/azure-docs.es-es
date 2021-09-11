@@ -3,19 +3,19 @@ title: 'Preparación de los datos para Voz personalizada: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Cree una voz personalizada para su marca con los servicio de voz. Proporcione grabaciones en estudio y los scripts asociados y el servicio generará un modelo de voz único adaptado a la voz grabada. Use esta voz para realizar la síntesis de voz en sus productos, herramientas y aplicaciones.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b745a5673aa5cebe62be4c0571d90839399668d6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: pafarley
+ms.openlocfilehash: 3736e0a1200367e3f0e39bffc213cf369d3983b5
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479276"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536470"
 ---
 # <a name="prepare-training-data"></a>Preparación de los datos de entrenamiento
 
@@ -44,7 +44,7 @@ En esta tabla se enumeran los tipos de datos y cómo se usa cada uno para crear 
 | Tipo de datos | Descripción | Cuándo se usa | Se requiere procesamiento adicional |
 | --------- | ----------- | ----------- | --------------------------- |
 | **Expresiones individuales + transcripción relacionada** | Una colección (.zip) de archivos de audio (.wav) como expresiones individuales. Cada archivo de audio debe tener una longitud de 15 segundos o menos y estar emparejado con una transcripción con formato (.txt). | Grabaciones profesionales con transcripciones relacionadas | Listo para el entrenamiento. |
-| **Audio largo + transcripciones (beta)** | Una colección (.zip) de archivos de audio largos sin segmentar (más de 20 segundos), emparejados con una transcripción (.txt) que contiene todas las palabras habladas. | Tiene archivos de audio y transcripciones relacionadas, pero no están segmentados en expresiones. | Segmentación (mediante transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario. |
+| **Audio largo + transcripciones (beta)** | Colección (.zip) de archivos de audio largos (más de 20 segundos) y sin segmentar, emparejados con una colección (.zip) de transcripciones que contiene todas las palabras habladas. | Tiene archivos de audio y transcripciones relacionadas, pero no están segmentados en expresiones. | Segmentación (mediante transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario. |
 | **Solo audio (beta)** | Una colección (.zip) de archivos de audio sin una transcripción. | Solo dispone de archivos de audio, sin transcripciones. | Segmentación + generación de transcripciones (mediante la transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario.|
 
 Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como un archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.

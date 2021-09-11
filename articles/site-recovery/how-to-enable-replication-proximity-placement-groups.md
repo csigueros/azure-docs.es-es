@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 4c37aab00f838de24e96e6f509ae8484df2c6715
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: abcb233665d6c6074ff50d1bb53e553ed9eb99ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904971"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741965"
 ---
 # <a name="replicate-virtual-machines-running-in-a-proximity-placement-group-to-another-region"></a>Replicación de máquinas virtuales que se ejecutan en un grupo con ubicación por proximidad en otra región
 
@@ -28,7 +28,7 @@ Site Recovery replica los datos de una región de Azure a otra región. Muestra 
 
 ## <a name="considerations"></a>Consideraciones
 
-- El mejor esfuerzo consistirá en realizar la conmutación por error y la recuperación de las máquinas virtuales en un grupo con ubicación por proximidad. Si no puede mostrar las máquinas virtuales dentro de un grupo con ubicación por proximidad, la conmutación por error y la conmutación por recuperación se seguirán creando, pero las máquinas virtuales se crearán fuera del grupo con ubicación por proximidad.
+- El mejor esfuerzo consistirá en realizar la conmutación por error y la recuperación de las máquinas virtuales en un grupo con ubicación por proximidad. Si hay una restricción de asignación de capacidad debido a la cual no se pueden mostrar las máquinas virtuales dentro de un grupo de selección de ubicación de proximidad, la conmutación por error y la conmutación por recuperación se ejecutarán de todos modos, pero las máquinas virtuales se crearán fuera del grupo de selección de ubicación de proximidad.
 - Si un conjunto de disponibilidad está anclado a un grupo con ubicación por proximidad y las máquinas virtuales del conjunto de disponibilidad tienen una restricción de asignación durante la conmutación por error o recuperación, se crearán fuera del grupo con ubicación por proximidad y del conjunto de disponibilidad.
 - Para los discos administrados no se permite Site Recovery para grupos con ubicación por proximidad.
 
