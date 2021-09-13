@@ -5,18 +5,18 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 08/17/2021
 ms.author: memildin
-ms.openlocfilehash: fabbd255f64e5614ae052c9d7c8d65fc35d45856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34b87bb44d644f1d0d18135ce83e228053bc5277
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600503"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322433"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Evitar errores de configuración con las recomendaciones Aplicar o Denegar
 
-Los errores de configuración de seguridad son una causa principal de los incidentes de seguridad. Security Center ofrece ahora la posibilidad de ayudar a *evitar* errores de configuración de los nuevos recursos con respecto a recomendaciones específicas. 
+Los errores de configuración de seguridad son una causa importante de los incidentes de seguridad. Security Center puede ayudar a *evitar* errores de configuración de los nuevos recursos con respecto a recomendaciones específicas. 
 
 Esta característica puede ayudar a mantener las cargas de trabajo seguras y a estabilizar la puntuación de seguridad.
 
@@ -31,7 +31,7 @@ Esta opción se puede encontrar en la parte superior de la página de detalles d
 
 1. Abra la recomendación que deben satisfacer los nuevos recursos y seleccione el botón **Denegar** en la parte superior de la página.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-deny-button.png" alt-text="Página de recomendaciones con el botón Denegar resaltado":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-deny-button.png" alt-text="Página de recomendaciones con el botón Denegar resaltado.":::
 
     Se abre el panel de configuración con las opciones de ámbito. 
 
@@ -40,18 +40,18 @@ Esta opción se puede encontrar en la parte superior de la página de detalles d
     > [!TIP]
     > Puede usar los tres puntos que hay al final de la fila para cambiar una única suscripción, o bien usar las casillas para seleccionar varias suscripciones o grupos y, luego, elegir **Change to Deny** (Cambiar a Denegar).
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Establecimiento del ámbito de denegación de Azure Policy":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Establecimiento del ámbito de denegación de Azure Policy.":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>Aplicación de una configuración segura
 
 1. Abra la recomendación para la que se implementará una plantilla si los nuevos recursos no la satisfacen y seleccione el botón **Aplicar** en la parte superior de la página.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Página de recomendaciones con el botón Aplicar resaltado":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Página de recomendaciones con el botón Exigir resaltado.":::
 
     Se abre el panel de configuración con todas las opciones de configuración de directiva. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Aplicación de opciones de configuración":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Aplicación de opciones de configuración.":::
 
 1. Establezca el ámbito, el nombre de la asignación y otras opciones pertinentes.
 
@@ -66,8 +66,19 @@ Estas recomendaciones se pueden usar con la opción **Denegar**:
 Estas recomendaciones se pueden usar con la opción **Aplicar**:
 
 - La auditoría de SQL Server debe estar habilitada
+- Los clústeres de Kubernetes habilitados para Azure Arc deben tener la extensión de Azure Defender instalada.
 - Azure Backup debería habilitarse en las máquinas virtuales
-- Azure Defender para SQL debe estar habilitada en los servidores de SQL
+- Se debe habilitar Azure Defender para App Service
+- Se debe habilitar Azure Defender para registros de contenedor
+- Se debe habilitar Azure Defender para DNS
+- Se debe habilitar Azure Defender para Key Vault
+- Se debe habilitar Azure Defender para Kubernetes
+- Se debe habilitar Azure Defender para Resource Manager
+- Se debe habilitar Azure Defender para servidores
+- Se debe habilitar Azure Defender para servidores de Azure SQL Database
+- Se debe habilitar Azure Defender para servidores SQL Server en las máquinas
+- Se debe habilitar Azure Defender para SQL en los servidores de Azure SQL desprotegidos
+- Se debe habilitar Azure Defender para Storage
 - El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres
 - Se deben habilitar los registros de diagnóstico en Azure Stream Analytics
 - Se deben habilitar los registros de diagnóstico en las cuentas de Batch

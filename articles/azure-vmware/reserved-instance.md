@@ -3,16 +3,16 @@ title: Instancias reservadas de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution. Las instancias reservadas solo cubren la parte del uso dedicada a los procesos y tienen costos de licencias de software.
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 8407d4e85718660bfcf17b3597710ed5237b41e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6204e7cade66ee60885db20226981980f4741a76
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745824"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323671"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
-Al comprometerse a una instancia reservada de [Azure VMware Solution](introduction.md), ahorra dinero.  El descuento de la reserva se aplica automáticamente a los hosts de Azure VMware Solution en ejecución que coinciden con el ámbito y los atributos de la reserva. La compra de una instancia reservada cubre solo la parte de proceso de su uso e incluye los costos por licencias de software. 
+Al comprometerse a una instancia reservada de [Azure VMware Solution](introduction.md), ahorra dinero. El descuento de la reserva se aplica automáticamente a los hosts de Azure VMware Solution en ejecución que coinciden con el ámbito y los atributos de la reserva. Además, la compra de una instancia reservada cubre solo la parte de proceso de su uso e incluye los costos de licencia de software. 
 
 ## <a name="purchase-restriction-considerations"></a>Consideraciones sobre restricciones de compra
 
@@ -38,7 +38,7 @@ Estos requisitos se aplican a la compra de una instancia reservada de host dedic
 
 -   En el caso de las suscripciones de EA, debe habilitar la opción **Agregar instancias reservadas** en [EA Portal](https://ea.azure.com/). Si está deshabilitada, debe ser un administrador de EA para la suscripción para habilitarla.
 
--   En el caso de una suscripción en un plan de Azure del Proveedor de soluciones en la nube (CSP), el partner debe adquirir las instancias reservadas en Azure Portal del cliente. 
+-   En el caso de una suscripción con un plan de Azure de proveedor de soluciones en la nube (CSP), el asociado debe adquirir las instancias reservadas del cliente en Azure Portal. 
 
 ### <a name="buy-reserved-instances-for-an-ea-subscription"></a>Compra de instancias reservadas para una suscripción de EA
 
@@ -55,7 +55,7 @@ Estos requisitos se aplican a la compra de una instancia reservada de host dedic
    | Campo        |  Descripción |
    | ------------ | ------------ |
    | Subscription | Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducirán del saldo de prepago de Azure (anteriormente llamado compromiso monetario) si hay fondos disponibles o se cobrarán como parte del uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se facturan a la tarjeta de crédito de la suscripción o un método de pago de factura. |
-   | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>       |
+   | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. Por lo tanto, en el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>       |
    | Region       | Región de Azure que está cubierta por la reserva.   |
    | Tamaño de host    | AV36    |
    | Término         | Un año o tres años.  |
@@ -71,26 +71,26 @@ Los CSP que desean comprar instancias reservadas para sus clientes deben usar el
 
 3. Expanda los detalles del cliente y seleccione **Portal de administración de Microsoft Azure**. 
 
-   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Área de clientes del Centro de partners de Microsoft" lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
+   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Captura de pantalla que muestra el área de clientes de Microsoft Partner Center con el portal de Microsoft Azure Management seleccionado." lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
 
 4. En Azure Portal, seleccione **Todos los servicios** > **Reservas**.
 
 5. Seleccione **Comprar ahora** y, a continuación, seleccione **Azure VMware Solution**.
 
-   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Reservas de Microsoft Azure Portal" lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
+   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Captura de pantalla que muestra dónde comprar las reservas de Azure VMware Solution en el portal de Microsoft Azure Management." lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
 
 6. Escriba los campos obligatorios. Los atributos seleccionados que coinciden con los hosts de Azure VMware Solution cumplen con los requisitos para obtener el descuento de la reserva.  Los atributos incluyen la SKU, las regiones (si procede) y el ámbito. El ámbito de la reserva determina dónde se aplica el ahorro de la reserva.
 
    | Campo        |  Descripción |
    | ------------ | ------------ |
-   | Subscription | Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser válido, que en este caso es una suscripción de CSP.|
-   | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>       |
+   | Suscripción | Suscripción que financia la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser válido, que en este caso es una suscripción de CSP.|
+   | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. Por lo tanto, en el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>       |
    | Region       | Región de Azure que está cubierta por la reserva.   |
    | Tamaño de host    | AV36    |
    | Término         | Un año o tres años.  |
    | Cantidad     | Número de instancias que se compran dentro de la reserva. La cantidad es el número de hosts de Azure VMware Solution en ejecución a los que se aplica el descuento de facturación.     |
 
-Para más información sobre cómo ver las reservas adquiridas para el cliente, consulte el artículo [Visualización de la reservas de Azure como proveedor de soluciones en la nube (CSP)](../cost-management-billing/reservations/how-to-view-csp-reservations.md).
+Para más información sobre cómo ver las reservas adquiridas del cliente, consulte el artículo [Visualización de las reservas de Azure como proveedor de soluciones en la nube (CSP)](../cost-management-billing/reservations/how-to-view-csp-reservations.md).
 
 ## <a name="usage-data-and-reservation-usage"></a>Datos de uso y uso de la reserva
 

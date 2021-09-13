@@ -4,15 +4,15 @@ description: Aprenda a interpretar los modelos de facturación aprovisionado y d
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9d0079ac85980f97a0241780b23e639e2359c65d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 7f133600f800881f462583ca5bee2972a5c914fa
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787228"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323728"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
@@ -27,6 +27,13 @@ Azure Files proporciona dos modelos de facturación distintos: aprovisionado y p
 :::row-end:::
 
 Para obtener información sobre los precios de Azure Files, vea la [página de precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="storage-units"></a>Unidades de almacenamiento    
 Azure Files usa unidades de medida de base 2 para representar la capacidad de almacenamiento: KiB, MiB, GiB y TiB. El sistema operativo puede o no usar la misma unidad de medida o sistema de recuento.
@@ -52,7 +59,7 @@ Azure Files admite reservas de la capacidad de almacenamiento, lo que le permite
 
 - **Tamaño de capacidad:** las reservas de capacidad pueden ser de 10 TiB o 100 TiB, con descuentos más significativos para comprar una reserva de capacidad mayor. Puede comprar varias reservas, incluso reservas de diferentes tamaños de capacidad para satisfacer los requisitos de la carga de trabajo. Por ejemplo, si la implementación de producción tiene 120 TiB de recursos compartidos de archivos, podría comprar una reserva de 100 TiB y dos reservas de 10 TiB para satisfacer los requisitos de capacidad total.
 - **Período**: las reservas se pueden comprar durante un período de un año o tres años, con descuentos más significativos por comprar un período de reserva más largo. 
-- **Nivel**: el nivel de Azure Files para la reserva de capacidad. Las reservas de Azure Files están disponibles actualmente para los niveles de acceso frecuente y esporádico.
+- **Nivel**: el nivel de Azure Files para la reserva de capacidad. Las reservas de Azure Files están disponibles actualmente para los niveles de acceso prémium, frecuente y esporádico.
 - **Ubicación**: la región de Azure para la reserva de capacidad. Las reservas de capacidad están disponibles en un subconjunto de regiones de Azure.
 - **Redundancia**: la redundancia de almacenamiento para la reserva de capacidad. Las reservas se admiten para todas los redundancias que admite Azure Files, como LRS, ZRS, GRS y GZRS.
 
@@ -63,29 +70,34 @@ Para obtener más información sobre cómo comprar reservas de almacenamiento, c
 ## <a name="provisioned-model"></a>Modelo aprovisionado
 Azure Files usa un modelo aprovisionado para los recursos compartidos de archivos prémium. En un modelo de negocio aprovisionado, debe especificar de forma proactiva cuáles son los requisitos de almacenamiento del servicio Azure Files, en lugar de que se le aplique una factura basada en lo que usa. Esto es similar a la compra de hardware local, ya que cuando se aprovisiona un recurso compartido de archivos de Azure con una determinada cantidad de almacenamiento, se paga por ese almacenamiento independientemente de si se usa o no, de la misma manera que no se empiezan a pagar los costos de los soportes físicos locales al empezar a usar el espacio. A diferencia de la compra de soportes físicos locales, los recursos compartidos de archivos aprovisionados se pueden escalar o reducir verticalmente de forma dinámica en función de las características de rendimiento de almacenamiento y de E/S.
 
-Al aprovisionar un recurso compartido de archivos prémium, se especifica la cantidad de GiB que requiere la carga de trabajo. Cada GiB aprovisionado permite beneficiarse de IOPS y rendimiento adicionales con una proporción fija. Además de la IOPS de línea de base garantizada, cada recurso compartido de archivos prémium admite ráfagas dentro de lo posible. Las fórmulas de IOPS y rendimiento son las siguientes:
-
-- IOPS de línea base = 400+1 * GiB aprovisionados. (Hasta un máximo de 100 000 IOPS).
-- Límite de ráfaga = MAX(4000, 3 * IOPS de línea de base).
-- Velocidad de salida = 60 MiB/s + 0,06 * GiB aprovisionados.
-- Velocidad de entrada = 40 MiB/s + 0,04 * GiB aprovisionados.
-
 El tamaño aprovisionado del recurso compartido de archivos puede aumentar en cualquier momento, pero solo se puede reducir una vez transcurridas 24 horas desde el último aumento. Después de esperar 24 horas sin un aumento de cuota, puede reducir el recurso compartido tantas veces como quiera hasta que lo vuelva a aumentar. Los cambios de escala de IOPS/rendimiento se aplicarán minutos después del cambio de tamaño aprovisionado.
 
 Es posible reducir el tamaño del recurso compartido aprovisionados por debajo de sus GiB usados. Si lo hace, no se perderán datos, pero se le seguirá facturando el tamaño usado y seguirá recibiendo el rendimiento (IOPS de línea de base, rendimiento e IOPS de ráfaga) del recurso compartido aprovisionado, no del tamaño utilizado.
 
+### <a name="provisioning-method"></a>Método de aprovisionamiento
+Al aprovisionar un recurso compartido de archivos prémium, se especifica la cantidad de GiB que requiere la carga de trabajo. Cada GiB aprovisionado permite beneficiarse de IOPS y rendimiento adicionales con una proporción fija. Además de la IOPS de línea de base garantizada, cada recurso compartido de archivos prémium admite ráfagas dentro de lo posible. Las fórmulas de IOPS y rendimiento son las siguientes:
+
+| Elemento | Valor |
+|-|-|
+| Tamaño máximo de un recurso compartido de archivos | 100 GiB |
+| Unidad de aprovisionamiento | 1 GiB |
+| Fórmula de IOPS de línea de base | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
+| Límite de aumento | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
+| Velocidad de entrada | `40 MiB/sec + 0.04 * ProvisionedGiB` |
+| Velocidad de salida | `60 MiB/sec + 0.06 * ProvisionedGiB` |
+
 En la tabla siguiente se ilustran algunos ejemplos de estas fórmulas para los tamaños de recursos compartidos aprovisionados:
 
-|Capacidad (GiB) | IOPS base | IOPS de ráfaga | Salida (MiB/s) | Entrada (MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 500     | Hasta 4000     | 66   | 44   |
-|500         | 900     | Hasta 4000  | 90   | 60   |
-|1024       | 1424   | Hasta 4000   | 122   | 81   |
-|5120       | 5520   | Hasta 15 360  | 368   | 245   |
-|10 240      | 10 640  | Hasta 30 720  | 675   | 450   |
-|33 792      | 34 192  | Hasta 100 000 | 2088 | 1392   |
-|51 200      | 51 600  | Hasta 100 000 | 3132 | 2088   |
-|102 400     | 100 000 | Hasta 100 000 | 6204 | 4136   |
+| Capacidad (GiB) | IOPS base | IOPS de ráfaga | Salida (MiB/s) | Entrada (MiB/s) |
+|-|-|-|-|-|
+| 100 | 500 | Hasta 4000 | 66 | 44 |
+| 500 | 900 | Hasta 4000 | 90 | 60 |
+| 1024 | 1424 | Hasta 4000 | 122 | 81 |
+| 5120 | 5520 | Hasta 15 360 | 368 | 245 |
+| 10 240 | 10 640 | Hasta 30 720 | 675 | 450 |
+| 33 792 | 34 192 | Hasta 100 000 | 2088 | 1392 |
+| 51 200 | 51 600 | Hasta 100 000 | 3132 | 2088 |
+| 102 400 | 100 000 | Hasta 100 000 | 6204 | 4136 |
 
 El rendimiento efectivo de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Por ejemplo, en función de las pruebas internas con tamaños de e/s de lectura/escritura de 8 KiB, una sola máquina virtual Windows sin SMB multicanal habilitado (*F16s_v2 estándar*) conectada al recurso compartido de archivos Premium a través de SMB podría alcanzar un valor de hasta 20 000 IOPS de lectura y 15 000 IOPS de escritura. Con tamaños de e/s de lectura/escritura de 512 MiB, la misma máquina virtual puede alcanzar un rendimiento de salida de 1,1 GiB/s y 370 MiB/s de entrada. El mismo cliente puede lograr un rendimiento hasta \~ tres veces superior si SMB multicanal está habilitado en los recursos compartidos Premium. Para lograr una escala de rendimiento máxima, [habilite SMB multicanal](storage-files-enable-smb-multichannel.md) y distribuya la carga entre varias máquinas virtuales. Consulte en el artículo sobre [rendimiento de SMB multicanal](storage-files-smb-multichannel-performance.md) y en la [ guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y sus soluciones alternativas.
 
@@ -127,8 +139,8 @@ Hay cinco categorías de transacción básicas: escritura, lista, lectura, otras
 
 | Tipo de operación | Transacciones de escritura | Transacciones de lista | Transacciones de lectura | Otras transacciones | Transacciones de eliminación |
 |-|-|-|-|-|-|
-| Operaciones de administración | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
-| Operaciones de datos | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`SetShareACL`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
+| Operaciones de administración | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
+| Operaciones de datos | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
 
 > [!Note]  
 > NFS 4.1 solo está disponible para los recursos compartidos de archivos prémium, que usan el modelo de facturación aprovisionado. Las transacciones no afectan a la facturación de los recursos compartidos de archivos prémium.

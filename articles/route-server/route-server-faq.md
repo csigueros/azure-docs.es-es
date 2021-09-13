@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: article
 ms.date: 06/07/2021
 ms.author: duau
-ms.openlocfilehash: 848134fec184febcdc5cde722fbec8e55d149d14
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8deecdc043a7a39f77e96e8be5eb8bb8ef4f6191
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748002"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322931"
 ---
 # <a name="azure-route-server-preview-faq"></a>Preguntas frecuentes sobre Azure Route Server (versión preliminar)
 
@@ -25,17 +25,21 @@ ms.locfileid: "111748002"
 
 Azure Route Server es un servicio totalmente administrado que permite administrar fácilmente el enrutamiento entre la aplicación virtual de red (NVA) y la red virtual.
 
+## <a name="why-does-azure-route-server-require-a-public-ip-address"></a>¿Por qué Azure Route Server necesita una dirección IP pública?
+
+Azure Route Server debe garantizar la conectividad con el servicio back-end que administra la configuración del servidor de rutas, por lo que se requiere una dirección IP pública. 
+
 ### <a name="is-azure-route-server-just-a-vm"></a>¿Azure Route Server es solo una máquina virtual?
 
 No. Azure Route Server es un servicio diseñado con alta disponibilidad. Si se implementa en una región de Azure que admite [Availability Zones](../availability-zones/az-overview.md), tendrá redundancia de nivel de zona.
 
 ### <a name="how-many-route-servers-can-i-create-in-a-virtual-network"></a>¿Cuántos servidores de rutas puedo crear en una red virtual?
 
-Solo puede crear un servidor de rutas en una red virtual, y se debe implementar en una subred designada denominada *RouteServerSubnet*.
+Solo puede crear un servidor de rutas en una red virtual, y se debe implementar en una subred dedicada denominada *RouteServerSubnet*.
 
-### <a name="does-azure-route-server-support-vnet-peering"></a>¿Azure Route Server admite el emparejamiento de VNET?
+### <a name="does-azure-route-server-support-virtual-network-peering"></a>¿Admite Azure Route Server el emparejamiento de red virtual?
 
-Sí. Si empareja una red virtual que hospeda Azure Route Server con otra red virtual y habilita la opción Usar puertas de enlace remotas en esta última, Azure Route Server aprenderá los espacios de direcciones de esa red virtual y los enviará a todas las aplicaciones virtuales de red emparejadas. También programará las rutas de las aplicaciones virtuales de red en la tabla de enrutamiento de las máquinas virtuales de la red virtual emparejada. 
+Sí. Si empareja una red virtual que hospeda Azure Route Server con otra red virtual y habilita la opción Use Remote Gateway (Usar puertas de enlace remotas) en esta última, Azure Route Server aprenderá los espacios de direcciones de esa red virtual y los enviará a todas las aplicaciones virtuales de red emparejadas. También programará las rutas de las aplicaciones virtuales de red en la tabla de enrutamiento de las máquinas virtuales de la red virtual emparejada. 
 
 
 ### <a name="what-routing-protocols-does-azure-route-server-support"></a><a name = "protocol"></a>¿Qué protocolos de enrutamiento admite Azure Route Server?
@@ -72,11 +76,15 @@ Los siguientes ASN están reservados por Azure o IANA:
 
 No, Azure Route Server solo admite ASN de 16 bits (2 bytes).
 
+### <a name="can-i-configure-a-user-defined-route-udr-in-the-azurerouteserver-subnet"></a>¿Puedo configurar una ruta definida por el usuario (UDR) en la subred AzureRouteServer?
+
+No. Azure Route Server no admite la configuración de una UDR en la subred AzureRouteServer.
+
 ### <a name="can-i-peer-two-route-servers-in-two-peered-virtual-networks-and-enable-the-nvas-connected-to-the-route-servers-to-talk-to-each-other"></a>¿Puedo emparejar dos servidores de rutas en dos redes virtuales emparejadas y permitir que las aplicaciones virtuales de red conectadas a los servidores de ruta se comuniquen entre sí? 
 
 ***Topología: NVA1 -> RouteServer1 -> (a través de emparejamiento de red virtual) -> RouteServer2 -> NVA2***
 
-No, Azure Route Server no desvía el tráfico de datos. Para habilitar la conectividad de tránsito a través de la NVA, configure una conexión directa (por ejemplo, un túnel IPsec) entre las NVA y aproveche los servidores de rutas para la propagación dinámica de rutas. 
+No, Azure Route Server no desvía el tráfico de datos. Para permitir la conectividad de tránsito a través de la NVA, configure una conexión directa (por ejemplo, un túnel IPsec) entre las NVA y use los servidores de rutas para la propagación dinámica de rutas. 
 
 ## <a name="route-server-limits"></a><a name = "limitations"></a>Límites de Route Server
 
@@ -87,9 +95,9 @@ Azure Route Server tiene los límites siguientes (por implementación).
 | Número de emparejamientos de BGP admitidos | 8 |
 | Número de rutas que puede anunciar cada emparejamiento de BGP a Azure Route Server | 200 |
 | Número de rutas que puede anunciar Azure Route Server a ExpressRoute o a la puerta de enlace de VPN | 200 |
-| Número de VM de la red virtual (incluidas las redes virtuales emparejadas) que Azure Route Server puede admitir | 6000 |
+| Número de máquinas virtuales de la red virtual (incluidas las redes virtuales emparejadas) que Azure Route Server puede admitir. | 6000 |
 
-Si la NVA anuncia más rutas que el límite, se eliminará la sesión BGP. Si esto sucede en la puerta de enlace y en el servidor de enrutamiento de Azure, perderá la conectividad de la red local a Azure. Para más información, consulte [Diagnóstico de problemas de enrutamiento en una máquina virtual](../virtual-network/diagnose-network-routing-problem.md).
+Si la NVA anuncia más rutas que el límite, se descartará la sesión BGP. En caso de que se descarte la sesión BGP entre la puerta de enlace y Azure Route Server, perderá la conectividad de la red local a Azure. Para más información, consulte [Diagnóstico de problemas de enrutamiento en una máquina virtual](../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

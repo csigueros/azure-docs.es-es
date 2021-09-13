@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 564b193a355ecc7bc11bef874c80ddc881c362cb
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: e51e537beb44271d5a1c63e8bc1952455f9a35d9
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895961"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323857"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Inicio, supervisión y seguimiento del historial de ejecución
 
@@ -25,6 +25,7 @@ El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/int
 En este artículo se muestra cómo realizar las tareas siguientes:
 
 * Supervisión del rendimiento de la ejecución.
+* Agregue el nombre para mostrar de la ejecución. 
 * Creación de una vista personalizada. 
 * Incorporación de la descripción de una ejecución. 
 * Etiquetado y búsqueda de ejecuciones.
@@ -36,13 +37,13 @@ En este artículo se muestra cómo realizar las tareas siguientes:
 
 > [!TIP]
 > Si busca información sobre cómo supervisar Azure Machine Learning Service y los servicios de Azure asociados, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
-> Si está buscando información sobre la supervisión de los modelos implementados como servicios web o módulos de IoT Edge, consulte [Recopilación de datos de modelos](how-to-enable-data-collection.md) y [Supervisión con Application Insights](how-to-enable-app-insights.md).
+> Si busca información sobre la supervisión de los modelos implementados como servicios web, consulte [Recopilación de datos de modelos](how-to-enable-data-collection.md) y [Supervisión con Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Necesitará los siguientes elementos:
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -101,7 +102,7 @@ Necesitará los siguientes elementos:
     
         Este comando crea un subdirectorio `.azureml` que contiene archivos de entorno de conda y runconfig de ejemplo. También contiene un archivo `config.json` que se usa para comunicarse con el área de trabajo de Azure Machine Learning.
     
-        Para obtener más información, consulte [az ml folder attach](/cli/azure/ml/folder?preserve-view=true&view=azure-cli-latest#az_ml_folder_attach).
+        Para obtener más información, consulte [az ml folder attach](/cli/azure/ml(v1)/folder#az_ml_folder_attach).
     
     2. Para iniciar la ejecución, use el comando siguiente. Cuando use este comando, especifique el nombre del archivo runconfig (el texto antes de \*.runconfig si está mirando el sistema de archivos) en el parámetro -c.
     
@@ -116,7 +117,7 @@ Necesitará los siguientes elementos:
         >
         > Para ver más archivos runconfig de ejemplo, consulte [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
     
-        Para obtener más información, consulte [az ml run submit-script](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_submit-script).
+        Para obtener más información, consulte [az ml run submit-script](/cli/azure/ml(v1)/run#az_ml_run_submit-script).
 
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
@@ -167,7 +168,7 @@ Necesitará los siguientes elementos:
     
         Este comando devuelve un documento JSON que muestra información sobre las ejecuciones de este experimento.
     
-        Para obtener más información, consulte [az ml experiment list](/cli/azure/ml/experiment?preserve-view=true&view=azure-cli-latest#az_ml_experiment_list).
+        Para obtener más información, consulte [az ml experiment list](/cli/azure/ml(v1)/experiment#az_ml_experiment_list).
     
     * Para ver información sobre una ejecución concreta, use el siguiente comando. Reemplace `runid` por el identificador de la ejecución:
     
@@ -177,13 +178,24 @@ Necesitará los siguientes elementos:
     
         Este comando devuelve un documento JSON que muestra información sobre la ejecución.
     
-        Para obtener más información, consulte [az ml run show](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_show).
+        Para obtener más información, consulte [az ml run show](/cli/azure/ml(v1)/run#az_ml_run_show).
     
     
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
     
     ---    
    
+## <a name="run-display-name"></a>Nombre para mostrar de la ejecución 
+El nombre para mostrar de la ejecución es un nombre opcional y personalizable que puede proporcionar para la ejecución. Para editar el nombre para mostrar de la ejecución:
+
+1. Vaya a la lista de ejecuciones. 
+
+2. Seleccione la ejecución para editar el nombre para mostrar en la página de detalles de la ejecución.
+
+3. Seleccione el botón **Editar** para el nombre para mostrar de la ejecución. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Captura de pantalla: edición del nombre para mostrar":::
+
 ## <a name="custom-view"></a>Vista personalizada 
     
 Para ver las ejecuciones en el estudio: 
@@ -261,7 +273,7 @@ En Azure Machine Learning, puede usar etiquetas y propiedades para ayudar a orga
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    Para obtener más información, consulte [az ml run update](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_update).
+    Para obtener más información, consulte [az ml run update](/cli/azure/ml(v1)/run#az_ml_run_update).
     
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
     
@@ -339,7 +351,7 @@ Para cancelar una ejecución con la CLI, use el siguiente comando. Reemplace `ru
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-Para obtener más información, consulte [az ml run cancel](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_cancel).
+Para obtener más información, consulte [az ml run cancel](/cli/azure/ml(v1)/run#az_ml_run_cancel).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 

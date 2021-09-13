@@ -1,14 +1,14 @@
 ---
 title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 26fdc6c5b5dd09e77413285a8632d91e580e7162
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aefa5439e7176457494d6c21ffb9aa79acc4fd3c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752640"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323869"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -236,7 +236,7 @@ La condición de campo tiene un comportamiento implícito de "todos los elemento
 
 ### <a name="referencing-array-fields"></a>Referencia de campos de matriz
 
-Las propiedades de recursos de matriz normalmente se representan mediante dos tipos diferentes de alias. Un alias "normal" y los [alias de matriz](../concepts/definition-structure.md#understanding-the--alias) que tienen adjunto el carácter `[*]`:
+Las propiedades de recursos de matriz se representan mediante dos tipos diferentes de alias. Un alias "normal" y los [alias de matriz](../concepts/definition-structure.md#understanding-the--alias) que tienen adjunto el carácter `[*]`:
 
 - `Microsoft.Test/resourceType/stringArray`
 - `Microsoft.Test/resourceType/stringArray[*]`

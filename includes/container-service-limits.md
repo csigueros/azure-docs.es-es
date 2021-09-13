@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: container-service
 author: mlearned
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: da22991b9a1c4b69d3a3d6eb6f76b0925a6ad3d4
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d9566564c168e37477d8a0a8238c93dfb8be054d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107800232"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336054"
 ---
-| Resource                                                                                                           | Límite                                                                                                                                                                                                       |
+| Recurso                                                                                                           | Límite                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Número máximo de clústeres por suscripción                                                                                  | 5000                                                                                                                                                                                                        |
 | Número máximo de nodos por clúster con los conjuntos de disponibilidad de máquina virtual y el SKU básico de Load Balancer                       | 100                                                                                                                                                                                                         |
@@ -26,6 +26,9 @@ ms.locfileid: "107800232"
 | Versión preliminar del complemento Open Service Mesh (OSM) AKS                                                                          | Versión del clúster de Kubernetes: 1.19+<sup>1</sup><br />Controladores OSM por clúster: 1<sup>1</sup><br />Pods por controlador OSM: 500<sup>1</sup><br />Cuentas de servicio de Kubernetes administradas por OSM: 50<sup>1</sup> |
 
 <sup>1</sup> El complemento OSM para AKS se encuentra en versión preliminar y se someterá a mejoras adicionales antes de su disponibilidad con carácter general. Durante la fase de versión preliminar, se recomienda no superar los límites indicados.<br />
+
+> [!IMPORTANT]
+> Se recomienda a los clientes habilitar el nivel de Acuerdo de Nivel de Servicio de tiempo de actividad para cargas de trabajo de producción y de pruebas de rendimiento y carga. El nivel de Acuerdo de Nivel de Servicio de tiempo de actividad habilita el escalado automático del plano de control de Kubernetes y es necesario para admitir clústeres con cargas de trabajo de producción dentro del [Acuerdo de Nivel de Servicio de tiempo de actividad](../articles/aks/uptime-sla.md).
 
 <!-- LINKS - Internal -->
 
