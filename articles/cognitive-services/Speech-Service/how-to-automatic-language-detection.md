@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 9ce82cddc4f4f663f6e5aa0f2372756edf9cdcfd
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: e24a24b54d31a98497bfba453b6677ebf0f560a9
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122066582"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322882"
 ---
 # <a name="how-to-use-language-identification"></a>Uso de la identificación del idioma
 
@@ -33,7 +33,7 @@ En este artículo se da por supuesto que tiene una suscripción de Azure y un re
 La identificación del idioma tiene actualmente un límite de **cuatro idiomas** para el reconocimiento único y de **10 idiomas** para el reconocimiento continuo. Tenga en cuenta esta limitación al construir el objeto `AutoDetectSourceLanguageConfig`. En los ejemplos siguientes se usa `AutoDetectSourceLanguageConfig` para definir una lista de los posibles idiomas que desea identificar y hacer referencia a ellos al ejecutar el reconocimiento de voz.
 
 > [!IMPORTANT]
-> La identificación continua del idioma está actualmente en **versión preliminar** y solo se admite en C# y C++.
+> La identificación continua del idioma solo se admite en C#, C++ y Python.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -155,14 +155,11 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 ```
 
 > [!NOTE]
-> Los modos `Latency` y `Accuracy`, y el reconocimiento continuo multilingüe solo se admiten actualmente en C# y C++.
+> Los modos `Latency` y `Accuracy`, y el reconocimiento continuo multilingüe, solo se admiten actualmente en C#, C++ y Python.
  
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-
-> [!IMPORTANT]
-> Esta característica que se muestra a continuación se encuentra actualmente en **versión preliminar**.
 
 En el ejemplo siguiente se ejecuta el reconocimiento único, priorizando `Latency`. Esta propiedad también se puede establecer en `Accuracy` en función de la prioridad del caso de uso. `Latency` es la mejor opción si necesita un resultado de baja latencia (por ejemplo, para un caso de streaming en vivo), si no conoce el idioma del ejemplo de audio. 
 
@@ -265,7 +262,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 ```
 
 > [!NOTE]
-> Los modos `Latency` y `Accuracy`, y el reconocimiento continuo multilingüe solo se admiten actualmente en C# y C++.
+> Los modos `Latency` y `Accuracy`, y el reconocimiento continuo multilingüe, solo se admiten actualmente en C#, C++ y Python.
 
 ::: zone-end
 
@@ -406,22 +403,22 @@ Consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/cognitive-servi
 
 ::: zone pivot="programming-language-java"
 > [!IMPORTANT]
-> Actualmente esta característica solo se admite en C# y C++.
+> Actualmente esta característica solo se admite en C#, C++ y Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 > [!IMPORTANT]
-> Actualmente esta característica solo se admite en C# y C++.
+> Actualmente esta característica solo se admite en C#, C++ y Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
 > [!IMPORTANT]
-> Actualmente esta característica solo se admite en C# y C++.
+> Actualmente esta característica solo se admite en C#, C++ y Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 > [!IMPORTANT]
-> Actualmente esta característica solo se admite en C# y C++.
+> Actualmente esta característica solo se admite en C#, C++ y Python.
 ::: zone-end
 
 ## <a name="use-a-custom-model-for-language-identification"></a>Uso de un modelo personalizado para la identificación del idioma

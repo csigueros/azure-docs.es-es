@@ -5,12 +5,12 @@ description: Aprenda a instalar y configurar un controlador de entrada NGINX bá
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 79267ce3a6a126caa46eb8445551d85c67f7b976
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: cb7ce27f7e4b5816e64898cded2ab9edbd4a3641
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565687"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323942"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada en Azure Kubernetes Service (AKS)
 
@@ -18,7 +18,10 @@ Un controlador de entrada es un software que proporciona el proxy inverso, el en
 
 En este artículo se muestra cómo implementar el [controlador de entrada NGINX][nginx-ingress] en un clúster de Azure Kubernetes Service (AKS). Se ejecutan dos aplicaciones en el clúster de AKS, a las que se puede acceder con una sola dirección IP.
 
-También puede:
+> [!NOTE]
+> Hay dos controladores de entrada de código abierto para Kubernetes basados en Nginx: uno lo mantiene la comunidad de Kubernetes ([kubernetes/ingress-nginx][nginx-ingress]) y el otro lo mantiene NGINX, Inc. ([nginxinc/kubernetes-ingress]). En este artículo se usa el controlador de entrada de la comunidad de Kubernetes. 
+
+Como alternativa, puede:
 
 - [Habilitación del complemento de enrutamiento de aplicación HTTP][aks-http-app-routing]
 - [Creación de un controlador de entrada que use una red privada interna y una dirección IP][aks-ingress-internal]
@@ -31,33 +34,89 @@ En este artículo se usa [Helm 3][helm] para instalar el controlador de entrada
 
 En este artículo también se requiere que ejecute la versión 2.0.64 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
-## <a name="create-an-ingress-controller"></a>Crear un controlador de entrada
+Además, en este artículo se da por supuesto que tiene un clúster de AKS existente con un ACR integrado. Para más información sobre cómo crear un clúster de AKS con un ACR integrado, consulte [Autenticación con Azure Container Registry desde Azure Kubernetes Service][aks-integrated-acr].
+
+## <a name="basic-configuration"></a>Configuración básica
+Para crear un controlador de entrada NGINX simple sin personalizar los valores predeterminados, usará Helm.
+
+```console
+NAMESPACE=ingress-basic
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace $NAMESPACE 
+```
+
+Observe que, por motivos de simplicidad, en la configuración anterior se usa la opción "lista para su uso".  Si es necesario, podría agregar parámetros para personalizar la implementación, por ejemplo, `--set controller.replicaCount=3`.  En la sección siguiente se mostrará un ejemplo del controlador de entrada con un alto nivel de personalización.
+
+## <a name="customized-configuration"></a>Configuración personalizada
+Como alternativa a la configuración básica presentada en la sección anterior, el siguiente conjunto de pasos mostrará cómo implementar un controlador de entrada personalizado.
+### <a name="import-the-images-used-by-the-helm-chart-into-your-acr"></a>Importación de las imágenes usadas por el gráfico de Helm en el ACR
+
+Para controlar las versiones de la imagen, deberá importarlas en su propia instancia de Azure Container Registry.  El [gráfico de Helm de controladores de entrada NGINX][ingress-nginx-helm-chart] se basa en tres imágenes de contenedor. Use `az acr import` para importar esas imágenes en el ACR.
+
+```azurecli
+REGISTRY_NAME=<REGISTRY_NAME>
+CONTROLLER_REGISTRY=k8s.gcr.io
+CONTROLLER_IMAGE=ingress-nginx/controller
+CONTROLLER_TAG=v0.48.1
+PATCH_REGISTRY=docker.io
+PATCH_IMAGE=jettech/kube-webhook-certgen
+PATCH_TAG=v1.5.1
+DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+DEFAULTBACKEND_IMAGE=defaultbackend-amd64
+DEFAULTBACKEND_TAG=1.5
+
+az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+```
+
+> [!NOTE]
+> Además de importar imágenes de contenedor en el ACR, también puede importar gráficos de Helm en el ACR. Para obtener más información, consulte [Inserción y extracción de gráficos de Helm en Azure Container Registry][acr-helm].
+
+### <a name="create-an-ingress-controller"></a>Crear un controlador de entrada
 
 Para crear el controlador de entrada, use Helm para instalar *nginx-ingress*. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
 
 El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server no deben ejecutar el controlador de entrada. Un selector de nodos se especifica mediante el parámetro `--set nodeSelector` para indicar al programador de Kubernetes que ejecute el controlador de entrada NGINX en un nodo basado en Linux.
 
 > [!TIP]
-> En el siguiente ejemplo se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *ingress-basic*. Especifique un espacio de nombres para su propio entorno según sea necesario.
-
-> [!TIP]
+> En el siguiente ejemplo se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *ingress-basic* y está diseñada para funcionar en el espacio de nombres. Especifique un espacio de nombres para su propio entorno según sea necesario.
+>  
 > Si quiere habilitar la [conservación de direcciones IP de origen del cliente][client-source-ip] para las solicitudes a los contenedores de su clúster, agregue `--set controller.service.externalTrafficPolicy=Local` al comando de instalación de Helm. La dirección IP de origen del cliente se almacena en el encabezado de la solicitud en *X-Forwarded-For*. Al usar un controlador de entrada con la conservación de direcciones IP de origen del cliente habilitada, el paso a través de SSL no funcionará.
 
 ```console
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
+# Set the namespace to be used 
+NAMESPACE=ingress-basic
 
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
+# Set variable for ACR location to use for pulling images
+ACR_URL=<REGISTRY_URL>
+
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
+    --create-namespace --namespace $NAMESPACE \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.image.registry=$ACR_URL \
+    --set controller.image.image=$CONTROLLER_IMAGE \
+    --set controller.image.tag=$CONTROLLER_TAG \
+     --set controller.image.digest="" \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
+    --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
 ```
+
+## <a name="check-the-load-balancer-service"></a>Comprobación del servicio de equilibrador de carga
 
 Cuando se crea el servicio del equilibrador de carga de Kubernetes para el controlador de entrada NGINX, se asigna la dirección IP pública dinámica, como se muestra en la salida del ejemplo siguiente:
 
@@ -68,7 +127,7 @@ NAME                                     TYPE           CLUSTER-IP    EXTERNAL-I
 nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
-No se han creado reglas de entrada aún, por lo que aparece la página 404 predeterminada del controlador de entrada NGINX si navega a la dirección IP interna. Las reglas de entrada se configuran en los pasos siguientes.
+No se han creado reglas de entrada aún, por lo que aparece la página 404 predeterminada del controlador de entrada NGINX si va a la dirección IP interna. Las reglas de entrada se configuran en los pasos siguientes.
 
 ## <a name="run-demo-applications"></a>Ejecución de aplicaciones de demostración
 
@@ -310,6 +369,8 @@ También puede:
 [helm]: https://helm.sh/
 [helm-cli]: ./kubernetes-helm.md
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
+[nginxinc/kubernetes-ingress]: https://github.com/nginxinc/kubernetes-ingress
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
@@ -321,3 +382,5 @@ También puede:
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [aks-supported versions]: supported-kubernetes-versions.md
+[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[acr-helm]: ../container-registry/container-registry-helm-repos.md

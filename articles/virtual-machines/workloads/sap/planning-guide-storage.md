@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/26/2021
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c76ffbbaf6bbbb2afb5d84e92b6fe9ce04dc4a30
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0af6df954dda4e5af6335776b1f93f929da5834e
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128710"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323725"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Azure Storage para una carga de trabajo de SAP
 Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que son idóneos para escenarios específicos de carga de trabajo de SAP, o bien están optimizados para ello. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
@@ -86,9 +86,9 @@ Antes de entrar en los detalles, presentamos el resumen y las recomendaciones qu
 | Familias de máquinas virtuales M/MV2 de SAP HANA en volumen de registro de DBMS | no admitido | no admitido | recomendado<sup>1</sup> | recomendado | recomendado<sup>2</sup> | 
 | Familias de máquinas virtuales Esv3/Edsv4 de SAP HANA en volumen de datos de DBMS | no admitido | no admitido | recomendado | recomendado | recomendado<sup>2</sup> |
 | Familias de máquinas virtuales Esv3/Edsv4 de SAP HANA en volumen de registro de DBMS | no admitido | no admitido | no admitido | recomendado | recomendado<sup>2</sup> | 
-| Volumen de datos DBMS no HANA | no admitido | adecuación restringida (no en prod.) | recomendado | recomendado | Solo para versiones específicas de Oracle en Oracle Linux. |
-| Familias de máquinas virtuales M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | recomendado<sup>1</sup> | recomendado | Solo para versiones específicas de Oracle en Oracle Linux. |
-| Familias de máquinas virtuales no M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | adecuado para carga de trabajo hasta de tamaño medio | recomendado | Solo para versiones específicas de Oracle en Oracle Linux. |
+| Volumen de datos DBMS no HANA | no admitido | adecuación restringida (no en prod.) | recomendado | recomendado | Solo para versiones específicas de Oracle en Oracle Linux y Db2 en Linux |
+| Familias de máquinas virtuales M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | recomendado<sup>1</sup> | recomendado | Solo para versiones específicas de Oracle en Oracle Linux y Db2 en Linux |
+| Familias de máquinas virtuales no M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | adecuado para carga de trabajo hasta de tamaño medio | recomendado | Solo para versiones específicas de Oracle en Oracle Linux y Db2 en Linux |
 
 
 <sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registros de registro/rehacer. <sup>2</sup> El uso de UNF requiere que /hana/data y /hana/log estén en ANF. 
@@ -97,15 +97,15 @@ Características que puede esperar de la lista de tipos de almacenamiento difere
 
 | Escenario de uso | HDD estándar | SSD estándar | Premium Storage | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| Acuerdo de Nivel de Servicio rendimiento/IOPS | no | no | sí | sí | sí |
+| Acuerdo de Nivel de Servicio rendimiento/IOPS | no | No | sí | Sí | sí |
 | Lecturas de latencia | high | de medio a alto | low | submilisegundo | submilisegundo |
 | Escrituras de latencia | high | de medio a alto  | bajo (submilisegundo<sup>1</sup>) | submilisegundo | submilisegundo |
 | HANA compatible | no | no | sí<sup>1</sup> | sí | sí |
-| Instantáneas de disco posibles | sí | sí | sí | no | sí |
+| Instantáneas de disco posibles | sí | Sí | Sí | No | sí |
 | Asignación de discos en diferentes clústeres de almacenamiento cuando se usan conjuntos de disponibilidad | a través de discos administrados | a través de discos administrados | a través de discos administrados | tipo de disco no compatible con máquinas virtuales implementadas mediante conjuntos de disponibilidad | no<sup>3</sup> |
-| Alineación con Availability Zones | sí | sí | sí | sí | requiere la participación de Microsoft |
+| Alineación con Availability Zones | sí | Sí | Sí | sí | requiere la participación de Microsoft |
 | Redundancia de zona | no para discos administrados | no para discos administrados | no para discos administrados | no | no |
-| Redundancia geográfica | no para discos administrados | no para discos administrados | no | no | no |
+| Redundancia geográfica | no para discos administrados | no para discos administrados | no | No | no |
 
 
 <sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registro/rehacer.
@@ -241,6 +241,7 @@ El almacenamiento de ANF se admite actualmente en varios escenarios de carga de 
     - [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](./high-availability-guide-suse-netapp-files.md)
     - [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP](./high-availability-guide-rhel-netapp-files.md)
 - Las implementaciones de SAP HANA que usan recursos compartidos de NFS v.4.1 para volúmenes /hana/data y /hana/log o volúmenes de NFS v4.1 o NFS v3 para volúmenes de /hana/shared, como se documenta en el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md).
+- IBM Db2 en un sistema operativo invitado Suse o Red Hat Linux
 - Las implementaciones de Oracle en un sistema operativo invitado Oracle Linux mediante [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) para volúmenes registros de fase de puesta al día y datos de Oracle. Puede encontrar más detalles en el artículo [Implementación de DBMS de Oracle de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_oracle.md)
 
 > [!NOTE]

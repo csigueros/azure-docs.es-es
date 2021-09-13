@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 25371e04e4e229786ca96fbc0f72b4bea0dccd96
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: edaecb8d3969d251f8ff7c4e6525912a0c199089
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896427"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322378"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de registro e inicio de sesión en Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 
-    ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/add-sign-up-and-sign-in-policy/signup-signin-user-flow.png)
+    ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/add-sign-up-and-sign-in-policy/sign-up-sign-in-user-flow.png)
 
 1. En la página **Crear un flujo de usuario**, seleccione el flujo de usuario **Registrarse e iniciar sesión**.
 
@@ -61,13 +61,21 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
     ![Página Creación de flujo de usuario en Azure Portal con las propiedades resaltadas](./media/add-sign-up-and-sign-in-policy/select-version.png)
 
 1. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *signupsignin1*.
-1. En **Proveedores de identidades**, seleccione **Registro por correo electrónico**.
-1. En **Atributos y notificaciones de usuario**, elija los atributos y las notificaciones que desea recopilar y enviar al usuario durante el registro. Por ejemplo, seleccione **Mostrar más** y elija los atributos y las notificaciones de **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **OK**.
+1. En **Proveedores de identidades**, seleccione al menos un proveedor de identidades:
+
+   * En **Cuentas locales**, seleccione una de las siguientes: **Registro por correo electrónico**, **Registro de id. de usuario**, **Phone signup** (Registro telefónico), **Phone/Email signup** (Registro telefónico o por correo electrónico) o **Ninguno**. [Más información](sign-in-options.md).
+   * En **Proveedores de identidades sociales**, seleccione cualquiera de los proveedores de identidades sociales o empresariales externos que haya configurado. [Más información](add-identity-provider.md).
+1. En **Autenticación multifactor**, si quiere exigir a los usuarios que comprueben su identidad con un segundo método de autenticación, elija el tipo de método y cuándo aplicar la autenticación multifactor (MFA). [Más información](multi-factor-authentication.md).
+1. En **Acceso condicional**, si ha configurado directivas de acceso condicional para el inquilino de Azure AD B2C y quiere habilitarlas para este flujo de usuario, active la casilla **Aplicar directivas de acceso condicional**. No es necesario especificar un nombre de directiva. [Más información](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. En **Atributos de usuario y notificaciones de token**, elija los atributos que quiere recopilar del usuario durante el registro y las notificaciones que quiere que se devuelvan en el token. Para obtener la lista completa de valores, seleccione **Mostrar más**, elija los valores y, después, seleccione **Aceptar**.
+
+   > [!NOTE]
+   > También puede [crear atributos personalizados](user-flow-custom-attributes.md?pivots=b2c-user-flow) para usarlos en el inquilino de Azure AD B2C.
 
     ![Página de selección de atributos y notificaciones con tres notificaciones seleccionadas](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
-1. Haga clic en **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
-2. Siga los pasos para [controlar el flujo de la opción "¿Olvidó su contraseña?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended). de la directiva de registro o de inicio de sesión.
+1. Seleccione **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
+1. Siga los pasos para [controlar el flujo de la opción "¿Olvidó su contraseña?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended). de la directiva de registro o de inicio de sesión.
 
 ### <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 

@@ -2,55 +2,55 @@
 title: Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution
 description: Cree una biblioteca de contenido para implementar una máquina virtual en una nube privada de Azure VMware Solution.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 5ebd60b3c2fc8350478125e756413d0ba750a0ed
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/28/2021
+ms.openlocfilehash: ed98d48037df6cfb50c3c94bb6a7187097f5b0e9
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756840"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323691"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution
 
-Una biblioteca de contenido almacena y administra el contenido en forma de elementos de biblioteca. Un solo elemento de biblioteca consta de uno o varios archivos que se usan para implementar máquinas virtuales (VM). 
+Una biblioteca de contenido almacena y administra el contenido en forma de elementos de biblioteca. Un solo elemento de biblioteca consta de archivos que se usan para implementar máquinas virtuales (VM).
 
-En este artículo, le guiaremos por el procedimiento de creación de una biblioteca de contenido.  A continuación, veremos cómo implementar una máquina virtual mediante una imagen ISO de la biblioteca de contenido.
+En este artículo, creará una biblioteca de contenido en el cliente de vSphere y, luego, implementará una máquina virtual mediante una imagen ISO de la biblioteca de contenido.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar este tutorial, se necesita un segmento NSX-T (conmutador lógico) y un servicio DHCP administrado.  Para más información, consulte el artículo sobre cómo [configurar DHCP para Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).  
+Para realizar este tutorial, se necesitan un segmento de NSX-T y un servicio DHCP administrado.  Para más información, consulte el artículo [Configuración de DHCP para Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).  
 
 ## <a name="create-a-content-library"></a>Crear una biblioteca de contenido
 
-1. En el cliente de vSphere local, seleccione **Menu > Content Libraries** (Menú > Bibliotecas de contenido).
+1. En el cliente de vSphere local, seleccione **Menú** > **Bibliotecas de contenido**.
 
-   ![Selección de Menu -> Content Libraries (Menú > Bibliotecas de contenido)](./media/content-library/vsphere-menu-content-libraries.png)
+   :::image type="content" source="media/content-library/vsphere-menu-content-libraries.png" alt-text="Captura de pantalla que muestra la opción de menú Bibliotecas de contenido en el cliente de vSphere.":::
 
-1. Seleccione el botón **Add** (Agregar) para crear una biblioteca de contenido.
+1. Seleccione **Agregar** para crear una nueva biblioteca de contenido.
 
-   ![Selección del botón Add (Agregar) para crear una biblioteca de contenido.](./media/content-library/create-new-content-library.png)
+   :::image type="content" source="media/content-library/create-new-content-library.png" alt-text="Captura de pantalla que muestra cómo crear una biblioteca de contenido en vSphere.":::
 
-1. Especifique un nombre y confirme la dirección IP del servidor vCenter y seleccione **Next** (Siguiente).
+1. Proporcione un nombre y confirme la dirección IP del servidor vCenter; luego, seleccione **Siguiente**.
 
-   ![Especifique un nombre, anote su elección y, luego, seleccione Next (Siguiente).](./media/content-library/new-content-library-step1.png)
+   :::image type="content" source="media/content-library/new-content-library-step-1.png" alt-text="Captura de pantalla que muestra el nombre y la dirección IP de vCenter Server de la nueva biblioteca de contenido.":::
 
 1. Seleccione **Local content library** (Biblioteca de contenido local) y elija **Next** (Siguiente).
 
-   ![En este ejemplo, se creará una biblioteca de contenido local. Seleccione Next (Siguiente).](./media/content-library/new-content-library-step2.png)
+   :::image type="content" source="media/content-library/new-content-library-step-2.png" alt-text="Captura de pantalla que muestra la opción Biblioteca de contenido local seleccionada para la nueva biblioteca de contenido.":::
 
-1. Seleccione el almacén de datos que almacenará la biblioteca de contenido y, luego, elija **Next** (Siguiente).
+1. Seleccione el almacén de datos que almacenará la biblioteca de contenido y, luego, elija **Siguiente**.
 
-   ![Seleccione el almacén de datos donde quiere hospedar la biblioteca de contenido y seleccione Next (Siguiente).](./media/content-library/new-content-library-step3.png)
+   :::image type="content" source="media/content-library/new-content-library-step-3.png" alt-text="Captura de pantalla que muestra la ubicación de almacenamiento de vsanDatastore seleccionada.":::
 
-1. Revise y compruebe la configuración de la biblioteca de contenido y, luego, seleccione **Finish** (Finalizar).
+1. Revise y compruebe la configuración de la biblioteca de contenido y, luego, seleccione **Finalizar**.
 
-   ![Compruebe la configuración y seleccione Finish (Finalizar).](./media/content-library/new-content-library-step4.png)
+   :::image type="content" source="media/content-library/new-content-library-step-4.png" alt-text="Captura de pantalla que muestra la configuración de la nueva biblioteca de contenido.":::
 
 ## <a name="upload-an-iso-image-to-the-content-library"></a>Cargar una imagen ISO en la biblioteca de contenido
 
 Ahora que se ha creado la biblioteca de contenido, puede agregar una imagen ISO para implementar una máquina virtual en un clúster de nube privada. 
 
-1. En el cliente de vSphere, seleccione **Menu > Content Libraries** (Menú > Bibliotecas de contenido).
+1. En el cliente de vSphere, seleccione **Menú** > **Bibliotecas de contenido**.
 
 1. Haga clic con el botón derecho en la biblioteca de contenido que quiera usar para la nueva imagen ISO y seleccione **Import Item** (Importar elemento).
 
@@ -67,21 +67,21 @@ Ahora que se ha creado la biblioteca de contenido, puede agregar una imagen ISO 
 
 ## <a name="deploy-a-vm-to-a-private-cloud-cluster"></a>Implementación de una máquina virtual en un clúster de nube privada
 
-1. En el cliente de vSphere, seleccione **Menu > Hosts and Clusters** (Menú > Hosts y clústeres).
+1. En el cliente de vSphere, seleccione **Menú** > **Hosts y clústeres**.
 
 1. En el panel izquierdo, expanda el árbol y seleccione un clúster.
 
-1. Seleccione **Actions > New Virtual Machine** (Acciones > Nueva máquina virtual).
+1. Seleccione **Acciones** > **Nueva máquina virtual**.
 
 1. Siga los pasos del asistente y modifique los valores que desee.
 
-1. Seleccione **New CD/DVD Drive > Client Device > Content Library ISO File** (Nueva unidad de CD o DVD > Archivo ISO de la biblioteca de contenido).
+1. Seleccione **New CD/DVD Drive** > **Client Device** > **Content Library ISO File** (Nueva unidad de CD/DVD > Dispositivo cliente > Archivo ISO de la biblioteca de contenido).
 
 1. Seleccione la imagen ISO cargada en la sección anterior y, luego, elija **OK** (Aceptar).
 
 1. Active la casilla **Connect** (Conectar) para que la imagen ISO se monte en el momento del encendido.
 
-1. Seleccione **New Network > Select dropdown > Browse** (Nueva red > Seleccionar lista desplegable > Examinar).
+1. Seleccione **Nueva red** > **Select dropdown** (Seleccionar lista desplegable)  > **Examinar**.
 
 1. Seleccione el **conmutador lógico (segmento)** y elija **OK** (Aceptar).
 
@@ -92,9 +92,9 @@ Ahora que se ha creado la biblioteca de contenido, puede agregar una imagen ISO 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que se ha explicado la creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution, puede que desee obtener información sobre:
+Ahora que se ha explicado la creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution, puede que quiera obtener información sobre:
 
-- [Procedimiento de migración de las cargas de trabajo de VM a la nube privada](tutorial-deploy-vmware-hcx.md)
+- [Migración de las cargas de trabajo de máquina virtual a la nube privada](configure-vmware-hcx.md)
 - [Integración de servicios nativos de Azure en Azure VMware Solution](integrate-azure-native-services.md)
 
 <!-- LINKS - external-->
