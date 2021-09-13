@@ -106,6 +106,6 @@
     - name: Latencias de informes
       href: reference-reports-latencies.md
     - name: Preguntas más frecuentes
-      href: reports-faq.md
+      href: reports-faq.yml
     - name: Esquema de registro de inicio de sesión
       href: reference-azure-monitor-sign-ins-log-schema.md

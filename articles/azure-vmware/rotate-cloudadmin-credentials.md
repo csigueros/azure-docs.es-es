@@ -3,12 +3,12 @@ title: Rotación de las credenciales de administrador de la nube en Azure VMware
 description: Aprenda a rotar las credenciales de vCenter Server y NSX-T Manager para la nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 27d6c75046010d680734018d65f54eacbb520ae3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 884e3f09e429fff39c0dfafcb5d0c9a7b4915e03
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747590"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324773"
 ---
 # <a name="rotate-the-cloudadmin-credentials-for-azure-vmware-solution"></a>Rotación de las credenciales de administrador de la nube en Azure VMware Solution
 
@@ -18,7 +18,7 @@ También puede ver un vídeo sobre cómo restablecer [vCenter CloudAdmin y contr
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si usa las credenciales de administrador de la nube para servicios conectados, como HCX, vRealize Orchestrator, vRealize Operations Manager o VMware Horizon, las conexiones dejarán de funcionar una vez que actualice la contraseña.  Detenga estos servicios antes de iniciar la rotación de contraseñas. Si no lo hace, sufrirá bloqueos temporales en las cuentas de administrador de vCenter CloudAdmin y NSX-T, ya que estos servicios llaman continuamente con sus credenciales anteriores.  Para obtener más información sobre cómo configurar cuentas independientes para los servicios conectados, vea [Conceptos de acceso e identidad](./concepts-identity.md).
+Si usa las credenciales de administrador de la nube para servicios conectados, como HCX, vRealize Orchestrator, vRealize Operations Manager o VMware Horizon, las conexiones dejarán de funcionar una vez que actualice la contraseña.  Por tanto, detenga estos servicios antes de iniciar la rotación de contraseñas. Si no lo hace, sufrirá bloqueos temporales en las cuentas de administrador de vCenter CloudAdmin y NSX-T, ya que estos servicios llaman continuamente con sus credenciales anteriores.  Para obtener más información sobre cómo configurar cuentas independientes para los servicios conectados, vea [Conceptos de acceso e identidad](./concepts-identity.md).
 
 ## <a name="reset-your-azure-vmware-solution-cloudadmin-credentials"></a>Restablecimiento de las credenciales de Azure VMware Solution
 

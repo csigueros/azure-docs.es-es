@@ -1,18 +1,18 @@
 ---
 title: 'Transformación de datos: proceso y transformación de datos '
-description: Obtenga información sobre cómo transformar o procesar datos en Azure Data Factory mediante Hadoop, Estudio de Azure Machine Learning (clásico) o Azure Data Lake Analytics.
+description: Aprenda cómo transformar datos o procesar datos en Azure Data Factory mediante Hadoop, ML Studio (clásico) o Azure Data Lake Analytics.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 422acbaab097182b800e3bad35b0121284db9cd8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e9cc86e83de6e9cd673b0ee67159bbe23dde4351
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782935"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396834"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformación de datos en Azure Data Factory versión 1
 > [!div class="op_single_selector"]
@@ -20,7 +20,7 @@ ms.locfileid: "104782935"
 > * [Pig](data-factory-pig-activity.md)  
 > * [de Hadoop](data-factory-map-reduce.md)  
 > * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Azure Machine Learning Studio (clásico)](data-factory-azure-ml-batch-execution-activity.md) 
+> * [ML Studio (clásico)](data-factory-azure-ml-batch-execution-activity.md) 
 > * [Procedimiento almacenado](data-factory-stored-proc-activity.md)
 > * [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
 > * [.NET personalizado](data-factory-use-custom-activities.md)
@@ -53,12 +53,12 @@ La actividad de streaming de HDInsight en una canalización de Data Factory ejec
 ## <a name="hdinsight-spark-activity"></a>Actividad de HDInsight Spark
 La actividad de Spark de HDInsight en una canalización de Data Factory ejecuta consultas de Spark en su propio clúster de HDInsight. Consulte [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) (Invocar programas Spark desde Data Factory de Azure) para obtener información detallada. 
 
-## <a name="azure-machine-learning-studio-classic-activities"></a>Actividades de Estudio de Azure Machine Learning (clásico)
-Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de Azure Machine Learning Studio (clásico) publicado para realizar análisis predictivos. Mediante la [actividad de ejecución de lotes](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) en una canalización de Azure Data Factory, puede invocar un servicio web de Estudio (clásico) para realizar predicciones sobre los datos del lote.
+## <a name="ml-studio-classic-activities"></a>Actividades de ML Studio (clásico)
+Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de ML Studio (clásico) publicado para realizar análisis predictivos. Mediante la [actividad de ejecución de lotes](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) en una canalización de Azure Data Factory, puede invocar un servicio web de Estudio (clásico) para realizar predicciones sobre los datos del lote.
 
 Con el tiempo, los modelos predictivos de los experimentos de puntuación de Estudio (clásico) se tienen que volver a entrenar con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Machine Learning que volvió a entrenar. Puede usar la [Actividad de recursos de actualización](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) para actualizar el servicio web con el modelo recién entrenado.  
 
-Vea [Uso de actividades de Estudio de Azure Machine Learning (clásico)](data-factory-azure-ml-batch-execution-activity.md) para obtener más información sobre estas actividades de Estudio (clásico). 
+Consulte [Uso de actividades de ML Studio (clásico)](data-factory-azure-ml-batch-execution-activity.md) para más información al respecto. 
 
 ## <a name="stored-procedure-activity"></a>Actividad de procedimiento almacenado
 Puede usar la actividad de procedimiento almacenado de SQL Server en una canalización de Data Factory para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos: Azure SQL Database, Azure Synapse Analytics y base de datos de SQL Server en una empresa o una máquina virtual de Azure. Consulte el artículo [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para obtener más información.  
@@ -88,7 +88,7 @@ Azure Data Factory admite las siguientes actividades de transformación de datos
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [de Hadoop](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Actividades de Estudio de Azure Machine Learning (clásico): ejecución de lotes y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Actividades de ML Studio (clásico): ejecución de lotes y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [Procedimiento almacenado](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics o SQL Server |
 | [U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |Análisis con Azure Data Lake |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Azure Batch |

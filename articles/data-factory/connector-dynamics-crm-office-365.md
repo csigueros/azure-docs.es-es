@@ -1,23 +1,25 @@
 ---
 title: Copia de datos en Dynamics (Microsoft Dataverse)
-description: Aprenda a copiar datos de Microsoft Dynamics CRM o Microsoft Dynamics 365 (Microsoft Dataverse) en almacenes de datos receptores compatibles, o bien de almacenes de datos de origen compatibles en Dynamics CRM o Dynamics 365 mediante una actividad de copia en una canalización de factoría de datos.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a copiar datos de Microsoft Dynamics CRM o Microsoft Dynamics 365 (Microsoft Dataverse) en almacenes de datos receptores compatibles, o bien de almacenes de datos de origen compatibles en Dynamics CRM o Dynamics 365 mediante una actividad de copia en una canalización de Azure Data Factory o Azure Synapse.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: 5b09872ccdf28a6343fdbaa2f7e9e6fbafbd9410
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: 483ad9dbceb134188ee8a5e2fdce3469226c579b
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950844"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123312950"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Microsoft Dataverse) o Dynamics CRM mediante Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm"></a>Copia de datos desde y hacia Dynamics 365 (Microsoft Dataverse) o Dynamics CRM
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde y hacia Microsoft Dynamics 365 y Microsoft Dynamics CRM. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que proporciona información general de esta actividad.
+En este artículo se explica el uso de la actividad de copia en canalizaciones de Azure Data Factory o Synapse para copiar datos desde y hacia Microsoft Dynamics 365 y Microsoft Dynamics CRM. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que proporciona información general de esta actividad.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -43,6 +45,10 @@ Consulte en la tabla siguiente los tipos y configuraciones de autenticación com
 |:--- |:--- |:--- |
 | Dataverse <br/><br/> Dynamics 365 Online <br/><br/> Dynamics CRM Online | Entidad de servicio de Azure Active Directory (Azure AD) <br/><br/> Office 365 | [Autenticación de Office 365 o entidad de servicio de Azure AD y Dynamics en línea](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 en el entorno local con implementación con conexión a Internet (IFD) <br/><br/> Dynamics CRM 2016 local con IFD <br/><br/> Dynamics CRM 2015 local con IFD | IFD | [Dynamics en el entorno local con IFD y la autenticación de IFD](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
+
+>[!NOTE]
+>Con el [desuso del servicio de detección regional](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated), el servicio se ha actualizado para aprovechar el [servicio de detección global](/powerapps/developer/data-platform/webapi/discover-url-organization-web-api#global-discovery-service) mientras se usa la autenticación de Office 365.
+
 > [!IMPORTANT]
 >El inquilino y el usuario están configurados en Azure Active Directory para el [acceso condicional](../active-directory/conditional-access/overview.md), o bien, si la autenticación multifactor es necesaria, no podrá usar el tipo de autenticación de Office 365. En esas situaciones, debe usar una autenticación de entidad de servicio de Azure Active Directory (Azure AD).
 
@@ -66,7 +72,31 @@ Para usar este conector con la autenticación de la entidad de servicio de Azure
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de Dynamics.
+## <a name="create-a-linked-service-to-dynamics-365-using-ui"></a>Creación de un servicio vinculado a Dynamics 365 mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Dynamics 365 en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Dynamics y seleccione el conector de Dynamics 365.
+
+    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Captura de pantalla del conector de Dynamics 365.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado en Dynamics 365.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades específicas de Dynamics.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -82,9 +112,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | authenticationType | Tipo de autenticación para conectarse a un servidor de Dynamics. Los valores válidos son "AADServicePrincipal" y "Office365". | Sí |
 | servicePrincipalId | Identificador de cliente de la aplicación de Azure AD. | Sí, cuando la autenticación es "AADServicePrincipal" |
 | servicePrincipalCredentialType | Tipo de credencial que se usará para la autenticación de entidad de servicio. Los valores válidos son "ServicePrincipalKey" y "ServicePrincipalCert". | Sí, cuando la autenticación es "AADServicePrincipal" |
-| servicePrincipalCredential | Credencial de entidad de seguridad de servicio. <br/><br/>Cuando se usa "ServicePrincipalKey" como tipo de credencial, `servicePrincipalCredential` puede ser una cadena que Azure Data Factory cifra en la implementación del servicio vinculado. O bien, puede ser una referencia a un secreto en Azure Key Vault. <br/><br/>Cuando se usa "ServicePrincipalCert" como credencial, `servicePrincipalCredential` debe ser una referencia a un certificado en Azure Key Vault. | Sí, cuando la autenticación es "AADServicePrincipal" |
+| servicePrincipalCredential | Credencial de entidad de seguridad de servicio. <br/><br/>Cuando se usa "ServicePrincipalKey" como tipo de credencial, `servicePrincipalCredential` puede ser una cadena que el servicio cifra en la implementación del servicio vinculado. O bien, puede ser una referencia a un secreto en Azure Key Vault. <br/><br/>Cuando se usa "ServicePrincipalCert" como credencial, `servicePrincipalCredential` debe ser una referencia a un certificado en Azure Key Vault. | Sí, cuando la autenticación es "AADServicePrincipal" |
 | username | Nombre de usuario para conectarse a Dynamics. | Sí, cuando la autenticación es "Office365" |
-| password | Contraseña de la cuenta de usuario que especificó como nombre de usuario. Marque este campo con "SecureString" para almacenarlo de forma segura en Data Factory, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí, cuando la autenticación es "Office365" |
+| password | Contraseña de la cuenta de usuario que especificó como nombre de usuario. Marque este campo como "SecureString" para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí, cuando la autenticación es "Office365" |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica ningún valor, la propiedad usa el entorno de ejecución de integración de Azure predeterminado. | No |
 
 >[!NOTE]
@@ -180,7 +210,7 @@ Las propiedades adicionales, en comparación con Dynamics en línea, son **hostN
 | organizationName | El nombre de la organización de la instancia de Dynamics. | Sí. |
 | authenticationType | Tipo de autenticación para conectarse al servidor de Dynamics. Especifique "Ifd" para Dynamics en el entorno local con IFD. | Sí. |
 | username | Nombre de usuario para conectarse a Dynamics. | Sí. |
-| password | Contraseña de la cuenta de usuario especificada para el nombre de usuario. Este campo se puede marcar como "SecureString" para almacenarlo de forma segura en Data Factory. También puede almacenar una contraseña en Key Vault y permitir que la actividad de copia se extraiga desde allí cuando realice la copia de datos. Más información sobre [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí. |
+| password | Contraseña de la cuenta de usuario especificada para el nombre de usuario. Este campo se puede marcar como "SecureString" para almacenarlo de forma segura. También puede almacenar una contraseña en Key Vault y permitir que la actividad de copia se extraiga desde allí cuando realice la copia de datos. Más información sobre [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí. |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica ningún valor, la propiedad usa el entorno de ejecución de integración de Azure predeterminado. | No |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Ejemplo: Dynamics en el entorno local con IFD mediante la autenticación de IFD
@@ -259,7 +289,7 @@ Para copiar datos desde Dynamics, en la sección **source** de la actividad de c
 
 > [!IMPORTANT]
 >- Al copiar datos desde Dynamics, la asignación de columnas explícita de Dynamics al receptor es opcional. Sin embargo, se recomienda encarecidamente la asignación para garantizar un resultado de copia determinista.
->- Cuando Data Factory importa un esquema en la interfaz de usuario de creación, lo infiere. Para ello, muestrea las primeras filas del resultado de la consulta de Dynamics a fin de inicializar la lista de columnas de origen. En ese caso, se omiten las columnas sin valores en las filas superiores. El mismo comportamiento se aplica a las ejecuciones de copia si no existe una asignación explícita. Puede revisar y agregar más columnas a la asignación, que se respetarán durante el tiempo de ejecución de la copia.
+>- Cuando el servicio importa un esquema en la interfaz de usuario de creación, lo infiere. Para ello, muestrea las primeras filas del resultado de la consulta de Dynamics a fin de inicializar la lista de columnas de origen. En ese caso, se omiten las columnas sin valores en las filas superiores. El mismo comportamiento se aplica a las ejecuciones de copia si no existe una asignación explícita. Puede revisar y agregar más columnas a la asignación, que se respetarán durante el tiempo de ejecución de la copia.
 
 #### <a name="example"></a>Ejemplo
 
@@ -395,11 +425,11 @@ También puede agregar filtros para filtrar las vistas. Por ejemplo, agregue el 
 
 ## <a name="data-type-mapping-for-dynamics"></a>Asignación de tipos datos de Dynamics
 
-Al copiar los datos desde Dynamics, la tabla siguiente muestra las asignaciones de tipos de datos de Dynamics a los tipos de datos provisionales de Data Factory. Para obtener información acerca de la forma en que la actividad de copia asigna el esquema de origen y el tipo de datos a un receptor, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
+Al copiar los datos desde Dynamics, la tabla siguiente muestra las asignaciones de tipos de datos de Dynamics a los tipos de datos provisionales del servicio. Para obtener información acerca de la forma en que la actividad de copia asigna el esquema de origen y el tipo de datos a un receptor, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
 
-Configure el tipo de datos de Data Factory correspondiente en la estructura del conjunto de datos en función del tipo de datos de Dynamics de origen mediante la siguiente tabla de asignación:
+Configure el tipo de datos provisional correspondiente en la estructura del conjunto de datos en función del tipo de datos de Dynamics de origen mediante la siguiente tabla de asignación:
 
-| Tipo de datos de Dynamics | Tipo de datos provisionales de Data Factory | Se admite como origen | Se admite como receptor |
+| Tipo de datos de Dynamics | Tipo de datos provisional del servicio | Se admite como origen | Se admite como receptor |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
@@ -459,4 +489,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de búsqu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para consultar una lista de los almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores, consulte [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).

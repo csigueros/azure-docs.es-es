@@ -7,15 +7,15 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 09/05/2019
+ms.date: 08/17/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 7500490115ed360e838dc30038e3e8e602b33449
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1eb42cc923ea5acd23165e9dfa778e35748e4d2e
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081648"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323594"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
@@ -46,7 +46,7 @@ Una vista materializada diseñada correctamente proporciona las siguientes venta
 
 - Reducción del tiempo de ejecución de las consultas complejas con instrucciones JOIN y funciones de agregado. Cuanto más compleja sea la consulta, mayor será la posibilidad de reducir el tiempo de ejecución. La mayor ventaja se obtiene cuando el costo de cálculo de una consulta es elevado y el conjunto de datos resultante es pequeño.  
 - El optimizador del grupo de SQL dedicado puede usar automáticamente las vistas materializadas implementadas para mejorar los planes de ejecución de consultas.  Este proceso es transparente para los usuarios y proporciona un rendimiento de las consultas más rápido y no requiere que las consultas hagan referencia directa a las vistas materializadas.
-- Bajos requisitos de mantenimiento en las vistas.  Todos los cambios de datos incrementales de las tablas base se agregan automáticamente a las vistas materializadas de manera sincrónica.  Este diseño permite que las consultas de las vistas materializadas devuelvan los mismos datos que las consultas directas de las tablas base.
+- Bajos requisitos de mantenimiento en las vistas.  Todos los cambios de datos incrementales de las tablas base se agregan automáticamente a las vistas materializadas de forma sincrónica, lo que significa que tanto las tablas base como las vistas materializadas se actualizan en la misma transacción.  Este diseño permite que las consultas de las vistas materializadas devuelvan los mismos datos que las consultas directas de las tablas base.  
 - Los datos de una vista materializada se pueden distribuir de forma diferente de las tablas base.  
 - Los datos de las vistas materializadas tienen las mismas ventajas de alta disponibilidad y resistencia que los datos de las tablas normales.  
 
@@ -56,7 +56,7 @@ En comparación con otros proveedores de almacenamiento de datos, las vistas mat
 
 - Actualización automática y sincrónica de los datos con los cambios de los datos de las tablas base. No se requiere ninguna acción del usuario.
 - Amplia compatibilidad con funciones de agregado. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).
-- Compatibilidad con la recomendación de vista materializada específica de la consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+- Compatibilidad con la recomendación de vista materializada específica de la consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest).
 
 ## <a name="common-scenarios"></a>Escenarios frecuentes  
 

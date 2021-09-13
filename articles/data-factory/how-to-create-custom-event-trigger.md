@@ -2,19 +2,20 @@
 title: Creación de desencadenadores de eventos personalizados en Azure Data Factory
 description: Aprenda a crear un desencadenador en Azure Data Factory que ejecute una canalización en respuesta a un evento personalizado publicado en Event Grid.
 ms.service: data-factory
+ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: d91e1f52f0844317b049086489bda25c079ee9be
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 2a454f2f81e048511725e7a9f3269bdd9b5bcd49
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634300"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396638"
 ---
-# <a name="create-a-custom-event-trigger-to-run-a-pipeline-in-azure-data-factory-preview"></a>Creación de un desencadenador de eventos personalizado para ejecutar una canalización en Azure Data Factory (versión preliminar)
+# <a name="create-a-custom-event-trigger-to-run-a-pipeline-in-azure-data-factory"></a>Creación de un desencadenador de eventos personalizado para ejecutar una canalización en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -93,6 +94,39 @@ Data Factory espera que los eventos sigan el [esquema de eventos de Event Grid](
 
 1. Después de que haya escrito los parámetros, seleccione **Aceptar**.
 
+## <a name="advanced-filtering"></a>Filtrado avanzado
+
+El desencadenador de eventos personalizado admite funcionalidades de filtrado avanzadas, de forma similar al [Filtrado avanzado de Event Grid](../event-grid/event-filtering.md#advanced-filtering). Estos filtros condicionales permiten que las canalizaciones se desencadenen en función de los _valores_ de la carga del evento. Por ejemplo, puede tener un campo en la carga del evento, denominado _Department, y la canalización solo debe desencadenarse si _Department_ es igual a _Finance_. También puede especificar una lógica compleja, como el campo _date_ en la lista [1, 2, 3, 4, 5], el campo _month_ que __no__ está en la lista [11, 12], el campo _tag_ contiene cualquiera de los valores ["Fiscal Year 2021", "FiscalYear2021", "FY2021"].
+
+ :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="Captura de pantalla de la configuración de filtros avanzados para el desencadenador de eventos del cliente":::
+
+A partir de hoy, el desencadenador de eventos personalizados admite un __subconjunto__ de [operadores de filtrado avanzado](../event-grid/event-filtering.md#advanced-filtering) en Event Grid. Se admiten las siguientes condiciones de filtro:
+
+* NumberIn
+* NumberNotIn
+* NumberLessThan
+* NumberGreaterThan
+* NumberLessThanOrEquals
+* NumberGreaterThanOrEquals
+* BoolEquals
+* StringContains
+* StringBeginsWith
+* StringEndsWith
+* StringIn
+* StringNotIn
+
+Haga clic en  **+Nuevo** para agregar nuevas condiciones de filtro. 
+
+Además, los desencadenadores de eventos personalizados cumplen [las mismas limitaciones que Event Grid](../event-grid/event-filtering.md#limitations), entre las que se incluyen:
+
+* 5 filtros avanzados y 25 valores de filtro en todos los filtros por desencadenador de evento personalizado
+* 512 caracteres por valor de cadena
+* 5 valores para los operadores in y not in
+* Las claves no pueden tener un carácter `.` (punto) en ellas, por ejemplo, `john.doe@contoso.com`. Actualmente, las claves no admiten caracteres de escape.
+* La misma clave se puede usar en más de un filtro.
+
+Data Factory se basa en la versión más reciente de _disponibilidad general_ de la [API de Event Grid](../event-grid/whats-new.md). A medida que las nuevas versiones de API lleguen a la fase de disponibilidad general, Data Factory ampliará su compatibilidad con operadores de filtrado más avanzados.
+
 ## <a name="json-schema"></a>Esquema JSON
 
 En la tabla siguiente se proporciona información general acerca de los elementos de esquema que están relacionados con los desencadenadores de eventos personalizados:
@@ -101,12 +135,13 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 |---|----------------------------|---|---|---|
 | `scope` | El identificador de recursos de Azure Resource Manager del tema de cuadrícula del evento. | String | Identificador de Azure Resource Manager | Sí |
 | `events` | El tipo de eventos que provocan la activación de este desencadenador. | Matriz de cadenas    |  | Sí, se espera al menos un valor. |
-| `subjectBeginsWith` | El campo `subject` debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, *factories* solo activa el desencadenador para los asuntos de eventos que comienzan por *factories*. | String   | | No |
+| `subjectBeginsWith` | El campo `subject` debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, *factories solo activa el desencadenador para los asuntos de eventos que comienzan por *factories*. | String   | | No |
 | `subjectEndsWith` | El campo `subject` debe terminar con el patrón proporcionado para que se active el desencadenador. | String   | | No |
+| `advancedFilters` | Lista de blobs de JSON, donde cada uno especifica una condición de filtro. Cada blob especifica `key`, `operatorType` y `values`. | Lista de blobs de JSON | | No |
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-Azure Data Factory usa RBAC de Azure para prohibir el acceso no autorizado. Para funcionar correctamente, Data Factory requiere acceso para:
+Azure Data Factory utiliza el control de acceso basado en roles de Azure (RBAC) para prohibir el acceso no autorizado. Para funcionar correctamente, Data Factory requiere acceso para:
 - Escuchar eventos.
 - Suscribirse a las actualizaciones de eventos.
 - Desencadenar canalizaciones vinculadas a eventos personalizados.

@@ -8,19 +8,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 08/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: bed0b1e887fd5735077ef66725b267f42be9bbc1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7874224304f5466c8b166c1e5bd709b915a5d325
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445374"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322361"
 ---
-# <a name="embedded-sign-in-experience"></a>Experiencia de inicio de sesión insertada
+# <a name="embedded-sing-up-or-sign-in-experience"></a>Experiencia de registro o inicio de sesión insertada
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -32,7 +32,10 @@ ms.locfileid: "114445374"
 
 ::: zone pivot="b2c-custom-policy"
 
-Para obtener una experiencia de inicio de sesión más sencilla, puede evitar el redireccionamiento de los usuarios a una página de inicio de sesión aparte o la generación de una ventana emergente. Mediante el uso del elemento de marco insertado `<iframe>`, puede insertar la interfaz de usuario de inicio de sesión de Azure AD B2C directamente en la aplicación web.
+Para obtener una experiencia de registro o inicio de sesión más sencilla, puede evitar el redireccionamiento de los usuarios a una página distinta de registro o inicio de sesión, o bien la generación de una ventana emergente. Mediante el uso del elemento HTML de marco insertado &lt;iframe&gt;, puede insertar la interfaz de usuario de inicio de sesión de Azure AD B2C directamente en la aplicación web. 
+
+> [!TIP]
+> Use el elemento &lt;iframe&gt; de HTML para insertar las directivas personalizadas de [registro o inicio de sesión](add-sign-up-and-sign-in-policy.md),[ edición de perfiles](add-profile-editing-policy.md) o [cambio de contraseña](add-password-change-policy.md) en la aplicación web o de página única.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -44,7 +47,7 @@ El elemento de marco insertado `<iframe>` se usa para insertar un documento en u
 
 Al usar el iframe, tenga en cuenta lo siguiente:
 
-- El inicio de sesión insertado solo admite cuentas locales. La mayoría de los proveedores de identidades sociales (por ejemplo, Google y Facebook) impiden que las páginas de inicio de sesión se representen en marcos insertados.
+- El registro o inicio de sesión insertado solo admite cuentas locales. La mayoría de los proveedores de identidades sociales (por ejemplo, Google y Facebook) impiden que las páginas de inicio de sesión se representen en marcos insertados.
 - Dado que las cookies de sesión de Azure AD B2C dentro de un iframe se consideran cookies de terceros, algunos exploradores (por ejemplo, Safari o Chrome en modo incógnito) bloquean o borran estas cookies, lo que da lugar a una experiencia de usuario no deseada. Para evitar este problema, asegúrese de que el nombre de dominio de la aplicación y el dominio de Azure AD B2C tengan el *mismo origen*. Para usar el mismo origen, [habilite dominios personalizados](custom-domain.md) para el inquilino Azure AD B2C y, a continuación, configure la aplicación web con el mismo origen. Por ejemplo, una aplicación hospedada en "https://app.contoso.com" tiene el mismo origen que la instancia de Azure AD B2C que se ejecuta en "https://login.contoso.com".
 
 ## <a name="prerequisites"></a>Prerrequisitos

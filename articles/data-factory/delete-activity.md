@@ -1,22 +1,24 @@
 ---
 title: Actividad de eliminación en Azure Data Factory
-description: Obtenga información sobre cómo eliminar archivos en varios almacenes de archivo con la actividad de eliminación en Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a eliminar archivos de varios almacenes de archivos con la actividad Eliminar de Azure Data Factory y Azure Synapse Analytics.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 569e42643642a435ba8fbd56f11d7ffcbea9249e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/24/2021
+ms.openlocfilehash: f185df57226f438a8f40ef6889f1945b21b8540b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065177"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252934"
 ---
-# <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
+# <a name="delete-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad Eliminar de Azure Data Factory y Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 Puede usar la actividad de eliminación en Azure Data Factory para eliminar archivos o carpetas de almacenes locales o almacenes en la nube. Utilice esta actividad para limpiar o archivar los archivos cuando ya no se necesiten.
 
@@ -29,7 +31,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 
 -   Realice una copia de seguridad de los archivos antes de eliminarlos con la actividad de eliminación por si tuviera que restaurarlos en el futuro.
 
--   Asegúrese de que Data Factory tiene permisos de escritura para eliminar archivos o carpetas desde el almacén de almacenamiento.
+-   Asegúrese de que el servicio tiene permisos de escritura para eliminar archivos o carpetas del almacén de almacenamiento.
 
 -   Asegúrese de que no está eliminando archivos que se escriben al mismo tiempo. 
 
@@ -40,7 +42,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 -   [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure File Storage](connector-azure-file-storage.md)
+-   [Archivos de Azure](connector-azure-file-storage.md)
 -   [Sistema de archivos](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
@@ -142,7 +144,7 @@ Ahora está usando la actividad de eliminación para eliminar archivos o carpeta
 
 ### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>Limpieza periódica de la carpeta o los archivos de particiones por hora
 
-Puede crear una canalización para limpiar periódicamente la carpeta o los archivos de particiones por hora.  Por ejemplo, la estructura de carpetas es similar a: `/mycontainer/2018/12/14/*.csv`.  Puede aprovechar la variable del sistema ADF del desencadenador de programación para identificar qué archivos o carpetas se deben eliminar en cada ejecución de canalización. 
+Puede crear una canalización para limpiar periódicamente la carpeta o los archivos de particiones por hora.  Por ejemplo, la estructura de carpetas es similar a: `/mycontainer/2018/12/14/*.csv`.  Puede aprovechar la variable del sistema del servicio del desencadenador de programación para identificar qué archivos o carpetas se deben eliminar en cada ejecución de canalización. 
 
 #### <a name="sample-pipeline"></a>Canalización de ejemplo
 
@@ -765,6 +767,6 @@ También puede obtener la plantilla para mover archivos [aquí](solution-templat
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtener más información acerca de cómo mover archivos en Azure Data Factory.
+Aprenda a mover archivos en canalizaciones de Azure Data Factory y Synapse.
 
--   [Herramienta Copiar datos en Azure Data Factory](copy-data-tool.md)
+-   [Herramienta Copiar datos](copy-data-tool.md)

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 5ca59632e63f60b05f59f1a5d857425a036cbc7f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 56a52c597de5715bf0ca1761a9ae88554deed162
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638179"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315712"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
 
@@ -48,6 +48,30 @@ El entorno Integration Runtime proporciona un controlador MySQL integrado a part
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-mysql-using-ui"></a>Creación de un servicio vinculado a MySQL mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a MySQL en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque MySQL y seleccione el conector de MySQL.
+
+    :::image type="content" source="media/connector-mysql/mysql-connector.png" alt-text="Seleccione el conector de MySQL.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-mysql/configure-mysql-linked-service.png" alt-text="Configuración de un servicio vinculado en MySQL.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector MySQL.
 

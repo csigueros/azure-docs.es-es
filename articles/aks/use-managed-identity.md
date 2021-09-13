@@ -4,12 +4,12 @@ description: Aprenda a utilizar identidades administradas en Azure Kubernetes Se
 services: container-service
 ms.topic: article
 ms.date: 05/12/2021
-ms.openlocfilehash: a5bf71a654afd122aad682df732e5a6c9dcd9538
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: dbc02f8b65235a47fc523665ea6337774a6eb557
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476200"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122321984"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
@@ -35,8 +35,8 @@ AKS usa varias identidades administradas para servicios integrados y complemento
 
 | Identidad                       | Nombre    | Caso de uso | Permisos predeterminados | Traiga su propia identidad
 |----------------------------|-----------|----------|
-| Plano de control | no visible | La usan los componentes del plano de control de AKS para administrar los recursos de clúster, incluidos los equilibradores de carga de entrada y las direcciones IP públicas administradas de AKS, y las operaciones del escalador automático del clúster. | Rol de colaborador para un grupo de recursos de nodo | Compatible
-| Kubelet | Nombre de clúster de AKS-agentpool | Autenticación con Azure Container Registry (ACR) | N/D (para kubernetes 1.15 y versiones posteriores) | Compatible (versión preliminar)
+| Plano de control | Nombre del clúster de AKS | La usan los componentes del plano de control de AKS para administrar los recursos del clúster, incluidos los equilibradores de carga de entrada y las IP públicas administradas de AKS, Cluster Autoscaler y los controladores CSI de discos y archivos de Azure. | Rol de colaborador para un grupo de recursos de nodo | Compatible
+| Kubelet | Nombre de clúster de AKS-agentpool | Autenticación con Azure Container Registry (ACR) | N/D (para kubernetes 1.15 y versiones posteriores) | Compatible
 | Complemento | AzureNPM | No se requiere ninguna identidad | N/D | No
 | Complemento | Supervisión de red AzureCNI | No se requiere ninguna identidad | N/D | No
 | Complemento | azure-policy (gatekeeper) | No se requiere ninguna identidad | N/D | No
@@ -82,7 +82,8 @@ Ahora puede actualizar un clúster de AKS que trabaja actualmente con entidades 
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
-> Una vez que se hayan actualizado las identidades asignadas por el sistema o por el usuario, realice una operación `az aks nodepool upgrade --node-image-only` en los nodos para completar la actualización a la identidad administrada.
+> Después de la actualización, el plano de control del clúster y los pods de complemento cambiarán para usar la identidad administrada, pero kubelet SEGUIRÁ USANDO LA ENTIDAD DE SERVICIO hasta que se actualice el grupo de agentes. Utilice `az aks nodepool upgrade --node-image-only` en los nodos para completar la actualización de la identidad administrada. 
+
 
 ## <a name="obtain-and-use-the-system-assigned-managed-identity-for-your-aks-cluster"></a>Obtención y uso de la identidad administrada asignada por el sistema para el clúster de AKS
 
@@ -127,8 +128,7 @@ Una identidad de plano de control personalizado permite que se conceda acceso a 
 Debe tener instalada la versión 2.15.1 de la CLI de Azure o una versión posterior.
 
 ### <a name="limitations"></a>Limitaciones
-* Azure Government no se admite actualmente.
-* Azure China 21Vianet no se admite actualmente.
+* Actualmente no se admiten Departamento de Defensa de centro de EE. UU., Departamento de Defensa de este de EE. UU. y USGov Iowa en Azure Government.
 
 Si aún no tiene una identidad administrada, debería continuar y crear una, por ejemplo, mediante [az identity CLI][az-identity-create].
 
@@ -170,7 +170,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
-    --assign-identity <identity-id> \
+    --assign-identity <identity-id>
 ```
 
 La creación correcta de un clúster con sus propias identidades administradas contiene esta información de perfil de userAssignedIdentities:
@@ -189,39 +189,18 @@ La creación correcta de un clúster con sus propias identidades administradas c
  },
 ```
 
-## <a name="bring-your-own-kubelet-mi-preview"></a>Bring your own kubelet MI (versión preliminar)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## <a name="bring-your-own-kubelet-mi"></a>Identidad administrada de Bring your own kubelet
 
 Una identidad de kubelet permite que se conceda acceso a la identidad existente antes de la creación del clúster. Esta característica permite escenarios como la conexión a ACR con una identidad administrada creada previamente.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener instalada la versión 2.21.1 de la CLI de Azure o una versión posterior.
-- Debe tener instalada la versión 0.5.10 de aks-preview o una versión posterior.
+- Debe tener instalada la versión 2.26.0 de la CLI de Azure, o cualquier versión posterior.
 
 ### <a name="limitations"></a>Limitaciones
 
 - Solo funciona con un clúster administrado asignado por el usuario.
-- Azure China 21Vianet no se admite actualmente.
-
-En primer lugar, registre la marca de características para la identidad de Kubelet:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomKubeletIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+- Actualmente no se admiten Este de China ni Norte de China en Azure China 21Vianet.
 
 ### <a name="create-or-obtain-managed-identities"></a>Creación u obtención de identidades administradas
 
@@ -292,7 +271,7 @@ az aks create \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
     --assign-identity <identity-id> \
-    --assign-kubelet-identity <kubelet-identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
 ```
 
 Una creación correcta del clúster mediante su propia identidad administrada de kubelet contiene la siguiente salida:

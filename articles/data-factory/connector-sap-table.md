@@ -1,27 +1,29 @@
 ---
 title: Copia de datos de una tabla de SAP
-description: Obtenga información sobre cómo copiar datos desde una tabla de SAP en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a copiar datos de una tabla de SAP en almacenes de datos receptores compatibles mediante una actividad de copia efectuada en una canalización de Azure Data Factory o Azure Synapse Analytics.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/26/2021
-ms.openlocfilehash: 6ab548c2b12d36e4b1741042a78c68112a93c8f3
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: b5e60883f4af77eabcd3a59334bbf31b63d5cc49
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580153"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316596"
 ---
-# <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory
+# <a name="copy-data-from-an-sap-table-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory o Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos con desde una tabla de SAP. Para obtener más información, consulte la [información general sobre la actividad de copia](copy-activity-overview.md).
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Azure Synapse Analytics para copiar datos con una tabla de SAP como origen y destino. Para obtener más información, consulte la [información general sobre la actividad de copia](copy-activity-overview.md).
 
 >[!TIP]
->Para obtener información sobre la compatibilidad general de ADF con el escenario de integración de datos de SAP, consulte el [informe técnico sobre la integración de datos de SAP mediante Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) que contiene una introducción detallada con comparaciones y una guía sobre cada conector de SAP.
+>Para obtener información sobre la compatibilidad general con el escenario de integración de datos de SAP, consulte el [informe técnico sobre la integración de datos de SAP mediante Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) que contiene una introducción detallada con comparaciones y una guía sobre cada conector de SAP.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -63,7 +65,7 @@ Para usar este conector de tabla de SAP, necesitará lo siguiente:
 
   ![Instale el conector de SAP para .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
-- El usuario de SAP que se está usando en el conector de tabla SAP de Data Factory debe tener los siguientes permisos:
+- El usuario de SAP que se está usando en el conector de SAP Table debe tener los siguientes permisos:
 
   - Autorización para usar los destinos de llamada de función remota (RFC).
   - Permisos para la actividad “Execute” del objeto de autorización S_SDSAUTH. Puede consultar la nota de SAP 460089 sobre la mayoría de los objetos de autorización. Algunos RFC son necesarios para el conector de NCo subyacente, por ejemplo RFC_FUNCTION_SEARCH. 
@@ -72,7 +74,31 @@ Para usar este conector de tabla de SAP, necesitará lo siguiente:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de tabla de SAP.
+## <a name="create-a-linked-service-to-an-sap-table-using-ui"></a>Creación de un servicio vinculado a una tabla de SAP mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a una tabla de SAP en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque SAP y seleccione el conector de SAP Table.
+
+    :::image type="content" source="media/connector-sap-table/sap-table-connector.png" alt-text="Captura de pantalla del conector de SAP Table.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-sap-table/configure-sap-table-linked-service.png" alt-text="Captura de pantalla de la configuración de un servicio vinculado de SAP Table.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir las entidades específicas del conector de SAP Table.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -90,7 +116,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado del centro 
 | `clientId` | El id. del cliente en el sistema SAP.<br/>El valor permitido es: un número decimal de tres dígitos que se representa en forma de cadena. | Sí |
 | `language` | El idioma que usa el sistema SAP.<br/>El valor predeterminado es `EN`.| No |
 | `userName` | El nombre del usuario que tiene acceso al servidor SAP. | Sí |
-| `password` | Contraseña del usuario. Marque este campo con el tipo `SecureString` para almacenarlo de forma segura en Data Factory o para [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| `password` | Contraseña del usuario. Marque este campo con el tipo `SecureString` para almacenarlo de forma segura o para [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | `sncMode` | El indicador de activación de SNC para acceder al servidor SAP en que se encuentra la tabla.<br/>Aplicable si quiere usar SNC para conectarse al servidor SAP.<br/>Los valores permitidos son `0` (OFF es el valor predeterminado) o `1` (ON). | No |
 | `sncMyName` | El nombre SNC del iniciador para acceder al servidor de SAP en que se encuentra la tabla.<br/>Se aplica cuando `sncMode` está activado. | No |
 | `sncPartnerName` | El nombre SNC del asociado de comunicación para obtener acceso al servidor SAP en el que se encuentra la tabla.<br/>Se aplica cuando `sncMode` está activado. | No |
@@ -224,12 +250,12 @@ Para copiar datos de una tabla de SAP, se admiten las siguientes propiedades:
 | `rowCount`                         | El número de filas que se van a recuperar.                              | No       |
 | `rfcTableFields`                 | Los campos (columnas) que se copiarán de la tabla de SAP. Por ejemplo, `column0, column1`. | No       |
 | `rfcTableOptions`                | Las opciones para filtrar las filas de la tabla de SAP. Por ejemplo, `COLUMN0 EQ 'SOMEVALUE'`. Consulte también la tabla del operador de consultas de SAP que encontrará en este artículo. | No       |
-| `customRfcReadTableFunctionModule` | Un módulo de función RFC personalizado que puede usarse para leer datos de la tabla de SAP.<br>Puede usar el módulo de función RFC personalizado para definir cómo se recuperan los datos del sistema SAP y cómo se devuelven a Data Factory. El módulo de función personalizado debe tener una interfaz implementada (importación, exportación, tablas) que sea similar a `/SAPDS/RFC_READ_TABLE2`, que es la interfaz predeterminada que usa Data Factory.<br>Data Factory | No       |
+| `customRfcReadTableFunctionModule` | Un módulo de función RFC personalizado que puede usarse para leer datos de la tabla de SAP.<br>Puede usar el módulo de función RFC personalizado para definir cómo se recuperan los datos del sistema SAP y cómo se devuelven al servicio. El módulo de función personalizado debe tener una interfaz implementada (importación, exportación, tablas) que sea similar a `/SAPDS/RFC_READ_TABLE2`, que es la interfaz predeterminada que usa el servicio.| No       |
 | `partitionOption`                  | El mecanismo de partición para leer desde una tabla de SAP. Las opciones admitidas incluyen: <ul><li>`None`</li><li>`PartitionOnInt` (valores de entero normales o con relleno de ceros a la izquierda, como `0000012345`)</li><li>`PartitionOnCalendarYear` (4 dígitos con el formato "YYYY")</li><li>`PartitionOnCalendarMonth` (6 dígitos con el formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 dígitos con el formato "YYYYMMDD")</li><li>`PartitionOntime` (6 dígitos en el formato "HHMMSS", como `235959`)</li></ul> | No       |
 | `partitionColumnName`              | El nombre de la columna que se usa para particionar los datos.                | No       |
 | `partitionUpperBound`              | El valor máximo de la columna especificada en `partitionColumnName` que se usará para continuar con la partición. | No       |
 | `partitionLowerBound`              | El valor mínimo de la columna especificada en `partitionColumnName` que se usará para continuar con la partición. (Nota: `partitionLowerBound` no puede ser "0" si la opción de partición es `PartitionOnInt`). | No       |
-| `maxPartitionsNumber`              | Número máximo de particiones para dividir los datos.     | No       |
+| `maxPartitionsNumber`              | Número máximo de particiones para dividir los datos. El valor predeterminado es 1.    | No       |
 | `sapDataColumnDelimiter` | El único carácter que se usa como delimitador que se pasa al RFC de SAP para dividir los datos de salida. | No |
 
 >[!TIP]
@@ -237,11 +263,11 @@ Para copiar datos de una tabla de SAP, se admiten las siguientes propiedades:
 <br/>
 >Tomando `partitionOption` como `partitionOnInt` a modo de ejemplo, el número de filas de cada partición se calcula con esta fórmula: (filas totales entre `partitionUpperBound` y `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
->Para cargar particiones de datos en paralelo para acelerar la copia, el grado paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de la tabla de SAP. Se recomienda encarecidamente hacer que `maxPartitionsNumber` sea un múltiplo del valor de la propiedad `parallelCopies`. Cuando se copian datos en un almacén de datos basado en archivos, también se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
+>Para cargar particiones de datos en paralelo para acelerar la copia, el grado paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, el servicio genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de la tabla de SAP. Se recomienda encarecidamente hacer que `maxPartitionsNumber` sea un múltiplo del valor de la propiedad `parallelCopies`. Cuando se copian datos en un almacén de datos basado en archivos, también se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
 
 
 >[!TIP]
-> `BASXML` está habilitado de forma predeterminada para este conector de tabla de SAP en el lado de Azure Data Factory.
+> `BASXML` está habilitado de forma predeterminada para este conector de SAP Table en el lado del servicio.
 
 En `rfcTableOptions`, puede usar los siguientes operadores de consulta SAP comunes para filtrar las filas:
 
@@ -333,9 +359,9 @@ A continuación se ilustra cómo funciona el conector de SAP Table con el módul
 
 1. Invoque "Módulo de función personalizado" con los parámetros establecidos como se indica a continuación:
 
-    - QUERY_TABLE: el nombre de la tabla que se establece en el conjunto de datos de ADF SAP Table; 
-    - Delimitador: el delimitador que se establece en el origen de ADF SAP Table; 
-    - ROWCOUNT/Opción/Campos: el recuento de filas/la opción agregada/los campos establecidos en el origen de ADF Table.
+    - QUERY_TABLE: el nombre de la tabla que se establece en el conjunto de datos de SAP Table; 
+    - Delimitador: el delimitador que se establece en el origen de SAP Table; 
+    - ROWCOUNT/Opción/Campos: el recuento de filas/la opción agregada/los campos establecidos en el origen de Table.
 
 1. Obtenga el resultado y analice los datos como se indica a continuación:
 
@@ -351,9 +377,9 @@ A continuación se ilustra cómo funciona el conector de SAP Table con el módul
 
 ## <a name="data-type-mappings-for-an-sap-table"></a>Asignaciones de tipos de datos para una tabla de SAP
 
-Al copiar datos desde una tabla de SAP, se usan las siguientes asignaciones de tipos de datos de tabla de SAP en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para más información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Al copiar datos desde una tabla de SAP, se usan las siguientes asignaciones de tipos de datos de SAP Table en los tipos de datos provisionales del servicio. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para más información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
-| Tipo ABAP para SAP | Tipo de datos provisionales de Data Factory |
+| Tipo ABAP para SAP | Tipo de datos provisional del servicio |
 |:--- |:--- |
 | `C` (cadena) | `String` |
 | `I` (entero) | `Int32` |
@@ -371,4 +397,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

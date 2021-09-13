@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
-ms.openlocfilehash: 36f05d2803d4ac347ef9dc8bf8e840e3f4a63cac
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e12a4226357160e2269034136a2df9c671b66313
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761288"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734086"
 ---
 La característica NER para Text Analytics devuelve las siguientes categorías de entidad generales (no de identificación). Por ejemplo, al enviar solicitudes al punto de conexión `/entities/recognition/general`.
 
@@ -32,7 +32,7 @@ La característica NER para Text Analytics devuelve las siguientes categorías d
 | [Número de teléfono](#category-phonenumber) | Números de teléfono. |
 | [Correo electrónico](#category-email) | Direcciones de correo. |
 | [URL](#category-url) | Direcciones URL de sitios web. |
-| [IP](#category-ip) | Direcciones IP de red. |
+| [IPAddress](#category-ipaddress) | Direcciones IP de red. |
 | [DateTime](#category-datetime) | Fechas y horas del día. |
 | [Cantidad](#category-quantity) | Unidades y medidas numéricas. |
 
@@ -515,7 +515,7 @@ Este categoría contiene la entidad siguiente:
    :::column-end:::
 :::row-end:::
 
-### <a name="category-ip"></a>Categoría: IP
+### <a name="category-ipaddress"></a>Categoría: IPAddress
 
 Este categoría contiene la entidad siguiente:
 
@@ -523,7 +523,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="":::
         **Entidad**
 
-        IP
+        IPAddress
 
     :::column-end:::
     :::column span="2":::

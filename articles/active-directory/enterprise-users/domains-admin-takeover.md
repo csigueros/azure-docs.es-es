@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/18/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f036f96b4747fb6b712bf032d6f2ec3cb38e6a
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 38ca8313620eda7c8adad52373aab94bcb151abe
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288039"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425939"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 
@@ -95,13 +95,16 @@ La adquisición de administración externa es compatible con los servicios en l�
 
 Los planes de servicio compatibles incluyen:
 
-- PowerApps Free
-- PowerFlow Free
+- Power Apps Gratis
+- Power Automate Gratis
 - RMS para individuos
 - Microsoft Stream
 - Evaluación gratuita de Dynamics 365
 
 La adquisición de administración externa no es compatible con ningún servicio con planes de servicio que incluyan SharePoint, OneDrive o Skype Empresarial, por ejemplo, con una suscripción gratuita de Office. 
+
+> [!NOTE]
+> La adquisición de administración externa no se admite entre límites de nube (por ejemplo, de Azure Commercial a Azure Government).  En estos escenarios se recomienda realizar una adquisición de administración externa en otro inquilino de Azure Commercial y luego eliminar el dominio de este inquilino para poder comprobar correctamente en el inquilino de Azure Government de destino.
 
 También puede usar la [opción **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para quitar el nombre de dominio de la organización no administrada y comprobarlo en la organización deseada. 
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: a877ee39c2d5a3760df50ebb3575793d1500de96
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 0430217ab8c2f113127c6a2e519d9e394fc3d3e7
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795538"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318688"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importación y exportación de datos en Azure Cache for Redis
 
@@ -73,7 +73,12 @@ La exportación permite exportar los datos almacenados en Azure Cache for Redis 
 2. Seleccione **Elegir contenedor de almacenamiento** y seleccione la cuenta de almacenamiento que desee. La cuenta de almacenamiento debe encontrarse en la misma región y suscripción que la memoria caché.
 
    > [!IMPORTANT]
-   > La exportación funciona con blobs en páginas, que son compatibles con las cuentas de almacenamiento del modelo clásico y de Resource Manager, aunque en este momento no lo son con las cuentas de Blob Storage. Para más información, vea [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
+   >
+   > - La exportación funciona con blobs en páginas que son compatibles con las cuentas de almacenamiento del modelo clásico y de Resource Manager.
+   > - Azure Cache for Redis no admite la exportación a cuentas de almacenamiento de ADLS Gen2.
+   > - aunque en este momento no lo son con las cuentas de Blob Storage.
+   >
+   > Para más información, vea [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
    >
 
     ![Cuenta de almacenamiento](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
@@ -154,7 +159,7 @@ Sí, para instrucciones de PowerShell, consulte [Importación de una instancia d
 
 A la izquierda, si permanece en la hoja **Importar datos** o **Exportar datos** durante más de 15 minutos antes de iniciar la operación, recibirá un mensaje de error similar al siguiente ejemplo:
 
-```output
+```azcopy
 The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
 ```
 

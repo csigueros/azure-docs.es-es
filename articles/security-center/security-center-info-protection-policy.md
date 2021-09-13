@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2020
+ms.date: 08/17/2021
 ms.author: memildin
-ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 86edda1fa9aff73a5f6daca1494a81ab94aa9e3b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099410"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322908"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Directiva de SQL Information Protection en Azure Security Center
  
@@ -31,10 +31,7 @@ El mecanismo de clasificación se basa en los siguientes dos elementos:
 
 Las opciones de la directiva de protección de la información dentro de Security Center proporcionan un conjunto predefinido de etiquetas y tipos de información que sirven como valores predeterminados para el motor de clasificación. Puede personalizar la directiva según las necesidades de su organización, tal y como se describe a continuación.
 
-> [!IMPORTANT]
-> Para personalizar la directiva de protección de la información de su inquilino de Azure, necesitará privilegios administrativos en el grupo de administración raíz del inquilino. Obtenga más información en [Concesión y solicitud de visibilidad para todos los inquilinos](tenant-wide-permissions-management.md).
-
-:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="La página que muestra la directiva de SQL Information Protection":::
+:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="La página que muestra la directiva de SQL Information Protection.":::
  
 
 
@@ -60,7 +57,7 @@ En la página **Precios y configuración** de Security Center, seleccione **SQL 
 > [!NOTE]
 > Esta opción solo aparece para los usuarios con permisos a nivel de inquilino. [Concesión de permisos de todo el inquilino a uno mismo](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
-:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Acceso a la directiva de SQL Information Protection desde la página Precios y configuración de Azure Security Center":::
+:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Acceso a la directiva de SQL Information Protection desde la página Precios y configuración de Azure Security Center.":::
 
 
 
@@ -72,7 +69,7 @@ Use la recomendación de Security Center, "Los datos confidenciales de las bases
 
 1. En la página **Recomendaciones** de Security Center, busque la recomendación **Los datos confidenciales de las bases de datos SQL deben clasificarse**.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Búsqueda de la recomendación que da acceso a las directivas de SQL Information Protection":::
+    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Búsqueda de la recomendación que da acceso a las directivas de SQL Information Protection.":::
 
 1. Desde la página de detalles de la recomendación, seleccione una base de datos en las pestañas **correcto** o **incorrecto**.
 
@@ -88,13 +85,13 @@ Use la recomendación de Security Center, "Los datos confidenciales de las bases
 
 1. Desde Azure Portal, abra Azure SQL.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Apertura de Azure SQL desde Azure Portal":::
+    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Apertura de Azure SQL desde Azure Portal.":::
 
 1. Seleccione cualquier base de datos.
 
 1. En el área **Seguridad** del menú, abra la página **Clasificación y de detección de datos** (1) y seleccione **Configurar** (2).
 
-    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Apertura de la directiva de SQL Information Protection desde Azure SQL":::
+    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Apertura de la directiva de SQL Information Protection desde Azure SQL.":::
 
 --- 
 
@@ -105,11 +102,11 @@ Para administrar y personalizar los tipos de información:
 
 1. Seleccione **Administrar tipos de información**.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Administración de los tipos de información para la directiva de protección de la información":::
+    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Administración de los tipos de información para la directiva de protección de la información.":::
 
 1. Para agregar un nuevo tipo, seleccione **Crear tipo de información**. Puede configurar un nombre, una descripción y cadenas de patrón de búsqueda para el tipo de información. Las cadenas de patrón de búsqueda pueden usar opcionalmente palabras clave con caracteres comodín (con el carácter "%"), que el motor de detección automática usa para identificar datos confidenciales en las bases de datos, en función de los metadatos de las columnas.
  
-    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Configuración de un nuevo tipo de información para la directiva de protección de la información":::
+    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Configuración de un nuevo tipo de información para la directiva de protección de la información.":::
 
 1. También puede modificar los tipos integrados mediante la adición de cadenas de patrón de búsqueda adicionales, la deshabilitación de algunas de las cadenas existentes o el cambio de la descripción. 
 
@@ -129,11 +126,19 @@ Para administrar y personalizar los tipos de información:
 
 Puede descargar un archivo JSON con las etiquetas y los tipos de información definidos, editar el archivo en el editor de su elección y, a continuación, importar el archivo actualizado. 
 
-:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Exportación e importación de la directiva de protección de la información":::
+:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Exportación e importación de la directiva de protección de la información.":::
 
 > [!NOTE]
 > Necesitará permisos de nivel de inquilino para importar un archivo de directiva. 
 
+
+## <a name="permissions"></a>Permisos
+
+Para personalizar la directiva de protección de la información de su inquilino de Azure, necesitará las siguientes acciones en el grupo de administración raíz del inquilino:
+  - Microsoft.Security/informationProtectionPolicies/read
+  - Microsoft.Security/informationProtectionPolicies/write 
+
+Obtenga más información en [Concesión y solicitud de visibilidad para todos los inquilinos](tenant-wide-permissions-management.md).
 
 ## <a name="manage-sql-information-protection-using-azure-powershell"></a>Administración de la protección de la información de SQL mediante Azure PowerShell
 

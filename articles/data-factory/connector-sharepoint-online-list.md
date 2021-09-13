@@ -1,22 +1,25 @@
 ---
-title: Copia de datos de una lista de SharePoint Online mediante Azure Data Factory
-description: Aprenda a copiar datos de una lista de SharePoint Online en almacenes de datos receptores compatibles mediante una actividad de copia efectuada en una canalización de Azure Data Factory.
+title: Copia de datos de SharePoint Online List
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a copiar datos de una lista de SharePoint Online en almacenes de datos receptores compatibles mediante una actividad de copia efectuada en una canalización de Azure Data Factory o Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: c6ce2d796bbe679f73804fef91079db2ca44c28b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 1b21416e06948c9a32831dc23c66c31b62a3ddae
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748884"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307828"
 ---
-# <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copia de datos de una lista de SharePoint Online mediante Azure Data Factory
+# <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos de una lista de SharePoint Online mediante Azure Data Factory o Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de una lista de SharePoint Online. El artículo se basa en [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Azure Synapse para copiar datos desde SharePoint Online List. El artículo se basa en [Actividad de copia](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -68,7 +71,31 @@ El conector de lista de SharePoint Online usa la autenticación de entidad de se
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas del conector de lista de SharePoint Online.
+## <a name="create-a-linked-service-to-a-sharepoint-online-list-using-ui"></a>Creación de un servicio vinculado a SharePoint Online List mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a SharePoint Online List en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque SharePoint y seleccione el conector de SharePoint Online List.
+
+    :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-list-connector.png" alt-text="Captura de pantalla del conector de SharePoint Online List.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-sharepoint-online-list/configure-sharepoint-online-list-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado para SharePoint Online List.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades específicas del conector de lista de SharePoint Online.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -79,7 +106,7 @@ Las siguientes propiedades son compatibles con un servicio vinculado de lista de
 | type                | La propiedad type debe establecerse en  **SharePointOnlineList**.  | Sí          |
 | siteUrl             | Dirección URL del sitio de SharePoint Online: por ejemplo, `https://contoso.sharepoint.com/sites/siteName`. | Sí          |
 | servicePrincipalId  | Identificador de la aplicación (cliente) registrada en Azure Active Directory. | Sí          |
-| servicePrincipalKey | La clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí          |
+| servicePrincipalKey | La clave de la aplicación. Marque este campo como **SecureString** para almacenarlo de forma segura, o bien haga [referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí          |
 | tenantId            | Identificador del inquilino donde reside la aplicación.          | Sí          |
 | connectVia          | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en [Prerrequisitos](#prerequisites), anteriormente en este artículo. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. | No           |
 
@@ -179,13 +206,13 @@ Para copiar datos de la lista de SharePoint Online, se admiten las siguientes pr
 ```
 
 > [!NOTE]
-> En Azure Data Factory, no puede seleccionar más de una *opción* de tipo de datos para un origen de la lista de SharePoint Online.
+> No es posible seleccionar más de una *opción* de tipo de datos para un origen de la lista de SharePoint Online.
 
 ## <a name="data-type-mapping-for-sharepoint-online-list"></a>Asignación de tipos de datos para la lista de SharePoint Online
 
-Cuando se copian datos de una lista de SharePoint Online, se usan las siguientes asignaciones entre los tipos de datos de la lista de SharePoint Online y los tipos de datos provisionales de Azure Data Factory. 
+Cuando se copian datos de una lista de SharePoint Online, se usan las siguientes asignaciones entre los tipos de datos de la lista de SharePoint Online y los tipos de datos provisionales usados internamente por el servicio.
 
-| **Tipo de datos de SharePoint Online**                 | **Tipo de datos de OData**                                  | **Tipo de datos provisional de Azure Data Factory** |
+| **Tipo de datos de SharePoint Online**                 | **Tipo de datos de OData**                                  | **Tipo de datos provisional** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
 | Línea de texto única                             | Edm.String                                           | String                                   |
 | Varias líneas de texto                          | Edm.String                                           | String                                   |
@@ -242,4 +269,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores en Azure Data Factory, consulte los [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

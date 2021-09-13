@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: azure-resource-manager
 author: tfitzmac
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2021
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 12571cb0a34df67eab67eb9ebb45c64a95e90bf5
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 1197b15f313746c0a8542bfadeb4e0123818fca8
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761232"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575641"
 ---
 | Recurso | Límite |
 | --- | --- |
@@ -24,6 +24,7 @@ ms.locfileid: "111761232"
 | Etiquetas por suscripción<sup>1</sup> |50 |
 | Cálculos de etiquetas únicas por suscripción<sup>1</sup> | 80 000 |
 | [Implementaciones de nivel de suscripción](../articles/azure-resource-manager/templates/deploy-to-subscription.md) por ubicación | 800<sup>2</sup> |
+| Ubicaciones de las [implementaciones en el nivel de suscripción](../articles/azure-resource-manager/templates/deploy-to-subscription.md) | 10 |
 
 <sup>1</sup>Puede aplicar hasta 50 etiquetas directamente a una suscripción. Sin embargo, la suscripción puede contener un número ilimitado de etiquetas que se aplican a los grupos de recursos y recursos de la misma. El número de etiquetas por recurso o grupo de recursos se limita a 50. Resource Manager devuelve una [lista de valores y nombres de etiqueta únicos](/rest/api/resources/tags) en la suscripción solo cuando haya 80 000 etiquetas, o menos. Sin embargo, aunque haya más, es posible encontrar un recurso por etiqueta.
 

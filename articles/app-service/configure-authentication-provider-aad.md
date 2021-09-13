@@ -4,13 +4,13 @@ description: Aprenda a configurar la autenticación de Azure Active Directory co
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: b1254e7db0e62d08ea2a3d6d30f2abd379675c55
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: 2404d8af682f119b68c78d6dc5cacc3d30201c17
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078322"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397098"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD
 
@@ -149,7 +149,7 @@ En la actualidad, esto permite a _cualquier_ aplicación cliente en el inquilino
 1. En **Permisos de aplicación**, seleccione el rol de aplicación que creó anteriormente y, a continuación, seleccione **Agregar permisos**.
 1. Asegúrese de hacer clic en **Conceder consentimiento del administrador** para autorizar a la aplicación cliente solicitar el permiso.
 1. Al igual que en el escenario anterior (antes de que se agregaran los roles), ahora puede [solicitar un token de acceso](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) para el mismo destino`resource`, y el token de acceso incluirá una `roles` solicitud que contiene los roles de aplicación que se autorizaron para la aplicación cliente.
-1. En el App Service de destino o el código de la aplicación de función, ahora puede validar que los roles esperados están presentes en el token (esto no se realiza mediante autenticación o autorización de App Service). Para más información, consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario).
+1. En el App Service de destino o el código de la aplicación de función, ahora puede validar que los roles esperados están presentes en el token (esto no se realiza mediante autenticación o autorización de App Service). Para más información, consulte [Access user claims](configure-authentication-user-identities.md#access-user-claims-in-app-code) (Acceso a las notificaciones de usuario).
 
 Ahora ha configurado una aplicación cliente demonio que puede acceder a la aplicación de App Service con su propia identidad.
 

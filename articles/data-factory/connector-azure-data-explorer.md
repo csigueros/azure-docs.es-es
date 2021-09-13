@@ -1,18 +1,20 @@
 ---
 title: Copia de datos a o desde Azure Data Explorer
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar con Azure Data Explorer como origen o destino mediante una actividad de copia de una canalización de Azure Data Factory.
-ms.author: orspodek
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 606d10694b6806b62871ddf24afd259d7bc224bc
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: 4f3718699e7438b3b45c84eebebbbbf75126d793
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482982"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304629"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copia de datos con Azure Data Explorer como origen o destino mediante Azure Data Factory
 
@@ -48,14 +50,39 @@ El conector de Azure Data Explorer permite hacer lo siguiente:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Azure Data Explorer.
+## <a name="create-a-linked-service-to-azure-data-explorer-using-ui"></a>Creación de un servicio vinculado a Azure Data Explorer mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Azure Data Explorer en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Explorer y seleccione el conector de Azure Data Explorer (Kusto).
+
+    :::image type="content" source="media/connector-azure-data-explorer/azure-data-explorer-connector.png" alt-text="Captura de pantalla del conector de Azure Data Explorer (Kusto).":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-azure-data-explorer/configure-azure-data-explorer-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado a Azure Data Explorer.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades específicas del conector de Azure Data Explorer.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
 El conector de Azure Data Explorer admite los siguientes tipos de autenticación. Consulte las secciones correspondientes para más información:
 
 - [Autenticación de entidad de servicio](#service-principal-authentication)
-- [Identidades administradas para la autenticación de recursos de Azure](#managed-identity)
+- [Autenticación de identidad administrada asignada por el sistema](#managed-identity)
+- [Autenticación de identidad administrada asignada por el usuario](#user-assigned-managed-identity-authentication)
 
 ### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
 
@@ -108,9 +135,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
+### <a name="system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> Autenticación de identidad administrada asignada por el sistema
 
-Para usar las identidades administradas para la autenticación de recursos de Azure, siga estos pasos para conceder los permisos:
+Para obtener más información sobre las identidades administradas para los recursos de Azure, vea [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
+
+Para usar la autenticación de identidad administrada asignada por el sistema, siga estos pasos a fin de conceder los permisos:
 
 1. [Recupere la información de la identidad administrada de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de **Id. del objeto de identidad administrada** que se ha generado junto con la factoría.
 
@@ -131,7 +160,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 | database | Nombre de la base de datos. | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
-**Ejemplo: Uso de la autenticación de identidad administrada**
+**Ejemplo: uso de la autenticación de identidad administrada asignada por el sistema**
 
 ```json
 {
@@ -141,6 +170,46 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
         "typeProperties": {
             "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
+        }
+    }
+}
+```
+
+### <a name="user-assigned-managed-identity-authentication"></a>Autenticación de identidad administrada asignada por el usuario
+Para obtener más información sobre las identidades administradas para los recursos de Azure, vea [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md)
+
+Para usar la autenticación de identidad administrada asignada por el usuario, siga estos pasos:
+
+1. [Cree una o varias identidades administradas asignadas por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) y conceda permiso en Azure Data Explorer. Consulte [Administración de permisos de base de datos de Azure Data Explorer](/azure/data-explorer/manage-database-permissions) para obtener información detallada sobre los roles y los permisos, así como información sobre la administración de permisos. En general, debe:
+
+    - **Como origen**, conceder al menos el rol **Visor de base de datos** a la base de datos.
+    - **Como receptor**, conceder al menos el rol **Agente de ingesta de base de datos** a la base de datos.
+     
+2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](data-factory-service-identity.md#credentials) para cada identidad administrada asignada por el usuario.
+
+Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad **type** se debe establecer en **AzureDataExplorer**. | Sí |
+| endpoint | Dirección URL del punto de conexión del clúster de Azure Data Explorer, con el formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sí |
+| database | Nombre de la base de datos. | Sí |
+| credentials | Especifique la identidad administrada asignada por el usuario como el objeto de credencial. | Sí |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
+
+**Ejemplo: uso de la autenticación de identidad administrada asignada por el usuario**
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
         }
     }
 }

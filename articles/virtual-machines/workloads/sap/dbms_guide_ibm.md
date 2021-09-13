@@ -10,22 +10,22 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2021
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e21443d6f04d693f64d92b71f3f616d1083bf82
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 34de5fbfbccd84c716684d1f98a16c4d0a5e6344
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146246"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322141"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP
 
 Con Microsoft Azure, puede migrar la aplicación SAP existente que se ejecuta en IBM Db2 para Linux, UNIX y Windows (LUW) a Azure Virtual Machines. Con SAP en IBM Db2 para LUW, los administradores y los desarrolladores pueden seguir usando las mismas herramientas de desarrollo y administración, disponibles de forma local.
 Se puede encontrar información general sobre la ejecución de SAP Business Suite en IBM Db2 para LUW en SAP Community Network (SCN) en <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
-Para obtener más información y actualizaciones de SAP en Db2 para LUW en Azure, consulte la nota de SAP [2233094]. 
+Para obtener más información y actualizaciones de SAP en Db2 para LUW en Azure, vea la nota de SAP [2233094]. 
 
 Hay varios artículos publicados sobre la carga de trabajo de SAP en Azure.  Se recomienda empezar por la [Introducción a la carga de trabajo de SAP en Azure](./get-started.md) y después elegir el área de interés.
 
@@ -51,7 +51,7 @@ Como lectura previa a este documento, debe haber leído el documento [Considerac
 ## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM Db2 para Linux, UNIX y compatibilidad de versiones de Windows
 SAP en IBM Db2 para LUW en los servicios de Microsoft Azure Virtual Machines es compatible a partir de la versión 10.5 de Db2.
 
-Para obtener más información de los tipos de VM de Azure y los productos de SAP compatibles, consulte la nota de SAP [1928533].
+Para más información de los tipos de máquina virtual de Azure y los productos de SAP compatibles, consulte la nota de SAP [1928533].
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de IBM Db2 para Linux, UNIX y Windows para instalaciones de SAP en máquinas virtuales de Azure
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
@@ -73,7 +73,7 @@ También puede usar grupos de almacenamiento de Windows (solo disponibles en Win
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-Para la máquina virtual de Azure de la serie M, se puede reducir la latencia de escritura en los registros de transacciones mediante factores, en comparación con el rendimiento de Azure Premium Storage, cuando se usa el Acelerador de escritura de Azure. Por tanto, se debe implementar el Acelerador de escritura de Azure para los discos duros virtuales que forman el volumen para los registros de transacciones de Db2. En el documento [Acelerador de escritura](../../how-to-enable-write-accelerator.md) se pueden leer los detalles.
+Para la máquina virtual de Azure de la serie M, se puede reducir la latencia de escritura en los registros de transacciones mediante factores, en comparación con el rendimiento de Azure Premium Storage, cuando se usa el Acelerador de escritura de Azure. Por tanto, se debe implementar el Acelerador de escritura de Azure para los discos duros virtuales que forman el volumen para los registros de transacciones de Db2. En el documento [Acelerador de escritura](../../how-to-enable-write-accelerator.md) se pueden leer los detalles.
 
 IBM Db2 LUW 11.5 publicó compatibilidad con el tamaño del sector de 4 KB. Para las versiones anteriores de Db2, se debe usar un tamaño de sector de 512 bytes. Los discos SSD prémium son nativos de 4 KB y tienen una emulación de 512 bytes. El disco Ultra usa un tamaño de sector de 4 KB de forma predeterminada. Puede habilitar el tamaño del sector de 512 bytes durante la creación del disco Ultra. Los detalles están disponibles en [Uso de los discos Ultra de Azure](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). Este tamaño de sector de 512 bytes es un requisito previo para las versiones de IBM Db2 LUW inferiores a 11.5.
 
@@ -82,54 +82,109 @@ En Windows, si se usan bloques de almacenamiento para las rutas de acceso de alm
 
 ## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Recomendación sobre la estructura de disco y las máquinas virtuales para la implementación de IBM Db2
 
-Las aplicaciones de IBM Db2 para SAP NetWeaver se admiten en cualquier tipo de VM que aparezca en la nota de soporte de SAP [1928533].  Las familias de máquinas virtuales recomendadas para ejecutar la base de datos IBM Db2 son las series Esd_v4/Eas_v4/Es_v3 y M/M_v2 para grandes bases de datos de varios terabytes. El rendimiento de escritura en disco del registro de transacciones de IBM Db2 se puede mejorar si se habilita el Acelerador de escritura de la serie M. 
+Las aplicaciones de IBM Db2 para SAP NetWeaver se admiten en cualquier tipo de máquina virtual que aparezca en la nota de soporte de SAP [1928533].  Las familias de máquinas virtuales recomendadas para ejecutar la base de datos IBM Db2 son las series Esd_v4/Eas_v4/Es_v3 y M/M_v2 para grandes bases de datos de varios terabytes. El rendimiento de escritura en disco del registro de transacciones de IBM Db2 se puede mejorar si se habilita el Acelerador de escritura de la serie M. 
 
-A continuación, se facilita una configuración de línea de base para varios tamaños y usos de las implementaciones de SAP en DB2, que van de pequeña a grande. La lista se basa en Azure Premium Storage. Sin embargo, el disco Ultra de Azure también es totalmente compatible con DB2 y también se puede usar. Use los valores de capacidad, rendimiento de ráfaga e IOPS de ráfaga para definir la configuración del disco Ultra. Puede limitar la IOPS para /db2/<SID>/log_dir en torno a 5000 IOPS. 
+A continuación, se facilita una configuración de línea de base para varios tamaños y usos de las implementaciones de SAP en DB2, que van de pequeña a grande. La lista se basa en Azure Premium Storage. Sin embargo, el disco Ultra de Azure también es totalmente compatible con DB2 y también se puede usar. Use los valores de capacidad, rendimiento de ráfaga e IOPS de ráfaga para definir la configuración del disco Ultra. Puede limitar la IOPS para /db2/```<SID>```/log_dir en torno a 5000 IOPS. 
 
 #### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Sistema SAP extra pequeño: tamaño de la base de datos de 50 a 200 GB: ejemplo de administrador de soluciones
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  ||  |
-|vCPU: 4 |/db2/<SID>/sapdata |P10 |2 |1,000  |200  |256  |7000  |340  |256 KB |ReadOnly |
-|RAM: 32 GiB |/db2/<SID>/saptmp |P6 |1 |240  |50  |128  |3500  |170  | ||
-| |/db2/<SID>/log_dir |P6 |2 |480  |100  |128  |7000  |340  |64 KB ||
-| |/db2/<SID>/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  || |
+|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7000  |340  |256 KB |ReadOnly |
+|RAM: 32 GiB |/db2/```<SID>```/saptmp |P6 |1 |240  |50  |128  |3500  |170  | ||
+| |/db2/```<SID>```/log_dir |P6 |2 |480  |100  |128  |7000  |340  |64 KB ||
+| |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  || |
 
 #### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>Sistema SAP pequeño: tamaño de la base de datos de 200 a 750 GB: Small Business Suite
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 16 |/db2/<SID>/sapdata |P15 |4 |4400  |500  |1024  |14 000  |680  |256 KB |ReadOnly |
-|RAM: 128 GB |/db2/<SID>/saptmp |P6 |2 |480  |100  |128  |7000  |340  |128 KB ||
-| |/db2/<SID>/log_dir |P15 |2 |2200  |250  |512  |7000  |340  |64 KB ||
-| |/db2/<SID>/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  ||| 
+|vCPU: 16 |/db2/```<SID>```/sapdata |P15 |4 |4400  |500  |1024  |14 000  |680  |256 KB |ReadOnly |
+|RAM: 128 GB |/db2/```<SID>```/saptmp |P6 |2 |480  |100  |128  |7000  |340  |128 KB ||
+| |/db2/```<SID>```/log_dir |P15 |2 |2200  |250  |512  |7000  |340  |64 KB ||
+| |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  ||| 
 
 #### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>Sistema SAP medio: tamaño de base de datos de 500 a 1000 GB: Small Business Suite
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 32 |/db2/<SID>/sapdata |P30 |2 |10 000  |400  |2048  |10 000  |400  |256 KB |ReadOnly |
-|RAM: 256 GiB |/db2/<SID>/saptmp |P10 |2 |1,000  |200  |256  |7000  |340  |128 KB ||
-| |/db2/<SID>/log_dir |P20 |2 |4600  |300  |1024  |7000  |340  |64 KB ||
-| |/db2/<SID>/offline_log_dir |P15 |1 |1 100  |125  |256  |3500  |170  ||| 
+|vCPU: 32 |/db2/```<SID>```/sapdata |P30 |2 |10 000  |400  |2048  |10 000  |400  |256 KB |ReadOnly |
+|RAM: 256 GiB |/db2/```<SID>```/saptmp |P10 |2 |1,000  |200  |256  |7000  |340  |128 KB ||
+| |/db2/```<SID>```/log_dir |P20 |2 |4600  |300  |1024  |7000  |340  |64 KB ||
+| |/db2/```<SID>```/offline_log_dir |P15 |1 |1 100  |125  |256  |3500  |170  ||| 
 
 #### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>Sistema SAP grande: tamaño de la base de datos de 750 a 2000 GB: Business Suite
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 64 |/db2/<SID>/sapdata |P30 |4 |20 000  |800  |4.096  |20 000  |800  |256 KB |ReadOnly |
-|RAM: 504 GiB |/db2/<SID>/saptmp |P15 |2 |2200  |250  |512  |7000  |340  |128 KB ||
-| |/db2/<SID>/log_dir |P20 |4 |9200  |600  |2048  |14 000  |680  |64 KB ||
-| |/db2/<SID>/offline_log_dir |P20 |1 |2,300  |150  |512  |3500  |170  || |
+|vCPU: 64 |/db2/```<SID>```/sapdata |P30 |4 |20 000  |800  |4.096  |20 000  |800  |256 KB |ReadOnly |
+|RAM: 504 GiB |/db2/```<SID>```/saptmp |P15 |2 |2200  |250  |512  |7000  |340  |128 KB ||
+| |/db2/```<SID>```/log_dir |P20 |4 |9200  |600  |2048  |14 000  |680  |64 KB ||
+| |/db2/```<SID>```/offline_log_dir |P20 |1 |2,300  |150  |512  |3500  |170  || |
 
 #### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>Sistema SAP grande de varios terabytes: tamaño de base de datos de 2 TB o más: Sistema Global Business Suite
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3500  |170  || |
-|vCPU: 128 |/db2/<SID>/sapdata |P40 |4 |30,000  |1000  |8192  |30,000  |1000  |256 KB |ReadOnly |
-|RAM:  2048 GiB |/db2/<SID>/saptmp |P20 |2 |4600  |300  |1024  |7000  |340  |128 KB ||
-| |/db2/<SID>/log_dir |P30 |4 |20 000  |800  |4.096  |20 000  |800  |64 KB |WriteAccelerator |
-| |/db2/<SID>/offline_log_dir |P30 |1 |5\.000  |200  |1024  |5\.000  |200  || |
+|vCPU: 128 |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1000  |8192  |30,000  |1000  |256 KB |ReadOnly |
+|RAM:  2048 GiB |/db2/```<SID>```/saptmp |P20 |2 |4600  |300  |1024  |7000  |340  |128 KB ||
+| |/db2/```<SID>```/log_dir |P30 |4 |20 000  |800  |4.096  |20 000  |800  |64 KB |WriteAccelerator |
+| |/db2/```<SID>```/offline_log_dir |P30 |1 |5\.000  |200  |1024  |5\.000  |200  || |
+
+
+### <a name="using-azure-netapp-files"></a>Uso de Azure NetApp Files
+El uso de volúmenes NFS v4.1 basados en Azure NetApp Files (ANF) se admite con IBM Db2, hospedado en el sistema operativo invitado SUSE o Red Hat Linux. Debe crear al menos cuatro volúmenes diferentes como los siguientes:
+
+- Un volumen compartido para saptmp1, sapmnt, usr_sap, ```<sid>```_home, db2```<sid>```_home, db2_software
+- Un volumen de datos para los directorios sapdata del 1 al 4
+- Un volumen de registro para el directorio de registro de la fase de puesta al día
+- Un volumen para los archivos de registro y las copias de seguridad
+
+Un quinto volumen posible podría ser un volumen de ANF que se usa para copias de seguridad a más largo plazo usadas para crear instantáneas y almacenarlas en el almacén de blobs de Azure.
+
+La configuración podría ser similar a la siguiente:
+
+![Ejemplo de una configuración de Db2 mediante ANF](./media/dbms_guide_ibm/anf-configuration-example.png)
+
+
+El nivel de rendimiento y el tamaño de los volúmenes hospedados en ANF deben elegirse en función de los requisitos de rendimiento. Pero se recomienda usar el nivel de rendimiento Ultra para los datos y el volumen de registro. No se admite la combinación de tipos de almacenamiento compartido y en bloque para los datos y el volumen de registro.
+
+En cuanto a las opciones de montaje, el montaje de esos volúmenes podría parecerse al siguiente (debe reemplazar ```<SID>``` y ```<sid>``` por el SID de su sistema SAP):
+
+```
+vi /etc/idmapd.conf   
+ # Example
+ [General]
+ Domain = defaultv4iddomain.com
+ [Mapping]
+ Nobody-User = nobody
+ Nobody-Group = nobody
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2shared /mnt 
+mkdir -p /db2/Software /db2/AN1/saptmp /usr/sap/<SID> /sapmnt/<SID> /home/<sid>adm /db2/db2<sid> /db2/<SID>/db2_software
+mkdir -p /mnt/Software /mnt/saptmp  /mnt/usr_sap /mnt/sapmnt /mnt/<sid>_home /mnt/db2_software /mnt/db2<sid>
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2data /mnt
+mkdir -p /db2/AN1/sapdata/sapdata1 /db2/AN1/sapdata/sapdata2 /db2/AN1/sapdata/sapdata3 /db2/AN1/sapdata/sapdata4
+mkdir -p /mnt/sapdata1 /mnt/sapdata2 /mnt/sapdata3 /mnt/sapdata4
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2log /mnt 
+mkdir /db2/AN1/log_dir
+mkdir /mnt/log_dir
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2backup /mnt
+mkdir /db2/AN1/backup
+mkdir /mnt/backup
+mkdir /db2/AN1/offline_log_dir /db2/AN1/db2dump
+mkdir /mnt/offline_log_dir /mnt/db2dump
+umount /mnt
+```
+
+>[!NOTE]
+> Las opciones de montaje "hard" y "sync" son necesarias.
 
 
 ### <a name="backuprestore"></a>Copia de seguridad y restauración
@@ -145,7 +200,7 @@ Como en las implementaciones sin sistema operativo, el rendimiento de las copias
 
 Para aumentar la cantidad de destinos en los que escribir, existen dos opciones que se pueden usar o combinar según sus necesidades:
 
-* Seccionar el volumen de destino de la copia de seguridad en varios discos con el fin de mejorar el rendimiento de IOPS en ese volumen seccionado
+* Seccionamiento del volumen de destino de la copia de seguridad en varios discos para mejorar el rendimiento de IOPS en ese volumen seccionado
 * Uso de más de un directorio de destino en el que escribir copias de seguridad
 
 >[!NOTE]
@@ -172,9 +227,9 @@ Para las implementaciones de Db2 en Windows, se recomienda usar la funcionalidad
 
 
 ### <a name="specifics-for-linux-deployments"></a>Características específicas para las implementaciones de Linux
-Mientras la cuota actual de IOPS por disco sea suficiente, se pueden almacenar todos los archivos de base de datos en un solo disco. Mientras que siempre debe separar los archivos de datos y los de registro de transacciones en otros discos o discos duros virtuales.
+Mientras la cuota actual de IOPS por disco sea suficiente, se pueden almacenar todos los archivos de base de datos en un solo disco. Mientras que siempre debe separar los archivos de datos y los de registro de transacciones en otros discos.
 
-Como alternativa, si el rendimiento de IOPS o E/S de un solo disco duro virtual de Azure no es suficiente, puede usar LVM (Administrador de discos lógicos) o MDADM como se describe en el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) para crear un dispositivo lógico de gran tamaño en varios discos.
+Si el rendimiento de IOPS o E/S de un solo disco duro virtual de Azure no es suficiente, puede usar LVM (Administrador de discos lógicos) o MDADM como se describe en el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) para crear un dispositivo lógico de gran tamaño en varios discos.
 Para los discos que contienen rutas de acceso de almacenamiento de Db2 para directorios sapdata y saptmp, debe especificar un tamaño de sector de disco físico de 512 KB.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
@@ -182,8 +237,6 @@ Para los discos que contienen rutas de acceso de almacenamiento de Db2 para dire
 
 ### <a name="other"></a>Otros
 Todas las demás áreas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP que se describen en el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) también se aplican a las implementaciones de máquinas virtuales con la base de datos de IBM.
-[767598]:https://launchpad.support.sap.com/#/notes/767598 [773830]:https://launchpad.support.sap.com/#/notes/773830 [826037]:https://launchpad.support.sap.com/#/notes/826037 [965908]:https://launchpad.support.sap.com/#/notes/965908 [1031096]:https://launchpad.support.sap.com/#/notes/1031096 [1114181]:https://launchpad.support.sap.com/#/notes/1114181 [1139904]:https://launchpad.support.sap.com/#/notes/1139904 [1173395]:https://launchpad.support.sap.com/#/notes/1173395 [1245200]:https://launchpad.support.sap.com/#/notes/1245200 [1409604]:https://launchpad.support.sap.com/#/notes/1409604 [1558958]:https://launchpad.support.sap.com/#/notes/1558958 [1585981]:https://launchpad.support.sap.com/#/notes/1585981 [1588316]:https://launchpad.support.sap.com/#/notes/1588316 [1590719]:https://launchpad.support.sap.com/#/notes/1590719 [1597355]:https://launchpad.support.sap.com/#/notes/1597355 [1605680]:https://launchpad.support.sap.com/#/notes/1605680 [1619720]:https://launchpad.support.sap.com/#/notes/1619720 [1619726]:https://launchpad.support.sap.com/#/notes/1619726 [1619967]:https://launchpad.support.sap.com/#/notes/1619967 [1750510]:https://launchpad.support.sap.com/#/notes/1750510 [1752266]:https://launchpad.support.sap.com/#/notes/1752266 [1757924]:https://launchpad.support.sap.com/#/notes/1757924 [1757928]:https://launchpad.support.sap.com/#/notes/1757928 [1758182]:https://launchpad.support.sap.com/#/notes/1758182 [1758496]:https://launchpad.support.sap.com/#/notes/1758496 [1772688]:https://launchpad.support.sap.com/#/notes/1772688 [1814258]:https://launchpad.support.sap.com/#/notes/1814258 [1882376]:https://launchpad.support.sap.com/#/notes/1882376 [1909114]:https://launchpad.support.sap.com/#/notes/1909114 [1922555]:https://launchpad.support.sap.com/#/notes/1922555 [1928533]:https://launchpad.support.sap.com/#/notes/1928533 [1941500]:https://launchpad.support.sap.com/#/notes/1941500 [1956005]:https://launchpad.support.sap.com/#/notes/1956005 [1973241]:https://launchpad.support.sap.com/#/notes/1973241 [1984787]:https://launchpad.support.sap.com/#/notes/1984787 [1999351]:https://launchpad.support.sap.com/#/notes/1999351 [2002167]:https://launchpad.support.sap.com/#/notes/2002167 [2015553]:https://launchpad.support.sap.com/#/notes/2015553 [2039619]:https://launchpad.support.sap.com/#/notes/2039619 [2069760]:https://launchpad.support.sap.com/#/notes/2069760 [2121797]:https://launchpad.support.sap.com/#/notes/2121797 [2134316]:https://launchpad.support.sap.com/#/notes/2134316 [2171857]:https://launchpad.support.sap.com/#/notes/2171857 [2178632]:https://launchpad.support.sap.com/#/notes/2178632 [2191498]:https://launchpad.support.sap.com/#/notes/2191498 [2233094]:https://launchpad.support.sap.com/#/notes/2233094 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Lea el artículo 
@@ -191,6 +244,53 @@ Lea el artículo
 - [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md)
 
 
+[767598]:https://launchpad.support.sap.com/#/notes/767598
+[773830]:https://launchpad.support.sap.com/#/notes/773830
+[826037]:https://launchpad.support.sap.com/#/notes/826037
+[965908]:https://launchpad.support.sap.com/#/notes/965908
+[1031096]:https://launchpad.support.sap.com/#/notes/1031096
+[1114181]:https://launchpad.support.sap.com/#/notes/1114181
+[1139904]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395]:https://launchpad.support.sap.com/#/notes/1173395
+[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1558958]:https://launchpad.support.sap.com/#/notes/1558958
+[1585981]:https://launchpad.support.sap.com/#/notes/1585981
+[1588316]:https://launchpad.support.sap.com/#/notes/1588316
+[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
+[1619967]:https://launchpad.support.sap.com/#/notes/1619967
+[1750510]:https://launchpad.support.sap.com/#/notes/1750510
+[1752266]:https://launchpad.support.sap.com/#/notes/1752266
+[1757924]:https://launchpad.support.sap.com/#/notes/1757924
+[1757928]:https://launchpad.support.sap.com/#/notes/1757928
+[1758182]:https://launchpad.support.sap.com/#/notes/1758182
+[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1814258]:https://launchpad.support.sap.com/#/notes/1814258
+[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1922555]:https://launchpad.support.sap.com/#/notes/1922555
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1941500]:https://launchpad.support.sap.com/#/notes/1941500
+[1956005]:https://launchpad.support.sap.com/#/notes/1956005
+[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2121797]:https://launchpad.support.sap.com/#/notes/2121797
+[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2171857]:https://launchpad.support.sap.com/#/notes/2171857
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -351,7 +451,7 @@ Lea el artículo
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json

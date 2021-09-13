@@ -1,21 +1,21 @@
 ---
 title: Conexión de máquinas híbridas a Azure a gran escala
 description: En este artículo, obtendrá información sobre cómo conectar máquinas a Azure mediante servidores habilitados para Azure Arc con una entidad de servicio.
-ms.date: 03/04/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4aad01fd6991c059b2cf891fd4f06ae83a78a0e4
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: fb78440bf03970616d3d608dcea2de1dc86681bd
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831608"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323306"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Conexión de máquinas híbridas a Azure a gran escala
 
 Puede activar los servidores habilitados para Azure Arc para varias máquinas Windows o Linux en su entorno, con varias opciones flexibles, en función de sus requisitos. Con el script de plantilla que proporcionamos, puede automatizar cada paso de la instalación, incluido el establecimiento de la conexión a Azure Arc. Sin embargo, es necesario ejecutar este script de forma interactiva con una cuenta que tenga permisos elevados en la máquina de destino y en Azure.
 
-Para conectar las máquinas a los servidores habilitados para Azure Arc, puede usar una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory en lugar de usar su identidad con privilegios para [conectar interactivamente la máquina](onboard-portal.md). Una entidad de servicio es una identidad de administración limitada especial a la que solo se concede el permiso mínimo necesario para conectar máquinas a Azure con el comando `azcmagent`. Es más seguro que usar una cuenta con más privilegios, como un Administrador de inquilinos, y sigue nuestros procedimientos recomendados de seguridad de control de acceso. La entidad de servicio se usa solo durante la incorporación; no se usa para ningún otro propósito.  
+Para conectar las máquinas a los servidores habilitados para Azure Arc, puede usar una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory en lugar de usar su identidad con privilegios para [conectar interactivamente la máquina](onboard-portal.md). Una entidad de servicio es una identidad de administración limitada especial a la que solo se concede el permiso mínimo necesario para conectar máquinas a Azure con el comando `azcmagent`. Es más seguro que usar una cuenta con más privilegios, como un Administrador de inquilinos, y sigue nuestros procedimientos recomendados de seguridad de control de acceso. La entidad de servicio se usa solo durante la incorporación; no se usa para ningún otro propósito.  
 
 Los métodos de instalación para instalar y configurar el agente Connected Machine requieren que el método automatizado que se use tenga permisos de administrador en las máquinas. En Linux, mediante la cuenta raíz y, en Windows, como miembro del grupo local de administradores.
 
@@ -89,7 +89,7 @@ El script para automatizar la descarga y la instalación, y para establecer la c
     1. En la lista desplegable **Grupo de recursos**, seleccione el grupo de recursos desde el que se administrará la máquina.
     1. En la lista desplegable **Región**, seleccione la región de Azure en la que se almacenarán los metadatos de los servidores.
     1. En la lista desplegable **Sistema operativo**, seleccione el sistema operativo en el que se ejecutará el script.
-    1. Si la máquina se comunica mediante un servidor proxy para conectarse a Internet, especifique la dirección IP del servidor proxy o el nombre y el número de puerto que usará la máquina para comunicarse con el servidor proxy. Escriba el valor con el formato `http://<proxyURL>:<proxyport>`.
+    1. Si la máquina se comunica mediante un servidor proxy para conectarse a Internet, especifique la dirección IP del servidor proxy o el nombre y el número de puerto que usará la máquina para comunicarse con el servidor proxy. Con esta configuración, el agente se comunica mediante el servidor proxy mediante el protocolo HTTP. Escriba el valor con el formato `http://<proxyURL>:<proxyport>`.
     1. Seleccione **Siguiente: Autenticación**.
 
 1. En la página **Autenticación**, en la lista desplegable **Entidad de servicio**, elija **Arc-for-servers**.  Después, seleccione **Siguiente: Etiquetas**.
@@ -122,7 +122,7 @@ Para obtener más información sobre la herramienta de línea de comandos `azcma
 >El script de Windows PowerShell solo admite la ejecución desde una versión de 64 bits de Windows PowerShell.
 >
 
-Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal para comprobar que el servidor se ha conectado correctamente. Vea las máquinas en [Azure Portal](https://aka.ms/hybridmachineportal).
+Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal a fin de comprobar que el servidor se ha conectado correctamente. Vea las máquinas en [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ![Una conexión de servidor correcta](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -130,6 +130,6 @@ Después de instalar el agente y configurarlo para que se conecte a los servidor
 
 - Puede encontrar información sobre la solución de problemas en la guía [Solución de problemas de conexión del agente de Connected Machine](troubleshoot-agent-onboard.md).
 
-- Aprenda a administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de máquina virtual, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.
+- Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.
 
-- Más información sobre el [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si quiere recopilar datos de supervisión del sistema operativo y de las cargas de trabajo con Azure Monitor para VM, administrarlos con runbooks de Automation o con características como Update Management, o usar otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-introduction.md).
+- Aprenda a administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para tareas como la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de la máquina virtual, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Información de máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.

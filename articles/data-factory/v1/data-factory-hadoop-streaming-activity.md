@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 964af993fdcf17bca2caa812bf39ab63e650e807
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b94591d95d756c01239c889ea54461f2ec025587
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782629"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396680"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -21,8 +21,8 @@ ms.locfileid: "104782629"
 > * [Actividad MapReduce](data-factory-map-reduce.md)
 > * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Actividad de Spark](data-factory-spark.md)
-> * [Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Actividad de actualización de recurso de Azure Machine Learning Studio (clásico)](data-factory-azure-ml-update-resource-activity.md)
+> * [Actividad de ejecución por lotes de ML Studio (clásico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Actividad de actualización de recurso de ML Studio (clásico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md)
 > * [Actividad U-SQL de Data Lake Analytics](data-factory-usql-activity.md)
 > * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)

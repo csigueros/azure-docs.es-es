@@ -24,6 +24,6 @@
     - name: Controlador de Azure de Docker
       href: 'https://docs.docker.com/machine/drivers/azure/'
     - name: Sitio de Azure de Docker
-      href: 'https://www.docker.com/docker-azure'
+      href: 'https://docs.docker.com/cloud/aci-integration/'
     - name: Sitio de Docker
       href: 'https://docker.com'

@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de exención de directiva
 description: Aquí se describe la definición de exención de directiva usada por Azure Policy para eximir recursos de la evaluación de iniciativas o definiciones.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: ecf956d7507dfa2168e4f2591e4b661423801365
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 4c38f872a17869b957bce415204042582454dfd9
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091742"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324836"
 ---
 # <a name="azure-policy-exemption-structure"></a>Estructura de exención de Azure Policy
 
@@ -108,7 +108,7 @@ Existen dos categorías de exención y se usan para agrupar las exenciones:
 
 ## <a name="expiration"></a>Expiration
 
-Para establecer cuándo una jerarquía de recursos o un recurso individual ya no están _exentos_ en una asignación, establezca la propiedad `expiresOn`. Esta propiedad opcional debe tener el formato DateTime universal ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+Para establecer cuándo una jerarquía de recursos o un recurso individual ya no están _exentos_ de una asignación, establezca la propiedad `expiresOn`. Esta propiedad opcional debe tener el formato DateTime universal ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 > [!NOTE]
 > Las exenciones de directiva no se eliminan cuando se alcanza la fecha `expiresOn`. El objeto se conserva para el mantenimiento de registros, pero ya no se respeta la exención.

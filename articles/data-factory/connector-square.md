@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/03/2020
-ms.openlocfilehash: 8f9aaa6c2d09067d29abe6488026b523d18677f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 2d69f55189174cc11e4808be063ddf3b1dbd6a28
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637799"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304605"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar datos de Square con Azure Data Factory (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,6 +38,31 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-square-using-ui"></a>Creación de un servicio vinculado a Square mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Square en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Square y seleccione el conector de Square.
+
+   :::image type="content" source="media/connector-square/square-connector.png" alt-text="Captura de pantalla del conector de Square.":::    
+
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+   :::image type="content" source="media/connector-square/configure-square-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado en Square.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Square.
 

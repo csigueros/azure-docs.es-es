@@ -1,14 +1,14 @@
 ---
 title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
-ms.date: 04/19/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6025451779ba04b3a20307d35ca8a939c7762d64
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 22838cd661e64d4a85debfb4c5ce556a142dc2c2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474376"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324853"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -172,6 +172,12 @@ La propiedad **details** de los efectos de AuditIfNotExists tiene todas las subp
   - Para _ResourceGroup_, se limitaría al grupo de recursos del recurso de la condición **if** o al grupo de recursos especificado en **ResourceGroupName**.
   - Para _Subscription_, se consulta toda la suscripción para el recurso relacionado.
   - El valor predeterminado es _ResourceGroup_.
+- **EvaluationDelay** (opcional)
+  - Especifica cuándo se debe evaluar la existencia de los recursos relacionados. El retraso solo se usa para las evaluaciones que son el resultado de una solicitud de creación o de actualización de recursos.
+  - Los valores permitidos son `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`, o una duración ISO 8601 entre 10 y 360 minutos.
+  - Los valores _AfterProvisioning_ inspeccionan el resultado de aprovisionamiento del recurso que se evaluó en la condición IF de la regla de directiva. `AfterProvisioning` se ejecuta una vez completado el aprovisionamiento, independientemente del resultado. Si el aprovisionamiento tarda más de seis horas, se trata como un error a la hora de determinar los retrasos de evaluación de _AfterProvisioning_.
+  - El valor predeterminado es `PT10M` (10 minutos).
+  - La especificación de un retraso de evaluación largo puede hacer que el estado de cumplimiento registrado del recurso no se actualice hasta el siguiente [desencadenador de evaluación](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (opcional)
   - Si no se especifica, todo recurso relacionado de **type** cumple con el efecto y no desencadena la auditoría.
   - Utiliza el mismo lenguaje que la regla de directiva para la condición **if**, pero se evalúa individualmente en relación con cada recurso relacionado.
@@ -267,7 +273,7 @@ Similar a AuditIfNotExists, una definición de directiva DeployIfNotExists ejecu
 
 ### <a name="deployifnotexists-evaluation"></a>Evaluación de DeployIfNotExists
 
-DeployIfNotExists se ejecuta unos 15 minutos después de que un proveedor de recursos haya controlado una solicitud de creación o actualización de suscripciones o recursos y haya devuelto un código de estado correcto. La implementación de una plantilla se produce si no hay recursos relacionados o si los recursos definidos por **ExistenceCondition** no se evalúan como true. La duración de la implementación depende de la complejidad de los recursos incluidos en la plantilla.
+DeployIfNotExists se ejecuta después de un retraso configurable cuando un proveedor de recursos controla una solicitud de creación o actualización de suscripciones o recursos y devuelve un código de estado correcto. La implementación de una plantilla se produce si no hay recursos relacionados o si los recursos definidos por **ExistenceCondition** no se evalúan como true. La duración de la implementación depende de la complejidad de los recursos incluidos en la plantilla.
 
 Durante un ciclo de evaluación, las definiciones de directiva con un efecto DeployIfNotExists que coinciden con los recursos se marcan como no compatibles, pero no se realiza ninguna acción en dicho recurso. Los recursos no conformes existentes se pueden solucionar con una [tarea de corrección](../how-to/remediate-resources.md).
 
@@ -293,6 +299,12 @@ La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropied
   - Para _ResourceGroup_, se limitaría al grupo de recursos del recurso de la condición **if** o al grupo de recursos especificado en **ResourceGroupName**.
   - Para _Subscription_, se consulta toda la suscripción para el recurso relacionado.
   - El valor predeterminado es _ResourceGroup_.
+- **EvaluationDelay** (opcional)
+  - Especifica cuándo se debe evaluar la existencia de los recursos relacionados. El retraso solo se usa para las evaluaciones que son el resultado de una solicitud de creación o de actualización de recursos.
+  - Los valores permitidos son `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`, o una duración ISO 8601 entre 0 y 360 minutos.
+  - Los valores _AfterProvisioning_ inspeccionan el resultado de aprovisionamiento del recurso que se evaluó en la condición IF de la regla de directiva. `AfterProvisioning` se ejecuta una vez completado el aprovisionamiento, independientemente del resultado. Si el aprovisionamiento tarda más de seis horas, se trata como un error a la hora de determinar los retrasos de evaluación de _AfterProvisioning_.
+  - El valor predeterminado es `PT10M` (10 minutos).
+  - La especificación de un retraso de evaluación largo puede hacer que el estado de cumplimiento registrado del recurso no se actualice hasta el siguiente [desencadenador de evaluación](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (opcional)
   - Si no se especifica, todo recurso relacionado de **type** cumple con el efecto y no desencadena la implementación.
   - Utiliza el mismo lenguaje que la regla de directiva para la condición **if**, pero se evalúa individualmente en relación con cada recurso relacionado.
@@ -308,6 +320,7 @@ La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropied
   - El valor predeterminado es _ResourceGroup_.
 - **Deployment** (obligatorio)
   - Esta propiedad debe incluir la implementación de plantilla completa, ya que luego se pasaría a la API PUT `Microsoft.Resources/deployments`. Para más información, consulte [Deployments REST API](/rest/api/resources/deployments) (API REST de implementaciones).
+  - Las implementaciones de `Microsoft.Resources/deployments` anidadas en la plantilla deben usar nombres únicos para evitar la contención entre varias evaluaciones de directivas. El nombre de la implementación primaria se puede usar como parte del nombre de las implementaciones anidadas mediante `[concat('NestedDeploymentName-', uniqueString(deployment().name))]`.
 
   > [!NOTE]
   > Todas las funciones dentro de la propiedad **Deployment** se evalúan como componentes de la plantilla, no la directiva. La excepción es la propiedad **parameters** que pasa los valores de la directiva a la plantilla. El **valor** en esta sección bajo el nombre de un parámetro de plantilla se usa para realizar este paso de valor (vea _fullDbName_ en el ejemplo DeployIfNotExists).
@@ -327,6 +340,7 @@ De lo contrario, se ejecuta una implementación para habilitarlo.
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
+        "evaluationDelay": "AfterProvisioning",
         "roleDefinitionIds": [
             "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
@@ -489,7 +503,7 @@ Modify admite las operaciones siguientes:
 
 - Agregar, reemplazar o quitar etiquetas de recursos. En el caso de las etiquetas, una directiva Modify siempre debe tener el elemento `mode` establecido en _Indexed_ a menos que el recurso de destino sea un grupo de recursos.
 - Agregar o reemplazar el valor del tipo de identidad administrada (`identity.type`) de máquinas virtuales y conjuntos de escalado de máquinas virtuales.
-- Agregar o reemplazar los valores de determinados alias (versión preliminar).
+- Agregar o reemplazar los valores de determinados alias.
   - Use `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
     en Azure PowerShell **4.6.0** o superior para obtener una lista de los alias que se pueden usar con Modify.
 
