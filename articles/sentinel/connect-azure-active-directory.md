@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 5faf675d4e5d188840b3e9ab457ec28829f52dc0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 20e9920921afe1eae8babb76212a6de7ea2e1321
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121779990"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251857"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Conexión de datos de Azure Active Directory (Azure AD) a Azure Sentinel
 
@@ -62,7 +62,7 @@ Puede usar el conector integrado de Azure Sentinel para recopilar datos de [Azu
 
 1. En la galería de conectores de datos, seleccione **Azure Active Directory** y luego **Open connector page** (Abrir página del conector).
 
-1. Active las casillas que se encuentran junto a los tipos de registros que quiere transmitir a Azure Sentinel (ver anteriormente) y haga clic en **Conectar**.
+1. Active las casillas que se encuentran junto a los tipos de registros que quiere transmitir a Azure Sentinel (ver anteriormente) y seleccione **Conectar**.
 
 ## <a name="find-your-data"></a>Búsqueda de sus datos
 

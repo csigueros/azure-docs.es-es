@@ -2,13 +2,13 @@
 title: App Service en Azure Arc
 description: Introducción a la integración de App Service con Azure Arc para operadores de Azure.
 ms.topic: article
-ms.date: 05/03/2021
-ms.openlocfilehash: bbdb7fb1426a5c63e579929806caa1b2008f11eb
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 08/17/2021
+ms.openlocfilehash: bd5e257d48ec009ccb79696f4c299fd93568f1c9
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590097"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397335"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>App Service, Functions y Logic Apps en Azure Arc (versión preliminar)
 
@@ -73,8 +73,10 @@ Solo se puede crear un recurso de entorno de Kubernetes en una ubicación person
 - [¿Qué características de App Service se admiten?](#which-app-service-features-are-supported)
 - [¿Se admiten las características de redes?](#are-networking-features-supported)
 - [¿Se admiten identidades administradas?](#are-managed-identities-supported)
+- [¿Existen límites de escalado?](#are-there-any-scaling-limits)
 - [¿Qué registros se recopilan?](#what-logs-are-collected)
 - [¿Qué debo hacer si veo un error de registro del proveedor?](#what-do-i-do-if-i-see-a-provider-registration-error)
+- [¿Puedo implementar la extensión de servicios de aplicación en un clúster basado en ARM64?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
 
 ### <a name="how-much-does-it-cost"></a>¿Cuánto cuesta?
 
@@ -104,6 +106,10 @@ No. No se admiten características de redes, como las conexiones híbridas, la i
 
 No. No se pueden asignar identidades administradas a las aplicaciones cuando se ejecutan en Azure Arc. Si la aplicación necesita una identidad para trabajar con otro recurso de Azure, considere la posibilidad de usar una [entidad de servicio de aplicación](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) en su lugar.
 
+### <a name="are-there-any-scaling-limits"></a>¿Existen límites de escalado?
+
+Todas las aplicaciones implementadas con Azure App Service en Kubernetes con Azure Arc se pueden escalar dentro de los límites del clúster de Kubernetes subyacente.  Si el clúster de Kubernetes subyacente se queda sin recursos de proceso disponibles (CPU y memoria principalmente), las aplicaciones solo podrán escalarse al número de instancias de la aplicación que Kubernetes pueda programar con el recurso disponible.
+
 ### <a name="what-logs-are-collected"></a>¿Qué registros se recopilan?
 
 Los registros de los componentes del sistema y las aplicaciones se escriben en la salida estándar. Ambos tipos de registro se pueden recopilar para su análisis mediante las herramientas estándar de Kubernetes. También puede configurar la extensión de clúster de App Service con un [área de trabajo de Log Analytics](../azure-monitor/logs/log-analytics-overview.md) y se enviarán todos los registros a esa área de trabajo.
@@ -113,6 +119,10 @@ De manera predeterminada, los registros de los componentes del sistema se envía
 ### <a name="what-do-i-do-if-i-see-a-provider-registration-error"></a>¿Qué debo hacer si veo un error de registro del proveedor?
 
 Al crear un recurso de entorno de Kubernetes, es posible que se muestre el error "No registered resource provider found" (No se encontró ningún proveedor de recursos registrado) para algunas suscripciones. Los detalles del error pueden incluir un conjunto de ubicaciones y de versiones de API que se consideran válidas. Si esto ocurre, puede ser que deba volver a registrarse la suscripción en el proveedor Microsoft.Web, una operación que no afecta a las aplicaciones o a las API existentes. Para volver a registrarse, use la CLI de Azure para ejecutar `az provider register --namespace Microsoft.Web --wait`. A continuación, vuelva a intentar ejecutar el comando del entorno de Kubernetes.
+
+### <a name="can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster"></a>¿Puedo implementar la extensión de servicios de aplicación en un clúster basado en ARM64?
+
+Los clústeres basados en ARM64 no se admiten en este momento.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

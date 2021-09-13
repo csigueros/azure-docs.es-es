@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 7ca6fdf685da74b8b0e10875a2bd16d66a7b4c60
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: fa70dce0e245f706e5278e7274ac17855b50622f
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020318"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396901"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creación de una FCI con un recurso compartido de archivos Premium (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -116,9 +116,9 @@ Para más información, consulte [Clúster de conmutación por error: objeto de 
 
 ## <a name="configure-quorum"></a>Configuración de un cuórum
 
-Aunque el testigo de disco es la opción de cuórum más resistente, requiere un disco compartido de Azure que impone algunas limitaciones a la instancia del clúster de conmutación por error cuando se configura con recursos compartidos de archivos prémium. Por lo tanto, el testigo en la nube es la solución de cuórum recomendada para este tipo de configuración de clúster con SQL Server en máquinas virtuales de Azure. De lo contrario, configure un testigo de recurso compartido de archivos. 
+Aunque el testigo de disco es la opción de cuórum más resistente, requiere un disco compartido de Azure que impone algunas limitaciones a la instancia del clúster de conmutación por error cuando se configura con recursos compartidos de archivos prémium. Por lo tanto, el testigo en la nube es la solución de cuórum recomendada para este tipo de configuración de clúster con SQL Server en máquinas virtuales de Azure. En caso contrario, configure un testigo de recurso compartido de archivos. 
 
-Si tiene un número igual de votos en el clúster, configure la [solución de cuórum](hadr-cluster-quorum-configure-how-to.md) que mejor se adapte a sus necesidades empresariales. Para más información, consulte [Cuórum con VM SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
+Si tiene un número par de votos en el clúster, configure la [solución de cuórum](hadr-cluster-quorum-configure-how-to.md) que mejor se adapte a sus necesidades empresariales. Para más información, consulte [Cuórum con VM SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## <a name="validate-cluster"></a>Validar el clúster
 
@@ -206,14 +206,16 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configuración de la conectividad 
 
-Puede configurar un nombre de red virtual o un nombre de red distribuida para una instancia de clúster de conmutación por error. [Revise las diferencias entre los dos](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) y, luego, implemente un [nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para la instancia de clúster de conmutación por error.
+Puede configurar un nombre de red virtual o un nombre de red distribuida para una instancia de clúster de conmutación por error. [Revise las diferencias entre los dos](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) y, a continuación, implemente un [nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para la instancia de clúster de conmutación por error.
 
 ## <a name="limitations"></a>Limitaciones
 
 - No se admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2016 y versiones anteriores. 
 - La secuencia de archivos no se admite en los clústeres de conmutación por error con un recurso compartido de archivos Premium. Para usar la secuencia de archivos, implemente el clúster con [Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md) o [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) en su lugar.
 - Solo se admite el registro con la extensión Agente de IaaS de SQL en [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes). 
-- Las instantáneas de base de datos no se admiten actualmente en [Azure Files debido a las limitaciones de archivos dispersos](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).  
+- Las instantáneas de base de datos no se admiten actualmente en [Azure Files debido a las limitaciones de archivos dispersos](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+- Actualmente no se admite la ejecución de DBCC CHECKDB, ya que no se pueden crear instantáneas de base de datos. 
+- Las bases de datos que usan la característica OLTP en memoria no se admiten en una instancia de clúster de conmutación por error implementada con un recurso compartido de archivos prémium. Si su empresa requiere OLTP en memoria, considere la posibilidad de implementar la instancia de clúster de conmutación por error con [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o [Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -225,7 +227,7 @@ Si los recursos compartidos de archivos Premium no son la solución de almacenam
 Para obtener más información, consulte:
 
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
-- [Instancias de clúster de conmutación por error con SQL Server en máquinas virtuales de Azure](failover-cluster-instance-overview.md)
+- [Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md)
 - [Información general de las instancias de clúster de conmutación por error](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 

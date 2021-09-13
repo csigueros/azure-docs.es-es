@@ -4,12 +4,12 @@ description: En este artículo se describe cómo mover una suscripción de Azure
 ms.custom: subject-moving-resources
 ms.topic: how-to
 ms.date: 04/26/2021
-ms.openlocfilehash: 02f35efe90d4670c4ab38155f129ec0d61c1b03d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b4541bf1cf13a8b4c090365c31c2403685a69c7f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966701"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322230"
 ---
 # <a name="move-azure-vmware-solution-subscription-to-another-subscription"></a>Movimiento de una suscripción de Azure VMware Solution a otra
 
@@ -39,13 +39,13 @@ Debe tener al menos derechos de colaborador en las suscripciones de **origen** y
 
    :::image type="content" source="media/move-subscriptions/move-resources-subscription-target.png" alt-text="Captura de pantalla del recurso de destino.":::
 
-1. Confirme la validación de los recursos que ha seleccionado para mover.  Esta acción valida todos los recursos seleccionados para mover. Durante la validación de los recursos seleccionados, verá el estado **Validación pendiente**. 
+1. Confirme la validación de los recursos que ha seleccionado para mover. Durante la validación, verá **Pendiente de validación** para el estado. 
 
    :::image type="content" source="media/move-subscriptions/pending-move-resources-subscription-target.png" alt-text="Captura de pantalla que muestra el recurso que se trasladará.":::
 
 1. Una vez que la validación se haya realizado correctamente, seleccione **Siguiente** para iniciar la migración de la nube privada.
 
-   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text=" Captura de pantalla que muestra el estado de validación Correcto.":::
+   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text="Captura de pantalla que muestra el estado de validación Correcto.":::
 
 1. Active la casilla para indicar que entiende que las herramientas y los scripts asociados no funcionarán hasta que los actualice para usar los nuevos identificadores de recurso. Luego, seleccione **Mover**.
 

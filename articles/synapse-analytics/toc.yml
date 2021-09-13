@@ -756,7 +756,7 @@ items:
               - name: Introducción al flujo de datos
                 href: concepts-data-flow-overview.md
               - name: Modo de depuración
-                href: ../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Desfase de esquema
                 href: ../data-factory/concepts-data-flow-schema-drift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Patrones de columnas
@@ -996,7 +996,7 @@ items:
               - name: Eliminación de archivos con la actividad de eliminación
                 href: ../data-factory/delete-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Herramienta Copiar datos
-                href: ../data-factory/copy-data-tool.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                href: ../data-factory/copy-data-tool.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Compatibilidad con formato y compresión
                 href: ../data-factory/supported-file-formats-and-compression-codecs.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Rendimiento de actividad de copia
@@ -1171,7 +1171,7 @@ items:
               - name: Integración e implementación continuas
                 href: ../data-factory/ci-cd-github-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Seguridad y control de acceso
-                href: ../data-factory/security-and-access-control-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Solución de problemas de los entornos de ejecución de integración autohospedados
                 href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
   - name: Machine Learning

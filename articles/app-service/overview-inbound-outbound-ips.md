@@ -4,12 +4,12 @@ description: Aprenda cómo se usan las direcciones IP de entrada y salida en App
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ea667fcfe70e109038d74e7c1fa0281bbc2b20bb
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: e4913ad840c847c4ce571f07f971922858e40393
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397798"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472243"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Direcciones IP de entrada y salida en Azure App Service
 
@@ -29,7 +29,7 @@ Sin importar el número de instancias escaladas horizontalmente, cada aplicació
 
 - Eliminar una aplicación y volver a crearla en otro grupo de recursos (puede cambiar la unidad de implementación).
 - Eliminar la última aplicación de un grupo de recursos _y_ región y volver a crearla (puede cambiar la unidad de implementación).
-- Eliminar un enlace TLS/SSL basado en IP, como durante la renovación de un certificado (consulte [Renovación de certificados](configure-ssl-certificate.md#renew-certificate)).
+- Eliminar un enlace TLS/SSL basado en IP, como durante la renovación de un certificado (consulte [Renovación de certificados](configure-ssl-certificate.md#renew-an-expiring-certificate)).
 
 ## <a name="find-the-inbound-ip"></a>Buscar la dirección IP de entrada
 

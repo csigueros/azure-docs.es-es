@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 08/24/2021
-ms.openlocfilehash: 1595d2984c4130fa89c52aec615941051fa1bb82
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 877b2adb2dd61bdbba30ce4d5c84e26380be5b2b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099360"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472297"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -123,7 +123,7 @@ Puede leer de Azure SQL Database mediante una tabla o una consulta SQL. Si está
 
 ### <a name="azure-synapse-analytics-sources"></a>Orígenes de Azure Synapse Analytics
 
-Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este permite que el servicio lea desde Synapse mediante ```Staging```, lo que mejora considerablemente el rendimiento de lectura con el comando[COPY de Synapse](/sql/t-sql/statements/copy-into-transact-sql.md) para obtener la capacidad de carga masiva con mayor rendimiento. La habilitación de ```Staging``` requiere que especifique una ubicación de almacenamiento provisional de Azure Blob Storage o Azure Data Lake Storage Gen2 en la configuración de la actividad del flujo de datos.
+Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este permite que el servicio lea desde Synapse mediante ```Staging```, lo que mejora considerablemente el rendimiento de lectura con el comando[COPY de Synapse](/sql/t-sql/statements/copy-into-transact-sql) para obtener la capacidad de carga masiva con mayor rendimiento. La habilitación de ```Staging``` requiere que especifique una ubicación de almacenamiento provisional de Azure Blob Storage o Azure Data Lake Storage Gen2 en la configuración de la actividad del flujo de datos.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging (Permitir almacenamiento provisional)") (Habilitar almacenamiento provisional)
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 1df132e558421d2ec6e26c3883c89457716dfc42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c22465ab66e1425139a8440a2b4ca9e0e5e539a
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419021"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397358"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Incorporación, cambio o eliminación de direcciones IP para una interfaz de red de Azure
 
@@ -136,16 +136,14 @@ Las direcciones [IPv4](#ipv4) o IPv6 privadas permiten que una máquina virtual 
 
 De manera predeterminada, los servidores DHCP de Azure asignan la dirección IPv4 privada para la [configuración IP principal](#primary) de la interfaz de red a la interfaz de red de Azure dentro del sistema operativo de la máquina virtual. A menos que sea necesario, nunca debe establecer la dirección IP de una interfaz de red dentro del sistema operativo de la máquina virtual.
 
-> [!WARNING]
-> Si la dirección IPv4 establecida como la dirección IP principal de una interfaz de red dentro del sistema operativo de una máquina virtual alguna vez es distinta de la dirección IPv4 privada asignada a la configuración IP principal de la interfaz de red principal conectada a una máquina virtual dentro de Azure, se pierde conectividad con la máquina virtual.
-
 Hay escenarios en los cuales es necesario establecer manualmente la dirección IP de una interfaz de red dentro del sistema operativo de la máquina virtual. Por ejemplo, debe establecer manualmente las direcciones IP principales y secundarias de un sistema operativo Windows cuando se agregan varias direcciones IP a una máquina virtual de Azure. En el caso de una máquina virtual Linux, solo debe establecer manualmente las direcciones IP secundarias. Consulte [Incorporación de direcciones IP a un sistema operativo de la máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config) para detalles. Si alguna vez debe cambiar la dirección asignada a una configuración IP, se recomienda que haga lo siguiente:
 
-1. Asegúrese de que la máquina virtual recibe una dirección de los servidores DHCP de Azure. Una vez hecho esto, cambie la asignación de la dirección IP a DHCP en el sistema operativo y reinicie la máquina virtual.
-2. Detenga (desasigne) la máquina virtual.
-3. Cambie la dirección IP de la configuración IP dentro de Azure.
-4. Inicie la máquina virtual.
-5. [Configure manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) las direcciones IP secundarias dentro del sistema operativo (y también la dirección IP principal dentro de Windows) para que coincidan con las que estableció en Azure.
+1. Asegúrese de que la máquina virtual recibe una dirección IP principal de los servidores DHCP de Azure. No establezca esta dirección en el sistema operativo si ejecuta una máquina virtual Linux.
+2. Elimine la configuración de IP que se va a cambiar.
+3. Cree una nueva configuración de IP con la nueva dirección que le gustaría establecer.
+4. [Configure manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) las direcciones IP secundarias dentro del sistema operativo (y también la dirección IP principal dentro de Windows) para que coincidan con las que estableció en Azure. No establezca manualmente la dirección IP principal en la configuración de red del sistema operativo en Linux, o es posible que no pueda conectarse a Internet cuando se vuelva a cargar la configuración.
+5. Vuelva a cargar la configuración de red en el sistema operativo invitado. Para ello, simplemente reinicie el sistema o ejecute "nmcli con down 'System eth0 && nmcli con up' 'System eth0'" en los sistemas Linux que ejecutan NetworkManager.
+6. Compruebe que la configuración de red es la deseada. Pruebe la conectividad de todas las direcciones IP del sistema.
 
 Si sigue los pasos anteriores, la dirección IP privada asignada a la interfaz de red dentro de Azure y dentro del sistema operativo de una máquina virtual no serán distintas. Para realizar un seguimiento de las máquinas virtuales dentro de la suscripción para las cuales estableció manualmente direcciones IP dentro de un sistema operativo, considere agregar una [etiqueta](../azure-resource-manager/management/tag-resources.md) de Azure a las máquinas virtuales. Por ejemplo, puede usar "Asignación de dirección IP: estática". De este modo, puede encontrar fácilmente las máquinas virtuales dentro de la suscripción para las cuales estableció manualmente la dirección IP dentro del sistema operativo.
 

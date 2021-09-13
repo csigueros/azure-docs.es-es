@@ -4,13 +4,13 @@ description: Describe los operadores de Bicep disponibles para las implementacio
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
-ms.openlocfilehash: 143c7881d3f22bf67b3dfabf74ca54825efffc94
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 80fc9e4e1285d86858a476feba30621a7afe1c79
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741212"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221037"
 ---
 # <a name="bicep-operators"></a>Operadores de Bicep
 
@@ -46,9 +46,10 @@ Los operadores de los descriptores de acceso se usan para acceder a recursos ani
 
 | Operator | Nombre | Descripción |
 | ---- | ---- | ---- |
+| `[]` | [Descriptor de acceso de índice](./operators-access.md#index-accessor) | Acceda a un elemento de una matriz o propiedad en un objeto. |
+| `.` | [Descriptor de acceso de funciones](./operators-access.md#function-accessor) | Llame a una función en un recurso. |
 | `::` | [Descriptor de acceso de recursos anidados](./operators-access.md#nested-resource-accessor) | Acceda a un recurso anidado desde fuera del recurso primario. |
 | `.` | [Descriptor de acceso de propiedades](./operators-access.md#property-accessor) | Propiedades de acceso de un objeto. |
-| `.` | [Descriptor de acceso de funciones](./operators-access.md#function-accessor) | Llame a una función en un recurso. |
 
 ## <a name="comparison"></a>De comparación
 

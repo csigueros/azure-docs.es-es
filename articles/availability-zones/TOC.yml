@@ -51,7 +51,7 @@
                 - name: Creación de una instancia de Load Balancer estándar pública con redundancia zonal (CLI)
                   href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad
-              href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Azure (CLI)
                   href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md

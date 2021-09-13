@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 574a10f6ef79ff3d40f5d62e49db9ebf198d2a79
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: d479dbc34bd8c08ebc471de74be1558f6dccc6e1
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272328"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273256"
 ---
 # <a name="multimedia-redirection-for-azure-virtual-desktop-preview"></a>Redireccionamiento multimedia para Azure Virtual Desktop (versión preliminar)
 
@@ -32,11 +32,9 @@ Para poder usar el redireccionamiento multimdia en Azure Virtual Desktop, tendr
 
 1. Instale el [cliente de escritorio de Windows](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) en un dispositivo con Windows 10 o Windows 10 IoT Enterprise que cumpla los [requisitos de hardware de Teams de un equipo Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). La instalación de la versión 1.2.2222 o posterior del cliente también instalará el complemento de redireccionamiento multimedia (MsMmrDVCPlugin.dll) en el dispositivo cliente. Para más información sobre las actualizaciones y las nuevas versiones, consulte [Novedades del cliente de escritorio de Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 
-2. [Configure la máquina cliente para el grupo de Insider](create-host-pools-azure-marketplace.md).
+2. [Cree un grupo de hosts para los usuarios.](create-host-pools-azure-marketplace.md)
 
-3. Instale el [servicio Multimedia Redirector](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) y cualquier extensión del navegador necesaria en la máquina virtual.
-
-4. Configure la máquina cliente para permitir que los usuarios accedan al programa Insiders. Para configurar el cliente para el grupo de Insider, establece la siguiente información de registro:
+3. Configure la máquina cliente para permitir que los usuarios accedan al programa Insiders. Para configurar el cliente para el grupo de Insider, establece la siguiente información de registro:
 
    - **Clave**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
    - **Tipo**: REG_SZ
@@ -45,7 +43,7 @@ Para poder usar el redireccionamiento multimdia en Azure Virtual Desktop, tendr
 
    Para más información sobre el programa Insiders, consulte [Cliente de escritorio de Windows para administradores](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
 
-5. Use el [instalador de MSI (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) para instalar las extensiones de redireccionamiento multimedia para el explorador de Internet en la máquina virtual de Azure. Actualmente, el redireccionamiento multimedia para Azure Virtual Desktop solo admite Microsoft Edge y Google Chrome.
+4. Use el [instalador de MSI (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) para instalar las extensiones de redireccionamiento multimedia para el explorador de Internet en la máquina virtual de Azure. Actualmente, el redireccionamiento multimedia para Azure Virtual Desktop solo admite Microsoft Edge y Google Chrome.
 
 ## <a name="managing-group-policies-for-the-multimedia-redirection-browser-extension"></a>Administración de directivas de grupo para la extensión del navegador de redireccionamiento multimedia
 
@@ -59,7 +57,7 @@ En algunos casos, puede cambiar la directiva de grupo para administrar las exten
 
 ### <a name="configure-microsoft-edge-group-policies-for-multimedia-redirection"></a>Configuración de directivas de grupo de Microsoft Edge para el redireccionamiento multimedia
 
-Para configurar las directivas de grupo, deberá editar la plantilla administrativa de Microsoft Ege. Las opciones de configuración de extensiones se encuentran en **Administrative Templates > Microsoft Edge > Extensions >**  > **Configure extension management settings** (Plantillas administrativas > Microsoft Edge > Extensiones > Configurar opciones de administración de extensiones).
+Para configurar las directivas de grupo, tendrá que editar la plantilla administrativa de Microsoft Edge. Las opciones de configuración de extensiones se encuentran en **Administrative Templates > Microsoft Edge > Extensions >**  > **Configure extension management settings** (Plantillas administrativas > Microsoft Edge > Extensiones > Configurar opciones de administración de extensiones).
 
 El código siguiente es un ejemplo de una directiva de grupo de Microsoft Edge que hace que el explorador instale la extensión de redireccionamiento multimedia y solo permita la carga de redireccionamiento multimedia en YouTube:
 
@@ -103,13 +101,14 @@ Para saber rápidamente si el redireccionamiento multimedia está activo en el e
 
 | Estado del icono  | Definición  |
 |-----------------|-----------------|
-| [Icono de programa predeterminado de Azure Virtual Desktop sin estado aplicado.](/media/icon-default.png) | Apariencia del icono predeterminado sin estado aplicado. |
-| [Icono de programa de Azure Virtual Desktop con un cuadrado rojo con una x que indica que el redireccionamiento multimedia no funciona.](/media/icon-disconnect.png) | El cuadrado rojo con una "X" en su interior significa que el cliente no pudo conectarse al redireccionamiento multimedia. |
-| [Icono de programa de Azure Virtual Desktop con un cuadrado verde con una marca de verificación en su interior, que indica que el redireccionamiento multimedia funciona.](/media/icon-connect.png) | El cuadrado verde con una marca de verificación en su interior significa que el cliente se conectó correctamente al redireccionamiento multimedia. |
+| ![Icono de programa predeterminado de Azure Virtual Desktop sin estado aplicado.](./media/icon-default.png) | Apariencia del icono predeterminado sin estado aplicado. |
+| ![Icono de programa de Azure Virtual Desktop con un cuadrado rojo con una x que indica que el redireccionamiento multimedia no funciona.](./media/icon-disconnect.png) | El cuadrado rojo con una "X" en su interior significa que el cliente no pudo conectarse al redireccionamiento multimedia. |
+| ![Icono de programa de Azure Virtual Desktop con un cuadrado verde con una marca de verificación en su interior, que indica que el redireccionamiento multimedia funciona.](./media/icon-connect.png) | El cuadrado verde con una marca de verificación en su interior significa que el cliente se conectó correctamente al redireccionamiento multimedia. |
 
 Al seleccionar el icono se mostrará un menú emergente con una casilla que puede seleccionar para habilitar o deshabilitar el redireccionamiento multimedia en todos los sitios web. También se enumeran los números de versión de cada componente del servicio.
 
-## <a name="send-feedback-during-public-preview"></a>Envío de comentarios durante la versión preliminar pública
+## <a name="support-during-public-preview"></a>Compatibilidad durante la versión preliminar pública
+Soporte técnico de Microsoft no se encarga de los problemas de redireccionamiento multimedia durante la versión preliminar pública.
 
 Si tiene algún problema, puede indicárnoslo en el concentrador de comentarios, ya sea en el cliente o en el host de máquina virtual.
 

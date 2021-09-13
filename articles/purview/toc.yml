@@ -28,18 +28,6 @@ items:
             href: tutorial-data-sources-readiness.md
           - name: Configuración de MSI de Azure Purview a escala
             href: tutorial-msi-configuration.md
-      - name: Starter Kit
-        items:
-          - name: Examen de datos
-            href: tutorial-scan-data.md
-          - name: Desplazamiento por la página principal y búsqueda
-            href: tutorial-asset-search.md
-          - name: Examen de recursos y visualización de linaje
-            href: tutorial-browse-and-view-lineage.md
-          - name: 'Exploración de conjuntos de recursos, activos, esquemas y clasificaciones'
-            href: tutorial-schemas-and-classifications.md
-          - name: Creación de términos del glosario
-            href: tutorial-import-create-glossary-terms.md
       - name: Registro y examen de un servidor SQL Server local
         href: register-scan-on-premises-sql-server.md
       - name: Llamada a las API REST para el catálogo

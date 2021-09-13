@@ -3,19 +3,19 @@ title: 'Preparación de los datos para Habla personalizada: servicio de Voz'
 titleSuffix: Azure Cognitive Services
 description: Al probar la precisión del reconocimiento de voz de Microsoft o entrenar sus modelos personalizados, necesitará datos de texto y de audio. En esta página, veremos los tipos de datos, cómo se usan y administran.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
-ms.openlocfilehash: 991268aff1b74f8e1990c106fa40b3f3fadd4145
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.author: lajanuar
+ms.openlocfilehash: e4c5efc165c864576191b6d74030d1dc2f5dc2a5
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769280"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324571"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -49,9 +49,9 @@ En esta tabla se enumeran los tipos de datos aceptados, cuándo se debe utilizar
 | Tipo de datos | Se usa para pruebas | Cantidad recomendada | Se utiliza para el entrenamiento | Cantidad recomendada |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | No | N/D |
-| [Transcripciones de audio con etiqueta humana](#audio-and-human-labeled-transcript-data) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 20 horas de audio |
 | [Texto sin formato](#plain-text-data-for-training) | No | N/a | Sí | De 1 a 200 MB de texto relacionado |
 | [Pronunciación](#pronunciation-data-for-training) | No | N/a | Sí | 1 KB - 1 MB de texto de pronunciación |
+| [Transcripciones de audio con etiqueta humana](#audio-and-human-labeled-transcript-data) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 20 horas de audio |
 
 Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.
 
@@ -78,53 +78,6 @@ Una vez cargado el conjunto de datos, tiene algunas opciones:
 * Puede navegar a la pestaña **Entrenar modelos personalizados** para entrenar un modelo personalizado.
 * Puede ir a la pestaña **Modelos de prueba** para inspeccionar visualmente la calidad con datos de solo audio o evaluar la precisión con datos de transcripción etiquetada por usuarios y audio.
 
-
-## <a name="audio-and-human-labeled-transcript-data"></a>Datos de transcripción etiquetada por usuarios y audio
-
-Los datos de transcripción etiquetada por usuarios y audio se pueden usar con fines de entrenamiento y prueba. Para mejorar los aspectos acústicos, como acentos ligeros, estilos de habla, ruidos de fondo o para medir la precisión de la conversión de voz en texto de Microsoft al procesar los archivos de audio, debe proporcionar transcripciones etiquetada por usuarios (palabra por palabra) para poder comparar. Aunque la transcripción con etiqueta humana a menudo requiere mucho tiempo, es necesario evaluar la precisión y entrenar al modelo para los casos de uso. Tenga en cuenta que las mejoras en el reconocimiento solo serán tan buenas como los datos proporcionados. Por ese motivo, es importante que solo se carguen las transcripciones de alta calidad.
-
-Los archivos de audio pueden tener silencio al principio y al final de la grabación. Si es posible, incluya al menos medio segundo de silencio antes y después de la voz en cada archivo de ejemplo. Aunque el audio con un volumen de grabación bajo o con ruido de fondo molesto no resulta útil, no debería perjudicar al modelo personalizado. Considere siempre la posibilidad de actualizar los micrófonos y el hardware de procesamiento de la señal antes de recopilar muestras de audio.
-
-| Propiedad                 | Value                               |
-|--------------------------|-------------------------------------|
-| Formato de archivo              | RIFF (WAV)                          |
-| Velocidad de muestreo              | 8000 o 16 000 Hz               |
-| Canales                 | 1 (mono)                            |
-| Longitud máxima por audio | 2 horas (pruebas)/60 s (entrenamiento) |
-| Formato de ejemplo            | PCM, 16 bits                         |
-| Formato de archivo           | .zip                                |
-| Tamaño máximo de archivo zip         | 2 GB                                |
-
-[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
-
-> [!NOTE]
-> Al cargar los datos del entrenamiento y de las pruebas, el archivo ZIP no puede superar los 2 GB. Solo puede realizar pruebas desde un *único* conjunto de datos; asegúrese de mantenerlo dentro del tamaño de archivo adecuado. Además, cada archivo de entrenamiento no puede superar los 60 segundos, ya que, si lo hace, se producirá un error.
-
-Para abordar problemas como la eliminación o sustitución de palabras, se necesita una cantidad significativa de datos para mejorar el reconocimiento. Por lo general, se recomienda proporcionar transcripciones palabra por palabra para aproximadamente de 1 a 20 horas de audio. Sin embargo, solo 30 minutos pueden ayudar a mejorar los resultados del reconocimiento. Las transcripciones para todos los archivos WAV deben incluirse en un único archivo de texto sin formato. Cada línea del archivo de transcripción debe contener el nombre de uno de los archivos de audio, seguido de la transcripción correspondiente. El nombre de archivo y la transcripción deben estar separados por un carácter de tabulación (\t).
-
-Por ejemplo:
-
-<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
-
-```input
-speech01.wav    speech recognition is awesome
-speech02.wav    the quick brown fox jumped all over the place
-speech03.wav    the lazy dog was not amused
-```
-
-> [!IMPORTANT]
-> La transcripción debería estar codificada como una marca BOM UTF-8.
-
-Las transcripciones son texto normalizado para que el sistema pueda procesarlas. Aunque hay algunas normalizaciones importantes que debe hacer el usuario antes de cargar los datos en Speech Studio. Para conocer el idioma que debe usar al preparar las transcripciones, consulte [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) (Creación de una transcripción con etiqueta humana).
-
-Cuando haya reunido los archivos de audio y las transcripciones correspondientes, debe empaquetarlos como un solo archivo .zip antes de cargarlos en <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. A continuación se muestra un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
-
-> [!div class="mx-imgBorder"]
-> ![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
-
-Consulte [Configuración de la cuenta de Azure](custom-speech-overview.md#set-up-your-azure-account) para obtener una lista de las regiones recomendadas para las suscripciones del servicio de Voz. La configuración de las suscripciones de Voz en una de estas regiones reducirá el tiempo necesario para entrenar el modelo. En estas regiones, el entrenamiento puede procesar aproximadamente 10 horas de audio al día en comparación con solo 1 hora al día en otras regiones. Si el entrenamiento del modelo no se puede completar en una semana, el modelo se marcará como erróneo.
-
-No todos los modelos base son compatibles con el entrenamiento con datos de audio. Si el modelo base no lo admite, el servicio omitirá el audio y simplemente entrenará con el texto de las transcripciones. En este caso, el entrenamiento será el mismo que el del entrenamiento con texto relacionado. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio.
 
 ## <a name="plain-text-data-for-training"></a>Datos de texto sin formato para entrenamiento
 
@@ -180,6 +133,60 @@ Utilice la tabla siguiente para asegurarse de que el formato del archivo de dato
 | Codificación de texto | BOM UTF-8 (también se admite ANSI con el inglés) |
 | Número de pronunciaciones por línea | 1 |
 | Tamaño de archivo máximo | 1 MB (1 KB por cada nivel gratis) |
+
+## <a name="audio-and-human-labeled-transcript-data"></a>Datos de transcripción etiquetada por usuarios y audio
+
+Los datos de transcripción etiquetada por usuarios y audio se pueden usar con fines de entrenamiento y prueba. Para mejorar los aspectos acústicos, como acentos ligeros, estilos de habla, ruidos de fondo o para medir la precisión de la conversión de voz en texto de Microsoft al procesar los archivos de audio, debe proporcionar transcripciones etiquetada por usuarios (palabra por palabra) para poder comparar. Aunque la transcripción con etiqueta humana a menudo requiere mucho tiempo, es necesario evaluar la precisión y entrenar al modelo para los casos de uso. Tenga en cuenta que las mejoras en el reconocimiento solo serán tan buenas como los datos proporcionados. Por ese motivo, es importante que solo se carguen las transcripciones de alta calidad.
+
+Los archivos de audio pueden tener silencio al principio y al final de la grabación. Si es posible, incluya al menos medio segundo de silencio antes y después de la voz en cada archivo de ejemplo. Aunque el audio con un volumen de grabación bajo o con ruido de fondo molesto no resulta útil, no debería perjudicar al modelo personalizado. Considere siempre la posibilidad de actualizar los micrófonos y el hardware de procesamiento de la señal antes de recopilar muestras de audio.
+
+| Propiedad                 | Value                               |
+|--------------------------|-------------------------------------|
+| Formato de archivo              | RIFF (WAV)                          |
+| Velocidad de muestreo              | 8000 o 16 000 Hz               |
+| Canales                 | 1 (mono)                            |
+| Longitud máxima por audio | 2 horas (pruebas)/60 s (entrenamiento) |
+| Formato de ejemplo            | PCM, 16 bits                         |
+| Formato de archivo           | .zip                                |
+| Tamaño máximo de archivo zip         | 2 GB                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
+
+> [!TIP]
+> ¿Ni siquiera tiene audio real? También puede cargar un archivo de texto (.txt) seleccionando el tipo **Transcript (automatic audio synthesis)** [Transcripción (síntesis automática de audio)] como **Probar** datos para obtener una idea básica de los niveles de precisión actuales y el par de audio para cada expresión hablada se sintetizará automáticamente mediante [Texto a voz](text-to-speech.md). 
+> 
+> Tenga en cuenta que normalmente **NO** se recomienda usar los audios sintetizados como datos de **Entrenamiento**.
+> 
+> El tamaño de archivo máximo es 500 KB. Sintetizaremos un audio para cada línea y el tamaño máximo de cada línea es de 65535 bytes.
+
+> [!NOTE]
+> Al cargar los datos del entrenamiento y de las pruebas, el archivo ZIP no puede superar los 2 GB. Solo puede realizar pruebas desde un *único* conjunto de datos; asegúrese de mantenerlo dentro del tamaño de archivo adecuado. Además, cada archivo de entrenamiento no puede superar los 60 segundos, ya que, si lo hace, se producirá un error.
+
+Para abordar problemas como la eliminación o sustitución de palabras, se necesita una cantidad significativa de datos para mejorar el reconocimiento. Por lo general, se recomienda proporcionar transcripciones palabra por palabra para aproximadamente de 1 a 20 horas de audio. Sin embargo, solo 30 minutos pueden ayudar a mejorar los resultados del reconocimiento. Las transcripciones para todos los archivos WAV deben incluirse en un único archivo de texto sin formato. Cada línea del archivo de transcripción debe contener el nombre de uno de los archivos de audio, seguido de la transcripción correspondiente. El nombre de archivo y la transcripción deben estar separados por un carácter de tabulación (\t).
+
+Por ejemplo:
+
+<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
+
+```input
+speech01.wav    speech recognition is awesome
+speech02.wav    the quick brown fox jumped all over the place
+speech03.wav    the lazy dog was not amused
+```
+
+> [!IMPORTANT]
+> La transcripción debería estar codificada como una marca BOM UTF-8.
+
+Las transcripciones son texto normalizado para que el sistema pueda procesarlas. Aunque hay algunas normalizaciones importantes que debe hacer el usuario antes de cargar los datos en Speech Studio. Para conocer el idioma que debe usar al preparar las transcripciones, consulte [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) (Creación de una transcripción con etiqueta humana).
+
+Cuando haya reunido los archivos de audio y las transcripciones correspondientes, debe empaquetarlos como un solo archivo .zip antes de cargarlos en <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. A continuación se muestra un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
+
+> [!div class="mx-imgBorder"]
+> ![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+Consulte [Configuración de la cuenta de Azure](custom-speech-overview.md#set-up-your-azure-account) para obtener una lista de las regiones recomendadas para las suscripciones del servicio de Voz. La configuración de las suscripciones de Voz en una de estas regiones reducirá el tiempo necesario para entrenar el modelo. En estas regiones, el entrenamiento puede procesar aproximadamente 10 horas de audio al día en comparación con solo 1 hora al día en otras regiones. Si el entrenamiento del modelo no se puede completar en una semana, el modelo se marcará como erróneo.
+
+No todos los modelos base son compatibles con el entrenamiento con datos de audio. Si el modelo base no lo admite, el servicio omitirá el audio y simplemente entrenará con el texto de las transcripciones. En este caso, el entrenamiento será el mismo que el del entrenamiento con texto relacionado. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio.
 
 ## <a name="audio-data-for-testing"></a>Datos de audio para pruebas
 

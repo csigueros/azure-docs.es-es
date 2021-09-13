@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1207f4856882d8aa0e6d1e41712071536bfecf29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7841a8520e3bd3a01a993054444b8aa4d04d542d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98728563"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260871"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Conversión de las clases de recursos en grupos de cargas de trabajo
 
@@ -27,7 +27,7 @@ Los grupos de cargas de trabajo proporcionan un mecanismo para aislar y contener
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Descripción de la configuración de la clase de recursos existente
 
-Los grupos de cargas de trabajo requieren un parámetro denominado `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, que especifica el porcentaje de recursos generales del sistema asignados por solicitud.  La asignación de recursos para las [clases de recursos](resource-classes-for-workload-management.md#what-are-resource-classes) se realiza mediante la asignación de espacios de simultaneidad.  Para determinar el valor que se va a especificar para `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, use la DMV de <link tbd> sys.dm_workload_management_workload_groups_stats.  Por ejemplo, la consulta siguiente devuelve un valor que puede usar el parámetro `REQUEST_MIN_RESOURCE_GRANT_PERCENT` con el fin de crear un grupo de cargas de trabajo similar a staticrc40.
+Los grupos de cargas de trabajo requieren un parámetro denominado `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, que especifica el porcentaje de recursos generales del sistema asignados por solicitud.  La asignación de recursos para las [clases de recursos](resource-classes-for-workload-management.md#what-are-resource-classes) se realiza mediante la asignación de espacios de simultaneidad.  Para determinar el valor que se va a especificar para `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, use el conjunto DMV de [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true).  Por ejemplo, la consulta siguiente devuelve un valor que puede usar el parámetro `REQUEST_MIN_RESOURCE_GRANT_PERCENT` con el fin de crear un grupo de cargas de trabajo similar a staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -42,7 +42,7 @@ Dado que los grupos de cargas de trabajo operan en función del porcentaje de re
 
 ## <a name="create-workload-group"></a>Creación de un grupo de cargas de trabajo
 
-Con el valor `REQUEST_MIN_RESOURCE_GRANT_PERCENT`conocido, se puede usar la sintaxis de <link> CREATE WORKLOAD GROUP para crear el grupo de cargas de trabajo.  Opcionalmente, puede especificar un valor `MIN_PERCENTAGE_RESOURCE` mayor que cero para aislar los recursos del grupo de cargas de trabajo.  Además, puede especificar opcionalmente un valor `CAP_PERCENTAGE_RESOURCE` menor de 100 para limitar la cantidad de recursos que puede consumir el grupo de cargas de trabajo.  
+Con el valor `REQUEST_MIN_RESOURCE_GRANT_PERCENT` conocido, se puede usar la sintaxis de [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true) para crear el grupo de cargas de trabajo.  Opcionalmente, puede especificar un valor `MIN_PERCENTAGE_RESOURCE` mayor que cero para aislar los recursos del grupo de cargas de trabajo.  Además, puede especificar opcionalmente un valor `CAP_PERCENTAGE_RESOURCE` menor de 100 para limitar la cantidad de recursos que puede consumir el grupo de cargas de trabajo.  
 
 Usando mediumrc como base para un ejemplo, el código siguiente establece el valor `MIN_PERCENTAGE_RESOURCE` para dedicar el 10 % de los recursos del sistema a `wgDataLoads` y se garantiza que se podrá ejecutar una consulta todas las horas.  Además, `CAP_PERCENTAGE_RESOURCE` se establece en el 40 % y limita este grupo de cargas de trabajo a cuatro solicitudes simultáneas.  Al establecer el parámetro `QUERY_EXECUTION_TIMEOUT_SEC` en 3600, las consultas que se ejecuten durante más de 1 hora se cancelarán automáticamente.
 

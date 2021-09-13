@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: be7aefd231daad2cdefccbcc4648b20bf6159455
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 01680713d0e21baa3433e79474a4ba4567d5c644
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638099"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313067"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copia de datos desde DB2 mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -58,6 +58,30 @@ El entorno Integration Runtime proporciona un controlador DB2 integrado, por lo 
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-db2-using-ui"></a>Creación de un servicio vinculado a DB2 mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a DB2 en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque DB2 y seleccione el conector de DB2.
+
+    :::image type="content" source="media/connector-db2/db2-connector.png" alt-text="Captura de pantalla del conector de DB2.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-db2/configure-db2-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado en DB2.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector DB2.
 

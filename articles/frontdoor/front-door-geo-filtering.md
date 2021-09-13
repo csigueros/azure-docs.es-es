@@ -10,15 +10,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 08/31/2021
 ms.author: duau
 ms.reviewer: amsriva
-ms.openlocfilehash: bb7de037f63c8892aa73e357f744b1f25fb0750f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c784232d5c51f4c3a3c81df48ce0c01f7e794fc8
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441035"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309919"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrado geográfico en un dominio para Azure Front Door
 
@@ -26,8 +26,10 @@ De forma predeterminada, Azure Front Door responde a todas las solicitudes del u
 
 Una directiva de WAF incluye un conjunto de reglas personalizadas. Las reglas constan de condiciones de coincidencia, acciones y prioridades. En las condiciones de coincidencia se definen una variable de coincidencia, un operador y un valor de coincidencia. En el caso de la regla de filtrado geográfico, la variable de coincidencia es REMOTE_ADDR, el operador es GeoMatch y el valor es el código de país o región de dos letras. El código de país "ZZ" o el país "Desconocido" capturan direcciones IP que todavía no están asignadas a un país en nuestro conjunto de datos. Puede agregar ZZ a la condición de coincidencia para evitar falsos positivos. Puede combinar una condición GeoMatch y una condición de coincidencia de la cadena REQUEST_URI para crear una regla de filtrado geográfico basada en la ruta de acceso.
 
-
 Las directivas de filtrado geográfico para Front Door se pueden configurar mediante [Azure PowerShell](front-door-tutorial-geo-filtering.md) o una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering).
+
+> [!IMPORTANT]
+> Incluya el código de país **ZZ** cada vez que use el filtrado geográfico. El código de país **ZZ** (o el país *Desconocido*) captura direcciones IP que todavía no están asignadas a un país en nuestro conjunto de datos. Esto evita falsos positivos.
 
 ## <a name="countryregion-code-reference"></a>Referencia de código de país o región
 

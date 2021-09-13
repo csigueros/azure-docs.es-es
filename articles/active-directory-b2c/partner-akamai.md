@@ -11,16 +11,19 @@ ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: bee4eb52ffab891f1a0f120fca25573a93d25370
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 09f35e9621f6704fb33720a43afb38fd99e9eec6
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729404"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123213900"
 ---
 # <a name="tutorial-configure-akamai-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Akamai con Azure Active Directory B2C
 
 En este tutorial de ejemplo, aprenderá a habilitar la solución de [firewall de aplicaciones web de Akamai](https://www.akamai.com/us/en/resources/web-application-firewall.jsp) para el inquilino de Azure Active Directory (AD) B2C mediante dominios personalizados. El firewall de aplicaciones web de Akamai ayuda a la organización a proteger sus aplicaciones web frente a ataques malintencionados que pretenden aprovechar vulnerabilidades como la inserción de SQL y el scripting entre sitios.
+
+>[!NOTE]
+>Esta característica está en versión preliminar pública.
 
 Ventajas del uso de la solución de firewall de aplicaciones web de Akamai:
 
@@ -68,19 +71,19 @@ La integración de la solución de firewall de aplicaciones web de Akamai incluy
 
 2. Configure la configuración de la propiedad como:  
 
-| Propiedad | Valor |
+| Propiedad | Value |
 |:---------------|:---------------|
 |Versión de la propiedad | Seleccione TLS estándar o mejorado (opción preferida) |
 |Nombres de host de la propiedad | Agregue un nombre de host de la propiedad. Este es el nombre del dominio personalizado, por ejemplo: login.domain.com. <BR> Cree o modifique un certificado con la configuración adecuada para el nombre de dominio personalizado. Para obtener más información, vea [this](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). |
 
 3. Establezca los valores de configuración de la propiedad del servidor de origen como:
 
-|Propiedad| Valor |
+|Propiedad| Value |
 |:-----------|:-----------|
 | Tipo de origen | Su origen |
 | Nombre de host del servidor de origen | yourafddomain.azurefd.net |
-| Encabezado host de reenvío | Nombre de host de origen |
-| Nombre de host de la clave de caché| Nombre de host de origen |
+| Encabezado host de reenvío | Encabezado de host de entrante |
+| Nombre de host de la clave de caché| Encabezado de host de entrante  |
 
 ### <a name="configure-dns"></a>Configurar el DNS
 

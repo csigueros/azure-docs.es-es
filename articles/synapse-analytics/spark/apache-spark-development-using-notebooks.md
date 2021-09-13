@@ -10,12 +10,12 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: a66b036bde5f25873e9d4a371faf249deadd69dc
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 4635848032d60c056b525d4ece0d50ad2eaf6039
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736905"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396773"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse en Azure Synapse Analytics
 
@@ -150,9 +150,10 @@ Las características de IntelliSense tienen distintos niveles de madurez para di
 |PySpark (Python)|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Spark (Scala)|Sí|Sí|Sí|Sí|-|-|-|Sí|
 |SparkSQL|Sí|Sí|-|-|-|-|-|-|
-|.NET para Spark ( C# )|Sí|-|-|-|-|-|-|-|
+|.NET para Spark ( C# )|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 
-
+>[!Note]
+> Se necesita una sesión activa de Spark para beneficiarse de la finalización de código variable, la finalización del código de funciones del sistema y la finalización de código de funciones del usuario para .NET para Spark (C#).
 
 ### <a name="code-snippets"></a>Fragmentos de código
 
@@ -337,13 +338,14 @@ No compatible.
 
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
-Puede usar el comando magic ```%run <notebook path>``` para hacer referencia a otro cuaderno en el contexto del cuaderno actual. Todas las variables definidas en el cuaderno de referencia están disponibles en el cuaderno actual. El comando magic ```%run``` admite llamadas anidadas pero no admite llamadas recursivas. Recibirá una excepción si la profundidad de la instrucción es superior a cinco. Actualmente, el comando ```%run``` solo se admite para pasar una ruta de acceso del cuaderno como parámetro. 
+Puede usar el comando magic ```%run <notebook path>``` para hacer referencia a otro cuaderno en el contexto del cuaderno actual. Todas las variables definidas en el cuaderno de referencia están disponibles en el cuaderno actual. El comando magic ```%run``` admite llamadas anidadas pero no admite llamadas recursivas. Recibirá una excepción si la profundidad de la instrucción es superior a cinco.  Actualmente, el comando ```%run``` solo se admite para pasar una ruta de acceso del cuaderno como parámetro. 
 
 Ejemplo: ``` %run /path/notebookA ```.
 
+La referencia del cuaderno funciona tanto en modo interactivo como en la canalización de Synapse.
+
 > [!NOTE]
-> La referencia del cuaderno no se admite en una canalización de Synapse.
->
+> Los cuadernos a los que se hace referencia deben publicarse. Debe publicar los cuadernos para hacer referencia a ellos. Synapse Studio no reconoce los cuadernos no publicados desde el repositorio de Git. 
 >
 
 ---
@@ -388,10 +390,10 @@ Puede especificar la duración del tiempo de espera, el número y el tamaño de 
 #### <a name="spark-session-config-magic-command"></a>Comando magic de configuración de la sesión de Spark
 También puede especificar la configuración de la sesión de Spark a través de un comando magic **%%configure**. La sesión de Spark debe reiniciarse para que la configuración surta efecto. Se recomienda ejecutar el comando **%%configure** al principio del cuaderno. Recuerde que este es un ejemplo; para obtener una lista completa de parámetros válidos puede consultar https://github.com/cloudera/livy#request-body. 
 
-```
-%%configure -f
+```json
+%%configure
 {
-    to config the session.
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
     "driverMemory":"2g",
     "driverCores":3,
     "executorMemory":"2g",
@@ -403,8 +405,8 @@ También puede especificar la configuración de la sesión de Spark a través de
 }
 ```
 > [!NOTE]
-> El comando magic de configuración de la sesión de Spark no se admite en una canalización de Synapse.
->
+> - Puede usar el comando magic de configuración de sesión de Spark en canalizaciones de Synapse. Solo surte efecto cuando se le llama en el nivel superior. Se omitirá el %%configure usado en el cuaderno al que se hace referencia.
+> - Las propiedades de configuración de Spark deben usarse en el cuerpo "conf". No se admite la referencia de nivel superior para las propiedades de configuración de Spark.
 >
 
 ## <a name="bring-data-to-a-notebook"></a>Traslado de los datos a un cuaderno
@@ -459,6 +461,83 @@ df = spark.read.option("header", "true") \
 Puede tener acceso directamente a los datos de la cuenta de almacenamiento principal. No hay necesidad de proporcionar las claves secretas. En Explorador de datos, haga clic con el botón derecho en un archivo y seleccione **Nuevo cuaderno** para ver un nuevo cuaderno con el extractor de datos generado automáticamente.
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
+
+## <a name="ipython-widgets"></a>Widgets de IPython
+
+
+# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
+
+No compatible.
+
+# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
+
+Los widgets son objetos de Python con eventos que tienen una representación en el explorador, a menudo como un control deslizante, un cuadro de texto, etc. Los widgets de IPython solo funcionan en el entorno de Python; aún no se admiten en otros lenguajes (por ejemplo, Scala, SQL, C#). 
+
+### <a name="to-use-ipython-widget"></a>Para usar el widget de IPython
+1. Primero debe importar el módulo `ipywidgets` para usar el marco del widget de Jupyter.
+   ```python
+   import ipywidgets as widgets
+   ```
+2. Puede usar la función `display` de nivel superior para representar un widget, o dejar una expresión de tipo **widget** en la última línea de celda de código.
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   ```
+
+   ```python
+   slider = widgets.IntSlider()
+   slider
+   ```
+   
+3. Ejecute la celda y el widget se mostrará en el área de salida.
+
+   ![Control deslizante de widgets de ipython](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
+
+4. Puede usar varias llamadas de `display()` para representar la misma instancia de widget varias veces, pero permanecerán sincronizadas entre sí.
+
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   display(slider)
+   ```
+
+   ![controles deslizantes de widgets de ipython](./media/apache-spark-development-using-notebooks/ipython-widgets-multiple-sliders.png)
+
+5. Para representar dos widgets independientes entre sí, cree dos instancias de widget:
+
+   ```python
+   slider1 = widgets.IntSlider()
+   slider2 = widgets.IntSlider()
+   display(slider1)
+   display(slider2)
+   ```
+
+
+### <a name="supported-widgets"></a>Widgets admitidos
+
+|Tipo de widgets|Widgets|
+|--|--|
+|Widgets numéricos|IntSlider, FloatSlider, FloatLogSlider, IntRangeSlider, FloatRangeSlider, IntProgress, FloatProgress, BoundedIntText, BoundedFloatText, IntText, FloatText|
+|Widgets booleanos|ToggleButton, Checkbox, Valid|
+|Widgets de selección|Dropdown, RadioButtons, Select, SelectionSlider, SelectionRangeSlider, ToggleButtons, SelectMultiple|
+|Widgets de cadena|Text, Text area, Combobox, Password, Label, HTML, HTML Math, Image, Button|
+|Widgets de reproducción (animación)|Date picker, Color picker, Controller|
+|Widgets de contenedor/diseño|Box, HBox, VBox, GridBox, Accordion, Tabs, Stacked|
+
+
+### <a name="know-issue"></a>Problema conocido
+
+Los widgets siguientes aún no se admiten, puede seguir la solución alternativa como se indica a continuación:
+
+|Funcionalidad|Solución alternativa|
+|--|--|
+|Widget `Output`|Puede usar la función `print()` en su lugar para escribir texto en stdout.|
+|`widgets.jslink()`|Puede usar la función `widgets.link()` para vincular dos widgets similares.|
+|Widget `FileUpload`| Todavía no se admite.|
+
+
+---
+
 
 ## <a name="save-notebooks"></a>Guardado de cuadernos
 

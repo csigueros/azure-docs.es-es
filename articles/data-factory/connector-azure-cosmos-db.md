@@ -1,18 +1,20 @@
 ---
 title: Copia y transformación de los datos en Azure Cosmos DB (SQL API)
-description: Aprenda a copiar datos con Azure Cosmos DB (SQL API) como origen y destino, y a transformar datos en Azure Cosmos DB (SQL API) mediante Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Obtenga información sobre cómo copiar datos con Azure Cosmos DB (API de SQL) como origen y destino y cómo transformar datos en Azure Cosmos DB (API de SQL) mediante Azure Data Factory y Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/18/2021
-ms.openlocfilehash: 36fae5b71e9aa5c2c6c252ad1aa306bb64d9aecb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: eb222badbd9b2f349f1ae33f1b659b3caadd8b90
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480086"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306929"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Cosmos DB (SQL API) mediante Azure Data Factory
 
@@ -22,9 +24,7 @@ ms.locfileid: "110480086"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos con Azure Cosmos DB (SQL API) como origen y destino, y el uso de Data Flow para transformarlos en Azure Cosmos DB (SQL API). Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
-
-
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos con Azure Cosmos DB (SQL API) como origen y destino, y el uso de Data Flow para transformarlos en Azure Cosmos DB (SQL API). Para obtener más información, lea los artículos de introducción para [Azure Data Factory](introduction.md) y [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!NOTE]
 >Este conector solo admite SQL API de Cosmos DB. Para MongoDB API, consulte [Conector de la API de Azure Cosmos DB para MongoDB](connector-azure-cosmos-db-mongodb-api.md). Actualmente, no se admiten otros tipos de API.
@@ -43,7 +43,7 @@ Para la actividad de copia, este conector de Azure Cosmos DB (SQL API) admite l
 - Escriba en Azure Cosmos DB como **insert** o **upsert**.
 - Importe y exporte documentos JSON tal cual, o copie datos desde o hacia un conjunto de datos tabular. Entre los ejemplos se incluyen una base de datos SQL y un archivo CSV. Para copiar documentos tal cual desde archivos JSON o hacia estos, o desde otra colección de Azure Cosmos DB o hacia esta, consulte [Importación y exportación de documentos JSON](#import-and-export-json-documents).
 
-Data Factory se integra con la [biblioteca BulkExecutor en Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para proporcionar el mejor rendimiento de escritura en Azure Cosmos DB.
+Las canalizaciones de Synapse y Data Factory se integran con la [biblioteca BulkExecutor de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para proporcionar el mejor rendimiento de escritura en Azure Cosmos DB.
 
 > [!TIP]
 > El [vídeo de migración de datos](https://youtu.be/5-SRNiC_qOU) le guía por los pasos para copiar datos desde Azure Blob Storage hasta Azure Cosmos DB. En el vídeo también se describen consideraciones sobre la optimización del rendimiento para la ingesta de datos a Azure Cosmos DB en general.
@@ -51,16 +51,40 @@ Data Factory se integra con la [biblioteca BulkExecutor en Azure Cosmos DB](http
 ## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+## <a name="create-a-linked-service-to-azure-cosmos-db-using-ui"></a>Creación de un servicio vinculado a Azure Cosmos DB mediante la interfaz de usuario
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas de Azure Cosmos DB (API de SQL).
+Siga estos pasos para crear un servicio vinculado a Azure Cosmos DB en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Cosmos y seleccione el conector de Azure Cosmos DB (API de SQL).
+
+    :::image type="content" source="media/connector-azure-cosmos-db/azure-cosmos-db-connector.png" alt-text="Selección del conector de Azure Cosmos DB (API de SQL).":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-azure-cosmos-db/configure-azure-cosmos-db-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado a Azure Cosmos DB.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades específicas de Azure Cosmos DB (API de SQL).
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
 El conector de Azure Cosmos DB (API de SQL) admite los siguientes tipos de autenticación. Consulte las secciones correspondientes para más información:
 
 - [Autenticación de clave](#key-authentication)
-- [Autenticación de entidad de servicio (versión preliminar)](#service-principal-authentication)
-- [Identidades administradas para la autenticación de los recursos de Azure (versión preliminar)](#managed-identity)
+- [Autenticación de entidad de servicio](#service-principal-authentication)
+- [Identidades administradas para la autenticación de recursos de Azure](#managed-identity)
 
 ### <a name="key-authentication"></a>Autenticación de clave
 
@@ -114,7 +138,7 @@ El conector de Azure Cosmos DB (API de SQL) admite los siguientes tipos de aute
 }
 ```
 
-### <a name="service-principal-authentication-preview"></a><a name="service-principal-authentication"></a> Autenticación de entidad de servicio (versión preliminar)
+### <a name="service-principal-authentication"></a><a name="service-principal-authentication"></a> Autenticación de la entidad de servicio
 
 >[!NOTE]
 >Actualmente, la autenticación de la entidad de servicio no se admite en el flujo de datos.
@@ -138,9 +162,9 @@ Estas propiedades son compatibles con el servicio vinculado:
 | database | Especifique el nombre de la base de datos. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
 | servicePrincipalCredentialType | Tipo de credencial que se usará para la autenticación de entidades de servicio. Los valores válidos son **ServicePrincipalKey** y **ServicePrincipalCert**. | Sí |
-| servicePrincipalCredential | Credencial de entidad de servicio. <br/> Al usar **ServicePrincipalKey** como tipo de credenciales, especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. <br/> Al usar **ServicePrincipalCert** como credencial, haga referencia a un certificado de Azure Key Vault. | Sí |
+| servicePrincipalCredential | Credencial de entidad de servicio. <br/> Al usar **ServicePrincipalKey** como tipo de credenciales, especifique la clave de la aplicación. Marque este campo como **SecureString** para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). <br/> Al usar **ServicePrincipalCert** como credencial, haga referencia a un certificado de Azure Key Vault. | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
-| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de Azure Active Directory. <br/> Los valores permitidos son **AzurePublic**, **AzureChina**, **AzureUsGovernment** y **AzureGermany**. De forma predeterminada, se usa el entorno de nube de la factoría de datos. | No |
+| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de Azure Active Directory. <br/> Los valores permitidos son **AzurePublic**, **AzureChina**, **AzureUsGovernment** y **AzureGermany**. De forma predeterminada, se usa el entorno de nube del servicio. | No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 **Ejemplo: uso de la autenticación de claves de entidad de servicio**
@@ -200,16 +224,16 @@ También puede almacenar la clave de entidad de servicio en Azure Key Vault.
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication-preview"></a><a name="managed-identity"></a> Identidades administradas para la autenticación de los recursos de Azure (versión preliminar)
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
 >[!NOTE]
 >Actualmente, la autenticación de identidad administrada no se admite en el flujo de datos.
 
-Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad administrada para la autenticación de Cosmos DB, de manera similar a como usa su propia entidad de servicio. Permite que esta fábrica designada acceda a datos los copie desde o hacia Cosmos DB.
+Una canalización de Data Factory o de Synapse se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que represente esa instancia de servicio concreta. Puede usar directamente esta identidad administrada para la autenticación de Cosmos DB, de manera similar a como usa su propia entidad de servicio. Permite que este recurso designado acceda a datos y los copie desde o hacia Cosmos DB.
 
 Para usar identidades administradas para la autenticación de recursos de Azure, siga estos pasos.
 
-1. [Recupere la información de la identidad administrada de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de **Id. del objeto de identidad administrada** que se ha generado junto con la factoría.
+1. [Recupere la información de la identidad administrada](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor del **id. del objeto de identidad administrada** que se ha generado junto con el servicio.
 
 2. Conceda el permiso adecuado de identidad administrada. Consulte ejemplos sobre el funcionamiento del permiso en Cosmos DB en [Listas de control de acceso en archivos y directorios](../cosmos-db/how-to-setup-rbac.md). Más concretamente, cree una definición de roles y asigne el rol a la identidad administrada.
 
@@ -328,7 +352,7 @@ Si utiliza el origen de tipo "DocumentDbCollectionSource", todavía se admite ta
 ]
 ```
 
-Al copiar datos de Cosmos DB, a menos que desee [exportar documentos JSON tal cual](#import-and-export-json-documents), el procedimiento recomendado es especificar la asignación en la actividad de copia. Data Factory respeta la asignación especificada en la actividad: si una fila no contiene un valor para una columna, se proporciona un valor null para el valor de la columna. Si no especifica una asignación, Data Factory deduce el esquema mediante la primera fila de los datos. Si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de la actividad.
+Al copiar datos de Cosmos DB, a menos que desee [exportar documentos JSON tal cual](#import-and-export-json-documents), el procedimiento recomendado es especificar la asignación en la actividad de copia. El servicio respeta la asignación especificada en la actividad: si una fila no contiene un valor para una columna, se proporciona un valor NULL para el valor de la columna. Si no especifica una asignación, el servicio deduce el esquema mediante la primera fila de los datos. Si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de la actividad.
 
 ### <a name="azure-cosmos-db-sql-api-as-sink"></a>Azure Cosmos DB (API de SQL) como receptor
 
@@ -339,9 +363,9 @@ La sección **sink** de la actividad de copia admite las siguientes propiedades:
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** del receptor de la actividad de copia tiene que establecerse en **CosmosDbSqlApiSink**. |Sí |
-| writeBehavior |Describe cómo escribir datos en Azure Cosmos DB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo identificador; en caso contrario, inserta el documento.<br /><br />**Nota**: Data Factory genera automáticamente un identificador para un documento si no se especifica un identificador en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |No<br />(el valor predeterminado es **insert**) |
-| writeBatchSize | Data Factory usa la [biblioteca BulkExecutor en Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escribir datos en Azure Cosmos DB. La propiedad **writeBatchSize** controla el tamaño de los documentos que ADF proporciona a la biblioteca. Puede aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande: a continuación encontrará sugerencias. |No<br />(el valor predeterminado es **10 000**) |
-| disableMetricsCollection | Data Factory recopila métricas, como las RU de Cosmos DB, para la optimización del rendimiento de copia y la obtención de recomendaciones. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
+| writeBehavior |Describe cómo escribir datos en Azure Cosmos DB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo identificador; en caso contrario, inserta el documento.<br /><br />**Nota**: El servicio genera automáticamente un id. para un documento si no se especifica un id. en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |No<br />(el valor predeterminado es **insert**) |
+| writeBatchSize | El servicio usa la [biblioteca BulkExecutor de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escribir datos en Azure Cosmos DB. La propiedad **writeBatchSize** controla el tamaño de los documentos que el servicio proporciona a la biblioteca. Puede aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande: a continuación encontrará sugerencias. |No<br />(el valor predeterminado es **10 000**) |
+| disableMetricsCollection | El servicio recopila métricas, como las RU de Cosmos DB, para la optimización del rendimiento de copia y la obtención de recomendaciones. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
 | maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 
@@ -397,7 +421,7 @@ Al transformar datos en el flujo de datos de asignación, puede leer y escribir 
 
 La configuración específica de Azure Comos DB está disponible en la pestaña **Source Options** (Opciones de origen) de la transformación de origen. 
 
-**Include system columns** (Incluir las columnas del sistema): si su valor es true, ```id```, ```_ts``` y otras columnas del sistema se incluirán en los metadatos del flujo de datos de Cosmos DB. Al actualizar las colecciones, es importante incluirla para poder tomar el Id. de fila existente.
+**Include system columns** (Incluir las columnas del sistema): si su valor es true, ```id```, ```_ts``` y otras columnas del sistema se incluirán en los metadatos del flujo de datos de Cosmos DB. Al actualizar las colecciones, es importante incluirlas para poder tomar el id. de fila existente.
 
 **Page size** (Tamaño de página): Número de documentos por página del resultado de la consulta. El valor predeterminado es "-1", que utiliza la página dinámica del servicio hasta 1000.
 
@@ -407,7 +431,7 @@ La configuración específica de Azure Comos DB está disponible en la pestaña
 
 #### <a name="json-settings"></a>Configuración de JSON
 
-**Documento único:** seleccione esta opción si ADF debe tratar todo el archivo como un solo documento JSON.
+**Documento único:** seleccione esta opción si el servicio debe tratar todo el archivo como un solo documento JSON.
 
 **Nombres de columnas sin comillas:** seleccione esta opción si los nombres de columna del archivo JSON no están entre comillas.
 
@@ -430,7 +454,7 @@ La configuración específica de Azure Cosmos DB está disponible en la pestañ
 **Tamaño del lote**: Entero que representa el número de objetos que se escriben en la colección de Cosmos DB en cada lote. Normalmente alcanza con comenzar con el tamaño de lote predeterminado. Para optimizar aún más este valor, tenga en cuenta lo siguiente:
 
 - Cosmos DB limita el tamaño de las solicitudes únicas a 2 MB. La fórmula es "tamaño de la solicitud = tamaño de documento único * tamaño de lote". Si aparece un error con el texto "El tamaño de solicitud es demasiado grande", reduzca el valor del tamaño de lote.
-- Cuanto mayor sea el tamaño del lote, mejor será el rendimiento que podrá lograr ADF y, al mismo tiempo, se asegurará de asignar RU suficientes para permitir la carga de trabajo.
+- Cuanto mayor sea el tamaño del lote, mejor será el rendimiento que podrá lograr el servicio y, al mismo tiempo, se asegurará de asignar RU suficientes para permitir la carga de trabajo.
 
 **Clave de partición:** Escriba una cadena que represente la clave de partición de la colección. Ejemplo: ```/movies/title```
 
@@ -447,7 +471,7 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 Puede utilizar este conector de Azure Cosmos DB (API de SQL) para hacer lo siguiente con facilidad:
 
 * Copiar documentos entre dos colecciones de Azure Cosmos DB tal cual.
-* Importar documentos JSON desde varios orígenes a Azure Cosmos DB, incluido Azure Blob Storage, Azure Data Lake Store y otros almacenes basados en archivos compatibles con Azure Data Factory.
+* Importar documentos JSON desde varios orígenes a Azure Cosmos DB, incluido Azure Blob Storage, Azure Data Lake Store y otros almacenes basados en archivos compatibles con Azure Data Factory.
 * Exportar documentos JSON de una colección de Azure Cosmos DB a varios almacenes basados en archivos.
 
 Para lograr una copia independiente del esquema:
@@ -457,8 +481,8 @@ Para lograr una copia independiente del esquema:
 
 ## <a name="migrate-from-relational-database-to-cosmos-db"></a>Migración de la base de datos relacional a Cosmos DB
 
-Al migrar desde una base de datos relacional, por ejemplo de SQL Server a Azure Cosmos DB, la actividad de copia puede asignar fácilmente datos tabulares del origen a documentos JSON en Cosmos DB. En algunos casos puede que desee rediseñar el modelo de datos para optimizarlo para los casos de uso de NoSQL según lo que se indica en [Modelado de datos en Azure Cosmos DB](../cosmos-db/modeling-data.md), por ejemplo, para desnormalizar los datos mediante la inserción de todos los subelementos relacionados en un documento JSON. En este caso, consulte [este artículo](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md), que ofrece un tutorial sobre cómo lograrlo mediante la actividad de copia de Azure Data Factory.
+Al migrar desde una base de datos relacional, por ejemplo de SQL Server a Azure Cosmos DB, la actividad de copia puede asignar fácilmente datos tabulares del origen a documentos JSON en Cosmos DB. En algunos casos puede que desee rediseñar el modelo de datos para optimizarlo para los casos de uso de NoSQL según lo que se indica en [Modelado de datos en Azure Cosmos DB](../cosmos-db/modeling-data.md), por ejemplo, para desnormalizar los datos mediante la inserción de todos los subelementos relacionados en un documento JSON. En este caso, consulte [este artículo](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md), que ofrece un tutorial sobre cómo lograrlo mediante la actividad de copia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores en Azure Data Factory, consulte los [almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).

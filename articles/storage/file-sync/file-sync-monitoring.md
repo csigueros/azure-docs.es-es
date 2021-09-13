@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cb1f793e9abad7c28b91da5c3028483637c53740
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 4f339427a7839e3b622b2d33bf3ef8bd137d39dc
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114722028"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258424"
 ---
 # <a name="monitor-azure-file-sync"></a>Supervisión de Azure File Sync
 
@@ -150,7 +150,7 @@ Estado de la sincronización
 
 - El identificador de evento 9121 se registra en cada error por elemento una vez que se completa la sesión. Utilice este evento para determinar el número de archivos que no se sincronizan con este error (**PersistentCount** y **TransientCount**). Los errores por elemento persistentes deben investigarse, consulte el apartado [¿Cómo puedo ver si hay archivos o carpetas específicos que no se están sincronizando?](file-sync-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 
-- El id. de evento 9302 se registra cada 5 a 10 minutos si hay una sesión de sincronización activa. Use este evento para determinar cuántos elementos se van a sincronizar (**TotalItemCount**), el número de elementos que se han sincronizado hasta el momento (**AppliedItemCount**) y el número de elementos que no se han podido sincronizar debido a un error por elemento (**PerItemErrorCount**). Si la sincronización no avanza (**AppliedItemCount=0**), la sesión de sincronización finalmente generará un error y se registrará el id. de evento 9102 con el error. Para obtener más información, consulte la [documentación sobre progreso de la sincronización](file-sync-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- El id. de evento 9302 se registra cada 5 a 10 minutos si hay una sesión de sincronización activa. Use este evento para determinar cuántos elementos se van a sincronizar (**TotalItemCount**), el número de elementos que se han sincronizado hasta el momento (**AppliedItemCount**) y el número de elementos que no se han podido sincronizar debido a un error por elemento (**PerItemErrorCount**). Si la sincronización no avanza (**AppliedItemCount=0**), la sesión de sincronización finalmente generará un error y se registrará el id. de evento 9102 con el error. Para obtener más información, consulte la [documentación sobre progreso de la sincronización](file-sync-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Estado del servidor registrado
 

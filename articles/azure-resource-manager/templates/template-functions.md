@@ -2,13 +2,13 @@
 title: Funciones de plantillas
 description: Se describen las funciones que se van a usar en una plantilla de Azure Resource Manager para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: 012e570a769e8ea969d0c527a71053f55ecdf5a9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/31/2021
+ms.openlocfilehash: a094bfca418cfb2ab28fd0c80b19e580cab76024
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959402"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310372"
 ---
 # <a name="arm-template-functions"></a>Funciones de plantilla de ARM
 
@@ -176,6 +176,7 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
+* [providers (en desuso)](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup): solo puede utilizarse cuando la implementación se realiza en un grupo de recursos.
 * [resourceId](template-functions-resource.md#resourceid): puede utilizarse con cualquier ámbito, pero los valores correctos cambiarán en función de este.

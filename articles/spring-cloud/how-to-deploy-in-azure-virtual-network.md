@@ -1,18 +1,18 @@
 ---
 title: Implementación de Azure Spring Cloud en una red virtual
 description: Implementación de Azure Spring Cloud en una red virtual (inserción de red virtual)
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: 0921c3d9bf254e3d486ec381c3243a8035bb6f50
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6822514e6bcbb5a232f7ee7f22ec8b0ee8a21e10
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750360"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396745"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementación de Azure Spring Cloud en una red virtual
 
@@ -25,6 +25,12 @@ La implementación habilita:
 * El aislamiento de Internet en la red corporativa de las aplicaciones y el entorno de ejecución del servicio Azure Spring Cloud.
 * La interacción de Azure Spring Cloud con los sistemas de centros de datos locales o los servicios de Azure de otras redes virtuales.
 * El permiso para que los clientes controlen las comunicaciones de red entrantes y salientes para Azure Spring Cloud.
+
+En el vídeo siguiente se describe cómo proteger aplicaciones de Spring Boot mediante redes virtuales administradas.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/LbHD0jd8DTQ?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
 > [!Note]
 > Puede seleccionar la red virtual de Azure solo cuando cree una nueva instancia de servicio de Azure Spring Cloud. No es posible cambiar para usar otra red virtual después de crear Azure Spring Cloud.
@@ -64,7 +70,7 @@ Si ya tiene una red virtual para hospedar la instancia de Azure Spring Cloud, om
 
     |Configuración          |Valor                                             |
     |-----------------|--------------------------------------------------|
-    |Subscription     |Seleccione su suscripción.                         |
+    |Suscripción     |Seleccione su suscripción.                         |
     |Resource group   |Seleccione el grupo de recursos o cree uno nuevo.  |
     |Nombre             |Escriba **azure-spring-cloud-vnet**.                 |
     |Location         |Seleccione **Este de EE. UU**.                               |
@@ -88,22 +94,24 @@ Seleccione la red virtual **azure-spring-cloud-vnet** que creó anteriormente.
 
     ![Captura de pantalla que muestra la pantalla Access control (Control de acceso).](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Asigne el rol *Propietario* al **proveedor de recursos de Azure Spring Cloud**. Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+1. Asigne el rol *Propietario* al **proveedor de recursos de Azure Spring Cloud**. Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-pane).
 
-Para realizar este paso también puede ejecutar el siguiente comando de la CLI de Azure:
+    ![Captura de pantalla que muestra la asignación de propietario al proveedor de recursos.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
 
-```azurecli
-VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
-    --name ${NAME_OF_VIRTUAL_NETWORK} \
-    --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
-    --query "id" \
-    --output tsv`
+    Para realizar este paso también puede ejecutar el siguiente comando de la CLI de Azure:
 
-az role assignment create \
-    --role "Owner" \
-    --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
-    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
-```
+    ```azurecli
+    VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+        --name ${NAME_OF_VIRTUAL_NETWORK} \
+        --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
+        --query "id" \
+        --output tsv`
+
+    az role assignment create \
+        --role "Owner" \
+        --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+        --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    ```
 
 ## <a name="deploy-an-azure-spring-cloud-instance"></a>Implementación de una instancia de Azure Spring Cloud
 
@@ -113,7 +121,7 @@ Para implementar una instancia de Azure Spring Cloud en la red virtual:
 
 1. En el cuadro de búsqueda superior, busque **Azure Spring Cloud**. Seleccione **Azure Spring Cloud** en el resultado.
 
-1. En la página **Azure Spring Cloud**, seleccione **+ Add** (+ Agregar).
+1. En la página **Azure Spring Cloud**, seleccione **+ Agregar**.
 
 1. Rellene el formulario en la página **Crear** de Azure Spring Cloud.
 
@@ -167,7 +175,7 @@ En esta tabla se muestra el número máximo de instancias de aplicación que adm
 | /25             | 128       | 120           | <p> Aplicación con 1 núcleo:  500<br> Aplicación con 2 núcleos:  500<br>  Aplicación con 3 núcleos:  480<br>  Aplicación con 4 núcleos: 360</p> |
 | /24             | 256       | 248           | <p> Aplicación con 1 núcleo:  500<br/> Aplicación con 2 núcleos:  500<br/>  Aplicación con 3 núcleos: 500<br/>  Aplicación con 4 núcleos: 500</p> |
 
-En las subredes, Azure reserva cinco direcciones IP y Azure Spring Cloud requiere al menos cuatro direcciones. Se requieren al menos nueve direcciones IP, por lo que /29 y /30 no son operativos.
+En las subredes, Azure reserva cinco direcciones IP y Azure Spring Cloud requiere al menos tres direcciones IP. Se requieren al menos ocho direcciones IP, por lo que /29 y /30 no son operativos.
 
 En el caso de una subred del runtime del servicio, el tamaño mínimo es /28. Este tamaño no tiene ninguna relación con el número de instancias de la aplicación.
 
@@ -177,9 +185,8 @@ Azure Spring Cloud admite el uso de las subredes y las tablas de rutas existente
 
 Si las subredes personalizadas no contienen tablas de rutas, Azure Spring Cloud las crea para cada una de las subredes y les agrega reglas a lo largo del ciclo de vida de la instancia. Si las subredes personalizadas contienen tablas de rutas, Azure Spring Cloud confirma las tablas de rutas existentes durante las operaciones de instancia y agrega o actualiza las reglas correspondientes a las operaciones.
 
-> [!Warning] 
+> [!Warning]
 > Se pueden agregar y actualizar reglas personalizadas en las tablas de rutas personalizadas. Sin embargo, Azure Spring Cloud agrega reglas y estas no se deben actualizar ni quitar. Las reglas como 0.0.0.0/0 deben existir siempre en una tabla de rutas dada y asignarse al destino de la puerta de enlace de Internet, como una NVA u otra puerta de enlace de salida. Tenga cuidado al actualizar las reglas cuando solo se modifiquen las reglas personalizadas.
-
 
 ### <a name="route-table-requirements"></a>Requisitos de la tabla de rutas
 
@@ -193,9 +200,6 @@ Las tablas de rutas a las que está asociada la red virtual personalizada deben 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de la aplicación en Azure Spring Cloud en la red virtual](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
-
-## <a name="see-also"></a>Consulte también
-
+- [Implementación de la aplicación en Azure Spring Cloud en la red virtual](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 - [Solución de problemas de Azure Spring Cloud en una red virtual](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

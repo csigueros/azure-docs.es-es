@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/15/2021
-ms.openlocfilehash: 6029e571cc1f2d9fe50b2d163a711a89827f2bfd
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.date: 08/30/2021
+ms.openlocfilehash: 2131e74935ee831925dbe307a79c26909078e575
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122201942"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313993"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory-or-synapse-pipelines"></a>Copia y transformación de datos en Azure Synapse Analytics mediante canalizaciones de Azure Data Factory o Synapse
 
@@ -45,13 +45,36 @@ Para la actividad de copia, este conector de Azure Synapse Analytics admite esta
 > [!IMPORTANT]
 > Si copia los datos mediante Azure Integration Runtime, configure una [regla de firewall de nivel de servidor](../azure-sql/database/firewall-configure.md) para que los servicios de Azure puedan acceder al [servidor lógico de SQL](../azure-sql/database/logical-servers.md).
 > Si copia los datos mediante un entorno de ejecución de integración autohospedado, configure el firewall para permitir el intervalo IP apropiado. Dicho intervalo incluye la dirección IP del equipo que se usa para conectarse a Azure Synapse Analytics.
-
 ## <a name="get-started"></a>Introducción
 
 > [!TIP]
 > Para obtener el mejor rendimiento posible, use PolyBase o la instrucción COPY para cargar datos en Azure Synapse Analytics. Las secciones [Uso de PolyBase para cargar datos en Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) y [Uso de la instrucción COPY para cargar datos en Azure Synapse Analytics](#use-copy-statement) contienen detalles. Para un tutorial con un caso de uso, vea [Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-an-azure-synapse-analytics-linked-service-using-ui"></a>Creación de un servicio vinculado de Azure Synapse Analytics mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado de Azure Synapse Analytics en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Synapse y seleccione el conector de Azure Synapse Analytics.
+
+    :::image type="content" source="media/connector-azure-sql-data-warehouse/azure-sql-data-warehouse-connector.png" alt-text="Captura de pantalla del conector de Azure Synapse Analytics.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-azure-sql-data-warehouse/configure-azure-sql-data-warehouse-linked-service.png" alt-text="Captura de pantalla de la configuración de un servicio vinculado de Azure Synapse Analytics.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que definen las entidades de las canalizaciones de Data Factory y Synapse específicas de un conector de Azure Synapse Analytics.
 
