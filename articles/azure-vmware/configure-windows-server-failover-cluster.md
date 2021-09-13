@@ -3,12 +3,12 @@ title: Configuración del clúster de conmutación por error de Windows Server 
 description: Obtenga información sobre cómo configurar el clúster de conmutación por error de Windows Server (WSFC) en vSAN de Azure VMware Solution con discos compartidos nativos.
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.openlocfilehash: f2fc9e712d3f56aeddc6e66c12837794dceb9abe
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: fcde65b98b3774ee1ef9b15bfa6da3836aaa8a1b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954504"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323188"
 ---
 # <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Configuración del clúster de conmutación por error de Windows Server en vSAN de Azure VMware Solution
 
@@ -31,9 +31,9 @@ Puede hospedar el clúster de WSFC en distintas instancias de Azure VMware Solut
 
 Es importante implementar una configuración de WSFC compatible. Querrá que la solución sea compatible con vSphere y Azure VMware Solution. VMware proporciona un documento detallado sobre WSFC en vSphere 6.7, titulado [Configurar clústeres de conmutación por error y el Servicio de clúster de Microsoft](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-vcenter-server-67-setup-mscs.pdf).
 
-Este artículo se centra en WSFC en Windows Server 2016 y Windows Server 2019. Las versiones anteriores de Windows Server no tienen [soporte técnico estándar](https://support.microsoft.com/lifecycle/search?alpha=windows%20server), por lo que no las consideramos aquí.
+Este artículo se centra en WSFC en Windows Server 2016 y Windows Server 2019. Desafortunadamente, las versiones anteriores de Windows Server no tienen [soporte estándar](https://support.microsoft.com/lifecycle/search?alpha=windows%20server), por lo que no las consideramos aquí.
 
-Primero debe [crear un WSFC](/windows-server/failover-clustering/create-failover-cluster). Use la información que se proporciona en este artículo para conocer las características de una implementación de WSFC en Azure VMware Solution.
+Primero debe [crear un WSFC](/windows-server/failover-clustering/create-failover-cluster). Después, use la información que se proporciona en este artículo para especificar una implementación de WSFC en Azure VMware Solution.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -46,7 +46,7 @@ Azure VMware Solution proporciona compatibilidad nativa con WSFC virtualizado. E
 
 En el diagrama siguiente se ilustra la arquitectura de los nodos virtuales de WSFC en una nube privada de Azure VMware Solution. Muestra dónde reside Azure VMware Solution, incluidos los servidores virtuales de WSFC (cuadro rojo) con respecto a la plataforma de Azure más amplia. En este diagrama se muestra una arquitectura radial típica, pero se puede realizar una configuración similar con el uso de Azure Virtual WAN. Ambas opciones ofrecen todo el valor que otros servicios de Azure pueden aportarle.
 
-:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagrama de arquitectura de los nodos virtuales del clúster de conmutación por error de Windows Server en una nube privada de Azure VMware Solution." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagrama de los nodos virtuales del clúster de conmutación por error de Windows Server en una nube privada de Azure VMware Solution." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
 
 ## <a name="supported-configurations"></a>Configuraciones admitidas
 
@@ -126,13 +126,13 @@ No se admiten las siguientes actividades y podrían provocar la conmutación por
 
 1. Asegúrese de que haya un entorno de Active Directory disponible.
 2. Cree máquinas virtuales (VM) en el almacén de datos de vSAN.
-3. Encienda todas las máquinas virtuales, configure el nombre de host, las direcciones IP, una todas las máquinas virtuales a un dominio de Active Directory e instale las actualizaciones del sistema operativo disponibles más recientes.
+3. Encienda todas las máquinas virtuales, configure el nombre de host y las direcciones IP, una todas las máquinas virtuales a un dominio de Active Directory e instale las actualizaciones del sistema operativo disponibles más recientes.
 4. Instale las herramientas de VMware más recientes.
 5. Habilite y configure la característica del clúster de conmutación por error de Windows Server en cada máquina virtual.
 6. Configure un testigo del clúster para el cuórum (un testigo de recurso compartido de archivos funciona correctamente).
 7. Apague todos los nodos del clúster de WSFC.
 8. Agregue uno o varios controladores SCSI paravirtuales (hasta cuatro) a cada parte de la máquina virtual del WSFC. Use la configuración de los párrafos anteriores.
-9. En el primer nodo del clúster, agregue todos los discos compartidos necesarios mediante **Agregar nuevo dispositivo** > **Disco duro**. El uso compartido de discos debe dejarse como **No especificado** (valor predeterminado) y el modo de disco como **Independiente: persistente**. Conéctelo a los controladores creados en los pasos anteriores.
+9. En el primer nodo del clúster, agregue todos los discos compartidos necesarios mediante **Agregar nuevo dispositivo** > **Disco duro**. Deje el uso compartido de discos como **No especificado** (valor predeterminado) y el modo de disco como **Independiente: persistente**. Después, conéctelo a los controladores creados en los pasos anteriores.
 10. Continúe con los demás nodos de WSFC. Agregue los discos creados en el paso anterior; para ello, seleccione **Agregar nuevo dispositivo** > **Disco duro existente**. Asegúrese de mantener los mismos identificadores SCSI de disco en todos los nodos de WSFC.
 11. Encienda el primer nodo de WSFC. Inicie sesión y abra la consola de administración de discos (MMC). Asegúrese de que el sistema operativo pueda administrar los discos compartidos agregados y de que se hayan inicializado. Formatee los discos y asigne una letra de unidad.
 12. Encienda los otros nodos de WSFC.
@@ -144,7 +144,7 @@ No se admiten las siguientes actividades y podrían provocar la conmutación por
 
        - **Validar la reserva persistente de espacios de almacenamiento**. Si no usa espacios de almacenamiento con el clúster (por ejemplo, vSAN de Azure VMware Solution), esta prueba no es aplicable. Puede omitir los resultados de la prueba Validar la reserva persistente de espacios de almacenamiento, incluida esta advertencia. Para evitar las advertencias, puede excluir esta prueba.
         
-      - **Validar la comunicación de red**. La prueba de Validación de clúster lanzará una advertencia que indica que solo hay disponible una interfaz de red por nodo de clúster. Puede ignorar esta advertencia. Azure VMware Solution proporciona la disponibilidad y el rendimiento necesarios, ya que los nodos se conectan a uno de los segmentos de NSX-T. Sin embargo, conserve este elemento como parte de la prueba de validación del clúster, ya que validará otros aspectos de la comunicación de red.
+      - **Validar la comunicación de red**. La prueba de Validación de clúster mostrará una advertencia que indica que solo hay disponible una interfaz de red por nodo de clúster. Puede pasarlos por alto. Azure VMware Solution proporciona la disponibilidad y el rendimiento necesarios, ya que los nodos se conectan a uno de los segmentos de NSX-T. Pero conserve este elemento como parte de la prueba de validación del clúster, ya que valida otros aspectos de la comunicación de red.
 
 16. Cree una regla de DRS para colocar las máquinas virtuales de WSFC en los mismos nodos de Azure VMware Solution. Para ello, necesita una regla de afinidad entre el host y la máquina virtual. De esta manera, los nodos de clúster se ejecutarán en el mismo host de Azure VMware Solution. Una vez más, se trata de una prueba piloto hasta que las directivas de selección de ubicación estén disponibles.
 
@@ -165,5 +165,5 @@ Ahora que ha tratado la configuración de un WSFC en Azure VMware Solution, pued
 
 - Configurar el nuevo WSFC agregando más aplicaciones que requieran la funcionalidad de WSFC. Por ejemplo, SQL Server y ASCS de SAP.
 - Configurar una solución de copia de seguridad.
-  - [Configuración de Azure Backup Server para Azure VMware Solution](../backup/backup-azure-microsoft-azure-backup.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext)
-  - [Soluciones de copia de seguridad para máquinas virtuales de Azure VMware Solution](../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext)
+  - [Configuración de Azure Backup Server para Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md)
+  - [Soluciones de copia de seguridad para máquinas virtuales de Azure VMware Solution](backup-azure-vmware-solution-virtual-machines.md)

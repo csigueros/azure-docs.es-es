@@ -5,20 +5,20 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 288e1b9e361bd8c0cf41e4bb86fcfce15dda8ac9
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 77bdfb4ed75b9287b911a6b0d2742c235b37e297
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166404"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122325072"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Acuerdo de nivel de servicio de tiempo de actividad de Azure Kubernetes Service (AKS)
 
-El acuerdo de nivel de servicio (SLA) de tiempo de actividad es una característica opcional para habilitar un mejor acuerdo de nivel de servicio con respaldo financiero para un clúster. El acuerdo de nivel de servicio de tiempo de actividad garantiza una disponibilidad del 99,95 % del punto de conexión del servidor de API de Kubernetes para los clústeres que usan [zonas de disponibilidad][availability-zones], y una disponibilidad del 99,9 % de los clústeres que no utilizan zonas de disponibilidad. AKS usa réplicas de nodo maestro en los dominios de actualización y de error para garantizar que se cumplan los requisitos del acuerdo de nivel de servicio.
+El Acuerdo de Nivel de Servicio del tiempo de actividad es una nivel para habilitar un mejor Acuerdo de Nivel de Servicio con respaldo financiero para un clúster AKS. Los clústeres con Acuerdo de Nivel de Servicio del tiempo de actividad, también se consideran de nivel de pago en las API REST de AKS, incluyen una mayor cantidad de recursos del plano de control y se escalan automáticamente para satisfacer la carga del clúster. El acuerdo de nivel de servicio de tiempo de actividad garantiza una disponibilidad del 99,95 % del punto de conexión del servidor de API de Kubernetes para los clústeres que usan [zonas de disponibilidad][availability-zones], y una disponibilidad del 99,9 % de los clústeres que no utilizan zonas de disponibilidad. AKS usa réplicas de nodo maestro en los dominios de actualización y de error para garantizar que se cumplan los requisitos del acuerdo de nivel de servicio.
 
-Los clientes que necesiten un acuerdo de nivel de servicio para alcanzar los requisitos de cumplimiento o que requieren extender un acuerdo de nivel de servicio a sus usuarios finales deben habilitar esta característica. Los clientes con cargas de trabajo críticas que se beneficien de un mayor acuerdo de nivel de servicio de tiempo de actividad también pueden beneficiarse. El uso de la característica de acuerdo de nivel de servicio de tiempo de actividad con zonas de disponibilidad permite una mayor disponibilidad para el tiempo de actividad del servidor de API de Kubernetes.
+AKS recomienda el uso del Acuerdo de Nivel de Servicio del tiempo de actividad en las cargas de trabajo de producción para garantizar la disponibilidad de los componentes del plano de control. Por el contrario, los clústeres del nivel gratis incluyen menos réplicas y un número limitado de recursos para el plano de control y no son adecuados para cargas de trabajo de producción.
 
-Los clientes todavía pueden crear un número ilimitado de clústeres gratuitos con un objetivo de nivel de servicio (SLO) del 99,5 %, y optar por el tiempo de actividad preferido del SLO o SLA según sea necesario.
+Aun así, los clientes pueden crear un número ilimitado de clústeres gratuitos con un objetivo de nivel de servicio (SLO) del 99,5 %, y elegir el objetivo de nivel de servicio que prefieran. 
 
 > [!IMPORTANT]
 > En el caso de los clústeres con bloqueo de salida, consulte la [limitación del tráfico de salida](limit-egress-traffic.md) para abrir los puertos adecuados.
@@ -30,7 +30,7 @@ Los clientes todavía pueden crear un número ilimitado de clústeres gratuitos 
 
 ## <a name="sla-terms-and-conditions"></a>Términos y condiciones del acuerdo de nivel de servicio
 
-El acuerdo de nivel de servicio de tiempo de actividad es una característica de pago y se habilita para cada clúster. El precio del acuerdo de nivel de servicio de tiempo de actividad viene determinado por el número de clústeres discretos, no por el tamaño de los clústeres individuales. Puede ver los [Detalles de precios de los acuerdos de nivel de servicio de tiempo de actividad](https://azure.microsoft.com/pricing/details/kubernetes-service/) para obtener más información.
+El Acuerdo de Nivel de Servicio del tiempo de actividad es una característica de pago y se habilita en cada clúster. El precio del acuerdo de nivel de servicio de tiempo de actividad viene determinado por el número de clústeres discretos, no por el tamaño de los clústeres individuales. Puede ver los [Detalles de precios de los acuerdos de nivel de servicio de tiempo de actividad](https://azure.microsoft.com/pricing/details/kubernetes-service/) para obtener más información.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

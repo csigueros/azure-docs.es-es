@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: dab6415e27239e9140cce7c03bae9a2e3a95ca7d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 824f2c9d8259e04790d89428c4a4f7384d02ec9a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072134"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322233"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
-Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), SMB3 o el protocolo dual (NFSv3 y SMB). El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo. 
+Azure NetApp Files admite la creación de volúmenes mediante NFS (NFSv3 o NFSv4.1), SMB3 o un protocolo dual (NFSv3 y SMB, o NFSv4.1 y SMB). El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo. 
 
 En este artículo se muestra cómo crear un volumen SMB3. Para los volúmenes NFS, consulte [Creación de un volumen NFS](azure-netapp-files-create-volumes.md). Para volúmenes de protocolo dual, consulte [Creación de un volumen de protocolo dual](create-volumes-dual-protocol.md).
 
@@ -49,7 +49,7 @@ Debe crear una conexión de Active Directory antes de crear un volumen SMB. Si n
     * **Nombre del volumen**      
         Especifique el nombre para el volumen que va a crear.   
 
-        Un nombre de volumen debe ser único dentro de cada grupo de capacidad. Debe tener tres caracteres de longitud, como mínimo. Puede usar cualquier carácter alfanumérico.   
+        Un nombre de volumen debe ser único dentro de cada grupo de capacidad. Debe tener tres caracteres de longitud, como mínimo. El nombre debe comenzar por una letra. Solo puede incluir letras, números, caracteres de subrayado ("_") y guiones ("-"). 
 
         No se puede usar `default` o `bin` como nombre del volumen.
 
@@ -98,7 +98,7 @@ Debe crear una conexión de Active Directory antes de crear un volumen SMB. Si n
         - Solo puede contener letras, números o guiones (`-`). 
         - La longitud no debe superar los 80 caracteres.   
         
-    * Si desea habilitar el cifrado para SMB3, seleccione **Habilitar cifrado del protocolo SMB3**.   
+    * <a name="smb3-encryption"></a>Si quiere habilitar el cifrado para SMB3, seleccione **Habilitar cifrado del protocolo SMB3**.   
         Esta característica habilita el cifrado para los datos SMB3 en proceso. Los clientes SMB que no usen el cifrado SMB3 no podrán acceder a este volumen.  Los datos en reposo se cifrarán al margen de esta configuración.  
         Consulte [Cifrado SMB](azure-netapp-files-smb-performance.md#smb-encryption) para más información. 
 
@@ -118,7 +118,7 @@ Debe crear una conexión de Active Directory antes de crear un volumen SMB. Si n
         ```
         
         También puede usar los comandos de la [CLI de Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` y `az feature show` para registrar la característica y mostrar el estado del registro.  
-    * Si desea facilitar la disponibilidad continua para el volumen SMB, seleccione **Habilitar la disponibilidad continua**.    
+    * <a name="continuous-availability"></a>Si quiere facilitar la disponibilidad continua para el volumen SMB, seleccione **Habilitar la disponibilidad continua**.    
 
         > [!IMPORTANT]   
         > La característica de disponibilidad continua de SMB se encuentra actualmente en versión preliminar pública. Para acceder a esta característica, debe enviar una solicitud de lista de espera desde la **[página de envío de solicitudes de lista de espera de la versión preliminar pública de recursos compartidos con disponibilidad continua de SMB para Azure NetApp Files](https://aka.ms/anfsmbcasharespreviewsignup)** . Antes de utilizar la característica de disponibilidad continua, espere a recibir el correo electrónico de confirmación oficial del equipo de Azure NetApp Files.   
@@ -153,16 +153,7 @@ Debe crear una conexión de Active Directory antes de crear un volumen SMB. Si n
 
 ## <a name="control-access-to-an-smb-volume"></a>Control del acceso a un volumen SMB  
 
-El acceso a un volumen SMB se administra mediante permisos.  
-
-### <a name="share-permissions"></a>Permisos de recursos compartidos  
-
-De forma predeterminada, un nuevo volumen tiene los permisos de recursos compartidos **Todos/Control total**. Los miembros del grupo Administradores de dominio pueden cambiar los permisos de los recursos compartidos de la siguiente manera:  
-
-1. Asigne el recurso compartido a una unidad.  
-2. Haga clic con el botón derecho en la unidad, seleccione **Propiedades** y, luego, vaya a la pestaña **Seguridad**.
-
-[ ![Establecimiento de permisos de recursos compartidos](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
+El acceso a un volumen SMB se administra mediante permisos. 
 
 ### <a name="ntfs-file-and-folder-permissions"></a>Permisos de carpetas y archivos NTFS  
 

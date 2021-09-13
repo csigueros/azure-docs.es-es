@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: ca91e7298486cc92ae8a4444869f0b71c91ae2ab
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: be1ffdecb727426f914a74970a720f4f19e51824
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034236"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322382"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Preguntas frecuentes sobre Azure Front Door Estándar/Prémium (versión preliminar)
 
@@ -63,9 +63,12 @@ Azure Front Door admite HTTP, HTTPS y HTTP/2.
 
 La compatibilidad con el protocolo HTTP/2 está disponible únicamente para los clientes que se conectan a Azure Front Door. La comunicación con los back-end en el grupo de back-end se produce a través de HTTP/1.1. La compatibilidad con HTTP/2 está habilitada de forma predeterminada.
 
-### <a name="what-resources-are-supported-today-as-part-of-origin-group"></a>¿Qué recursos se admiten actualmente como parte del grupo de origen?
+### <a name="what-resources-are-supported-today-as-part-of-an-origin-group"></a>¿Qué recursos se admiten actualmente como parte del grupo de origen?
 
-El grupo de origen puede constar de instancias de Storage, aplicaciones web, Kubernetes o cualquier otro nombre de host personalizado que tenga conectividad pública. Azure Front Door requiere que los orígenes se definan mediante una dirección IP pública o un nombre de host DNS que pueda resolverse públicamente. Los miembros del grupo de origen pueden estar en zonas, regiones e incluso fuera de Azure, siempre y cuando dispongan de conectividad pública.
+Los grupos de origen pueden estar compuestos por dos tipos de orígenes:
+
+- Los orígenes públicos incluyen cuentas de almacenamiento, aplicaciones de App Service, instancias de Kubernetes o cualquier otro nombre de host personalizado que tenga conectividad pública. Estos orígenes deben definirse a través de una dirección IP pública o un nombre de host DNS que se pueda resolver públicamente. Los miembros del grupo de origen pueden estar implementados en zonas de disponibilidad, regiones e incluso fuera de Azure, siempre y cuando dispongan de conectividad pública. Los orígenes públicos se admiten en los niveles Estándar y Premium de Azure Front Door.
+- Los [orígenes de Private Link](concept-private-link.md) están disponibles cuando se usa Azure Front Door (Premium).
 
 ### <a name="what-regions-is-the-service-available-in"></a>¿En qué regiones está disponible el servicio?
 
@@ -141,7 +144,7 @@ Sí, Azure Front Door admite los encabezados X-Forwarded-For, X-Forwarded-Host y
 La mayoría de las actualizaciones de la configuración del motor de reglas se completan en menos de 20 minutos. Puede esperar que la regla surta efecto en cuanto se complete la actualización. 
 
  > [!Note]  
-  > La mayor parte de la personalización de las actualizaciones de certificados TLS/SSL tarda unos 30 minutos en implementarse globalmente.
+  > La mayoría de las actualizaciones de certificados TLS/SSL personalizados pueden tardar entre varios minutos y una hora en implementarse globalmente.
 
 Las actualizaciones de las rutas o los grupos de back-end se realizan sin problemas y no provocarán tiempo de inactividad (si la nueva configuración es correcta). Las actualizaciones de certificados no provocarán interrupciones, a menos que cambie de la administración de Front Door al uso de su propio certificado y viceversa.
 
@@ -150,7 +153,9 @@ Las actualizaciones de las rutas o los grupos de back-end se realizan sin proble
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>¿Puede Azure Front Door equilibrar la carga o enrutar el tráfico dentro de una red virtual?
 
-Azure Front Door (AFD) requiere una dirección IP pública o un nombre DNS que pueda resolverse públicamente para enrutar el tráfico. Azure Front Door no puede realizar el enrutamiento directamente a los recursos de una red virtual. Para resolver este problema, puede usar una puerta de enlace de aplicaciones o un equilibrador de carga de Azure con una dirección IP pública.
+Azure Front Door (Estándar) requiere una dirección IP pública o un nombre DNS que pueda resolverse públicamente para enrutar el tráfico. Azure Front Door no puede realizar el enrutamiento directamente a los recursos de una red virtual. Para resolver este problema, puede usar una puerta de enlace de aplicaciones o un equilibrador de carga de Azure con una dirección IP pública.
+
+Azure Front Door (Premium) admite el enrutamiento del tráfico a [orígenes de Private Link](concept-private-link.md).
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>¿Cuáles son los distintos tiempos de espera y límites del servicio Azure Front Door?
 
@@ -158,7 +163,7 @@ Conozca todos los [tiempos de espera y límites documentados del servicio Azure 
 
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>¿Cuánto tiempo tarda una regla en surtir efecto después de agregarla al motor de reglas Front Door?
 
-La mayoría de las actualizaciones de la configuración del motor de reglas se completan en menos de 20 minutos. Puede esperar que la regla surta efecto en cuanto se complete la actualización. 
+La mayoría de las actualizaciones de la configuración del motor de reglas se completan en menos de 20 minutos. Puede esperar que la regla surta efecto en cuanto se complete la actualización. 
 
 ### <a name="can-i-configure-azure-cdn-behind-my-front-door-profile-or-front-door-behind-my-azure-cdn"></a>¿Puedo configurar Azure CDN detrás del perfil de Front Door o Front Door detrás de Azure CDN?
 

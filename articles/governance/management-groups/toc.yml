@@ -50,6 +50,9 @@
       href: ./manage.md
     - name: Protección de la jerarquía de recursos
       href: ./how-to/protect-resource-hierarchy.md
+- name: Solución de problemas
+  displayName: 'errors, violation'
+  href: ./troubleshoot/general.md
 - name: Referencia
   items:
     - name: Azure CLI

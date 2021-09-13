@@ -70,10 +70,10 @@
           href: tutorial-build-flask-app-translation-synthesis.md
     - name: Referencia
       items:
-        - name: API REST de Translator Text
-          href: reference/rest-api-guide.md
         - name: Referencia sobre Traductor v3
           href: reference/v3-0-reference.md
+        - name: API REST de Translator Text
+          href: reference/rest-api-guide.md
         - name: Lenguajes
           href: reference/v3-0-languages.md
         - name: Translate

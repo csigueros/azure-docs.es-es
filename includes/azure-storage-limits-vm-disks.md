@@ -2,14 +2,14 @@
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 08/13/2021
 ms.author: rogarana
-ms.openlocfilehash: ffb07220267a2c192b4aad2405185c80bd9abbc0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f22094b86018f318e82b2e0a7e31ef6854562734
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94523918"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122260980"
 ---
 Puede asociar un número de discos de datos a una máquina virtual de Azure. Según los objetivos de escalabilidad y rendimiento de los discos de datos de una máquina virtual, puede determinar el número y el tipo de disco necesarios para satisfacer sus requisitos de capacidad y rendimiento.
 
@@ -25,8 +25,8 @@ En la tabla siguiente se muestran los límites predeterminado y máximo del núm
 > | Discos administrados estándar | 50.000 |
 > | Discos administrados SSD estándar | 50.000 |
 > | Discos administrados Premium | 50.000 |
-> | Instantáneas Standard_LRS | 50.000 |
-> | Instantáneas Standard_ZRS | 50.000 |
+> | Instantáneas Standard_LRS | 75 000 |
+> | Instantáneas Standard_ZRS | 75 000 |
 > | Imagen administrada | 50.000 |
 
 **Para cuentas de almacenamiento estándar:** una cuenta de almacenamiento estándar tiene una tasa de solicitudes máxima total de 20 000 IOPS. El número total de IOPS en todos los discos de máquina virtual de una cuenta de almacenamiento estándar no debe superar este límite.

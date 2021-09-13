@@ -1,5 +1,5 @@
 ---
-title: Consulta de datos exportados desde Azure Monitor mediante Azure Data Explorer (versión preliminar)
+title: Consulta de datos exportados desde Azure Monitor mediante Azure Data Explorer
 description: Use Azure Data Explorer para consultar datos exportados del área de trabajo de Log Analytics a una cuenta de Azure Storage.
 author: osalzberg
 ms.author: bwren
@@ -7,14 +7,14 @@ ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ad938d15f8e21ed34014c0a743b5ba891f5476e0
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e3ab2a3bfc6e42e1cba479ee8dacb97d8f46305a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316846"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324751"
 ---
-# <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Consulta de datos exportados desde Azure Monitor mediante Azure Data Explorer (versión preliminar)
+# <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer"></a>Consulta de datos exportados desde Azure Monitor mediante Azure Data Explorer
 Exportar datos de Azure Monitor a una cuenta de Azure Storage permite la retención a bajo costo y la capacidad de reasignar registros a regiones distintas. Use Azure Data Explorer para consultar datos exportados de las áreas de trabajo de Log Analytics. Una vez que se configuran, las tablas compatibles que se envían desde las áreas de trabajo hasta la cuenta de Azure Storage estarán disponibles como un origen de datos para Azure Data Explorer.
 
 El flujo del proceso es el siguiente: 
@@ -30,7 +30,7 @@ El flujo del proceso es el siguiente:
 ## <a name="send-data-to-azure-storage"></a>Envío de datos a Azure Storage
 Los registros de Azure Monitor se pueden exportar a una cuenta de Azure Storage mediante cualquiera de estas opciones.
 
-- Para exportar todos los datos del área de trabajo de Log Analytics a una cuenta de Azure Storage o un centro de eventos, use la característica de exportación de datos del área de trabajo de Log Analytics de Azure Monitor Logs. Consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)](./logs-data-export.md).
+- Para exportar todos los datos del área de trabajo de Log Analytics a una cuenta de Azure Storage o un centro de eventos, use la característica de exportación de datos del área de trabajo de Log Analytics de Azure Monitor Logs. Consulte el artículo [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](./logs-data-export.md).
 - Exportación programada desde una consulta de registro con una aplicación lógica. Es similar a la característica de exportación de datos, pero permite enviar datos filtrados o agregados a Azure Storage. Aunque este método está sujeto a [límites de consultas de registro](../service-limits.md#log-analytics-workspaces). Consulte [Archivado de datos de un área de trabajo de Log Analytics a Azure Storage mediante Logic Apps](./logs-export-logic-app.md).
 - Exportación única mediante una aplicación lógica. Consulte [Conector de Azure Monitor Logs para Logic Apps y Power Automate](./logicapp-flow-connector.md).
 - Exportación única a la máquina local mediante el script de PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
@@ -80,6 +80,10 @@ $SecondCommand = @()
 foreach ($record in $output) {
     if ($record.DataType -eq 'System.DateTime') {
         $dataType = 'datetime'
+    } elseif ($record.DataType -eq 'System.Int32') {
+        $dataType = 'int32'
+    } elseif ($record.DataType -eq 'System.Double') {
+        $dataType = 'double'
     } else {
         $dataType = 'string'
     }

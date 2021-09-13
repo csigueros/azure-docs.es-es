@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/18/2021
-ms.openlocfilehash: 6edadff4d785f0db87e4e6363889719d50e988da
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 01fe7b84596cbf4dba85f44c49488a8347b4cccc
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741271"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324749"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Creación de un área de trabajo de Log Analytics en Azure Portal
 Use el menú **Áreas de trabajo de Log Analytics** para crear un área de trabajo de Log Analytics con Azure Portal. Un área de trabajo de Log Analytics es un entorno único de datos de registro de Azure Monitor. Cada área de trabajo tiene su propio repositorio de datos y configuración, y las soluciones y orígenes de datos están configurados para almacenar sus datos en una determinada área de trabajo. Necesitará un área de trabajo de Log Analytics si tiene intención de recopilar datos de los orígenes siguientes:
@@ -48,7 +48,7 @@ Haga clic en **Revisar y crear** para revisar la configuración y, a continuaci�
 ## <a name="troubleshooting"></a>Solución de problemas
 Al crear un área de trabajo que se eliminó en los últimos 14 días y en [estado de eliminación temporal](../logs/delete-workspace.md#soft-delete-behavior), la operación podría tener un resultado diferente en función de la configuración del área de trabajo:
 1. Si proporciona el mismo nombre de área de trabajo, grupo de recursos, suscripción y región que en el área de trabajo eliminado, se recuperará el área de trabajo, incluidos los datos, la configuración y los agentes conectados.
-2. Si usa el mismo nombre de área de trabajo, pero un grupo de recursos, una suscripción o una región diferentes, obtendrá un error *El nombre del área de trabajo ya esta en uso. Pruebe otro*. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:
+2. Este nombre debe ser único por cada grupo de recursos. Si usa un nombre de área de trabajo que ya existe, también en la eliminación temporal del grupo de recursos, recibirá un error que indica que el nombre del área de trabajo no es único o entra en conflicto. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:
    - [Recuperar](../logs/delete-workspace.md#recover-workspace) el área de trabajo
    - [Eliminación permanente del área de trabajo](../logs/delete-workspace.md#permanent-workspace-delete)
    - Crear una nueva área de trabajo con el mismo nombre

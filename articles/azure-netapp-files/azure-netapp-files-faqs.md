@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: 46db9181657e5271f5aee567365e1f616caddc3f
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: dccf4f7bb39b296fdbcf9b7fbce2f86019397deb
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061513"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323648"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -101,6 +101,10 @@ Para obtener una lista completa de las operaciones de API, consulte [API REST de
 Sí, puede crear [directivas de Azure personalizadas](../governance/policy/tutorials/create-custom-policy-definition.md). 
 
 Sin embargo, no puede crear directivas de Azure (directivas de nomenclatura personalizadas) en la interfaz de Azure NetApp Files. Consulte [Instrucciones para el planeamiento de red de Azure NetApp Files](azure-netapp-files-network-topologies.md#considerations).
+
+### <a name="when-i-delete-an-azure-netapp-files-volume-is-the-data-deleted-safely"></a>Cuando elimino un volumen de Azure NetApp Files, ¿los datos se eliminan de forma segura? 
+
+La eliminación de un volumen de Azure NetApp Files se realiza en el back-end (nivel de infraestructura física) mediante programación con efecto inmediato. La operación de eliminación incluye la eliminación de las claves usadas para cifrar datos en reposo. No hay ningún escenario que permita la recuperación de un volumen eliminado una vez que la operación de eliminación se ejecuta correctamente (mediante interfaces como Azure Portal y la API).
 
 ## <a name="performance-faqs"></a>Preguntas más frecuentes sobre rendimiento
 
@@ -227,6 +231,10 @@ Use el vínculo de la **vista JSON** en el panel Información general del volume
 No. Sin embargo, los recursos compartidos de SMB de Azure NetApp Files pueden actuar como destino de la carpeta del espacio de nombres DFS (DFS-N).   
 Para usar un recurso compartido de SMB de Azure NetApp Files como destino de la carpeta de DFS-N, proporcione la ruta de acceso de montaje de convención de nomenclatura universal (UNC) del recurso compartido de SMB de Azure NetApp Files mediante el procedimiento para [agregar destino de la carpeta DFS](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target).  
 
+### <a name="can-the-smb-share-permissions-be-changed"></a>¿Se pueden cambiar los permisos del recurso compartido de SMB?   
+
+No, los permisos del recurso compartido no se pueden cambiar. Pero sí se pueden cambiar los permisos NTFS del volumen `root` mediante el procedimiento para [permisos de carpetas y archivos NTFS](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions). 
+
 ## <a name="capacity-management-faqs"></a>Preguntas más frecuentes sobre la administración de la capacidad
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>¿Cómo puedo supervisar el uso de grupo de capacidad y volumen de Azure NetApp Files? 
@@ -338,6 +346,12 @@ El uso de volúmenes NFS o SMB de Azure NetApp Files con AVS se admite en las si
 ### <a name="does-azure-netapp-files-work-with-azure-policy"></a>¿Azure NetApp Files funciona con Azure Policy?
 
 Sí. Azure NetApp Files es un servicio de primera entidad. Se adhiere totalmente a los estándares del proveedor de recursos de Azure. Por lo tanto, Azure NetApp Files se puede integrar en Azure Policy a través de *definiciones de directiva personalizadas*. Para obtener información sobre cómo implementar directivas personalizadas para Azure NetApp Files, consulte [Azure Policy ya disponible para Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) en la comunidad tecnológica de Microsoft. 
+
+### <a name="which-unicode-character-encoding-is-supported-by-azure-netapp-files-for-the-creation-and-display-of-file-and-directory-names"></a>¿Qué codificación de caracteres Unicode admite Azure NetApp Files para la creación y la visualización de nombres de archivo y directorio?   
+
+Azure NetApp Files solo admite nombres de archivo y directorio codificados con el formato de codificación de caracteres Unicode UTF-8 para volúmenes NFS y SMB.
+
+Si intenta crear archivos o directorios con nombres que usan caracteres adicionales o pares suplentes, como caracteres no regulares y emojis que no son compatibles con UTF-8, se producirá un error en la operación. En este caso, un error de un cliente Windows podría ser: "El nombre de archivo especificado no es válido o es demasiado largo. Especifique otro nombre de archivo". 
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

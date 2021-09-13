@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5aefe869041d9fff8112b6aa380961ca6568ae0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f85a8d539c8f841bafaae9d877446c5e6ecb416
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673576"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324576"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guía de diseño de tablas distribuidas mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
-Recomendaciones para diseñar tablas distribuidas por hash y por round robin en grupos de SQL dedicados.
+Este artículo contiene recomendaciones para diseñar tablas distribuidas por hash y por round robin en grupos de SQL dedicados.
 
 En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en un grupo de SQL dedicado.  Para obtener más información, vea [Arquitectura de Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
@@ -28,7 +28,7 @@ En este artículo se da por supuesto que está familiarizado con los conceptos d
 
 Una tabla distribuida aparece como una sola tabla pero las filas se almacenan realmente en 60 distribuciones. Las filas se distribuyen con un algoritmo hash o round robin.  
 
-Las **tablas distribuidas por hash** mejoran el rendimiento de las consultas en tablas de hechos de gran tamaño y sobre ellas trata este artículo. Las **tablas round robin** son útiles para mejorar la velocidad de carga. Estas opciones de diseño mejoran de manera significativa el rendimiento de las consultas y de la carga.
+La **distribución por hash** mejora el rendimiento de las consultas en tablas de hechos de gran tamaño y sobre ellas trata este artículo. La **distribución por round robin** es útil para mejorar la velocidad de carga. Estas opciones de diseño mejoran de manera significativa el rendimiento de las consultas y de la carga.
 
 Otra opción de almacenamiento de tabla es replicar una tabla pequeña en todos los nodos de proceso. Para más información, consulte [Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md). Para elegir rápidamente entre las tres opciones, consulte Tablas distribuidas en [Información general de Tablas](sql-data-warehouse-tables-overview.md).
 
@@ -107,7 +107,7 @@ Para obtener el mejor rendimiento, todas las distribuciones deben tener aproxima
   
 Para equilibrar el procesamiento en paralelo, seleccione una columna de distribución que:
 
-- **Tenga muchos valores únicos**. La columna puede tener algunos valores duplicados. Sin embargo, todas las filas con el mismo valor se asignan a la misma distribución. Como hay 60 distribuciones, la columna debe tener al menos 60 valores únicos.  Normalmente, el número de valores únicos es mucho mayor.
+- **Tenga muchos valores únicos**. La columna puede tener valores duplicados.  Todas las filas con el mismo valor se asignan a la misma distribución. Dado que hay 60 distribuciones, algunas distribuciones pueden tener > 1 valor único, mientras que otras pueden terminar con cero valores.  
 - **No tenga valores NULL o solo tenga algunos valores NULL**. Para un ejemplo extremo, si todos los valores de la columna son NULL, todas las filas se asignan a la misma distribución. En consecuencia, el procesamiento de consultas está sesgado hacia una distribución y no se beneficia del procesamiento en paralelo.
 - **No sea una columna de fecha**. Todos los datos de la misma fecha llegan a la misma distribución. Si varios usuarios están filtrando por la misma fecha, solo una de las sesenta distribuciones realiza todo el trabajo de procesamiento.
 

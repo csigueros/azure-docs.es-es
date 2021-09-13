@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo instalar y configurar un controlad
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 0e592e89e208d8a2ddf1b8fc1d30e53609ac7f41
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e93cfd95464d43b70ef8ade7b6380ba2c67cd9d4
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454008"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323326"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS en Azure Kubernetes Service (AKS)
 
@@ -38,6 +38,40 @@ Para obtener más información sobre cómo configurar y usar Helm, consulte [Ins
 
 En este artículo también se requiere que ejecute la versión 2.0.64 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
+Además, en este artículo se da por supuesto que tiene un clúster de AKS existente con un ACR integrado. Para obtener más información sobre cómo crear un clúster de AKS con un ACR integrado, consulte [Autenticación con Azure Container Registry desde Azure Kubernetes Service][aks-integrated-acr].
+
+## <a name="import-the-images-used-by-the-helm-chart-into-your-acr"></a>Importación de las imágenes usadas por el gráfico de Helm en el ACR
+
+En este artículo se usa el [gráfico de Helm del controlador de entrada de NGINX][ingress-nginx-helm-chart], que se basa en tres imágenes de contenedor. Use `az acr import` para importar esas imágenes en el ACR.
+
+```azurecli
+REGISTRY_NAME=<REGISTRY_NAME>
+CONTROLLER_REGISTRY=k8s.gcr.io
+CONTROLLER_IMAGE=ingress-nginx/controller
+CONTROLLER_TAG=v0.48.1
+PATCH_REGISTRY=docker.io
+PATCH_IMAGE=jettech/kube-webhook-certgen
+PATCH_TAG=v1.5.1
+DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+DEFAULTBACKEND_IMAGE=defaultbackend-amd64
+DEFAULTBACKEND_TAG=1.5
+CERT_MANAGER_REGISTRY=quay.io
+CERT_MANAGER_TAG=v1.3.1
+CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
+CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
+CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
+
+az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG
+az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG
+az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG
+```
+
+> [!NOTE]
+> Además de importar imágenes de contenedor en el ACR, también puede importar gráficos de Helm en el ACR. Para obtener más información, consulte [Inserción y extracción de gráficos de Helm en Azure Container Registry][acr-helm].
+
 ## <a name="create-an-ingress-controller"></a>Crear un controlador de entrada
 
 Para crear el controlador de entrada, use el comando `helm` para instalar *nginx-ingress*. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
@@ -45,7 +79,7 @@ Para crear el controlador de entrada, use el comando `helm` para instalar *nginx
 El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server no deben ejecutar el controlador de entrada. Un selector de nodos se especifica mediante el parámetro `--set nodeSelector` para indicar al programador de Kubernetes que ejecute el controlador de entrada NGINX en un nodo basado en Linux.
 
 > [!TIP]
-> En el siguiente ejemplo se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *ingress-basic*. Especifique un espacio de nombres para su propio entorno según sea necesario.
+> En el siguiente ejemplo se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *ingress-basic* y está diseñada para funcionar en el espacio de nombres. Especifique un espacio de nombres para su propio entorno según sea necesario.
 
 > [!TIP]
 > Si quiere habilitar la [conservación de direcciones IP de origen del cliente][client-source-ip] para las solicitudes a los contenedores de su clúster, agregue `--set controller.service.externalTrafficPolicy=Local` al comando de instalación de Helm. La dirección IP de origen del cliente se almacena en el encabezado de la solicitud en *X-Forwarded-For*. Al usar un controlador de entrada con la conservación de direcciones IP de origen del cliente habilitada, el paso a través de TLS no funciona.
@@ -57,13 +91,26 @@ kubectl create namespace ingress-basic
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
+# Set variable for ACR location to use for pulling images
+ACR_URL=<REGISTRY_URL>
+
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.image.registry=$ACR_URL \
+    --set controller.image.image=$CONTROLLER_IMAGE \
+    --set controller.image.tag=$CONTROLLER_TAG \
+    --set controller.image.digest="" \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
+    --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
 ```
 
 Durante la instalación se crea una dirección IP pública de Azure para el controlador de entrada. Esta dirección IP pública es estática durante el período de vida del controlador de entrada. Si elimina el controlador de entrada, se pierde la asignación de dirección IP pública. Si después crea un controlador de entrada adicional, se asigna una dirección IP pública nueva. Si quiere conservar el uso de la dirección IP pública, en su lugar puede [crear un controlador de entrada con una dirección IP pública estática][aks-ingress-static-tls].
@@ -87,29 +134,48 @@ Agregue un registro *A* a la zona DNS con la dirección IP externa del servicio 
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name * \
+    --record-set-name "*" \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-> [!NOTE]
-> Si quiere, puede configurar un FQDN para la dirección IP del controlador de entrada en lugar de un dominio personalizado. Tenga en cuenta que este ejemplo es para un shell de Bash.
-> 
-> ```bash
-> # Public IP address of your ingress controller
-> IP="MY_EXTERNAL_IP"
-> 
-> # Name to associate with public IP address
-> DNSNAME="demo-aks-ingress"
-> 
-> # Get the resource-id of the public ip
-> PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-> 
-> # Update public ip address with DNS name
-> az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
-> 
-> # Display the FQDN
-> az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
-> ```
+### <a name="configure-an-fqdn-for-the-ingress-controller"></a>Configuración de un FQDN para el controlador de entrada
+Si quiere, puede configurar un FQDN para la dirección IP del controlador de entrada en lugar de un dominio personalizado.  Este FQDN tendrá el formato `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`.
+
+Existen dos métodos para realizar esta configuración, los cuales se describen a continuación.
+
+#### <a name="method-1-set-the-dns-label-using-the-azure-cli"></a>Método 1: Establecimiento de la etiqueta DNS mediante la CLI de Azure
+Tenga en cuenta que este ejemplo es para un shell de Bash.
+
+```bash
+# Public IP address of your ingress controller
+IP="MY_EXTERNAL_IP"
+
+# Name to associate with public IP address
+DNSNAME="demo-aks-ingress"
+
+# Get the resource-id of the public ip
+PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
+
+# Update public ip address with DNS name
+az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+
+# Display the FQDN
+az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
+ ```
+
+#### <a name="method-2-set-the-dns-label-using-helm-chart-settings"></a>Método 2: Establecimiento de la etiqueta DNS mediante la configuración del gráfico de Helm
+Puede pasar una configuración de anotación a la configuración del gráfico de Helm mediante el parámetro `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"`.  Esto se puede establecer cuando el controlador de entrada se implementa por primera vez, o bien más adelante.
+En el ejemplo siguiente se muestra cómo actualizar esta configuración una vez implementado el controlador.
+
+```
+DNS_LABEL="demo-aks-ingress"
+NAMESPACE="nginx-basic"
+
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+  --namespace $NAMESPACE \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL
+
+```
 
 ## <a name="install-cert-manager"></a>Instalar cert-manager
 
@@ -130,10 +196,15 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
+  --version $CERT_MANAGER_TAG \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
-  --set webhook.nodeSelector."kubernetes\.io/os"=linux \
-  --set cainjector.nodeSelector."kubernetes\.io/os"=linux
+  --set image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CONTROLLER \
+  --set image.tag=$CERT_MANAGER_TAG \
+  --set webhook.image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_WEBHOOK \
+  --set webhook.image.tag=$CERT_MANAGER_TAG \
+  --set cainjector.image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CAINJECTOR \
+  --set cainjector.image.tag=$CERT_MANAGER_TAG
 ```
 
 Para obtener más información sobre la configuración cert-manager, consulte el [proyecto cert-manager][cert-manager].
@@ -451,6 +522,7 @@ También puede:
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
+[ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
@@ -467,3 +539,5 @@ También puede:
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-supported versions]: supported-kubernetes-versions.md
+[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[acr-helm]: ../container-registry/container-registry-helm-repos.md

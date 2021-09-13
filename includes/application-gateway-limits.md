@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 1166585c7291c4fe0d78cbc9540e3f08f985db6c
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 3e2b9ab4eaf794e5cf64861d7c641b82f18b64dc
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107589937"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201305"
 ---
 | Recurso | Límite | Nota: |
 | --- | --- | --- |
@@ -38,9 +38,9 @@ ms.locfileid: "107589937"
 | Conexiones simultáneas de WebSocket |Puertas de enlace medianas 20k<sup>2</sup><br> Puertas de enlace grandes 50k<sup>2</sup>| |
 | Longitud máxima de dirección URL|32 KB| |
 | Tamaño de encabezado máximo para HTTP/2 |16 KB| |
-| Tamaño máximo de carga de archivos (estándar) |2 GB | |
-| Tamaño máximo de carga de archivos WAF |Puertas de enlaces v1 medianas WAF, 100 MB<br>Puertas de enlace v1 grandes WAF, 500 MB<br>V2 WAF, 750 MB| |
-| Límite de tamaño de cuerpo de WAF (sin archivos)|128 KB||
+| Tamaño máximo de carga de archivos (SKU estándar) |V2: 4 GB<br>V1: 2 GB | |
+| Tamaño máximo de carga de archivos (SKU de WAF) |V1 Medio: 100 MB<br>V1 Grande: 500 MB<br>V2: 750 MB<br>V2 (con CRS 3.2 o posterior): 4 GB| |
+| Límite de tamaño de cuerpo de WAF (sin archivos)|V1 o V2 (con CRS 3.1 y versiones anteriores): 128 KB<br>V2 (con CRS 3.2 o posterior): 2 MB| |
 | Máximo de reglas personalizadas de WAF|100||
 | Número máximo de exclusiones de WAF por instancia de Application Gateway|40||
 

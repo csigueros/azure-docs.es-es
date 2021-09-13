@@ -1,21 +1,21 @@
 ---
 title: Directivas recomendadas para los servicios de Azure
 description: Describe cómo buscar y aplicar las directivas recomendadas para los servicios de Azure, como Azure Virtual Machines.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: generated
-ms.openlocfilehash: a505a94e580b24c19a96ea86b1237870e49a6442
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 06f68dec2c2a1ec8fa717dc721916c070a653b10
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752622"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323074"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Directivas recomendadas para los servicios de Azure
 
 Los clientes que no están familiarizados con Azure Policy suelen buscar definiciones de directivas comunes para administrar y controlar sus recursos. Las **directivas recomendadas** de Azure Policy proporcionan una lista detallada de definiciones de directivas comunes con las que empezar. Las experiencia de **directivas recomendadas** para los recursos admitidos se inserta en la experiencia del portal para ese recurso.
 
-Puede encontrar elementos integrados adicionales de Azure Policy en [Definiciones integradas de Azure Policy](../samples/built-in-policies.md).
+Para encontrar elementos integrados adicionales de Azure Policy, consulte [Definiciones integradas de Azure Policy](../samples/built-in-policies.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

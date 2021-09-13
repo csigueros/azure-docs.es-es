@@ -2,13 +2,13 @@
 title: Conceptos sobre nubes privadas y clústeres
 description: Obtenga información sobre las funcionalidades clave de los centros de datos definidos por software de Azure VMware Solution y los clústeres de vSphere.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 97f31c18fd753c89f2201fddfff4d31c8501bae2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/25/2021
+ms.openlocfilehash: 6e068462cada0a324d646766574e05414ad92772
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122324321"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968515"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceptos de nubes privadas y clústeres de Azure VMware Solution
 
@@ -45,7 +45,7 @@ El diagrama muestra una suscripción a Azure única con dos nubes privadas que r
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Mantenimiento y administración del ciclo de vida de hosts
 
-Una de las ventajas de las nubes privadas de Azure VMware Solution es que la plataforma se mantiene automáticamente.  Microsoft es responsable de la administración del ciclo de vida del software de VMware (ESXi, vCenter y vSAN). Microsoft también se encarga de la administración del ciclo de vida de los dispositivos NSX-T y de la configuración de la red de arranque, como la creación de la puerta de enlace de nivel 0 y la habilitación del enrutamiento vertical de arriba abajo. Usted es responsable de la configuración de SDN de NSX-T, como los segmentos de red, reglas de firewall distribuidas, las puertas de enlace de nivel 1 y equilibradores de carga. 
+
 
 [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 

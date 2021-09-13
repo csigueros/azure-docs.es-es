@@ -4,33 +4,27 @@ description: En este artículo se describen las consideraciones de precios, fact
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 08/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: f68b940dfdb8c166102f1b4c8957f5233aa83ea4
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: f75d3872d0125e210edcd33ca85978901468bfe8
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007776"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322387"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
-En este artículo se describen los aspectos que se deben tener en cuenta en relación con los precios, la facturación y el pago de marketplace comercial de Microsoft.
+En este artículo se describen las consideraciones sobre precios, facturación y pago de las ofertas *comercializables* mediante el marketplace comercial. Para información sobre la publicación de ofertas no comercializables (gratuitas o BYOL), consulte [Introducción a las opciones de lista](determine-your-listing-type.md).
 
 ## <a name="transactions-by-listing-option"></a>Opción de transacciones por publicación
 
-El editor o Microsoft es responsable de administrar las transacciones de licencia de software para las ofertas en marketplace comercial. La opción de publicación que elija para su oferta determinará quién administra la transacción. Para obtener más información sobre la disponibilidad y explicaciones de cada opción de publicación, consulte [Introduction a las opciones de lista](determine-your-listing-type.md).
-
-### <a name="contact-me-free-trial-and-byol-options"></a>Opciones Ponerse en contacto conmigo, Evaluación gratuita y BYOL
-
-Los editores pueden elegir las opciones _Ponerse en contacto conmigo_ y _Evaluación gratuita_ con fines promocionales y de captación de usuarios. En el caso de algunos tipos de oferta, los publicadores pueden elegir la opción _Traiga su propia licencia_ (BYOL) para permitir que los clientes compren una suscripción a la oferta mediante una licencia que hayan adquirido directamente. Con estas opciones, Microsoft no participa directamente en las transacciones de licencias de software del publicador y no hay ninguna tarifa de transacción asociada, de modo que los publicadores conservan todos los ingresos.
-
-Con estas opciones, los publicadores son responsables de ayudar en todos los aspectos de la transacción de la licencia de software. Por ejemplo, el pedido, la entrega, la cumplimentación, la medición del uso, la facturación, el pago y el cobro. Con la opción de publicación Ponerse en contacto conmigo, los editores se quedan con el 100 % de las cuotas de licencias de software que se cobran al cliente.
+El editor o Microsoft es responsable de administrar las transacciones de licencia de software para las ofertas en marketplace comercial. La opción de publicación que elija para su oferta determinará quién administra la transacción. Para conocer la disponibilidad de cada opción de publicación y explicaciones de cada una, consulte [Introducción a las opciones de lista](determine-your-listing-type.md).
 
 ### <a name="transact-publishing-option"></a>Opción de publicación de transacción
 
-La opción de vender a través de Microsoft permite aprovechar las ventajas de las funcionalidades de comercio de Microsoft y proporciona una experiencia completa que se inicia con la detección y la evaluación y finaliza con la compra y la implementación. Una oferta _comercializable_ es aquella en la que Microsoft facilita el intercambio de dinero por una licencia de software en nombre del publicador. Las ofertas de transacción se facturan a una suscripción de Microsoft existente o a una tarjeta de crédito, lo que permite a Microsoft hospedar las transacciones de marketplace en la nube en nombre del publicador.
+La opción de vender a través de Microsoft permite aprovechar las ventajas de las funcionalidades de comercio de Microsoft y proporciona una experiencia completa que se inicia con la detección y la evaluación y finaliza con la compra y la implementación. Una oferta *comercializable* es aquella en la que Microsoft facilita el intercambio de dinero por una licencia de software en nombre del publicador. Las ofertas de transacción se facturan a una suscripción de Microsoft existente o a una tarjeta de crédito, lo que permite a Microsoft hospedar las transacciones de marketplace en la nube en nombre del publicador.
 
 Puede elegir la opción de transacción al crear una nueva oferta en el Centro de partners. Esta opción solo se mostrará si la transacción está disponible para el tipo de oferta.
 
@@ -42,16 +36,16 @@ La opción de publicación de transacción se admite actualmente para los siguie
 
 | Tipo de oferta | Cadencia de facturación | Facturación de uso medido | Modelo de precios |
 | ------------ | ------------- | ------------- | ------------- |
-| Aplicación de Azure<br>(Aplicación administrada) | Mensual | Sí | Basado en uso |
-| Máquina virtual de Azure | Mensualmente* | No | Basado en uso, BYOL |
+| Aplicación de Azure <br>(Aplicación administrada) | Mensual | Sí | Basado en uso |
+| Máquina virtual de Azure | Mensual* | No | Basado en uso, BYOL |
 | Software como servicio (SaaS) | Mensual y anual | Sí | Tarifa plana, por usuario, basada en uso |
 |||||
 
-`*` La máquina virtual de Azure ofrece compatibilidad con planes de facturación basados en el uso. Estos planes se facturan mensualmente por el uso por horas de la suscripción por núcleo, tamaño de núcleo, mercado y uso de tamaño de núcleo.
+\* La máquina virtual de Azure ofrece compatibilidad con planes de facturación basados en el uso. Estos planes se facturan mensualmente por el uso por horas de la suscripción por núcleo, tamaño de núcleo, mercado y uso de tamaño de núcleo.
 
 ### <a name="metered-billing"></a>Facturación de uso medido
 
-El _servicio de medición de Marketplace_ le permite especificar cargos de pago por uso (basados en el consumo) además de cargos mensuales o anuales incluidos en el contrato (derecho). Puede aplicar costos de uso por las dimensiones del servicio de medición de Marketplace que especifique, como el ancho de banda, los vales o los correos electrónicos procesados. Para más información sobre la facturación de uso medido para ofertas de SaaS, consulte [Facturación de uso medido para SaaS mediante el servicio de medición de Marketplace comercial](./partner-center-portal/saas-metered-billing.md). Para más información sobre la facturación de uso medido para ofertas de Aplicación de Azure, consulte [Facturación según uso de aplicaciones administradas](marketplace-metering-service-apis.md).
+El *servicio de medición de Marketplace* le permite especificar cargos de pago por uso (basados en el consumo) además de cargos mensuales o anuales incluidos en el contrato (derecho). Puede aplicar costos de uso por las dimensiones del servicio de medición de Marketplace que especifique, como el ancho de banda, los vales o los correos electrónicos procesados. Para más información sobre la facturación de uso medido para ofertas de SaaS, consulte [Facturación de uso medido para SaaS mediante el servicio de medición de Marketplace comercial](./partner-center-portal/saas-metered-billing.md). Para más información sobre la facturación de uso medido para ofertas de Aplicación de Azure, consulte [Facturación según uso de aplicaciones administradas](marketplace-metering-service-apis.md).
 
 ### <a name="billing-infrastructure-costs"></a>Costos de infraestructura de facturación
 
@@ -63,21 +57,27 @@ Para **aplicaciones SaaS**, el publicador debe tener en cuenta los precios de us
 
 En función de la opción de transacción usada, los cargos de suscripción son los siguientes:
 
-- **Obténgalo ahora (de forma gratuita)** : las licencias de software son gratuitas. Las ofertas gratuitas no se pueden pasar a ofertas de pago. Los clientes deben solicitar una oferta de pago.
-- **Traiga su propia licencia** (BYOL): si se incluye una oferta en el Marketplace comercial, los cargos aplicables por las licencias de software se administran directamente entre el publicador y el cliente. Microsoft solo carga las tarifas de uso de la infraestructura de Azure aplicables a la cuenta de suscripción de Azure del cliente.
 - **Precios de suscripción**: las cuotas de licencia de software se presentan como cuotas de suscripción periódicas mensuales o anuales que se facturan como tarifa plana o por puesto. Las cuotas de suscripción periódicas no se prorratean por cancelaciones del cliente a mitad del período o por la falta de uso de los servicios. Las cuotas de suscripción periódicas se pueden prorratear si el cliente cambia a una versión superior o inferior de su suscripción a mitad del período.
 - **Precios basados en el uso**: en el caso de ofertas de máquinas virtuales de Azure, se factura a los clientes en función del alcance de su uso de la oferta. Si son imágenes de máquina virtual, a los clientes se les cobra una tarifa por hora de Azure Marketplace, establecida por el publicador, por el uso de las máquinas virtuales implementadas a partir de las imágenes. La tarifa por horas puede ser uniforme o variar según los distintos tamaños de máquina virtual. Las horas parciales se cobran por minuto. Los planes se facturan mensualmente.
 - **Precios de uso medido**: con las ofertas de aplicaciones de Azure y SaaS, los publicadores pueden usar el [servicio de medición de Marketplace](marketplace-metering-service-apis.md) para facturar el consumo según las dimensiones personalizadas de los medidores que configuren. Estos cambios se suman a los cargos mensuales o anuales incluidos en el contrato (derecho). Algunos ejemplos de dimensiones de medidores personalizadas son el ancho de banda, los vales o los correos electrónicos procesados. Los publicadores pueden definir una o más dimensiones de uso medido para cada plan, con un máximo de 30 por oferta. Los publicadores son responsables de hacer un seguimiento del uso individual de los clientes, con cada medidor definido en la oferta. Los eventos se deben notificar a Microsoft en el plazo de una hora. Microsoft cobra a los clientes en función de la información de uso notificada por los anunciantes para el período de facturación aplicable.
-- **Evaluación gratuita**: no se cobra por las licencias de software que cubren un período de 30 días a seis meses, en función del tipo de oferta. Si los publicadores proporcionan una evaluación gratuita en varios planes dentro de la misma oferta, los clientes pueden cambiar a una versión de evaluación gratuita de otro plan, pero el período de prueba no se reinicia. En el caso de ofertas de máquina virtual, se cobra a los clientes los costos de la infraestructura de Azure por el uso de la oferta durante un período de prueba. Tras la expiración del período de prueba, se cobra automáticamente a los clientes el último plan que probaron según las tarifas estándar, a menos que lo cancelen antes del final del período de prueba.
 
 > [!NOTE]
 > Las ofertas que se facturan según el uso nos on aptas para reembolsos una vez que se ha usado la solución.
 
-Los editores que quieran cambiar las tarifas de uso asociadas a una oferta deben quitar primero la oferta (o el plan específico dentro de esta) del marketplace comercial. La eliminación debe realizarse de acuerdo con los requisitos del [contrato para editores de Microsoft](/legal/marketplace/msft-publisher-agreement). Luego, el editor puede publicar una nueva oferta (o plan dentro de una oferta) que incluya las nuevas cuotas de uso. Para información sobre cómo quitar una oferta o plan, consulte [Detención de la venta de una oferta o un plan](./update-existing-offer.md#stop-selling-an-offer-or-plan).
+Los editores que quieran cambiar las tarifas de uso asociadas a una oferta deben quitar primero la oferta (o el plan específico dentro de esta) del marketplace comercial. La eliminación debe realizarse de acuerdo con los requisitos del [contrato para editores de Microsoft](/legal/marketplace/msft-publisher-agreement). Luego, el editor puede publicar una nueva oferta (o plan dentro de una oferta) que incluya las nuevas cuotas de uso. Para información sobre cómo quitar una oferta o plan, consulte [Dejar de distribuir una oferta o plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
 
-### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Precios de Gratis, Ponerse en contacto conmigo y traiga su propia licencia (BYOL)
+### <a name="determine-offer-type-and-pricing-plan"></a>Determinación del tipo de oferta y el plan de precios
 
-Al publicar una oferta con la opción Obténgalo ahora (de forma gratuita), Ponerse en contacto conmigo o BYOL, Microsoft no desempeña ningún papel en la transacción de ventas con las tarifas de licencia de software. El publicador conserva el 100 % de las cuotas de licencia de software.
+Use este diagrama de flujo para determinar el tipo de oferta *comercializable* y el plan de precios adecuados para vender el software en el marketplace comercial. En este gráfico se da por supuesto que usted, el anunciante, tiene un conocimiento claro de los modelos de entrega y facturación/licencia de su software.
+
+Por lo general, las ofertas SaaS son una buena opción si los clientes solo quieren suscribirse a su servicio y usarlo en línea. Con SaaS, el anunciante (usted) hospeda el software en la infraestructura en la nube y es responsable de la infraestructura técnica, el software de la aplicación y la administración de datos.
+
+Las ofertas de máquina virtual y aplicación de Azure son una buena opción si quiere que los clientes implementen, administren y ejecuten el paquete de aplicación o servicio (como una imagen de máquina virtual u otros servicios de Azure en la plantilla de ARM) en su propia infraestructura en la nube.
+
+[![Se muestra un diagrama de flujo para determinar el tipo de oferta y el plan de precios.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
+&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Póngase en contacto con [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) o con el [servicio de soporte técnico](/azure/marketplace/support).<br>
+&nbsp;&nbsp;&nbsp;<sup>(2)</sup> Las imágenes de ofertas de máquina virtual se pueden incluir en la oferta de App de Azure para que los precios sean más flexibles.<br>
+&nbsp;&nbsp;&nbsp;<sup>(3)</sup> El cliente paga los costos de infraestructura, ya que los servicios de Azure se implementan en el inquilino del cliente en las ofertas de máquina virtual y App de Azure.
 
 ### <a name="usage-based-and-subscription-pricing"></a>Precios de suscripción y basados en el uso
 
@@ -98,15 +98,15 @@ Los precios basados en el uso tienen la siguiente estructura de costos:
 | **Costo de su licencia** | **1,00 USD por hora** |
 |---------|---------|
 | Costo de uso de Azure (D1/1 núcleo) | 0,14 USD por hora |
-| _Microsoft factura al cliente_ | _1,14 USD por hora_ |
+| *Microsoft factura al cliente* | *1,14 USD por hora* |
 ||
 
 En este escenario, Microsoft factura 1,14 USD por hora de uso de la imagen de máquina virtual publicada.
 
 | **Microsoft factura** | **1,14 USD por hora**  |
 |---------|---------|
-| Microsoft le paga el 80 % del costo de licencia | 0,80 USD por hora |
-| Microsoft se queda con el 20 % del costo de licencia  |  0,20 USD por hora |
+| Microsoft le paga el 97 % del costo de licencia | 0,97 USD por hora |
+| Microsoft se queda con el 3 % del costo de licencia  |  0,03 USD por hora |
 | Microsoft se queda con el 100 % costo de uso de Azure | 0,14 USD por hora |
 ||
 
@@ -117,7 +117,7 @@ BYOL tiene la siguiente estructura de costos:
 | **Costo de su licencia** | **Usted negocia y factura el precio de licencia** |
 |---------|---------|
 |Costo de uso de Azure (D1/1 núcleo)    |   0,14 USD por hora     |
-| _Microsoft factura al cliente_ | _0,14 USD por hora_ |
+| *Microsoft factura al cliente* | *0,14 USD por hora* |
 ||
 
 En este escenario, Microsoft factura 0,14 USD por hora de uso de la imagen de máquina virtual publicada.
@@ -135,23 +135,19 @@ Las suscripciones de SaaS pueden tener un precio de tarifa plana o cobrarse por 
 | **Costo de su licencia** | **100,00 USD al mes** |
 |--------------|---------|
 | Costo de uso de Azure (D1/1 núcleo) | Facturado directamente al publicador, no al cliente |
-| _Microsoft factura al cliente_ | _100,00 USD al mes (el anunciante debe contar con los costos de paso a través o en que se incurran en el precio de la licencia)_ |
+| *Microsoft factura al cliente* | *100,00 USD al mes (el anunciante debe contar con los costos de paso a través o en que se incurran en el precio de la licencia)* |
 ||
 
-En este escenario, Microsoft factura 100,00 USD por su licencia de software y le paga 80,00 USD o 90,00 USD en función de si la oferta es apta para una tarifa de servicio de tienda reducida.
+En este escenario, Microsoft factura 100,00 USD por su licencia de software y paga 97,00 USD.
 
 | **Microsoft factura** | **100,00 USD al mes** |
 |---------|---------|
-| Microsoft le paga el 80 % del costo de licencia <br> \* Microsoft le paga el 90 % del costo de licencia de las aplicaciones SaaS aptas. | 80,00 USD al mes <br> \* 90,00 USD al mes |
-| Microsoft se queda con el 20 % del costo de licencia <br> \* Microsoft se queda con el 10 % del costo de licencia de las aplicaciones SaaS aptas. | 20,00 USD al mes <br> \* 10,00 USD |
+| Microsoft le paga el 97 % del costo de licencia  | 97,00 USD al mes |
+| Microsoft se queda con el 3 % del costo de licencia | 3,00 USD al mes |
 
 ### <a name="commercial-marketplace-service-fees"></a>Tarifas de servicio de Marketplace comercial
 
-Se cobra una cuota de servicio de almacenamiento estándar del 20 % cuando los clientes compran su oferta de transacción en Marketplace comercial. Para obtener más información sobre esta cuota, consulte la sección 5c del [Contrato de Microsoft Publisher](/legal/marketplace/msft-publisher-agreement).
-
-En el caso de ciertas ofertas de transacciones que publique en Marketplace comercial, puede optar por una tarifa de servicio reducida en tienda del 10 %. Para que una oferta sea apta, Microsoft debe designarla como _incentivo de venta conjunta de Azure IP_. Para recibir el precio reducido del servicio Marketplace, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final de cada mes natural. Una vez que se cumplan los criterios de idoneidad, se concederá el precio reducido del servicio a todas las transacciones vigentes el primer día del mes siguiente hasta que se pierda el estado _Venta conjunta con incentivos de IP de Azure_. Para obtener más información sobre la elegibilidad de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
-
-La cuota reducida del servicio Marketplace se aplica a SaaS, VM y aplicaciones administradas con incentivos de venta conjunta de Azure IP, así como a cualquier otra solución de IaaS en la que se pueda llevar a cabo una transacción cualificada que esté disponible a través de Marketplace comercial. Las ofertas de SaaS de pago asociadas con una aplicación de Microsoft Teams o al menos con dos complementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook y SharePoint) y publicadas en Microsoft AppSource también son aptas para este descuento.
+Se cobra una cuota de servicio de almacenamiento estándar del 3 % cuando los clientes compran su oferta de transacción en el marketplace comercial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Facturación, pago y cobro al cliente
 
@@ -169,7 +165,7 @@ Cuando se han seleccionado los modelos de precios de suscripción o de pago por 
 
 ### <a name="publisher-payout-and-reporting"></a>Pagos e informes al publicador
 
-Los honorarios de las licencias de software cobrados por Microsoft como agente están sujetos a una tarifa de transacción del 20 %, a menos que se especifique lo contrario, y se deducen en el momento del pago al publicador.
+Las tarifas de licencia de software que cobra Microsoft como agente están sujetas a una tarifa de servicio de tienda del 3 %, a menos que se especifique lo contrario y se deduzcan en el momento del pago del anunciante.
 
 Normalmente, los clientes compran con contrato Enterprise o mediante contrato de pago por uso con tarjeta de crédito. El tipo de contrato determina los plazos de facturación, cobro y pago.
 
@@ -211,3 +207,4 @@ Los planes privados le permiten ofrecer un precio mayor o menor a determinados c
 
 - Revise los patrones de publicación por tienda en línea para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
 - [Guía de publicación por tipo de oferta](publisher-guide-by-offer-type.md).
+- [Planes y precios de las ofertas del marketplace comercial](/azure/marketplace/plans-pricing)

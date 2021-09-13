@@ -1,20 +1,20 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: api-management
 author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 06/09/2021
+ms.date: 07/07/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 0c01e797d74cd058bed94ee3bf8d52b927fd36cc
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 053f1372067284e2b2d10bac508156b6ef38e4af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889819"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014628"
 ---
 | Recurso | Límite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -31,6 +31,7 @@ ms.locfileid: "111889819"
 | Número máximo de API por instancia de servicio<sup>8</sup> | 50 |
 | Número máximo de operaciones de administración de API por instancia de servicio<sup>8</sup> | 1,000 |
 | Duración total máxima de la solicitud<sup>8</sup> | 30 segundos |
+| Tamaño máximo de carga de solicitud<sup>8</sup> | 1 GiB |
 | Tamaño máximo de carga útil en búfer<sup>8</sup> | 2 MiB |
 | Tamaño máximo de la dirección URL de la solicitud<sup>9</sup> | 4096 bytes |
 | Longitud máxima del segmento de la ruta de acceso de la dirección URL<sup>10</sup> | 260 caracteres |
@@ -48,4 +49,4 @@ ms.locfileid: "111889819"
 <sup>8</sup>Este límite es aplicable solo al plan de consumo. No hay límites en estas categorías para otros niveles.<br/>
 <sup>9</sup>Solo se aplica al plan de consumo. Incluye una cadena de consulta de hasta 2048 bytes de longitud.<br/>
 <sup>10</sup> Para aumentar este límite, póngase en contacto con el [soporte técnico](https://azure.microsoft.com/support/options/).<br/>
-<sup>11</sup>Las puertas de enlace autohospedadas solo se admiten en los planes Desarrollador y Premium. El límite se aplica al número de [recursos de puerta de enlace autohospedados](/rest/api/apimanagement/2019-12-01/gateway). Para aumentar este límite, póngase en contacto con el departamento de [soporte técnico](https://azure.microsoft.com/support/options/). Tenga en cuenta que el número de nodos (o réplicas) asociados a un recurso de puerta de enlace autohospedado es ilimitado en el plan Premium y está limitado a un solo nodo en el plan Desarrollador.
+<sup>11</sup>Las puertas de enlace autohospedadas solo se admiten en los planes Desarrollador y Premium. El límite se aplica al número de [recursos de puerta de enlace autohospedados](/rest/api/apimanagement/2020-06-01-preview/gateway). Para aumentar este límite, póngase en contacto con el departamento de [soporte técnico](https://azure.microsoft.com/support/options/). Tenga en cuenta que el número de nodos (o réplicas) asociados a un recurso de puerta de enlace autohospedado es ilimitado en el plan Premium y está limitado a un solo nodo en el plan Desarrollador.

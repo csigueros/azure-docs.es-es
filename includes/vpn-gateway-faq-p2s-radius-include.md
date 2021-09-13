@@ -1,6 +1,6 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d0d0bbd1cea6d1af016aa46569171bd2bcd8ac4f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6bead4346bdb23dd725fa474ef1bd8a982d2b61a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110720433"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336304"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -24,6 +24,9 @@ La autenticación RADIUS es compatible con las SKU VpnGw1, VpnGw2 y VpnGw3. Si u
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>¿Es compatible la autenticación RADIUS con el modelo de implementación clásica?
  
 No. La autenticación RADIUS no es compatible con el modelo de implementación clásica.
+
+### <a name="what-is-the-timeout-period-for-radius-requests-sent-to-the-radius-server"></a>¿Cuál es el período de tiempo de espera para las solicitudes RADIUS enviadas al servidor RADIUS?
+Las solicitudes RADIUS están configuradas para expirar después de 30 segundos. Actualmente, no se admiten valores de tiempo de espera definidos por el usuario.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>¿Se admiten servidores RADIUS de terceros?
 

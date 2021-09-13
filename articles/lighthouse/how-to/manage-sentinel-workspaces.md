@@ -1,14 +1,14 @@
 ---
 title: Administración de áreas de trabajo de Azure Sentinel a gran escala
 description: Azure Lighthouse le ayuda a administrar Azure Sentinel de manera eficaz en los recursos delegados del cliente.
-ms.date: 03/02/2021
+ms.date: 08/16/2021
 ms.topic: how-to
-ms.openlocfilehash: c72dcdd190acfaf3db0b5c9feb1a30b00c63a94d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 44efc4afeb3ea238b5a8a29d8f12a7bfb4f6d621
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077833"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324026"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Administración de áreas de trabajo de Azure Sentinel a gran escala
 
@@ -38,6 +38,9 @@ Este modelo centralizado de implementación presenta las siguientes ventajas:
 
 > [!NOTE]
 > Puede administrar recursos delegados que estén ubicados en diferentes [regiones](../../availability-zones/az-overview.md#regions). Sin embargo, no se admite la delegación de suscripciones entre una [nube nacional](../../active-directory/develop/authentication-national-cloud.md) y la nube pública de Azure o entre dos nubes nacionales independientes.
+
+> [!IMPORTANT]
+> Si todas las áreas de trabajo se crean en los inquilinos del cliente, los proveedores de recursos Microsoft.SecurityInsights y Microsoft.OperationalInsights también deben [registrarse](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) en una suscripción del inquilino de administración.
 
 ## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Control de acceso basado en rol de Azure (RBAC de Azure) detallado
 
@@ -92,5 +95,5 @@ Después de configurar los conectores de datos de Office 365, puede usar las fu
 
 - Más información sobre [Azure Sentinel](../../sentinel/overview.md).
 - Revise la [página de precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+- Explore [Azure Sentinel All in One](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One), un proyecto para acelerar las tareas de implementación y configuración inicial de un entorno de Azure Sentinel.
 - Más información sobre las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).
-

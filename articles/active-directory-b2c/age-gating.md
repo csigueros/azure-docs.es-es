@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 94937129de318bacab129ef115bb03d6aa1c53d0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f7aac30ec8cb5aa2707217183a7612f4eb5b27c3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723312"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322367"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar la restricción de acceso por edad en Azure Active Directory B2C
 
@@ -43,6 +43,7 @@ Azure AD B2C usa la información que escribe el usuario para identificar si es u
 
 Para poder usar la restricción de acceso por edad en un flujo de usuario, debe configurar el inquilino para que admita propiedades adicionales.
 
+1. Use [este vínculo](https://portal.azure.com/?Microsoft_AAD_B2CAdmin_agegatingenabled=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementMenuBlade/overview) para probar la versión preliminar de la restricción de acceso por edad.
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior. Elija el directorio que contiene el inquilino.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione la opción **Propiedades** del inquilino en el menú de la izquierda.

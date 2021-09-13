@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: b272d4cb11ab948043f6c47b5be12fc0488d070f
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 86160cd24708088a2cc5917a4850ca029023c0ce
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444189"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322787"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-alerts"></a>Supervisión de máquinas virtuales con Azure Monitor: alertas
 
@@ -91,7 +91,7 @@ Use una regla de unidades métricas con la consulta siguiente.
 Heartbeat
 | summarize TimeGenerated=max(TimeGenerated) by Computer
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
-| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m)
+| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,1)
 ```
 
 **Alerta única**
@@ -112,7 +112,7 @@ Se incluye una métrica denominada *Latido* en cada área de trabajo de Log Anal
 
 | Destino | Métrica |
 |:---|:---|
-| administrador de flujos de trabajo | Porcentaje de CPU |
+| Host | Porcentaje de CPU |
 | Invitado de Windows | \Processor Information(_Total)\% de tiempo de procesador |
 | Invitado de Linux | cpu/usage_active |
 

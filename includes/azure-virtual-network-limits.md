@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: networking
 author: anavinahar
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: d31e52763ed69303ee6ea9bf44fd85403c810179
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 8ae8608592ee540e227e0b23ef708b605647a667
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111993706"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593502"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -76,8 +76,8 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Reglas por NIC (en todas las direcciones IP de una NIC) | 300                           |
 | Configuraciones de direcciones IP de front-end              | 600                           |
 | Tamaño de grupo de back-end                       | 1000 configuraciones de IP, una sola red virtual |
-| Recursos de back-end por Load Balancer <sup>1<sup> | 1,200                   |
-| Puertos de alta disponibilidad                 | 1 por front-end interno       |
+| Recursos de back-end por Load Balancer <sup>1<sup> | 1,200                 |
+| Regla de puertos de alta disponibilidad            | 1 por front-end interno       |
 | Reglas de salida por Load Balancer        | 600                           |
 | Instancias de Load Balancer por máquina virtual                   | 2 (1 público y 1 interno)   |
 

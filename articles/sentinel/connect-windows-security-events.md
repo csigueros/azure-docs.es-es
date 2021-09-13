@@ -15,28 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2021
 ms.author: yelevin
-ms.openlocfilehash: 364426e5b89915f51ec61e7c878e885045964554
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: d83672894f511696cfc2520aaee3e7932508b6c2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063457"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322888"
 ---
 # <a name="connect-to-windows-servers-to-collect-security-events"></a>Conexión a servidores Windows para recopilar eventos de seguridad
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-El conector de eventos de seguridad de Windows permite transmitir eventos de seguridad desde cualquier servidor de Windows (físico o virtual, local o en cualquier nube) conectado al área de trabajo de Azure Sentinel. Esto le permite ver los eventos de seguridad de Windows en los paneles. De este modo, puede usarlos en la creación de alertas personalizadas y basarse en ellos para mejorar las investigaciones, lo que le proporciona más información sobre la red de su organización y amplía las funciones de las operaciones de seguridad. 
+El conector de eventos de seguridad de Windows permite transmitir eventos de seguridad desde cualquier servidor de Windows (físico o virtual, local o en cualquier nube) conectado al área de trabajo de Azure Sentinel. Esto le permite ver los eventos de seguridad de Windows en los paneles. De este modo, puede usarlos en la creación de alertas personalizadas y basarse en ellos para mejorar las investigaciones, lo que le proporciona más información sobre la red de su organización y amplía las funciones de las operaciones de seguridad.
 
-Ahora hay dos versiones de este conector: los **eventos de seguridad** son la versión heredada, que se basa en el agente de Log Analytics (también conocido como agente de OMS o MMA), y los **eventos de seguridad de Windows** son la nueva versión, que se encuentra actualmente en **versión preliminar** y se basa en el nuevo agente de Azure Monitor (AMA). En este documento se presenta información sobre ambos conectores. Puede elegir entre las pestañas siguientes para ver la información relevante para el conector seleccionado.
+## <a name="connector-options"></a>Opciones de conector
+
+El conector eventos de seguridad de Windows admite las siguientes versiones:
+
+|Versión del conector  |Descripción  |
+|---------|---------|
+|**Eventos de seguridad**     |Versión heredada, basada en el agente de Log Analytics y a veces conocida como Microsoft Monitoring Agent (MMA) o el agente OMS. <br><br>Limitado a 10 000 eventos por segundo. Para garantizar un rendimiento óptimo, asegúrese de mantener en 8500 eventos por segundo o menos.       |
+|**Eventos de seguridad de Windows**     |Versión más reciente, actualmente en versión preliminar, basada en el agente de Azure Monitor (AMA).   <br><br>Admite características adicionales, como el filtrado de registros previos a la ingesta y las reglas de recopilación de datos individuales para determinados grupos de máquinas.      |
+|     |         |
+
 
 > [!NOTE]
-> Para recopilar eventos de seguridad de cualquier sistema que no sea una máquina virtual de Azure, el sistema debe tener [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) instalado y habilitado *antes* de habilitar cualquiera de estos conectores.
+> MMA para Linux no admite el hospedaje múltiple, que envía registros a varias áreas de trabajo. Si necesita varios hospedajes, se recomienda usar el conector de **eventos de seguridad de Windows**.
+
+> [!TIP]
+> Si necesita varios agentes, puede que desee usar una escala de máquina virtual configurada para ejecutar varios agentes para la ingesta de registros, o bien usar varias máquinas. El conector de eventos de seguridad y el de eventos de seguridad de Windows se pueden usar con un equilibrador de carga para asegurarse de que las máquinas no estén sobrecargadas y para evitar la duplicación de datos.
 >
-> Esto incluye:
-> - Servidores Windows instalados en máquinas físicas
-> - Servidores Windows instalados en máquinas virtuales locales
-> - Servidores Windows instalados en máquinas virtuales en nubes que no son de Azure
+
+En este artículo se presenta información sobre ambas versiones del conector. Seleccione las pestañas siguientes para ver la información pertinente para el conector seleccionado.
+
 
 # <a name="log-analytics-agent-legacy"></a>[Agente de Log Analytics (heredado)](#tab/LAA)
 
@@ -70,9 +81,19 @@ Además de los conjuntos de eventos seleccionados previamente (**Todos los event
 En este documento se muestra cómo crear reglas de recopilación de datos.
 
 > [!NOTE]
-> **Coexistencia con otros agentes**
+> - **Coexistencia con otros agentes**
 > 
-> El agente de Azure Monitor puede coexistir con los agentes existentes para que pueda seguir usando el conector heredado durante la evaluación o la migración. Esto es especialmente importante mientras el nuevo conector está en versión preliminar, debido a la compatibilidad limitada con las soluciones existentes. Sin embargo, debe tener cuidado al recopilar datos duplicados, ya que esto podría sesgar los resultados de las consultas y generar cargos adicionales por la ingesta y retención de datos.
+>   El agente de Azure Monitor puede coexistir con los agentes existentes para que pueda seguir usando el conector heredado durante la evaluación o la migración. Esto es especialmente importante mientras el nuevo conector está en versión preliminar, debido a la compatibilidad limitada con las soluciones existentes. Sin embargo, debe tener cuidado al recopilar datos duplicados, ya que esto podría sesgar los resultados de las consultas y generar cargos adicionales por la ingesta y retención de datos.
+> 
+> - **Recopilación de eventos de seguridad de máquinas que no son de Azure**
+> 
+>   Para recopilar eventos de seguridad de cualquier sistema que no sea una máquina virtual de Azure, el sistema debe tener [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) instalado y habilitado *antes* de habilitar el conector basado en agente de Azure Monitor.
+>   
+>   Esto incluye:
+>   
+>    - Servidores Windows instalados en máquinas físicas
+>    - Servidores Windows instalados en máquinas virtuales locales
+>    - Servidores Windows instalados en máquinas virtuales en nubes que no son de Azure
 
 ---
 
@@ -248,6 +269,6 @@ En la lista siguiente se muestra un desglose completo de los identificadores de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar eventos de seguridad de Windows a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](tutorial-detect-threats-built-in.md) o [personalizadas](tutorial-detect-threats-custom.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](detect-threats-built-in.md) o [personalizadas](detect-threats-custom.md).
 

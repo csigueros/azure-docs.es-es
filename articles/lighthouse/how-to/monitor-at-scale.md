@@ -1,14 +1,14 @@
 ---
 title: Supervisión de los recursos delegados a escala
 description: Con Azure Lighthouse, puede usar los registros de Azure Monitor de forma escalable en los inquilinos del cliente.
-ms.date: 05/10/2021
+ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 29f78eb677b17193876ec45250e639cb9086cf6b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 3424078b00aef569f054d6d3c02382f4bd071a91
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082314"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122325067"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Supervisión de los recursos delegados a escala
 
@@ -31,7 +31,7 @@ Se recomienda crear estas áreas de trabajo directamente en los inquilinos del c
 Puede crear un área de trabajo de Log Analytics mediante [Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), la [CLI de Azure](../../azure-monitor/logs/quick-create-workspace-cli.md) o [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
-> Incluso si todas las áreas de trabajo se crean en el inquilino del cliente, el proveedor de recursos Microsoft.Insights también debe registrarse en una suscripción del inquilino de administración. Si el inquilino de administración no tiene una suscripción a Azure existente, puede registrar el proveedor de recursos de manera manual con los comandos de PowerShell siguientes:
+> Si todas las áreas de trabajo se crean en los inquilinos del cliente, los proveedores de recursos de Microsoft.Insights también deben [registrarse](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) en una suscripción del inquilino de administración. Si el inquilino de administración no tiene una suscripción a Azure existente, puede registrar el proveedor de recursos de manera manual con los comandos de PowerShell siguientes:
 >
 > ```powershell
 > $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
@@ -43,7 +43,6 @@ Puede crear un área de trabajo de Log Analytics mediante [Azure Portal](../../a
 > New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
 > New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
 > ```
->
 
 ## <a name="deploy-policies-that-log-data"></a>Implementación de directivas que registran datos
 
@@ -56,6 +55,24 @@ Cuando haya determinado las directivas que se van a implementar, puede [implemen
 ## <a name="analyze-the-gathered-data"></a>Análisis de los datos recopilados
 
 Una vez implementadas las directivas, los datos se registrarán en las áreas de trabajo de Log Analytics que ha creado en cada inquilino del cliente. Para obtener información sobre todos los clientes administrados, puede usar herramientas como [Libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) para recopilar y analizar información de varios orígenes de datos.
+
+## <a name="query-data-across-customer-workspaces"></a>Consulta de datos entre áreas de trabajo de los clientes
+
+Puede ejecutar [consultas de registro](../../azure-monitor/logs/log-query-overview.md) para recuperar datos entre áreas de trabajo de Log Analytics en distintos inquilinos de clientes mediante la creación de una unión que incluya varias áreas de trabajo. Al incluir la columna TenantID, puede ver qué resultados pertenecen a cada inquilino.
+
+En la consulta de ejemplo siguiente se crea en la tabla AzureDiagnostics una unión entre áreas de trabajo en dos inquilinos de cliente independientes. Los resultados muestran las columnas Category, ResourceGroup y TenantID.
+
+``` Kusto
+union AzureDiagnostics,
+workspace("WS-customer-tenant-1").AzureDiagnostics,
+workspace("WS-customer-tenant-2").AzureDiagnostics
+| project Category, ResourceGroup, TenantId
+```
+
+Para ver más ejemplos de consultas entre varias áreas de trabajo de Log Analytics, consulte el artículo sobre la [realización de consultas entre recursos con Azure Monitor](../../azure-monitor/logs/cross-workspace-query.md).
+
+> [!IMPORTANT]
+> Si se emplea una cuenta de Automation usada para consultar datos de un área de trabajo de Log Analytics, la cuenta debe crearse en el mismo inquilino que el área de trabajo.
 
 ## <a name="view-alerts-across-customers"></a>Visualización de alertas entre clientes
 
@@ -78,5 +95,5 @@ alertsmanagementresources
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Pruebe el libro [Registros de actividad por dominio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) en GitHub.
-- Explore este [libro de ejemplo creado por MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), que realiza un seguimiento de los informes de cumplimiento de revisiones mediante la [consulta de registros de Update Management](../../automation/update-management/query-logs.md) en varias áreas de trabajo de Log Analytics. 
+- Explore este [libro de ejemplo creado por MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), que realiza un seguimiento de los informes de cumplimiento de revisiones mediante la [consulta de registros de Update Management](../../automation/update-management/query-logs.md) en varias áreas de trabajo de Log Analytics.
 - Obtenga información sobre otras [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).

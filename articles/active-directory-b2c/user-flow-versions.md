@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4b47a311513a1216555583b64095d4bc46e4b48e
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: ff22ed8c1ef96d1839767ac56a7215737ae18c14
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107895908"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323817"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versiones de flujos de usuario de Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Los flujos de usuario de Azure Active Directory B2C (Azure AD B2C) le permite
 >- Los flujos de usuario **recomendados** son los flujos de usuario de próxima generación disponibles con carácter general con las características más recientes. Combinan todas las características de las versiones **V1**, **V1.1** y **V2** heredadas. En el futuro, seguirán realizándose tareas de mantenimiento y habrá actualizaciones para los **flujos de usuario** recomendados. Una vez que se traslade a estos nuevos flujos de usuario recomendados, tendrá acceso a las nuevas características a medida que se vayan lanzando.
 >- Los flujos de usuario **estándar (heredado)** , anteriormente conocidos como **V1**, son flujos de usuario heredados. A menos que tenga una necesidad empresarial específica, no se recomienda usar estas versiones de flujos de usuario porque no se mantendrán ni actualizarán.
 >
->Todas las versiones preliminares de flujos de usuario heredadas (V1.1 y V2) estarán en proceso de desuso el **1 de agosto de 2021**. Siempre que sea posible, recomendamos encarecidamente que [cambie a las versiones **recomendadas**](#how-to-switch-to-a-recommended-user-flow) lo antes posible para que pueda aprovechar siempre las últimas características y actualizaciones. *Estos cambios solo se aplican a la nube pública de Azure. Otros entornos seguirán usando el [control de versiones de flujos de usuario heredado](user-flow-versions-legacy.md).*
+>En la nube pública, todos los flujos de usuario de las versiones preliminares heredadas (V1.1 y V2) se encuentran en desuso. *Estos cambios solo se aplican a la nube pública de Azure. Otros entornos seguirán usando el [control de versiones de flujos de usuario heredado](user-flow-versions-legacy.md).*
 
 ## <a name="recommended-user-flows"></a>Flujos de usuario recomendados
 
@@ -85,4 +85,4 @@ Si usa un flujo de usuario de las versiones V2 o V1.1 heredadas, la aplicación 
 
 ### <a name="will-microsoft-still-support-my-legacy-v2-or-v11-user-flow-policy"></a>¿Microsoft seguirá admitiendo mi directiva de flujo de usuario de la versión V2 o V1.1 heredada?
 
-En la nube pública, todos los flujos de usuario de las versiones preliminares heredadas (V1.1 y V2) se encuentran en un proceso de desuso que finalizará el 1 de agosto de 2021. Siempre que sea posible, recomendamos encarecidamente que [cambie a las versiones **recomendadas**](#how-to-switch-to-a-recommended-user-flow) lo antes posible para que pueda aprovechar siempre las últimas características y actualizaciones. *Estos cambios solo se aplican a la nube pública de Azure. Otros entornos seguirán usando el [control de versiones de flujos de usuario heredado](user-flow-versions-legacy.md).*
+En la nube pública, todos los flujos de usuario de las versiones preliminares heredadas (V1.1 y V2) se encuentran en desuso. *Estos cambios solo se aplican a la nube pública de Azure. Otros entornos seguirán usando el [control de versiones de flujos de usuario heredado](user-flow-versions-legacy.md).*

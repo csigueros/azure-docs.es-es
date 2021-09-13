@@ -9,16 +9,16 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: d54824a29f84159f4d26ba20c5b50d9c1edae4c6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 1477e81d3809a0712913c95f54d4c073f08bb362
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761634"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550774"
 ---
 [Text Analytics for Health](../../how-tos/text-analytics-for-health.md) procesa y extrae información de datos médicos no estructurados. El servicio detecta y expone conceptos médicos, asigna aserciones a los conceptos, deduce las relaciones semánticas entre los conceptos y las vincula a ontologías médicas comunes.
 
-Text Analytics for Health detecta conceptos médicos en las siguientes categorías. En esta versión preliminar solo se admite texto en inglés y solo hay disponible una única versión del modelo.
+Text Analytics for Health detecta conceptos médicos en las siguientes categorías. En la actualidad solo se admite texto en inglés.
 
 | Category  | Descripción  |
 |---------|---------|
