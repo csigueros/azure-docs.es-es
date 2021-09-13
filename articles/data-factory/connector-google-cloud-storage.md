@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: dc362a2c05a8993c429c7ff2ca191bf559814cf4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6dc99ca4c6d7b004bd8994c89a3e79e1f2d817d4
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638636"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123312777"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copia de datos de Google Cloud Storage mediante Azure Data Factory
 
@@ -55,6 +55,30 @@ Para la lista completa de roles de Google Cloud Storage y los permisos asociad
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
+
+## <a name="create-a-linked-service-to-google-cloud-storage-using-ui"></a>Creación de un servicio vinculado a Google Cloud Storage mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Google Cloud Storage en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Google y seleccione el conector de Google Cloud Storage (API de S3).
+
+    :::image type="content" source="media/connector-google-cloud-storage/google-cloud-storage-connector.png" alt-text="Selección del conector de Google Cloud Storage (API de S3).":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-google-cloud-storage/configure-google-cloud-storage-linked-service.png" alt-text="Configuración de un servicio vinculado a Google Cloud Storage.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas para el conector de Google Cloud Storage.
 

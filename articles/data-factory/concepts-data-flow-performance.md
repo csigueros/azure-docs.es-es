@@ -1,36 +1,34 @@
 ---
 title: Guía de optimización y rendimiento del flujo de datos de asignación
-description: Conozca los factores clave que afectan al rendimiento de los flujos de datos de asignación en Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Conozca los factores clave que afectan al rendimiento de los flujos de datos de asignación en las canalizaciones de Azure Data Factory y Azure Synapse Analytics.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.custom: seo-lt-2019
-ms.date: 06/07/2021
-ms.openlocfilehash: ac9d0aaf4114e48fb128a5093c59781724e8fd9c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.subservice: data-flows
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 1595d2984c4130fa89c52aec615941051fa1bb82
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749064"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099360"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Los flujos de datos de asignación de Azure Data Factory proporcionan una interfaz sin código para diseñar y ejecutar transformaciones de datos a gran escala. Si no está familiarizado con los flujos de datos de asignación, consulte [Introducción a Mapping Data Flow](concepts-data-flow-overview.md). En este artículo se destacan varias maneras de ajustar y optimizar los flujos de datos para que cumplan con los parámetros deseados de rendimiento.
+Los flujos de datos de asignación de las canalizaciones de Azure Data Factory y Synapse proporcionan una interfaz sin código para diseñar y ejecutar transformaciones de datos a gran escala. Si no está familiarizado con los flujos de datos de asignación, consulte [Introducción a Mapping Data Flow](concepts-data-flow-overview.md). En este artículo se destacan varias maneras de ajustar y optimizar los flujos de datos para que cumplan con los parámetros deseados de rendimiento.
 
 En el siguiente vídeo se muestran algunos intervalos de ejemplo que transforman datos con flujos de datos.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
 
-## <a name="testing-data-flow-logic"></a>Prueba de la lógica de flujo de datos
-
-Cuando se diseñan y se prueban flujos de datos desde la experiencia del usuario de ADF, el modo de depuración permite realizar pruebas interactivas en un clúster de Spark activo. De este modo se puede obtener una vista previa de los datos y ejecutar los flujos de datos sin esperar a que se prepare un clúster. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
-
 ## <a name="monitoring-data-flow-performance"></a>Supervisión del rendimiento de flujo de datos
 
-Después de comprobar la lógica de transformación mediante el modo de depuración, puede ejecutar el flujo de datos de un extremo a otro como una actividad en una canalización. Los flujos de datos se convierten en operaciones de una canalización mediante la [actividad de ejecución de flujo de datos](control-flow-execute-data-flow-activity.md). Esta actividad tiene una experiencia de supervisión única en comparación con otras actividades de Azure Data Factory que muestran un plan de ejecución detallado y un perfil de rendimiento de la lógica de transformación. Para ver información detallada de la supervisión de un flujo de datos, haga clic en el icono de las gafas en la salida de la ejecución de actividad de una canalización. Para más información, consulte [Supervisión de los flujos de datos de asignación](concepts-data-flow-monitoring.md).
+Después de comprobar la lógica de transformación mediante el modo de depuración, puede ejecutar el flujo de datos de un extremo a otro como una actividad en una canalización. Los flujos de datos se convierten en operaciones de una canalización mediante la [actividad de ejecución de flujo de datos](control-flow-execute-data-flow-activity.md). La actividad de flujo de datos tiene una experiencia de supervisión única en comparación con otras actividades que muestra un plan de ejecución detallado y un perfil de rendimiento de la lógica de transformación. Para ver información detallada de la supervisión de un flujo de datos, haga clic en el icono de las gafas en la salida de la ejecución de actividad de una canalización. Para más información, consulte [Supervisión de los flujos de datos de asignación](concepts-data-flow-monitoring.md).
 
 ![Supervisión de Data Flow](media/data-flow/monitoring-details.png "Supervisión de Data Flow 2")
 
@@ -43,11 +41,15 @@ Cuando se supervisa el rendimiento del flujo de datos, hay cuatro posibles cuell
 
 ![Supervisión de Data Flow](media/data-flow/monitoring-performance.png "Supervisión de Data Flow 3")
 
-El tiempo para el inicio de actividad del clúster es el tiempo que se tarda en poner en marcha un clúster de Apache Spark. Este valor se encuentra en la esquina superior derecha de la pantalla de supervisión. Los flujos de datos se ejecutan en un modelo Just-in-Time en el que cada trabajo usa un clúster aislado. Por lo general, el inicio de actividad tarda de tres a cinco minutos. En el caso de los trabajos secuenciales, este tiempo se puede reducir si se habilita un valor de período de vida. Para más información, consulte [Optimización de Azure Integration Runtime](#ir).
+El tiempo para el inicio de actividad del clúster es el tiempo que se tarda en poner en marcha un clúster de Apache Spark. Este valor se encuentra en la esquina superior derecha de la pantalla de supervisión. Los flujos de datos se ejecutan en un modelo Just-in-Time en el que cada trabajo usa un clúster aislado. Por lo general, el inicio de actividad tarda de tres a cinco minutos. En el caso de los trabajos secuenciales, este tiempo se puede reducir si se habilita un valor de período de vida. Para obtener más información, vea la sección **Período de vida** de [Rendimiento de Azure Integration Runtime](concepts-integration-runtime-performance.md#time-to-live).
 
 Los flujos de datos usan un optimizador de Spark que reordena y ejecuta la lógica de negocios en "fases" para actuar lo más rápido posible. La salida de la supervisión muestra la duración de cada fase de transformación de cada uno de los receptores en los que escribe el flujo de datos, junto con el tiempo que se tarda en escribir los datos en el receptor. El mayor valor de tiempo es probablemente el cuello de botella del flujo de datos. Si la fase de transformación que más tarda contiene un origen, puede que le interese estudiar cómo mejorar la optimización del tiempo de lectura. Si una transformación tarda mucho tiempo, puede que tenga que volver a crear particiones o aumentar el tamaño del entorno de ejecución de integración. Si el tiempo de procesamiento del receptor es elevado, puede que necesite escalar verticalmente la base de datos o comprobar que no se está generando la salida en un único archivo.
 
 Cuando haya identificado el cuello de botella del flujo de datos, use las siguientes estrategias de optimización para mejorar el rendimiento.
+
+## <a name="testing-data-flow-logic"></a>Prueba de la lógica de flujo de datos
+
+Cuando se diseñan y se prueban flujos de datos desde la interfaz de usuario, el modo de depuración permite realizar pruebas interactivas en un clúster de Spark activo. De este modo se puede obtener una vista previa de los datos y ejecutar los flujos de datos sin esperar a que se prepare un clúster. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
 ## <a name="optimize-tab"></a>Pestaña Optimizar
 
@@ -55,12 +57,12 @@ La pestaña **Optimize** (Optimizar) contiene valores para configurar el esquema
 
 ![Captura de pantalla que muestra la pestaña Optimizar, que incluye la opción de partición, el tipo de partición y el número de particiones.](media/data-flow/optimize.png)
 
-De forma predeterminada, se selecciona *Use current partitioning* (Usar particiones actuales), que indica a Azure Data Factory que mantenga las particiones de salida actuales de la transformación. Dado que una nueva partición de datos lleva su tiempo, en la mayoría de los escenarios se recomienda la opción *Use current partitioning* (Usar particiones actuales). Entre los escenarios en los que es posible que desee volver a crear particiones de los datos se incluyen los que surgen tras agregados y combinaciones que sesgan significativamente los datos o cuando se usa la creación de particiones de origen en una base de datos SQL.
+De manera predeterminada, se selecciona *Use current partitioning* (Usar particiones actuales), que indica al servicio que mantenga las particiones de salida actuales de la transformación. Dado que una nueva partición de datos lleva su tiempo, en la mayoría de los escenarios se recomienda la opción *Use current partitioning* (Usar particiones actuales). Entre los escenarios en los que es posible que desee volver a crear particiones de los datos se incluyen los que surgen tras agregados y combinaciones que sesgan significativamente los datos o cuando se usa la creación de particiones de origen en una base de datos SQL.
 
 Para cambiar las particiones de cualquier transformación, seleccione la pestaña **Optimizar** y elija el botón de radio **Set Partitioning** (Establecer particiones). Aparecen una serie de opciones relacionadas con la creación de particiones. El mejor método para crear particiones depende de los volúmenes de datos, las claves candidatas, los valores nulos y la cardinalidad. 
 
 > [!IMPORTANT]
-> La opción Single partition (Partición única) combina todos los datos distribuidos en una sola partición. Se trata de una operación muy lenta que también afecta significativamente a todas las operaciones de transformación y escritura de nivel inferior. Azure Data Factory recomienda no usar esta opción a menos que haya una razón empresarial explícita para hacerlo.
+> La opción Single partition (Partición única) combina todos los datos distribuidos en una sola partición. Se trata de una operación muy lenta que también afecta significativamente a todas las operaciones de transformación y escritura de nivel inferior. No es nada recomendable usar esta opción, a menos que haya una razón empresarial explícita para ello.
 
 Las siguientes opciones de creación de particiones están disponibles en todas las transformaciones:
 
@@ -70,7 +72,7 @@ Round robin distribuye los datos equitativamente entre las particiones. Use roun
 
 ### <a name="hash"></a>Hash
 
-Azure Data Factory genera un valor hash de las columnas para generar particiones uniformes, por ejemplo, filas con valores similares en la misma partición. Si usa la opción Hash, pruebe si hay una posible distorsión de las particiones. Puede establecer el número de particiones físicas.
+El servicio genera un hash de columnas a fin de crear particiones uniformes de tal modo que, por ejemplo, las filas con valores similares estén en la misma partición. Si usa la opción Hash, pruebe si hay una posible distorsión de las particiones. Puede establecer el número de particiones físicas.
 
 ### <a name="dynamic-range"></a>Intervalo dinámico
 
@@ -89,58 +91,10 @@ Si conoce bien la cardinalidad de los datos, la creación de particiones clave p
 
 ## <a name="logging-level"></a>Nivel de registro
 
-Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando a ADF que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
+Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando al servicio que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
 
 ![Nivel de registro](media/data-flow/logging.png "Establecimiento del nivel de registro")
 
-## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Optimización de Azure Integration Runtime
-
-Los flujos de datos se ejecutan en clústeres de Spark que se activan en tiempo de ejecución. La configuración del clúster que se usa se define en el entorno de ejecución de integración (IR) de la actividad. Hay tres consideraciones de rendimiento que se deben tener en cuenta a la hora de definir el entorno de ejecución de integración: el tipo de clúster, el tamaño del clúster y el período de vida.
-
-Para más información sobre cómo crear un entorno de Integration Runtime, consulte [Integration Runtime en Azure Data Factory](concepts-integration-runtime.md).
-
-### <a name="cluster-type"></a>Tipo de clúster
-
-Hay tres opciones disponibles para la activación del tipo de clúster de Spark: uso general, optimizado para memoria y optimizado para proceso.
-
-Los clústeres de **uso general** son la selección predeterminada y resultan la opción idónea en la mayoría de las cargas de trabajo de flujo de datos. Suelen ofrecer el mejor equilibrio entre rendimiento y costo.
-
-Si el flujo de datos tiene muchas combinaciones y búsquedas, puede que desee usar un clúster **optimizado para memoria**. Los clústeres optimizados para memoria pueden almacenar más datos en memoria y reducirán los errores de memoria insuficiente que puedan aparecer. Son los más caros por núcleo, pero también tienden a generar canalizaciones más correctas. Si aparecen errores de memoria insuficiente al ejecutar los flujos de datos, cambie a una configuración de Azure IR optimizada para memoria. 
-
-Los clústeres **optimizados para proceso** no son idóneos para flujos de trabajo de ETL y el equipo de Azure Data Factory no los recomienda para la mayoría de las cargas de trabajo de producción. En el caso de transformaciones de datos más sencillas, sin un uso intensivo de memoria, como el filtrado de datos o la incorporación de columnas derivadas, se pueden usar los clústeres optimizados para proceso, con un precio más barato por núcleo.
-
-### <a name="cluster-size"></a>Tamaño del clúster
-
-Los flujos de datos distribuyen el procesamiento de datos en diferentes nodos de un clúster de Spark para realizar operaciones en paralelo. Un clúster de Spark con más núcleos aumenta el número de nodos en el entorno de proceso. Más nodos aumentan la capacidad de procesamiento del flujo de datos. El aumento del tamaño del clúster suele ser una forma sencilla de reducir el tiempo de procesamiento.
-
-El tamaño de clúster predeterminado es de cuatro nodos de controlador y cuatro nodos de trabajo.  A medida que se procesan más datos, se recomiendan clústeres más grandes. A continuación se muestran las opciones de tamaño posibles:
-
-| Núcleos de trabajo | Núcleos de controlador | Núcleos totales | Notas |
-| ------------ | ------------ | ----------- | ----- |
-| 4 | 4 | 8 | No disponible en la opción optimizada para proceso |
-| 8 | 8 | 16 | |
-| 16 | 16 | 32 | |
-| 32 | 16 | 48 | |
-| 64 | 16 | 80 | |
-| 128 | 16 | 144 | |
-| 256 | 16 | 272 | |
-
-El precio de los flujos de datos se calcula en horas de núcleo virtual, por lo que se tiene en cuenta tanto el tamaño del clúster como el tiempo de ejecución. A medida que escale verticalmente, aumentará el costo por minuto del clúster, pero se reducirá el tiempo total.
-
-> [!TIP]
-> Existe un punto máximo en el que el tamaño de un clúster deja de afectar al rendimiento de un flujo de datos. En función del tamaño de los datos, hay un punto en el que el aumento del tamaño de un clúster dejará de mejorar el rendimiento. Por ejemplo, si tiene más nodos que particiones de datos, agregar más nodos no ayudará más. Un procedimiento recomendado es comenzar con un tamaño pequeño y escalar verticalmente hasta satisfacer las necesidades de rendimiento. 
-
-### <a name="time-to-live"></a>Período de vida
-
-De forma predeterminada, cada actividad de flujo de datos pone en marcha un nuevo clúster de Spark en función de la configuración de Azure IR. El clúster tarda unos minutos en iniciar su actividad y el procesamiento de datos no puede iniciarse hasta que se complete. Si las canalizaciones contienen varios **flujos de datos** secuenciales, puede habilitar un valor de período de vida (TTL). Si se especifica un valor de período de vida, el clúster se mantiene activo durante un determinado período de tiempo después de que se complete la ejecución. Si un nuevo trabajo comienza a usar el IR durante el tiempo de TTL, volverá a usar el clúster existente y el tiempo de inicio de actividad se reducirá drásticamente. Una vez completado el segundo trabajo, el clúster permanecerá activo de nuevo durante el tiempo de TTL.
-
-Además, puede minimizar el tiempo de inicio de los clústeres en caliente estableciendo la opción "Quick re-use" (Reutilización rápida) en Azure Integration Runtime en las propiedades del flujo de datos. Si se establece en true, ADF no desmontará el clúster existente después de cada trabajo y, en su lugar, volverá a usarlo, principalmente manteniendo activo el entorno de proceso que ha establecido en Azure IR durante el período de tiempo especificado en el TTL. Esta opción permite el menor tiempo de inicio de las actividades de flujo de datos al ejecutarse desde una canalización.
-
-Sin embargo, si la mayoría de los flujos de datos se ejecutan en paralelo, no se recomienda habilitar TTL para las instancia de IR que se usa para esas actividades. Solo se puede ejecutar un trabajo en un único clúster cada vez. Si hay un clúster disponible, pero se inician dos flujos de datos, solo uno usará el clúster activo. El segundo trabajo pondrá en marcha su propio clúster aislado.
-
-> [!NOTE]
-> El período de vida no está disponible cuando se usa el entorno de ejecución de integración de resolución automática.
- 
 ## <a name="optimizing-sources"></a>Optimización de orígenes
 
 En todos los orígenes, excepto Azure SQL Database, se recomienda mantener **Use current partitioning**  (Usar particiones actuales) como valor seleccionado. Cuando leen desde el resto de los sistemas de origen, los flujos de datos crean automáticamente particiones de los datos en función de su tamaño. Se crea una nueva partición aproximadamente por cada 128 MB de datos. A medida que aumenta el tamaño de los datos, aumenta el número de particiones.
@@ -169,15 +123,15 @@ Puede leer de Azure SQL Database mediante una tabla o una consulta SQL. Si está
 
 ### <a name="azure-synapse-analytics-sources"></a>Orígenes de Azure Synapse Analytics
 
-Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este valor permite que ADF lea de Synapse mediante ```Staging```, lo que mejora en gran medida el rendimiento de lectura. La habilitación de ```Staging``` requiere que especifique una ubicación de almacenamiento provisional de Azure Blob Storage o Azure Data Lake Storage Gen2 en la configuración de la actividad del flujo de datos.
+Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este permite que el servicio lea desde Synapse mediante ```Staging```, lo que mejora considerablemente el rendimiento de lectura con el comando[COPY de Synapse](/sql/t-sql/statements/copy-into-transact-sql.md) para obtener la capacidad de carga masiva con mayor rendimiento. La habilitación de ```Staging``` requiere que especifique una ubicación de almacenamiento provisional de Azure Blob Storage o Azure Data Lake Storage Gen2 en la configuración de la actividad del flujo de datos.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging (Permitir almacenamiento provisional)") (Habilitar almacenamiento provisional)
 
 ### <a name="file-based-sources"></a>Orígenes basados en archivos
 
-Aunque los flujos de datos admiten una variedad de tipos de archivo, el equipo de Azure Data Factory recomienda usar el formato Parquet nativo de Spark para conseguir tiempos óptimos de lectura y escritura.
+Aunque los flujos de datos admiten una serie de tipos de archivo, se recomienda usar el formato Parquet nativo de Spark para conseguir tiempos óptimos de lectura y escritura.
 
-Si está ejecutando el mismo flujo de datos en un conjunto de archivos, se recomienda leer de una carpeta, usar rutas de acceso con caracteres comodín o leer de una lista de archivos. Una sola ejecución de actividad de flujo de datos puede procesar todos los archivos por lotes. Puede encontrar más información sobre cómo establecer esta configuración en la documentación del conector, como [Azure Blob Storage](connector-azure-blob-storage.md#source-transformation).
+Si está ejecutando el mismo flujo de datos en un conjunto de archivos, se recomienda leer de una carpeta, usar rutas de acceso con caracteres comodín o leer de una lista de archivos. Una sola ejecución de actividad de flujo de datos puede procesar todos los archivos por lotes. Puede encontrar más información sobre cómo establecer esta configuración en la sección **Transformación de origen** de la documentación sobre el [conector de Azure Blob Storage](connector-azure-blob-storage.md#source-transformation).
 
 Si es posible, evite usar la actividad For-Eeach para ejecutar flujos de datos en un conjunto de archivos. Esto haría que cada iteración de For-Each activase su propio clúster de Spark, lo que a menudo no suele ser necesario y puede resultar caro. 
 
@@ -191,7 +145,7 @@ En el caso de Azure SQL Database, la creación de particiones predeterminada deb
 
 #### <a name="impact-of-error-row-handling-to-performance"></a>Efecto del control de filas de error sobre el rendimiento
 
-Cuando se habilita el control de filas de error ("continuar en caso de error") en la transformación del receptor, ADF realiza un paso adicional antes de escribir las filas compatibles en la tabla de destino. Este paso adicional tendrá una pequeña penalización en el rendimiento que puede estar en torno al 5 %, a lo que se suma una pequeña reducción adicional del rendimiento si establece también la opción con las filas incompatibles en un archivo de registro.
+Cuando se habilita el control de filas de error ("continuar en caso de error") en la transformación del receptor, el servicio realiza un paso adicional antes de escribir las filas compatibles en la tabla de destino. Este paso adicional tendrá una pequeña penalización en el rendimiento que puede estar en torno al 5 %, a lo que se suma una pequeña reducción adicional del rendimiento si establece también la opción con las filas incompatibles en un archivo de registro.
 
 #### <a name="disabling-indexes-using-a-sql-script"></a>Deshabilitación de índices mediante un script SQL
 
@@ -208,7 +162,7 @@ En los flujos de datos de asignación, ambos se pueden ejecutar de forma nativa 
 ![Deshabilitación de índices](media/data-flow/disable-indexes-sql.png "Deshabilitación de índices")
 
 > [!WARNING]
-> Cuando se deshabilitan los índices, el flujo de datos toma de hecho el control sobre una base de datos y es poco probable que las consultas se realicen correctamente en este caso. Como resultado, se desencadenan muchos trabajos ETL en medio de la noche para evitar este conflicto. Para obtener más información, consulte las [restricciones que conlleva deshabilitar los índices](/sql/relational-databases/indexes/disable-indexes-and-constraints).
+> Cuando se deshabilitan los índices, el flujo de datos toma de hecho el control sobre una base de datos y es poco probable que las consultas se realicen correctamente en este caso. Como resultado, se desencadenan muchos trabajos ETL en medio de la noche para evitar este conflicto. Para obtener más información, vea las [restricciones que conlleva deshabilitar índices SQL](/sql/relational-databases/indexes/disable-indexes-and-constraints).
 
 #### <a name="scaling-up-your-database"></a>Escalado vertical de la base de datos
 
@@ -216,13 +170,13 @@ Programe un cambio de tamaño del origen y el receptor de Azure SQL DB y Azure
 
 ### <a name="azure-synapse-analytics-sinks"></a>Receptores de Azure Synapse Analytics
 
-Al escribir en Azure Synapse Analytics, asegúrese de que la opción **Enable staging**  (Habilitar almacenamiento provisional) esté establecida en true. Esto permite que ADF escriba mediante el [comando Copy de SQL](/sql/t-sql/statements/copy-into-transact-sql), que carga los datos de forma eficaz y masiva. Tendrá que hacer referencia a una cuenta de Azure Data Lake Storage gen2 o de Azure Blob Storage para el almacenamiento provisional de los datos al usar Staging.
+Al escribir en Azure Synapse Analytics, asegúrese de que la opción **Enable staging**  (Habilitar almacenamiento provisional) esté establecida en true. Esta permite que el servicio escriba mediante el [comando COPY de SQL](/sql/t-sql/statements/copy-into-transact-sql), que carga los datos de forma eficaz y masiva. Tendrá que hacer referencia a una cuenta de Azure Data Lake Storage gen2 o de Azure Blob Storage para el almacenamiento provisional de los datos al usar Staging.
 
 Además de Staging, en Azure Synapse Analytics se aplican los mismos procedimientos recomendados que en Azure SQL Database.
 
 ### <a name="file-based-sinks"></a>Receptores basados en archivos 
 
-Aunque los flujos de datos admiten una variedad de tipos de archivo, el equipo de Azure Data Factory recomienda usar el formato Parquet nativo de Spark para conseguir tiempos óptimos de lectura y escritura.
+Aunque los flujos de datos admiten una serie de tipos de archivo, se recomienda usar el formato Parquet nativo de Spark para conseguir tiempos óptimos de lectura y escritura.
 
 Si los datos se distribuyen uniformemente, **Use current partitioning** (Usar particiones actuales) será la opción de creación de particiones más rápida para escribir archivos.
 
@@ -238,7 +192,7 @@ La opción **Pattern** (Patrón) establece un patrón de nomenclatura que cambia
 
 Si una columna corresponde a la forma en la que desea generar los datos, puede seleccionar **As data in column** (Como datos de columna). Esta opción reordena los datos y puede afectar al rendimiento si las columnas no están distribuidas uniformemente.
 
-**Output to single file** (Salida a un solo archivo) combina todos los datos en una sola partición. Esto supone tiempos de escritura largos, especialmente en grandes conjuntos de datos. El equipo de Azure Data Factory recomienda **no** elegir esta opción a menos que haya una razón empresarial explícita para hacerlo.
+**Output to single file** (Salida a un solo archivo) combina todos los datos en una sola partición. Esto supone tiempos de escritura largos, especialmente en grandes conjuntos de datos. No es nada recomendable usar esta opción, a menos que haya una razón empresarial explícita para ello.
 
 ### <a name="cosmosdb-sinks"></a>Receptores de CosmosDB
 
@@ -270,11 +224,11 @@ Si usa valores literales en las condiciones de combinación o tiene varias coinc
 
 #### <a name="sorting-before-joins"></a>Ordenación antes de las combinaciones
 
-A diferencia de la unión de combinación en herramientas como SSIS, la transformación Combinación no es una operación de unión de combinación obligatoria. Las claves de combinación no requieren que se ordene antes de la transformación. El equipo de Azure Data Factory no recomienda el uso de transformaciones de tipo Ordenar en los flujos de datos de asignación.
+A diferencia de la unión de combinación en herramientas como SSIS, la transformación Combinación no es una operación de unión de combinación obligatoria. Las claves de combinación no requieren que se ordene antes de la transformación. No se recomienda usar transformaciones de ordenación en flujos de datos de asignación.
 
 ### <a name="window-transformation-performance"></a>Rendimiento de la transformación de ventana
 
-La [transformación de ventana](data-flow-window.md) divide los datos por valor en las columnas que se seleccionan como parte de la cláusula ```over()``` en la configuración de la transformación. Hay una serie de funciones de agregado y análisis muy populares que se exponen en la transformación de ventanas. Sin embargo, si el caso de uso es generar una ventana sobre todo el conjunto de filas con el fin de clasificar ```rank()``` o el número de fila ```rowNumber()```, se recomienda que utilice en su lugar la [transformación de clasificación](data-flow-rank.md) y la [transformación de clave suplente](data-flow-surrogate-key.md). Esas transformaciones funcionarán mejor nuevamente con las operaciones de conjunto de datos completos que usan esas funciones.
+La [Transformación Ventana en el flujo de datos de asignación](data-flow-window.md) divide los datos por valor en las columnas que se seleccionan como parte de la cláusula ```over()``` de la configuración de la transformación. Hay una serie de funciones de agregado y análisis muy populares que se exponen en la transformación de ventanas. Sin embargo, si el caso de uso es generar una ventana sobre todo el conjunto de filas con el fin de clasificar ```rank()``` o el número de fila ```rowNumber()```, se recomienda que utilice en su lugar la [transformación de clasificación](data-flow-rank.md) y la [transformación de clave suplente](data-flow-surrogate-key.md). Esas transformaciones funcionarán mejor nuevamente con las operaciones de conjunto de datos completos que usan esas funciones.
 
 ### <a name="repartitioning-skewed-data"></a>Creación de nuevas particiones de datos asimétricos
 
@@ -295,7 +249,7 @@ Al crear canalizaciones complejas con varios flujos de datos, el flujo lógico p
 
 ### <a name="executing-data-flows-in-parallel"></a>Ejecución de flujos de datos en paralelo
 
-Si ejecutan varios flujos de datos en paralelo, ADF pone en marcha clústeres de Spark independientes para cada actividad. Esto permite que cada trabajo se aísle y se ejecute en paralelo, pero hará que se ejecuten varios clústeres al mismo tiempo.
+Si se ejecutan varios flujos de datos en paralelo, el servicio pone en marcha clústeres de Spark independientes para cada actividad. Esto permite que cada trabajo se aísle y se ejecute en paralelo, pero hará que se ejecuten varios clústeres al mismo tiempo.
 
 Si los flujos de datos se ejecutan en paralelo, se recomienda no habilitar la propiedad de período de vida de Azure IR, ya que dará lugar a varios grupos semiactivos no usados.
 
@@ -304,17 +258,17 @@ Si los flujos de datos se ejecutan en paralelo, se recomienda no habilitar la pr
 
 ### <a name="execute-data-flows-sequentially"></a>Ejecución secuencial de flujos de datos
 
-Si ejecuta las actividades de flujo de datos en secuencia, se recomienda establecer un TTL en la configuración de Azure IR. ADF volverá a usar los recursos de proceso, lo que dará lugar a un tiempo de inicio de clúster más rápido. Cada actividad seguirá recibiendo un nuevo contexto de Spark aislado para cada ejecución. Para reducir aún más el tiempo entre las actividades secuenciales, seleccione la casilla "Quick re-use" (Reutilización rápida) en Azure IR para que ADF vuelva a usar el clúster existente.
+Si ejecuta las actividades de flujo de datos en secuencia, se recomienda establecer un TTL en la configuración de Azure IR. El servicio vuelve a usar los recursos de proceso, lo que da lugar a un tiempo de actividad del clúster más rápido. Cada actividad seguirá recibiendo un nuevo contexto de Spark aislado para cada ejecución. Para reducir aún más el tiempo entre actividades secuenciales, active la casilla "Quick re-use" (Reutilización rápida) en Azure IR para indicar al servicio que vuelva a usar el clúster existente.
 
 ### <a name="overloading-a-single-data-flow"></a>Sobrecarga de un único flujo de datos
 
-Si coloca toda la lógica dentro de un único flujo de datos, ADF ejecutará todo el trabajo en una sola instancia de Spark. Aunque esto puede parecer una manera de reducir los costos, combina distintos flujos lógicos y puede ser difícil de supervisar y depurar. Si se produce un error en un componente, también se producirá un error en todas las demás partes del trabajo. El equipo de Azure Data Factory recomienda organizar los flujos de datos en flujos de lógica de negocios independientes. Si el flujo de datos es demasiado grande, la división en componentes independientes facilitará la supervisión y la depuración. Aunque no hay ningún límite en el número de transformaciones de un flujo de datos, tener demasiados hará que el trabajo sea complejo.
+Si coloca toda la lógica dentro de un único flujo de datos, el servicio va a ejecutar todo el trabajo en una sola instancia de Spark. Aunque esto puede parecer una manera de reducir los costos, combina distintos flujos lógicos y puede ser difícil de supervisar y depurar. Si se produce un error en un componente, también se producirá un error en todas las demás partes del trabajo. Se recomienda organizar los flujos de datos por flujos independientes de lógica de negocios. Si el flujo de datos es demasiado grande, la división en componentes independientes facilitará la supervisión y la depuración. Aunque no hay ningún límite en el número de transformaciones de un flujo de datos, tener demasiados hará que el trabajo sea complejo.
 
 ### <a name="execute-sinks-in-parallel"></a>Ejecución de receptores en paralelo
 
 El comportamiento predeterminado de los receptores de flujo de datos es ejecutar cada receptor de forma secuencial, en serie, y producir un error en el flujo de datos cuando se encuentra un error en el receptor. Además, todos los receptores se establecen de forma predeterminada en el mismo grupo, a menos que vaya a las propiedades del flujo de datos y establezca otras prioridades para los receptores.
 
-Los flujos de datos permiten agrupar los receptores en grupos en la pestaña de propiedades del flujo de datos en el diseñador de la interfaz de usuario. Puede establecer el orden de ejecución de los receptores y agruparlos con el mismo número de grupo. Para facilitar la administración de los grupos, puede pedir a ADF que ejecute receptores en el mismo grupo, para que se ejecuten en paralelo.
+Los flujos de datos permiten agrupar los receptores en grupos en la pestaña de propiedades del flujo de datos en el diseñador de la interfaz de usuario. Puede establecer el orden de ejecución de los receptores y agruparlos con el mismo número de grupo. Para facilitar la administración de los grupos, puede pedir al servicio que ejecute los receptores del mismo grupo en paralelo.
 
 En la actividad Ejecutar flujo de datos de la canalización, en la sección "Propiedades del receptor" hay una opción para activar la carga del receptor en paralelo. Cuando se habilita "Ejecutar en paralelo", se indica a los flujos de datos que escriban en los receptores conectados al mismo tiempo en lugar de hacerlo de forma secuencial. Para usar la opción de ejecución en paralelo, los receptores deben agruparse y conectarse al mismo flujo mediante una nueva rama o la división condicional.
 
@@ -324,3 +278,4 @@ Vea el resto de artículos sobre Data Flow relacionados con el rendimiento:
 
 - [Actividad Data Flow](control-flow-execute-data-flow-activity.md)
 - [Supervisión del rendimiento de flujo de datos](concepts-data-flow-monitoring.md)
+- [Rendimiento de Microsoft Integration Runtime](concepts-integration-runtime-performance.md)

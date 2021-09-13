@@ -6,16 +6,19 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 05/27/2020
+ms.date: 08/27/2021
 ms.author: cynthn
-ms.openlocfilehash: 28b3ee98d44e1567d9e25cf9237015396975ab01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78fce318d07e8603830fe04b41df387e6a25f8d9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550457"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227272"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Apertura de puertos en una máquina virtual con Azure Portal
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
+
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
@@ -30,7 +33,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
     Se abre la ventana **Crear un grupo de seguridad de red**.
 
-    ![Crear un grupo de seguridad de red](./media/nsg-quickstart-portal/create-nsg.png)
+    :::image type="content" source="media/nsg-quickstart-portal/create-nsg.png" alt-text="Creación de un grupo de seguridad de red.":::
 
 1. Escriba un nombre para el grupo de seguridad de red. 
 
@@ -40,14 +43,14 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-an-inbound-security-rule"></a>Creación de una regla de seguridad de entrada
 
-1. Seleccione el nuevo grupo de seguridad de red. 
+1. Seleccione el nuevo grupo de seguridad de red.
 
 1. Seleccione **Reglas de seguridad de entrada** en el menú de la izquierda y, después, **Agregar**.
 
-    ![Cambio a la página de opciones avanzadas](./media/nsg-quickstart-portal/advanced.png)
+    :::image type="content" source="media/nsg-quickstart-portal/advanced.png" alt-text="Incorporación de una regla de seguridad de entrada.":::
 
-1. En la página **Agregar regla de seguridad de entrada**, cambie a **Avanzadas** de **Básico** en la parte superior de la página. 
-
+1. Puede limitar **Origen** e **Intervalos de puertos de origen** según sea necesario, o dejar el valor predeterminado de *Cualquiera*.
+1. Puede limitar **Destino** según sea necesario, o dejar el valor predeterminado de *Cualquiera*.
 1. Elija un **servicio** común en el menú desplegable, como **HTTP**. También puede seleccionar **Personalizado** si quiere proporcionar un puerto específico para su uso. 
 
 1. Si lo desea, cambie la **Prioridad** o el **Nombre**. La prioridad afecta al orden en que se aplican las reglas (cuanto más bajo es el valor numérico, antes se aplica la regla).

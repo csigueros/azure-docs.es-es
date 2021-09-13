@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 08/11/2021
 ms.author: aahi
-ms.openlocfilehash: 20334f48866875614e313ea35403f3d2694ad275
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c1b4d8801013eeb25c18b837ef4ff5a0245739e5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110164860"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734077"
 ---
 > [!NOTE]
 > Para detectar información de salud protegida (PHI), use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
 >
-> Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi&model-version=2021-01-15`
+> Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-Se devuelven las siguientes categorías de entidad al enviar solicitudes al punto de conexión `/v3.1-preview.5/entities/recognition/pii`.
+Se devuelven las siguientes categorías de entidad al enviar solicitudes al punto de conexión `/v3.1/entities/recognition/pii`.
 
 
 | Category   |  Descripción                          |
@@ -33,7 +33,7 @@ Se devuelven las siguientes categorías de entidad al enviar solicitudes al punt
 | [Dirección](#category-address) | Dirección de correo postal completa.  |
 | [Correo electrónico](#category-email) | Direcciones de correo.   |
 | [URL](#category-url) | Direcciones URL de sitios web.  |
-| [IP](#category-ip) | Direcciones IP de red.  |
+| [IPAddress](#category-ipaddress) | Direcciones IP de red.  |
 | [DateTime](#category-datetime) | Fechas y horas del día. | 
 | [Cantidad](#category-quantity) | Números y cantidades numéricas.  |
 | [Información de Azure](#azure-information) | Información de Azure identificable, como la información de autenticación.  |
@@ -55,7 +55,7 @@ Este categoría contiene la entidad siguiente:
 
         Nombres de personas. También se devuelve con `domain=phi`.
 
-        Para obtener esta categoría de entidad, agregue `Person` al parámetro `pii-categories`. `Person` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `Person` al parámetro `piiCategories`. `Person` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     
@@ -84,7 +84,7 @@ Este categoría contiene la entidad siguiente:
 
         Tipos de trabajo o roles mantenido por una persona.
 
-        Para obtener esta categoría de entidad, agregue `PersonType` al parámetro `pii-categories`. `PersonType` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `PersonType` al parámetro `piiCategories`. `PersonType` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -112,7 +112,7 @@ Este categoría contiene la entidad siguiente:
 
         Números de teléfono (solo números de teléfono de EE. UU y la UE). También se devuelve con `domain=phi`.
 
-        Para obtener esta categoría de entidad, agregue `PhoneNumber` al parámetro `pii-categories`. `PhoneNumber` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `PhoneNumber` al parámetro `piiCategories`. `PhoneNumber` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -142,7 +142,7 @@ Este categoría contiene la entidad siguiente:
 
         Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. Las nacionalidades y las religiones no se incluyen en este tipo de entidad. También se devuelve con `domain=phi`.
 
-        Para obtener esta categoría de entidad, agregue `Organization` al parámetro `pii-categories`. `Organization` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `Organization` al parámetro `piiCategories`. `Organization` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -171,7 +171,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
 
         Empresas y grupos médicos.
 
-        Para obtener esta categoría de entidad, agregue `OrganizationMedical` al parámetro `pii-categories`. `OrganizationMedical` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `OrganizationMedical` al parámetro `piiCategories`. `OrganizationMedical` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -193,7 +193,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
 
         Grupos de bolsa de valores. 
 
-        Para obtener esta categoría de entidad, agregue `OrganizationStockExchange` al parámetro `pii-categories`. `OrganizationStockExchange` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `OrganizationStockExchange` al parámetro `piiCategories`. `OrganizationStockExchange` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -214,7 +214,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
 
         Organizaciones relacionadas con los deportes.
 
-        Para obtener esta categoría de entidad, agregue `OrganizationSports` al parámetro `pii-categories`. `OrganizationSports` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `OrganizationSports` al parámetro `piiCategories`. `OrganizationSports` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -243,7 +243,7 @@ Este categoría contiene la entidad siguiente:
 
         Dirección de correo postal completa. También se devuelve con `domain=phi`.
 
-        Para obtener esta categoría de entidad, agregue `Address` al parámetro `pii-categories`. `Address` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `Address` al parámetro `piiCategories`. `Address` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -272,7 +272,7 @@ Este categoría contiene la entidad siguiente:
 
         Direcciones de correo. También se devuelve con `domain=phi`.
       
-        Para obtener esta categoría de entidad, agregue `Email` al parámetro `pii-categories`. `Email` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `Email` al parámetro `piiCategories`. `Email` se devolverá en la respuesta de la API si se detecta.
 
     :::column-end:::
     :::column span="":::
@@ -300,7 +300,7 @@ Este categoría contiene la entidad siguiente:
 
         Direcciones URL de sitios web. También se devuelve con `domain=phi`.
 
-        Para obtener esta categoría de entidad, agregue `URL` al parámetro `pii-categories`. `URL` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `URL` al parámetro `piiCategories`. `URL` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -313,7 +313,7 @@ Este categoría contiene la entidad siguiente:
 
 :::row-end:::
 
-### <a name="category-ip"></a>Categoría: IP
+### <a name="category-ipaddress"></a>Categoría: IPAddress
 
 Este categoría contiene la entidad siguiente:
 
@@ -321,7 +321,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="":::
         **Entidad**
 
-        IP
+        IPAddress
 
     :::column-end:::
     :::column span="2":::
@@ -329,7 +329,7 @@ Este categoría contiene la entidad siguiente:
 
         Direcciones IP de red. También se devuelve con `domain=phi`.
 
-        Para obtener esta categoría de entidad, agregue `IP` al parámetro `pii-categories`. `IP` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `IPAddress` al parámetro `piiCategories`. `IPAddress` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 
@@ -357,7 +357,7 @@ Este categoría contiene las entidades siguientes:
 
         Fechas y horas del día. 
 
-        Para obtener esta categoría de entidad, agregue `DateTime` al parámetro `pii-categories`. `DateTime` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `DateTime` al parámetro `piiCategories`. `DateTime` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
 :::column span="":::
@@ -384,7 +384,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
 
         Fechas calendario. También se devuelve con `domain=phi`.
 
-        Para obtener esta categoría de entidad, agregue `Date` al parámetro `pii-categories`. `Date` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `Date` al parámetro `piiCategories`. `Date` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="2":::
@@ -411,7 +411,7 @@ Este categoría contiene las entidades siguientes:
 
         Números y cantidades numéricas.
 
-        Para obtener esta categoría de entidad, agregue `Quantity` al parámetro `pii-categories`. `Quantity` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `Quantity` al parámetro `piiCategories`. `Quantity` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="2":::
@@ -438,7 +438,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
 
         Edades. 
 
-        Para obtener esta categoría de entidad, agregue `Age` al parámetro `pii-categories`. `Age` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `Age` al parámetro `piiCategories`. `Age` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="2":::
@@ -465,7 +465,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Clave de autorización para un servidor de Azure Cosmos DB.   
 
-        Para obtener esta categoría de entidad, agregue `AzureDocumentDBAuthKey` al parámetro `pii-categories`. `AzureDocumentDBAuthKey` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzureDocumentDBAuthKey` al parámetro `piiCategories`. `AzureDocumentDBAuthKey` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::
@@ -486,7 +486,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Cadena de conexión de una base de datos de infraestructura como servicio (IaaS) de Azure y una cadena de conexión SQL.
 
-        Para obtener esta categoría de entidad, agregue `AzureIAASDatabaseConnectionAndSQLString` al parámetro `pii-categories`. `AzureIAASDatabaseConnectionAndSQLString` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzureIAASDatabaseConnectionAndSQLString` al parámetro `piiCategories`. `AzureIAASDatabaseConnectionAndSQLString` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::
@@ -505,7 +505,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Cadena de conexión para Azure IoT. 
       
-        Para obtener esta categoría de entidad, agregue `AzureIoTConnectionString` al parámetro `pii-categories`. `AzureIoTConnectionString` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzureIoTConnectionString` al parámetro `piiCategories`. `AzureIoTConnectionString` se devolverá en la respuesta de la API si se detecta.
 
     :::column-end:::
     :::column span="":::
@@ -524,7 +524,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Contraseña para la configuración de publicación de Azure.
 
-        Para obtener esta categoría de entidad, agregue `AzurePublishSettingPassword` al parámetro `pii-categories`. `AzurePublishSettingPassword` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzurePublishSettingPassword` al parámetro `piiCategories`. `AzurePublishSettingPassword` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::
@@ -543,7 +543,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Cadena de conexión para una instancia de Redis Cache.
 
-        Para obtener esta categoría de entidad, agregue `AzureRedisCacheString` al parámetro `pii-categories`. `AzureRedisCacheString` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzureRedisCacheString` al parámetro `piiCategories`. `AzureRedisCacheString` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::
@@ -562,7 +562,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Cadena de conexión para software como servicio (SaaS) de Azure.
 
-        Para obtener esta categoría de entidad, agregue `AzureSAS` al parámetro `pii-categories`. `AzureSAS` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzureSAS` al parámetro `piiCategories`. `AzureSAS` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::
@@ -581,7 +581,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Cadena de conexión de una instancia de Azure Service Bus.
 
-        Para obtener esta categoría de entidad, agregue `AzureServiceBusString` al parámetro `pii-categories`. `AzureServiceBusString` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzureServiceBusString` al parámetro `piiCategories`. `AzureServiceBusString` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::
@@ -600,7 +600,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Clave de una cuenta de Azure Storage. 
 
-        Para obtener esta categoría de entidad, agregue `AzureStorageAccountKey` al parámetro `pii-categories`. `AzureStorageAccountKey` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzureStorageAccountKey` al parámetro `piiCategories`. `AzureStorageAccountKey` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::
@@ -619,7 +619,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Clave de cuenta genérica para una cuenta de Azure Storage.
 
-        Para obtener esta categoría de entidad, agregue `AzureStorageAccountGeneric` al parámetro `pii-categories`. `AzureStorageAccountGeneric` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `AzureStorageAccountGeneric` al parámetro `piiCategories`. `AzureStorageAccountGeneric` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::
@@ -638,7 +638,7 @@ Estas categorías de entidad incluyen información de Azure identificable entre 
 
         Cadena de conexión para un equipo donde se ejecuta SQL Server.
 
-        Para obtener esta categoría de entidad, agregue `SQLServerConnectionString` al parámetro `pii-categories`. `SQLServerConnectionString` se devolverá en la respuesta de la API si se detecta.
+        Para obtener esta categoría de entidad, agregue `SQLServerConnectionString` al parámetro `piiCategories`. `SQLServerConnectionString` se devolverá en la respuesta de la API si se detecta.
       
     :::column-end:::
     :::column span="":::

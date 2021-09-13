@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: ded78056168ec246d297a5ed4141fa5d124d6dc7
-  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+  ms.openlocfilehash: 730f5db7ed0aec5cb09d3c031af34dc718b9fe7e
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/29/2021
-  ms.locfileid: "113032712"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124782354"
 landingContent:
 - title: Acerca de Load Balancer
   linkLists:
@@ -47,7 +47,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Standard Load Balancer
-      url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      url: ./quickstart-load-balancer-standard-public-portal.md
     - text: Configuración del reenvío de puertos de Azure Load Balancer
       url: tutorial-load-balancer-port-forwarding-portal.md
 - title: Administración de características y opciones

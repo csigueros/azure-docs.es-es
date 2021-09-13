@@ -4,12 +4,12 @@ description: Use el control de acceso basado en roles de Azure para administrar 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: fdde385ca49a61a8fb2c2bba81311035dca3e324
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102613449"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215180"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles de Azure para administrar puntos de recuperación de Azure Backup
 
@@ -86,10 +86,10 @@ En la tabla siguiente se capturan las acciones de administración de Backup y el
 | Operación de administración | Rol requerido | Recursos |
 | --- | --- | --- |
 | Habilitar la copia de seguridad de recursos compartidos de archivos de Azure | Colaborador de copias de seguridad |Almacén de Recovery Services |
-| |Cuenta de almacenamiento | Recurso de la cuenta de almacenamiento del colaborador |
+| | Colaborador de copias de seguridad de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento |
 | Copia de seguridad a petición de VM | Operador de copias de seguridad | Almacén de Recovery Services |
 | Restaurar el recurso compartido de archivos | Operador de copias de seguridad | Almacén de Recovery Services |
-| | Colaborador de la cuenta de almacenamiento | Recursos de la cuenta de almacenamiento donde están presentes los recursos compartidos de archivos de destino y origen de restauración |
+| | Colaborador de copias de seguridad de la cuenta de almacenamiento | Recursos de la cuenta de almacenamiento donde están presentes los recursos compartidos de archivos de destino y origen de restauración |
 | Restaurar archivos individuales | Operador de copias de seguridad | Almacén de Recovery Services |
 | |Colaborador de la cuenta de almacenamiento|Recursos de la cuenta de almacenamiento donde están presentes los recursos compartidos de archivos de destino y origen de restauración |
 | Detener protección |Colaborador de copias de seguridad | Almacén de Recovery Services |

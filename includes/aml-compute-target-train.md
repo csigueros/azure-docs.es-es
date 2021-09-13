@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: machine-learning
 author: sdgilley
@@ -8,17 +8,17 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 09/17/2020
-ms.openlocfilehash: 729939f9dfe4c995f92513117d9a2631333bc19d
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 06/18/2021
+ms.openlocfilehash: 7f9d9d854513427fd02b47beb084edbcb70ea527
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110631426"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742096"
 ---
 **Los destinos de proceso se pueden reutilizar de un trabajo de entrenamiento al siguiente**. Por ejemplo, después de adjuntar una VM remota al área de trabajo, puede reutilizarla para varios trabajos. En el caso de las canalizaciones de aprendizaje automático, use el [paso de canalización](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) adecuado para cada destino de proceso.
 
-Puede usar cualquiera de los siguientes recursos para un destino de proceso de entrenamiento para la mayoría de los trabajos. No todos los recursos se pueden usar para el aprendizaje automático automatizado, canalizaciones de aprendizaje automático o el diseñador.
+Puede usar cualquiera de los siguientes recursos para un destino de proceso de entrenamiento para la mayoría de los trabajos. No todos los recursos se pueden usar para el aprendizaje automático automatizado, canalizaciones de aprendizaje automático o el diseñador. Azure Databricks se puede usar como un recurso de entrenamiento para ejecuciones locales y canalizaciones de aprendizaje automático, pero no como destino remoto de otro entrenamiento.
 
 |&nbsp;Objetivos del aprendizaje|[Aprendizaje automático automatizado](../articles/machine-learning/concept-automated-ml.md) | [Canalizaciones de aprendizaje automático](../articles/machine-learning/concept-ml-pipelines.md) | [Diseñador de Azure Machine Learning](../articles/machine-learning/concept-designer.md)
 |----|:----:|:----:|:----:|
@@ -31,6 +31,8 @@ Puede usar cualquiera de los siguientes recursos para un destino de proceso de e
 |[Análisis con Azure Data Lake](../articles/machine-learning/how-to-attach-compute-targets.md#adla) | &nbsp; | Sí | &nbsp; |
 |[HDInsight de Azure](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | Sí | &nbsp; |
 |[Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Sí | &nbsp; |
+|[Azure Kubernetes Service](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (versión preliminar) | Sí | Sí | Sí |
+|[Kubernetes habilitado para Azure Arc](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (versión preliminar) | Sí | Sí | Sí |
 
 > [!TIP]
 > La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en disco, [use el terminal](../articles/machine-learning/how-to-access-terminal.md) para borrar al menos entre 1 y 2 GB antes de [detener o reiniciar](../articles/machine-learning/how-to-create-manage-compute-instance.md#manage) la instancia de proceso.

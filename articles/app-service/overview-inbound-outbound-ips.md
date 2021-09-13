@@ -4,12 +4,12 @@ description: Aprenda cómo se usan las direcciones IP de entrada y salida en App
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 1dda487d23c9f955aea8e35d16e5a560a890a173
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ea667fcfe70e109038d74e7c1fa0281bbc2b20bb
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834487"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397798"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Direcciones IP de entrada y salida en Azure App Service
 
@@ -51,7 +51,7 @@ El conjunto de direcciones IP de salida de la aplicación cambia cuando realiza 
 
 - Eliminar una aplicación y volver a crearla en otro grupo de recursos (puede cambiar la unidad de implementación).
 - Eliminar la última aplicación de un grupo de recursos _y_ región y volver a crearla (puede cambiar la unidad de implementación).
-- Escale la aplicación entre los niveles inferiores (**Básica**, **Estándar**, **Premium**) y **Premium V2** (las direcciones IP se pueden agregar o quitar del conjunto).
+- Escale la aplicación entre los niveles inferiores (**Básica**, **Estándar** y **Premium**) y el nivel **PremiumV2** y el nivel **PremiumV3** (las direcciones IP se pueden agregar o quitar del conjunto).
 
 Puede encontrar el conjunto de todas las posibles direcciones IP de salida que puede utilizar la aplicación, independientemente de los planes de tarifa, buscando la propiedad `possibleOutboundIpAddresses` o en el campo **Direcciones IP salientes adicionales** de la hoja **Propiedades** de Azure Portal. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ips).
 
@@ -80,6 +80,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```azurepowershell
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
+
+## <a name="get-a-static-outbound-ip"></a>Obtención de una dirección IP estática de salida
+Puede controlar la dirección IP del tráfico de salida desde la aplicación mediante la integración de una red virtual regional junto con una instancia de NAT Gateway, a fin de dirigir el tráfico a través de una dirección IP pública estática. La [integración de una red virtual regional](/azure/app-service/web-sites-integrate-with-vnet) está disponible en los planes de App Service **Estándar**, **Premium**, **PremiumV2** y **PremiumV3**. Para más información sobre esta configuración, consulte [Integración de Virtual Network NAT Gateway](./networking/nat-gateway-integration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

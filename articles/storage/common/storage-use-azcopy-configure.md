@@ -8,19 +8,19 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: d3b956803e9a796c49288f90873e88c3b69f1c7b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 1f07907d3a4f421fa9f7a03c48d5f74496a1d45a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502902"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303083"
 ---
 # <a name="find-errors-and-resume-jobs-by-using-log-and-plan-files-in-azcopy"></a>Búsqueda de errores y reanudación de trabajos mediante archivos de registro y de plan en AzCopy
 
 AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o archivos a una cuenta de almacenamiento o desde una cuenta de almacenamiento. En este artículo se describe cómo usar registros para diagnosticar errores y, a continuación, usar archivos de plan para reanudar trabajos. En este artículo también se muestra cómo configurar archivos de registro y de plan cambiando su nivel de detalle y la ubicación predeterminada donde se almacenan.
 
 > [!NOTE]
-> Si busca contenido que le ayude a empezar a trabajar con AzCopy, consulte [Introducción a AzCopy](storage-use-azcopy-v10.md).
+> Si busca contenido que le ayude a empezar a trabajar con AzCopy, consulte [Introducción a AzCopy](storage-use-azcopy-v10.md). Este artículo se aplica a AzCopy **V10**, la versión de AzCopy admitida actualmente. Si necesita usar una versión anterior de AzCopy, consulte la sección para [usar una versión anterior de AzCopy](storage-use-azcopy-v10.md#previous-version).
 
 ## <a name="log-and-plan-files"></a>Archivos de registro y de plan
 
@@ -74,8 +74,7 @@ azcopy jobs show <job-id> --with-status=Failed
 Use el comando siguiente para reanudar un trabajo con error o cancelado. Este comando usa su identificador, junto con el token de SAS, ya que no es persistente por motivos de seguridad:
 
 ```
-azcopy jobs resume <job-id> --source-sas="<sas-token>"
-azcopy jobs resume <job-id> --destination-sas="<sas-token>"
+azcopy jobs resume <job-id> --source-sas="<sas-token>" --destination-sas="<sas-token>"
 ```
 
 > [!TIP]

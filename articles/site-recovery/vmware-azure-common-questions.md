@@ -3,18 +3,38 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 006f0a51da933336a354b275bb882e5538832741
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 0e39cd3b9f06620f2004a2afbc869fe22de04468
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444312"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272881"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
 En este artículo se da respuesta a las preguntas comunes que pueden surgir al implementar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure.
 
 ## <a name="general"></a>General
+
+### <a name="how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-preview-experience"></a>¿Cómo se usa la experiencia clásica en el almacén de Recovery Services en lugar de la experiencia de versión preliminar? 
+
+Una manera nueva y más confiable de proteger las máquinas virtuales de VMware mediante el dispositivo de replicación de Azure Site Recovery está ahora en [versión preliminar pública](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094). Cuando se crea un nuevo almacén de Recovery Services, se selecciona de manera predeterminada la experiencia de versión preliminar. 
+
+Para cambiar la experiencia: 
+
+1. Abra el almacén en Azure Portal. 
+2. Haga clic en **Site Recovery** en la sección **Introducción**. 
+3. Haga clic en el banner de la parte superior de esta página. 
+
+    [![Paso 1 de modificación de la pila de VMware](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
+
+4. Se abrirá la hoja de selección de la experiencia. Seleccione la experiencia clásica si quiere usar el servidor de configuración y, a continuación, haga clic en **Aceptar**. En caso contrario, cierre el panel. 
+
+    [![Paso 2 de modificación de la pila de VMware](./media/vmware-azure-common-questions/change-stack-step-2.png)](./media/vmware-azure-common-questions/change-stack-step-2.png#lightbox)
+
+> [!NOTE]
+> Tenga en cuenta que una vez que el tipo se haya cambiado a la experiencia clásica desde la versión preliminar, no se podrá volver a cambiar en el mismo almacén de Recovery Services. Asegúrese de seleccionar la experiencia deseada antes de guardar este cambio.
+
 
 ### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>¿Qué es necesario para la recuperación ante desastres de máquinas virtuales de VMware?
 

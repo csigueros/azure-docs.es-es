@@ -1,14 +1,14 @@
 ---
 title: Conexión de máquinas híbridas a Azure desde Azure Portal
 description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc desde Azure Portal.
-ms.date: 11/05/2020
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: d7a89db7b8a42476a312a8f9a96c5ad230b140a2
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: bcccb9bbc4db14c2bc5553b1c88099f7b0d7f5d1
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183155"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322306"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conexión de máquinas híbridas a Azure desde Azure Portal
 
@@ -58,7 +58,7 @@ Para instalar manualmente el agente de Connected Machine, puede ejecutar el paqu
 >* Para instalar o desinstalar el agente, debe tener permisos de *administrador*.
 >* Primero debe descargar y copiar el paquete del instalador en una carpeta en el servidor de destino o desde una carpeta de red compartida. Si ejecuta el paquete del instalador sin opciones, se inicia un asistente para instalación que puede seguir para realizar la instalación del agente de forma interactiva.
 
-Si la máquina necesita comunicarse mediante un servidor proxy con el servicio, después de instalar el agente, debe ejecutar un comando que se describe en los pasos siguientes. Este comando permite establecer la variable de entorno del sistema del servidor proxy `https_proxy`.
+Si la máquina necesita comunicarse mediante un servidor proxy con el servicio, después de instalar el agente, debe ejecutar un comando que se describe en los pasos siguientes. Este comando permite establecer la variable de entorno del sistema del servidor proxy `https_proxy`. Con esta configuración, el agente se comunica mediante el servidor proxy mediante el protocolo HTTP.
 
 Si no está familiarizado con las opciones de la línea de comandos para los paquetes de Windows Installer, consulte [Opciones de la línea de comandos estándar de msiexec](/windows/win32/msi/standard-installer-command-line-options) y [Opciones de la línea de comandos de msiexec](/windows/win32/msi/command-line-options).
 
@@ -86,7 +86,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     ```
 
     >[!NOTE]
-    >El agente no admite la configuración de la autenticación de proxy en esta versión preliminar.
+    >El agente no admite la configuración de la autenticación del proxy.
     >
 
 3. Después de instalar el agente, debe configurarlo para que se comunique con el servicio Azure Arc mediante la ejecución del siguiente comando:
@@ -117,7 +117,7 @@ El agente de Connected Machine de Linux se proporciona en el formato de paquete 
 
 * Instala el paquete del proveedor de recursos híbridos.
 
-Opcionalmente, puede configurar el agente con la información del proxy incluyendo el parámetro `--proxy "{proxy-url}:{proxy-port}"`.
+Opcionalmente, puede configurar el agente con la información del proxy incluyendo el parámetro `--proxy "{proxy-url}:{proxy-port}"`. Con esta configuración, el agente se comunica mediante el servidor proxy mediante el protocolo HTTP.
 
 El script también contiene la lógica para identificar las distribuciones admitidas y no admitidas, y comprueba los permisos necesarios para realizar la instalación.
 
@@ -131,7 +131,7 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-1. Para descargar e instalar el agente, incluyendo el parámetro `--proxy` para configurar el agente para que se comunique mediante el servidor proxy, ejecute los siguientes comandos:
+1. Ejecute los siguientes comandos para descargar e instalar el agente. Si la máquina necesita comunicarse mediante un servidor proxy para conectarse a Internet, incluya el parámetro `--proxy`. 
 
     ```bash
     # Download the installation package.
@@ -158,7 +158,7 @@ Si el agente no se inicia una vez completada la instalación, compruebe los regi
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Comprobación de la conexión con Azure Arc
 
-Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal para comprobar que el servidor se ha conectado correctamente. Vea las máquinas en [Azure Portal](https://aka.ms/hybridmachineportal).
+Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal a fin de comprobar que el servidor se ha conectado correctamente. Vea las máquinas en [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ![Una conexión de servidor correcta](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -166,6 +166,6 @@ Después de instalar el agente y configurarlo para que se conecte a los servidor
 
 - Puede encontrar información sobre la solución de problemas en la guía [Solución de problemas de conexión del agente de Connected Machine](troubleshoot-agent-onboard.md).
 
-- Aprenda a administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de máquina virtual, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.
+- Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.
 
-- Más información sobre el [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si quiere recopilar datos de supervisión del sistema operativo y de las cargas de trabajo con Azure Monitor para VM, administrarlos con runbooks de Automation o con características como Update Management, o usar otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-introduction.md).
+- Aprenda a administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para tareas como la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de la máquina virtual, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Información de máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.

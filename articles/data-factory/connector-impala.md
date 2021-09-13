@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: a1c2769da27b4bdd495194406a1c45ff53881ed7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07d0e6615c33e4f65b0c4e0314736a64a96385a9
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637971"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306969"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiar datos de Impala mediante Azure Data Factory
 
@@ -40,6 +40,31 @@ Data Factory proporciona un controlador integrado para permitir la conectividad.
 ## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-impala-using-ui"></a>Creación de un servicio vinculado a Impala mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Impala en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Impala y seleccione el conector de Impala.
+
+   :::image type="content" source="media/connector-impala/impala-connector.png" alt-text="Captura de pantalla del conector de Impala.":::    
+
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+   :::image type="content" source="media/connector-impala/configure-impala-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado en Impala.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Impala.
 

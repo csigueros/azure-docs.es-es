@@ -6,12 +6,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: a800f78df26ce76144994bb9da2cac6271323eb4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 498fc101f257b05d24826cead8906b513ec34ccd
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419429"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324533"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta entre recursos en Azure Data Explorer mediante Azure Monitor
 Azure Monitor admite las consultas entre los servicios Azure Data Explorer, [Application Insights](../app/app-insights-overview.md) y [Log Analytics](../logs/data-platform-logs.md). Después puede consultar el clúster de Azure Data Explorer mediante las herramientas de Log Analytics o Application Insights y hacer referencia al mismo en una consulta entre servicios. En el artículo se muestra cómo realizar una consulta entre servicios.
@@ -55,6 +55,15 @@ union customEvents, CL1 | take 10
 
 > [!Tip]
 > Se permite el formato abreviado: *nombreDeClúster*/*catálogoInicial*. Por ejemplo, `adx('help/Samples')` se convierte en `adx('help.kusto.windows.net/Samples')`.
+
+>[!Note]
+> 
+>* Con el operador [`join` ](/azure/data-explorer/kusto/query/joinoperator), en lugar de union, debe usar una [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) para combinar los datos del clúster de Azure Data Explorer con el área de trabajo de Log Analytics.
+>* Use Hint.remote={dirección del área de trabajo de Log Analytics}, por ejemplo:
+>```kusto
+>AzureDiagnostics
+>| join hint.remote=left adx("cluster=ClusterURI").AzureDiagnostics on (ColumnName)
+>```
 
 ## <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Combinación de datos desde un clúster de Azure Data Explorer de un inquilino con un recurso de Azure Monitor de otro inquilino
 

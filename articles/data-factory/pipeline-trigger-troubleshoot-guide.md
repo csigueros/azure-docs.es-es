@@ -3,16 +3,17 @@ title: Solución de problemas relacionados con orquestaciones y desencadenadores
 description: Use distintos métodos para solucionar problemas de desencadenadores de canalizaciones en Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 04/01/2021
+ms.date: 08/17/2021
+ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: aaaa9f2e82bb8db0ce4851359d7fb97d475f4e98
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: a80e6fd1c220d626d4e18923bb95aa465f568a1e
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812759"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396951"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solución de problemas relacionados con orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
 
@@ -95,7 +96,7 @@ Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFail
 
 **Causa**
 
-Las canalizaciones pueden utilizar la actividad web para llamar a los métodos de la API REST de ADF si y solo si se asigna el rol de colaborador al miembro de Azure Data Factory. Primero debe configurar la incorporación de la identidad administrada de Azure Data Factory al rol de seguridad de colaborador. 
+Las canalizaciones pueden utilizar la actividad web para llamar a los métodos de la API REST de ADF si y solo si se asigna el rol de colaborador al miembro de Azure Data Factory. Primero debe configurar y agregar la identidad administrada de Azure Data Factory al rol de seguridad de colaborador. 
 
 **Resolución**
 
@@ -124,6 +125,8 @@ Quizá necesite supervisar las canalizaciones de Data Factory con errores a inte
 
 **Resolución**
 * Puede configurar una aplicación lógica de Azure para consultar todas las canalizaciones con error cada 5 minutos, como se describe en [Consulta por factoría](/rest/api/datafactory/pipelineruns/querybyfactory). A continuación, puede notificar los incidentes en nuestro sistema de incidencias.
+* Puede volver a ejecutar canalizaciones y actividades como se describe [aquí.](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-pipelines-and-activities)
+* Puede volver a ejecutar las actividades si ha cancelado la actividad o si ha tenido un error de acuerdo con [Volver a ejecutar desde la actividad con errores](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-from-failed-activity).
 * [Supervisión visual de la canalización](./monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>El aumento del grado de paralelismo no deriva en un rendimiento mayor.
@@ -154,9 +157,11 @@ Hechos conocidos sobre *ForEach*
  
  **Resolución**
  
-* Límite de simultaneidad: si la canalización tiene una directiva de simultaneidad, compruebe que no haya ninguna ejecución de canalización anterior en curso. La simultaneidad máxima de la canalización permitida en Azure Data Factory es de 10 canalizaciones. 
-* Límites de supervisión: vaya al lienzo de creación de ADF, seleccione la canalización y determine si tiene una propiedad de simultaneidad asignada. Si es así, vaya a la vista Supervisión y asegúrese de que no haya nada en curso en los últimos 45 días. Si hay algo en curso, puede cancelarlo y debería iniciarse la nueva ejecución de canalización.
-* Problemas transitorios: es posible que la ejecución se haya visto afectada por un problema transitorio de la red, errores de credenciales, interrupciones de servicios, etc.  Si esto ocurre, Azure Data Factory cuenta con un proceso de recuperación interno que supervisa todas las ejecuciones y las inicia en caso de que se produzca algún problema. Este proceso se produce cada hora, así que si la ejecución se bloquea durante más de una hora, deberá crear un caso de soporte técnico.
+* **Límite de simultaneidad**: si la canalización tiene una directiva de simultaneidad, compruebe que no haya ninguna ejecución de canalización anterior en curso. 
+* **Límites de supervisión**: vaya al lienzo de creación de ADF, seleccione la canalización y determine si tiene una propiedad de simultaneidad asignada. Si es así, vaya a la vista Supervisión y asegúrese de que no haya nada en curso en los últimos 45 días. Si hay algo en curso, puede cancelarlo y debería iniciarse la nueva ejecución de canalización.
+* **Problemas transitorios**: es posible que la ejecución se haya visto afectada por un problema transitorio de la red, errores de credenciales, interrupciones de servicios, etc. Si esto ocurre, Azure Data Factory cuenta con un proceso de recuperación interno que supervisa todas las ejecuciones y las inicia en caso de que se produzca algún problema. Puede volver a ejecutar canalizaciones y actividades como se describe [aquí](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-pipelines-and-activities), Puede volver a ejecutar las actividades si ha cancelado la actividad o si ha tenido un error de acuerdo con [Volver a ejecutar desde la actividad con errores](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-from-failed-activity).
+* 
+* Este proceso se produce cada hora, así que si la ejecución se bloquea durante más de una hora, deberá crear un caso de soporte técnico.
  
 ### <a name="longer-start-up-times-for-activities-in-adf-copy-and-data-flow"></a>Tiempos de inicio más largos para actividades en la copia de ADF y en Data Flow
 
@@ -189,7 +194,7 @@ Los mensajes de error de colas largas pueden aparecer por varias razones.
 * Si recibe un mensaje de error de cualquier origen o destino a través de conectores, que puede generar una cola larga, vaya a la [guía de solución de problemas de conectores](./connector-troubleshoot-guide.md).
 * Si recibe un mensaje de error sobre el flujo de datos de asignación, que puede generar una cola larga, consulte la [guía de solución de problemas de flujos de datos](./data-flow-troubleshoot-guide.md).
 * Si recibe un mensaje de error sobre otras actividades, como Databricks, las actividades personalizadas o HDI, que pueden generar una cola larga, vaya a la [guía de solución de problemas de actividades](./data-factory-troubleshoot-guide.md).
-* Si recibe un error al ejecutar paquetes de SSIS, que pueden generar una cola larga, vaya a la [guía de solución de problemas de ejecución de paquetes de Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) y a la [guía de solución de problemas de administración de Integration Runtime](./ssis-integration-runtime-management-troubleshoot.md).
+* Si recibe un error al ejecutar paquetes de SSIS, que pueden generar una cola larga, vaya a la [guía de solución de problemas de ejecución de paquetes de Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.yml) y a la [guía de solución de problemas de administración de Integration Runtime](./ssis-integration-runtime-management-troubleshoot.md).
 
 ### <a name="error-message---codebadrequest-messagenull"></a>Mensaje de error: "code":"BadRequest", "message":"null"
 
@@ -201,6 +206,61 @@ Es un error de usuario porque la carga JSON que llega a management.azure.com est
 
 Realice el seguimiento de red de la llamada API desde el portal de ADF mediante las **herramientas para desarrolladores** del explorador Edge o Chrome. Verá una carga JSON infractora, lo cual podría deberse a un carácter especial (por ejemplo, $), espacios y otros tipos de entradas de usuario. Una vez que corrija la expresión de cadena, podrá continuar con el resto de llamadas de uso de ADF en el explorador.
 
+### <a name="foreach-activities-do-not-run-in-parallel-mode"></a>Las actividades ForEach no se ejecutan en modo paralelo.
+
+**Causa**
+
+Está ejecutando ADF en modo de depuración.
+
+**Resolución**
+
+Ejecute la canalización en modo de desencadenador.
+
+### <a name="cannot-publish-because-account-is-locked"></a>No se puede publicar porque la cuenta está bloqueada.
+
+**Causa**
+
+Ha realizado cambios en la rama de colaboración para quitar el desencadenador de eventos de almacenamiento. Está intentando publicar y aparece el mensaje `Trigger deactivation error`.
+
+**Resolución**
+
+Esto se debe a que la cuenta de almacenamiento utilizada para el desencadenador de eventos está bloqueada. Desbloquee la cuenta.
+
+### <a name="expression-builder-fails-to-load"></a>El generador de expresiones no se puede cargar.
+
+**Causa**
+
+El generador de expresiones puede no cargarse debido a problemas de red o caché con el explorador web.  
+
+**Resolución**
+
+
+Actualice el explorador web a la versión más reciente de un explorador compatible, borre las cookies del sitio y actualice la página.
+
+### <a name="codebadrequestmessageerrorcodeflowrunsizelimitexceeded"></a>"Code":"BadRequest","message":"ErrorCode=FlowRunSizeLimitExceeded
+
+**Causa**
+
+Ha encadenado muchas actividades.
+
+**Resolución**
+
+Puede dividir las canalizaciones en subcanalizaciones y unirlas junto con la actividad **ExecutePipeline**. 
+
+###  <a name="how-to-optimize-pipeline-with-mapping-data-flows-to-avoid-internal-server-errors-concurrency-errors-etc-during-execution"></a>Optimización de la canalización con flujos de datos de asignación para evitar errores internos del servidor, errores de simultaneidad, etc. durante la ejecución
+
+**Causa**
+
+No ha optimizado el flujo de datos de asignación.
+
+**Resolución**
+
+* Use el proceso optimizado para memoria cuando trabaje con una gran cantidad de datos y transformaciones.
+* Reduzca el tamaño del lote en caso de una actividad ForEach.
+* Escale verticalmente las bases de datos y los almacenes para que coincidan con el rendimiento de ADF. 
+* Use un entorno de ejecución de integración para las actividades que se ejecutan en paralelo.
+* Ajuste las particiones en el origen y el receptor en consecuencia. 
+* Revise [Optimizaciones del flujo de datos](concepts-data-flow-performance.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

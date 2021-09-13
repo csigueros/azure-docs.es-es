@@ -18,10 +18,10 @@ items:
         items:
           - name: Uso de blobs
             items:
-              - name: Portal de Azure
+              - name: Azure Portal
                 href: storage-quickstart-blobs-portal.md
               - name: Explorador de Storage
-                href: storage-quickstart-blobs-storage-explorer.md
+                href: quickstart-storage-explorer.md
               - name: PowerShell
                 href: storage-quickstart-blobs-powershell.md
               - name: CLI

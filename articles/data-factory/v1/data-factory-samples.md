@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3c163f34ecec0eae1467b375928eab95ce70d374
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 4fc4cea51494333bed90cd6c277469a58e2c6a3f
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112292850"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397485"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: ejemplos
 > [!NOTE]
@@ -30,14 +30,14 @@ El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-data
 | [Muestra de CrossAppDomainDotNetActivity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Esta muestra le permite crear una actividad .NET personalizada que no esté restringida a las versiones de ensamblado utilizadas por el iniciador de ADF (por ejemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |
 | [Ejecutar script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Esta muestra incluye la actividad personalizada de Data Factory que puede usarse para invocar RScript.exe. Esta muestra solo funciona con su propio clúster de HDInsight (no a petición) que ya tiene R instalado. |
 | [Invocar trabajos de Spark en clústeres de Hadoop de HDInsight](../tutorial-transform-data-spark-portal.md) |Este ejemplo muestra cómo utilizar la actividad MapReduce para invocar un programa Spark. El programa Spark se limita a copiar datos de un contenedor de blobs de Azure a otro. |
-| [Análisis de Twitter mediante la actividad de puntuación de Batch de Azure Machine Learning Studio (clásico)](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Este ejemplo muestra cómo utilizar AzureMLBatchScoringActivity para invocar un modelo de Azure Machine Learning que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
-| [Análisis de Twitter mediante actividad personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Este ejemplo muestra cómo usar una actividad de .NET personalizada para invocar un modelo de Azure Machine Learning que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
-| [Canalizaciones con parámetros para Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Esta muestra ofrece un código C# de un extremo a otro a fin de implementar canalizaciones N para la puntuación y el reciclaje de cada una con un parámetro de una región distinta, donde la lista regiones procede de un archivo .txt de parámetros que se incluye con esta muestra. |
-| [Actualización de datos de referencia para los trabajos de Azure Stream Analytics](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Este ejemplo muestra cómo aprovechar Azure Data Factory y Stream Analytics de Azure de forma conjunta para ejecutar las consultas con datos de referencia y configurar la actualización de dichos datos en un programa. |
+| [Análisis de Twitter con la actividad de puntuación de lotes de ML Studio (clásico)](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Este ejemplo muestra cómo utilizar AzureMLBatchScoringActivity para invocar un modelo de ML que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
+| [Análisis de Twitter mediante actividad personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Este ejemplo muestra cómo usar una actividad de .NET personalizada para invocar un modelo de ML Studio (clásico) que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
+| [Canalizaciones parametrizadas para ML Studio (clásico)](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Esta muestra ofrece un código C# de un extremo a otro a fin de implementar canalizaciones N para la puntuación y el reciclaje de cada una con un parámetro de una región distinta, donde la lista regiones procede de un archivo .txt de parámetros que se incluye con esta muestra. |
+| [Actualización de datos de referencia para los trabajos de Azure Stream Analytics](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Este ejemplo muestra cómo usar Azure Data Factory y Azure Stream Analytics de forma conjunta para ejecutar las consultas con datos de referencia y configurar la actualización de dichos datos en un programa. |
 | [Canalización híbrida con Hadoop Hortonworks local](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HybridPipelineWithOnPremisesHortonworksHadoop) |El ejemplo utiliza un clúster de Hadoop local como un destino de proceso para ejecutar trabajos en Data Factory del mismo modo en que agregaría otros destinos de proceso, como un clúster de Hadoop basado en HDInsight en la nube. |
 | [Herramienta de conversión de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSONConversionTool) |Esta herramienta le permite convertir los archivos JSON de una versión anterior a la versión preliminar del 01-07-2015 a la más reciente o a la preliminar del 01-07-2015 (predeterminada). |
 | [Archivo de entrada de ejemplo de U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/U-SQL%20Sample%20Input%20File) |Se trata de un archivo de ejemplo que utiliza una actividad U-SQL. |
-| [Eliminar archivo de blob](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | Este ejemplo muestra un archivo de C# que se puede usar como parte de la actividad de .net personalizada de ADF para eliminar archivos de la ubicación del blob de Azure de origen una vez copiados los archivos.|
+| [Eliminar archivo de blob](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | Este ejemplo muestra un archivo de C# que se puede usar como parte de la actividad de .NET personalizada de ADF para eliminar archivos de la ubicación del blob de Azure de origen una vez copiados los archivos.|
 
 ## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 En GitHub, puede encontrar las siguientes plantillas de Azure Resource Manager para Data Factory.

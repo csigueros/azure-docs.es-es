@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 4ae981ed39276d7b4a3a338c0ab822afd2d8e456
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/26/2021
+ms.openlocfilehash: 407e5935771b6b6c0b351d75d0a0d7c734eaa556
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373481"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038031"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de precios de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -55,6 +55,9 @@ La capacidad reservada ofrece un descuento en la facturación y no afecta el est
 
 Más información sobre la optimización de los costos de los recursos de Azure Cosmos DB en los siguientes artículos:
 
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de base de datos existente.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 * Sobre la [optimización para el desarrollo y pruebas](optimize-dev-test.md)
 * Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
 * Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).

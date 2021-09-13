@@ -6,13 +6,13 @@ author: MRayermannMSFT
 ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
-ms.author: chuye
-ms.openlocfilehash: 26ce15bfe474f96aaef17f186f56e36ce42b7239
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.author: marayerm
+ms.openlocfilehash: 92447c4d0c8d0a1fac6e59a11a81dc7beae52516
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950539"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451481"
 ---
 # <a name="sign-in-to-storage-explorer"></a>Inicio de sesión en el Explorador de Storage
 
@@ -50,7 +50,7 @@ De forma predeterminada, el inicio de sesión se realizará en el **explorador w
 
 En **Configuración (icono de engranaje de la izquierda)**  > **Aplicación** > **Inicio de sesión**, busque la configuración **Iniciar sesión con**. Hay tres opciones:
 - **Explorador web predeterminado**: el inicio de sesión se realizará en el **explorador web predeterminado** del sistema operativo. Esta opción no se recomienda.
-- **Inicio de sesión integrado**: el inicio de sesión se realizará en una ventana del Explorador de Storage. Esta opción puede ser útil si está intentando iniciar sesión con varias cuentas Microsoft (MSA) a la vez. Si elige esta opción, es posible que tenga problemas con algunas directivas de CA.
+- **Inicio de sesión integrado**: el inicio de sesión se realizará en una ventana del Explorador de Storage. Esta opción puede ser útil si tiene problemas al usar el **explorador web predeterminado** para iniciar sesión.
 - **Flujo de código de dispositivo**: el Explorador de Storage le dará un código para entrar en una ventana del explorador. No se recomienda esta opción. El flujo de código de dispositivo no es compatible con muchas directivas de CA.
 
 ## <a name="troubleshooting-sign-in-issues"></a>Solución de problemas de inicio de sesión de usuario

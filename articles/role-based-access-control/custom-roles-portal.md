@@ -8,14 +8,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 08/27/2021
 ms.author: rolyon
-ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de888e76e9ba27fa653905084193e6f8e25d2a81
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97369233"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315377"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creación o actualización de roles personalizados de Azure mediante Azure Portal
 
@@ -48,7 +48,7 @@ Si un rol existente no tiene exactamente los permisos necesarios, puede clonarlo
 
     En la siguiente captura de pantalla se muestra la página Control de acceso (IAM) abierta para una suscripción.
 
-    ![Página Control de acceso (IAM) para una suscripción](./media/custom-roles-portal/access-control-subscription.png)
+    ![Página Control de acceso (IAM) para una suscripción](./media/shared/sub-access-control.png)
 
 1. Haga clic en la pestaña **Roles** para ver una lista de todos los roles integrados y personalizados.
 
@@ -176,13 +176,13 @@ Siga los pasos que se indican a continuación para agregar o quitar permisos par
 
     Se mostrará una lista de tarjetas de proveedores de recursos en función de la cadena de búsqueda. Para obtener una lista de cómo se asignan los proveedores de recursos a los servicios de Azure, consulte [Proveedores de recursos para servicios de Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
 
-    ![Panel Agregar permisos con proveedor de recursos](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Panel Agregar permisos con proveedor de recursos](./media/shared/add-permissions-provider.png)
 
 1. Haga clic en una tarjeta del proveedor de recursos que pueda tener los permisos que desea agregar al rol personalizado, como **Facturación de Microsoft**.
 
     Se muestra una lista de los permisos de administración de ese proveedor de recursos en función de la cadena de búsqueda.
 
-    ![Lista de incorporación de permisos](./media/custom-roles-portal/add-permissions-list.png)
+    ![Lista de incorporación de permisos](./media/shared/add-permissions-list.png)
 
 1. Si busca permisos que se apliquen al plano de datos, haga clic en **Acciones de datos**. De lo contrario, deje la opción de alternancia establecida en **Acciones**, para que se muestren los permisos que se aplican al plano de administración. Para más información acerca de las diferencias entre el plano de administración y el plano de datos, consulte [Operaciones de administración y datos](role-definitions.md#management-and-data-operations).
 
@@ -241,7 +241,9 @@ Cuando se excluye un permiso, se agrega como un elemento `NotActions` o `NotData
 
 ## <a name="step-5-assignable-scopes"></a>Paso 5: Ámbitos asignables
 
-En la pestaña **Ámbitos asignables** se especifica dónde está disponible el rol personalizado para su asignación, como en una suscripción o un grupo de recursos. En función de cómo haya decidido comenzar, esta pestaña podría mostrar el ámbito en el que abrió la página Control de acceso (IAM). No se admite establecer el ámbito asignable en el ámbito raíz ("/"). Actualmente, no se puede agregar un grupo de administración como ámbito asignable.
+En la pestaña **Ámbitos asignables** se especifica dónde está disponible el rol personalizado para su asignación, como en un grupo de administración, una suscripción o un grupo de recursos. En función de cómo haya decidido comenzar, esta pestaña podría mostrar ya el ámbito en el que abrió la página Control de acceso (IAM).
+
+ Solo se puede definir un grupo de administración en ámbitos asignables. La adición de un grupo de administración a ámbitos asignables está actualmente en versión preliminar. No se admite establecer el ámbito asignable en el ámbito raíz ("/").
 
 1. Haga clic en **Agregar ámbitos asignables** para abrir el panel Agregar ámbitos asignables.
 

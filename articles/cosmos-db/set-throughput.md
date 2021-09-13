@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: 1d5fba12ce9b1ce8d30c59a08aa36e1222abe3c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fd7601ca87400314b9f282a0fe31035755def056
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433937"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033154"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -160,3 +160,6 @@ En esta tabla se muestra una comparación entre el aprovisionamiento del rendimi
 * Obtenga más información sobre el [aprovisionamiento del rendimiento estándar (manual) de un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).
 * Obtenga más información sobre el [aprovisionamiento del rendimiento estándar (manual) en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
 * Obtenga más información sobre el [aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o contenedor de Azure Cosmos](how-to-provision-autoscale-throughput.md).
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de base de datos existente.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

@@ -9,14 +9,14 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 3/16/2021
+ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 8c3ab997aeb179754e4c365dc41b795cf5c3bdc7
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 005984260532ddf0a349380f290a65313e371336
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528565"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397104"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -470,13 +470,13 @@ Para más información acerca de las instrucciones Restore, consulte [Instruccio
 
 El intercambio de mensajes de Service Broker entre instancias solo se admite entre instancias de Azure SQL Managed Instance:
 
-- `CREATE ROUTE`: no puede usar `CREATE ROUTE` con `ADDRESS` que no sea `LOCAL` o el nombre DNS de otra instancia de SQL Managed Instance.
-- `ALTER ROUTE`: no puede usar `ALTER ROUTE` con `ADDRESS` que no sea `LOCAL` o el nombre DNS de otra instancia de SQL Managed Instance.
+- `CREATE ROUTE`: no puede usar `CREATE ROUTE` con `ADDRESS` que no sea `LOCAL` o el nombre DNS de otra instancia de SQL Managed Instance. El puerto siempre es 4022.
+- `ALTER ROUTE`: no puede usar `ALTER ROUTE` con `ADDRESS` que no sea `LOCAL` o el nombre DNS de otra instancia de SQL Managed Instance. El puerto siempre es 4022.
 
 Se admite la seguridad de transporte, pero no la seguridad de diálogo:
 - No se admite `CREATE REMOTE SERVICE BINDING`.
 
-Service Broker está habilitado de forma predeterminada y no se puede deshabilitar. No se admiten las siguientes opciones de ALTER DATABSE:
+Service Broker está habilitado de forma predeterminada y no se puede deshabilitar. No se admiten las siguientes opciones de ALTER DATABASE:
 - `ENABLE_BROKER`
 - `DISABLE_BROKER`
 
@@ -491,6 +491,8 @@ Service Broker está habilitado de forma predeterminada y no se puede deshabilit
   - `remote data archive`
   - `remote proc trans`
   - `scan for startup procs`
+- Las siguientes opciones de [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) se omiten y no tienen ningún efecto: 
+  - `Ole Automation Procedures`
 - `sp_execute_external_scripts` no se admite. Consulte [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` no se admite. Consulte [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` no se admiten, esto incluye `sp_addextendedproc` y `sp_dropextendedproc`. Esta funcionalidad no se admitirá porque está en una ruta en desuso para SQL Server. Para obtener más información, consulte [Procedimientos almacenados extendidos](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).

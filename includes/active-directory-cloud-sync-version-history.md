@@ -1,14 +1,25 @@
 ---
-ms.openlocfilehash: d7780da3ad23c0c157284839c5063c6c015a42a6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 57d211a7a080cc07d30a5810c4e1660c575acff3
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121801282"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123078426"
 ---
 En este artículo se enumeran las versiones y las características del agente de aprovisionamiento de Azure Active Directory Connect que se han publicado. El equipo de Azure AD actualiza periódicamente el agente de aprovisionamiento con nuevas características y funciones. 
 
 Microsoft proporciona soporte técnico directo para la versión más reciente del agente y una versión anterior.
+
+## <a name="download-link"></a>Vínculo de descarga
+Puede descargar la versión más reciente del agente en [este vínculo](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
+
+## <a name="115840"></a>1.1.584.0 
+
+20 de agosto de 2021: publicado para descarga
+
+### <a name="fixed-issues"></a>Problemas corregidos
+
+- Se ha corregido un error por el que, cuando se cambiaba el nombre de un dominio, la sincronización de hash de contraseñas generaba un error que indicaba que una conversión especificada no es válida en el registro de eventos. Se trata de una regresión de compilaciones anteriores.
 
 ## <a name="115820"></a>1.1.582.0
 
@@ -16,7 +27,6 @@ Microsoft proporciona soporte técnico directo para la versión más reciente de
 
 >[!NOTE] 
 >Esto es una versión de actualización de seguridad de Azure AD Connect. Esta versión aborda una vulnerabilidad como se documenta en [este CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). Para obtener más información sobre esta vulnerabilidad, consulte el CVE.
->Puede descargar esta versión mediante [este vínculo](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
 
 ## <a name="113590"></a>1.1.359.0
 
@@ -49,7 +59,7 @@ Microsoft proporciona soporte técnico directo para la versión más reciente de
 ### <a name="fixed-issues"></a>Problemas corregidos
 -    Se evita la cuarentena cuando el grupo de ámbito está fuera de ámbito
 -   Si los filtros de ámbito están configurados, el trabajo de PHS ahora solo funciona para los usuarios del ámbito
--   El agente se bloquearía en algún momento durante la actualización
+-   El agente dejaría de responder en algún momento durante la actualización.
 -   Sincronización inicial de objetos en unidades organizativas anidadas al usar el ámbito de UO
 -   Repair-AADCloudSyncToolsAccount es más sólido
 -   Se ha reducido el uso de memoria de los filtros de ámbito de UO

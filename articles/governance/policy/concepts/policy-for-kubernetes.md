@@ -1,15 +1,15 @@
 ---
 title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
-ms.date: 05/13/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5319504a0e25531ce77ebc06748bb360c0cbc171
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 20b3362823644ab478e2069fbc610079820302c3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112202785"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323080"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -71,8 +71,8 @@ A continuación se muestran recomendaciones generales para usar el complemento d
 
 - El complemento de Azure Policy requiere tres componentes de Gatekeeper para ejecutarse: 1 pod de auditoría y 2 réplicas de pods de webhook. Estos componentes consumen más recursos, ya que el recuento de los recursos de Kubernetes y las asignaciones de directivas aumentan en el clúster, lo que requiere operaciones de auditoría y cumplimiento.
 
-  - Para menos de 500 pods en un solo clúster con un máximo de 20 restricciones: 2 vCPU y 350 MB de memoria por componente.
-  - Para más de 500 pods en un solo clúster con un máximo de 40 restricciones: 3 vCPU y 600 MB de memoria por componente.
+  - Para menos de 500 pods en un solo clúster con un máximo de 20 restricciones: 2 vCPU y 350 MB de memoria por componente.
+  - Para más de 500 pods en un solo clúster con un máximo de 40 restricciones: 3 vCPU y 600 MB de memoria por componente.
 
 - Los pods de Windows [no admiten contextos de seguridad](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods).
   Por lo tanto, algunas de las definiciones de Azure Policy, como no permitir privilegios raíz, no se pueden escalar en pods de Windows y solo se aplican a los pods de Linux.

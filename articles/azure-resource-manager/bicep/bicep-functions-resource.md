@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 9b97170e3ff434d40007e46952a52335e5f900b3
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: a83c0f442e88bc2fe0320fe8affe5b114a28a897
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228810"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314333"
 ---
 # <a name="resource-functions-for-bicep"></a>Funciones de recurso para Bicep
 
@@ -20,6 +20,7 @@ Resource Manager ofrece las siguientes funciones para obtener valores de recurso
 * [getSecret](#getsecret)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers (en desuso)](#providers)
 * [reference](#reference)
 * [resourceId](#resourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
@@ -476,6 +477,10 @@ La salida de los ejemplos anteriores devuelve tres matrices.
 | notSupportedType | array | [] |
 
 Puede usar la respuesta de pickZones para determinar si se debe proporcionar un valor null para las zonas o asignar máquinas virtuales a diferentes zonas.
+
+## <a name="providers"></a>providers
+
+**La función providers está en desuso.** Por tanto, no se recomienda su uso. Si usó esta función para obtener una versión de API para el proveedor de recursos, se recomienda proporcionar una versión de API específica en la plantilla. El uso de una versión de API devuelta dinámicamente puede interrumpir la plantilla si las propiedades cambian entre versiones.
 
 ## <a name="reference"></a>reference
 

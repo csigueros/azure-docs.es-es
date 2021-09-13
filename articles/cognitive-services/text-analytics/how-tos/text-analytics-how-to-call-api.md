@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: aahi
-ms.openlocfilehash: b7ad200bba527d0b4b841483175b2672d94f162e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b9e18bb9bf313ce2bbf1441b319b841a3153f38b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962857"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396974"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
@@ -58,7 +58,7 @@ Puede llamar a Text Analytics sincrónicamente (para escenarios de baja latencia
 
 ## <a name="using-the-api-asynchronously"></a>Uso de la API de forma asincrónica
 
-La API Text Analytics v3.1-preview.5 proporciona dos puntos de conexión asincrónicos: 
+La API Text Analytics v3.1 proporciona dos puntos de conexión asincrónicos: 
 
 * El punto de conexión `/analyze` para Text Analytics permite analizar el mismo conjunto de documentos de texto con varias características de análisis de texto en una llamada API. Anteriormente, para usar varias características sería preciso realizar llamadas API independientes para cada operación. Tenga en cuenta esta funcionalidad cuando necesite analizar grandes conjuntos de documentos con más de una característica de Text Analytics.
 
@@ -76,11 +76,14 @@ En la tabla siguiente puede ver qué características se pueden usar de forma as
 | Vinculación de entidad | ✔ | ✔* |
 | Text Analytics for Health (contenedor) | ✔ |  |
 | Text Analytics for Health (API) |  | ✔  |
+| Resumen de texto |  | ✔  |
 
 `*`: se le llama de forma asincrónica a través del punto de conexión `/analyze` .
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
+
+[!INCLUDE [text-analytics-character-limits](../includes/character-limits.md)]
 
 <a name="json-schema"></a>
 
@@ -131,6 +134,7 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
 * Entity Linking
 * Análisis de sentimiento
 * Minería de opiniones
+* Resumen de texto
 
 | Elemento | Valores válidos | ¿Necesario? | Uso |
 |---------|--------------|-----------|-------|
@@ -139,10 +143,10 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
 |`documents` | Incluye los campos `id` y `text` siguientes | Obligatorio | Contiene información de cada documento que se envía y el texto sin formato del documento. |
 |`id` | String | Obligatorio | Los identificadores que proporcione se usan para estructurar la salida. |
 |`text` | Texto sin formato no estructurado, hasta 125 000 caracteres. | Obligatorio | Debe estar en inglés, que es el único idioma que se admite actualmente. |
-|`tasks` | Incluye las siguientes características de Text Analytics: `entityRecognitionTasks`, `entityLinkingTasks`, `keyPhraseExtractionTasks`, `entityRecognitionPiiTasks` o `sentimentAnalysisTasks`. | Obligatorio | Una o varias de las características Text Analytics que desea usar. Tenga en cuenta que `entityRecognitionPiiTasks` tiene un parámetro opcional `domain` que se puede establecer en `pii` o `phi` y `pii-categories` para la detección de los tipos de entidad seleccionados. Si el parámetro `domain` no se especifica, el valor predeterminado del sistema es `pii`. De forma similar, `sentimentAnalysisTasks` tiene el parámetro booleano `opinionMining` para incluir los resultados de minería de opiniones en la salida de Análisis de sentimiento. |
+|`tasks` | Incluye las siguientes características de Text Analytics: `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks`,`entityRecognitionPiiTasks`, `extractiveSummarizationTasks` o `sentimentAnalysisTasks`. | Obligatorio | Una o varias de las características Text Analytics que desea usar. Tenga en cuenta que `entityRecognitionPiiTasks` tiene un parámetro opcional `domain` que se puede establecer en `pii` o `phi` y `piiCategories` para la detección de los tipos de entidad seleccionados. Si el parámetro `domain` no se especifica, el valor predeterminado del sistema es `pii`. De forma similar, `sentimentAnalysisTasks` tiene el parámetro booleano `opinionMining` para incluir los resultados de minería de opiniones en la salida de Análisis de sentimiento. |
 |`parameters` | Incluye los campos `model-version` y `stringIndexType` siguientes | Obligatorio | Este campo está incluido en las tareas de características anteriores que elija. Contienen información no solo sobre la versión del modelo que desea utilizar, sino también sobre el tipo de índice. |
 |`model-version` | String | Obligatorio | Especifique la versión del modelo que desea usar que se va a llamar.  |
-|`stringIndexType` | String | Obligatorio | Especifique el descodificador de texto que se ajuste a su entorno de programación.  Los tipos que se admiten son: `textElement_v8` (predeterminado), `unicodeCodePoint` y `utf16CodeUnit`. Para más información, consulte el [artículo sobre desplazamientos de texto](../concepts/text-offsets.md#offsets-in-api-version-31-preview).  |
+|`stringIndexType` | String | Obligatorio | Especifique el descodificador de texto que se ajuste a su entorno de programación.  Los tipos que se admiten son: `textElement_v8` (predeterminado), `unicodeCodePoint` y `utf16CodeUnit`. Para más información, consulte el [artículo sobre desplazamientos de texto](../concepts/text-offsets.md#offsets-in-api-version-31).  |
 |`domain` | String | Opcional | Solo se aplica como parámetro a la tarea `entityRecognitionPiiTasks` y se puede establecer en `pii` o `phi`. Si no se especifica, su valor predeterminado es `pii`.  |
 
 ```json
@@ -165,8 +169,7 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -174,8 +177,7 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
-                    "loggingOptOut": "true",
+                    "loggingOptOut": true,
                     "domain": "phi",
                     "piiCategories":["default"]
                 }
@@ -185,8 +187,7 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -194,7 +195,7 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
             {
                 "parameters": {
                     "model-version": "latest",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -202,9 +203,8 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
-                    "loggingOptOut": "false",
-                    "opinionMining": "true"
+                    "loggingOptOut": false,
+                    "opinionMining": true
                 }
             }
         ]
@@ -215,7 +215,7 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
 
 ### <a name="asynchronous-requests-to-the-health-endpoint"></a>Solicitudes asincrónicas al punto de conexión `/health`
 
-El formato de las solicitudes de API a la API hospedada de Text Analytics for Health es el mismo que el de su contenedor. Los documentos se envían en un objeto JSON como texto no estructurado sin formato. XML no se admite. El esquema JSON consta de los elementos que se describen a continuación.  Rellene y envíe el [formulario de solicitud de Cognitive Services](https://aka.ms/csgate) para solicitar acceso a la versión preliminar pública de Text Analytics for Health. El uso de Text Analytics for Health no se facturará. 
+El formato de las solicitudes de API a la API hospedada de Text Analytics for Health es el mismo que el de su contenedor. Los documentos se envían en un objeto JSON como texto no estructurado sin formato. XML no se admite. El esquema JSON consta de los elementos que se describen a continuación.  Rellene y envíe el [formulario de solicitud de Cognitive Services](https://aka.ms/csgate) para solicitar acceso a Text Analytics for Health.
 
 | Elemento | Valores válidos | ¿Necesario? | Uso |
 |---------|--------------|-----------|-------|
@@ -249,7 +249,10 @@ example.json
 
 En Postman (o cualquier otra herramienta para pruebas de API web), agregue el punto de conexión de la característica que desea usar. Use la tabla siguiente para buscar el formato de punto de conexión adecuado y reemplace `<your-text-analytics-resource>` por el punto de conexión del recurso. Por ejemplo:
 
-`https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0/languages`
+> [!TIP]
+> Puede llamar a la v3.0 de los siguientes puntos de conexión sincrónicos reemplazando `/v3.1` por `/v3.0/`.
+
+`https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1/languages`
 
 #### <a name="synchronous"></a>[Sincrónica](#tab/synchronous)
 
@@ -257,14 +260,14 @@ En Postman (o cualquier otra herramienta para pruebas de API web), agregue el pu
 
 | Característica | Tipo de solicitud | Puntos de conexión de recursos |
 |--|--|--|
-| Detección de idiomas | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
-| Análisis de sentimiento | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| Minería de opiniones | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/sentiment?opinionMining=true` |
-| Extracción de frases clave | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
-| Reconocimiento de entidades con nombre: general | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
-| Reconocimiento de entidades con nombre: PII | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii` |
-| Reconocimiento de entidades con nombre: PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi` |
-| Entity Linking | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/linking` |
+| Detección de idiomas | POST | `<your-text-analytics-resource>/text/analytics/v3.1/languages` |
+| Análisis de sentimiento | POST | `<your-text-analytics-resource>/text/analytics/v3.1/sentiment` |
+| Minería de opiniones | POST | `<your-text-analytics-resource>/text/analytics/v3.1/sentiment?opinionMining=true` |
+| Extracción de frases clave | POST | `<your-text-analytics-resource>/text/analytics/v3.1/keyPhrases` |
+| Reconocimiento de entidades con nombre: general | POST | `<your-text-analytics-resource>/text/analytics/v3.1/entities/recognition/general` |
+| Reconocimiento de entidades con nombre: PII | POST | `<your-text-analytics-resource>/text/analytics/v3.1/entities/recognition/pii` |
+| Reconocimiento de entidades con nombre: PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.1/entities/recognition/pii?domain=phi` |
+| Entity Linking | POST | `<your-text-analytics-resource>/text/analytics/v3.1/entities/linking` |
 
 #### <a name="asynchronous"></a>[Asincrónica](#tab/asynchronous)
 
@@ -272,16 +275,16 @@ En Postman (o cualquier otra herramienta para pruebas de API web), agregue el pu
 
 | Característica | Tipo de solicitud | Puntos de conexión de recursos |
 |--|--|--|
-| Envío de trabajo de análisis | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze` |
-| Obtención del estado y los resultados del análisis | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>` |
+| Envío de trabajo de análisis | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1/analyze` |
+| Obtención del estado y los resultados del análisis | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Puntos de conexión para enviar solicitudes asincrónicas al punto de conexión `/health`
 
 | Característica | Tipo de solicitud | Puntos de conexión de recursos |
 |--|--|--|
-| Envío del trabajo de Text Analytics for Health  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs` |
-| Obtención del estado y resultados del trabajo | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
-| Cancelar trabajo | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
+| Envío del trabajo de Text Analytics for Health  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1/entities/health/jobs` |
+| Obtención del estado y resultados del trabajo | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabajo | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -317,9 +320,9 @@ Envíe la solicitud de API. Si realizó la llamada a un punto de conexión sincr
 Si realizó la llamada a los puntos de conexión `/analyze` o `/health` asincrónicos, compruebe que recibió un código de respuesta 202. Tendrá que obtener la respuesta para ver los resultados:
 
 1. En la respuesta de la API, busque `Operation-Location` en el encabezado, que identifica el trabajo que envió a la API. 
-2. Cree una solicitud GET para el punto de conexión que usó. En la [tabla anterior](#set-up-a-request) encontrará el formato del punto de conexión.Consulte la [documentación de referencia de la API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/AnalyzeStatus). Por ejemplo:
+2. Cree una solicitud GET para el punto de conexión que usó. En la [tabla anterior](#set-up-a-request) encontrará el formato del punto de conexión.Consulte la [documentación de referencia de la API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/AnalyzeStatus). Por ejemplo:
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1/analyze/jobs/<Operation-Location>`
 
 3. Agregue `Operation-Location` a la solicitud.
 
@@ -357,7 +360,7 @@ Si se ha realizado correctamente, la solicitud GET al punto de conexión `/analy
 
 * [Información general de Text Analytics](../overview.md)
 * [Versiones del modelo](../concepts/model-versioning.md)
-* [Preguntas más frecuentes](../text-analytics-resource-faq.md)</br>
+* [Preguntas más frecuentes](../text-analytics-resource-faq.yml)</br>
 * [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712)
 * [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novedades](../whats-new.md)

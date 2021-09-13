@@ -3,21 +3,24 @@ title: Modos de orquestación para los conjuntos de escalado de máquinas virtua
 description: Aprenda a usar los modos de orquestación flexible y uniforme para conjuntos de escalado de máquinas virtuales en Azure.
 author: fitzgeraldsteele
 ms.author: fisteele
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 02/12/2021
+ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
-ms.openlocfilehash: 638ede086e0b76351642dec56605bbd857e8805a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 7983ae912d29f2a27d35b261d1654205fe503651
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673880"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305077"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Versión preliminar: modos de orquestación para los conjuntos de escalado de máquinas virtuales de Azure
 
-Los conjuntos de escalado de máquinas virtuales proporcionan una agrupación lógica de máquinas virtuales administradas por una plataforma. Con los conjuntos de escalado, se crea un modelo de configuración de máquina virtual, se agregan o quitan automáticamente instancias adicionales en función de la carga de CPU o de memoria y se actualiza automáticamente a la versión más reciente del sistema operativo. Tradicionalmente, los conjuntos de escalado han permitido crear máquinas virtuales con un modelo de configuración de máquina virtual proporcionado en el momento de la creación del conjunto de escalado. Además, el conjunto de escalado solo puede administrar aquellas máquinas virtuales que se creen de forma implícita según el modelo de configuración.
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
+
+Los conjuntos de escalado de máquinas virtuales proporcionan una agrupación lógica de máquinas virtuales administradas por una plataforma. Con los conjuntos de escalado, se crea un modelo de configuración de máquina virtual, se agregan o quitan automáticamente instancias adicionales en función de la carga de CPU o de memoria y se actualiza automáticamente a la versión más reciente del sistema operativo. Tradicionalmente, los conjuntos de escalado han permitido crear máquinas virtuales con un modelo de configuración de máquina virtual proporcionado en el momento de la creación del conjunto de escalado. Además, el conjunto de escalado solo puede administrar aquellas máquinas virtuales que se creen de forma implícita según el modelo de configuración. 
 
 Los modos de orquestación del conjunto de escalado permiten tener un mayor control sobre la forma en que el conjunto de escalado administra las instancias de máquina virtual.
 
@@ -96,222 +99,71 @@ Use las extensiones destinadas a las máquinas virtuales estándar, en lugar de 
 ## <a name="a-comparison-of-flexible-uniform-and-availability-sets"></a>Una comparación de conjuntos de disponibilidad, y los modos de orquestación flexible y uniforme
 En la tabla siguiente se compara el modo de orquestación flexible, el modo de orquestación uniforme y los conjuntos de disponibilidad por sus características.
 
-| Característica | Compatible con la orquestación flexible (versión preliminar) | Compatible con la orquestación uniforme (disponibilidad general) | Compatible con conjuntos de disponibilidad (disponibilidad general) |
+| Característica  | Compatible con la orquestación flexible (versión preliminar)  | Compatible con la orquestación uniforme (disponibilidad general)  | Compatible con conjuntos de disponibilidad (disponibilidad general)  |
 |-|-|-|-|
-|         Tipo de máquina virtual  | Máquina virtual de IaaS de Azure estándar (Microsoft.compute/virtualmachines)  | Máquinas virtuales específicas de conjunto de escalado (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Máquina virtual de IaaS de Azure estándar (Microsoft.compute/virtualmachines)  |
-|         SKU compatibles  |            Serie D, serie E, serie F, serie A, serie B, Intel y AMD  |            Todos los SKU  |            Todos los SKU  |
-|         Zonas de disponibilidad  |            Opcionalmente, especifique todas las instancias que aterrizan en una sola zona de disponibilidad |            Especifique las instancias que aterrizan en las zonas de disponibilidad en 1, 2 o 3  |            No compatible  |
-|         Control total sobre máquina virtual, tarjetas de interfaz de red y discos  |            Sí  |            Control limitado con API de VM de conjuntos de escalado de máquinas virtuales  |            Sí  |
-|         Escalado automático  |            No  |            Sí  |            No  |
-|         Asignación de una máquina virtual a un dominio de error específico  |            Sí  |             No   |            No  |
-|         Eliminación de tarjetas de interfaz de red y discos cuando se eliminan instancias de máquina virtual  |            No  |            Sí  |            No  |
-|         Directiva de actualización (conjuntos de escalado de máquinas virtuales) |            No  |            Automático, gradual, manual  |            N/D  |
-|         Actualizaciones automáticas del sistema operativo (conjuntos de escalado de máquinas virtuales) |            No  |            Sí  |            N/D  |
-|         Actualizaciones de seguridad en el invitado  |            Sí  |            No  |            Sí  |
-|         Notificaciones de terminación (conjuntos de escalado de máquina virtual) |            No  |            Sí  |            N/D  |
-|         Reparación de instancias (conjuntos de escalado de máquina virtual) |            No  |            Sí   |            N/D  |
-|         Redes aceleradas  |            Sí  |            Sí  |            Sí  |
-|         Precios e instancias de acceso puntual   |            Sí, puede tener instancias de prioridad regular y de acceso puntual  |            Sí, las instancias deben ser todas regulares o de acceso puntual  |            No, solo instancias de prioridad regular  |
-|         Combinación de sistemas operativos  |            Sí, Linux y Windows pueden residir en el mismo conjunto de escalado flexible |            No, las instancias son el mismo sistema operativo  |               Sí, Linux y Windows pueden residir en el mismo conjunto de escalado flexible |
-|         Supervisión del estado de la aplicación  |            Extensión del estado de la aplicación  |            Sondeo de la extensión del estado de la aplicación o de Azure Load Balancer  |            Extensión del estado de la aplicación  |
-|         Discos UltraSSD   |            Sí  |            Sí, solo para implementaciones zonales  |            No  |
-|         Infiniband   |            No  |            Sí, solo grupo de selección de ubicación único  |            Sí  |
-|         Acelerador de escritura   |            No  |            Sí  |            Sí  |
-|         Grupos de selección de ubicación de proximidad   |            Sí  |            Sí  |            Sí  |
-|         Hosts dedicados de Azure   |            No  |            Sí  |            Sí  |
-|         SLB básico   |            No  |            Sí  |            Sí  |
-|         SKU estándar para Azure Load Balancer |            Sí  |            Sí  |            Sí  |
-|         Application Gateway  |            No  |            Sí  |            Sí  |
-|         Control de mantenimiento   |            No  |            Sí  |            Sí  |
-|         Enumeración de las máquinas virtuales en el conjunto  |            Sí  |            Sí  |            Sí, enumerar las máquinas virtuales en el conjunto de disponibilidad  |
-|         Alertas de Azure  |            No  |            Sí  |            Sí  |
-|         VM Insights  |            No  |            Sí  |            Sí  |
-|         Azure Backup  |            Sí  |            Sí  |            Sí  |
-|         Azure Site Recovery  |     No  |            No  |            Sí  |
-|         Agregar una máquina virtual existente al grupo o eliminarla de él  |            No  |            No  |            No  |
-
-
-## <a name="register-for-flexible-orchestration-mode"></a>Registro para el modo de orquestación flexible
-Para poder implementar conjuntos de escalado de máquinas virtuales en el modo de orquestación flexible, antes es preciso registrar la suscripción en la característica en vista previa (GB). El registro puede tardar varios minutos en terminar. Puede usar los siguientes comandos de Azure PowerShell o de la CLI de Azure para realizar el registro.
-
-### <a name="azure-portal"></a>Azure Portal
-Vaya a la página de detalles de la suscripción en la que quiere crear un conjunto de escalado en modo de orquestación flexible y seleccione características en versión preliminar en el menú. Seleccione las dos características del orquestador que quiere habilitar: _VMOrchestratorSingleFD_ y _VMOrchestratorMultiFD_, y haga clic en el botón Registrar. El registro de la característica puede tardar hasta 15 minutos.
-
-![Registro de características.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
-
-Una vez que se hayan registrado las características para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute. Vaya a la pestaña Proveedores de recursos de su suscripción, seleccione Microsoft.Compute y haga clic en Volver a registrar.
-
-![Volver a registrar](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
-
-
-### <a name="azure-powershell"></a>Azure PowerShell
-Use el cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar la versión preliminar de su suscripción.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute
-```
-
-El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
-```
-
-Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Utilice [az feature register](/cli/azure/feature#az_feature_register) para habilitar la versión preliminar de su suscripción.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
-az feature register --namespace microsoft.compute --name VMOrchestratorSingleFD
-```
-
-El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
-```
-
-Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+| Tipo de máquina virtual  | Máquina virtual de IaaS de Azure estándar (Microsoft.compute/virtualmachines)  | Máquinas virtuales específicas de conjunto de escalado (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Máquina virtual de IaaS de Azure estándar (Microsoft.compute/virtualmachines)  |
+| SKU compatibles  | Serie D, serie E, serie F, serie A, serie B, Intel y AMD  | Todos los SKU  | Todos los SKU  |
+| Zonas de disponibilidad  | Opcionalmente, especifique todas las instancias que aterrizan en una sola zona de disponibilidad  | Especifique las instancias que aterrizan en las zonas de disponibilidad en 1, 2 o 3  | No compatible  |
+| Dominio de error: propagación máxima (Azure propagará al máximo las instancias)  | Sí  | Sí  | No  |
+| Dominio de error: propagación fija  | 2 o 3 FD (en función del máximo regional); 1 para implementaciones zonales  | 2, 3 o 5 FD; 1 o 5 para implementaciones zonales  | 2 o 3 FD (en función del máximo regional)  |
+| Dominios de actualización  | En desuso, mantenimiento de la plataforma realizado por FD | 5 dominios de actualización  | Hasta 20 dominios de actualización  |
+| SLA de disponibilidad  | No en este momento  | 99,95 % para FD>1 en un único grupo de selección de ubicación; 99,99 % para instancias distribuidas entre varias zonas  | 99,95%  |
+| Control total sobre máquina virtual, tarjetas de interfaz de red y discos  | Sí  | Control limitado con la API de VM de conjuntos de escalado de máquinas virtuales  | Sí  |
+| Escalado automático (manual, basado en las métricas, basado en la programación)  | Sí  | Sí  | No  |
+| Asignación de una máquina virtual a un dominio de error específico  | Sí  | No  | No  |
+| Eliminación automática de tarjetas de interfaz de red y discos cuando se eliminan instancias de máquina virtual  | Sí  | Sí  | No  |
+| Directiva de actualización (conjuntos de escalado de máquinas virtuales)  | No, la directiva de actualización debe ser NULL o [] durante la creación  | Automático, gradual, manual  | N/D  |
+| Actualizaciones automáticas del sistema operativo basadas en imágenes  | No  | Sí  | N/D  |
+| Actualizaciones de seguridad en el invitado  | Sí  | No  | Sí  |
+| Notificaciones de terminación (conjuntos de escalado de máquina virtual)  | Sí  | Sí  | N/D  |
+| Reparación de instancias (conjuntos de escalado de máquina virtual)  | Sí  | Sí  | N/D  |
+| Redes aceleradas  | No  | Sí  | Sí  |
+| Precios e instancias de acceso puntual   | Sí, puede tener instancias de prioridad regular y de acceso puntual  | Sí, las instancias deben ser todas regulares o de acceso puntual  | No, solo instancias de prioridad regular  |
+| Combinación de sistemas operativos  | Sí, Linux y Windows pueden residir en el mismo conjunto de escalado flexible  | No, las instancias son el mismo sistema operativo  | Sí, Linux y Windows pueden residir en el mismo conjunto de escalado flexible  |
+| Supervisión del estado de la aplicación  | Extensión del estado de la aplicación  | Sondeo de la extensión del estado de la aplicación o de Azure Load Balancer  | Extensión del estado de la aplicación  |
+| Discos UltraSSD   | Sí  | Sí, solo para implementaciones zonales  | No  |
+| Infiniband   | No  | Sí, solo grupo de selección de ubicación único  | Sí  |
+| Acelerador de escritura   | No  | Sí  | Sí  |
+| Grupos de selección de ubicación de proximidad   | Sí  | Sí  | Sí  |
+| Hosts dedicados de Azure   | No  | Sí  | Sí  |
+| SLB básico   | No  | Sí  | Sí  |
+| SKU estándar para Azure Load Balancer  | Sí  | Sí  | Sí  |
+| Application Gateway  | Sí  | Sí  | Sí  |
+| Control de mantenimiento   | No  | Sí  | Sí  |
+| Enumeración de las máquinas virtuales en el conjunto  | Sí  | Sí  | Sí, enumerar las máquinas virtuales en el conjunto de disponibilidad  |
+| Alertas de Azure  | No  | Sí  | Sí  |
+| VM Insights  | No  | Sí  | Sí  |
+| Azure Backup  | Sí  | No  | Sí  |
+| Azure Site Recovery  | Sí (mediante PowerShell)  | No  | Sí  |
+| Service Fabric  | No  | Sí  | No  |
+| Azure Kubernetes Service (AKS)/AKE  | No  | Sí  | No  |
 
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Introducción al modo de orquestación flexible
 
-Empiece a usar el modo de orquestación flexible para los conjuntos de escalado mediante Azure Portal, la CLI de Azure, Terraform o API REST.
-
-### <a name="azure-portal"></a>Azure Portal
-
-Cree un conjunto de escalado de máquinas virtuales en modo de orquestación Flexible mediante Azure Portal.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. En la barra de búsqueda, busque y seleccione **Conjuntos de escalado de máquinas virtuales**.
-1. Seleccione **Crear** en la página **Conjuntos de escalado de máquinas virtuales**.
-1. En la página **Crear un conjunto de escalado de máquinas virtuales**, vea la sección **Orquestación**.
-1. En **Orchestration mode** (Modo de orquestación), seleccione la opción **Flexible**.
-1. Indique un valor en **Número de dominios de error**.
-1. Termine de crear el conjunto de escalado. Para más información sobre cómo crear un conjunto de escalado, consulte [Creación de un conjunto de escalado en Azure Portal](quick-create-portal.md#create-virtual-machine-scale-set).
-
-:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/portal-create-orchestration-mode-flexible.png" alt-text="Modo de orquestación en Azure Portal cuando se crea un conjunto de escalado":::
-
-A continuación, agregue una máquina virtual al conjunto de escalado en el modo de orquestación flexible.
-
-1. En la barra de búsqueda, busque y seleccione **Máquinas virtuales**.
-1. En la página **Máquinas virtuales**, seleccione **Agregar**.
-1. En la pestaña **Aspectos básicos**, vea la sección **Detalles de instancia**.
-1. Agregue la máquina virtual al conjunto de escalado en el modo de orquestación flexible, para lo que debe seleccionar el conjunto de escalado en las **opciones de disponibilidad**. Puede agregar la máquina virtual a un conjunto de escalado en la misma región, zona y grupo de recursos.
-1. Termine de crear la máquina virtual.
-
-:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/vm-portal-orchestration-mode-flexible.png" alt-text="Agregar una máquina virtual al conjunto de escalado mediante el modo de orquestación flexible":::
-
-
-### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Cree un conjunto de escalado de máquinas virtuales flexible con la CLI de Azure. En el ejemplo siguiente se muestra cómo crear un conjunto de escalado flexible en el que el número de dominios de error se establece en 3, se crea una máquina virtual y, después, se agrega al conjunto de escalado flexible.
-
-```azurecli-interactive
-vmssflexname="my-vmss-vmssflex"
-vmname="myVM"
-rg="my-resource-group"
-
-az group create -n "$rg" -l $location
-az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 3
-az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS
-```
-
-### <a name="terraform"></a>Terraform
-Cree un conjunto de escalado de máquinas virtuales flexible con la Terraform. Este proceso requiere la **versión 2.15.0 de Terraform AzureRM Provider**, o cualquier versión posterior. Tenga en cuenta los siguientes parámetros:
-- Si no se especifica ninguna zona, `platform_fault_domain_count` puede ser 1, 2 o 3, en función de la región.
-- Si se especifica una zona, `the fault domain count` puede ser 1.
-- El parámetro `single_placement_group` debe ser `false` para los conjuntos de escalado de máquinas virtuales flexibles.
-- Si va a realizar una implementación regional, no es necesario especificar `zones`.
-
-```terraform
-resource "azurerm orchestrated_virtual_machine_scale_set" "tf_vmssflex" {
-name = "tf_vmssflex"
-location = azurerm_resource_group.myterraformgroup.location
-resource_group_name = azurerm_resource_group.myterraformgroup.name
-platform_fault_domain_count = 1
-single_placement_group = false
-zones = ["1"]
-}
-```
-
-
-### <a name="rest-api"></a>API DE REST
-
-1. Cree un conjunto de escalado vacío. Se necesitan los siguientes parámetros:
-    - Versión 2019-12-01 de API (o superior)
-    - El grupo de selección de ubicación único debe ser `false` cuando se crea un conjunto de escalado flexible
-
-    ```json
-    {
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    "name": "[parameters('virtualMachineScaleSetName')]",
-    "apiVersion": "2019-12-01",
-    "location": "[parameters('location')]",
-    "properties": {
-        "singlePlacementGroup": false,
-        "platformFaultDomainCount": "[parameters('virtualMachineScaleSetPlatformFaultDomainCount')]"
-        },
-    "zones": "[variables('selectedZone')]"
-    }
-    ```
-
-2. Agregue máquinas virtuales al conjunto de escalado.
-    1. Asigne la propiedad `virtualMachineScaleSet` al conjunto de escalado que ha creado anteriormente. Es preciso especificar la propiedad `virtualMachineScaleSet` en el momento de creación de la máquina virtual.
-    1. Puede usar la función **copy()** de la plantilla de Azure Resource Manager para crear varias máquinas virtuales al mismo tiempo. Consulte [Iteración de recursos](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) en plantillas de Azure Resource Manager.
-
-    ```json
-    {
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]",
-    "apiVersion": "2019-12-01",
-    "location": "[parameters('location')]",
-    "copy": {
-        "name": "VMcopy",
-        "count": "[parameters('virtualMachineCount')]"
-        },
-    "dependsOn": [
-        "
-        [resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]",
-        "
-        [resourceID('Microsoft.Storage/storageAccounts', variables('diagnosticsStorageAccountName'))]",
-        "
-        [resourceID('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1'))]"
-        ],
-    "properties": {
-        "virtualMachineScaleSet": {
-            "id": "[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]"
-        }
-    }
-    ```
-
-Para ver un ejemplo completo, consulte el [inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-vmss-flexible-orchestration-mode).
+Registre y comience a usar el [modo de orquestación flexible](..\virtual-machines\flexible-virtual-machine-scale-sets.md) para el conjunto de escalado de su máquina virtual. 
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-**¿Cuánta escala admite la orquestación flexible?**
+- **¿Cuánta escala admite la orquestación flexible?**
 
-En el modo de orquestación flexible se pueden agregar un máximo de 1000 máquinas virtuales a un conjunto de escalado.
+    En el modo de orquestación flexible se pueden agregar un máximo de 1000 máquinas virtuales a un conjunto de escalado.
 
-**Diferencias y similitudes de la orquestación flexible con los conjuntos de disponibilidad o la orquestación uniforme**
+- **Diferencias y similitudes de la orquestación flexible con los conjuntos de disponibilidad o la orquestación uniforme**
 
-| Atributo de disponibilidad  | Orquestación flexible  | Orquestación uniforme  | Conjuntos de disponibilidad  |
-|-|-|-|-|
-| Implementación en zonas de disponibilidad  | No  | Sí  | No  |
-| Garantía de disponibilidad de dominios de error en una región  | Se pueden distribuir hasta 1000 instancias en un máximo de 3 dominios de error en la región. El número máximo de dominios de error varía en función de la región  | Sí, hasta 100 instancias.  | Sí, hasta 200 instancias.  |
-| Grupos de selección de ubicación  | El modo flexible siempre usa varios grupos de selección de ubicación (singlePlacementGroup = false)  | Puede elegir entre un grupo de selección de ubicación único o varios grupos de selección de ubicación | N/D  |
-| Dominios de actualización  | Ninguno, el mantenimiento o las actualizaciones del host se realizan por cada dominio de error individual  | Hasta 5 dominios de actualización  | Hasta 20 dominios de actualización  |
+    | Atributo de disponibilidad  | Orquestación flexible  | Orquestación uniforme  | Conjuntos de disponibilidad  |
+    |-|-|-|-|
+    | Implementación en zonas de disponibilidad  | No  | Sí  | No  |
+    | Garantía de disponibilidad de dominios de error en una región  | Se pueden distribuir hasta 1000 instancias en un máximo de 3 dominios de error en la región. El número máximo de dominios de error varía en función de la región  | Sí, hasta 100 instancias.  | Sí, hasta 200 instancias.  |
+    | Grupos de selección de ubicación  | El modo flexible siempre usa varios grupos de selección de ubicación (singlePlacementGroup = false)  | Puede elegir entre un grupo de selección de ubicación único o varios grupos de selección de ubicación | N/D  |
+    | Dominios de actualización  | Ninguno, el mantenimiento o las actualizaciones del host se realizan por cada dominio de error individual  | Hasta 5 dominios de actualización  | Hasta 20 dominios de actualización  |
+
+- **¿Cuál es el recuento máximo absoluto de instancias con disponibilidad de dominio de error garantizada?**
+
+    | Característica  | Compatible con la orquestación flexible (versión preliminar)  | Compatible con la orquestación uniforme (disponibilidad general)  | Compatible con conjuntos de disponibilidad (disponibilidad general)  |
+    |-|-|-|-|
+    | Recuento máximo de instancias (con garantía de disponibilidad de FD)  | 1000  | 3000  | 200  |
 
 
 ## <a name="troubleshoot-scale-sets-with-flexible-orchestration"></a>Solución de problemas de conjuntos de escalado con orquestación flexible

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: ccca7f1deeeef49b734313c30d13290e47b6ab57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a78408759492cdba97bca8b6e4b71411af192f9f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727980"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224125"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -30,17 +30,16 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 | Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.13.0 | Disponibilidad general |
 | Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.13.0 | Disponibilidad general |
 | Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.14.1 | Disponibilidad general |
-| Identificación de idioma de la voz | Detecte el idioma que se habla en los archivos de audio. | 1.3.0 | Versión preliminar "validada" |
+| Identificación de idioma de la voz | Detecte el idioma que se habla en los archivos de audio. | 1.3.0 | Vista previa |
 | Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.8.0 | Disponibilidad general |
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 > [!IMPORTANT]
-> Para usar los contenedores de voz, debe enviar una solicitud en línea y esperar a que se apruebe. Para obtener más información, consulte la sección **Solicitud de aprobación para ejecutar el contenedor** más adelante.
+> * Para usar los contenedores de voz, debe enviar una solicitud en línea y esperar a que se apruebe. Para obtener más información, consulte la sección **Solicitud de aprobación para ejecutar el contenedor** más adelante. 
+> * Los contenedores *disponibles con carácter general* cumplen los requisitos de estabilidad y soporte técnico de Microsoft. Los contenedores en *versión preliminar* aún están en desarrollo.
 
-Debe cumplir los siguientes requisitos previos para poder usar los contenedores del servicio de Voz. Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
+Debe cumplir los siguientes requisitos previos para poder usar los contenedores del servicio de Voz. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 * [Docker](https://docs.docker.com/) instalado en un equipo host. Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. 
     * En Windows, Docker también debe estar configurado de forma que admita los contenedores de Linux.

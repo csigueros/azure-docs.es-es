@@ -7,12 +7,12 @@ ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b380e9501ebed8f2830c09ddb00d40467b9b22a1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d667b2429c7911353df98795f7116d47f8f15d8a
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735159"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397433"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM en Linux
 
@@ -270,49 +270,45 @@ Para que el entorno de ejecución de IoT Edge aprovisione automáticamente el di
 
 Puede conceder acceso TPM al entorno de ejecución de Azure IoT Edge mediante la invalidación de la configuración de systemd para que el servicio `iotedge` tenga privilegios raíz. Si no desea elevar los privilegios de servicio, también puede usar los pasos siguientes para proporcionar manualmente el acceso TPM.
 
-1. Busque la ruta de acceso para el módulo de hardware TPM en el dispositivo y guárdela como variable local.
-
-   ```bash
-   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
-   ```
-
-2. Cree una nueva regla que conceda al entorno de ejecución de IoT Edge acceso a tpm0.
+1. Cree una nueva regla que conceda al entorno de ejecución de IoT Edge acceso a tpm0 y tpmrm0. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Abra el archivo de reglas.
+2. Abra el archivo de reglas.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Copie la siguiente información de acceso en el archivo de reglas.
+3. Copie la siguiente información de acceso en el archivo de reglas. Es posible que `tpmrm0` no esté presente en los dispositivos que usan un kernel anterior a 4.12. Los dispositivos que no tengan tpmrm0 omitirán esa regla de forma segura.
 
    ```input
    # allow iotedge access to tpm0
    KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="iotedge", MODE="0600"
    ```
 
-5. Guarde y cierre el archivo.
+4. Guarde y cierre el archivo.
 
-6. Desencadene el sistema udev para evaluar la nueva regla.
+5. Desencadene el sistema udev para evaluar la nueva regla.
 
    ```bash
-   /bin/udevadm trigger $tpm
+   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
    ```
 
-7. Compruebe que la regla se haya aplicado correctamente.
+6. Compruebe que la regla se haya aplicado correctamente.
 
    ```bash
-   ls -l /dev/tpm0
+   ls -l /dev/tpm*
    ```
 
    Una salida correcta tiene el siguiente aspecto:
 
    ```output
-   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpm0
+   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
    Si no ve que se hayan aplicado los permisos correctos, intente reiniciar la máquina para actualizar udev.
@@ -325,52 +321,48 @@ El entorno de ejecución de Azure IoT Edge se basa en un servicio TPM que accede
 
 Puede conceder acceso al TPM mediante la invalidación de la configuración de systemd para que el servicio `aziottpm` tenga privilegios raíz. Si no desea elevar los privilegios de servicio, también puede usar los pasos siguientes para proporcionar manualmente el acceso TPM.
 
-1. Busque la ruta de acceso para el módulo de hardware TPM en el dispositivo y guárdela como variable local.
-
-   ```bash
-   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
-   ```
-
-2. Cree una nueva regla que conceda al entorno de ejecución de IoT Edge acceso a tpm0.
+1. Cree una nueva regla que conceda al entorno de ejecución de IoT Edge acceso a tpm0 y tpmrm0. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Abra el archivo de reglas.
+2. Abra el archivo de reglas.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Copie la siguiente información de acceso en el archivo de reglas.
+3. Copie la siguiente información de acceso en el archivo de reglas. Es posible que `tpmrm0` no esté presente en los dispositivos que usan un kernel anterior a 4.12. Los dispositivos que no tengan tpmrm0 omitirán esa regla de forma segura.
 
    ```input
-   # allow aziottpm access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   # allow aziottpm access to tpm0 and tpmrm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0660"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="aziottpm", MODE="0660"
    ```
 
-5. Guarde y cierre el archivo.
+4. Guarde y cierre el archivo.
 
-6. Desencadene el sistema udev para evaluar la nueva regla.
+5. Desencadene el sistema udev para evaluar la nueva regla.
 
    ```bash
-   /bin/udevadm trigger $tpm
+   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
    ```
 
-7. Compruebe que la regla se haya aplicado correctamente.
+6. Compruebe que la regla se haya aplicado correctamente.
 
    ```bash
-   ls -l /dev/tpm0
+   ls -l /dev/tpm*
    ```
 
    Una salida correcta tiene el siguiente aspecto:
 
    ```output
-   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 aziottpm root 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 aziottpm root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   Si no ve que se hayan aplicado los permisos correctos, intente reiniciar la máquina para actualizar udev.
+   Si no ve que se hayan aplicado los permisos correctos, intente reiniciar la máquina para actualizar udev. 
 :::moniker-end
 <!-- end 1.2 -->
 

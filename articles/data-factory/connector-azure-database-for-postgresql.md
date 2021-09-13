@@ -1,18 +1,20 @@
 ---
 title: Copia y transformación de datos en Azure Database for PostgreSQL
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a copiar y transformar datos en Azure Database for PostgreSQL mediante Azure Data Factory.
-ms.author: jianleishen
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/25/2021
-ms.openlocfilehash: d7d5ac30549667a6806b9f0c45328c0662a2e47e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: b74588bf1a8f5aacabc273fb9a473a8cb4f1154d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785374"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314154"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Database for PostgreSQL mediante Azure Data Factory
 
@@ -35,6 +37,30 @@ Actualmente, el flujo de datos de Azure Data Factory admite Azure Database for P
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-azure-database-for-postgresql-using-ui"></a>Creación de un servicio vinculado a Azure Database for PostgreSQL mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Azure Database for PostgreSQL en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque PostgreSQL y seleccione el conector de Azure Database for PostgreSQL.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/azure-database-for-postgresql-connector.png" alt-text="Selección del conector de Azure Database for PostgreSQL.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/configure-azure-database-for-postgresql-linked-service.png" alt-text="Configuración de un servicio vinculado a Azure Database for PostgreSQL.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas para el conector de Azure Database for PostgreSQL.
 
@@ -173,7 +199,7 @@ Para copiar datos en Azure Database for PostgreSQL, se admiten las siguientes pr
 |:--- |:--- |:--- |
 | type | La propiedad "type" del receptor de la actividad de copia debe establecerse en **AzurePostgreSQLSink**. | Sí |
 | preCopyScript | Especifique una consulta de SQL para que la actividad de copia se ejecute antes de escribir datos en Azure Database for PostgreSQL en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | No |
-| writeMethod | El método usado para escribir datos en Azure Database for PostgreSQL.<br>Los valores permitidos son: **CopyCommand** (versión preliminar, que es más eficaz), **BulkInsert** (valor predeterminado). | No |
+| writeMethod | El método usado para escribir datos en Azure Database for PostgreSQL.<br>Los valores admitidos son:**CopyCommand** (valor predeterminado, que es más eficaz), **BulkInsert**. | No |
 | writeBatchSize | Número de filas cargadas en Azure Database for PostgreSQL por lote.<br>El valor permitido es un entero que representa el número de filas. | No (el valor predeterminado es 1 000 000) |
 | writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br>Los valores permitidos son las cadenas de intervalo de tiempo. Un ejemplo es 00:30:00 (30 minutos). | No (el valor predeterminado es 00:30:00) |
 

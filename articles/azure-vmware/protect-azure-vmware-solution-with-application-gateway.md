@@ -3,12 +3,12 @@ title: Protección de aplicaciones web en Azure VMware Solution con Azure Applic
 description: Configure Azure Application Gateway para exponer de forma segura las aplicaciones web que se ejecutan en Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 1b9f55386c2900660ddee209d0aea95e7bac610a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 897b5788d3bb4cb76fee44cb29e8c73d5f7f34c7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739620"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257027"
 ---
 # <a name="protect-web-apps-on-azure-vmware-solution-with-azure-application-gateway"></a>Protección de aplicaciones web en Azure VMware Solution con Azure Application Gateway
 
@@ -35,11 +35,11 @@ En el diagrama se muestra el escenario de prueba que se usa para validar Applica
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagrama que muestra el escenario de prueba que se usa para validar Application Gateway con aplicaciones web de Azure VMware Solution." border="false":::
 
-La instancia de Application Gateway se implementa en el centro de una subred dedicada. Tiene una IP pública de Azure. Se recomienda activar [Azure DDoS Protection estándar](../ddos-protection/ddos-protection-overview.md) para la red virtual. El servidor web se hospeda en una nube privada de Azure VMware Solution detrás de las puertas de enlace NSX T0 y T1. Azure VMware Solution usa [Global Reach de ExpressRoute](../expressroute/expressroute-global-reach.md) para habilitar la comunicación con el centro de conectividad y los sistemas locales.
+La instancia de Application Gateway se implementa en el centro en una subred dedicada con una dirección IP pública de Azure. Se recomienda activar [Azure DDoS Protection estándar](../ddos-protection/ddos-protection-overview.md) para la red virtual. El servidor web se hospeda en una nube privada de Azure VMware Solution detrás de las puertas de enlace NSX T0 y T1. Además, Azure VMware Solution usa [Global Reach de ExpressRoute](../expressroute/expressroute-global-reach.md) para habilitar la comunicación con el centro de conectividad y los sistemas locales.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una cuenta de Azure con una suscripción activa.
+- Una cuenta de Azure con una suscripción activa.    
 - Una nube privada de Azure VMware Solution implementada y en ejecución.
 
 ## <a name="deployment-and-configuration"></a>Implementación y configuración
@@ -73,11 +73,11 @@ La instancia de Application Gateway se implementa en el centro de una subred ded
 
 12. Agregue etiquetas y, a continuación, seleccione **Siguiente: Revisar y crear >** .
 
-13. Se ejecutará una validación en la instancia de Application Gateway. Si es correcta, seleccione **Crear** para implementar.
+13. Se ejecuta una validación en Application Gateway. Si el resultado es satisfactorio, seleccione **Crear** para realizar la implementación.
 
 ## <a name="configuration-examples"></a>Ejemplos de configuración
 
-Ahora vamos a configurar Application Gateway con máquinas virtuales de Azure VMware Solution como grupos de back-end para estos casos de uso: 
+Ahora va a configurar Application Gateway con máquinas virtuales de Azure VMware Solution como grupos de back-end para los siguientes casos de uso: 
 
 - [Hospedaje de varios sitios](#hosting-multiple-sites)
 - [Enrutamiento por dirección URL](#routing-by-url)
@@ -129,14 +129,14 @@ En los pasos siguientes se definen grupos de direcciones de back-end mediante m�
 
     Se ha usado Windows Server 2016 con el rol de IIS instalado para ilustrar este tutorial. Una vez instaladas las máquinas virtuales, ejecute los comandos de PowerShell siguientes para configurar IIS para cada tutorial de VM. 
 
-    La primera máquina virtual, contoso-web-01, hospedará el sitio web principal.
+    La primera máquina virtual, contoso-web-01, hospeda el sitio web principal.
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
     Add-Content -Path C:\inetpub\wwwroot\Default.htm -Value $($env:computername)
     ```
 
-    La segunda máquina virtual, contoso-web-02, hospedará el sitio de imágenes.
+    La segunda máquina virtual, contoso-web-02, hospeda el sitio de imágenes.
  
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -144,7 +144,7 @@ En los pasos siguientes se definen grupos de direcciones de back-end mediante m�
     Add-Content -Path C:\inetpub\wwwroot\images\test.htm -Value $($env:computername)
     ```
 
-    La tercera máquina virtual, contoso-web-03, hospedará el sitio de vídeos.
+    La tercera máquina virtual, contoso-web-03, hospeda el sitio de vídeos.
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -168,7 +168,7 @@ En los pasos siguientes se definen grupos de direcciones de back-end mediante m�
 
     :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-04.png" alt-text="Captura de pantalla de la página Agregar configuración HTTP que muestra la configuración de los valores HTTP.":::
 
-5. Cree las reglas en la sección **Reglas** del menú de la izquierda. Asocie cada regla con el cliente de escucha creado anteriormente. A continuación, configure el grupo de back-end principal y la configuración HTTP. Seleccione **Agregar**.
+5. Cree las reglas en la sección **Reglas** del menú izquierdo y asocie cada regla con el agente de escucha creado anteriormente. Después, configure el grupo de back-end principal y la configuración HTTP, y luego, seleccione **Agregar**.
 
     :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-07.png" alt-text="Captura de pantalla de la página Agregar una regla de enrutamiento para configurar las reglas de enrutamiento a un destino de back-end.":::
 
