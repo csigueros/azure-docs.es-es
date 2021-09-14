@@ -4,12 +4,12 @@ description: Batch admite Azure AD para la autenticación desde el servicio de B
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.custom: has-adal-ref, subject-rbac-steps
-ms.openlocfilehash: 52e34bb94ab151afcfcdc14d2de55e608d82a139
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c7f365c7db4a8bc273e67d66a56a826021306f3a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066761"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315095"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -81,10 +81,8 @@ Una vez que haya registrado la aplicación, siga estos pasos en Azure Portal par
 1. Busque el nombre de la aplicación en la lista de registros de aplicaciones.
 1. Seleccione la aplicación y, después, **Permisos de API**.
 1. En la sección **Permisos de API**, seleccione **Agregar un permiso**.
-1. En **Seleccionar una API**, busque la API de Batch. Busque cada una de estas cadenas hasta que encuentre la API:
-    1. **Microsoft Azure Batch**
-    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API.
-1. Una vez que encuentre Batch API, selecciónela y elija **Seleccionar**.
+1. En **Seleccionar una API**, busque "Microsoft Azure Batch" para encontrar Batch API. (**ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de aplicación de Batch API).
+1. Seleccione Batch API y, después, elija **Seleccionar**.
 1. En **Seleccionar permisos**, active la casilla situada junto a **Access Azure Batch Service** (Acceder al servicio Azure Batch) y haga clic en **Add permissions** (Agregar permisos).
 
 El panel **Permisos de API** muestra ahora que la aplicación de Azure AD tiene acceso tanto a Microsoft Graph como a la API del servicio Batch. La primera vez que registra la aplicación con Azure AD, se conceden permisos a Microsoft Graph automáticamente.

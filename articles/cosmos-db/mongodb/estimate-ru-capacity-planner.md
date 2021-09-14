@@ -5,17 +5,21 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 08/26/2021
 ms.author: dech
-ms.openlocfilehash: 10f03ce5d2171b28fa195f7f5c2b0f34a939eef0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a6c430462185ebac38c196d5aa80fc0d676f4911
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202810"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123030362"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner---azure-cosmos-db-api-for-mongodb"></a>Estimación del número de RU/s mediante la herramienta Capacity Planner de Azure Cosmos DB: API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-mongodb-api.md)]
+
+> [!NOTE]
+> Si planea una migración de datos a Azure Cosmos DB y solo sabe el número de servidores y núcleos virtuales de su clúster de bases de datos replicadas y con particiones, obtenga información también sobre cómo [calcular las unidades de solicitud mediante núcleos virtuales o vCPU](../convert-vcore-to-request-unit.md). 
+>
 
 Para optimizar el costo y el rendimiento, es esencial configurar las bases de datos y las colecciones con la cantidad adecuada de rendimiento aprovisionado, o [unidades de solicitud (RU/s)](../request-units.md). En este artículo se describe cómo usar la herramienta [Capacity Planner](https://cosmos.azure.com/capacitycalculator/) de Azure Cosmos DB para obtener una estimación del número de RU/s necesarias y el costo de la carga de trabajo al usar la API de Azure Cosmos DB para MongoDB. Si va a usar SQL API, consulte el artículo sobre cómo [usar la calculadora de capacidad con SQL API](../estimate-ru-with-capacity-planner.md).
 
@@ -70,7 +74,9 @@ Los precios que se muestran en la herramienta Capacity Planner de Azure Cosmos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
 * Obtenga más información sobre el [modelo de precios de Azure Cosmos DB](../how-pricing-works.md).
 * Cree una nueva [cuenta, base de datos y contenedor de Cosmos](../create-cosmosdb-resources-portal.md).
 * Obtenga información para [optimizar el costo del rendimiento aprovisionado](../optimize-cost-throughput.md).
 * Obtenga información para [optimizar el costo con capacidad reservada](../cosmos-db-reserved-capacity.md).
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de base de datos existente.

@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo Azure Cosmos DB proporciona protec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 08/30/2021
 ms.author: mjbrown
-ms.openlocfilehash: 19b4c8466e88159839ce1f43a5ba282b1bb3ec9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53e6ef24ba7f9df42ce15d62d11cf4f455825caa
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94636935"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439459"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Seguridad en Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -84,22 +84,194 @@ En la captura de pantalla siguiente se muestra cómo puede usar los registros de
 
 <a id="primary-keys"></a>
 
-## <a name="primary-keys"></a>Claves principales
+## <a name="primarysecondary-keys"></a>Claves principal o secundaria
 
-Las claves principales proporcionan acceso a todos los recursos administrativos de la cuenta de base de datos. Claves principales:
+Las claves principal o secundaria proporcionan acceso a todos los recursos administrativos de la cuenta de base de datos. Claves principal o secundaria:
 
 - Proporcionan acceso a cuentas, bases de datos, usuarios y permisos. 
 - No se pueden usar para proporcionar acceso pormenorizado a contenedores y documentos.
 - Se crean durante la creación de una cuenta.
 - Se pueden regenerar en cualquier momento.
 
-Cada cuenta consta de dos claves principales: una principal y una secundaria. El fin de las claves dobles es que pueda regenerar, o distribuir claves, lo que proporciona un acceso continuo a su cuenta y sus datos.
+Cada cuenta consta de dos claves: una principal y una secundaria. El fin de las claves dobles es que pueda regenerar, o distribuir claves, lo que proporciona un acceso continuo a su cuenta y sus datos.
 
-Además de las dos claves principales de la cuenta de Cosmos DB, hay dos claves de solo lectura. Estas claves de solo lectura permiten operaciones de lectura en la cuenta. Las claves de solo lectura no proporcionan acceso a los recursos de los permisos de lectura.
+Las claves principal y secundaria se incluyen en dos versiones: de lectura y escritura y de solo lectura. Las claves de solo lectura solo permiten operaciones de lectura en la cuenta, pero no proporcionan acceso a los recursos de permisos de lectura.
 
-Las claves principales (principal, secundaria, de solo lectura y de lectura y escritura) se pueden recuperar y volver a generar desde Azure Portal. Para ver instrucciones al respecto, consulte [Visualización, copia y regeneración de las claves de acceso](manage-with-cli.md#regenerate-account-key).
+### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> Rotación y regeneración de claves
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Control de acceso (IAM) en Azure Portal: demostración de la seguridad de bases de datos NoSQL":::
+El proceso de rotación y regeneración de claves es sencillo. En primer lugar, asegúrese de que **la aplicación usa de forma coherente la clave principal o la secundaria** para acceder a la cuenta de Azure Cosmos DB. Después, siga los pasos que se describen a continuación.
+
+# <a name="sql-api"></a>[SQL API](#tab/sql-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si la aplicación usa actualmente la clave principal
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Claves** en el menú de la izquierda y después **Regenerar clave secundaria** en los puntos suspensivos situados a la derecha de la clave secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+
+1. Compruebe que la nueva clave secundaria funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave principal por la clave secundaria en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si la aplicación usa actualmente la clave secundaria
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Claves** en el menú de la izquierda y después **Regenerar clave principal** en los puntos suspensivos situados a la derecha de la clave principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+1. Compruebe que la nueva clave principal funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave secundaria por la clave principal en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+
+# <a name="azure-cosmos-db-api-for-mongodb"></a>[Azure Cosmos DB API para MongoDB](#tab/mongo-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si la aplicación usa actualmente la clave principal
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Cadena de conexión** en el menú de la izquierda y después **Regenerar contraseña** en los puntos suspensivos situados a la derecha de la contraseña secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave secundaria" border="true":::
+
+1. Compruebe que la nueva clave secundaria funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave principal por la clave secundaria en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si la aplicación usa actualmente la clave secundaria
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Cadena de conexión** en el menú de la izquierda y después **Regenerar contraseña** en los puntos suspensivos situados a la derecha de la contraseña principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave principal" border="true":::
+
+1. Compruebe que la nueva clave principal funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave secundaria por la clave principal en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave secundaria" border="true":::
+
+# <a name="cassandra-api"></a>[Cassandra API](#tab/cassandra-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si la aplicación usa actualmente la clave principal
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Cadena de conexión** en el menú de la izquierda y después **Regenerar una contraseña secundaria de lectura y escritura** en los puntos suspensivos situados a la derecha de la contraseña secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+
+1. Compruebe que la nueva clave secundaria funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave principal por la clave secundaria en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si la aplicación usa actualmente la clave secundaria
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Cadena de conexión** en el menú de la izquierda y después **Regenerar una contraseña principal de lectura y escritura** en los puntos suspensivos situados a la derecha de la contraseña principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+1. Compruebe que la nueva clave principal funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave secundaria por la clave principal en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+
+# <a name="gremlin-api"></a>[Gremlin API](#tab/gremlin-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si la aplicación usa actualmente la clave principal
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Claves** en el menú de la izquierda y después **Regenerar clave secundaria** en los puntos suspensivos situados a la derecha de la clave secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+
+1. Compruebe que la nueva clave secundaria funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave principal por la clave secundaria en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si la aplicación usa actualmente la clave secundaria
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Claves** en el menú de la izquierda y después **Regenerar clave principal** en los puntos suspensivos situados a la derecha de la clave principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+1. Compruebe que la nueva clave principal funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave secundaria por la clave principal en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+
+# <a name="table-api"></a>[Table API](#tab/table-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si la aplicación usa actualmente la clave principal
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Cadena de conexión** en el menú de la izquierda y después **Regenerar clave secundaria** en los puntos suspensivos situados a la derecha de la clave secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+
+1. Compruebe que la nueva clave secundaria funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave principal por la clave secundaria en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si la aplicación usa actualmente la clave secundaria
+
+1. Vaya a la cuenta de Azure Cosmos DB en Azure Portal.
+
+1. Seleccione **Cadena de conexión** en el menú de la izquierda y después **Regenerar clave principal** en los puntos suspensivos situados a la derecha de la clave principal.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+
+1. Compruebe que la nueva clave principal funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
+
+1. Reemplace la clave secundaria por la clave principal en la aplicación.
+
+1. Vuelva a Azure Portal y desencadene la regeneración de la clave secundaria.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

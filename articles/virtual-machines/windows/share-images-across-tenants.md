@@ -1,23 +1,23 @@
 ---
 title: Compartir imágenes de la galería entre inquilinos de Azure
 description: Obtenga información sobre cómo compartir imágenes de máquina virtual entre inquilinos de Azure mediante Galerías de imágenes compartidas y PowerShell.
-author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61eee27866c7108ed6f1c1ef039ebb1aeafb0cbc
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: eb432b486815b9b2269eabb2631d4d4cb909df11
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677707"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225990"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>Uso compartido de imágenes de VM de la galería entre inquilinos de Azure mediante la CLI de Azure y PowerShell
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las galerías de imágenes compartidas le permiten compartir las imágenes mediante Azure RBAC. Puede usar Azure RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Para más información sobre esta opción de uso compartido simple, consulte [Compartir la galería](./shared-images-portal.md#share-the-gallery).
 

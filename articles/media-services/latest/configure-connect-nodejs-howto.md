@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: fcb9fd9f0539b42d9253db783fd5da840f358e66
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 7c6bba2084247d76a79de9ae9efb1b3ea356a5c4
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960731"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221490"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conexión a la API de Media Services v3: Node.js
 
@@ -47,7 +47,7 @@ Trabajará con algunos archivos de ejemplos de Azure. Clone el repositorio de ej
 git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
 ```
 
-## <a name="install-the-packages"></a>Instalación de los paquetes
+## <a name="install-the-nodejs-packages"></a>Instalación de paquetes de Node.js
 
 ### <a name="install-azurearm-mediaservices"></a>Instalar @azure/arm-mediaservices
 
@@ -96,11 +96,12 @@ En este ejemplo, utilizará los siguientes paquetes del archivo `package.json`.
 
 ## <a name="connect-to-nodejs-client-using-typescript"></a>Conexión con el cliente de Node.js mediante TypeScript
 
-
-
 ### <a name="sample-env-file"></a>Archivo *.env* de ejemplo
 
 Copie el contenido de este archivo en un archivo denominado *.env*. Debe almacenarse en la raíz del repositorio de trabajo. Estos son los valores que se obtuvieron de la página Acceso de API correspondiente a la cuenta de Media Services en el portal.
+
+Para acceder a los valores necesarios para escribir en el archivo *.env*, se recomienda primero leer y revisar el artículo de procedimiento de [Acceso a la API](./access-api-howto.md).
+Puede usar Azure Portal o la CLI para obtener los valores necesarios para escribir en el archivo de variables de entorno de este ejemplo.
 
 Después de crear el archivo *.env*, puede empezar a trabajar con los ejemplos.
 
@@ -137,7 +138,7 @@ DRM_SYMMETRIC_KEY="add random base 64 encoded string here"
 cd AMSv3Samples
 ```
 
-2. Instale los paquetes que se usan en el archivo *packages.json*.
+2. Instale los paquetes que se usan en el archivo *package.json*.
 
 ```
 npm install 

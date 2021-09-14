@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5caf348b1865b47521ec9df776fd08cc36db47fd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0151f4de30c3bf96fa8c0dca77c90282115c70d7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739976"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864376"
 ---
 # <a name="how-to-investigate-risk"></a>Instrucciones: Investigación de riesgos
 
@@ -76,7 +76,7 @@ A continuación, los administradores pueden elegir tomar medidas en estos evento
 - Confirmar la seguridad del inicio de sesión
 
 > [!NOTE] 
-> Identity Protection evalúa el riesgo de todos los flujos de autenticación, si es interactivo o no interactivo. Sin embargo, el informe de inicio de sesión muestra solo los inicios de sesión interactivos. Puede ver inicios de sesión peligrosos que se produjeron en inicios de sesión no interactivos, pero el inicio de sesión no se mostrará en el informe de inicios de sesión de Azure AD.
+> Identity Protection evalúa el riesgo de todos los flujos de autenticación, si es interactivo o no interactivo. El informe de inicio de sesión de riesgo ahora muestra inicios de sesión interactivos y no interactivos. Use el filtro de "tipo de inicio de sesión" para modificar esta vista.
 
 ## <a name="risk-detections"></a>Detecciones de riesgo
 

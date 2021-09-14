@@ -9,15 +9,15 @@ ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/27/2019
+ms.date: 08/31/2021
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 868d1280179d63bd07b7e01d5e807339439c02f0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 0621cc58b5cf76505de5e1f914114ad601e7a9bf
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163614"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316190"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configuración de notificaciones de grupo para aplicaciones con Azure Active Directory
 
@@ -31,6 +31,7 @@ Azure Active Directory puede proporcionar información de suscripción a un grup
 >
 > - La compatibilidad con el uso de los atributos del identificador de seguridad (SID) y de sAMAccountName sincronizados de forma local, está diseñada para permitir el traslado de aplicaciones existentes desde AD FS y otros proveedores de identidad. Los grupos administrados en Azure AD no contienen los atributos necesarios para emitir estas notificaciones.
 > - En organizaciones más grandes, la cantidad de grupos de los que un usuario es miembro puede exceder el límite que Azure Active Directory agregará a un token. 150 grupos para un token de SAML y 200 para uno de JWT. Esto puede llevar a resultados impredecibles. Si los usuarios tienen un gran número de pertenencias a grupos, se recomienda usar la opción para restringir los grupos emitidos en las notificaciones a los grupos pertinentes de la aplicación.
+> - Las notificaciones de grupo tienen un límite de 5 grupos si el token se emite a través del flujo implícito. Los tokens solicitados a través del flujo implícito solo tendrán una notificación "hasgroups":true si el usuario está en más de 5 grupos.
 > - En cuanto al desarrollo de nuevas aplicaciones, o en los casos en que la aplicación se puede configurar y donde no se requiere una compatibilidad de grupo anidada, le recomendamos que la autorización desde la aplicación se base en roles de aplicación en vez de en grupos.  De este modo, limitará la cantidad de información que se necesita para acceder al token; además, es más seguro y podrá separar la asignación de usuarios de la configuración de la aplicación.
 
 ## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Notificaciones de grupo para aplicaciones que migran de AD FS y otros proveedores de identidad

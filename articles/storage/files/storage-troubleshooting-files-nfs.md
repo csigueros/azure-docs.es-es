@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 3ad91e8a275fca61dfc70cdf98c84984ac08f754
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: e2cdcf3b42fbb71751644efbaa394c51d2f861fc
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862658"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258329"
 ---
 # <a name="troubleshoot-azure-nfs-file-share-problems"></a>Solución de problemas de recursos compartidos de archivos NFS de Azure
 
@@ -190,10 +190,10 @@ El error se introdujo en el kernel de Linux v5.11 y se corrigió en v5.12.5. Por
 Cambie a una versión anterior o posterior del kernel para resolver el problema.
 
 ## <a name="df-and-find-command-shows-inconsistent-results-on-clients-other-than-where-the-writes-happen"></a>El comando df y find muestra resultados incoherentes en clientes distintos de donde se produce la escritura
-Este es un problema conocido. Microsoft está trabajando activamente para resolverlo.
+Se trata de un problema conocido. Microsoft está trabajando activamente para resolverlo.
 
 ## <a name="application-fails-with-error-underlying-file-changed-by-an-external-force-when-using-exclusive-open"></a>Error "El archivo subyacente ha cambiado por una fuerza externa" en la aplicación al usar OPEN exclusivo 
-Este es un problema conocido. Microsoft está trabajando activamente para resolverlo.
+Se trata de un problema conocido. Microsoft está trabajando activamente para resolverlo.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

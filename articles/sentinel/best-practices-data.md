@@ -8,16 +8,16 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 30132d08a1094fc2bd4b7423ed787eadf77c2249
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 35b29ae6116e2e040f2383606fa20c5ab6316315
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178725"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253463"
 ---
 #  <a name="data-collection-best-practices"></a>Procedimientos recomendados para la recopilación de datos
 
-En esta sección se revisan los procedimientos recomendados para recopilar datos mediante conectores de datos de Azure Sentinel. Para obtener más información, consulte [Conexión de orígenes de datos](connect-data-sources.md), [Conectores de datos de partners de Azure Sentinel](partner-data-connectors.md) y el [catálogo de soluciones de Azure Sentinel](sentinel-solutions-catalog.md).
+En esta sección se revisan los procedimientos recomendados para recopilar datos mediante conectores de datos de Azure Sentinel. Para obtener más información, consulte [Conexión de orígenes de datos](connect-data-sources.md), la [referencia de conectores de datos de Azure Sentinel](data-connectors-reference.md) y el [catálogo de soluciones de Azure Sentinel](sentinel-solutions-catalog.md).
 
 ## <a name="prioritize-your-data-connectors"></a>Priorización de sus conectores de datos
 
@@ -25,7 +25,7 @@ Si no tiene claro qué conectores de datos satisfarán mejor las necesidades de 
 
 Los conectores de datos gratuitos empezarán a mostrar el valor de Azure Sentinel lo antes posible, mientras sigue planeando otros conectores de datos y presupuestos.
 
-En el caso de sus conectores de datos [de partners](partner-data-connectors.md) y [personalizados](create-custom-connector.md), empiece configurando los conectores [Syslog](connect-syslog.md) y [CEF](connect-common-event-format.md), primero los de mayor prioridad, así como dispositivos basados en Linux.
+En el caso de sus conectores de datos [de partners](data-connectors-reference.md) y [personalizados](create-custom-connector.md), empiece configurando los conectores [Syslog](connect-syslog.md) y [CEF](connect-common-event-format.md), primero los de mayor prioridad, así como dispositivos basados en Linux.
 
 Si el coste de la ingesta de datos aumenta demasiado rápido, detenga o filtre los registros reenviados usando el [agente de Azure Monitor](../azure-monitor/agents/azure-monitor-agent-overview.md).
 
@@ -101,7 +101,7 @@ Si necesita recopilar datos de Microsoft Office aparte de los del conector está
 |---------|---------|---------|
 |**Recopilación de datos sin procesar de Teams, seguimiento de mensajes, datos de phishing, etc.**     |    Use la funcionalidad integrada del [conector de Office 365](connect-office-365.md) y cree un conector personalizado para otros datos sin procesar.  |  La asignación de eventos al Id. de registro correspondiente puede plantear dificultades.  |
 |**Requiere RBAC para dividir países, departamentos, etc.**     | Personalice la recopilación de datos agregando etiquetas a los datos y creando áreas de trabajo dedicadas para cada separación necesaria.|   La recopilación de datos personalizada tiene costes extras de ingesta.     |
-|**Requiere varios inquilinos en una sola área de trabajo**     |  Personalice la recopilación de datos usando Azure LightHouse y una vista unificada de incidentes.|  La recopilación de datos personalizada tiene costes extras de ingesta.  <br><br>Para obtener más información, consulte [Extensión de Azure Sentinel por áreas de trabajo e inquilinos](extend-sentinel-across-workspaces-tenants.md).      |
+|**Requiere varios inquilinos en una sola área de trabajo**     |  Personalice la recopilación de datos usando Azure LightHouse y una vista unificada de incidentes.|  La recopilación de datos personalizada tiene costes extras de ingesta.  <br><br>Para obtener más información, consulte [Extender Azure Sentinel por áreas de trabajo e inquilinos](extend-sentinel-across-workspaces-tenants.md).      |
 | | | |
 
 ### <a name="cloud-platform-data"></a>Datos de plataforma de nube

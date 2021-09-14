@@ -2,13 +2,13 @@
 title: Directiva de compatibilidad con el runtime del lenguaje de Azure Functions
 description: Más información sobre la directiva de compatibilidad con el runtime del lenguaje de Azure Functions
 ms.topic: conceptual
-ms.date: 06/14/2021
-ms.openlocfilehash: c9a6b7346311106080fd57ad9428648a8332c79a
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.date: 08/17/2021
+ms.openlocfilehash: b3b5f7cf108fd18ed450a6837a5dd35ceb83dc60
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114219202"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303974"
 ---
 # <a name="language-runtime-support-policy"></a>Directiva de compatibilidad con el runtime del lenguaje
 
@@ -24,23 +24,27 @@ Enviaremos correos electrónicos de notificación a los usuarios de las aplicaci
 
 ### <a name="retirement-phase"></a>Fase de retirada
 
-* __Fase 1:__ en la fecha de fin de ciclo de vida de una versión del lenguaje, ya no puede crear nuevas aplicaciones de funciones destinadas a esa versión del lenguaje. Durante al menos 60 días después de esta fecha, las aplicaciones de funciones existentes pueden seguir ejecutándose en esa versión del lenguaje y se actualizan. Durante esta fase, se recomienda encarecidamente que actualice la versión del lenguaje de las aplicaciones de funciones afectadas a una versión compatible.
+A partir de la fecha de fin de ciclo de vida de una versión del lenguaje, ya no puede crear nuevas aplicaciones de funciones destinadas a esa versión del lenguaje.
 
-* __Fase 60:__ al menos 60 días después de la fecha de fin de ciclo de vida del lenguaje, ya no podemos garantizar que las aplicaciones de funciones destinadas a esta versión del lenguaje se sigan ejecutando en la plataforma. 
+Después de la fecha de finalización del ciclo de vida del lenguaje, las aplicaciones de funciones que usan versiones del lenguaje retiradas no podrán optar a nuevas características, revisiones de seguridad ni optimizaciones de rendimiento. Sin embargo, estas aplicaciones de funciones se seguirán ejecutando en la plataforma. 
+
+> [!IMPORTANT]
+>Se recomienda encarecidamente que actualice la versión del lenguaje de las aplicaciones de funciones afectadas a una versión compatible.   
+>Si ejecuta aplicaciones de funciones con una versión del lenguaje no compatible, tendrá que actualizarla para recibir soporte técnico para las aplicaciones de funciones.
 
 
 ## <a name="retirement-policy-exceptions"></a>Excepciones a la directiva de retirada
 
 Hay algunas excepciones a la directiva de retirada descrita anteriormente. Esta es una lista de lenguajes que se encuentran próximos a sus fechas de fin de ciclo de vida o las han alcanzado, pero siguen admitiéndose en la plataforma hasta nuevo aviso. Cuando estas versiones del lenguaje alcanzan sus fechas de fin de ciclo de vida, ya no se actualizan ni revisan. Por ello, no le recomendamos que desarrolle ni ejecute las aplicaciones de funciones en estas versiones del lenguaje.
 
-|Versiones del lenguaje                        |Fecha de EOL         |Fecha de retirada esperada|
+|Versiones del lenguaje                        |Fecha de EOL         |Fecha de retirada|
 |-----------------------------------------|-----------------|----------------|
 |.NET 5|Febrero de 2022|TBA|
-|Nodo 6|30 de abril de 2019|TBA| 
-|Nodo 8|31 de diciembre de 2019|TBA| 
-|Nodo 10|30 de abril de 2021|TBA| 
-|PowerShell Core 6| 4 de septiembre de 2020|TBA|
-|Python 3.6 |23 de diciembre de 2021|TBA| 
+|Nodo 6|30 de abril de 2019|28 de febrero de 2022| 
+|Nodo 8|31 de diciembre de 2019|28 de febrero de 2022| 
+|Nodo 10|30 de abril de 2021|30 de septiembre de 2022| 
+|PowerShell Core 6| 4 de septiembre de 2020|30 de septiembre de 2022|
+|Python 3.6 |23 de diciembre de 2021|30 de septiembre de 2022| 
  
 
 ## <a name="language-version-support-timeline"></a>Escala de tiempo del soporte técnico de la versión del lenguaje

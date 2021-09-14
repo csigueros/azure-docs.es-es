@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/06/2021
-ms.openlocfilehash: 0f4ed167fc1fd77e4b16b1f06a5beaa3ba9aef14
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.date: 08/30/2021
+ms.openlocfilehash: cad2ac9319eb674cb8022ff5ce3d2df2a57df648
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122202070"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224700"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -188,54 +188,59 @@ Las programaciones también se pueden definir para instancias de proceso de [cre
 1. Seleccione de nuevo **Agregar programación** si desea crear otra programación.
 
 Una vez creada la instancia de proceso, puede ver, editar o agregar nuevas programaciones en la sección de detalles de la instancia de proceso.
+Tenga en cuenta que las etiquetas de zona horaria no tienen en cuenta el horario de verano. Por ejemplo, (UTC +01:00) Ámsterdam, Berlín, Berna, Roma, Estocolmo, Viena en realidad es UTC +02:00 durante el horario de verano.
 
 ### <a name="create-a-schedule-with-a-resource-manager-template"></a>Creación de una programación con una plantilla de Resource Manager
 
-Puede programar el inicio y la detención automáticos de una instancia de proceso mediante una plantilla de Resource Manager.  En una plantilla de Resource Manager, use expresiones de Cron o LogicApps para definir una programación para iniciar o detener la instancia.  
+Puede programar el inicio y la detención automáticos de una instancia de proceso mediante una [plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance) de Resource Manager.
 
+En la plantilla de Resource Manager, agregue:
+
+```
+"schedules": "[parameters('schedules')]"
+```
+
+A continuación, use expresiones de cron o LogicApps para definir la programación que inicia o detiene la instancia en el archivo de parámetros:
+ 
 ```json
-"schedules": {
-  "computeStartStop": [
-      {
-      "triggerType": "Cron",
-      "cron": {
-          "startTime": "2021-03-10T21:21:07",
-          "timeZone": "Pacific Standard Time",
-          "expression": "0 18 * * *"
-      },
-      "action": "Stop",
-      "status": "Enabled"
-      },
-      {
-      "triggerType": "Cron",
-      "cron": {
-          "startTime": "2021-03-10T21:21:07",
-          "timeZone": "Pacific Standard Time",
-          "expression": "0 8 * * *"
-      },
-      "action": "Start",
-      "status": "Enabled"
-      },
-      { 
-      "triggerType": "Recurrence", 
-      "recurrence": { 
-          "frequency": "Day", 
-          "interval": 1,
-          "timeZone": "Pacific Standard Time", 
-        "schedule": { 
-          "hours": [18], 
-          "minutes": [0], 
-          "weekDays": [ 
-              "Saturday", 
-              "Sunday"
-          ] 
+        "schedules": {
+        "value": {
+        "computeStartStop": [
+          {
+            "triggerType": "Cron",
+            "cron": {              
+              "timeZone": "UTC",
+              "expression": "0 18 * * *"
+            },
+            "action": "Stop",
+            "status": "Enabled"
+          },
+          {
+            "triggerType": "Cron",
+            "cron": {              
+              "timeZone": "UTC",
+              "expression": "0 8 * * *"
+            },
+            "action": "Start",
+            "status": "Enabled"
+          },
+          { 
+            "triggerType": "Recurrence", 
+            "recurrence": { 
+              "frequency": "Day", 
+              "interval": 1, 
+              "timeZone": "UTC", 
+              "schedule": { 
+                "hours": [17], 
+                "minutes": [0]
+              } 
+            }, 
+            "action": "Stop", 
+            "status": "Enabled" 
           } 
-      }, 
-      "action": "Stop", 
-      "status": "Enabled" 
-      } 
-  ]
-}
+        ]
+      }
+    }
 ```
 
 * La acción puede tener el valor "Iniciar" o "Detener".
@@ -261,7 +266,7 @@ Puede programar el inicio y la detención automáticos de una instancia de proce
     // hyphen (meaning an inclusive range). 
     ```
 
-Use una directiva de Azure para que se aplique una programación de apagado para cada instancia de proceso de una suscripción o una programación predeterminada si no existe nada.
+Use Azure Policy para que se aplique una programación de apagado para cada instancia de proceso de una suscripción o una programación predeterminada si no existe nada.
 
 ## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> Personalización de la instancia de proceso con un script (versión preliminar)
 
@@ -293,23 +298,11 @@ En el script se pueden hacer referencia a los argumentos del script como $1, $2,
 
 Si el script estaba haciendo algo específico de azureuser, como instalar el entorno de Conda o el kernel de Jupyter, tendrá que colocarlo en el bloque *sudo -u azureuser* de este modo.
 
-```shell
-#!/bin/bash
+:::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
 
-set -e
-
-# This script installs a pip package in compute instance azureml_py38 environment
-
-sudo -u azureuser -i <<'EOF'
-# PARAMETERS
-PACKAGE=numpy
-ENVIRONMENT=azureml_py38 
-conda activate "$ENVIRONMENT"
-pip install "$PACKAGE"
-conda deactivate
-EOF
-```
 El comando *sudo -u azureuser* cambia el directorio de trabajo actual a */home/azureuser*. Tampoco puede acceder a los argumentos del script de este bloque.
+
+Para ver otros scripts de ejemplo, consulte [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup-ci).
 
 También puede usar las siguientes variables de entorno en el script:
 
@@ -318,7 +311,8 @@ También puede usar las siguientes variables de entorno en el script:
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. Esta apunta a azureuser.
 
-Puede usar el script de instalación junto con la directiva de Azure para aplicar o establecer de forma predeterminada un script de instalación para cada creación de instancia de proceso.
+Puede usar el script de instalación junto con **Azure Policy para aplicar o establecer de forma predeterminada un script de instalación para cada creación de instancia de proceso**. El valor predeterminado para el tiempo de espera del script de instalación es de 15 minutos. Esto se puede cambiar desde la interfaz de usuario de Studio o de las plantillas de ARM mediante el parámetro DURATION.
+DURATION es un número de punto flotante con un sufijo opcional: "s" para segundos (valor predeterminado), "m" para minutos, "h" para horas o "d" para días.
 
 ### <a name="use-the-script-in-the-studio"></a>Uso del script en Studio
 

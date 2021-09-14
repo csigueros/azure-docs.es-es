@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 84934668c36d518e65c8997f72309a5ca3eb8fbe
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: fe8fd05dfc43fc4ff98182f90e3459af28529127
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112118491"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254111"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Introducción a las opciones de autenticación basada en la identidad de Azure Files con el acceso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -119,7 +119,7 @@ En el caso de la autenticación de Azure AD DS, debe habilitar Azure AD Domai
 
 Este diagrama representa el flujo de trabajo para la autenticación de Azure AD DS en recursos compartidos de archivos de Azure a través de SMB. Sigue un patrón similar a la autenticación de AD DS local en recursos compartidos de archivos de Azure. Hay dos diferencias principales:
 
-- En primer lugar, no es necesario crear la identidad en Azure AD DS para representar la cuenta de almacenamiento. Esto lo realiza el proceso de habilitación en segundo plano.
+- En primer lugar, no es necesario crear la identidad en Azure AD DS para representar la cuenta de almacenamiento. Esto lo realiza el proceso de habilitación en segundo plano.
 
 - En segundo lugar, todos los usuarios que existen en Azure AD se pueden autenticar y autorizar. El usuario puede ser híbrido o estar solo en la nube. La plataforma administra la sincronización de Azure AD con Azure AD DS sin necesidad de ninguna configuración de usuario. Pero el cliente debe estar unido a un dominio para Azure AD DS, no puede estar registrado o unido a Azure AD. 
 

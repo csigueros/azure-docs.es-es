@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Descripción de las funcionalidades y la finalidad de Azure Digital Twins Explorer
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 8/24/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 873e1a9fc0fdda5c331112d02a1b6111e336193e
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 8006a98f91434243a94d24f6f7154e5856321744
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253648"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227069"
 ---
 # <a name="azure-digital-twins-explorer-preview"></a>Azure Digital Twins Explorer (versión preliminar)
 
@@ -25,7 +25,7 @@ Esta es una vista de la ventana del explorador, en la que se muestran los modelo
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra modelos y gemelos de ejemplo." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
-La interfaz visual es una excelente herramienta para explorar y comprender la forma del grafo y el conjunto de modelos, así como para realizar cambios ad hoc específicos en gemelos y relaciones individuales.
+La interfaz visual es una gran herramienta para explorar y comprender la forma de su grafo y conjunto de modelos. También permite realizar cambios puntuales en gemelos y relaciones individuales.
 
 Este artículo contiene más información sobre Azure Digital Twins Explorer como, por ejemplo, sus casos de uso y un resumen general de sus características. Para obtener pasos detallados sobre el uso de cada característica, consulte [Uso de Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
 
@@ -35,7 +35,7 @@ Azure Digital Twins Explorer es una herramienta visual diseñada para los usuari
 
 Los desarrolladores pueden encontrar esta herramienta especialmente útil en los escenarios siguientes:
 * **Exploración**: use el explorador para obtener información sobre Azure Digital Twins y la forma en que representa su entorno real. Importe modelos y grafos de ejemplo que pueda ver y editar para familiarizarse con el servicio. Si desea ver pasos guiados para empezar a usar Azure Digital Twins Explorer, consulte [Introducción a Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
-* **Desarrollo**: use el explorador para ver y validar el grafo del gemelo, así como para investigar propiedades específicas de modelos, gemelos y relaciones. Realice modificaciones ad hoc en el grafo y sus datos. Para obtener instrucciones detalladas sobre cómo usar cada característica, consulte [Uso de Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
+* **Desarrollo**: use el explorador para ver y validar el grafo gemelo. También puede usarlo para investigar propiedades específicas de modelos, gemelos y relaciones. Realice modificaciones de acceso puntual en el grafo y sus datos. Para obtener instrucciones detalladas sobre cómo usar cada característica, consulte [Uso de Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
 
 El propósito principal del explorador es ayudarle a visualizar y comprender el grafo, y actualizarlo según sea necesario. Para soluciones a gran escala y para trabajos que se deben repetir o automatizar, considere la posibilidad de usar [API y SDK](./concepts-apis-sdks.md) para interactuar con la instancia mediante código.
 
@@ -69,7 +69,7 @@ Para ver las instrucciones para contribuir a esta documentación, visite la [Gu�
 
 Azure Digital Twins Explorer está disponible para su uso con todas las instancias de Azure Digital Twins en todas las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
-Sin embargo, durante la versión preliminar pública, los datos se pueden enviar para su procesamiento a través de regiones diferentes de la región donde se hospeda la instancia. Para evitar esto en situaciones en las que la soberanía de datos es un problema, puede descargar el [código fuente abierto](#how-to-contribute) para crear una versión hospedada localmente del explorador en su propia máquina.
+Sin embargo, durante la versión preliminar pública, los datos se pueden enviar para su procesamiento a través de regiones diferentes de la región donde se hospeda la instancia. Para evitar que los datos de enruten de esta manera en situaciones en las que la soberanía de datos es un problema, puede descargar el [código fuente abierto](#how-to-contribute) para crear una versión hospedada localmente del explorador en su propia máquina.
 
 ### <a name="billing"></a>Facturación
 

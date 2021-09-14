@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Descubra cómo Azure Digital Twins usa modelos personalizados para describir las entidades del entorno.
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 8/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8590f10f521841d0f483b82bd2e8e9e7d0b3528d
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: bfcaa516485b5ab1320db859f00a6f1709b7ef79
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253486"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224881"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -38,24 +38,24 @@ No todos los servicios que usan DTDL implementan las mismas características exa
 
 Para que un modelo de DTDL sea compatible con Azure Digital Twins, tiene que cumplir estos requisitos:
 
-* Todos los elementos de DTDL de nivel superior de un modelo deben ser de tipo *interfaz*. Esto se debe a que las API del modelo de Azure Digital Twins pueden recibir objetos JSON que representan una interfaz o una matriz de interfaces. Como resultado, no se permite ningún otro tipo de elemento de DTDL en el nivel superior.
+* Todos los elementos de DTDL de nivel superior de un modelo deben ser de tipo *interfaz*. El motivo para este requisito es que las API del modelo de Azure Digital Twins pueden recibir objetos JSON que representan una interfaz o una matriz de interfaces. Como resultado, no se permite ningún otro tipo de elemento de DTDL en el nivel superior.
 * DTDL para Azure Digital Twins no debe definir ningún *comando*.
-* Azure Digital Twins solo permite un único nivel de anidamiento de componente. Esto significa que una interfaz que se usa como componente no puede tener ningún componente. 
+* Azure Digital Twins solo permite un único nivel de anidamiento de componentes; es decir, una interfaz que se usa como componente no puede tener ningún componente en sí. 
 * Las interfaces no pueden ser definidas insertadas en línea dentro de otras interfaces de DTDL, sino que deben definirse como entidades independientes de nivel superior con sus propios identificadores. A continuación, cuando otra interfaz quiere incluir esa interfaz como componente o a través de la herencia, puede hacer referencia a su identificador.
 
-Azure Digital Twins tampoco observa el atributo `writable` en las propiedades o relaciones. Aunque esto puede establecerse según las especificaciones de DTDL, el valor no lo usa Azure Digital Twins. En su lugar, siempre se tratan como grabables por parte de los clientes externos que tienen permisos de escritura generales en el servicio Azure Digital Twins.
+Azure Digital Twins tampoco observa el atributo `writable` en las propiedades ni relaciones. Aunque este atributo puede establecerse según las especificaciones de DTDL, Azure Digital Twins no usa el valor. En su lugar, estos atributos siempre se tratan como grabables por parte de los clientes externos que tienen permisos de escritura generales en el servicio Azure Digital Twins.
 
 ## <a name="model-overview"></a>Introducción al modelo
 
 ### <a name="elements-of-a-model"></a>Elementos de un modelo
 
-Dentro de una definición de modelo, el elemento de código de nivel superior es una **interfaz**. Encapsula todo el modelo y el resto del modelo se define dentro de la interfaz. 
+Dentro de una definición de modelo, el elemento de código de nivel superior es una **interfaz**. Este tipo encapsula todo el modelo y el resto del modelo se define dentro de la interfaz. 
 
 Una interfaz de modelo de DTDL puede contener cero, uno o varios de los campos siguientes:
 * **Propiedad**: las propiedades son campos de datos que representan el estado de una entidad (como las propiedades de muchos lenguajes de programación orientados a objetos). Las propiedades tienen almacenamiento de seguridad y se pueden leer en cualquier momento. Para más información, consulte la sección [Propiedades y telemetría](#properties-and-telemetry) a continuación.
 * **Telemetría**: los campos de telemetría representan medidas o eventos y a menudo se usan para describir las lecturas de los sensores del dispositivo. A diferencia de las propiedades, la telemetría no se almacena en un gemelo digital; es una serie de eventos de datos con límites temporales, que deben administrarse a medida que se producen. Para más información, consulte la sección [Propiedades y telemetría](#properties-and-telemetry) a continuación.
-* **Relación**: las relaciones permiten representar cómo un gemelo digital puede estar implicado con otros gemelos digitales. Las relaciones pueden representar distintos significados semánticos, como *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Las relaciones permiten que la solución proporcione un grafo de las entidades interrelacionadas. Las relaciones también pueden tener propiedades propias. Para obtener más información, consulte [Relaciones](#relationships) a continuación.
-* **Componente**: los componentes permiten compilar la interfaz de modelo como un ensamblado de otras interfaces, si lo desea. Un ejemplo de componente es una interfaz *cámaraFrontal* (y otra interfaz de componente *cámaraPosterior*) que se usa para definir un modelo para un *teléfono*. Primero debe definir una interfaz para *cámaraFrontal* como si fuera su propio modelo y, luego, puede hacer referencia a ella al definir el *Teléfono*.
+* **Relación**: las relaciones permiten representar cómo un gemelo digital puede estar implicado con otros gemelos digitales. Las relaciones pueden representar distintos significados semánticos, como *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), y así sucesivamente. Las relaciones permiten que la solución proporcione un grafo de las entidades interrelacionadas. Las relaciones también pueden tener propiedades propias. Para obtener más información, consulte [Relaciones](#relationships) a continuación.
+* **Componente**: los componentes permiten compilar la interfaz de modelo como un ensamblado de otras interfaces, si lo desea. Un ejemplo de componente es una interfaz *cámaraFrontal* (y otra interfaz de componente *cámaraPosterior*) que se usa para definir un modelo para un *teléfono*. Primero defina una interfaz para *cámaraFrontal* como si fuera su propio modelo y, luego, puede hacer referencia a ella al definir el *Teléfono*.
 
     Use un componente para describir algo que es una parte integral de la solución, pero no necesita una identidad independiente y no es necesario crearla, eliminarla ni reorganizarla en el grafo de gemelos de forma independiente. Si quiere que las entidades tengan existencias independientes en el grafo de gemelos, represéntelas como gemelos digitales independientes de distintos modelos conectadas por **relaciones**.
     
@@ -70,7 +70,7 @@ Una interfaz de modelo de DTDL puede contener cero, uno o varios de los campos s
 
 ### <a name="model-code"></a>Código del modelo
 
-Los modelos de tipo gemelo se pueden escribir en cualquier editor de texto. El lenguaje DTDL sigue la sintaxis JSON, por lo que debe almacenar los modelos con la extensión .json. El uso de la extensión JSON permitirá que muchos editores de texto de programación proporcionen comprobación de sintaxis básica y resaltado para los documentos de DTDL. También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/).
+Los modelos de tipo gemelo se pueden escribir en cualquier editor de texto. El lenguaje DTDL sigue la sintaxis JSON, por lo que debe almacenar los modelos con la extensión .json. El uso de la extensión JSON permitirá que muchos editores de texto de programación proporcionen comprobación de sintaxis básica y resaltado para los documentos de DTDL. También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/).
 
 Los campos del modelo son los siguientes:
 
@@ -79,7 +79,7 @@ Los campos del modelo son los siguientes:
 | `@id` | Identificador del modelo. Debe tener el formato `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. |
 | `@type` | Identifica el tipo de información que se describe. En el caso de una interfaz, el tipo es *Interfaz*. |
 | `@context` | Establece el [contexto](https://niem.github.io/json/reference/json-ld/context/) del documento JSON. Los modelos deben usar `dtmi:dtdl:context;2`. |
-| `displayName` | [opcional] Permite asignar un nombre descriptivo al modelo, si lo desea. |
+| `displayName` | [opcional] Le da la opción de definir un nombre descriptivo para el modelo. |
 | `contents` | Todos los datos restantes de la interfaz se colocan aquí, como una matriz de definiciones de atributo. Cada atributo debe especificar un valor de `@type` (**property**, **telemetry**, **command**, **relationship** o **component**) para identificar el tipo de información de la interfaz que describe y, después, un conjunto de propiedades que definen el atributo real (por ejemplo, `name` y `schema` para definir **property**). |
 
 #### <a name="example-model"></a>Ejemplo del modelo
@@ -98,17 +98,17 @@ Para obtener una lista completa de los campos que pueden aparecer como parte de 
 
 ### <a name="difference-between-properties-and-telemetry"></a>Diferencia entre propiedades y telemetría
 
-A continuación se ofrecen instrucciones adicionales para distinguir entre **propiedades** y **telemetría** de DTDL en Azure Digital Twins.
-* Se espera que las **propiedades** tengan almacenamiento de seguridad. Esto significa que puede leer una propiedad en cualquier momento y recuperar su valor. Si la propiedad es de escritura, también puede almacenar un valor en ella.  
+A continuación se ofrecen instrucciones para distinguir entre **propiedades** y **telemetría** de DTDL en Azure Digital Twins.
+* Se espera que las **propiedades** tengan almacenamiento auxiliar, lo que significa que puede leer una propiedad en cualquier momento y recuperar su valor. Si la propiedad es de escritura, también puede almacenar un valor en ella.  
 * La **telemetría** es más similar a un flujo de eventos; es un conjunto de mensajes de datos que tienen una duración breve. Si no configura la escucha del evento y las acciones que deben realizarse cuando tiene lugar, no hay ningún seguimiento del evento en un momento posterior. No puede volver y leerlo más tarde. 
   - En términos de C#, la telemetría es como un evento de C#. 
   - En términos de IoT, la telemetría suele ser una medida única que envía un dispositivo.
 
-La **telemetría** se usa a menudo con dispositivos de IoT, ya que muchos dispositivos no son capaces de almacenar los valores de medida que generan, o no les interesa hacerlo. Simplemente las envían como un flujo de eventos de "telemetría". En este caso, no se puede consultar al dispositivo en cualquier momento el valor más reciente del campo de telemetría. En su lugar, deberá escuchar los mensajes desde el dispositivo y tomar medidas a medida que lleguen los mensajes. 
+La **telemetría** se usa a menudo con dispositivos de IoT, ya que muchos dispositivos no son capaces de almacenar los valores de medida que generan, o no les interesa hacerlo. En su lugar, los envían como un flujo de eventos de "telemetría". En este caso, no puede consultar al dispositivo en cualquier momento el valor más reciente del campo de telemetría. Tendrá que escuchar los mensajes desde el dispositivo y tomar medidas a medida que lleguen los mensajes. 
 
-Como consecuencia, al diseñar un modelo en Azure Digital Twins, es probable que use **propiedades** en la mayoría de los casos para modelar los gemelos. Esto le permite tener el almacenamiento de seguridad y la capacidad de leer y consultar los campos de datos.
+Como consecuencia, al diseñar un modelo en Azure Digital Twins, es probable que use **propiedades** en la mayoría de los casos para modelar los gemelos. De esta manera, puede tener el almacenamiento auxiliar, y la capacidad de leer y consultar los campos de datos.
 
-La telemetría y las propiedades a menudo funcionan en conjunto para controlar la entrada de datos desde dispositivos. Como toda la entrada a Azure Digital Twins se realiza a través de [API](concepts-apis-sdks.md), normalmente usará la función de entrada para leer los eventos de telemetría o propiedad de los dispositivos, y establecer una propiedad en Azure Digital Twins en respuesta. 
+La telemetría y las propiedades a menudo funcionan en conjunto para controlar la entrada de datos desde dispositivos. Como toda la entrada a Azure Digital Twins se realiza a través de las [API](concepts-apis-sdks.md), normalmente usará la función de entrada para leer los eventos de telemetría o propiedad de los dispositivos, y establecer una propiedad en Azure Digital Twins en respuesta. 
 
 También puede publicar un evento de telemetría desde la API de Azure Digital Twins. Como con otros tipos de telemetría, es un evento de corta duración que requiere un agente de escucha para el control.
 
@@ -202,9 +202,9 @@ Si otros modelos de esta solución también deben contener un termostato, pueden
 
 ## <a name="model-inheritance"></a>Herencia de modelo
 
-En algunas ocasiones, puede que quiera especializar aún más un modelo. Por ejemplo, podría resultar útil tener un modelo genérico Sala y las variantes especializadas SalaDeConferencias y Gimnasio. Para expresar la especialización, **DTDL admite la herencia**. Las interfaces pueden heredar de una o varias interfaces. Para ello, hay que agregar un campo `extends` al modelo.
+En algunas ocasiones, puede que quiera especializar aún más un modelo. Por ejemplo, podría resultar útil tener un modelo genérico Sala y las variantes especializadas SalaDeConferencias y Gimnasio. Para expresar la especialización, **DTDL admite la herencia**. Las interfaces pueden heredar de una o varias interfaces. Para ello, tiene que agregar un campo `extends` al modelo.
 
-La sección `extends` es un nombre de interfaz o una matriz de nombres de interfaz (lo que permite que la interfaz de extensión herede de varios modelos primarios si lo desea). Un único elemento primario puede servir como modelo base para varias interfaces de extensión.
+La sección `extends` es un nombre de interfaz o una matriz de nombres de interfaz (lo que permite que la interfaz de extensión herede de varios modelos primarios). Un único elemento primario puede servir como modelo base para varias interfaces de extensión.
 
 En el ejemplo siguiente se recrea el modelo Home del ejemplo de DTDL anterior como subtipo de un modelo "central" mayor. Primero se define el modelo (Core) y, después, el modelo secundario (Home) se basa en él mediante `extends`.
 
@@ -230,13 +230,13 @@ Al diseñar modelos para que reflejen las entidades de su entorno, puede resulta
 
 ## <a name="modeling-tools"></a>Herramientas de creación de modelos
 
-Hay varios ejemplos disponibles para que sea aún más fácil usar modelos y ontologías. Se encuentran en este repositorio: [Herramientas del Lenguaje de definición de Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
+Hay varios ejemplos disponibles para que sea aún más fácil usar modelos y ontologías. Se encuentran en este repositorio: [Herramientas para el Lenguaje de definición de Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
 
 En esta sección se describe con más detalle el conjunto de ejemplos actual.
 
 ### <a name="model-uploader"></a>Usuario de carga del modelo 
 
-Una vez que haya terminado de crear, extender o seleccionar los modelos, puede cargarlos en la instancia de Azure Digital Twins para que estén disponibles para su uso en la solución. Esto se realiza mediante las [API de Azure Digital Twins](concepts-apis-sdks.md), tal y como se describe en [Administración de modelos de Azure Digital Twins](how-to-manage-model.md#upload-models).
+Una vez que haya terminado de crear, extender o seleccionar los modelos, puede cargarlos en la instancia de Azure Digital Twins para que estén disponibles para su uso en la solución. Para ello, puede usar las [API de Azure Digital Twins](concepts-apis-sdks.md), según se describe en [Administración de modelos de Azure Digital Twins](how-to-manage-model.md#upload-models).
 
 Sin embargo, si tiene muchos modelos para cargar, o si estos tienen muchas interdependencias que dificultarían la ordenación de las cargas individuales, puede usar el [ejemplo del usuario de carga de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels) para cargar muchos modelos a la vez. Siga las instrucciones que se proporcionan con el ejemplo para configurar y usar este proyecto para cargar modelos en su propia instancia.
 

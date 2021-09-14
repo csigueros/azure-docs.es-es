@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 08/25/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ac1afe3658db60297735e897d69caa463358a4c
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ece3693fa183ba31de569e7db632c3d294c10437
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318394"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187188"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Uso de scripts de implementación en plantillas de Resource Manager
 
@@ -38,43 +38,45 @@ El recurso de script de implementación solo está disponible en las regiones do
 > [!IMPORTANT]
 > Se necesita una cuenta de almacenamiento y una instancia de contenedor para la ejecución de scripts y la solución de problemas. Tiene las opciones para especificar una cuenta de almacenamiento existente; de lo contrario, el servicio de script crea automáticamente la cuenta de almacenamiento, junto con la instancia del contenedor. Normalmente, el servicio de script elimina los dos recursos creados automáticamente cuando la ejecución del script de implementación llega a un estado terminal. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
 
-> [!IMPORTANT]
-> La versión 2020-10-01 de la API de recursos de deploymentScripts admite [OnBehalfofTokens(OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Mediante OBO, el servicio de scripts de implementación utiliza el token de la entidad de seguridad de la implementación para crear los recursos subyacentes para la ejecución de scripts de implementación, entre los que se incluyen Azure Container Instances, las cuentas de Azure Storage y las asignaciones de roles de la identidad administrada. En la versión anterior de la API, la identidad administrada se usa para crear estos recursos.
-> La lógica de reintento de inicio de sesión de Azure está ahora integrada en el script contenedor. Si concede permisos en la misma plantilla en la que se ejecutan los scripts de implementación, el servicio del script de implementación volverá a intentar el inicio de sesión durante 10 minutos a intervalos de 10 segundos hasta que se replique la asignación de roles de la identidad administrada.
+> [!NOTE]
+> La lógica de reintento de inicio de sesión de Azure está ahora integrada en el script contenedor. Si concede permisos en la misma plantilla que los scripts de implementación, el servicio de scripts de implementación vuelve a intentar iniciar sesión durante 10 minutos con intervalos de 10 segundos hasta que se replica la asignación de roles de identidad administrada.
 
 ## <a name="configure-the-minimum-permissions"></a>Configuración de los permisos mínimos
 
-Con la API del script de implementación versión 2020-10-01 o posterior, la entidad de seguridad de implementación se usa para crear los recursos subyacentes necesarios para que el recurso del script de implementación se ejecute: una cuenta de almacenamiento y una instancia de contenedor de Azure. Si el script tiene que autenticarse en Azure y realizar acciones específicas de Azure, se recomienda proporcionar el script con una identidad administrada asignada por el usuario. La identidad administrada debe tener el acceso necesario para completar la operación del script.
+En el caso de la API de script de implementación versión 2020-10-01 o posterior, hay dos entidades de seguridad involucradas en la ejecución del script de implementación:
 
-Para configurar los permisos con privilegios mínimos, necesita:
+- **Entidad de seguridad de implementación** (la entidad de seguridad usada para implementar la plantilla): esta entidad de seguridad se usa para crear los recursos subyacentes necesarios para que el recurso del script de implementación se ejecute: una cuenta de almacenamiento y una instancia de contenedor de Azure. Para configurar los permisos con menos privilegios, asigne un rol personalizado con las siguientes propiedades a la entidad de seguridad de implementación:
 
-- Asignar un rol personalizado con las siguientes propiedades a la entidad de seguridad de implementación:
+    ```json
+    {
+      "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
+      "description": "Configure least privilege for the deployment principal in deployment script",
+      "type": "customRole",
+      "IsCustom": true,
+      "permissions": [
+        {
+          "actions": [
+            "Microsoft.Storage/storageAccounts/*",
+            "Microsoft.ContainerInstance/containerGroups/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/deploymentScripts/*"
+          ],
+        }
+      ],
+      "assignableScopes": [
+        "[subscription().id]"
+      ]
+    }
+    ```
 
-  ```json
-  {
-    "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
-    "description": "Configure least privilege for the deployment principal in deployment script",
-    "type": "customRole",
-    "IsCustom": true,
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Storage/storageAccounts/*",
-          "Microsoft.ContainerInstance/containerGroups/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/deploymentScripts/*"
-        ],
-      }
-    ],
-    "assignableScopes": [
-      "[subscription().id]"
-    ]
-  }
-  ```
+    Si los proveedores de recursos de Azure Storage y de Instancia de Azure Container no se han registrado, también debe agregar `Microsoft.Storage/register/action` y `Microsoft.ContainerInstance/register/action`.
 
-  Si los proveedores de recursos de Azure Storage y de Instancia de Azure Container no se han registrado, también debe agregar `Microsoft.Storage/register/action` y `Microsoft.ContainerInstance/register/action`.
+- **Entidad de seguridad de implementación**: Esta entidad de seguridad solo es necesaria si el script de implementación tiene que autenticarse en Azure y llamar a la CLI de Azure o PowerShell. Hay dos maneras de especificar la entidad de seguridad del script de implementación:
 
-- Si se usa una identidad administrada, la entidad de seguridad de implementación necesita que el rol **Operador de identidades administradas** (un rol integrado) esté asignado al recurso de identidad administrada.
+  - Especifique una identidad administrada asignada por el usuario en la propiedad `identity` (consulte [Plantillas de ejemplo](#sample-templates)). Cuando se especifica, el servicio de script llama a `Connect-AzAccount -Identity` antes de invocar el script de implementación. La identidad administrada debe tener el acceso necesario para completar la operación del script. Actualmente, solo se admiten identidades asignadas por el usuario para la propiedad `identity`. Para iniciar sesión con una identidad diferente, use el segundo método de esta lista.
+  - Pase las credenciales de la entidad de servicio como variables de entorno seguras y, a continuación, puede llamar a [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) o [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) en el script de implementación.
+
+  Si se usa una identidad administrada, la entidad de seguridad de implementación necesita que el rol **Operador de identidades administradas** (un rol integrado) esté asignado al recurso de identidad administrada.
 
 ## <a name="sample-templates"></a>Plantillas de ejemplo
 

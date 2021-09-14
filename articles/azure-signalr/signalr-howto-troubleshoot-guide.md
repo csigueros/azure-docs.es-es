@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: ba75af247888a2404619ec0a3db3b0a5d3310502
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1e909273ae2413a67da6e3975e5a2bc50a68685d
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142430"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186828"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guía para la solución de problemas comunes de Azure SignalR Service
 
@@ -73,7 +73,7 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 * Error [279](https://github.com/Azure/azure-signalr/issues/279) de ASP.NET que indica que no hay ningún servidor disponible.
 * Error [324](https://github.com/Azure/azure-signalr/issues/324) de ASP.NET que indica que la conexión no está activa y que los datos no se pueden enviar al servicio.
-* Error al realizar la solicitud HTTP a https://<API endpoint>. Este error puede deberse a que el certificado del servidor no está configurado correctamente con HTTP.SYS en el caso de HTTPS. La causa puede ser también una falta de coincidencia del enlace de seguridad entre el cliente y el servidor.
+* "Error al realizar la solicitud HTTP a `https://<API endpoint>`. Este error puede deberse a que el certificado del servidor no está configurado correctamente con HTTP.SYS en el caso de HTTPS. La causa puede ser también una falta de coincidencia del enlace de seguridad entre el cliente y el servidor.
 
 ### <a name="root-cause"></a>Causa principal
 
@@ -428,33 +428,33 @@ Para encontrar la causa principal del colapso del grupo de subprocesos:
 
 <a name="view_request"></a>
 
-* ¿Cómo se puede ver la solicitud saliente del cliente?
+### <a name="how-to-view-the-outgoing-request-from-the-client"></a>¿Cómo se puede ver la solicitud saliente del cliente?
+
 Considere ASP.NET Core como ejemplo (ASP.NET es similar):
-    * Desde el explorador:
 
-        Considere Chrome como ejemplo; puede usar **F12** para abrir la ventana de la consola y cambiar a la pestaña **Red**. Es posible que tenga que actualizar la página con **F5** para capturar la red desde el principio.
+* Desde el explorador: tome Chrome como ejemplo; puede usar **F12** para abrir la ventana de consola y cambiar a la pestaña **Red**. Es posible que tenga que actualizar la página mediante **F5** para capturar la red desde el principio.
 
-        :::image type="content" source="./media/signalr-howto-troubleshoot-guide/chrome-network.gif" alt-text="Red en la vista de Chrome":::
+    :::image type="content" source="./media/signalr-howto-troubleshoot-guide/chrome-network.gif" alt-text="Red en la vista de Chrome":::
 
-    * Desde el cliente de C#:
+* Desde el cliente de C#:
 
-        Puede ver el tráfico web local con [Fiddler](https://www.telerik.com/fiddler). El tráfico de WebSocket es compatible a partir de Fiddler 4.5.
+    Puede ver el tráfico web local con [Fiddler](https://www.telerik.com/fiddler). El tráfico de WebSocket es compatible a partir de Fiddler 4.5.
 
-        :::image type="content" source="./media/signalr-howto-troubleshoot-guide/fiddler-view-network-inline.png" alt-text="Red en la vista de Fiddler" lightbox="./media/signalr-howto-troubleshoot-guide/fiddler-view-network.png":::
+    :::image type="content" source="./media/signalr-howto-troubleshoot-guide/fiddler-view-network-inline.png" alt-text="Red en la vista de Fiddler" lightbox="./media/signalr-howto-troubleshoot-guide/fiddler-view-network.png":::
 
 <a name="restart_connection"></a>
 
-* ¿Cómo se reinicia la conexión de cliente?
+### <a name="how-to-restart-client-connection"></a>¿Cómo se reinicia la conexión de cliente?
     
-    Estos son los [códigos de ejemplo](https://github.com/Azure/azure-signalr/tree/dev/samples) que contienen la lógica de reinicio de la conexión con la estrategia *ALWAYS RETRY*:
+Estos son los [códigos de ejemplo](https://github.com/Azure/azure-signalr/tree/dev/samples) que contienen la lógica de reinicio de la conexión con la estrategia *ALWAYS RETRY*:
 
-    * [Cliente de C# en ASP.NET Core](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
+* [Cliente de C# en ASP.NET Core](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-    * [Cliente de JavaScript en ASP.NET Core](https://github.com/Azure/azure-signalr/blob/release/1.0.0-preview1/samples/ChatSample/wwwroot/index.html#L164)
+* [Cliente de JavaScript en ASP.NET Core](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net50/wwwroot/index.html#L171)
 
-    * [Cliente de C# en ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
+* [Cliente de C# en ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
-    * [Cliente de JavaScript en ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+* [Cliente de JavaScript en ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
 [¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
 

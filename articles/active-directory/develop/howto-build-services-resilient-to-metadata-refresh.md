@@ -13,14 +13,14 @@ ms.date: 04/21/2021
 ms.author: jmprieur
 ms.reviewer: marsma, shermanouko
 ms.custom: aaddev
-ms.openlocfilehash: 8eb9db4d89f6d3c517afb57d6343387343ac5325
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 2c7d4fdbcd27b4b8d7097d7a6978f80f5eb7fca4
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167133"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033252"
 ---
-# <a name="how-to-build-services-that-are-resilient-to-azure-ads-openid-connect-metadata-refresh"></a>Procedimiento: Crear servicios resistentes a la actualización de metadatos de OpenID Connect de Azure AD
+# <a name="build-services-that-are-resilient-to-azure-ads-openid-connect-metadata-refresh"></a>Crear servicios resistentes a la actualización de metadatos de OpenID Connect de Azure AD
 
 Las API web protegidas deben validar los tokens de acceso. Las aplicaciones web también validan los tokens de identificador. La validación de tokens tiene varias partes, y se comprueba si el token pertenece a la aplicación, si lo ha emitido un proveedor de identidades (IDP) de confianza, si su duración todavía está en el intervalo y si no se ha alterado. También puede haber validaciones especiales. Por ejemplo, la aplicación debe validar la firma y comprobar que las claves de firma (cuando se insertan en un token) sean de confianza y que el token no se esté reproduciendo. Cuando las claves de firma no se insertan en el token, deben capturarse desde el proveedor de identidades (detección o metadatos). A veces también es necesario obtener las claves de forma dinámica en tiempo de ejecución.
 
