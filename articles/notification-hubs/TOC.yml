@@ -119,6 +119,8 @@
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
     - name: Exportación e importación de registros en lote
       href: export-modify-registrations-bulk.md
+    - name: Traslado de recursos entre regiones
+      href: move-registrations.md
     - name: Creación de un centro de notificaciones mediante SDK
       items:
         - name: 'Creación de un centro de notificaciones: .NET'

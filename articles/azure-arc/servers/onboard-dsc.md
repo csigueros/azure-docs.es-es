@@ -1,14 +1,14 @@
 ---
 title: Instalación del agente de Connected Machine mediante DSC de Windows PowerShell
 description: En este artículo, obtendrá información sobre cómo conectar máquinas a Azure mediante servidores habilitados para Azure Arc con DSC de Windows PowerShell.
-ms.date: 09/24/2020
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c0ae9c97afe14559aa36c1b8387f07897aa4c43b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a6e955df43e3589c97091cb111699ce402723d0
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587652"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323799"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Instalación del agente de Connected Machine mediante DSC de Windows PowerShell
 
@@ -44,7 +44,7 @@ Con [Introducción a la configuración de estado deseado (DSC) para Windows](/po
 
 Los recursos de este módulo están diseñados para administrar la configuración del agente de Azure Connected Machine. También se incluye un script de PowerShell `AzureConnectedMachineAgent.ps1`, que se encuentra en la carpeta `AzureConnectedMachineDsc\examples`. Utiliza recursos de la comunidad para automatizar la descarga e instalación, y establecer una conexión con Azure Arc. Este script realiza pasos similares que se describen en el artículo [Conexión de máquinas híbridas a Azure desde Azure Portal](onboard-portal.md).
 
-Si la máquina necesita comunicarse mediante un servidor proxy con el servicio, después de instalar el agente, debe ejecutar un comando que se describe [aquí](manage-agent.md#update-or-remove-proxy-settings). Este permite establecer la variable de entorno del sistema del servidor proxy `https_proxy`. En lugar de ejecutar el comando manualmente, puede realizar este paso con DSC mediante el módulo [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc).
+Si la máquina necesita comunicarse mediante un servidor proxy con el servicio, después de instalar el agente, debe ejecutar un comando que se describe [aquí](manage-agent.md#update-or-remove-proxy-settings). Este permite establecer la variable de entorno del sistema del servidor proxy `https_proxy`. En lugar de ejecutar el comando manualmente, puede realizar este paso con DSC mediante el módulo [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc). Con esta configuración, el agente se comunica a través del servidor proxy mediante el protocolo HTTP.
 
 >[!NOTE]
 >Para permitir la ejecución de DSC, Windows debe configurarse para recibir comandos remotos de PowerShell incluso cuando se ejecuta una configuración de localhost. Para configurar correctamente el entorno, solo tiene que ejecutar `Set-WsManQuickConfig -Force` en un terminal de PowerShell con privilegios elevados.
@@ -88,6 +88,6 @@ El módulo [CompsiteResource](https://www.powershellgallery.com/packages/composi
 
 * Puede encontrar información sobre la solución de problemas en la guía [Solución de problemas de conexión del agente de Connected Machine](troubleshoot-agent-onboard.md).
 
-* Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.
+* Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.
 
-* Más información sobre el [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o soluciones como Update Management, o usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-introduction.md).
+* Aprenda a administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para tareas como la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de la máquina virtual, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Información de máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.

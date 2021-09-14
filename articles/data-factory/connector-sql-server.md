@@ -1,27 +1,29 @@
 ---
 title: Copia y transformación de datos con SQL Server como origen o destino
-description: Aprenda a copiar y transformar los datos con la base de datos SQL Server como origen o destino, en un entorno local o en una máquina virtual de Azure mediante Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a copiar y transformar los datos con la base de datos SQL Server como origen o destino, en un entorno local o en una máquina virtual de Azure mediante canalizaciones de Azure Data Factory o Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/26/2021
-ms.openlocfilehash: 084af91fe294ab52591bc5ef9bf22ffe941637ea
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: 48c6232678adceed0bc239ff788f8a191d9d88c2
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110781809"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304729"
 ---
-# <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copia y transformación de datos con SQL Server como origen o destino mediante Azure Data Factory
+# <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en SQL Server mediante Azure Data Factory o Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-sqlserver-connector.md)
 > * [Versión actual](connector-sql-server.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe cómo usar la actividad de copia de Azure Data Factory para copiar datos con la base de datos de SQL Server como origen o destino y cómo usar Data Flow para transformar los datos de la base de datos de SQL Server.  Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se describe cómo usar la actividad de copia de las canalizaciones de Azure Data Factory y Azure Synapse para copiar datos con la base de datos de SQL Server como origen o destino y cómo usar Data Flow para transformar los datos de la base de datos de SQL Server.  Para obtener más información, lea el artículo de introducción para [Azure Data Factory](introduction.md) o [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -43,8 +45,6 @@ En concreto, este conector SQL Server admite las siguientes funcionalidades:
 
 No se admite la base de datos local LocalDB de [SQL Server Express](/sql/database-engine/configure-windows/sql-server-express-localdb).
 
->[!NOTE]
->Actualmente, este conector no admite [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) de SQL Server. Como solución alternativa, puede usar un [conector ODBC genérico](connector-odbc.md) y un controlador ODBC de SQL Server. Siga [esta guía](/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver) con configuraciones de cadena de conexión y descarga del controlador ODBC.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -54,7 +54,31 @@ No se admite la base de datos local LocalDB de [SQL Server Express](/sql/databa
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de base de datos SQL Server.
+## <a name="create-a-sql-server-linked-service-using-ui"></a>Creación de un servicio vinculado de SQL Server mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado de SQL Server en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque SQL y seleccione el conector de SQL Server.
+
+    :::image type="content" source="media/connector-sql-server/sql-server-connector.png" alt-text="Captura de pantalla del conector de SQL Server.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-sql-server/configure-sql-server-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado de SQL Server.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de canalizacione sde Data Factory y SQL Server específicas del conector de base de datos SQL Server.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -65,8 +89,12 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 | type | La propiedad type se debe establecer en: **SqlServer**. | Sí |
 | connectionString |Especifique la información de **connectionString** necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. Consulte los ejemplos siguientes.<br/>También puede asignar una contraseña en Azure Key Vault. Si se trata de la autenticación de SQL, extraiga la configuración `password` de la cadena de conexión. Para obtener más información, vea el ejemplo de JSON debajo de la tabla y consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | userName |Especifique el nombre de usuario si usa la autenticación de Windows. Un ejemplo es **domainname\\username**. |No |
-| password |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como **SecureString** para almacenarlo de forma segura en Azure Data Factory. O bien puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| password |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como **SecureString** para almacenarlo de forma segura. O bien puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| alwaysEncryptedSettings | Especifique la información **alwaysencryptedsettings** necesaria para permitir que Always Encrypted proteja los datos confidenciales almacenados en un servidor SQL mediante una identidad administrada o una entidad de servicio. Para obtener más información, vea el ejemplo de JSON debajo de la tabla y consulte la sección [Uso de Always Encrypted](#using-always-encrypted). Si no se especifica, la configuración predeterminada Always Encrypted está deshabilitada. |No |
 | connectVia | Este [entorno de ejecución de integración](concepts-integration-runtime.md) se usa para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
+
+> [!NOTE]
+> La característica [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) de SQL Server ya no se admite. 
 
 >[!TIP]
 >Si recibió un error con el código de error "UserErrorFailedToConnectToSqlServer" y un mensaje parecido a "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
@@ -134,7 +162,33 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
-     }
+    }
+}
+```
+
+**Ejemplo 4: Uso de Always Encrypted**
+
+```json
+{
+    "name": "SqlServerLinkedService",
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+        },
+        "alwaysEncryptedSettings": {
+            "alwaysEncryptedAkvAuthType": "ServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
 }
 ```
 
@@ -305,7 +359,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 | storedProcedureTableTypeParameterName |Nombre del parámetro del tipo de tabla especificado en el procedimiento almacenado.  |No |
 | sqlWriterTableType |Nombre del tipo de tabla que se usará en el procedimiento almacenado. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |No |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre y valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | No |
-| writeBatchSize |Número de filas que se va a insertar en la tabla SQL *por lote*.<br/>Los valores permitidos son enteros para el número de filas. De forma predeterminada, Azure Data Factory determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila. |No |
+| writeBatchSize |Número de filas que se va a insertar en la tabla SQL *por lote*.<br/>Los valores permitidos son enteros para el número de filas. De manera predeterminada, el servicio determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila. |No |
 | writeBatchTimeout |Esta propiedad especifica el tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son para el intervalo de tiempo. Un ejemplo es "00:30:00" para 30 minutos. Si no se especifica ningún valor, el valor predeterminado es "02:00:00". |No |
 | maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
@@ -388,15 +442,15 @@ En la actividad de copia, el conector de SQL Server proporciona creación de pa
 
 ![Captura de pantalla de las opciones de partición](./media/connector-sql-server/connector-sql-partition-options.png)
 
-Al habilitar la copia con particiones, la actividad de copia ejecuta consultas en paralelo en el origen de SQL Server para cargar los datos por particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de SQL Server.
+Al habilitar la copia con particiones, la actividad de copia ejecuta consultas en paralelo en el origen de SQL Server para cargar los datos por particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, el servicio genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de SQL Server.
 
 Se sugiere habilitar la copia en paralelo con la creación de particiones de datos, especialmente si se cargan grandes cantidades de datos de SQL Server. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribirlos en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribirlos en un único archivo.
 
 | Escenario                                                     | Configuración sugerida                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga completa de una tabla grande con particiones físicas.        | **Opción de partición**: particiones físicas de la tabla. <br><br/>Durante la ejecución, Data Factory detecta automáticamente las particiones físicas y copia los datos mediante particiones. <br><br/>Para comprobar si la tabla tiene una partición física o no, puede hacer referencia a [esta consulta](#sample-query-to-check-physical-partition). |
-| Carga completa de una tabla grande, sin particiones físicas, aunque con una columna de tipo entero o datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Columna de partición** (opcional): especifique la columna usada para crear la partición de datos. Si no se especifica, se usa la columna de índice o clave principal.<br/>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas de la tabla y se copian. Si no se especifica, la actividad de copia detecta automáticamente los valores.<br><br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, Data Factory recupera los datos por 4 particiones: los id. del rango <=20, [21, 50], [51, 80] y >=81, respectivamente. |
-| Carga de grandes cantidades de datos mediante una consulta personalizada, sin particiones físicas, aunque con una columna de tipo entero o date/datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos.<br>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas del resultado de la consulta y se copian. Si no se especifica, la actividad de copia detecta automáticamente el valor.<br><br>Durante la ejecución, Data Factory reemplaza `?AdfRangePartitionColumnName` por el nombre real de la columna y los rangos de valor de cada partición y se los envía a SQL Server. <br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, Data Factory recupera los datos por 4 particiones: los id. del rango <=20, [21, 50], [51, 80] y >=81, respectivamente. <br><br>A continuación se muestran más consultas de ejemplo para distintos escenarios:<br> 1. Consulta de la tabla completa: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Consulta de una tabla con selección de columnas y filtros adicionales de la cláusula where: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Consulta con subconsultas: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Consulta con partición en subconsulta: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Carga completa de una tabla grande con particiones físicas.        | **Opción de partición**: particiones físicas de la tabla. <br><br/>Durante la ejecución, el servicio detecta automáticamente las particiones físicas y copia los datos por particiones. <br><br/>Para comprobar si la tabla tiene una partición física o no, puede hacer referencia a [esta consulta](#sample-query-to-check-physical-partition). |
+| Carga completa de una tabla grande, sin particiones físicas, aunque con una columna de tipo entero o datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Columna de partición** (opcional): especifique la columna usada para crear la partición de datos. Si no se especifica, se usa la columna de clave principal.<br/>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas de la tabla y se copian. Si no se especifica, la actividad de copia detecta automáticamente los valores y puede tardar mucho tiempo en función de los valores MIN y MAX. Se recomienda proporcionar límite superior e inferior. <br><br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, el servicio recupera los datos en 4 particiones: identificadores del rango <=20, del rango [21, 50], del rango [51, 80] y del rango >=81, respectivamente. |
+| Carga de grandes cantidades de datos mediante una consulta personalizada, sin particiones físicas, aunque con una columna de tipo entero o date/datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos.<br>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas del resultado de la consulta y se copian. Si no se especifica, la actividad de copia detecta automáticamente el valor.<br><br>Durante la ejecución, el servicio reemplaza `?AdfRangePartitionColumnName` por el nombre real de la columna y los rangos de valores de cada partición y se los envía a SQL Server. <br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, el servicio recupera los datos en 4 particiones: identificadores del rango <=20, del rango [21, 50], del rango [51, 80] y del rango >=81, respectivamente. <br><br>A continuación se muestran más consultas de ejemplo para distintos escenarios:<br> 1. Consulta de la tabla completa: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Consulta de una tabla con selección de columnas y filtros adicionales de la cláusula where: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Consulta con subconsultas: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Consulta con partición en subconsulta: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Procedimientos recomendados para cargar datos con la opción de partición:
@@ -458,11 +512,11 @@ Al copiar datos en SQL Server, puede requerir un comportamiento de escritura dif
 - [Sobrescritura](#overwrite-the-entire-table): quiero volver a cargar toda la tabla de dimensiones cada vez.
 - [Escritura con lógica personalizada](#write-data-with-custom-logic): necesito un procesamiento adicional antes de la inserción final en la tabla de destino.
 
-Consulte las secciones correspondientes sobre cómo configurar estas operaciones en Azure Data Factory y los procedimientos recomendados.
+Consulte las secciones correspondientes sobre cómo configurar estas operaciones y los procedimientos recomendados.
 
 ### <a name="append-data"></a>Anexión de datos
 
-La anexión de datos es el comportamiento predeterminado de este conector de receptor de SQL Server. Azure Data Factory realiza una inserción masiva para escribir en la tabla de forma eficaz. Puede configurar el origen y el receptor según corresponda en la actividad de copia.
+La anexión de datos es el comportamiento predeterminado de este conector de receptor de SQL Server. El servicio realiza una inserción masiva para escribir en la tabla de forma eficaz. Puede configurar el origen y el receptor según corresponda en la actividad de copia.
 
 ### <a name="upsert-data"></a>Actualización e inserción de datos
 
@@ -470,7 +524,7 @@ La anexión de datos es el comportamiento predeterminado de este conector de rec
 
 La actividad de copia actualmente no admite de forma nativa la carga de datos en una tabla temporal de base de datos. Hay una forma avanzada de configurarla con una combinación de varias actividades. Vea [Optimización de escenarios de upsert masivo de SQL Database](https://github.com/scoriani/azuresqlbulkupsert). A continuación se muestra un ejemplo de uso de una tabla permanente como almacenamiento provisional.
 
-Por ejemplo, en Azure Data Factory, puede crear una canalización con una **actividad de copia** encadenada con una **actividad de procedimiento almacenado**. La primera copia datos del almacén de origen en una tabla de almacenamiento provisional de SQL Server, por ejemplo, **UpsertStagingTable**, como nombre de la tabla en el conjunto de datos. Luego, la segunda invoca un procedimiento almacenado para combinar datos de origen de la tabla de almacenamiento provisional en la tabla de destino y limpiar la tabla de almacenamiento provisional.
+Por ejemplo, puede crear una canalización con una **actividad de copia** encadenada con una **actividad de procedimiento almacenado**. La primera copia datos del almacén de origen en una tabla de almacenamiento provisional de SQL Server, por ejemplo, **UpsertStagingTable**, como nombre de la tabla en el conjunto de datos. Luego, la segunda invoca un procedimiento almacenado para combinar datos de origen de la tabla de almacenamiento provisional en la tabla de destino y limpiar la tabla de almacenamiento provisional.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -497,7 +551,7 @@ END
 
 ### <a name="overwrite-the-entire-table"></a>Sobrescritura de toda la tabla
 
-Puede configurar la propiedad **preCopyScript** en un receptor de la actividad de copia. En este caso, Azure Data Factory ejecuta primero el script para cada actividad de copia que ejecute. Después, ejecuta la copia para insertar los datos. Por ejemplo, para sobrescribir toda la tabla con los datos más recientes, especifique un script para eliminar primero todos los registros antes de realizar la carga masiva de los nuevos datos desde el origen.
+Puede configurar la propiedad **preCopyScript** en un receptor de la actividad de copia. En este caso, para cada actividad de copia que se ejecuta, el servicio ejecuta primero el script. Después, ejecuta la copia para insertar los datos. Por ejemplo, para sobrescribir toda la tabla con los datos más recientes, especifique un script para eliminar primero todos los registros antes de realizar la carga masiva de los nuevos datos desde el origen.
 
 ### <a name="write-data-with-custom-logic"></a>Escritura de datos con lógica personalizada
 
@@ -538,7 +592,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
     END
     ```
 
-3. En Azure Data Factory, defina la sección del **receptor SQL** en la actividad de copia como se indica a continuación:
+3. Defina la sección de **receptor SQL** en la actividad de copia como se indica a continuación:
 
     ```json
     "sink": {
@@ -559,7 +613,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
 Al transformar datos en el flujo de datos de asignación, puede leer y escribir en las tablas de la base de datos de SQL Server. Para más información, vea la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en los flujos de datos de asignación.
 
 > [!NOTE]
-> Para acceder a la instancia de SQL Server local, debe usar la [red virtual administrada](managed-virtual-network-private-endpoint.md) de Azure Data Factory mediante un punto de conexión privado. Consulte este [tutorial](tutorial-managed-virtual-network-on-premise-sql-server.md) para ver los pasos detallados.
+> Para acceder a la instancia de SQL Server local, debe usar la [red virtual administrada](managed-virtual-network-private-endpoint.md) o el área de trabajo de Synapse de Azure Data Factory mediante un punto de conexión privado. Consulte este [tutorial](tutorial-managed-virtual-network-on-premise-sql-server.md) para ver los pasos detallados.
 
 ### <a name="source-transformation"></a>Transformación de origen
 
@@ -616,9 +670,9 @@ IncomingStream sink(allowSchemaDrift: true,
 
 ## <a name="data-type-mapping-for-sql-server"></a>Asignación de tipos de datos para SQL Server
 
-Cuando copia datos con SQL Server como origen y destino, se usan las siguientes asignaciones de tipos de datos de SQL Server para los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para más información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Cuando copia datos con SQL Server como origen y destino, se usan las siguientes asignaciones de tipos de datos de SQL Server para los tipos de datos provisionales de Azure Data Factory. Las canalizaciones de Synapse, que implementan Data Factory, usan las mismas asignaciones.  Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para más información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
-| Tipos de datos de SQL Server | Tipo de datos provisionales de Azure Data Factory |
+| Tipos de datos de SQL Server | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -666,21 +720,20 @@ Para información detallada sobre las propiedades, consulte [Actividad de obtenc
 
 ## <a name="using-always-encrypted"></a>Uso de Always Encrypted
 
-Al copiar datos desde o hacia SQL Server con [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), use el [conector ODBC genérico](connector-odbc.md) y el controlador ODBC de SQL Server a través de un entorno de ejecución de integración autohospedado. Este conector de SQL Server no es compatible en este momento con Always Encrypted. 
+Al copiar datos desde o hacia SQL Server con [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), siga estos pasos: 
 
-Más concretamente:
+1. Almacene la [clave maestra de columna (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) en una instancia de [Azure Key Vault](../key-vault/general/overview.md). Obtenga más información acerca de la [configuración de Always Encrypted con Azure Key Vault](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)
 
-1. Configure un entorno de ejecución de integración autohospedado si no tiene uno. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
+2. Asegúrese de conceder acceso al almacén de claves donde se almacena la [clave maestra de columna (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true). Consulte este [artículo](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults) para obtener información acerca de los permisos necesarios.
 
-2. Descargue el controlador ODBC de 64 bits para SQL Server [aquí](/sql/connect/odbc/download-odbc-driver-for-sql-server) e instálelo en la máquina del entorno de ejecución de integración. Puede encontrar más información sobre cómo funciona este controlador en [Uso de Always Encrypted con el controlador ODBC para SQL Server](/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver#using-the-azure-key-vault-provider).
+3. Cree un servicio vinculado para conectarse a la base de datos SQL y habilitar la función "Always Encrypted" mediante una identidad administrada o una entidad de servicio. 
 
-3. Cree un servicio vinculado con el tipo ODBC para conectarse a la base de datos de SQL. Para usar la autenticación de SQL, especifique la cadena de conexión ODBC como se indica a continuación y seleccione autenticación **Básica** para establecer el nombre de usuario y la contraseña.
 
-    ```
-    Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
-    ```
-
-4. Cree el conjunto de datos y la actividad de copia con el tipo ODBC según corresponda. Obtenga más información en el artículo [conector ODBC](connector-odbc.md).
+>[!NOTE]
+>[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) de SQL Server admite los siguientes escenarios: 
+>1. Los almacenes de datos de origen o receptores usan la identidad administrada o la entidad de servicio como tipo de autenticación del proveedor de claves.
+>2. Los almacenes de datos de origen y receptores usan la identidad administrada como tipo de autenticación del proveedor de claves.
+>3. Los almacenes de datos de origen y receptores usan la misma entidad de servicio que el tipo de autenticación del proveedor de claves.
 
 ## <a name="troubleshoot-connection-issues"></a>Solución de problemas de conexión
 
@@ -702,4 +755,4 @@ Más concretamente:
 6. **Verifique la conexión**: use SQL Server Management Studio en una máquina diferente para conectarse a SQL Server con un nombre completo. Un ejemplo es `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

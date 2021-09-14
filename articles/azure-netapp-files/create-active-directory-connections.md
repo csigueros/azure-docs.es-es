@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: e6bc27674cadc8798afa3f9f9297b0d573d7ce64
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 30b00320e9273ecb010239d66a3c056d3f95f332
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071070"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397696"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Creación y administración de conexiones de Active Directory para Azure NetApp Files
 
@@ -30,7 +30,7 @@ Varias características de Azure NetApp Files requieren que tenga una conexión 
 * Debe haber configurado un grupo de capacidad. Consulte [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).   
 * Debe haber una subred delegada en Azure NetApp Files. Consulte [Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-## <a name="requirements-for-active-directory-connections"></a>Requisitos para las conexiones de Active Directory
+## <a name="requirements-and-considerations-for-active-directory-connections"></a><a name="requirements-for-active-directory-connections"></a>Requisitos y consideraciones de las conexiones de Active Directory
 
 * Solo puede configurar una conexión de Active Directory (AD) por suscripción y por región.   
 
@@ -39,6 +39,8 @@ Varias características de Azure NetApp Files requieren que tenga una conexión 
     La conexión de AD solo es visible a través de la cuenta de NetApp en la que se crea. Sin embargo, puede habilitar la característica de AD compartido para permitir que las cuentas de NetApp que están en la misma suscripción y la misma región usen un servidor de AD creado en una de las cuentas de NetApp. Consulte [Asignación de varias cuentas de NetApp de la misma suscripción y región a una conexión de AD](#shared_ad). Cuando habilite esta característica, la conexión de AD será visible en todas las cuentas de NetApp que estén en la misma suscripción y región. 
 
 * La cuenta de administrador que use debe ser capaz de crear cuentas de máquina en la ruta de acceso de la unidad organizativa (OU) que se especifique.  
+
+* Si cambia la contraseña de la cuenta de usuario de Active Directory que se usa en Azure NetApp Files, asegúrese de actualizar la contraseña configurada en [Conexiones de Active Directory](#create-an-active-directory-connection). De lo contrario, no podrá crear volúmenes y el acceso a los volúmenes existentes también podría verse afectado en función de la configuración.  
 
 * Los puertos adecuados deben estar abiertos en el servidor de Windows Active Directory (AD) correspondiente.  
     Los puertos necesarios son los siguientes: 
@@ -118,7 +120,6 @@ Se aplican consideraciones de AADDS adicionales para Azure NetApp Files:
 * Azure NetApp Files admite los tipos `user` y `resource forest`.
 * Como tipo de sincronización, puede seleccionar `All` o `Scoped`.   
     Si selecciona `Scoped`, asegúrese de que está seleccionado el grupo de Azure AD correcto para acceder a los recursos compartidos de SMB.  Si no está seguro, puede usar el tipo de sincronización `All`.
-* Se requiere el uso de la SKU Enterprise o Premium. No se admite la SKU estándar.
 
 Cuando cree una conexión de Active Directory, tenga en cuenta las siguientes características específicas de AADDS:
 

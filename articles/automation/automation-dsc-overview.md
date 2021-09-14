@@ -7,19 +7,22 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/26/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 752d7f86941967c218b3a57fa163698b9f502057
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c40a8b002605b8776ac04d2af0d920b824aaeab0
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897027"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396657"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
 Azure Automation State Configuration es un servicio de administración de configuración de Azure que le permite escribir, administrar y compilar [configuraciones](/powershell/scripting/dsc/configurations/configurations) de PowerShell Desired State Configuration (DSC) para nodo de cualquier centro de datos en la nube local. El servicio también importa [recursos de DSC](/powershell/scripting/dsc/resources/resources) y asigna configuraciones a los nodos de destino, todos en la nube. Para acceder a Azure Automation State Configuration desde Azure Portal, seleccione **State Configuration (DSC)** en **Administración de configuración**.
+
+> [!NOTE]
+> Antes de habilitar State Configuration de Automation, nos gustaría que conociera la [configuración de invitados de Azure Policy](../governance/policy/concepts/guest-configuration.md), que puede auditar o configurar los ajustes dentro de las máquinas que se ejecutan en Azure o en las máquinas fuera de Azure conectadas con [servidores habilitados para Arc](../azure-arc/servers/overview.md). La configuración de invitados de Azure Policy ofrece una funcionalidad similar y está diseñada para aprovechar las ventajas de la tecnología más reciente en Azure.
 
 Puede utilizar Azure Automation State Configuration para administrar diversas máquinas:
 
@@ -102,7 +105,7 @@ Se recomienda usar las direcciones que aparecen en la tabla [Registros DNS por r
 
 - Para dar los primeros pasos, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Para aprender a habilitar nodos, consulte el artículo sobre [Habilitar Azure Automation State Configuration](automation-dsc-onboarding.md).
-- Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en State Configuration de Azure Automation](automation-dsc-compile.md).
+- Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en Azure Automation State Configuration](automation-dsc-compile.md).
 - Para ver un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, consulte [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

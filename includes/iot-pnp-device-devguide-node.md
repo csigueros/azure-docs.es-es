@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 09001b1df4c0b9d3ac2a90601a467ec5397c941c
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: ec395bfaf8b4d2bba235b1ce99c909b5cb81c51b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405162"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397922"
 ---
 ## <a name="model-id-announcement"></a>Anuncio del id. de modelo
 
@@ -38,11 +38,11 @@ Los dispositivos que usan [Device Provisioning Service (DPS)](../articles/iot-dp
 }
 ```
 
-## <a name="implement-telemetry-properties-and-commands"></a>Implementación de telemetría, propiedades y comandos
+## <a name="use-components"></a>Uso de componentes
 
-Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](../articles/iot-develop/concepts-modeling-guide.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en esta sección.
+Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](../articles/iot-develop/concepts-modeling-guide.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en las secciones siguientes.
 
-### <a name="telemetry"></a>Telemetría
+## <a name="telemetry"></a>Telemetría
 
 Un componente predeterminado no necesita ninguna propiedad especial.
 
@@ -60,7 +60,7 @@ async function sendTelemetry(deviceClient, data, index, componentName) {
 }
 ```
 
-### <a name="read-only-properties"></a>Propiedades de solo lectura
+## <a name="read-only-properties"></a>Propiedades de solo lectura
 
 La notificación de una propiedad del componente predeterminado no necesita ninguna construcción especial:
 
@@ -131,11 +131,11 @@ El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
 }
 ```
 
-### <a name="writable-properties"></a>Propiedades editables
+## <a name="writable-properties"></a>Propiedades editables
 
 Estas propiedades pueden establecerse por el dispositivo o actualizarse por la solución. Si la solución actualiza una propiedad, el cliente recibe una notificación como una devolución de llamada en `Client` o `ModuleClient`. Para seguir las convenciones de IoT Plug and Play, el dispositivo debe informar al servicio de que la propiedad se ha recibido correctamente.
 
-#### <a name="report-a-writable-property"></a>Notificación de una propiedad editable
+### <a name="report-a-writable-property"></a>Notificación de una propiedad editable
 
 Cuando un dispositivo notifica una propiedad editable, debe incluir los valores `ack` definidos en las convenciones.
 
@@ -208,7 +208,7 @@ El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
 }
 ```
 
-#### <a name="subscribe-to-desired-property-updates"></a>Suscripción a las actualizaciones de propiedades deseadas
+### <a name="subscribe-to-desired-property-updates"></a>Suscripción a las actualizaciones de propiedades deseadas
 
 Los servicios pueden actualizar las propiedades deseadas que desencadenan una notificación en los dispositivos conectados. Esta notificación incluye las propiedades deseadas actualizadas, incluido el número de versión que identifica la actualización. Los dispositivos deben responder con el mismo mensaje `ack` que las propiedades notificadas.
 
@@ -320,7 +320,7 @@ En el dispositivo gemelo de los componentes se muestran las secciones desired y 
 }
 ```
 
-### <a name="commands"></a>Comandos:
+## <a name="commands"></a>Comandos:
 
 Un componente predeterminado recibe el nombre del comando tal como lo invocó el servicio.
 
@@ -345,7 +345,7 @@ const commandHandler = async (request, response) => {
 client.onDeviceMethod('thermostat1*reboot', commandHandler);
 ```
 
-#### <a name="request-and-response-payloads"></a>Cargas de solicitud y respuesta
+### <a name="request-and-response-payloads"></a>Cargas de solicitud y respuesta
 
 Los comandos usan tipos para definir sus cargas de solicitud y respuesta. Un dispositivo debe deserializar el parámetro de entrada y serializar la respuesta. En el ejemplo siguiente se muestra cómo implementar un comando con tipos complejos definidos en las cargas:
 

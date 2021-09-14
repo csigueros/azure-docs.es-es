@@ -3,12 +3,12 @@ title: Implementación de Horizon en Azure VMware Solution
 description: Aprenda a implementar VMware Horizon en Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: c34d0ac7806f8284e893cf3ad4f3c82dd404ff41
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d99c8dc76dcab1866d0c536be7fc505c2eec0cb6
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181404"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323645"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementación de Horizon en Azure VMware Solution 
 
@@ -27,22 +27,22 @@ Este artículo se centra específicamente en la implementación de Horizon en Az
 
 Con la incorporación de Horizon a Azure VMware Solution, ya hay dos soluciones de infraestructura de escritorio virtual (VDI) en la plataforma Azure. En el diagrama siguiente se resumen las principales diferencias generales.
 
-:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
+:::image type="content" source="media/vmware-horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Diagrama que muestra las diferencias entre Horizon en Azure VMware Solution y Horizon Cloud en Azure." border="false":::
 
-Horizon 2006 y las versiones posteriores de la línea de versiones de Horizon 8 admiten implementación local e implementación de Azure VMware Solution. Hay algunas características de Horizon que se admiten en local pero no en Azure VMware Solution. También se admiten productos adicionales del ecosistema de Horizon. Para obtener información, vea [Interoperabilidad y paridad de características](https://kb.vmware.com/s/article/80850).
+Horizon 2006 y las versiones posteriores de la línea de versiones de Horizon 8 admiten implementación local e implementación de Azure VMware Solution. Hay algunas características de Horizon que se admiten en local pero no en Azure VMware Solution. También se admiten otros productos del ecosistema de Horizon. Para obtener más información, vea la página sobre [interoperabilidad y paridad de características](https://kb.vmware.com/s/article/80850).
 
 ## <a name="deploy-horizon-in-a-hybrid-cloud"></a>Implementación de Horizon en una nube híbrida
 
-Es posible implementar Horizon en un entorno de nube híbrida si se usa la arquitectura de pods en la nube (CPA) de Horizon para interconectar los centros de datos locales y de Azure. CPA escala verticalmente la implementación, crea una nube híbrida y proporciona redundancia para la continuidad empresarial y recuperación ante desastres.  Para más información, consulte [Expansión de los entornos de Horizon 7 existentes](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
+Es posible implementar Horizon en un entorno de nube híbrida mediante el uso de la arquitectura de pods en la nube (CPA) de Horizon para interconectar los centros de datos locales y de Azure. CPA escala verticalmente la implementación, crea una nube híbrida y proporciona redundancia para la continuidad empresarial y recuperación ante desastres.  Para más información, consulte [Expansión de los entornos de Horizon 7 existentes](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
 
 >[!IMPORTANT]
 >CPA no es una implementación extendida; cada pod de Horizon es distinto, y todos los servidores de conexión que pertenecen a cada uno de los pods individuales deben encontrarse en una única ubicación y ejecutarse en el mismo dominio de transmisión desde una perspectiva de red.
 
-Al igual que un centro de datos local o privado, Horizon se puede implementar en una nube privada de Azure VMware Solution. En las secciones siguientes se describen las diferencias principales entre la implementación de Horizon en el entorno local y en Azure VMware Solution.
+Al igual que un centro de datos local o privado, puede implementar Horizon en una nube privada de Azure VMware Solution. En las secciones siguientes se describen las diferencias principales entre la implementación de Horizon en el entorno local y en Azure VMware Solution.
 
-La nube privada de Azure es conceptualmente igual que el SDDC de VMware, un término que se usa habitualmente en la documentación de Horizon. En el resto de este documento se usan los términos nube privada de Azure y SDDC de VMware indistintamente.
+La _nube privada de Azure_ es conceptualmente igual que el _SDDC de VMware_, un término que se usa habitualmente en la documentación de Horizon. En el resto de este documento se usan ambos términos indistintamente.
 
-El conector de nube de Horizon es necesario para que Horizon en Azure VMware Solution administre licencias de suscripción. El conector de nube se puede implementar en Azure Virtual Network junto con servidores de conexión de Horizon.
+El conector de nube de Horizon es necesario para que Horizon en Azure VMware Solution administre licencias de suscripción. Puede implementar el conector de nube en Azure Virtual Network junto con servidores de conexión de Horizon.
 
 >[!IMPORTANT]
 >La compatibilidad del plano de control de Horizon con Horizon en Azure VMware Solution todavía no está disponible. Asegúrese de descargar la versión de VHD del conector de nube de Horizon.
@@ -86,7 +86,7 @@ Dado el límite máximo de la nube privada de Azure y SDDC, se recomienda una ar
 
 La conexión desde Azure Virtual Network a las nubes privadas de Azure o SDDC debe configurarse con FastPath de ExpressRoute. En el diagrama siguiente se muestra una implementación de pods de Horizon básica.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Implementación típica de pods de Horizon mediante FastPath de ExpressRoute" border="false":::
+:::image type="content" source="media/vmware-horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Diagrama que muestra la implementación típica de pods de Horizon mediante FastPath de ExpressRoute." border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Conectividad de red para escalar Horizon en Azure VMware Solution
 
@@ -94,7 +94,7 @@ En esta sección se presenta la arquitectura de red general con algunos ejemplos
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Pod único de Horizon en Azure VMware Solution
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Pod único de Horizon en Azure VMware Solution" border="false":::
+:::image type="content" source="media/vmware-horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Diagrama que muestra un pod único de Horizon en Azure VMware Solution." border="false":::
 
 El escenario de implementación más directo es un único pod de Horizon, porque implementa solo un pod de Horizon en la región Este de EE. UU.  Puesto que se estima que cada nube privada y SDDC pueden controlar 4000 sesiones de escritorio, se implementa el tamaño máximo del pod de Horizon.  Puede planear la implementación de hasta tres nubes privadas o SDDC.
 
@@ -104,7 +104,7 @@ Las principales suposiciones de este ejemplo de implementación básica son que:
 
 * No se tiene un pod de Horizon local que se quiera conectar a este nuevo pod mediante la arquitectura de pods en la nube (CPA).
 
-* Los usuarios finales se conectan a sus escritorios virtuales mediante Internet (en lugar de hacerlo a través de un centro de datos local).
+* Los usuarios finales se conectan a sus escritorios virtuales mediante Internet (en lugar de hacerlo mediante un centro de datos local).
 
 Puede conectar el controlador de dominio de AD de Azure Virtual Network con la instancia local de AD mediante VPN o un circuito de ExpressRoute.
 
@@ -112,7 +112,7 @@ Una variación del ejemplo básico podría ser admitir la conectividad de los re
 
 En el diagrama se muestra cómo admitir la conectividad de los recursos locales. Para conectar la red corporativa a Azure Virtual Network, necesitará un circuito de ExpressRoute.  También necesitará conectar la red corporativa con cada una de las nubes privadas y los SDDC mediante ExpressRoute Global Reach.  Permite la conectividad desde el SDDC al circuito de ExpressRoute y los recursos locales. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Conexión de la red corporativa a una instancia de Azure Virtual Network" border="false":::
+:::image type="content" source="media/vmware-horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diagrama que muestra la conexión de una red corporativa a una instancia de Azure Virtual Network." border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Varios pods de Horizon en Azure VMware Solution en varias regiones
 
@@ -122,7 +122,7 @@ Conectará la instancia de Azure Virtual Network de cada región a las nubes pri
 
 Se aplican los mismos principios si se implementan dos pods de Horizon en la misma región.  Asegúrese de implementar el segundo pod de Horizon en una instancia independiente de *Azure Virtual Network*. Al igual que en el ejemplo de un único pod, puede conectar la red corporativa y el pod local a este ejemplo de varios pods o regiones mediante ExpressRoute y Global Reach. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Varios pods de Horizon en Azure VMware Solution en varias regiones" border="false":::
+:::image type="content" source="media/vmware-horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Diagrama que muestra varios pods de Horizon en Azure VMware Solution en varias regiones." border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Ajuste del tamaño de los hosts de Azure VMware Solution para implementaciones de Horizon 
 
@@ -205,13 +205,13 @@ Hay dos licencias disponibles para su uso con Azure VMware Solution, Usuario sim
 
 Si solo implementa Horizon en Azure VMware Solution para el futuro inmediato, use la licencia de suscripción de Horizon, ya que su costo es inferior.
 
-Si se ha implementado en Azure VMware Solution y en el entorno local, como en el caso de uso de recuperación ante desastres, elija la licencia de suscripción Universal de Horizon. Incluye una licencia de vSphere para la implementación local, por lo que tiene un costo mayor.
+Si se ha implementado en Azure VMware Solution y en el entorno local, elija la licencia de suscripción Universal de Horizon como caso de uso de recuperación ante desastres. Aunque esta licencia incluye una licencia de vSphere para la implementación local, por lo que tiene un costo mayor.
 
 Trabaje con el equipo de ventas de VMware EUC para determinar el costo de la licencia de Horizon en función de sus necesidades.
 
 ### <a name="azure-instance-types"></a>Tipos de instancia de Azure
 
-Para comprender los tamaños de máquina virtual de Azure que se requerirán para la infraestructura de Horizon, consulte las instrucciones de VMware que se pueden encontrar [aquí](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
+Para comprender los tamaños de máquina virtual de Azure necesarios para la infraestructura de Horizon, consulte las instrucciones de [instalación de Horizon en Azure VMware Solution](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
 
 ## <a name="references"></a>Referencias
 [Requisitos del sistema de Horizon Agent para Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)

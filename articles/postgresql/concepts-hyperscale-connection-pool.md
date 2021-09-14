@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: d611698bcc72a4a8ceaafb6cfe43f7da362acf71
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8331cd2f0fa0df52f550acfdac1d8d3506e415f2
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740299"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318618"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-connection-pooling"></a>Azure Database for PostgreSQL: agrupación de conexiones de Hiperescala (Citus)
 
@@ -30,6 +30,11 @@ Hiperescala (Citus) ahora ofrece una instancia administrada de PgBouncer para gr
 
 1. Vaya a la página **Cadenas de conexión** del grupo de servidores en Azure Portal.
 2. Active la casilla **Cadenas de conexión de PgBouncer**. (Las cadenas de conexión enumeradas cambiarán).
+
+   > [!IMPORTANT]
+   >
+   > Si la casilla no existe, PgBouncer aún no está habilitado para el grupo de servidores. PgBouncer administrado se está implantando en todas las [regiones admitidas](concepts-hyperscale-configuration-options.md#regions).  Cuando se haya habilitado en una región, se añadirá a los grupos de servidores existentes en la región durante un evento de [mantenimiento programado](concepts-hyperscale-maintenance.md).
+
 3. Actualice las aplicaciones cliente para conectarse con la nueva cadena.
 
 ## <a name="next-steps"></a>Pasos siguientes

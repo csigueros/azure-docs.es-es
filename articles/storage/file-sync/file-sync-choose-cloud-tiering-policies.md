@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0bf41e1a847335a99b3e8f2e9ecbac504c3179e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: daa13c090ad9c10dbc21c082871f02ee1cc9f241
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796546"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323065"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Selección de directivas de nube por niveles
 
@@ -56,9 +56,9 @@ Azure File Sync se admite en volúmenes NTFS con Windows Server 2012 R2 y versio
 |256 TB - 512 TB| 128 KB              |
 |512 TB - 1 PB  | 256 KB              |
 |1 PB - 2 PB    | 512 KB              |
-|2 TB - 4 PB    | 1024 KB             |
-|4 TB - 8 TB    | 2048 KB (tamaño máx.)  |
-|> 8 TB         | no admitido       |
+|2 PB - 4 PB    | 1024 KB             |
+|4 PB - 8 PB    | 2048 KB (tamaño máx.)  |
+|> 8 PB         | no admitido       |
 
 Es posible que, después de crear el volumen, se le haya aplicado formato manualmente con otro tamaño de clúster. Si el volumen procede de una versión anterior de Windows, los tamaños de clúster predeterminados también pueden diferir. [En este artículo se ofrecen más detalles sobre los tamaños de clúster predeterminados.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Incluso si elige un tamaño de clúster inferior a 4 KB, se seguirá aplicando un límite de 8 KB como el tamaño de archivo más pequeño que se puede organizar en niveles. (Aunque el tamaño doble del clúster técnicamente sea menor que 8 KB).
 

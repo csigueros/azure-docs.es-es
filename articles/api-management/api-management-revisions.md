@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new, devx-track-azurepowershell
-ms.openlocfilehash: bd837faaaa986659ad9b30aa3cf853ea490cec6d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 16a5dc58a8fddca2cef2c393aaecca61fef61a3c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812145"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187728"
 ---
 # <a name="revisions-in-azure-api-management"></a>Revisiones de Azure API Management
 
@@ -56,6 +56,9 @@ Se puede establecer una revisión como actual mediante Azure Portal. Si usa Powe
 Al crear una revisión, puede establecer una descripción para hacer un seguimiento de la misma. Las descripciones no aparecen para los usuarios de la API.
 
 Si establece una revisión como actual, también puede especificar opcionalmente una nota pública en el registro de cambios. El registro de cambios se incluye en el portal para desarrolladores y todos los usuarios de la API pueden verlo. Para modificar la nota del registro de cambios, se usa el cmdlet de PowerShell `Update-AzApiManagementApiRelease`.
+
+> [!NOTE]
+> Algunas propiedades de API, como **Nombre para mostrar** y **Sufijo de API**, solo se pueden actualizar en la revisión actual.
 
 ## <a name="versions-and-revisions"></a>Versiones y revisiones
 

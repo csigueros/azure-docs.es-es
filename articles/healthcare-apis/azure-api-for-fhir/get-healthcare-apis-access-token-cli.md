@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 08/16/2021
 ms.author: zxue
-ms.openlocfilehash: 45752add8b55761a656193d2815e469f115af148
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: de49e9d9ea3968f09fac7e3938c7c29290f619f1
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780855"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397827"
 ---
 # <a name="get-access-token-for-azure-api-for-fhir-using-azure-cli"></a>Obtención del token de acceso para Azure API for FHIR mediante la CLI de Azure
 
@@ -40,4 +40,4 @@ curl -X GET --header "Authorization: Bearer $token" https://<FHIR ACCOUNT NAME>.
 En este artículo ha aprendido cómo obtener un token de acceso para Azure API for FHIR mediante la CLI de Azure. Para obtener información sobre cómo acceder a la API de FHIR con Postman, continúe con el tutorial de Postman.
 
 >[!div class="nextstepaction"]
->[Acceso a la API de FHIR con Postman](access-fhir-postman-tutorial.md)
+>[Acceso al servicio FHIR mediante Postman](../fhir/using-postman.md)

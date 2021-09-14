@@ -1,15 +1,15 @@
 ---
 title: Conexión de máquinas híbridas a Azure mediante PowerShell
 description: En este artículo se aprende a instalar el agente y a conectar una máquina a Azure mediante servidores habilitados para Azure Arc. Puede hacer esto con PowerShell.
-ms.date: 10/28/2020
+ms.date: 07/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d6963a53ac14c9d6727a8d53e781bc8b8389b76e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: e1ca9528af5b529dd844e566905b6aa7f92429d2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831625"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324567"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>Conexión de máquinas híbridas a Azure mediante PowerShell
 
@@ -54,6 +54,8 @@ Cuando finaliza la instalación, se ve el mensaje siguiente:
         ```azurepowershell
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -Proxy http://<proxyURL>:<proxyport>
         ```
+
+      Con esta configuración, el agente se comunica a través del servidor proxy mediante el protocolo HTTP.
 
 Si el agente no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. En Windows, compruebe este archivo: *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*. En Linux, compruebe este archivo: */var/opt/azcmagent/log/himds.log*.
 
@@ -104,6 +106,6 @@ Después de instalar y configurar el agente para que se registre en los servidor
 
 * Si es necesario, vea la guía [Solución de problemas de conexión del agente de Connected Machine](troubleshoot-agent-onboard.md).
 
-* Obtenga información sobre cómo administrar la máquina mediante [Azure Policy](../../governance/policy/overview.md). Para usar la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de máquina virtual, compruebe que la máquina está notificando al área de trabajo de Log Analytics esperada y habilite la supervisión con [Azure Monitor para VM](../../azure-monitor/vm/vminsights-enable-policy.md).
+* Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.
 
-* Más información sobre el [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). Se necesita el agente de Log Analytics para Windows y Linux si se quieren recopilar datos de supervisión del sistema operativo y las cargas de trabajo o administrarlos con runbooks de Azure Automation o características como Update Management. Este agente también es necesario para usar otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-introduction.md).
+* Obtenga información sobre cómo administrar la máquina mediante [Azure Policy](../../governance/policy/overview.md). Para usar la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de máquina virtual, compruebe que la máquina está notificando al área de trabajo de Log Analytics esperada y habilite la supervisión con [VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md).

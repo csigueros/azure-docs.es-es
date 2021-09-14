@@ -3,27 +3,30 @@ title: Solicitud de la cuota del host para Azure VMware Solution
 description: Aprenda a solicitar la capacidad o la cuota del host para Azure VMware Solution. También puede solicitar más hosts en una nube privada de Azure VMware Solution existente.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 05/13/2021
-ms.openlocfilehash: ceb32d7e09e6c595a6cddf844c713093253b8994
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 08/06/2021
+ms.openlocfilehash: 92ebc79193525802c1e7c7ede9287e3300799a10
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421659"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322456"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Solicitud de la cuota del host para Azure VMware Solution
 
-En este procedimiento, aprenderá a solicitar la capacidad o la cuota del host para [Azure VMware Solution](introduction.md). Deberá enviar una incidencia de soporte técnico para que se asignen los hosts. Si tiene una nube privada de Azure VMware Solution y quiere asignar más hosts, seguirá el mismo proceso.
+En este procedimiento, aprenderá a solicitar la capacidad o la cuota del host para [Azure VMware Solution](introduction.md). Va a enviar una incidencia de soporte técnico para que los hosts se asignen, ya sea para una nueva implementación o para una existente. 
+
+Si tiene una nube privada de Azure VMware Solution y quiere asignar más hosts, seguirá el mismo proceso.
 
 >[!IMPORTANT]
->Puede que la asignación de los hosts tarde algunos días en función del número solicitado.  De modo que, solicite lo que necesite para el aprovisionamiento y así no tener que solicitar un aumento de cuota tan a menudo.
+>Se puede tardar un máximo de cinco días laborables en asignar los hosts, en función del número solicitado.  De modo que, solicite lo que necesite para el aprovisionamiento y así no tener que solicitar un aumento de cuota tan a menudo.
 
 ## <a name="eligibility-criteria"></a>Criterios de elegibilidad
 
-Necesitará una cuenta de Azure en una suscripción a Azure. La suscripción a Azure debe cumplir uno de los siguientes criterios:
+Necesitará una cuenta de Azure en una suscripción de Azure que cumpla uno de los criterios siguientes:
 
 - Una suscripción bajo un [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 - Una suscripción administrada de Proveedor de soluciones en la nube (CSP) bajo un contrato de ofertas existente de Azure de CSP o un plan de Azure.
+- Un [contrato Enterprise moderno](../cost-management-billing/understand/mca-overview.md) con Microsoft.
 
 ## <a name="request-host-quota-for-ea-customers"></a>Solicitud de cuota de host para los clientes de EA
 
@@ -62,11 +65,11 @@ Acceda a Azure Portal desde el Centro de partners mediante el procedimiento de *
 
    1. En el **Centro de partners**, seleccione **CSP** para acceder al área **Clientes**.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Área de clientes del Centro de partners de Microsoft" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+      :::image type="content" source="media/pre-deployment/csp-customers-screen.png" alt-text="Captura de pantalla que muestra el área de clientes del Centro de partners de Microsoft." lightbox="media/pre-deployment/csp-customers-screen.png":::
    
    1. Seleccione el cliente y, a continuación, seleccione **Agregar productos**.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Centro de partners de Microsoft" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+      :::image type="content" source="media/pre-deployment/csp-partner-center.png" alt-text="Captura de pantalla que muestra el plan de Azure seleccionado en el Centro de partners de Microsoft." lightbox="media/pre-deployment/csp-partner-center.png":::
    
    1. Seleccione **Plan de Azure** y, después, seleccione **Agregar al carro**. 
    
@@ -80,7 +83,7 @@ Acceda a Azure Portal desde el Centro de partners mediante el procedimiento de *
    
    1. Expanda los detalles del cliente y seleccione **Portal de administración de Microsoft Azure**.
    
-   1. En Azure Portal, en **Ayuda y soporte técnico**, cree una **[solicitud de soporte técnico](https://rc.portal.azure.com/#create/Microsoft.Support)** y proporcione la siguiente información:
+   1. En Azure Portal, en **Ayuda y soporte técnico**, cree una **[solicitud de soporte técnico](https://rc.portal.azure.com/#create/Microsoft.Support)** y especifique la siguiente información:
       - **Tipo de problema**: Requisitos previos técnicos
       - **Subscription** (Suscripción): Seleccione su suscripción.
       - **Servicio:** Todos los servicios > Azure VMware Solution
@@ -105,5 +108,4 @@ Acceda a Azure Portal desde el Centro de partners mediante el procedimiento de *
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para poder implementar Azure VMware Solution, primero debe [registrar el proveedor de recursos](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider) con su suscripción para habilitar el servicio.   
-
+Para implementar Azure VMware Solution, antes es preciso [registrar el proveedor de recursos](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider) en una suscripción para habilitar el servicio.   

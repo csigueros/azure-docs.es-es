@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 8/17/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dcba2b9435cb20cc112da1355cc31cbcb8dff2
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 321b7ed1ee6cfc2d37547a88f3aef5be6d594e10
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123029817"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397133"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acceso híbrido seguro: Protección de aplicaciones heredadas con Azure Active Directory
 
@@ -40,11 +40,9 @@ Además de recurrir a [Azure AD Application Proxy](https://aka.ms/whyappproxy), 
 
 Los siguientes asociados ofrecen soluciones pre compiladas para admitir directivas de acceso condicional por aplicación y proporcionan instrucciones detalladas para la integración con Azure AD. 
 
-- [Akamai Enterprise Application Access](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
-
 - [Controlador de entrega de aplicaciones (ADC) de Citrix](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)  
 
-- [Datawiza Access Broker](datawiza-with-azure-ad.md)
+- [Datawiza Access Broker](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
 
 - [F5 Big-IP APM ADC](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
 
@@ -59,6 +57,8 @@ Los siguientes asociados ofrecen soluciones pre compiladas para admitir directiv
 - [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
 
 Los siguientes asociados ofrecen soluciones predefinidas e instrucciones detalladas para la integración con Azure AD. 
+
+- [Akamai Enterprise Application Access](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
 
 - [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
 

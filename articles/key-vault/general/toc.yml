@@ -87,13 +87,7 @@
     - name: Autorizar el acceso
       items:
         - name: Asigna una directiva de acceso
-          items:
-            - name: CLI
-              href: assign-access-policy-cli.md
-            - name: PowerShell
-              href: assign-access-policy-powershell.md
-            - name: Portal
-              href: assign-access-policy-portal.md
+          href: assign-access-policy.md
         - name: Modelo de permisos de Azure RBAC
           items:
             - name: 'Uso de Azure RBAC para administrar el acceso a claves, secretos y certificados'

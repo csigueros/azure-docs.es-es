@@ -11,18 +11,25 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/21/2021
-ms.openlocfilehash: c8f8699d58d26c745be8cb1207a88cdad6857f1a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/01/2021
+ms.openlocfilehash: e891ab3812c78e8878a0e4341b8fa6b671a7af14
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752184"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223701"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permite implementar una máquina virtual (VM) con una imagen de SQL Server integrada. En este artículo se resumen los cambios en la documentación asociados a las nuevas características y mejoras de las versiones recientes de [SQL Server en Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="september-2021"></a>Septiembre de 2021
+
+| Cambios | Detalles |
+| --- | --- |
+| **El modo completo de la extensión IaaS de SQL ya no requiere reiniciar** | El reinicio del servicio SQL Server ya no es necesario al registrar la VM de SQL Server en [modo completo](sql-agent-extension-manually-register-single-vm.md#full-mode) de la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md). | 
+
 
 ## <a name="july-2021"></a>Julio de 2021
 

@@ -6,20 +6,20 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
-ms.date: 05/27/2021
-ms.openlocfilehash: 708f87e8d4ff93fd6c60bb923a422469ef66a3e6
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 08/19/2021
+ms.openlocfilehash: 356d81e93997922b0ae9b2e82bf7670449f168af
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580170"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258817"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
 Al configurar la recuperación ante desastres para máquinas virtuales de VMware y servidores físicos con [Azure Site Recovery](site-recovery-overview.md), instala el servicio Mobility de Site Recovery en cada máquina virtual de VMware y servidor físico local. Mobility Service captura las escrituras de datos en la máquina y las reenvía al servidor de procesos de Site Recovery. El servicio Mobility se instala mediante el software del agente correspondiente que puede implementar mediante los siguientes métodos:
 
 - [Instalación de inserción](#push-installation): cuando se habilita la protección mediante Azure Portal, Site Recovery instala el servicio Mobility en el servidor.
-- Instalación manual: puede instalar el servicio Mobility manualmente en cada máquina mediante la [interfaz de usuario](#install-the-mobility-service-using-ui) o del [símbolo del sistema](#install-the-mobility-service-using-command-prompt).
+- Instalación manual: puede instalar el servicio Mobility manualmente en cada máquina mediante la [interfaz de usuario](#install-the-mobility-service-using-ui-classic) o del [símbolo del sistema](#install-the-mobility-service-using-command-prompt-classic).
 - [Implementación automatizada](vmware-azure-mobility-install-configuration-mgr.md): puede automatizar la instalación del servicio Mobility con herramientas de implementación de software como Configuration Manager.
 
 > [!NOTE]
@@ -67,15 +67,17 @@ Durante una instalación de inserción del servicio Mobility, se realizan los si
 1. Como parte de la instalación del agente, se instala el proveedor del Servicio de instantáneas de volumen (VSS) para Azure Site Recovery. Este proveedor se usa para generar puntos de recuperación coherentes con la aplicación.
    - Si se produce un error en la instalación del proveedor de VSS, no se podrá realizar la instalación del agente. Para evitar errores en la instalación del agente, use la [versión 9.23](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery) o versiones posteriores para generar puntos de recuperación coherentes frente a bloqueos e instalar el proveedor de VSS manualmente.
 
-## <a name="install-the-mobility-service-using-ui"></a>Instalación del servicio Mobility mediante una interfaz de usuario
+## <a name="install-the-mobility-service-using-ui-classic"></a>Instalación del servicio Mobility mediante una interfaz de usuario (clásico)
 
+>[!NOTE]
+> Esta sección es aplicable a Azure Site Recovery: clásico. [Estas son las instrucciones de instalación de la versión preliminar](#install-the-mobility-service-using-ui-preview)
 ### <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de que todas las configuraciones de servidor cumplen los criterios que se indican en [Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure](vmware-physical-azure-support-matrix.md).
 - [Busque el instalador](#locate-installer-files) correspondiente según el sistema operativo del servidor.
 
 >[!IMPORTANT]
-> No use el método de instalación con interfaz de usuario si va a replicar una máquina virtual de infraestructura como servicio (IaaS) de Azure de una región de Azure a otra. Use la instalación desde el [símbolo del sistema](#install-the-mobility-service-using-command-prompt).
+> No use el método de instalación con interfaz de usuario si va a replicar una máquina virtual de infraestructura como servicio (IaaS) de Azure de una región de Azure a otra. Use la instalación desde el [símbolo del sistema](#install-the-mobility-service-using-command-prompt-classic).
 
 1. Copie el archivo de instalación en el equipo y ejecútelo.
 1. En **Opción de instalación**, seleccione **Instalar Mobility Service**.
@@ -95,7 +97,10 @@ Durante una instalación de inserción del servicio Mobility, se realizan los si
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Página de registro final del servicio Mobility":::.
 
-## <a name="install-the-mobility-service-using-command-prompt"></a>Instalación del servicio Mobility mediante el símbolo del sistema
+## <a name="install-the-mobility-service-using-command-prompt-classic"></a>Instalación del servicio Mobility mediante el símbolo del sistema (clásico)
+
+>[!NOTE]
+> Esta sección es aplicable a Azure Site Recovery: clásico. [Estas son las instrucciones de instalación de la versión preliminar](#install-the-mobility-service-using-command-prompt-preview).
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
@@ -132,13 +137,12 @@ Configuración | Detalles
 --- | ---
 Sintaxis | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Registros de configuración | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
-`/Role` | Parámetro de instalación obligatorio. Especifica si se debe instalar Mobility Service (MS) o el destino maestro (MT).
+`/Role` | Parámetro de instalación obligatorio. Especifica si se debe instalar el servicio Mobility (Agent) o el destino maestro (MasterTarget).  Nota: En versiones anteriores, los modificadores correctos eran Mobility Service (MS) o destino maestro (MT)
 `/InstallLocation`| Parámetro opcional. Especifique la ubicación (cualquier carpeta) de la instalación de Mobility Service.
 `/Platform` | Mandatory. Especifica la plataforma en la que se instala el servicio Mobility: <br/> **VMware** para las máquinas virtuales y los servidores físicos de VMware. <br/> **Azure** para las máquinas virtuales de Azure.<br/><br/> Si está tratando máquinas virtuales de Azure como máquinas físicas, especifique **VMware**.
 `/Silent`| Opcional. Especifica si se debe ejecutar el instalador en modo silencioso.
 
 #### <a name="registration-settings"></a>Configuración de registro
-
 Configuración | Detalles
 --- | ---
 Sintaxis | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
@@ -155,10 +159,10 @@ Registros de configuración del agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedA
    tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
    ```
 
-2. Haga la instalación de la siguiente manera:
+2. Realice la instalación de la siguiente manera (no se requiere una cuenta raíz, pero sí permisos de raíz):
 
    ```shell
-   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   sudo ./install -d <Install Location> -r Agent -v VmWare -q
    ```
 
 3. Una vez completada la instalación, el servicio Mobility debe registrarse en el servidor de configuración. Ejecute el siguiente comando para registrar el servicio Mobility en el servidor de configuración.
@@ -209,9 +213,9 @@ Archivo de instalador | Sistema operativo (solo de 64 bits)
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> Incluye SP2 y SP3.
 [Para descargarlo y colocarlo en esta carpeta de forma manual](#suse-11-sp3-server) | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
-`Microsoft-ASR_UA_version_SLES15-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 15 
+`Microsoft-ASR_UA_version_SLES15-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 15
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6.4 </br> Oracle Enterprise Linux 6.5
-`Microsoft-ASR_UA_version_OL7-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 7 
+`Microsoft-ASR_UA_version_OL7-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 7
 `Microsoft-ASR_UA_version_OL8-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 8
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14.04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Servidor Ubuntu Linux 16.04 LTS
@@ -230,7 +234,7 @@ Como **requisito previo para actualizar o proteger las máquinas con SUSE Linux 
 1. Asegúrese de que el instalador del agente de movilidad más reciente se descarga desde el Centro de descarga de Microsoft y se coloca en el repositorio del instalador de inserciones del servidor de configuración y en todos los servidores de procesos de escalado horizontal
 2. [Descargue](site-recovery-whats-new.md) el instalador del agente más reciente para SUSE Linux Enterprise Server 11 SP3.
 3. Vaya al servidor de configuración y copie el instalador del agente para SUSE Linux Enterprise Server 11 SP3 en la ruta de acceso: INSTALL_DIR\home\svsystems\pushinstallsvc\repository.
-1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall. 
+1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall.
 1. Ahora, vaya a los servidores de proceso de escalabilidad horizontal asociados y repita los pasos 3 y 4.
 1. **Por ejemplo**, si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
     1. C:\Archivos de programa (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
@@ -240,9 +244,9 @@ Como **requisito previo para actualizar o proteger las máquinas con SUSE Linux 
 Como **requisito previo para actualizar o proteger las máquinas con RHEL 5** a partir de la versión 9.36:
 
 1. Asegúrese de que el instalador del agente de movilidad más reciente se descarga desde el Centro de descarga de Microsoft y se coloca en el repositorio del instalador de inserciones del servidor de configuración y en todos los servidores de procesos de escalado horizontal
-2. [Descargue](site-recovery-whats-new.md) el instalador del agente más reciente para RHEL 5 o CentOS 5. 
+2. [Descargue](site-recovery-whats-new.md) el instalador del agente más reciente para RHEL 5 o CentOS 5.
 3. Vaya al servidor de configuración y copie el instalador del agente para RHEL 5 o CentOS 5 en la ruta de acceso: INSTALL_DIR\home\svsystems\pushinstallsvc\repository.
-1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall. 
+1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall.
 1. Ahora, vaya a los servidores de proceso de escalabilidad horizontal asociados y repita los pasos 3 y 4.
 1. **Por ejemplo**, si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
     1. C:\Archivos de programa (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
@@ -254,10 +258,171 @@ Como **requisito previo para actualizar o proteger las máquinas con Debian 7**
 1. Asegúrese de que el instalador del agente de movilidad más reciente se descarga desde el Centro de descarga de Microsoft y se coloca en el repositorio del instalador de inserciones del servidor de configuración y en todos los servidores de procesos de escalado horizontal
 2. [Descargue](site-recovery-whats-new.md) el instalador del agente más reciente para Debian 7.
 3. Vaya al servidor de configuración y copie el instalador del agente para Debian 7 en la ruta de acceso: INSTALL_DIR\home\svsystems\pushinstallsvc\repository.
-1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall. 
+1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall.
 1. Ahora, vaya a los servidores de proceso de escalabilidad horizontal asociados y repita los pasos 3 y 4.
 1. **Por ejemplo**, si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
     1. C:\Archivos de programa (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
+
+## <a name="install-the-mobility-service-using-ui-preview"></a>Instalación del servicio Mobility mediante una interfaz de usuario (versión preliminar)
+
+>[!NOTE]
+> Esta sección es aplicable a Azure Site Recovery: versión preliminar. [Estas son las instrucciones de instalación de la versión clásica](#install-the-mobility-service-using-ui-classic).
+
+### <a name="prerequisites"></a>Requisitos previos
+
+Realice los pasos siguientes para buscar los archivos del instalador del sistema operativo del servidor:  
+- En el dispositivo, vaya a la carpeta *E:\Software\Agents*.
+- Copie el instalador correspondiente al sistema operativo de la máquina de origen y colóquelo en la máquina de origen, en una carpeta local, como *C:\Azure Site Recovery\Agent*.
+
+**Siga estos pasos para instalar el servicio Mobility:**
+
+1. Abra el símbolo del sistema y vaya a la carpeta en la que se ha colocado el archivo del instalador.
+
+   ```cmd
+    cd C:\Azure Site Recovery\Agent*
+   ```
+
+2. Ejecute el comando siguiente para extraer el archivo del instalador:
+
+   ```cmd
+   .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent
+   ```
+
+3. Ejecute el comando siguiente para continuar con la instalación. De esta forma, se iniciará la interfaz de usuario del instalador:
+
+   ```cmd
+   .\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation "C:\Azure Site Recovery\Agent"
+   ```
+
+   >[!NOTE]
+   >La ubicación de instalación mencionada en la interfaz de usuario es la misma que se pasó en el comando.
+
+4. Haga clic en **Instalar**.
+
+   Esto iniciará la instalación del servicio Mobility.
+
+   Espere hasta que se haya completado. Una vez hecho esto, llegará al paso de registro; puede registrar la máquina de origen en el dispositivo que prefiera.
+
+   ![Imagen que muestra la opción para instalar la interfaz de usuario del servicio Mobility](./media/vmware-physical-mobility-service-overview-preview/mobility-service-install.png)
+
+   ![Imagen que muestra el progreso de la instalación el servicio Mobility](./media/vmware-physical-mobility-service-overview-preview/installation-progress.png)
+
+5. Copie la cadena presente en el campo **Detalles de la máquina**.
+
+   Este campo incluye información única de la máquina de origen. Esta información es necesaria para [generar el archivo de configuración del servicio Mobility](#generate-mobility-service-configuration-file).
+
+   ![Imagen que muestra la cadena de la máquina de origen](./media/vmware-physical-mobility-service-overview-preview/source-machine-string.png)
+
+6.  Proporcione la ruta de acceso del **archivo de configuración del servicio Mobility** en el configurador de Unified Agent.
+7.  Haga clic en **Registrar**.
+
+    De esta forma la máquina de origen se registrará correctamente en el dispositivo.
+
+## <a name="install-the-mobility-service-using-command-prompt-preview"></a>Instalación del servicio Mobility mediante el símbolo del sistema (versión preliminar)
+
+>[!NOTE]
+> Esta sección es aplicable a Azure Site Recovery: versión preliminar. [Estas son las instrucciones de instalación de la versión clásica](#install-the-mobility-service-using-command-prompt-classic).
+
+### <a name="windows-machine"></a>Un equipo Windows
+1. Abra el símbolo del sistema y vaya a la carpeta en la que se ha colocado el archivo del instalador.
+
+   ```cmd
+   cd C:\Azure Site Recovery\Agent
+   ```
+2. Ejecute el comando siguiente para extraer el archivo del instalador:
+   ```cmd
+       .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent
+    ```
+3. Ejecute el comando siguiente para continuar con la instalación:
+
+   ```cmd
+
+    .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Azure Site Recovery\Agent"
+   ```
+    Una vez completada la instalación, copie la cadena que se genera junto con el parámetro *Agent Config Input*. Esta cadena es necesaria para [generar el archivo de configuración del servicio Mobility](#generate-mobility-service-configuration-file).
+
+    ![cadena de ejemplo para descargar el archivo de configuración ](./media/vmware-physical-mobility-service-overview-preview/configuration-string.png)
+
+4. Después de realizar la instalación correctamente, registre la máquina de origen en el dispositivo anterior con el comando siguiente:
+
+   ```cmd
+   "C:\Azure Site Recovery\Agent\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime
+   ```
+
+#### <a name="installation-settings"></a>Configuración de la instalación
+
+Configuración | Detalles
+--- | ---
+Sintaxis | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation <Install Location>`
+`/Role` | Parámetro de instalación obligatorio. Especifica si se instalará el servicio Mobility (MS).
+`/InstallLocation`| Opcional. Especifique la ubicación (cualquier carpeta) de la instalación de Mobility Service.
+`/Platform` | Mandatory. Especifica la plataforma en la que se instala el servicio Mobility: <br/> **VMware** para las máquinas virtuales y los servidores físicos de VMware. <br/> **Azure** para las máquinas virtuales de Azure.<br/><br/> Si está tratando máquinas virtuales de Azure como máquinas físicas, especifique **VMware**.
+`/Silent`| Opcional. Especifica si se debe ejecutar el instalador en modo silencioso.
+`/CSType`| Mandatory. Se usa para definir la arquitectura en versión preliminar o heredada. (CSPrime o CSLegacy)
+
+#### <a name="registration-settings"></a>Configuración de registro
+
+Configuración | Detalles
+--- | ---
+Sintaxis | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
+`/SourceConfigFilePath` | Mandatory. Ruta de acceso completa del archivo de configuración del servicio Mobility. Uso de cualquier carpeta válida.
+`/CSType` |  Mandatory. Se usa para definir la arquitectura en versión preliminar o heredada. (CSPrime o CSLegacy).
+
+
+### <a name="linux-machine"></a>En un equipo Linux
+
+1. Desde una sesión terminal, copie el instalador en una carpeta local (por ejemplo, **/tmp**) del servidor que desea proteger. A continuación, ejecute el comando siguiente:
+
+   ```shell
+       cd /tmp ;
+       tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
+   ```
+
+2. Para instalar, use el comando siguiente:
+   ```shell
+        ./install -q -r MS -v VmWare -c CSPrime
+    ```
+
+    Una vez completada la instalación, copie la cadena que se genera junto con el parámetro *Agent Config Input*. Esta cadena es necesaria para [generar el archivo de configuración del servicio Mobility](#generate-mobility-service-configuration-file).
+
+3. Después de realizar la instalación correctamente, registre la máquina de origen en el dispositivo anterior con el comando siguiente:
+
+   ```shell
+        <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q
+    ```
+#### <a name="installation-settings"></a>Configuración de la instalación
+
+  Configuración | Detalles
+  --- | ---
+    Sintaxis | `./install -q -r MS -v VmWare -c CSPrime`
+    `-r` | Mandatory. Parámetro de instalación. Especifica si debe instalarse el servicio Mobility (MS).
+    `-d` | Opcional. Especifica la ubicación de la instalación del servicio Mobility: `/usr/local/ASR`.
+    `-v` | Mandatory. Especifica la plataforma en la que se instala el servicio Mobility. <br/> **VMware** para las máquinas virtuales y los servidores físicos de VMware. <br/> **Azure** para las máquinas virtuales de Azure.
+    `-q` | Opcional. Especifica si se debe ejecutar el instalador en modo silencioso.
+    `-c` | Mandatory. Se usa para definir la arquitectura en versión preliminar o heredada. (CSPrime o CSLegacy).
+
+#### <a name="registration-settings"></a>Configuración de registro
+
+  Configuración | Detalles
+  --- | ---
+    Sintaxis | `cd <InstallLocation>/Vx/bin UnifiedAgentConfigurator.sh -c CSPrime -S -q`  
+    `-s` | Mandatory. Ruta de acceso completa del archivo de configuración del servicio Mobility. Uso de cualquier carpeta válida.
+    `-c` |  Mandatory. Se usa para definir la arquitectura en versión preliminar o heredada. (CSPrime o CSLegacy).
+    `-q` |  Opcional. Especifica si se debe ejecutar el instalador en modo silencioso.
+
+## <a name="generate-mobility-service-configuration-file"></a>Generación de un archivo de configuración del servicio Mobility
+
+  Realice los pasos siguientes para generar el archivo de configuración del servicio Mobility:
+
+  1. Vaya al dispositivo en el que quiere registrar la máquina de origen. Abra Microsoft Azure Appliance Configuration Manager y navegue a la sección de **detalles de configuración del servicio Mobility**.
+  2. Pegue en el campo de entrada la cadena de detalles de la máquina que copió del servicio Mobility.
+  3. Haga clic en **Descargar el archivo de configuración**.
+
+  ![Imagen que muestra la opción de descargar el archivo de configuración para el servicio Mobility](./media/vmware-physical-mobility-service-overview-preview/download-configuration-file.png)
+
+Al hacerlo, se descargará el archivo de configuración del servicio Mobility. Copie este archivo en una carpeta local de la máquina de origen. Puede colocarlo en la misma carpeta que el instalador del servicio Mobility.
+
+Consulte la información sobre cómo [actualizar el servicio Mobility](upgrade-mobility-service-preview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

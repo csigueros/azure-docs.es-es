@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 84164e95d5b961392787f4011abbe553b2cb5595
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 14197b7974db7697b9718f13ef59ac3e34c22a9b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079884"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397152"
 ---
 # <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>Tamaño de máquinas virtuales: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,6 +42,7 @@ Revise la siguiente lista de comprobación para obtener una breve introducción 
 - Considere una mayor proporción de memoria por núcleo virtual para cargas de trabajo críticas y de almacenamiento de datos. 
 - Aproveche las imágenes de Marketplace de máquinas virtuales de Azure, ya que la configuración de SQL Server y las opciones de almacenamiento están configuradas para un rendimiento óptimo de SQL Server. 
 - Recopile las características de rendimiento de la carga de trabajo de destino y úselas para determinar el tamaño de VM adecuado para el negocio.
+- Use la herramienta de [recomendación de SKU](/sql/dma/dma-sku-recommend-sql-db) de [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) para encontrar el tamaño de máquina virtual adecuado para la carga de trabajo de SQL Server existente.
 
 Para comparar la lista de comprobación de tamaño de VM con las demás, vea la [lista de comprobación de procedimientos recomendados de rendimiento](performance-guidelines-best-practices-checklist.md). 
 

@@ -1,19 +1,22 @@
 ---
-title: Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
-description: Aprenda a copiar datos desde un origen REST local o en la nube hacia almacenes de datos receptores compatibles, o desde almacenes de datos de origen admitidos hacia un receptor de REST mediante una actividad de copia de una canalización de Azure Data Factory.
+title: Copia y transformación de datos desde y hacia un punto de conexión de REST mediante Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a usar la actividad Copiar para copiar datos y Flujo de datos para transformar datos desde un origen REST local o en la nube a almacenes de datos receptores compatibles, o desde un almacén de datos de origen compatible a un receptor REST en canalizaciones de Azure Data Factory o Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.author: jianleishen
-ms.openlocfilehash: 24269fcfe7c60140c3d0fe9497eefeba71338bd7
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 08/30/2021
+ms.author: makromer
+ms.openlocfilehash: 16bb4ac7062c39ad57becce4d5280ed227160690
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487086"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311571"
 ---
-# <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
+# <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia y transformación de datos desde y hacia un punto de conexión de REST mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde un punto de conexión de REST y hacia allí. El artículo se basa en [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
@@ -45,6 +48,30 @@ En concreto, este conector REST genérico admite lo siguiente:
 ## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-rest-linked-service-using-ui"></a>Creación de un servicio vinculado REST mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado REST en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque REST y seleccione el conector de REST.
+
+    :::image type="content" source="media/connector-rest/rest-connector.png" alt-text="Selección del conector de REST.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-rest/configure-rest-linked-service.png" alt-text="Configuración del servicio vinculado REST.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas del conector REST.
 
@@ -132,7 +159,7 @@ Establezca la propiedad **authenticationType** en **AadServicePrincipal**. Adem�
 }
 ```
 
-### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Uso de identidades administradas para la autenticación de recursos de Azure
+### <a name="use-system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> Uso de la autenticación de identidad administrada asignada por el sistema
 
 Establezca la propiedad **authenticationType** en **ManagedServiceIdentity**. Además de las propiedades genéricas descritas en las secciones anteriores, especifique las siguientes:
 
@@ -151,6 +178,39 @@ Establezca la propiedad **authenticationType** en **ManagedServiceIdentity**. Ad
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-user-assigned-managed-identity-authentication"></a>Uso de la autenticación de identidad administrada asignada por el usuario
+Establezca la propiedad **authenticationType** en **ManagedServiceIdentity**. Además de las propiedades genéricas descritas en las secciones anteriores, especifique las siguientes:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| aadResourceId | Especifique el recurso de AAD para el que solicita autorización, por ejemplo, `https://management.core.windows.net`.| Sí |
+| credentials | Especifique la identidad administrada asignada por el usuario como objeto de credencial. | Sí |
+
+
+**Ejemplo**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }    
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -376,6 +436,57 @@ El conector de REST como receptor funciona con las API REST que aceptan JSON. Lo
         }
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
+
+REST se admite en flujos de datos de conjuntos de datos de integración y conjuntos de datos en línea.
+
+### <a name="source-transformation"></a>Transformación de origen
+
+| Propiedad | Descripción | Requerido |
+|:--- |:--- |:--- |
+| requestMethod | Método HTTP. Los valores permitidos son **GET** y **POST**. | Sí |
+| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. El conector HTTP copia los datos de la dirección URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
+| additionalHeaders | Encabezados de solicitud HTTP adicionales. | No |
+| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para escribir los datos. El valor predeterminado es **00:01:40**.  | No |
+| requestInterval | El intervalo de tiempo entre diferentes solicitudes en milisegundos. El valor del intervalo de solicitudes debe ser un número entre [10, 60000]. |  No |
+| QueryParameters.*request_query_parameter* O QueryParameters["request_query_parameter"] | El usuario define "request_query_parameter", que hace referencia a un nombre de parámetro de consulta en la siguiente dirección URL de solicitud HTTP. | No |
+
+### <a name="sink-transformation"></a>Transformación de receptor
+
+| Propiedad | Descripción | Requerido |
+|:--- |:--- |:--- |
+| additionalHeaders | Encabezados de solicitud HTTP adicionales. | No |
+| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para escribir los datos. El valor predeterminado es **00:01:40**.  | No |
+| requestInterval | El intervalo de tiempo entre diferentes solicitudes en milisegundos. El valor del intervalo de solicitudes debe ser un número entre [10, 60000]. |  No |
+| httpCompressionType | Tipo de compresión HTTP que se va a usar al enviar datos con un nivel de compresión óptimo. Los valores permitidos son **ninguno** y **gzip**. | No |
+| writeBatchSize | Número de registros que se van a escribir en el receptor de REST por lote. El valor predeterminado es 10000. | No |
+
+Puede establecer los métodos delete, insert, update y upsert, así como los datos de fila relativos que se van a enviar al receptor REST para las operaciones CRUD.
+
+![Receptor REST de flujo de datos](media/data-flow/data-flow-sink.png)
+
+## <a name="sample-data-flow-script"></a>Script de flujo de datos de ejemplo
+
+Observe el uso de una transformación alter row antes del receptor para indicar a ADF qué tipo de acción realizar con el receptor REST. Es decir, insert, update, upsert, delete.
+
+```
+AlterRow1 sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    rowRelativeUrl: 'periods',
+    insertHttpMethod: 'PUT',
+    deleteHttpMethod: 'DELETE',
+    upsertHttpMethod: 'PUT',
+    updateHttpMethod: 'PATCH',
+    timeout: 30,
+    requestFormat: ['type' -> 'json'],
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> sink1
 ```
 
 ## <a name="pagination-support"></a>Compatibilidad con la paginación

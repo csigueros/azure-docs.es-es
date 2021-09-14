@@ -3,15 +3,15 @@ title: Configuración de claves administradas por el cliente para cifrar datos e
 description: Cree y administre sus propias claves de cifrado para proteger los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: mijos, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, azla
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3ea6476173e7be1a6239e97ef2e5fbb5257aead
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98629681"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322216"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
@@ -23,7 +23,11 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 ## <a name="considerations"></a>Consideraciones
 
-* En este momento, la compatibilidad con claves administradas por el cliente para un ISE solo está disponible en estas regiones de Azure: Oeste de EE. UU. 2, Este de EE. UU. y Centro-sur de EE. UU.
+* En este momento, la compatibilidad con claves administradas por el cliente para un ISE solo está disponible en las siguientes regiones:
+
+  * Azure: Oeste de EE. UU. 2, Este de EE. UU. y Centro-sur de EE. UU.
+
+  * Azure Government: Arizona, Virginia y Texas.
 
 * Solo puede especificar una clave administrada por el cliente *cuando cree su ISE*, no después. No se puede deshabilitar esta clave una vez creado el ISE. Actualmente, no existe compatibilidad para rotar una clave administrada por el cliente para un ISE.
 

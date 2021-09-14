@@ -3,15 +3,15 @@ title: Autenticación y autorización
 description: Obtenga información sobre el soporte de autenticación y autorización integrado en Azure App Service y Azure Functions, y cómo puede ayudarle a proteger la aplicación frente al acceso no autorizado.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 07/21/2021
 ms.reviewer: mahender
-ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: a362e99e9da7cf4c41f042364792a05a27b1aa6a
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: 304dc18933cc89a19dcc949fd6ff6b33a9be4479
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892695"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397352"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticación y autorización en Azure App Service y Azure Functions
 
@@ -52,54 +52,54 @@ App Service puede usarse para la autenticación con o sin restringir el acceso a
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-[Arquitectura de características en Windows (implementación sin contenedor)](#feature-architecture-on-windows-non-container-deployment)
-
-[Arquitectura de características en Linux y contenedores](#feature-architecture-on-linux-and-containers)
+[Arquitectura de características](#feature-architecture)
 
 [Flujo de autenticación](#authentication-flow)
 
 [Comportamiento de la autorización](#authorization-behavior)
 
-[Notificaciones de usuario y aplicación](#user-and-application-claims)
-
 [Almacén de tokens](#token-store)
 
 [Registro y seguimiento](#logging-and-tracing)
 
-#### <a name="feature-architecture-on-windows-non-container-deployment"></a>Arquitectura de características en Windows (implementación sin contenedor)
+### <a name="feature-architecture"></a>Arquitectura de características
 
-El módulo de autenticación y autorización se ejecuta en el mismo espacio aislado que el código de aplicación. Cuando está habilitado, cada solicitud HTTP entrante pasa a través de él antes de que el código de aplicación lo controle.
+El componente de middleware de autenticación y autorización es una característica de la plataforma que se ejecuta en la misma máquina virtual que la aplicación. Cuando está habilitado, cada solicitud HTTP entrante pasa por él antes de que la aplicación lo controle.
 
 :::image type="content" source="media/app-service-authentication-overview/architecture.png" alt-text="Diagrama de arquitectura que muestra las solicitudes que intercepta un proceso en el espacio aislado del sitio que interactúa con los proveedores de identidades antes de permitir el tráfico al sitio implementado" lightbox="media/app-service-authentication-overview/architecture.png":::
 
-Este módulo controla varios aspectos de la aplicación:
+El middleware de plataforma controla varios aspectos de la aplicación:
 
-- Autentica a los usuarios con el proveedor especificado
-- Valida, almacena y actualiza tokens
+- Autentica usuarios y clientes con los proveedores de identidades especificados.
+- Valida, almacena y actualiza los tokens de OAuth emitidos por los proveedores de identidades configurados.
 - Administra la sesión autenticada
-- Inyecta información de identidad en los encabezados de solicitud
+- Inserta información de identidad en encabezados de solicitud HTTP.
 
-El módulo se ejecuta por separado del código de aplicación y se configura mediante los parámetros de la aplicación. No se necesitan SDK, idiomas específicos o cambios en el código de aplicación. 
+El módulo se ejecuta por separado del código de la aplicación y se puede configurar mediante Azure Resource Manager o mediante [un archivo de configuración](configure-authentication-file-based.md). No se necesitan SDK, lenguajes de programación específicos ni cambios en el código de la aplicación. 
+
+#### <a name="feature-architecture-on-windows-non-container-deployment"></a>Arquitectura de características en Windows (implementación sin contenedor)
+
+El módulo de autenticación y autorización se ejecuta como [módulo de IIS](/iis/get-started/introduction-to-iis/iis-modules-overview) nativo en el mismo espacio aislado que la aplicación. Cuando está habilitado, cada solicitud HTTP entrante pasa por él antes de que la aplicación lo controle.
 
 #### <a name="feature-architecture-on-linux-and-containers"></a>Arquitectura de características en Linux y contenedores
 
 El módulo de autenticación y autorización se ejecuta en un contenedor independiente, aislado del código de la aplicación. Con lo que se conoce como [patrón de embajador](/azure/architecture/patterns/ambassador), interactúa con el tráfico entrante para realizar una funcionalidad similar a la de Windows. Dado que no se ejecuta en proceso, no es posible la integración directa con marcos de lenguaje específicos. Sin embargo, la información pertinente que necesita su aplicación se pasa con encabezados de solicitud, como se explica a continuación.
 
-#### <a name="authentication-flow"></a>Flujo de autenticación
+### <a name="authentication-flow"></a>Flujo de autenticación
 
 El flujo de autenticación es el mismo para todos los proveedores, pero varía en función de si desea iniciar sesión con el SDK del proveedor:
 
 - Sin el SDK del proveedor: la aplicación delega el inicio de sesión federado a App Service. Por lo general, suele ser el caso de las aplicaciones de explorador, que pueden presentar la página de inicio de sesión del proveedor al usuario. El código del servidor administra el proceso de inicio de sesión, por lo que también se denomina _flujo dirigido por el servidor_ o _flujo de servidor_. Este caso se aplica a las aplicaciones de explorador. También se aplica a las aplicaciones nativas que proporcionan inicio de sesión a los usuarios mediante el SDK de cliente de Mobile Apps porque el SDK abre una vista web para proporcionar inicio de sesión a los usuarios con autenticación de App Service.
 - Con el SDK del proveedor: la aplicación inicia manualmente la sesión del usuario con el proveedor y luego envía el token de autenticación a App Service para su validación. Por lo general, suele ser el caso de las aplicaciones sin explorador, que no pueden presentar la página de inicio de sesión del proveedor al usuario. El código de aplicación administra el proceso de inicio de sesión, por lo que también se denomina _flujo dirigido por el cliente_ o _flujo de cliente_. Este caso se aplica a las API REST, [Azure Functions](../azure-functions/functions-overview.md) y los clientes de explorador de JavaScript, así como a las aplicaciones de explorador que necesitan más flexibilidad en el proceso de inicio de sesión. También se aplica a las aplicaciones móviles nativas que proporciona inicio de sesión a los usuarios con el SDK del proveedor.
 
-Las llamadas desde una aplicación de explorador de confianza en App Service a otra REST API de App Service o [Azure Functions](../azure-functions/functions-overview.md) se pueden autenticar mediante el flujo dirigido por el servidor. Para obtener más información, consulte [Personalización de la autenticación y autorización en Azure App Service](app-service-authentication-how-to.md).
+Las llamadas desde una aplicación de explorador de confianza en App Service a otra REST API de App Service o [Azure Functions](../azure-functions/functions-overview.md) se pueden autenticar mediante el flujo dirigido por el servidor. Para obtener más información, vea [Personalización del inicio y cierre de sesión](configure-authentication-customize-sign-in-out.md).
 
 En la tabla siguiente se muestran los pasos del flujo de autenticación.
 
 | Paso | Sin el SDK del proveedor | Con el SDK del proveedor |
 | - | - | - |
 | 1. Inicio de sesión del usuario | Redirige el cliente a `/.auth/login/<provider>`. | El código de cliente proporciona inicio de sesión al usuario directamente con el SDK del proveedor y recibe un token de autenticación. Para información, consulte la documentación del proveedor. |
-| 2. Autenticación posterior | El proveedor redirige el cliente a `/.auth/login/<provider>/callback`. | El código de cliente [publica el token del proveedor](app-service-authentication-how-to.md#validate-tokens-from-providers) en `/.auth/login/<provider>` para la validación. |
+| 2. Autenticación posterior | El proveedor redirige el cliente a `/.auth/login/<provider>/callback`. | El código de cliente [publica el token del proveedor](configure-authentication-customize-sign-in-out.md#client-directed-sign-in) en `/.auth/login/<provider>` para la validación. |
 | 3. Establecer la sesión autenticada | App Service agrega una cookie autenticada a la respuesta. | App Service devuelve su propio token de autenticación al código de cliente. |
 | 4. Servir contenido autenticado | El cliente incluye la cookie de autenticación en las solicitudes posteriores (controladas automáticamente por explorador). | El código de cliente presenta el token de autenticación en el encabezado `X-ZUMO-AUTH` (controlado automáticamente por SDK de cliente de Mobile Apps). |
 
@@ -107,7 +107,7 @@ Para los exploradores del cliente, App Service puede dirigir automáticamente to
 
 <a name="authorization"></a>
 
-#### <a name="authorization-behavior"></a>Comportamiento de la autorización
+### <a name="authorization-behavior"></a>Comportamiento de la autorización
 
 En [Azure Portal](https://portal.azure.com), puede configurar App Service con varios comportamientos cuando la solicitud entrante no esté autenticada. Los encabezados siguientes describen las opciones.
 
@@ -115,13 +115,13 @@ En [Azure Portal](https://portal.azure.com), puede configurar App Service con va
 
 Esta opción traslada la autorización del tráfico sin autenticar al código de aplicación. Para las solicitudes autenticadas, App Service también transfiere información de autenticación en los encabezados HTTP.
 
-Esta opción proporciona más flexibilidad a la hora de controlar las solicitudes anónimas. Por ejemplo, le permite [presentar varios proveedores de inicio de sesión](app-service-authentication-how-to.md#use-multiple-sign-in-providers) a los usuarios. Sin embargo, debe escribir código.
+Esta opción proporciona más flexibilidad a la hora de controlar las solicitudes anónimas. Por ejemplo, le permite [presentar varios proveedores de inicio de sesión](configure-authentication-customize-sign-in-out.md#use-multiple-sign-in-providers) a los usuarios. Sin embargo, debe escribir código.
 
 **Requerir autenticación**
 
 Esta opción rechazará el tráfico no autenticado hacia la aplicación. Este rechazo puede ser una acción de redireccionamiento a uno de los proveedores de identidades configurados. En estos casos, un cliente del explorador se redirige a `/.auth/login/<provider>` para el proveedor que elija. Si la solicitud anónima procede de una aplicación móvil nativa, la respuesta devuelta es `HTTP 401 Unauthorized`. También puede configurar el rechazo para que sea `HTTP 401 Unauthorized` o `HTTP 403 Forbidden` para todas las solicitudes.
 
-Con esta opción, no es necesario escribir ningún código de autenticación en la aplicación. Una autorización más precisa, como la autorización específica de rol, se puede controlarse mediante la inspección de las notificaciones del usuario (consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario)).
+Con esta opción, no es necesario escribir ningún código de autenticación en la aplicación. Una autorización más precisa, como la autorización específica de rol, se puede controlarse mediante la inspección de las notificaciones del usuario (consulte [Access user claims](configure-authentication-user-identities.md) (Acceso a las notificaciones de usuario)).
 
 > [!CAUTION]
 > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no ser deseable para las aplicaciones que necesitan una página de inicio disponible públicamente, como muchas aplicaciones de una sola página.
@@ -129,38 +129,31 @@ Con esta opción, no es necesario escribir ningún código de autenticación en 
 > [!NOTE]
 > De forma predeterminada, cualquier usuario del inquilino de Azure AD puede solicitar un token para la aplicación desde Azure AD. Puede [configurar la aplicación en Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) si desea restringir el acceso a la aplicación a un conjunto definido de usuarios.
 
-
-#### <a name="user-and-application-claims"></a>Notificaciones de usuario y aplicación
-
-En todos los marcos de lenguaje, App Service hace que las notificaciones del token de entrada (tanto si proceden de un usuario final autenticado como de una aplicación cliente) estén disponibles para el código. Para ello, se insertan en los encabezados de solicitud. Para las aplicaciones de ASP.NET 4.6, App Service rellena [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con las notificaciones del usuario autenticado, de forma que usted puede seguir el patrón de código de .NET estándar, incluido el atributo `[Authorize]`. De forma similar, para las aplicaciones PHP, App Service rellena la variable `_SERVER['REMOTE_USER']`. En el caso de las aplicaciones Java, se puede acceder a las notificaciones [desde el servlet Tomcat](configure-language-java.md#authenticate-users-easy-auth).
-
-Para [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` no está relleno para el código .NET, pero todavía puede encontrar las notificaciones de usuario en los encabezados de solicitudes, u obtener el objeto `ClaimsPrincipal` del contexto de la solicitud o incluso a través de un parámetro de enlace. Consulte [Uso de identidades de cliente](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) para más información.
-
-Para más información, consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario).
-
-Para .NET Core, [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) admite rellenar el usuario actual con la característica Autenticación y autorización. Para más información, vea la [wiki de Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb) o consulte una demostración en este [tutorial para una aplicación web que accede a Microsoft Graph](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages).
-
-#### <a name="token-store"></a>Almacén de tokens
+### <a name="token-store"></a>Almacén de tokens
 
 App Service proporciona un almacén de tokens integrado, que es un repositorio de tokens que están asociados a los usuarios de las aplicaciones web, API o aplicaciones móviles nativas. Al habilitar la autenticación con cualquier proveedor, este almacén de tokens pasa a estar inmediatamente disponible para la aplicación, si el código de aplicación necesita acceder a los datos de estos proveedores en nombre del usuario, como:
 
 - publicar en la escala de tiempo de Facebook del usuario autenticado
 - leer los datos corporativos del usuario mediante Microsoft Graph API
 
-Normalmente, debe escribir código para recopilar, almacenar y actualizar estos tokens en la aplicación. Con el almacén de tokens, simplemente [recupera los tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) cuando los necesita e [indica a App Service que los actualice](app-service-authentication-how-to.md#refresh-identity-provider-tokens) cuando dejan de ser válidos. 
+Normalmente, debe escribir código para recopilar, almacenar y actualizar estos tokens en la aplicación. Con el almacén de tokens, simplemente [recupera los tokens](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) cuando los necesita e [indica a App Service que los actualice](configure-authentication-oauth-tokens.md#refresh-auth-tokens) cuando dejan de ser válidos. 
 
 Los tokens de identificador, los tokens de acceso y los tokens de actualización se almacenaron en caché durante la sesión autenticada y solamente el usuario asociado puede acceder a ellos.  
 
 Si no necesita trabajar con tokens en la aplicación, puede deshabilitar el almacén de tokens en la página **Autenticación/Autorización** de la aplicación.
 
-#### <a name="logging-and-tracing"></a>Registro y seguimiento
+### <a name="logging-and-tracing"></a>Registro y seguimiento
 
 Si [habilita el registro de aplicaciones](troubleshoot-diagnostic-logs.md), verá los seguimientos de autenticación y autorización directamente en los archivos de registro. Si ve un error de autenticación que no esperaba, puede encontrar cómodamente todos los detalles examinando los registros de aplicaciones existentes. Si habilita el [seguimiento de solicitudes erróneas](troubleshoot-diagnostic-logs.md), puede ver exactamente qué rol puede haber desempeñado el módulo de autenticación y autorización en una solicitud errónea. En los registros de seguimiento, busque las referencias a un módulo denominado `EasyAuthModule_32/64`.
 
 ## <a name="more-resources"></a>Más recursos
 
 - [Procedimientos: Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD](configure-authentication-provider-aad.md)
-- [Uso avanzado de la autenticación y autorización en Azure App Service](app-service-authentication-how-to.md)
+- [Personalización del inicio y cierre de sesión](configure-authentication-customize-sign-in-out.md)
+<!-- - [Authenticate native client apps](configure-authentication-client-apps.md) -->
+- [Trabajo con tokens de OAuth y sesiones](configure-authentication-oauth-tokens.md)
+- [Acceso a notificaciones de usuario y aplicación](configure-authentication-user-identities.md)
+- [Configuración basada en archivos](configure-authentication-file-based.md)
 
 Ejemplos:
 - [Tutorial: Incorporación de la autenticación a una aplicación web que se ejecuta en Azure App Service](scenario-secure-app-authentication-app-service.md)

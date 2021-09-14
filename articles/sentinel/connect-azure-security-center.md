@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 0d348231c28e33b7eaef97a468e7e8a6a8677c32
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 9612b5aaaec10358609abba3878f6f09405ad076
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179392"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260111"
 ---
 # <a name="connect-azure-defender-alerts-from-azure-security-center"></a>Conexión de alertas de Azure Defender desde Azure Security Center
 
-## <a name="background"></a>Información previa
+## <a name="background"></a>Fondo
 
 [Azure Defender](../security-center/azure-defender.md), la plataforma integrada de protección de cargas de trabajo en la nube (CWPP) de [Azure Security Center](../security-center/security-center-introduction.md), es una herramienta de administración de seguridad que le permite detectar y responder rápidamente a las amenazas en las cargas de trabajo de nube híbrida. 
 
@@ -56,7 +56,7 @@ Como Azure Defender se habilita por suscripción, el conector de Azure Defender 
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
 
-1. En la galería de conectores de datos, seleccione **Azure Defender** y, a continuación, haga clic en el panel de detalles **Abrir página del conector**.
+1. En la galería de conectores de datos, seleccione **Azure Defender** y, a continuación, seleccione **Abrir página del conector** en el panel de detalles.
 
 1. En **Configuración**, verá una lista de las suscripciones del inquilino y el estado de su conexión a Azure Defender. Seleccione el botón de alternancia **Estado** situado junto a cada suscripción cuyas alertas quiera transmitir a Azure Sentinel. Para conectar varias suscripciones a la vez, marque las casillas situadas junto a las suscripciones pertinentes y, a continuación, seleccione el botón **Conectar** en la barra situada encima de la lista.
 

@@ -2,13 +2,14 @@
 metadata:
   title: Preguntas frecuentes sobre Azure Media Services
   description: Obtenga respuestas a preguntas frecuentes sobre Azure Media Services.
+  ms.service: media-services
   ms.custom: contperf-fy21q4
-  ms.openlocfilehash: e7689af4dd7824fdc764d56269c1bb6394594ef9
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: 79c6e1abd5e7e7f7bdaf70b306387be8012d5098
+  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111949170"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122323805"
 title: Preguntas frecuentes sobre Azure Media Services
 summary: En este artículo se responden las preguntas más frecuentes sobre Azure Media.
 sections:
@@ -49,6 +50,9 @@ sections:
       - [Go](https://aka.ms/ams-v3-go-sdk)
 
       - [Ruby](https://aka.ms/ams-v3-ruby-sdk)
+  - question: ¿Debo usar los SDK de cliente o escribir directamente en la API REST?
+    answer: >
+      No se recomienda intentar encapsular la API REST de Media Services directamente en su propio código de biblioteca, ya que hacerlo correctamente con fines de producción requeriría la implementación de la lógica de reintentos de Azure Resource Manager completa y comprender cómo administrar operaciones de larga duración en las API de Azure Resource Manager. Esto se controla automáticamente mediante los SDK de cliente de varios lenguajes (.NET, Java, Typescript, Python, Ruby, etc.) y reduce las posibilidades de que tenga problemas con la lógica de reintentos o las llamadas API con errores. Los SDK de cliente lo controlan todo automáticamente. La colección de Postman se proporciona más como una herramienta de enseñanza y para mostrar lo que los SDK de cliente hacen realmente en la conexión durante el desarrollo con los distintos SDK de cliente.
   - question: ¿Dónde puedo encontrar muestras de Media Services?
     answer: >
       Consulte el artículo [Muestras de Media Services v3](samples-overview.md) para obtener una lista de muestras.
@@ -58,6 +62,19 @@ sections:
   - question: ¿Qué cuotas y límites hay para Media Services?
     answer: >
       Consulte [Cuotas y límites de Media Services](limits-quotas-constraints-reference.md)
+- name: Datos del cliente
+  questions:
+  - question: ¿Almacena Media Services datos de clientes fuera de la región de servicio?
+    answer: >
+      - Los clientes adjuntan sus propias cuentas de almacenamiento a su cuenta de Azure Media Services.  Todos los datos de los recursos se almacenan en estas cuentas de almacenamiento asociadas y el cliente controla la ubicación y el tipo de replicación de este almacenamiento.
+
+      - Los datos adicionales asociados con la cuenta de Media Services (incluidas las claves de cifrado de contenido, las claves de comprobación de tokens, las direcciones URL de JobInputHttp y otros metadatos de entidad) se almacenan en el almacenamiento propiedad de Microsoft dentro de la región seleccionada para la cuenta de Media Services.
+        - Debido a los [requisitos de residencia de datos](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) del Sur de Brasil y el Sudeste Asiático, los datos adicionales de la cuenta se almacenan con redundancia de zona y están contenidos en una sola región. En el caso del Sudeste Asiático, todos los datos adicionales de la cuenta se almacenan en Singapur. En el caso del Sur de Brasil, se almacenan en Brasil.
+        - En regiones distintas del Sur de Brasil y el Sudeste Asiático, los datos adicionales de la cuenta también se pueden almacenar en un almacenamiento propiedad de Microsoft en la [región emparejada](../../best-practices-availability-paired-regions.md).
+      - Azure Media Services es un servicio regional y no proporciona [alta disponibilidad](architecture-high-availability-encoding-concept.md) ni replicación de datos. Se recomienda a los clientes que necesiten estas características crear una solución con cuentas de Media Services en varias regiones.  Está disponible como guía un vídeo bajo demanda de un ejemplo que muestra cómo compilar una solución para alta disponibilidad de Media Services.
+  - question: ¿Ofrece Media Services alta disponibilidad o replicación de datos?
+    answer: >
+      -   Azure Media Services es un servicio regional y no proporciona alta disponibilidad ni replicación de datos. Se recomienda a los clientes que necesiten estas características crear una solución con cuentas de Media Services en varias regiones. Un ejemplo que muestra cómo crear una solución de [alta disponibilidad con vídeo bajo demanda de Media Services](./architecture-high-availability-encoding-concept.md) está disponible como guía.
 - name: Uso de Media Services
   questions:
   - question: ¿Qué es un recurso de Media Services?
@@ -89,7 +106,7 @@ sections:
       Sí.  Encontrará más información en la página [Codificación con una escalera de velocidad de bits generada automáticamente](./encode-autogen-bitrate-ladder.md).
   - question: ¿Puedo analizar un archivo de audio o vídeo?
     answer: >
-      Sí, puede. Azure Media Services v3 le permite extraer información detallada de los archivos de audio y vídeo con Video Indexer. Los valores preestablecidos del analizador de Media Services v3 se pueden usar para extraer dicha información. Si desea información más detallada, use Video Indexer directamente. Para saber cuándo usar los valores preestablecidos de Video Indexer, en lugar de los del de Media Services, consulte el [documento en que se realiza una comparación de ambos](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
+      Sí, puede. Azure Media Services v3 le permite extraer información detallada de los archivos de audio y vídeo con Azure Video Analyzer for Media. Los valores preestablecidos del analizador de Media Services v3 se pueden usar para extraer dicha información. Si quiere obtener información más detallada, use [Azure Video Analyzer for Media (anteriormente denominado Video Indexer)](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md) directamente. Para saber cuándo usar los valores preestablecidos de Azure Video Analyzer for Media, en lugar de los de Media Services, consulte el [documento comparativo](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
   - question: ¿Qué es un evento en directo de Media Services?
     answer: >
       Un evento en directo de Media Services es el proceso de ingerir fuentes de vídeo en directo y difundirlas a través de un protocolo RTMPS o Smooth Streaming. Para obtener más información sobre eventos en directo de Media Services, consulte [Eventos y salidas en directo en Media Services](live-event-outputs-concept.md)
@@ -138,4 +155,18 @@ sections:
   - question: ¿Cómo usar una identidad administrada para cifrar datos para Media Services?
     answer: "Consulte el [tutorial de Uso de una clave Key Vault para cifrar datos en una cuenta de Media Services](security-encrypt-data-managed-identity-cli-tutorial.md) para usar la CLI y emparejar Media Services con Key Vault para cifrar los datos.  \n"
   - question: ¿Cómo usar una identidad administrada para proporcionar a Media Services acceso a una cuenta de almacenamiento restringida?
-    answer: Si quiere acceder a una cuenta de almacenamiento cuando está configurada para bloquear las solicitudes de direcciones IP desconocidas, siga los pasos en [Acceso a almacenamiento con una identidad administrada de Media Services](security-access-storage-managed-identity-cli-tutorial.md).
+    answer: >
+      Si quiere acceder a una cuenta de almacenamiento cuando está configurada para bloquear las solicitudes de direcciones IP desconocidas, siga los pasos en [Acceso a almacenamiento con una identidad administrada de Media Services](security-access-storage-managed-identity-cli-tutorial.md).
+- name: Streaming
+  questions:
+  - question: ¿Puedo transmitir archivos Mp4 existentes codificados previamente o codificados en otra solución?
+    answer: "Sí, el servidor de origen de Media Services (punto de conexión de streaming) admite el empaquetado dinámico de archivos MP4 en formato de streaming HLS o DASH. Sin embargo, el contenido debe codificarse en formato GOP cerrado, con grupos de imágenes cortos en el intervalo de 2 a 6 segundos. Se recomienda la siguiente configuración: grupos de imágenes de 2 segundos, distancia máxima y mínima del fotograma clave de 2 segundos, velocidad de bits constante (modo CBR). Se admite la mayoría del contenido en este formato codificado mediante el códec de vídeo H264 o HEVC junto con el formato de audio AAC. También se pueden usar formatos de audio adicionales que estén codificados previamente, como Dolby DD+. \n\nLa clave para que funcione es crear un recurso, cargar los recursos codificados previamente en el contenedor del recurso mediante los SDK de cliente de Blob Storage y, a continuación, generar los archivos de manifiesto de servidor (.ism) y de manifiesto de cliente necesarios. En el siguiente proyecto de ejemplos de .NET se incluye un ejemplo que muestra cómo hacerlo.  \nConsulte el proyecto de ejemplo para más información: [Transmisión de archivos MP4 existentes](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamExistingMp4).\n\nTenga en cuenta que el uso de este enfoque influye en el rendimiento, ya que el codificador integrado en AMS también genera índices binarios (archivos .mpi) que mejoran el tiempo de acceso a los archivos MP4.  Sin estos archivos, el servidor puede usar un poco más de CPU con una carga elevada. Por ejemplo, un archivo MP4 de velocidad de bits única existente con HLS o Dash](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamExistingMp4) Debe supervisar la carga de CPU del punto de conexión de streaming en Azure Monitor al escalar verticalmente con este enfoque.  Si planea pasar a producción con una gran biblioteca de archivos MP4 que están codificados previamente fuera de AMS, abra una incidencia de soporte técnico para que se revise la arquitectura y consulte las formas de mejorar el rendimiento del servidor de origen del contenido Mp4 codificado previamente. \n"
+  - question: ¿Se puede usar Azure Media Services para contenido de archivo de formato muy corto, como el de las aplicaciones de redes sociales?
+    answer: "En pocas palabras, no es recomendable.  El contenido de un formato muy corto que tiene menos de un minuto o dos de duración no resulta idóneo para el streaming con velocidad de bits adaptable.  Si piensa transmitir archivos con formato muy corto, se recomienda codificar previamente el contenido en un formato que se transmita fácilmente mediante una velocidad de bits única. \n\nDado que la mayoría de los reproductores con velocidad de bits adaptable necesitan tiempo para almacenar en el búfer varios segmentos de vídeo, así como tiempo para analizar el ancho de banda de red antes de \"desplazarse\" hacia arriba o hacia abajo en la escalera de velocidad de bits adaptable, a menudo resulta inútil proporcionar una gran cantidad de velocidades de bits para el contenido que tiene menos de 30 segundos de duración.  En el momento en que el reproductor bloquea su algoritmo heurístico en la velocidad de bits correcta para reproducir según las condiciones de la red, se realiza el streaming del archivo.  \n\nAdemás, algunos reproductores tienen como valor predeterminado el almacenamiento en búfer de hasta 3 \"segmentos\" de vídeo.  Cada segmento puede tener una duración de entre 2 y 6 segundos.  En el caso de los vídeos de formato muy corto, es probable que el reproductor almacene en el búfer y comience la reproducción de la primera velocidad de bits seleccionada del conjunto de streaming con velocidad de bits adaptable. Por este motivo, se recomienda usar un archivo MP4 de velocidad de bits única y cargarlo en un recurso si se requiere la generación de manifiestos HLS o DASH. Consulte la pregunta anterior \"¿Puedo transmitir archivos Mp4 existentes...? para más información sobre cómo lograrlo. \n\nSolo es necesario entregar los archivos en formato HLS o DASH si desea beneficiarse de las funcionalidades de esos protocolos.  En el caso de secuencias de velocidad de bits única, todavía pueden ofrecer muchas opciones, como búsquedas más rápidas, compatibilidad con DRM, mayor dificultad para descargar a través de URL (aunque todavía es posible) que una descarga progresiva de Mp4 en Blob Storage. La compatibilidad con subtítulos para VTT e IMSC1 también es otra ventaja.  Además, la capacidad de enlazar representaciones de audio adicionales o doblajes en idiomas alternativos hace que sea una opción valiosa para algunas situaciones. \n"
+- name: Encoding
+  questions:
+  - question: ¿Puedo usar archivos Mp4 codificados externamente o existentes en Media Services?
+    answer: >-
+      Sí, consulte la pregunta sobre streaming en "¿Puedo transmitir archivos MP4 existentes...? para obtener detalles y vínculos a una aplicación de ejemplo que muestra cómo cargar un archivo Mp4 de velocidad de bits única que está codificado previamente y generar el manifiesto de servidor (.ism) y el manifiesto de cliente (.ismc).
+
+      Tenga en cuenta los problemas de impacto en el rendimiento del origen que también se detallan en esa pregunta y respuesta.

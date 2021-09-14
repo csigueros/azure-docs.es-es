@@ -3,14 +3,14 @@ title: Uso de una identidad administrada asignada por el usuario para una cuenta
 description: En este artículo, se describe cómo configurar una identidad administrada asignada por el usuario para las cuentas de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/09/2021
+ms.date: 08/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: f1e66f63da69a4c8e30db1b7d4bb4f71a4db79d5
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: ce409853cddfd0278692e2c6e233331530296d6b
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665636"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214269"
 ---
 # <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Uso de una identidad administrada asignada por el usuario para una cuenta de Azure Automation (versión preliminar)
 
@@ -303,7 +303,9 @@ Una cuenta de Automation puede utilizar su identidad administrada asignada por e
 
 Para poder usar la identidad administrada asignada por el usuario para la autenticación, configure el acceso para esa identidad en el recurso de Azure en el que planea usar la identidad. Para completar esta tarea, asigne el rol adecuado a esa identidad en el recurso de Azure de destino.
 
-En este ejemplo se usa Azure PowerShell para mostrar cómo asignar el rol Colaborador en la suscripción al recurso de Azure de destino. El rol Colaborador se usa como ejemplo y puede ser necesario o no en su caso. También puede usar el portal para asignar el rol al recurso de Azure de destino.
+Siga la entidad de seguridad con menos privilegios y asigne cuidadosamente los permisos solo necesarios para ejecutar el runbook. Por ejemplo, si la cuenta de Automation solo es necesaria para iniciar o detener una VM de Azure, los permisos asignados a la cuenta de ejecución o a la identidad administrada solo deben ser para iniciar o detener la VM. De manera similar, si un runbook lee del almacenamiento de blobs, asigne permisos de solo lectura.
+
+En este ejemplo se usa Azure PowerShell para mostrar cómo asignar el rol Colaborador en la suscripción al recurso de Azure de destino. El rol Colaborador se usa como ejemplo y puede ser necesario o no en su caso. Como alternativa, puede usar [Azure Portal](../role-based-access-control/role-assignments-portal.md) para asignar el rol al recurso de Azure de destino.
 
 ```powershell
 New-AzRoleAssignment `
