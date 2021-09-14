@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: d86d4248b449ad3961a7798fd36a320eb6a74009
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 721119cd8927ee78639dd0e1449a36deb82938ef
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217080"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397122"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "98217080"
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-En este artículo se describe cómo crear una máquina virtual (VM) con el modelo de implementación de Azure Resource Manager mediante PowerShell. No se pueden asignar varias direcciones IP a los recursos creados mediante el modelo de implementación clásica. Para información acerca de los modelos de implementación de Azure, lea el artículo [Understand deployment models](../azure-resource-manager/management/deployment-models.md) (Descripción de los modelos de implementación).
+En este artículo se describe cómo crear una máquina virtual (VM) con el modelo de implementación de Azure Resource Manager mediante PowerShell. No se pueden asignar varias direcciones IP a una sola NIC creada a través del modelo de implementación clásica, aunque una máquina virtual clásica puede tener varias NIC, cada una con su propia dirección IP. Para información acerca de los modelos de implementación de Azure, lea el artículo [Understand deployment models](../azure-resource-manager/management/deployment-models.md) (Descripción de los modelos de implementación).
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 

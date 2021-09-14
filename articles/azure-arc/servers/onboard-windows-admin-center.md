@@ -1,18 +1,18 @@
 ---
 title: Conexión de máquinas híbridas a Azure desde Windows Admin Center
-description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc desde Windows Admin Center.
-ms.date: 10/12/2020
+description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc desde Windows Admin Center.
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5fa7a61b1e3b22503377cbcbe308a82be89dac72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1abfe2e69a8f3e7b2ab1abcc2d34c79877b750d3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584770"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323270"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-windows-admin-center"></a>Conexión de máquinas híbridas a Azure desde Windows Admin Center
 
-Puede habilitar servidores habilitados para Azure Arc para una o varias máquinas Windows en el entorno si realiza una serie de pasos manualmente. O bien puede usar [Windows Admin Center](/windows-server/manage/windows-admin-center/understand/what-is) para implementar el agente de Connected Machine y registrar los servidores locales sin tener que realizar ningún paso fuera de esta herramienta.
+Puede habilitar servidores habilitados para Azure Arc para una o varias máquinas Windows en el entorno si realiza una serie de pasos manualmente. O bien puede usar [Windows Admin Center](/windows-server/manage/windows-admin-center/understand/what-is) para implementar el agente de Connected Machine y registrar los servidores locales sin tener que realizar ningún paso fuera de esta herramienta.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,17 +49,17 @@ Siga estos pasos para configurar el servidor Windows con servidores habilitados 
     1. En la lista desplegable **Suscripción de Azure**, seleccione la suscripción de Azure.
     1. En **Grupo de recursos**, seleccione **Nuevo** para crear un grupo de recursos o, en la lista desplegable **Grupo de recursos**, seleccione un grupo de recursos existente desde donde registrar y administrar la máquina.
     1. En la lista desplegable **Región**, seleccione la región de Azure en la que se almacenarán los metadatos de los servidores.
-    1. Si la máquina o el servidor se comunica a través de un servidor proxy para conectarse a Internet, seleccione la opción **Usar servidor proxy**. Especifique la dirección IP del servidor proxy o el nombre y el número de puerto que usará la máquina para comunicarse con el servidor proxy.
+    1. Si la máquina o el servidor se comunica a través de un servidor proxy para conectarse a Internet, seleccione la opción **Usar servidor proxy**. Con esta configuración, el agente se comunica mediante el servidor proxy mediante el protocolo HTTP. Especifique la dirección IP del servidor proxy o el nombre y el número de puerto que usará la máquina para comunicarse con el servidor proxy.
 
-1. Seleccione **Configurar** para continuar con la configuración del servidor Windows con servidores habilitados para Azure Arc.
+1. Seleccione **Configurar** para continuar con la configuración del servidor Windows con servidores habilitados para Azure Arc.
 
-El servidor Windows se conectará a Azure, descargará el agente de Connected Machine, lo instalará y registrará con servidores habilitados para Azure Arc. Para llevar el seguimiento del progreso, seleccione **Notificaciones** en el menú.
+El servidor Windows se conectará a Azure, descargará el agente de Connected Machine, lo instalará y registrará con servidores habilitados para Azure Arc. Para llevar el seguimiento del progreso, seleccione **Notificaciones** en el menú.
 
 Para confirmar la instalación del agente de Connected Machine, en Windows Admin Center, seleccione [**Eventos**](/windows-server/manage/windows-admin-center/use/manage-servers#events) en el panel de la izquierda para revisar los eventos de *MsiInstaller* en el registro de eventos de la aplicación.
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Comprobación de la conexión con Azure Arc
 
-Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal para comprobar que el servidor se ha conectado correctamente. Vea la máquina en [Azure Portal](https://portal.azure.com).
+Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal a fin de comprobar que el servidor se ha conectado correctamente. Vea la máquina en [Azure Portal](https://portal.azure.com).
 
 :::image type="content" source="./learn/media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Conexión de una máquina realizada correctamente" border="false":::
 
@@ -67,6 +67,6 @@ Después de instalar el agente y configurarlo para que se conecte a los servidor
 
 * Puede encontrar información sobre la solución de problemas en la guía [Solución de problemas de conexión del agente de Connected Machine](troubleshoot-agent-onboard.md).
 
-* Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.
+* Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.
 
-* Más información sobre el [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si quiere recopilar datos de supervisión del sistema operativo y de las cargas de trabajo y administrarlos con runbooks de Automation o con características como Update Management, o bien mediante otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-introduction.md).
+* Aprenda a administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para tareas como la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de la máquina virtual, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Información de máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.

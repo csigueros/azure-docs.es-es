@@ -8,12 +8,12 @@ ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: a80e6fd1c220d626d4e18923bb95aa465f568a1e
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: aed6df814ddfb240093aad8ff981e9b89a6f2f52
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396951"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867575"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solución de problemas relacionados con orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
 
@@ -115,7 +115,7 @@ Azure Data Factory evalúa el resultado de todas las actividades de nivel de hoj
 
 * Implemente comprobaciones en el nivel de actividad con las indicaciones de [Control de errores de canalización](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Use Azure Logic Apps para supervisar las canalizaciones a intervalos regulares con las indicaciones de [Consulta por factoría](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Supervisión visual de la canalización](./monitor-visually.md)
+* [Supervisión visual de la canalización](monitor-visually.md)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Supervisión de errores de canalización en intervalos regulares
 
@@ -125,9 +125,9 @@ Quizá necesite supervisar las canalizaciones de Data Factory con errores a inte
 
 **Resolución**
 * Puede configurar una aplicación lógica de Azure para consultar todas las canalizaciones con error cada 5 minutos, como se describe en [Consulta por factoría](/rest/api/datafactory/pipelineruns/querybyfactory). A continuación, puede notificar los incidentes en nuestro sistema de incidencias.
-* Puede volver a ejecutar canalizaciones y actividades como se describe [aquí.](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-pipelines-and-activities)
-* Puede volver a ejecutar las actividades si ha cancelado la actividad o si ha tenido un error de acuerdo con [Volver a ejecutar desde la actividad con errores](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-from-failed-activity).
-* [Supervisión visual de la canalización](./monitor-visually.md)
+* Puede volver a ejecutar canalizaciones y actividades como se describe [aquí.](monitor-visually.md#rerun-pipelines-and-activities)
+* Puede volver a ejecutar las actividades si ha cancelado la actividad o si ha tenido un error de acuerdo con [Volver a ejecutar desde la actividad con errores](monitor-visually.md#rerun-from-failed-activity).
+* [Supervisión visual de la canalización](monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>El aumento del grado de paralelismo no deriva en un rendimiento mayor.
 
@@ -159,9 +159,10 @@ Hechos conocidos sobre *ForEach*
  
 * **Límite de simultaneidad**: si la canalización tiene una directiva de simultaneidad, compruebe que no haya ninguna ejecución de canalización anterior en curso. 
 * **Límites de supervisión**: vaya al lienzo de creación de ADF, seleccione la canalización y determine si tiene una propiedad de simultaneidad asignada. Si es así, vaya a la vista Supervisión y asegúrese de que no haya nada en curso en los últimos 45 días. Si hay algo en curso, puede cancelarlo y debería iniciarse la nueva ejecución de canalización.
-* **Problemas transitorios**: es posible que la ejecución se haya visto afectada por un problema transitorio de la red, errores de credenciales, interrupciones de servicios, etc. Si esto ocurre, Azure Data Factory cuenta con un proceso de recuperación interno que supervisa todas las ejecuciones y las inicia en caso de que se produzca algún problema. Puede volver a ejecutar canalizaciones y actividades como se describe [aquí](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-pipelines-and-activities), Puede volver a ejecutar las actividades si ha cancelado la actividad o si ha tenido un error de acuerdo con [Volver a ejecutar desde la actividad con errores](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-from-failed-activity).
-* 
-* Este proceso se produce cada hora, así que si la ejecución se bloquea durante más de una hora, deberá crear un caso de soporte técnico.
+
+* **Problemas transitorios**: es posible que la ejecución se haya visto afectada por un problema transitorio de la red, errores de credenciales, interrupciones de servicios, etc. Si esto ocurre, Azure Data Factory cuenta con un proceso de recuperación interno que supervisa todas las ejecuciones y las inicia en caso de que se produzca algún problema. Puede volver a ejecutar canalizaciones y actividades como se describe [aquí](monitor-visually.md#rerun-pipelines-and-activities), Puede volver a ejecutar las actividades si ha cancelado la actividad o si ha tenido un error de acuerdo con [Volver a ejecutar desde la actividad con errores](monitor-visually.md#rerun-from-failed-activity). Este proceso se produce cada hora, así que si la ejecución se bloquea durante más de una hora, deberá crear un caso de soporte técnico.
+
+
  
 ### <a name="longer-start-up-times-for-activities-in-adf-copy-and-data-flow"></a>Tiempos de inicio más largos para actividades en la copia de ADF y en Data Flow
 
@@ -171,8 +172,8 @@ Esto puede ocurrir si no ha implementado la característica de período de vida 
 
 **Resolución**
 
-* Si cada actividad de copia tarda hasta dos minutos en iniciarse y el problema se produce principalmente en una unión de red virtual (frente a Azure IR), puede tratarse de un problema de rendimiento de la copia. Para revisar los pasos para la solución de problemas, vaya a [Mejora del rendimiento de la actividad de copia.](./copy-activity-performance-troubleshooting.md)
-* Puede usar la característica de período de vida para reducir el tiempo de inicio del clúster en las actividades de flujo de datos. Revise [Entorno de ejecución de integración de Data Flow.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
+* Si cada actividad de copia tarda hasta dos minutos en iniciarse y el problema se produce principalmente en una unión de red virtual (frente a Azure IR), puede tratarse de un problema de rendimiento de la copia. Para revisar los pasos para la solución de problemas, vaya a [Mejora del rendimiento de la actividad de copia.](copy-activity-performance-troubleshooting.md)
+* Puede usar la característica de período de vida para reducir el tiempo de inicio del clúster en las actividades de flujo de datos. Revise [Entorno de ejecución de integración de Data Flow.](control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
  ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Problemas de capacidad en SHIR (Integration Runtime autohospedado)
  
@@ -182,7 +183,7 @@ Esto puede ocurrir si no ha escalado verticalmente SHIR en función de la carga 
 
 **Resolución**
 
-* Si encuentra un problema de capacidad de SHIR, actualice la máquina virtual para aumentar el nodo con el fin de equilibrar las actividades. Si recibe un mensaje de error sobre un error o un error general de IR autohospedado, una actualización de IR autohospedado o problemas de conectividad de IR autohospedado, que pueden generar una cola larga, vaya a [Solución de problemas del entorno de ejecución de integración autohospedado](./self-hosted-integration-runtime-troubleshoot-guide.md).
+* Si encuentra un problema de capacidad de SHIR, actualice la máquina virtual para aumentar el nodo con el fin de equilibrar las actividades. Si recibe un mensaje de error sobre un error o un error general de IR autohospedado, una actualización de IR autohospedado o problemas de conectividad de IR autohospedado, que pueden generar una cola larga, vaya a [Solución de problemas del entorno de ejecución de integración autohospedado](self-hosted-integration-runtime-troubleshoot-guide.md).
 
 ### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Mensajes de error debidos a colas largas en la copia de ADF y en Data Flow
 
@@ -191,10 +192,10 @@ Esto puede ocurrir si no ha escalado verticalmente SHIR en función de la carga 
 Los mensajes de error de colas largas pueden aparecer por varias razones. 
 
 **Resolución**
-* Si recibe un mensaje de error de cualquier origen o destino a través de conectores, que puede generar una cola larga, vaya a la [guía de solución de problemas de conectores](./connector-troubleshoot-guide.md).
-* Si recibe un mensaje de error sobre el flujo de datos de asignación, que puede generar una cola larga, consulte la [guía de solución de problemas de flujos de datos](./data-flow-troubleshoot-guide.md).
-* Si recibe un mensaje de error sobre otras actividades, como Databricks, las actividades personalizadas o HDI, que pueden generar una cola larga, vaya a la [guía de solución de problemas de actividades](./data-factory-troubleshoot-guide.md).
-* Si recibe un error al ejecutar paquetes de SSIS, que pueden generar una cola larga, vaya a la [guía de solución de problemas de ejecución de paquetes de Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.yml) y a la [guía de solución de problemas de administración de Integration Runtime](./ssis-integration-runtime-management-troubleshoot.md).
+* Si recibe un mensaje de error de cualquier origen o destino a través de conectores, que puede generar una cola larga, vaya a la [guía de solución de problemas de conectores](connector-troubleshoot-guide.md).
+* Si recibe un mensaje de error sobre el flujo de datos de asignación, que puede generar una cola larga, consulte la [guía de solución de problemas de flujos de datos](data-flow-troubleshoot-guide.md).
+* Si recibe un mensaje de error sobre otras actividades, como Databricks, las actividades personalizadas o HDI, que pueden generar una cola larga, vaya a la [guía de solución de problemas de actividades](data-factory-troubleshoot-guide.md).
+* Si recibe un error al ejecutar paquetes de SSIS, que pueden generar una cola larga, vaya a la [guía de solución de problemas de ejecución de paquetes de Azure-SSIS](ssis-integration-runtime-ssis-activity-faq.yml) y a la [guía de solución de problemas de administración de Integration Runtime](ssis-integration-runtime-management-troubleshoot.md).
 
 ### <a name="error-message---codebadrequest-messagenull"></a>Mensaje de error: "code":"BadRequest", "message":"null"
 
@@ -267,7 +268,7 @@ No ha optimizado el flujo de datos de asignación.
 Para obtener ayuda para solucionar problemas, pruebe estos recursos:
 
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Solicitud de características de Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-data-factory.html)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)

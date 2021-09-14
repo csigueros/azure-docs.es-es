@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
 author: albecker1
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/02/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: c0c170fefe85393fb3c8b443a96aaddbb98eb65e
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 0ae0fa18c2d3d223435656d871bd0d5be00627e4
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528338"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113356958"
 ---
 ### <a name="on-demand-bursting-preview"></a>Expansión a petición (versión preliminar)
 
@@ -69,9 +69,17 @@ En el caso de los SSD prémium, la expansión basada en crédito está disponibl
 La expansión en el nivel de máquina virtual solo usa el modelo basado en crédito; está habilitada de forma predeterminada en todas las máquinas virtuales que la admiten.
 
 Dicha característica está habilitada en todas las regiones de la nube pública de Azure en los tamaños admitidos siguientes: 
+- [Serie Dsv4](../articles/virtual-machines/dv4-dsv4-series.md)
+- [Serie Dasv4](../articles/virtual-machines/dav4-dasv4-series.md)
+- [Serie Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md)
+- [Serie Esv4](../articles/virtual-machines/ev4-esv4-series.md)
+- [Serie Easv4](../articles/virtual-machines/eav4-easv4-series.md)
+- [Serie Edsv4](../articles/virtual-machines/edv4-edsv4-series.md)
+- [Serie B](../articles/virtual-machines/sizes-b-series-burstable.md)
+- [Serie Fsv2](../articles/virtual-machines/fsv2-series.md)
+- [Serie Dsv3](../articles/virtual-machines/dv3-dsv3-series.md)
+- [Serie Esv3](../articles/virtual-machines/ev3-esv3-series.md)
 - [Serie Lsv2](../articles/virtual-machines/lsv2-series.md)
-- [Series Dv3 y DSv3](../articles/virtual-machines/dv3-dsv3-series.md)
-- [Series Ev3 y Esv3](../articles/virtual-machines/ev3-esv3-series.md)
 
 ## <a name="bursting-flow"></a>Flujo de expansión
 
@@ -121,7 +129,7 @@ A continuación, la aplicación necesita procesar un trabajo por lotes que requi
     - Máximo de MB/s de expansión: 1 280
 - Disco de SO P50
     - MB/s aprovisionados: 250 
-- 2 discos de datos P10 
+- Dos discos de datos P50 
     - MB/s aprovisionados: 250
 
  Una vez completado el arranque inicial, se ejecuta una aplicación en la VM y tiene una carga de trabajo no crítica. Esta carga de trabajo requiere 30 MB/s, que se distribuyen uniformemente entre todos los discos.

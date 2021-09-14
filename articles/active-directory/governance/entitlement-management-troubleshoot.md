@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e165340dc9856916a8c2ccdcd6609663282d63
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: f4dd89dd22345188c05dd607b4a71ea8ef733f73
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714105"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259971"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -29,7 +29,9 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 ## <a name="administration"></a>Administración
 
-* Si recibe un mensaje acceso denegado al configurar la administración de derechos y es administrador global, asegúrese de que el directorio tiene [licencia de Azure AD Premium P2 (o EMS E5)](entitlement-management-overview.md#license-requirements).
+* Si recibe un mensaje acceso denegado al configurar la administración de derechos y es administrador global, asegúrese de que el directorio tiene [licencia de Azure AD Premium P2 (o EMS E5)](entitlement-management-overview.md#license-requirements).  Si ha renovado recientemente una suscripción de Azure AD Premium P2 expirada, la renovación de esta licencia puede tardar 8 horas en ser visible.
+
+* Si la licencia de Azure AD Premium P2 del inquilino ha expirado, no podrá procesar nuevas solicitudes de acceso ni realizar revisiones de acceso.  
 
 * Si recibe un mensaje de acceso denegado al crear o ver los paquetes de acceso y es miembro de un grupo de creadores de catálogos, debe [crear un catálogo](entitlement-management-catalog-create.md) antes de crear el primer paquete de acceso.
 
@@ -38,6 +40,8 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 * Los roles de las aplicaciones se definen en la propia aplicación y se administran en Azure AD. Si una aplicación no tiene ningún rol de recurso, la administración de derechos asigna a los usuarios un rol de **Acceso predeterminado**.
 
     Tenga en cuenta que en Azure Portal también se pueden mostrar las entidades de servicio de los servicios que no se pueden seleccionar como aplicaciones.  En concreto, **Exchange Online** y **SharePoint Online** son servicios, no aplicaciones que tengan roles de recursos en el directorio, por lo que no pueden incluirse en un paquete de acceso.  En su lugar, use las licencias de grupo para establecer una licencia adecuada para un usuario que necesite acceder a esos servicios.
+
+* Las aplicaciones que solo admiten usuarios de cuentas personales de Microsoft para la autenticación, y no admiten cuentas organizativas en el directorio, no tienen roles de aplicación y no se pueden agregar a los catálogos de paquetes de acceso.
 
 * Para que un grupo sea un recurso en un paquete de acceso, debe poder modificarse en Azure AD.  Los grupos que se originan en una instancia local de Active Directory no pueden asignarse como recursos porque su propietario o los atributos de miembro no se pueden cambiar en Azure AD.   Los grupos que se originan en Exchange Online como grupos de distribución tampoco se pueden modificar en Azure AD. 
 

@@ -36,19 +36,6 @@ items:
         href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
       - name: Migración de datos de cara
         href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-      - name: Uso del contenedor de Face
-        items:
-          - name: Introducción a los contenedores
-            href: ../cognitive-services-container-support.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
-          - name: Instalación y ejecución de contenedores
-            href: face-how-to-install-containers.md
-          - name: Configuración de contenedores
-            href: face-resource-container-config.md
-          - name: Uso de instancias de contenedores
-            href: ../containers/azure-container-instance-recipe.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
-          - name: Toda la documentación de contenedores de Cognitive Services
-            href: ../containers/index.yml
-            maintainContext: true
       - name: Adecuado para empresas
         items:
           - name: Configuración de redes virtuales

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 3205d4c4c6d8d7d821cb65400a4c1f19d6484005
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c5f1509a5d037e5866ed86266693e955bdca2d6f
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226541"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186432"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos
 
@@ -34,6 +34,7 @@ Si recibe errores al importar el documento de OpenAPI, asegúrese de haberlo val
 ### <a name="general"></a><a name="open-api-general"> </a>General
 
 -   Los parámetros necesarios en la ruta de acceso y en la consulta deben tener nombres únicos. (En OpenAPI, un nombre de parámetro solo debe ser único dentro de una ubicación; por ejemplo, ruta de acceso, consulta, encabezado. Pero en API Management se permite que los parámetros tanto de la ruta de acceso como de la consulta [que OpenAPI no admite] discriminen las operaciones. Por eso es necesario que los nombres de los parámetros sean únicos en toda la plantilla de la dirección URL).
+- Cuando se importa en línea a API Management, una especificación de OpenAPI puede tener un tamaño de hasta 4 MB. El límite de tamaño no se aplica cuando se proporciona un documento de OpenAPI a través de una dirección URL a una ubicación a la que se puede acceder desde el servicio API Management.
 -   `\$ref`Los punteros no pueden hacer referencia a archivos externos.
 -   `x-ms-paths` y `x-servers` son las únicas extensiones admitidas.
 -   Las extensiones personalizadas se omiten durante la importación y no se guardan ni conservan para la exportación.

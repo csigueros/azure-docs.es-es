@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 08/17/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9c5af374e29e53d65096e2663c3b790fd26a95ab
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: 252eb72358f93b72ca31dd834b704b0044713854
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113492422"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323120"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integración de la infraestructura existente de Servidor de directivas de redes (NPS) con Azure AD Multi-Factor Authentication
 
@@ -117,6 +117,7 @@ Además, se requiere conectividad con las direcciones URL siguientes para comple
 * *https:\//provisioningapi.microsoftonline.com*
 * *https:\//aadcdn.msauth.net*
 * *https:\//www.powershellgallery.com*
+* *https:\//go.microsoft.com*
 * *https:\//aadcdn.msftauthimages.net*
 
 ## <a name="prepare-your-environment"></a>Preparación del entorno

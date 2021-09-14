@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: b881b7b87ef704102df7c5d8a9d24542b3d89bb2
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 741f20a19c4bfe842ed2c14cee51c1ae19c1d9da
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112118609"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258462"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -180,6 +180,33 @@ La siguiente tabla muestra el estado de interoperabilidad de las característica
 | \\System Volume Information | Carpeta específica del volumen |
 | $RECYCLE.BIN| Carpeta |
 | \\SyncShareState | Carpeta para sincronización |
+
+### <a name="consider-how-much-free-space-you-need-on-your-local-disk"></a>Tenga en cuenta la cantidad de espacio disponible que necesita en el disco local.
+Al planear el uso de Azure File Sync, tenga en cuenta la cantidad de espacio disponible que necesita en el disco local en el que piensa tener un punto de conexión de servidor.
+
+Con Azure File Sync, deberá tener en cuenta lo siguiente para tener espacio en el disco local:
+- Con la nube por niveles habilitada:
+    - Puntos de repetición de análisis para archivos en capas
+    - Base de datos de metadatos de Azure File Sync
+    - Almacén térmico de Azure File Sync
+    - Archivos totalmente descargados en la caché de acceso frecuente (de existir)
+    - Requisitos de la directiva de espacio disponible del volumen
+
+- Con la nube por niveles deshabilitada:  
+    - Archivos totalmente descargados
+    - Almacén térmico de Azure File Sync
+    - Base de datos de metadatos de Azure File Sync
+
+Usaremos un ejemplo para ilustrar cómo calcular la cantidad de espacio disponible que se necesita en el disco local. Supongamos que ha instalado el agente de Azure File Sync en una VM Windows de Azure y tiene pensado crear un punto de conexión de servidor en el disco F. Tiene 1 millón de archivos y le gustaría crear niveles de todos ellos, 100 000 directorios y un tamaño de clúster de disco de 4 KiB. El tamaño del disco es de 1000 GiB. Quiere habilitar la nube por niveles y establecer la directiva de espacio libre del volumen en el 20 %. 
+
+1. NTFS asigna un tamaño de clúster para cada uno de los archivos en capas. 1 millón de archivos * tamaño de clúster de 4 KiB = 4 000 000 KiB (4 GiB)
+> [!Note]  
+> NTFS asigna el espacio ocupado por los archivos en capas. Por lo tanto, no se mostrará en ninguna interfaz de usuario.
+3. Los metadatos de sincronización ocupan un tamaño de clúster por elemento. (1 millón de archivos + 100 000 directorios) * tamaño del clúster de 4 KiB = 4 400 000 KiB (4,4 GiB)
+4. El almacén térmico de Azure File Sync ocupa 1,1 KiB por archivo. 1 millón de archivos * 1,1 KiB = 1 100 000 KiB (1,1 GiB)
+5. La directiva de espacio disponible del volumen es del 20 %. 1000 GiB * 0,2 = 200 GiB
+
+En este caso, Azure File Sync necesitaría unos 209 500 000 KiB (209,5 GiB) de espacio para este espacio de nombres. Agregue esta cantidad a cualquier espacio disponible adicional que desee para averiguar cuánto espacio libre se necesita para este disco.
 
 ### <a name="failover-clustering"></a>Clústeres de conmutación por error
 La característica de clústeres de conmutación por error de Windows es compatible con Azure File Sync en la opción de implementación "Servidor de archivos para uso general". La característica de clústeres de conmutación por error no se admite en "Servidor de archivos de escalabilidad horizontal para datos de aplicación" (SOFS) o en volúmenes compartidos de clúster (CSV).
