@@ -8,17 +8,18 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: f0edc024a8266704f3a45a48f50adb32b2616d95
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d601f215beae8c4fcb1977a08210429408f94e52
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122321779"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696479"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Implementación de máquinas virtuales y conjuntos de escalado en hosts dedicados mediante el portal
 
-En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM).
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
+En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
 
 ## <a name="limitations"></a>Limitaciones
 
