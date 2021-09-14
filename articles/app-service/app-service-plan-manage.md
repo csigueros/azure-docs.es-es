@@ -78,7 +78,7 @@ Puede encontrar **Clonar aplicación** en la sección **Herramientas de desarrol
 > [!IMPORTANT]
 > La clonación tiene algunas limitaciones. Puede obtener información al respecto en [Clonación de aplicaciones de Azure App Service](app-service-web-app-cloning.md).
 
-## <a name="scale-an-app-service-plan"></a>Escalación de un plan de App Service
+## <a name="scale-an-app-service-plan"></a>Escalado de un plan de App Service
 
 Para escalar verticalmente un plan de tarifa del plan de App Service, consulte [Escalado vertical de aplicaciones en Azure](manage-scale-up.md).
 
